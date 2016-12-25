@@ -84,8 +84,9 @@ MessageModel * UserData::getModelForRoom(const QString& roomID)
     if (m_messageModels.contains(roomID)) {
         return m_messageModels.value(roomID);
     } else {
-        qDebug() << "Creating a new model";
-        m_messageModels[roomID] = new MessageModel(this);
+//         qDebug() << "Creating a new model";
+        m_messageModels[roomID] = new MessageModel(roomID, this);
+        
         return m_messageModels[roomID];        
     }
 }
@@ -108,9 +109,9 @@ bool UserData::connected() const
     return ddp()->isConnected();
 }
 
-bool UserData::loggedIn() const
+DDPClient::LoginStatus UserData::loginStatus() const
 {
-    return ddp()->isLoggedIn();
+    return ddp()->loginStatus();
 }
 
 void UserData::tryLogin()
@@ -128,13 +129,13 @@ UserData::UserData(QObject* parent)
     m_ddp = new DDPClient(QUrl(m_serverURL));
     m_userName = s.value("username").toString();
     m_authToken = s.value("authToken").toString();
-    connect(m_ddp, &DDPClient::loggedInChanged, this, &UserData::loggedInChanged);
+    connect(m_ddp, &DDPClient::loginStatusChanged, this, &UserData::loginStatusChanged);
 }
 
 UserData::~UserData()
 {
-    delete m_roomModel;
-    delete m_ddp;
+//     delete m_roomModel;
+//     delete m_ddp;
 }
 
 UserData * UserData::instance() 

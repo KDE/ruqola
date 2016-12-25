@@ -5,23 +5,9 @@
 #include <QAbstractListModel>
 #include <QStringList>
 #include <QObject>
-
-// class Message
-// {
-// public:
-//     Message(const QString &username = QString(),
-//             const QString &message = QString(),
-//             qulonglong timestamp = 0);
-// 
-//     QString username() const;
-//     QString message() const;
-//     qulonglong timestamp() const;
-//     
-// private:
-//     QString m_username;
-//     QString m_message;
-//     qulonglong m_timestamp;
-// };
+#include <QByteArray>
+#include <QJsonObject>
+#include <QFile>
 
 struct Message {
     QString username;
@@ -46,24 +32,27 @@ public:
         SystemMessageType
     };
 
-    MessageModel(QObject *parent = 0);
+    MessageModel(const QString &roomID = "no_room", QObject *parent = 0);
+    virtual ~MessageModel();
 
     void addMessage(const Message& message);
 
     virtual int rowCount(const QModelIndex & parent = QModelIndex()) const;
     virtual QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
-//     static Message fromJSon(const QJSonDocument &source);
-//     static QByteArray serialize(const Message &message);
+    qint64 lastTimestamp() const;
+    
+    static Message fromJSon(const QJsonObject &source);
+    static QByteArray serialize(const Message &message);
 protected:
 
     virtual QHash<int, QByteArray> roleNames() const;
 private:
-    QString m_currentRoom;
-    
-    // <room, <timestamp, Message> >
+    const QString m_roomID;
     QMap<int, Message> m_allMessages;
-//     QMap<int, Message> m_roomMessages;
+    QString m_writableLocation;
+    
+    QFile *cacheWriter;
 };
 
 #endif

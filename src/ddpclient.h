@@ -41,7 +41,16 @@ class DDPClient : public QObject
 {
     Q_OBJECT
 public:
-    DDPClient(const QUrl &url, QObject *parent = 0);
+    enum LoginStatus {
+        NotConnected,
+        LoggingIn,
+        LoggedIn,
+        LoginFailed
+    };
+    Q_ENUM(LoginStatus)
+
+    
+    DDPClient(const QUrl &url = QUrl(), QObject *parent = 0);
     ~DDPClient();
     
     /**
@@ -62,10 +71,14 @@ public:
     bool isConnected() const;
     bool isLoggedIn() const;
     
+    LoginStatus loginStatus() const;
+    
 signals:
 //     void connected();
     void connectedChanged();
-    void loggedInChanged();
+    
+    void loginStatusChanged();
+//     void loggedInChanged();
     void disconnected();
     /**
      * @brief Emitted whenever a result is received. The parameter is the expected ID.
@@ -85,6 +98,8 @@ private slots:
     
 private:
     
+    void setLoginStatus(LoginStatus l);
+    
     void resume_login_callback(QJsonDocument doc);
     
     QUrl m_url;
@@ -95,7 +110,8 @@ private:
     QHash <unsigned, std::function<void (QJsonDocument)> > m_callbackHash;
     
     unsigned m_loginJob;
-    bool m_loggedIn;
+    LoginStatus m_loginStatus;
+    
     bool m_connected;
     
     bool m_doingTokenLogin;

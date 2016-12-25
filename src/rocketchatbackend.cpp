@@ -47,9 +47,11 @@ void rooms_callback(QJsonDocument doc)
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
     
-//         qDebug() << "Room " << room.toObject().value("_id").toString();
         if (room.value("t").toString() == "c") {
+
             qDebug() << "Adding" << room.value("_id").toString()<< room.value("name").toString();
+            MessageModel *roomModel = UserData::instance()->getModelForRoom(room.value("_id").toString());
+            
             model->addRoom(room.value("_id").toString(), room.value("name").toString());
             
             QString params = QString("[\"%1\"]").arg(room.value("_id").toString());
@@ -57,8 +59,8 @@ void rooms_callback(QJsonDocument doc)
         
             // Load history
             QByteArray json = "[\""+room.value("_id").toString().toLatin1() +
-                            "\", null, 50,{\"$date\": "+
-                            QString::number(QDateTime::currentMSecsSinceEpoch()).toLatin1()+
+                            "\", null, 50, {\"$date\": "+
+                            QString::number(roomModel->lastTimestamp()).toLatin1()+
                             "}]";
             qDebug() << json;
             UserData::instance()->ddp()->method("loadHistory", QJsonDocument::fromJson(json), process_backlog);
@@ -99,7 +101,7 @@ RocketChatBackend::RocketChatBackend(QObject* parent)
 //     UserData::instance()->ddp() = new DDPClient(, this);
     connect(UserData::instance()->ddp(), &DDPClient::changed, this, &RocketChatBackend::onChanged);
     connect(UserData::instance()->ddp(), &DDPClient::added, this, &RocketChatBackend::onAdded);
-    connect(UserData::instance()->ddp(), &DDPClient::loggedInChanged, this, &RocketChatBackend::onLoggedIn);
+    connect(UserData::instance()->ddp(), &DDPClient::loginStatusChanged, this, &RocketChatBackend::onLoggedIn);
 }
 
 RocketChatBackend::~RocketChatBackend()
@@ -110,7 +112,8 @@ RocketChatBackend::~RocketChatBackend()
 
 void RocketChatBackend::onLoggedIn()
 {
-    if (!UserData::instance()->ddp()->isLoggedIn()) {
+    if (UserData::instance()->ddp()->loginStatus() != DDPClient::LoggedIn) {
+        qDebug() << "not yet logged in:" << UserData::instance()->ddp()->loginStatus();
         return;
     }
     qDebug() << "GETTING LIST OF ROOMS";

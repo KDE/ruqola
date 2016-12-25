@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonType<UserData>("KDE.Ruqola.UserData", 1, 0, "UserData", userdata_singletontype_provider);
 
     qmlRegisterType<MessageModel>("KDE.Ruqola.Models", 1, 0, "MessageModel");
+    qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");
     qmlRegisterType<RoomModel>("KDE.Ruqola.Models", 1, 0, "RoomModel");
 
     RocketChatBackend c;

@@ -1,36 +1,83 @@
 
+#include <QFile>
 #include <QtCore>
 #include <QModelIndex>
 #include <QAbstractListModel>
 
 #include "messagemodel.h"
-/*
-Message::Message(const QString& username, const QString& message, qulonglong timestamp)
- : m_username(username), m_message(message), m_timestamp(timestamp)
+
+Message MessageModel::fromJSon(const QJsonObject& o)
 {
+    Message message;
+    message.username = o["username"].toString();
+    message.message = o["message"].toString();
+    message.userID = o["userID"].toString();
+    message.timestamp = (qint64) o["timestamp"].toDouble();
+    message.systemMessage = o["systemMessage"].toBool();
+    message.systemMessageType = o["type"].toString();
+    message.roomID = o["roomID"].toString();
+    
+    return message;
 }
 
-QString Message::message() const
+QByteArray MessageModel::serialize(const Message& message)
 {
-    return m_message;
+    QJsonDocument d;
+    QJsonObject o;
+    o["username"] = message.username;
+    o["message"] = message.message;
+    o["userID"] = message.userID;
+    o["timestamp"] = message.timestamp;
+    o["systemMessage"] = message.systemMessage;
+    o["type"] = message.systemMessageType;
+    o["roomID"] = message.roomID;
+    d.setObject(o);
+    return d.toBinaryData();
 }
 
-QString Message::username() const
-{
-    return m_username;
-}
-
-qulonglong Message::timestamp() const
-{
-    return m_timestamp;
-}*/
-
-MessageModel::MessageModel(QObject* parent)
+MessageModel::MessageModel(const QString &roomID, QObject* parent)
   : QAbstractListModel(parent),
-  m_currentRoom("no_room")
+  m_roomID(roomID)
 {
+    QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
+    
+        // load cache
+    if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
+        QFile f(cacheDir.absoluteFilePath(roomID));
+        if (f.open(QIODevice::ReadOnly)) {
+            QDataStream in(&f);
+            while (!f.atEnd()) {
+                char * byteArray;
+                quint32 length;
+                in.readBytes(byteArray, length);
+                QByteArray arr = QByteArray::fromRawData(byteArray, length);
+                Message m = MessageModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
+                m_allMessages[m.timestamp] = m;
+//                 qDebug() << m.message;
+            }
+        }
+    }
+    
+    
 }
 
+MessageModel::~MessageModel()
+{
+    QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+'/rooms_cache');
+    if (!cacheDir.exists(cacheDir.path())) {
+        cacheDir.mkpath(cacheDir.path());
+    }
+    
+    QFile f(cacheDir.absoluteFilePath(m_roomID));
+
+    if (f.open(QIODevice::WriteOnly)) {
+        QDataStream out(&f);
+        foreach (const Message m, m_allMessages) {            
+            QByteArray ms = MessageModel::serialize(m);
+            out.writeBytes(ms, ms.size());
+        }
+    }
+}
 
 QHash<int, QByteArray> MessageModel::roleNames() const
 {
@@ -44,16 +91,17 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     
     return roles;
 }
-/*
-void MessageModel::addMessage(qulonglong timestamp, const QString& user, const QString& message)
+
+qint64 MessageModel::lastTimestamp() const
 {
-//     qDebug() << roomID << user << message;
-    Message m;
-    m.username = user;
-    m.message = message;
-    m.timestamp = timestamp;
-    addMessage(m);
-}*/
+    if (m_allMessages.size()) {
+        qDebug() << "returning timestamp" << m_allMessages.last().timestamp;
+        return m_allMessages.last().timestamp;
+    } else {
+        return 0;
+    }
+}
+
 
 int MessageModel::rowCount(const QModelIndex& parent) const
 {
@@ -71,7 +119,6 @@ void MessageModel::addMessage(const Message& message)
         return;
     }
     
-//     qDebug() << "PROTECTED ADD MESSAGE" << roomID << m_currentRoom;
     int size = m_allMessages.size();
         
 //         qDebug() << "calling begin insert rows:" << size << size+1;

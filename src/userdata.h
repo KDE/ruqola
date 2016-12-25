@@ -40,7 +40,7 @@ class UserData: public QObject
     Q_PROPERTY (QString serverURL READ serverURL WRITE setServerURL NOTIFY serverURLChanged)
     Q_PROPERTY (QString password WRITE setPassword)
     Q_PROPERTY (bool connected READ connected NOTIFY connectedChanged)
-    Q_PROPERTY (bool loggedIn READ loggedIn NOTIFY loggedInChanged)
+    Q_PROPERTY (DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
     
 public:
     static UserData* instance();
@@ -55,7 +55,7 @@ public:
     QString authToken() const;
     
     bool connected() const;
-    bool loggedIn() const;
+    DDPClient::LoginStatus loginStatus() const;
     
     QString serverURL() const;
     void setServerURL(const QString &serverURL);
@@ -74,7 +74,7 @@ signals:
     void userNameChanged();
     void connectedChanged();
     void serverURLChanged();
-    void loggedInChanged();
+    void loginStatusChanged();
     
 private:
     UserData(QObject *parent = 0);

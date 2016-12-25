@@ -26,9 +26,8 @@
 #include <QAbstractListModel>
 
 struct Room {
-public:
     QString name;
-    bool selected;
+    bool selected = false;
     QString id;
 };
 
@@ -44,7 +43,8 @@ public:
     };
     
     RoomModel (QObject *parent = 0);
-
+    virtual ~RoomModel();
+    
     virtual int rowCount(const QModelIndex & parent = QModelIndex()) const;
     virtual QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
@@ -53,11 +53,14 @@ public:
     
     Q_INVOKABLE void addRoom(const QString& roomID, const QString& roomName, bool selected = false);
     
+    static Room fromJSon(const QJsonObject &source);
+    static QByteArray serialize(const Room &r);
+    
 protected:
     virtual QHash<int, QByteArray> roleNames() const;
     
 private:
-    QList< Room > m_roomsList;
+    QHash< QString, Room > m_roomsList;
 };
 
 #endif // ROOMMODEL_H

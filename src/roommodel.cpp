@@ -24,9 +24,63 @@
 
 #include <QtCore>
 
+Room RoomModel::fromJSon(const QJsonObject& o)
+{
+    Room r;
+    
+    r.name = o["name"].toString();
+    r.id = o["id"].toString();
+    return r;
+}
+
+QByteArray RoomModel::serialize(const Room& r)
+{
+    QJsonDocument d;
+    QJsonObject o;
+    o["name"] = r.name;
+    o["id"] = r.id;
+    d.setObject(o);
+    return d.toBinaryData();
+}
+
 RoomModel::RoomModel(QObject* parent)
     : QAbstractListModel(parent)
 {
+    QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
+    
+        // load cache
+    if (cacheDir.exists(cacheDir.path())) {
+        QFile f(cacheDir.absoluteFilePath("rooms"));
+        if (f.open(QIODevice::ReadOnly)) {
+            QDataStream in(&f);
+            while (!f.atEnd()) {
+                char * byteArray; quint32 length;
+                in.readBytes(byteArray, length);
+                QByteArray arr = QByteArray::fromRawData(byteArray, length);
+                Room m = RoomModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
+                m_roomsList[m.name] = m;
+//                 qDebug() << m.message;
+            }
+        }
+    }
+}
+
+RoomModel::~RoomModel()
+{
+    QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
+    if (!cacheDir.exists(cacheDir.path())) {
+        cacheDir.mkpath(cacheDir.path());
+    }
+    
+    QFile f(cacheDir.absoluteFilePath("rooms"));
+
+    if (f.open(QIODevice::WriteOnly)) {
+        QDataStream out(&f);
+        foreach (const Room m, m_roomsList) {            
+            QByteArray ms = RoomModel::serialize(m);
+            out.writeBytes(ms, ms.size());
+        }
+    }
 }
 
 QHash<int, QByteArray> RoomModel::roleNames() const
@@ -45,7 +99,7 @@ int RoomModel::rowCount(const QModelIndex & parent) const
 
 QVariant RoomModel::data(const QModelIndex & index, int role) const
 {
-    Room r = m_roomsList.at(index.row());
+    Room r = m_roomsList.values().at(index.row());
      if (role == RoomModel::RoomName) {
         return  r.name;
     } else if (role == RoomModel::RoomID) {
@@ -71,7 +125,7 @@ void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool sel
     r.id = roomID;
     r.name = roomName;
     r.selected = selected;
-    m_roomsList.append(r);
+    m_roomsList[roomName] = r;
     endInsertRows();
 }
 

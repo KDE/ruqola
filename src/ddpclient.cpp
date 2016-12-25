@@ -61,8 +61,8 @@ DDPClient::DDPClient(const QUrl& url, QObject* parent)
   m_url(url),
   m_uid(1),
   m_loginJob(0),
+  m_loginStatus(NotConnected),
   m_connected(false),
-  m_loggedIn(false),
   m_doingTokenLogin(false)
 {
 //     m_webSocket.ignoreSslErrors();
@@ -79,6 +79,11 @@ DDPClient::~DDPClient()
     m_webSocket.close();
 }
 
+DDPClient::LoginStatus DDPClient::loginStatus() const
+{
+    return m_loginStatus;
+}
+
 bool DDPClient::isConnected() const
 {
     return m_connected;
@@ -86,7 +91,7 @@ bool DDPClient::isConnected() const
 
 bool DDPClient::isLoggedIn() const
 {
-    return m_loggedIn;
+    return m_loginStatus == LoggedIn;
 }
 
 unsigned int DDPClient::method(const QString& m, const QJsonDocument& params)
@@ -159,7 +164,6 @@ void DDPClient::onTextMessageReceived(QString message)
             if (id == m_loginJob) {
                 if (root.value("error").toObject().value("error").toInt() == 403) {
                     qDebug() << "Wrong password or token expired";
-                    m_loggedIn = false;
                     
                     // Kill wrong credentials, so we don't try to use them again
                     if (!UserData::instance()->authToken().isEmpty()) {
@@ -167,12 +171,14 @@ void DDPClient::onTextMessageReceived(QString message)
                     } else if (!UserData::instance()->password().isEmpty()) {
                         UserData::instance()->setPassword(QString());
                     }
+                    setLoginStatus(DDPClient::LoginFailed);
                     
                 } else {
                     UserData::instance()->setAuthToken(root.value("result").toObject().value("token").toString());
-                    m_loggedIn = true;
+
+                    setLoginStatus(DDPClient::LoggedIn);
                 }
-                emit loggedInChanged();
+//                 emit loggedInChanged();
             }
             
         } else if (messageType == "connected") {
@@ -180,6 +186,7 @@ void DDPClient::onTextMessageReceived(QString message)
 //             emit connected();
             emit connectedChanged();
             if (!UserData::instance()->authToken().isEmpty()) {
+                setLoginStatus(DDPClient::LoggingIn);
                 login();// Try to resume auth token login
             }
             
@@ -200,6 +207,12 @@ void DDPClient::onTextMessageReceived(QString message)
     
 }
 
+void DDPClient::setLoginStatus(DDPClient::LoginStatus l)
+{
+    m_loginStatus = l;
+    emit loginStatusChanged();
+}
+
 void DDPClient::login()
 {
     if (!UserData::instance()->authToken().isEmpty()) {
@@ -212,8 +225,7 @@ void DDPClient::login()
         json = json.arg(UserData::instance()->password()).arg(UserData::instance()->userName());
         m_loginJob = method("login", QJsonDocument::fromJson(json.toUtf8()));
     } else {
-        m_loggedIn = false; // FIXME this is an enum
-        emit loggedInChanged();
+        setLoginStatus(LoginFailed);
     }
     
 }
