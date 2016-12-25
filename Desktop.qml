@@ -26,7 +26,6 @@ ApplicationWindow {
     property JSONListModel activeRoom: JSONListModel {}
     property JSONListModel userRooms: JSONListModel {}
     
-// //     property var rooms: new Map()
     property string selectedRoomID;
     property bool ready;
     
@@ -68,6 +67,7 @@ ApplicationWindow {
             MenuItem {
                 text: qsTr("E&xit")
                 onTriggered: Qt.quit();
+                shortcut: StandardKey.Quit;
             }
         }
     }
