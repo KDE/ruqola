@@ -3,9 +3,9 @@
 // #include <QtQml/QQmlApplicationEngine>
 // #include <QtQml/QQmlContext>
 
-#include "roommodel.h"
-#include "rocketchatbackend.h"
-#include "userdata.h"
+#include "src/roommodel.h"
+#include "src/rocketchatbackend.h"
+#include "src/userdata.h"
 
 #include <QDebug>
 #include <QtCore/QJsonDocument>

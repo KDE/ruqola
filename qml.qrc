@@ -6,7 +6,6 @@
         <file>jsonpath.js</file>
         <file>main.qml</file>
         <file>Message.qml</file>
-        <file>Android.qml</file>
         <file>Login.qml</file>
         <file>marked.js</file>
     </qresource>

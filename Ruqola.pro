@@ -2,8 +2,8 @@ TEMPLATE = app
 
 QT += widgets gui core qml quick websockets
 
-HEADERS += messagemodel.h roommodel.h ddpclient.h userdata.h rocketchatbackend.h
-SOURCES += main.cpp messagemodel.cpp roommodel.cpp ddpclient.cpp userdata.cpp rocketchatbackend.cpp
+HEADERS += src/messagemodel.h src/roommodel.h src/ddpclient.h src/userdata.h src/rocketchatbackend.h
+SOURCES += main.cpp src/messagemodel.cpp src/roommodel.cpp src/ddpclient.cpp src/userdata.cpp src/rocketchatbackend.cpp
 
 RESOURCES += qml.qrc
 
