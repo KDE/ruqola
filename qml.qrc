@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Desktop.qml</file>
+        <file>JSONListModel.qml</file>
+        <file>RoomModel.qml</file>
+        <file>jsonpath.js</file>
+        <file>main.qml</file>
+        <file>Message.qml</file>
+        <file>Android.qml</file>
+        <file>Login.qml</file>
+        <file>marked.js</file>
+    </qresource>
+</RCC>
