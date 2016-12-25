@@ -134,7 +134,7 @@ void MessageModel::addMessage(const Message& message)
     m_allMessages[message.timestamp] = message;
     
     if (messageChanged) {
-        qDebug() << "Data changed";
+//         qDebug() << "Data changed";
         //Figure out a better way to update just the really changed message, not EVERYTHING
         emit dataChanged(createIndex(1, 1), createIndex(rowCount(), 1), QVector<int>(MessageModel::MessageText));
         

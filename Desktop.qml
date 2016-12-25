@@ -205,6 +205,24 @@ ApplicationWindow {
     }
     
     
+    onClosing: {
+        console.log("Trying to close...");
+        hide();
+    }
+    
+    function doShow(reason) {
+        console.log ("Showing");
+        show();
+        raise();
+        
+    }
+    Component.onCompleted: {
+        systrayIcon.activated.connect(doShow);
+        systrayIcon.showMessage("Connected", "We are CONNECTED!");
+//         systrayIcon.hide();
+//         systrayIcon.show();
+    }
+
     
     Timer {
         id: timer
