@@ -199,18 +199,23 @@ ApplicationWindow {
     
     
     onClosing: {
-        console.log("Trying to close...");
+        console.log("Minimizing to systray...");
         hide();
     }
     
-    function doShow(reason) {
-        console.log ("Showing");
-        show();
-        raise();
+    function toggleShow(reason) {
+//         console.log ("Showing");
         
+        if (visible) {
+            hide();
+        } else {
+            show();
+            raise();
+            requestActivate();
+        }
     }
     Component.onCompleted: {
-        systrayIcon.activated.connect(doShow);
+        systrayIcon.activated.connect(toggleShow);
 //         systrayIcon.showMessage("Connected", "We are CONNECTED!");
 //         systrayIcon.hide();
 //         systrayIcon.show();
