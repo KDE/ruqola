@@ -142,20 +142,13 @@ QVariant RoomModel::data(const QModelIndex & index, int role) const
 
 void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool selected)
 {
-//     qDebug() << m_roomsList.size();
-//     return;
-//     qDebug() << "Adding room" << roomID << roomName << m_roomsList.keys();
-    
     if (roomID.isEmpty()) {
         return;
     }
     
     bool updating = false;
-    qDebug() << "A te ti vedo";
     
     if (m_roomsList.contains(roomName)) {
-//             qDebug() << "ESISTO GIa";
-        // we are doing an update
         updating = true;
     }
     

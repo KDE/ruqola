@@ -219,7 +219,9 @@ void DDPClient::onTextMessageReceived(QString message)
             emit added(root);
         } else if (messageType == "changed") {
             emit changed(root);
-        } else {
+        } else if (messageType == "ready") {
+            // do nothing
+        }else {
             qDebug() << "received something unhandled:" << message;
         }
     }

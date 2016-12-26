@@ -3,7 +3,7 @@
 // Almost everything has been re-adapted
 
 import QtQuick 2.7
-import QtQuick.Controls 1.3
+import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.2
 import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
@@ -74,11 +74,11 @@ ApplicationWindow {
         
     }
     
-//     statusBar: StatusView {
-//         RowLayout {
-//             Label { text: statusText }
-//         }
-//     }
+    statusBar: StatusBar {
+        RowLayout {
+            Label { text: statusText }
+        }
+    }
 
     BusyIndicator {
         id: busy
@@ -237,13 +237,27 @@ ApplicationWindow {
         systrayIcon.activated.connect(toggleShow);
         roomsList.model = UserData.roomModel();
 //         systrayIcon.showMessage("Connected", "We are CONNECTED!");
+    
+        timer.start();
+        timer.fire();
     }
 
     
     Timer {
         id: timer
-        interval: 3000
-        onTriggered: statusText = "";
+        interval: 1000
+        onTriggered: {
+//             console.log("FIRE");
+            switch (UserData.loginStatus) {
+                case UserData.NotConnected:
+                    statusText = qsTr("Not connected.");
+                    break;
+                case UserData.LoggedIn:
+                        statusText = qsTr("Connected to " + UserData.serverURL);
+                        break;
+                    
+            }
+        }
         repeat: true
     }
 
