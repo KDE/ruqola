@@ -56,27 +56,56 @@ void empty_callback(QJsonDocument doc)
     Q_UNUSED(doc);
 }
 
-DDPClient::DDPClient(const QUrl& url, QObject* parent)
+DDPClient::DDPClient(const QString& url2, QObject* parent)
  : QObject(parent),
-  m_url(url),
+  m_url(url2),
   m_uid(1),
   m_loginJob(0),
   m_loginStatus(NotConnected),
   m_connected(false),
   m_doingTokenLogin(false)
 {
-//     m_webSocket.ignoreSslErrors();
+    m_webSocket.ignoreSslErrors();
     connect(&m_webSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
     connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
     connect(&m_webSocket, &QWebSocket::disconnected, this, &DDPClient::WSclosed);
-    m_webSocket.open(QUrl(url));
-//     qDebug() << "Trying to connect to URL" << m_url;
+    
+//     QNetworkProxy proxy;
+// proxy.setType(QNetworkProxy::Socks5Proxy);
+// proxy.setHostName("localhost");
+// proxy.setPort(9999);
+// // proxy.setUser("username");
+// // proxy.setPassword("password");
+// QNetworkProxy::setApplicationProxy(proxy);
+
+//     m_webSocket.setProxy(proxy);
+    QString url = "chat.wikitolearn.org";
+//     QString url = "demo.rocket.chat";
+//     QString url = "chat.mozillaitalia.org";
+    if (!url.isEmpty()) {
+        m_webSocket.open(QUrl("wss://"+url+"/websocket"));
+    }
+    qDebug() << "Trying to connect to URL" << url;
     
 }
 
 DDPClient::~DDPClient()
 {
     m_webSocket.close();
+}
+
+void DDPClient::onServerURLChange()
+{
+    if (UserData::instance()->serverURL() != m_url || !m_webSocket.isValid()) {
+        if (m_webSocket.isValid()) {
+            m_webSocket.flush();
+            m_webSocket.close();
+        }
+        m_url = UserData::instance()->serverURL();
+        m_webSocket.open(QUrl("wss://"+m_url+"/websocket"));
+        connect(&m_webSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
+        qDebug() << "Reconnecting" << m_url; //<< m_webSocket.st;
+    }
 }
 
 DDPClient::LoginStatus DDPClient::loginStatus() const
@@ -99,7 +128,6 @@ unsigned int DDPClient::method(const QString& m, const QJsonDocument& params)
     return method(m, params, empty_callback);
 }
 
-
 unsigned int DDPClient::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback)
 {
     QString json;
@@ -111,9 +139,10 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
     
     json = json.arg(method).arg(m_uid).arg(QString(params.toJson(QJsonDocument::Compact)));
     
-    qint64 bytes = m_webSocket.sendBinaryMessage(json.toUtf8()); // FIXME : text? maybe binary will be better - check if it keeps working
+    qint64 bytes = m_webSocket.sendTextMessage(json.toUtf8()); // FIXME : text? maybe binary will be better - check if it keeps working
     if (bytes < json.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qDebug() << m_webSocket.isValid() << m_webSocket.error() << m_webSocket.requestUrl();
     } else {
         qDebug() << "Successfully sent " << json;
     }
@@ -154,6 +183,7 @@ void DDPClient::onTextMessageReceived(QString message)
             
         } else if (messageType == "result") {
             
+            qDebug() << "got a result" << root;
             unsigned id = root.value("id").toString().toInt();
             
             if (m_callbackHash.contains(id)) {
@@ -161,6 +191,7 @@ void DDPClient::onTextMessageReceived(QString message)
                 callback( QJsonDocument(root.value("result").toObject()) );
             }
             emit result(id, QJsonDocument(root.value("result").toObject()));
+            
             if (id == m_loginJob) {
                 if (root.value("error").toObject().value("error").toInt() == 403) {
                     qDebug() << "Wrong password or token expired";
@@ -182,6 +213,7 @@ void DDPClient::onTextMessageReceived(QString message)
             }
             
         } else if (messageType == "connected") {
+            qDebug() << "Connected";
             m_connected = true;
 //             emit connected();
             emit connectedChanged();
@@ -227,7 +259,6 @@ void DDPClient::login()
     } else {
         setLoginStatus(LoginFailed);
     }
-    
 }
 
 void DDPClient::onWSConnected()
@@ -236,7 +267,7 @@ void DDPClient::onWSConnected()
     
     QString json("{\"msg\":\"connect\", \"version\": \"1\", \"support\": [\"1\"]}");
     
-    qint64 bytes = m_webSocket.sendBinaryMessage(json.toUtf8());
+    qint64 bytes = m_webSocket.sendTextMessage(json.toUtf8());
     if (bytes < json.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
     } else {
@@ -246,8 +277,9 @@ void DDPClient::onWSConnected()
 
 void DDPClient::WSclosed()
 {
-
-    m_connected = false;
+    qDebug() << "WebSocket CLOSED" << m_webSocket.closeReason() << m_webSocket.error() << m_webSocket.closeCode();
+    setLoginStatus(NotConnected);
+//     m_connected = false;
 }
 
 

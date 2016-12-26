@@ -10,6 +10,15 @@ Item {
 
     signal accepted()
     
+    Keys.onPressed: {
+        if (event.key == Qt.Key_Enter) {
+            acceptingButton.clicked();
+            
+        } else if (event.key == StandardKey.Escape) {
+        }
+    }
+
+    
     id: loginForm
 //     color: "#eeeeee"
     implicitHeight: 400
@@ -85,6 +94,8 @@ Item {
             text: qsTr("Log in")
             enabled: (passField.text && urlField.text && usernameField.text)
             onClicked: loginForm.accepted()
+            isDefault: true
+            
         }
         
     }

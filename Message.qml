@@ -7,7 +7,6 @@ import "marked.js" as MarkDown;
 Rectangle {
     
     function getTextFor(type) {
-//         return "PUPPA";
         
 //         console.log(JSON.stringify(markdown));
         if (type == "uj") {

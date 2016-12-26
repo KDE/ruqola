@@ -50,7 +50,7 @@ public:
     Q_ENUM(LoginStatus)
 
     
-    DDPClient(const QUrl &url = QUrl(), QObject *parent = 0);
+    DDPClient(const QString &url = QString(), QObject *parent = 0);
     ~DDPClient();
     
     /**
@@ -72,6 +72,7 @@ public:
     bool isLoggedIn() const;
     
     LoginStatus loginStatus() const;
+    void onServerURLChange();
     
 signals:
 //     void connected();
@@ -102,7 +103,7 @@ private:
     
     void resume_login_callback(QJsonDocument doc);
     
-    QUrl m_url;
+    QString m_url;
     QWebSocket m_webSocket;
 
     unsigned m_uid;

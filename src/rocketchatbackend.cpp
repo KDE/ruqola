@@ -40,6 +40,7 @@ void process_backlog(QJsonDocument messages)
 
 void rooms_callback(QJsonDocument doc)
 {
+//     qDebug() << doc;
     RoomModel *model = UserData::instance()->roomModel();
     QJsonArray removed = doc.object().value("remove").toArray();
     QJsonArray updated = doc.object().value("update").toArray();
@@ -49,16 +50,17 @@ void rooms_callback(QJsonDocument doc)
     
         if (room.value("t").toString() == "c") {
 
-            qDebug() << "Adding" << room.value("_id").toString()<< room.value("name").toString();
-            MessageModel *roomModel = UserData::instance()->getModelForRoom(room.value("_id").toString());
+            QString roomID = room.value("rid").toString();
+            qDebug() << "Adding" << roomID<< room.value("name").toString();
+            MessageModel *roomModel = UserData::instance()->getModelForRoom(roomID);
             
-            model->addRoom(room.value("_id").toString(), room.value("name").toString());
+            model->addRoom(roomID, room.value("name").toString());
             
-            QString params = QString("[\"%1\"]").arg(room.value("_id").toString());
+            QString params = QString("[\"%1\"]").arg(roomID);
             UserData::instance()->ddp()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));
         
             // Load history
-            QByteArray json = "[\""+room.value("_id").toString().toLatin1() +
+            QByteArray json = "[\""+roomID.toLatin1() +
                             "\", null, 50, {\"$date\": "+
                             QString::number(roomModel->lastTimestamp()).toLatin1()+
                             "}]";
@@ -117,8 +119,9 @@ void RocketChatBackend::onLoggedIn()
         return;
     }
     qDebug() << "GETTING LIST OF ROOMS";
-    // get list of rooms
-    UserData::instance()->ddp()->method("rooms/get", QJsonDocument::fromJson("{\"$date\": 0}"), rooms_callback);
+//     // get list of rooms
+//     UserData::instance()->ddp()->method("rooms/get", QJsonDocument::fromJson("{\"$date\": 0}"), rooms_callback);
+    UserData::instance()->ddp()->method("subscriptions/get", QJsonDocument::fromJson("{\"$date\": 0}"), rooms_callback);
 }
 
 void RocketChatBackend::onAdded(QJsonObject object)
@@ -135,6 +138,7 @@ void RocketChatBackend::onAdded(QJsonObject object)
     } else if (collection == "rooms") {
     }
 }
+// {"_id":"RhiggypZiepy9M4qL","_updatedAt":{"$date":1482704143952},"alert":false,"ls":{"$date":1482704143952},"name":"tech","open":true,"rid":"tKHaLfB35vo4qAnBp","t":"c","ts":{"$date":1479497659929},"u":{"_id":"po2bcKwPMdtnDCXhX","username":"ruphy"},"unread":0}
 
 void RocketChatBackend::onChanged(QJsonObject object)
 {

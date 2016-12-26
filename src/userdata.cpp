@@ -116,7 +116,7 @@ DDPClient::LoginStatus UserData::loginStatus() const
 
 void UserData::tryLogin()
 {
-    qDebug() << "Attempting login" << password() << userName();
+    qDebug() << "Attempting login" << userName() << "on" << serverURL();
     ddp()->login();
 }
 
@@ -125,11 +125,13 @@ UserData::UserData(QObject* parent)
  m_roomModel(new RoomModel)
 {
     QSettings s;
-    m_serverURL = s.value("serverURL", "wss://demo.rocket.chat/websocket").toString();
-    m_ddp = new DDPClient(QUrl(m_serverURL));
+    m_serverURL = s.value("serverURL", "demo.rocket.chat").toString();
+    m_ddp = new DDPClient(m_serverURL);
     m_userName = s.value("username").toString();
     m_authToken = s.value("authToken").toString();
     connect(m_ddp, &DDPClient::loginStatusChanged, this, &UserData::loginStatusChanged);
+    connect(this, &UserData::serverURLChanged, m_ddp, &DDPClient::onServerURLChange);    
+
 }
 
 UserData::~UserData()

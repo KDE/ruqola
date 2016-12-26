@@ -34,19 +34,10 @@ ApplicationWindow {
 //         property alias authToken: UserData.authToken;
 //     }
     
-    
-//     
-//     Component.onCompleted: 
-// //     Component.onCompleted
-//     UserData.onConnected: {
-//         UserData.tryLogin()
-//     }-
 
     
     id: appid
     title: qsTr("Ruqola")
-//     title: UserData.userName
-//     title: "test"
     width: 640
     height: 480
     visible: true
@@ -59,8 +50,9 @@ ApplicationWindow {
             MenuItem {
                 text: qsTr("&Login")
                 onTriggered: {
-//                     loginTab.visible = true-;
-//                     mainWidget.visible = false;
+                    
+                    loginTab.visible = true;
+                    mainWidget.visible = false;
 //                     messageDialog.show(qsTr("Reconnect action triggered"));
                 }
             }
@@ -85,6 +77,7 @@ ApplicationWindow {
             UserData.password = loginTab.password;
             UserData.userName = loginTab.username;
             UserData.serverURL = loginTab.serverURL;
+//             console.log("")
             UserData.tryLogin();
         }
         
@@ -218,7 +211,7 @@ ApplicationWindow {
     }
     Component.onCompleted: {
         systrayIcon.activated.connect(doShow);
-        systrayIcon.showMessage("Connected", "We are CONNECTED!");
+//         systrayIcon.showMessage("Connected", "We are CONNECTED!");
 //         systrayIcon.hide();
 //         systrayIcon.show();
     }

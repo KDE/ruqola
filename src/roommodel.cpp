@@ -113,7 +113,7 @@ QVariant RoomModel::data(const QModelIndex & index, int role) const
 
 void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool selected)
 {
-//     qDebug() << "Adding room" << roomID << rowCount();
+    qDebug() << "Adding room" << roomID << rowCount();
     
     if (roomID.isEmpty()) {
         return;
