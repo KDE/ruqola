@@ -116,7 +116,7 @@ void UserData::setServerURL(const QString& serverURL)
     QSettings s;
     s.setValue("serverURL", serverURL);
     m_serverURL = serverURL;
-    m_roomModel->reset();
+//     m_roomModel->reset();
     emit serverURLChanged();
 }
 
@@ -133,6 +133,15 @@ void UserData::tryLogin()
 {
     qDebug() << "Attempting login" << userName() << "on" << serverURL();
 //     ddp()->login();
+    // Reset data
+    foreach (const QString key, m_messageModels.keys()) {
+        MessageModel *m = m_messageModels.take(key);
+        delete m;
+    }
+    delete m_ddp;
+    m_ddp = 0;
+//     delete m_roomModel;
+    
     ddp(); // This creates a new ddp() object. DDP will automatically try to connect and login.
 }
 

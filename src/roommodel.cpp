@@ -90,8 +90,8 @@ void RoomModel::reset()
                 in.readBytes(byteArray, length);
                 QByteArray arr = QByteArray::fromRawData(byteArray, length);
                 Room m = RoomModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
-//                 qDebug() << m.id << m.name << m.selected;
-                                m_roomsList[m.name] = m;
+                // This cache creates some instabilities
+//                                 m_roomsList[m.name] = m;
 //                 addRoom(m.id, m.name, m.selected);
             }
         }
