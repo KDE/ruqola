@@ -132,17 +132,21 @@ DDPClient::LoginStatus UserData::loginStatus()
 void UserData::tryLogin()
 {
     qDebug() << "Attempting login" << userName() << "on" << serverURL();
-//     ddp()->login();
-    // Reset data
+
+    // Reset model views
     foreach (const QString key, m_messageModels.keys()) {
         MessageModel *m = m_messageModels.take(key);
         delete m;
     }
     delete m_ddp;
     m_ddp = 0;
-//     delete m_roomModel;
     
-    ddp(); // This creates a new ddp() object. DDP will automatically try to connect and login.
+    // In the meantime, load cache...
+    m_roomModel->reset();
+    
+    // This creates a new ddp() object.
+    // DDP will automatically try to connect and login.
+    ddp();
 }
 
 void UserData::logOut()
@@ -157,12 +161,17 @@ void UserData::logOut()
     delete m_ddp;
     m_ddp = 0;
     emit loginStatusChanged();
+    
+    m_roomModel->clear();
 //     m_roomModel->reset();
     // RoomModel -> reset();
 }
 
 QString UserData::cacheBasePath() const
 {
+    if (m_serverURL.isEmpty()) {
+        return QString();
+    }
     return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+'/'+m_serverURL;
 }
 

@@ -57,6 +57,7 @@ public:
     static QByteArray serialize(const Room &r);
     
     void reset();
+    void clear();
 protected:
     virtual QHash<int, QByteArray> roleNames() const;
     

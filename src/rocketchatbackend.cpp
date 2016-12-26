@@ -57,7 +57,10 @@ void rooms_callback(QJsonDocument doc)
             qDebug() << "Adding" << roomID<< room.value("name").toString();
             MessageModel *roomModel = UserData::self()->getModelForRoom(roomID);
             
-            model->addRoom(roomID, room.value("name").toString());
+            // let's be extra safe around crashes
+            if (UserData::self()->loginStatus() == DDPClient::LoggedIn) {
+                model->addRoom(roomID, room.value("name").toString());
+            }
             
             QString params = QString("[\"%1\"]").arg(roomID);
             UserData::self()->ddp()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));

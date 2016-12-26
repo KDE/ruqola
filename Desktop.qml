@@ -102,7 +102,6 @@ ApplicationWindow {
             id: roomsList
             model: UserData.roomModel()
             width: 100
-            visible: true
             
             anchors.left: parent.left
             anchors.top: parent.top

@@ -22,6 +22,7 @@
 
 #include "roommodel.h"
 
+#include <QtCore/QAbstractItemModel>
 #include <QtCore>
 
 #include "userdata.h"
@@ -48,7 +49,6 @@ QByteArray RoomModel::serialize(const Room& r)
 RoomModel::RoomModel(QObject* parent)
     : QAbstractListModel(parent)
 {
-    reset();
 }
 
 RoomModel::~RoomModel()
@@ -69,15 +69,27 @@ RoomModel::~RoomModel()
     }
 }
 
+void RoomModel::clear()
+{
+    if (m_roomsList.size()) {
+        beginRemoveRows(QModelIndex(), 0, rowCount()-1);
+        m_roomsList.clear();
+        QAbstractItemModel::endRemoveRows();
+    }
+}
+
+// Clear data and refill it it with data in the cache, if there is
 void RoomModel::reset()
 {
-    if (UserData::self()->serverURL().isEmpty()) {
+    if (UserData::self()->cacheBasePath().isEmpty()) {
         return;
     }
     
-    beginResetModel();
-    m_roomsList.clear();
-    endResetModel();
+    clear();
+    
+//     beginResetModel();
+//     m_roomsList.clear();
+//     endResetModel();
     
     QDir cacheDir(UserData::self()->cacheBasePath());
     // load cache
