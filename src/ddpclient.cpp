@@ -171,7 +171,7 @@ void DDPClient::onTextMessageReceived(QString message)
             
         } else if (messageType == "result") {
             
-            qDebug() << "got a result" << root;
+//             qDebug() << "got a result" << root;
             unsigned id = root.value("id").toString().toInt();
             
             if (m_callbackHash.contains(id)) {

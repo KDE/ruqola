@@ -49,6 +49,7 @@ QByteArray RoomModel::serialize(const Room& r)
 RoomModel::RoomModel(QObject* parent)
     : QAbstractListModel(parent)
 {
+//     connect(UserData::self(), &UserData::loginStatusChanged, this, &RoomModel::onLoginStatusChanged);
 }
 
 RoomModel::~RoomModel()
@@ -90,7 +91,7 @@ void RoomModel::reset()
 //     beginResetModel();
 //     m_roomsList.clear();
 //     endResetModel();
-    
+//     QList roomsList;
     QDir cacheDir(UserData::self()->cacheBasePath());
     // load cache
     if (cacheDir.exists(cacheDir.path())) {
@@ -104,17 +105,18 @@ void RoomModel::reset()
                 Room m = RoomModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
                 // This cache creates some instabilities
 //                                 m_roomsList[m.name] = m;
-//                 addRoom(m.id, m.name, m.selected);
+                addRoom(m.id, m.name, m.selected);
             }
         }
     }
+    qDebug() << "Cache Loaded";
 }
 
 QHash<int, QByteArray> RoomModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[RoomName] = "name";
-    roles[RoomID] = "id";
+    roles[RoomID] = "room_id";
     roles[RoomSelected] = "selected";
     return roles;
 }
@@ -142,15 +144,17 @@ void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool sel
 {
 //     qDebug() << m_roomsList.size();
 //     return;
-    qDebug() << "Adding room" << roomID << roomName << m_roomsList.keys();
+//     qDebug() << "Adding room" << roomID << roomName << m_roomsList.keys();
     
     if (roomID.isEmpty()) {
         return;
     }
     
     bool updating = false;
+    qDebug() << "A te ti vedo";
     
     if (m_roomsList.contains(roomName)) {
+//             qDebug() << "ESISTO GIa";
         // we are doing an update
         updating = true;
     }
@@ -171,6 +175,8 @@ void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool sel
     } else {
         endInsertRows();
     }
+    
+    UserData::self()->getModelForRoom(r.id);
 }
 
 

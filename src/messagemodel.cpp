@@ -58,9 +58,7 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
 //                 qDebug() << m.message;
             }
         }
-    }
-    
-    
+    }   
 }
 
 MessageModel::~MessageModel()
@@ -119,6 +117,10 @@ void MessageModel::addMessage(const Message& message)
 {
     // Don't add empty messages?
     if (message.message.isEmpty()) {
+        return;
+    }
+    
+    if (UserData::self()->loginStatus() != DDPClient::LoggedIn) {
         return;
     }
     

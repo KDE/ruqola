@@ -66,7 +66,7 @@ RoomModel * UserData::roomModel()
 {
     if (!m_roomModel) {
         qDebug() << "creating new RoomModel";
-        m_roomModel = new RoomModel;
+        m_roomModel = new RoomModel(this);
         qDebug() << m_roomModel;
 //         m_roomModel->reset();
     }
@@ -93,9 +93,10 @@ void UserData::sendMessage(const QString &roomID, const QString &message)
 MessageModel * UserData::getModelForRoom(const QString& roomID)
 {
     if (m_messageModels.contains(roomID)) {
+//         qDebug() << "Returning old model for " << roomID;
         return m_messageModels.value(roomID);
     } else {
-//         qDebug() << "Creating a new model";
+        qDebug() << "Creating a new model";
         m_messageModels[roomID] = new MessageModel(roomID, this);
         
         return m_messageModels[roomID];        
@@ -192,6 +193,8 @@ UserData * UserData::self()
     if (!m_self) {
         m_self = new UserData;
         m_self->ddp(); // Create DDP object so we try to connect at startup
+        m_self->roomModel()->reset();
+//         m_self->getModelForRoom("GENERAL");
     }
     return m_self;
 }
