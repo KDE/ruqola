@@ -24,6 +24,8 @@
 
 #include <QtCore>
 
+#include "userdata.h"
+
 Room RoomModel::fromJSon(const QJsonObject& o)
 {
     Room r;
@@ -46,28 +48,12 @@ QByteArray RoomModel::serialize(const Room& r)
 RoomModel::RoomModel(QObject* parent)
     : QAbstractListModel(parent)
 {
-    QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
-    
-        // load cache
-    if (cacheDir.exists(cacheDir.path())) {
-        QFile f(cacheDir.absoluteFilePath("rooms"));
-        if (f.open(QIODevice::ReadOnly)) {
-            QDataStream in(&f);
-            while (!f.atEnd()) {
-                char * byteArray; quint32 length;
-                in.readBytes(byteArray, length);
-                QByteArray arr = QByteArray::fromRawData(byteArray, length);
-                Room m = RoomModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
-                m_roomsList[m.name] = m;
-//                 qDebug() << m.message;
-            }
-        }
-    }
+    reset();
 }
 
 RoomModel::~RoomModel()
 {
-    QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
+    QDir cacheDir(UserData::self()->cacheBasePath());
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }
@@ -79,6 +65,35 @@ RoomModel::~RoomModel()
         foreach (const Room m, m_roomsList) {            
             QByteArray ms = RoomModel::serialize(m);
             out.writeBytes(ms, ms.size());
+        }
+    }
+}
+
+void RoomModel::reset()
+{
+    if (UserData::self()->serverURL().isEmpty()) {
+        return;
+    }
+    
+    beginResetModel();
+    m_roomsList.clear();
+    endResetModel();
+    
+    QDir cacheDir(UserData::self()->cacheBasePath());
+    // load cache
+    if (cacheDir.exists(cacheDir.path())) {
+        QFile f(cacheDir.absoluteFilePath("rooms"));
+        if (f.open(QIODevice::ReadOnly)) {
+            QDataStream in(&f);
+            while (!f.atEnd()) {
+                char * byteArray; quint32 length;
+                in.readBytes(byteArray, length);
+                QByteArray arr = QByteArray::fromRawData(byteArray, length);
+                Room m = RoomModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
+//                 qDebug() << m.id << m.name << m.selected;
+                                m_roomsList[m.name] = m;
+//                 addRoom(m.id, m.name, m.selected);
+            }
         }
     }
 }
@@ -113,20 +128,37 @@ QVariant RoomModel::data(const QModelIndex & index, int role) const
 
 void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool selected)
 {
-    qDebug() << "Adding room" << roomID << rowCount();
+//     qDebug() << m_roomsList.size();
+//     return;
+    qDebug() << "Adding room" << roomID << roomName << m_roomsList.keys();
     
     if (roomID.isEmpty()) {
         return;
     }
     
+    bool updating = false;
+    
+    if (m_roomsList.contains(roomName)) {
+        // we are doing an update
+        updating = true;
+    }
+    
     int size = m_roomsList.size();
-    beginInsertRows(index(size),  size, (size+1));
+    if (!updating) {
+        beginInsertRows(index(size),  size, (size+1));
+    }
     Room r;
     r.id = roomID;
     r.name = roomName;
     r.selected = selected;
     m_roomsList[roomName] = r;
-    endInsertRows();
+
+    if (updating) {
+        //Figure out a better way to update just the really changed message, not EVERYTHING
+        emit dataChanged(createIndex(1, 1), createIndex(rowCount(), 1));
+    } else {
+        endInsertRows();
+    }
 }
 
 

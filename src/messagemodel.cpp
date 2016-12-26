@@ -5,6 +5,7 @@
 #include <QAbstractListModel>
 
 #include "messagemodel.h"
+#include "userdata.h"
 
 Message MessageModel::fromJSon(const QJsonObject& o)
 {
@@ -39,7 +40,8 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
   : QAbstractListModel(parent),
   m_roomID(roomID)
 {
-    QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
+    qDebug() << "Creating message Model";
+    QDir cacheDir(UserData::self()->cacheBasePath()+"/rooms_cache");
     
         // load cache
     if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
@@ -63,7 +65,8 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
 
 MessageModel::~MessageModel()
 {
-    QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+'/rooms_cache');
+    QDir cacheDir(UserData::self()->cacheBasePath()+"/rooms_cache");
+    qDebug() << "Caching to..." << cacheDir.path();
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }

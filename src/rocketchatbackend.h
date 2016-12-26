@@ -43,7 +43,7 @@ private slots:
     void onAdded(QJsonObject object);
     void onChanged(QJsonObject object);
     void onLoggedIn();
-    
+    void onLoginStatusChanged();
     
 private:
 //     RoomModel *m_rooms;

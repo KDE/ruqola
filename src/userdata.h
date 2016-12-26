@@ -39,11 +39,11 @@ class UserData: public QObject
     Q_PROPERTY (QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
     Q_PROPERTY (QString serverURL READ serverURL WRITE setServerURL NOTIFY serverURLChanged)
     Q_PROPERTY (QString password WRITE setPassword)
-    Q_PROPERTY (bool connected READ connected NOTIFY connectedChanged)
+//     Q_PROPERTY (bool connected READ connected NOTIFY connectedChanged)
     Q_PROPERTY (DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
     
 public:
-    static UserData* instance();
+    static UserData* self();
 
     void setUserName(const QString &username);
     QString userName() const;
@@ -54,31 +54,34 @@ public:
     void setAuthToken(const QString &token);
     QString authToken() const;
     
-    bool connected() const;
-    DDPClient::LoginStatus loginStatus() const;
+    bool connected();
+    DDPClient::LoginStatus loginStatus();
     
     QString serverURL() const;
     void setServerURL(const QString &serverURL);
     
-    DDPClient *ddp() const;
-    Q_INVOKABLE RoomModel *roomModel() const;
+    DDPClient *ddp();
+    Q_INVOKABLE RoomModel *roomModel();
     
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
     Q_INVOKABLE MessageModel* getModelForRoom(const QString &roomID);
     
     Q_INVOKABLE void tryLogin();
+    Q_INVOKABLE void logOut();
     //     void setRoomModel();
     
+    QString cacheBasePath() const;
     
 signals:
     void userNameChanged();
-    void connectedChanged();
+//     void connectedChanged();
     void serverURLChanged();
     void loginStatusChanged();
+//     void DDPChanged();
     
 private:
     UserData(QObject *parent = 0);
-    ~UserData();
+//     ~UserData();
     static UserData *m_self;
     QString m_password;
     QString m_userName;
@@ -97,7 +100,7 @@ inline static QObject *userdata_singletontype_provider(QQmlEngine *engine, QJSEn
     Q_UNUSED(engine)
     Q_UNUSED(scriptEngine)
 
-    UserData *userData = UserData::instance();
+    UserData *userData = UserData::self();
     return userData;
 }
 

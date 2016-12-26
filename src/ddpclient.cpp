@@ -21,7 +21,6 @@
  */
 
 #include "ddpclient.h"
-#include <QtCore/QJsonObject>
 
 #include <QtCore/QJsonDocument>
 #include <QtCore/QJsonObject>
@@ -38,14 +37,14 @@ void process_test(QJsonDocument doc)
 void login_callback(QJsonDocument doc)
 {
     qDebug() << "LOGIN:" << doc;
-    UserData::instance()->setAuthToken(doc.object().value("token").toString());
+    UserData::self()->setAuthToken(doc.object().value("token").toString());
     qDebug() << "End callback";
 }
 
 void DDPClient::resume_login_callback(QJsonDocument doc)
 {
     qDebug() << "LOGIN:" << doc;
-    UserData::instance()->setAuthToken(doc.object().value("token").toString());
+    UserData::self()->setAuthToken(doc.object().value("token").toString());
     qDebug() << "End callback";
 }
 
@@ -62,12 +61,14 @@ DDPClient::DDPClient(const QString& url, QObject* parent)
   m_loginJob(0),
   m_loginStatus(NotConnected),
   m_connected(false),
-  m_doingTokenLogin(false)
+  m_attemptedPasswordLogin(false),
+  m_attemptedTokenLogin(false)
 {
     m_webSocket.ignoreSslErrors();
     connect(&m_webSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
     connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
     connect(&m_webSocket, &QWebSocket::disconnected, this, &DDPClient::WSclosed);
+    connect(UserData::self(), &UserData::serverURLChanged, this, &DDPClient::onServerURLChange);    
     
     if (!url.isEmpty()) {
         m_webSocket.open(QUrl("wss://"+url+"/websocket"));
@@ -83,12 +84,12 @@ DDPClient::~DDPClient()
 
 void DDPClient::onServerURLChange()
 {
-    if (UserData::instance()->serverURL() != m_url || !m_webSocket.isValid()) {
+    if (UserData::self()->serverURL() != m_url || !m_webSocket.isValid()) {
         if (m_webSocket.isValid()) {
             m_webSocket.flush();
             m_webSocket.close();
         }
-        m_url = UserData::instance()->serverURL();
+        m_url = UserData::self()->serverURL();
         m_webSocket.open(QUrl("wss://"+m_url+"/websocket"));
         connect(&m_webSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
         qDebug() << "Reconnecting" << m_url; //<< m_webSocket.st;
@@ -183,16 +184,18 @@ void DDPClient::onTextMessageReceived(QString message)
                 if (root.value("error").toObject().value("error").toInt() == 403) {
                     qDebug() << "Wrong password or token expired";
                     
-                    // Kill wrong credentials, so we don't try to use them again
-                    if (!UserData::instance()->authToken().isEmpty()) {
-                        UserData::instance()->setAuthToken(QString());
-                    } else if (!UserData::instance()->password().isEmpty()) {
-                        UserData::instance()->setPassword(QString());
-                    }
-                    setLoginStatus(DDPClient::LoginFailed);
+//                     // Kill wrong credentials, so we don't try to use them again
+//                     if (!UserData::instance()->authToken().isEmpty()) {
+//                         UserData::instance()->setAuthToken(QString());
+//                     } else if (!UserData::instance()->password().isEmpty()) {
+//                         UserData::instance()->setPassword(QString());
+//                     }
+//                     setLoginStatus(DDPClient::LoginFailed);
                     
+                    
+                    login(); // Let's keep trying to log in
                 } else {
-                    UserData::instance()->setAuthToken(root.value("result").toObject().value("token").toString());
+                    UserData::self()->setAuthToken(root.value("result").toObject().value("token").toString());
 
                     setLoginStatus(DDPClient::LoggedIn);
                 }
@@ -202,12 +205,9 @@ void DDPClient::onTextMessageReceived(QString message)
         } else if (messageType == "connected") {
             qDebug() << "Connected";
             m_connected = true;
-//             emit connected();
             emit connectedChanged();
-            if (!UserData::instance()->authToken().isEmpty()) {
-                setLoginStatus(DDPClient::LoggingIn);
-                login();// Try to resume auth token login
-            }
+            setLoginStatus(DDPClient::LoggingIn);
+            login(); // Try to resume auth token login
             
             
         } else if (messageType == "error") {
@@ -228,24 +228,46 @@ void DDPClient::onTextMessageReceived(QString message)
 
 void DDPClient::setLoginStatus(DDPClient::LoginStatus l)
 {
+    qDebug() << "Setting login status to" << l;
     m_loginStatus = l;
     emit loginStatusChanged();
+    
+    // reset flags
+    if (l == LoginFailed) {
+        m_attemptedPasswordLogin = false;
+        m_attemptedTokenLogin = false;
+    }
 }
 
 void DDPClient::login()
 {
-    if (!UserData::instance()->authToken().isEmpty()) {
-        m_doingTokenLogin = true;
-        QString json = "{\"resume\":\"%1\"}";
-        json = json.arg(UserData::instance()->authToken());
-        m_loginJob = method("login", QJsonDocument::fromJson(json.toUtf8()));
-    } else if (!UserData::instance()->password().isEmpty()) {
+    if (!UserData::self()->password().isEmpty()) {
+ 
+        // If we have a password and we couldn't log in, let's stop here
+        if (m_attemptedPasswordLogin) {
+            setLoginStatus(LoginFailed);
+            return;
+        }
+        
+        m_attemptedPasswordLogin = true;
         QString json = "{\"password\":\"%1\", \"user\": {\"username\":\"%2\"}}";
-        json = json.arg(UserData::instance()->password()).arg(UserData::instance()->userName());
+        json = json.arg(UserData::self()->password()).arg(UserData::self()->userName());
+        m_loginJob = method("login", QJsonDocument::fromJson(json.toUtf8()));
+        
+    } else if (!UserData::self()->authToken().isEmpty() && !m_attemptedTokenLogin) {
+        m_attemptedPasswordLogin = true;
+        QString json = "{\"resume\":\"%1\"}";
+        json = json.arg(UserData::self()->authToken());
         m_loginJob = method("login", QJsonDocument::fromJson(json.toUtf8()));
     } else {
         setLoginStatus(LoginFailed);
     }
+}
+
+void DDPClient::logOut()
+{
+//     setLoginStatus(NotConnected);
+    m_webSocket.close();
 }
 
 void DDPClient::onWSConnected()

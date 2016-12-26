@@ -62,13 +62,24 @@ void UserData::setUserName(const QString& username)
     emit userNameChanged();
 }
 
-RoomModel * UserData::roomModel() const
+RoomModel * UserData::roomModel()
 {
+    if (!m_roomModel) {
+        qDebug() << "creating new RoomModel";
+        m_roomModel = new RoomModel;
+        qDebug() << m_roomModel;
+//         m_roomModel->reset();
+    }
     return m_roomModel;
 }
 
-DDPClient * UserData::ddp() const
+DDPClient * UserData::ddp()
 {
+    if (!m_ddp) {
+        m_ddp = new DDPClient(serverURL());
+        connect(m_ddp, &DDPClient::loginStatusChanged, this, &UserData::loginStatusChanged);
+//         connect(m_ddp, &DDPClient::loginStatusChanged, this, [=](){qDebug() << "Signal received";});
+    }
     return m_ddp;
 }
 
@@ -98,52 +109,71 @@ QString UserData::serverURL() const
 
 void UserData::setServerURL(const QString& serverURL)
 {
+    if (m_serverURL == serverURL) {
+        return;
+    }
+    
     QSettings s;
     s.setValue("serverURL", serverURL);
     m_serverURL = serverURL;
+    m_roomModel->reset();
     emit serverURLChanged();
 }
 
-bool UserData::connected() const
+DDPClient::LoginStatus UserData::loginStatus()
 {
-    return ddp()->isConnected();
-}
-
-DDPClient::LoginStatus UserData::loginStatus() const
-{
-    return ddp()->loginStatus();
+    if (m_ddp) {
+        return ddp()->loginStatus();
+    } else {
+        return DDPClient::LoggedOut;
+    }
 }
 
 void UserData::tryLogin()
 {
     qDebug() << "Attempting login" << userName() << "on" << serverURL();
-    ddp()->login();
+//     ddp()->login();
+    ddp(); // This creates a new ddp() object. DDP will automatically try to connect and login.
+}
+
+void UserData::logOut()
+{
+    setAuthToken(QString());
+    setPassword(QString());
+//     m_ddp->logOut();
+    foreach (const QString key, m_messageModels.keys()) {
+        MessageModel *m = m_messageModels.take(key);
+        delete m;
+    }
+    delete m_ddp;
+    m_ddp = 0;
+    emit loginStatusChanged();
+    m_roomModel->reset();
+    // RoomModel -> reset();
+}
+
+QString UserData::cacheBasePath() const
+{
+    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+'/'+m_serverURL;
 }
 
 UserData::UserData(QObject* parent)
  : QObject(parent),
- m_roomModel(new RoomModel)
+ m_ddp(0),
+ m_roomModel(0)
 {
     QSettings s;
     m_serverURL = s.value("serverURL", "demo.rocket.chat").toString();
-    m_ddp = new DDPClient(m_serverURL);
     m_userName = s.value("username").toString();
     m_authToken = s.value("authToken").toString();
-    connect(m_ddp, &DDPClient::loginStatusChanged, this, &UserData::loginStatusChanged);
-    connect(this, &UserData::serverURLChanged, m_ddp, &DDPClient::onServerURLChange);    
-
+//     roomModel()->reset();
 }
 
-UserData::~UserData()
-{
-//     delete m_roomModel;
-//     delete m_ddp;
-}
-
-UserData * UserData::instance() 
+UserData * UserData::self() 
 {
     if (!m_self) {
         m_self = new UserData;
+        m_self->ddp(); // Create DDP object so we try to connect at startup
     }
     return m_self;
 }

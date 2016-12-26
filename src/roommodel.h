@@ -56,10 +56,12 @@ public:
     static Room fromJSon(const QJsonObject &source);
     static QByteArray serialize(const Room &r);
     
+    void reset();
 protected:
     virtual QHash<int, QByteArray> roleNames() const;
     
 private:
+    
     QHash< QString, Room > m_roomsList;
 };
 

@@ -29,30 +29,21 @@ ApplicationWindow {
     property string selectedRoomID;
     property bool ready;
     
-//     Settings {
-//         id: settings
-//         property alias authToken: UserData.authToken;
-//     }
-    
-
-    
     id: appid
     title: qsTr("Ruqola")
     width: 640
     height: 480
     visible: true
     
-    
-    
     menuBar: MenuBar {
         Menu {
             title: qsTr("&Main")
             MenuItem {
-                text: qsTr("&Login")
+                text: qsTr("&Log out")
                 onTriggered: {
-                    
-                    loginTab.visible = true;
-                    mainWidget.visible = false;
+                    UserData.logOut();
+//                     loginTab.visible = true;
+//                     mainWidget.visible = false;
 //                     messageDialog.show(qsTr("Reconnect action triggered"));
                 }
             }
@@ -67,7 +58,7 @@ ApplicationWindow {
 //     Component.onCompleted : {UserData.tryLogin()}//.log(UserData.loggedIn);}
     Login {
         id: loginTab
-        visible: (UserData.loginStatus == DDPClient.LoginFailed)
+        visible: (UserData.loginStatus == DDPClient.LoginFailed || UserData.loginStatus == DDPClient.LoggedOut)
         
         anchors.fill:parent
         z: 10
@@ -98,7 +89,7 @@ ApplicationWindow {
     Item {
         id: mainWidget
         anchors.fill: parent
-        visible: UserData.loginStatus != DDPClient.LoginFailed
+        visible: !loginTab.visible
 //         visible:true
 //         Component.onCompleted :{
 //             console.log("debug");

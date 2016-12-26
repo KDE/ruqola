@@ -45,7 +45,8 @@ public:
         NotConnected,
         LoggingIn,
         LoggedIn,
-        LoginFailed
+        LoginFailed,
+        LoggedOut
     };
     Q_ENUM(LoginStatus)
 
@@ -67,11 +68,12 @@ public:
     void subscribe(const QString &collection, const QJsonDocument &params);
     
     Q_INVOKABLE void login();
+    void logOut();
+
 //     Q_INVOKABLE void loginWithPassword();
     bool isConnected() const;
     bool isLoggedIn() const;
     
-    LoginStatus loginStatus() const;
     void onServerURLChange();
     
 signals:
@@ -91,7 +93,6 @@ signals:
     void added(QJsonObject item);
     void changed(QJsonObject item);
     
-
 private slots:
     void onWSConnected();
     void onTextMessageReceived(QString message);
@@ -99,6 +100,7 @@ private slots:
     
 private:
     
+    LoginStatus loginStatus() const;
     void setLoginStatus(LoginStatus l);
     
     void resume_login_callback(QJsonDocument doc);
@@ -115,7 +117,10 @@ private:
     
     bool m_connected;
     
-    bool m_doingTokenLogin;
+    bool m_attemptedPasswordLogin;
+    bool m_attemptedTokenLogin;
+    
+    friend class UserData;
 };
 
 
