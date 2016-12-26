@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     QQmlContext *ctxt = engine.rootContext();
 
     QMenu menu;
-    auto quit = menu.addAction("Quit...");
+    auto quit = menu.addAction("&Quit");
     QObject::connect(quit, &QAction::triggered, &app, &QApplication::quit);
 
     QSystemTrayIcon systray;
@@ -44,10 +44,6 @@ int main(int argc, char *argv[])
     systray.setContextMenu(&menu);
     systray.setVisible(true);
     
-//     QSystemTrayIcon systray;
-//     systray.hide();
-//     systray.setIcon(QIcon(":/systray.png"));
-//     systray.show();
     ctxt->setContextProperty("systrayIcon", &systray);
     
 //     systray.setVisible(true);

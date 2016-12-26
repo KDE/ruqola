@@ -217,8 +217,6 @@ ApplicationWindow {
     Component.onCompleted: {
         systrayIcon.activated.connect(toggleShow);
 //         systrayIcon.showMessage("Connected", "We are CONNECTED!");
-//         systrayIcon.hide();
-//         systrayIcon.show();
     }
 
     

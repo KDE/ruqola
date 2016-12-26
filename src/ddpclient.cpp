@@ -21,8 +21,7 @@
  */
 
 #include "ddpclient.h"
-#include <qt5/QtCore/qjsonobject.h>
-#include <qt5/QtCore/qjsonobject.h>
+#include <QtCore/QJsonObject>
 
 #include <QtCore/QJsonDocument>
 #include <QtCore/QJsonObject>
