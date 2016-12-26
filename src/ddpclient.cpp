@@ -55,9 +55,9 @@ void empty_callback(QJsonDocument doc)
     Q_UNUSED(doc);
 }
 
-DDPClient::DDPClient(const QString& url2, QObject* parent)
+DDPClient::DDPClient(const QString& url, QObject* parent)
  : QObject(parent),
-  m_url(url2),
+  m_url(url),
   m_uid(1),
   m_loginJob(0),
   m_loginStatus(NotConnected),
@@ -69,18 +69,6 @@ DDPClient::DDPClient(const QString& url2, QObject* parent)
     connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
     connect(&m_webSocket, &QWebSocket::disconnected, this, &DDPClient::WSclosed);
     
-//     QNetworkProxy proxy;
-// proxy.setType(QNetworkProxy::Socks5Proxy);
-// proxy.setHostName("localhost");
-// proxy.setPort(9999);
-// // proxy.setUser("username");
-// // proxy.setPassword("password");
-// QNetworkProxy::setApplicationProxy(proxy);
-
-//     m_webSocket.setProxy(proxy);
-    QString url = "chat.wikitolearn.org";
-//     QString url = "demo.rocket.chat";
-//     QString url = "chat.mozillaitalia.org";
     if (!url.isEmpty()) {
         m_webSocket.open(QUrl("wss://"+url+"/websocket"));
     }
