@@ -148,7 +148,7 @@ void UserData::logOut()
     delete m_ddp;
     m_ddp = 0;
     emit loginStatusChanged();
-    m_roomModel->reset();
+//     m_roomModel->reset();
     // RoomModel -> reset();
 }
 
