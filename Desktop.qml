@@ -95,8 +95,7 @@ ApplicationWindow {
 
             id: roomsList
             
-            model: UserData.roomModel();
-//     model: RoomModelTest {}
+            model: UserData.roomModel()
 
             visible: parent.visible
             
@@ -131,24 +130,21 @@ ApplicationWindow {
         
         
         Item {
-            
             anchors.right: parent.right
             anchors.left: roomsList.right
             anchors.top: parent.top
             anchors.bottom: messageLine.top
             
-            Item {
-                anchors.fill: parent
-                id: greeter
-                visible: false
-//                 visible: selectedRoomID.empty
-                Text {
-                    text: "Welcome to Ruqola!";
-                }
-            }
+//             Item {
+//                 anchors.fill: parent
+//                 id: greeter
+//                 visible: false
+// //                 visible: selectedRoomID.empty
+//                 Text {
+//                     text: "Welcome to Ruqola!";
+//                 }
+//             }
             
-            
-                
             ScrollView {
                 anchors.fill:parent
                 verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
