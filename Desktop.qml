@@ -144,9 +144,29 @@ ApplicationWindow {
 //                     text: "Welcome to Ruqola!";
 //                 }
 //             }
+            Rectangle {
+                id: topicWidget
+                color: "#fff"
+                anchors.top: parent.top
+                Text {
+                    anchors.fill: parent
+                    text: "#" + appid.selectedRoomID
+                    font.pointSize: 18
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.leftMargin: 20
+                }
+                anchors.right: parent.right
+                anchors.left: parent.left
+                height: 40
+            }
             
             ScrollView {
-                anchors.fill:parent
+                
+                anchors.right: parent.right
+                anchors.left: parent.left
+                anchors.top: topicWidget.bottom
+                anchors.bottom: parent.bottom
+                
                 verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
 //                 visible: parent.visible && (UserData.loginStatus != DDPClient.LoggingIn)
                 visible: !greeter.visible
