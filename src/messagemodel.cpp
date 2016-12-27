@@ -1,6 +1,10 @@
 
 #include <QFile>
-#include <QtCore>
+#include <QVector>
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <QDataStream>
+// #include <QtCore>
 #include <QModelIndex>
 #include <QAbstractListModel>
 
@@ -17,6 +21,7 @@ Message MessageModel::fromJSon(const QJsonObject& o)
     message.systemMessage = o["systemMessage"].toBool();
     message.systemMessageType = o["type"].toString();
     message.roomID = o["roomID"].toString();
+    message.messageID = o["messageID"].toString();
     
     return message;
 }
@@ -32,6 +37,7 @@ QByteArray MessageModel::serialize(const Message& message)
     o["systemMessage"] = message.systemMessage;
     o["type"] = message.systemMessageType;
     o["roomID"] = message.roomID;
+    o["messageID"] = message.messageID;
     d.setObject(o);
     return d.toBinaryData();
 }
@@ -54,7 +60,8 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
                 in.readBytes(byteArray, length);
                 QByteArray arr = QByteArray::fromRawData(byteArray, length);
                 Message m = MessageModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
-                m_allMessages[m.timestamp] = m;
+                addMessage(m);
+//                 m_allMessages[m.timestamp] = m;
 //                 qDebug() << m.message;
             }
         }
@@ -124,24 +131,25 @@ void MessageModel::addMessage(const Message& message)
         return;
     }
     
-    int size = m_allMessages.size();
-        
-//         qDebug() << "calling begin insert rows:" << size << size+1;
+    QVector<Message>::iterator i = qUpperBound(m_allMessages.begin(), m_allMessages.end(),
+                                               message);
+    
+    int pos = i-m_allMessages.begin();
     
     bool messageChanged = false;
-    if (m_allMessages.contains(message.timestamp)) {
+    
+//     if (qFind(m_allMessages.begin(), m_allMessages.end(), message) != m_allMessages.end()) {
+    if (false) {
         messageChanged = true;
         //Figure out a better way to update just the really changed message
     } else {
-        beginInsertRows(index(size),  size, (size));
+        beginInsertRows(QModelIndex(), pos, pos);
     }
     
-    m_allMessages[message.timestamp] = message;
+    m_allMessages.insert(i, message);
     
     if (messageChanged) {
-//         qDebug() << "Data changed";
-        //Figure out a better way to update just the really changed message, not EVERYTHING
-        emit dataChanged(createIndex(1, 1), createIndex(rowCount(), 1), QVector<int>(MessageModel::MessageText));
+        emit dataChanged(createIndex(1, 1), createIndex(pos, 1));
         
     } else {
         endInsertRows();
@@ -161,18 +169,18 @@ QVariant MessageModel::data(const QModelIndex& index, int role) const
     if (role == MessageModel::Username) {
 //         qDebug() << "C++ returning username" <<
 //                     m_allMessages[m_currentRoom].values().at(idx).username();
-        return  m_allMessages.values().at(idx).username;
+        return  m_allMessages.at(idx).username;
     } else if (role == MessageModel::MessageText) {
-        return  m_allMessages.values().at(idx).message;
+        return  m_allMessages.at(idx).message;
     }  else if (role == MessageModel::Timestamp) {
-        return  QVariant(m_allMessages.values().at(idx).timestamp);
+        return  QVariant(m_allMessages.at(idx).timestamp);
     } else if (role == MessageModel::UserID) {
-        return  QVariant(m_allMessages.values().at(idx).userID);
+        return  QVariant(m_allMessages.at(idx).userID);
     } else if (role == MessageModel::SystemMessage) {
-//         qDebug() << "System message?" << m_allMessages.values().at(idx).systemMessage;
-        return  QVariant(m_allMessages.values().at(idx).systemMessage);
+//         qDebug() << "System message?" << m_allMessages.at(idx).systemMessage;
+        return  QVariant(m_allMessages.at(idx).systemMessage);
     } else if (role == MessageModel::SystemMessageType) {
-        return  QVariant(m_allMessages.values().at(idx).systemMessageType);
+        return  QVariant(m_allMessages.at(idx).systemMessageType);
     } else {
         return QVariant("");
     }

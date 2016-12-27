@@ -89,6 +89,11 @@ void RocketChatBackend::processIncomingMessages(QJsonArray messages)
         m.username = o.value("u").toObject().value("username").toString();
         m.userID = o.value("u").toObject().value("_id").toString();
         m.message = o.value("msg").toString();
+        
+//         qDebug() << o.value("_id").toString();
+        
+        m.messageID = o.value("_id").toString();
+        
         m.roomID = roomId;    
         m.timestamp = (qint64)o.value("ts").toObject().value("$date").toDouble();
         if (!type.isEmpty()) {

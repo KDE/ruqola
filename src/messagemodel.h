@@ -9,7 +9,21 @@
 #include <QJsonObject>
 #include <QFile>
 
-struct Message {
+class Message {
+public:
+    // To be used in ID find: message ID
+    inline bool operator==(const Message &other) const
+    {
+        return other.messageID == messageID;
+    };
+    // To be used in sorted insert: timestamp
+    inline bool operator<(const Message &other) const
+    {
+        return timestamp < other.timestamp;
+    };
+    
+    QString messageID;
+    
     QString username;
     QString userID;
     QString message;
@@ -49,7 +63,11 @@ protected:
     virtual QHash<int, QByteArray> roleNames() const;
 private:
     const QString m_roomID;
-    QMap<int, Message> m_allMessages;
+    
+    QVector<Message> m_allMessages;
+    
+//     QMap<int, Message> m_allMessages;
+//     QMap<int, Message> m_allMessages;
     QString m_writableLocation;
     
     QFile *cacheWriter;
