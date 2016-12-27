@@ -9,6 +9,7 @@ import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
 import Qt.labs.settings 1.0
+import QtGraphicalEffects 1.0
 
 import KDE.Ruqola.UserData 1.0
 import KDE.Ruqola.DDPClient 1.0
@@ -19,43 +20,24 @@ import KDE.Ruqola.DDPClient 1.0
 ApplicationWindow {
     property int margin: 11
     property string statusText
-
-    property list<JSONListModel> todos
-    property JSONListModel lists: JSONListModel { }
-
-    property JSONListModel activeRoom: JSONListModel {}
-    property JSONListModel userRooms: JSONListModel {}
+    
+    property string lightGreen: "#6ab141";
+    property string darkGreen: "#00613a";
     
     property string selectedRoomID: "";
-    property bool ready;
     
     id: appid
     title: qsTr("Ruqola")
-    width: 640
-    height: 480
+    width: 800
+    height: 600
     visible: true
     
-    menuBar: MenuBar {
-        Menu {
-            title: qsTr("&Main")
-            MenuItem {
-                text: qsTr("&Log out")
-                onTriggered: {
-                    UserData.logOut();
-//                     loginTab.visible = true;
-//                     mainWidget.visible = false;
-//                     messageDialog.show(qsTr("Reconnect action triggered"));
-                }
-            }
-            MenuItem {
-                text: qsTr("E&xit")
-                onTriggered: Qt.quit();
-                shortcut: StandardKey.Quit;
-            }
-        }
+    Shortcut {
+        sequence: StandardKey.Quit
+        context: Qt.ApplicationShortcut
+        onActivated: Qt.quit()
     }
-
-//     Component.onCompleted : {UserData.tryLogin()}//.log(UserData.loggedIn);}
+    
     Login {
         id: loginTab
         visible: (UserData.loginStatus == DDPClient.LoginFailed || UserData.loginStatus == DDPClient.LoggedOut)
@@ -68,18 +50,10 @@ ApplicationWindow {
             UserData.password = loginTab.password;
             UserData.userName = loginTab.username;
             UserData.serverURL = loginTab.serverURL;
-//             console.log("")
             UserData.tryLogin();
-        }
-        
+        }        
     }
     
-    statusBar: StatusBar {
-        RowLayout {
-            Label { text: statusText }
-        }
-    }
-
     BusyIndicator {
         id: busy
         anchors.centerIn: parent
@@ -90,57 +64,72 @@ ApplicationWindow {
         id: mainWidget
         anchors.fill: parent
         visible: !loginTab.visible
-//         visible:true
-//         Component.onCompleted :{
-//             console.log("debug");
-//             console.log(UserData.loginStatus);
-//             console.log( DDPClient.LoginFailed);
-//             console.log(UserData.loginStatus != DDPClient.LoginFailed);
-//         }
-        
-        ListView {
-            id: roomsList
-            width: 100
+
+        Rectangle {
+            id: userBox
+            anchors.top: parent.top
+            width: parent.width
+            anchors.left: parent.left
+            anchors.right: roomsList.right
+            height: 40
+            color: darkGreen
+            Text {
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignRight
+                anchors.rightMargin: 10
+                anchors.fill: parent
+                font.pointSize: 12
+                color: "white"
+                text: "Hello, " + UserData.userName
+            }
             
+        }
+            
+        RoomsView {
+            anchors.top: userBox.bottom
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            anchors.margins: 0            
+            width: 200
+            height: appid.height
+
+            id: roomsList
+            
+            model: UserData.roomModel();
+//     model: RoomModelTest {}
+
             visible: parent.visible
             
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.margins: 10
+            selectedRoomID: appid.selectedRoomID;
             
-//             Component.onCompleted {
-//                 roomsList.model = UserData.roomModel();
-//             }
-            
-            delegate: Text {
-                    property string internal_id: room_id
-                    text: name
-                    font.bold: (selectedRoomID == room_id)
-                    id: room_chooser
-                    
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            if (room_chooser.internal_id == selectedRoomID) {
-                                return;
-                            }
-                            console.log("Choosing room", room_chooser.internal_id);
-                            
-                            selectedRoomID = room_chooser.internal_id;
-//                             activeChat.model = UserData.getModelForRoom(selectedRoomID);
-//                             }
-                            
-//                             myModel.currentRoom = selectedRoomID;
-                            
-                            // This line crashes the program when we refine RoomsModel:
-//                             if (UserData.loginStatus != DDPClient.LoggingIn)
-                            
-//                             console.log(activeChat.count);
-                        }
-                    }
+            onRoomSelected: {
+                if (roomID == selectedRoomID) {
+                    return;
                 }
+                console.log("Choosing room", roomID);
+                appid.selectedRoomID = roomID;
+                activeChat.model = UserData.getModelForRoom(roomID)
+            }
+            
+            onCountChanged: {
+                console.log("We have", roomsList.count, "rooms")
+            }
+            
+            LinearGradient {
+                id: greenGradient
+                anchors.fill: parent
+                start: Qt.point(0, 0)
+                end: Qt.point(roomsList.width, 0)
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: "#6ab141" }
+                    GradientStop { position: 1.0; color: "#00613a" }
+                }
+                z: -1;
+                
+            }
         }
+        
+        
         Item {
             
             anchors.right: parent.right
@@ -157,16 +146,19 @@ ApplicationWindow {
                     text: "Welcome to Ruqola!";
                 }
             }
-
+            
+            
+                
             ScrollView {
                 anchors.fill:parent
                 verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
 //                 visible: parent.visible && (UserData.loginStatus != DDPClient.LoggingIn)
                 visible: !greeter.visible
 
+         
                 ListView {
                     id: activeChat
-                    model:  UserData.getModelForRoom(selectedRoomID)
+//                     model: UserData.getModelForRoom(selectedRoomID)
 
                     onCountChanged: {
     //                     console.log("changed")
@@ -207,6 +199,9 @@ ApplicationWindow {
             anchors.left: roomsList.right
             anchors.bottom: parent.bottom
             placeholderText: qsTr("Enter message")
+            height: 2.7*font.pixelSize
+//             font.pointSize: 12
+            
             onAccepted: {
                 if (text != "") {
                     UserData.sendMessage(selectedRoomID, text);
@@ -216,6 +211,11 @@ ApplicationWindow {
         }
     }
     
+    Rectangle {
+        z: -10
+        anchors.fill: parent
+        color: "white"
+    }
     
     onClosing: {
         console.log("Minimizing to systray...");
@@ -235,14 +235,14 @@ ApplicationWindow {
     }
     Component.onCompleted: {
         systrayIcon.activated.connect(toggleShow);
-        roomsList.model = UserData.roomModel();
+//         roomsList.model = UserData.roomModel();
 //         systrayIcon.showMessage("Connected", "We are CONNECTED!");
     
         timer.start();
         timer.fire();
     }
 
-    
+/*    
     Timer {
         id: timer
         interval: 1000
@@ -259,7 +259,7 @@ ApplicationWindow {
             }
         }
         repeat: true
-    }
+    }*/
 
     onStatusTextChanged: timer.restart();
 }

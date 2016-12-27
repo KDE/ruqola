@@ -6,6 +6,9 @@
         <file>jsonpath.js</file>
         <file>main.qml</file>
         <file>Message.qml</file>
+        <file>RoomsView.qml</file>
+        <file>RoomDelegate.qml</file>
+        <file>RoomModelTest.qml</file>
         <file>Login.qml</file>
         <file>marked.js</file>
         <file>systray.png</file>

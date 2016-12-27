@@ -41,6 +41,7 @@ class UserData: public QObject
     Q_PROPERTY (QString password WRITE setPassword)
 //     Q_PROPERTY (bool connected READ connected NOTIFY connectedChanged)
     Q_PROPERTY (DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
+//     Q_PROPERTY(QString activeRoom READ activeRoom WRITE setActiveRoom NOTIFY activeRoomChanged)
     
 public:
     static UserData* self();
@@ -60,6 +61,9 @@ public:
     QString serverURL() const;
     void setServerURL(const QString &serverURL);
     
+//     QString activeRoom() const;
+//     void setActiveRoom(const QString &activeRoom);
+    
     DDPClient *ddp();
     Q_INVOKABLE RoomModel *roomModel();
     
@@ -74,14 +78,11 @@ public:
     
 signals:
     void userNameChanged();
-//     void connectedChanged();
     void serverURLChanged();
     void loginStatusChanged();
-//     void DDPChanged();
     
 private:
     UserData(QObject *parent = 0);
-//     ~UserData();
     static UserData *m_self;
     QString m_password;
     QString m_userName;
@@ -91,8 +92,6 @@ private:
     RoomModel *m_roomModel;
     DDPClient *m_ddp;
     QHash< QString, MessageModel * > m_messageModels;
-
-    
 };
 
 inline static QObject *userdata_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

@@ -56,6 +56,8 @@ public:
     static Room fromJSon(const QJsonObject &source);
     static QByteArray serialize(const Room &r);
     
+//     void setActiveRoom(const QString &activeRoom);
+    
     void reset();
     void clear();
 protected:

@@ -88,10 +88,6 @@ void RoomModel::reset()
     
     clear();
     
-//     beginResetModel();
-//     m_roomsList.clear();
-//     endResetModel();
-//     QList roomsList;
     QDir cacheDir(UserData::self()->cacheBasePath());
     // load cache
     if (cacheDir.exists(cacheDir.path())) {
@@ -103,8 +99,6 @@ void RoomModel::reset()
                 in.readBytes(byteArray, length);
                 QByteArray arr = QByteArray::fromRawData(byteArray, length);
                 Room m = RoomModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
-                // This cache creates some instabilities
-//                                 m_roomsList[m.name] = m;
                 addRoom(m.id, m.name, m.selected);
             }
         }
@@ -123,11 +117,14 @@ QHash<int, QByteArray> RoomModel::roleNames() const
 
 int RoomModel::rowCount(const QModelIndex & parent) const
 {
+//     if (m_roomsList.size() > 4) {return 4;}
+    qDebug() << m_roomsList.size() << "ROOMS";
     return m_roomsList.size();
 }
 
 QVariant RoomModel::data(const QModelIndex & index, int role) const
 {
+//     qDebug() << "GOT ASKED FOR " << index.row();
     Room r = m_roomsList.values().at(index.row());
      if (role == RoomModel::RoomName) {
         return  r.name;
@@ -140,11 +137,21 @@ QVariant RoomModel::data(const QModelIndex & index, int role) const
     }
 }
 
+// void RoomModel::setActiveRoom(const QString& activeRoom)
+// {
+//     foreach (const QString &id, m_roomsList.keys()) {
+//         qDebug() << id;
+//         m_roomsList[id].selected = (id == activeRoom);
+//     }
+// //     emit dataChanged(createIndex(1, 1), createIndex(rowCount(), 1));
+// }
+
 void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool selected)
 {
-    if (roomID.isEmpty()) {
+    if (roomID.isEmpty() || roomName.isEmpty()) {
         return;
     }
+    qDebug() << "Adding room" << roomID << roomName;
     
     bool updating = false;
     
@@ -153,6 +160,7 @@ void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool sel
     }
     
     int size = m_roomsList.size();
+    qDebug() << size;
     if (!updating) {
         beginInsertRows(index(size),  size, (size+1));
     }

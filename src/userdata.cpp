@@ -176,6 +176,17 @@ QString UserData::cacheBasePath() const
     return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+'/'+m_serverURL;
 }
 
+// QString UserData::activeRoom() const
+// {
+//     return m_activeRoom;
+// }
+// void UserData::setActiveRoom(const QString& activeRoom)
+// {
+//     m_activeRoom = activeRoom;
+// //     roomModel()->setActiveRoom(activeRoom);
+//     emit activeRoomChanged();
+// }
+
 UserData::UserData(QObject* parent)
  : QObject(parent),
  m_ddp(0),
