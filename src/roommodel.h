@@ -37,9 +37,12 @@ public:
     {
         return name < other.name;
     };
-    
+
+//  When you add a field, please remember to also add relevant code
+//  to the enum declaration, roleNames, fromJSon and serialize
     QString name;
     QString topic;
+    int unread;
     
     bool selected = false;
     QString id;
@@ -53,7 +56,8 @@ public:
     enum RoomRoles {
         RoomName = Qt::UserRole + 1,
         RoomSelected,
-        RoomID
+        RoomID,
+        RoomUnread
     };
     
     RoomModel (QObject *parent = 0);

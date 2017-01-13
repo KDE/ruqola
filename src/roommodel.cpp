@@ -33,6 +33,8 @@ Room RoomModel::fromJSon(const QJsonObject& o)
     
     r.name = o["name"].toString();
     r.id = o["id"].toString();
+    r.unread = o["unread"].toInt(0);
+    
     return r;
 }
 
@@ -42,6 +44,7 @@ QByteArray RoomModel::serialize(const Room& r)
     QJsonObject o;
     o["name"] = r.name;
     o["id"] = r.id;
+    o["unread"] = r.unread;
     d.setObject(o);
     return d.toBinaryData();
 }
@@ -112,6 +115,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomName] = "name";
     roles[RoomID] = "room_id";
     roles[RoomSelected] = "selected";
+    roles[RoomUnread] = "unread";
     return roles;
 }
 

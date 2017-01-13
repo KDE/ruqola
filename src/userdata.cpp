@@ -96,7 +96,7 @@ MessageModel * UserData::getModelForRoom(const QString& roomID)
 //         qDebug() << "Returning old model for " << roomID;
         return m_messageModels.value(roomID);
     } else {
-        qDebug() << "Creating a new model";
+//         qDebug() << "Creating a new model";
         m_messageModels[roomID] = new MessageModel(roomID, this);
         
         return m_messageModels[roomID];        

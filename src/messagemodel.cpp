@@ -46,7 +46,7 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
   : QAbstractListModel(parent),
   m_roomID(roomID)
 {
-    qDebug() << "Creating message Model";
+//     qDebug() << "Creating message Model";
     QDir cacheDir(UserData::self()->cacheBasePath()+"/rooms_cache");
     
         // load cache
