@@ -117,15 +117,16 @@ QHash<int, QByteArray> RoomModel::roleNames() const
 
 int RoomModel::rowCount(const QModelIndex & parent) const
 {
-//     if (m_roomsList.size() > 4) {return 4;}
-    qDebug() << m_roomsList.size() << "ROOMS";
+//     if (m_roomsHash.size() > 4) {return 4;}
+//     qDebug() << m_roomsList.size() << "ROOMS";
     return m_roomsList.size();
 }
 
 QVariant RoomModel::data(const QModelIndex & index, int role) const
 {
 //     qDebug() << "GOT ASKED FOR " << index.row();
-    Room r = m_roomsList.values().at(index.row());
+    Room r = m_roomsList.at(index.row());
+    
      if (role == RoomModel::RoomName) {
         return  r.name;
     } else if (role == RoomModel::RoomID) {
@@ -139,9 +140,9 @@ QVariant RoomModel::data(const QModelIndex & index, int role) const
 
 // void RoomModel::setActiveRoom(const QString& activeRoom)
 // {
-//     foreach (const QString &id, m_roomsList.keys()) {
+//     foreach (const QString &id, m_roomsHash.keys()) {
 //         qDebug() << id;
-//         m_roomsList[id].selected = (id == activeRoom);
+//         m_roomsHash[id].selected = (id == activeRoom);
 //     }
 // //     emit dataChanged(createIndex(1, 1), createIndex(rowCount(), 1));
 // }
@@ -153,31 +154,54 @@ void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool sel
     }
     qDebug() << "Adding room" << roomID << roomName;
     
-    bool updating = false;
     
-    if (m_roomsList.contains(roomName)) {
-        updating = true;
-    }
-    
-    int size = m_roomsList.size();
-    qDebug() << size;
-    if (!updating) {
-        beginInsertRows(index(size),  size, (size+1));
-    }
     Room r;
     r.id = roomID;
     r.name = roomName;
     r.selected = selected;
-    m_roomsList[roomName] = r;
+    addRoom(r);
+}
 
-    if (updating) {
-        //Figure out a better way to update just the really changed message, not EVERYTHING
-        emit dataChanged(createIndex(1, 1), createIndex(rowCount(), 1));
+void RoomModel::addRoom(const Room &room)
+{
+    auto existingRoom = qFind(m_roomsList.begin(), m_roomsList.end(), room);
+    bool present = (existingRoom != m_roomsList.end());
+    
+//     qDebug() << "Present? "<< present;
+    
+    auto i = qUpperBound(m_roomsList.begin(), m_roomsList.end(),
+                                               room);
+    int pos = i-m_roomsList.begin();
+    bool roomChanged = false;
+    qDebug() << pos;
+     
+//     if (qFind(m_roomsList.begin(), m_roomsList.end(), room) != m_roomsList.end() && pos > 0) {
+    if (present) {
+//         qDebug() << (qFind(m_roomsList.begin(), m_roomsList.end(), room) - m_roomsList.begin());
+//     if (pos != m_roomsList.size()) { // we're at the end
+//         qDebug() << "Room changed!";
+        roomChanged = true;
+        //Figure out a better way to update just the really changed message
+    } else {
+        beginInsertRows(QModelIndex(), pos, pos);
+    }
+    
+    if (roomChanged) {
+        m_roomsList.replace(pos-1, room);
+    } else {
+        qDebug() << "Inserting room at position" <<pos;
+        m_roomsList.insert(i, room);
+    }
+    
+    if (roomChanged) {
+        emit dataChanged(createIndex(1, 1), createIndex(pos, 1));
+        
     } else {
         endInsertRows();
     }
     
-    UserData::self()->getModelForRoom(r.id);
+    
+    UserData::self()->getModelForRoom(room.id);
 }
 
 

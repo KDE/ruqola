@@ -25,8 +25,22 @@
 
 #include <QAbstractListModel>
 
-struct Room {
+class Room {
+public:
+    // To be used in ID find: message ID
+    inline bool operator==(const Room &other) const
+    {
+        return other.id == id;
+    };
+    // To be used in sorted insert: timestamp
+    inline bool operator<(const Room &other) const
+    {
+        return name < other.name;
+    };
+    
     QString name;
+    QString topic;
+    
     bool selected = false;
     QString id;
 };
@@ -53,6 +67,8 @@ public:
     
     Q_INVOKABLE void addRoom(const QString& roomID, const QString& roomName, bool selected = false);
     
+    void addRoom(const Room& room);
+    
     static Room fromJSon(const QJsonObject &source);
     static QByteArray serialize(const Room &r);
     
@@ -65,7 +81,8 @@ protected:
     
 private:
     
-    QHash< QString, Room > m_roomsList;
+    QVector<Room> m_roomsList;
+//     QHash< QString, Room > m_roomsHash;
 };
 
 #endif // ROOMMODEL_H

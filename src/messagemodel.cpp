@@ -127,11 +127,10 @@ void MessageModel::addMessage(const Message& message)
         return;
     }
     
-    if (UserData::self()->loginStatus() != DDPClient::LoggedIn) {
-        return;
-    }
+    auto existingMessage = qFind(m_allMessages.begin(), m_allMessages.end(), message);
+    bool present = (existingMessage != m_allMessages.end());
     
-    QVector<Message>::iterator i = qUpperBound(m_allMessages.begin(), m_allMessages.end(),
+    auto i = qUpperBound(m_allMessages.begin(), m_allMessages.end(),
                                                message);
     
     int pos = i-m_allMessages.begin();
@@ -139,14 +138,20 @@ void MessageModel::addMessage(const Message& message)
     bool messageChanged = false;
     
 //     if (qFind(m_allMessages.begin(), m_allMessages.end(), message) != m_allMessages.end()) {
-    if (false) {
+    if (present){
+//     if (pos != m_allMessages.size()) { // we're at the end
+//         qDebug() << "detecting a message change";
         messageChanged = true;
         //Figure out a better way to update just the really changed message
     } else {
         beginInsertRows(QModelIndex(), pos, pos);
     }
     
-    m_allMessages.insert(i, message);
+    if (messageChanged) {
+        m_allMessages.replace(pos-1, message);
+    } else {
+        m_allMessages.insert(i, message);
+    }
     
     if (messageChanged) {
         emit dataChanged(createIndex(1, 1), createIndex(pos, 1));
@@ -158,12 +163,6 @@ void MessageModel::addMessage(const Message& message)
 
 QVariant MessageModel::data(const QModelIndex& index, int role) const
 {
-//     return QVariant("Hey baby");
-//     qDebug() << "C++ got asked item at index" << index
-//              << "room contains" << m_allMessages[m_currentRoom].size() << "messages";
-//     foreach (Message m, m_allMessages[m_currentRoom].values()) {
-//         qDebug() << m.username();
-//     }
     
     int idx = index.row();//-1;
     if (role == MessageModel::Username) {
