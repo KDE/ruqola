@@ -49,6 +49,20 @@ QByteArray RoomModel::serialize(const Room& r)
     return d.toBinaryData();
 }
 
+RoomWrapper::RoomWrapper(QObject *parent)
+ : QObject(parent)
+{}
+
+RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
+ : QObject(parent)
+{
+    m_name = r.name;
+    m_topic = r.topic;
+    m_unread = r.unread;
+    m_id = r.id;
+    m_selected = r.selected;
+}
+
 RoomModel::RoomModel(QObject* parent)
     : QAbstractListModel(parent)
 {
@@ -80,6 +94,18 @@ void RoomModel::clear()
         m_roomsList.clear();
         QAbstractItemModel::endRemoveRows();
     }
+}
+
+RoomWrapper* RoomModel::findRoom(const QString& roomID) const
+{
+    foreach (const Room r, m_roomsList) {
+        if (r.id == roomID) {
+            return new RoomWrapper(r);
+        }
+    }
+    Room r;
+//     RoomWrapper w;
+    return new RoomWrapper(r);
 }
 
 // Clear data and refill it it with data in the cache, if there is

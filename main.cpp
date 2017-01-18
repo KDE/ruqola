@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<MessageModel>("KDE.Ruqola.Models", 1, 0, "MessageModel");
     qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");
     qmlRegisterType<RoomModel>("KDE.Ruqola.Models", 1, 0, "RoomModel");
+    qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
 
     RocketChatBackend c;
     

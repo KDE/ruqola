@@ -108,10 +108,11 @@ ApplicationWindow {
                 console.log("Choosing room", roomID);
                 appid.selectedRoomID = roomID;
                 activeChat.model = UserData.getModelForRoom(roomID)
+                topicWidget.selectedRoom = UserData.getRoom(roomID)
             }
             
             onCountChanged: {
-                console.log("We have", roomsList.count, "rooms")
+//                 console.log("We have", roomsList.count, "rooms")
             }
             
             LinearGradient {
@@ -148,9 +149,12 @@ ApplicationWindow {
                 id: topicWidget
                 color: "#fff"
                 anchors.top: parent.top
+                
+                property var selectedRoom;
+                
                 Text {
                     anchors.fill: parent
-                    text: "#" + appid.selectedRoomID
+                    text: "#" + parent.selectedRoom.name
                     font.pointSize: 18
                     verticalAlignment: Text.AlignVCenter
                     anchors.leftMargin: 20

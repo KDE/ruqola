@@ -186,6 +186,11 @@ QString UserData::cacheBasePath() const
 // //     roomModel()->setActiveRoom(activeRoom);
 //     emit activeRoomChanged();
 // }
+RoomWrapper * UserData::getRoom(const QString& roomID)
+{
+    return roomModel()->findRoom(roomID);
+}
+
 
 UserData::UserData(QObject* parent)
  : QObject(parent),

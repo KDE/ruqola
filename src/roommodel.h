@@ -24,9 +24,16 @@
 #define ROOMMODEL_H
 
 #include <QAbstractListModel>
+#include <QObject>
+
 
 class Room {
-public:
+public:   
+//     Room(const Room &room)
+//     {
+// //         this->parent = room.parent();
+//     }
+    
     // To be used in ID find: message ID
     inline bool operator==(const Room &other) const
     {
@@ -37,7 +44,13 @@ public:
     {
         return name < other.name;
     };
-
+    
+    QString getName() const {return name;};
+    QString getTopic() const {return topic;};
+    
+private:
+    friend class RoomModel;
+    friend class RoomWrapper;
 //  When you add a field, please remember to also add relevant code
 //  to the enum declaration, roleNames, fromJSon and serialize
     QString name;
@@ -47,6 +60,25 @@ public:
     bool selected = false;
     QString id;
 };
+
+class RoomWrapper : public QObject
+{
+    Q_PROPERTY(QString name READ getName)
+    Q_PROPERTY(QString topic READ getTopic)
+    Q_OBJECT
+    
+public:
+    RoomWrapper(QObject *parent = 0);
+    RoomWrapper(const Room &r, QObject *parent = 0);
+     
+    QString getName() {return m_name;};
+    QString getTopic() {return m_topic;};
+private:
+    QString m_name, m_topic, m_id;
+    int m_unread;
+    bool m_selected;
+};
+    
 
 class RoomModel : public QAbstractListModel
 {
@@ -72,6 +104,8 @@ public:
     Q_INVOKABLE void addRoom(const QString& roomID, const QString& roomName, bool selected = false);
     
     void addRoom(const Room& room);
+    RoomWrapper* findRoom(const QString &roomID) const;
+    
     
     static Room fromJSon(const QJsonObject &source);
     static QByteArray serialize(const Room &r);

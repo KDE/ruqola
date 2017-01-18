@@ -72,6 +72,7 @@ public:
     
     Q_INVOKABLE void tryLogin();
     Q_INVOKABLE void logOut();
+    Q_INVOKABLE RoomWrapper* getRoom(const QString &roomID); 
     //     void setRoomModel();
     
     QString cacheBasePath() const;
