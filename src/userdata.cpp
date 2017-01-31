@@ -164,8 +164,6 @@ void UserData::logOut()
     emit loginStatusChanged();
     
     m_roomModel->clear();
-//     m_roomModel->reset();
-    // RoomModel -> reset();
 }
 
 QString UserData::cacheBasePath() const

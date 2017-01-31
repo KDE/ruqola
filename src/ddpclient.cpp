@@ -216,6 +216,7 @@ void DDPClient::onTextMessageReceived(QString message)
             qDebug() << "Ping - Pong";
             m_webSocket.sendBinaryMessage("{\"msg\":\"pong\"}");
         } else if (messageType == "added"){
+            qDebug() << "ADDING" <<root;
             emit added(root);
         } else if (messageType == "changed") {
             emit changed(root);

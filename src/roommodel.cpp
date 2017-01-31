@@ -209,7 +209,7 @@ void RoomModel::addRoom(const Room &room)
     if (present) {
 //         qDebug() << (qFind(m_roomsList.begin(), m_roomsList.end(), room) - m_roomsList.begin());
 //     if (pos != m_roomsList.size()) { // we're at the end
-//         qDebug() << "Room changed!";
+        qDebug() << "Room changed!";
         roomChanged = true;
         //Figure out a better way to update just the really changed message
     } else {

@@ -48,9 +48,11 @@ public:
     QString getName() const {return name;};
     QString getTopic() const {return topic;};
     
-private:
-    friend class RoomModel;
-    friend class RoomWrapper;
+// private:
+//     friend class RoomModel;
+//     friend class RoomWrapper;
+    
+    
 //  When you add a field, please remember to also add relevant code
 //  to the enum declaration, roleNames, fromJSon and serialize
     QString name;
@@ -63,8 +65,8 @@ private:
 
 class RoomWrapper : public QObject
 {
-    Q_PROPERTY(QString name READ getName)
-    Q_PROPERTY(QString topic READ getTopic)
+    Q_PROPERTY(QString name READ getName NOTIFY nameChanged)
+    Q_PROPERTY(QString topic READ getTopic NOTIFY topicChanged)
     Q_OBJECT
     
 public:
@@ -73,6 +75,12 @@ public:
      
     QString getName() {return m_name;};
     QString getTopic() {return m_topic;};
+    
+    
+signals:
+    void nameChanged();
+    void topicChanged();
+    
 private:
     QString m_name, m_topic, m_id;
     int m_unread;

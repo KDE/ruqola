@@ -51,15 +51,23 @@ void rooms_callback(QJsonDocument doc)
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
     
-        if (room.value("t").toString() == "c") {
+        if (room.value("t").toString() != "d") {
 
-            QString roomID = room.value("rid").toString();
-            qDebug() << "Adding" << roomID<< room.value("name").toString();
+            QString roomID = room.value("_id").toString();
+//             qDebug() << "Adding" << roomID<< room.value("name").toString() <<  room;
             MessageModel *roomModel = UserData::self()->getModelForRoom(roomID);
             
             // let's be extra safe around crashes
             if (UserData::self()->loginStatus() == DDPClient::LoggedIn) {
-                model->addRoom(roomID, room.value("name").toString());
+                Room r;
+                r.id = roomID;
+                r.name = room["name"].toString();
+                r.topic = room["topic"].toString();
+                
+                
+                qDebug() << "Adding room" << r.name << r.id << r.topic;
+                
+                model->addRoom(r);
             }
             
             QString params = QString("[\"%1\"]").arg(roomID);
@@ -75,7 +83,55 @@ void rooms_callback(QJsonDocument doc)
             
         }
     } 
-//     qDebug() << "DEBUG:" << doc;
+    qDebug() << "DEBUG:" << doc;
+}
+
+void subs_callback(QJsonDocument doc)
+{
+//     qDebug() << doc;
+    RoomModel *model = UserData::self()->roomModel();
+//     qDebug() << model;
+//     model->reset();
+    
+    QJsonArray removed = doc.object().value("remove").toArray();
+    QJsonArray updated = doc.object().value("update").toArray();
+    
+    for (int i = 0; i < updated.size(); i++) {
+        QJsonObject room = updated.at(i).toObject();
+    
+        if (room.value("t").toString() != "d") {
+
+            QString roomID = room.value("rid").toString();
+//             qDebug() << "Adding" << roomID<< room.value("name").toString() <<  room;
+            MessageModel *roomModel = UserData::self()->getModelForRoom(roomID);
+            
+            // let's be extra safe around crashes
+            if (UserData::self()->loginStatus() == DDPClient::LoggedIn) {
+                Room r;
+                r.id = roomID;
+                r.name = room["name"].toString();
+                r.topic = room["topic"].toString();
+                
+                
+                qDebug() << "Adding room" << r.name << r.id << r.topic;
+                
+                model->addRoom(r);
+            }
+            
+            QString params = QString("[\"%1\"]").arg(roomID);
+            UserData::self()->ddp()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));
+        
+            // Load history
+            QByteArray json = "[\""+roomID.toLatin1() +
+                            "\", null, 50, {\"$date\": "+
+                            QString::number(roomModel->lastTimestamp()).toLatin1()+
+                            "}]";
+            qDebug() << json;
+            UserData::self()->ddp()->method("loadHistory", QJsonDocument::fromJson(json), process_backlog);
+            
+        }
+    } 
+    qDebug() << "DEBUG:" << doc;
 }
 
 void RocketChatBackend::processIncomingMessages(QJsonArray messages)
@@ -111,22 +167,24 @@ RocketChatBackend::RocketChatBackend(QObject* parent)
 //     UserData::self()->ddp() = new DDPClient(, this);
     connect(UserData::self(), &UserData::loginStatusChanged, this, &RocketChatBackend::onLoginStatusChanged);
     
+        connect(UserData::self()->ddp(), &DDPClient::changed, this, &RocketChatBackend::onChanged);
+        connect(UserData::self()->ddp(), &DDPClient::added, this, &RocketChatBackend::onAdded);
 }
 
 RocketChatBackend::~RocketChatBackend()
 {
-//     delete m_rooms;
-//     delete UserData::self()->ddp();
 }
 
 void RocketChatBackend::onLoginStatusChanged()
 {
     if (UserData::self()->loginStatus() == DDPClient::LoggedIn) {
-        connect(UserData::self()->ddp(), &DDPClient::changed, this, &RocketChatBackend::onChanged);
-        connect(UserData::self()->ddp(), &DDPClient::added, this, &RocketChatBackend::onAdded);
         
         qDebug() << "GETTING LIST OF ROOMS";
-        UserData::self()->ddp()->method("subscriptions/get", QJsonDocument::fromJson("{\"$date\": 0}"), rooms_callback);
+//         UserData::self()->ddp()->method("subscriptions/get", QJsonDocument::fromJson("{\"$date\": 0}"), rooms_callback);
+        UserData::self()->ddp()->method("rooms/get", QJsonDocument::fromJson("{\"$date\": 0}"), rooms_callback);
+        
+//         UserData::self()->ddp()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));
+
     }
 }
 
@@ -146,8 +204,8 @@ void RocketChatBackend::onAdded(QJsonObject object)
     QString collection = object.value("collection").toString();
     
     qDebug() << "ROCKET BACK" << object << collection;
-    if (collection == "stream-room-messages") {
     
+    if (collection == "stream-room-messages") {
         
     } else if (collection == "users") {
         qDebug() << "NEW USER";
@@ -155,11 +213,10 @@ void RocketChatBackend::onAdded(QJsonObject object)
     } else if (collection == "rooms") {
     }
 }
-// {"_id":"RhiggypZiepy9M4qL","_updatedAt":{"$date":1482704143952},"alert":false,"ls":{"$date":1482704143952},"name":"tech","open":true,"rid":"tKHaLfB35vo4qAnBp","t":"c","ts":{"$date":1479497659929},"u":{"_id":"po2bcKwPMdtnDCXhX","username":"ruphy"},"unread":0}
 
 void RocketChatBackend::onChanged(QJsonObject object)
 {
-    QString collection = object.value("collection").toString();
+    QString collection = object["collection"].toString();
     
     qDebug() << "ROCKET BACK" << object << collection;
     if (collection == "stream-room-messages") {

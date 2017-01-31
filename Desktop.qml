@@ -153,15 +153,37 @@ ApplicationWindow {
                 property var selectedRoom;
                 
                 Text {
-                    anchors.fill: parent
+                    id: nameLabel
                     text: "#" + parent.selectedRoom.name
                     font.pointSize: 18
                     verticalAlignment: Text.AlignVCenter
                     anchors.leftMargin: 20
+                    height: 40
+                
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    
                 }
+                
+                Text {
+                    id: topicLabel
+                    text: topicWidget.selectedRoom.topic
+                    
+                    anchors.top: nameLabel.bottom
+                    anchors.bottom: parent.bottom
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    
+                    horizontalAlignment: Text.AlignHCenter
+                    
+                    height: font.pixelSize + 10
+                }                    
+//                 */
                 anchors.right: parent.right
                 anchors.left: parent.left
-                height: 40
+                height: nameLabel.height + topicLabel.height 
+                
             }
             
             ScrollView {
