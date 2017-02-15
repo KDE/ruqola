@@ -15,12 +15,12 @@ public:
     inline bool operator==(const Message &other) const
     {
         return other.messageID == messageID;
-    };
+    }
     // To be used in sorted insert: timestamp
     inline bool operator<(const Message &other) const
     {
         return timestamp < other.timestamp;
-    };
+    }
     
     QString messageID;
     

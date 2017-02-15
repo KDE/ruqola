@@ -1,9 +1,10 @@
 #include <QApplication>
 #include <QtQml>
 
-// only if deskop
 #include <QSystemTrayIcon>
+#include <QMessageBox>
 
+// only if deskop
 #include "src/roommodel.h"
 #include "src/rocketchatbackend.h"
 #include "src/userdata.h"
@@ -28,13 +29,14 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonType<UserData>("KDE.Ruqola.UserData", 1, 0, "UserData", userdata_singletontype_provider);
     qmlRegisterType<MessageModel>("KDE.Ruqola.Models", 1, 0, "MessageModel");
     qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");
-    qmlRegisterType<RoomModel>("KDE.Ruqola.Models", 1, 0, "RoomModel");
+    qmlRegisterType<RoomModel>("KDE.Ruqola.RoomModel", 1, 0, "RoomModel");
     qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
-
+    qmlRegisterType<Notification>("KDE.Ruqola.Notification", 1, 0, "Notification");
     RocketChatBackend c;
     
     QQmlApplicationEngine engine;
-    QQmlContext *ctxt = engine.rootContext();
+
+/*   QQmlContext *ctxt = engine.rootContext();
 
     QMenu menu;
     auto quit = menu.addAction("&Quit");
@@ -44,12 +46,13 @@ int main(int argc, char *argv[])
     systray.setIcon(QIcon(":/systray.png"));
     systray.setContextMenu(&menu);
     systray.setVisible(true);
-    
+    systray.setToolTip("Ruqola");
     ctxt->setContextProperty("systrayIcon", &systray);
-    
-//     systray.setVisible(true);
-    
+*/
+
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    if (engine.rootObjects().isEmpty())
+        return -1;
 
     return app.exec();
 }

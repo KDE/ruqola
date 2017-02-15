@@ -38,15 +38,15 @@ public:
     inline bool operator==(const Room &other) const
     {
         return other.id == id;
-    };
+    }
     // To be used in sorted insert: timestamp
     inline bool operator<(const Room &other) const
     {
         return name < other.name;
-    };
+    }
     
-    QString getName() const {return name;};
-    QString getTopic() const {return topic;};
+    QString getName() const {return name;}
+    QString getTopic() const {return topic;}
     
 // private:
 //     friend class RoomModel;
@@ -55,12 +55,9 @@ public:
     
 //  When you add a field, please remember to also add relevant code
 //  to the enum declaration, roleNames, fromJSon and serialize
-    QString name;
-    QString topic;
+    QString name, topic, id;
     int unread;
-    
     bool selected = false;
-    QString id;
 };
 
 class RoomWrapper : public QObject
@@ -73,9 +70,8 @@ public:
     RoomWrapper(QObject *parent = 0);
     RoomWrapper(const Room &r, QObject *parent = 0);
      
-    QString getName() {return m_name;};
-    QString getTopic() {return m_topic;};
-    
+    QString getName() {return m_name;}
+    QString getTopic() {return m_topic;}
     
 signals:
     void nameChanged();

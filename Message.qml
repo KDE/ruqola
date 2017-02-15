@@ -44,9 +44,7 @@ Rectangle {
         color: i_systemMessage? "#999" : "#111"
         id: textLabel
         text: i_systemMessage? getTextFor(i_systemMessageType) : MarkDown.md2html(i_messageText)
-            
-        
-        
+
 //         width: parent.width
         
         anchors.top: parent.top

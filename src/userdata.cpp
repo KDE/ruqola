@@ -24,6 +24,82 @@
 #include "roommodel.h"
 #include "ddpclient.h"
 
+#include <QAction>
+#include <QMenu>
+#include <QMessageBox>
+#include <QWindow>
+
+Notification::Notification(){
+    qDebug() << "Inside notification constructor";
+    createActions();
+    createTrayIcon();
+    connect(trayIcon, &QSystemTrayIcon::messageClicked, this, &Notification::notificationClicked);
+    trayIcon->show();
+}
+
+QSystemTrayIcon * Notification::systrayIcon(){
+    return trayIcon;
+}
+
+//To check whether or not to show notifications
+bool Notification::windowVisibility() {
+    return m_windowVisibility;
+}
+
+void Notification::setmessage(const QString &message){
+    m_message = message;
+}
+
+QString Notification::message() const{
+    return m_message;
+}
+
+void Notification::showMessage(){
+    if (!windowVisibility()){
+      QString user_message = message();
+        trayIcon->showMessage("New message from "+UserData::self()->userName(),
+                user_message, QSystemTrayIcon::Information, 5000);
+    }
+    else{
+        qDebug() << "New message recieved- Window maximized";
+    }
+}
+
+//Opens the room having new message
+void Notification::notificationClicked(){
+    /*
+     *      1. open systray
+     *      2. switch to unread room
+     *
+     */
+}
+
+void Notification::createActions(){
+    restoreAction = new QAction(tr("&Restore"), this);
+    connect(restoreAction, &QAction::triggered, this,  &QWindow::showNormal );
+
+    quitAction = new QAction(tr("&Quit"), this);
+    connect(quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
+}
+
+void Notification::createTrayIcon(){
+    qDebug() << "Creating system tray";
+    if (!QSystemTrayIcon::isSystemTrayAvailable()) {
+        QMessageBox::critical(0, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
+        return;
+    }
+    trayIconMenu = new QMenu();
+    trayIconMenu->addAction(restoreAction);
+    trayIconMenu->addAction(quitAction);
+    trayIconMenu->addSeparator();
+
+    trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setContextMenu(trayIconMenu);
+    trayIcon->setToolTip("Ruqola");
+    trayIcon->setIcon(QIcon(":/systray.png"));
+    trayIcon->setVisible(true);
+}
+
 UserData *UserData::m_self = 0;
 
 QString UserData::authToken() const
@@ -85,8 +161,10 @@ DDPClient * UserData::ddp()
 
 void UserData::sendMessage(const QString &roomID, const QString &message)
 {
+    Notification *notification = new Notification();
     QString json = "{\"rid\": \"%1\", \"msg\": \"%2\"}";
     json = json.arg(roomID, message);
+    notification->setmessage(message);
     ddp()->method("sendMessage", QJsonDocument::fromJson(json.toUtf8()));
 }
 
@@ -190,15 +268,14 @@ RoomWrapper * UserData::getRoom(const QString& roomID)
 }
 
 
-UserData::UserData(QObject* parent)
- : QObject(parent),
- m_ddp(0),
- m_roomModel(0)
+UserData::UserData(QObject* parent): QObject(parent), m_ddp(0), m_roomModel(0)
 {
     QSettings s;
     m_serverURL = s.value("serverURL", "demo.rocket.chat").toString();
     m_userName = s.value("username").toString();
     m_authToken = s.value("authToken").toString();
+    Notification();
+    qDebug() << "Called notification constructor";
 //     roomModel()->reset();
 }
 

@@ -26,9 +26,16 @@
 #include <QObject>
 #include <QQmlEngine>
 #include <QJSEngine>
+#include <QSystemTrayIcon>
+#include <QWindow>
 #include "ddpclient.h"
 #include "roommodel.h"
 #include "messagemodel.h"
+
+QT_BEGIN_NAMESPACE
+class QAction;
+class QMenu;
+QT_END_NAMESPACE
 
 class QString;
 
@@ -38,7 +45,7 @@ class UserData: public QObject
     
     Q_PROPERTY (QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
     Q_PROPERTY (QString serverURL READ serverURL WRITE setServerURL NOTIFY serverURLChanged)
-    Q_PROPERTY (QString password WRITE setPassword)
+    Q_PROPERTY (QString password READ password WRITE setPassword)
 //     Q_PROPERTY (bool connected READ connected NOTIFY connectedChanged)
     Q_PROPERTY (DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
 //     Q_PROPERTY(QString activeRoom READ activeRoom WRITE setActiveRoom NOTIFY activeRoomChanged)
@@ -90,9 +97,41 @@ private:
     QString m_authToken;
     QString m_serverURL;
     
-    RoomModel *m_roomModel;
     DDPClient *m_ddp;
+    RoomModel *m_roomModel;
+
     QHash< QString, MessageModel * > m_messageModels;
+};
+
+class Notification: public QWindow{
+    Q_OBJECT
+    Q_PROPERTY(bool windowVisibility READ windowVisibility)
+    Q_PROPERTY(QString message READ message WRITE setmessage NOTIFY messageChanged)
+    Q_PROPERTY(QSystemTrayIcon *systrayIcon READ systrayIcon)
+public:
+    Notification();
+    bool windowVisibility();
+    void setmessage(const QString &userMessage);
+    QString message() const;
+    QSystemTrayIcon * systrayIcon();
+    void showMessage();
+    void notificationClicked();
+
+signals:
+    void messageChanged(); //Not required though
+
+private:
+    void createActions();
+    void createTrayIcon();
+
+    QAction *restoreAction;
+    QAction *quitAction;
+
+    QSystemTrayIcon *trayIcon;
+    QMenu *trayIconMenu;
+
+    bool m_windowVisibility;
+    QString m_message;
 };
 
 inline static QObject *userdata_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

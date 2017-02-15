@@ -147,6 +147,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
 
 int RoomModel::rowCount(const QModelIndex & parent) const
 {
+    Q_UNUSED(parent);
 //     if (m_roomsHash.size() > 4) {return 4;}
 //     qDebug() << m_roomsList.size() << "ROOMS";
     return m_roomsList.size();

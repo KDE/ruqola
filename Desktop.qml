@@ -13,6 +13,7 @@ import QtGraphicalEffects 1.0
 
 import KDE.Ruqola.UserData 1.0
 import KDE.Ruqola.DDPClient 1.0
+import KDE.Ruqola.Notification 1.0
 
 // import "Log.js" as Log
 // import "Data.js" as Data
@@ -31,13 +32,13 @@ ApplicationWindow {
     width: 800
     height: 600
     visible: true
-    
+    /*
     Shortcut {
         sequence: StandardKey.Quit
         context: Qt.ApplicationShortcut
         onActivated: Qt.quit()
     }
-    
+    */
     Login {
         id: loginTab
         visible: (UserData.loginStatus == DDPClient.LoginFailed || UserData.loginStatus == DDPClient.LoggedOut)
@@ -158,7 +159,7 @@ ApplicationWindow {
                     font.pointSize: 18
                     verticalAlignment: Text.AlignVCenter
                     anchors.leftMargin: 20
-                    height: 40
+                    height: 30
                 
                     anchors.top: parent.top
                     anchors.left: parent.left
@@ -178,8 +179,7 @@ ApplicationWindow {
                     horizontalAlignment: Text.AlignHCenter
                     
                     height: font.pixelSize + 10
-                }                    
-//                 */
+                }
                 anchors.right: parent.right
                 anchors.left: parent.left
                 height: nameLabel.height + topicLabel.height 
@@ -195,7 +195,7 @@ ApplicationWindow {
                 
                 verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
 //                 visible: parent.visible && (UserData.loginStatus != DDPClient.LoggingIn)
-                visible: !greeter.visible
+//                visible: !greeter.visible
 
          
                 ListView {
@@ -240,12 +240,16 @@ ApplicationWindow {
             anchors.right: parent.right
             anchors.left: roomsList.right
             anchors.bottom: parent.bottom
-            placeholderText: qsTr("Enter message")
+            placeholderText: if (UserData.loginStatus != DDPClient.LoggedIn || (selectedRoomID=="")){
+                                 qsTr("Please Select a room")
+                             }
+                             else{
+                                 qsTr("Enter message")
+                             }
             height: 2.7*font.pixelSize
-//             font.pointSize: 12
-            
+
             onAccepted: {
-                if (text != "") {
+                if (text != "" && UserData.loginStatus == DDPClient.LoggedIn && !(selectedRoomID=="")) {
                     UserData.sendMessage(selectedRoomID, text);
                     text = "";
                 }
@@ -261,6 +265,7 @@ ApplicationWindow {
     
     onClosing: {
         console.log("Minimizing to systray...");
+        Notification.windowVisibility = false;
         hide();
     }
     
@@ -268,15 +273,17 @@ ApplicationWindow {
 //         console.log ("Showing");
         
         if (visible) {
+            Notification.windowVisibility = false;
             hide();
         } else {
             show();
             raise();
             requestActivate();
+            Notification.windowVisibility = true;
         }
     }
     Component.onCompleted: {
-        systrayIcon.activated.connect(toggleShow);
+           Notification.systrayIcon.activated.connect(toggleShow);
 //         roomsList.model = UserData.roomModel();
 //         systrayIcon.showMessage("Connected", "We are CONNECTED!");
     
