@@ -229,6 +229,28 @@ void RocketChatBackend::onChanged(QJsonObject object)
         qDebug() << "NEW USER";
         
     } else if (collection == "rooms") {
+
+    }
+    else if (collection == "stream-notify-user"){
+
+        QJsonArray messages = object.value("fields").toObject().value("args").toArray();
+        foreach (const QJsonValue v, messages) {
+            QJsonObject o = v.toObject();
+
+            Message m;
+            QString roomId = o.value("rid").toString();
+            QString type = o.value("t").toString();
+            m.username = o.value("u").toObject().value("username").toString();
+            m.userID = o.value("u").toObject().value("_id").toString();
+            m.message = o.value("msg").toString();
+            m.messageID = o.value("_id").toString();
+            m.roomID = roomId;
+            m.timestamp = (qint64)o.value("ts").toObject().value("$date").toDouble();
+            //not a system message and message not sent by user itself
+            if ( !type.isEmpty() && m.username != UserData::self()->userName()){
+                Notification::self()->showNotification(m.userID, m.username,m.message);
+            }
+        }
     }
 }
 
