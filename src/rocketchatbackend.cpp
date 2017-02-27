@@ -26,6 +26,7 @@
 #include <QDebug>
 #include "userdata.h"
 #include "ddpclient.h"
+#include "notification.h"
 
 void debug_callback(QJsonDocument doc)
 {
@@ -246,7 +247,7 @@ void RocketChatBackend::onChanged(QJsonObject object)
             m.messageID = o.value("_id").toString();
             m.roomID = roomId;
             m.timestamp = (qint64)o.value("ts").toObject().value("$date").toDouble();
-            //not a system message and message not sent by user itself
+            //check if its not a system message and message not sent by user itself
             if ( !type.isEmpty() && m.username != UserData::self()->userName()){
                 Notification::self()->showNotification(m.userID, m.username,m.message);
             }

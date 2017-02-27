@@ -26,16 +26,10 @@
 #include <QObject>
 #include <QQmlEngine>
 #include <QJSEngine>
-#include <QSystemTrayIcon>
-#include <QWindow>
 #include "ddpclient.h"
 #include "roommodel.h"
 #include "messagemodel.h"
 
-QT_BEGIN_NAMESPACE
-class QAction;
-class QMenu;
-QT_END_NAMESPACE
 
 class QString;
 
@@ -103,33 +97,6 @@ private:
     QHash< QString, MessageModel * > m_messageModels;
 };
 
-class Notification: public QSystemTrayIcon{
-    Q_OBJECT
-    Q_PROPERTY (bool windowMinimized READ windowMinimized WRITE setWindowMinimized NOTIFY windowMinimizedChanged)
-
-public:
-    void createActions();
-    void createTrayIcon();
-
-    void setWindowMinimized(const bool &val);
-    bool windowMinimized() const;
-    void showNotification(const QString userID, const QString userName, QString message);
-
-    static Notification * self();
-
-signals:
-    void windowMinimizedChanged();
-
-private:
-    Notification();
-    static Notification *n_self;
-
-    QAction *restoreAction;
-    QAction *quitAction;
-    QMenu *trayIconMenu;
-
-    bool n_windowMinimized;
-};
 
 inline static QObject *userdata_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {

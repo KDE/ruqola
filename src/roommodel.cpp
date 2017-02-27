@@ -21,11 +21,10 @@
  */
 
 #include "roommodel.h"
+#include "userdata.h"
 
 #include <QtCore/QAbstractItemModel>
 #include <QtCore>
-
-#include "userdata.h"
 
 Room RoomModel::fromJSon(const QJsonObject& o)
 {

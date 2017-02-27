@@ -4,17 +4,15 @@
 #include <QSystemTrayIcon>
 #include <QMessageBox>
 
-// only if deskop
+// only if desktop
 #include "src/roommodel.h"
 #include "src/rocketchatbackend.h"
 #include "src/userdata.h"
+#include "src/notification.h"
 
 #include <QDebug>
 #include <QtCore/QJsonDocument>
-
 #include <QtCore>
-#include <QAction>
-#include <QMenu>
 
 
 int main(int argc, char *argv[])
@@ -27,10 +25,10 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("Ruqola");
     
     qmlRegisterSingletonType<UserData>("KDE.Ruqola.UserData", 1, 0, "UserData", userdata_singletontype_provider);
-    qmlRegisterType<MessageModel>("KDE.Ruqola.Models", 1, 0, "MessageModel");
+    qmlRegisterType<MessageModel>("KDE.Ruqola.MessageModel", 1, 0, "MessageModel");
     qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");
     qmlRegisterType<RoomModel>("KDE.Ruqola.RoomModel", 1, 0, "RoomModel");
-    qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
+    qmlRegisterType<Notification>("KDE.Ruqola.Notification", 1, 0, "Notification");
     RocketChatBackend c;
     
     QQmlApplicationEngine engine;
