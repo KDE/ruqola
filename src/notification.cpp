@@ -25,10 +25,7 @@ void Notification::setWindowMinimized(const bool &val){
 //}
 
 void Notification::createActions(){
-//    restoreAction = new QAction(tr("&Restore"), this);
-//    connect(restoreAction, &QAction::triggered, qApp,  &QWindow::showNormal );
-
-    quitAction = new QAction(tr("&Quit"), this);
+   quitAction = new QAction(tr("&Quit"), this);
     connect(quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
 }
 
@@ -39,7 +36,6 @@ void Notification::createTrayIcon(){
         return;
     }
     trayIconMenu = new QMenu();
-//    trayIconMenu->addAction(restoreAction);
     trayIconMenu->addAction(quitAction);
     trayIconMenu->addSeparator();
 
@@ -55,8 +51,9 @@ void Notification::createTrayIcon(){
 
 void Notification::showNotification(const QString userID, const QString userName, QString message )
 {
-    QString params = QString("[\"%1\"/\"%2\" ]").arg(userID).arg(QString("notification"));
-    UserData::self()->ddp()->subscribe("stream-notify-user", QJsonDocument::fromJson(params.toLatin1()));
+    Q_UNUSED(userID);
+//    QString params = QString("[\"%1\"/\"%2\" ]").arg(userID).arg(QString("notification"));
+//    UserData::self()->ddp()->subscribe("stream-notify-user", QJsonDocument::fromJson(params.toLatin1()));
 
     if ( n_windowMinimized && UserData::self()->loginStatus() == DDPClient::LoggedIn ){
     QString title("New Message"); //This can be enhanced later
@@ -73,13 +70,21 @@ Notification::Notification(): n_windowMinimized(false)
     qDebug() << "Called notification constructor";
 }
 
+void Notification::iconActivated(QSystemTrayIcon::ActivationReason reason){
+    Q_UNUSED(reason);
+    qDebug() << "Icon activated";
+}
+
 
 Notification * Notification::self()
 {
+    qDebug() << "Inside Notification::self()";
     if(!n_self){
         n_self = new Notification;
         n_self->createActions();
         n_self->createTrayIcon();
+//        connect(systrayIcon , SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+//                this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
         n_self->show();
     }
     return n_self;

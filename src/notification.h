@@ -12,7 +12,7 @@ QT_END_NAMESPACE
 class Notification: public QSystemTrayIcon{
     Q_OBJECT
     Q_PROPERTY (bool windowMinimized READ windowMinimized WRITE setWindowMinimized NOTIFY windowMinimizedChanged)
-//    Q_PROPERTY(QSystemTrayIcon nSekf READ nSekf WRITE setnSekf NOTIFY nSekfChanged)
+
 public:
     void createActions();
     void createTrayIcon();
@@ -21,16 +21,18 @@ public:
     bool windowMinimized() const;
     void showNotification(const QString userID, const QString userName, QString message);
 
-    static Notification * self();
-    Notification();
+    Q_INVOKABLE static Notification * self();
 
 signals:
     void windowMinimizedChanged();
 
+public slots:
+    void iconActivated(QSystemTrayIcon::ActivationReason reason);
+
 private:
     static Notification *n_self;
+    Notification();
 
-    QAction *restoreAction;
     QAction *quitAction;
     QMenu *trayIconMenu;
 
