@@ -69,10 +69,6 @@ void UserData::setUserName(const QString& username)
 
 void UserData::setUserID(const QString& userID)
 {
-    if (m_userID == userID) {
-        return;
-    }
-    
     m_userName = userID;
     QSettings s;
     s.setValue("userID", userID);
