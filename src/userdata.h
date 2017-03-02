@@ -37,6 +37,7 @@ class UserData: public QObject
     Q_OBJECT
     
     Q_PROPERTY (QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
+    Q_PROPERTY (QString userID READ userID WRITE setUserID NOTIFY userIDChanged)
     Q_PROPERTY (QString serverURL READ serverURL WRITE setServerURL NOTIFY serverURLChanged)
     Q_PROPERTY (QString password WRITE setPassword)
 //     Q_PROPERTY (bool connected READ connected NOTIFY connectedChanged)
@@ -48,6 +49,9 @@ public:
 
     void setUserName(const QString &username);
     QString userName() const;
+    
+    void setUserID(const QString &userID);
+    QString userID() const;
     
     void setPassword(const QString &password);
     QString password() const;
@@ -79,6 +83,7 @@ public:
     
 signals:
     void userNameChanged();
+    void userIDChanged();
     void serverURLChanged();
     void loginStatusChanged();
     
@@ -87,6 +92,7 @@ private:
     static UserData *m_self;
     QString m_password;
     QString m_userName;
+    QString m_userID;
     QString m_authToken;
     QString m_serverURL;
     

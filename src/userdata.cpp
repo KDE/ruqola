@@ -36,6 +36,11 @@ QString UserData::userName() const
     return m_userName;
 }
 
+QString UserData::userID() const
+{
+    return m_userID;
+}
+
 QString UserData::password() const
 {
     return m_password;
@@ -60,6 +65,18 @@ void UserData::setUserName(const QString& username)
     QSettings s;
     s.setValue("username", username);
     emit userNameChanged();
+}
+
+void UserData::setUserID(const QString& userID)
+{
+    if (m_userID == userID) {
+        return;
+    }
+    
+    m_userName = userID;
+    QSettings s;
+    s.setValue("userID", userID);
+    emit userIDChanged();
 }
 
 RoomModel * UserData::roomModel()
@@ -198,6 +215,7 @@ UserData::UserData(QObject* parent)
     QSettings s;
     m_serverURL = s.value("serverURL", "demo.rocket.chat").toString();
     m_userName = s.value("username").toString();
+    m_userID = s.value("userID").toString();
     m_authToken = s.value("authToken").toString();
 //     roomModel()->reset();
 }
