@@ -209,10 +209,9 @@ void RocketChatBackend::onAdded(QJsonObject object)
         
     } else if (collection == "users") {
         
-        if (object["username"].toString() == UserData::self()->userName()) {
-        // it's us! get ID
+        if (object["username"].isNull()) {
+            // it's us! get ID
             UserData::self()->setUserID(object["id"].toString());
-            
         }
 //         qDebug() << "NEW USER" << object;
         
