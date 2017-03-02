@@ -224,7 +224,12 @@ void RocketChatBackend::onAdded(QJsonObject object)
     if (collection == "stream-room-messages") {
         
     } else if (collection == "users") {
-        qDebug() << "NEW USER";
+        
+        if (object["username"].isNull()) {
+            // it's us! get ID
+            UserData::self()->setUserID(object["id"].toString());
+        }
+//         qDebug() << "NEW USER" << object;
         
     } else if (collection == "rooms") {
     }
