@@ -151,7 +151,9 @@ ApplicationWindow {
                 id: topicWidget
                 color: "#fff"
                 anchors.top: parent.top
-                
+                anchors.right: parent.right
+                anchors.left: parent.left
+                height: nameLabel.height + topicLabel.height
                 property var selectedRoom;
                 
                 Text {
@@ -160,8 +162,8 @@ ApplicationWindow {
                     font.pointSize: 18
                     verticalAlignment: Text.AlignVCenter
                     anchors.leftMargin: 20
-                    //height: 30
-                    height: font.pixelSize + 10
+                    height: 40
+                   // height: font.pixelSize + 10
 
                     anchors.top: parent.top
                     anchors.left: parent.left
@@ -182,10 +184,7 @@ ApplicationWindow {
                     
                     height: font.pixelSize + 10
                 }
-                anchors.right: parent.right
-                anchors.left: parent.left
-                height: nameLabel.height + topicLabel.height 
-                
+
             }
             
             ScrollView {
@@ -267,7 +266,7 @@ ApplicationWindow {
     
     onClosing: {
         console.log("Minimizing to systray...");
-        Notification.windowMinimized = true;
+        Notification.windowClosed = true;
         hide();
     }
     
@@ -275,18 +274,18 @@ ApplicationWindow {
 //         console.log ("Showing");
         
         if (visible) {
-            Notification.windowMinimized = false;
+            Notification.windowClosed = true;
             hide();
         } else {
             show();
             raise();
             requestActivate();
-            Notification.windowMinimized = true;
+            Notification.windowClosed = false;
         }
     }
     Component.onCompleted: {
 
-        Notification.self().iconActivated().connect(toggleShow());
+//        UserData.notification.iconActivated().connect(toggleShow());
 //         roomsList.model = UserData.roomModel();
 //         systrayIcon.showMessage("Connected", "We are CONNECTED!");
     

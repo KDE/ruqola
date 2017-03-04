@@ -164,9 +164,11 @@ void DDPClient::onTextMessageReceived(QString message)
     QJsonDocument response = QJsonDocument::fromJson(message.toUtf8());
  //   qDebug() << "Inside onTextMessageRecieved";
     if (!response.isNull() && response.isObject()) {
-        
+
         QJsonObject root = response.object();
+
         QString messageType = root.value("msg").toString();
+        qDebug() << root <<  "  " << "messageType" << messageType;
 
         if (messageType == "updated") {
             qDebug() << "Inside updated messageType";

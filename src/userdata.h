@@ -29,6 +29,7 @@
 #include "ddpclient.h"
 #include "roommodel.h"
 #include "messagemodel.h"
+#include "notification.h"
 
 
 class QString;
@@ -71,7 +72,9 @@ public:
     
     DDPClient *ddp();
     Q_INVOKABLE RoomModel *roomModel();
-    
+
+    Q_INVOKABLE Notification * notification();
+
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
     Q_INVOKABLE MessageModel* getModelForRoom(const QString &roomID);
     
@@ -99,6 +102,7 @@ private:
     
     DDPClient *m_ddp;
     RoomModel *m_roomModel;
+    Notification *m_notification;
 
     QHash< QString, MessageModel * > m_messageModels;
 };

@@ -28,8 +28,6 @@
 #include "ddpclient.h"
 #include "notification.h"
 
-RocketChatBackend c;
-
 void debug_callback(QJsonDocument doc)
 {
     qDebug() << "DEBUG:" << doc;
@@ -41,19 +39,10 @@ void process_backlog(QJsonDocument messages)
     RocketChatBackend::processIncomingMessages(messages.object().value("messages").toArray());
 }
 
-QString RocketChatBackend::userID() const
-{
-    return x_userID;
-}
-
-void RocketChatBackend::setUserID(QString & userid)
-{
-    x_userID = userid;
-}
 
 void rooms_callback(QJsonDocument doc)
 {
-//     qDebug() << doc;
+     qDebug() << "rooms callback doc" << doc;
     RoomModel *model = UserData::self()->roomModel();
 //     qDebug() << model;
 //     model->reset();
@@ -85,10 +74,6 @@ void rooms_callback(QJsonDocument doc)
             
             QString params = QString("[\"%1\"]").arg(roomID);
             UserData::self()->ddp()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));
-        
-            QString userID = c.userID();
-            QString n_params = QString("[\"%1\"/\"%2\" ]").arg(userID).arg(QString("notification"));
-            UserData::self()->ddp()->subscribe("stream-notify-user", QJsonDocument::fromJson(n_params.toLatin1()));
 
             // Load history
             QByteArray json = "[\""+roomID.toLatin1() +
@@ -183,6 +168,7 @@ RocketChatBackend::RocketChatBackend(QObject* parent)
 {
 //     UserData::self()->ddp() = new DDPClient(, this);
         connect(UserData::self(), &UserData::loginStatusChanged, this, &RocketChatBackend::onLoginStatusChanged);
+        connect(UserData::self(), &UserData::userIDChanged, this, &RocketChatBackend::onUserIDChanged);
         connect(UserData::self()->ddp(), &DDPClient::changed, this, &RocketChatBackend::onChanged);
         connect(UserData::self()->ddp(), &DDPClient::added, this, &RocketChatBackend::onAdded);
 }
@@ -229,9 +215,10 @@ void RocketChatBackend::onAdded(QJsonObject object)
             // it's us! get ID
             UserData::self()->setUserID(object["id"].toString());
         }
-//         qDebug() << "NEW USER" << object;
+         qDebug() << "NEW USER" << object;
         
     } else if (collection == "rooms") {
+
     }
 }
 
@@ -255,26 +242,14 @@ void RocketChatBackend::onChanged(QJsonObject object)
     }
     else if (collection == "stream-notify-user"){
 
-        QJsonArray messages = object.value("fields").toObject().value("args").toArray();
-        foreach (const QJsonValue v, messages) {
-            QJsonObject o = v.toObject();
-
-            Message m;
-            QString roomId = o.value("rid").toString();
-            QString type = o.value("t").toString();
-            m.username = o.value("u").toObject().value("username").toString();
-            m.userID = o.value("u").toObject().value("_id").toString();
-            m.message = o.value("msg").toString();
-            m.messageID = o.value("_id").toString();
-            m.roomID = roomId;
-            m.timestamp = (qint64)o.value("ts").toObject().value("$date").toDouble();
-
-            c.setUserID(m.userID);
-            //check if its not a system message and message not sent by user itself
-            if ( !type.isEmpty() && m.username != UserData::self()->userName()){
-                Notification::self()->showNotification(m.userID, m.username,m.message);
-            }
-        }
     }
+}
+
+void RocketChatBackend::onUserIDChanged()
+{
+    qDebug() << "Inside onUserIDChanged";
+    qDebug() << "subscribing to notification feed";
+    QString n_params = QString("[\"%1\"/\"%2\" ]").arg(UserData::self()->userID()).arg(QString("notification"));
+    UserData::self()->ddp()->subscribe("stream-notify-user", QJsonDocument::fromJson(n_params.toLatin1()));
 }
 

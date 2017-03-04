@@ -28,24 +28,14 @@ int main(int argc, char *argv[])
     qmlRegisterType<MessageModel>("KDE.Ruqola.MessageModel", 1, 0, "MessageModel");
     qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");
     qmlRegisterType<RoomModel>("KDE.Ruqola.RoomModel", 1, 0, "RoomModel");
+    qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
     qmlRegisterType<Notification>("KDE.Ruqola.Notification", 1, 0, "Notification");
+
     RocketChatBackend c;
     
     QQmlApplicationEngine engine;
-
-/*   QQmlContext *ctxt = engine.rootContext();
-
-    QMenu menu;
-    auto quit = menu.addAction("&Quit");
-    QObject::connect(quit, &QAction::triggered, &app, &QApplication::quit);
-
-    QSystemTrayIcon systray;
-    systray.setIcon(QIcon(":/systray.png"));
-    systray.setContextMenu(&menu);
-    systray.setVisible(true);
-    systray.setToolTip("Ruqola");
-    ctxt->setContextProperty("systrayIcon", &systray);
-*/
+    QQmlContext *ctxt = engine.rootContext();
+    ctxt->setContextProperty("systrayIcon", & UserData::self()->notification() );
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())

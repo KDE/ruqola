@@ -23,6 +23,7 @@
 #include "userdata.h"
 #include "roommodel.h"
 #include "ddpclient.h"
+#include "notification.h"
 
 UserData *UserData::m_self = 0;
 
@@ -95,6 +96,20 @@ DDPClient * UserData::ddp()
     }
     return m_ddp;
 }
+
+Notification * UserData::notification()
+{
+    if (!m_notification) {
+        qDebug() << "creating new Notification object";
+        m_notification = new Notification();
+        m_notification->createActions();
+        m_notification->createTrayIcon();
+        m_notification->show();
+        qDebug() << m_notification;
+    }
+    return m_notification;
+}
+
 
 void UserData::sendMessage(const QString &roomID, const QString &message)
 {
