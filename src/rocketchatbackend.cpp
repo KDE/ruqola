@@ -1,3 +1,4 @@
+
 /*
  * <one line to give the program's name and a brief idea of what it does.>
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
@@ -42,7 +43,7 @@ void process_backlog(QJsonDocument messages)
 
 void rooms_callback(QJsonDocument doc)
 {
-     qDebug() << "rooms callback doc" << doc;
+ //    qDebug() << "rooms callback doc" << doc;
     RoomModel *model = UserData::self()->roomModel();
 //     qDebug() << model;
 //     model->reset();
@@ -80,7 +81,7 @@ void rooms_callback(QJsonDocument doc)
                             "\", null, 50, {\"$date\": "+
                             QString::number(roomModel->lastTimestamp()).toLatin1()+
                             "}]";
-            qDebug() << json;
+  //          qDebug() << json;
             UserData::self()->ddp()->method("loadHistory", QJsonDocument::fromJson(json), process_backlog);
             
         }
@@ -205,7 +206,7 @@ void RocketChatBackend::onAdded(QJsonObject object)
 {
     QString collection = object.value("collection").toString();
     
-    qDebug() << "ROCKET BACK" << object << collection;
+ //   qDebug() << "ROCKET BACK" << object << collection;
     
     if (collection == "stream-room-messages") {
         
@@ -226,28 +227,31 @@ void RocketChatBackend::onAdded(QJsonObject object)
 void RocketChatBackend::onChanged(QJsonObject object)
 {
     QString collection = object["collection"].toString();
-    
-    qDebug() << "ROCKET BACK" << object << collection;
+
+//    qDebug() << "ROCKET CHAT BACK onChanged" << object << collection;
     if (collection == "stream-room-messages") {
         QJsonObject fields = object.value("fields").toObject();
         QString roomId = fields.value("eventName").toString();
         QJsonArray contents = fields.value("args").toArray();
         RocketChatBackend::processIncomingMessages(contents);
         
-    } else if (collection == "users") {
+    }
+    else if (collection == "users") {
         qDebug() << "NEW USER";
         
-    } else if (collection == "rooms") {
+    }
+    else if (collection == "rooms") {
 
     }
     else if (collection == "stream-notify-user"){
-
+        QString userName = object.value("userName").toString();
+        QString message = object.value("msg").toString();
+        UserData::self()->showNotification(userName, message);
     }
 }
 
 void RocketChatBackend::onUserIDChanged()
 {
-    qDebug() << "Inside onUserIDChanged";
     qDebug() << "subscribing to notification feed";
     QString n_params = QString("[\"%1\"/\"%2\" ]").arg(UserData::self()->userID()).arg(QString("notification"));
     UserData::self()->ddp()->subscribe("stream-notify-user", QJsonDocument::fromJson(n_params.toLatin1()));

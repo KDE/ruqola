@@ -1,9 +1,6 @@
 #include <QApplication>
 #include <QtQml>
 
-#include <QSystemTrayIcon>
-#include <QMessageBox>
-
 // only if desktop
 #include "src/roommodel.h"
 #include "src/rocketchatbackend.h"
@@ -32,10 +29,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<Notification>("KDE.Ruqola.Notification", 1, 0, "Notification");
 
     RocketChatBackend c;
-    
     QQmlApplicationEngine engine;
-    QQmlContext *ctxt = engine.rootContext();
-    ctxt->setContextProperty("systrayIcon", & UserData::self()->notification() );
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())

@@ -24,21 +24,18 @@
 #define NOTIFICATION_H
 
 #include <QSystemTrayIcon>
-#include <QWindow>
 #include <QAction>
 #include <QMenu>
 
 class Notification: public QSystemTrayIcon{
     Q_OBJECT
-    Q_PROPERTY (bool windowClosed READ IswindowClosed WRITE setWindowClosed NOTIFY windowClosedChanged)
+    Q_PROPERTY (bool windowClosed READ windowClosed WRITE setWindowClosed NOTIFY windowClosedChanged)
 
 public:
 
     void setWindowClosed(bool val);
-    bool IswindowClosed() const;
-    void showNotification(const QString userName, QString message);
-
-//    static Notification * self();
+    bool windowClosed() const;
+    void toggle();
     Notification();
 
 signals:
@@ -51,15 +48,14 @@ private:
     void createActions();
     void createTrayIcon();
 
-//    static Notification *n_self;
-
     QAction *m_quitAction;
+    QAction *m_restore;
     QMenu *m_trayIconMenu;
-    QSystemTrayIcon *m_systrayIcon;
+    QSystemTrayIcon *m_systrayIcon; //have to discuss it through
+
 
     bool m_windowClosed;
 
-    friend class UserData;
 };
 
 

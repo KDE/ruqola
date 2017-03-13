@@ -102,12 +102,23 @@ Notification * UserData::notification()
     if (!m_notification) {
         qDebug() << "creating new Notification object";
         m_notification = new Notification();
-        m_notification->createActions();
-        m_notification->createTrayIcon();
         m_notification->show();
         qDebug() << m_notification;
     }
     return m_notification;
+}
+
+
+void UserData::showNotification(const QString userName, QString message )
+{
+    if ( UserData::m_notification->windowClosed() && ( UserData::self()->loginStatus() == DDPClient::LoggedIn) ){
+    QString title("New Message"); //This can be enhanced later
+    QString msg = QString("%1 \n %2").arg(userName).arg(message);
+    if ( msg.length() >= 20 ){
+        msg.replace(20, msg.length()-20, "...");
+    }
+    m_notification->showMessage(title, msg, QSystemTrayIcon::Information, 5000 );
+    }
 }
 
 
@@ -126,8 +137,8 @@ MessageModel * UserData::getModelForRoom(const QString& roomID)
     } else {
 //         qDebug() << "Creating a new model";
         m_messageModels[roomID] = new MessageModel(roomID, this);
-        
-        return m_messageModels[roomID];        
+
+        return m_messageModels[roomID];
     }
 }
 
@@ -141,7 +152,7 @@ void UserData::setServerURL(const QString& serverURL)
     if (m_serverURL == serverURL) {
         return;
     }
-    
+
     QSettings s;
     s.setValue("serverURL", serverURL);
     m_serverURL = serverURL;
@@ -169,10 +180,10 @@ void UserData::tryLogin()
     }
     delete m_ddp;
     m_ddp = 0;
-    
+
     // In the meantime, load cache...
     m_roomModel->reset();
-    
+
     // This creates a new ddp() object.
     // DDP will automatically try to connect and login.
     ddp();
@@ -190,7 +201,7 @@ void UserData::logOut()
     delete m_ddp;
     m_ddp = 0;
     emit loginStatusChanged();
-    
+
     m_roomModel->clear();
 }
 
@@ -228,14 +239,16 @@ UserData::UserData(QObject* parent): QObject(parent), m_ddp(0), m_roomModel(0)
 //     roomModel()->reset();
 }
 
-UserData * UserData::self() 
+UserData * UserData::self()
 {
     if (!m_self) {
         m_self = new UserData;
         m_self->ddp(); // Create DDP object so we try to connect at startup
+        m_self->notification();
         m_self->roomModel()->reset();
 //         m_self->getModelForRoom("GENERAL");
     }
     return m_self;
 }
+
 

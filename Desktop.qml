@@ -271,12 +271,13 @@ ApplicationWindow {
     }
     
     function toggleShow(reason) {
-//         console.log ("Showing");
+         console.log ("Showing");
         
         if (visible) {
             Notification.windowClosed = true;
             hide();
         } else {
+            systrayIcon.iconActivated();
             show();
             raise();
             requestActivate();
@@ -285,7 +286,7 @@ ApplicationWindow {
     }
     Component.onCompleted: {
 
-//        UserData.notification.iconActivated().connect(toggleShow());
+        systrayIcon.iconActivated.connect(toggleShow);
 //         roomsList.model = UserData.roomModel();
 //         systrayIcon.showMessage("Connected", "We are CONNECTED!");
     

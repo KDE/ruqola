@@ -29,7 +29,7 @@
 #include <QMessageBox>
 #include <QWindow>
 
-bool Notification::IswindowClosed() const {
+bool Notification::windowClosed() const {
     return m_windowClosed;
 }
 
@@ -48,11 +48,14 @@ void Notification::setWindowClosed(bool val){
 
 void Notification::createActions(){
    m_quitAction = new QAction(tr("&Quit"), this);
-    connect(m_quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
+   connect(m_quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
+
+//   QWindow window;
+//   m_restore = new QAction(tr("&Restore"),this);
+//   connect(m_restore, &QAction::triggered, window, &QWindow::showMaximized );
 }
 
 void Notification::createTrayIcon(){
-    qDebug() << "Creating system tray";
     if (!QSystemTrayIcon::isSystemTrayAvailable()) {
         QMessageBox::critical(0, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
         return;
@@ -60,6 +63,7 @@ void Notification::createTrayIcon(){
     m_trayIconMenu = new QMenu();
     m_trayIconMenu->addAction(m_quitAction);
     m_trayIconMenu->addSeparator();
+//    m_trayIconMenu->addAction(m_restore);
 
     m_systrayIcon->setContextMenu(m_trayIconMenu);
     m_systrayIcon->setToolTip("Ruqola");
@@ -67,40 +71,31 @@ void Notification::createTrayIcon(){
     m_systrayIcon->setVisible(true);
 }
 
-void Notification::showNotification(const QString userName, QString message )
-{
-    if ( Notification::IswindowClosed() && ( UserData::self()->loginStatus() == DDPClient::LoggedIn) ){
-    QString title("New Message"); //This can be enhanced later
-    QString msg = QString("%1 \n %2").arg(userName).arg(message);
-    m_systrayIcon->showMessage(title, msg, QSystemTrayIcon::Information, 5000 );
-    }
+void Notification::toggle(){
+    m_restore->setEnabled(windowClosed());
+    m_systrayIcon->setVisible(windowClosed());
 }
+
 
 Notification::Notification(): m_windowClosed(false)
 {
-    qDebug() << "Called notification constructor";
+    m_systrayIcon = new QSystemTrayIcon();
+    createActions();
+    createTrayIcon();
+    connect(m_systrayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+                this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
 }
 
 void Notification::iconActivated(QSystemTrayIcon::ActivationReason reason){
-    Q_UNUSED(reason);
     qDebug() << "Icon activated";
-}
-
-/*
-
-Notification *Notification::n_self = 0;
-
-Notification * Notification::self()
-{
-    qDebug() << "Inside Notification::self()";
-    if(!n_self){
-        n_self = new Notification;
-        n_self->createActions();
-        n_self->createTrayIcon();
-//        connect(systrayIcon , SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
-//                this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
-        n_self->show();
+    if (reason == QSystemTrayIcon::Trigger) {
+        this->show(); //isn't working
+        /*
+         * this->raise();
+           this->activateWindow();
+           this->showNormal();
+        */
+        m_windowClosed = false;
+        toggle();
     }
-    return n_self;
 }
-*/
