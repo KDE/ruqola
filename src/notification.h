@@ -51,7 +51,7 @@ private:
     QAction *m_quitAction;
     QAction *m_restore;
     QMenu *m_trayIconMenu;
-    QSystemTrayIcon *m_systrayIcon; //have to discuss it through
+//    QSystemTrayIcon *m_systrayIcon; //have to discuss it through
 
 
     bool m_windowClosed;

@@ -47,6 +47,7 @@ void Notification::setWindowClosed(bool val){
 //}
 
 void Notification::createActions(){
+    qDebug() << "i m in create action";
    m_quitAction = new QAction(tr("&Quit"), this);
    connect(m_quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
 
@@ -56,6 +57,8 @@ void Notification::createActions(){
 }
 
 void Notification::createTrayIcon(){
+
+    qDebug() << "i m in create tray";
     if (!QSystemTrayIcon::isSystemTrayAvailable()) {
         QMessageBox::critical(0, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
         return;
@@ -63,39 +66,41 @@ void Notification::createTrayIcon(){
     m_trayIconMenu = new QMenu();
     m_trayIconMenu->addAction(m_quitAction);
     m_trayIconMenu->addSeparator();
-//    m_trayIconMenu->addAction(m_restore);
+    this->setContextMenu(m_trayIconMenu);
+    this->setToolTip("Ruqola");
+    this->setIcon(QIcon(":/systray.png"));
+    this->setVisible(true);
 
-    m_systrayIcon->setContextMenu(m_trayIconMenu);
-    m_systrayIcon->setToolTip("Ruqola");
-    m_systrayIcon->setIcon(QIcon(":/systray.png"));
-    m_systrayIcon->setVisible(true);
 }
-
-void Notification::toggle(){
-    m_restore->setEnabled(windowClosed());
-    m_systrayIcon->setVisible(windowClosed());
-}
-
 
 Notification::Notification(): m_windowClosed(false)
 {
-    m_systrayIcon = new QSystemTrayIcon();
+
+    qDebug() << "i m in constructor";
+//    m_systrayIcon = new QSystemTrayIcon();
     createActions();
     createTrayIcon();
-    connect(m_systrayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+    connect(this, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
                 this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
 }
 
 void Notification::iconActivated(QSystemTrayIcon::ActivationReason reason){
     qDebug() << "Icon activated";
     if (reason == QSystemTrayIcon::Trigger) {
-        this->show(); //isn't working
+
+        if (m_windowClosed){
+           m_windowClosed = false;
+//           m_restore->setDisabled(m_windowClosed);
         /*
-         * this->raise();
-           this->activateWindow();
-           this->showNormal();
+         * raise();
+           activateWindow();
+           showNormal();
         */
-        m_windowClosed = false;
-        toggle();
+        } else {
+            m_windowClosed = true;
+            hide();
+//            m_restore->setEnabled(m_windowClosed);
+
+        }
     }
 }

@@ -286,7 +286,7 @@ ApplicationWindow {
     }
     Component.onCompleted: {
 
-        systrayIcon.iconActivated.connect(toggleShow);
+//        systrayIcon.iconActivated.connect(toggleShow);
 //         roomsList.model = UserData.roomModel();
 //         systrayIcon.showMessage("Connected", "We are CONNECTED!");
     
