@@ -100,12 +100,18 @@ DDPClient * UserData::ddp()
 Notification * UserData::notification()
 {
     qDebug() <<"self notification()";
-    if (!m_notification) {
+    if (m_notification){
+        qDebug() << "m_notification already exists";
+        m_notification = NULL;
+        m_notification = new Notification();
+        m_notification->show();
+    }
+    if (m_notification == NULL) {
         qDebug() << "if: creating new Notification object";
         m_notification = new Notification();
         m_notification->show();
-//        qDebug() << m_notification;
     } else {
+        qDebug() << "i m in else of m_notification";
         m_notification->show();
     }
     return m_notification;
@@ -115,12 +121,12 @@ Notification * UserData::notification()
 void UserData::showNotification(const QString userName, QString message )
 {
     qDebug() << "showNotification() self";
-    if ( UserData::m_notification->windowClosed() && ( UserData::self()->loginStatus() == DDPClient::LoggedIn) ){
+    if ( m_notification->windowClosed() && ( UserData::self()->loginStatus() == DDPClient::LoggedIn) ){
     QString title("New Message"); //This can be enhanced later
     QString msg = QString("%1 \n %2").arg(userName).arg(message);
-    if ( msg.length() >= 20 ){
-        msg.replace(20, msg.length()-20, "...");
-    }
+//    if ( msg.length() >= 20 ){
+//        msg.replace(20, msg.length()-20, "...");
+//    }
     m_notification->showMessage(title, msg, QSystemTrayIcon::Information, 5000 );
     }
 }
@@ -245,9 +251,7 @@ UserData::UserData(QObject* parent): QObject(parent), m_ddp(0), m_roomModel(0)
 
 UserData * UserData::self()
 {
-//    qDebug()<<"in self";
     if (!m_self) {
-        qDebug() << "i m in if of self";
         m_self = new UserData;
         m_self->ddp(); // Create DDP object so we try to connect at startup
         m_self->notification();

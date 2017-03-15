@@ -35,14 +35,14 @@ public:
 
     void setWindowClosed(bool val);
     bool windowClosed() const;
-    void toggle();
     Notification();
+    virtual ~Notification();
 
 signals:
     void windowClosedChanged();
 
 public slots:
-    void iconActivated(QSystemTrayIcon::ActivationReason reason);
+    Q_INVOKABLE void iconActivated(QSystemTrayIcon::ActivationReason reason);
 
 private:
     void createActions();
@@ -57,6 +57,5 @@ private:
     bool m_windowClosed;
 
 };
-
 
 #endif // NOTIFICATION_H

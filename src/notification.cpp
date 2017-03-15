@@ -21,8 +21,8 @@
  */
 
 #include "userdata.h"
-#include "ddpclient.h"
 #include "notification.h"
+#include <QQmlComponent>
 
 #include <QAction>
 #include <QMenu>
@@ -34,7 +34,9 @@ bool Notification::windowClosed() const {
 }
 
 void Notification::setWindowClosed(bool val){
+    qDebug() << "set window closed is called";
     m_windowClosed = val;
+    emit windowClosedChanged();
 }
 
 //Opens the room having new message
@@ -73,9 +75,7 @@ void Notification::createTrayIcon(){
 
 }
 
-Notification::Notification(): m_windowClosed(false)
-{
-
+Notification::Notification(): m_windowClosed(false){
     qDebug() << "i m in constructor";
 //    m_systrayIcon = new QSystemTrayIcon();
     createActions();
@@ -84,23 +84,33 @@ Notification::Notification(): m_windowClosed(false)
                 this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
 }
 
+Notification::~Notification(){
+    qDebug() << "notification descructor called for " << this;
+
+}
+
+
 void Notification::iconActivated(QSystemTrayIcon::ActivationReason reason){
     qDebug() << "Icon activated";
-    if (reason == QSystemTrayIcon::Trigger) {
 
+    if (reason == QSystemTrayIcon::Trigger) {
+        this->show();
+/*
+        QQmlEngine engine;
+        QQmlComponent component(&engine, QUrl::fromLocalFile("Desktop.qml"));
+        QObject *object = component.create();
+        QMetaObject::invokeMethod(object, "toggleShow");
+        delete object;
+*/
+        qDebug() << "window closed is " << m_windowClosed;
         if (m_windowClosed){
            m_windowClosed = false;
-//           m_restore->setDisabled(m_windowClosed);
-        /*
-         * raise();
-           activateWindow();
-           showNormal();
-        */
+//           raise();
+//           activateWindow();
+//           showNormal();
         } else {
             m_windowClosed = true;
-            hide();
-//            m_restore->setEnabled(m_windowClosed);
-
+ //           hide();
         }
     }
 }
