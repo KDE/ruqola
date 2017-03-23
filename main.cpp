@@ -11,7 +11,6 @@
 #include <QtCore/QJsonDocument>
 #include <QtCore>
 
-
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -31,7 +30,11 @@ int main(int argc, char *argv[])
     RocketChatBackend c;
     QQmlApplicationEngine engine;
 
+    QQmlContext *ctxt = engine.rootContext();
+    ctxt->setContextProperty("systrayIcon", UserData::self()->notification());
+
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+
     if (engine.rootObjects().isEmpty())
         return -1;
 

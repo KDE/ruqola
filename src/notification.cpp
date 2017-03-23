@@ -20,47 +20,47 @@
  *
  */
 
-#include "userdata.h"
 #include "notification.h"
-#include <QQmlComponent>
+#include "userdata.h"
 
 #include <QAction>
 #include <QMenu>
 #include <QMessageBox>
-#include <QWindow>
 
-bool Notification::windowClosed() const {
-    return m_windowClosed;
+bool Notification::windowVisible() const {
+    return m_windowVisible;
 }
 
-void Notification::setWindowClosed(bool val){
-    qDebug() << "set window closed is called";
-    m_windowClosed = val;
-    emit windowClosedChanged();
+void Notification::setWindowVisible(bool value){
+    if (m_windowVisible != value){
+        m_windowVisible = value;
+        emit windowVisibleChanged();
+    }
 }
 
-//Opens the room having new message
-//void Notification::notificationClicked(){
-    /*
-     *      1. Maximize systray
-     *      2. switch to unread room
-     *
-     */
-//}
+QString Notification::message() const
+{
+    return m_message;
+}
 
+void Notification::setMessage(const QString &message)
+{
+    if (m_message != message){
+        m_message = message;
+        emit messageChanged();
+    }
+}
+
+
+//create actions in Menu
 void Notification::createActions(){
-    qDebug() << "i m in create action";
-   m_quitAction = new QAction(tr("&Quit"), this);
-   connect(m_quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
-
-//   QWindow window;
-//   m_restore = new QAction(tr("&Restore"),this);
-//   connect(m_restore, &QAction::triggered, window, &QWindow::showMaximized );
+    m_quitAction = new QAction(tr("&Quit"), this);
+    connect(m_quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
 }
 
+//create systrayIcon
 void Notification::createTrayIcon(){
 
-    qDebug() << "i m in create tray";
     if (!QSystemTrayIcon::isSystemTrayAvailable()) {
         QMessageBox::critical(0, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
         return;
@@ -75,42 +75,20 @@ void Notification::createTrayIcon(){
 
 }
 
-Notification::Notification(): m_windowClosed(false){
-    qDebug() << "i m in constructor";
-//    m_systrayIcon = new QSystemTrayIcon();
+void Notification::updateDesktopNotification() {
+
+    if (!windowVisible()){
+    QString title("New Ruqola Message!"); //This can be enhanced later
+    this->showMessage(title, m_message, QSystemTrayIcon::Information, 5000 );
+    }
+}
+
+
+Notification::Notification(): m_windowVisible(true){
     createActions();
     createTrayIcon();
-    connect(this, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
-                this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
-}
 
-Notification::~Notification(){
-    qDebug() << "notification descructor called for " << this;
+    //connect messageChanged signal to updateDesktopNotification Slot
+    connect(this, SIGNAL(messageChanged()), this, SLOT(updateDesktopNotification()));
 
-}
-
-
-void Notification::iconActivated(QSystemTrayIcon::ActivationReason reason){
-    qDebug() << "Icon activated";
-
-    if (reason == QSystemTrayIcon::Trigger) {
-        this->show();
-/*
-        QQmlEngine engine;
-        QQmlComponent component(&engine, QUrl::fromLocalFile("Desktop.qml"));
-        QObject *object = component.create();
-        QMetaObject::invokeMethod(object, "toggleShow");
-        delete object;
-*/
-        qDebug() << "window closed is " << m_windowClosed;
-        if (m_windowClosed){
-           m_windowClosed = false;
-//           raise();
-//           activateWindow();
-//           showNormal();
-        } else {
-            m_windowClosed = true;
- //           hide();
-        }
-    }
 }

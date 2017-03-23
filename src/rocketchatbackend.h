@@ -34,28 +34,20 @@ class DDPClient;
 class RocketChatBackend : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString userID READ userID WRITE setUserID NOTIFY userIDChanged)
 public:
     RocketChatBackend(QObject *parent = 0);
     ~RocketChatBackend();
-    
-    QString userID() const;
-    void setUserID(QString &id);
-
     static void processIncomingMessages(QJsonArray messages);
-
-signals:
-    void userIDChanged();
 
 private slots:
     void onAdded(QJsonObject object);
     void onChanged(QJsonObject object);
     void onLoggedIn();
     void onLoginStatusChanged();
+    void onUserIDChanged();
 
 private:
 //     RoomModel *m_rooms;
-    QString  x_userID;
 };
 
 #endif // ROCKETCHATBACKEND_H

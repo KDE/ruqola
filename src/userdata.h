@@ -71,18 +71,16 @@ public:
 //     void setActiveRoom(const QString &activeRoom);
 
     DDPClient *ddp();
+    Notification * notification();
+
     Q_INVOKABLE RoomModel *roomModel();
-
-    Q_INVOKABLE Notification * notification();
-    void showNotification(const QString userName, QString message);
-
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
     Q_INVOKABLE MessageModel* getModelForRoom(const QString &roomID);
 
     Q_INVOKABLE void tryLogin();
     Q_INVOKABLE void logOut();
     Q_INVOKABLE RoomWrapper* getRoom(const QString &roomID);
-    //     void setRoomModel();
+//     void setRoomModel();
 
     QString cacheBasePath() const;
 

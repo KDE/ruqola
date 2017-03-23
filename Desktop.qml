@@ -43,7 +43,7 @@ ApplicationWindow {
     Login {
         id: loginTab
         visible: (UserData.loginStatus == DDPClient.LoginFailed || UserData.loginStatus == DDPClient.LoggedOut)
-        
+//        visible: (UserData.loginStatus != DDPClient.LoggedIn)
         anchors.fill:parent
         z: 10
         serverURL: UserData.serverURL
@@ -235,7 +235,8 @@ ApplicationWindow {
                             }
                 }
             }
-        }
+        } //Item
+
         TextField {
             id: messageLine
             anchors.right: parent.right
@@ -256,7 +257,7 @@ ApplicationWindow {
                 }
             }
         }
-    }
+    }// mainWidget Item
     
     Rectangle {
         z: -10
@@ -266,30 +267,38 @@ ApplicationWindow {
     
     onClosing: {
         console.log("Minimizing to systray...");
-        Notification.windowClosed = true;
         hide();
+        systrayIcon.windowVisible = visible;
     }
     
-    function toggleShow(reason) {
-         console.log ("Showing");
-        
+
+    function toggleShow() {
+
         if (visible) {
-            Notification.windowClosed = true;
             hide();
+            systrayIcon.windowVisible = visible;
         } else {
-            systrayIcon.iconActivated();
             show();
             raise();
             requestActivate();
-            Notification.windowClosed = false;
+            systrayIcon.windowVisible = visible;
         }
     }
-    Component.onCompleted: {
 
-//        systrayIcon.iconActivated.connect(toggleShow);
-//         roomsList.model = UserData.roomModel();
-//         systrayIcon.showMessage("Connected", "We are CONNECTED!");
-    
+//    function notificationMessageClicked() {
+//        if (!visible) {
+//            show();
+//            raise();
+//            requestActivate();
+//            systrayIcon.windowVisible = visible;
+//        }
+//    }
+
+    Component.onCompleted: {
+           systrayIcon.activated.connect(toggleShow);
+           systrayIcon.messageClicked.connect(toggleShow);
+//        roomsList.model = UserData.roomModel();
+
 //        timer.start();
 //        timer.fire();
     }

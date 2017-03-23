@@ -29,32 +29,36 @@
 
 class Notification: public QSystemTrayIcon{
     Q_OBJECT
-    Q_PROPERTY (bool windowClosed READ windowClosed WRITE setWindowClosed NOTIFY windowClosedChanged)
+    Q_PROPERTY (bool windowVisible READ windowVisible WRITE setWindowVisible NOTIFY windowVisibleChanged)
+    Q_PROPERTY(QString message READ message WRITE setMessage NOTIFY messageChanged)
 
 public:
 
-    void setWindowClosed(bool val);
-    bool windowClosed() const;
+    void setWindowVisible(bool val);
+    bool windowVisible() const;
+
+    void setMessage(const QString &message);
+    QString message() const;
+
     Notification();
-    virtual ~Notification();
 
 signals:
-    void windowClosedChanged();
+    void windowVisibleChanged();
+    void messageChanged();
 
-public slots:
-    Q_INVOKABLE void iconActivated(QSystemTrayIcon::ActivationReason reason);
+private slots:
+    void updateDesktopNotification();
 
 private:
     void createActions();
     void createTrayIcon();
 
     QAction *m_quitAction;
-    QAction *m_restore;
     QMenu *m_trayIconMenu;
-//    QSystemTrayIcon *m_systrayIcon; //have to discuss it through
+    bool m_windowVisible;
 
-
-    bool m_windowClosed;
+    //Notification message
+    QString m_message;
 
 };
 

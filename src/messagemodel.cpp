@@ -67,7 +67,7 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
   : QAbstractListModel(parent),
   m_roomID(roomID)
 {
-//     qDebug() << "Creating message Model";
+    qDebug() << "Creating message Model";
     QDir cacheDir(UserData::self()->cacheBasePath()+"/rooms_cache");
     
         // load cache
@@ -147,7 +147,9 @@ void MessageModel::addMessage(const Message& message)
     if (message.message.isEmpty()) {
         return;
     }
-    
+
+//   qDebug() << "MessageModel::addMessage called";
+
     auto existingMessage = qFind(m_allMessages.begin(), m_allMessages.end(), message);
     bool present = (existingMessage != m_allMessages.end());
     

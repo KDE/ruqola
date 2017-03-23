@@ -25,6 +25,7 @@
 #include "ddpclient.h"
 #include "notification.h"
 
+
 UserData *UserData::m_self = 0;
 
 QString UserData::authToken() const
@@ -82,7 +83,6 @@ RoomModel * UserData::roomModel()
         qDebug() << "creating new RoomModel";
         m_roomModel = new RoomModel(this);
         qDebug() << m_roomModel;
-//         m_roomModel->reset();
     }
     return m_roomModel;
 }
@@ -99,36 +99,11 @@ DDPClient * UserData::ddp()
 
 Notification * UserData::notification()
 {
-    qDebug() <<"self notification()";
-    if (m_notification){
-        qDebug() << "m_notification already exists";
-        m_notification = NULL;
-        m_notification = new Notification();
-        m_notification->show();
-    }
     if (m_notification == NULL) {
-        qDebug() << "if: creating new Notification object";
         m_notification = new Notification();
-        m_notification->show();
-    } else {
-        qDebug() << "i m in else of m_notification";
         m_notification->show();
     }
     return m_notification;
-}
-
-
-void UserData::showNotification(const QString userName, QString message )
-{
-    qDebug() << "showNotification() self";
-    if ( m_notification->windowClosed() && ( UserData::self()->loginStatus() == DDPClient::LoggedIn) ){
-    QString title("New Message"); //This can be enhanced later
-    QString msg = QString("%1 \n %2").arg(userName).arg(message);
-//    if ( msg.length() >= 20 ){
-//        msg.replace(20, msg.length()-20, "...");
-//    }
-    m_notification->showMessage(title, msg, QSystemTrayIcon::Information, 5000 );
-    }
 }
 
 
@@ -203,7 +178,6 @@ void UserData::logOut()
 {
     setAuthToken(QString());
     setPassword(QString());
-//     m_ddp->logOut();
     foreach (const QString key, m_messageModels.keys()) {
         MessageModel *m = m_messageModels.take(key);
         delete m;
@@ -233,30 +207,35 @@ QString UserData::cacheBasePath() const
 // //     roomModel()->setActiveRoom(activeRoom);
 //     emit activeRoomChanged();
 // }
+
 RoomWrapper * UserData::getRoom(const QString& roomID)
 {
     return roomModel()->findRoom(roomID);
 }
 
 
-UserData::UserData(QObject* parent): QObject(parent), m_ddp(0), m_roomModel(0)
+UserData::UserData(QObject* parent): QObject(parent), m_ddp(0), m_roomModel(0), m_notification(0)
 {
     QSettings s;
     m_serverURL = s.value("serverURL", "demo.rocket.chat").toString();
     m_userName = s.value("username").toString();
     m_userID = s.value("userID").toString();
     m_authToken = s.value("authToken").toString();
-//     roomModel()->reset();
 }
 
 UserData * UserData::self()
 {
     if (!m_self) {
         m_self = new UserData;
-        m_self->ddp(); // Create DDP object so we try to connect at startup
-        m_self->notification();
+
+        // Create DDP object so we try to connect at startup
+        m_self->ddp();
+
+        // Clear rooms data and refill it with data in the cache, if there is
         m_self->roomModel()->reset();
-//         m_self->getModelForRoom("GENERAL");
+
+        // Create systray to show notifications
+        m_self->notification();
     }
     return m_self;
 }

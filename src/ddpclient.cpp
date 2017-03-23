@@ -126,8 +126,7 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
     }
     
     json = json.arg(method).arg(m_uid).arg(QString(params.toJson(QJsonDocument::Compact)));
-    qDebug() << json.arg(method).arg(m_uid);//.arg(QString(params.toJson(QJsonDocument::Indented)));
-
+    qDebug() << json.arg(method).arg(m_uid); //.arg(QString(params.toJson(QJsonDocument::Indented)));
     
     qint64 bytes = m_webSocket.sendTextMessage(json.toUtf8());
     if (bytes < json.length()) {
@@ -148,30 +147,24 @@ void DDPClient::subscribe(const QString& collection, const QJsonDocument& params
 {
     QString json("{\"msg\":\"sub\",\"id\": \"%1\",\"name\":\"%2\", \"params\": %3}");
     json = json.arg(m_uid).arg(collection).arg(QString(params.toJson(QJsonDocument::Compact)));
-    qint64 bytes = m_webSocket.sendBinaryMessage(json.toUtf8()); // FIXME : text? maybe binary will be better - check if it keeps working
+    qint64 bytes = m_webSocket.sendBinaryMessage(json.toUtf8());
     if (bytes < json.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
-    } else {
-        qDebug() << "Successfully sent " << json;
     }
     
     m_uid++;
-    
 }
 
 void DDPClient::onTextMessageReceived(QString message)
 {
     QJsonDocument response = QJsonDocument::fromJson(message.toUtf8());
- //   qDebug() << "Inside onTextMessageRecieved";
     if (!response.isNull() && response.isObject()) {
 
         QJsonObject root = response.object();
 
         QString messageType = root.value("msg").toString();
-        qDebug() << root <<  "  " << "messageType" << messageType;
 
         if (messageType == "updated") {
-            qDebug() << "Inside updated messageType";
 
         } else if (messageType == "result") {
             
