@@ -20,34 +20,46 @@
  *
  */
 
-#ifndef ROCKETCHATBACKEND_H
-#define ROCKETCHATBACKEND_H
+#ifndef NOTIFICATION_H
+#define NOTIFICATION_H
 
-#include <QObject>
-#include <QJsonObject>
+#include <QSystemTrayIcon>
+#include <QAction>
+#include <QMenu>
 
-#include "roommodel.h"
-// #include "ddpclient.h"
-class DDPClient;
-// class QJsonObject;
-
-class RocketChatBackend : public QObject
-{
+class Notification: public QSystemTrayIcon{
     Q_OBJECT
+    Q_PROPERTY (bool windowVisible READ windowVisible WRITE setWindowVisible NOTIFY windowVisibleChanged)
+    Q_PROPERTY(QString message READ message WRITE setMessage NOTIFY messageChanged)
+
 public:
-    RocketChatBackend(QObject *parent = 0);
-    ~RocketChatBackend();
-    static void processIncomingMessages(QJsonArray messages);
+
+    void setWindowVisible(bool val);
+    bool windowVisible() const;
+
+    void setMessage(const QString &message);
+    QString message() const;
+
+    Notification();
+
+signals:
+    void windowVisibleChanged();
+    void messageChanged();
 
 private slots:
-    void onAdded(QJsonObject object);
-    void onChanged(QJsonObject object);
-    void onLoggedIn();
-    void onLoginStatusChanged();
-    void onUserIDChanged();
+    void updateDesktopNotification();
 
 private:
-//     RoomModel *m_rooms;
+    void createActions();
+    void createTrayIcon();
+
+    QAction *m_quitAction;
+    QMenu *m_trayIconMenu;
+    bool m_windowVisible;
+
+    //Notification message
+    QString m_message;
+
 };
 
-#endif // ROCKETCHATBACKEND_H
+#endif // NOTIFICATION_H

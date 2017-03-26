@@ -13,6 +13,8 @@ import QtGraphicalEffects 1.0
 
 import KDE.Ruqola.UserData 1.0
 import KDE.Ruqola.DDPClient 1.0
+import KDE.Ruqola.Notification 1.0
+
 
 // import "Log.js" as Log
 // import "Data.js" as Data
@@ -31,17 +33,17 @@ ApplicationWindow {
     width: 800
     height: 600
     visible: true
-    
+
     Shortcut {
         sequence: StandardKey.Quit
         context: Qt.ApplicationShortcut
         onActivated: Qt.quit()
     }
-    
+
     Login {
         id: loginTab
         visible: (UserData.loginStatus == DDPClient.LoginFailed || UserData.loginStatus == DDPClient.LoggedOut)
-        
+//        visible: (UserData.loginStatus != DDPClient.LoggedIn)
         anchors.fill:parent
         z: 10
         serverURL: UserData.serverURL
@@ -149,7 +151,9 @@ ApplicationWindow {
                 id: topicWidget
                 color: "#fff"
                 anchors.top: parent.top
-                
+                anchors.right: parent.right
+                anchors.left: parent.left
+                height: nameLabel.height + topicLabel.height
                 property var selectedRoom;
                 
                 Text {
@@ -159,7 +163,8 @@ ApplicationWindow {
                     verticalAlignment: Text.AlignVCenter
                     anchors.leftMargin: 20
                     height: 40
-                
+                   // height: font.pixelSize + 10
+
                     anchors.top: parent.top
                     anchors.left: parent.left
                     anchors.right: parent.right
@@ -178,12 +183,8 @@ ApplicationWindow {
                     horizontalAlignment: Text.AlignHCenter
                     
                     height: font.pixelSize + 10
-                }                    
-//                 */
-                anchors.right: parent.right
-                anchors.left: parent.left
-                height: nameLabel.height + topicLabel.height 
-                
+                }
+
             }
             
             ScrollView {
@@ -195,7 +196,7 @@ ApplicationWindow {
                 
                 verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
 //                 visible: parent.visible && (UserData.loginStatus != DDPClient.LoggingIn)
-                visible: !greeter.visible
+//                visible: !greeter.visible
 
          
                 ListView {
@@ -234,24 +235,29 @@ ApplicationWindow {
                             }
                 }
             }
-        }
+        } //Item
+
         TextField {
             id: messageLine
             anchors.right: parent.right
             anchors.left: roomsList.right
             anchors.bottom: parent.bottom
-            placeholderText: qsTr("Enter message")
+            placeholderText: if (UserData.loginStatus != DDPClient.LoggedIn || (selectedRoomID=="")){
+                                 qsTr("Please Select a room")
+                             }
+                             else{
+                                 qsTr("Enter message")
+                             }
             height: 2.7*font.pixelSize
-//             font.pointSize: 12
-            
+
             onAccepted: {
-                if (text != "") {
+                if (text != "" && UserData.loginStatus == DDPClient.LoggedIn && !(selectedRoomID=="")) {
                     UserData.sendMessage(selectedRoomID, text);
                     text = "";
                 }
             }
         }
-    }
+    }// mainWidget Item
     
     Rectangle {
         z: -10
@@ -262,26 +268,39 @@ ApplicationWindow {
     onClosing: {
         console.log("Minimizing to systray...");
         hide();
+        systrayIcon.windowVisible = visible;
     }
     
-    function toggleShow(reason) {
-//         console.log ("Showing");
-        
+
+    function toggleShow() {
+
         if (visible) {
             hide();
+            systrayIcon.windowVisible = visible;
         } else {
             show();
             raise();
             requestActivate();
+            systrayIcon.windowVisible = visible;
         }
     }
+
+//    function notificationMessageClicked() {
+//        if (!visible) {
+//            show();
+//            raise();
+//            requestActivate();
+//            systrayIcon.windowVisible = visible;
+//        }
+//    }
+
     Component.onCompleted: {
-        systrayIcon.activated.connect(toggleShow);
-//         roomsList.model = UserData.roomModel();
-//         systrayIcon.showMessage("Connected", "We are CONNECTED!");
-    
-        timer.start();
-        timer.fire();
+           systrayIcon.activated.connect(toggleShow);
+           systrayIcon.messageClicked.connect(toggleShow);
+//        roomsList.model = UserData.roomModel();
+
+//        timer.start();
+//        timer.fire();
     }
 
 /*    
@@ -303,5 +322,5 @@ ApplicationWindow {
         repeat: true
     }*/
 
-    onStatusTextChanged: timer.restart();
+//    onStatusTextChanged: timer.restart();
 }

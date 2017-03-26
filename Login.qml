@@ -1,5 +1,3 @@
-
-
 import QtQuick 2.7
 import QtQuick.Controls 1.3
 Item {
@@ -11,10 +9,11 @@ Item {
     signal accepted()
     
     Keys.onPressed: {
-        if (event.key == Qt.Key_Enter) {
+        if (event.key === Qt.Key_Enter) {
             acceptingButton.clicked();
             
-        } else if (event.key == StandardKey.Escape) {
+        } else if (event.key === StandardKey.Escape) {
+
         }
     }
 

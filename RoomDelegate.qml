@@ -37,7 +37,6 @@ Item {
     implicitHeight: nameLabel.implicitHeight + 10
     
     visible: !d_name.empty
-//     d_selected
     
     Text {
         anchors.fill: parent
@@ -121,10 +120,10 @@ Item {
                     }
                 }
                 
-            }
+            } //MouseArea closed
             
-        }
-    }
+        } //Rectangle closed
+    } //Text closed
 
     Rectangle {
         anchors.rightMargin: 15
@@ -162,4 +161,4 @@ Item {
 // //                             console.log(activeChat.count);
 //                 }
 //             }
-} 
+} // Item closed
