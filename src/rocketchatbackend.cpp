@@ -67,13 +67,17 @@ void rooms_callback(QJsonDocument doc)
                 model->addRoom(r);
             }
             
-            QString params = QString("[\"%1\"]").arg(roomID);
-            Ruqola::self()->ddp()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));
+            QJsonArray params;
+            params.append(QJsonValue(roomID));
+            Ruqola::self()->ddp()->subscribe("stream-room-messages", QJsonDocument(params));
 
             // Load history
-            QByteArray json = "[\""+roomID.toLatin1() + "\", null, 50, {\"$date\": " +
-                               QString::number(roomModel->lastTimestamp()).toLatin1()+ "}]";
-            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument::fromJson(json), process_backlog);
+            params.append(QJsonValue(QJsonValue::Null));
+            params.append(QJsonValue(50)); // Max number of messages to load;
+            QJsonObject dateObject;
+            dateObject["$date"] = QJsonValue(roomModel->lastTimestamp());
+            params.append(dateObject);
+            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog);
         }
     } 
 }
@@ -236,7 +240,7 @@ void RocketChatBackend::onChanged(QJsonObject object)
 
     }
     else if (collection == "stream-notify-user"){
-
+        qDebug() << "New notification";
     }
 }
 
