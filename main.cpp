@@ -4,7 +4,7 @@
 // only if desktop
 #include "src/roommodel.h"
 #include "src/rocketchatbackend.h"
-#include "src/userdata.h"
+#include "src/ruqola.h"
 #include "src/notification.h"
 
 #include <QDebug>
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain("kde.org");
     QCoreApplication::setApplicationName("Ruqola");
     
-    qmlRegisterSingletonType<UserData>("KDE.Ruqola.UserData", 1, 0, "UserData", userdata_singletontype_provider);
+    qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
     qmlRegisterType<MessageModel>("KDE.Ruqola.MessageModel", 1, 0, "MessageModel");
     qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");
     qmlRegisterType<RoomModel>("KDE.Ruqola.RoomModel", 1, 0, "RoomModel");
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     QQmlContext *ctxt = engine.rootContext();
-    ctxt->setContextProperty("systrayIcon", UserData::self()->notification());
+    ctxt->setContextProperty("systrayIcon", Ruqola::self()->notification());
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

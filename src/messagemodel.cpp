@@ -30,7 +30,7 @@
 #include <QAbstractListModel>
 
 #include "messagemodel.h"
-#include "userdata.h"
+#include "ruqola.h"
 
 Message MessageModel::fromJSon(const QJsonObject& o)
 {
@@ -68,7 +68,7 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
   m_roomID(roomID)
 {
     qDebug() << "Creating message Model";
-    QDir cacheDir(UserData::self()->cacheBasePath()+"/rooms_cache");
+    QDir cacheDir(Ruqola::self()->cacheBasePath()+"/rooms_cache");
     
         // load cache
     if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
@@ -91,7 +91,7 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
 
 MessageModel::~MessageModel()
 {
-    QDir cacheDir(UserData::self()->cacheBasePath()+"/rooms_cache");
+    QDir cacheDir(Ruqola::self()->cacheBasePath()+"/rooms_cache");
     qDebug() << "Caching to..." << cacheDir.path();
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());

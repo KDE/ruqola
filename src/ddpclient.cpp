@@ -26,7 +26,7 @@
 #include <QtCore/QJsonObject>
 
 #include <iostream>
-#include "userdata.h"
+#include "ruqola.h"
 
 void process_test(QJsonDocument doc)
 {
@@ -37,14 +37,14 @@ void process_test(QJsonDocument doc)
 void login_callback(QJsonDocument doc)
 {
     qDebug() << "LOGIN:" << doc;
-    UserData::self()->setAuthToken(doc.object().value("token").toString());
+    Ruqola::self()->setAuthToken(doc.object().value("token").toString());
     qDebug() << "End callback";
 }
 
 void DDPClient::resume_login_callback(QJsonDocument doc)
 {
     qDebug() << "LOGIN:" << doc;
-    UserData::self()->setAuthToken(doc.object().value("token").toString());
+    Ruqola::self()->setAuthToken(doc.object().value("token").toString());
     qDebug() << "End callback";
 }
 
@@ -68,7 +68,7 @@ DDPClient::DDPClient(const QString& url, QObject* parent)
     connect(&m_webSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
     connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
     connect(&m_webSocket, &QWebSocket::disconnected, this, &DDPClient::WSclosed);
-    connect(UserData::self(), &UserData::serverURLChanged, this, &DDPClient::onServerURLChange);    
+    connect(Ruqola::self(), &Ruqola::serverURLChanged, this, &DDPClient::onServerURLChange);    
     
     if (!url.isEmpty()) {
         m_webSocket.open(QUrl("wss://"+url+"/websocket"));
@@ -84,12 +84,12 @@ DDPClient::~DDPClient()
 
 void DDPClient::onServerURLChange()
 {
-    if (UserData::self()->serverURL() != m_url || !m_webSocket.isValid()) {
+    if (Ruqola::self()->serverURL() != m_url || !m_webSocket.isValid()) {
         if (m_webSocket.isValid()) {
             m_webSocket.flush();
             m_webSocket.close();
         }
-        m_url = UserData::self()->serverURL();
+        m_url = Ruqola::self()->serverURL();
         m_webSocket.open(QUrl("wss://"+m_url+"/websocket"));
         connect(&m_webSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
         qDebug() << "Reconnecting" << m_url; //<< m_webSocket.st;
@@ -182,17 +182,17 @@ void DDPClient::onTextMessageReceived(QString message)
                     qDebug() << "Wrong password or token expired";
                     
 //                     // Kill wrong credentials, so we don't try to use them again
-//                     if (!UserData::instance()->authToken().isEmpty()) {
-//                         UserData::instance()->setAuthToken(QString());
-//                     } else if (!UserData::instance()->password().isEmpty()) {
-//                         UserData::instance()->setPassword(QString());
+//                     if (!Ruqola::instance()->authToken().isEmpty()) {
+//                         Ruqola::instance()->setAuthToken(QString());
+//                     } else if (!Ruqola::instance()->password().isEmpty()) {
+//                         Ruqola::instance()->setPassword(QString());
 //                     }
 //                     setLoginStatus(DDPClient::LoginFailed);
                     
                     
                     login(); // Let's keep trying to log in
                 } else {
-                    UserData::self()->setAuthToken(root.value("result").toObject().value("token").toString());
+                    Ruqola::self()->setAuthToken(root.value("result").toObject().value("token").toString());
 
                     setLoginStatus(DDPClient::LoggedIn);
                 }
@@ -241,7 +241,7 @@ void DDPClient::setLoginStatus(DDPClient::LoginStatus l)
 
 void DDPClient::login()
 {
-    if (!UserData::self()->password().isEmpty()) {
+    if (!Ruqola::self()->password().isEmpty()) {
  
         // If we have a password and we couldn't log in, let's stop here
         if (m_attemptedPasswordLogin) {
@@ -251,13 +251,13 @@ void DDPClient::login()
         
         m_attemptedPasswordLogin = true;
         QString json = "{\"password\":\"%1\", \"user\": {\"username\":\"%2\"}}";
-        json = json.arg(UserData::self()->password()).arg(UserData::self()->userName());
+        json = json.arg(Ruqola::self()->password()).arg(Ruqola::self()->userName());
         m_loginJob = method("login", QJsonDocument::fromJson(json.toUtf8()));
         
-    } else if (!UserData::self()->authToken().isEmpty() && !m_attemptedTokenLogin) {
+    } else if (!Ruqola::self()->authToken().isEmpty() && !m_attemptedTokenLogin) {
         m_attemptedPasswordLogin = true;
         QString json = "{\"resume\":\"%1\"}";
-        json = json.arg(UserData::self()->authToken());
+        json = json.arg(Ruqola::self()->authToken());
         m_loginJob = method("login", QJsonDocument::fromJson(json.toUtf8()));
     } else {
         setLoginStatus(LoginFailed);

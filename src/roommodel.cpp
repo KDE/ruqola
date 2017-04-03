@@ -21,7 +21,7 @@
  */
 
 #include "roommodel.h"
-#include "userdata.h"
+#include "ruqola.h"
 
 #include <QtCore/QAbstractItemModel>
 #include <QtCore>
@@ -65,12 +65,12 @@ RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
 RoomModel::RoomModel(QObject* parent)
     : QAbstractListModel(parent)
 {
-//     connect(UserData::self(), &UserData::loginStatusChanged, this, &RoomModel::onLoginStatusChanged);
+//     connect(Ruqola::self(), &Ruqola::loginStatusChanged, this, &RoomModel::onLoginStatusChanged);
 }
 
 RoomModel::~RoomModel()
 {
-    QDir cacheDir(UserData::self()->cacheBasePath());
+    QDir cacheDir(Ruqola::self()->cacheBasePath());
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }
@@ -109,13 +109,13 @@ RoomWrapper* RoomModel::findRoom(const QString& roomID) const
 // Clear data and refill it with data in the cache, if there is
 void RoomModel::reset()
 {
-    if (UserData::self()->cacheBasePath().isEmpty()) {
+    if (Ruqola::self()->cacheBasePath().isEmpty()) {
         return;
     }
     
     clear();
     
-    QDir cacheDir(UserData::self()->cacheBasePath());
+    QDir cacheDir(Ruqola::self()->cacheBasePath());
     // load cache
     if (cacheDir.exists(cacheDir.path())) {
         QFile f(cacheDir.absoluteFilePath("rooms"));
@@ -226,7 +226,7 @@ void RoomModel::addRoom(const Room &room)
     }
     
     
-    UserData::self()->getModelForRoom(room.id);
+    Ruqola::self()->getModelForRoom(room.id);
 }
 
 

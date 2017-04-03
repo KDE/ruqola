@@ -34,7 +34,7 @@
 
 class QString;
 
-class UserData: public QObject
+class Ruqola: public QObject
 {
     Q_OBJECT
 
@@ -47,7 +47,7 @@ class UserData: public QObject
 //     Q_PROPERTY(QString activeRoom READ activeRoom WRITE setActiveRoom NOTIFY activeRoomChanged)
 
 public:
-    static UserData* self();
+    static Ruqola* self();
 
     void setUserName(const QString &username);
     QString userName() const;
@@ -91,8 +91,8 @@ signals:
     void loginStatusChanged();
 
 private:
-    UserData(QObject *parent = 0);
-    static UserData *m_self;
+    Ruqola(QObject *parent = 0);
+    static Ruqola *m_self;
     QString m_password;
     QString m_userName;
     QString m_userID;
@@ -106,12 +106,12 @@ private:
     QHash< QString, MessageModel * > m_messageModels;
 };
 
-inline static QObject *userdata_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
+inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     Q_UNUSED(engine)
     Q_UNUSED(scriptEngine)
 
-    UserData *userData = UserData::self();
+    Ruqola *userData = Ruqola::self();
     return userData;
 }
 

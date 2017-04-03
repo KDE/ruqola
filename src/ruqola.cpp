@@ -20,35 +20,35 @@
  *
  */
 
-#include "userdata.h"
+#include "ruqola.h"
 #include "roommodel.h"
 #include "ddpclient.h"
 #include "notification.h"
 
 
-UserData *UserData::m_self = 0;
+Ruqola *Ruqola::m_self = 0;
 
-QString UserData::authToken() const
+QString Ruqola::authToken() const
 {
     return m_authToken;
 }
 
-QString UserData::userName() const
+QString Ruqola::userName() const
 {
     return m_userName;
 }
 
-QString UserData::userID() const
+QString Ruqola::userID() const
 {
     return m_userID;
 }
 
-QString UserData::password() const
+QString Ruqola::password() const
 {
     return m_password;
 }
 
-void UserData::setAuthToken(const QString& token)
+void Ruqola::setAuthToken(const QString& token)
 {
     qDebug() << "Setting token to" << token;
     QSettings s;
@@ -56,12 +56,12 @@ void UserData::setAuthToken(const QString& token)
     s.setValue("authToken", token);
 }
 
-void UserData::setPassword(const QString& password)
+void Ruqola::setPassword(const QString& password)
 {
     m_password = password;
 }
 
-void UserData::setUserName(const QString& username)
+void Ruqola::setUserName(const QString& username)
 {
     m_userName = username;
     QSettings s;
@@ -69,7 +69,7 @@ void UserData::setUserName(const QString& username)
     emit userNameChanged();
 }
 
-void UserData::setUserID(const QString& userID)
+void Ruqola::setUserID(const QString& userID)
 {
     m_userName = userID;
     QSettings s;
@@ -77,7 +77,7 @@ void UserData::setUserID(const QString& userID)
     emit userIDChanged();
 }
 
-RoomModel * UserData::roomModel()
+RoomModel * Ruqola::roomModel()
 {
     if (!m_roomModel) {
         qDebug() << "creating new RoomModel";
@@ -87,17 +87,17 @@ RoomModel * UserData::roomModel()
     return m_roomModel;
 }
 
-DDPClient * UserData::ddp()
+DDPClient * Ruqola::ddp()
 {
     if (!m_ddp) {
         m_ddp = new DDPClient(serverURL());
-        connect(m_ddp, &DDPClient::loginStatusChanged, this, &UserData::loginStatusChanged);
+        connect(m_ddp, &DDPClient::loginStatusChanged, this, &Ruqola::loginStatusChanged);
 //         connect(m_ddp, &DDPClient::loginStatusChanged, this, [=](){qDebug() << "Signal received";});
     }
     return m_ddp;
 }
 
-Notification * UserData::notification()
+Notification * Ruqola::notification()
 {
     if (m_notification == NULL) {
         m_notification = new Notification();
@@ -107,14 +107,14 @@ Notification * UserData::notification()
 }
 
 
-void UserData::sendMessage(const QString &roomID, const QString &message)
+void Ruqola::sendMessage(const QString &roomID, const QString &message)
 {
     QString json = "{\"rid\": \"%1\", \"msg\": \"%2\"}";
     json = json.arg(roomID, message);
     ddp()->method("sendMessage", QJsonDocument::fromJson(json.toUtf8()));
 }
 
-MessageModel * UserData::getModelForRoom(const QString& roomID)
+MessageModel * Ruqola::getModelForRoom(const QString& roomID)
 {
     if (m_messageModels.contains(roomID)) {
 //         qDebug() << "Returning old model for " << roomID;
@@ -127,12 +127,12 @@ MessageModel * UserData::getModelForRoom(const QString& roomID)
     }
 }
 
-QString UserData::serverURL() const
+QString Ruqola::serverURL() const
 {
     return m_serverURL;
 }
 
-void UserData::setServerURL(const QString& serverURL)
+void Ruqola::setServerURL(const QString& serverURL)
 {
     if (m_serverURL == serverURL) {
         return;
@@ -145,7 +145,7 @@ void UserData::setServerURL(const QString& serverURL)
     emit serverURLChanged();
 }
 
-DDPClient::LoginStatus UserData::loginStatus()
+DDPClient::LoginStatus Ruqola::loginStatus()
 {
     if (m_ddp) {
         return ddp()->loginStatus();
@@ -154,7 +154,7 @@ DDPClient::LoginStatus UserData::loginStatus()
     }
 }
 
-void UserData::tryLogin()
+void Ruqola::tryLogin()
 {
     qDebug() << "Attempting login" << userName() << "on" << serverURL();
 
@@ -174,7 +174,7 @@ void UserData::tryLogin()
     ddp();
 }
 
-void UserData::logOut()
+void Ruqola::logOut()
 {
     setAuthToken(QString());
     setPassword(QString());
@@ -189,7 +189,7 @@ void UserData::logOut()
     m_roomModel->clear();
 }
 
-QString UserData::cacheBasePath() const
+QString Ruqola::cacheBasePath() const
 {
     if (m_serverURL.isEmpty()) {
         return QString();
@@ -197,24 +197,24 @@ QString UserData::cacheBasePath() const
     return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+'/'+m_serverURL;
 }
 
-// QString UserData::activeRoom() const
+// QString Ruqola::activeRoom() const
 // {
 //     return m_activeRoom;
 // }
-// void UserData::setActiveRoom(const QString& activeRoom)
+// void Ruqola::setActiveRoom(const QString& activeRoom)
 // {
 //     m_activeRoom = activeRoom;
 // //     roomModel()->setActiveRoom(activeRoom);
 //     emit activeRoomChanged();
 // }
 
-RoomWrapper * UserData::getRoom(const QString& roomID)
+RoomWrapper * Ruqola::getRoom(const QString& roomID)
 {
     return roomModel()->findRoom(roomID);
 }
 
 
-UserData::UserData(QObject* parent): QObject(parent), m_ddp(0), m_roomModel(0), m_notification(0)
+Ruqola::Ruqola(QObject* parent): QObject(parent), m_ddp(0), m_roomModel(0), m_notification(0)
 {
     QSettings s;
     m_serverURL = s.value("serverURL", "demo.rocket.chat").toString();
@@ -223,10 +223,10 @@ UserData::UserData(QObject* parent): QObject(parent), m_ddp(0), m_roomModel(0), 
     m_authToken = s.value("authToken").toString();
 }
 
-UserData * UserData::self()
+Ruqola * Ruqola::self()
 {
     if (!m_self) {
-        m_self = new UserData;
+        m_self = new Ruqola;
 
         // Create DDP object so we try to connect at startup
         m_self->ddp();

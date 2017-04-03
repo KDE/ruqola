@@ -120,7 +120,7 @@ private:
     bool m_attemptedPasswordLogin;
     bool m_attemptedTokenLogin;
     
-    friend class UserData;
+    friend class Ruqola;
 };
 
 

@@ -155,8 +155,8 @@ Item {
 // //                             myModel.currentRoom = selectedRoomID;
 //                     
 //                     // This line crashes the program when we refine RoomsModel:
-// //                     if (UserData.loginStatus != DDPClient.LoggingIn)
-// //                     activeChat.model = UserData.getModelForRoom(selectedRoomID);
+// //                     if (Ruqola.loginStatus != DDPClient.LoggingIn)
+// //                     activeChat.model = Ruqola.getModelForRoom(selectedRoomID);
 //                     
 // //                             console.log(activeChat.count);
 //                 }

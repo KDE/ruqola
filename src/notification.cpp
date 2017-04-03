@@ -21,7 +21,7 @@
  */
 
 #include "notification.h"
-#include "userdata.h"
+#include "ruqola.h"
 
 #include <QAction>
 #include <QMenu>
