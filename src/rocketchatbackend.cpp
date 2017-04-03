@@ -109,13 +109,18 @@ void subs_callback(QJsonDocument doc)
                 model->addRoom(r);
             }
             
-            QString params = QString("[\"%1\"]").arg(roomID);
-            Ruqola::self()->ddp()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));
-        
+            
+            QJsonArray params;
+            params.append(QJsonValue(roomID));
+            Ruqola::self()->ddp()->subscribe("stream-room-messages", QJsonDocument(params));
+
             // Load history
-            QByteArray json = "[\""+roomID.toLatin1() + "\", null, 50, {\"$date\": " +
-                               QString::number(roomModel->lastTimestamp()).toLatin1()+ "}]";
-            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument::fromJson(json), process_backlog);
+            params.append(QJsonValue(QJsonValue::Null));
+            params.append(QJsonValue(50)); // Max number of messages to load;
+            QJsonObject dateObject;
+            dateObject["$date"] = QJsonValue(roomModel->lastTimestamp());
+            params.append(dateObject);
+            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog);
         }
     } 
 }
@@ -177,7 +182,10 @@ void RocketChatBackend::onLoginStatusChanged()
         
         qDebug() << "GETTING LIST OF ROOMS";
 //         Ruqola::self()->ddp()->method("subscriptions/get", QJsonDocument::fromJson("{\"$date\": 0}"), rooms_callback);
-        Ruqola::self()->ddp()->method("rooms/get", QJsonDocument::fromJson("{\"$date\": 0}"), rooms_callback);
+        QJsonObject params;
+        params["$date"] = QJsonValue(0); // get ALL rooms we've ever seen
+        
+        Ruqola::self()->ddp()->method("rooms/get", QJsonDocument(params), rooms_callback);
         
 //         Ruqola::self()->ddp()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));
 
@@ -247,7 +255,8 @@ void RocketChatBackend::onChanged(QJsonObject object)
 void RocketChatBackend::onUserIDChanged()
 {
     qDebug() << "subscribing to notification feed";
-    QString params = QString("[\"%1/%2\"]").arg(Ruqola::self()->userID()).arg(QString("notification"));
-    Ruqola::self()->ddp()->subscribe("stream-notify-user", QJsonDocument::fromJson(params.toLatin1()));
+    QJsonArray params;
+    params.append(QJsonValue(QString("%1/%2").arg(Ruqola::self()->userID()).arg(QString("notification"))));
+    Ruqola::self()->ddp()->subscribe("stream-notify-user", QJsonDocument(params));
 }
 

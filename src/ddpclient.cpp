@@ -24,6 +24,7 @@
 
 #include <QtCore/QJsonDocument>
 #include <QtCore/QJsonObject>
+#include <QtCore/QJsonArray>
 
 #include <iostream>
 #include "ruqola.h"
@@ -274,13 +275,19 @@ void DDPClient::onWSConnected()
 {
     qDebug() << "Websocket connected at URL" << m_url;
     
-    QString json("{\"msg\":\"connect\", \"version\": \"1\", \"support\": [\"1\"]}");
-    
-    qint64 bytes = m_webSocket.sendTextMessage(json.toUtf8());
-    if (bytes < json.length()) {
+    QJsonArray supportedVersions;
+    supportedVersions.append("1");
+    QJsonObject protocol;
+    protocol["msg"] = "connect";
+    protocol["version"] = "1";
+    protocol["support"] = supportedVersions;
+//     QString json("{\"msg\":\"connect\", \"version\": \"1\", \"support\": [\"1\"]}");
+    QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
+    qint64 bytes = m_webSocket.sendTextMessage(serialize);
+    if (bytes < serialize.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
     } else {
-        qDebug() << "Successfully sent " << json;
+        qDebug() << "Successfully sent " << serialize;
     }
 }
 
