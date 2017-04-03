@@ -67,6 +67,7 @@ void Notification::createTrayIcon(){
         QMessageBox::critical(0, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
         return;
     }
+    
     m_trayIconMenu = new QMenu();
     m_trayIconMenu->addAction(m_quitAction);
     m_trayIconMenu->addSeparator();
@@ -81,8 +82,8 @@ void Notification::createTrayIcon(){
 void Notification::updateDesktopNotification()
 {
     if (!windowVisible()){
-    QString title("New Ruqola Message!"); //This can be enhanced later
-    showMessage(title, m_message, QSystemTrayIcon::Information, 5000 );
+        QString title("New Ruqola Message!"); //This can be enhanced later
+        showMessage(title, m_message, QSystemTrayIcon::Information, 5000 );
     }
 }
 
@@ -94,6 +95,6 @@ Notification::Notification()
     createTrayIcon();
 
     //connect messageChanged signal to updateDesktopNotification Slot
-    connect(this, SIGNAL(messageChanged()), this, SLOT(updateDesktopNotification()));
+    connect(this, &Notification::messageChanged, this, &Notification::updateDesktopNotification);
 
 }
