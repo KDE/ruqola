@@ -27,11 +27,13 @@
 #include <QMenu>
 #include <QMessageBox>
 
-bool Notification::windowVisible() const {
+bool Notification::windowVisible() const
+{
     return m_windowVisible;
 }
 
-void Notification::setWindowVisible(bool value){
+void Notification::setWindowVisible(bool value)
+{
     if (m_windowVisible != value){
         m_windowVisible = value;
         emit windowVisibleChanged();
@@ -68,23 +70,26 @@ void Notification::createTrayIcon(){
     m_trayIconMenu = new QMenu();
     m_trayIconMenu->addAction(m_quitAction);
     m_trayIconMenu->addSeparator();
-    this->setContextMenu(m_trayIconMenu);
-    this->setToolTip("Ruqola");
-    this->setIcon(QIcon(":/systray.png"));
-    this->setVisible(true);
+    
+    setContextMenu(m_trayIconMenu);
+    setToolTip("Ruqola");
+    setIcon(QIcon(":/systray.png"));
+    setVisible(true);
 
 }
 
-void Notification::updateDesktopNotification() {
-
+void Notification::updateDesktopNotification()
+{
     if (!windowVisible()){
     QString title("New Ruqola Message!"); //This can be enhanced later
-    this->showMessage(title, m_message, QSystemTrayIcon::Information, 5000 );
+    showMessage(title, m_message, QSystemTrayIcon::Information, 5000 );
     }
 }
 
 
-Notification::Notification(): m_windowVisible(true){
+Notification::Notification()
+ : m_windowVisible(true)
+{
     createActions();
     createTrayIcon();
 
