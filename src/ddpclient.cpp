@@ -122,12 +122,15 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
     QJsonObject json;
     json["msg"] = "method";
     json["method"] = method;
-    json["id"] = QJsonValue((qint64) m_uid);
+    json["id"] = QString::number(m_uid);
 
     if (params.isArray()){
         json["params"] = params.array();
     } else if (params.isObject()) {
-        json["params"] = params.object();
+        QJsonArray arr;
+        arr.append(params.object());
+        json["params"] = arr;
+//         params.object();
     }
         
     qint64 bytes = m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
@@ -149,7 +152,7 @@ void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
 {
     QJsonObject json;
     json["msg"] = "sub";
-    json["id"] = (qint64) m_uid;
+    json["id"] = QString::number(m_uid);
     json["name"] = collection;
     json["params"] = params;
     

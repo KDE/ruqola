@@ -237,7 +237,7 @@ void RocketChatBackend::onChanged(QJsonObject object)
         QJsonObject fields = object.value("fields").toObject();
         QString roomId = fields.value("eventName").toString();
         QJsonArray contents = fields.value("args").toArray();
-        RocketChatBackend::processIncomingMessages(contents);        
+        processIncomingMessages(contents);        
 
     }
     else if (collection == "users") {
@@ -248,7 +248,7 @@ void RocketChatBackend::onChanged(QJsonObject object)
 
     }
     else if (collection == "stream-notify-user"){
-        qDebug() << "New notification";
+        qDebug() << "New notification" << object.value("fields").toObject();
     }
 }
 
