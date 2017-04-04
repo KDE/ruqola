@@ -151,15 +151,15 @@ void RocketChatBackend::processIncomingMessages(QJsonArray messages)
 
 //       qDebug() << "RocketChatBackend::processIncomingMessages sending notification";
 
-        //Send notifications only when user is logged in
-        if ( Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
-            QString userName = m.username;
-            QString message = m.message;
-            QString param = QString("%1 \n %2").arg(userName).arg(message);
-            Ruqola::self()->notification()->setMessage(param);
-        } else {
-            qDebug() << m.username << " recieved message: " <<  m.message;
-        }
+//         //Send notifications only when user is logged in
+//         if ( Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
+//             QString userName = m.username;
+//             QString message = m.message;
+//             QString param = QString("%1 \n %2").arg(userName).arg(message);
+//             Ruqola::self()->notification()->setMessage(param);
+//         } else {
+//             qDebug() << m.username << " recieved message: " <<  m.message;
+//         }
     }
 }
 
@@ -239,15 +239,15 @@ void RocketChatBackend::onChanged(QJsonObject object)
         QJsonArray contents = fields.value("args").toArray();
         processIncomingMessages(contents);        
 
-    }
-    else if (collection == "users") {
+    } else if (collection == "users") {
         qDebug() << "USER CHANGED";
         
-    }
-    else if (collection == "rooms") {
+    } else if (collection == "rooms") {
 
-    }
-    else if (collection == "stream-notify-user"){
+    } else if (collection == "stream-notify-user") {
+        QJsonObject fields = object.value("fields").toObject();
+        QJsonArray contents = fields.value("args").toArray();
+        Ruqola::self()->notification()->setMessage(contents.at(0).toObject()["text"].toString());
         qDebug() << "New notification" << object.value("fields").toObject();
     }
 }
