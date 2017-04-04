@@ -69,7 +69,7 @@ void rooms_callback(QJsonDocument doc)
             
             QJsonArray params;
             params.append(QJsonValue(roomID));
-            Ruqola::self()->ddp()->subscribe("stream-room-messages", QJsonDocument(params));
+            Ruqola::self()->ddp()->subscribe("stream-room-messages", params);
 
             // Load history
             params.append(QJsonValue(QJsonValue::Null));
@@ -112,7 +112,7 @@ void subs_callback(QJsonDocument doc)
             
             QJsonArray params;
             params.append(QJsonValue(roomID));
-            Ruqola::self()->ddp()->subscribe("stream-room-messages", QJsonDocument(params));
+            Ruqola::self()->ddp()->subscribe("stream-room-messages", params);
 
             // Load history
             params.append(QJsonValue(QJsonValue::Null));
@@ -257,6 +257,6 @@ void RocketChatBackend::onUserIDChanged()
     qDebug() << "subscribing to notification feed";
     QJsonArray params;
     params.append(QJsonValue(QString("%1/%2").arg(Ruqola::self()->userID()).arg(QString("notification"))));
-    Ruqola::self()->ddp()->subscribe("stream-notify-user", QJsonDocument(params));
+    Ruqola::self()->ddp()->subscribe("stream-notify-user", params);
 }
 

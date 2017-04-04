@@ -65,7 +65,7 @@ public:
     unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback);
 //     unsigned method(const QString &method, const QJsonObject &params);
     
-    void subscribe(const QString &collection, const QJsonDocument &params);
+    void subscribe(const QString &collection, const QJsonArray &params);
     
     Q_INVOKABLE void login();
     void logOut();

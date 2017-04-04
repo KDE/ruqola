@@ -119,17 +119,18 @@ unsigned int DDPClient::method(const QString& m, const QJsonDocument& params)
 
 unsigned int DDPClient::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback)
 {
-    QString json;
+    QJsonObject json;
+    json["msg"] = "method";
+    json["method"] = method;
+    json["id"] = QJsonValue((qint64) m_uid);
+
     if (params.isArray()){
-        json = "{\"msg\":\"method\", \"method\": \"%1\", \"id\": \"%2\", \"params\": %3}";
-    } else {
-        json = "{\"msg\":\"method\", \"method\": \"%1\", \"id\": \"%2\", \"params\": [%3]}";
+        json["params"] = params.array();
+    } else if (params.isObject()) {
+        json["params"] = params.object();
     }
-    
-    json = json.arg(method).arg(m_uid).arg(QString(params.toJson(QJsonDocument::Compact)));
-    qDebug() << json.arg(method).arg(m_uid); //.arg(QString(params.toJson(QJsonDocument::Indented)));
-    
-    qint64 bytes = m_webSocket.sendTextMessage(json.toUtf8());
+        
+    qint64 bytes = m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
     if (bytes < json.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qDebug() << m_webSocket.isValid() << m_webSocket.error() << m_webSocket.requestUrl();
@@ -144,11 +145,15 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
     return m_uid - 1 ;
 }
 
-void DDPClient::subscribe(const QString& collection, const QJsonDocument& params)
+void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
 {
-    QString json("{\"msg\":\"sub\",\"id\": \"%1\",\"name\":\"%2\", \"params\": %3}");
-    json = json.arg(m_uid).arg(collection).arg(QString(params.toJson(QJsonDocument::Compact)));
-    qint64 bytes = m_webSocket.sendBinaryMessage(json.toUtf8());
+    QJsonObject json;
+    json["msg"] = "sub";
+    json["id"] = (qint64) m_uid;
+    json["name"] = collection;
+    json["params"] = params;
+    
+    qint64 bytes = m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
     if (bytes < json.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
     }
@@ -212,7 +217,9 @@ void DDPClient::onTextMessageReceived(QString message)
             qDebug() << "ERROR!!" << message;
         } else if (messageType == "ping") {
             qDebug() << "Ping - Pong";
-            m_webSocket.sendBinaryMessage("{\"msg\":\"pong\"}");
+            QJsonObject pong;
+            pong["msg"] = "pong";
+            m_webSocket.sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
         } else if (messageType == "added"){
             qDebug() << "ADDING" <<root;
             emit added(root);
@@ -251,15 +258,18 @@ void DDPClient::login()
         }
         
         m_attemptedPasswordLogin = true;
-        QString json = "{\"password\":\"%1\", \"user\": {\"username\":\"%2\"}}";
-        json = json.arg(Ruqola::self()->password()).arg(Ruqola::self()->userName());
-        m_loginJob = method("login", QJsonDocument::fromJson(json.toUtf8()));
+        QJsonObject user;
+        user["username"] = Ruqola::self()->userName();
+        QJsonObject json;
+        json["password"] = Ruqola::self()->password();
+        json["user"] = user;
+        m_loginJob = method("login", QJsonDocument(json));
         
     } else if (!Ruqola::self()->authToken().isEmpty() && !m_attemptedTokenLogin) {
         m_attemptedPasswordLogin = true;
-        QString json = "{\"resume\":\"%1\"}";
-        json = json.arg(Ruqola::self()->authToken());
-        m_loginJob = method("login", QJsonDocument::fromJson(json.toUtf8()));
+        QJsonObject json;
+        json["resume"] = Ruqola::self()->authToken();
+        m_loginJob = method("login", QJsonDocument(json));
     } else {
         setLoginStatus(LoginFailed);
     }
