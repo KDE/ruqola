@@ -27,9 +27,10 @@
 #include <QAction>
 #include <QMenu>
 
-class Notification: public QSystemTrayIcon{
+class Notification: public QSystemTrayIcon
+{
     Q_OBJECT
-    Q_PROPERTY (bool windowVisible READ windowVisible WRITE setWindowVisible NOTIFY windowVisibleChanged)
+    Q_PROPERTY(bool windowVisible READ windowVisible WRITE setWindowVisible NOTIFY windowVisibleChanged)
     Q_PROPERTY(QString message READ message WRITE setMessage NOTIFY messageChanged)
 
 public:

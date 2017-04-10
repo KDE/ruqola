@@ -30,7 +30,8 @@
 #include <QJsonObject>
 #include <QFile>
 
-class Message {
+class Message
+{
 public:
     // To be used in ID find: message ID
     inline bool operator==(const Message &other) const
@@ -42,9 +43,9 @@ public:
     {
         return timestamp < other.timestamp;
     }
-    
+
     QString messageID;
-    
+
     QString username;
     QString userID;
     QString message;
@@ -53,7 +54,7 @@ public:
     QString roomID;
     QString systemMessageType;
 };
-        
+
 class MessageModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -76,7 +77,7 @@ public:
     virtual QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
     qint64 lastTimestamp() const;
-    
+
     static Message fromJSon(const QJsonObject &source);
     static QByteArray serialize(const Message &message);
 protected:
@@ -84,13 +85,13 @@ protected:
     virtual QHash<int, QByteArray> roleNames() const;
 private:
     const QString m_roomID;
-    
+
     QVector<Message> m_allMessages;
-    
+
 //     QMap<int, Message> m_allMessages;
 //     QMap<int, Message> m_allMessages;
     QString m_writableLocation;
-    
+
     QFile *cacheWriter;
 };
 

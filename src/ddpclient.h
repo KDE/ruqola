@@ -50,13 +50,13 @@ public:
     };
     Q_ENUM(LoginStatus)
 
-    
+
     DDPClient(const QString &url = QString(), QObject *parent = 0);
     ~DDPClient();
-    
+
     /**
      * @brief Call a method with name @param method and parameters @param params
-     * 
+     *
      * @param method The name of the method
      * @param params The parameters
      * @return unsigned int, the ID of the called method. Watch for it
@@ -64,62 +64,62 @@ public:
     unsigned method(const QString &method, const QJsonDocument &params);
     unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback);
 //     unsigned method(const QString &method, const QJsonObject &params);
-    
+
     void subscribe(const QString &collection, const QJsonArray &params);
-    
+
     Q_INVOKABLE void login();
     void logOut();
 
 //     Q_INVOKABLE void loginWithPassword();
     bool isConnected() const;
     bool isLoggedIn() const;
-    
+
     void onServerURLChange();
-    
+
 signals:
 //     void connected();
     void connectedChanged();
-    
+
     void loginStatusChanged();
 //     void loggedInChanged();
     void disconnected();
     /**
      * @brief Emitted whenever a result is received. The parameter is the expected ID.
-     * 
+     *
      * @param id the ID received in the method() call
      */
     void result(unsigned id, QJsonDocument result);
-    
+
     void added(QJsonObject item);
     void changed(QJsonObject item);
-    
+
 private slots:
     void onWSConnected();
     void onTextMessageReceived(QString message);
     void WSclosed();
-    
+
 private:
-    
+
     LoginStatus loginStatus() const;
     void setLoginStatus(LoginStatus l);
-    
+
     void resume_login_callback(QJsonDocument doc);
-    
+
     QString m_url;
     QWebSocket m_webSocket;
 
     unsigned m_uid;
-    
+
     QHash <unsigned, std::function<void (QJsonDocument)> > m_callbackHash;
-    
+
     unsigned m_loginJob;
     LoginStatus m_loginStatus;
-    
+
     bool m_connected;
-    
+
     bool m_attemptedPasswordLogin;
     bool m_attemptedTokenLogin;
-    
+
     friend class Ruqola;
 };
 
