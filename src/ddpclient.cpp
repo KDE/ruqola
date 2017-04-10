@@ -190,15 +190,6 @@ void DDPClient::onTextMessageReceived(QString message)
                 if (root.value("error").toObject().value("error").toInt() == 403) {
                     qDebug() << "Wrong password or token expired";
                     
-//                     // Kill wrong credentials, so we don't try to use them again
-//                     if (!Ruqola::instance()->authToken().isEmpty()) {
-//                         Ruqola::instance()->setAuthToken(QString());
-//                     } else if (!Ruqola::instance()->password().isEmpty()) {
-//                         Ruqola::instance()->setPassword(QString());
-//                     }
-//                     setLoginStatus(DDPClient::LoginFailed);
-                    
-                    
                     login(); // Let's keep trying to log in
                 } else {
                     Ruqola::self()->setAuthToken(root.value("result").toObject().value("token").toString());
