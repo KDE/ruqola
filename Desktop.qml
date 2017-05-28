@@ -259,18 +259,18 @@ ApplicationWindow {
                 }
             }
 
-                Button {
-                    anchors.bottom: parent.bottom
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    width: 50
-                    id : attachmentsButton
-                    iconName: "Button"
-                    text: "Click"
-                    height: 2.7*font.pixelSize
-                    visible: true
-                    onClicked: Ruqola.attachmentButtonClicked();
-                }
+            Button {
+                anchors.bottom: parent.bottom
+                anchors.right: parent.right
+                anchors.top: parent.top
+                width: 50
+                id : attachmentsButton
+                iconName: "Button"
+                text: "Click"
+                height: 2.7*font.pixelSize
+                visible: true
+                onClicked: Ruqola.attachmentButtonClicked();
+            }
         }//Item input
 
 
