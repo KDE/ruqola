@@ -25,7 +25,8 @@
 #include "ddpclient.h"
 #include "notification.h"
 #include <QFileDialog>
-
+#include <QTcpSocket>
+#include <QDataStream>
 
 Ruqola *Ruqola::m_self = 0;
 
@@ -78,22 +79,6 @@ void Ruqola::setUserID(const QString& userID)
     emit userIDChanged();
 }
 
-bool Ruqola::attachmentButtonClicked()
-{
-    //open fileDialogBox, select an image, convert it to bytearray and send as message
-//    QFileDialog dialog(NULL);
-//    dialog.setFileMode(QFileDialog::ExistingFile);
-//    dialog.setViewMode(QFileDialog::List);
-    QUrl filePath = QFileDialog::getOpenFileUrl(Q_NULLPTR,
-                                              "Select one or more files to open",
-                                              QDir::homePath(),
-                                              "Images (*.png *.jpeg *.jpg)");
-
-
-
-    return true;
-}
-
 RoomModel * Ruqola::roomModel()
 {
     if (!m_roomModel) {
@@ -121,6 +106,35 @@ Notification * Ruqola::notification()
         m_notification->show();
     }
     return m_notification;
+}
+
+void Ruqola::attachmentButtonClicked()
+{
+    //open fileDialogBox, select an image, convert it to bytearray and send as message
+//    QFileDialog dialog(NULL);
+//    dialog.setFileMode(QFileDialog::ExistingFile);
+//    dialog.setViewMode(QFileDialog::List);
+    QString fileName = QFileDialog::getOpenFileName(Q_NULLPTR,
+                                              "Select one or more files to open",
+                                              QDir::homePath(),
+                                              "Images (*.png *.jpeg *.jpg)");
+    qDebug() << "Selected Image" << fileName;
+    sendImage(fileName);
+}
+
+void Ruqola::sendImage(QString fileName)
+{
+    qDebug() << "Sending Image";
+    QImage image(fileName);
+    QByteArray ba;
+
+    ba.append((char *)image.bits(),image.byteCount());
+    if (image.byteCount() != ba.size())
+        qDebug() << "Image not encoded correctly";
+
+    QString message(ba);
+    QString roomID("wtl-test2");
+    sendMessage(roomID,message);
 }
 
 

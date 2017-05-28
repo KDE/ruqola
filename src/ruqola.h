@@ -26,6 +26,7 @@
 #include <QObject>
 #include <QQmlEngine>
 #include <QJSEngine>
+#include <QTcpSocket>
 #include "ddpclient.h"
 #include "roommodel.h"
 #include "messagemodel.h"
@@ -74,8 +75,6 @@ public:
     DDPClient *ddp();
     Notification * notification();
 
-    Q_INVOKABLE bool attachmentButtonClicked();
-
     Q_INVOKABLE RoomModel *roomModel();
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
     Q_INVOKABLE MessageModel* getModelForRoom(const QString &roomID);
@@ -83,8 +82,10 @@ public:
     Q_INVOKABLE void tryLogin();
     Q_INVOKABLE void logOut();
     Q_INVOKABLE RoomWrapper* getRoom(const QString &roomID);
-//     void setRoomModel();
 
+    Q_INVOKABLE void attachmentButtonClicked();
+
+    void sendImage(QString fileName);
     QString cacheBasePath() const;
 
 signals:
