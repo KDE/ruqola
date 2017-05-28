@@ -67,11 +67,14 @@ public:
     QString serverURL() const;
     void setServerURL(const QString &serverURL);
 
+
 //     QString activeRoom() const;
 //     void setActiveRoom(const QString &activeRoom);
 
     DDPClient *ddp();
     Notification * notification();
+
+    Q_INVOKABLE bool attachmentButtonClicked();
 
     Q_INVOKABLE RoomModel *roomModel();
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);

@@ -11,5 +11,6 @@
         <file>Login.qml</file>
         <file>marked.js</file>
         <file>systray.png</file>
+        <file>attach-button.jpg</file>
     </qresource>
 </RCC>

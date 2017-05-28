@@ -24,6 +24,7 @@
 #include "roommodel.h"
 #include "ddpclient.h"
 #include "notification.h"
+#include <QFileDialog>
 
 
 Ruqola *Ruqola::m_self = 0;
@@ -75,6 +76,22 @@ void Ruqola::setUserID(const QString& userID)
     QSettings s;
     s.setValue("userID", userID);
     emit userIDChanged();
+}
+
+bool Ruqola::attachmentButtonClicked()
+{
+    //open fileDialogBox, select an image, convert it to bytearray and send as message
+//    QFileDialog dialog(NULL);
+//    dialog.setFileMode(QFileDialog::ExistingFile);
+//    dialog.setViewMode(QFileDialog::List);
+    QUrl filePath = QFileDialog::getOpenFileUrl(Q_NULLPTR,
+                                              "Select one or more files to open",
+                                              QDir::homePath(),
+                                              "Images (*.png *.jpeg *.jpg)");
+
+
+
+    return true;
 }
 
 RoomModel * Ruqola::roomModel()

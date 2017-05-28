@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 
     QQmlContext *ctxt = engine.rootContext();
     ctxt->setContextProperty("systrayIcon", Ruqola::self()->notification());
+//    ctxt->setContextProperty("attachmentButton", Ruqola::self()->attachmentButtonClicked());
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

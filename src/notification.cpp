@@ -27,32 +27,6 @@
 #include <QMenu>
 #include <QMessageBox>
 
-bool Notification::windowVisible() const
-{
-    return m_windowVisible;
-}
-
-void Notification::setWindowVisible(bool value)
-{
-    if (m_windowVisible != value){
-        m_windowVisible = value;
-        emit windowVisibleChanged();
-    }
-}
-
-QString Notification::message() const
-{
-    return m_message;
-}
-
-void Notification::setMessage(const QString &message)
-{
-    if (m_message != message){
-        m_message = message;
-        emit messageChanged();
-    }
-}
-
 
 //create actions in Menu
 void Notification::createActions(){
@@ -67,11 +41,11 @@ void Notification::createTrayIcon(){
         QMessageBox::critical(0, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
         return;
     }
-    
+
     m_trayIconMenu = new QMenu();
     m_trayIconMenu->addAction(m_quitAction);
     m_trayIconMenu->addSeparator();
-    
+
     setContextMenu(m_trayIconMenu);
     setToolTip("Ruqola");
     setIcon(QIcon(":/systray.png"));
@@ -79,22 +53,8 @@ void Notification::createTrayIcon(){
 
 }
 
-void Notification::updateDesktopNotification()
-{
-    if (!windowVisible()){
-        QString title("New Ruqola Message!"); //This can be enhanced later
-        showMessage(title, m_message, QSystemTrayIcon::Information, 5000 );
-    }
-}
 
-
-Notification::Notification()
- : m_windowVisible(true)
-{
+Notification::Notification() {
     createActions();
     createTrayIcon();
-
-    //connect messageChanged signal to updateDesktopNotification Slot
-    connect(this, &Notification::messageChanged, this, &Notification::updateDesktopNotification);
-
 }
