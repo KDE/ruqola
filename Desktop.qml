@@ -98,17 +98,12 @@ ApplicationWindow {
             id: roomsList
             
             model: Ruqola.roomModel()
-
-            visible: parent.visible
-            
+            visible: parent.visible            
             selectedRoomID: appid.selectedRoomID;
-            
             onRoomSelected: {
                 if (roomID == selectedRoomID) {
                     return;
                 }
-
-
                 console.log("Choosing room", roomID);
                 appid.selectedRoomID = roomID;
                 activeChat.model = Ruqola.getModelForRoom(roomID)
@@ -135,14 +130,16 @@ ApplicationWindow {
         
         
         Item {
+
             anchors.right: parent.right
             anchors.left: roomsList.right
             anchors.top: parent.top
-            anchors.bottom: messageLine.top
+            anchors.bottom: input.top
             id: chatView
             Rectangle {
                 id: topicWidget
                 color: "#fff"
+
                 anchors.top: parent.top
                 anchors.right: parent.right
                 anchors.left: parent.left
@@ -185,7 +182,7 @@ ApplicationWindow {
                 anchors.right: parent.right
                 anchors.left: parent.left
                 anchors.top: topicWidget.bottom
-                anchors.bottom: input.top
+                anchors.bottom: parent.bottom
                 
                 verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
 //                 visible: parent.visible && (Ruqola.loginStatus != DDPClient.LoggingIn)
@@ -224,15 +221,14 @@ ApplicationWindow {
                                 i_username: username
                                 i_systemMessage: systemMessage
                                 i_systemMessageType: type
-                                width: parent.width
+                                //width: parent.width
                             }
                 }
             }
         } //Item chatView
 
-        Item{
+        Item {
             anchors.bottom: parent.bottom
-            anchors.top: activeChat.bottom
             anchors.left: roomsList.right
             anchors.right: parent.right
             id: input
@@ -250,7 +246,8 @@ ApplicationWindow {
                                  else{
                                      qsTr("Enter message")
                                  }
-                height: 2.7*font.pixelSize
+
+//                height: 2.7*font.pixelSize
                 onAccepted: {
                     if (text != "" && Ruqola.loginStatus == DDPClient.LoggedIn && !(selectedRoomID=="")) {
                         Ruqola.sendMessage(selectedRoomID, text);
@@ -259,18 +256,18 @@ ApplicationWindow {
                 }
             }
 
-                Button {
-                    anchors.bottom: parent.bottom
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    width: 50
-                    id : attachmentsButton
-                    iconName: "Button"
-                    text: "Click"
-                    height: 2.7*font.pixelSize
-                    visible: true
-                    onClicked: Ruqola.attachmentButtonClicked();
-                }
+            Button {
+                anchors.bottom: parent.bottom
+                anchors.top: parent.top
+                anchors.right: parent.right
+                width: 50
+                id : attachmentsButton
+                iconName: "Button"
+                text: "Click"
+                visible: true
+                onClicked: Ruqola.attachmentButtonClicked();
+            }
+
         }//Item input
 
 
@@ -286,7 +283,6 @@ ApplicationWindow {
     onClosing: {
         console.log("Minimizing to systray...");
         hide();
-        systrayIcon.windowVisible = visible;
     }
     
 

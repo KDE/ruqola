@@ -124,16 +124,18 @@ void Ruqola::attachmentButtonClicked()
 
 void Ruqola::sendImage(QString fileName)
 {
-    qDebug() << "Sending Image";
     QImage image(fileName);
     QByteArray ba;
+
+    qDebug() << "Sending Image of size " << image.byteCount();
 
     ba.append((char *)image.bits(),image.byteCount());
     if (image.byteCount() != ba.size())
         qDebug() << "Image not encoded correctly";
 
     QString message(ba);
-    QString roomID("wtl-test2");
+    //hard code roomID for now
+    QString roomID("3cGRyFLWgnPL7B79n");
     sendMessage(roomID,message);
 }
 
@@ -142,6 +144,7 @@ void Ruqola::sendMessage(const QString &roomID, const QString &message)
 {
     QString json = "{\"rid\": \"%1\", \"msg\": \"%2\"}";
     json = json.arg(roomID, message);
+  //  qDebug() << "Sending json: " << json;
     ddp()->method("sendMessage", QJsonDocument::fromJson(json.toUtf8()));
 }
 

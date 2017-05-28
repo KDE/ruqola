@@ -166,6 +166,7 @@ void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
 
 void DDPClient::onTextMessageReceived(QString message)
 {
+//    qDebug() << "DDPClient::onTextMessageReceived" << message;
     QJsonDocument response = QJsonDocument::fromJson(message.toUtf8());
     if (!response.isNull() && response.isObject()) {
 
@@ -177,12 +178,31 @@ void DDPClient::onTextMessageReceived(QString message)
 
         } else if (messageType == "result") {
             
-//             qDebug() << "got a result" << root;
+//             qDebug() << "Got a result" << root;
             unsigned id = root.value("id").toString().toInt();
             
             if (m_callbackHash.contains(id)) {
                 std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
+         //----------------------------------------------------
+         //Receiving image message
+                QByteArray ba;
+                ba.append(root.value("result").toString());
+                int imageWidth = 400;
+                int imageHeight = 300;
+                int bytesPerPixel = 3;
+                QImage image((uchar *)ba.data(), imageWidth, imageHeight, imageWidth * bytesPerPixel, QImage::Format_RGB32);
+                //image.loadFromData(ba);
+
+                if (image.isNull() || image.byteCount() != ba.size()) {
+                    qDebug() << "Error: Image not loaded correctly";
+                }
+
+//                 QLabel label;
+//                 label.setPixmap(QPixmap::fromImage(image));
+//                 label.show();
+         //----------------------------------------------------------------
                 callback( QJsonDocument(root.value("result").toObject()) );
+
             }
             emit result(id, QJsonDocument(root.value("result").toObject()));
             
@@ -204,9 +224,7 @@ void DDPClient::onTextMessageReceived(QString message)
             m_connected = true;
             emit connectedChanged();
             setLoginStatus(DDPClient::LoggingIn);
-            login(); // Try to resume auth token login
-            
-            
+            login(); // Try to resume auth token login         
         } else if (messageType == "error") {
             qDebug() << "ERROR!!" << message;
         } else if (messageType == "ping") {
@@ -221,7 +239,7 @@ void DDPClient::onTextMessageReceived(QString message)
             emit changed(root);
         } else if (messageType == "ready") {
             // do nothing
-        }else {
+        } else {
             qDebug() << "received something unhandled:" << message;
         }
     }
