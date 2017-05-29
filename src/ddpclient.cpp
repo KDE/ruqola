@@ -187,25 +187,38 @@ void DDPClient::onTextMessageReceived(QString message)
          //Receiving image message
                 QByteArray ba;
                 ba.append(root.value("result").toString());
-                int imageWidth = 400;
-                int imageHeight = 300;
-                int bytesPerPixel = 3;
-                QImage image((uchar *)ba.data(), imageWidth, imageHeight, imageWidth * bytesPerPixel, QImage::Format_RGB32);
-                //image.loadFromData(ba);
 
-                if (image.isNull() || image.byteCount() != ba.size()) {
+        //check message type from params
+                QJsonArray params = root.value("result").toArray();
+                QString type = params.at(3);
+                if (type == "image"){
+                    QDataStream in;
+                     QByteArray ba;
+                     in >> ba;
+                     file.open(QIODevice::WriteOnly);
+                     file.write(ba);
+                     file.close();
+                } else { //text message
+
+                }
+        */
+               /*
+                int imageFlag = 0;
+                if (image.isNull() ){
+                    qDebug() << "Text Message Received";
+                } else if ( image.byteCount() != ba.size()) {
                     qDebug() << "Error: Image not loaded correctly";
+                } else {
+                    qDebug() << "Image received";
+                    imageFlag = 1;
                 }
 
-//                 QLabel label;
-//                 label.setPixmap(QPixmap::fromImage(image));
-//                 label.show();
+                */
          //----------------------------------------------------------------
                 callback( QJsonDocument(root.value("result").toObject()) );
-
             }
             emit result(id, QJsonDocument(root.value("result").toObject()));
-            
+
             if (id == m_loginJob) {
                 if (root.value("error").toObject().value("error").toInt() == 403) {
                     qDebug() << "Wrong password or token expired";

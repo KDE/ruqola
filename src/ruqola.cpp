@@ -27,6 +27,7 @@
 #include <QFileDialog>
 #include <QTcpSocket>
 #include <QDataStream>
+#include <QString>
 
 Ruqola *Ruqola::m_self = 0;
 
@@ -110,41 +111,38 @@ Notification * Ruqola::notification()
 
 void Ruqola::attachmentButtonClicked()
 {
-    //open fileDialogBox, select an image, convert it to bytearray and send as message
-//    QFileDialog dialog(NULL);
-//    dialog.setFileMode(QFileDialog::ExistingFile);
-//    dialog.setViewMode(QFileDialog::List);
+    //open fileDialogBox, select an image, encode and send to server
     QString fileName = QFileDialog::getOpenFileName(Q_NULLPTR,
                                               "Select one or more files to open",
                                               QDir::homePath(),
                                               "Images (*.png *.jpeg *.jpg)");
-    qDebug() << "Selected Image" << fileName;
-    sendImage(fileName);
+
+    qDebug() << "Selected Image " << fileName;
+
+        QFile file(fileName);
+        if (!file.open(QFile::ReadOnly)) {
+            qDebug() << "Cannot open the selected file";
+            return;
+        }
+
+        QByteArray block; // Data that will be sent
+        block = file.readAll();
+        block.toBase64();
+
+        QString message(block);
+        QString roomID("3cGRyFLWgnPL7B79n"); //hard code roomID for now
+        QString type("image");
+        qDebug() << "base64 image- " << message;
+
+        sendMessage(roomID,message,type);
 }
 
-void Ruqola::sendImage(QString fileName)
+void Ruqola::sendMessage(const QString &roomID, const QString &message, const QString type)
 {
-    QImage image(fileName);
-    QByteArray ba;
+    QString json = "{\"rid\": \"%1\", \"msg\": \"%2\", \"type\": \"%3\"}";
+    json = json.arg(roomID, message, type);
+    qDebug() << "Sending json: " << json;
 
-    qDebug() << "Sending Image of size " << image.byteCount();
-
-    ba.append((char *)image.bits(),image.byteCount());
-    if (image.byteCount() != ba.size())
-        qDebug() << "Image not encoded correctly";
-
-    QString message(ba);
-    //hard code roomID for now
-    QString roomID("3cGRyFLWgnPL7B79n");
-    sendMessage(roomID,message);
-}
-
-
-void Ruqola::sendMessage(const QString &roomID, const QString &message)
-{
-    QString json = "{\"rid\": \"%1\", \"msg\": \"%2\"}";
-    json = json.arg(roomID, message);
-  //  qDebug() << "Sending json: " << json;
     ddp()->method("sendMessage", QJsonDocument::fromJson(json.toUtf8()));
 }
 

@@ -147,17 +147,11 @@ void MessageModel::addMessage(const Message& message)
     if (message.message.isEmpty()) {
         return;
     }
-
-//   qDebug() << "MessageModel::addMessage called";
-
+ //  qDebug() << "MessageModel::addMessage called for msg: " << message.message;
     auto existingMessage = qFind(m_allMessages.begin(), m_allMessages.end(), message);
     bool present = (existingMessage != m_allMessages.end());
-    
-    auto i = qUpperBound(m_allMessages.begin(), m_allMessages.end(),
-                                               message);
-    
+    auto i = qUpperBound(m_allMessages.begin(), m_allMessages.end(), message);
     int pos = i-m_allMessages.begin();
-    
     bool messageChanged = false;
     
 //     if (qFind(m_allMessages.begin(), m_allMessages.end(), message) != m_allMessages.end()) {

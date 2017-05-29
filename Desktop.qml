@@ -248,9 +248,10 @@ ApplicationWindow {
                                  }
 
 //                height: 2.7*font.pixelSize
+                property string type: "text";
                 onAccepted: {
                     if (text != "" && Ruqola.loginStatus == DDPClient.LoggedIn && !(selectedRoomID=="")) {
-                        Ruqola.sendMessage(selectedRoomID, text);
+                        Ruqola.sendMessage(selectedRoomID, text, type);
                         text = "";
                     }
                 }

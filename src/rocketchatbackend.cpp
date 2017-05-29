@@ -247,10 +247,8 @@ void RocketChatBackend::onChanged(QJsonObject object)
     } else if (collection == "stream-notify-user") {
         QJsonObject fields = object.value("fields").toObject();
         QJsonArray contents = fields.value("args").toArray();
-//         Ruqola::self()->notification()->setMessage(contents.at(0).toObject()["text"].toString());
         QString message = contents.at(0).toObject()["text"].toString();
         Ruqola::self()->notification()->showMessage("New message", message, QSystemTrayIcon::Information, 5000 );
-
         qDebug() << "New notification" << object.value("fields").toObject();
     }
 }

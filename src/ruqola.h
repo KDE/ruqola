@@ -76,7 +76,7 @@ public:
     Notification * notification();
 
     Q_INVOKABLE RoomModel *roomModel();
-    Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
+    Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message, const QString type);
     Q_INVOKABLE MessageModel* getModelForRoom(const QString &roomID);
 
     Q_INVOKABLE void tryLogin();
@@ -85,7 +85,6 @@ public:
 
     Q_INVOKABLE void attachmentButtonClicked();
 
-    void sendImage(QString fileName);
     QString cacheBasePath() const;
 
 signals:
