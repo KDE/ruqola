@@ -27,6 +27,7 @@
 #include <QtCore/QJsonArray>
 
 #include <iostream>
+#include <QLabel>
 #include "ruqola.h"
 
 void process_test(QJsonDocument doc)
@@ -166,57 +167,47 @@ void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
 
 void DDPClient::onTextMessageReceived(QString message)
 {
-//    qDebug() << "DDPClient::onTextMessageReceived" << message;
     QJsonDocument response = QJsonDocument::fromJson(message.toUtf8());
+    qDebug() << "Response- " << response;
+
+    qDebug() << "----------------------";
+    qDebug() << "----------------------";
+    qDebug() << "----------------------";
+    qDebug() << "----------------------";
     if (!response.isNull() && response.isObject()) {
 
         QJsonObject root = response.object();
-
         QString messageType = root.value("msg").toString();
 
         if (messageType == "updated") {
 
-        } else if (messageType == "result") {
-            
-//             qDebug() << "Got a result" << root;
+        } else if (messageType == "result") {            
             unsigned id = root.value("id").toString().toInt();
             
-            if (m_callbackHash.contains(id)) {
+        if (m_callbackHash.contains(id)) {
                 std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
-         //----------------------------------------------------
-         //Receiving image message
+
                 QByteArray ba;
                 ba.append(root.value("result").toString());
 
-        //check message type from params
-                QJsonArray params = root.value("result").toArray();
-                QString type = params.at(3);
+                //check message type
+                QJsonDocument res = QJsonDocument(root.value("result").toObject());
+                QJsonObject result = res.object();
+                QString type = result.value("type").toString();
+
                 if (type == "image"){
-                    QDataStream in;
-                     QByteArray ba;
-                     in >> ba;
-                     file.open(QIODevice::WriteOnly);
-                     file.write(ba);
-                     file.close();
-                } else { //text message
+                    QByteArray decodedImage = QByteArray::fromBase64("UXQgaXMgZ3JlYXQh");
+                    QPixmap pixmap;
+                    pixmap.loadFromData(decodedImage,0,Qt::AutoColor);
+                    QLabel label;
+                    label.setPixmap(pixmap);
+                    label.show();
+                } else if (type == "text"){
 
                 }
-        */
-               /*
-                int imageFlag = 0;
-                if (image.isNull() ){
-                    qDebug() << "Text Message Received";
-                } else if ( image.byteCount() != ba.size()) {
-                    qDebug() << "Error: Image not loaded correctly";
-                } else {
-                    qDebug() << "Image received";
-                    imageFlag = 1;
-                }
 
-                */
-         //----------------------------------------------------------------
                 callback( QJsonDocument(root.value("result").toObject()) );
-            }
+         }
             emit result(id, QJsonDocument(root.value("result").toObject()));
 
             if (id == m_loginJob) {
