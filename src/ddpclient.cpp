@@ -168,12 +168,6 @@ void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
 void DDPClient::onTextMessageReceived(QString message)
 {
     QJsonDocument response = QJsonDocument::fromJson(message.toUtf8());
-    qDebug() << "Response- " << response;
-
-    qDebug() << "----------------------";
-    qDebug() << "----------------------";
-    qDebug() << "----------------------";
-    qDebug() << "----------------------";
     if (!response.isNull() && response.isObject()) {
 
         QJsonObject root = response.object();
@@ -187,19 +181,21 @@ void DDPClient::onTextMessageReceived(QString message)
         if (m_callbackHash.contains(id)) {
                 std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
 
-                QByteArray ba;
-                ba.append(root.value("result").toString());
-
                 //check message type
                 QJsonDocument res = QJsonDocument(root.value("result").toObject());
                 QJsonObject result = res.object();
                 QString type = result.value("type").toString();
+                QString msg = result.value("msg").toString();
 
                 if (type == "image"){
-                    QByteArray decodedImage = QByteArray::fromBase64("UXQgaXMgZ3JlYXQh");
+                    QByteArray decodedImage;
+                    QByteArray image;
                     QPixmap pixmap;
-                    pixmap.loadFromData(decodedImage,0,Qt::AutoColor);
                     QLabel label;
+
+                    decodedImage.append(msg);
+                    image = QByteArray::fromBase64(decodedImage);
+                    pixmap.loadFromData(image,0,Qt::AutoColor);
                     label.setPixmap(pixmap);
                     label.show();
                 } else if (type == "text"){

@@ -124,7 +124,6 @@ void Ruqola::attachmentButtonClicked()
             qDebug() << "Cannot open the selected file";
             return;
         }
-
         QByteArray block; // Data that will be sent
         block = file.readAll();
         block.toBase64();
