@@ -264,16 +264,27 @@ ApplicationWindow {
                 width: 50
                 id : attachmentsButton
                 iconName: "Button"
-                text: "Click"
+                iconSource: "qrc:/attach-button.jpg"
+        //        text: "Click"
                 visible: true
                 onClicked: Ruqola.attachmentButtonClicked();
             }
 
         }//Item input
 
-
-
     }// mainWidget Item
+
+    Image {
+        id: receivedImage
+        source: " "
+        width: 60
+        height: 80
+        fillMode: Image.PreserveAspectFit
+//        visible: //only when an image is recieved
+        sourceSize.width: 1024
+        sourceSize.height: 1024
+//      onStatusChanged: if (receivedImage.status === Image.Error) console.log('Image load error')
+    }
     
     Rectangle {
         z: -10

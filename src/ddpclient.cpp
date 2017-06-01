@@ -175,10 +175,6 @@ void DDPClient::onTextMessageReceived(QString message)
 
         qDebug() << "--------------------";
         qDebug() << "--------------------";
-        qDebug() << "--------------------";
-        qDebug() << "--------------------";
-        qDebug() << "--------------------";
-        qDebug() << "--------------------";
         qDebug() << "Root is- " << root;
 
         if (messageType == "updated") {
@@ -194,23 +190,37 @@ void DDPClient::onTextMessageReceived(QString message)
                 QJsonObject result = res.object();
                 QString type = result.value("type").toString();
                 QString msg = result.value("msg").toString();
-//                msg = msg.fromBase64(msg);
+
+                QByteArray base64Image;
+                QImage image;
+
+                QString path = "/home/vasudha/Ruqola";
+                //QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+                QDir dir(path);
+                if (!dir.exists()){
+//                    QDir::mkdir(path);
+                    dir.mkdir(path);
+                    qDebug() << "Directory created at " << path;
+                }
+                dir.cd(path);
+                QString filename = dir.absoluteFilePath("Images");
 
                 //USE QtQUICK, NOT QWIDGETS
-//                QByteArray decodedImage;
-//                QByteArray image;
-//                QPixmap pixmap;
-//                QLabel label;
-
                 if (type == "image"){
-//                    decodedImage.append(msg);
-//                    image = QByteArray::fromBase64(decodedImage);
-//                    pixmap.loadFromData(image,0,Qt::AutoColor);
-//                    label.setPixmap(pixmap);
-//                    label.show();
+                    base64Image.append(msg);
+                    image.loadFromData(QByteArray::fromBase64(base64Image), "PNG");
+                    qDebug() << "Saving Image to " << filename;
+                    if (image.save(filename, 0
+                                   , -1) ){
+                        qDebug() << "Image saved successfully";
+                    } else {
+                        qDebug() << "Image NOT saved";
+                    }
+
                 } else if (type == "text"){
 
                 }
+
 
                 callback( QJsonDocument(root.value("result").toObject()) );
          }

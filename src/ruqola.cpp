@@ -1,4 +1,4 @@
-/*
+﻿/*
  * <one line to give the program's name and a brief idea of what it does.>
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
  *
@@ -119,30 +119,29 @@ void Ruqola::attachmentButtonClicked()
 
     qDebug() << "Selected Image " << fileName;
 
-        QFile file(fileName);
-        if (!file.open(QFile::ReadOnly)) {
-            qDebug() << "Cannot open the selected file";
-            return;
-        }
-        QByteArray block; // Data that will be sent
-        block = file.readAll();
-        block.toBase64();
-
-        QString message(block);
-        QString roomID("3cGRyFLWgnPL7B79n"); //hard code roomID for now
-        QString type("image");
-        qDebug() << "base64 image- " << message;
-
-        sendMessage(roomID,message,type);
+    QFile file(fileName);
+    if (!file.open(QFile::ReadOnly)) {
+        qDebug() << "Cannot open the selected file";
+        return;
+    }
+    const QString message = QString::fromLatin1(file.readAll().toBase64());
+    const QString roomID("3cGRyFLWgnPL7B79n"); //hard code roomID for now
+    const QString type("image");
+    sendMessage(roomID, message, type);
 }
 
 void Ruqola::sendMessage(const QString &roomID, const QString &message, const QString type)
 {
-    QString json = "{\"rid\": \"%1\", \"msg\": \"%2\", \"type\": \"%3\"}";
-    json = json.arg(roomID, message, type);
-    qDebug() << "Sending json: " << json;
+//    QString json = "{\"rid\": \"%1\", \"msg\": \"%2\", \"type\": \"%3\"}";
+//    json = json.arg(roomID, message, type);
+//    qDebug() << "Sending json: " << json;
+    QJsonObject jSonImage;
+    jSonImage.insert("rid",roomID);
+    jSonImage.insert("msg",message);
+    jSonImage.insert("type",type);
 
-    ddp()->method("sendMessage", QJsonDocument::fromJson(json.toUtf8()));
+//    ddp()->method("sendMessage", QJsonDocument::fromJson(json.toUtf8()));
+    ddp()->method("sendMessage", QJsonDocument(jSonImage));
 }
 
 MessageModel * Ruqola::getModelForRoom(const QString& roomID)
