@@ -173,6 +173,14 @@ void DDPClient::onTextMessageReceived(QString message)
         QJsonObject root = response.object();
         QString messageType = root.value("msg").toString();
 
+        qDebug() << "--------------------";
+        qDebug() << "--------------------";
+        qDebug() << "--------------------";
+        qDebug() << "--------------------";
+        qDebug() << "--------------------";
+        qDebug() << "--------------------";
+        qDebug() << "Root is- " << root;
+
         if (messageType == "updated") {
 
         } else if (messageType == "result") {            
@@ -186,18 +194,20 @@ void DDPClient::onTextMessageReceived(QString message)
                 QJsonObject result = res.object();
                 QString type = result.value("type").toString();
                 QString msg = result.value("msg").toString();
+//                msg = msg.fromBase64(msg);
+
+                //USE QtQUICK, NOT QWIDGETS
+//                QByteArray decodedImage;
+//                QByteArray image;
+//                QPixmap pixmap;
+//                QLabel label;
 
                 if (type == "image"){
-                    QByteArray decodedImage;
-                    QByteArray image;
-                    QPixmap pixmap;
-                    QLabel label;
-
-                    decodedImage.append(msg);
-                    image = QByteArray::fromBase64(decodedImage);
-                    pixmap.loadFromData(image,0,Qt::AutoColor);
-                    label.setPixmap(pixmap);
-                    label.show();
+//                    decodedImage.append(msg);
+//                    image = QByteArray::fromBase64(decodedImage);
+//                    pixmap.loadFromData(image,0,Qt::AutoColor);
+//                    label.setPixmap(pixmap);
+//                    label.show();
                 } else if (type == "text"){
 
                 }
