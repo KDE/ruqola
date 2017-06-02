@@ -175,7 +175,7 @@ void DDPClient::onTextMessageReceived(QString message)
 
         qDebug() << "--------------------";
         qDebug() << "--------------------";
-        qDebug() << "Root is- " << root;
+//        qDebug() << "Root is- " << root;
 
         if (messageType == "updated") {
 
@@ -194,33 +194,39 @@ void DDPClient::onTextMessageReceived(QString message)
                 QByteArray base64Image;
                 QImage image;
 
-                QString path = "/home/vasudha/Ruqola";
+                QString path = "/home/vasudha/Qt/build-Ruqola-Desktop_Qt_5_8_0_GCC_64bit-Debug/Images";
                 //QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
                 QDir dir(path);
                 if (!dir.exists()){
-//                    QDir::mkdir(path);
                     dir.mkdir(path);
                     qDebug() << "Directory created at " << path;
                 }
-                dir.cd(path);
-                QString filename = dir.absoluteFilePath("Images");
+                QDir::setCurrent(path);
+
+                const QDateTime currentTime = QDateTime::currentDateTime();
+                const QString timestamp = currentTime.toString(QLatin1String("yyyyMMdd-hhmmsszzz"));
+                const QString filename = QString::fromLatin1("%1.jpg").arg(timestamp);
+
+//                QString filename = "img.jpg";
 
                 //USE QtQUICK, NOT QWIDGETS
                 if (type == "image"){
+                    qDebug() << "I am here yay";
                     base64Image.append(msg);
-                    image.loadFromData(QByteArray::fromBase64(base64Image), "PNG");
-                    qDebug() << "Saving Image to " << filename;
-                    if (image.save(filename, 0
-                                   , -1) ){
-                        qDebug() << "Image saved successfully";
-                    } else {
-                        qDebug() << "Image NOT saved";
+                    image.loadFromData(QByteArray::fromBase64(base64Image), "JPG");
+                    if ( !image.isNull() ){
+                        qDebug() << "Saving Image to " << path;
+                         if (image.save(filename, "JPEG") ){
+                                qDebug() << "Image saved successfully";
+                         } else {
+                                qDebug() << "Image NOT saved";
+                         }
+                    } else{
+                        qDebug() << "Image is NULL";
                     }
-
                 } else if (type == "text"){
 
                 }
-
 
                 callback( QJsonDocument(root.value("result").toObject()) );
          }
