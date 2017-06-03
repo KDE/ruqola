@@ -62,7 +62,34 @@ public:
 
 //  When you add a field, please remember to also add relevant code
 //  to the enum declaration, roleNames, fromJSon and serialize
-    QString name, topic, id;
+
+    //Room Object Fields
+
+    // _id
+    QString id;
+
+    // t (can take values "d" , "c" or "p")
+    QString type;
+
+    // name
+    QString name;
+
+    // u
+    QString userName;
+    QString userID;
+
+    // topic
+    QString topic;
+
+    // muted - collection of muted users by its usernames
+    QString mutedUsers; //QStringList
+
+    // jitsiTimeout
+    qint64 jitsiTimeout;
+
+    // ro - read-only chat or not
+    bool ro;
+
     int unread;
     bool selected = false;
 };
@@ -106,7 +133,14 @@ public:
         RoomName = Qt::UserRole + 1,
         RoomSelected,
         RoomID,
-        RoomUnread
+        RoomUnread,
+        RoomType,
+        RoomUserName, //created by UserName
+        RoomUserID,
+        RoomTopic,
+        RoomMuted,
+        RoomJitsiTimeout,
+        RoomRO
     };
 
     RoomModel(QObject *parent = 0);
