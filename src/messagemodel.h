@@ -109,7 +109,22 @@ public:
         Timestamp,
         UserID,
         SystemMessage,
-        SystemMessageType
+        SystemMessageType,
+        MessageID,
+        RoomID,
+        UpdatedAt,
+        editedAt,
+        editedByUserName,
+        editedByUserID,
+        url,
+        meta,
+        headers,
+        parsedUrl,
+        image_url,color,
+        alias,
+        avatar,
+        groupable,
+        parseUrls
     };
 
     MessageModel(const QString &roomID = "no_room", QObject *parent = 0);
