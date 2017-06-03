@@ -35,14 +35,31 @@
 Message MessageModel::fromJSon(const QJsonObject& o)
 {
     Message message;
-    message.username = o["username"].toString();
+
+    message.messageID = o["messageID"].toString();
+    message.roomID = o["roomID"].toString();
     message.message = o["message"].toString();
-    message.userID = o["userID"].toString();
     message.timestamp = (qint64) o["timestamp"].toDouble();
+    message.username = o["username"].toString();
+    message.userID = o["userID"].toString();
+    message.updatedAt = (qint64) o["updatedAt"].toDouble();
+    message.editedAt = (qint64) o["editedAt"].toDouble();
+    message.editedByUsername = o["editedByUsername"].toString();
+    message.editedByUserID = o["editedByUserID"].toString();
+    message.url = o["url"].toString();
+    message.meta = o["meta"].toString();
+    message.headers = o["headers"].toString();
+    message.parsedUrl = o["parsedUrl"].toString();
+    message.image_url = o["image_url"].toString();
+    message.color = o["color"].toString();
+    message.alias = o["alias"].toString();
+    message.avatar = o["avatar"].toString();
+    message.groupable = o["groupable"].toBool();
+    message.parseUrls = o["parseUrls"].toBool();
+
     message.systemMessage = o["systemMessage"].toBool();
     message.systemMessageType = o["type"].toString();
-    message.roomID = o["roomID"].toString();
-    message.messageID = o["messageID"].toString();
+
     
     return message;
 }
@@ -51,14 +68,31 @@ QByteArray MessageModel::serialize(const Message& message)
 {
     QJsonDocument d;
     QJsonObject o;
-    o["username"] = message.username;
+
+    o["messageID"] = message.messageID;
+    o["roomID"] = message.roomID;
     o["message"] = message.message;
-    o["userID"] = message.userID;
     o["timestamp"] = message.timestamp;
+    o["username"] = message.username;
+    o["userID"] = message.userID;
+    o["updatedAt"] = message.updatedAt;
+    o["editedAt"] = message.editedAt;
+    o["editedByUsername"] = message.editedByUsername;
+    o["editedByUserID"] = message.editedByUserID;
+    o["url"] = message.url;
+    o["meta"] = message.meta;
+    o["headers"] = message.headers;
+    o["parsedUrl"] = message.parsedUrl;
+    o["image_url"] = message.image_url;
+    o["color"] = message.color;
+    o["alias"] = message.alias;
+    o["avatar"] = message.avatar;
+    o["groupable"] = message.groupable;
+    o["parseUrls"] = message.parseUrls;
+
     o["systemMessage"] = message.systemMessage;
     o["type"] = message.systemMessageType;
-    o["roomID"] = message.roomID;
-    o["messageID"] = message.messageID;
+
     d.setObject(o);
     return d.toBinaryData();
 }
@@ -143,11 +177,11 @@ int MessageModel::rowCount(const QModelIndex& parent) const
 
 void MessageModel::addMessage(const Message& message)
 {
-    // Don't add empty messages?
+    // Don't add empty messages
     if (message.message.isEmpty()) {
         return;
     }
- //  qDebug() << "MessageModel::addMessage called for msg: " << message.message;
+
     auto existingMessage = qFind(m_allMessages.begin(), m_allMessages.end(), message);
     bool present = (existingMessage != m_allMessages.end());
     auto i = qUpperBound(m_allMessages.begin(), m_allMessages.end(), message);
@@ -183,8 +217,6 @@ QVariant MessageModel::data(const QModelIndex& index, int role) const
     
     int idx = index.row();//-1;
     if (role == MessageModel::Username) {
-//         qDebug() << "C++ returning username" <<
-//                     m_allMessages[m_currentRoom].values().at(idx).username();
         return  m_allMessages.at(idx).username;
     } else if (role == MessageModel::MessageText) {
         return  m_allMessages.at(idx).message;
@@ -193,7 +225,6 @@ QVariant MessageModel::data(const QModelIndex& index, int role) const
     } else if (role == MessageModel::UserID) {
         return  QVariant(m_allMessages.at(idx).userID);
     } else if (role == MessageModel::SystemMessage) {
-//         qDebug() << "System message?" << m_allMessages.at(idx).systemMessage;
         return  QVariant(m_allMessages.at(idx).systemMessage);
     } else if (role == MessageModel::SystemMessageType) {
         return  QVariant(m_allMessages.at(idx).systemMessageType);

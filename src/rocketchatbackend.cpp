@@ -133,18 +133,33 @@ void RocketChatBackend::processIncomingMessages(QJsonArray messages)
         Message m;
         QString roomId = o.value("rid").toString();
         QString type = o.value("t").toString();
+
+        m.messageID = o.value("_id").toString();
+        m.roomID = roomId;
+        m.message = o.value("msg").toString();
+        m.timestamp = (qint64)o.value("ts").toObject().value("$date").toDouble();
         m.username = o.value("u").toObject().value("username").toString();
         m.userID = o.value("u").toObject().value("_id").toString();
-        m.message = o.value("msg").toString();
-        m.messageID = o.value("_id").toString();
-        m.roomID = roomId;    
-        m.timestamp = (qint64)o.value("ts").toObject().value("$date").toDouble();
-        
+        m.updatedAt = o.value("_updatedAt").toObject().value("$date").toDouble();
+        m.editedAt = o.value("editedAt").toObject().value("$date").toDouble();
+        m.editedByUsername = o.value("editedBy").toObject().value("username").toString();
+        m.editedByUserID = o.value("editedBy").toObject().value("userID").toString();
+        m.url = o.value("urls").toObject().value("url").toString();
+        m.meta = o.value("urls").toObject().value("meta").toString();
+        m.headers = o.value("urls").toObject().value("headers").toString();
+        m.parsedUrl = o.value("urls").toObject().value("parsedUrl").toString();
+        m.image_url = o.value("attachments").toObject().value("image_url").toString();
+        m.color = o.value("attachments").toObject().value("color").toString();
+        m.alias = o.value("alias").toString();
+        m.avatar = o.value("avatar").toString();
+        m.groupable = o.value("groupable").toBool();
+        m.parseUrls = o.value("parseUrls").toBool();
+
         if (!type.isEmpty()) {
             m.systemMessage = true;
             m.systemMessageType = type;
         } else {
-            m.systemMessage = false;
+           m.systemMessage = false;
         }
         
         Ruqola::self()->getModelForRoom(roomId)->addMessage(m);
