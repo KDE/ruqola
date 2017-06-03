@@ -239,7 +239,7 @@ ApplicationWindow {
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
                 anchors.top: parent.top
-                anchors.right: attachmentsButton.left
+                anchors.right: emoticonsButton.left
                 placeholderText: if (Ruqola.loginStatus != DDPClient.LoggedIn || (selectedRoomID=="")){
                                      qsTr("Please Select a room")
                                  }
@@ -257,15 +257,25 @@ ApplicationWindow {
                 }
             }
 
+            Button  {
+                anchors.bottom: parent.bottom
+                anchors.top: parent.top
+                anchors.right: attachmentsButton.left
+                width: 50
+                id : emoticonsButton
+                iconName: "emoticonsButton"
+                iconSource: "qrc:/Emoticon.png"
+                visible: true
+            }
+
             Button {
                 anchors.bottom: parent.bottom
                 anchors.top: parent.top
                 anchors.right: parent.right
                 width: 50
                 id : attachmentsButton
-                iconName: "Button"
+                iconName: "attachmentsButton"
                 iconSource: "qrc:/attach-button.jpg"
-        //        text: "Click"
                 visible: true
                 onClicked: Ruqola.attachmentButtonClicked();
             }
@@ -276,14 +286,13 @@ ApplicationWindow {
 
     Image {
         id: receivedImage
-        source: " "
+        source:" "
         width: 60
         height: 80
         fillMode: Image.PreserveAspectFit
-//        visible: //only when an image is recieved
+//        visible: //only when an image is recieved from server
         sourceSize.width: 1024
         sourceSize.height: 1024
-//      onStatusChanged: if (receivedImage.status === Image.Error) console.log('Image load error')
     }
     
     Rectangle {

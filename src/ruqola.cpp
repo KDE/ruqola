@@ -111,7 +111,6 @@ Notification * Ruqola::notification()
 
 void Ruqola::attachmentButtonClicked()
 {
-    //open fileDialogBox, select an image, encode and send to server
     QString fileName = QFileDialog::getOpenFileName(Q_NULLPTR,
                                               "Select one or more files to open",
                                               QDir::homePath(),
@@ -130,18 +129,14 @@ void Ruqola::attachmentButtonClicked()
     sendMessage(roomID, message, type);
 }
 
-void Ruqola::sendMessage(const QString &roomID, const QString &message, const QString type)
+void Ruqola::sendMessage(const QString &roomID, const QString &message, const QString &type)
 {
-//    QString json = "{\"rid\": \"%1\", \"msg\": \"%2\", \"type\": \"%3\"}";
-//    json = json.arg(roomID, message, type);
-//    qDebug() << "Sending json: " << json;
-    QJsonObject jSonImage;
-    jSonImage.insert("rid",roomID);
-    jSonImage.insert("msg",message);
-    jSonImage.insert("type",type);
+    QJsonObject json;
+    json["rid"] = roomID;
+    json["msg"] = message;
+    json["type"] = type;
 
-//    ddp()->method("sendMessage", QJsonDocument::fromJson(json.toUtf8()));
-    ddp()->method("sendMessage", QJsonDocument(jSonImage));
+    ddp()->method("sendMessage", QJsonDocument(json));
 }
 
 MessageModel * Ruqola::getModelForRoom(const QString& roomID)
