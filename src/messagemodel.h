@@ -113,18 +113,19 @@ public:
         MessageID,
         RoomID,
         UpdatedAt,
-        editedAt,
-        editedByUserName,
-        editedByUserID,
-        url,
-        meta,
-        headers,
-        parsedUrl,
-        image_url,color,
-        alias,
-        avatar,
-        groupable,
-        parseUrls
+        EditedAt,
+        EditedByUserName,
+        EditedByUserID,
+        Url,
+        Meta,
+        Headers,
+        ParsedUrl,
+        Image_url,
+        Color,
+        Alias,
+        Avatar,
+        Groupable,
+        ParseUrls
     };
 
     MessageModel(const QString &roomID = "no_room", QObject *parent = 0);

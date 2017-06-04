@@ -159,7 +159,7 @@ void RocketChatBackend::processIncomingMessages(QJsonArray messages)
             m.systemMessage = true;
             m.systemMessageType = type;
         } else {
-           m.systemMessage = false;
+            m.systemMessage = false;
         }
         
         Ruqola::self()->getModelForRoom(roomId)->addMessage(m);

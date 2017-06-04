@@ -185,7 +185,6 @@ void DDPClient::onTextMessageReceived(QString message)
         if (m_callbackHash.contains(id)) {
                 std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
 
-                //check message type
                 QJsonDocument res = QJsonDocument(root.value("result").toObject());
                 QJsonObject result = res.object();
                 QString type = result.value("type").toString();
@@ -194,8 +193,7 @@ void DDPClient::onTextMessageReceived(QString message)
                 QByteArray base64Image;
                 QImage image;
 
-                QString path = "/home/vasudha/Qt/build-Ruqola-Desktop_Qt_5_8_0_GCC_64bit-Debug/Images";
-                //QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+                QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
                 QDir dir(path);
                 if (!dir.exists()){
                     dir.mkdir(path);
@@ -207,9 +205,6 @@ void DDPClient::onTextMessageReceived(QString message)
                 const QString timestamp = currentTime.toString(QLatin1String("yyyyMMdd-hhmmsszzz"));
                 const QString filename = QString::fromLatin1("%1.jpg").arg(timestamp);
 
-//                QString filename = "img.jpg";
-
-                //USE QtQUICK, NOT QWIDGETS
                 if (type == "image"){
                     qDebug() << "I am here yay";
                     base64Image.append(msg);
