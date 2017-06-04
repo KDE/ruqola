@@ -30,8 +30,15 @@ Room RoomModel::fromJSon(const QJsonObject& o)
 {
     Room r;
     
-    r.name = o["name"].toString();
     r.id = o["id"].toString();
+    r.type = o["t"].toString();
+    r.name = o["name"].toString();
+    r.userName = o["userName"].toString();
+    r.userID = o["userID"].toString();
+    r.topic = o["topic"].toString();
+    r.mutedUsers = o["muted"].toString();
+    r.jitsiTimeout = o["jitsiTimeout"].toDouble();
+    r.ro = o["ro"].toBool();
     r.unread = o["unread"].toInt(0);
     
     return r;
@@ -41,9 +48,18 @@ QByteArray RoomModel::serialize(const Room& r)
 {
     QJsonDocument d;
     QJsonObject o;
-    o["name"] = r.name;
+
     o["id"] = r.id;
+    o["t"] = r.type;
+    o["name"] = r.name;
+    o["userName"] = r.userName;
+    o["userID"] = r.userID;
+    o["topic"] = r.topic;
+    o["muted"] = r.mutedUsers;
+    o["jitsiTimeout"] = r.jitsiTimeout;
+    o["ro"] = r.ro;
     o["unread"] = r.unread;
+
     d.setObject(o);
     return d.toBinaryData();
 }

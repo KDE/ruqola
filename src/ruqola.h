@@ -67,6 +67,7 @@ public:
     QString serverURL() const;
     void setServerURL(const QString &serverURL);
 
+
 //     QString activeRoom() const;
 //     void setActiveRoom(const QString &activeRoom);
 
@@ -74,13 +75,14 @@ public:
     Notification * notification();
 
     Q_INVOKABLE RoomModel *roomModel();
-    Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
+    Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message, const QString &type);
     Q_INVOKABLE MessageModel* getModelForRoom(const QString &roomID);
 
     Q_INVOKABLE void tryLogin();
     Q_INVOKABLE void logOut();
     Q_INVOKABLE RoomWrapper* getRoom(const QString &roomID);
-//     void setRoomModel();
+
+    Q_INVOKABLE void attachmentButtonClicked();
 
     QString cacheBasePath() const;
 

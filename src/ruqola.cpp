@@ -1,4 +1,4 @@
-/*
+﻿/*
  * <one line to give the program's name and a brief idea of what it does.>
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
  *
@@ -24,7 +24,10 @@
 #include "roommodel.h"
 #include "ddpclient.h"
 #include "notification.h"
-
+#include <QFileDialog>
+#include <QTcpSocket>
+#include <QDataStream>
+#include <QString>
 
 Ruqola *Ruqola::m_self = 0;
 
@@ -106,12 +109,34 @@ Notification * Ruqola::notification()
     return m_notification;
 }
 
-
-void Ruqola::sendMessage(const QString &roomID, const QString &message)
+void Ruqola::attachmentButtonClicked()
 {
-    QString json = "{\"rid\": \"%1\", \"msg\": \"%2\"}";
-    json = json.arg(roomID, message);
-    ddp()->method("sendMessage", QJsonDocument::fromJson(json.toUtf8()));
+    QString fileName = QFileDialog::getOpenFileName(Q_NULLPTR,
+                                              "Select one or more files to open",
+                                              QDir::homePath(),
+                                              "Images (*.png *.jpeg *.jpg)");
+
+    qDebug() << "Selected Image " << fileName;
+
+    QFile file(fileName);
+    if (!file.open(QFile::ReadOnly)) {
+        qDebug() << "Cannot open the selected file";
+        return;
+    }
+    const QString message = QString::fromLatin1(file.readAll().toBase64());
+    const QString roomID("3cGRyFLWgnPL7B79n"); //hard code roomID for now
+    const QString type("image");
+    sendMessage(roomID, message, type);
+}
+
+void Ruqola::sendMessage(const QString &roomID, const QString &message, const QString &type)
+{
+    QJsonObject json;
+    json["rid"] = roomID;
+    json["msg"] = message;
+    json["type"] = type;
+
+    ddp()->method("sendMessage", QJsonDocument(json));
 }
 
 MessageModel * Ruqola::getModelForRoom(const QString& roomID)

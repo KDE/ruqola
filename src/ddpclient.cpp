@@ -27,6 +27,7 @@
 #include <QtCore/QJsonArray>
 
 #include <iostream>
+#include <QLabel>
 #include "ruqola.h"
 
 void process_test(QJsonDocument doc)
@@ -170,22 +171,62 @@ void DDPClient::onTextMessageReceived(QString message)
     if (!response.isNull() && response.isObject()) {
 
         QJsonObject root = response.object();
-
         QString messageType = root.value("msg").toString();
+
+        qDebug() << "--------------------";
+        qDebug() << "--------------------";
+//        qDebug() << "Root is- " << root;
 
         if (messageType == "updated") {
 
-        } else if (messageType == "result") {
-            
-//             qDebug() << "got a result" << root;
+        } else if (messageType == "result") {            
             unsigned id = root.value("id").toString().toInt();
             
-            if (m_callbackHash.contains(id)) {
+        if (m_callbackHash.contains(id)) {
                 std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
+
+                QJsonDocument res = QJsonDocument(root.value("result").toObject());
+                QJsonObject result = res.object();
+                QString type = result.value("type").toString();
+                QString msg = result.value("msg").toString();
+
+                QByteArray base64Image;
+                QImage image;
+
+                QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+                QDir dir(path);
+                if (!dir.exists()){
+                    dir.mkdir(path);
+                    qDebug() << "Directory created at " << path;
+                }
+                QDir::setCurrent(path);
+
+                const QDateTime currentTime = QDateTime::currentDateTime();
+                const QString timestamp = currentTime.toString(QLatin1String("yyyyMMdd-hhmmsszzz"));
+                const QString filename = QString::fromLatin1("%1.jpg").arg(timestamp);
+
+                if (type == "image"){
+                    qDebug() << "I am here yay";
+                    base64Image.append(msg);
+                    image.loadFromData(QByteArray::fromBase64(base64Image), "JPG");
+                    if ( !image.isNull() ){
+                        qDebug() << "Saving Image to " << path;
+                         if (image.save(filename, "JPEG") ){
+                                qDebug() << "Image saved successfully";
+                         } else {
+                                qDebug() << "Image NOT saved";
+                         }
+                    } else{
+                        qDebug() << "Image is NULL";
+                    }
+                } else if (type == "text"){
+
+                }
+
                 callback( QJsonDocument(root.value("result").toObject()) );
-            }
+         }
             emit result(id, QJsonDocument(root.value("result").toObject()));
-            
+
             if (id == m_loginJob) {
                 if (root.value("error").toObject().value("error").toInt() == 403) {
                     qDebug() << "Wrong password or token expired";
@@ -204,9 +245,7 @@ void DDPClient::onTextMessageReceived(QString message)
             m_connected = true;
             emit connectedChanged();
             setLoginStatus(DDPClient::LoggingIn);
-            login(); // Try to resume auth token login
-            
-            
+            login(); // Try to resume auth token login         
         } else if (messageType == "error") {
             qDebug() << "ERROR!!" << message;
         } else if (messageType == "ping") {
@@ -221,7 +260,7 @@ void DDPClient::onTextMessageReceived(QString message)
             emit changed(root);
         } else if (messageType == "ready") {
             // do nothing
-        }else {
+        } else {
             qDebug() << "received something unhandled:" << message;
         }
     }

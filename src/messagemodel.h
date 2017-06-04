@@ -44,15 +44,59 @@ public:
         return timestamp < other.timestamp;
     }
 
+    //Message Object Fields
+
+    // _id
     QString messageID;
 
+    // rid
+    QString roomID;
+
+    // msg
+    QString message;
+
+    // ts
+    qint64 timestamp;
+
+    // u
     QString username;
     QString userID;
-    QString message;
-    qint64 timestamp;
+
+    // _updatedAt
+    qint64 updatedAt;
+
+    // editedAt
+    qint64 editedAt;
+
+    // editedBy
+    QString editedByUsername;
+    QString editedByUserID;
+
+    // urls
+    QString url;
+    QString meta;
+    QString headers;
+    QString parsedUrl;
+
+    // attachments
+    QString image_url;
+    QString color;
+
+    // alias
+    QString alias;
+
+    // avatar
+    QString avatar;
+
+    // groupable
+    bool groupable;
+
+    // parseUrls
+    bool parseUrls;
+
     bool systemMessage = false;
-    QString roomID;
     QString systemMessageType;
+
 };
 
 class MessageModel : public QAbstractListModel
@@ -65,7 +109,23 @@ public:
         Timestamp,
         UserID,
         SystemMessage,
-        SystemMessageType
+        SystemMessageType,
+        MessageID,
+        RoomID,
+        UpdatedAt,
+        EditedAt,
+        EditedByUserName,
+        EditedByUserID,
+        Url,
+        Meta,
+        Headers,
+        ParsedUrl,
+        Image_url,
+        Color,
+        Alias,
+        Avatar,
+        Groupable,
+        ParseUrls
     };
 
     MessageModel(const QString &roomID = "no_room", QObject *parent = 0);

@@ -98,11 +98,8 @@ ApplicationWindow {
             id: roomsList
             
             model: Ruqola.roomModel()
-
-            visible: parent.visible
-            
+            visible: parent.visible            
             selectedRoomID: appid.selectedRoomID;
-            
             onRoomSelected: {
                 if (roomID == selectedRoomID) {
                     return;
@@ -129,27 +126,20 @@ ApplicationWindow {
                 z: -1;
                 
             }
-        }
+        } //RoomsView
         
         
         Item {
+
             anchors.right: parent.right
             anchors.left: roomsList.right
             anchors.top: parent.top
-            anchors.bottom: messageLine.top
-            
-//             Item {
-//                 anchors.fill: parent
-//                 id: greeter
-//                 visible: false
-// //                 visible: selectedRoomID.empty
-//                 Text {
-//                     text: "Welcome to Ruqola!";
-//                 }
-//             }
+            anchors.bottom: input.top
+            id: chatView
             Rectangle {
                 id: topicWidget
                 color: "#fff"
+
                 anchors.top: parent.top
                 anchors.right: parent.right
                 anchors.left: parent.left
@@ -231,33 +221,79 @@ ApplicationWindow {
                                 i_username: username
                                 i_systemMessage: systemMessage
                                 i_systemMessageType: type
-                                width: parent.width
+                                //width: parent.width
                             }
                 }
             }
-        } //Item
+        } //Item chatView
 
-        TextField {
-            id: messageLine
-            anchors.right: parent.right
-            anchors.left: roomsList.right
+        Item {
             anchors.bottom: parent.bottom
-            placeholderText: if (Ruqola.loginStatus != DDPClient.LoggedIn || (selectedRoomID=="")){
-                                 qsTr("Please Select a room")
-                             }
-                             else{
-                                 qsTr("Enter message")
-                             }
-            height: 2.7*font.pixelSize
+            anchors.left: roomsList.right
+            anchors.right: parent.right
+            id: input
+            height: 40
 
-            onAccepted: {
-                if (text != "" && Ruqola.loginStatus == DDPClient.LoggedIn && !(selectedRoomID=="")) {
-                    Ruqola.sendMessage(selectedRoomID, text);
-                    text = "";
+            TextField {
+                id: messageLine
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.top: parent.top
+                anchors.right: emoticonsButton.left
+                placeholderText: if (Ruqola.loginStatus != DDPClient.LoggedIn || (selectedRoomID=="")){
+                                     qsTr("Please Select a room")
+                                 }
+                                 else{
+                                     qsTr("Enter message")
+                                 }
+
+//                height: 2.7*font.pixelSize
+                property string type: "text";
+                onAccepted: {
+                    if (text != "" && Ruqola.loginStatus == DDPClient.LoggedIn && !(selectedRoomID=="")) {
+                        Ruqola.sendMessage(selectedRoomID, text, type);
+                        text = "";
+                    }
                 }
             }
-        }
+
+            Button  {
+                anchors.bottom: parent.bottom
+                anchors.top: parent.top
+                anchors.right: attachmentsButton.left
+                width: 50
+                id : emoticonsButton
+                iconName: "emoticonsButton"
+                iconSource: "qrc:/Emoticon.png"
+                visible: true
+            }
+
+            Button {
+                anchors.bottom: parent.bottom
+                anchors.top: parent.top
+                anchors.right: parent.right
+                width: 50
+                id : attachmentsButton
+                iconName: "attachmentsButton"
+                iconSource: "qrc:/attach-button.jpg"
+                visible: true
+                onClicked: Ruqola.attachmentButtonClicked();
+            }
+
+        }//Item input
+
     }// mainWidget Item
+
+    Image {
+        id: receivedImage
+        source:" "
+        width: 60
+        height: 80
+        fillMode: Image.PreserveAspectFit
+//        visible: //only when an image is recieved from server
+        sourceSize.width: 1024
+        sourceSize.height: 1024
+    }
     
     Rectangle {
         z: -10
@@ -268,7 +304,6 @@ ApplicationWindow {
     onClosing: {
         console.log("Minimizing to systray...");
         hide();
-        systrayIcon.windowVisible = visible;
     }
     
 
@@ -276,23 +311,12 @@ ApplicationWindow {
 
         if (visible) {
             hide();
-            systrayIcon.windowVisible = visible;
         } else {
             show();
             raise();
             requestActivate();
-            systrayIcon.windowVisible = visible;
         }
     }
-
-//    function notificationMessageClicked() {
-//        if (!visible) {
-//            show();
-//            raise();
-//            requestActivate();
-//            systrayIcon.windowVisible = visible;
-//        }
-//    }
 
     Component.onCompleted: {
            systrayIcon.activated.connect(toggleShow);
