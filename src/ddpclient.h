@@ -50,7 +50,6 @@ public:
     };
     Q_ENUM(LoginStatus)
 
-
     DDPClient(const QString &url = QString(), QObject *parent = 0);
     ~DDPClient();
 
@@ -75,6 +74,9 @@ public:
     bool isLoggedIn() const;
 
     void onServerURLChange();
+
+    //Again try to send unsent message; returns true if message was sent successfully
+    bool unsentMessages();
 
 signals:
 //     void connected();
@@ -119,6 +121,12 @@ private:
 
     bool m_attemptedPasswordLogin;
     bool m_attemptedTokenLogin;
+
+    //pair- int (m_uid), QJsonDocument (params)
+    QQueue<QPair<int,QJsonDocument>> m_messageQueue;
+
+    //message with m_uid sent succussfully or not
+    QHash<int,bool> m_messageStatus;
 
     friend class Ruqola;
 };
