@@ -69,7 +69,7 @@ void rooms_callback(QJsonDocument doc)
             
             QJsonArray params;
             params.append(QJsonValue(roomID));
-            Ruqola::self()->ddp()->subscribe("stream-room-messages", params);
+            Ruqola::self()->messageQueue()->subscribe("stream-room-messages", params);
 
             // Load history
             params.append(QJsonValue(QJsonValue::Null));
@@ -77,7 +77,7 @@ void rooms_callback(QJsonDocument doc)
             QJsonObject dateObject;
             dateObject["$date"] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
-            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog);
+            Ruqola::self()->messageQueue()->method("loadHistory", QJsonDocument(params), process_backlog);
         }
     } 
 }
@@ -112,7 +112,7 @@ void subs_callback(QJsonDocument doc)
             
             QJsonArray params;
             params.append(QJsonValue(roomID));
-            Ruqola::self()->ddp()->subscribe("stream-room-messages", params);
+            Ruqola::self()->messageQueue()->subscribe("stream-room-messages", params);
 
             // Load history
             params.append(QJsonValue(QJsonValue::Null));
@@ -120,7 +120,7 @@ void subs_callback(QJsonDocument doc)
             QJsonObject dateObject;
             dateObject["$date"] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
-            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog);
+            Ruqola::self()->messageQueue()->method("loadHistory", QJsonDocument(params), process_backlog);
         }
     } 
 }
@@ -148,7 +148,7 @@ void RocketChatBackend::processIncomingMessages(QJsonArray messages)
         m.meta = o.value("urls").toObject().value("meta").toString();
         m.headers = o.value("urls").toObject().value("headers").toString();
         m.parsedUrl = o.value("urls").toObject().value("parsedUrl").toString();
-        m.image_url = o.value("attachments").toObject().value("image_url").toString();
+        m.imageUrl = o.value("attachments").toObject().value("imageUrl").toString();
         m.color = o.value("attachments").toObject().value("color").toString();
         m.alias = o.value("alias").toString();
         m.avatar = o.value("avatar").toString();
@@ -200,9 +200,9 @@ void RocketChatBackend::onLoginStatusChanged()
         QJsonObject params;
         params["$date"] = QJsonValue(0); // get ALL rooms we've ever seen
         
-        Ruqola::self()->ddp()->method("rooms/get", QJsonDocument(params), rooms_callback);
+        Ruqola::self()->messageQueue()->method("rooms/get", QJsonDocument(params), rooms_callback);
         
-//         Ruqola::self()->ddp()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));
+//         Ruqola::self()->m_messageQueue()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));
 
     }
 }
@@ -273,6 +273,6 @@ void RocketChatBackend::onUserIDChanged()
     qDebug() << "subscribing to notification feed";
     QJsonArray params;
     params.append(QJsonValue(QString("%1/%2").arg(Ruqola::self()->userID()).arg(QString("notification"))));
-    Ruqola::self()->ddp()->subscribe("stream-notify-user", params);
+    Ruqola::self()->messageQueue()->subscribe("stream-notify-user", params);
 }
 
