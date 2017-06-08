@@ -53,12 +53,11 @@ public:
     DDPClient(const QString &url = QString(), QObject *parent = 0);
     ~DDPClient();
 
-    //     unsigned method(const QString &method, const QJsonObject &params);
-
-    void subscribe(const QString &collection, const QJsonArray &params);
-
     Q_INVOKABLE void login();
     void logOut();
+
+    unsigned messageID();
+    void setMessageID(unsigned id);
 
 //     Q_INVOKABLE void loginWithPassword();
     bool isConnected() const;
@@ -114,12 +113,13 @@ private:
     bool m_attemptedTokenLogin;
 
     friend class Ruqola;
+    friend class MessageQueue;
 };
 
-Class MessageQueue() : public QObject
+class MessageQueue : public QObject
 {
     Q_OBJECT
-    public:
+public:
 
     /**
     * @brief Call a method with name @param method and parameters @param params
@@ -131,15 +131,20 @@ Class MessageQueue() : public QObject
     unsigned method(const QString &method, const QJsonDocument &params);
     unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback);
 
+    void subscribe(const QString &collection, const QJsonArray &params);
 
+    // method which tries to resend unsuccessful messages again
+    void retry();
+
+public slots:
+    void loginStatusChanged();
+
+private:
     //pair- int (m_uid), QJsonDocument (params)
     QQueue<QPair<int,QJsonDocument>> m_messageQueue;
 
     //message with m_uid sent succussfully or not
     QHash<int,bool> m_messageStatus;
-
-
-
 
 };
 
