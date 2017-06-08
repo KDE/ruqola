@@ -34,14 +34,6 @@ class Message
 {
 public:
 
-    enum MessageStatus {
-        Unsent,
-        Sending,
-        Sent,
-        SendFailed
-    };
-    Q_ENUM(MessageStatus)
-
     // To be used in ID find: message ID
     inline bool operator==(const Message &other) const
     {
@@ -52,8 +44,6 @@ public:
     {
         return timestamp < other.timestamp;
     }
-
-    bool isSent() const;
 
     //Message Object Fields
 
@@ -107,16 +97,6 @@ public:
 
     bool systemMessage = false;
     QString systemMessageType;
-
-signals:
-    void MessageStatusChanged();
-
-private:
-
-    MessageStatus messageStatus() const;
-    void setMessageStatus(MessageStatus m);
-
-    MessageStatus m_messageStatus;
 };
 
 class MessageModel : public QAbstractListModel
@@ -160,9 +140,10 @@ public:
 
     static Message fromJSon(const QJsonObject &source);
     static QByteArray serialize(const Message &message);
-protected:
 
+protected:
     virtual QHash<int, QByteArray> roleNames() const;
+
 private:
     const QString m_roomID;
 
