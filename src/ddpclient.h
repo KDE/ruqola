@@ -120,15 +120,17 @@ Class MessageQueue() : public QObject
 {
     Q_OBJECT
     public:
+
     /**
-     * @brief Call a method with name @param method and parameters @param params
-     *
-     * @param method The name of the method
-     * @param params The parameters
-     * @return unsigned int, the ID of the called method. Watch for it
-     */
+    * @brief Call a method with name @param method and parameters @param params
+    *
+    * @param method The name of the method
+    * @param params The parameters
+    * @return unsigned int, the ID of the called method. Watch for it
+    */
     unsigned method(const QString &method, const QJsonDocument &params);
     unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback);
+
 
     //pair- int (m_uid), QJsonDocument (params)
     QQueue<QPair<int,QJsonDocument>> m_messageQueue;
