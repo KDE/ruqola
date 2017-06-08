@@ -53,16 +53,7 @@ public:
     DDPClient(const QString &url = QString(), QObject *parent = 0);
     ~DDPClient();
 
-    /**
-     * @brief Call a method with name @param method and parameters @param params
-     *
-     * @param method The name of the method
-     * @param params The parameters
-     * @return unsigned int, the ID of the called method. Watch for it
-     */
-    unsigned method(const QString &method, const QJsonDocument &params);
-    unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback);
-//     unsigned method(const QString &method, const QJsonObject &params);
+    //     unsigned method(const QString &method, const QJsonObject &params);
 
     void subscribe(const QString &collection, const QJsonArray &params);
 
@@ -122,13 +113,32 @@ private:
     bool m_attemptedPasswordLogin;
     bool m_attemptedTokenLogin;
 
+    friend class Ruqola;
+};
+
+Class MessageQueue() : public QObject
+{
+    Q_OBJECT
+    public:
+    /**
+     * @brief Call a method with name @param method and parameters @param params
+     *
+     * @param method The name of the method
+     * @param params The parameters
+     * @return unsigned int, the ID of the called method. Watch for it
+     */
+    unsigned method(const QString &method, const QJsonDocument &params);
+    unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback);
+
     //pair- int (m_uid), QJsonDocument (params)
     QQueue<QPair<int,QJsonDocument>> m_messageQueue;
 
     //message with m_uid sent succussfully or not
     QHash<int,bool> m_messageStatus;
 
-    friend class Ruqola;
+
+
+
 };
 
 
