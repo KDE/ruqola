@@ -50,7 +50,7 @@ Message MessageModel::fromJSon(const QJsonObject& o)
     message.meta = o["meta"].toString();
     message.headers = o["headers"].toString();
     message.parsedUrl = o["parsedUrl"].toString();
-    message.image_url = o["image_url"].toString();
+    message.imageUrl = o["imageUrl"].toString();
     message.color = o["color"].toString();
     message.alias = o["alias"].toString();
     message.avatar = o["avatar"].toString();
@@ -83,7 +83,7 @@ QByteArray MessageModel::serialize(const Message& message)
     o["meta"] = message.meta;
     o["headers"] = message.headers;
     o["parsedUrl"] = message.parsedUrl;
-    o["image_url"] = message.image_url;
+    o["imageUrl"] = message.imageUrl;
     o["color"] = message.color;
     o["alias"] = message.alias;
     o["avatar"] = message.avatar;
@@ -184,7 +184,7 @@ void MessageModel::addMessage(const Message& message)
 
     auto existingMessage = qFind(m_allMessages.begin(), m_allMessages.end(), message);
     bool present = (existingMessage != m_allMessages.end());
-    auto i = qUpperBound(m_allMessages.begin(), m_allMessages.end(), message);
+    auto i = std::upper_bound(m_allMessages.begin(), m_allMessages.end(), message);
     int pos = i-m_allMessages.begin();
     bool messageChanged = false;
     
@@ -232,5 +232,4 @@ QVariant MessageModel::data(const QModelIndex& index, int role) const
         return QVariant("");
     }
 }
-
 // #include "messagelist.moc"

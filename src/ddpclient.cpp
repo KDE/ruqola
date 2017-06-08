@@ -113,6 +113,25 @@ bool DDPClient::isLoggedIn() const
     return m_loginStatus == LoggedIn;
 }
 
+bool unsentMessages(){
+    if ( !DDPClient::m_messageQueue.empty() ){
+        QPair<int,QJsonDocument> pair = DDPClient::m_messageQueue.head();
+        int id = pair.first;
+        QJsonDocument params = pair.second;
+        if (DDPClient::loginStatus() == DDPClient::LoggedIn){
+            DDPClient::method("sendMessage", params);
+        }
+
+        //if it is sent successfully, dequeue it
+        //else it'll stay at head in queue for sending again
+         QHash::iterator<int,bool> it = DDPClient::m_messageStatus.find(id);
+         if ( it!= DDPClient::m_messageStatus.end() ){
+             if ( it.value() == true )
+                 DDPClient::m_messageQueue.dequeue();
+         }
+    }
+}
+
 unsigned int DDPClient::method(const QString& m, const QJsonDocument& params)
 {
     return method(m, params, empty_callback);
@@ -131,15 +150,20 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
         QJsonArray arr;
         arr.append(params.object());
         json["params"] = arr;
-//         params.object();
     }
         
     qint64 bytes = m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
     if (bytes < json.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qDebug() << m_webSocket.isValid() << m_webSocket.error() << m_webSocket.requestUrl();
+
+        //try sending the message again
+        DDPClient::m_messageQueue.enqueue(qMakePair(m_uid-1, params));
+        DDPClient::m_messageStatus.insert(m_uid-1,false);
+
     } else {
         qDebug() << "Successfully sent " << json;
+        DDPClient::m_messageStatus.insert(m_uid-1,true);
     }
 
     //callback(QJsonDocument::fromJson(json.toUtf8()));
