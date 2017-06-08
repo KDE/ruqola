@@ -15,7 +15,6 @@ import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.DDPClient 1.0
 import KDE.Ruqola.Notification 1.0
 
-
 // import "Log.js" as Log
 // import "Data.js" as Data
 
