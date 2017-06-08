@@ -72,7 +72,9 @@ public:
 //     void setActiveRoom(const QString &activeRoom);
 
     DDPClient *ddp();
-    Notification * notification();
+    Notification *notification();
+    MessageQueue *messageQueue();
+
 
     Q_INVOKABLE RoomModel *roomModel();
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message, const QString &type);
@@ -102,6 +104,7 @@ private:
     QString m_serverURL;
 
     DDPClient *m_ddp;
+    MessageQueue *m_messageQueue;
     RoomModel *m_roomModel;
     Notification *m_notification;
 

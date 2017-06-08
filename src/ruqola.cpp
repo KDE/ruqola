@@ -100,6 +100,16 @@ DDPClient * Ruqola::ddp()
     return m_ddp;
 }
 
+MessageQueue * Ruqola::messageQueue()
+{
+    if (!m_messageQueue) {
+        m_messageQueue = new MessageQueue();
+//        connect(m_messageQueue, &DDPClient::loginStatusChanged, this, &MessageQueue::loginStatusChanged);
+    }
+    return m_messageQueue;
+}
+
+
 Notification * Ruqola::notification()
 {
     if (m_notification == NULL) {
@@ -136,7 +146,7 @@ void Ruqola::sendMessage(const QString &roomID, const QString &message, const QS
     json["msg"] = message;
     json["type"] = type;
 
-    ddp()->method("sendMessage", QJsonDocument(json));
+    messageQueue()->method("sendMessage", QJsonDocument(json));
 }
 
 MessageModel * Ruqola::getModelForRoom(const QString& roomID)
@@ -239,7 +249,7 @@ RoomWrapper * Ruqola::getRoom(const QString& roomID)
 }
 
 
-Ruqola::Ruqola(QObject* parent): QObject(parent), m_ddp(0), m_roomModel(0), m_notification(0)
+Ruqola::Ruqola(QObject* parent): QObject(parent), m_ddp(0), m_messageQueue(0), m_roomModel(0), m_notification(0)
 {
     QSettings s;
     m_serverURL = s.value("serverURL", "demo.rocket.chat").toString();
@@ -261,6 +271,9 @@ Ruqola * Ruqola::self()
 
         // Create systray to show notifications
         m_self->notification();
+
+        //Initialize the messageQueue object
+        m_self->messageQueue();
     }
     return m_self;
 }
