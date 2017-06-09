@@ -24,6 +24,7 @@
 #include "roommodel.h"
 #include "ddpclient.h"
 #include "notification.h"
+#include "messagequeue.h"
 #include <QFileDialog>
 #include <QTcpSocket>
 #include <QDataStream>

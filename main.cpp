@@ -23,7 +23,6 @@ int main(int argc, char *argv[])
     qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
     qmlRegisterType<MessageModel>("KDE.Ruqola.MessageModel", 1, 0, "MessageModel");
     qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");
-//    qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "MessageQueue");
     qmlRegisterType<RoomModel>("KDE.Ruqola.RoomModel", 1, 0, "RoomModel");
     qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
     qmlRegisterType<Notification>("KDE.Ruqola.Notification", 1, 0, "Notification");

@@ -30,6 +30,7 @@
 #include "roommodel.h"
 #include "messagemodel.h"
 #include "notification.h"
+#include "messagequeue.h"
 
 
 class QString;
