@@ -50,18 +50,6 @@ void DDPClient::resume_login_callback(QJsonDocument doc)
     qDebug() << "End callback";
 }
 
-unsigned DDPClient::messageID()
-{
-    return m_uid;
-}
-
-void DDPClient::setMessageID(unsigned id)
-{
-    if ( m_uid != id ){
-        m_uid = id;
-    }
-}
-
 void empty_callback(QJsonDocument doc)
 {
     Q_UNUSED(doc);
@@ -124,52 +112,56 @@ bool DDPClient::isLoggedIn() const
     return m_loginStatus == LoggedIn;
 }
 
-//bool unsentMessages(){
-//    if ( !DDPClient::m_messageQueue.empty() ){
-//        QPair<int,QJsonDocument> pair = DDPClient::m_messageQueue.head();
-//        int id = pair.first;
-//        QJsonDocument params = pair.second;
-//        if (DDPClient::loginStatus() == DDPClient::LoggedIn){
-//            MessageQueue::method("sendMessage", params);
-//        }
-//        //if it is sent successfully, dequeue it
-//        //else it'll stay at head in queue for sending again
-//         QHash::iterator<int,bool> it = DDPClient::m_messageStatus.find(id);
-//         if ( it!= DDPClient::m_messageStatus.end() ){
-//             if ( it.value() == true )
-//                 DDPClient::m_messageQueue.dequeue();
-//         }
-//    }
-//}
+
+QQueue<QPair<int,QJsonDocument>> MessageQueue::messageQueue() {
+    return m_messageQueue;
+}
+
+QHash<int,bool> MessageQueue::messageStatus() {
+    return m_messageStatus;
+}
 
 void MessageQueue::retry()
 {
     if (  Ruqola::self()->loginStatus() == DDPClient::LoggedIn && !m_messageQueue.empty() ){
-        QPair<int,QJsonDocument> pair = MessageQueue::m_messageQueue.head();
-        int id = pair.first;
-        QJsonDocument params = pair.second;
-        MessageQueue::method("sendMessage", params);
+        while ( !m_messageQueue.empty() ){
+            QPair<int,QJsonDocument> pair = m_messageQueue.head();
+            int id = pair.first;
+            QJsonDocument params = pair.second;
+            Ruqola::self()->ddp()->method("sendMessage", params);
 
-        //if it is sent successfully, dequeue it
-        //else it'll stay at head in queue for sending again
-        QHash<int,bool>::iterator it = MessageQueue::m_messageStatus.find(id);
-        if ( it!= MessageQueue::m_messageStatus.end() && it.value() == true ){
-            MessageQueue::m_messageQueue.dequeue();
+            //if it is sent successfully, dequeue it
+            //else it'll stay at head in queue for sending again
+            QHash<int,bool>::iterator it = m_messageStatus.find(id);
+            if ( it!= m_messageStatus.end() && it.value() == true ){
+                m_messageQueue.dequeue();
+            }
         }
     }
 }
 
-unsigned int MessageQueue::method(const QString& m, const QJsonDocument& params)
+void MessageQueue::loginStatusChanged()
+{
+    if (Ruqola::self()->ddp()->loginStatus() == DDPClient::LoggedIn && !m_messageQueue.empty()){
+        //retry sending messages
+        retry();
+    } else if (Ruqola::self()->ddp()->loginStatus() != DDPClient::LoggedIn && !m_messageQueue.empty()){
+        //save messages in messageQueue in local cache and retry after client is loggedIn
+    }
+}
+
+
+unsigned int DDPClient::method(const QString& m, const QJsonDocument& params)
 {
     return method(m, params, empty_callback);
 }
 
-unsigned int MessageQueue::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback)
+unsigned int DDPClient::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback)
 {
     QJsonObject json;
     json["msg"] = "method";
     json["method"] = method;
-    json["id"] = QString::number(Ruqola::self()->ddp()->messageID());
+    json["id"] = QString::number(m_uid);
 
     if (params.isArray()){
         json["params"] = params.array();
@@ -179,60 +171,50 @@ unsigned int MessageQueue::method(const QString& method, const QJsonDocument& pa
         json["params"] = arr;
     }
         
-    qint64 bytes = Ruqola::self()->ddp()->m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
+    qint64 bytes = m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
     if (bytes < json.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
-        qDebug() << Ruqola::self()->ddp()->m_webSocket.isValid() << Ruqola::self()->ddp()->m_webSocket.error() << Ruqola::self()->ddp()->m_webSocket.requestUrl();
+        qDebug() << m_webSocket.isValid() << m_webSocket.error() << m_webSocket.requestUrl();
 
         //enqueue unsent messages
-        MessageQueue::m_messageQueue.enqueue(qMakePair((Ruqola::self()->ddp()->messageID())-1, params));
-        MessageQueue::m_messageStatus.insert((Ruqola::self()->ddp()->messageID())-1,false);
+        Ruqola::self()->messageQueue()->messageQueue().enqueue(qMakePair(m_uid-1, params));
+        Ruqola::self()->messageQueue()->messageStatus().insert(m_uid-1,false);
         //and retry
-        MessageQueue::retry();
+        Ruqola::self()->messageQueue()->retry();
     } else {
         qDebug() << "Successfully sent " << json;
-        QHash<int,bool>::iterator it = MessageQueue::m_messageStatus.find((Ruqola::self()->ddp()->messageID())-1);
+        QHash<int,bool>::iterator it = Ruqola::self()->messageQueue()->messageStatus().find(m_uid-1);
         if (it.value() == false){
             it.value() = true;
         }
     }
 
     //callback(QJsonDocument::fromJson(json.toUtf8()));
-    Ruqola::self()->ddp()->m_callbackHash[Ruqola::self()->ddp()->messageID()] = callback;
+    m_callbackHash[m_uid] = callback;
 
-    Ruqola::self()->ddp()->setMessageID((Ruqola::self()->ddp()->messageID())+1);
-    return (Ruqola::self()->ddp()->messageID()) - 1 ;
+    m_uid++;
+    return m_uid - 1 ;
 }
 
-void MessageQueue::loginStatusChanged()
-{
-    if (Ruqola::self()->ddp()->loginStatus() == DDPClient::LoggedIn && !m_messageQueue.empty()){
-        //retry sending messages
-        MessageQueue::retry();
-    } else if (Ruqola::self()->ddp()->loginStatus() != DDPClient::LoggedIn && !m_messageQueue.empty()){
-        //save messages in messageQueue in local cache and retry after client is loggedIn
-    }
-}
-
-void MessageQueue::subscribe(const QString& collection, const QJsonArray& params)
+void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
 {
     QJsonObject json;
     json["msg"] = "sub";
-    json["id"] = QString::number(Ruqola::self()->ddp()->messageID());
+    json["id"] = QString::number(m_uid);
     json["name"] = collection;
     json["params"] = params;
     
-    qint64 bytes = Ruqola::self()->ddp()->m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
+    qint64 bytes = m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
     if (bytes < json.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
 
         //enqueue unsent messages
-        MessageQueue::m_messageQueue.enqueue(qMakePair((Ruqola::self()->ddp()->messageID())-1, params));
-        MessageQueue::m_messageStatus.insert((Ruqola::self()->ddp()->messageID())-1,false);
+        Ruqola::self()->messageQueue()->messageQueue().enqueue(qMakePair(m_uid-1, params));
+        Ruqola::self()->messageQueue()->messageStatus().insert(m_uid-1,false);
         //and retry
-        MessageQueue::retry();
+        Ruqola::self()->messageQueue()->retry();
     }
-    Ruqola::self()->ddp()->setMessageID((Ruqola::self()->ddp()->messageID())+1);
+    m_uid++;
 }
 
 void DDPClient::onTextMessageReceived(QString message)
@@ -243,8 +225,6 @@ void DDPClient::onTextMessageReceived(QString message)
         QJsonObject root = response.object();
         QString messageType = root.value("msg").toString();
 
-        qDebug() << "--------------------";
-        qDebug() << "--------------------";
 //        qDebug() << "Root is- " << root;
 
         if (messageType == "updated") {
@@ -276,7 +256,6 @@ void DDPClient::onTextMessageReceived(QString message)
                 const QString filename = QString::fromLatin1("%1.jpg").arg(timestamp);
 
                 if (type == "image"){
-                    qDebug() << "I am here yay";
                     base64Image.append(msg);
                     image.loadFromData(QByteArray::fromBase64(base64Image), "JPG");
                     if ( !image.isNull() ){
@@ -307,7 +286,6 @@ void DDPClient::onTextMessageReceived(QString message)
 
                     setLoginStatus(DDPClient::LoggedIn);
                 }
-//                 emit loggedInChanged();
             }
             
         } else if (messageType == "connected") {
@@ -366,13 +344,13 @@ void DDPClient::login()
         QJsonObject json;
         json["password"] = Ruqola::self()->password();
         json["user"] = user;
-        m_loginJob = Ruqola::self()->messageQueue()->method("login", QJsonDocument(json));
+        m_loginJob = method("login", QJsonDocument(json));
         
     } else if (!Ruqola::self()->authToken().isEmpty() && !m_attemptedTokenLogin) {
         m_attemptedPasswordLogin = true;
         QJsonObject json;
         json["resume"] = Ruqola::self()->authToken();
-        m_loginJob = Ruqola::self()->messageQueue()->method("login", QJsonDocument(json));
+        m_loginJob = method("login", QJsonDocument(json));
     } else {
         setLoginStatus(LoginFailed);
     }
@@ -408,7 +386,6 @@ void DDPClient::WSclosed()
 {
     qDebug() << "WebSocket CLOSED" << m_webSocket.closeReason() << m_webSocket.error() << m_webSocket.closeCode();
     setLoginStatus(NotConnected);
-//     m_connected = false;
 }
 
 

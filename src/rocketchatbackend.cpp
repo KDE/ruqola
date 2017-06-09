@@ -69,7 +69,7 @@ void rooms_callback(QJsonDocument doc)
             
             QJsonArray params;
             params.append(QJsonValue(roomID));
-            Ruqola::self()->messageQueue()->subscribe("stream-room-messages", params);
+            Ruqola::self()->ddp()->subscribe("stream-room-messages", params);
 
             // Load history
             params.append(QJsonValue(QJsonValue::Null));
@@ -77,7 +77,7 @@ void rooms_callback(QJsonDocument doc)
             QJsonObject dateObject;
             dateObject["$date"] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
-            Ruqola::self()->messageQueue()->method("loadHistory", QJsonDocument(params), process_backlog);
+            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog);
         }
     } 
 }
@@ -112,7 +112,7 @@ void subs_callback(QJsonDocument doc)
             
             QJsonArray params;
             params.append(QJsonValue(roomID));
-            Ruqola::self()->messageQueue()->subscribe("stream-room-messages", params);
+            Ruqola::self()->ddp()->subscribe("stream-room-messages", params);
 
             // Load history
             params.append(QJsonValue(QJsonValue::Null));
@@ -120,7 +120,7 @@ void subs_callback(QJsonDocument doc)
             QJsonObject dateObject;
             dateObject["$date"] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
-            Ruqola::self()->messageQueue()->method("loadHistory", QJsonDocument(params), process_backlog);
+            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog);
         }
     } 
 }
@@ -200,9 +200,9 @@ void RocketChatBackend::onLoginStatusChanged()
         QJsonObject params;
         params["$date"] = QJsonValue(0); // get ALL rooms we've ever seen
         
-        Ruqola::self()->messageQueue()->method("rooms/get", QJsonDocument(params), rooms_callback);
+        Ruqola::self()->ddp()->method("rooms/get", QJsonDocument(params), rooms_callback);
         
-//         Ruqola::self()->m_messageQueue()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));
+//         Ruqola::self()->ddp()->subscribe("stream-room-messages", QJsonDocument::fromJson(params.toLatin1()));
 
     }
 }
@@ -273,6 +273,6 @@ void RocketChatBackend::onUserIDChanged()
     qDebug() << "subscribing to notification feed";
     QJsonArray params;
     params.append(QJsonValue(QString("%1/%2").arg(Ruqola::self()->userID()).arg(QString("notification"))));
-    Ruqola::self()->messageQueue()->subscribe("stream-notify-user", params);
+    Ruqola::self()->ddp()->subscribe("stream-notify-user", params);
 }
 

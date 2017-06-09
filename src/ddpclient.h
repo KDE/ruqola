@@ -53,11 +53,21 @@ public:
     DDPClient(const QString &url = QString(), QObject *parent = 0);
     ~DDPClient();
 
+    /**
+    * @brief Call a method with name @param method and parameters @param params
+    *
+    * @param method The name of the method
+    * @param params The parameters
+    * @return unsigned int, the ID of the called method. Watch for it
+    */
+    unsigned method(const QString &method, const QJsonDocument &params);
+    unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback);
+
+    void subscribe(const QString &collection, const QJsonArray &params);
+
+
     Q_INVOKABLE void login();
     void logOut();
-
-    unsigned messageID();
-    void setMessageID(unsigned id);
 
 //     Q_INVOKABLE void loginWithPassword();
     bool isConnected() const;
@@ -121,20 +131,11 @@ class MessageQueue : public QObject
     Q_OBJECT
 public:
 
-    /**
-    * @brief Call a method with name @param method and parameters @param params
-    *
-    * @param method The name of the method
-    * @param params The parameters
-    * @return unsigned int, the ID of the called method. Watch for it
-    */
-    unsigned method(const QString &method, const QJsonDocument &params);
-    unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback);
-
-    void subscribe(const QString &collection, const QJsonArray &params);
-
     // method which tries to resend unsuccessful messages again
     void retry();
+
+    QQueue<QPair<int,QJsonDocument>> messageQueue();
+    QHash<int,bool> messageStatus();
 
 public slots:
     void loginStatusChanged();
