@@ -69,7 +69,6 @@ public:
     Q_INVOKABLE void login();
     void logOut();
 
-//     Q_INVOKABLE void loginWithPassword();
     bool isConnected() const;
     bool isLoggedIn() const;
 
@@ -79,11 +78,8 @@ public:
     bool unsentMessages();
 
 signals:
-//     void connected();
     void connectedChanged();
-
     void loginStatusChanged();
-//     void loggedInChanged();
     void disconnected();
     /**
      * @brief Emitted whenever a result is received. The parameter is the expected ID.
@@ -124,29 +120,6 @@ private:
 
     friend class Ruqola;
     friend class MessageQueue;
-};
-
-class MessageQueue : public QObject
-{
-    Q_OBJECT
-public:
-
-    // method which tries to resend unsuccessful messages again
-    void retry();
-
-    QQueue<QPair<int,QJsonDocument>> messageQueue();
-    QHash<int,bool> messageStatus();
-
-public slots:
-    void loginStatusChanged();
-
-private:
-    //pair- int (m_uid), QJsonDocument (params)
-    QQueue<QPair<int,QJsonDocument>> m_messageQueue;
-
-    //message with m_uid sent succussfully or not
-    QHash<int,bool> m_messageStatus;
-
 };
 
 

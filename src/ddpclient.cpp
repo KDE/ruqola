@@ -113,43 +113,6 @@ bool DDPClient::isLoggedIn() const
 }
 
 
-QQueue<QPair<int,QJsonDocument>> MessageQueue::messageQueue() {
-    return m_messageQueue;
-}
-
-QHash<int,bool> MessageQueue::messageStatus() {
-    return m_messageStatus;
-}
-
-void MessageQueue::retry()
-{
-    if (  Ruqola::self()->loginStatus() == DDPClient::LoggedIn && !m_messageQueue.empty() ){
-        while ( !m_messageQueue.empty() ){
-            QPair<int,QJsonDocument> pair = m_messageQueue.head();
-            int id = pair.first;
-            QJsonDocument params = pair.second;
-            Ruqola::self()->ddp()->method("sendMessage", params);
-
-            //if it is sent successfully, dequeue it
-            //else it'll stay at head in queue for sending again
-            QHash<int,bool>::iterator it = m_messageStatus.find(id);
-            if ( it!= m_messageStatus.end() && it.value() == true ){
-                m_messageQueue.dequeue();
-            }
-        }
-    }
-}
-
-void MessageQueue::loginStatusChanged()
-{
-    if (Ruqola::self()->ddp()->loginStatus() == DDPClient::LoggedIn && !m_messageQueue.empty()){
-        //retry sending messages
-        retry();
-    } else if (Ruqola::self()->ddp()->loginStatus() != DDPClient::LoggedIn && !m_messageQueue.empty()){
-        //save messages in messageQueue in local cache and retry after client is loggedIn
-    }
-}
-
 
 unsigned int DDPClient::method(const QString& m, const QJsonDocument& params)
 {
@@ -243,7 +206,7 @@ void DDPClient::onTextMessageReceived(QString message)
                 QByteArray base64Image;
                 QImage image;
 
-                QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+                QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+"/Images";
                 QDir dir(path);
                 if (!dir.exists()){
                     dir.mkdir(path);

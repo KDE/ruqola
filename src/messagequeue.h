@@ -1,0 +1,4 @@
+#ifndef MESSAGEQUEUE_H
+#define MESSAGEQUEUE_H
+
+#endif // MESSAGEQUEUE_H
