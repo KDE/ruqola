@@ -77,7 +77,7 @@ void rooms_callback(QJsonDocument doc)
             QJsonObject dateObject;
             dateObject["$date"] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
-            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog);
+            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog, DDPClient::Persistent);
         }
     } 
 }
@@ -120,7 +120,7 @@ void subs_callback(QJsonDocument doc)
             QJsonObject dateObject;
             dateObject["$date"] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
-            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog);
+            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog, DDPClient::Persistent);
         }
     } 
 }
@@ -273,6 +273,6 @@ void RocketChatBackend::onUserIDChanged()
     qDebug() << "subscribing to notification feed";
     QJsonArray params;
     params.append(QJsonValue(QString("%1/%2").arg(Ruqola::self()->userID()).arg(QString("notification"))));
-    Ruqola::self()->ddp()->subscribe("stream-notify-user", params);
+    Ruqola::self()->ddp()->subscribe("stream-notify-user", params, DDPClient::Persistent);
 }
 

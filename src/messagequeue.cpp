@@ -20,26 +20,21 @@
  *
  */
 
-#include "ddpclient.h"
 #include "ruqola.h"
+#include "ddpclient.h"
+#include "messagemodel.h"
+#include <QMessageBox>
+#include <QtNetwork>
 
-QQueue<QPair<int,QJsonDocument>> MessageQueue::messageQueue() {
-    return m_messageQueue;
-}
-
-QHash<int,bool> MessageQueue::messageStatus() {
-    return m_messageStatus;
-}
 
 MessageQueue::MessageQueue()
 {
     connect(Ruqola::self()->ddp(), &DDPClient::loginStatusChanged, this, &MessageQueue::onLoginStatusChanged);
-    qDebug() << "Creating message Model";
-    QDir cacheDir(Ruqola::self()->cacheBasePath());
+    QDir cacheDir(Ruqola::self()->ddp()->cachePath());
 
     // load unsent messages cache
-    if (QFile::exists(cacheDir.absoluteFilePath("UnsentMessagesCache"))) {
-        QFile f(cacheDir.absoluteFilePath("UnsentMessagesCache"));
+    if (QFile::exists(cacheDir.absoluteFilePath("QueueCache"))) {
+        QFile f(cacheDir.absoluteFilePath("QueueCache"));
         if (f.open(QIODevice::ReadOnly)) {
             QDataStream in(&f);
             while (!f.atEnd()) {
@@ -47,64 +42,100 @@ MessageQueue::MessageQueue()
                 quint32 length;
                 in.readBytes(byteArray, length);
                 QByteArray ba = QByteArray::fromRawData(byteArray, length);
-                QByteArray mid;
-                mid.append(ba.at(ba.size()-1)).append(ba.at(ba.size()));
-                int m_uid = mid.toInt(NULL,10);
-                QJsonDocument params = QJsonDocument::fromBinaryData(ba);
-                m_messageQueue.enqueue(qMakePair(m_uid,params));
+                //Find out what to store and retrieve
+                QByteArray method;
+                QString message = QString(ba);
+                Ruqola::self()->ddp()->messageQueue().enqueue(qMakePair(method,message));
             }
         }
+    }
+}
+
+void cacheQueue()
+{
+    QDir cacheDir(Ruqola::self()->ddp()->cachePath());
+    qDebug() << "Caching Unsent messages to..." << cacheDir.path();
+    if (!cacheDir.exists(cacheDir.path())) {
+        cacheDir.mkpath(cacheDir.path());
+    }
+    QFile f(cacheDir.absoluteFilePath("QueueCache"));
+    if (f.open(QIODevice::WriteOnly)) {
+        QDataStream out(&f);
+        QQueue<QPair<QString,QString>>::iterator it;
+        //Find out what to store and retrieve
+        QQueue<QPair<QString,QString>> queue = Ruqola::self()->ddp()->messageQueue();
+        for ( it = queue.begin(); it != queue.end(); it++ ) {
+            QPair<QString,QString> pair = *it;
+            QByteArray ba;
+            ba.append(pair.first.toLatin1());
+            ba.append(pair.second.toLatin1());
+            out.writeBytes(ba, ba.size());
+        }
+    }
+}
+
+
+MessageQueue::~MessageQueue()
+{
+    cacheQueue();
+}
+
+
+bool internetConnection()
+{
+    QNetworkAccessManager nam;
+    QNetworkRequest req(QUrl("http://www.google.com"));
+    QNetworkReply *reply = nam.get(req);
+    QEventLoop loop;
+//    connect(&reply, SIGNAL(finished()), &loop, SLOT(quit()));
+    loop.exec();
+    if(reply->bytesAvailable()){
+        return true;
+    } else {
+        return false;
     }
 }
 
 void MessageQueue::onLoginStatusChanged()
 {
-    if (Ruqola::self()->ddp()->loginStatus() == DDPClient::LoggedIn && !m_messageQueue.empty()){
-        //retry sending messages
-        retry();
-    } else if (Ruqola::self()->ddp()->loginStatus() != DDPClient::LoggedIn && !m_messageQueue.empty()) {
-        //save messages in messageQueue in local cache and retry after client is loggedIn
+    if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn
+             && !Ruqola::self()->ddp()->messageQueue().empty()){
 
-        QDir cacheDir(Ruqola::self()->cacheBasePath());
-        qDebug() << "Caching Unsent messages to..." << cacheDir.path();
-        if (!cacheDir.exists(cacheDir.path())) {
-            cacheDir.mkpath(cacheDir.path());
-        }
-        QFile f(cacheDir.absoluteFilePath("UnsentMessagesCache"));
-        if (f.open(QIODevice::WriteOnly)) {
-            QDataStream out(&f);
-            QQueue<QPair<int,QJsonDocument>>::iterator it;
-            for ( it = m_messageQueue.begin(); it != m_messageQueue.end(); it++ ) {
-                QPair<int,QJsonDocument> pair = *it;
-                QByteArray ba;
-                ba = pair.second.toBinaryData();
-                if ( pair.first < 10 ) { //so that we can take last 2 digits as m_uid
-                    ba.append(QString("0"+pair.first).toInt(NULL,10));
-                } else {
-                    ba.append(QString(pair.first).toInt(NULL,10));
-                }
-                out.writeBytes(ba, ba.size());
-            }
-        }
+        processQueue(); //retry sending messages
+
+    } else if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn
+          && !internetConnection() && !Ruqola::self()->ddp()->messageQueue().empty()) {
+
+        QMessageBox msgBox;
+        msgBox.setText("You are not connected to the internet");
+        msgBox.exec();
+
+        cacheQueue();
+
+    } else if (Ruqola::self()->loginStatus() != DDPClient::LoggedIn
+               && !Ruqola::self()->ddp()->messageQueue().empty()) {
+
+        //save messages in messageQueue in local cache and retry after client is loggedIn
+        cacheQueue();
     }
 }
 
 
-void MessageQueue::retry()
+void MessageQueue::processQueue()
 {
-    if (  Ruqola::self()->loginStatus() == DDPClient::LoggedIn && !m_messageQueue.empty() ){
-        while ( Ruqola::self()->loginStatus() == DDPClient::LoggedIn && !m_messageQueue.empty() ){
-            QPair<int,QJsonDocument> pair = m_messageQueue.head();
-            int id = pair.first;
-            QJsonDocument params = pair.second;
-            Ruqola::self()->ddp()->method("sendMessage", params);
+    while ( Ruqola::self()->loginStatus() == DDPClient::LoggedIn
+             && !Ruqola::self()->ddp()->messageQueue().empty() ){
 
-            //if it is sent successfully, dequeue it
-            //else it'll stay at head in queue for sending again
-            QHash<int,bool>::iterator it = m_messageStatus.find(id);
-            if ( it!= m_messageStatus.end() && it.value() == true ){
-                m_messageQueue.dequeue();
+        //If in between client goes offline, break
+            if(!internetConnection()){
+                break;
             }
-        }
+
+            //Find out what to store and retrieve
+            QPair<QString,QString> pair = Ruqola::self()->ddp()->messageQueue().head();
+            QString method = pair.first;
+            QString message = pair.second;
+            QJsonObject params;
+//            Ruqola::self()->ddp()->method(method, params);
     }
 }

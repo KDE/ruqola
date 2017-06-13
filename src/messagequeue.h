@@ -24,29 +24,23 @@
 #define MESSAGEQUEUE_H
 
 #include <QtCore>
+#include <QObject>
+
 
 class MessageQueue : public QObject
 {
     Q_OBJECT
 public:
 
-    // method which tries to resend unsuccessful messages again
-    void retry();
-
     MessageQueue();
+    ~MessageQueue();
 
-    QQueue<QPair<int,QJsonDocument>> messageQueue();
-    QHash<int,bool> messageStatus();
+    bool internetConnection();
+    void cacheQueue();
+    void processQueue();
 
 public slots:
     void onLoginStatusChanged();
-
-private:
-    //pair- int (m_uid), QJsonDocument (params)
-    QQueue<QPair<int,QJsonDocument>> m_messageQueue;
-
-    //message with m_uid sent succussfully or not
-    QHash<int,bool> m_messageStatus;
 
 };
 

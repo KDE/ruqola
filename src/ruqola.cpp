@@ -106,8 +106,7 @@ MessageQueue * Ruqola::messageQueue()
     if (!m_messageQueue) {
         m_messageQueue = new MessageQueue();
         // retry to send any unsent messages
-        Ruqola::self()->messageQueue()->retry();
-//        connect(m_messageQueue, &DDPClient::loginStatusChanged, this, &MessageQueue::loginStatusChanged);
+        Ruqola::self()->messageQueue()->processQueue();
     }
     return m_messageQueue;
 }
@@ -149,7 +148,7 @@ void Ruqola::sendMessage(const QString &roomID, const QString &message, const QS
     json["msg"] = message;
     json["type"] = type;
 
-    ddp()->method("sendMessage", QJsonDocument(json));
+    ddp()->method("sendMessage", QJsonDocument(json), DDPClient::Persistent);
 }
 
 MessageModel * Ruqola::getModelForRoom(const QString& roomID)
@@ -232,6 +231,7 @@ QString Ruqola::cacheBasePath() const
     if (m_serverURL.isEmpty()) {
         return QString();
     }
+
     return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+'/'+m_serverURL;
 }
 

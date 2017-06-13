@@ -21,14 +21,12 @@
  */
 
 #include "ddpclient.h"
+#include "ruqola.h"
 
 #include <QtCore/QJsonDocument>
 #include <QtCore/QJsonObject>
 #include <QtCore/QJsonArray>
 
-#include <iostream>
-#include <QLabel>
-#include "ruqola.h"
 
 void process_test(QJsonDocument doc)
 {
@@ -112,14 +110,17 @@ bool DDPClient::isLoggedIn() const
     return m_loginStatus == LoggedIn;
 }
 
-
-
-unsigned int DDPClient::method(const QString& m, const QJsonDocument& params)
+QString DDPClient::cachePath() const
 {
-    return method(m, params, empty_callback);
+    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
 }
 
-unsigned int DDPClient::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback)
+unsigned int DDPClient::method(const QString& m, const QJsonDocument& params, DDPClient::MessageStatus messageStatus)
+{
+    return method(m, params, empty_callback, messageStatus);
+}
+
+unsigned int DDPClient::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback, DDPClient::MessageStatus messageStatus)
 {
     QJsonObject json;
     json["msg"] = "method";
@@ -139,17 +140,16 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qDebug() << m_webSocket.isValid() << m_webSocket.error() << m_webSocket.requestUrl();
 
-        //enqueue unsent messages
-        Ruqola::self()->messageQueue()->messageQueue().enqueue(qMakePair(m_uid-1, params));
-        Ruqola::self()->messageQueue()->messageStatus().insert(m_uid-1,false);
-        //and retry
-        Ruqola::self()->messageQueue()->retry();
+        if(messageStatus==DDPClient::Persistent){
+            QJsonObject jsonObject = params.object();
+            QString message = jsonObject["msg"].toString(); //Find out how to generalize this
+            m_messageQueue.enqueue(qMakePair(method,message));
+
+            Ruqola::self()->messageQueue()->processQueue();
+        }
+
     } else {
         qDebug() << "Successfully sent " << json;
-        QHash<int,bool>::iterator it = Ruqola::self()->messageQueue()->messageStatus().find(m_uid-1);
-        if (it.value() == false){
-            it.value() = true;
-        }
     }
 
     //callback(QJsonDocument::fromJson(json.toUtf8()));
@@ -159,7 +159,7 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
     return m_uid - 1 ;
 }
 
-void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
+void DDPClient::subscribe(const QString& collection, const QJsonArray& params, DDPClient::MessageStatus messageStatus)
 {
     QJsonObject json;
     json["msg"] = "sub";
@@ -171,11 +171,14 @@ void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
     if (bytes < json.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
 
-        //enqueue unsent messages
-        Ruqola::self()->messageQueue()->messageQueue().enqueue(qMakePair(m_uid-1, params));
-        Ruqola::self()->messageQueue()->messageStatus().insert(m_uid-1,false);
-        //and retry
-        Ruqola::self()->messageQueue()->retry();
+        if(messageStatus==DDPClient::Persistent){
+//            QJsonObject jsonObject = params;
+//            QString message = jsonObject["msg"].toString();
+//            m_messageQueue.enqueue(qMakePair(message,method));
+
+            Ruqola::self()->messageQueue()->processQueue();
+        }
+
     }
     m_uid++;
 }
@@ -206,7 +209,7 @@ void DDPClient::onTextMessageReceived(QString message)
                 QByteArray base64Image;
                 QImage image;
 
-                QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+"/Images";
+                QString path = DDPClient::cachePath()+"/Images";
                 QDir dir(path);
                 if (!dir.exists()){
                     dir.mkdir(path);
@@ -290,6 +293,7 @@ void DDPClient::setLoginStatus(DDPClient::LoginStatus l)
         m_attemptedTokenLogin = false;
     }
 }
+
 
 void DDPClient::login()
 {
