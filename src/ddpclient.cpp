@@ -115,12 +115,17 @@ QString DDPClient::cachePath() const
     return QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
 }
 
-unsigned int DDPClient::method(const QString& m, const QJsonDocument& params, DDPClient::MessageStatus messageStatus)
+QQueue<QPair<QString,QJsonDocument>> DDPClient::messageQueue()
 {
-    return method(m, params, empty_callback, messageStatus);
+    return m_messageQueue;
 }
 
-unsigned int DDPClient::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback, DDPClient::MessageStatus messageStatus)
+unsigned int DDPClient::method(const QString& m, const QJsonDocument& params, DDPClient::MessageType messageType)
+{
+    return method(m, params, empty_callback, messageType);
+}
+
+unsigned int DDPClient::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback, DDPClient::MessageType messageType)
 {
     QJsonObject json;
     json["msg"] = "method";
@@ -140,14 +145,10 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qDebug() << m_webSocket.isValid() << m_webSocket.error() << m_webSocket.requestUrl();
 
-        if(messageStatus==DDPClient::Persistent){
-            QJsonObject jsonObject = params.object();
-            QString message = jsonObject["msg"].toString(); //Find out how to generalize this
-            m_messageQueue.enqueue(qMakePair(method,message));
-
+        if(messageType==DDPClient::Persistent){
+            m_messageQueue.enqueue(qMakePair(method,params));
             Ruqola::self()->messageQueue()->processQueue();
         }
-
     } else {
         qDebug() << "Successfully sent " << json;
     }
@@ -159,7 +160,7 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
     return m_uid - 1 ;
 }
 
-void DDPClient::subscribe(const QString& collection, const QJsonArray& params, DDPClient::MessageStatus messageStatus)
+void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
 {
     QJsonObject json;
     json["msg"] = "sub";
@@ -170,15 +171,6 @@ void DDPClient::subscribe(const QString& collection, const QJsonArray& params, D
     qint64 bytes = m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
     if (bytes < json.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
-
-        if(messageStatus==DDPClient::Persistent){
-//            QJsonObject jsonObject = params;
-//            QString message = jsonObject["msg"].toString();
-//            m_messageQueue.enqueue(qMakePair(message,method));
-
-            Ruqola::self()->messageQueue()->processQueue();
-        }
-
     }
     m_uid++;
 }
@@ -201,6 +193,8 @@ void DDPClient::onTextMessageReceived(QString message)
         if (m_callbackHash.contains(id)) {
                 std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
 
+                //Handle attachments in a separate class
+                /*
                 QJsonDocument res = QJsonDocument(root.value("result").toObject());
                 QJsonObject result = res.object();
                 QString type = result.value("type").toString();
@@ -237,7 +231,7 @@ void DDPClient::onTextMessageReceived(QString message)
                 } else if (type == "text"){
 
                 }
-
+               */
                 callback( QJsonDocument(root.value("result").toObject()) );
          }
             emit result(id, QJsonDocument(root.value("result").toObject()));

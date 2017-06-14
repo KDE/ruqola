@@ -35,9 +35,9 @@ public:
     MessageQueue();
     ~MessageQueue();
 
-    bool internetConnection();
-    void cacheQueue();
     void processQueue();
+    static QPair<QString,QJsonDocument> fromJson(const QJsonObject &o);
+    static QByteArray serialize(const QPair<QString, QJsonDocument> pair);
 
 public slots:
     void onLoginStatusChanged();

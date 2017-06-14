@@ -1,4 +1,3 @@
-
 /*
  * <one line to give the program's name and a brief idea of what it does.>
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
@@ -273,6 +272,6 @@ void RocketChatBackend::onUserIDChanged()
     qDebug() << "subscribing to notification feed";
     QJsonArray params;
     params.append(QJsonValue(QString("%1/%2").arg(Ruqola::self()->userID()).arg(QString("notification"))));
-    Ruqola::self()->ddp()->subscribe("stream-notify-user", params, DDPClient::Persistent);
+    Ruqola::self()->ddp()->subscribe("stream-notify-user", params);
 }
 

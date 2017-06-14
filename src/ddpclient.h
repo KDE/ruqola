@@ -50,7 +50,7 @@ public:
     };
     Q_ENUM(LoginStatus)
 
-    enum MessageStatus {
+    enum MessageType {
         Persistent,
         Ephemeral
     };
@@ -65,10 +65,10 @@ public:
     * @param params The parameters
     * @return unsigned int, the ID of the called method. Watch for it
     */
-    unsigned method(const QString &method, const QJsonDocument &params, DDPClient::MessageStatus messageStatus = DDPClient::Ephemeral);
-    unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback, DDPClient::MessageStatus messageStatus = DDPClient::Ephemeral);
+    unsigned method(const QString &method, const QJsonDocument &params, DDPClient::MessageType messageStatus = DDPClient::Ephemeral);
+    unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback, DDPClient::MessageType messageStatus = DDPClient::Ephemeral);
 
-    void subscribe(const QString &collection, const QJsonArray &params, MessageStatus messageStatus = DDPClient::Ephemeral);
+    void subscribe(const QString &collection, const QJsonArray &params);
 
     Q_INVOKABLE void login();
     void logOut();
@@ -78,7 +78,7 @@ public:
 
     void onServerURLChange();
 
-    QQueue<QPair<QString,QString>> messageQueue();
+    QQueue<QPair<QString,QJsonDocument>> messageQueue();
     QString cachePath() const;
 
 signals:
@@ -124,8 +124,8 @@ private:
     bool m_attemptedTokenLogin;
 
     //Abstract queue for all requests
-    //QPair- QString method, QString message
-    QQueue<QPair<QString,QString>> m_messageQueue;
+    //QPair- QString method, QJsonDocument params
+    QQueue<QPair<QString,QJsonDocument>> m_messageQueue;
 
     friend class Ruqola;
 };
