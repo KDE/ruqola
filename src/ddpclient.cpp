@@ -193,8 +193,11 @@ void DDPClient::onTextMessageReceived(QString message)
         if (m_callbackHash.contains(id)) {
                 std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
 
-                //Handle attachments in a separate class
+
                 /*
+                 *Handle attachments in a separate class
+                 *
+                 *
                 QJsonDocument res = QJsonDocument(root.value("result").toObject());
                 QJsonObject result = res.object();
                 QString type = result.value("type").toString();

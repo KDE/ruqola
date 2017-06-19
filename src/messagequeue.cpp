@@ -118,6 +118,6 @@ void MessageQueue::processQueue()
             QPair<QString,QJsonDocument> pair = Ruqola::self()->ddp()->messageQueue().head();
             QString method = pair.first;
             QJsonDocument params = pair.second;
-            Ruqola::self()->ddp()->method(method, params);
+            Ruqola::self()->ddp()->method(method, params); //can be optimized using single shot timer
     }
 }
