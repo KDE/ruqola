@@ -32,7 +32,16 @@
 
 class Message
 {
+       Q_OBJECT
 public:
+
+    enum MessageStatus {
+        Unsent,
+        Sending,
+        Sent,
+        SendFailed
+    };
+    Q_ENUM(MessageStatus)
 
     // To be used in ID find: message ID
     inline bool operator==(const Message &other) const
@@ -44,6 +53,9 @@ public:
     {
         return timestamp < other.timestamp;
     }
+
+    MessageStatus messageStatus() const;
+    void setMessageStatus(MessageStatus m);
 
     //Message Object Fields
 
@@ -97,6 +109,12 @@ public:
 
     bool systemMessage = false;
     QString systemMessageType;
+
+    MessageStatus m_messageStatus;
+
+signals:
+    void messageStatusChanged();
+
 };
 
 class MessageModel : public QAbstractListModel
@@ -127,6 +145,7 @@ public:
         Groupable,
         ParseUrls
     };
+    Q_ENUM(MessageRoles)
 
     MessageModel(const QString &roomID = "no_room", QObject *parent = 0);
     virtual ~MessageModel();

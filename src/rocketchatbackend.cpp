@@ -76,7 +76,7 @@ void rooms_callback(QJsonDocument doc)
             QJsonObject dateObject;
             dateObject["$date"] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
-            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog, DDPClient::Persistent);
+            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog);
         }
     } 
 }
@@ -119,7 +119,7 @@ void subs_callback(QJsonDocument doc)
             QJsonObject dateObject;
             dateObject["$date"] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
-            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog, DDPClient::Persistent);
+            Ruqola::self()->ddp()->method("loadHistory", QJsonDocument(params), process_backlog);
         }
     } 
 }
