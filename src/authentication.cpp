@@ -81,6 +81,7 @@ void Authentication::sendApiRequest()
 }
 
 
+<<<<<<< HEAD
 
 /*
  * Send a request to Google's OAuth 2.0 server
@@ -96,6 +97,8 @@ https://accounts.google.com/o/oauth2/v2/auth?
 
 
 
+=======
+>>>>>>> a8a00725323ae3b2d0e38d3cf452589fecced292
 /*
  * Handle the OAuth 2.0 server response
  * Exchange authorization code for refresh and access tokens
