@@ -32,6 +32,7 @@
 
 class Message
 {
+       Q_OBJECT
 public:
 
     enum MessageStatus {
@@ -53,7 +54,8 @@ public:
         return timestamp < other.timestamp;
     }
 
-    bool isSent() const;
+    MessageStatus messageStatus() const;
+    void setMessageStatus(MessageStatus m);
 
     //Message Object Fields
 
@@ -108,15 +110,11 @@ public:
     bool systemMessage = false;
     QString systemMessageType;
 
-signals:
-    void MessageStatusChanged();
-
-private:
-
-    MessageStatus messageStatus() const;
-    void setMessageStatus(MessageStatus m);
-
     MessageStatus m_messageStatus;
+
+signals:
+    void messageStatusChanged();
+
 };
 
 class MessageModel : public QAbstractListModel
@@ -147,6 +145,7 @@ public:
         Groupable,
         ParseUrls
     };
+    Q_ENUM(MessageRoles)
 
     MessageModel(const QString &roomID = "no_room", QObject *parent = 0);
     virtual ~MessageModel();
@@ -160,9 +159,10 @@ public:
 
     static Message fromJSon(const QJsonObject &source);
     static QByteArray serialize(const Message &message);
-protected:
 
+protected:
     virtual QHash<int, QByteArray> roleNames() const;
+
 private:
     const QString m_roomID;
 

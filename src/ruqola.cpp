@@ -24,6 +24,7 @@
 #include "roommodel.h"
 #include "ddpclient.h"
 #include "notification.h"
+#include "messagequeue.h"
 #include <QFileDialog>
 #include <QTcpSocket>
 #include <QDataStream>
@@ -100,6 +101,17 @@ DDPClient * Ruqola::ddp()
     return m_ddp;
 }
 
+MessageQueue * Ruqola::messageQueue()
+{
+    if (!m_messageQueue) {
+        m_messageQueue = new MessageQueue();
+        // retry to send any unsent messages
+        Ruqola::self()->messageQueue()->processQueue();
+    }
+    return m_messageQueue;
+}
+
+
 Notification * Ruqola::notification()
 {
     if (m_notification == NULL) {
@@ -136,7 +148,7 @@ void Ruqola::sendMessage(const QString &roomID, const QString &message, const QS
     json["msg"] = message;
     json["type"] = type;
 
-    ddp()->method("sendMessage", QJsonDocument(json));
+    ddp()->method("sendMessage", QJsonDocument(json), DDPClient::Persistent);
 }
 
 MessageModel * Ruqola::getModelForRoom(const QString& roomID)
@@ -219,6 +231,7 @@ QString Ruqola::cacheBasePath() const
     if (m_serverURL.isEmpty()) {
         return QString();
     }
+
     return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+'/'+m_serverURL;
 }
 
@@ -239,7 +252,7 @@ RoomWrapper * Ruqola::getRoom(const QString& roomID)
 }
 
 
-Ruqola::Ruqola(QObject* parent): QObject(parent), m_ddp(0), m_roomModel(0), m_notification(0)
+Ruqola::Ruqola(QObject* parent): QObject(parent), m_ddp(0), m_messageQueue(0), m_roomModel(0), m_notification(0)
 {
     QSettings s;
     m_serverURL = s.value("serverURL", "demo.rocket.chat").toString();
@@ -261,6 +274,9 @@ Ruqola * Ruqola::self()
 
         // Create systray to show notifications
         m_self->notification();
+
+        //Initialize the messageQueue object
+        m_self->messageQueue();
     }
     return m_self;
 }

@@ -1,4 +1,3 @@
-
 /*
  * <one line to give the program's name and a brief idea of what it does.>
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
@@ -148,7 +147,7 @@ void RocketChatBackend::processIncomingMessages(QJsonArray messages)
         m.meta = o.value("urls").toObject().value("meta").toString();
         m.headers = o.value("urls").toObject().value("headers").toString();
         m.parsedUrl = o.value("urls").toObject().value("parsedUrl").toString();
-        m.image_url = o.value("attachments").toObject().value("image_url").toString();
+        m.imageUrl = o.value("attachments").toObject().value("imageUrl").toString();
         m.color = o.value("attachments").toObject().value("color").toString();
         m.alias = o.value("alias").toString();
         m.avatar = o.value("avatar").toString();

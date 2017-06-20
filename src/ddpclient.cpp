@@ -21,14 +21,12 @@
  */
 
 #include "ddpclient.h"
+#include "ruqola.h"
 
 #include <QtCore/QJsonDocument>
 #include <QtCore/QJsonObject>
 #include <QtCore/QJsonArray>
 
-#include <iostream>
-#include <QLabel>
-#include "ruqola.h"
 
 void process_test(QJsonDocument doc)
 {
@@ -49,7 +47,6 @@ void DDPClient::resume_login_callback(QJsonDocument doc)
     Ruqola::self()->setAuthToken(doc.object().value("token").toString());
     qDebug() << "End callback";
 }
-
 
 void empty_callback(QJsonDocument doc)
 {
@@ -113,31 +110,22 @@ bool DDPClient::isLoggedIn() const
     return m_loginStatus == LoggedIn;
 }
 
-bool unsentMessages(){
-    if ( !DDPClient::m_messageQueue.empty() ){
-        QPair<int,QJsonDocument> pair = DDPClient::m_messageQueue.head();
-        int id = pair.first;
-        QJsonDocument params = pair.second;
-        if (DDPClient::loginStatus() == DDPClient::LoggedIn){
-            DDPClient::method("sendMessage", params);
-        }
-
-        //if it is sent successfully, dequeue it
-        //else it'll stay at head in queue for sending again
-         QHash::iterator<int,bool> it = DDPClient::m_messageStatus.find(id);
-         if ( it!= DDPClient::m_messageStatus.end() ){
-             if ( it.value() == true )
-                 DDPClient::m_messageQueue.dequeue();
-         }
-    }
-}
-
-unsigned int DDPClient::method(const QString& m, const QJsonDocument& params)
+QString DDPClient::cachePath() const
 {
-    return method(m, params, empty_callback);
+    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
 }
 
-unsigned int DDPClient::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback)
+QQueue<QPair<QString,QJsonDocument>> DDPClient::messageQueue()
+{
+    return m_messageQueue;
+}
+
+unsigned int DDPClient::method(const QString& m, const QJsonDocument& params, DDPClient::MessageType messageType)
+{
+    return method(m, params, empty_callback, messageType);
+}
+
+unsigned int DDPClient::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback, DDPClient::MessageType messageType)
 {
     QJsonObject json;
     json["msg"] = "method";
@@ -157,13 +145,12 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qDebug() << m_webSocket.isValid() << m_webSocket.error() << m_webSocket.requestUrl();
 
-        //try sending the message again
-        DDPClient::m_messageQueue.enqueue(qMakePair(m_uid-1, params));
-        DDPClient::m_messageStatus.insert(m_uid-1,false);
-
+        if(messageType==DDPClient::Persistent){
+            m_messageQueue.enqueue(qMakePair(method,params));
+            Ruqola::self()->messageQueue()->processQueue();
+        }
     } else {
         qDebug() << "Successfully sent " << json;
-        DDPClient::m_messageStatus.insert(m_uid-1,true);
     }
 
     //callback(QJsonDocument::fromJson(json.toUtf8()));
@@ -185,7 +172,6 @@ void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
     if (bytes < json.length()) {
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
     }
-    
     m_uid++;
 }
 
@@ -197,8 +183,6 @@ void DDPClient::onTextMessageReceived(QString message)
         QJsonObject root = response.object();
         QString messageType = root.value("msg").toString();
 
-        qDebug() << "--------------------";
-        qDebug() << "--------------------";
 //        qDebug() << "Root is- " << root;
 
         if (messageType == "updated") {
@@ -209,6 +193,11 @@ void DDPClient::onTextMessageReceived(QString message)
         if (m_callbackHash.contains(id)) {
                 std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
 
+
+                /*
+                 *Handle attachments in a separate class
+                 *
+                 *
                 QJsonDocument res = QJsonDocument(root.value("result").toObject());
                 QJsonObject result = res.object();
                 QString type = result.value("type").toString();
@@ -217,7 +206,7 @@ void DDPClient::onTextMessageReceived(QString message)
                 QByteArray base64Image;
                 QImage image;
 
-                QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+                QString path = DDPClient::cachePath()+"/Images";
                 QDir dir(path);
                 if (!dir.exists()){
                     dir.mkdir(path);
@@ -230,7 +219,6 @@ void DDPClient::onTextMessageReceived(QString message)
                 const QString filename = QString::fromLatin1("%1.jpg").arg(timestamp);
 
                 if (type == "image"){
-                    qDebug() << "I am here yay";
                     base64Image.append(msg);
                     image.loadFromData(QByteArray::fromBase64(base64Image), "JPG");
                     if ( !image.isNull() ){
@@ -246,7 +234,7 @@ void DDPClient::onTextMessageReceived(QString message)
                 } else if (type == "text"){
 
                 }
-
+               */
                 callback( QJsonDocument(root.value("result").toObject()) );
          }
             emit result(id, QJsonDocument(root.value("result").toObject()));
@@ -261,7 +249,6 @@ void DDPClient::onTextMessageReceived(QString message)
 
                     setLoginStatus(DDPClient::LoggedIn);
                 }
-//                 emit loggedInChanged();
             }
             
         } else if (messageType == "connected") {
@@ -303,6 +290,7 @@ void DDPClient::setLoginStatus(DDPClient::LoginStatus l)
         m_attemptedTokenLogin = false;
     }
 }
+
 
 void DDPClient::login()
 {
@@ -362,7 +350,6 @@ void DDPClient::WSclosed()
 {
     qDebug() << "WebSocket CLOSED" << m_webSocket.closeReason() << m_webSocket.error() << m_webSocket.closeCode();
     setLoginStatus(NotConnected);
-//     m_connected = false;
 }
 
 

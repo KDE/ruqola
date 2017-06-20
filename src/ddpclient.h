@@ -50,41 +50,42 @@ public:
     };
     Q_ENUM(LoginStatus)
 
+    enum MessageType {
+        Persistent,
+        Ephemeral
+    };
+
     DDPClient(const QString &url = QString(), QObject *parent = 0);
     ~DDPClient();
 
     /**
-     * @brief Call a method with name @param method and parameters @param params
-     *
-     * @param method The name of the method
-     * @param params The parameters
-     * @return unsigned int, the ID of the called method. Watch for it
-     */
-    unsigned method(const QString &method, const QJsonDocument &params);
-    unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback);
-//     unsigned method(const QString &method, const QJsonObject &params);
+    * @brief Call a method with name @param method and parameters @param params
+    *
+    * @param method The name of the method
+    * @param params The parameters
+    * @return unsigned int, the ID of the called method. Watch for it
+    */
+    unsigned method(const QString &method, const QJsonDocument &params, DDPClient::MessageType messageStatus = DDPClient::Ephemeral);
+    unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback, DDPClient::MessageType messageStatus = DDPClient::Ephemeral);
 
     void subscribe(const QString &collection, const QJsonArray &params);
 
     Q_INVOKABLE void login();
     void logOut();
 
-//     Q_INVOKABLE void loginWithPassword();
     bool isConnected() const;
     bool isLoggedIn() const;
 
     void onServerURLChange();
 
-    //Again try to send unsent message; returns true if message was sent successfully
-    bool unsentMessages();
+    QQueue<QPair<QString,QJsonDocument>> messageQueue();
+    QString cachePath() const;
 
 signals:
-//     void connected();
     void connectedChanged();
-
     void loginStatusChanged();
-//     void loggedInChanged();
     void disconnected();
+
     /**
      * @brief Emitted whenever a result is received. The parameter is the expected ID.
      *
@@ -122,11 +123,9 @@ private:
     bool m_attemptedPasswordLogin;
     bool m_attemptedTokenLogin;
 
-    //pair- int (m_uid), QJsonDocument (params)
-    QQueue<QPair<int,QJsonDocument>> m_messageQueue;
-
-    //message with m_uid sent succussfully or not
-    QHash<int,bool> m_messageStatus;
+    //Abstract queue for all requests
+    //QPair- QString method, QJsonDocument params
+    QQueue<QPair<QString,QJsonDocument>> m_messageQueue;
 
     friend class Ruqola;
 };
