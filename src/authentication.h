@@ -1,13 +1,12 @@
 #ifndef AUTHENTICATION_H
 #define AUTHENTICATION_H
 
-
-#include <QtNetworkAuth>
+#include <QtCore>
 #include <QOAuth2AuthorizationCodeFlow>
 
-class Authentication : public QObject
+class Authentication
 {
-    Q_OBJECT
+
 public:
     Authentication();
     void getDataFromJson();
@@ -17,7 +16,6 @@ public:
 private slots:
     void onGranted();
 
-
 private:
     bool m_authGranted;
     QString m_client_id;
@@ -25,8 +23,5 @@ private:
     QOAuth2AuthorizationCodeFlow * m_google;
 
 };
-
-
-
 
 #endif // AUTHENTICATION_H

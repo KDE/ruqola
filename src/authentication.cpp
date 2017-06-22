@@ -1,29 +1,51 @@
 #include "ruqola.h"
 #include "authentication.h"
 
-
-#include <QAbstractOAuthReplyHandler>
 #include <QOAuth2AuthorizationCodeFlow>
-#include <QtCore>
 #include <QFile>
 
-Authentication::Authentication(){
-
-    m_google->setScope("email");
-//    connect(m_google, &QOAuth2AuthorizationCodeFlow::authorizeWithBrowser, this, &QDesktopServices::openUrl);
-//    connect(&m_google, &QOAuth2AuthorizationCodeFlow::granted, this, &Authentication::onGranted());
-
-
+Authentication::Authentication()
+{
+    getDataFromJson();
 }
-
-
 
 void Authentication::OAuthLogin() {
     QJsonObject authKeys;
     authKeys["credentialToken"] = m_client_id;
     authKeys["credentialSecret"] = m_client_secret;
 
-    Ruqola::self()->ddp()->method("login", QJsonDocument(authKeys));
+    QJsonArray requestPermissions;
+    requestPermissions.append("email");
+
+    bool requestOfflineToken = true;
+
+    QString scope = QString("%1 %2 %3").arg("openID").arg("profile").arg("email");
+
+    QSettings s;
+    s.setValue("stateHexNumber", QString("{67C8770B-44F1-410A-AB9A-F9B5446F13EE}"));
+    QUuid state(s.value("stateHexNumber").toString());
+
+    QJsonObject loginUrlParameters;
+    loginUrlParameters["client_id"] = m_client_id;
+    loginUrlParameters["response_type"] = QString("code");
+    loginUrlParameters["scope"] = scope;
+    loginUrlParameters["state"] = state.toString();
+
+    QString username = s.value("username").toString();
+    QString loginHint = username;
+
+    QString loginStyle = QString("redirect");
+    QString redirectUrl = s.value("redirectUrl").toString();
+
+    QJsonObject json;
+    json["requestPermissions"] = requestPermissions;
+    json["requestOfflineToken"] = requestOfflineToken;
+    json["loginUrlParameters"] = loginUrlParameters;
+    json["loginHint"] = loginHint;
+    json["loginStyle"] = loginStyle;
+    json["redirectUrl"] = redirectUrl;
+
+    Ruqola::self()->ddp()->method("login", QJsonDocument(json));
 
 }
 
@@ -49,92 +71,16 @@ void Authentication::getDataFromJson(){
     const auto clientId = settingsObject["client_id"].toString();
     const QUrl tokenUri(settingsObject["token_uri"].toString());
     const auto clientSecret(settingsObject["client_secret"].toString());
-    const auto redirectUris = settingsObject["redirect_uris"].toArray();
-    const QUrl redirectUri(redirectUris[0].toString());
-    const auto port = static_cast<quint16>(redirectUri.port());
+    const auto redirectUrls = settingsObject["redirect_uris"].toArray();
+    const QUrl redirectUrl(redirectUrls[0].toString());
 
-    m_google->setAuthorizationUrl(authUri);
-    m_google->setClientIdentifier(clientId);
-    m_google->setAccessTokenUrl(tokenUri);
-    m_google->setClientIdentifierSharedKey(clientSecret);
 
-    auto replyHandler = new QOAuthHttpServerReplyHandler(port, this);
-    m_google->setReplyHandler(replyHandler);
-
-    // If user grants the permissions, client receives a QOAuth2AuthorizationCodeFlow::granted signal
-    // and can then start sending authorized requests.
-    m_google->grant();
-
+    QSettings s;
+    s.setValue("clientID", clientId);
+    m_client_id = clientId;
+    s.setValue("clientSecret", clientSecret);
+    m_client_secret = clientSecret;
+    s.setValue("redirectUrl", redirectUrl);
 }
 
-void Authentication::onGranted()
-{
-    m_authGranted = true;
-}
-
-void Authentication::sendApiRequest()
-{
-   if(!m_authGranted) return;
-
-   //Try sending a request using https://www.googleapis.com/plus/v1/people/me
-   auto reply = m_google->get(QUrl("https://www.googleapis.com/plus/v1/people/me"));
-}
-
-
-<<<<<<< HEAD
-
-/*
- * Send a request to Google's OAuth 2.0 server
- *
-https://accounts.google.com/o/oauth2/v2/auth?
- scope=email%20profile&
- response_type=code&
- state=security_token%3D138r5719ru3e1%26url%3Dhttps://oauth2.example.com/token&
- redirect_uri=http://127.0.0.1:9004&
- client_id=client_id
-
-*/
-
-
-
-=======
->>>>>>> a8a00725323ae3b2d0e38d3cf452589fecced292
-/*
- * Handle the OAuth 2.0 server response
- * Exchange authorization code for refresh and access tokens
- *
- *
- *
- * REQUEST
- * ------------------------
- *  POST /oauth2/v4/token HTTP/1.1
-    Host: www.googleapis.com
-    Content-Type: application/x-www-form-urlencoded
-
-    code=4/P7q7W91a-oMsCeLvIaQm6bTrgtp7&
-    client_id=your_client_id&
-    client_secret=your_client_secret&
-    redirect_uri=https://oauth2.example.com/code&
-    grant_type=authorization_code
-
-
-Google responds to this request by returning a JSON object that contains a short-lived access token and a refresh token.
-
-  *RESPONSE
-  * ----------------------------
-  * The following snippet shows a sample response:
-
-    {
-      "access_token":"1/fFAGRNJru1FTz70BzhT3Zg",
-      "expires_in":3920,
-      "token_type":"Bearer",
-      "refresh_token":"1/xEoDL4iW3cxlI7yDbSRFYNG01kVKM2C-259HOF2aQbI"
-    }
-
-
- *CALLING GOOGLE APIs
- * -------------------------------
-    GET https://www.googleapis.com/drive/v2/files?access_token=<access_token>
-
-
-*/
+//#include "authentication.moc"
