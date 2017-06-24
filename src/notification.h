@@ -35,7 +35,16 @@ public:
     Notification();
 
 private:
+
+
+    /**
+    * @brief Create actions to be displayed in tray icon menu
+    */
     void createActions();
+
+    /**
+    * @brief Creates tray icon consisting of actions
+    */
     void createTrayIcon();
 
     QAction *m_quitAction;

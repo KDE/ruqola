@@ -32,8 +32,20 @@ class Authentication
 
 public:
     Authentication();
+
+    /**
+    * @brief Extract info from Google Json API
+    */
     void getDataFromJson();
+
+    /**
+    * @brief Call DDPClient's @method method with OAuth params
+    */
     void OAuthLogin();
+
+    /**
+    * @brief Make requests to Google on behalf of user using access token
+    */
     void sendApiRequest();
 
 private slots:

@@ -27,9 +27,8 @@
 #include <QJsonObject>
 
 #include "roommodel.h"
-// #include "ddpclient.h"
+
 class DDPClient;
-// class QJsonObject;
 
 class RocketChatBackend : public QObject
 {
@@ -37,6 +36,12 @@ class RocketChatBackend : public QObject
 public:
     RocketChatBackend(QObject *parent = 0);
     ~RocketChatBackend();
+
+    /**
+    * @brief Adds incoming message from server to appropriate room
+    *
+    * @param messages The Json containing the message
+    */
     static void processIncomingMessages(QJsonArray messages);
 
 private slots:

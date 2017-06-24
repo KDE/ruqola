@@ -59,42 +59,93 @@ public:
     ~DDPClient();
 
     /**
-    * @brief Call a method with name @param method and parameters @param params
+    * @brief Call a method with name @param method and parameters @param params and @param messageType with an empty callback
     *
-    * @param method The name of the method
+    * @param method The name of the method to call Rocket.Chat API for
     * @param params The parameters
-    * @return unsigned int, the ID of the called method. Watch for it
+    * @param messageType The type of message
+    * @return unsigned int, the ID of the called method
     */
-    unsigned method(const QString &method, const QJsonDocument &params, DDPClient::MessageType messageStatus = DDPClient::Ephemeral);
-    unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback, DDPClient::MessageType messageStatus = DDPClient::Ephemeral);
+    unsigned method(const QString &method, const QJsonDocument &params, DDPClient::MessageType messageType = DDPClient::Ephemeral);
 
+    /**
+    * @brief Send message over network
+    *
+    * @param method The name of the method to call Rocket.Chat API for
+    * @param params The parameters
+    * @param callback The pointer to callback function
+    * @param messageType The type of message
+    * @return unsigned int, the ID of the called method
+    */
+    unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
+
+
+    /**
+    * @brief Subscribes to a collection with name @param collection and parameters @param params
+    *
+    * @param collection The name of the collection
+    * @param params The parameters
+    */
     void subscribe(const QString &collection, const QJsonArray &params);
 
+    /**
+    * @brief Calls method to log in the user with valid username and password
+    */
     Q_INVOKABLE void login();
+
+    /**
+    * @brief Closes the websocket connection
+    */
     void logOut();
 
+    /**
+    * @brief Check whether websocket is connected at url
+    *
+    * @return true if connected, else false
+    */
     bool isConnected() const;
+
+    /**
+    * @brief Check whether user is logged in
+    *
+    * @return true if user is logged in, else false
+    */
     bool isLoggedIn() const;
 
+
+    /**
+    * @brief Reconnects the websocket to new url
+    */
     void onServerURLChange();
 
+    /**
+    * @brief Returns the queue used to cache unsent messages
+    *
+    *@return QQueue<QPair<QString,QJsonDocument>>, The m_messageQueue object
+    */
     QQueue<QPair<QString,QJsonDocument>> messageQueue();
+
+    /**
+    * @brief Returns standard cache path
+    *
+    *@def QString path
+    */
     QString cachePath() const;
 
 signals:
     void connectedChanged();
     void loginStatusChanged();
     void disconnected();
-
-    /**
-     * @brief Emitted whenever a result is received. The parameter is the expected ID.
-     *
-     * @param id the ID received in the method() call
-     */
-    void result(unsigned id, QJsonDocument result);
-
     void added(QJsonObject item);
     void changed(QJsonObject item);
+
+    /**
+     * @brief Emitted whenever a result is received
+     *
+     * @param id The ID received in the method() call
+     * @param result The response sent by server
+     */
+    void result(unsigned id, QJsonDocument result);
 
 private slots:
     void onWSConnected();
@@ -111,8 +162,16 @@ private:
     QString m_url;
     QWebSocket m_webSocket;
 
+    /**
+     * @brief Unique message ID for each message sent over network
+     */
     unsigned m_uid;
 
+    /**
+     * @brief Stores callback function associated with each message
+     *
+     * @def QHash unsigned messageID and std::function<void (QJsonDocument)> pointer to callback
+     */
     QHash <unsigned, std::function<void (QJsonDocument)> > m_callbackHash;
 
     unsigned m_loginJob;
@@ -123,8 +182,11 @@ private:
     bool m_attemptedPasswordLogin;
     bool m_attemptedTokenLogin;
 
-    //Abstract queue for all requests
-    //QPair- QString method, QJsonDocument params
+    /**
+    * @brief Abstract queue for all requests regarding network management
+    *
+    * @def QPair QString method and QJsonDocument params
+    */
     QQueue<QPair<QString,QJsonDocument>> m_messageQueue;
 
     friend class Ruqola;
