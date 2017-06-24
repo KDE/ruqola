@@ -7,7 +7,8 @@ Item {
     property alias serverURL: urlField.text;
 
     signal accepted()
-    
+    signal oauthAccepted()
+
     Keys.onPressed: {
         if (event.key === Qt.Key_Enter) {
             acceptingButton.clicked();
@@ -32,7 +33,7 @@ Item {
             text: "Ruqola Log in"
             color: "#555"
             id: loginLabel
-            font.pixelSize: 20
+            font.pixelSize: 40
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
         }
@@ -95,6 +96,14 @@ Item {
             onClicked: loginForm.accepted()
             isDefault: true
             
+        }
+
+        Button {
+            id: authButton
+            width: parent.width
+            text: qsTr("Log in with Google Account")
+            enabled: (passField.text && urlField.text && usernameField.text)
+            onClicked: loginForm.oauthAccepted()
         }
         
     }

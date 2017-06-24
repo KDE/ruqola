@@ -31,7 +31,7 @@
 #include "messagemodel.h"
 #include "notification.h"
 #include "messagequeue.h"
-
+#include "authentication.h"
 
 class QString;
 
@@ -75,7 +75,7 @@ public:
     DDPClient *ddp();
     Notification *notification();
     MessageQueue *messageQueue();
-
+    Authentication *authentication();
 
     Q_INVOKABLE RoomModel *roomModel();
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message, const QString &type);
@@ -83,6 +83,7 @@ public:
 
     Q_INVOKABLE void tryLogin();
     Q_INVOKABLE void logOut();
+    Q_INVOKABLE void tryOAuthLogin();
     Q_INVOKABLE RoomWrapper* getRoom(const QString &roomID);
 
     Q_INVOKABLE void attachmentButtonClicked();
@@ -108,6 +109,7 @@ private:
     MessageQueue *m_messageQueue;
     RoomModel *m_roomModel;
     Notification *m_notification;
+    Authentication *m_authentication;
 
     QHash< QString, MessageModel * > m_messageModels;
 };

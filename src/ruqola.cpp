@@ -114,11 +114,22 @@ MessageQueue * Ruqola::messageQueue()
 
 Notification * Ruqola::notification()
 {
-    if (m_notification == NULL) {
+    if (!m_notification) {
         m_notification = new Notification();
         m_notification->show();
     }
     return m_notification;
+}
+
+Authentication * Ruqola::authentication()
+{
+    if (!m_authentication) {
+        m_authentication = new Authentication();
+    }
+
+    qDebug() << "------------------------------------------";
+    qDebug() << "return auth object";
+    return m_authentication;
 }
 
 void Ruqola::attachmentButtonClicked()
@@ -211,6 +222,23 @@ void Ruqola::tryLogin()
     ddp();
 }
 
+void Ruqola::tryOAuthLogin()
+{
+    m_authentication->OAuthLogin();
+
+    // Reset model views
+    foreach (const QString key, m_messageModels.keys()) {
+        MessageModel *m = m_messageModels.take(key);
+        delete m;
+    }
+    delete m_ddp;
+    m_ddp = 0;
+
+    // In the meantime, load cache...
+    m_roomModel->reset();
+
+}
+
 void Ruqola::logOut()
 {
     setAuthToken(QString());
@@ -252,7 +280,13 @@ RoomWrapper * Ruqola::getRoom(const QString& roomID)
 }
 
 
-Ruqola::Ruqola(QObject* parent): QObject(parent), m_ddp(0), m_messageQueue(0), m_roomModel(0), m_notification(0)
+Ruqola::Ruqola(QObject* parent):
+    QObject(parent),
+    m_ddp(0),
+    m_messageQueue(0),
+    m_roomModel(0),
+    m_notification(0),
+    m_authentication(0)
 {
     QSettings s;
     m_serverURL = s.value("serverURL", "demo.rocket.chat").toString();
@@ -277,6 +311,9 @@ Ruqola * Ruqola::self()
 
         //Initialize the messageQueue object
         m_self->messageQueue();
+
+        m_self->authentication();
+
     }
     return m_self;
 }

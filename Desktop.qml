@@ -52,7 +52,10 @@ ApplicationWindow {
             Ruqola.userName = loginTab.username;
             Ruqola.serverURL = loginTab.serverURL;
             Ruqola.tryLogin();
-        }        
+        }
+        onOauthAccepted: {
+            Ruqola.tryOAuthLogin();
+        }
     }
     
     BusyIndicator {
