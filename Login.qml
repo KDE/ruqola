@@ -102,7 +102,7 @@ Item {
             id: authButton
             width: parent.width
             text: qsTr("Log in with Google Account")
-            enabled: (passField.text && urlField.text && usernameField.text)
+//           enabled: (passField.text && urlField.text && usernameField.text)
             onClicked: loginForm.oauthAccepted()
         }
         

@@ -37,6 +37,8 @@ void Authentication::OAuthLogin() {
     authKeys["credentialToken"] = m_client_id;
     authKeys["credentialSecret"] = m_client_secret;
 
+    Ruqola::self()->ddp()->method("login", QJsonDocument(authKeys));
+
     QJsonArray requestPermissions;
     requestPermissions.append("email");
 
@@ -68,7 +70,7 @@ void Authentication::OAuthLogin() {
     json["loginStyle"] = loginStyle;
     json["redirectUrl"] = redirectUrl;
 
-    Ruqola::self()->ddp()->method("login", QJsonDocument(json));
+//    Ruqola::self()->ddp()->method("login", QJsonDocument(json));
 
 }
 
