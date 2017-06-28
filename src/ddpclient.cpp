@@ -153,7 +153,6 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
         qDebug() << "Successfully sent " << json;
     }
 
-    //callback(QJsonDocument::fromJson(json.toUtf8()));
     m_callbackHash[m_uid] = callback;
 
     m_uid++;
@@ -183,8 +182,6 @@ void DDPClient::onTextMessageReceived(QString message)
         QJsonObject root = response.object();
         QString messageType = root.value("msg").toString();
 
-//        qDebug() << "Root is- " << root;
-
         if (messageType == "updated") {
 
         } else if (messageType == "result") {            
@@ -193,48 +190,6 @@ void DDPClient::onTextMessageReceived(QString message)
         if (m_callbackHash.contains(id)) {
                 std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
 
-
-                /*
-                 *Handle attachments in a separate class
-                 *
-                 *
-                QJsonDocument res = QJsonDocument(root.value("result").toObject());
-                QJsonObject result = res.object();
-                QString type = result.value("type").toString();
-                QString msg = result.value("msg").toString();
-
-                QByteArray base64Image;
-                QImage image;
-
-                QString path = DDPClient::cachePath()+"/Images";
-                QDir dir(path);
-                if (!dir.exists()){
-                    dir.mkdir(path);
-                    qDebug() << "Directory created at " << path;
-                }
-                QDir::setCurrent(path);
-
-                const QDateTime currentTime = QDateTime::currentDateTime();
-                const QString timestamp = currentTime.toString(QLatin1String("yyyyMMdd-hhmmsszzz"));
-                const QString filename = QString::fromLatin1("%1.jpg").arg(timestamp);
-
-                if (type == "image"){
-                    base64Image.append(msg);
-                    image.loadFromData(QByteArray::fromBase64(base64Image), "JPG");
-                    if ( !image.isNull() ){
-                        qDebug() << "Saving Image to " << path;
-                         if (image.save(filename, "JPEG") ){
-                                qDebug() << "Image saved successfully";
-                         } else {
-                                qDebug() << "Image NOT saved";
-                         }
-                    } else{
-                        qDebug() << "Image is NULL";
-                    }
-                } else if (type == "text"){
-
-                }
-               */
                 callback( QJsonDocument(root.value("result").toObject()) );
          }
             emit result(id, QJsonDocument(root.value("result").toObject()));
@@ -256,7 +211,7 @@ void DDPClient::onTextMessageReceived(QString message)
             m_connected = true;
             emit connectedChanged();
             setLoginStatus(DDPClient::LoggingIn);
-            login(); // Try to resume auth token login         
+            login(); // Try to resume auth token login
         } else if (messageType == "error") {
             qDebug() << "ERROR!!" << message;
         } else if (messageType == "ping") {
@@ -322,7 +277,6 @@ void DDPClient::login()
 
 void DDPClient::logOut()
 {
-//     setLoginStatus(NotConnected);
     m_webSocket.close();
 }
 
@@ -336,7 +290,6 @@ void DDPClient::onWSConnected()
     protocol["msg"] = "connect";
     protocol["version"] = "1";
     protocol["support"] = supportedVersions;
-//     QString json("{\"msg\":\"connect\", \"version\": \"1\", \"support\": [\"1\"]}");
     QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
     qint64 bytes = m_webSocket.sendTextMessage(serialize);
     if (bytes < serialize.length()) {

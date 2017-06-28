@@ -31,7 +31,7 @@
 #include "messagemodel.h"
 #include "notification.h"
 #include "messagequeue.h"
-
+#include "authentication.h"
 
 class QString;
 
@@ -48,6 +48,12 @@ class Ruqola: public QObject
 //     Q_PROPERTY(QString activeRoom READ activeRoom WRITE setActiveRoom NOTIFY activeRoomChanged)
 
 public:
+
+    /**
+    * @brief Singleton provider
+    *
+    * @return Returns the singleton object m_self
+    */
     static Ruqola* self();
 
     void setUserName(const QString &username);
@@ -75,18 +81,52 @@ public:
     DDPClient *ddp();
     Notification *notification();
     MessageQueue *messageQueue();
-
+    Authentication *authentication();
 
     Q_INVOKABLE RoomModel *roomModel();
+
+
+    /**
+    * @brief Constructs a Json with @param roomID and @param message and @param type, then calls DDPClient's method to send text message over the network
+    */
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message, const QString &type);
+
+    /**
+    * @brief Returns a model for room with ID @param roomID
+    *
+    * @return MessageModel Pointer, model for room
+    */
     Q_INVOKABLE MessageModel* getModelForRoom(const QString &roomID);
 
+    /**
+    * @brief Reset models, load cache and call DDPClient's object to automatically try to connect and log in via username and password
+    */
     Q_INVOKABLE void tryLogin();
+
+    /**
+    * @brief Clear models, stores cache and logs out the user
+    */
     Q_INVOKABLE void logOut();
+
+    /**
+    * @brief Reset models, load cache and call DDPClient's object to automatically try to connect and log in via Google account
+    */
+    Q_INVOKABLE void tryOAuthLogin();
+
+    /**
+    * @brief Finds room with @param roomID
+    *
+    * @return RoomWrapper Pointer, The room model for @param roomID
+    */
     Q_INVOKABLE RoomWrapper* getRoom(const QString &roomID);
 
     Q_INVOKABLE void attachmentButtonClicked();
 
+    /**
+    * @brief Returns standard cache path
+    *
+    * @return QString, The standard cache path
+    */
     QString cacheBasePath() const;
 
 signals:
@@ -108,6 +148,7 @@ private:
     MessageQueue *m_messageQueue;
     RoomModel *m_roomModel;
     Notification *m_notification;
+    Authentication *m_authentication;
 
     QHash< QString, MessageModel * > m_messageModels;
 };

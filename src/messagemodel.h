@@ -30,18 +30,18 @@
 #include <QJsonObject>
 #include <QFile>
 
-class Message
+class Message //: public QObject
 {
-       Q_OBJECT
+//       Q_OBJECT
 public:
 
-    enum MessageStatus {
-        Unsent,
-        Sending,
-        Sent,
-        SendFailed
-    };
-    Q_ENUM(MessageStatus)
+//    enum MessageStatus {
+//        Unsent,
+//        Sending,
+//        Sent,
+//        SendFailed
+//    };
+//    Q_ENUM(MessageStatus)
 
     // To be used in ID find: message ID
     inline bool operator==(const Message &other) const
@@ -54,8 +54,8 @@ public:
         return timestamp < other.timestamp;
     }
 
-    MessageStatus messageStatus() const;
-    void setMessageStatus(MessageStatus m);
+//    MessageStatus messageStatus() const;
+//    void setMessageStatus(MessageStatus m);
 
     //Message Object Fields
 
@@ -110,10 +110,10 @@ public:
     bool systemMessage = false;
     QString systemMessageType;
 
-    MessageStatus m_messageStatus;
+//    MessageStatus m_messageStatus;
 
 signals:
-    void messageStatusChanged();
+//    void messageStatusChanged();
 
 };
 
@@ -150,14 +150,45 @@ public:
     MessageModel(const QString &roomID = "no_room", QObject *parent = 0);
     virtual ~MessageModel();
 
+    /**
+    * @brief Adds a message to QVector m_allMessages
+    *
+    * @param message The message to be added
+    */
     void addMessage(const Message& message);
 
+    /**
+    * @brief returns number of messages in QVector m_allMessages
+    *
+    * @param parent, it is void
+    * @return int, The number of messages in QVector m_allMessages
+    */
     virtual int rowCount(const QModelIndex & parent = QModelIndex()) const;
+
+
     virtual QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
 
+    /**
+    * @brief Returns last timestamp of last message in QVector m_allMessages
+    *
+    * @return qint64 The last timestamp
+    */
     qint64 lastTimestamp() const;
 
+    /**
+    * @brief Constructs Message object from QJsonObject
+    *
+    * @param source The Json containing message attributes
+    * @return Message object, The message constructed from Json
+    */
     static Message fromJSon(const QJsonObject &source);
+
+    /**
+    * @brief Constructs QBytearray from Message object
+    *
+    * @param message The Message object
+    * @return QByteArray, The Json containing message attributes
+    */
     static QByteArray serialize(const Message &message);
 
 protected:
@@ -168,8 +199,6 @@ private:
 
     QVector<Message> m_allMessages;
 
-//     QMap<int, Message> m_allMessages;
-//     QMap<int, Message> m_allMessages;
     QString m_writableLocation;
 
     QFile *cacheWriter;

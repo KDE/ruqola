@@ -80,9 +80,7 @@ RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
 
 RoomModel::RoomModel(QObject* parent)
     : QAbstractListModel(parent)
-{
-//     connect(Ruqola::self(), &Ruqola::loginStatusChanged, this, &RoomModel::onLoginStatusChanged);
-}
+{}
 
 RoomModel::~RoomModel()
 {
@@ -162,8 +160,6 @@ QHash<int, QByteArray> RoomModel::roleNames() const
 int RoomModel::rowCount(const QModelIndex & parent) const
 {
     Q_UNUSED(parent);
-//     if (m_roomsHash.size() > 4) {return 4;}
-//     qDebug() << m_roomsList.size() << "ROOMS";
     return m_roomsList.size();
 }
 
@@ -181,15 +177,6 @@ QVariant RoomModel::data(const QModelIndex & index, int role) const
         return QVariant("0");
     }
 }
-
-// void RoomModel::setActiveRoom(const QString& activeRoom)
-// {
-//     foreach (const QString &id, m_roomsHash.keys()) {
-//         qDebug() << id;
-//         m_roomsHash[id].selected = (id == activeRoom);
-//     }
-// //     emit dataChanged(createIndex(1, 1), createIndex(rowCount(), 1));
-// }
 
 void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool selected)
 {

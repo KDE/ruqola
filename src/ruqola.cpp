@@ -96,7 +96,6 @@ DDPClient * Ruqola::ddp()
     if (!m_ddp) {
         m_ddp = new DDPClient(serverURL());
         connect(m_ddp, &DDPClient::loginStatusChanged, this, &Ruqola::loginStatusChanged);
-//         connect(m_ddp, &DDPClient::loginStatusChanged, this, [=](){qDebug() << "Signal received";});
     }
     return m_ddp;
 }
@@ -114,11 +113,20 @@ MessageQueue * Ruqola::messageQueue()
 
 Notification * Ruqola::notification()
 {
-    if (m_notification == NULL) {
+    if (!m_notification) {
         m_notification = new Notification();
         m_notification->show();
     }
     return m_notification;
+}
+
+Authentication * Ruqola::authentication()
+{
+    if (!m_authentication) {
+        m_authentication = new Authentication();
+    }
+
+    return m_authentication;
 }
 
 void Ruqola::attachmentButtonClicked()
@@ -154,12 +162,9 @@ void Ruqola::sendMessage(const QString &roomID, const QString &message, const QS
 MessageModel * Ruqola::getModelForRoom(const QString& roomID)
 {
     if (m_messageModels.contains(roomID)) {
-//         qDebug() << "Returning old model for " << roomID;
         return m_messageModels.value(roomID);
     } else {
-//         qDebug() << "Creating a new model";
         m_messageModels[roomID] = new MessageModel(roomID, this);
-
         return m_messageModels[roomID];
     }
 }
@@ -178,7 +183,6 @@ void Ruqola::setServerURL(const QString& serverURL)
     QSettings s;
     s.setValue("serverURL", serverURL);
     m_serverURL = serverURL;
-//     m_roomModel->reset();
     emit serverURLChanged();
 }
 
@@ -211,6 +215,23 @@ void Ruqola::tryLogin()
     ddp();
 }
 
+void Ruqola::tryOAuthLogin()
+{
+    m_authentication->OAuthLogin();
+
+    // Reset model views
+    foreach (const QString key, m_messageModels.keys()) {
+        MessageModel *m = m_messageModels.take(key);
+        delete m;
+    }
+    delete m_ddp;
+    m_ddp = 0;
+
+    // In the meantime, load cache...
+    m_roomModel->reset();
+
+}
+
 void Ruqola::logOut()
 {
     setAuthToken(QString());
@@ -219,11 +240,12 @@ void Ruqola::logOut()
         MessageModel *m = m_messageModels.take(key);
         delete m;
     }
+
+    m_roomModel->clear();
     delete m_ddp;
     m_ddp = 0;
     emit loginStatusChanged();
 
-    m_roomModel->clear();
 }
 
 QString Ruqola::cacheBasePath() const
@@ -235,24 +257,19 @@ QString Ruqola::cacheBasePath() const
     return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+'/'+m_serverURL;
 }
 
-// QString Ruqola::activeRoom() const
-// {
-//     return m_activeRoom;
-// }
-// void Ruqola::setActiveRoom(const QString& activeRoom)
-// {
-//     m_activeRoom = activeRoom;
-// //     roomModel()->setActiveRoom(activeRoom);
-//     emit activeRoomChanged();
-// }
-
 RoomWrapper * Ruqola::getRoom(const QString& roomID)
 {
     return roomModel()->findRoom(roomID);
 }
 
 
-Ruqola::Ruqola(QObject* parent): QObject(parent), m_ddp(0), m_messageQueue(0), m_roomModel(0), m_notification(0)
+Ruqola::Ruqola(QObject* parent):
+    QObject(parent),
+    m_ddp(0),
+    m_messageQueue(0),
+    m_roomModel(0),
+    m_notification(0),
+    m_authentication(0)
 {
     QSettings s;
     m_serverURL = s.value("serverURL", "demo.rocket.chat").toString();
@@ -277,6 +294,9 @@ Ruqola * Ruqola::self()
 
         //Initialize the messageQueue object
         m_self->messageQueue();
+
+        m_self->authentication();
+
     }
     return m_self;
 }

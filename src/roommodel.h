@@ -46,10 +46,21 @@ public:
         return name < other.name;
     }
 
+    /**
+    * @brief Return room name
+    *
+    * @return QString, The name of the room
+    */
     QString getName() const
     {
         return name;
     }
+
+    /**
+    * @brief Return topic name
+    *
+    * @return QString, The name of the topic of room
+    */
     QString getTopic() const
     {
         return topic;
@@ -152,17 +163,48 @@ public:
 //     void setCurrentRoom(const QString &newRoom);
 //     QString getCurrentRoom() const;
 
+    /**
+    * @brief Constructs room object from @param roomID and @param roomName and @param selected, then calls @method addRoom
+    *
+    * @param roomID The unique room ID
+    * @param roomName The name of the room
+    * @param selected True if room if @param roomID is selected, else false
+    */
     Q_INVOKABLE void addRoom(const QString& roomID, const QString& roomName, bool selected = false);
 
+    /**
+    * @brief Adds a room to m_roomsList with @param room
+    *
+    * @param room The room to be added
+    */
     void addRoom(const Room& room);
+
+    /**
+    * @brief Finds a room with @param roomID in m_roomsList
+    *
+    * @param roomID The ID of the room to find
+    * @return RoomWrapper Pointer, The pointer to room with @param roomID in m_roomsList, if exists. Else return a new RoomWrapper object
+    */
     RoomWrapper* findRoom(const QString &roomID) const;
 
-
+    /**
+    * @brief Constructs Message object from QJsonObject
+    *
+    * @param source The Json containing room attributes
+    * @return Room object, The room constructed from Json
+    */
     static Room fromJSon(const QJsonObject &source);
+
+    /**
+    * @brief Constructs QBytearray from Message object
+    *
+    * @param message The Room object
+    * @return QByteArray, The Json containing room attributes
+    */
     static QByteArray serialize(const Room &r);
 
 //     void setActiveRoom(const QString &activeRoom);
-
+//Clear data and refill it with data in the cache, if there is
     void reset();
     void clear();
 protected:

@@ -23,12 +23,12 @@
 #include "ruqola.h"
 #include "ddpclient.h"
 
-QPair<QString,QJsonDocument> MessageQueue::fromJson(const QJsonObject &o)
+QPair<QString,QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
 {
     QPair<QString,QJsonDocument> pair;
 
-    pair.first = o["method"].toString();
-    QJsonArray arr = o["params"].toArray();
+    pair.first = object["method"].toString();
+    QJsonArray arr = object["params"].toArray();
     pair.second = QJsonDocument(arr);
     return pair;
 }
@@ -114,10 +114,11 @@ void MessageQueue::onLoginStatusChanged()
 
 void MessageQueue::processQueue()
 {
+    //can be optimized using single shot timer
     while ( Ruqola::self()->loginStatus() == DDPClient::LoggedIn && !Ruqola::self()->ddp()->messageQueue().empty() ){
             QPair<QString,QJsonDocument> pair = Ruqola::self()->ddp()->messageQueue().head();
             QString method = pair.first;
             QJsonDocument params = pair.second;
-            Ruqola::self()->ddp()->method(method, params); //can be optimized using single shot timer
+            Ruqola::self()->ddp()->method(method, params);
     }
 }
