@@ -128,6 +128,19 @@ ApplicationWindow {
                 z: -1;
                 
             }
+
+            Button {
+                id: logoutButton
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.leftMargin: 20
+                anchors.bottomMargin: 20
+                width: 150
+                height: 30
+                text: qsTr("LogOut")
+                onClicked: Ruqola.logOut();
+           }
+
         } //RoomsView
         
         

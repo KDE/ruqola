@@ -241,6 +241,13 @@ void Ruqola::logOut()
         delete m;
     }
 
+    QJsonObject user;
+    user["username"] = Ruqola::self()->userName();
+    QJsonObject json;
+    json["password"] = Ruqola::self()->password();
+    json["user"] = user;
+    Ruqola::self()->ddp()->method("logout", QJsonDocument(json));
+
     m_roomModel->clear();
     delete m_ddp;
     m_ddp = 0;
