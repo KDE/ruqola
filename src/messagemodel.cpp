@@ -33,18 +33,18 @@
 #include "ruqola.h"
 
 
-MessageStatus Message::messageStatus() const
-{
-    return m_messageStatus;
-}
+//Message::MessageStatus Message::messageStatus() const
+//{
+//    return m_messageStatus;
+//}
 
-void Message::setMessageStatus(MessageStatus m)
-{
-    if (m_messageStatus!= m){
-        m_messageStatus = m;
-        emit messageStatusChanged();
-    }
-}
+//void Message::setMessageStatus(MessageStatus m)
+//{
+//    if (m_messageStatus!= m){
+//        m_messageStatus = m;
+//        emit messageStatusChanged();
+//    }
+//}
 
 
 Message MessageModel::fromJSon(const QJsonObject& o)
@@ -131,8 +131,6 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
                 QByteArray arr = QByteArray::fromRawData(byteArray, length);
                 Message m = MessageModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
                 addMessage(m);
-//                 m_allMessages[m.timestamp] = m;
-//                 qDebug() << m.message;
             }
         }
     }   
@@ -183,10 +181,7 @@ qint64 MessageModel::lastTimestamp() const
 
 int MessageModel::rowCount(const QModelIndex& parent) const
 {
-//     qDebug() << "C++ asked for rowcount " <<  m_allMessages.size();
-//     if (m_allMessages.contains(m_currentRoom)) {
     return m_allMessages.size();
-
     (void)parent;
 }
 
@@ -230,7 +225,7 @@ void MessageModel::addMessage(const Message& message)
 QVariant MessageModel::data(const QModelIndex& index, int role) const
 {
     
-    int idx = index.row();//-1;
+    int idx = index.row();
     if (role == MessageModel::Username) {
         return  m_allMessages.at(idx).username;
     } else if (role == MessageModel::MessageText) {

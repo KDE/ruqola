@@ -46,9 +46,10 @@ void Authentication::OAuthLogin() {
 
     QString scope = QString("openID profile email");
 
+    QUuid state;
+    state = state.createUuid();
     QSettings s;
-    s.setValue("stateHexNumber", QString("{67C8770B-44F1-410A-AB9A-F9B5446F13EE}"));
-    QUuid state(s.value("stateHexNumber").toString());
+    s.setValue("stateRandomNumber", state);
 
     QJsonObject loginUrlParameters;
     loginUrlParameters["client_id"] = m_client_id;
