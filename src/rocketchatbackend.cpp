@@ -201,11 +201,14 @@ void RocketChatBackend::onAdded(QJsonObject object)
         
     } else if (collection == "users") {
         
-        if (object["username"].isNull()) {
-            // it's us! get ID
+        QJsonObject fields =  object.value("fields").toObject();
+        QString username = fields.value("username").toString();
+        if(username == Ruqola::self()->userName()){
             Ruqola::self()->setUserID(object["id"].toString());
+            qDebug() << "User id set to " << Ruqola::self()->userID();
         }
-         qDebug() << "NEW USER ADDED: " << object.value("userName").toString();
+
+         qDebug() << "NEW USER ADDED: " << username;
         
     } else if (collection == "rooms") {
 
