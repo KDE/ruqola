@@ -125,7 +125,6 @@ Authentication * Ruqola::authentication()
     if (!m_authentication) {
         m_authentication = new Authentication();
     }
-
     return m_authentication;
 }
 
@@ -217,8 +216,6 @@ void Ruqola::tryLogin()
 
 void Ruqola::tryOAuthLogin()
 {
-    m_authentication->OAuthLogin();
-
     // Reset model views
     foreach (const QString key, m_messageModels.keys()) {
         MessageModel *m = m_messageModels.take(key);
@@ -230,28 +227,35 @@ void Ruqola::tryOAuthLogin()
     // In the meantime, load cache...
     m_roomModel->reset();
 
+    ddp();
+    m_authentication->OAuthLogin();
 }
+
 
 void Ruqola::logOut()
 {
-    setAuthToken(QString());
-    setPassword(QString());
+    QSettings s;
+    s.setValue("authToken", QString(""));
+    setAuthToken(QString(""));
+    setPassword(QString(""));
+
     foreach (const QString key, m_messageModels.keys()) {
         MessageModel *m = m_messageModels.take(key);
         delete m;
     }
 
+    m_roomModel->clear();
+
     QJsonObject user;
     user["username"] = Ruqola::self()->userName();
     QJsonObject json;
-    json["password"] = Ruqola::self()->password();
     json["user"] = user;
     Ruqola::self()->ddp()->method("logout", QJsonDocument(json));
 
-    m_roomModel->clear();
     delete m_ddp;
     m_ddp = 0;
     emit loginStatusChanged();
+    qDebug() << "Successfully loged out!";
 
 }
 
