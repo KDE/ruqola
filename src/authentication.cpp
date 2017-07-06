@@ -23,6 +23,7 @@
 
 #include "ruqola.h"
 #include "authentication.h"
+#include "ddpclient.h"
 
 #include <QOAuth2AuthorizationCodeFlow>
 #include <QFile>
@@ -32,53 +33,9 @@ Authentication::Authentication()
     getDataFromJson();
 }
 
-void Authentication::OAuthLogin() {
-    QJsonObject authKeys;
-    authKeys["credentialToken"] = m_client_id;
-    authKeys["credentialSecret"] = m_client_secret;
-
-    Ruqola::self()->ddp()->method("login", QJsonDocument(authKeys));
-
-    QJsonArray requestPermissions;
-    requestPermissions.append("email");
-
-    bool requestOfflineToken = true;
-
-    QString scope = QString("openID profile email");
-
-    QUuid state;
-    state = state.createUuid();
-    QSettings s;
-    s.setValue("stateRandomNumber", state);
-
-    QJsonObject loginUrlParameters;
-    loginUrlParameters["client_id"] = m_client_id;
-    loginUrlParameters["response_type"] = QString("code");
-    loginUrlParameters["scope"] = scope;
-    loginUrlParameters["state"] = state.toString();
-
-    QString username = s.value("username").toString();
-    QString loginHint = username;
-
-    QString loginStyle = QString("redirect");
-    QString redirectUrl = s.value("redirectUrl").toString();
-
-    QJsonObject json;
-    json["requestPermissions"] = requestPermissions;
-    json["requestOfflineToken"] = requestOfflineToken;
-    json["loginUrlParameters"] = loginUrlParameters;
-    json["loginHint"] = loginHint;
-    json["loginStyle"] = loginStyle;
-    json["redirectUrl"] = redirectUrl;
-
-//    Ruqola::self()->ddp()->method("login", QJsonDocument(json));
-
-}
-
-
 void Authentication::getDataFromJson(){
 
-    QDir cacheDir(":/src/client_secret.json");
+    QDir cacheDir(":/src");
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }
@@ -94,19 +51,66 @@ void Authentication::getDataFromJson(){
     QJsonObject object = document.object();
     const auto settingsObject = object["web"].toObject();
     const QUrl authUri(settingsObject["auth_uri"].toString());
-    const auto clientId = settingsObject["client_id"].toString();
     const QUrl tokenUri(settingsObject["token_uri"].toString());
+    const auto clientID = settingsObject["client_id"].toString();
     const auto clientSecret(settingsObject["client_secret"].toString());
     const auto redirectUrls = settingsObject["redirect_uris"].toArray();
     const QUrl redirectUrl(redirectUrls[0].toString());
 
+/*
+    QString clientID = QString("143580046552-s4rmnq5mg008u76id0d3rl63od985hc6.apps.googleusercontent.com");
+    QString clientSecret = QString("nyVm19iOjjtldcCZJ-7003xg");
+    QString redirectUrl = QString("http://localhost:8080/cb/_oauth/google?close");
+*/
 
     QSettings s;
-    s.setValue("clientID", clientId);
-    m_client_id = clientId;
+    s.setValue("clientID", clientID);
+    m_clientID = clientID;
     s.setValue("clientSecret", clientSecret);
-    m_client_secret = clientSecret;
+    m_clientSecret = clientSecret;
     s.setValue("redirectUrl", redirectUrl);
 }
+
+
+void Authentication::OAuthLogin() {
+
+    QJsonObject auth;
+    QJsonObject authKeys;
+    authKeys["credentialToken"] = m_clientID;
+    authKeys["credentialSecret"] = m_clientSecret;
+
+    auth["oauth"] = authKeys;
+    qDebug() << "-------------------------";
+    qDebug() << "-------------------------";
+    qDebug() << "OAuth Json" << auth;
+    Ruqola::self()->ddp()->method("login", QJsonDocument(auth));
+
+    QJsonArray requestPermissions;
+    requestPermissions.append("email");
+
+    QUuid state;
+    state = state.createUuid();
+    QSettings s;
+    s.setValue("stateRandomNumber", state);
+
+    QJsonObject loginUrlParameters;
+    loginUrlParameters["client_id"] = m_clientID;
+    loginUrlParameters["response_type"] = QString("code");
+    loginUrlParameters["scope"] = QString("openID profile email");
+    loginUrlParameters["state"] = state.toString();
+
+    QJsonObject json;
+    json["requestPermissions"] = requestPermissions;
+    json["requestOfflineToken"] = true;
+    json["loginUrlParameters"] = loginUrlParameters;
+    json["loginHint"] = s.value("username").toString();
+    json["loginStyle"] = QString("redirect");
+    json["redirectUrl"] = s.value("redirectUrl").toString();
+
+//    qDebug() << "OAuth Json" << json;
+//    Ruqola::self()->ddp()->method("login", QJsonDocument(json));
+
+}
+
 
 //#include "authentication.moc"

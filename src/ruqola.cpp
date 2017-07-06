@@ -194,6 +194,7 @@ DDPClient::LoginStatus Ruqola::loginStatus()
     }
 }
 
+
 void Ruqola::tryLogin()
 {
     qDebug() << "Attempting login" << userName() << "on" << serverURL();
@@ -206,12 +207,14 @@ void Ruqola::tryLogin()
     delete m_ddp;
     m_ddp = 0;
 
-    // In the meantime, load cache...
-    m_roomModel->reset();
-
     // This creates a new ddp() object.
     // DDP will automatically try to connect and login.
     ddp();
+
+    // In the meantime, load cache...
+    //if(Ruqola::self()->ddp()->isConnected() && Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
+        m_roomModel->reset();
+    //}
 }
 
 void Ruqola::tryOAuthLogin()
@@ -224,11 +227,15 @@ void Ruqola::tryOAuthLogin()
     delete m_ddp;
     m_ddp = 0;
 
-    // In the meantime, load cache...
+    // This creates a new ddp() object.
+    // DDP will automatically try to connect and login.
+    ddp();
+
     m_roomModel->reset();
 
-    ddp();
-    m_authentication->OAuthLogin();
+    if(Ruqola::self()->ddp()->isConnected()){
+       m_authentication->OAuthLogin();
+    }
 }
 
 
@@ -255,7 +262,7 @@ void Ruqola::logOut()
     delete m_ddp;
     m_ddp = 0;
     emit loginStatusChanged();
-    qDebug() << "Successfully loged out!";
+    qDebug() << "Successfully logged out!";
 
 }
 
@@ -306,6 +313,7 @@ Ruqola * Ruqola::self()
         //Initialize the messageQueue object
         m_self->messageQueue();
 
+        //Initialize the OAuth object
         m_self->authentication();
 
     }

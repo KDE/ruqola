@@ -30,16 +30,13 @@
 class Room
 {
 public:
-//     Room(const Room &room)
-//     {
-// //         this->parent = room.parent();
-//     }
 
     // To be used in ID find: message ID
     inline bool operator==(const Room &other) const
     {
         return other.id == id;
     }
+
     // To be used in sorted insert: timestamp
     inline bool operator<(const Room &other) const
     {
@@ -65,14 +62,6 @@ public:
     {
         return topic;
     }
-
-// private:
-//     friend class RoomModel;
-//     friend class RoomWrapper;
-
-
-//  When you add a field, please remember to also add relevant code
-//  to the enum declaration, roleNames, fromJSon and serialize
 
     //Room Object Fields
 
@@ -203,8 +192,9 @@ public:
     */
     static QByteArray serialize(const Room &r);
 
-//     void setActiveRoom(const QString &activeRoom);
-//Clear data and refill it with data in the cache, if there is
+    //void setActiveRoom(const QString &activeRoom);
+
+    //Clear data and refill it with data in the cache, if there is
     void reset();
     void clear();
 protected:
@@ -213,7 +203,7 @@ protected:
 private:
 
     QVector<Room> m_roomsList;
-//     QHash< QString, Room > m_roomsHash;
+    //QHash< QString, Room > m_roomsHash;
 };
 
 #endif // ROOMMODEL_H

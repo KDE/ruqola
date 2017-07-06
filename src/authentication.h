@@ -53,8 +53,8 @@ private slots:
 
 private:
     bool m_authGranted;
-    QString m_client_id;
-    QString m_client_secret;
+    QString m_clientID;
+    QString m_clientSecret;
     QOAuth2AuthorizationCodeFlow * m_google;
 
 };

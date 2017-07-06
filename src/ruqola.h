@@ -43,7 +43,6 @@ class Ruqola: public QObject
     Q_PROPERTY(QString userID READ userID WRITE setUserID NOTIFY userIDChanged)
     Q_PROPERTY(QString serverURL READ serverURL WRITE setServerURL NOTIFY serverURLChanged)
     Q_PROPERTY(QString password WRITE setPassword)
-//     Q_PROPERTY (bool connected READ connected NOTIFY connectedChanged)
     Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
 //     Q_PROPERTY(QString activeRoom READ activeRoom WRITE setActiveRoom NOTIFY activeRoomChanged)
 

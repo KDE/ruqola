@@ -64,7 +64,6 @@ ApplicationWindow {
     Login {
         id: loginTab
         visible: (Ruqola.loginStatus == DDPClient.LoginFailed || Ruqola.loginStatus == DDPClient.LoggedOut)
-//        visible: (Ruqola.loginStatus != DDPClient.LoggedIn)
         anchors.fill:parent
         z: 10
         serverURL: Ruqola.serverURL
@@ -73,9 +72,11 @@ ApplicationWindow {
             Ruqola.password = loginTab.password;
             Ruqola.userName = loginTab.username;
             Ruqola.serverURL = loginTab.serverURL;
+//            DDPClient.loginType = Password;
             Ruqola.tryLogin();
         }
         onOauthAccepted: {
+//            DDPClient.loginType = Google;
             Ruqola.tryOAuthLogin();
         }
     }
@@ -321,16 +322,16 @@ ApplicationWindow {
 
     }// mainWidget Item
 
-    Image {
-        id: receivedImage
-        source:" "
-        width: 60
-        height: 80
-        fillMode: Image.PreserveAspectFit
-//        visible: //only when an image is recieved from server
-        sourceSize.width: 1024
-        sourceSize.height: 1024
-    }
+//    Image {
+//        id: receivedImage
+//        source:" "
+//        width: 60
+//        height: 80
+//        fillMode: Image.PreserveAspectFit
+////        visible: //only when an image is recieved from server
+//        sourceSize.width: 1024
+//        sourceSize.height: 1024
+//    }
     
     Rectangle {
         z: -10

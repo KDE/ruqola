@@ -23,10 +23,6 @@
 #ifndef DDPCLIENT_H
 #define DDPCLIENT_H
 
-// #include <QObject>
-// #include <QUrl>
-// #include <QtWebSockets/QtWebSockets>
-
 #include <functional>
 #include <QtCore>
 #include <QWebSocket>
@@ -53,6 +49,11 @@ public:
     enum MessageType {
         Persistent,
         Ephemeral
+    };
+
+    enum LoginType {
+        Password,
+        Google
     };
 
     DDPClient(const QString &url = QString(), QObject *parent = 0);
@@ -135,6 +136,7 @@ public:
 signals:
     void connectedChanged();
     void loginStatusChanged();
+    void loginTypeChanged();
     void disconnected();
     void added(QJsonObject item);
     void changed(QJsonObject item);
@@ -150,12 +152,15 @@ signals:
 private slots:
     void onWSConnected();
     void onTextMessageReceived(QString message);
-    void WSclosed();
+    void onWSclosed();
 
 private:
 
     LoginStatus loginStatus() const;
     void setLoginStatus(LoginStatus l);
+
+    LoginType loginType() const;
+    Q_INVOKABLE void setLoginType(LoginType t);
 
     void resume_login_callback(QJsonDocument doc);
 
@@ -176,6 +181,7 @@ private:
 
     unsigned m_loginJob;
     LoginStatus m_loginStatus;
+    LoginType m_loginType;
 
     bool m_connected;
 

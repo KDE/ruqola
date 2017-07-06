@@ -36,7 +36,6 @@ public:
 
 private:
 
-
     /**
     * @brief Create actions to be displayed in tray icon menu
     */

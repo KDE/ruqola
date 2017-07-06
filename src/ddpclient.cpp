@@ -59,6 +59,7 @@ DDPClient::DDPClient(const QString& url, QObject* parent)
   m_uid(1),
   m_loginJob(0),
   m_loginStatus(NotConnected),
+  m_loginType(Password),
   m_connected(false),
   m_attemptedPasswordLogin(false),
   m_attemptedTokenLogin(false)
@@ -66,7 +67,7 @@ DDPClient::DDPClient(const QString& url, QObject* parent)
     m_webSocket.ignoreSslErrors();
     connect(&m_webSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
     connect(&m_webSocket, &QWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
-    connect(&m_webSocket, &QWebSocket::disconnected, this, &DDPClient::WSclosed);
+    connect(&m_webSocket, &QWebSocket::disconnected, this, &DDPClient::onWSclosed);
     connect(Ruqola::self(), &Ruqola::serverURLChanged, this, &DDPClient::onServerURLChange);    
     
     if (!url.isEmpty()) {
@@ -91,13 +92,39 @@ void DDPClient::onServerURLChange()
         m_url = Ruqola::self()->serverURL();
         m_webSocket.open(QUrl("wss://"+m_url+"/websocket"));
         connect(&m_webSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
-        qDebug() << "Reconnecting" << m_url; //<< m_webSocket.st;
+        qDebug() << "Reconnecting" << m_url;
     }
 }
 
 DDPClient::LoginStatus DDPClient::loginStatus() const
 {
     return m_loginStatus;
+}
+
+void DDPClient::setLoginStatus(DDPClient::LoginStatus l)
+{
+    qDebug() << "Setting login status to" << l;
+    m_loginStatus = l;
+    emit loginStatusChanged();
+
+    // reset flags
+    if (l == LoginFailed) {
+        m_attemptedPasswordLogin = false;
+        m_attemptedTokenLogin = false;
+    }
+}
+
+
+DDPClient::LoginType DDPClient::loginType() const
+{
+    return m_loginType;
+}
+
+void DDPClient::setLoginType(DDPClient::LoginType t)
+{
+    qDebug() << "Setting login type to" << t;
+    m_loginType = t;
+    emit loginTypeChanged();
 }
 
 bool DDPClient::isConnected() const
@@ -180,37 +207,40 @@ void DDPClient::onTextMessageReceived(QString message)
     if (!response.isNull() && response.isObject()) {
 
         QJsonObject root = response.object();
+
         QString messageType = root.value("msg").toString();
 
         if (messageType == "updated") {
 
-        } else if (messageType == "result") {            
+        } else if (messageType == "result") {
+
             unsigned id = root.value("id").toString().toInt();
             
-        if (m_callbackHash.contains(id)) {
-                std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
+            if (m_callbackHash.contains(id)) {
+                    std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
 
-                callback( QJsonDocument(root.value("result").toObject()) );
-         }
+                    callback( QJsonDocument(root.value("result").toObject()) );
+            }
             emit result(id, QJsonDocument(root.value("result").toObject()));
 
             if (id == m_loginJob) {
-                if (root.value("error").toObject().value("error").toInt() == 403) {
-                    qDebug() << "Wrong password or token expired";
-                    
-                    login(); // Let's keep trying to log in
-                } else {
-                    Ruqola::self()->setAuthToken(root.value("result").toObject().value("token").toString());
 
+                 if (root.value("error").toObject().value("error").toInt() == 403) {
+                    qDebug() << "Wrong password or token expired";
+
+                    login(); // Let's keep trying to log in
+                 } else {
+                    Ruqola::self()->setAuthToken(root.value("result").toObject().value("token").toString());
                     setLoginStatus(DDPClient::LoggedIn);
-                }
+                 }
             }
-            
         } else if (messageType == "connected") {
             qDebug() << "Connected";
             m_connected = true;
             emit connectedChanged();
             setLoginStatus(DDPClient::LoggingIn);
+            //Ruqola::self()->authentication()->OAuthLogin();
+
             login(); // Try to resume auth token login
         } else if (messageType == "error") {
             qDebug() << "ERROR!!" << message;
@@ -230,33 +260,18 @@ void DDPClient::onTextMessageReceived(QString message)
             qDebug() << "received something unhandled:" << message;
         }
     }
-    
-}
-
-void DDPClient::setLoginStatus(DDPClient::LoginStatus l)
-{
-    qDebug() << "Setting login status to" << l;
-    m_loginStatus = l;
-    emit loginStatusChanged();
-    
-    // reset flags
-    if (l == LoginFailed) {
-        m_attemptedPasswordLogin = false;
-        m_attemptedTokenLogin = false;
-    }
 }
 
 
 void DDPClient::login()
 {
     if (!Ruqola::self()->password().isEmpty()) {
- 
+
         // If we have a password and we couldn't log in, let's stop here
         if (m_attemptedPasswordLogin) {
             setLoginStatus(LoginFailed);
             return;
         }
-        
         m_attemptedPasswordLogin = true;
         QJsonObject user;
         user["username"] = Ruqola::self()->userName();
@@ -264,7 +279,6 @@ void DDPClient::login()
         json["password"] = Ruqola::self()->password();
         json["user"] = user;
         m_loginJob = method("login", QJsonDocument(json));
-        
     } else if (!Ruqola::self()->authToken().isEmpty() && !m_attemptedTokenLogin) {
         m_attemptedPasswordLogin = true;
         QJsonObject json;
@@ -273,11 +287,6 @@ void DDPClient::login()
     } else {
         setLoginStatus(LoginFailed);
     }
-}
-
-void DDPClient::logOut()
-{
-    m_webSocket.close();
 }
 
 void DDPClient::onWSConnected()
@@ -293,13 +302,13 @@ void DDPClient::onWSConnected()
     QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
     qint64 bytes = m_webSocket.sendTextMessage(serialize);
     if (bytes < serialize.length()) {
-        qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qDebug() << "onWSConnected: ERROR! I couldn't send all of my message. This is a bug! (try again)";
     } else {
         qDebug() << "Successfully sent " << serialize;
     }
 }
 
-void DDPClient::WSclosed()
+void DDPClient::onWSclosed()
 {
     qDebug() << "WebSocket CLOSED" << m_webSocket.closeReason() << m_webSocket.error() << m_webSocket.closeCode();
     setLoginStatus(NotConnected);

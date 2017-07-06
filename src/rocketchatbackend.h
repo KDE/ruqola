@@ -53,6 +53,7 @@ private slots:
 
 private:
 //     RoomModel *m_rooms;
+
 };
 
 #endif // ROCKETCHATBACKEND_H
