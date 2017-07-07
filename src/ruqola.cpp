@@ -286,7 +286,7 @@ Ruqola::Ruqola(QObject* parent):
     m_ddp(0),
     m_messageQueue(0),
     m_roomModel(0),
-    m_notification(0),
+//    m_notification(0),
     m_authentication(0)
 {
     QSettings s;
@@ -308,7 +308,7 @@ Ruqola * Ruqola::self()
         m_self->roomModel()->reset();
 
         // Create systray to show notifications
-        m_self->notification();
+//        m_self->notification();
 
         //Initialize the messageQueue object
         m_self->messageQueue();

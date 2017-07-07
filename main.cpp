@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");
     qmlRegisterType<RoomModel>("KDE.Ruqola.RoomModel", 1, 0, "RoomModel");
     qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
-    qmlRegisterType<Notification>("KDE.Ruqola.Notification", 1, 0, "Notification");
+//    qmlRegisterType<Notification>("KDE.Ruqola.Notification", 1, 0, "Notification");
 
     RocketChatBackend c;
     QQmlApplicationEngine engine;
