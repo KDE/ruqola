@@ -286,7 +286,7 @@ Ruqola::Ruqola(QObject* parent):
     m_ddp(0),
     m_messageQueue(0),
     m_roomModel(0),
-//    m_notification(0),
+    m_notification(0),
     m_authentication(0)
 {
     QSettings s;
@@ -307,8 +307,10 @@ Ruqola * Ruqola::self()
         // Clear rooms data and refill it with data in the cache, if there is
         m_self->roomModel()->reset();
 
-        // Create systray to show notifications
-//        m_self->notification();
+        // Create systray to show notifications on Desktop
+        #if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
+            m_self->notification();
+        #endif
 
         //Initialize the messageQueue object
         m_self->messageQueue();
