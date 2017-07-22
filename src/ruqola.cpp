@@ -131,9 +131,12 @@ Authentication * Ruqola::authentication()
 void Ruqola::attachmentButtonClicked()
 {
     QString fileName = QFileDialog::getOpenFileName(Q_NULLPTR,
-                                              "Select one or more files to open",
+                                              tr("Select one or more files to open"),
                                               QDir::homePath(),
-                                              "Images (*.png *.jpeg *.jpg)");
+                                              tr("Images (*.png *.jpeg *.jpg)"));
+    if (fileName.isEmpty()) {
+        return;
+    }
 
     qDebug() << "Selected Image " << fileName;
 
