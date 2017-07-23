@@ -54,7 +54,7 @@ public:
     * @param pair The pair containing method and params
     * @return QByteArray, The Json containing message attributes
     */
-    static QByteArray serialize(const QPair<QString, QJsonDocument> pair);
+    static QByteArray serialize(const QPair<QString, QJsonDocument> &pair);
 
 public slots:
     void onLoginStatusChanged();

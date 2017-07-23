@@ -34,7 +34,7 @@ QPair<QString,QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
 }
 
 
-QByteArray MessageQueue::serialize(const QPair<QString,QJsonDocument> pair)
+QByteArray MessageQueue::serialize(const QPair<QString,QJsonDocument> &pair)
 {
     QJsonDocument d;
     QJsonObject o;
@@ -94,7 +94,7 @@ MessageQueue::~MessageQueue()
         QQueue<QPair<QString,QJsonDocument>>::iterator it;
         QQueue<QPair<QString,QJsonDocument>> queue = Ruqola::self()->ddp()->messageQueue();
 
-        for ( it = queue.begin(); it != queue.end(); it++ ) {
+        for ( it = queue.begin(); it != queue.end(); ++it ) {
             QPair<QString,QJsonDocument> pair = *it;
             QByteArray ba = serialize(pair);
             out.writeBytes(ba, ba.size());

@@ -34,7 +34,7 @@ class RocketChatBackend : public QObject
 {
     Q_OBJECT
 public:
-    RocketChatBackend(QObject *parent = 0);
+    RocketChatBackend(QObject *parent = nullptr);
     ~RocketChatBackend();
 
     /**
@@ -42,11 +42,11 @@ public:
     *
     * @param messages The Json containing the message
     */
-    static void processIncomingMessages(QJsonArray messages);
+    static void processIncomingMessages(const QJsonArray &messages);
 
 private slots:
-    void onAdded(QJsonObject object);
-    void onChanged(QJsonObject object);
+    void onAdded(const QJsonObject &object);
+    void onChanged(const QJsonObject &object);
     void onLoggedIn();
     void onLoginStatusChanged();
     void onUserIDChanged();

@@ -30,7 +30,7 @@
 #include <QDataStream>
 #include <QString>
 
-Ruqola *Ruqola::m_self = 0;
+Ruqola *Ruqola::m_self = nullptr;
 
 QString Ruqola::authToken() const
 {

@@ -39,7 +39,7 @@ void process_backlog(QJsonDocument messages)
 }
 
 
-void rooms_callback(QJsonDocument doc)
+void rooms_callback(const QJsonDocument &doc)
 {
     RoomModel *model = Ruqola::self()->roomModel();
     
@@ -81,7 +81,7 @@ void rooms_callback(QJsonDocument doc)
     } 
 }
 
-void subs_callback(QJsonDocument doc)
+void subs_callback(const QJsonDocument &doc)
 {
     RoomModel *model = Ruqola::self()->roomModel();
 
@@ -124,9 +124,9 @@ void subs_callback(QJsonDocument doc)
     } 
 }
 
-void RocketChatBackend::processIncomingMessages(QJsonArray messages)
+void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 {
-    foreach (const QJsonValue v, messages) {
+    foreach (const QJsonValue &v, messages) {
         QJsonObject o = v.toObject();
         
         Message m;
@@ -193,7 +193,7 @@ void RocketChatBackend::onLoggedIn()
 
 }
 
-void RocketChatBackend::onAdded(QJsonObject object)
+void RocketChatBackend::onAdded(const QJsonObject &object)
 {
     QString collection = object.value("collection").toString();
         
@@ -219,7 +219,7 @@ void RocketChatBackend::onAdded(QJsonObject object)
 }
 
 
-void RocketChatBackend::onChanged(QJsonObject object)
+void RocketChatBackend::onChanged(const QJsonObject &object)
 {
     QString collection = object["collection"].toString();
 

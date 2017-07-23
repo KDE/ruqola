@@ -101,8 +101,8 @@ class RoomWrapper : public QObject
     Q_OBJECT
 
 public:
-    RoomWrapper(QObject *parent = 0);
-    RoomWrapper(const Room &r, QObject *parent = 0);
+    RoomWrapper(QObject *parent = nullptr);
+    RoomWrapper(const Room &r, QObject *parent = nullptr);
 
     QString getName()
     {
