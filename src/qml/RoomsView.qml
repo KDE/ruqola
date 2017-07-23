@@ -22,7 +22,6 @@
 
 import QtQuick 2.0
 import org.kde.kirigami 2.1 as Kirigami
-import KDE.Ruqola.Ruqola 1.0
 
 ListView {
     id: roomsList
@@ -30,11 +29,7 @@ ListView {
     property string selectedRoomID;
     
     signal roomSelected(string roomID)
-    header: Kirigami.Heading {
-        text: "Hello, " + Ruqola.userName
-        width: roomsList.width
-        wrapMode: Text.WordWrap
-    }
+
     delegate: RoomDelegate {
         width: roomsList.width
         d_name: name
@@ -45,6 +40,7 @@ ListView {
         
         onRoomSelected : {
             roomsList.roomSelected(roomID)
+            applicationWindow().pageStack.currentIndex = 1;
         }
     }
 }

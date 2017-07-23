@@ -44,7 +44,7 @@ import org.kde.kirigami 2.1 as Kirigami
 
 
 
-Kirigami.AbstractApplicationWindow {
+Kirigami.ApplicationWindow {
     id: appid
     property int margin: 11
     property string statusText
@@ -62,55 +62,10 @@ Kirigami.AbstractApplicationWindow {
 
     title: qsTr("Ruqola")
 
-    pageStack: __pageStack
-    QQC2.StackView {
-        id: __pageStack
-        anchors.fill: parent
-        initialItem: loginTab
-    }
+    header: Kirigami.ApplicationHeader {}
 
-    globalDrawer: Kirigami.OverlayDrawer {
-        topPadding: 0
-        leftPadding: 0
-        rightPadding: 0
-        bottomPadding: 0
-        enabled: Ruqola.loginStatus == DDPClient.LoggedIn
-        drawerOpen: Ruqola.loginStatus == DDPClient.LoggedIn
-        contentItem: RoomsView {
-            id: roomsList
-            implicitWidth: Kirigami.Units.gridUnit * 10
-            anchors.fill: parent
-
-            model: Ruqola.roomModel()
-            selectedRoomID: appid.selectedRoomID;
-            onRoomSelected: {
-                if (roomID == selectedRoomID) {
-                    return;
-                }
-                console.log("Choosing room", roomID);
-                appid.selectedRoomID = roomID;
-                appid.model = Ruqola.getModelForRoom(roomID)
-                appid.selectedRoom = Ruqola.getRoom(roomID)
-            }
-
-            onCountChanged: {
-//                 console.log("We have", roomsList.count, "rooms")
-            }
-
-            QQC2.Button {
-                id: logoutButton
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.leftMargin: Kirigami.Units.gridUnit
-                anchors.rightMargin: Kirigami.Units.gridUnit
-                anchors.bottomMargin: Kirigami.Units.gridUnit
-                text: qsTr("LogOut")
-                onClicked: Ruqola.logOut();
-            }
-
-        } //RoomsView
-    }
+    pageStack.initialPage: [roomsComponent, mainComponent]
+    pageStack.visible: Ruqola.loginStatus == DDPClient.LoggedIn
 
     Shortcut {
         sequence: StandardKey.Quit
@@ -121,6 +76,8 @@ Kirigami.AbstractApplicationWindow {
 
     Login {
         id: loginTab
+        anchors.fill: parent
+        visible: Ruqola.loginStatus != DDPClient.LoggedIn
         serverURL: Ruqola.serverURL
         username: Ruqola.userName
         onAccepted: {
@@ -143,16 +100,47 @@ Kirigami.AbstractApplicationWindow {
         visible: Ruqola.loginStatus == DDPClient.LoggingIn
     }
 
-    Connections {
-        target: Ruqola
-        onLoginStatusChanged: {
-            if (Ruqola.loginStatus == DDPClient.LoggedIn) {
-                if (__pageStack.depth == 1) {
-                    __pageStack.push(mainComponent);
-                }
-            } else {
-                __pageStack.pop(loginTab);
+    Component {
+        id: roomsComponent
+        Kirigami.ScrollablePage {
+            title: "Hello, " + Ruqola.userName
+            background: Rectangle {
+                color: Kirigami.Theme.viewBackgroundColor
             }
+            RoomsView {
+                id: roomsList
+                implicitWidth: Kirigami.Units.gridUnit * 10
+                anchors.fill: parent
+
+                model: Ruqola.roomModel()
+                selectedRoomID: appid.selectedRoomID;
+                onRoomSelected: {
+                    if (roomID == selectedRoomID) {
+                        return;
+                    }
+                    console.log("Choosing room", roomID);
+                    appid.selectedRoomID = roomID;
+                    appid.model = Ruqola.getModelForRoom(roomID)
+                    appid.selectedRoom = Ruqola.getRoom(roomID)
+                }
+
+                onCountChanged: {
+    //                 console.log("We have", roomsList.count, "rooms")
+                }
+
+                QQC2.Button {
+                    id: logoutButton
+                    anchors.bottom: parent.bottom
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: Kirigami.Units.gridUnit
+                    anchors.rightMargin: Kirigami.Units.gridUnit
+                    anchors.bottomMargin: Kirigami.Units.gridUnit
+                    text: qsTr("LogOut")
+                    onClicked: Ruqola.logOut();
+                }
+
+            } //RoomsView
         }
     }
 
@@ -164,10 +152,7 @@ Kirigami.AbstractApplicationWindow {
             rightPadding: Kirigami.Units.smallSpacing
             topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
-            header: Kirigami.Heading {
-                text: "#" + appid.selectedRoom.name
-            }
-
+            title: "#" + appid.selectedRoom.name
 
             ListView {
                 id: activeChat
