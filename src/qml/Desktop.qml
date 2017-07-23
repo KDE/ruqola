@@ -43,12 +43,12 @@ import KDE.Ruqola.DDPClient 1.0
 ApplicationWindow {
     property int margin: 11
     property string statusText
-    
+
     property string lightGreen: "#6ab141";
     property string darkGreen: "#00613a";
-    
+
     property string selectedRoomID: "";
-    
+
     id: appid
     title: qsTr("Ruqola")
     width: 800
@@ -80,7 +80,7 @@ ApplicationWindow {
             Ruqola.tryOAuthLogin();
         }
     }
-    
+
     BusyIndicator {
         id: busy
         anchors.centerIn: parent
@@ -109,21 +109,21 @@ ApplicationWindow {
                 color: "white"
                 text: "Hello, " + Ruqola.userName
             }
-            
+
         }
-            
+
         RoomsView {
             anchors.top: userBox.bottom
             anchors.left: parent.left
             anchors.bottom: parent.bottom
-            anchors.margins: 0            
+            anchors.margins: 0
             width: 200
             height: appid.height
 
             id: roomsList
-            
+
             model: Ruqola.roomModel()
-            visible: parent.visible            
+            visible: parent.visible
             selectedRoomID: appid.selectedRoomID;
             onRoomSelected: {
                 if (roomID == selectedRoomID) {
@@ -134,11 +134,11 @@ ApplicationWindow {
                 activeChat.model = Ruqola.getModelForRoom(roomID)
                 topicWidget.selectedRoom = Ruqola.getRoom(roomID)
             }
-            
+
             onCountChanged: {
 //                 console.log("We have", roomsList.count, "rooms")
             }
-            
+
             LinearGradient {
                 id: greenGradient
                 anchors.fill: parent
@@ -149,7 +149,7 @@ ApplicationWindow {
                     GradientStop { position: 1.0; color: "#00613a" }
                 }
                 z: -1;
-                
+
             }
 
             Button {
@@ -165,8 +165,8 @@ ApplicationWindow {
            }
 
         } //RoomsView
-        
-        
+
+
         Item {
 
             anchors.right: parent.right
@@ -183,7 +183,7 @@ ApplicationWindow {
                 anchors.left: parent.left
                 height: nameLabel.height + topicLabel.height
                 property var selectedRoom;
-                
+
                 Text {
                     id: nameLabel
                     text: "#" + parent.selectedRoom.name
@@ -196,37 +196,37 @@ ApplicationWindow {
                     anchors.top: parent.top
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    
+
                 }
-                
+
                 Text {
                     id: topicLabel
                     text: topicWidget.selectedRoom.topic
-                    
+
                     anchors.top: nameLabel.bottom
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    
+
                     horizontalAlignment: Text.AlignHCenter
-                    
+
                     height: font.pixelSize + 10
                 }
 
             }
-            
+
             ScrollView {
-                
+
                 anchors.right: parent.right
                 anchors.left: parent.left
                 anchors.top: topicWidget.bottom
                 anchors.bottom: parent.bottom
-                
+
                 verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
 //                 visible: parent.visible && (Ruqola.loginStatus != DDPClient.LoggingIn)
 //                visible: !greeter.visible
 
-         
+
                 ListView {
                     id: activeChat
 //                     model: Ruqola.getModelForRoom(selectedRoomID)
@@ -248,12 +248,12 @@ ApplicationWindow {
     //                 model: myModel
                     anchors.fill:parent
                     visible : count > 0
-                    
-                    
+
+
                     z: -1
-                    
+
         //             ScrollBar.vertical: ScrollBar { }
-                    
+
                     delegate: Message {
                                 i_messageText: messageText
                                 i_username: username
@@ -313,7 +313,7 @@ ApplicationWindow {
                 width: 50
                 id : attachmentsButton
                 iconName: "attachmentsButton"
-                iconSource: "qrc:/attach-button.jpg"
+                iconSource: "qrc:/icons/attach-button.jpg"
                 visible: true
                 onClicked: Ruqola.attachmentButtonClicked();
             }
@@ -332,18 +332,18 @@ ApplicationWindow {
 //        sourceSize.width: 1024
 //        sourceSize.height: 1024
 //    }
-    
+
     Rectangle {
         z: -10
         anchors.fill: parent
         color: "white"
     }
-    
+
     onClosing: {
         console.log("Minimizing to systray...");
         hide();
     }
-    
+
 
     function toggleShow() {
 
@@ -365,7 +365,7 @@ ApplicationWindow {
 //        timer.fire();
     }
 
-/*    
+/*
     Timer {
         id: timer
         interval: 1000
@@ -378,7 +378,7 @@ ApplicationWindow {
                 case Ruqola.LoggedIn:
                         statusText = qsTr("Connected to " + Ruqola.serverURL);
                         break;
-                    
+
             }
         }
         repeat: true

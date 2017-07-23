@@ -23,10 +23,10 @@
 #include <QApplication>
 #include <QtQml>
 
-#include "src/roommodel.h"
-#include "src/rocketchatbackend.h"
-#include "src/ruqola.h"
-#include "src/notification.h"
+#include "roommodel.h"
+#include "rocketchatbackend.h"
+#include "ruqola.h"
+#include "notification.h"
 
 #include <QDebug>
 #include <QtCore/QJsonDocument>
@@ -35,12 +35,12 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    app.setWindowIcon(QIcon(":/systray.png"));
-    
+    app.setWindowIcon(QIcon(":/icons/systray.png"));
+
     QCoreApplication::setOrganizationName("KDE");
     QCoreApplication::setOrganizationDomain("kde.org");
     QCoreApplication::setApplicationName("Ruqola");
-    
+
     qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
     qmlRegisterType<MessageModel>("KDE.Ruqola.MessageModel", 1, 0, "MessageModel");
     qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");

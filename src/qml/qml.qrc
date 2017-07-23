@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Desktop.qml</file>
+        <file>JSONListModel.qml</file>
+        <file>RoomModel.qml</file>
+        <file>main.qml</file>
+        <file>Message.qml</file>
+        <file>RoomsView.qml</file>
+        <file>RoomDelegate.qml</file>
+        <file>Login.qml</file>
+    </qresource>
+    <qresource prefix="/js">
+        <file alias="jsonpath.js">js/jsonpath.js</file>
+        <file alias="marked.js">js/marked.js</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file alias="systray.png">icons/systray.png</file>
+        <file alias="attach-button.jpg">icons/attach-button.jpg</file>
+    </qresource>
+</RCC>

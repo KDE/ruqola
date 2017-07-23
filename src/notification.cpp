@@ -48,7 +48,7 @@ void Notification::createTrayIcon(){
 
     setContextMenu(m_trayIconMenu);
     setToolTip("Ruqola");
-    setIcon(QIcon(":/systray.png"));
+    setIcon(QIcon(":/icons/systray.png"));
     setVisible(true);
 
 }
