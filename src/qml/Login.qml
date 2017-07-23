@@ -23,7 +23,9 @@
 
 import QtQuick 2.7
 import QtQuick.Controls 1.3
-Item {
+import org.kde.kirigami 2.1 as Kirigami
+
+Kirigami.Page {
     
     property alias username: usernameField.text;
     property alias password: passField.text;

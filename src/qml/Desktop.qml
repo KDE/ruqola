@@ -57,6 +57,9 @@ Kirigami.AbstractApplicationWindow {
 
     property QtObject model
 
+    width: Kirigami.Units.gridUnit * 55
+    height: Kirigami.Units.gridUnit * 40
+
     title: qsTr("Ruqola")
 
     pageStack: __pageStack
@@ -71,6 +74,8 @@ Kirigami.AbstractApplicationWindow {
         leftPadding: 0
         rightPadding: 0
         bottomPadding: 0
+        enabled: Ruqola.loginStatus == DDPClient.LoggedIn
+        drawerOpen: Ruqola.loginStatus == DDPClient.LoggedIn
         contentItem: RoomsView {
             id: roomsList
             implicitWidth: Kirigami.Units.gridUnit * 10
@@ -153,29 +158,12 @@ Kirigami.AbstractApplicationWindow {
 
     Component {
         id: mainComponent
-        Item {
+        Kirigami.Page {
             id: mainWidget
-            anchors.fill: parent
-
-            Rectangle {
-                id: userBox
-                anchors.top: parent.top
-                width: parent.width
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: 40
-                color: darkGreen
-                Text {
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignRight
-                    anchors.rightMargin: 10
-                    anchors.fill: parent
-                    font.pointSize: 12
-                    color: "white"
-                    text: "Hello, " + Ruqola.userName
-                }
-
-            }
+            leftPadding: Kirigami.Units.smallSpacing
+            rightPadding: Kirigami.Units.smallSpacing
+            topPadding: Kirigami.Units.smallSpacing
+            bottomPadding: Kirigami.Units.smallSpacing
 
             Item {
 

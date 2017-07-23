@@ -21,28 +21,20 @@
  */
 
 import QtQuick 2.0
+import org.kde.kirigami 2.1 as Kirigami
+import KDE.Ruqola.Ruqola 1.0
 
 ListView {
+    id: roomsList
     
     property string selectedRoomID;
     
     signal roomSelected(string roomID)
-    
-    id: roomsList
-//     width: 100
-    implicitHeight: 200 //room_chooser.height*count
-    implicitWidth: 130
-//     model: RoomModelTest {}
-//     Rectangle {anchors.fill: parent; color: "black"; z:-120}
-    
-//     visible: parent.visible
-    
-//     anchors.left: parent.left
-//     anchors.top: parent.top
-//     anchors.bottom: parent.bottom
-    anchors.margins: 10
-    
-    
+    header: Kirigami.Heading {
+        text: "Hello, " + Ruqola.userName
+        width: roomsList.width
+        wrapMode: Text.WordWrap
+    }
     delegate: RoomDelegate {
         width: roomsList.width
         d_name: name
