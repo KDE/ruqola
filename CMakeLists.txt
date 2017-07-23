@@ -22,7 +22,7 @@ endif()
 find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth)
 
 find_package(KF5 REQUIRED COMPONENTS
-    Kirigami
+    Kirigami2
 )
 
 include(ECMPoQmTools)
