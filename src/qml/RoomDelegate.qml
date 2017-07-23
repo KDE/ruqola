@@ -21,8 +21,9 @@
  */
 
 import QtQuick 2.0
+import org.kde.kirigami 2.1 as Kirigami
 
-Item {
+Kirigami.BasicListItem {
     property int d_unread: 0;
     property string d_name: "roomName";
     property bool d_selected: false;
@@ -32,12 +33,16 @@ Item {
     
     signal roomSelected(string roomID)
     
-    implicitWidth: nameLabel.implicitWidth+nameLabel.height+30
-    implicitHeight: nameLabel.implicitHeight + 10
-    
+   
     visible: !d_name.empty
-    
+
+    label: d_name
+    checked: d_selected
+    onClicked: {
+        root.roomSelected(d_roomID);
+    }
     Text {
+        visible: false
         anchors.fill: parent
         id: nameLabel
         font.bold: d_unread > 0
@@ -126,14 +131,14 @@ Item {
 
     Rectangle {
         anchors.rightMargin: 15
-        visible: d_unread > 0
+       // visible: d_unread > 0
         anchors.right: root.right
         anchors.verticalCenter: nameLabel.verticalCenter
 //      width: nameLabel.font.pixelSize 
         width: 0.7*nameLabel.height
         height: width
         color: "#6ab141"
-
+visible: false
         radius: width*0.5
         Text {
             anchors.fill: parent

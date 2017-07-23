@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 
 //    ctxt->setContextProperty("attachmentButton", Ruqola::self()->attachmentButtonClicked());
 
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/Desktop.qml")));
 
     if (engine.rootObjects().isEmpty())
         return -1;

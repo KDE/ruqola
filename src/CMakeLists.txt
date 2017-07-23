@@ -1,4 +1,4 @@
-set (Rucola_core_srcs
+set (Ruqola_core_srcs
     messagemodel.cpp
     roommodel.cpp
     ddpclient.cpp
@@ -9,9 +9,9 @@ set (Rucola_core_srcs
     authentication.cpp
 )
 
-add_library(RucolaCore STATIC ${Rucola_core_srcs})
+add_library(RuqolaCore STATIC ${Ruqola_core_srcs})
 
-target_link_libraries(RucolaCore
+target_link_libraries(RuqolaCore
     Qt5::Core
     Qt5::Gui
     Qt5::Widgets
@@ -26,6 +26,6 @@ qt5_add_resources(RuqolaResources qml/qml.qrc)
 
 add_executable(ruqola main.cpp ${RuqolaResources})
 
-target_link_libraries(ruqola RucolaCore)
+target_link_libraries(ruqola RuqolaCore)
 
 install(TARGETS ruqola RUNTIME DESTINATION bin)
