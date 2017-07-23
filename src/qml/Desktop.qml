@@ -158,113 +158,55 @@ Kirigami.AbstractApplicationWindow {
 
     Component {
         id: mainComponent
-        Kirigami.Page {
+        Kirigami.ScrollablePage {
             id: mainWidget
             leftPadding: Kirigami.Units.smallSpacing
             rightPadding: Kirigami.Units.smallSpacing
             topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
+            header: Kirigami.Heading {
+                text: "#" + appid.selectedRoom.name
+            }
 
-            Item {
 
-                anchors.right: parent.right
-                anchors.left: parent.left
-                anchors.top: parent.top
-                anchors.bottom: input.top
-                id: chatView
-                Rectangle {
-                    id: topicWidget
-                    color: "#fff"
+            ListView {
+                id: activeChat
+                model: appid.model
+//                     model: Ruqola.getModelForRoom(selectedRoomID)
 
-                    anchors.top: parent.top
-                    anchors.right: parent.right
-                    anchors.left: parent.left
-                    height: nameLabel.height + topicLabel.height
-                    property var selectedRoom: appid.selectedRoom
+                onCountChanged: {
+//                     console.log("changed")
+//                     var newIndex = count - 1 // last index
+//                     positionViewAtEnd()
+                    positionViewAtIndex(count - 1, ListView.Beginning)
 
-                    Text {
-                        id: nameLabel
-                        text: "#" + parent.selectedRoom.name
-                        font.pointSize: 18
-                        verticalAlignment: Text.AlignVCenter
-                        anchors.leftMargin: 20
-                        height: 40
-                    // height: font.pixelSize + 10
-
-                        anchors.top: parent.top
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-
-                    }
-
-                    Text {
-                        id: topicLabel
-                        text: topicWidget.selectedRoom.topic
-
-                        anchors.top: nameLabel.bottom
-                        anchors.bottom: parent.bottom
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-
-                        horizontalAlignment: Text.AlignHCenter
-
-                        height: font.pixelSize + 10
-                    }
-
+//                     currentIndex = newIndex
                 }
-
-                ScrollView {
-
-                    anchors.right: parent.right
-                    anchors.left: parent.left
-                    anchors.top: topicWidget.bottom
-                    anchors.bottom: parent.bottom
-
-                    verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
-    //                 visible: parent.visible && (Ruqola.loginStatus != DDPClient.LoggingIn)
-    //                visible: !greeter.visible
+//                 Component.onCompleted: positionViewAtEnd()
+                Component.onCompleted: positionViewAtIndex(count - 1, ListView.Beginning)
 
 
-                    ListView {
-                        id: activeChat
-                        model: appid.model
-    //                     model: Ruqola.getModelForRoom(selectedRoomID)
+//                 onSelectedRoomIDChanged: { console.log("CHANGED"); activeChat.positionViewAtEnd(); }
 
-                        onCountChanged: {
-        //                     console.log("changed")
-        //                     var newIndex = count - 1 // last index
-        //                     positionViewAtEnd()
-                            positionViewAtIndex(count - 1, ListView.Beginning)
+//                 model: myModel
+                anchors.fill:parent
+                visible : count > 0
 
-        //                     currentIndex = newIndex
+
+                z: -1
+
+    //             ScrollBar.vertical: ScrollBar { }
+
+                delegate: Message {
+                            i_messageText: messageText
+                            i_username: username
+                            i_systemMessage: systemMessage
+                            i_systemMessageType: type
+                            //width: parent.width
                         }
-        //                 Component.onCompleted: positionViewAtEnd()
-                        Component.onCompleted: positionViewAtIndex(count - 1, ListView.Beginning)
+            }
 
-
-        //                 onSelectedRoomIDChanged: { console.log("CHANGED"); activeChat.positionViewAtEnd(); }
-
-        //                 model: myModel
-                        anchors.fill:parent
-                        visible : count > 0
-
-
-                        z: -1
-
-            //             ScrollBar.vertical: ScrollBar { }
-
-                        delegate: Message {
-                                    i_messageText: messageText
-                                    i_username: username
-                                    i_systemMessage: systemMessage
-                                    i_systemMessageType: type
-                                    //width: parent.width
-                                }
-                    }
-                }
-            } //Item chatView
-
-            Item {
+            footer: Item {
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
