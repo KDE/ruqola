@@ -41,7 +41,7 @@ void login_callback(QJsonDocument doc)
     qDebug() << "End callback";
 }
 
-void DDPClient::resume_login_callback(QJsonDocument doc)
+void DDPClient::resume_login_callback(const QJsonDocument &doc)
 {
     qDebug() << "LOGIN:" << doc;
     Ruqola::self()->setAuthToken(doc.object().value("token").toString());
@@ -201,7 +201,7 @@ void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
     m_uid++;
 }
 
-void DDPClient::onTextMessageReceived(QString message)
+void DDPClient::onTextMessageReceived(const QString &message)
 {
     QJsonDocument response = QJsonDocument::fromJson(message.toUtf8());
     if (!response.isNull() && response.isObject()) {

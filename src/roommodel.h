@@ -101,14 +101,14 @@ class RoomWrapper : public QObject
     Q_OBJECT
 
 public:
-    RoomWrapper(QObject *parent = nullptr);
+    explicit RoomWrapper(QObject *parent = nullptr);
     RoomWrapper(const Room &r, QObject *parent = nullptr);
 
-    QString getName()
+    QString getName() const
     {
         return m_name;
     }
-    QString getTopic()
+    QString getTopic() const
     {
         return m_topic;
     }
@@ -143,7 +143,7 @@ public:
         RoomRO
     };
 
-    RoomModel(QObject *parent = 0);
+    explicit RoomModel(QObject *parent = nullptr);
     virtual ~RoomModel();
 
     virtual int rowCount(const QModelIndex & parent = QModelIndex()) const;

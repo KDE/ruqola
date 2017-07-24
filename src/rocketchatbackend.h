@@ -34,7 +34,7 @@ class RocketChatBackend : public QObject
 {
     Q_OBJECT
 public:
-    RocketChatBackend(QObject *parent = nullptr);
+    explicit RocketChatBackend(QObject *parent = nullptr);
     ~RocketChatBackend();
 
     /**

@@ -29,6 +29,7 @@
 #include <QFile>
 
 Authentication::Authentication()
+    : m_google(nullptr)
 {
     getDataFromJson();
 }

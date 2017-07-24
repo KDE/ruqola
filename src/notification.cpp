@@ -54,7 +54,10 @@ void Notification::createTrayIcon(){
 }
 
 
-Notification::Notification() {
+Notification::Notification()
+    : m_quitAction(nullptr),
+      m_trayIconMenu(nullptr)
+{
     createActions();
     createTrayIcon();
 }

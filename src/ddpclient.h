@@ -56,7 +56,7 @@ public:
         Google
     };
 
-    DDPClient(const QString &url = QString(), QObject *parent = 0);
+    explicit DDPClient(const QString &url = QString(), QObject *parent = nullptr);
     ~DDPClient();
 
     /**
@@ -138,8 +138,8 @@ signals:
     void loginStatusChanged();
     void loginTypeChanged();
     void disconnected();
-    void added(QJsonObject item);
-    void changed(QJsonObject item);
+    void added(const QJsonObject &item);
+    void changed(const QJsonObject &item);
 
     /**
      * @brief Emitted whenever a result is received
@@ -147,11 +147,11 @@ signals:
      * @param id The ID received in the method() call
      * @param result The response sent by server
      */
-    void result(unsigned id, QJsonDocument result);
+    void result(unsigned id, const QJsonDocument &result);
 
 private slots:
     void onWSConnected();
-    void onTextMessageReceived(QString message);
+    void onTextMessageReceived(const QString &message);
     void onWSclosed();
 
 private:
@@ -162,7 +162,7 @@ private:
     LoginType loginType() const;
     Q_INVOKABLE void setLoginType(LoginType t);
 
-    void resume_login_callback(QJsonDocument doc);
+    void resume_login_callback(const QJsonDocument &doc);
 
     QString m_url;
     QWebSocket m_webSocket;
