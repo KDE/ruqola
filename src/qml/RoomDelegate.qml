@@ -33,7 +33,8 @@ Kirigami.BasicListItem {
     
     signal roomSelected(string roomID)
     
-   
+    icon: "irc-channel-active"
+    
     visible: !d_name.empty
 
     label: d_name

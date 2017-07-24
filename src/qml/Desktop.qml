@@ -112,7 +112,6 @@ Kirigami.ApplicationWindow {
                }
            },
            Kirigami.Action {
-               
                 shortcut: "Ctrl+Q"  //StandardKey.Quit
                 text: "Quit"
                 iconName: "application-exit"
@@ -122,6 +121,7 @@ Kirigami.ApplicationWindow {
            }
         ]
     }
+    
     Login {
         id: loginTab
         anchors.fill: parent
@@ -140,6 +140,7 @@ Kirigami.ApplicationWindow {
 
     BusyIndicator {
         id: busy
+//         indeterminate: true
         anchors.centerIn: parent
         visible: Ruqola.loginStatus == DDPClient.LoggingIn
     }
