@@ -27,12 +27,12 @@
 #include "ruqola.h"
 #include "ddpclient.h"
 
-void debug_callback(QJsonDocument doc)
+void debug_callback(const QJsonDocument &doc)
 {
     qDebug() << "DEBUG:" << doc;
 }
 
-void process_backlog(QJsonDocument messages)
+void process_backlog(const QJsonDocument &messages)
 {
     qDebug() << messages.object().value("messages").toArray().size();
     RocketChatBackend::processIncomingMessages(messages.object().value("messages").toArray());

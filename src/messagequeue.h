@@ -32,7 +32,7 @@ class MessageQueue : public QObject
     Q_OBJECT
 public:
 
-    MessageQueue();
+    explicit MessageQueue(QObject *parent = nullptr);
     ~MessageQueue();
 
     /**

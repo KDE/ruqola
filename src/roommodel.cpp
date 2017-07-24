@@ -78,6 +78,16 @@ RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
     m_selected = r.selected;
 }
 
+QString RoomWrapper::getName() const
+{
+    return m_name;
+}
+
+QString RoomWrapper::getTopic() const
+{
+    return m_topic;
+}
+
 RoomModel::RoomModel(QObject* parent)
     : QAbstractListModel(parent)
 {}

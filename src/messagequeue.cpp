@@ -55,7 +55,8 @@ QByteArray MessageQueue::serialize(const QPair<QString,QJsonDocument> &pair)
 }
 
 
-MessageQueue::MessageQueue()
+MessageQueue::MessageQueue(QObject *parent)
+    : QObject(parent)
 {
     connect(Ruqola::self()->ddp(), &DDPClient::loginStatusChanged, this, &MessageQueue::onLoginStatusChanged);
     QDir cacheDir(Ruqola::self()->ddp()->cachePath());

@@ -104,14 +104,8 @@ public:
     explicit RoomWrapper(QObject *parent = nullptr);
     RoomWrapper(const Room &r, QObject *parent = nullptr);
 
-    QString getName() const
-    {
-        return m_name;
-    }
-    QString getTopic() const
-    {
-        return m_topic;
-    }
+    QString getName() const;
+    QString getTopic() const;
 
 signals:
     void nameChanged();

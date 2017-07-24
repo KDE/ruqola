@@ -135,7 +135,7 @@ signals:
     void loginStatusChanged();
 
 private:
-    Ruqola(QObject *parent = 0);
+    explicit Ruqola(QObject *parent = nullptr);
     static Ruqola *m_self;
     QString m_password;
     QString m_userName;

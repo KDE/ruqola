@@ -249,7 +249,7 @@ void Ruqola::logOut()
     setAuthToken(QString(""));
     setPassword(QString(""));
 
-    foreach (const QString key, m_messageModels.keys()) {
+    foreach (const QString &key, m_messageModels.keys()) {
         MessageModel *m = m_messageModels.take(key);
         delete m;
     }
@@ -263,7 +263,7 @@ void Ruqola::logOut()
     Ruqola::self()->ddp()->method("logout", QJsonDocument(json));
 
     delete m_ddp;
-    m_ddp = 0;
+    m_ddp = nullptr;
     emit loginStatusChanged();
     qDebug() << "Successfully logged out!";
 

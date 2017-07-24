@@ -38,7 +38,7 @@ void Notification::createActions(){
 void Notification::createTrayIcon(){
 
     if (!QSystemTrayIcon::isSystemTrayAvailable()) {
-        QMessageBox::critical(0, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
+        QMessageBox::critical(nullptr, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
         return;
     }
 

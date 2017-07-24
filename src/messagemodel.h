@@ -200,8 +200,6 @@ private:
     QVector<Message> m_allMessages;
 
     QString m_writableLocation;
-
-    QFile *cacheWriter;
 };
 
 #endif
