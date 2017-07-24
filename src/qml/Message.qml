@@ -25,6 +25,8 @@ import QtQuick 2.0
 // import "marked.js" as Markdown
 import "js/marked.js" as MarkDown;
 
+import QtQuick.Controls 2.2
+
 Rectangle {
 
     function getTextFor(type) {
@@ -34,7 +36,18 @@ Rectangle {
             return qsTr("has joined the channel");
         } else if (type === "ul") {
             return qsTr("has left the channel");
+        } else if (type === "room_changed_topic") {
+            return qsTr("changed topic to \"%1\"").arg(i_messageText)
+        } else if (type === "au") {
+            return qsTr("added %1 to the conversation").arg(i_messageText)
+        } else if (type === "r") {
+            return qsTr("changed room name to \"%1\"").arg(i_messageText)
+        } else if (type === "room_changed_description") {
+            return qsTr("changed room description to \"%1\"").arg(i_messageText)
         } else {
+            console.log("Unkown type for message");
+            console.log(type);
+            console.log(i_messageText)
             return qsTr("Unknown action!");
         }
     }
@@ -48,6 +61,7 @@ Rectangle {
     color: "#eeeeee"
     implicitHeight: textLabel.contentHeight
 
+//     implicitWidth: 200
 
     Text {
         color: i_systemMessage? "#999" : "#555"
@@ -61,18 +75,20 @@ Rectangle {
         anchors.left: parent.left
     }
 
-    Text {
+    Label {
         color: i_systemMessage? "#999" : "#111"
         id: textLabel
         text: i_systemMessage? getTextFor(i_systemMessageType) : MarkDown.md2html(i_messageText)
 
-//         width: parent.width
 
         anchors.top: parent.top
         anchors.left: usernameLabel.right
-        anchors.right: parent.right
-
-        wrapMode:Text.Wrap
+//         anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        
+        width: parent.width - 80
+        
+        wrapMode: Label.Wrap
 
         anchors.leftMargin: 5
 
