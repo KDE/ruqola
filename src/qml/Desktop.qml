@@ -61,17 +61,22 @@ Kirigami.ApplicationWindow {
     height: Kirigami.Units.gridUnit * 40
 
     title: qsTr("Ruqola")
-
+    
     header: Kirigami.ApplicationHeader {}
 
     pageStack.initialPage: [roomsComponent, mainComponent]
     pageStack.visible: Ruqola.loginStatus == DDPClient.LoggedIn
 
-    Shortcut {
-        sequence: Qt.StandardKey.Quit
-        context: Qt.ApplicationShortcut
-        onActivated: Qt.quit()
-    }
+//     Keys.onShortcutOverride: event.accepted = (event.key === StandardKey.Quit)
+
+//     Shortcut {
+//         sequence: StandardKey.Quit
+//         context: Qt.ApplicationShortcut
+//         onActivated: {
+//             console.log("QUITTING (trying)");
+//             Qt.quit();
+//         }
+//     }
 
     globalDrawer: Kirigami.GlobalDrawer {
         drawerOpen: false
@@ -105,6 +110,15 @@ Kirigami.ApplicationWindow {
                    Ruqola.logOut();
                    appid.globalDrawer.drawerOpen = false;
                }
+           },
+           Kirigami.Action {
+               
+                shortcut: "Ctrl+Q"  //StandardKey.Quit
+                text: "Quit"
+                iconName: "application-exit"
+                onTriggered: {
+                    Qt.quit();
+                }
            }
         ]
     }
@@ -120,10 +134,6 @@ Kirigami.ApplicationWindow {
             Ruqola.serverURL = loginTab.serverURL;
 //            DDPClient.loginType = Password;
             Ruqola.tryLogin();
-        }
-        onOauthAccepted: {
-//            DDPClient.loginType = Google;
-            Ruqola.tryOAuthLogin();
         }
     }
 
@@ -159,18 +169,6 @@ Kirigami.ApplicationWindow {
 
                 onCountChanged: {
     //                 console.log("We have", roomsList.count, "rooms")
-                }
-
-                QQC2.Button {
-                    id: logoutButton
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.leftMargin: Kirigami.Units.gridUnit
-                    anchors.rightMargin: Kirigami.Units.gridUnit
-                    anchors.bottomMargin: Kirigami.Units.gridUnit
-                    text: qsTr("LogOut")
-                    onClicked: Ruqola.logOut();
                 }
 
             } //RoomsView
@@ -311,7 +309,6 @@ Kirigami.ApplicationWindow {
 
 
     function toggleShow() {
-
         if (visible) {
             hide();
         } else {
