@@ -103,7 +103,7 @@ void subs_callback(const QJsonDocument &doc)
                 r.name = room["name"].toString();
                 r.topic = room["topic"].toString();
                                 
-                qDebug() << "Adding room" << r.name << r.id << r.topic;
+//                 qDebug() << "Adding room" << r.name << r.id << r.topic;
                 
                 model->addRoom(r);
             }
@@ -181,7 +181,7 @@ RocketChatBackend::~RocketChatBackend()
 void RocketChatBackend::onLoginStatusChanged()
 {
     if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
-        qDebug() << "GETTING LIST OF ROOMS";
+//         qDebug() << "GETTING LIST OF ROOMS";
         QJsonObject params;
         params["$date"] = QJsonValue(0); // get ALL rooms we've ever seen
         Ruqola::self()->ddp()->method("rooms/get", QJsonDocument(params), rooms_callback);

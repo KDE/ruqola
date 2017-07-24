@@ -130,25 +130,25 @@ Kirigami.BasicListItem {
         } //Rectangle closed
     } //Text closed
 
-    Rectangle {
-        anchors.rightMargin: 15
-       // visible: d_unread > 0
-        anchors.right: root.right
-        anchors.verticalCenter: nameLabel.verticalCenter
-//      width: nameLabel.font.pixelSize 
-        width: 0.7*nameLabel.height
-        height: width
-        color: "#6ab141"
-visible: false
-        radius: width*0.5
-        Text {
-            anchors.fill: parent
-            color: "white"
-            text: d_unread
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-        }
-    }
+//     Rectangle {
+//         anchors.rightMargin: 15
+//        // visible: d_unread > 0
+//         anchors.right: root.right
+//         anchors.verticalCenter: nameLabel.verticalCenter
+// //      width: nameLabel.font.pixelSize 
+//         width: 0.7*nameLabel.height
+//         height: width
+//         color: "#6ab141"
+// visible: false
+//         radius: width*0.5
+//         Text {
+//             anchors.fill: parent
+//             color: "white"
+//             text: d_unread
+//             verticalAlignment: Text.AlignVCenter
+//             horizontalAlignment: Text.AlignHCenter
+//         }
+//     }
 //             id: room_chooser
 //             
 //             MouseArea {
