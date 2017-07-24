@@ -68,12 +68,46 @@ Kirigami.ApplicationWindow {
     pageStack.visible: Ruqola.loginStatus == DDPClient.LoggedIn
 
     Shortcut {
-        sequence: StandardKey.Quit
+        sequence: Qt.StandardKey.Quit
         context: Qt.ApplicationShortcut
         onActivated: Qt.quit()
     }
 
-
+    globalDrawer: Kirigami.GlobalDrawer {
+        drawerOpen: false
+        handleVisible: true
+        resetMenuOnTriggered: true
+        
+        topContent: [
+            Text {
+                text: qsTr("Hello, %1").arg(Ruqola.userName)
+            }
+        ]
+        
+        actions: [
+           Kirigami.Action {
+               text: "Preferences"
+               iconName: "user-available"
+               Kirigami.Action {
+                       text: "action 1"
+               }
+               Kirigami.Action {
+                       text: "action 2"
+               }
+               Kirigami.Action {
+                       text: "action 3"
+               }
+           },
+           Kirigami.Action {
+               text: "Log out"
+               iconName: "system-log-out"
+               onTriggered: {
+                   Ruqola.logOut();
+                   appid.globalDrawer.drawerOpen = false;
+               }
+           }
+        ]
+    }
     Login {
         id: loginTab
         anchors.fill: parent
@@ -103,7 +137,6 @@ Kirigami.ApplicationWindow {
     Component {
         id: roomsComponent
         Kirigami.ScrollablePage {
-            title: qsTr("Hello, %1").arg(Ruqola.userName)
             background: Rectangle {
                 color: Kirigami.Theme.viewBackgroundColor
             }
@@ -146,7 +179,16 @@ Kirigami.ApplicationWindow {
 
     Component {
         id: mainComponent
+        
+        
         Kirigami.ScrollablePage {
+            
+//         anchors.right: parent.right
+//         anchors.top: parent.top
+//         anchors.bottom: parent.bottom
+//         anchors.left: roomsComponent.right
+//             anchors.fill: parent
+
             id: mainWidget
             leftPadding: Kirigami.Units.smallSpacing
             rightPadding: Kirigami.Units.smallSpacing
@@ -159,12 +201,14 @@ Kirigami.ApplicationWindow {
                 model: appid.model
 //                     model: Ruqola.getModelForRoom(selectedRoomID)
 
+                anchors.fill:parent
+                
+                
                 onCountChanged: {
 //                     console.log("changed")
 //                     var newIndex = count - 1 // last index
 //                     positionViewAtEnd()
                     positionViewAtIndex(count - 1, ListView.Beginning)
-
 //                     currentIndex = newIndex
                 }
 //                 Component.onCompleted: positionViewAtEnd()
@@ -174,7 +218,6 @@ Kirigami.ApplicationWindow {
 //                 onSelectedRoomIDChanged: { console.log("CHANGED"); activeChat.positionViewAtEnd(); }
 
 //                 model: myModel
-                anchors.fill:parent
                 visible : count > 0
 
 
