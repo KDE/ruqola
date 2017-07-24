@@ -164,6 +164,22 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[UserID] = "userID";
     roles[SystemMessage] = "systemMessage";
     roles[SystemMessageType] = "type";
+    roles[MessageID] = "messageID";
+    roles[RoomID] = "roomID";
+    roles[UpdatedAt] = "updatedAt";
+    roles[EditedAt] = "editedAt";
+    roles[EditedByUserName] = "editedByUsername";
+    roles[EditedByUserID] = "editedByUserID";
+    roles[Url] = "URL";
+    roles[Meta] = "meta";
+    roles[Headers] = "headers";
+    roles[ParsedUrl] = "parsedUrl";
+    roles[ImageUrl] = "imageUrl";
+    roles[Color] = "color";
+    roles[Alias] = "alias";
+    roles[Avatar] = "avatar";
+    roles[Groupable] = "groupable";
+    roles[ParseUrls] = "parseUrls";
     
     return roles;
 }
@@ -238,6 +254,8 @@ QVariant MessageModel::data(const QModelIndex& index, int role) const
         return  QVariant(m_allMessages.at(idx).systemMessage);
     } else if (role == MessageModel::SystemMessageType) {
         return  QVariant(m_allMessages.at(idx).systemMessageType);
+    } else if (role == MessageModel::Alias) {
+        return  QVariant(m_allMessages.at(idx).alias);
     } else {
         return QVariant("");
     }

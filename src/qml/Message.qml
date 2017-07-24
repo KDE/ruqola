@@ -26,12 +26,14 @@ import QtQuick 2.0
 import "js/marked.js" as MarkDown;
 
 import QtQuick.Controls 2.2
+import org.kde.kirigami 2.1 as Kirigami
 
 Rectangle {
 
     function getTextFor(type) {
 
 //         console.log(JSON.stringify(markdown));
+        
         if (type === "uj") {
             return qsTr("has joined the channel");
         } else if (type === "ul") {
@@ -51,51 +53,104 @@ Rectangle {
             return qsTr("Unknown action!");
         }
     }
+    
+//     function timestampConverter(time){
+//         var ret;
+//         var date = new Date(time*1000);// hours part from the timestamp
+//         var hours = date.getHours(); // minutes part from the timestamp
+//         var minutes = date.getMinutes();// seconds part from the timestamp
+//         var seconds = date.getSeconds();
+//         var day;
+//         var num = date.getDate();
+//         var year = date.getFullYear(); // will display time in hh:mm:ss format
+//         var formattedTime = hours + ':' + minutes + ':' + seconds;
+//         var formattedDate = day + " " + num + " " + year;
+//  
+//         console.debug("Time : " + formattedTime + " " + formattedDate);
+//     }
+
 
     property string i_messageText
     property string i_username
     property bool i_systemMessage
     property string i_systemMessageType
+    property string i_avatar
+    property var i_timestamp
 
     id: messageMain
     color: "#eeeeee"
     implicitHeight: textLabel.contentHeight
 
+    
+//     Component.onCompleted: {
+// //         console.log(i_timestamp)
+//         var date = new Date(i_timestamp);
+//         var hours = date.getHours(); // minutes part from the timestamp
+//         var minutes = date.getMinutes();// seconds part from the timestamp
+//         var seconds = date.getSeconds();
+//         var num = date.getDate();
+//         var formattedTime = hours + ':' + minutes + ':' + seconds;
+//         
+//         var iso = date.toISOString();
+// //         console.log(d.format("HH"))
+// //         var dd = Date.fromLocaleString(Qt.locale(), d)
+//         console.log(date.toISOString());
+//         console.log(formattedTime);
+//         console.log();
+//         
+//     }
 //     implicitWidth: 200
+//     Row {
+//         anchors.fill: parent
+//         spacing: Kirigami.Units.smallSpacing
+//         width: 200
+        Label {
+            id: timeLabel
+            text: "["+(new Date(i_timestamp)).toLocaleTimeString(Locale.ShortFormat)+"]"
 
-    Text {
-        color: i_systemMessage? "#999" : "#555"
-        text: i_username
-        id: usernameLabel
-        width: 80
-        horizontalAlignment: Text.AlignRight
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            
+            z:1
+        }
+    
+        Label {
+            color: i_systemMessage? "#999" : "#555"
+            text: i_username
+            id: usernameLabel
+            clip: true
+            
+            horizontalAlignment: Text.AlignRight
 
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-    }
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.left: timeLabel.left
+            
+            width: 100
+        }
 
-    Label {
-        color: i_systemMessage? "#999" : "#111"
-        id: textLabel
-        text: i_systemMessage? getTextFor(i_systemMessageType) : MarkDown.md2html(i_messageText)
+        Label {
+            color: i_systemMessage? "#999" : "#111"
+            id: textLabel
+            text: i_systemMessage? getTextFor(i_systemMessageType) : MarkDown.md2html(i_messageText)
 
 
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        
-        anchors.left: usernameLabel.right
-        anchors.right: parent.right
-        
-//         width: 
-        
-        wrapMode: Label.Wrap
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            
+            anchors.left: usernameLabel.right
+            anchors.right: parent.right
+            
+    //         width: 
+            
+            wrapMode: Label.Wrap
 
-        anchors.leftMargin: 5
+            anchors.leftMargin: 5
 
-//         visible: !i_systemMessage
-        //         horizontalAlignment: Text.AlignRight
-    }
-
+    //         visible: !i_systemMessage
+            //         horizontalAlignment: Text.AlignRight
+        }
+//     }
 
 }

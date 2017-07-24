@@ -220,6 +220,7 @@ Kirigami.ApplicationWindow {
                             i_username: username
                             i_systemMessage: systemMessage
                             i_systemMessageType: type
+                            i_timestamp: timestamp
                             //width: parent.width
                         }
             }
