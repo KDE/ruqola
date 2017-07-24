@@ -30,9 +30,9 @@ Rectangle {
     function getTextFor(type) {
 
 //         console.log(JSON.stringify(markdown));
-        if (type == "uj") {
+        if (type === "uj") {
             return qsTr("has joined the channel");
-        } else if (type == "ul") {
+        } else if (type === "ul") {
             return qsTr("has left the channel");
         } else {
             return qsTr("Unknown action!");

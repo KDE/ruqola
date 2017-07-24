@@ -103,7 +103,7 @@ Kirigami.ApplicationWindow {
     Component {
         id: roomsComponent
         Kirigami.ScrollablePage {
-            title: "Hello, " + Ruqola.userName
+            title: qsTr("Hello, %1").arg(Ruqola.userName)
             background: Rectangle {
                 color: Kirigami.Theme.viewBackgroundColor
             }

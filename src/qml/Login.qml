@@ -55,7 +55,7 @@ Kirigami.Page {
         width: 0.8*parent.width
         spacing: 3
         Text {
-            text: "Ruqola Log in"
+            text: qsTr("Ruqola Log in")
             color: "#555"
             id: loginLabel
             font.pixelSize: 40
@@ -71,7 +71,7 @@ Kirigami.Page {
         
         Text {
             width: parent.width
-            text:"Rocket Chat Server"
+            text: qsTr("Rocket Chat Server")
             
         }
         TextField {
@@ -84,7 +84,7 @@ Kirigami.Page {
         Text {
             id:username
             width: parent.width
-            text:"Enter your username"
+            text: qsTr("Enter your username")
             
         }
         TextField {
@@ -96,7 +96,7 @@ Kirigami.Page {
         Text {
             id: passLabel
             width: parent.width
-            text:"Enter your password" 
+            text: qsTr("Enter your password")
         }
         
         TextField {
