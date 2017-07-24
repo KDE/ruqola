@@ -82,11 +82,12 @@ Rectangle {
 
 
         anchors.top: parent.top
-        anchors.left: usernameLabel.right
-//         anchors.right: parent.right
         anchors.bottom: parent.bottom
         
-        width: parent.width - 80
+        anchors.left: usernameLabel.right
+        anchors.right: parent.right
+        
+//         width: 
         
         wrapMode: Label.Wrap
 

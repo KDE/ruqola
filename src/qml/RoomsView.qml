@@ -31,7 +31,9 @@ ListView {
     signal roomSelected(string roomID)
 
     delegate: RoomDelegate {
-        width: roomsList.width
+        anchors.fill: roomsList
+        
+        //         width: roomsList.width
         d_name: name
         d_unread: unread
         d_roomID: room_id

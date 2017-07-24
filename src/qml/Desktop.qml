@@ -193,38 +193,29 @@ Kirigami.ApplicationWindow {
             rightPadding: Kirigami.Units.smallSpacing
             topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
-            title: "#" + appid.selectedRoom.name
+            
+            title: appid.selectedRoom ? "" : "#" + appid.selectedRoom.name
 
             ListView {
                 id: activeChat
                 model: appid.model
 //                     model: Ruqola.getModelForRoom(selectedRoomID)
 
-                anchors.fill:parent
+                anchors.fill: parent
                 
                 
                 onCountChanged: {
-//                     console.log("changed")
-//                     var newIndex = count - 1 // last index
-//                     positionViewAtEnd()
                     positionViewAtIndex(count - 1, ListView.Beginning)
-//                     currentIndex = newIndex
                 }
-//                 Component.onCompleted: positionViewAtEnd()
+                
                 Component.onCompleted: positionViewAtIndex(count - 1, ListView.Beginning)
 
-
-//                 onSelectedRoomIDChanged: { console.log("CHANGED"); activeChat.positionViewAtEnd(); }
-
-//                 model: myModel
                 visible : count > 0
-
 
                 z: -1
 
-    //             ScrollBar.vertical: ScrollBar { }
-
                 delegate: Message {
+                            width: parent.width
                             i_messageText: messageText
                             i_username: username
                             i_systemMessage: systemMessage
