@@ -22,15 +22,19 @@
 
 import QtQuick 2.0
 import org.kde.kirigami 2.1 as Kirigami
+// import QtQuick.Controls 2.2 as QQC
 
 ListView {
     id: roomsList
-    
+
     property string selectedRoomID;
     property bool editingMode: false;
+//     property QtObject model
     
     signal roomSelected(string roomID)
-
+    
+        
+//     model: roomsList.model
     delegate: RoomDelegate {
 //         anchors.fill: parent
 //         implicitWidth: roomsList.width
@@ -46,4 +50,5 @@ ListView {
             applicationWindow().pageStack.currentIndex = 1;
         }
     }
+
 }

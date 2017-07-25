@@ -109,7 +109,7 @@ Kirigami.ApplicationWindow {
                }
            },
            Kirigami.Action {
-                shortcut: "Ctrl+Q"  //StandardKey.Quit
+                shortcut: StandardKey.Quit
                 text: "Quit"
                 iconName: "application-exit"
                 onTriggered: {
@@ -148,6 +148,15 @@ Kirigami.ApplicationWindow {
             id: roomsPage
             
             actions.main: Kirigami.Action {
+                id: editAction
+                iconName: "list-add"
+//                 checkable: true
+                onTriggered: {
+                        channelsList.open();
+                }
+            }
+            actions.left: Kirigami.Action {
+//                 enabled: editAction.checked
                 iconName: "edit-symbolic"
                 checkable: true
                 onToggled: {
@@ -163,24 +172,42 @@ Kirigami.ApplicationWindow {
             background: Rectangle {
                 color: Kirigami.Theme.viewBackgroundColor
             }
-            RoomsView {
-                id: roomsList
-                implicitWidth: Kirigami.Units.gridUnit * 10
-                anchors.fill: parent
-
-                model: Ruqola.roomModel()
-                selectedRoomID: appid.selectedRoomID;
-                onRoomSelected: {
-                    if (roomID == selectedRoomID) {
-                        return;
-                    }
-                    console.log("Choosing room", roomID);
-                    appid.selectedRoomID = roomID;
-                    appid.model = Ruqola.getModelForRoom(roomID)
-                    appid.selectedRoom = Ruqola.getRoom(roomID)
-                }
-            } //RoomsView
             
+            mainItem:
+                
+//                 QQC2.TextField {
+//                     id: searchField
+//                     placeholderText: qsTr("Search...")
+//                     width: parent.width
+//                 }
+                RoomsView {
+                    
+                    id: roomsList
+                    implicitWidth: Kirigami.Units.gridUnit * 10
+                    anchors.fill: parent
+//                     width: parent.width
+//                     height: parent.height 
+                    model: Ruqola.roomModel()
+                    selectedRoomID: appid.selectedRoomID;
+                    onRoomSelected: {
+                        if (roomID == selectedRoomID) {
+                            return;
+                        }
+                        console.log("Choosing room", roomID);
+                        appid.selectedRoomID = roomID;
+                        appid.model = Ruqola.getModelForRoom(roomID)
+                        appid.selectedRoom = Ruqola.getRoom(roomID)
+                    }
+                
+            } //RoomsView
+            Kirigami.OverlaySheet {
+                id: channelsList
+                contentItem: ChannelsList {
+//                     anchors.fill: parent
+                    
+                }
+                
+            }
         }
     }
 

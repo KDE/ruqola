@@ -36,6 +36,8 @@ Kirigami.BasicListItem {
     id: root
     
     signal roomSelected(string roomID)
+    signal leaveRoom(string roomID)
+    signal hideRoom(string roomID)
     
     icon: "irc-channel-active"
     
@@ -48,7 +50,8 @@ Kirigami.BasicListItem {
     }
     
     Row {
-        visible: editingMode
+        visible: editingMode // && root.hover ?
+        
         id: editingActions
         anchors.top: parent.top
         anchors.bottom: parent.bottom
