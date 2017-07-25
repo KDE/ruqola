@@ -31,16 +31,16 @@ Room RoomModel::fromJSon(const QJsonObject& o)
 {
     Room r;
     
-    r.id = o["id"].toString();
-    r.type = o["t"].toString();
-    r.name = o["name"].toString();
-    r.userName = o["userName"].toString();
-    r.userID = o["userID"].toString();
-    r.topic = o["topic"].toString();
-    r.mutedUsers = o["muted"].toString();
-    r.jitsiTimeout = o["jitsiTimeout"].toDouble();
-    r.ro = o["ro"].toBool();
-    r.unread = o["unread"].toInt(0);
+    r.id = o[QStringLiteral("id")].toString();
+    r.type = o[QStringLiteral("t")].toString();
+    r.name = o[QStringLiteral("name")].toString();
+    r.userName = o[QStringLiteral("userName")].toString();
+    r.userID = o[QStringLiteral("userID")].toString();
+    r.topic = o[QStringLiteral("topic")].toString();
+    r.mutedUsers = o[QStringLiteral("muted")].toString();
+    r.jitsiTimeout = o[QStringLiteral("jitsiTimeout")].toDouble();
+    r.ro = o[QStringLiteral("ro")].toBool();
+    r.unread = o[QStringLiteral("unread")].toInt(0);
     
     return r;
 }
@@ -50,16 +50,16 @@ QByteArray RoomModel::serialize(const Room& r)
     QJsonDocument d;
     QJsonObject o;
 
-    o["id"] = r.id;
-    o["t"] = r.type;
-    o["name"] = r.name;
-    o["userName"] = r.userName;
-    o["userID"] = r.userID;
-    o["topic"] = r.topic;
-    o["muted"] = r.mutedUsers;
-    o["jitsiTimeout"] = r.jitsiTimeout;
-    o["ro"] = r.ro;
-    o["unread"] = r.unread;
+    o[QStringLiteral("id")] = r.id;
+    o[QStringLiteral("t")] = r.type;
+    o[QStringLiteral("name")] = r.name;
+    o[QStringLiteral("userName")] = r.userName;
+    o[QStringLiteral("userID")] = r.userID;
+    o[QStringLiteral("topic")] = r.topic;
+    o[QStringLiteral("muted")] = r.mutedUsers;
+    o[QStringLiteral("jitsiTimeout")] = r.jitsiTimeout;
+    o[QStringLiteral("ro")] = r.ro;
+    o[QStringLiteral("unread")] = r.unread;
 
     d.setObject(o);
     return d.toBinaryData();
@@ -100,7 +100,7 @@ RoomModel::~RoomModel()
         cacheDir.mkpath(cacheDir.path());
     }
     
-    QFile f(cacheDir.absoluteFilePath("rooms"));
+    QFile f(cacheDir.absoluteFilePath(QStringLiteral("rooms")));
 
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
@@ -143,7 +143,7 @@ void RoomModel::reset()
     QDir cacheDir(Ruqola::self()->cacheBasePath());
     // load cache
     if (cacheDir.exists(cacheDir.path())) {
-        QFile f(cacheDir.absoluteFilePath("rooms"));
+        QFile f(cacheDir.absoluteFilePath(QStringLiteral("rooms")));
         if (f.open(QIODevice::ReadOnly)) {
             QDataStream in(&f);
             while (!f.atEnd()) {
@@ -185,7 +185,7 @@ QVariant RoomModel::data(const QModelIndex & index, int role) const
     } else if (role == RoomModel::RoomSelected) {
         return r.selected;
     } else {
-        return QVariant("0");
+        return QVariant(QStringLiteral("0"));
     }
 }
 

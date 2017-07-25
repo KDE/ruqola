@@ -147,7 +147,7 @@ public:
     };
     Q_ENUM(MessageRoles)
 
-    explicit MessageModel(const QString &roomID = "no_room", QObject *parent = nullptr);
+    explicit MessageModel(const QString &roomID = QStringLiteral("no_room"), QObject *parent = nullptr);
     virtual ~MessageModel();
 
     /**

@@ -38,14 +38,14 @@ void process_test(QJsonDocument doc)
 void login_callback(QJsonDocument doc)
 {
     qCDebug(RUQOLA_LOG) << "LOGIN:" << doc;
-    Ruqola::self()->setAuthToken(doc.object().value("token").toString());
+    Ruqola::self()->setAuthToken(doc.object().value(QStringLiteral("token")).toString());
     qCDebug(RUQOLA_LOG) << "End callback";
 }
 
 void DDPClient::resume_login_callback(const QJsonDocument &doc)
 {
     qCDebug(RUQOLA_LOG) << "LOGIN:" << doc;
-    Ruqola::self()->setAuthToken(doc.object().value("token").toString());
+    Ruqola::self()->setAuthToken(doc.object().value(QStringLiteral("token")).toString());
     qCDebug(RUQOLA_LOG) << "End callback";
 }
 
@@ -72,7 +72,7 @@ DDPClient::DDPClient(const QString& url, QObject* parent)
     connect(Ruqola::self(), &Ruqola::serverURLChanged, this, &DDPClient::onServerURLChange);    
     
     if (!url.isEmpty()) {
-        m_webSocket.open(QUrl("wss://"+url+"/websocket"));
+        m_webSocket.open(QUrl(QStringLiteral("wss://")+url+QStringLiteral("/websocket")));
     }
     qCDebug(RUQOLA_LOG) << "Trying to connect to URL" << url;
     
@@ -91,7 +91,7 @@ void DDPClient::onServerURLChange()
             m_webSocket.close();
         }
         m_url = Ruqola::self()->serverURL();
-        m_webSocket.open(QUrl("wss://"+m_url+"/websocket"));
+        m_webSocket.open(QUrl(QStringLiteral("wss://")+m_url+QStringLiteral("/websocket")));
         connect(&m_webSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
         qCDebug(RUQOLA_LOG) << "Reconnecting" << m_url;
     }
@@ -156,16 +156,16 @@ unsigned int DDPClient::method(const QString& m, const QJsonDocument& params, DD
 unsigned int DDPClient::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback, DDPClient::MessageType messageType)
 {
     QJsonObject json;
-    json["msg"] = "method";
-    json["method"] = method;
-    json["id"] = QString::number(m_uid);
+    json[QStringLiteral("msg")] = "method";
+    json[QStringLiteral("method")] = method;
+    json[QStringLiteral("id")] = QString::number(m_uid);
 
     if (params.isArray()){
-        json["params"] = params.array();
+        json[QStringLiteral("params")] = params.array();
     } else if (params.isObject()) {
         QJsonArray arr;
         arr.append(params.object());
-        json["params"] = arr;
+        json[QStringLiteral("params")] = arr;
     }
         
     qint64 bytes = m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
@@ -190,10 +190,10 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
 void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
 {
     QJsonObject json;
-    json["msg"] = "sub";
-    json["id"] = QString::number(m_uid);
-    json["name"] = collection;
-    json["params"] = params;
+    json[QStringLiteral("msg")] = "sub";
+    json[QStringLiteral("id")] = QString::number(m_uid);
+    json[QStringLiteral("name")] = collection;
+    json[QStringLiteral("params")] = params;
     
     qint64 bytes = m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
     if (bytes < json.length()) {
@@ -209,33 +209,33 @@ void DDPClient::onTextMessageReceived(const QString &message)
 
         QJsonObject root = response.object();
 
-        QString messageType = root.value("msg").toString();
+        QString messageType = root.value(QStringLiteral("msg")).toString();
 
-        if (messageType == "updated") {
+        if (messageType == QLatin1String("updated")) {
 
-        } else if (messageType == "result") {
+        } else if (messageType == QLatin1String("result")) {
 
-            unsigned id = root.value("id").toString().toInt();
+            unsigned id = root.value(QStringLiteral("id")).toString().toInt();
             
             if (m_callbackHash.contains(id)) {
                     std::function<void (QJsonDocument)> callback = m_callbackHash.take(id);
 
-                    callback( QJsonDocument(root.value("result").toObject()) );
+                    callback( QJsonDocument(root.value(QStringLiteral("result")).toObject()) );
             }
-            emit result(id, QJsonDocument(root.value("result").toObject()));
+            emit result(id, QJsonDocument(root.value(QStringLiteral("result")).toObject()));
 
             if (id == m_loginJob) {
 
-                 if (root.value("error").toObject().value("error").toInt() == 403) {
+                 if (root.value(QStringLiteral("error")).toObject().value(QStringLiteral("error")).toInt() == 403) {
                     qCDebug(RUQOLA_LOG) << "Wrong password or token expired";
 
                     login(); // Let's keep trying to log in
                  } else {
-                    Ruqola::self()->setAuthToken(root.value("result").toObject().value("token").toString());
+                    Ruqola::self()->setAuthToken(root.value(QStringLiteral("result")).toObject().value(QStringLiteral("token")).toString());
                     setLoginStatus(DDPClient::LoggedIn);
                  }
             }
-        } else if (messageType == "connected") {
+        } else if (messageType == QLatin1String("connected")) {
             qCDebug(RUQOLA_LOG) << "Connected";
             m_connected = true;
             emit connectedChanged();
@@ -243,19 +243,19 @@ void DDPClient::onTextMessageReceived(const QString &message)
             //Ruqola::self()->authentication()->OAuthLogin();
 
             login(); // Try to resume auth token login
-        } else if (messageType == "error") {
+        } else if (messageType == QLatin1String("error")) {
             qCDebug(RUQOLA_LOG) << "ERROR!!" << message;
-        } else if (messageType == "ping") {
+        } else if (messageType == QLatin1String("ping")) {
             qCDebug(RUQOLA_LOG) << "Ping - Pong";
             QJsonObject pong;
-            pong["msg"] = "pong";
+            pong[QStringLiteral("msg")] = "pong";
             m_webSocket.sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
-        } else if (messageType == "added"){
+        } else if (messageType == QLatin1String("added")){
             qCDebug(RUQOLA_LOG) << "ADDING" <<root;
             emit added(root);
-        } else if (messageType == "changed") {
+        } else if (messageType == QLatin1String("changed")) {
             emit changed(root);
-        } else if (messageType == "ready") {
+        } else if (messageType == QLatin1String("ready")) {
             // do nothing
         } else {
             qCDebug(RUQOLA_LOG) << "received something unhandled:" << message;
@@ -275,16 +275,16 @@ void DDPClient::login()
         }
         m_attemptedPasswordLogin = true;
         QJsonObject user;
-        user["username"] = Ruqola::self()->userName();
+        user[QStringLiteral("username")] = Ruqola::self()->userName();
         QJsonObject json;
-        json["password"] = Ruqola::self()->password();
-        json["user"] = user;
-        m_loginJob = method("login", QJsonDocument(json));
+        json[QStringLiteral("password")] = Ruqola::self()->password();
+        json[QStringLiteral("user")] = user;
+        m_loginJob = method(QStringLiteral("login"), QJsonDocument(json));
     } else if (!Ruqola::self()->authToken().isEmpty() && !m_attemptedTokenLogin) {
         m_attemptedPasswordLogin = true;
         QJsonObject json;
-        json["resume"] = Ruqola::self()->authToken();
-        m_loginJob = method("login", QJsonDocument(json));
+        json[QStringLiteral("resume")] = Ruqola::self()->authToken();
+        m_loginJob = method(QStringLiteral("login"), QJsonDocument(json));
     } else {
         setLoginStatus(LoginFailed);
     }
@@ -297,9 +297,9 @@ void DDPClient::onWSConnected()
     QJsonArray supportedVersions;
     supportedVersions.append("1");
     QJsonObject protocol;
-    protocol["msg"] = "connect";
-    protocol["version"] = "1";
-    protocol["support"] = supportedVersions;
+    protocol[QStringLiteral("msg")] = "connect";
+    protocol[QStringLiteral("version")] = "1";
+    protocol[QStringLiteral("support")] = supportedVersions;
     QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
     qint64 bytes = m_webSocket.sendTextMessage(serialize);
     if (bytes < serialize.length()) {
