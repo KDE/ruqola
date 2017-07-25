@@ -27,18 +27,19 @@ ListView {
     id: roomsList
     
     property string selectedRoomID;
+    property bool editingMode: false;
     
     signal roomSelected(string roomID)
 
     delegate: RoomDelegate {
 //         anchors.fill: parent
-        
-        //         width: roomsList.width
+//         implicitWidth: roomsList.width
+//                 width: roomsList.width
         d_name: name
         d_unread: unread
         d_roomID: room_id
         d_selected: selectedRoomID == room_id
-//         d_selected: selected
+        d_editingMode: editingMode
         
         onRoomSelected : {
             roomsList.roomSelected(roomID)
