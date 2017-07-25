@@ -82,7 +82,7 @@ public:
     QString topic;
 
     // muted - collection of muted users by its usernames
-    QString mutedUsers; //QStringList
+    QStringList mutedUsers;
 
     // jitsiTimeout
     qint64 jitsiTimeout;
@@ -132,7 +132,7 @@ public:
         RoomUserName, //created by UserName
         RoomUserID,
         RoomTopic,
-        RoomMuted,
+        RoomMutedUsers,
         RoomJitsiTimeout,
         RoomRO
     };

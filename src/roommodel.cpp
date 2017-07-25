@@ -36,7 +36,7 @@ Room RoomModel::fromJSon(const QJsonObject& o)
     r.userName = o["userName"].toString();
     r.userID = o["userID"].toString();
     r.topic = o["topic"].toString();
-    r.mutedUsers = o["muted"].toString();
+    r.mutedUsers = o["mutedUsers"].toString();
     r.jitsiTimeout = o["jitsiTimeout"].toDouble();
     r.ro = o["ro"].toBool();
     r.unread = o["unread"].toInt(0);
@@ -55,7 +55,7 @@ QByteArray RoomModel::serialize(const Room& r)
     o["userName"] = r.userName;
     o["userID"] = r.userID;
     o["topic"] = r.topic;
-    o["muted"] = r.mutedUsers;
+    o["mutedUsers"] = r.mutedUsers;
     o["jitsiTimeout"] = r.jitsiTimeout;
     o["ro"] = r.ro;
     o["unread"] = r.unread;
@@ -164,6 +164,13 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomID] = "room_id";
     roles[RoomSelected] = "selected";
     roles[RoomUnread] = "unread";
+    roles[RoomType] = "type";
+    roles[RoomUserName] = "username";
+    roles[RoomUserID] = "userID";
+    roles[RoomTopic] = "topic";
+    roles[RoomMutedUsers] = "mutedUsers";
+    roles[RoomJitsiTimeout] = "jitsiTimeout";
+    roles[RoomRO] = "readOnly";
     return roles;
 }
 
@@ -183,6 +190,20 @@ QVariant RoomModel::data(const QModelIndex & index, int role) const
         return r.id;
     } else if (role == RoomModel::RoomSelected) {
         return r.selected;
+    } else if (role == RoomModel::RoomType) {
+        return r.type;
+    } else if (role == RoomModel::RoomUserID) {
+        return r.userID;
+    } else if (role == RoomModel::RoomUserName) {
+        return r.userName;
+    } else if (role == RoomModel::RoomTopic) {
+        return r.topic;
+    } else if (role == RoomModel::RoomMutedUsers) {
+        return r.mutedUsers;
+    } else if (role == RoomModel::RoomJitsiTimeout) {
+        return r.jitsiTimeout;
+    } else if (role == RoomModel::RoomRO) {
+        return r.ro;
     } else {
         return QVariant("0");
     }

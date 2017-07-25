@@ -172,7 +172,7 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
         qDebug() << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qDebug() << m_webSocket.isValid() << m_webSocket.error() << m_webSocket.requestUrl();
 
-        if(messageType==DDPClient::Persistent){
+        if (messageType==DDPClient::Persistent) {
             m_messageQueue.enqueue(qMakePair(method,params));
             Ruqola::self()->messageQueue()->processQueue();
         }
