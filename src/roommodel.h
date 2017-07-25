@@ -82,7 +82,7 @@ public:
     QString topic;
 
     // muted - collection of muted users by its usernames
-    QStringList mutedUsers;
+    QString mutedUsers; // --> TODO: this really is a list - it requires some more work
 
     // jitsiTimeout
     qint64 jitsiTimeout;
