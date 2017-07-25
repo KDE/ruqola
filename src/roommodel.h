@@ -171,7 +171,7 @@ public:
     RoomWrapper* findRoom(const QString &roomID) const;
 
     /**
-    * @brief Constructs Message object from QJsonObject
+    * @brief Constructs Room object from QJsonObject (cache)
     *
     * @param source The Json containing room attributes
     * @return Room object, The room constructed from Json
@@ -179,7 +179,7 @@ public:
     static Room fromJSon(const QJsonObject &source);
 
     /**
-    * @brief Constructs QBytearray from Message object
+    * @brief Constructs QBytearray from Room object
     *
     * @param message The Room object
     * @return QByteArray, The Json containing room attributes
