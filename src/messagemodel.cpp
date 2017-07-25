@@ -31,6 +31,7 @@
 
 #include "messagemodel.h"
 #include "ruqola.h"
+#include "ruqola_debug.h"
 
 
 //Message::MessageStatus Message::messageStatus() const
@@ -116,7 +117,7 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
   : QAbstractListModel(parent),
   m_roomID(roomID)
 {
-    qDebug() << "Creating message Model";
+    qCDebug(RUQOLA_LOG) << "Creating message Model";
     QDir cacheDir(Ruqola::self()->cacheBasePath()+"/rooms_cache");
     
         // load cache
@@ -139,7 +140,7 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
 MessageModel::~MessageModel()
 {
     QDir cacheDir(Ruqola::self()->cacheBasePath()+"/rooms_cache");
-    qDebug() << "Caching to..." << cacheDir.path();
+    qCDebug(RUQOLA_LOG) << "Caching to..." << cacheDir.path();
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }
@@ -187,7 +188,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 qint64 MessageModel::lastTimestamp() const
 {
     if (m_allMessages.size()) {
-        qDebug() << "returning timestamp" << m_allMessages.last().timestamp;
+        qCDebug(RUQOLA_LOG) << "returning timestamp" << m_allMessages.last().timestamp;
         return m_allMessages.last().timestamp;
     } else {
         return 0;
@@ -217,7 +218,7 @@ void MessageModel::addMessage(const Message& message)
 //     if (qFind(m_allMessages.begin(), m_allMessages.end(), message) != m_allMessages.end()) {
     if (present){
 //     if (pos != m_allMessages.size()) { // we're at the end
-//         qDebug() << "detecting a message change";
+//         qCDebug(RUQOLA_LOG) << "detecting a message change";
         messageChanged = true;
         //Figure out a better way to update just the really changed message
     } else {

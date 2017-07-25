@@ -24,6 +24,7 @@
 #include "ruqola.h"
 #include "authentication.h"
 #include "ddpclient.h"
+#include "ruqola_debug.h"
 
 #include <QOAuth2AuthorizationCodeFlow>
 #include <QFile>
@@ -81,9 +82,9 @@ void Authentication::OAuthLogin() {
     authKeys["credentialSecret"] = m_clientSecret;
 
     auth["oauth"] = authKeys;
-    qDebug() << "-------------------------";
-    qDebug() << "-------------------------";
-    qDebug() << "OAuth Json" << auth;
+    qCDebug(RUQOLA_LOG) << "-------------------------";
+    qCDebug(RUQOLA_LOG) << "-------------------------";
+    qCDebug(RUQOLA_LOG) << "OAuth Json" << auth;
     Ruqola::self()->ddp()->method("login", QJsonDocument(auth));
 
     QJsonArray requestPermissions;
@@ -108,7 +109,7 @@ void Authentication::OAuthLogin() {
     json["loginStyle"] = QString("redirect");
     json["redirectUrl"] = s.value("redirectUrl").toString();
 
-//    qDebug() << "OAuth Json" << json;
+//    qCDebug(RUQOLA_LOG) << "OAuth Json" << json;
 //    Ruqola::self()->ddp()->method("login", QJsonDocument(json));
 
 }

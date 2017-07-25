@@ -22,6 +22,7 @@
 
 #include "roommodel.h"
 #include "ruqola.h"
+#include "ruqola_debug.h"
 
 #include <QtCore/QAbstractItemModel>
 #include <QtCore>
@@ -153,7 +154,7 @@ void RoomModel::reset()
                 addRoom(m.id, m.name, m.selected);
             }
         }
-        qDebug() << "Cache Loaded";
+        qCDebug(RUQOLA_LOG) << "Cache Loaded";
     }
 }
 
@@ -193,7 +194,7 @@ void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool sel
     if (roomID.isEmpty() || roomName.isEmpty()) {
         return;
     }
-    qDebug() << "Adding room" << roomID << roomName;
+    qCDebug(RUQOLA_LOG) << "Adding room" << roomID << roomName;
       
     Room r;
     r.id = roomID;
@@ -211,13 +212,13 @@ void RoomModel::addRoom(const Room &room)
                                                room);
     int pos = i-m_roomsList.begin();
     bool roomChanged = false;
-    qDebug() << pos;
+    qCDebug(RUQOLA_LOG) << pos;
      
 //     if (qFind(m_roomsList.begin(), m_roomsList.end(), room) != m_roomsList.end() && pos > 0) {
     if (present) {
-//         qDebug() << (qFind(m_roomsList.begin(), m_roomsList.end(), room) - m_roomsList.begin());
+//         qCDebug(RUQOLA_LOG) << (qFind(m_roomsList.begin(), m_roomsList.end(), room) - m_roomsList.begin());
 //     if (pos != m_roomsList.size()) { // we're at the end
-        qDebug() << "Room changed!";
+        qCDebug(RUQOLA_LOG) << "Room changed!";
         roomChanged = true;
         //Figure out a better way to update just the really changed message
     } else {
@@ -227,7 +228,7 @@ void RoomModel::addRoom(const Room &room)
     if (roomChanged) {
         m_roomsList.replace(pos-1, room);
     } else {
-        qDebug() << "Inserting room at position" <<pos;
+        qCDebug(RUQOLA_LOG) << "Inserting room at position" <<pos;
         m_roomsList.insert(i, room);
     }
     
