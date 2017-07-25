@@ -9,6 +9,8 @@ set (Ruqola_core_srcs
     authentication.cpp
 )
 
+ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
+
 add_library(RuqolaCore STATIC ${Ruqola_core_srcs})
 
 target_link_libraries(RuqolaCore

@@ -22,6 +22,7 @@
 
 #include "ruqola.h"
 #include "ddpclient.h"
+#include "ruqola_debug.h"
 
 QPair<QString,QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
 {
@@ -84,7 +85,7 @@ MessageQueue::MessageQueue(QObject *parent)
 MessageQueue::~MessageQueue()
 {
     QDir cacheDir(Ruqola::self()->ddp()->cachePath());
-    qDebug() << "Caching Unsent messages to... " << cacheDir.path();
+    qCDebug(RUQOLA_LOG) << "Caching Unsent messages to... " << cacheDir.path();
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }

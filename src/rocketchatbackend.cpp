@@ -23,18 +23,18 @@
 #include "rocketchatbackend.h"
 #include <QtCore>
 #include <QJsonObject>
-#include <QDebug>
+#include "ruqola_debug.h"
 #include "ruqola.h"
 #include "ddpclient.h"
 
 void debug_callback(const QJsonDocument &doc)
 {
-    qDebug() << "DEBUG:" << doc;
+    qCDebug(RUQOLA_LOG) << "DEBUG:" << doc;
 }
 
 void process_backlog(const QJsonDocument &messages)
 {
-    qDebug() << messages.object().value("messages").toArray().size();
+    qCDebug(RUQOLA_LOG) << messages.object().value("messages").toArray().size();
     RocketChatBackend::processIncomingMessages(messages.object().value("messages").toArray());
 }
 
@@ -61,7 +61,7 @@ void rooms_callback(const QJsonDocument &doc)
                 r.name = room["name"].toString();
                 r.topic = room["topic"].toString();
                                 
-                qDebug() << "Adding room" << r.name << r.id << r.topic;
+                qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
 
                 model->addRoom(r);
             }
@@ -103,7 +103,7 @@ void subs_callback(const QJsonDocument &doc)
                 r.name = room["name"].toString();
                 r.topic = room["topic"].toString();
                                 
-//                 qDebug() << "Adding room" << r.name << r.id << r.topic;
+//                 qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
                 
                 model->addRoom(r);
             }
@@ -181,7 +181,7 @@ RocketChatBackend::~RocketChatBackend()
 void RocketChatBackend::onLoginStatusChanged()
 {
     if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
-//         qDebug() << "GETTING LIST OF ROOMS";
+//         qCDebug(RUQOLA_LOG) << "GETTING LIST OF ROOMS";
         QJsonObject params;
         params["$date"] = QJsonValue(0); // get ALL rooms we've ever seen
         Ruqola::self()->ddp()->method("rooms/get", QJsonDocument(params), rooms_callback);
@@ -205,10 +205,10 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
         QString username = fields.value("username").toString();
         if(username == Ruqola::self()->userName()){
             Ruqola::self()->setUserID(object["id"].toString());
-            qDebug() << "User id set to " << Ruqola::self()->userID();
+            qCDebug(RUQOLA_LOG) << "User id set to " << Ruqola::self()->userID();
         }
 
-         qDebug() << "NEW USER ADDED: " << username;
+         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username;
         
     } else if (collection == "rooms") {
 
@@ -230,7 +230,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         processIncomingMessages(contents);        
 
     } else if (collection == "users") {
-        qDebug() << "USER CHANGED";
+        qCDebug(RUQOLA_LOG) << "USER CHANGED";
         
     } else if (collection == "rooms") {
 
@@ -239,13 +239,13 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         QJsonArray contents = fields.value("args").toArray();
         QString message = contents.at(0).toObject()["text"].toString();
         Ruqola::self()->notification()->showMessage("New message", message, QSystemTrayIcon::Information, 5000 );
-        qDebug() << "New notification" << object.value("fields").toObject();
+        qCDebug(RUQOLA_LOG) << "New notification" << object.value("fields").toObject();
     }
 }
 
 void RocketChatBackend::onUserIDChanged()
 {
-    qDebug() << "subscribing to notification feed";
+    qCDebug(RUQOLA_LOG) << "subscribing to notification feed";
     QJsonArray params;
     params.append(QJsonValue(QString("%1/%2").arg(Ruqola::self()->userID()).arg(QString("notification"))));
     Ruqola::self()->ddp()->subscribe("stream-notify-user", params);

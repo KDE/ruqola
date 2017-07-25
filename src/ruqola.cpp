@@ -25,6 +25,7 @@
 #include "ddpclient.h"
 #include "notification.h"
 #include "messagequeue.h"
+#include "ruqola_debug.h"
 #include <QFileDialog>
 #include <QTcpSocket>
 #include <QDataStream>
@@ -54,7 +55,7 @@ QString Ruqola::password() const
 
 void Ruqola::setAuthToken(const QString& token)
 {
-    qDebug() << "Setting token to" << token;
+    qCDebug(RUQOLA_LOG) << "Setting token to" << token;
     QSettings s;
     m_authToken = token;
     s.setValue("authToken", token);
@@ -84,9 +85,9 @@ void Ruqola::setUserID(const QString& userID)
 RoomModel * Ruqola::roomModel()
 {
     if (!m_roomModel) {
-        qDebug() << "creating new RoomModel";
+        qCDebug(RUQOLA_LOG) << "creating new RoomModel";
         m_roomModel = new RoomModel(this);
-        qDebug() << m_roomModel;
+        qCDebug(RUQOLA_LOG) << m_roomModel;
     }
     return m_roomModel;
 }
@@ -138,11 +139,11 @@ void Ruqola::attachmentButtonClicked()
         return;
     }
 
-    qDebug() << "Selected Image " << fileName;
+    qCDebug(RUQOLA_LOG) << "Selected Image " << fileName;
 
     QFile file(fileName);
     if (!file.open(QFile::ReadOnly)) {
-        qDebug() << "Cannot open the selected file";
+        qCDebug(RUQOLA_LOG) << "Cannot open the selected file";
         return;
     }
     const QString message = QString::fromLatin1(file.readAll().toBase64());
@@ -200,7 +201,7 @@ DDPClient::LoginStatus Ruqola::loginStatus()
 
 void Ruqola::tryLogin()
 {
-    qDebug() << "Attempting login" << userName() << "on" << serverURL();
+    qCDebug(RUQOLA_LOG) << "Attempting login" << userName() << "on" << serverURL();
 
     // Reset model views
     foreach (const QString key, m_messageModels.keys()) {
@@ -265,7 +266,7 @@ void Ruqola::logOut()
     delete m_ddp;
     m_ddp = nullptr;
     emit loginStatusChanged();
-    qDebug() << "Successfully logged out!";
+    qCDebug(RUQOLA_LOG) << "Successfully logged out!";
 
 }
 

@@ -31,6 +31,7 @@
 
 #include "messagemodel.h"
 #include "ruqola.h"
+#include "ruqola_debug.h"
 
 
 //Message::MessageStatus Message::messageStatus() const
@@ -51,29 +52,29 @@ Message MessageModel::fromJSon(const QJsonObject& o)
 {
     Message message;
 
-    message.messageID = o["messageID"].toString();
-    message.roomID = o["roomID"].toString();
-    message.message = o["message"].toString();
-    message.timestamp = (qint64) o["timestamp"].toDouble();
-    message.username = o["username"].toString();
-    message.userID = o["userID"].toString();
-    message.updatedAt = (qint64) o["updatedAt"].toDouble();
-    message.editedAt = (qint64) o["editedAt"].toDouble();
-    message.editedByUsername = o["editedByUsername"].toString();
-    message.editedByUserID = o["editedByUserID"].toString();
-    message.url = o["url"].toString();
-    message.meta = o["meta"].toString();
-    message.headers = o["headers"].toString();
-    message.parsedUrl = o["parsedUrl"].toString();
-    message.imageUrl = o["imageUrl"].toString();
-    message.color = o["color"].toString();
-    message.alias = o["alias"].toString();
-    message.avatar = o["avatar"].toString();
-    message.groupable = o["groupable"].toBool();
-    message.parseUrls = o["parseUrls"].toBool();
+    message.messageID = o[QStringLiteral("messageID")].toString();
+    message.roomID = o[QStringLiteral("roomID")].toString();
+    message.message = o[QStringLiteral("message")].toString();
+    message.timestamp = (qint64) o[QStringLiteral("timestamp")].toDouble();
+    message.username = o[QStringLiteral("username")].toString();
+    message.userID = o[QStringLiteral("userID")].toString();
+    message.updatedAt = (qint64) o[QStringLiteral("updatedAt")].toDouble();
+    message.editedAt = (qint64) o[QStringLiteral("editedAt")].toDouble();
+    message.editedByUsername = o[QStringLiteral("editedByUsername")].toString();
+    message.editedByUserID = o[QStringLiteral("editedByUserID")].toString();
+    message.url = o[QStringLiteral("url")].toString();
+    message.meta = o[QStringLiteral("meta")].toString();
+    message.headers = o[QStringLiteral("headers")].toString();
+    message.parsedUrl = o[QStringLiteral("parsedUrl")].toString();
+    message.imageUrl = o[QStringLiteral("imageUrl")].toString();
+    message.color = o[QStringLiteral("color")].toString();
+    message.alias = o[QStringLiteral("alias")].toString();
+    message.avatar = o[QStringLiteral("avatar")].toString();
+    message.groupable = o[QStringLiteral("groupable")].toBool();
+    message.parseUrls = o[QStringLiteral("parseUrls")].toBool();
 
-    message.systemMessage = o["systemMessage"].toBool();
-    message.systemMessageType = o["type"].toString();
+    message.systemMessage = o[QStringLiteral("systemMessage")].toBool();
+    message.systemMessageType = o[QStringLiteral("type")].toString();
 
     
     return message;
@@ -84,29 +85,29 @@ QByteArray MessageModel::serialize(const Message& message)
     QJsonDocument d;
     QJsonObject o;
 
-    o["messageID"] = message.messageID;
-    o["roomID"] = message.roomID;
-    o["message"] = message.message;
-    o["timestamp"] = message.timestamp;
-    o["username"] = message.username;
-    o["userID"] = message.userID;
-    o["updatedAt"] = message.updatedAt;
-    o["editedAt"] = message.editedAt;
-    o["editedByUsername"] = message.editedByUsername;
-    o["editedByUserID"] = message.editedByUserID;
-    o["url"] = message.url;
-    o["meta"] = message.meta;
-    o["headers"] = message.headers;
-    o["parsedUrl"] = message.parsedUrl;
-    o["imageUrl"] = message.imageUrl;
-    o["color"] = message.color;
-    o["alias"] = message.alias;
-    o["avatar"] = message.avatar;
-    o["groupable"] = message.groupable;
-    o["parseUrls"] = message.parseUrls;
+    o[QStringLiteral("messageID")] = message.messageID;
+    o[QStringLiteral("roomID")] = message.roomID;
+    o[QStringLiteral("message")] = message.message;
+    o[QStringLiteral("timestamp")] = message.timestamp;
+    o[QStringLiteral("username")] = message.username;
+    o[QStringLiteral("userID")] = message.userID;
+    o[QStringLiteral("updatedAt")] = message.updatedAt;
+    o[QStringLiteral("editedAt")] = message.editedAt;
+    o[QStringLiteral("editedByUsername")] = message.editedByUsername;
+    o[QStringLiteral("editedByUserID")] = message.editedByUserID;
+    o[QStringLiteral("url")] = message.url;
+    o[QStringLiteral("meta")] = message.meta;
+    o[QStringLiteral("headers")] = message.headers;
+    o[QStringLiteral("parsedUrl")] = message.parsedUrl;
+    o[QStringLiteral("imageUrl")] = message.imageUrl;
+    o[QStringLiteral("color")] = message.color;
+    o[QStringLiteral("alias")] = message.alias;
+    o[QStringLiteral("avatar")] = message.avatar;
+    o[QStringLiteral("groupable")] = message.groupable;
+    o[QStringLiteral("parseUrls")] = message.parseUrls;
 
-    o["systemMessage"] = message.systemMessage;
-    o["type"] = message.systemMessageType;
+    o[QStringLiteral("systemMessage")] = message.systemMessage;
+    o[QStringLiteral("type")] = message.systemMessageType;
 
     d.setObject(o);
     return d.toBinaryData();
@@ -116,8 +117,8 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
   : QAbstractListModel(parent),
   m_roomID(roomID)
 {
-    qDebug() << "Creating message Model";
-    QDir cacheDir(Ruqola::self()->cacheBasePath()+"/rooms_cache");
+    qCDebug(RUQOLA_LOG) << "Creating message Model";
+    QDir cacheDir(Ruqola::self()->cacheBasePath()+QStringLiteral("/rooms_cache"));
     
         // load cache
     if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
@@ -138,8 +139,8 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
 
 MessageModel::~MessageModel()
 {
-    QDir cacheDir(Ruqola::self()->cacheBasePath()+"/rooms_cache");
-    qDebug() << "Caching to..." << cacheDir.path();
+    QDir cacheDir(Ruqola::self()->cacheBasePath()+QStringLiteral("/rooms_cache"));
+    qCDebug(RUQOLA_LOG) << "Caching to..." << cacheDir.path();
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }
@@ -187,7 +188,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 qint64 MessageModel::lastTimestamp() const
 {
     if (m_allMessages.size()) {
-        qDebug() << "returning timestamp" << m_allMessages.last().timestamp;
+        qCDebug(RUQOLA_LOG) << "returning timestamp" << m_allMessages.last().timestamp;
         return m_allMessages.last().timestamp;
     } else {
         return 0;
@@ -217,7 +218,7 @@ void MessageModel::addMessage(const Message& message)
 //     if (qFind(m_allMessages.begin(), m_allMessages.end(), message) != m_allMessages.end()) {
     if (present){
 //     if (pos != m_allMessages.size()) { // we're at the end
-//         qDebug() << "detecting a message change";
+//         qCDebug(RUQOLA_LOG) << "detecting a message change";
         messageChanged = true;
         //Figure out a better way to update just the really changed message
     } else {
@@ -257,7 +258,7 @@ QVariant MessageModel::data(const QModelIndex& index, int role) const
     } else if (role == MessageModel::Alias) {
         return  QVariant(m_allMessages.at(idx).alias);
     } else {
-        return QVariant("");
+        return QVariant(QString());
     }
 }
 

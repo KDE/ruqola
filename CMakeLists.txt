@@ -10,6 +10,7 @@ include(KDECompilerSettings)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(ECMInstallIcons)
+include(ECMQtDeclareLoggingCategory)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -29,10 +30,16 @@ include(ECMPoQmTools)
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
+#add_definitions("-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII")
+add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
+#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
+
 add_subdirectory(src)
 
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ecm_install_po_files_as_qm(po)
 endif()
+install(FILES ruqola.categories DESTINATION ${KDE_INSTALL_CONFDIR})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
