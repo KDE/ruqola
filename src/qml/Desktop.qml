@@ -240,10 +240,11 @@ Kirigami.ApplicationWindow {
                 
                 
                 onCountChanged: {
-                    positionViewAtIndex(count - 1, ListView.Beginning)
+                    positionViewAtIndex(count - 1, ListView.End)
+//                     positionViewAtEnd()
                 }
                 
-                Component.onCompleted: positionViewAtIndex(count - 1, ListView.Beginning)
+                Component.onCompleted: positionViewAtEnd();// positionViewAtIndex(count - 1, ListView.End)
 
                 visible : count > 0
 
