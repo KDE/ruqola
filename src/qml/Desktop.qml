@@ -240,7 +240,7 @@ Kirigami.ApplicationWindow {
                 
                 
                 onCountChanged: {
-                    positionViewAtIndex(count - 1, ListView.End)
+                    positionViewAtIndex(count - 1, ListView.Beginning)
 //                     positionViewAtEnd()
                 }
                 

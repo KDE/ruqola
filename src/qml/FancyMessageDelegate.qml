@@ -30,7 +30,7 @@ import org.kde.kirigami 2.1 as Kirigami
 
 import QtQuick.Layouts 1.1
 
-Item {
+Rectangle {
 
     function getTextFor(type) {
         
@@ -62,12 +62,19 @@ Item {
     property var i_timestamp
 
     id: messageMain
-//     color: "#eeeeee"
+    color: "#eeeeee"
 //     implicitHeight: textLabel.contentHeight
-    implicitHeight: Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight, avatarRect.implicitHeight)
+    implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight, avatarRect.implicitHeight)
+    
     implicitWidth: 150
+    
+    anchors.bottomMargin: 200
+    
+//     anchors.margins: 50
 
     RowLayout {
+        
+        anchors.topMargin: Kirigami.Units.smallSpacing
         anchors.fill: parent
 //         implicitHeight: textLabel.contentHeight
 
@@ -78,8 +85,10 @@ Item {
             Layout.fillHeight: false
 
             id: avatarRect
-            implicitWidth: 32
-            implicitHeight: 32
+            implicitWidth: 24
+            implicitHeight: 24
+            
+            anchors.margins: Kirigami.Units.smallSpacing
             
             color: "gray"
             anchors.top: parent.top
@@ -89,33 +98,43 @@ Item {
             id: textRect
             
             Layout.fillWidth: true
-            
+//             radius: 4
+//             color: "#eeeeee"
             anchors.top: parent.top
             anchors.bottom: parent.bottom
+            anchors.bottomMargin:  Kirigami.Units.smallSpacing
 //             height: textLabel.implicitHeight + usernameLabel.implicitHeight
             
+            Column {
 //             implicitWidth: 100
-            Kirigami.Heading {
-                level: 5
-                id: usernameLabel
-                font.bold: true
-                text: i_username
-                anchors.top: parent.top
-                anchors.right: parent.right
-                anchors.left: parent.left
-            }
-            Kirigami.Label {
-                id: textLabel
-                anchors.top: usernameLabel.bottom
-                anchors.right: parent.right
-                anchors.left: parent.left
-                anchors.bottom: parent.bottom
-                text: i_messageText
-                wrapMode: Label.Wrap
-            }
+                anchors.fill:parent 
+                Kirigami.Heading {
+                    level: 5
+                    id: usernameLabel
+                    font.bold: true
+                    text: i_username
+    //                 anchors.top: parent.top
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+                }
+                Kirigami.Label {
+                    id: textLabel
+    //                 anchors.top: usernameLabel.bottom
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+    //                 anchors.bottom: parent.bottom
+                    text: i_messageText
+                    wrapMode: Label.Wrap
+                }
 
-            Rectangle {
-                implicitHeight: Kirigami.Units.smallSpacing
+//                 Rectangle {
+//                                 color: "red"
+//     //                 anchors.top: textLabel.bottom
+//                     anchors.right: parent.right
+//                     anchors.left: parent.left
+//     //                 anchors.bottom: parent.bottom
+//                     implicitHeight: 2*Kirigami.Units.smallSpacing
+//                 }
             }
         }
 
