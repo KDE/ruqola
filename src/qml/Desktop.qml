@@ -250,7 +250,7 @@ Kirigami.ApplicationWindow {
 
                 z: -1
 
-                delegate: Message {
+                delegate: FancyMessageDelegate {
                             width: parent.width
                             i_messageText: messageText
                             i_username: username

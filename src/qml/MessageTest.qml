@@ -12,10 +12,29 @@ Item {
 //     }
     ListView {
         anchors.fill: parent
-        model: RoomModel { }
-        delegate: Message {
+        model:             
+            ListModel {
+                ListElement {
+                    name: "luca.toma"
+                    messageText: "Hey! I released the new WikiToLearn version"
+                    timestamp: 1476277459413
+                }
+                ListElement {
+                    name: "m_bona"
+                    messageText: "This is a very very very long message.This is a very very very long message.This is a very very very long message.This is a very very very long message.This is a very very very long messageThis is a very very very long message.This is a very very very long message.This is a very very very long message."
+                    timestamp: 1498134201519
+                }
+                ListElement {
+                    name: "tunale"
+                    messageText: "CourseEditor rocks!"
+                    timestamp: 1484277459413
+                }
+            }
+
+        delegate: FancyMessageDelegate {
             i_messageText: messageText
             i_username: name
+            i_timestamp: timestamp
             width: parent.width
         }
     }

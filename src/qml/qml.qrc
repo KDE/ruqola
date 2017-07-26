@@ -4,6 +4,7 @@
         <file>RoomModel.qml</file>
         <file>Desktop.qml</file>
         <file>Message.qml</file>
+        <file>FancyMessageDelegate.qml</file>
         <file>RoomsView.qml</file>
         <file>RoomDelegate.qml</file>
         <file>ChannelsList.qml</file>
