@@ -44,6 +44,8 @@ Rectangle {
             return qsTr("added %1 to the conversation").arg(i_messageText)
         } else if (type === "r") {
             return qsTr("changed room name to <a href=\"ruqola:/room/%1\">#%1</a>").arg(i_messageText)
+        } else if (type === "ru") {
+            return qsTr("removed user %1").arg(i_messageText)
         } else if (type === "room_changed_description") {
             return qsTr("changed room description to %1").arg(i_messageText)
         }  else if (type === "room_changed_privacy") {
