@@ -64,7 +64,7 @@ Rectangle {
     id: messageMain
     color: "#eeeeee"
 //     implicitHeight: textLabel.contentHeight
-    implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight, avatarRect.implicitHeight)
+    implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.implicitHeight
     
     implicitWidth: 150
     
@@ -72,119 +72,31 @@ Rectangle {
     
 //     anchors.margins: 50
 
-    RowLayout {
-        
+    Loader {
+        id: loaded
         anchors.topMargin: Kirigami.Units.smallSpacing
         anchors.fill: parent
-//         implicitHeight: textLabel.contentHeight
-
-        spacing: Kirigami.Units.smallSpacing
-//         spacing: 12
-        
-        Rectangle {
-            Layout.fillHeight: false
-
-            id: avatarRect
-            implicitWidth: 24
-            implicitHeight: 24
-            
-            anchors.margins: Kirigami.Units.smallSpacing
-            
-            color: "gray"
-            anchors.top: parent.top
-        }
-        
-        Rectangle {
-            id: textRect
-            
-            Layout.fillWidth: true
-//             radius: 4
-//             color: "#eeeeee"
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin:  Kirigami.Units.smallSpacing
-//             height: textLabel.implicitHeight + usernameLabel.implicitHeight
-            
-            Column {
-//             implicitWidth: 100
-                anchors.fill:parent 
-                Kirigami.Heading {
-                    level: 5
-                    id: usernameLabel
-                    font.bold: true
-                    text: i_username
-    //                 anchors.top: parent.top
-                    anchors.right: parent.right
-                    anchors.left: parent.left
-                }
-                Kirigami.Label {
-                    id: textLabel
-    //                 anchors.top: usernameLabel.bottom
-                    anchors.right: parent.right
-                    anchors.left: parent.left
-    //                 anchors.bottom: parent.bottom
-                    text: i_messageText
-                    wrapMode: Label.Wrap
-                }
-
-//                 Rectangle {
-//                                 color: "red"
-//     //                 anchors.top: textLabel.bottom
-//                     anchors.right: parent.right
-//                     anchors.left: parent.left
-//     //                 anchors.bottom: parent.bottom
-//                     implicitHeight: 2*Kirigami.Units.smallSpacing
-//                 }
+        Component.onCompleted: {
+            if (i_systemMessage) {
+                setSource("messages/SystemMessage.qml", 
+                          {
+                              i_messageText: i_messageText,
+                              i_username: i_username,
+                              i_timestamp: i_timestamp,
+                              i_systemMessageType: i_systemMessageType
+                          }
+                         )
+            } else {
+                setSource("messages/UserMessage.qml", 
+                          {
+                              i_messageText: i_messageText,
+                              i_username: i_username,
+                              i_timestamp: i_timestamp
+                          }
+                         )
             }
         }
-
-//         Kirigami.Label {
-//             id: timeLabel
-//             text: "["+(new Date(i_timestamp)).toLocaleTimeString(Locale.ShortFormat)+"]"
-// 
-//             anchors.top: parent.top
-//             anchors.bottom: parent.bottom
-//             
-//             color: Kirigami.Theme.textColor
-//             opacity: .5
-//             
-//             z:1
-//         }
-//     }
-//     
-   
-
-//     Label {
-//         color: i_systemMessage? "#999" : "#555"
-//         text: i_username
-//         id: usernameLabel
-//         clip: true
-//         
-//         horizontalAlignment: Text.AlignRight
-// 
-//         anchors.top: parent.top
-//         anchors.bottom: parent.bottom
-//         anchors.left: timeLabel.left
-//         
-//         width: 100
-//     }
-// 
-//     Label {
-//         color: i_systemMessage? "#999" : "#111"
-//         id: textLabel
-//         text: i_systemMessage? getTextFor(i_systemMessageType) : MarkDown.md2html(i_messageText)
-// 
-// 
-//         anchors.top: parent.top
-//         anchors.bottom: parent.bottom
-//         
-//         anchors.left: usernameLabel.right
-//         anchors.right: parent.right
-//         
-//         wrapMode: Label.Wrap
-// 
-//         anchors.leftMargin: 5
-// 
+        
     }
 
 }

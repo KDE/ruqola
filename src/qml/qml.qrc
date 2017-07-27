@@ -10,6 +10,10 @@
         <file>ChannelsList.qml</file>
         <file>Login.qml</file>
     </qresource>
+    <qresource prefix="/messages">
+        <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
+        <file alias="UserMessage.qml">messages/UserMessage.qml</file>
+    </qresource>
     <qresource prefix="/js">
         <file alias="jsonpath.js">js/jsonpath.js</file>
         <file alias="marked.js">js/marked.js</file>
