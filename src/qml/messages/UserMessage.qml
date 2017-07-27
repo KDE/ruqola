@@ -102,12 +102,15 @@ Rectangle {
 //             color: "#eeeeee"
             anchors.top: parent.top
             anchors.bottom: parent.bottom
-            anchors.bottomMargin:  Kirigami.Units.smallSpacing
+            anchors.bottomMargin: Kirigami.Units.smallSpacing
+            anchors.leftMargin: Kirigami.Units.smallSpacing
 //             height: textLabel.implicitHeight + usernameLabel.implicitHeight
             
             Column {
-//             implicitWidth: 100
-                anchors.fill:parent 
+                anchors.leftMargin: Kirigami.Units.smallSpacing
+                anchors.rightMargin: Kirigami.Units.smallSpacing
+                anchors.fill: parent 
+
                 Kirigami.Heading {
                     level: 5
                     id: usernameLabel
@@ -137,54 +140,6 @@ Rectangle {
 //                 }
             }
         }
-
-//         Kirigami.Label {
-//             id: timeLabel
-//             text: "["+(new Date(i_timestamp)).toLocaleTimeString(Locale.ShortFormat)+"]"
-// 
-//             anchors.top: parent.top
-//             anchors.bottom: parent.bottom
-//             
-//             color: Kirigami.Theme.textColor
-//             opacity: .5
-//             
-//             z:1
-//         }
-//     }
-//     
-   
-
-//     Label {
-//         color: i_systemMessage? "#999" : "#555"
-//         text: i_username
-//         id: usernameLabel
-//         clip: true
-//         
-//         horizontalAlignment: Text.AlignRight
-// 
-//         anchors.top: parent.top
-//         anchors.bottom: parent.bottom
-//         anchors.left: timeLabel.left
-//         
-//         width: 100
-//     }
-// 
-//     Label {
-//         color: i_systemMessage? "#999" : "#111"
-//         id: textLabel
-//         text: i_systemMessage? getTextFor(i_systemMessageType) : MarkDown.md2html(i_messageText)
-// 
-// 
-//         anchors.top: parent.top
-//         anchors.bottom: parent.bottom
-//         
-//         anchors.left: usernameLabel.right
-//         anchors.right: parent.right
-//         
-//         wrapMode: Label.Wrap
-// 
-//         anchors.leftMargin: 5
-// 
     }
 
 }

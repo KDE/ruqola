@@ -39,13 +39,15 @@ Rectangle {
         } else if (type === "ul") {
             return qsTr("has left the channel");
         } else if (type === "room_changed_topic") {
-            return qsTr("changed topic to \"%1\"").arg(i_messageText)
+            return qsTr("changed topic to: <i>%1</i>").arg(i_messageText)
         } else if (type === "au") {
             return qsTr("added %1 to the conversation").arg(i_messageText)
         } else if (type === "r") {
-            return qsTr("changed room name to \"%1\"").arg(i_messageText)
+            return qsTr("changed room name to #%1").arg(i_messageText)
         } else if (type === "room_changed_description") {
-            return qsTr("changed room description to \"%1\"").arg(i_messageText)
+            return qsTr("changed room description to %1").arg(i_messageText)
+        }  else if (type === "room_changed_privacy") {
+            return qsTr("changed room privacy to %1").arg(i_messageText)
         } else {
             console.log("Unkown type for message");
             console.log(type);
@@ -62,8 +64,7 @@ Rectangle {
 
     id: messageMain
     color: "#eeeeee"
-//     implicitHeight: textLabel.contentHeight
-    implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight, avatarRect.implicitHeight)
+    implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight
     
     implicitWidth: 150
     
@@ -71,72 +72,60 @@ Rectangle {
     
 //     anchors.margins: 50
 
-    RowLayout {
+    Rectangle {
         
-        anchors.topMargin: Kirigami.Units.smallSpacing
-        anchors.fill: parent
-//         implicitHeight: textLabel.contentHeight
+        anchors.centerIn: parent
+        width: textLabel.width + 6*Kirigami.Units.smallSpacing
+        height: textLabel.height + 2*Kirigami.Units.smallSpacing
+        color: Kirigami.Theme.disabledTextColor
+//         opacity: .2
 
-        spacing: Kirigami.Units.smallSpacing
-//         spacing: 12
+        radius: height
         
-        Rectangle {
-            Layout.fillHeight: false
-
-            id: avatarRect
-            implicitWidth: 24
-            implicitHeight: 24
+        Label {
+            id: textLabel
+            color: Kirigami.Theme.textColor
+            opacity: 1
             
-            anchors.margins: Kirigami.Units.smallSpacing
-            
-            color: "gray"
-            anchors.top: parent.top
+            anchors.centerIn: parent
+            anchors.leftMargin: Kirigami.Units.smallSpacing
+            anchors.rightMargin: Kirigami.Units.smallSpacing
+            text: i_username + " " + getTextFor(i_systemMessageType)
+                
+            wrapMode: Label.Wrap
         }
-        
-        Rectangle {
-            id: textRect
+    }
             
-            Layout.fillWidth: true
-//             radius: 4
-//             color: "#eeeeee"
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin:  Kirigami.Units.smallSpacing
-//             height: textLabel.implicitHeight + usernameLabel.implicitHeight
-            
-            Column {
-//             implicitWidth: 100
-                anchors.fill:parent 
-                Kirigami.Heading {
-                    level: 5
-                    id: usernameLabel
-                    font.bold: true
-                    text: i_username
-    //                 anchors.top: parent.top
-                    anchors.right: parent.right
-                    anchors.left: parent.left
-                }
-                Kirigami.Label {
-                    id: textLabel
-    //                 anchors.top: usernameLabel.bottom
-                    anchors.right: parent.right
-                    anchors.left: parent.left
-    //                 anchors.bottom: parent.bottom
-                    text: getTextFor(i_systemMessageType)
-                    
-                    wrapMode: Label.Wrap
-                }
-
-//                 Rectangle {
-//                                 color: "red"
-//     //                 anchors.top: textLabel.bottom
-//                     anchors.right: parent.right
-//                     anchors.left: parent.left
-//     //                 anchors.bottom: parent.bottom
-//                     implicitHeight: 2*Kirigami.Units.smallSpacing
-//                 }
-            }
-        }
+//     Rectangle {
+//         
+//         anchors.topMargin: Kirigami.Units.smallSpacing
+//         
+//         anchors.centerIn: parent
+//         color: "red"
+//         anchors.top: parent.top
+//         anchors.bottom: parent.bottom
+//         
+//         
+//         
+// //         spacing: Kirigami.Units.smallSpacing
+//         
+//         Rectangle {
+//             id: textRect
+//             color: "blue"
+//             radius: height
+//             
+//             anchors.fill: parent
+//             
+// //             color: "#eeeeee"
+// //             anchors.top: parent.top
+// //             anchors.bottom: parent.bottom
+//             anchors.bottomMargin:  Kirigami.Units.smallSpacing
+// //             anchors.horizontalCenter: parent.horizontalCenter
+//             
+// //             height: textLabel.implicitHeight + usernameLabel.implicitHeight
+//             
+//            
+//         }
 
 //         Kirigami.Label {
 //             id: timeLabel
@@ -151,40 +140,6 @@ Rectangle {
 //             z:1
 //         }
 //     }
-//     
-   
-
-//     Label {
-//         color: i_systemMessage? "#999" : "#555"
-//         text: i_username
-//         id: usernameLabel
-//         clip: true
-//         
-//         horizontalAlignment: Text.AlignRight
-// 
-//         anchors.top: parent.top
-//         anchors.bottom: parent.bottom
-//         anchors.left: timeLabel.left
-//         
-//         width: 100
-//     }
-// 
-//     Label {
-//         color: i_systemMessage? "#999" : "#111"
-//         id: textLabel
-//         text: i_systemMessage? getTextFor(i_systemMessageType) : MarkDown.md2html(i_messageText)
-// 
-// 
-//         anchors.top: parent.top
-//         anchors.bottom: parent.bottom
-//         
-//         anchors.left: usernameLabel.right
-//         anchors.right: parent.right
-//         
-//         wrapMode: Label.Wrap
-// 
-//         anchors.leftMargin: 5
-// 
-    }
+//    
 
 }
