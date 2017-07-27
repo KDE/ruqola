@@ -54,6 +54,7 @@ Rectangle {
         }
     }
 
+    property string i_messageID
     property string i_messageText
     property string i_username
     property bool i_systemMessage
@@ -71,11 +72,15 @@ Rectangle {
     anchors.bottomMargin: 200
     
 //     anchors.margins: 50
-
+    function linkActivated(link) {
+        console.log("Link clicked: " + link)
+    }
+    
     Loader {
         id: loaded
         anchors.topMargin: Kirigami.Units.smallSpacing
         anchors.fill: parent
+        
         Component.onCompleted: {
             if (i_systemMessage) {
                 setSource("messages/SystemMessage.qml", 
@@ -83,7 +88,8 @@ Rectangle {
                               i_messageText: i_messageText,
                               i_username: i_username,
                               i_timestamp: i_timestamp,
-                              i_systemMessageType: i_systemMessageType
+                              i_systemMessageType: i_systemMessageType,
+                              i_messageID: i_messageID
                           }
                          )
             } else {
@@ -91,12 +97,17 @@ Rectangle {
                           {
                               i_messageText: i_messageText,
                               i_username: i_username,
-                              i_timestamp: i_timestamp
+                              i_timestamp: i_timestamp,
+                              i_messageID: i_messageID
                           }
                          )
             }
+//             loaded.linkActivated.connect(linkActivated)
         }
-        
+    }
+    Connections {
+        target: loaded.item
+        onLinkActivated: linkActivated(link)
     }
 
 }

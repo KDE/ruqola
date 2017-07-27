@@ -43,7 +43,7 @@ Rectangle {
         } else if (type === "au") {
             return qsTr("added %1 to the conversation").arg(i_messageText)
         } else if (type === "r") {
-            return qsTr("changed room name to #%1").arg(i_messageText)
+            return qsTr("changed room name to <a href=\"ruqola:/room/%1\">#%1</a>").arg(i_messageText)
         } else if (type === "room_changed_description") {
             return qsTr("changed room description to %1").arg(i_messageText)
         }  else if (type === "room_changed_privacy") {
@@ -62,6 +62,8 @@ Rectangle {
     property string i_systemMessageType
     property var i_timestamp
 
+    signal linkActivated(string link)
+    
     id: messageMain
     color: "#eeeeee"
     implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight
@@ -74,15 +76,18 @@ Rectangle {
 
     Rectangle {
         
+        anchors.rightMargin: 2*Kirigami.Units.largeSpacing
+        anchors.leftMargin: 2*Kirigami.Units.largeSpacing
+        
         anchors.centerIn: parent
         width: textLabel.width + 6*Kirigami.Units.smallSpacing
-        height: textLabel.height + 2*Kirigami.Units.smallSpacing
+        height: textLabel.height //+ 2*Kirigami.Units.smallSpacing
         color: Kirigami.Theme.disabledTextColor
 //         opacity: .2
 
         radius: height
         
-        Label {
+        Kirigami.Label {
             id: textLabel
             color: Kirigami.Theme.textColor
             opacity: 1
@@ -90,9 +95,14 @@ Rectangle {
             anchors.centerIn: parent
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
+            
             text: i_username + " " + getTextFor(i_systemMessageType)
                 
             wrapMode: Label.Wrap
+            
+            renderType: Text.NativeRendering
+            
+            onLinkActivated: messageMain.linkActivated(link)
         }
     }
             

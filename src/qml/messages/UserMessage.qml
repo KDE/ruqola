@@ -29,53 +29,73 @@ import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 
 import QtQuick.Layouts 1.1
+import KDE.Ruqola.Ruqola 1.0
 
 Rectangle {
-
-    function getTextFor(type) {
-        
-        if (type === "uj") {
-            return qsTr("has joined the channel");
-        } else if (type === "ul") {
-            return qsTr("has left the channel");
-        } else if (type === "room_changed_topic") {
-            return qsTr("changed topic to \"%1\"").arg(i_messageText)
-        } else if (type === "au") {
-            return qsTr("added %1 to the conversation").arg(i_messageText)
-        } else if (type === "r") {
-            return qsTr("changed room name to \"%1\"").arg(i_messageText)
-        } else if (type === "room_changed_description") {
-            return qsTr("changed room description to \"%1\"").arg(i_messageText)
-        } else {
-            console.log("Unkown type for message");
-            console.log(type);
-            console.log(i_messageText)
-            return qsTr("Unknown action!");
+    
+    function stringToColour(str) {
+        var hash = 0;
+        for (var i = 0; i < str.length; i++) {
+            hash = str.charCodeAt(i) + ((hash << 5) - hash);
         }
+        var colour = '#';
+        for (var i = 0; i < 3; i++) {
+            var value = (hash >> (i * 8)) & 0xFF;
+            colour += ('00' + value.toString(16)).substr(-2);
+        }
+        return colour;
     }
 
     property string i_messageText
+    property string i_messageID
     property string i_username
     property bool i_systemMessage
     property string i_systemMessageType
     property string i_avatar
     property var i_timestamp
 
+    
+    signal linkActivated(string link)
+    
+    
     id: messageMain
     color: "#eeeeee"
-//     implicitHeight: textLabel.contentHeight
     implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight, avatarRect.implicitHeight)
     
     implicitWidth: 150
     
     anchors.bottomMargin: 200
     
-//     anchors.margins: 50
+    Menu {
+        id: menu
+
+        MenuItem {
+//             enabled: i_username == Ruqola.userName
+            contentItem: Kirigami.Label {
+                text: "Edit"
+                enabled: i_username == Ruqola.userName
+            }
+            onTriggered: {
+                console.log("Edit", i_messageID, i_messageText);
+                console.log("User", Ruqola.userName, i_username);
+            }
+        }
+        MenuItem {
+            contentItem: Kirigami.Label {
+                text: "Reply"
+            }
+            onTriggered: {
+                console.log("Reply to", i_messageID);
+            }
+        }
+    }
 
     RowLayout {
         
         anchors.topMargin: Kirigami.Units.smallSpacing
         anchors.fill: parent
+        anchors.rightMargin: Kirigami.Units.largeSpacing
+        anchors.leftMargin: Kirigami.Units.largeSpacing
 //         implicitHeight: textLabel.contentHeight
 
         spacing: Kirigami.Units.smallSpacing
@@ -88,9 +108,12 @@ Rectangle {
             implicitWidth: 24
             implicitHeight: 24
             
-            anchors.margins: Kirigami.Units.smallSpacing
+            radius: 3
             
-            color: "gray"
+            anchors.rightMargin: 2*Kirigami.Units.smallSpacing
+            
+            color: stringToColour(i_username)
+            
             anchors.top: parent.top
         }
         
@@ -98,13 +121,27 @@ Rectangle {
             id: textRect
             
             Layout.fillWidth: true
-//             radius: 4
-//             color: "#eeeeee"
+            radius: 3
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             anchors.bottomMargin: Kirigami.Units.smallSpacing
             anchors.leftMargin: Kirigami.Units.smallSpacing
-//             height: textLabel.implicitHeight + usernameLabel.implicitHeight
+            
+            MouseArea {
+                anchors.fill: parent
+                acceptedButtons: Qt.RightButton
+
+                onClicked: {
+                    console.log("clicked");
+                    if (mouse.button == Qt.RightButton) {
+                        menu.x = mouse.x
+                        menu.y = mouse.y
+                        menu.open();
+                        console.log("Menu opened", mouse.x);
+                        
+                    }
+                }
+            }
             
             Column {
                 anchors.leftMargin: Kirigami.Units.smallSpacing
@@ -116,30 +153,46 @@ Rectangle {
                     id: usernameLabel
                     font.bold: true
                     text: i_username
-    //                 anchors.top: parent.top
+                    
                     anchors.right: parent.right
                     anchors.left: parent.left
+                    height: avatarRect.height
                 }
                 Kirigami.Label {
                     id: textLabel
-    //                 anchors.top: usernameLabel.bottom
                     anchors.right: parent.right
                     anchors.left: parent.left
-    //                 anchors.bottom: parent.bottom
+                    
+                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                    
                     text: i_messageText
                     wrapMode: Label.Wrap
-                }
+                    
+                    renderType: Text.NativeRendering
+                    
+                    onLinkActivated: messageMain.linkActivated(link)
 
-//                 Rectangle {
-//                                 color: "red"
-//     //                 anchors.top: textLabel.bottom
-//                     anchors.right: parent.right
-//                     anchors.left: parent.left
-//     //                 anchors.bottom: parent.bottom
-//                     implicitHeight: 2*Kirigami.Units.smallSpacing
-//                 }
+
+
+                }
             }
+            
+           
+        }
+        Kirigami.Label {
+            id: timestampText
+            text: Qt.formatTime(new Date(i_timestamp), "hh:mm")
+            opacity: .5
+            
+            anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.leftMargin: Kirigami.Units.smallSpacing
+            
+            z: 10
         }
     }
+    
+//     Component.onCompleted: console.log(i_timestamp)
 
 }

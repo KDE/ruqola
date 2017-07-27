@@ -255,7 +255,9 @@ QVariant MessageModel::data(const QModelIndex& index, int role) const
         return  QVariant(m_allMessages.at(idx).systemMessage);
     } else if (role == MessageModel::SystemMessageType) {
         return  QVariant(m_allMessages.at(idx).systemMessageType);
-    } else if (role == MessageModel::Alias) {
+    } else if (role == MessageModel::MessageID) {
+        return  QVariant(m_allMessages.at(idx).messageID);
+    }else if (role == MessageModel::Alias) {
         return  QVariant(m_allMessages.at(idx).alias);
     } else {
         return QVariant(QString());

@@ -248,7 +248,7 @@ Kirigami.ApplicationWindow {
 
                 visible : count > 0
 
-                z: -1
+//                 z: -1
 
                 delegate: FancyMessageDelegate {
                             width: parent.width
@@ -257,6 +257,7 @@ Kirigami.ApplicationWindow {
                             i_systemMessage: systemMessage
                             i_systemMessageType: type
                             i_timestamp: timestamp
+                            i_messageID: messageID
                             //width: parent.width
                         }
             }
