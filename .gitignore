@@ -1,4 +1,6 @@
 # Ignore the following files
+*.qmlc
+*.jsc
 *~
 *.[oa]
 *.diff
@@ -14,9 +16,6 @@
 .swp.*
 Doxyfile
 Makefile
-avail
-random_seed
 /build/
 CMakeLists.txt.user*
-*.unc-backup*
 *.Ruqola.pro.user
