@@ -26,6 +26,7 @@
 #include "roommodel.h"
 #include "rocketchatbackend.h"
 #include "ruqola.h"
+#include "ruqolautils.h"
 #include "notification.h"
 
 #include <QDebug>
@@ -42,6 +43,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("Ruqola");
 
     qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
+    qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
     qmlRegisterType<MessageModel>("KDE.Ruqola.MessageModel", 1, 0, "MessageModel");
     qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");
     qmlRegisterType<RoomModel>("KDE.Ruqola.RoomModel", 1, 0, "RoomModel");

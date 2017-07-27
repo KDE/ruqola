@@ -21,6 +21,7 @@
  */
 
 #include "ruqolautils.h"
+RuqolaUtils *RuqolaUtils::m_self = nullptr;
 
 RuqolaUtils::RuqolaUtils(QObject* parent)
 {
@@ -34,3 +35,10 @@ QString RuqolaUtils::markdownToRichText(const QString& markDown)
     return QString();
 }
 
+RuqolaUtils* RuqolaUtils::self()
+{
+    if (!m_self) {
+        m_self = new RuqolaUtils;
+    }
+    return m_self;
+}
