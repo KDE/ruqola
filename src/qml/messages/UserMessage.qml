@@ -23,7 +23,7 @@
 
 import QtQuick 2.0
 // import "marked.js" as Markdown
-// import "js/marked.js" as MarkDown;
+import "../js/marked.js" as MarkDown;
 
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
@@ -32,6 +32,28 @@ import QtQuick.Layouts 1.1
 import KDE.Ruqola.Ruqola 1.0
 
 Rectangle {
+    
+    function markdownme(s) {
+//         var md = MarkDown.markdownit();
+//         var result = md.render('# markdown-it rulezz!');
+        
+        var regex = new RegExp(/\[([^\[]+)\]\(([^\)]+)\)/g);
+        var result = s.replace(regex, '<a href=\'$2\'>$1</a>');
+
+        var regex2 = new RegExp(/#(\w+)/g);
+        result = result.replace(regex2, '<a href=\'ruqola:/room/$1\'>#$1</a>');
+
+        var regex3 = new RegExp(/@(\w+)/g);
+        result = result.replace(regex3, '<a href=\'ruqola:/user/$1\'>@$1</a>');
+
+        console.log(result)
+        
+//         var regex = new RegExp(/\[([^\[]+)\]\(([^\)]+)\)/g);
+//         var result = s.replace(regex, '<a href=\'$2\'>$1</a>');
+
+        
+        return result;
+    }
     
     function stringToColour(str) {
         var hash = 0;
@@ -166,7 +188,7 @@ Rectangle {
                     anchors.leftMargin: Kirigami.Units.smallSpacing
                     anchors.rightMargin: Kirigami.Units.smallSpacing
                     
-                    text: i_messageText
+                    text: markdownme(i_messageText)
                     wrapMode: Label.Wrap
                     
                     renderType: Text.NativeRendering
