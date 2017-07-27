@@ -3,6 +3,7 @@ set (Ruqola_core_srcs
     roommodel.cpp
     ddpclient.cpp
     ruqola.cpp
+    ruqolautils.cpp
     rocketchatbackend.cpp
     notification.cpp
     messagequeue.cpp
