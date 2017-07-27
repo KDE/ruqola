@@ -216,12 +216,6 @@ Kirigami.ApplicationWindow {
         
         
         Kirigami.ScrollablePage {
-            
-//         anchors.right: parent.right
-//         anchors.top: parent.top
-//         anchors.bottom: parent.bottom
-//         anchors.left: roomsComponent.right
-//             anchors.fill: parent
 
             id: mainWidget
             leftPadding: Kirigami.Units.smallSpacing
@@ -229,26 +223,44 @@ Kirigami.ApplicationWindow {
             topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
             
-            title: appid.selectedRoom ? "" : "#" + appid.selectedRoom.name
-
+            header: Column {
+                Kirigami.Heading {
+                    text: "#" +appid.selectedRoom.name
+                    level: 3
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+                    anchors.leftMargin: 2*Kirigami.Units.smallSpacing
+                }
+                Kirigami.Label {
+                    text: appid.selectedRoom.topic
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+                    anchors.margins: 2*Kirigami.Units.smallSpacing
+                    wrapMode: Label.Wrap
+                }
+                Rectangle {
+                    color: Kirigami.Theme.textColor
+                    height:1
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+                    opacity: .5
+                    visible: appid.selectedRoom
+                }
+            }
+            
             ListView {
                 id: activeChat
                 model: appid.model
-//                     model: Ruqola.getModelForRoom(selectedRoomID)
-
-                anchors.fill: parent
-                
+//                 anchors.top: mainWidget.top
+//                 anchors.bottom: footerItem.top
+//                 anchors.bottomPadding: 100// footerItem.height
                 
                 onCountChanged: {
                     positionViewAtIndex(count - 1, ListView.Beginning)
-//                     positionViewAtEnd()
                 }
                 
-                Component.onCompleted: positionViewAtEnd();// positionViewAtIndex(count - 1, ListView.End)
-
+                Component.onCompleted: positionViewAtIndex(count - 1, ListView.End)
                 visible : count > 0
-
-//                 z: -1
 
                 delegate: FancyMessageDelegate {
                             width: parent.width
@@ -258,79 +270,15 @@ Kirigami.ApplicationWindow {
                             i_systemMessageType: type
                             i_timestamp: timestamp
                             i_messageID: messageID
-                            //width: parent.width
-                        }
+                }
             }
-
-            footer: Item {
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                id: input
-                height: 40
-
-                TextField {
-                    id: messageLine
-                    anchors.left: parent.left
-                    anchors.bottom: parent.bottom
-                    anchors.top: parent.top
-                    anchors.right: emoticonsButton.left
-                    placeholderText: if (Ruqola.loginStatus != DDPClient.LoggedIn || (selectedRoomID=="")){
-                                        qsTr("Please Select a room")
-                                    }
-                                    else{
-                                        qsTr("Enter message")
-                                    }
-
-    //                height: 2.7*font.pixelSize
-                    property string type: "text";
-                    onAccepted: {
-                        if (text != "" && Ruqola.loginStatus == DDPClient.LoggedIn && !(selectedRoomID=="")) {
-                            Ruqola.sendMessage(selectedRoomID, text, type);
-                            text = "";
-                        }
-                    }
-                }
-
-                Button  {
-                    anchors.bottom: parent.bottom
-                    anchors.top: parent.top
-                    anchors.right: attachmentsButton.left
-                    width: 50
-                    id : emoticonsButton
-                    iconName: "emoticonsButton"
-                    iconSource: "qrc:/Emoticon.png"
-                    visible: true
-                }
-
-                Button {
-                    anchors.bottom: parent.bottom
-                    anchors.top: parent.top
-                    anchors.right: parent.right
-                    width: 50
-                    id : attachmentsButton
-                    iconName: "attachmentsButton"
-                    iconSource: "qrc:/icons/attach-button.jpg"
-                    visible: true
-                    onClicked: Ruqola.attachmentButtonClicked();
-                }
-
-            }//Item input
-
+            footer: UserInput {
+                id: footerItem
+            }
+               
+            
         }// mainWidget Item
     }
-
-//    Image {
-//        id: receivedImage
-//        source:" "
-//        width: 60
-//        height: 80
-//        fillMode: Image.PreserveAspectFit
-////        visible: //only when an image is recieved from server
-//        sourceSize.width: 1024
-//        sourceSize.height: 1024
-//    }
-
 
     onClosing: {
         console.log("Minimizing to systray...");
@@ -351,10 +299,6 @@ Kirigami.ApplicationWindow {
     Component.onCompleted: {
           systrayIcon.activated.connect(toggleShow);
           systrayIcon.messageClicked.connect(toggleShow);
-//        roomsList.model = Ruqola.roomModel();
-
-//        timer.start();
-//        timer.fire();
     }
 
 /*

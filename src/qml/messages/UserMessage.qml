@@ -62,7 +62,7 @@ Rectangle {
     color: "#eeeeee"
     implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight, avatarRect.implicitHeight)
     
-    implicitWidth: 150
+//     implicitWidth: 150
     
     anchors.bottomMargin: 200
     
