@@ -55,7 +55,7 @@ private:
     bool m_authGranted;
     QString m_clientID;
     QString m_clientSecret;
-    QOAuth2AuthorizationCodeFlow * m_google;
+    //QOAuth2AuthorizationCodeFlow * m_google;
 
 };
 
