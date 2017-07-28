@@ -1,3 +1,5 @@
+ecm_create_qm_loader(ruqola_QM_LOADER ruqola_qt)
+
 set (Ruqola_core_srcs
     messagemodel.cpp
     roommodel.cpp
@@ -8,6 +10,7 @@ set (Ruqola_core_srcs
     notification.cpp
     messagequeue.cpp
     authentication.cpp
+    ${ruqola_QM_LOADER}
 )
 
 # set (PMH_srcs
