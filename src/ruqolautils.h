@@ -37,7 +37,7 @@ public:
     Q_INVOKABLE QString markdownToRichText(const QString &markDown);
 
 private:
-    explicit RuqolaUtils(QObject *parent = 0);
+    explicit RuqolaUtils(QObject *parent = nullptr);
     static RuqolaUtils *m_self;
     
 };

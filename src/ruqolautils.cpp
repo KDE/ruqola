@@ -24,6 +24,7 @@
 RuqolaUtils *RuqolaUtils::m_self = nullptr;
 
 RuqolaUtils::RuqolaUtils(QObject* parent)
+    : QObject(parent)
 {
     
 }
