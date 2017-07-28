@@ -20,7 +20,9 @@ if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUXX)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
 endif()
 
-find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth)
+set(REQUIRED_QT_VERSION "5.7.0")
+
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth)
 
 find_package(KF5 REQUIRED COMPONENTS
     Kirigami2
