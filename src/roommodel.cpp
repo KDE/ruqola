@@ -227,10 +227,10 @@ void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool sel
 
 void RoomModel::addRoom(const Room &room)
 {
-    auto existingRoom = qFind(m_roomsList.begin(), m_roomsList.end(), room);
+    auto existingRoom = std::find(m_roomsList.begin(), m_roomsList.end(), room);
     bool present = (existingRoom != m_roomsList.end());
     
-    auto i = qUpperBound(m_roomsList.begin(), m_roomsList.end(),
+    auto i = std::upper_bound(m_roomsList.begin(), m_roomsList.end(),
                                                room);
     int pos = i-m_roomsList.begin();
     bool roomChanged = false;
