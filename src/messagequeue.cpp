@@ -28,8 +28,8 @@ QPair<QString,QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
 {
     QPair<QString,QJsonDocument> pair;
 
-    pair.first = object["method"].toString();
-    QJsonArray arr = object["params"].toArray();
+    pair.first = object[QStringLiteral("method")].toString();
+    QJsonArray arr = object[QStringLiteral("params")].toArray();
     pair.second = QJsonDocument(arr);
     return pair;
 }
@@ -40,7 +40,7 @@ QByteArray MessageQueue::serialize(const QPair<QString,QJsonDocument> &pair)
     QJsonDocument d;
     QJsonObject o;
 
-    o["method"] = QJsonValue(pair.first);
+    o[QStringLiteral("method")] = QJsonValue(pair.first);
 
     QJsonArray arr;
     if ( pair.second.isArray() ){
@@ -49,7 +49,7 @@ QByteArray MessageQueue::serialize(const QPair<QString,QJsonDocument> &pair)
         arr.append(pair.second.object());
     }
 
-    o["params"] = QJsonValue(arr);
+    o[QStringLiteral("params")] = QJsonValue(arr);
 
     d.setObject(o);
     return d.toBinaryData();
@@ -63,8 +63,8 @@ MessageQueue::MessageQueue(QObject *parent)
     QDir cacheDir(Ruqola::self()->ddp()->cachePath());
 
     // load unsent messages cache
-    if (QFile::exists(cacheDir.absoluteFilePath("QueueCache"))) {
-        QFile f(cacheDir.absoluteFilePath("QueueCache"));
+    if (QFile::exists(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")))) {
+        QFile f(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")));
         if (f.open(QIODevice::ReadOnly)) {
             QDataStream in(&f);
             while (!f.atEnd()) {
@@ -89,7 +89,7 @@ MessageQueue::~MessageQueue()
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }
-    QFile f(cacheDir.absoluteFilePath("QueueCache"));
+    QFile f(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")));
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
 

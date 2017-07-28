@@ -58,7 +58,7 @@ void Ruqola::setAuthToken(const QString& token)
     qCDebug(RUQOLA_LOG) << "Setting token to" << token;
     QSettings s;
     m_authToken = token;
-    s.setValue("authToken", token);
+    s.setValue(QStringLiteral("authToken"), token);
 }
 
 void Ruqola::setPassword(const QString& password)
@@ -70,7 +70,7 @@ void Ruqola::setUserName(const QString& username)
 {
     m_userName = username;
     QSettings s;
-    s.setValue("username", username);
+    s.setValue(QStringLiteral("username"), username);
     emit userNameChanged();
 }
 
@@ -78,7 +78,7 @@ void Ruqola::setUserID(const QString& userID)
 {
     m_userName = userID;
     QSettings s;
-    s.setValue("userID", userID);
+    s.setValue(QStringLiteral("userID"), userID);
     emit userIDChanged();
 }
 
@@ -147,19 +147,19 @@ void Ruqola::attachmentButtonClicked()
         return;
     }
     const QString message = QString::fromLatin1(file.readAll().toBase64());
-    const QString roomID("3cGRyFLWgnPL7B79n"); //hard code roomID for now
-    const QString type("image");
+    const QString roomID(QStringLiteral("3cGRyFLWgnPL7B79n")); //hard code roomID for now
+    const QString type(QStringLiteral("image"));
     sendMessage(roomID, message, type);
 }
 
 void Ruqola::sendMessage(const QString &roomID, const QString &message, const QString &type)
 {
     QJsonObject json;
-    json["rid"] = roomID;
-    json["msg"] = message;
-    json["type"] = type;
+    json[QStringLiteral("rid")] = roomID;
+    json[QStringLiteral("msg")] = message;
+    json[QStringLiteral("type")] = type;
 
-    ddp()->method("sendMessage", QJsonDocument(json), DDPClient::Persistent);
+    ddp()->method(QStringLiteral("sendMessage"), QJsonDocument(json), DDPClient::Persistent);
 }
 
 MessageModel * Ruqola::getModelForRoom(const QString& roomID)
@@ -184,7 +184,7 @@ void Ruqola::setServerURL(const QString& serverURL)
     }
 
     QSettings s;
-    s.setValue("serverURL", serverURL);
+    s.setValue(QStringLiteral("serverURL"), serverURL);
     m_serverURL = serverURL;
     emit serverURLChanged();
 }
@@ -246,9 +246,9 @@ void Ruqola::tryOAuthLogin()
 void Ruqola::logOut()
 {
     QSettings s;
-    s.setValue("authToken", QString(""));
-    setAuthToken(QString(""));
-    setPassword(QString(""));
+    s.setValue(QStringLiteral("authToken"), QStringLiteral(""));
+    setAuthToken(QStringLiteral(""));
+    setPassword(QStringLiteral(""));
 
     foreach (const QString &key, m_messageModels.keys()) {
         MessageModel *m = m_messageModels.take(key);
@@ -258,10 +258,10 @@ void Ruqola::logOut()
     m_roomModel->clear();
 
     QJsonObject user;
-    user["username"] = Ruqola::self()->userName();
+    user[QStringLiteral("username")] = Ruqola::self()->userName();
     QJsonObject json;
-    json["user"] = user;
-    Ruqola::self()->ddp()->method("logout", QJsonDocument(json));
+    json[QStringLiteral("user")] = user;
+    Ruqola::self()->ddp()->method(QStringLiteral("logout"), QJsonDocument(json));
 
     delete m_ddp;
     m_ddp = nullptr;
@@ -276,7 +276,7 @@ QString Ruqola::cacheBasePath() const
         return QString();
     }
 
-    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+'/'+m_serverURL;
+    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+QLatin1Char('/')+m_serverURL;
 }
 
 RoomWrapper * Ruqola::getRoom(const QString& roomID)
@@ -294,10 +294,10 @@ Ruqola::Ruqola(QObject* parent):
     m_authentication(0)
 {
     QSettings s;
-    m_serverURL = s.value("serverURL", "demo.rocket.chat").toString();
-    m_userName = s.value("username").toString();
-    m_userID = s.value("userID").toString();
-    m_authToken = s.value("authToken").toString();
+    m_serverURL = s.value(QStringLiteral("serverURL"), QStringLiteral("demo.rocket.chat")).toString();
+    m_userName = s.value(QStringLiteral("username")).toString();
+    m_userID = s.value(QStringLiteral("userID")).toString();
+    m_authToken = s.value(QStringLiteral("authToken")).toString();
 }
 
 Ruqola * Ruqola::self()

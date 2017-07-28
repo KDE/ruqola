@@ -36,11 +36,11 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    app.setWindowIcon(QIcon(":/icons/systray.png"));
+    app.setWindowIcon(QIcon(QStringLiteral(":/icons/systray.png")));
 
-    QCoreApplication::setOrganizationName("KDE");
-    QCoreApplication::setOrganizationDomain("kde.org");
-    QCoreApplication::setApplicationName("Ruqola");
+    QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
+    QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
+    QCoreApplication::setApplicationName(QStringLiteral("Ruqola"));
 
     qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
     qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     QQmlContext *ctxt = engine.rootContext();
 #if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
     qmlRegisterType<Notification>("KDE.Ruqola.Notification", 1, 0, "Notification");
-    ctxt->setContextProperty("systrayIcon", Ruqola::self()->notification());
+    ctxt->setContextProperty(QStringLiteral("systrayIcon"), Ruqola::self()->notification());
 #endif
 
 //    ctxt->setContextProperty("attachmentButton", Ruqola::self()->attachmentButtonClicked());

@@ -156,7 +156,7 @@ unsigned int DDPClient::method(const QString& m, const QJsonDocument& params, DD
 unsigned int DDPClient::method(const QString& method, const QJsonDocument& params, std::function<void (QJsonDocument)> callback, DDPClient::MessageType messageType)
 {
     QJsonObject json;
-    json[QStringLiteral("msg")] = "method";
+    json[QStringLiteral("msg")] = QStringLiteral("method");
     json[QStringLiteral("method")] = method;
     json[QStringLiteral("id")] = QString::number(m_uid);
 
@@ -168,7 +168,7 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
         json[QStringLiteral("params")] = arr;
     }
         
-    qint64 bytes = m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
+    qint64 bytes = m_webSocket.sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
         qCDebug(RUQOLA_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qCDebug(RUQOLA_LOG) << m_webSocket.isValid() << m_webSocket.error() << m_webSocket.requestUrl();
@@ -190,12 +190,12 @@ unsigned int DDPClient::method(const QString& method, const QJsonDocument& param
 void DDPClient::subscribe(const QString& collection, const QJsonArray& params)
 {
     QJsonObject json;
-    json[QStringLiteral("msg")] = "sub";
+    json[QStringLiteral("msg")] = QStringLiteral("sub");
     json[QStringLiteral("id")] = QString::number(m_uid);
     json[QStringLiteral("name")] = collection;
     json[QStringLiteral("params")] = params;
     
-    qint64 bytes = m_webSocket.sendTextMessage(QJsonDocument(json).toJson(QJsonDocument::Compact));
+    qint64 bytes = m_webSocket.sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
         qCDebug(RUQOLA_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
     }
@@ -248,7 +248,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
         } else if (messageType == QLatin1String("ping")) {
             qCDebug(RUQOLA_LOG) << "Ping - Pong";
             QJsonObject pong;
-            pong[QStringLiteral("msg")] = "pong";
+            pong[QStringLiteral("msg")] = QStringLiteral("pong");
             m_webSocket.sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
         } else if (messageType == QLatin1String("added")){
             qCDebug(RUQOLA_LOG) << "ADDING" <<root;
@@ -295,13 +295,13 @@ void DDPClient::onWSConnected()
     qCDebug(RUQOLA_LOG) << "Websocket connected at URL" << m_url;
     
     QJsonArray supportedVersions;
-    supportedVersions.append("1");
+    supportedVersions.append(QStringLiteral("1"));
     QJsonObject protocol;
-    protocol[QStringLiteral("msg")] = "connect";
-    protocol[QStringLiteral("version")] = "1";
+    protocol[QStringLiteral("msg")] = QStringLiteral("connect");
+    protocol[QStringLiteral("version")] = QStringLiteral("1");
     protocol[QStringLiteral("support")] = supportedVersions;
     QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
-    qint64 bytes = m_webSocket.sendTextMessage(serialize);
+    qint64 bytes = m_webSocket.sendTextMessage(QString::fromUtf8(serialize));
     if (bytes < serialize.length()) {
         qCDebug(RUQOLA_LOG) << "onWSConnected: ERROR! I couldn't send all of my message. This is a bug! (try again)";
     } else {

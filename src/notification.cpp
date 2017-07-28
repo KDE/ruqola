@@ -47,8 +47,8 @@ void Notification::createTrayIcon(){
     m_trayIconMenu->addSeparator();
 
     setContextMenu(m_trayIconMenu);
-    setToolTip("Ruqola");
-    setIcon(QIcon(":/icons/systray.png"));
+    setToolTip(QStringLiteral("Ruqola"));
+    setIcon(QIcon(QStringLiteral(":/icons/systray.png")));
     setVisible(true);
 
 }
