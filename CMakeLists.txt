@@ -28,7 +28,7 @@ find_package(KF5 REQUIRED COMPONENTS
 
 include(ECMPoQmTools)
 # 
-include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR}) #"3rdparty/peg-markdown-highlight")
+include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
 add_definitions("-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII")
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
