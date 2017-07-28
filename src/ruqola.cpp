@@ -131,7 +131,7 @@ Authentication * Ruqola::authentication()
 
 void Ruqola::attachmentButtonClicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(Q_NULLPTR,
+    const QString fileName = QFileDialog::getOpenFileName(Q_NULLPTR,
                                               tr("Select one or more files to open"),
                                               QDir::homePath(),
                                               tr("Images (*.png *.jpeg *.jpg)"));
@@ -163,9 +163,9 @@ void Ruqola::sendMessage(const QString &roomID, const QString &message, const QS
 }
 
 MessageModel * Ruqola::getModelForRoom(const QString& roomID)
-{
-    if (m_messageModels.contains(roomID)) {
-        return m_messageModels.value(roomID);
+{    
+    if (MessageModel *model = m_messageModels.value(roomID)) {
+        return model;
     } else {
         m_messageModels[roomID] = new MessageModel(roomID, this);
         return m_messageModels[roomID];
@@ -204,12 +204,12 @@ void Ruqola::tryLogin()
     qCDebug(RUQOLA_LOG) << "Attempting login" << userName() << "on" << serverURL();
 
     // Reset model views
-    foreach (const QString key, m_messageModels.keys()) {
+    foreach (const QString &key, m_messageModels.keys()) {
         MessageModel *m = m_messageModels.take(key);
         delete m;
     }
     delete m_ddp;
-    m_ddp = 0;
+    m_ddp = nullptr;
 
     // This creates a new ddp() object.
     // DDP will automatically try to connect and login.
@@ -224,12 +224,12 @@ void Ruqola::tryLogin()
 void Ruqola::tryOAuthLogin()
 {
     // Reset model views
-    foreach (const QString key, m_messageModels.keys()) {
+    foreach (const QString &key, m_messageModels.keys()) {
         MessageModel *m = m_messageModels.take(key);
         delete m;
     }
     delete m_ddp;
-    m_ddp = 0;
+    m_ddp = nullptr;
 
     // This creates a new ddp() object.
     // DDP will automatically try to connect and login.
@@ -287,11 +287,11 @@ RoomWrapper * Ruqola::getRoom(const QString& roomID)
 
 Ruqola::Ruqola(QObject* parent):
     QObject(parent),
-    m_ddp(0),
-    m_messageQueue(0),
-    m_roomModel(0),
-    m_notification(0),
-    m_authentication(0)
+    m_ddp(nullptr),
+    m_messageQueue(nullptr),
+    m_roomModel(nullptr),
+    m_notification(nullptr),
+    m_authentication(nullptr)
 {
     QSettings s;
     m_serverURL = s.value(QStringLiteral("serverURL"), QStringLiteral("demo.rocket.chat")).toString();

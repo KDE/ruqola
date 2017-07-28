@@ -29,13 +29,13 @@
 #include <QtCore/QJsonArray>
 
 
-void process_test(QJsonDocument doc)
+void process_test(const QJsonDocument &doc)
 {
     qCDebug(RUQOLA_LOG) << "Callback test:" << doc;
     qCDebug(RUQOLA_LOG) << "End callback";
 }
 
-void login_callback(QJsonDocument doc)
+void login_callback(const QJsonDocument &doc)
 {
     qCDebug(RUQOLA_LOG) << "LOGIN:" << doc;
     Ruqola::self()->setAuthToken(doc.object().value(QStringLiteral("token")).toString());
@@ -49,7 +49,7 @@ void DDPClient::resume_login_callback(const QJsonDocument &doc)
     qCDebug(RUQOLA_LOG) << "End callback";
 }
 
-void empty_callback(QJsonDocument doc)
+void empty_callback(const QJsonDocument &doc)
 {
     Q_UNUSED(doc);
 }

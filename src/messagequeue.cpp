@@ -92,13 +92,10 @@ MessageQueue::~MessageQueue()
     QFile f(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")));
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
-
-        QQueue<QPair<QString,QJsonDocument>>::iterator it;
         QQueue<QPair<QString,QJsonDocument>> queue = Ruqola::self()->ddp()->messageQueue();
-
-        for ( it = queue.begin(); it != queue.end(); ++it ) {
-            QPair<QString,QJsonDocument> pair = *it;
-            QByteArray ba = serialize(pair);
+        for (QQueue<QPair<QString,QJsonDocument>>::iterator it = queue.begin(), end = queue.end(); it != end; ++it ) {
+            const QPair<QString,QJsonDocument> pair = *it;
+            const QByteArray ba = serialize(pair);
             out.writeBytes(ba, ba.size());
         }
     }

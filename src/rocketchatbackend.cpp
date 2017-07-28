@@ -43,7 +43,7 @@ void rooms_callback(const QJsonDocument &doc)
 {
     RoomModel *model = Ruqola::self()->roomModel();
     
-    QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
+    //QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
     QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
     
     for (int i = 0; i < updated.size(); i++) {
@@ -85,7 +85,7 @@ void subs_callback(const QJsonDocument &doc)
 {
     RoomModel *model = Ruqola::self()->roomModel();
 
-    QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
+    //QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
     QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
     
     for (int i = 0; i < updated.size(); i++) {

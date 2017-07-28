@@ -105,8 +105,8 @@ RoomModel::~RoomModel()
 
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
-        foreach (const Room m, m_roomsList) {            
-            QByteArray ms = RoomModel::serialize(m);
+        for (const Room &m : qAsConst(m_roomsList)) {
+            const QByteArray ms = RoomModel::serialize(m);
             out.writeBytes(ms, ms.size());
         }
     }
@@ -114,7 +114,7 @@ RoomModel::~RoomModel()
 
 void RoomModel::clear()
 {
-    if (m_roomsList.size()) {
+    if (!m_roomsList.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, rowCount()-1);
         m_roomsList.clear();
         QAbstractItemModel::endRemoveRows();
@@ -123,7 +123,7 @@ void RoomModel::clear()
 
 RoomWrapper* RoomModel::findRoom(const QString& roomID) const
 {
-    foreach (const Room r, m_roomsList) {
+    foreach (const Room &r, m_roomsList) {
         if (r.id == roomID) {
             return new RoomWrapper(r);
         }
@@ -186,7 +186,7 @@ QVariant RoomModel::data(const QModelIndex & index, int role) const
 {
     Room r = m_roomsList.at(index.row());
     
-     if (role == RoomModel::RoomName) {
+    if (role == RoomModel::RoomName) {
         return  r.name;
     } else if (role == RoomModel::RoomID) {
         return r.id;
@@ -264,6 +264,3 @@ void RoomModel::addRoom(const Room &room)
     
     Ruqola::self()->getModelForRoom(room.id);
 }
-
-
-// #include "roommodel.moc"

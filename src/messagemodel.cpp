@@ -149,8 +149,8 @@ MessageModel::~MessageModel()
 
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
-        foreach (const Message m, m_allMessages) {            
-            QByteArray ms = MessageModel::serialize(m);
+        for (const Message &m : qAsConst(m_allMessages)) {
+            const QByteArray ms = MessageModel::serialize(m);
             out.writeBytes(ms, ms.size());
         }
     }
@@ -198,8 +198,8 @@ qint64 MessageModel::lastTimestamp() const
 
 int MessageModel::rowCount(const QModelIndex& parent) const
 {
+    Q_UNUSED(parent);
     return m_allMessages.size();
-    (void)parent;
 }
 
 void MessageModel::addMessage(const Message& message)
