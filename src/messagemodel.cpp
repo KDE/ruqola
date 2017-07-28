@@ -209,7 +209,7 @@ void MessageModel::addMessage(const Message& message)
         return;
     }
 
-    auto existingMessage = qFind(m_allMessages.begin(), m_allMessages.end(), message);
+    auto existingMessage = std::find(m_allMessages.begin(), m_allMessages.end(), message);
     bool present = (existingMessage != m_allMessages.end());
     auto i = std::upper_bound(m_allMessages.begin(), m_allMessages.end(), message);
     int pos = i-m_allMessages.begin();
