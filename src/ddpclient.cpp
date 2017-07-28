@@ -123,9 +123,11 @@ DDPClient::LoginType DDPClient::loginType() const
 
 void DDPClient::setLoginType(DDPClient::LoginType t)
 {
-    qCDebug(RUQOLA_LOG) << "Setting login type to" << t;
-    m_loginType = t;
-    emit loginTypeChanged();
+    if (m_loginType != t) {
+        qCDebug(RUQOLA_LOG) << "Setting login type to" << t;
+        m_loginType = t;
+        emit loginTypeChanged();
+    }
 }
 
 bool DDPClient::isConnected() const
