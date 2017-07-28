@@ -55,10 +55,12 @@ QString Ruqola::password() const
 
 void Ruqola::setAuthToken(const QString& token)
 {
-    qCDebug(RUQOLA_LOG) << "Setting token to" << token;
-    QSettings s;
-    m_authToken = token;
-    s.setValue(QStringLiteral("authToken"), token);
+    if (m_authToken != token) {
+        qCDebug(RUQOLA_LOG) << "Setting token to" << token;
+        QSettings s;
+        m_authToken = token;
+        s.setValue(QStringLiteral("authToken"), token);
+    }
 }
 
 void Ruqola::setPassword(const QString& password)
@@ -68,18 +70,22 @@ void Ruqola::setPassword(const QString& password)
 
 void Ruqola::setUserName(const QString& username)
 {
-    m_userName = username;
-    QSettings s;
-    s.setValue(QStringLiteral("username"), username);
-    emit userNameChanged();
+    if (m_userName != username) {
+        m_userName = username;
+        QSettings s;
+        s.setValue(QStringLiteral("username"), username);
+        emit userNameChanged();
+    }
 }
 
 void Ruqola::setUserID(const QString& userID)
 {
-    m_userName = userID;
-    QSettings s;
-    s.setValue(QStringLiteral("userID"), userID);
-    emit userIDChanged();
+    if (m_userName != userID) {
+        m_userName = userID;
+        QSettings s;
+        s.setValue(QStringLiteral("userID"), userID);
+        emit userIDChanged();
+    }
 }
 
 RoomModel * Ruqola::roomModel()
