@@ -87,10 +87,10 @@ Kirigami.ApplicationWindow {
         
         actions: [
            Kirigami.Action {
-               text: "Preferences"
+               text: qsTr("Preferences")
                iconName: "user-available"
                Kirigami.Action {
-                       text: "Change theme"
+                       text: qsTr("Change theme")
                        iconName: "preferences-desktop-theme"
                }
                Kirigami.Action {
@@ -101,7 +101,7 @@ Kirigami.ApplicationWindow {
                }
            },
            Kirigami.Action {
-               text: "Log out"
+               text: qsTr("Log out")
                iconName: "system-log-out"
                onTriggered: {
                    Ruqola.logOut();
