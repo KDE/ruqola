@@ -28,7 +28,6 @@
 
 #include "roommodel.h"
 
-class DDPClient;
 
 class RocketChatBackend : public QObject
 {

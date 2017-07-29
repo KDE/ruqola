@@ -30,7 +30,6 @@
 
 class QJsonObject;
 class QJsonDocument;
-class QUrl;
 class QWebSocket;
 
 class DDPClient : public QObject
