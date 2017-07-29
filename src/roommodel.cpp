@@ -24,7 +24,7 @@
 #include "ruqola.h"
 #include "ruqola_debug.h"
 
-#include <QtCore/QAbstractItemModel>
+#include <QAbstractItemModel>
 #include <QtCore>
 
 Room RoomModel::fromJSon(const QJsonObject& o)

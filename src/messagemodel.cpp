@@ -25,7 +25,6 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QDataStream>
-// #include <QtCore>
 #include <QModelIndex>
 #include <QAbstractListModel>
 
