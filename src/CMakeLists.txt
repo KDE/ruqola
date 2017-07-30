@@ -13,13 +13,9 @@ set (Ruqola_core_srcs
     ${ruqola_QM_LOADER}
 )
 
-# set (PMH_srcs
-#     ../../3rdparty/peg-markdown-highlight/pmh_parser.c
-#     )
-
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
 
-add_library(RuqolaCore STATIC ${Ruqola_core_srcs} ${PMH_srcs})
+add_library(RuqolaCore STATIC ${Ruqola_core_srcs})
 
 target_link_libraries(RuqolaCore
     Qt5::Core
@@ -38,4 +34,4 @@ add_executable(ruqola main.cpp ${RuqolaResources})
 
 target_link_libraries(ruqola RuqolaCore)
 
-install(TARGETS ruqola RUNTIME DESTINATION bin)
+install(TARGETS ruqola ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
