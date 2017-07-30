@@ -167,7 +167,7 @@ function slimdown() {
         MenuItem {
 //             enabled: i_username == Ruqola.userName
             contentItem: Kirigami.Label {
-                text: "Edit"
+                text: qsTr("Edit")
                 enabled: i_username == Ruqola.userName
             }
             onTriggered: {
@@ -177,7 +177,7 @@ function slimdown() {
         }
         MenuItem {
             contentItem: Kirigami.Label {
-                text: "Reply"
+                text: qsTr("Reply")
             }
             onTriggered: {
                 console.log("Reply to", i_messageID);
