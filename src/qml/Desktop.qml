@@ -93,12 +93,6 @@ Kirigami.ApplicationWindow {
                        text: qsTr("Change theme")
                        iconName: "preferences-desktop-theme"
                }
-               Kirigami.Action {
-                       text: "action 2"
-               }
-               Kirigami.Action {
-                       text: "action 3"
-               }
            },
            Kirigami.Action {
                text: qsTr("Log out")
