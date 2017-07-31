@@ -44,7 +44,7 @@ void rooms_callback(const QJsonDocument &doc)
     RoomModel *model = Ruqola::self()->roomModel();
     
     //QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
-    QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
+    const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
     
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
@@ -86,7 +86,7 @@ void subs_callback(const QJsonDocument &doc)
     RoomModel *model = Ruqola::self()->roomModel();
 
     //QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
-    QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
+    const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
     
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
@@ -126,7 +126,7 @@ void subs_callback(const QJsonDocument &doc)
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 {
-    foreach (const QJsonValue &v, messages) {
+    for (const QJsonValue &v : messages) {
         QJsonObject o = v.toObject();
         
         Message m;
@@ -212,8 +212,7 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
         
     } else if (collection == QLatin1String("rooms")) {
 
-    }
-    else if (collection == QLatin1String("stream-notify-user")){
+    } else if (collection == QLatin1String("stream-notify-user")){
 
     }
 }
@@ -221,11 +220,11 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
 
 void RocketChatBackend::onChanged(const QJsonObject &object)
 {
-    QString collection = object[QStringLiteral("collection")].toString();
+    const QString collection = object[QStringLiteral("collection")].toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
         QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
-        QString roomId = fields.value(QStringLiteral("eventName")).toString();
+        //QString roomId = fields.value(QStringLiteral("eventName")).toString();
         QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
         processIncomingMessages(contents);        
 

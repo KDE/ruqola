@@ -52,8 +52,8 @@ int main(int argc, char *argv[])
     RocketChatBackend c;
     QQmlApplicationEngine engine;
 
-    QQmlContext *ctxt = engine.rootContext();
 #if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
+    QQmlContext *ctxt = engine.rootContext();
     qmlRegisterType<Notification>("KDE.Ruqola.Notification", 1, 0, "Notification");
     ctxt->setContextProperty(QStringLiteral("systrayIcon"), Ruqola::self()->notification());
 #endif

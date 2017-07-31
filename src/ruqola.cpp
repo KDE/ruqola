@@ -253,8 +253,8 @@ void Ruqola::logOut()
 {
     QSettings s;
     s.setValue(QStringLiteral("authToken"), QStringLiteral(""));
-    setAuthToken(QStringLiteral(""));
-    setPassword(QStringLiteral(""));
+    setAuthToken(QString());
+    setPassword(QString());
 
     foreach (const QString &key, m_messageModels.keys()) {
         MessageModel *m = m_messageModels.take(key);

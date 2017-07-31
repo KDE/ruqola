@@ -49,10 +49,6 @@ private slots:
     void onLoggedIn();
     void onLoginStatusChanged();
     void onUserIDChanged();
-
-private:
-//     RoomModel *m_rooms;
-
 };
 
 #endif // ROCKETCHATBACKEND_H

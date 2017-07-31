@@ -30,7 +30,6 @@
 Room RoomModel::fromJSon(const QJsonObject& o)
 {
     Room r;
-    
 
     r.id = o[QStringLiteral("id")].toString();
     r.type = o[QStringLiteral("t")].toString();
