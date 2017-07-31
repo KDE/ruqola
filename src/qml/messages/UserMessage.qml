@@ -113,10 +113,10 @@ function slimdown() {
 //         var regex = new RegExp(/\[([^\[]+)\]\(([^\)]+)\)/g);
 //         result = s.replace(regex, '<a href=\'$2\'>$1</a>');
 
-        var regex2 = new RegExp(/#(\w+)/g);
+        var regex2 = new RegExp(/#(\w+(?:\.\w+)?)/g);
         result = result.replace(regex2, '<a href=\'ruqola:/room/$1\'>#$1</a>');
 
-        var regex3 = new RegExp(/@(\w+)/g);
+        var regex3 = new RegExp(/@(\w+(?:\.\w+)?)/g);
         result = result.replace(regex3, '<a href=\'ruqola:/user/$1\'>@$1</a>');
 
         console.log(result)
@@ -267,9 +267,6 @@ function slimdown() {
                     renderType: Text.NativeRendering
                     
                     onLinkActivated: messageMain.linkActivated(link)
-
-
-
                 }
             }
             
