@@ -85,7 +85,6 @@ Kirigami.Page {
             id:username
             width: parent.width
             text: qsTr("Enter your username")
-            
         }
         TextField {
             width: parent.width

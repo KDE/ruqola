@@ -67,7 +67,7 @@ RowLayout {
         
         Layout.fillWidth: true
         placeholderText: {
-            if (Ruqola.loginStatus != DDPClient.LoggedIn || (selectedRoomID=="")){
+            if (Ruqola.loginStatus != DDPClient.LoggedIn || (selectedRoomID == "")){
                 qsTr("Please Select a room")
             } else {
                 qsTr("Enter message")

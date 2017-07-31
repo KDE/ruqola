@@ -75,7 +75,6 @@ Message MessageModel::fromJSon(const QJsonObject& o)
     message.systemMessage = o[QStringLiteral("systemMessage")].toBool();
     message.systemMessageType = o[QStringLiteral("type")].toString();
 
-    
     return message;
 }
 
