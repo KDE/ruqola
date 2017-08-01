@@ -137,7 +137,7 @@ Authentication * Ruqola::authentication()
 
 void Ruqola::attachmentButtonClicked()
 {
-    const QString fileName = QFileDialog::getOpenFileName(Q_NULLPTR,
+    const QString fileName = QFileDialog::getOpenFileName(nullptr,
                                               tr("Select one or more files to open"),
                                               QDir::homePath(),
                                               tr("Images (*.png *.jpeg *.jpg)"));
