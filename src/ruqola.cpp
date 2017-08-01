@@ -149,7 +149,7 @@ void Ruqola::attachmentButtonClicked()
 
     QFile file(fileName);
     if (!file.open(QFile::ReadOnly)) {
-        qCDebug(RUQOLA_LOG) << "Cannot open the selected file";
+        qCDebug(RUQOLA_LOG) << "Cannot open the selected file" << fileName;
         return;
     }
     const QString message = QString::fromLatin1(file.readAll().toBase64());
