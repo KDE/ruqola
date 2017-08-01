@@ -29,8 +29,7 @@
 #include "ruqolautils.h"
 #include "notification.h"
 
-#include <QDebug>
-#include <QtCore/QJsonDocument>
+#include <QJsonDocument>
 #include <QtCore>
 
 int main(int argc, char *argv[])
@@ -41,6 +40,14 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Ruqola"));
+    QCoreApplication::setApplicationVersion(QStringLiteral("0.1"));
+    QCommandLineParser parser;
+
+    //TODO improve it.
+    parser.setApplicationDescription(QObject::tr("Qt Rocket Chat"));
+    parser.addHelpOption();
+    parser.addVersionOption();
+    parser.process(app);
 
     qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
     qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
