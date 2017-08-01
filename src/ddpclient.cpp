@@ -145,7 +145,7 @@ QString DDPClient::cachePath() const
     return QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
 }
 
-QQueue<QPair<QString,QJsonDocument>> DDPClient::messageQueue()
+QQueue<QPair<QString,QJsonDocument>> DDPClient::messageQueue() const
 {
     return m_messageQueue;
 }

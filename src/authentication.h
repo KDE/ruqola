@@ -24,8 +24,7 @@
 #ifndef AUTHENTICATION_H
 #define AUTHENTICATION_H
 
-#include <QtCore>
-#include <QOAuth2AuthorizationCodeFlow>
+#include <QString>
 
 class Authentication
 {
@@ -55,8 +54,6 @@ private:
     bool m_authGranted;
     QString m_clientID;
     QString m_clientSecret;
-    //QOAuth2AuthorizationCodeFlow * m_google;
-
 };
 
 #endif // AUTHENTICATION_H

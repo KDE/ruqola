@@ -123,7 +123,7 @@ public:
     *
     *@return QQueue<QPair<QString,QJsonDocument>>, The m_messageQueue object
     */
-    QQueue<QPair<QString,QJsonDocument>> messageQueue();
+    QQueue<QPair<QString,QJsonDocument>> messageQueue() const;
 
     /**
     * @brief Returns standard cache path

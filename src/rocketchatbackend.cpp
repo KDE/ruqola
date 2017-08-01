@@ -27,11 +27,6 @@
 #include "ruqola.h"
 #include "ddpclient.h"
 
-void debug_callback(const QJsonDocument &doc)
-{
-    qCDebug(RUQOLA_LOG) << "DEBUG:" << doc;
-}
-
 void process_backlog(const QJsonDocument &messages)
 {
     qCDebug(RUQOLA_LOG) << messages.object().value(QStringLiteral("messages")).toArray().size();
