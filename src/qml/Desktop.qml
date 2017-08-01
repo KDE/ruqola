@@ -104,7 +104,7 @@ Kirigami.ApplicationWindow {
            },
            Kirigami.Action {
                 shortcut: StandardKey.Quit
-                text: "Quit"
+                text: qsTr("Quit")
                 iconName: "application-exit"
                 onTriggered: {
                     Qt.quit();
