@@ -252,7 +252,7 @@ void Ruqola::tryOAuthLogin()
 void Ruqola::logOut()
 {
     QSettings s;
-    s.setValue(QStringLiteral("authToken"), QStringLiteral(""));
+    s.setValue(QStringLiteral("authToken"), QString());
     setAuthToken(QString());
     setPassword(QString());
 
