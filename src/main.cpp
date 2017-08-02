@@ -28,6 +28,7 @@
 #include "ruqola.h"
 #include "ruqolautils.h"
 #include "notification.h"
+#include "config-ruqola.h"
 
 #include <QJsonDocument>
 #include <QtCore>
@@ -40,7 +41,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Ruqola"));
-    QCoreApplication::setApplicationVersion(QStringLiteral("0.1"));
+    QCoreApplication::setApplicationVersion(QStringLiteral(RUQOLA_VERSION));
     QCommandLineParser parser;
 
     //TODO improve it.
