@@ -163,10 +163,10 @@ public:
     * @param parent, it is void
     * @return int, The number of messages in QVector m_allMessages
     */
-    virtual int rowCount(const QModelIndex & parent = QModelIndex()) const;
+    int rowCount(const QModelIndex & parent = QModelIndex()) const override;
 
 
-    virtual QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
 
     /**
     * @brief Returns last timestamp of last message in QVector m_allMessages
@@ -192,7 +192,7 @@ public:
     static QByteArray serialize(const Message &message);
 
 protected:
-    virtual QHash<int, QByteArray> roleNames() const;
+    QHash<int, QByteArray> roleNames() const override;
 
 private:
     const QString m_roomID;

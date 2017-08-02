@@ -197,7 +197,4 @@ private:
     friend class Ruqola;
 };
 
-
-// #include "ddpclient.moc"
-
 #endif // DDPCLIENT_H

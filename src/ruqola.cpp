@@ -138,9 +138,9 @@ Authentication * Ruqola::authentication()
 void Ruqola::attachmentButtonClicked()
 {
     const QString fileName = QFileDialog::getOpenFileName(nullptr,
-                                              tr("Select one or more files to open"),
-                                              QDir::homePath(),
-                                              tr("Images (*.png *.jpeg *.jpg)"));
+                                                          tr("Select one or more files to open"),
+                                                          QDir::homePath(),
+                                                          tr("Images (*.png *.jpeg *.jpg)"));
     if (fileName.isEmpty()) {
         return;
     }
@@ -223,7 +223,7 @@ void Ruqola::tryLogin()
 
     // In the meantime, load cache...
     //if(Ruqola::self()->ddp()->isConnected() && Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
-        m_roomModel->reset();
+    m_roomModel->reset();
     //}
 }
 
@@ -244,7 +244,7 @@ void Ruqola::tryOAuthLogin()
     m_roomModel->reset();
 
     if(Ruqola::self()->ddp()->isConnected()){
-       m_authentication->OAuthLogin();
+        m_authentication->OAuthLogin();
     }
 }
 
@@ -318,9 +318,9 @@ Ruqola * Ruqola::self()
         m_self->roomModel()->reset();
 
         // Create systray to show notifications on Desktop
-        #if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
-            m_self->notification();
-        #endif
+#if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
+        m_self->notification();
+#endif
 
         //Initialize the messageQueue object
         m_self->messageQueue();

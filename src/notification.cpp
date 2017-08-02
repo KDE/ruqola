@@ -27,16 +27,25 @@
 #include <QMenu>
 #include <QMessageBox>
 
+Notification::Notification(QObject *parent)
+    : QSystemTrayIcon(parent)
+    , m_quitAction(nullptr)
+    , m_trayIconMenu(nullptr)
+{
+    createActions();
+    createTrayIcon();
+}
 
 //create actions in Menu
-void Notification::createActions(){
+void Notification::createActions()
+{
     m_quitAction = new QAction(tr("&Quit"), this);
     connect(m_quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
 }
 
 //create systrayIcon
-void Notification::createTrayIcon(){
-
+void Notification::createTrayIcon()
+{
     if (!QSystemTrayIcon::isSystemTrayAvailable()) {
         QMessageBox::critical(nullptr, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
         return;
@@ -54,10 +63,3 @@ void Notification::createTrayIcon(){
 }
 
 
-Notification::Notification()
-    : m_quitAction(nullptr),
-      m_trayIconMenu(nullptr)
-{
-    createActions();
-    createTrayIcon();
-}

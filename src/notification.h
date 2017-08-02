@@ -27,12 +27,12 @@
 #include <QAction>
 #include <QMenu>
 
-class Notification: public QSystemTrayIcon
+class Notification : public QSystemTrayIcon
 {
     Q_OBJECT
 
 public:
-    Notification();
+    explicit Notification(QObject *parent = nullptr);
 
 private:
 

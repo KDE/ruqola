@@ -27,6 +27,22 @@
 #include <QAbstractItemModel>
 #include <QtCore>
 
+
+
+RoomWrapper::RoomWrapper(QObject *parent)
+ : QObject(parent)
+{}
+
+RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
+ : QObject(parent)
+{
+    m_name = r.name;
+    m_topic = r.topic;
+    m_unread = r.unread;
+    m_id = r.id;
+    m_selected = r.selected;
+}
+
 Room RoomModel::fromJSon(const QJsonObject& o)
 {
     Room r;
@@ -41,7 +57,7 @@ Room RoomModel::fromJSon(const QJsonObject& o)
     r.jitsiTimeout = o[QStringLiteral("jitsiTimeout")].toDouble();
     r.ro = o[QStringLiteral("ro")].toBool();
     r.unread = o[QStringLiteral("unread")].toInt(0);
-    
+
     return r;
 }
 
@@ -63,20 +79,6 @@ QByteArray RoomModel::serialize(const Room& r)
 
     d.setObject(o);
     return d.toBinaryData();
-}
-
-RoomWrapper::RoomWrapper(QObject *parent)
- : QObject(parent)
-{}
-
-RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
- : QObject(parent)
-{
-    m_name = r.name;
-    m_topic = r.topic;
-    m_unread = r.unread;
-    m_id = r.id;
-    m_selected = r.selected;
 }
 
 QString RoomWrapper::getName() const
