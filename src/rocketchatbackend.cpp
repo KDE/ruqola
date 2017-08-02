@@ -232,7 +232,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
         QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
         QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
-        Ruqola::self()->notification()->showMessage(QStringLiteral("New message"), message, QSystemTrayIcon::Information, 5000 );
+        Ruqola::self()->notification()->showMessage(tr("New message"), message, QSystemTrayIcon::Information, 5000 );
         qCDebug(RUQOLA_LOG) << "New notification" << object.value(QStringLiteral("fields")).toObject();
     }
 }
