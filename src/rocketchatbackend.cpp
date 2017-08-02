@@ -142,7 +142,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         m.meta = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("meta")).toString();
         m.headers = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("headers")).toString();
         m.parsedUrl = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("parsedUrl")).toString();
-        m.imageUrl = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("imageUrl")).toString();
+        m.imageUrl = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("image_url")).toString();
         m.color = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("color")).toString();
         m.alias = o.value(QStringLiteral("alias")).toString();
         m.avatar = o.value(QStringLiteral("avatar")).toString();
