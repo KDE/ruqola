@@ -30,6 +30,7 @@ import org.kde.kirigami 2.1 as Kirigami
 
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.Ruqola 1.0
+import KDE.Ruqola.RuqolaUtils 1.0
 
 
 Rectangle {
@@ -197,9 +198,9 @@ function slimdown() {
 //         spacing: 12
         
         Rectangle {
-            Layout.fillHeight: false
-
             id: avatarRect
+
+            Layout.fillHeight: false
             implicitWidth: 24
             implicitHeight: 24
             
@@ -261,7 +262,7 @@ function slimdown() {
                     anchors.leftMargin: Kirigami.Units.smallSpacing
                     anchors.rightMargin: Kirigami.Units.smallSpacing
                     
-                    text: markdownme(i_messageText)
+                    text: RuqolaUtils.markdownToRichText(i_messageText)
                     wrapMode: Label.Wrap
                     
                     renderType: Text.NativeRendering
@@ -274,6 +275,7 @@ function slimdown() {
         }
         Kirigami.Label {
             id: timestampText
+
             text: Qt.formatTime(new Date(i_timestamp), "hh:mm")
             opacity: .5
             

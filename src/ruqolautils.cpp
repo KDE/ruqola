@@ -21,6 +21,8 @@
  */
 
 #include "ruqolautils.h"
+#include "ruqola_debug.h"
+#include <KTextToHTML>
 RuqolaUtils *RuqolaUtils::m_self = nullptr;
 
 RuqolaUtils::RuqolaUtils(QObject *parent)
@@ -30,7 +32,10 @@ RuqolaUtils::RuqolaUtils(QObject *parent)
 
 QString RuqolaUtils::markdownToRichText(const QString &markDown)
 {
-    return QString();
+    KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys;
+    const QString str = KTextToHTML::convertToHtml(markDown, convertFlags);
+    qCDebug(RUQOLA_LOG) << "markdownToRichText "<<str;
+    return str;
 }
 
 RuqolaUtils *RuqolaUtils::self()

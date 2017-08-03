@@ -26,6 +26,7 @@ target_link_libraries(RuqolaCore
     Qt5::WebSockets
     Qt5::Network
     Qt5::NetworkAuth
+    KF5::CoreAddons
 )
 
 qt5_add_resources(RuqolaResources qml/qml.qrc)
