@@ -35,6 +35,7 @@ class RuqolaUtils : public QObject
 public:
     static RuqolaUtils *self();
     Q_INVOKABLE QString markdownToRichText(const QString &markDown);
+    Q_INVOKABLE void openUrl(const QString &url);
 
 private:
     explicit RuqolaUtils(QObject *parent = nullptr);

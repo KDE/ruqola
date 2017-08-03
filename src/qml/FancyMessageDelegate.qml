@@ -25,6 +25,8 @@ import QtQuick 2.0
 // import "marked.js" as Markdown
 import "js/marked.js" as MarkDown;
 
+import KDE.Ruqola.RuqolaUtils 1.0
+
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 
@@ -72,9 +74,6 @@ Rectangle {
     anchors.bottomMargin: 200
     
 //     anchors.margins: 50
-    function linkActivated(link) {
-        console.log("Link clicked: " + link)
-    }
     
     Loader {
         id: loaded
@@ -102,12 +101,11 @@ Rectangle {
                           }
                          )
             }
-//             loaded.linkActivated.connect(linkActivated)
         }
     }
     Connections {
         target: loaded.item
-        onLinkActivated: linkActivated(link)
+        onLinkActivated: RuqolaUtils.openUrl(link)
     }
 
 }

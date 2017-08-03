@@ -23,6 +23,9 @@
 #include "ruqolautils.h"
 #include "ruqola_debug.h"
 #include <KTextToHTML>
+#include <QDesktopServices>
+#include <QUrl>
+
 RuqolaUtils *RuqolaUtils::m_self = nullptr;
 
 RuqolaUtils::RuqolaUtils(QObject *parent)
@@ -36,6 +39,15 @@ QString RuqolaUtils::markdownToRichText(const QString &markDown)
     const QString str = KTextToHTML::convertToHtml(markDown, convertFlags);
     qCDebug(RUQOLA_LOG) << "markdownToRichText "<<str;
     return str;
+}
+
+void RuqolaUtils::openUrl(const QString &url)
+{
+    if (!url.startsWith(QStringLiteral("ruqola:"))) {
+        QDesktopServices::openUrl(QUrl(url));
+    } else {
+        qDebug() << " url " << url;
+    }
 }
 
 RuqolaUtils *RuqolaUtils::self()
