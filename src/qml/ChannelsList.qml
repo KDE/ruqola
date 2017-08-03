@@ -46,9 +46,6 @@ ScrollablePage {
                 if (!ignoreTextChange)
                     searchTextChanged(text)
             }
-//             height: 
-//             placeholderText: qsTr("Search...")
-//             wrapMode: TextArea.Wrap
         }
     }
     

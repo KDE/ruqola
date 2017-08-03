@@ -221,6 +221,7 @@ Kirigami.ApplicationWindow {
                 Kirigami.Heading {
                     text: "#" +appid.selectedRoom.name
                     level: 3
+                    font.bold: true
                     anchors.right: parent.right
                     anchors.left: parent.left
                     anchors.leftMargin: 2*Kirigami.Units.smallSpacing
