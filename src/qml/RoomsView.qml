@@ -23,6 +23,7 @@
 import QtQuick 2.0
 import org.kde.kirigami 2.1 as Kirigami
 // import QtQuick.Controls 2.2 as QQC
+import KDE.Ruqola.Ruqola 1.0
 
 ListView {
     id: roomsList
@@ -50,10 +51,10 @@ ListView {
             applicationWindow().pageStack.currentIndex = 1;
         }
         onHideRoom: {
-            console.log("Hide room action: unimplemented")
+            Ruqola.hideRoom(d_roomID)
         }
         onLeaveRoom: {
-            console.log("Leave room action: unimplemented")
+            Ruqola.leaveRoom(d_roomID)
         }
     }
 }

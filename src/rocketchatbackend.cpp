@@ -198,6 +198,7 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
 
         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username;
     } else if (collection == QLatin1String("rooms")) {
+        qCDebug(RUQOLA_LOG) << "NEW ROOMS ADDED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {
     }
 }
@@ -214,6 +215,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
     } else if (collection == QLatin1String("users")) {
         qCDebug(RUQOLA_LOG) << "USER CHANGED";
     } else if (collection == QLatin1String("rooms")) {
+        qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {
         QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
         QJsonArray contents = fields.value(QStringLiteral("args")).toArray();

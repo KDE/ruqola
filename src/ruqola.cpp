@@ -167,6 +167,20 @@ void Ruqola::sendMessage(const QString &roomID, const QString &message, const QS
     ddp()->method(QStringLiteral("sendMessage"), QJsonDocument(json), DDPClient::Persistent);
 }
 
+void Ruqola::leaveRoom(const QString &roomID)
+{
+    QJsonArray params;
+    params.append(QJsonValue(roomID));
+    ddp()->method(QStringLiteral("leaveRoom"), QJsonDocument(params), DDPClient::Persistent);
+}
+
+void Ruqola::hideRoom(const QString &roomID)
+{
+    QJsonArray params;
+    params.append(QJsonValue(roomID));
+    ddp()->method(QStringLiteral("hideRoom"), QJsonDocument(params), DDPClient::Persistent);
+}
+
 MessageModel *Ruqola::getModelForRoom(const QString &roomID)
 {
     if (MessageModel *model = m_messageModels.value(roomID)) {
