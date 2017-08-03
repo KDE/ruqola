@@ -32,7 +32,6 @@
 #include "ruqola.h"
 #include "ruqola_debug.h"
 
-
 //Message::MessageStatus Message::messageStatus() const
 //{
 //    return m_messageStatus;
@@ -46,19 +45,18 @@
 //    }
 //}
 
-
-Message MessageModel::fromJSon(const QJsonObject& o)
+Message MessageModel::fromJSon(const QJsonObject &o)
 {
     Message message;
 
     message.messageID = o[QStringLiteral("messageID")].toString();
     message.roomID = o[QStringLiteral("roomID")].toString();
     message.message = o[QStringLiteral("message")].toString();
-    message.timestamp = (qint64) o[QStringLiteral("timestamp")].toDouble();
+    message.timestamp = (qint64)o[QStringLiteral("timestamp")].toDouble();
     message.username = o[QStringLiteral("username")].toString();
     message.userID = o[QStringLiteral("userID")].toString();
-    message.updatedAt = (qint64) o[QStringLiteral("updatedAt")].toDouble();
-    message.editedAt = (qint64) o[QStringLiteral("editedAt")].toDouble();
+    message.updatedAt = (qint64)o[QStringLiteral("updatedAt")].toDouble();
+    message.editedAt = (qint64)o[QStringLiteral("editedAt")].toDouble();
     message.editedByUsername = o[QStringLiteral("editedByUsername")].toString();
     message.editedByUserID = o[QStringLiteral("editedByUserID")].toString();
     message.url = o[QStringLiteral("url")].toString();
@@ -78,7 +76,7 @@ Message MessageModel::fromJSon(const QJsonObject& o)
     return message;
 }
 
-QByteArray MessageModel::serialize(const Message& message)
+QByteArray MessageModel::serialize(const Message &message)
 {
     QJsonDocument d;
     QJsonObject o;
@@ -111,20 +109,20 @@ QByteArray MessageModel::serialize(const Message& message)
     return d.toBinaryData();
 }
 
-MessageModel::MessageModel(const QString &roomID, QObject* parent)
-  : QAbstractListModel(parent),
-  m_roomID(roomID)
+MessageModel::MessageModel(const QString &roomID, QObject *parent)
+    : QAbstractListModel(parent)
+    , m_roomID(roomID)
 {
     qCDebug(RUQOLA_LOG) << "Creating message Model";
     QDir cacheDir(Ruqola::self()->cacheBasePath()+QStringLiteral("/rooms_cache"));
-    
-        // load cache
+
+    // load cache
     if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
         QFile f(cacheDir.absoluteFilePath(roomID));
         if (f.open(QIODevice::ReadOnly)) {
             QDataStream in(&f);
             while (!f.atEnd()) {
-                char * byteArray;
+                char *byteArray;
                 quint32 length;
                 in.readBytes(byteArray, length);
                 QByteArray arr = QByteArray::fromRawData(byteArray, length);
@@ -132,7 +130,7 @@ MessageModel::MessageModel(const QString &roomID, QObject* parent)
                 addMessage(m);
             }
         }
-    }   
+    }
 }
 
 MessageModel::~MessageModel()
@@ -142,7 +140,7 @@ MessageModel::~MessageModel()
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }
-    
+
     QFile f(cacheDir.absoluteFilePath(m_roomID));
 
     if (f.open(QIODevice::WriteOnly)) {
@@ -179,7 +177,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Avatar] = "avatar";
     roles[Groupable] = "groupable";
     roles[ParseUrls] = "parseUrls";
-    
+
     return roles;
 }
 
@@ -193,14 +191,13 @@ qint64 MessageModel::lastTimestamp() const
     }
 }
 
-
-int MessageModel::rowCount(const QModelIndex& parent) const
+int MessageModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return m_allMessages.size();
 }
 
-void MessageModel::addMessage(const Message& message)
+void MessageModel::addMessage(const Message &message)
 {
     // Don't add empty messages
     if (message.message.isEmpty()) {
@@ -212,9 +209,9 @@ void MessageModel::addMessage(const Message& message)
     auto i = std::upper_bound(m_allMessages.begin(), m_allMessages.end(), message);
     int pos = i-m_allMessages.begin();
     bool messageChanged = false;
-    
+
 //     if (qFind(m_allMessages.begin(), m_allMessages.end(), message) != m_allMessages.end()) {
-    if (present){
+    if (present) {
 //     if (pos != m_allMessages.size()) { // we're at the end
 //         qCDebug(RUQOLA_LOG) << "detecting a message change";
         messageChanged = true;
@@ -222,41 +219,39 @@ void MessageModel::addMessage(const Message& message)
     } else {
         beginInsertRows(QModelIndex(), pos, pos);
     }
-    
+
     if (messageChanged) {
         m_allMessages.replace(pos-1, message);
     } else {
         m_allMessages.insert(i, message);
     }
-    
+
     if (messageChanged) {
         emit dataChanged(createIndex(1, 1), createIndex(pos, 1));
-        
     } else {
         endInsertRows();
     }
 }
 
-QVariant MessageModel::data(const QModelIndex& index, int role) const
+QVariant MessageModel::data(const QModelIndex &index, int role) const
 {
-    
     int idx = index.row();
     if (role == MessageModel::Username) {
-        return  m_allMessages.at(idx).username;
+        return m_allMessages.at(idx).username;
     } else if (role == MessageModel::MessageText) {
-        return  m_allMessages.at(idx).message;
-    }  else if (role == MessageModel::Timestamp) {
-        return  QVariant(m_allMessages.at(idx).timestamp);
+        return m_allMessages.at(idx).message;
+    } else if (role == MessageModel::Timestamp) {
+        return QVariant(m_allMessages.at(idx).timestamp);
     } else if (role == MessageModel::UserID) {
-        return  QVariant(m_allMessages.at(idx).userID);
+        return QVariant(m_allMessages.at(idx).userID);
     } else if (role == MessageModel::SystemMessage) {
-        return  QVariant(m_allMessages.at(idx).systemMessage);
+        return QVariant(m_allMessages.at(idx).systemMessage);
     } else if (role == MessageModel::SystemMessageType) {
-        return  QVariant(m_allMessages.at(idx).systemMessageType);
+        return QVariant(m_allMessages.at(idx).systemMessageType);
     } else if (role == MessageModel::MessageID) {
-        return  QVariant(m_allMessages.at(idx).messageID);
-    }else if (role == MessageModel::Alias) {
-        return  QVariant(m_allMessages.at(idx).alias);
+        return QVariant(m_allMessages.at(idx).messageID);
+    } else if (role == MessageModel::Alias) {
+        return QVariant(m_allMessages.at(idx).alias);
     } else {
         return QVariant(QString());
     }

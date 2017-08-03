@@ -35,7 +35,7 @@
 
 class QString;
 
-class Ruqola: public QObject
+class Ruqola : public QObject
 {
     Q_OBJECT
 
@@ -53,7 +53,7 @@ public:
     *
     * @return Returns the singleton object m_self
     */
-    static Ruqola* self();
+    static Ruqola *self();
 
     void setUserName(const QString &username);
     QString userName() const;
@@ -73,7 +73,6 @@ public:
     QString serverURL() const;
     void setServerURL(const QString &serverURL);
 
-
 //     QString activeRoom() const;
 //     void setActiveRoom(const QString &activeRoom);
 
@@ -83,7 +82,6 @@ public:
     Authentication *authentication();
 
     Q_INVOKABLE RoomModel *roomModel();
-
 
     /**
     * @brief Constructs a Json with @param roomID and @param message and @param type, then calls DDPClient's method to send text message over the network
@@ -95,7 +93,7 @@ public:
     *
     * @return MessageModel Pointer, model for room
     */
-    Q_INVOKABLE MessageModel* getModelForRoom(const QString &roomID);
+    Q_INVOKABLE MessageModel *getModelForRoom(const QString &roomID);
 
     /**
     * @brief Reset models, load cache and call DDPClient's object to automatically try to connect and log in via username and password
@@ -117,7 +115,7 @@ public:
     *
     * @return RoomWrapper Pointer, The room model for @param roomID
     */
-    Q_INVOKABLE RoomWrapper* getRoom(const QString &roomID);
+    Q_INVOKABLE RoomWrapper *getRoom(const QString &roomID);
 
     Q_INVOKABLE void attachmentButtonClicked();
 

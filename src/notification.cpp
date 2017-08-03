@@ -59,7 +59,4 @@ void Notification::createTrayIcon()
     setToolTip(QStringLiteral("Ruqola"));
     setIcon(QIcon(QStringLiteral(":/icons/systray.png")));
     setVisible(true);
-
 }
-
-

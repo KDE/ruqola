@@ -48,6 +48,7 @@ public:
     {
         return other.messageID == messageID;
     }
+
     // To be used in sorted insert: timestamp
     inline bool operator<(const Message &other) const
     {
@@ -114,7 +115,6 @@ public:
 
 signals:
 //    void messageStatusChanged();
-
 };
 
 class MessageModel : public QAbstractListModel
@@ -155,7 +155,7 @@ public:
     *
     * @param message The message to be added
     */
-    void addMessage(const Message& message);
+    void addMessage(const Message &message);
 
     /**
     * @brief returns number of messages in QVector m_allMessages
@@ -163,10 +163,9 @@ public:
     * @param parent, it is void
     * @return int, The number of messages in QVector m_allMessages
     */
-    int rowCount(const QModelIndex & parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     /**
     * @brief Returns last timestamp of last message in QVector m_allMessages

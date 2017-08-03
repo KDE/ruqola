@@ -27,7 +27,6 @@
 #include <QtCore>
 #include <QWebSocket>
 
-
 class QJsonObject;
 class QJsonDocument;
 class QWebSocket;
@@ -77,8 +76,7 @@ public:
     * @param messageType The type of message
     * @return unsigned int, the ID of the called method
     */
-    unsigned method(const QString &method, const QJsonDocument &params, std::function<void (QJsonDocument)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
-
+    unsigned method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
 
     /**
     * @brief Subscribes to a collection with name @param collection and parameters @param params
@@ -112,7 +110,6 @@ public:
     */
     bool isLoggedIn() const;
 
-
     /**
     * @brief Reconnects the websocket to new url
     */
@@ -123,7 +120,7 @@ public:
     *
     *@return QQueue<QPair<QString,QJsonDocument>>, The m_messageQueue object
     */
-    QQueue<QPair<QString,QJsonDocument>> messageQueue() const;
+    QQueue<QPair<QString, QJsonDocument> > messageQueue() const;
 
     /**
     * @brief Returns standard cache path
@@ -176,7 +173,7 @@ private:
      *
      * @def QHash unsigned messageID and std::function<void (QJsonDocument)> pointer to callback
      */
-    QHash <unsigned, std::function<void (QJsonDocument)> > m_callbackHash;
+    QHash <unsigned, std::function<void(QJsonDocument)> > m_callbackHash;
 
     unsigned m_loginJob;
     LoginStatus m_loginStatus;
@@ -192,7 +189,7 @@ private:
     *
     * @def QPair QString method and QJsonDocument params
     */
-    QQueue<QPair<QString,QJsonDocument>> m_messageQueue;
+    QQueue<QPair<QString, QJsonDocument> > m_messageQueue;
 
     friend class Ruqola;
 };

@@ -24,9 +24,9 @@
 #include "ddpclient.h"
 #include "ruqola_debug.h"
 
-QPair<QString,QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
+QPair<QString, QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
 {
-    QPair<QString,QJsonDocument> pair;
+    QPair<QString, QJsonDocument> pair;
 
     pair.first = object[QStringLiteral("method")].toString();
     QJsonArray arr = object[QStringLiteral("params")].toArray();
@@ -34,8 +34,7 @@ QPair<QString,QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
     return pair;
 }
 
-
-QByteArray MessageQueue::serialize(const QPair<QString,QJsonDocument> &pair)
+QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
 {
     QJsonDocument d;
     QJsonObject o;
@@ -43,9 +42,9 @@ QByteArray MessageQueue::serialize(const QPair<QString,QJsonDocument> &pair)
     o[QStringLiteral("method")] = QJsonValue(pair.first);
 
     QJsonArray arr;
-    if ( pair.second.isArray() ){
+    if (pair.second.isArray()) {
         arr.append(pair.second.array());
-    } else if ( pair.second.isObject() ) {
+    } else if (pair.second.isObject()) {
         arr.append(pair.second.object());
     }
 
@@ -54,7 +53,6 @@ QByteArray MessageQueue::serialize(const QPair<QString,QJsonDocument> &pair)
     d.setObject(o);
     return d.toBinaryData();
 }
-
 
 MessageQueue::MessageQueue(QObject *parent)
     : QObject(parent)
@@ -68,15 +66,15 @@ MessageQueue::MessageQueue(QObject *parent)
         if (f.open(QIODevice::ReadOnly)) {
             QDataStream in(&f);
             while (!f.atEnd()) {
-                char * byteArray;
+                char *byteArray;
                 quint32 length;
                 in.readBytes(byteArray, length);
                 QByteArray ba = QByteArray::fromRawData(byteArray, length);
-                QPair<QString,QJsonDocument> pair = MessageQueue::fromJson(QJsonDocument::fromBinaryData(ba).object());
+                QPair<QString, QJsonDocument> pair = MessageQueue::fromJson(QJsonDocument::fromBinaryData(ba).object());
 
                 QString method = pair.first;
                 QJsonDocument params = pair.second;
-                Ruqola::self()->ddp()->messageQueue().enqueue(qMakePair(method,params));
+                Ruqola::self()->ddp()->messageQueue().enqueue(qMakePair(method, params));
             }
         }
     }
@@ -92,32 +90,30 @@ MessageQueue::~MessageQueue()
     QFile f(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")));
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
-        QQueue<QPair<QString,QJsonDocument>> queue = Ruqola::self()->ddp()->messageQueue();
-        for (QQueue<QPair<QString,QJsonDocument>>::iterator it = queue.begin(), end = queue.end(); it != end; ++it ) {
-            const QPair<QString,QJsonDocument> pair = *it;
+        QQueue<QPair<QString, QJsonDocument> > queue = Ruqola::self()->ddp()->messageQueue();
+        for (QQueue<QPair<QString, QJsonDocument> >::iterator it = queue.begin(), end = queue.end(); it != end; ++it) {
+            const QPair<QString, QJsonDocument> pair = *it;
             const QByteArray ba = serialize(pair);
             out.writeBytes(ba, ba.size());
         }
     }
 }
 
-
 void MessageQueue::onLoginStatusChanged()
 {
-    if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn && !Ruqola::self()->ddp()->messageQueue().empty()){
+    if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn && !Ruqola::self()->ddp()->messageQueue().empty()) {
         //retry sending messages
         processQueue();
     }
 }
 
-
 void MessageQueue::processQueue()
 {
     //can be optimized using single shot timer
-    while ( Ruqola::self()->loginStatus() == DDPClient::LoggedIn && !Ruqola::self()->ddp()->messageQueue().empty() ){
-            QPair<QString,QJsonDocument> pair = Ruqola::self()->ddp()->messageQueue().head();
-            QString method = pair.first;
-            QJsonDocument params = pair.second;
-            Ruqola::self()->ddp()->method(method, params);
+    while (Ruqola::self()->loginStatus() == DDPClient::LoggedIn && !Ruqola::self()->ddp()->messageQueue().empty()) {
+        QPair<QString, QJsonDocument> pair = Ruqola::self()->ddp()->messageQueue().head();
+        QString method = pair.first;
+        QJsonDocument params = pair.second;
+        Ruqola::self()->ddp()->method(method, params);
     }
 }

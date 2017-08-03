@@ -33,34 +33,32 @@ void process_backlog(const QJsonDocument &messages)
     RocketChatBackend::processIncomingMessages(messages.object().value(QStringLiteral("messages")).toArray());
 }
 
-
 void rooms_callback(const QJsonDocument &doc)
 {
     RoomModel *model = Ruqola::self()->roomModel();
-    
+
     //QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
     const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
-    
+
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
-    
-        if (room.value(QStringLiteral("t")).toString() != QLatin1String("d")) {
 
+        if (room.value(QStringLiteral("t")).toString() != QLatin1String("d")) {
             QString roomID = room.value(QStringLiteral("_id")).toString();
             MessageModel *roomModel = Ruqola::self()->getModelForRoom(roomID);
-            
+
             // let's be extra safe around crashes
             if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
                 Room r;
                 r.id = roomID;
                 r.name = room[QStringLiteral("name")].toString();
                 r.topic = room[QStringLiteral("topic")].toString();
-                                
+
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
 
                 model->addRoom(r);
             }
-            
+
             QJsonArray params;
             params.append(QJsonValue(roomID));
             Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-room-messages"), params);
@@ -73,7 +71,7 @@ void rooms_callback(const QJsonDocument &doc)
             params.append(dateObject);
             Ruqola::self()->ddp()->method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
         }
-    } 
+    }
 }
 
 void subs_callback(const QJsonDocument &doc)
@@ -82,28 +80,26 @@ void subs_callback(const QJsonDocument &doc)
 
     //QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
     const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
-    
+
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
-    
-        if (room.value(QStringLiteral("t")).toString() != QLatin1String("d")) {
 
+        if (room.value(QStringLiteral("t")).toString() != QLatin1String("d")) {
             QString roomID = room.value(QStringLiteral("rid")).toString();
             MessageModel *roomModel = Ruqola::self()->getModelForRoom(roomID);
-            
+
             // let's be extra safe around crashes
             if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
                 Room r;
                 r.id = roomID;
                 r.name = room[QStringLiteral("name")].toString();
                 r.topic = room[QStringLiteral("topic")].toString();
-                                
+
 //                 qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
-                
+
                 model->addRoom(r);
             }
-            
-            
+
             QJsonArray params;
             params.append(QJsonValue(roomID));
             Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-room-messages"), params);
@@ -116,14 +112,14 @@ void subs_callback(const QJsonDocument &doc)
             params.append(dateObject);
             Ruqola::self()->ddp()->method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
         }
-    } 
+    }
 }
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 {
     for (const QJsonValue &v : messages) {
         QJsonObject o = v.toObject();
-        
+
         Message m;
         QString roomId = o.value(QStringLiteral("rid")).toString();
         QString type = o.value(QStringLiteral("t")).toString();
@@ -155,18 +151,18 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         } else {
             m.systemMessage = false;
         }
-        
+
         Ruqola::self()->getModelForRoom(roomId)->addMessage(m);
     }
 }
 
-RocketChatBackend::RocketChatBackend(QObject* parent)
- : QObject(parent)
+RocketChatBackend::RocketChatBackend(QObject *parent)
+    : QObject(parent)
 {
-        connect(Ruqola::self(), &Ruqola::loginStatusChanged, this, &RocketChatBackend::onLoginStatusChanged);
-        connect(Ruqola::self(), &Ruqola::userIDChanged, this, &RocketChatBackend::onUserIDChanged);
-        connect(Ruqola::self()->ddp(), &DDPClient::changed, this, &RocketChatBackend::onChanged);
-        connect(Ruqola::self()->ddp(), &DDPClient::added, this, &RocketChatBackend::onAdded);
+    connect(Ruqola::self(), &Ruqola::loginStatusChanged, this, &RocketChatBackend::onLoginStatusChanged);
+    connect(Ruqola::self(), &Ruqola::userIDChanged, this, &RocketChatBackend::onUserIDChanged);
+    connect(Ruqola::self()->ddp(), &DDPClient::changed, this, &RocketChatBackend::onChanged);
+    connect(Ruqola::self()->ddp(), &DDPClient::added, this, &RocketChatBackend::onAdded);
 }
 
 RocketChatBackend::~RocketChatBackend()
@@ -185,33 +181,26 @@ void RocketChatBackend::onLoginStatusChanged()
 
 void RocketChatBackend::onLoggedIn()
 {
-
 }
 
 void RocketChatBackend::onAdded(const QJsonObject &object)
 {
     QString collection = object.value(QStringLiteral("collection")).toString();
-        
+
     if (collection == QLatin1String("stream-room-messages")) {
-        
     } else if (collection == QLatin1String("users")) {
-        
-        QJsonObject fields =  object.value(QStringLiteral("fields")).toObject();
+        QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
         QString username = fields.value(QStringLiteral("username")).toString();
-        if(username == Ruqola::self()->userName()){
+        if (username == Ruqola::self()->userName()) {
             Ruqola::self()->setUserID(object[QStringLiteral("id")].toString());
             qCDebug(RUQOLA_LOG) << "User id set to " << Ruqola::self()->userID();
         }
 
-         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username;
-        
+        qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username;
     } else if (collection == QLatin1String("rooms")) {
-
-    } else if (collection == QLatin1String("stream-notify-user")){
-
+    } else if (collection == QLatin1String("stream-notify-user")) {
     }
 }
-
 
 void RocketChatBackend::onChanged(const QJsonObject &object)
 {
@@ -221,18 +210,15 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
         //QString roomId = fields.value(QStringLiteral("eventName")).toString();
         QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
-        processIncomingMessages(contents);        
-
+        processIncomingMessages(contents);
     } else if (collection == QLatin1String("users")) {
         qCDebug(RUQOLA_LOG) << "USER CHANGED";
-        
     } else if (collection == QLatin1String("rooms")) {
-
     } else if (collection == QLatin1String("stream-notify-user")) {
         QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
         QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
         QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
-        Ruqola::self()->notification()->showMessage(tr("New message"), message, QSystemTrayIcon::Information, 5000 );
+        Ruqola::self()->notification()->showMessage(tr("New message"), message, QSystemTrayIcon::Information, 5000);
         qCDebug(RUQOLA_LOG) << "New notification" << object.value(QStringLiteral("fields")).toObject();
     }
 }
@@ -244,4 +230,3 @@ void RocketChatBackend::onUserIDChanged()
     params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("notification"))));
     Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
 }
-

@@ -27,14 +27,13 @@
 #include <QAbstractItemModel>
 #include <QtCore>
 
-
-
 RoomWrapper::RoomWrapper(QObject *parent)
- : QObject(parent)
-{}
+    : QObject(parent)
+{
+}
 
 RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
- : QObject(parent)
+    : QObject(parent)
 {
     m_name = r.name;
     m_topic = r.topic;
@@ -43,7 +42,7 @@ RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
     m_selected = r.selected;
 }
 
-Room RoomModel::fromJSon(const QJsonObject& o)
+Room RoomModel::fromJSon(const QJsonObject &o)
 {
     Room r;
 
@@ -61,7 +60,7 @@ Room RoomModel::fromJSon(const QJsonObject& o)
     return r;
 }
 
-QByteArray RoomModel::serialize(const Room& r)
+QByteArray RoomModel::serialize(const Room &r)
 {
     QJsonDocument d;
     QJsonObject o;
@@ -91,9 +90,10 @@ QString RoomWrapper::getTopic() const
     return m_topic;
 }
 
-RoomModel::RoomModel(QObject* parent)
+RoomModel::RoomModel(QObject *parent)
     : QAbstractListModel(parent)
-{}
+{
+}
 
 RoomModel::~RoomModel()
 {
@@ -101,7 +101,7 @@ RoomModel::~RoomModel()
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }
-    
+
     QFile f(cacheDir.absoluteFilePath(QStringLiteral("rooms")));
 
     if (f.open(QIODevice::WriteOnly)) {
@@ -122,7 +122,7 @@ void RoomModel::clear()
     }
 }
 
-RoomWrapper* RoomModel::findRoom(const QString& roomID) const
+RoomWrapper *RoomModel::findRoom(const QString &roomID) const
 {
     foreach (const Room &r, m_roomsList) {
         if (r.id == roomID) {
@@ -139,9 +139,9 @@ void RoomModel::reset()
     if (Ruqola::self()->cacheBasePath().isEmpty()) {
         return;
     }
-    
+
     clear();
-    
+
     QDir cacheDir(Ruqola::self()->cacheBasePath());
     // load cache
     if (cacheDir.exists(cacheDir.path())) {
@@ -149,7 +149,8 @@ void RoomModel::reset()
         if (f.open(QIODevice::ReadOnly)) {
             QDataStream in(&f);
             while (!f.atEnd()) {
-                char * byteArray; quint32 length;
+                char *byteArray;
+                quint32 length;
                 in.readBytes(byteArray, length);
                 QByteArray arr = QByteArray::fromRawData(byteArray, length);
                 Room m = RoomModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
@@ -177,18 +178,18 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     return roles;
 }
 
-int RoomModel::rowCount(const QModelIndex & parent) const
+int RoomModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return m_roomsList.size();
 }
 
-QVariant RoomModel::data(const QModelIndex & index, int role) const
+QVariant RoomModel::data(const QModelIndex &index, int role) const
 {
     Room r = m_roomsList.at(index.row());
-    
+
     if (role == RoomModel::RoomName) {
-        return  r.name;
+        return r.name;
     } else if (role == RoomModel::RoomID) {
         return r.id;
     } else if (role == RoomModel::RoomSelected) {
@@ -212,13 +213,13 @@ QVariant RoomModel::data(const QModelIndex & index, int role) const
     }
 }
 
-void RoomModel::addRoom(const QString& roomID, const QString& roomName, bool selected)
+void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool selected)
 {
     if (roomID.isEmpty() || roomName.isEmpty()) {
         return;
     }
     qCDebug(RUQOLA_LOG) << "Adding room" << roomID << roomName;
-      
+
     Room r;
     r.id = roomID;
     r.name = roomName;
@@ -230,13 +231,13 @@ void RoomModel::addRoom(const Room &room)
 {
     auto existingRoom = std::find(m_roomsList.begin(), m_roomsList.end(), room);
     bool present = (existingRoom != m_roomsList.end());
-    
+
     auto i = std::upper_bound(m_roomsList.begin(), m_roomsList.end(),
-                                               room);
+                              room);
     int pos = i-m_roomsList.begin();
     bool roomChanged = false;
     qCDebug(RUQOLA_LOG) << pos;
-     
+
 //     if (qFind(m_roomsList.begin(), m_roomsList.end(), room) != m_roomsList.end() && pos > 0) {
     if (present) {
 //         qCDebug(RUQOLA_LOG) << (qFind(m_roomsList.begin(), m_roomsList.end(), room) - m_roomsList.begin());
@@ -247,21 +248,19 @@ void RoomModel::addRoom(const Room &room)
     } else {
         beginInsertRows(QModelIndex(), pos, pos);
     }
-    
+
     if (roomChanged) {
         m_roomsList.replace(pos-1, room);
     } else {
         qCDebug(RUQOLA_LOG) << "Inserting room at position" <<pos;
         m_roomsList.insert(i, room);
     }
-    
+
     if (roomChanged) {
         emit dataChanged(createIndex(1, 1), createIndex(pos, 1));
-        
     } else {
         endInsertRows();
     }
-    
-    
+
     Ruqola::self()->getModelForRoom(room.id);
 }

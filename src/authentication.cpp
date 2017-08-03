@@ -20,7 +20,6 @@
  *
  */
 
-
 #include "ruqola.h"
 #include "authentication.h"
 #include "ddpclient.h"
@@ -34,8 +33,8 @@ Authentication::Authentication()
     getDataFromJson();
 }
 
-void Authentication::getDataFromJson(){
-
+void Authentication::getDataFromJson()
+{
     QDir cacheDir(QStringLiteral(":/src"));
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
@@ -45,7 +44,7 @@ void Authentication::getDataFromJson(){
 
     QString val;
     if (f.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            val = QString::fromLatin1(f.readAll());
+        val = QString::fromLatin1(f.readAll());
     }
 
     QJsonDocument document = QJsonDocument::fromJson(val.toUtf8());
@@ -72,9 +71,8 @@ void Authentication::getDataFromJson(){
     s.setValue(QStringLiteral("redirectUrl"), redirectUrl);
 }
 
-
-void Authentication::OAuthLogin() {
-
+void Authentication::OAuthLogin()
+{
     QJsonObject auth;
     QJsonObject authKeys;
     authKeys[QStringLiteral("credentialToken")] = m_clientID;
@@ -110,5 +108,4 @@ void Authentication::OAuthLogin() {
 
 //    qCDebug(RUQOLA_LOG) << "OAuth Json" << json;
 //    Ruqola::self()->ddp()->method("login", QJsonDocument(json));
-
 }

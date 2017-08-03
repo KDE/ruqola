@@ -28,7 +28,6 @@
 
 #include "roommodel.h"
 
-
 class RocketChatBackend : public QObject
 {
     Q_OBJECT

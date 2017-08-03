@@ -33,13 +33,12 @@ class RuqolaUtils : public QObject
 {
     Q_OBJECT
 public:
-    static RuqolaUtils* self();
+    static RuqolaUtils *self();
     Q_INVOKABLE QString markdownToRichText(const QString &markDown);
 
 private:
     explicit RuqolaUtils(QObject *parent = nullptr);
     static RuqolaUtils *m_self;
-    
 };
 
 inline static QObject *ruqolautils_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
@@ -50,4 +49,5 @@ inline static QObject *ruqolautils_singletontype_provider(QQmlEngine *engine, QJ
     RuqolaUtils *utils = RuqolaUtils::self();
     return utils;
 }
+
 #endif // RUQOLAUTILS_H

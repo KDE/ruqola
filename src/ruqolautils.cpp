@@ -23,20 +23,17 @@
 #include "ruqolautils.h"
 RuqolaUtils *RuqolaUtils::m_self = nullptr;
 
-RuqolaUtils::RuqolaUtils(QObject* parent)
+RuqolaUtils::RuqolaUtils(QObject *parent)
     : QObject(parent)
 {
-    
 }
 
-
-QString RuqolaUtils::markdownToRichText(const QString& markDown)
+QString RuqolaUtils::markdownToRichText(const QString &markDown)
 {
-
     return QString();
 }
 
-RuqolaUtils* RuqolaUtils::self()
+RuqolaUtils *RuqolaUtils::self()
 {
     if (!m_self) {
         m_self = new RuqolaUtils;

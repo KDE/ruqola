@@ -26,7 +26,6 @@
 #include <QtCore>
 #include <QObject>
 
-
 class MessageQueue : public QObject
 {
     Q_OBJECT
@@ -46,7 +45,7 @@ public:
     * @param object The Json containing message attributes
     * @return QPair<QString,QJsonDocument>, The pair containing the method and params
     */
-    static QPair<QString,QJsonDocument> fromJson(const QJsonObject &object);
+    static QPair<QString, QJsonDocument> fromJson(const QJsonObject &object);
 
     /**
     * @brief Constructs QBytearray from QPair<QString,QJsonDocument> object
@@ -58,8 +57,6 @@ public:
 
 public slots:
     void onLoginStatusChanged();
-
 };
-
 
 #endif // MESSAGEQUEUE_H

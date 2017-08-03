@@ -26,7 +26,6 @@
 #include <QAbstractListModel>
 #include <QObject>
 
-
 class Room
 {
 public:
@@ -117,7 +116,6 @@ private:
     bool m_selected;
 };
 
-
 class RoomModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -140,8 +138,8 @@ public:
     explicit RoomModel(QObject *parent = nullptr);
     virtual ~RoomModel();
 
-    virtual int rowCount(const QModelIndex & parent = QModelIndex()) const;
-    virtual QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
 
 //     void setCurrentRoom(const QString &newRoom);
 //     QString getCurrentRoom() const;
@@ -153,14 +151,14 @@ public:
     * @param roomName The name of the room
     * @param selected True if room if @param roomID is selected, else false
     */
-    Q_INVOKABLE void addRoom(const QString& roomID, const QString& roomName, bool selected = false);
+    Q_INVOKABLE void addRoom(const QString &roomID, const QString &roomName, bool selected = false);
 
     /**
     * @brief Adds a room to m_roomsList with @param room
     *
     * @param room The room to be added
     */
-    void addRoom(const Room& room);
+    void addRoom(const Room &room);
 
     /**
     * @brief Finds a room with @param roomID in m_roomsList
@@ -168,7 +166,7 @@ public:
     * @param roomID The ID of the room to find
     * @return RoomWrapper Pointer, The pointer to room with @param roomID in m_roomsList, if exists. Else return a new RoomWrapper object
     */
-    RoomWrapper* findRoom(const QString &roomID) const;
+    RoomWrapper *findRoom(const QString &roomID) const;
 
     /**
     * @brief Constructs Room object from QJsonObject (cache)

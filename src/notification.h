@@ -50,5 +50,4 @@ private:
     QMenu *m_trayIconMenu;
 };
 
-
 #endif // NOTIFICATION_H
