@@ -45,6 +45,9 @@ void Authentication::getDataFromJson()
     QString val;
     if (f.open(QIODevice::ReadOnly | QIODevice::Text)) {
         val = QString::fromLatin1(f.readAll());
+    } else {
+        qCWarning(RUQOLA_LOG) << "Impossible to read client_secret.json";
+        //TODO exit ?
     }
 
     QJsonDocument document = QJsonDocument::fromJson(val.toUtf8());
