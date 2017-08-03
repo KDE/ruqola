@@ -125,7 +125,7 @@ MessageModel::MessageModel(const QString &roomID, QObject *parent)
                 char *byteArray;
                 quint32 length;
                 in.readBytes(byteArray, length);
-                QByteArray arr = QByteArray::fromRawData(byteArray, length);
+                const QByteArray arr = QByteArray::fromRawData(byteArray, length);
                 Message m = MessageModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
                 addMessage(m);
             }

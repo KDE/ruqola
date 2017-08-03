@@ -24,35 +24,6 @@
 #include "ddpclient.h"
 #include "ruqola_debug.h"
 
-QPair<QString, QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
-{
-    QPair<QString, QJsonDocument> pair;
-
-    pair.first = object[QStringLiteral("method")].toString();
-    QJsonArray arr = object[QStringLiteral("params")].toArray();
-    pair.second = QJsonDocument(arr);
-    return pair;
-}
-
-QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
-{
-    QJsonDocument d;
-    QJsonObject o;
-
-    o[QStringLiteral("method")] = QJsonValue(pair.first);
-
-    QJsonArray arr;
-    if (pair.second.isArray()) {
-        arr.append(pair.second.array());
-    } else if (pair.second.isObject()) {
-        arr.append(pair.second.object());
-    }
-
-    o[QStringLiteral("params")] = QJsonValue(arr);
-
-    d.setObject(o);
-    return d.toBinaryData();
-}
 
 MessageQueue::MessageQueue(QObject *parent)
     : QObject(parent)
@@ -97,6 +68,36 @@ MessageQueue::~MessageQueue()
             out.writeBytes(ba, ba.size());
         }
     }
+}
+
+QPair<QString, QJsonDocument> MessageQueue::fromJson(const QJsonObject &object)
+{
+    QPair<QString, QJsonDocument> pair;
+
+    pair.first = object[QStringLiteral("method")].toString();
+    QJsonArray arr = object[QStringLiteral("params")].toArray();
+    pair.second = QJsonDocument(arr);
+    return pair;
+}
+
+QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
+{
+    QJsonDocument d;
+    QJsonObject o;
+
+    o[QStringLiteral("method")] = QJsonValue(pair.first);
+
+    QJsonArray arr;
+    if (pair.second.isArray()) {
+        arr.append(pair.second.array());
+    } else if (pair.second.isObject()) {
+        arr.append(pair.second.object());
+    }
+
+    o[QStringLiteral("params")] = QJsonValue(arr);
+
+    d.setObject(o);
+    return d.toBinaryData();
 }
 
 void MessageQueue::onLoginStatusChanged()
