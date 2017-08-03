@@ -71,7 +71,7 @@ Kirigami.BasicListItem {
                 onEntered: parent.active = true;
                 onExited: parent.active = false;
                 onClicked: {
-                    console.log("Hide action - unimplemented")
+                    root.hideRoom(d_roomID)
                 }
             }
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
@@ -89,7 +89,7 @@ Kirigami.BasicListItem {
                 onEntered: parent.active = true;
                 onExited: parent.active = false;
                 onClicked: {
-                    console.log("Leave action: unimplemented")
+                    root.leaveRoom(d_roomID)
                 }
             }
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight

@@ -49,6 +49,11 @@ ListView {
             roomsList.roomSelected(roomID)
             applicationWindow().pageStack.currentIndex = 1;
         }
+        onHideRoom: {
+            console.log("Hide room action: unimplemented")
+        }
+        onLeaveRoom: {
+            console.log("Leave room action: unimplemented")
+        }
     }
-
 }
