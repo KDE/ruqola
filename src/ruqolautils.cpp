@@ -35,6 +35,7 @@ RuqolaUtils::RuqolaUtils(QObject *parent)
 
 QString RuqolaUtils::markdownToRichText(const QString &markDown)
 {
+    qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
     KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys;
     const QString str = KTextToHTML::convertToHtml(markDown, convertFlags);
     qCDebug(RUQOLA_LOG) << "markdownToRichText "<<str;
