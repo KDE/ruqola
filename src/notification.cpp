@@ -32,8 +32,9 @@ Notification::Notification(QObject *parent)
     , m_quitAction(nullptr)
     , m_trayIconMenu(nullptr)
 {
-    createActions();
-    createTrayIcon();
+    if (createTrayIcon()) {
+        createActions();
+    }
 }
 
 //create actions in Menu
@@ -41,22 +42,23 @@ void Notification::createActions()
 {
     m_quitAction = new QAction(tr("&Quit"), this);
     connect(m_quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
-}
-
-//create systrayIcon
-void Notification::createTrayIcon()
-{
-    if (!QSystemTrayIcon::isSystemTrayAvailable()) {
-        QMessageBox::critical(nullptr, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
-        return;
-    }
-
     m_trayIconMenu = new QMenu();
     m_trayIconMenu->addAction(m_quitAction);
     m_trayIconMenu->addSeparator();
 
     setContextMenu(m_trayIconMenu);
+}
+
+//create systrayIcon
+bool Notification::createTrayIcon()
+{
+    if (!QSystemTrayIcon::isSystemTrayAvailable()) {
+        QMessageBox::critical(nullptr, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
+        return false;
+    }
+
     setToolTip(QStringLiteral("Ruqola"));
     setIcon(QIcon(QStringLiteral(":/icons/systray.png")));
     setVisible(true);
+    return true;
 }

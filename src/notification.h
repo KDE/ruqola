@@ -44,7 +44,7 @@ private:
     /**
     * @brief Creates tray icon consisting of actions
     */
-    void createTrayIcon();
+    bool createTrayIcon();
 
     QAction *m_quitAction;
     QMenu *m_trayIconMenu;
