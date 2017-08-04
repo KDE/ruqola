@@ -47,8 +47,20 @@ public:
     RocketChatMessageResult eraseRoom(const QString &roomID, quint64 id);
     RocketChatMessageResult getRoomRoles(const QString &roomID, quint64 id);
     RocketChatMessageResult toggleFavorite(const QString &roomId, bool favorite, quint64 id);
+
+    //save room settings
+    RocketChatMessageResult setRoomName(const QString &roomId, const QString &name, quint64 id);
+
+
     RocketChatMessageResult generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomIsReadOnly(const QString &roomId, bool readOnly, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomHasSystemMessages(const QString &roomId, bool systemMessages, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomIsDefault(const QString &roomId, bool isDefault, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomJoinCode(const QString &roomId, const QString &joinCode, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomTopic(const QString &roomId, const QString &topic, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomDescription(const QString &roomId, const QString &description, quint64 id);
 private:
+    RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
     QJsonDocument::JsonFormat mJsonFormat;
 };
 

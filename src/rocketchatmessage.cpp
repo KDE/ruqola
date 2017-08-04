@@ -83,6 +83,60 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::toggleFavorite(con
     return generateMethod(QStringLiteral("toggleFavorite"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomName(const QString &roomId, const QString &name, quint64 id)
+{
+    return saveRoomSettings(QStringLiteral("roomName"), roomId, name, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomTopic(const QString &roomId, const QString &topic, quint64 id)
+{
+    return saveRoomSettings(QStringLiteral("roomTopic"), roomId, topic, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomDescription(const QString &roomId, const QString &description, quint64 id)
+{
+    return saveRoomSettings(QStringLiteral("roomDescription"), roomId, description, id);
+}
+
+/*
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomType(const QString &roomId, QRocketChatRoom::Type type)
+{
+    switch(type) {
+    case RocketChatMessage::DirectChat:
+        return saveRoomSettings(roomId, "roomType"_l1, "d"_l1);
+    case RocketChatMessage::MultiUserChat:
+        return saveRoomSettings(roomId, "roomType"_l1, "c"_l1);
+    }
+    return {this, RocketChatMessage{"error-invalid-room-type"_l1, tr("Unsupported room type")}.toMessage()};
+}
+*/
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomIsReadOnly(const QString &roomId, bool readOnly, quint64 id)
+{
+    return saveRoomSettings(QStringLiteral("readOnly"), roomId, readOnly, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomHasSystemMessages(const QString &roomId, bool systemMessages, quint64 id)
+{
+    return saveRoomSettings(QStringLiteral("systemMessages"), roomId, systemMessages, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomIsDefault(const QString &roomId, bool isDefault, quint64 id)
+{
+    return saveRoomSettings(QStringLiteral("default"), roomId, isDefault, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomJoinCode(const QString &roomId, const QString &joinCode, quint64 id)
+{
+    return saveRoomSettings(QStringLiteral("joinCode"), roomId, joinCode, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
+{
+    const QJsonArray params{{roomId}, {key}, {value}};
+    return generateMethod(QStringLiteral("saveRoomSettings"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;
