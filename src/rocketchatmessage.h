@@ -30,17 +30,24 @@ public:
     RocketChatMessage();
     ~RocketChatMessage() = default;
 
+    struct RocketChatMessageResult
+    {
+        QString method;
+        QString result;
+        QJsonDocument jsonDocument;
+    };
+
     void setJsonFormat(const QJsonDocument::JsonFormat &jsonFormat);
 
-    QString hideRoom(const QString &roomID, quint64 id);
-    QString leaveRoom(const QString &roomID, quint64 id);
-    QString openRoom(const QString &roomID, quint64 id);
-    QString unarchiveRoom(const QString &roomID, quint64 id);
-    QString archiveRoom(const QString &roomID, quint64 id);
-    QString eraseRoom(const QString &roomID, quint64 id);
-    QString getRoomRoles(const QString &roomID, quint64 id);
-    QString toggleFavorite(const QString &roomId, bool favorite, quint64 id);
-    QString generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
+    RocketChatMessageResult hideRoom(const QString &roomID, quint64 id);
+    RocketChatMessageResult leaveRoom(const QString &roomID, quint64 id);
+    RocketChatMessageResult openRoom(const QString &roomID, quint64 id);
+    RocketChatMessageResult unarchiveRoom(const QString &roomID, quint64 id);
+    RocketChatMessageResult archiveRoom(const QString &roomID, quint64 id);
+    RocketChatMessageResult eraseRoom(const QString &roomID, quint64 id);
+    RocketChatMessageResult getRoomRoles(const QString &roomID, quint64 id);
+    RocketChatMessageResult toggleFavorite(const QString &roomId, bool favorite, quint64 id);
+    RocketChatMessageResult generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
 private:
     QJsonDocument::JsonFormat mJsonFormat;
 };

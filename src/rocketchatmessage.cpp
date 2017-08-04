@@ -35,55 +35,55 @@ void RocketChatMessage::setJsonFormat(const QJsonDocument::JsonFormat &jsonForma
     mJsonFormat = jsonFormat;
 }
 
-QString RocketChatMessage::getRoomRoles(const QString &roomID, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomRoles(const QString &roomID, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID)};
     return generateMethod(QStringLiteral("getRoomRoles"), QJsonDocument(params), id);
 }
 
-QString RocketChatMessage::eraseRoom(const QString &roomID, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::eraseRoom(const QString &roomID, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID)};
     return generateMethod(QStringLiteral("eraseRoom"), QJsonDocument(params), id);
 }
 
-QString RocketChatMessage::archiveRoom(const QString &roomID, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::archiveRoom(const QString &roomID, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID)};
     return generateMethod(QStringLiteral("archiveRoom"), QJsonDocument(params), id);
 }
 
-QString RocketChatMessage::unarchiveRoom(const QString &roomID, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::unarchiveRoom(const QString &roomID, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID)};
     return generateMethod(QStringLiteral("unarchiveRoom"), QJsonDocument(params), id);
 }
 
-QString RocketChatMessage::openRoom(const QString &roomID, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::openRoom(const QString &roomID, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID)};
     return generateMethod(QStringLiteral("openRoom"), QJsonDocument(params), id);
 }
 
-QString RocketChatMessage::leaveRoom(const QString &roomID, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::leaveRoom(const QString &roomID, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID)};
     return generateMethod(QStringLiteral("leaveRoom"), QJsonDocument(params), id);
 }
 
-QString RocketChatMessage::hideRoom(const QString &roomID, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::hideRoom(const QString &roomID, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID)};
     return generateMethod(QStringLiteral("hideRoom"), QJsonDocument(params), id);
 }
 
-QString RocketChatMessage::toggleFavorite(const QString &roomID, bool favorite, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::toggleFavorite(const QString &roomID, bool favorite, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID), {favorite}};
     return generateMethod(QStringLiteral("toggleFavorite"), QJsonDocument(params), id);
 }
 
-QString RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;
     json[QStringLiteral("msg")] = QStringLiteral("method");
@@ -97,6 +97,11 @@ QString RocketChatMessage::generateMethod(const QString &method, const QJsonDocu
         arr.append(params.object());
         json[QStringLiteral("params")] = arr;
     }
-    return QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
+    const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
+    RocketChatMessageResult result;
+    result.jsonDocument = params;
+    result.method = method;
+    result.result = generatedJsonDoc;
+    return result;
 }
 

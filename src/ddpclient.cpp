@@ -157,18 +157,18 @@ quint64 DDPClient::method(const QString &m, const QJsonDocument &params, DDPClie
 
 quint64 DDPClient::method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType)
 {
-    const QString json = mRocketChatMessage->generateMethod(method, params, m_uid);
-    qint64 bytes = m_webSocket.sendTextMessage(json);
-    if (bytes < json.length()) {
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, m_uid);
+    qint64 bytes = m_webSocket.sendTextMessage(result.result);
+    if (bytes < result.result.length()) {
         qCDebug(RUQOLA_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qCDebug(RUQOLA_LOG) << m_webSocket.isValid() << m_webSocket.error() << m_webSocket.requestUrl();
 
         if (messageType == DDPClient::Persistent) {
-            m_messageQueue.enqueue(qMakePair(method, params));
+            m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
             Ruqola::self()->messageQueue()->processQueue();
         }
     } else {
-        qCDebug(RUQOLA_LOG) << "Successfully sent " << json;
+        qCDebug(RUQOLA_LOG) << "Successfully sent " << result.result;
     }
 
     m_callbackHash[m_uid] = callback;
