@@ -30,6 +30,11 @@ RocketChatMessage::RocketChatMessage()
 
 }
 
+void RocketChatMessage::setJsonFormat(const QJsonDocument::JsonFormat &jsonFormat)
+{
+    mJsonFormat = jsonFormat;
+}
+
 QString RocketChatMessage::getRoomRoles(const QString &roomID, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID)};
@@ -95,7 +100,3 @@ QString RocketChatMessage::generateMethod(const QString &method, const QJsonDocu
     return QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
 }
 
-void RocketChatMessage::setJsonFormat(const QJsonDocument::JsonFormat &jsonFormat)
-{
-    mJsonFormat = jsonFormat;
-}

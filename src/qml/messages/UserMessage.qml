@@ -262,7 +262,7 @@ function slimdown() {
                     anchors.leftMargin: Kirigami.Units.smallSpacing
                     anchors.rightMargin: Kirigami.Units.smallSpacing
                     
-                    text: RuqolaUtils.markdownToRichText(i_messageText)
+                    text: markdownme(RuqolaUtils.markdownToRichText(i_messageText))
                     wrapMode: Label.Wrap
                     
                     renderType: Text.NativeRendering
