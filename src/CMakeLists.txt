@@ -10,6 +10,7 @@ set (Ruqola_core_srcs
     notification.cpp
     messagequeue.cpp
     authentication.cpp
+    rocketchatmessage.cpp
     ${ruqola_QM_LOADER}
 )
 
