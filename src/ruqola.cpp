@@ -169,16 +169,12 @@ void Ruqola::sendMessage(const QString &roomID, const QString &message, const QS
 
 void Ruqola::leaveRoom(const QString &roomID)
 {
-    QJsonArray params;
-    params.append(QJsonValue(roomID));
-    ddp()->method(QStringLiteral("leaveRoom"), QJsonDocument(params), DDPClient::Persistent);
+    ddp()->leaveRoom(roomID);
 }
 
 void Ruqola::hideRoom(const QString &roomID)
 {
-    QJsonArray params;
-    params.append(QJsonValue(roomID));
-    ddp()->method(QStringLiteral("hideRoom"), QJsonDocument(params), DDPClient::Persistent);
+    ddp()->hideRoom(roomID);
 }
 
 MessageModel *Ruqola::getModelForRoom(const QString &roomID)

@@ -23,6 +23,8 @@
 #ifndef DDPCLIENT_H
 #define DDPCLIENT_H
 
+#include "rocketchatmessage.h"
+
 #include <functional>
 #include <QtCore>
 #include <QWebSocket>
@@ -78,6 +80,8 @@ public:
     */
     quint64 method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
 
+    quint64 method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
+
     /**
     * @brief Subscribes to a collection with name @param collection and parameters @param params
     *
@@ -129,6 +133,8 @@ public:
     */
     QString cachePath() const;
 
+    quint64 leaveRoom(const QString &roomID);
+    quint64 hideRoom(const QString &roomID);
 signals:
     void connectedChanged();
     void loginStatusChanged();
