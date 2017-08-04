@@ -31,8 +31,7 @@ RocketChatMessage::RocketChatMessage()
 
 QString RocketChatMessage::hideRoom(const QString &roomID, unsigned id)
 {
-    QJsonArray params;
-    params.append(QJsonValue(roomID));
+    const QJsonArray params{QJsonValue(roomID)};
     return generateMethod(QStringLiteral("hideRoom"), QJsonDocument(params), id);
 }
 
