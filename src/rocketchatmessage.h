@@ -31,7 +31,7 @@ public:
     ~RocketChatMessage() = default;
     QString hideRoom(const QString &roomID, unsigned id);
 private:
-    QString generateMethod(const QString &method, const QJsonDocument &params, unsigned id);
+    QString generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
 };
 
 #endif // ROCKETCHATMESSAGE_H

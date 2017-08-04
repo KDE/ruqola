@@ -166,7 +166,7 @@ private:
     /**
      * @brief Unique message ID for each message sent over network
      */
-    unsigned m_uid;
+    quint64 m_uid;
 
     /**
      * @brief Stores callback function associated with each message

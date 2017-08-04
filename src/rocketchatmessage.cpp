@@ -35,7 +35,7 @@ QString RocketChatMessage::hideRoom(const QString &roomID, unsigned id)
     return generateMethod(QStringLiteral("hideRoom"), QJsonDocument(params), id);
 }
 
-QString RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, unsigned id)
+QString RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;
     json[QStringLiteral("msg")] = QStringLiteral("method");
