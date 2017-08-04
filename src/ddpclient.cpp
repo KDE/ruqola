@@ -23,6 +23,7 @@
 #include "ddpclient.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
+#include "rocketchatmessage.h"
 
 #include <QtCore/QJsonDocument>
 #include <QtCore/QJsonObject>
@@ -63,6 +64,7 @@ DDPClient::DDPClient(const QString &url, QObject *parent)
     , m_connected(false)
     , m_attemptedPasswordLogin(false)
     , m_attemptedTokenLogin(false)
+    , mRocketChatMessage(new RocketChatMessage)
 {
     m_webSocket.ignoreSslErrors();
     connect(&m_webSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
@@ -79,6 +81,7 @@ DDPClient::DDPClient(const QString &url, QObject *parent)
 DDPClient::~DDPClient()
 {
     m_webSocket.close();
+    delete mRocketChatMessage;
 }
 
 void DDPClient::onServerURLChange()
@@ -147,27 +150,15 @@ QQueue<QPair<QString, QJsonDocument> > DDPClient::messageQueue() const
     return m_messageQueue;
 }
 
-unsigned int DDPClient::method(const QString &m, const QJsonDocument &params, DDPClient::MessageType messageType)
+quint64 DDPClient::method(const QString &m, const QJsonDocument &params, DDPClient::MessageType messageType)
 {
     return method(m, params, empty_callback, messageType);
 }
 
-unsigned int DDPClient::method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType)
+quint64 DDPClient::method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType)
 {
-    QJsonObject json;
-    json[QStringLiteral("msg")] = QStringLiteral("method");
-    json[QStringLiteral("method")] = method;
-    json[QStringLiteral("id")] = QString::number(m_uid);
-
-    if (params.isArray()) {
-        json[QStringLiteral("params")] = params.array();
-    } else if (params.isObject()) {
-        QJsonArray arr;
-        arr.append(params.object());
-        json[QStringLiteral("params")] = arr;
-    }
-
-    qint64 bytes = m_webSocket.sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
+    const QString json = mRocketChatMessage->generateMethod(method, params, m_uid);
+    qint64 bytes = m_webSocket.sendTextMessage(json);
     if (bytes < json.length()) {
         qCDebug(RUQOLA_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qCDebug(RUQOLA_LOG) << m_webSocket.isValid() << m_webSocket.error() << m_webSocket.requestUrl();

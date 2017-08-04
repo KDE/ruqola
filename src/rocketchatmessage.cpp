@@ -25,6 +25,7 @@
 #include <QJsonObject>
 
 RocketChatMessage::RocketChatMessage()
+    : mJsonFormat(QJsonDocument::Compact)
 {
 
 }
@@ -34,7 +35,6 @@ QString RocketChatMessage::getRoomRoles(const QString &roomID, quint64 id)
     const QJsonArray params{QJsonValue(roomID)};
     return generateMethod(QStringLiteral("getRoomRoles"), QJsonDocument(params), id);
 }
-
 
 QString RocketChatMessage::eraseRoom(const QString &roomID, quint64 id)
 {
@@ -54,7 +54,6 @@ QString RocketChatMessage::unarchiveRoom(const QString &roomID, quint64 id)
     return generateMethod(QStringLiteral("unarchiveRoom"), QJsonDocument(params), id);
 }
 
-
 QString RocketChatMessage::openRoom(const QString &roomID, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID)};
@@ -73,6 +72,12 @@ QString RocketChatMessage::hideRoom(const QString &roomID, quint64 id)
     return generateMethod(QStringLiteral("hideRoom"), QJsonDocument(params), id);
 }
 
+QString RocketChatMessage::toggleFavorite(const QString &roomID, bool favorite, quint64 id)
+{
+    const QJsonArray params{QJsonValue(roomID), {favorite}};
+    return generateMethod(QStringLiteral("toggleFavorite"), QJsonDocument(params), id);
+}
+
 QString RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;
@@ -87,5 +92,10 @@ QString RocketChatMessage::generateMethod(const QString &method, const QJsonDocu
         arr.append(params.object());
         json[QStringLiteral("params")] = arr;
     }
-    return QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact));
+    return QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
+}
+
+void RocketChatMessage::setJsonFormat(const QJsonDocument::JsonFormat &jsonFormat)
+{
+    mJsonFormat = jsonFormat;
 }

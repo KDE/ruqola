@@ -29,7 +29,7 @@
 
 class QJsonObject;
 class QJsonDocument;
-class QWebSocket;
+class RocketChatMessage;
 
 class DDPClient : public QObject
 {
@@ -65,7 +65,7 @@ public:
     * @param messageType The type of message
     * @return unsigned int, the ID of the called method
     */
-    unsigned method(const QString &method, const QJsonDocument &params, DDPClient::MessageType messageType = DDPClient::Ephemeral);
+    quint64 method(const QString &method, const QJsonDocument &params, DDPClient::MessageType messageType = DDPClient::Ephemeral);
 
     /**
     * @brief Send message over network
@@ -76,7 +76,7 @@ public:
     * @param messageType The type of message
     * @return unsigned int, the ID of the called method
     */
-    unsigned method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
+    quint64 method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
 
     /**
     * @brief Subscribes to a collection with name @param collection and parameters @param params
@@ -192,6 +192,7 @@ private:
     QQueue<QPair<QString, QJsonDocument> > m_messageQueue;
 
     friend class Ruqola;
+    RocketChatMessage *mRocketChatMessage;
 };
 
 #endif // DDPCLIENT_H

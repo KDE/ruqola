@@ -30,6 +30,8 @@ public:
     RocketChatMessage();
     ~RocketChatMessage() = default;
 
+    void setJsonFormat(const QJsonDocument::JsonFormat &jsonFormat);
+
     QString hideRoom(const QString &roomID, quint64 id);
     QString leaveRoom(const QString &roomID, quint64 id);
     QString openRoom(const QString &roomID, quint64 id);
@@ -37,8 +39,10 @@ public:
     QString archiveRoom(const QString &roomID, quint64 id);
     QString eraseRoom(const QString &roomID, quint64 id);
     QString getRoomRoles(const QString &roomID, quint64 id);
-private:
+    QString toggleFavorite(const QString &roomId, bool favorite, quint64 id);
     QString generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
+private:
+    QJsonDocument::JsonFormat mJsonFormat;
 };
 
 #endif // ROCKETCHATMESSAGE_H
