@@ -29,7 +29,14 @@ class RocketChatMessage
 public:
     RocketChatMessage();
     ~RocketChatMessage() = default;
-    QString hideRoom(const QString &roomID, unsigned id);
+
+    QString hideRoom(const QString &roomID, quint64 id);
+    QString leaveRoom(const QString &roomID, quint64 id);
+    QString openRoom(const QString &roomID, quint64 id);
+    QString unarchiveRoom(const QString &roomID, quint64 id);
+    QString archiveRoom(const QString &roomID, quint64 id);
+    QString eraseRoom(const QString &roomID, quint64 id);
+    QString getRoomRoles(const QString &roomID, quint64 id);
 private:
     QString generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
 };
