@@ -102,10 +102,8 @@ QByteArray MessageQueue::serialize(const QPair<QString, QJsonDocument> &pair)
 
 void MessageQueue::onLoginStatusChanged()
 {
-    if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn && !Ruqola::self()->ddp()->messageQueue().empty()) {
-        //retry sending messages
-        processQueue();
-    }
+    //retry sending messages
+    processQueue();
 }
 
 void MessageQueue::processQueue()
