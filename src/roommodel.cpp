@@ -218,7 +218,7 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
     if (roomID.isEmpty() || roomName.isEmpty()) {
         return;
     }
-    qCDebug(RUQOLA_LOG) << "Adding room" << roomID << roomName;
+    qCDebug(RUQOLA_LOG) << "Adding room : roomId: " << roomID << " room Name " << roomName << " isSelected : " << selected;
 
     Room r;
     r.id = roomID;

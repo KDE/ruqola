@@ -134,8 +134,9 @@ Authentication *Ruqola::authentication()
     return m_authentication;
 }
 
-void Ruqola::attachmentButtonClicked()
+void Ruqola::attachmentButtonClicked(const QString &roomId)
 {
+    qDebug() << " void Ruqola::attachmentButtonClicked(const QString &roomId)" << roomId;
     const QString fileName = QFileDialog::getOpenFileName(nullptr,
                                                           tr("Select one or more files to open"),
                                                           QDir::homePath(),
@@ -152,7 +153,7 @@ void Ruqola::attachmentButtonClicked()
         return;
     }
     const QString message = QString::fromLatin1(file.readAll().toBase64());
-    const QString roomID(QStringLiteral("3cGRyFLWgnPL7B79n")); //hard code roomID for now
+    const QString roomID(roomId);
     const QString type(QStringLiteral("image"));
     sendMessage(roomID, message, type);
 }

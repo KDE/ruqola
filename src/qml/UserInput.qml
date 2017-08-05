@@ -57,7 +57,7 @@ RowLayout {
         height: messageLine.height/2
         MouseArea {
             anchors.fill: parent
-            onClicked: Ruqola.attachmentButtonClicked();
+            onClicked: Ruqola.attachmentButtonClicked(selectedRoomID);
         }
     }
     TextField {
