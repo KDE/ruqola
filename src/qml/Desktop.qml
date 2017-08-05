@@ -63,16 +63,16 @@ Kirigami.ApplicationWindow {
     pageStack.initialPage: [roomsComponent, mainComponent]
     pageStack.visible: Ruqola.loginStatus == DDPClient.LoggedIn
 
-//     Keys.onShortcutOverride: event.accepted = (event.key === StandardKey.Quit)
+    //     Keys.onShortcutOverride: event.accepted = (event.key === StandardKey.Quit)
 
-//     Shortcut {
-//         sequence: StandardKey.Quit
-//         context: Qt.ApplicationShortcut
-//         onActivated: {
-//             console.log("QUITTING (trying)");
-//             Qt.quit();
-//         }
-//     }
+    //     Shortcut {
+    //         sequence: StandardKey.Quit
+    //         context: Qt.ApplicationShortcut
+    //         onActivated: {
+    //             console.log("QUITTING (trying)");
+    //             Qt.quit();
+    //         }
+    //     }
 
     globalDrawer: Kirigami.GlobalDrawer {
         drawerOpen: false
@@ -86,30 +86,30 @@ Kirigami.ApplicationWindow {
         ]
         
         actions: [
-           Kirigami.Action {
-               text: qsTr("Preferences")
-               iconName: "user-available"
-               Kirigami.Action {
-                       text: qsTr("Change theme")
-                       iconName: "preferences-desktop-theme"
-               }
-           },
-           Kirigami.Action {
-               text: qsTr("Log out")
-               iconName: "system-log-out"
-               onTriggered: {
-                   Ruqola.logOut();
-                   appid.globalDrawer.drawerOpen = false;
-               }
-           },
-           Kirigami.Action {
+            Kirigami.Action {
+                text: qsTr("Preferences")
+                iconName: "user-available"
+                Kirigami.Action {
+                    text: qsTr("Change theme")
+                    iconName: "preferences-desktop-theme"
+                }
+            },
+            Kirigami.Action {
+                text: qsTr("Log out")
+                iconName: "system-log-out"
+                onTriggered: {
+                    Ruqola.logOut();
+                    appid.globalDrawer.drawerOpen = false;
+                }
+            },
+            Kirigami.Action {
                 shortcut: StandardKey.Quit
                 text: qsTr("Quit")
                 iconName: "application-exit"
                 onTriggered: {
                     Qt.quit();
                 }
-           }
+            }
         ]
     }
     
@@ -123,7 +123,7 @@ Kirigami.ApplicationWindow {
             Ruqola.password = loginTab.password;
             Ruqola.userName = loginTab.username;
             Ruqola.serverURL = loginTab.serverURL;
-//            DDPClient.loginType = Password;
+            //            DDPClient.loginType = Password;
             Ruqola.tryLogin();
         }
     }
@@ -131,7 +131,7 @@ Kirigami.ApplicationWindow {
 
     BusyIndicator {
         id: busy
-//         indeterminate: true
+        //         indeterminate: true
         anchors.centerIn: parent
         visible: Ruqola.loginStatus == DDPClient.LoggingIn
     }
@@ -144,13 +144,13 @@ Kirigami.ApplicationWindow {
             actions.main: Kirigami.Action {
                 id: editAction
                 iconName: "list-add"
-//                 checkable: true
+                //                 checkable: true
                 onTriggered: {
-                        channelsList.open();
+                    channelsList.open();
                 }
             }
             actions.left: Kirigami.Action {
-//                 enabled: editAction.checked
+                //                 enabled: editAction.checked
                 iconName: "edit-symbolic"
                 checkable: true
                 onToggled: {
@@ -169,35 +169,35 @@ Kirigami.ApplicationWindow {
             
             mainItem:
                 
-//                 QQC2.TextField {
-//                     id: searchField
-//                     placeholderText: qsTr("Search...")
-//                     width: parent.width
-//                 }
+                //                 QQC2.TextField {
+                //                     id: searchField
+                //                     placeholderText: qsTr("Search...")
+                //                     width: parent.width
+                //                 }
                 RoomsView {
-                    
-                    id: roomsList
-                    implicitWidth: Kirigami.Units.gridUnit * 10
-                    anchors.fill: parent
-//                     width: parent.width
-//                     height: parent.height 
-                    model: Ruqola.roomModel()
-                    selectedRoomID: appid.selectedRoomID;
-                    onRoomSelected: {
-                        if (roomID == selectedRoomID) {
-                            return;
-                        }
-                        console.log("Choosing room", roomID);
-                        appid.selectedRoomID = roomID;
-                        appid.model = Ruqola.getModelForRoom(roomID)
-                        appid.selectedRoom = Ruqola.getRoom(roomID)
+
+                id: roomsList
+                implicitWidth: Kirigami.Units.gridUnit * 10
+                anchors.fill: parent
+                //                     width: parent.width
+                //                     height: parent.height
+                model: Ruqola.roomModel()
+                selectedRoomID: appid.selectedRoomID;
+                onRoomSelected: {
+                    if (roomID == selectedRoomID) {
+                        return;
                     }
+                    console.log("Choosing room", roomID);
+                    appid.selectedRoomID = roomID;
+                    appid.model = Ruqola.getModelForRoom(roomID)
+                    appid.selectedRoom = Ruqola.getRoom(roomID)
+                }
                 
             } //RoomsView
             Kirigami.OverlaySheet {
                 id: channelsList
                 contentItem: ChannelsList {
-//                     anchors.fill: parent
+                    //                     anchors.fill: parent
                     
                 }
                 
@@ -246,9 +246,9 @@ Kirigami.ApplicationWindow {
             ListView {
                 id: activeChat
                 model: appid.model
-//                 anchors.top: mainWidget.top
-//                 anchors.bottom: footerItem.top
-//                 anchors.bottomPadding: 100// footerItem.height
+                //                 anchors.top: mainWidget.top
+                //                 anchors.bottom: footerItem.top
+                //                 anchors.bottomPadding: 100// footerItem.height
                 
                 onCountChanged: {
                     positionViewAtIndex(count - 1, ListView.Beginning)
@@ -258,19 +258,19 @@ Kirigami.ApplicationWindow {
                 visible : count > 0
 
                 delegate: FancyMessageDelegate {
-                            width: parent.width
-                            i_messageText: messageText
-                            i_username: username
-                            i_systemMessage: systemMessage
-                            i_systemMessageType: type
-                            i_timestamp: timestamp
-                            i_messageID: messageID
+                    width: parent.width
+                    i_messageText: messageText
+                    i_username: username
+                    i_systemMessage: systemMessage
+                    i_systemMessageType: type
+                    i_timestamp: timestamp
+                    i_messageID: messageID
                 }
             }
             footer: UserInput {
                 id: footerItem
             }
-               
+
             
         }// mainWidget Item
     }
@@ -292,11 +292,11 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-          systrayIcon.activated.connect(toggleShow);
-          systrayIcon.messageClicked.connect(toggleShow);
+        systrayIcon.activated.connect(toggleShow);
+        systrayIcon.messageClicked.connect(toggleShow);
     }
 
-/*
+    /*
     Timer {
         id: timer
         interval: 1000
@@ -315,5 +315,5 @@ Kirigami.ApplicationWindow {
         repeat: true
     }*/
 
-//    onStatusTextChanged: timer.restart();
+    //    onStatusTextChanged: timer.restart();
 }

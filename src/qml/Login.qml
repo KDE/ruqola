@@ -45,7 +45,7 @@ Kirigami.Page {
 
     
     id: loginForm
-//     color: "#eeeeee"
+    //     color: "#eeeeee"
     implicitHeight: 400
     implicitWidth: 300
 
@@ -76,7 +76,7 @@ Kirigami.Page {
         }
         TextField {
             id: urlField
-//             text: loginForm.serverURL
+            //             text: loginForm.serverURL
             width: parent.width
             placeholderText: qsTr("Enter address of the server")
         }
@@ -125,16 +125,16 @@ Kirigami.Page {
             id: oauthButton
             width: parent.width
             text: qsTr("Log in with Google Account")
-//           enabled: (passField.text && urlField.text && usernameField.text)
+            //           enabled: (passField.text && urlField.text && usernameField.text)
             onClicked: loginForm.oauthAccepted()
             visible: false
         }
         
     }
     
-//     Component.onCompleted: {
-//         acceptingButton.clicked.connect(loginForm.accepted)
-//     }
+    //     Component.onCompleted: {
+    //         acceptingButton.clicked.connect(loginForm.accepted)
+    //     }
     
-     
+
 }

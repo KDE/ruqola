@@ -51,7 +51,7 @@ RowLayout {
         id: attachment
         enabled: selectedRoomID !== ""
         source: "document-send-symbolic"
-//                     anchors.right: parent.left
+        //                     anchors.right: parent.left
         anchors.bottom: parent.bottom
         anchors.top: parent.top
         width: height
@@ -91,9 +91,9 @@ RowLayout {
         width: height
     }
 
-//                 Rectangle {
-//                     anchors.fill: footerItem
-//                     color: Kirigami.Theme.viewBackgroundColor
-//                     z: -1
-//                 }
+    //                 Rectangle {
+    //                     anchors.fill: footerItem
+    //                     color: Kirigami.Theme.viewBackgroundColor
+    //                     z: -1
+    //                 }
 }

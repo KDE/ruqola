@@ -66,14 +66,14 @@ Rectangle {
 
     id: messageMain
     color: "#eeeeee"
-//     implicitHeight: textLabel.contentHeight
+    //     implicitHeight: textLabel.contentHeight
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.implicitHeight
     
     implicitWidth: 150
     
     anchors.bottomMargin: 200
     
-//     anchors.margins: 50
+    //     anchors.margins: 50
     
     Loader {
         id: loaded
@@ -82,7 +82,7 @@ Rectangle {
         
         Component.onCompleted: {
             if (i_systemMessage) {
-                setSource("messages/SystemMessage.qml", 
+                setSource("messages/SystemMessage.qml",
                           {
                               i_messageText: i_messageText,
                               i_username: i_username,
@@ -90,16 +90,16 @@ Rectangle {
                               i_systemMessageType: i_systemMessageType,
                               i_messageID: i_messageID
                           }
-                         )
+                          )
             } else {
-                setSource("messages/UserMessage.qml", 
+                setSource("messages/UserMessage.qml",
                           {
                               i_messageText: i_messageText,
                               i_username: i_username,
                               i_timestamp: i_timestamp,
                               i_messageID: i_messageID
                           }
-                         )
+                          )
             }
         }
     }
