@@ -82,6 +82,10 @@ RowLayout {
                 text = "";
             }
         }
+        onTextChanged: {
+            //Inform that we type.
+            //console.log("Text changed " + text)
+        }
     }
     
     Kirigami.Icon {
