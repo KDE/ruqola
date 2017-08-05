@@ -49,6 +49,7 @@ RowLayout {
     
     Kirigami.Icon {
         id: attachment
+        enabled: selectedRoomID !== ""
         source: "document-send-symbolic"
 //                     anchors.right: parent.left
         anchors.bottom: parent.bottom
