@@ -37,7 +37,8 @@ void rooms_callback(const QJsonDocument &doc)
 {
     RoomModel *model = Ruqola::self()->roomModel();
 
-    //QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
+    QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
+    qDebug() << " room removed " << removed;
     const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
 
     for (int i = 0; i < updated.size(); i++) {
@@ -78,7 +79,8 @@ void subs_callback(const QJsonDocument &doc)
 {
     RoomModel *model = Ruqola::self()->roomModel();
 
-    //QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
+    QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
+    qDebug() << " subs_callback room " << removed;
     const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
 
     for (int i = 0; i < updated.size(); i++) {
@@ -122,6 +124,8 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 
         Message m;
         QString roomId = o.value(QStringLiteral("rid")).toString();
+
+        //t ? I can't find ir.
         QString type = o.value(QStringLiteral("t")).toString();
 
         m.messageID = o.value(QStringLiteral("_id")).toString();
