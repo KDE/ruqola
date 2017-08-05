@@ -59,6 +59,13 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::unarchiveRoom(cons
     return generateMethod(QStringLiteral("unarchiveRoom"), QJsonDocument(params), id);
 }
 
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::readMessages(const QString &roomID, quint64 id)
+{
+    const QJsonArray params{QJsonValue(roomID)};
+    return generateMethod(QStringLiteral("readMessages"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::openRoom(const QString &roomID, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID)};
@@ -136,6 +143,13 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveRoomSettings(c
     const QJsonArray params{{roomId}, {key}, {value}};
     return generateMethod(QStringLiteral("saveRoomSettings"), QJsonDocument(params), id);
 }
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QString &roomId, const QString &accessCode, quint64 id)
+{
+    const QJsonArray params{{roomId}, {accessCode}};
+    return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
+}
+
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {

@@ -59,6 +59,8 @@ public:
     RocketChatMessage::RocketChatMessageResult setRoomJoinCode(const QString &roomId, const QString &joinCode, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomTopic(const QString &roomId, const QString &topic, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomDescription(const QString &roomId, const QString &description, quint64 id);
+    RocketChatMessage::RocketChatMessageResult readMessages(const QString &roomID, quint64 id);
+    RocketChatMessage::RocketChatMessageResult joinRoom(const QString &roomId, const QString &accessCode, quint64 id);
 private:
     RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
     QJsonDocument::JsonFormat mJsonFormat;
