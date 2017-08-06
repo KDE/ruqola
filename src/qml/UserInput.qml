@@ -85,8 +85,6 @@ RowLayout {
         }
         onTextChanged: {
             footerItem.textEditing(text)
-            //Inform that we type.
-            //console.log("Text changed " + text)
         }
     }
     
