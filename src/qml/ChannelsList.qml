@@ -29,6 +29,8 @@ import QtQuick.Layouts 1.1
 ScrollablePage {
     id: channelsList
     
+    property bool ignoreTextChange: false
+
     implicitHeight: 300
     header: Column {
         Heading {
@@ -43,8 +45,9 @@ ScrollablePage {
             placeholderText: qsTr("Search...")
             width: parent.width
             onTextChanged: {
-                if (!ignoreTextChange)
-                    searchTextChanged(text)
+                if (!ignoreTextChange) {
+                    //searchTextChanged(text)
+                }
             }
         }
     }
