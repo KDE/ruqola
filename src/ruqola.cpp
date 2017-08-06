@@ -158,6 +158,11 @@ void Ruqola::attachmentButtonClicked(const QString &roomId)
     sendMessage(roomID, message, type);
 }
 
+void Ruqola::textEditing(const QString &roomId, const QString &str)
+{
+    qDebug() << "Editing in room " << roomId << " str " << str;
+}
+
 void Ruqola::sendMessage(const QString &roomID, const QString &message, const QString &type)
 {
     QJsonObject json;

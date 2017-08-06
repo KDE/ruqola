@@ -121,6 +121,7 @@ public:
     Q_INVOKABLE RoomWrapper *getRoom(const QString &roomID);
 
     Q_INVOKABLE void attachmentButtonClicked(const QString &roomId);
+    Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
 
     /**
     * @brief Returns standard cache path

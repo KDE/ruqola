@@ -265,6 +265,9 @@ Kirigami.ApplicationWindow {
             }
             footer: UserInput {
                 id: footerItem
+                onTextEditing: {
+                    Ruqola.textEditing(appid.selectedRoomID, str)
+                }
             }
 
             

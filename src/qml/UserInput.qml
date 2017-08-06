@@ -44,6 +44,7 @@ RowLayout {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: mainWidget.bottom
+    signal textEditing(string str)
     
     height: 3*Kirigami.Units.largeSpacing
     
@@ -83,6 +84,7 @@ RowLayout {
             }
         }
         onTextChanged: {
+            footerItem.textEditing(text)
             //Inform that we type.
             //console.log("Text changed " + text)
         }
