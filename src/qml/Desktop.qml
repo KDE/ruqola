@@ -154,11 +154,7 @@ Kirigami.ApplicationWindow {
                 iconName: "edit-symbolic"
                 checkable: true
                 onToggled: {
-                    if (checked) {
-                        roomsList.editingMode = true
-                    } else {
-                        roomsList.editingMode = false
-                    }
+                    roomsList.editingMode = checked
                     // do stuff
                 }
             }
