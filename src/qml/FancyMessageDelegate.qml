@@ -62,6 +62,7 @@ Rectangle {
     property bool i_systemMessage
     property string i_systemMessageType
     property string i_avatar
+    property string i_aliasname
     property var i_timestamp
 
     id: messageMain
@@ -86,6 +87,7 @@ Rectangle {
                           {
                               i_messageText: i_messageText,
                               i_username: i_username,
+                              i_aliasname: i_aliasname,
                               i_timestamp: i_timestamp,
                               i_systemMessageType: i_systemMessageType,
                               i_messageID: i_messageID
@@ -96,6 +98,7 @@ Rectangle {
                           {
                               i_messageText: i_messageText,
                               i_username: i_username,
+                              i_aliasname: alias,
                               i_timestamp: i_timestamp,
                               i_messageID: i_messageID
                           }

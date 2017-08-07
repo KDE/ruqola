@@ -145,6 +145,7 @@ function slimdown() {
     property string i_messageText
     property string i_messageID
     property string i_username
+    property string i_aliasname
     property bool i_systemMessage
     property string i_systemMessageType
     property string i_avatar
@@ -245,10 +246,11 @@ function slimdown() {
                 anchors.fill: parent 
 
                 Kirigami.Heading {
-                    level: 5
                     id: usernameLabel
+
+                    level: 5
                     font.bold: true
-                    text: i_username
+                    text: i_aliasname + ' @' + i_username
                     
                     anchors.right: parent.right
                     anchors.left: parent.left

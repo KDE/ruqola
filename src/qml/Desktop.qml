@@ -257,6 +257,7 @@ Kirigami.ApplicationWindow {
                     width: parent.width
                     i_messageText: messageText
                     i_username: username
+                    i_aliasname: alias
                     i_systemMessage: systemMessage
                     i_systemMessageType: type
                     i_timestamp: timestamp
