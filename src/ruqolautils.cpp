@@ -33,6 +33,14 @@ RuqolaUtils::RuqolaUtils(QObject *parent)
 {
 }
 
+RuqolaUtils *RuqolaUtils::self()
+{
+    if (!m_self) {
+        m_self = new RuqolaUtils;
+    }
+    return m_self;
+}
+
 QString RuqolaUtils::markdownToRichText(const QString &markDown)
 {
     qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
@@ -49,12 +57,4 @@ void RuqolaUtils::openUrl(const QString &url)
     } else {
         qDebug() << " url " << url;
     }
-}
-
-RuqolaUtils *RuqolaUtils::self()
-{
-    if (!m_self) {
-        m_self = new RuqolaUtils;
-    }
-    return m_self;
 }
