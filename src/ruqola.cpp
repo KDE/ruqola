@@ -33,6 +33,48 @@
 
 Ruqola *Ruqola::m_self = nullptr;
 
+
+Ruqola::Ruqola(QObject *parent)
+    : QObject(parent)
+    , m_ddp(nullptr)
+    , m_messageQueue(nullptr)
+    , m_roomModel(nullptr)
+    , m_notification(nullptr)
+    , m_authentication(nullptr)
+{
+    QSettings s;
+    m_serverURL = s.value(QStringLiteral("serverURL"), QStringLiteral("demo.rocket.chat")).toString();
+    m_userName = s.value(QStringLiteral("username")).toString();
+    m_userID = s.value(QStringLiteral("userID")).toString();
+    m_authToken = s.value(QStringLiteral("authToken")).toString();
+}
+
+Ruqola *Ruqola::self()
+{
+    if (!m_self) {
+        m_self = new Ruqola;
+
+        // Create DDP object so we try to connect at startup
+        m_self->ddp();
+
+        // Clear rooms data and refill it with data in the cache, if there is
+        m_self->roomModel()->reset();
+
+        // Create systray to show notifications on Desktop
+#if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
+        m_self->notification();
+#endif
+
+        //Initialize the messageQueue object
+        m_self->messageQueue();
+
+        //Initialize the OAuth object
+        m_self->authentication();
+    }
+    return m_self;
+}
+
+
 QString Ruqola::authToken() const
 {
     return m_authToken;
@@ -302,42 +344,3 @@ RoomWrapper *Ruqola::getRoom(const QString &roomID)
     return roomModel()->findRoom(roomID);
 }
 
-Ruqola::Ruqola(QObject *parent)
-    : QObject(parent)
-    , m_ddp(nullptr)
-    , m_messageQueue(nullptr)
-    , m_roomModel(nullptr)
-    , m_notification(nullptr)
-    , m_authentication(nullptr)
-{
-    QSettings s;
-    m_serverURL = s.value(QStringLiteral("serverURL"), QStringLiteral("demo.rocket.chat")).toString();
-    m_userName = s.value(QStringLiteral("username")).toString();
-    m_userID = s.value(QStringLiteral("userID")).toString();
-    m_authToken = s.value(QStringLiteral("authToken")).toString();
-}
-
-Ruqola *Ruqola::self()
-{
-    if (!m_self) {
-        m_self = new Ruqola;
-
-        // Create DDP object so we try to connect at startup
-        m_self->ddp();
-
-        // Clear rooms data and refill it with data in the cache, if there is
-        m_self->roomModel()->reset();
-
-        // Create systray to show notifications on Desktop
-#if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
-        m_self->notification();
-#endif
-
-        //Initialize the messageQueue object
-        m_self->messageQueue();
-
-        //Initialize the OAuth object
-        m_self->authentication();
-    }
-    return m_self;
-}
