@@ -1,0 +1,10 @@
+macro(add_ruqola_test _source _additionalsource)
+  set( _test ${_source} ${_additionalsource})
+  get_filename_component( _name ${_source} NAME_WE )
+  add_executable( ${_name} ${_test} )
+  add_test( ${_name} ${_name} )
+  ecm_mark_as_test(${_name})
+  target_link_libraries( ${_name} Qt5::Test)
+endmacro()
+
+add_ruqola_test(rocketchatmessagetest.cpp "")

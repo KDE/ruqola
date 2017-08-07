@@ -11,6 +11,8 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
+include(ECMAddTests)
+
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -22,7 +24,7 @@ endif()
 
 set(REQUIRED_QT_VERSION "5.7.0")
 
-find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth)
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth Test)
 
 find_package(KF5 REQUIRED COMPONENTS
     Kirigami2
