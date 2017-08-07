@@ -32,7 +32,6 @@ Kirigami.Page {
     property alias serverURL: urlField.text;
 
     signal accepted()
-    signal oauthAccepted()
 
     Keys.onPressed: {
         if (event.key === Qt.Key_Enter) {
@@ -51,6 +50,7 @@ Kirigami.Page {
 
     Column {
         id: form
+
         anchors.centerIn: parent
         width: 0.8*parent.width
         spacing: 3
@@ -76,6 +76,7 @@ Kirigami.Page {
         }
         TextField {
             id: urlField
+
             //             text: loginForm.serverURL
             width: parent.width
             placeholderText: qsTr("Enter address of the server")
@@ -83,6 +84,7 @@ Kirigami.Page {
         
         Text {
             id:username
+
             width: parent.width
             text: qsTr("Enter your username")
         }
@@ -94,6 +96,7 @@ Kirigami.Page {
         
         Text {
             id: passLabel
+
             width: parent.width
             text: qsTr("Enter your password")
         }
@@ -114,27 +117,12 @@ Kirigami.Page {
         
         Button {
             id: acceptingButton
+
             width: parent.width
             text: qsTr("Log in")
             enabled: (passField.text && urlField.text && usernameField.text)
             onClicked: loginForm.accepted()
             isDefault: true
-        }
-
-        Button {
-            id: oauthButton
-            width: parent.width
-            text: qsTr("Log in with Google Account")
-            //           enabled: (passField.text && urlField.text && usernameField.text)
-            onClicked: loginForm.oauthAccepted()
-            visible: false
-        }
-        
+        }        
     }
-    
-    //     Component.onCompleted: {
-    //         acceptingButton.clicked.connect(loginForm.accepted)
-    //     }
-    
-
 }
