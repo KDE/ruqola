@@ -23,12 +23,13 @@
 #ifndef ROCKETCHATBACKEND_H
 #define ROCKETCHATBACKEND_H
 
+#include "libruqolacore_export.h"
 #include <QObject>
 #include <QJsonObject>
 
 #include "roommodel.h"
 
-class RocketChatBackend : public QObject
+class LIBRUQOLACORE_EXPORT RocketChatBackend : public QObject
 {
     Q_OBJECT
 public:

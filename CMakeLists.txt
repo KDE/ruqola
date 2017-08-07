@@ -12,6 +12,7 @@ include(KDECMakeSettings)
 include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddTests)
+include(GenerateExportHeader)
 
 
 set(CMAKE_AUTOMOC ON)
@@ -40,8 +41,13 @@ add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
+
 # TODO customize it.
 set(RUQOLA_VERSION "0.1")
+
+set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
+set(RUQOLA_LIB_SOVERSION "0")
+
 
 configure_file(config-ruqola.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-ruqola.h)
 

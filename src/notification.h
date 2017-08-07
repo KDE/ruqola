@@ -23,11 +23,12 @@
 #ifndef NOTIFICATION_H
 #define NOTIFICATION_H
 
+#include "libruqolacore_export.h"
 #include <QSystemTrayIcon>
 #include <QAction>
 #include <QMenu>
 
-class Notification : public QSystemTrayIcon
+class LIBRUQOLACORE_EXPORT Notification : public QSystemTrayIcon
 {
     Q_OBJECT
 

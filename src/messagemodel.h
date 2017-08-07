@@ -23,6 +23,7 @@
 #ifndef MESSAGEMODEL_H
 #define MESSAGEMODEL_H
 
+#include "libruqolacore_export.h"
 #include <QAbstractListModel>
 #include <QStringList>
 #include <QObject>
@@ -117,7 +118,7 @@ signals:
 //    void messageStatusChanged();
 };
 
-class MessageModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
 {
     Q_OBJECT
 public:

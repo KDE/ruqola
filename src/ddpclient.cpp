@@ -73,7 +73,6 @@ DDPClient::DDPClient(const QString &url, QObject *parent)
     connect(Ruqola::self(), &Ruqola::serverURLChanged, this, &DDPClient::onServerURLChange);
 
     if (!url.isEmpty()) {
-        qDebug() << " url " << url;
         QString serverUrl = url;
         if (serverUrl.startsWith(QLatin1String("https://"))) {
             serverUrl.replace(QStringLiteral("https://"), QStringLiteral("wss://"));
@@ -82,11 +81,10 @@ DDPClient::DDPClient(const QString &url, QObject *parent)
         } else {
             serverUrl = QStringLiteral("wss://") + serverUrl;
         }
-        qDebug() << " serverUrl before " << serverUrl;
-
-        //m_webSocket.open(QUrl(QStringLiteral("wss://")+url+QStringLiteral("/websocket")));
         m_webSocket.open(QUrl(serverUrl + QStringLiteral("/websocket")));
         qCDebug(RUQOLA_LOG) << "Trying to connect to URL" << serverUrl;
+    } else {
+        qCDebug(RUQOLA_LOG) << "url is empty";
     }
 }
 

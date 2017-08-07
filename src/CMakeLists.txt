@@ -16,9 +16,11 @@ set (Ruqola_core_srcs
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
 
-add_library(RuqolaCore STATIC ${Ruqola_core_srcs})
+add_library(libruqolacore ${Ruqola_core_srcs})
 
-target_link_libraries(RuqolaCore
+generate_export_header(libruqolacore BASE_NAME libruqolacore)
+
+target_link_libraries(libruqolacore
     Qt5::Core
     Qt5::Gui
     Qt5::Widgets
@@ -30,10 +32,16 @@ target_link_libraries(RuqolaCore
     KF5::CoreAddons
 )
 
+set_target_properties(libruqolacore
+    PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
+    )
+
+
 qt5_add_resources(RuqolaResources qml/qml.qrc)
 
 add_executable(ruqola main.cpp ${RuqolaResources})
 
-target_link_libraries(ruqola RuqolaCore)
+target_link_libraries(ruqola libruqolacore)
 
 install(TARGETS ruqola ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

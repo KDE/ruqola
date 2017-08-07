@@ -24,7 +24,7 @@
 #define DDPCLIENT_H
 
 #include "rocketchatmessage.h"
-
+#include "libruqolacore_export.h"
 #include <functional>
 #include <QtCore>
 #include <QWebSocket>
@@ -33,7 +33,7 @@ class QJsonObject;
 class QJsonDocument;
 class RocketChatMessage;
 
-class DDPClient : public QObject
+class LIBRUQOLACORE_EXPORT DDPClient : public QObject
 {
     Q_OBJECT
 public:

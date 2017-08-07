@@ -22,7 +22,7 @@
 
 #ifndef ROOMMODEL_H
 #define ROOMMODEL_H
-
+#include "libruqolacore_export.h"
 #include <QAbstractListModel>
 #include <QObject>
 
@@ -93,7 +93,7 @@ public:
     bool selected = false;
 };
 
-class RoomWrapper : public QObject
+class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
 {
     Q_PROPERTY(QString name READ getName NOTIFY nameChanged)
     Q_PROPERTY(QString topic READ getTopic NOTIFY topicChanged)
@@ -116,7 +116,7 @@ private:
     bool m_selected;
 };
 
-class RoomModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT RoomModel : public QAbstractListModel
 {
     Q_OBJECT
 public:

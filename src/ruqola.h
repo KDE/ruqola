@@ -24,6 +24,7 @@
 #define USERDATA_H
 
 #include <QObject>
+#include "libruqolacore_export.h"
 #include <QQmlEngine>
 #include <QJSEngine>
 #include "ddpclient.h"
@@ -35,7 +36,7 @@
 
 class QString;
 
-class Ruqola : public QObject
+class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT
 

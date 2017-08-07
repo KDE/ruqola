@@ -23,13 +23,14 @@
 #ifndef RUQOLAUTILS_H
 #define RUQOLAUTILS_H
 
+#include "libruqolacore_export.h"
 #include <QObject>
 
 class QString;
 class QQmlEngine;
 class QJSEngine;
 
-class RuqolaUtils : public QObject
+class LIBRUQOLACORE_EXPORT RuqolaUtils : public QObject
 {
     Q_OBJECT
 public:
