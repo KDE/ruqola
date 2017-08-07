@@ -11,6 +11,7 @@ set (Ruqola_core_srcs
     messagequeue.cpp
     authentication.cpp
     rocketchatmessage.cpp
+    typingnotification.cpp
     ${ruqola_QM_LOADER}
 )
 
