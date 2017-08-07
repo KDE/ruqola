@@ -68,13 +68,7 @@ RowLayout {
         anchors.bottom: parent.bottom
         
         Layout.fillWidth: true
-        placeholderText: {
-            if (Ruqola.loginStatus != DDPClient.LoggedIn || (selectedRoomID == "")){
-                qsTr("Please Select a room")
-            } else {
-                qsTr("Enter message")
-            }
-        }
+        placeholderText: qsTr("Enter message")
 
         property string type: "text";
         onAccepted: {
@@ -94,10 +88,4 @@ RowLayout {
         anchors.top: parent.top
         width: height
     }
-
-    //                 Rectangle {
-    //                     anchors.fill: footerItem
-    //                     color: Kirigami.Theme.viewBackgroundColor
-    //                     z: -1
-    //                 }
 }
