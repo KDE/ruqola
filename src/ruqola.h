@@ -34,8 +34,7 @@
 #include "messagequeue.h"
 #include "authentication.h"
 
-class QString;
-
+class TypingNotification;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT
@@ -138,6 +137,7 @@ signals:
     void loginStatusChanged();
 
 private:
+    void slotInformTypingStatus(const QString &room, bool typing);
     explicit Ruqola(QObject *parent = nullptr);
     static Ruqola *m_self;
     QString m_password;
@@ -153,6 +153,7 @@ private:
     Authentication *m_authentication;
 
     QHash< QString, MessageModel * > m_messageModels;
+    TypingNotification *mTypingNotification;
 };
 
 inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

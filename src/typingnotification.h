@@ -31,8 +31,10 @@ public:
     ~TypingNotification();
 
     void setText(const QString &roomId, const QString &str);
+Q_SIGNALS:
+    void informTypingStatus(const QString &room, bool typing);
+
 private:
-    void informTypingStatus();
     void slotTimeout();
     QString mRoomId;
     bool mTypingInprogress;

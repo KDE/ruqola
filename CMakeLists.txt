@@ -51,6 +51,11 @@ set(RUQOLA_LIB_SOVERSION "0")
 
 configure_file(config-ruqola.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-ruqola.h)
 
+if(BUILD_TESTING)
+   add_definitions(-DBUILD_TESTING)
+endif(BUILD_TESTING)
+
+
 add_subdirectory(src)
 
 if (BUILD_TESTING)

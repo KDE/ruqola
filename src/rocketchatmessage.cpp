@@ -23,6 +23,7 @@
 
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QDebug>
 
 RocketChatMessage::RocketChatMessage()
     : mJsonFormat(QJsonDocument::Compact)
@@ -150,6 +151,36 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QSt
     return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id)
+{
+    const QString eventName = roomId + QStringLiteral("/typing");
+    const QJsonArray params{{eventName}, {userId}, {typingStatus}};
+    qDebug() << " params"<<params;
+    return generateMethod(QStringLiteral("stream-notify-room"), QJsonDocument(params), id);
+}
+
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QString &name, const QJsonDocument &params, quint64 id)
+{
+    QJsonObject json;
+    json[QStringLiteral("msg")] = QStringLiteral("sub");
+    json[QStringLiteral("id")] = QString::number(id);
+    json[QStringLiteral("name")] = name;
+    if (params.isArray()) {
+        json[QStringLiteral("params")] = params.array();
+    } else if (params.isObject()) {
+        QJsonArray arr;
+        arr.append(params.object());
+        json[QStringLiteral("params")] = arr;
+    }
+
+    const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
+    RocketChatMessageResult result;
+    result.jsonDocument = params;
+    result.method = name;
+    result.result = generatedJsonDoc;
+    return result;
+}
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(const QString &method, const QJsonDocument &params, quint64 id)
 {

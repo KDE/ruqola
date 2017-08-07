@@ -21,10 +21,11 @@
 #ifndef ROCKETCHATMESSAGE_H
 #define ROCKETCHATMESSAGE_H
 
+#include "libruqola_private_export.h"
 #include <QString>
 #include <QJsonDocument>
 
-class RocketChatMessage
+class LIBRUQOLACORE_TESTS_EXPORT RocketChatMessage
 {
 public:
     RocketChatMessage();
@@ -61,7 +62,9 @@ public:
     RocketChatMessage::RocketChatMessageResult setRoomDescription(const QString &roomId, const QString &description, quint64 id);
     RocketChatMessage::RocketChatMessageResult readMessages(const QString &roomID, quint64 id);
     RocketChatMessage::RocketChatMessageResult joinRoom(const QString &roomId, const QString &accessCode, quint64 id);
+    RocketChatMessage::RocketChatMessageResult informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id);
 private:
+    RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
     RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
     QJsonDocument::JsonFormat mJsonFormat;
 };

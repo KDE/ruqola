@@ -22,6 +22,7 @@
 
 #include "ruqola.h"
 #include "roommodel.h"
+#include "typingnotification.h"
 #include "ddpclient.h"
 #include "notification.h"
 #include "messagequeue.h"
@@ -29,7 +30,7 @@
 #include <QFileDialog>
 #include <QTcpSocket>
 #include <QDataStream>
-#include <QString>
+#include <QDebug>
 
 Ruqola *Ruqola::m_self = nullptr;
 
@@ -41,7 +42,10 @@ Ruqola::Ruqola(QObject *parent)
     , m_roomModel(nullptr)
     , m_notification(nullptr)
     , m_authentication(nullptr)
+    , mTypingNotification(nullptr)
 {
+    mTypingNotification = new TypingNotification(this);
+    connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &Ruqola::slotInformTypingStatus);
     QSettings s;
     m_serverURL = s.value(QStringLiteral("serverURL"), QStringLiteral("demo.rocket.chat")).toString();
     m_userName = s.value(QStringLiteral("username")).toString();
@@ -203,6 +207,7 @@ void Ruqola::attachmentButtonClicked(const QString &roomId)
 void Ruqola::textEditing(const QString &roomId, const QString &str)
 {
     qDebug() << "Editing in room " << roomId << " str " << str;
+    mTypingNotification->setText(roomId, str);
 }
 
 void Ruqola::sendMessage(const QString &roomID, const QString &message, const QString &type)
@@ -344,3 +349,8 @@ RoomWrapper *Ruqola::getRoom(const QString &roomID)
     return roomModel()->findRoom(roomID);
 }
 
+void Ruqola::slotInformTypingStatus(const QString &room, bool typing)
+{
+    qDebug() << " void Ruqola::slotInformTypingStatus(const QString &room, bool typing)"<< room << " m_userName " << m_userName << " m_userID " << m_userID;
+    ddp()->informTypingStatus(room, typing, m_userName);
+}
