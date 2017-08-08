@@ -218,7 +218,18 @@ Kirigami.ApplicationWindow {
                     anchors.leftMargin: 2*Kirigami.Units.smallSpacing
                 }
                 Kirigami.Label {
+                    visible: appid.selectedRoom.topic !== ""
                     text: appid.selectedRoom.topic
+                    font.italic: true
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+                    anchors.margins: 2*Kirigami.Units.smallSpacing
+                    wrapMode: Label.Wrap
+                }
+                Kirigami.Label {
+                    visible: appid.selectedRoom.announcement !== ""
+                    text: appid.selectedRoom.announcement
+                    color: Qt.blue
                     anchors.right: parent.right
                     anchors.left: parent.left
                     anchors.margins: 2*Kirigami.Units.smallSpacing

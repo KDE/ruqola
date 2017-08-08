@@ -26,6 +26,7 @@
 #include "roommodel.h"
 #include "rocketchatbackend.h"
 #include "ruqola.h"
+#include "roomwrapper.h"
 #include "ruqolautils.h"
 #include "notification.h"
 #include "config-ruqola.h"

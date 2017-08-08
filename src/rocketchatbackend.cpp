@@ -47,6 +47,7 @@ void rooms_callback(const QJsonDocument &doc)
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
 
+        //TODO remove duplicate code with subs_callback method
         if (room.value(QStringLiteral("t")).toString() != QLatin1String("d")) {
             QString roomID = room.value(QStringLiteral("_id")).toString();
             MessageModel *roomModel = Ruqola::self()->getModelForRoom(roomID);
@@ -57,6 +58,7 @@ void rooms_callback(const QJsonDocument &doc)
                 r.id = roomID;
                 r.name = room[QStringLiteral("name")].toString();
                 r.topic = room[QStringLiteral("topic")].toString();
+                r.mAnnouncement = room[QStringLiteral("announcement")].toString();
                 r.ro = room[QStringLiteral("topic")].toString() == QLatin1String("true");
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
 
@@ -102,6 +104,8 @@ void subs_callback(const QJsonDocument &doc)
                 r.id = roomID;
                 r.name = room[QStringLiteral("name")].toString();
                 r.topic = room[QStringLiteral("topic")].toString();
+                r.mAnnouncement = room[QStringLiteral("announcement")].toString();
+                r.ro = room[QStringLiteral("topic")].toString() == QLatin1String("true");
 
 //                 qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
 
@@ -128,6 +132,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
     for (const QJsonValue &v : messages) {
         QJsonObject o = v.toObject();
 
+        qDebug() <<" o" << o;
         Message m;
         QString roomId = o.value(QStringLiteral("rid")).toString();
 
