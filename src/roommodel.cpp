@@ -23,34 +23,11 @@
 #include "roommodel.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
+#include "roomwrapper.h"
 
 #include <QAbstractItemModel>
 #include <QtCore>
 
-RoomWrapper::RoomWrapper(QObject *parent)
-    : QObject(parent)
-{
-}
-
-RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
-    : QObject(parent)
-{
-    mName = r.name;
-    mTopic = r.topic;
-    m_unread = r.unread;
-    m_id = r.id;
-    m_selected = r.selected;
-}
-
-QString RoomWrapper::getName() const
-{
-    return mName;
-}
-
-QString RoomWrapper::getTopic() const
-{
-    return mTopic;
-}
 
 RoomModel::RoomModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -137,6 +114,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomMutedUsers] = "mutedUsers";
     roles[RoomJitsiTimeout] = "jitsiTimeout";
     roles[RoomRO] = "readOnly";
+    roles[RoomAnnoucement] = "announcement";
     return roles;
 }
 
@@ -150,29 +128,31 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
 {
     Room r = m_roomsList.at(index.row());
 
-    if (role == RoomModel::RoomName) {
+    switch(role) {
+    case RoomModel::RoomName:
         return r.name;
-    } else if (role == RoomModel::RoomID) {
+    case RoomModel::RoomID:
         return r.id;
-    } else if (role == RoomModel::RoomSelected) {
+    case RoomModel::RoomSelected:
         return r.selected;
-    } else if (role == RoomModel::RoomType) {
+    case RoomModel::RoomType:
         return r.type;
-    } else if (role == RoomModel::RoomUserID) {
+    case RoomModel::RoomUserID:
         return r.userID;
-    } else if (role == RoomModel::RoomUserName) {
+    case RoomModel::RoomUserName:
         return r.userName;
-    } else if (role == RoomModel::RoomTopic) {
+    case RoomModel::RoomTopic:
         return r.topic;
-    } else if (role == RoomModel::RoomMutedUsers) {
+    case RoomModel::RoomMutedUsers:
         return r.mutedUsers;
-    } else if (role == RoomModel::RoomJitsiTimeout) {
+    case RoomModel::RoomJitsiTimeout:
         return r.jitsiTimeout;
-    } else if (role == RoomModel::RoomRO) {
+    case RoomModel::RoomRO:
         return r.ro;
-    } else {
-        return QVariant(QStringLiteral("0"));
+    case RoomModel::RoomAnnoucement:
+        return r.mAnnouncement;
     }
+    return QVariant(QStringLiteral("0"));
 }
 
 void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool selected)
@@ -242,6 +222,7 @@ Room RoomModel::fromJSon(const QJsonObject &o)
     r.jitsiTimeout = o[QStringLiteral("jitsiTimeout")].toDouble();
     r.ro = o[QStringLiteral("ro")].toBool();
     r.unread = o[QStringLiteral("unread")].toInt(0);
+    r.mAnnouncement = o[QStringLiteral("announcement")].toInt(0);
 
     return r;
 }
@@ -261,6 +242,7 @@ QByteArray RoomModel::serialize(const Room &r)
     o[QStringLiteral("jitsiTimeout")] = r.jitsiTimeout;
     o[QStringLiteral("ro")] = r.ro;
     o[QStringLiteral("unread")] = r.unread;
+    o[QStringLiteral("announcement")] = r.mAnnouncement;
 
     d.setObject(o);
     return d.toBinaryData();

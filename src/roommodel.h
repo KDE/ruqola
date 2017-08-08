@@ -23,103 +23,10 @@
 #ifndef ROOMMODEL_H
 #define ROOMMODEL_H
 #include "libruqolacore_export.h"
+#include "room.h"
 #include <QAbstractListModel>
 #include <QObject>
-
-class Room
-{
-public:
-
-    // To be used in ID find: message ID
-    inline bool operator==(const Room &other) const
-    {
-        return other.id == id;
-    }
-
-    // To be used in sorted insert: timestamp
-    inline bool operator<(const Room &other) const
-    {
-        return name < other.name;
-    }
-
-    /**
-    * @brief Return room name
-    *
-    * @return QString, The name of the room
-    */
-    QString getName() const
-    {
-        return name;
-    }
-
-    /**
-    * @brief Return topic name
-    *
-    * @return QString, The name of the topic of room
-    */
-    QString getTopic() const
-    {
-        return topic;
-    }
-
-    //Room Object Fields
-
-    // _id
-    QString id;
-
-    // t (can take values "d" , "c" or "p")
-    QString type;
-
-    // name
-    QString name;
-
-    // Announcement
-    QString mAnnouncement;
-
-    // u
-    QString userName;
-    QString userID;
-
-    // topic
-    QString topic;
-
-    // muted - collection of muted users by its usernames
-    QString mutedUsers; // --> TODO: this really is a list - it requires some more work
-
-    // jitsiTimeout
-    qint64 jitsiTimeout;
-
-    // ro - read-only chat or not
-    bool ro = false;
-
-    int unread;
-    bool selected = false;
-};
-
-class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
-{
-    Q_PROPERTY(QString name READ getName NOTIFY nameChanged)
-    Q_PROPERTY(QString topic READ getTopic NOTIFY topicChanged)
-    Q_OBJECT
-
-public:
-    explicit RoomWrapper(QObject *parent = nullptr);
-    RoomWrapper(const Room &r, QObject *parent = nullptr);
-
-    QString getName() const;
-    QString getTopic() const;
-
-signals:
-    void nameChanged();
-    void topicChanged();
-
-private:
-    QString mName;
-    QString mTopic;
-    QString m_id;
-    int m_unread;
-    bool m_selected;
-};
+class RoomWrapper;
 
 class LIBRUQOLACORE_EXPORT RoomModel : public QAbstractListModel
 {
@@ -137,7 +44,9 @@ public:
         RoomTopic,
         RoomMutedUsers,
         RoomJitsiTimeout,
-        RoomRO
+        RoomRO,
+        RoomAnnoucement
+
     };
 
     explicit RoomModel(QObject *parent = nullptr);
