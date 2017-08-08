@@ -111,8 +111,8 @@ signals:
     void topicChanged();
 
 private:
-    QString m_name;
-    QString m_topic;
+    QString mName;
+    QString mTopic;
     QString m_id;
     int m_unread;
     bool m_selected;

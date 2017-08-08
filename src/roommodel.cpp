@@ -35,59 +35,21 @@ RoomWrapper::RoomWrapper(QObject *parent)
 RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
     : QObject(parent)
 {
-    m_name = r.name;
-    m_topic = r.topic;
+    mName = r.name;
+    mTopic = r.topic;
     m_unread = r.unread;
     m_id = r.id;
     m_selected = r.selected;
 }
 
-Room RoomModel::fromJSon(const QJsonObject &o)
-{
-    Room r;
-
-    r.id = o[QStringLiteral("id")].toString();
-    r.type = o[QStringLiteral("t")].toString();
-    r.name = o[QStringLiteral("name")].toString();
-    r.userName = o[QStringLiteral("userName")].toString();
-    r.userID = o[QStringLiteral("userID")].toString();
-    r.topic = o[QStringLiteral("topic")].toString();
-    r.mutedUsers = o[QStringLiteral("mutedUsers")].toString();
-    r.jitsiTimeout = o[QStringLiteral("jitsiTimeout")].toDouble();
-    r.ro = o[QStringLiteral("ro")].toBool();
-    r.unread = o[QStringLiteral("unread")].toInt(0);
-
-    return r;
-}
-
-QByteArray RoomModel::serialize(const Room &r)
-{
-    QJsonDocument d;
-    QJsonObject o;
-
-    o[QStringLiteral("id")] = r.id;
-    o[QStringLiteral("t")] = r.type;
-    o[QStringLiteral("name")] = r.name;
-    o[QStringLiteral("userName")] = r.userName;
-    o[QStringLiteral("userID")] = r.userID;
-    o[QStringLiteral("topic")] = r.topic;
-    o[QStringLiteral("mutedUsers")] = r.mutedUsers;
-    o[QStringLiteral("jitsiTimeout")] = r.jitsiTimeout;
-    o[QStringLiteral("ro")] = r.ro;
-    o[QStringLiteral("unread")] = r.unread;
-
-    d.setObject(o);
-    return d.toBinaryData();
-}
-
 QString RoomWrapper::getName() const
 {
-    return m_name;
+    return mName;
 }
 
 QString RoomWrapper::getTopic() const
 {
-    return m_topic;
+    return mTopic;
 }
 
 RoomModel::RoomModel(QObject *parent)
@@ -264,4 +226,42 @@ void RoomModel::addRoom(const Room &room)
     }
 
     Ruqola::self()->getModelForRoom(room.id);
+}
+
+Room RoomModel::fromJSon(const QJsonObject &o)
+{
+    Room r;
+
+    r.id = o[QStringLiteral("id")].toString();
+    r.type = o[QStringLiteral("t")].toString();
+    r.name = o[QStringLiteral("name")].toString();
+    r.userName = o[QStringLiteral("userName")].toString();
+    r.userID = o[QStringLiteral("userID")].toString();
+    r.topic = o[QStringLiteral("topic")].toString();
+    r.mutedUsers = o[QStringLiteral("mutedUsers")].toString();
+    r.jitsiTimeout = o[QStringLiteral("jitsiTimeout")].toDouble();
+    r.ro = o[QStringLiteral("ro")].toBool();
+    r.unread = o[QStringLiteral("unread")].toInt(0);
+
+    return r;
+}
+
+QByteArray RoomModel::serialize(const Room &r)
+{
+    QJsonDocument d;
+    QJsonObject o;
+
+    o[QStringLiteral("id")] = r.id;
+    o[QStringLiteral("t")] = r.type;
+    o[QStringLiteral("name")] = r.name;
+    o[QStringLiteral("userName")] = r.userName;
+    o[QStringLiteral("userID")] = r.userID;
+    o[QStringLiteral("topic")] = r.topic;
+    o[QStringLiteral("mutedUsers")] = r.mutedUsers;
+    o[QStringLiteral("jitsiTimeout")] = r.jitsiTimeout;
+    o[QStringLiteral("ro")] = r.ro;
+    o[QStringLiteral("unread")] = r.unread;
+
+    d.setObject(o);
+    return d.toBinaryData();
 }
