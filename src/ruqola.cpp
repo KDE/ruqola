@@ -352,5 +352,5 @@ RoomWrapper *Ruqola::getRoom(const QString &roomID)
 void Ruqola::slotInformTypingStatus(const QString &room, bool typing)
 {
     qDebug() << " void Ruqola::slotInformTypingStatus(const QString &room, bool typing)"<< room << " m_userName " << m_userName << " m_userID " << m_userID;
-    ddp()->informTypingStatus(room, typing, m_userName);
+    ddp()->informTypingStatus(room, typing, m_userID);
 }

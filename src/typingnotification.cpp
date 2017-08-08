@@ -76,4 +76,5 @@ void TypingNotification::slotTimeout()
 {
     mTypingInprogress = false;
     //Send info about stopping typing.
+    informTypingStatus(mRoomId, false);
 }
