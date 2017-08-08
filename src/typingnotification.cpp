@@ -21,13 +21,17 @@
 #include "typingnotification.h"
 #include <QTimer>
 
+namespace {
+int timerTimeOutValue() { return 2000;}
+}
+
 TypingNotification::TypingNotification(QObject *parent)
     : QObject(parent)
     , mTypingInprogress(false)
 {
     mTimer = new QTimer(this);
     mTimer->setObjectName(QStringLiteral("typingnotificationtimer"));
-    mTimer->setInterval(2000);
+    mTimer->setInterval(timerTimeOutValue());
     mTimer->setSingleShot(true);
     connect(mTimer, &QTimer::timeout, this, &TypingNotification::slotTimeout);
 }
@@ -41,11 +45,11 @@ TypingNotification::~TypingNotification()
 
 void TypingNotification::setText(const QString &roomId, const QString &str)
 {
+    if (mTimer->isActive()) {
+        mTimer->stop();
+    }
     if (mTypingInprogress) {
         if (str.isEmpty()) {
-            if (mTimer->isActive()) {
-                mTimer->stop();
-            }
             mTypingInprogress = false;
             //1) Send info about typing.
             informTypingStatus(roomId, false);
@@ -54,10 +58,10 @@ void TypingNotification::setText(const QString &roomId, const QString &str)
                 //We changed room.
                 //1) stop typing in old room
                 informTypingStatus(roomId, false);
-            }
 
-            //2) start info about typing in new room.
-            informTypingStatus(mRoomId, true);
+                //2) start info about typing in new room.
+                informTypingStatus(mRoomId, true);
+            }
 
             //3) restart timer.
             mTimer->start();
@@ -76,5 +80,5 @@ void TypingNotification::slotTimeout()
 {
     mTypingInprogress = false;
     //Send info about stopping typing.
-    informTypingStatus(mRoomId, false);
+    Q_EMIT informTypingStatus(mRoomId, false);
 }
