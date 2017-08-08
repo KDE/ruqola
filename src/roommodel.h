@@ -87,7 +87,7 @@ public:
     qint64 jitsiTimeout;
 
     // ro - read-only chat or not
-    bool ro;
+    bool ro = false;
 
     int unread;
     bool selected = false;
@@ -111,7 +111,9 @@ signals:
     void topicChanged();
 
 private:
-    QString m_name, m_topic, m_id;
+    QString m_name;
+    QString m_topic;
+    QString m_id;
     int m_unread;
     bool m_selected;
 };
@@ -140,9 +142,6 @@ public:
 
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-
-//     void setCurrentRoom(const QString &newRoom);
-//     QString getCurrentRoom() const;
 
     /**
     * @brief Constructs room object from @param roomID and @param roomName and @param selected, then calls @method addRoom
@@ -190,7 +189,7 @@ public:
     void reset();
     void clear();
 protected:
-    virtual QHash<int, QByteArray> roleNames() const;
+    QHash<int, QByteArray> roleNames() const override;
 
 private:
 

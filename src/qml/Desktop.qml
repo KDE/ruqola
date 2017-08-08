@@ -165,11 +165,6 @@ Kirigami.ApplicationWindow {
             
             mainItem:
                 
-                //                 QQC2.TextField {
-                //                     id: searchField
-                //                     placeholderText: qsTr("Search...")
-                //                     width: parent.width
-                //                 }
                 RoomsView {
 
                 id: roomsList

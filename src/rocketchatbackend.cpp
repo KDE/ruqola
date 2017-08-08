@@ -37,9 +37,12 @@ void rooms_callback(const QJsonDocument &doc)
 {
     RoomModel *model = Ruqola::self()->roomModel();
 
+    qDebug() << " doc " << doc;
+
     QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
     qDebug() << " room removed " << removed;
     const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
+    qDebug() << " updated : "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
@@ -54,7 +57,7 @@ void rooms_callback(const QJsonDocument &doc)
                 r.id = roomID;
                 r.name = room[QStringLiteral("name")].toString();
                 r.topic = room[QStringLiteral("topic")].toString();
-
+                r.ro = room[QStringLiteral("topic")].toString() == QLatin1String("true");
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
 
                 model->addRoom(r);
@@ -71,6 +74,9 @@ void rooms_callback(const QJsonDocument &doc)
             dateObject[QStringLiteral("$date")] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
             Ruqola::self()->ddp()->method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
+        } else if (room.value(QStringLiteral("t")).toString() == QLatin1String("d")) {
+            //Add direct room!
+            qDebug() << " Add direct room not implemented yet";
         }
     }
 }
@@ -125,7 +131,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         Message m;
         QString roomId = o.value(QStringLiteral("rid")).toString();
 
-        //t ? I can't find ir.
+        //t ? I can't find it.
         QString type = o.value(QStringLiteral("t")).toString();
 
         m.messageID = o.value(QStringLiteral("_id")).toString();
@@ -149,13 +155,14 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         m.groupable = o.value(QStringLiteral("groupable")).toBool();
         m.parseUrls = o.value(QStringLiteral("parseUrls")).toBool();
 
-        if (!type.isEmpty()) {
+        if (type.isEmpty()) {
+            m.systemMessage = false;
+        } else {
             m.systemMessage = true;
             m.systemMessageType = type;
-        } else {
-            m.systemMessage = false;
         }
 
+        qDebug() << " roomId"<<roomId << " add message " << m.message;
         Ruqola::self()->getModelForRoom(roomId)->addMessage(m);
     }
 }

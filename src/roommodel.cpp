@@ -216,6 +216,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
 void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool selected)
 {
     if (roomID.isEmpty() || roomName.isEmpty()) {
+        qDebug() << " Impossible to add a room";
         return;
     }
     qCDebug(RUQOLA_LOG) << "Adding room : roomId: " << roomID << " room Name " << roomName << " isSelected : " << selected;
