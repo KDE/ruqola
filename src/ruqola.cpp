@@ -182,7 +182,6 @@ Authentication *Ruqola::authentication()
 
 void Ruqola::attachmentButtonClicked(const QString &roomId)
 {
-    qDebug() << " void Ruqola::attachmentButtonClicked(const QString &roomId)" << roomId;
     const QString fileName = QFileDialog::getOpenFileName(nullptr,
                                                           tr("Select one or more files to open"),
                                                           QDir::homePath(),

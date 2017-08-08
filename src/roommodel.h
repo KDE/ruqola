@@ -73,6 +73,9 @@ public:
     // name
     QString name;
 
+    // Announcement
+    QString mAnnouncement;
+
     // u
     QString userName;
     QString userID;
