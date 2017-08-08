@@ -126,8 +126,8 @@ void Ruqola::setUserName(const QString &username)
 
 void Ruqola::setUserID(const QString &userID)
 {
-    if (m_userName != userID) {
-        m_userName = userID;
+    if (m_userID != userID) {
+        m_userID = userID;
         QSettings s;
         s.setValue(QStringLiteral("userID"), userID);
         emit userIDChanged();
@@ -352,5 +352,5 @@ RoomWrapper *Ruqola::getRoom(const QString &roomID)
 void Ruqola::slotInformTypingStatus(const QString &room, bool typing)
 {
     qDebug() << " void Ruqola::slotInformTypingStatus(const QString &room, bool typing)"<< room << " m_userName " << m_userName << " m_userID " << m_userID;
-    ddp()->informTypingStatus(room, typing, m_userID);
+    ddp()->informTypingStatus(room, typing, m_userName);
 }
