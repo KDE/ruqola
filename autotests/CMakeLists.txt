@@ -1,10 +1,11 @@
+add_definitions( -DRUQOLA_DATA_DIR="${CMAKE_CURRENT_SOURCE_DIR}/data")
 macro(add_ruqola_test _source _additionalsource)
   set( _test ${_source} ${_additionalsource})
   get_filename_component( _name ${_source} NAME_WE )
   add_executable( ${_name} ${_test} )
   add_test( ${_name} ${_name} )
   ecm_mark_as_test(${_name})
-  target_link_libraries( ${_name} Qt5::Test)
+  target_link_libraries( ${_name} Qt5::Test libruqolacore)
 endmacro()
 
 add_ruqola_test(rocketchatmessagetest.cpp "")

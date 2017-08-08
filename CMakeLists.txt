@@ -60,6 +60,7 @@ add_subdirectory(src)
 
 if (BUILD_TESTING)
     add_subdirectory(autotests)
+    add_subdirectory(tests)
 endif()
 
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")

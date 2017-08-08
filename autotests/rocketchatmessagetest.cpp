@@ -19,6 +19,7 @@
 */
 
 #include "rocketchatmessagetest.h"
+#include "../src/rocketchatmessage.h"
 #include <QTest>
 QTEST_MAIN(RocketChatMessageTest)
 
