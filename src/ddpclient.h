@@ -161,6 +161,8 @@ private slots:
 
 private:
 
+    QUrl adaptUrl(const QString &url);
+
     LoginStatus loginStatus() const;
     void setLoginStatus(LoginStatus l);
 

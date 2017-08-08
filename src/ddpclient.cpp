@@ -81,7 +81,7 @@ DDPClient::DDPClient(const QString &url, QObject *parent)
         } else {
             serverUrl = QStringLiteral("wss://") + serverUrl;
         }
-        m_webSocket.open(QUrl(serverUrl + QStringLiteral("/websocket")));
+        m_webSocket.open(adaptUrl(url));
         qCDebug(RUQOLA_LOG) << "Trying to connect to URL" << serverUrl;
     } else {
         qCDebug(RUQOLA_LOG) << "url is empty";
@@ -94,6 +94,19 @@ DDPClient::~DDPClient()
     delete mRocketChatMessage;
 }
 
+QUrl DDPClient::adaptUrl(const QString &url)
+{
+    QString serverUrl = url;
+    if (serverUrl.startsWith(QLatin1String("https://"))) {
+        serverUrl.replace(QStringLiteral("https://"), QStringLiteral("wss://"));
+    } else if (serverUrl.startsWith(QLatin1String("http://"))) {
+        serverUrl.replace(QStringLiteral("http://"), QStringLiteral("ws://"));
+    } else {
+        serverUrl = QStringLiteral("wss://") + serverUrl;
+    }
+    return QUrl(serverUrl + QStringLiteral("/websocket"));
+}
+
 void DDPClient::onServerURLChange()
 {
     if (Ruqola::self()->serverURL() != m_url || !m_webSocket.isValid()) {
@@ -102,7 +115,7 @@ void DDPClient::onServerURLChange()
             m_webSocket.close();
         }
         m_url = Ruqola::self()->serverURL();
-        m_webSocket.open(QUrl(QStringLiteral("wss://")+m_url+QStringLiteral("/websocket")));
+        m_webSocket.open(adaptUrl(m_url));
         connect(&m_webSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
         qCDebug(RUQOLA_LOG) << "Reconnecting" << m_url;
     }
