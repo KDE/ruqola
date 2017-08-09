@@ -30,6 +30,7 @@ Kirigami.BasicListItem {
     property string d_name: "roomName";
     property bool d_selected: false;
     property string d_roomID : "";
+    property string d_type: "";
     
     property bool d_editingMode: false;
     
@@ -39,7 +40,7 @@ Kirigami.BasicListItem {
     signal leaveRoom(string roomID)
     signal hideRoom(string roomID)
     
-    icon: "irc-channel-active"
+    icon: d_type == "c" ? "irc-channel-active" : "user-avaliable"
     
     visible: !d_name.empty
 
@@ -67,7 +68,7 @@ Kirigami.BasicListItem {
             height: parent.height
             width: height
             font.bold: true
-            text: "3"
+            text: "3" //TODO use real value
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
         }
         Kirigami.Icon {

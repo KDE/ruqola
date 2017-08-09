@@ -224,6 +224,7 @@ Room RoomModel::fromJSon(const QJsonObject &o)
     r.unread = o[QStringLiteral("unread")].toInt(0);
     r.mAnnouncement = o[QStringLiteral("announcement")].toString();
     r.selected = o[QStringLiteral("selected")].toBool();
+    r.favorite = o[QStringLiteral("favorite")].toBool();
 
     return r;
 }
@@ -245,6 +246,7 @@ QByteArray RoomModel::serialize(const Room &r)
     o[QStringLiteral("unread")] = r.unread;
     o[QStringLiteral("announcement")] = r.mAnnouncement;
     o[QStringLiteral("selected")] = r.selected;
+    o[QStringLiteral("favorite")] = r.favorite;
 
     d.setObject(o);
     return d.toBinaryData();

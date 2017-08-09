@@ -99,6 +99,9 @@ public:
 
     int unread = -1;
     bool selected = false;
+    bool favorite = false;
+    //We can hide it or not.
+    bool open = false;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);

@@ -30,19 +30,14 @@ ListView {
 
     property string selectedRoomID;
     property bool editingMode: false;
-    //     property QtObject model
     
     signal roomSelected(string roomID)
     
-
-    //     model: roomsList.model
     delegate: RoomDelegate {
-        //         anchors.fill: parent
-        //         implicitWidth: roomsList.width
-        //                 width: roomsList.width
         d_name: name
         d_unread: unread
         d_roomID: room_id
+        d_type: type
         d_selected: selectedRoomID == room_id
         d_editingMode: editingMode
         

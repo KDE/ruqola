@@ -29,7 +29,6 @@ Room::Room()
 
 bool Room::isEqual(const Room &other) const
 {
-    qDebug() << "this "<< *this << "\n other "<<other;
     return (id == other.id) &&
             (type == other.type) &&
             (name == other.name) &&
@@ -41,7 +40,8 @@ bool Room::isEqual(const Room &other) const
             (jitsiTimeout == other.jitsiTimeout) &&
             (ro == other.ro) &&
             (unread == other.unread) &&
-            (selected == other.selected);
+            (selected == other.selected) &&
+            (favorite == other.favorite);
 }
 
 QDebug operator <<(QDebug d, const Room &t)
@@ -58,5 +58,6 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "ro :" << t.ro;
     d << "unread :" << t.unread;
     d << "selected :" << t.selected;
+    d << "favorite :" << t.favorite;
     return d;
 }
