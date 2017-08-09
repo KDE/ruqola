@@ -21,8 +21,36 @@
  */
 
 #include "room.h"
-
+#include <QDebug>
 Room::Room()
 {
 
+}
+
+bool Room::isEqual(const Room &other) const
+{
+    qDebug() << " id " << id  << " other " << other.id;
+    qDebug() << " type " << type  << " type " << other.type;
+    qDebug() << " name " << name  << " name " << other.name;
+    qDebug() << " mAnnouncement " << mAnnouncement  << " mAnnouncement " << other.mAnnouncement;
+    qDebug() << " userName " << userName  << " userName " << other.userName;
+    qDebug() << " userID " << userID  << " userID " << other.userID;
+    qDebug() << " topic " << topic  << " topic " << other.topic;
+    qDebug() << " mutedUsers " << mutedUsers  << " mutedUsers " << other.mutedUsers;
+    qDebug() << " jitsiTimeout " << jitsiTimeout  << " jitsiTimeout " << other.jitsiTimeout;
+    qDebug() << " ro " << ro  << " ro " << other.ro;
+    qDebug() << " unread " << unread  << " unread " << other.unread;
+    qDebug() << " selected " << selected  << " selected " << other.selected;
+    return (id == other.id) &&
+            (type == other.type) &&
+            (name == other.name) &&
+            (mAnnouncement == other.mAnnouncement) &&
+            (userName == other.userName) &&
+            (userID == other.userID) &&
+            (topic == other.topic) &&
+            (mutedUsers == other.mutedUsers) &&
+            (jitsiTimeout == other.jitsiTimeout) &&
+            (ro == other.ro) &&
+            (unread == other.unread) &&
+            (selected == other.selected);
 }

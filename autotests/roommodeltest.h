@@ -30,6 +30,8 @@ class RoomModelTest : public QObject
 public:
     explicit RoomModelTest(QObject *parent = nullptr);
     ~RoomModelTest() = default;
+private Q_SLOTS:
+    void shouldSerialized();
 };
 
 #endif // ROOMMODELTEST_H

@@ -25,8 +25,9 @@
 #define ROOM_H
 
 #include <QString>
+#include "libruqola_private_export.h"
 
-class Room
+class LIBRUQOLACORE_TESTS_EXPORT Room
 {
 public:
     Room();
@@ -42,6 +43,9 @@ public:
     {
         return name < other.name;
     }
+
+    //we can't use operator== as it tests only id. We need it for autotest
+    bool isEqual(const Room &other) const;
 
     /**
     * @brief Return room name

@@ -222,7 +222,8 @@ Room RoomModel::fromJSon(const QJsonObject &o)
     r.jitsiTimeout = o[QStringLiteral("jitsiTimeout")].toDouble();
     r.ro = o[QStringLiteral("ro")].toBool();
     r.unread = o[QStringLiteral("unread")].toInt(0);
-    r.mAnnouncement = o[QStringLiteral("announcement")].toInt(0);
+    r.mAnnouncement = o[QStringLiteral("announcement")].toString();
+    r.selected = o[QStringLiteral("selected")].toBool();
 
     return r;
 }
@@ -243,6 +244,7 @@ QByteArray RoomModel::serialize(const Room &r)
     o[QStringLiteral("ro")] = r.ro;
     o[QStringLiteral("unread")] = r.unread;
     o[QStringLiteral("announcement")] = r.mAnnouncement;
+    o[QStringLiteral("selected")] = r.selected;
 
     d.setObject(o);
     return d.toBinaryData();

@@ -20,6 +20,10 @@
 
 
 #include "roommodeltest.h"
+#include "roommodel.h"
+#include "room.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
 
 QTEST_MAIN(RoomModelTest)
@@ -28,4 +32,24 @@ RoomModelTest::RoomModelTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void RoomModelTest::shouldSerialized()
+{
+    Room input;
+    input.id = QStringLiteral("foo");
+    input.type = QStringLiteral("p");
+    input.name = QStringLiteral("d");
+    input.mAnnouncement = QStringLiteral("AA");
+    input.userName = QStringLiteral("pp");
+    input.userID = QStringLiteral("sdfsdfs");
+    input.topic = QStringLiteral("topic");
+    input.mutedUsers = QStringLiteral("mutedUsers");
+    input.jitsiTimeout = 55;
+    input.ro = true;
+    input.unread = 66;
+    input.selected = true;
+    const QByteArray ba = RoomModel::serialize(input);
+    Room output = RoomModel::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+    QVERIFY(input.isEqual(output));
 }
