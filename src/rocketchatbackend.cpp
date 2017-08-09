@@ -47,7 +47,6 @@ void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
 
-        //TODO remove duplicate code with subs_callback method
         if (room.value(QStringLiteral("t")).toString() != QLatin1String("d")) {
             QString roomID = room.value(roomIdElement).toString();
             MessageModel *roomModel = Ruqola::self()->getModelForRoom(roomID);
