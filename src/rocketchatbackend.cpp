@@ -27,6 +27,11 @@
 #include "ruqola.h"
 #include "ddpclient.h"
 
+void process_subscription(const QJsonDocument &messages)
+{
+    qDebug() << " subscription message :" << messages;
+}
+
 void process_backlog(const QJsonDocument &messages)
 {
     qCDebug(RUQOLA_LOG) << messages.object().value(QStringLiteral("messages")).toArray().size();
@@ -90,7 +95,6 @@ void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
             qDebug() << "Live Chat not implemented yet";
         }
     }
-
 }
 
 void rooms_callback(const QJsonDocument &doc)
@@ -143,7 +147,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
             m.systemMessageType = type;
         }
 
-        qDebug() << " roomId"<<roomId << " add message " << m.message;
+        //qDebug() << " roomId"<<roomId << " add message " << m.message;
         Ruqola::self()->getModelForRoom(roomId)->addMessage(m);
     }
 }
@@ -167,7 +171,7 @@ void RocketChatBackend::onLoginStatusChanged()
 //         qCDebug(RUQOLA_LOG) << "GETTING LIST OF ROOMS";
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
-        Ruqola::self()->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_callback);
+        Ruqola::self()->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subs_callback);
     }
 }
 

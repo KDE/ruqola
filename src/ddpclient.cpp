@@ -217,6 +217,7 @@ quint64 DDPClient::method(const QString &m, const QJsonDocument &params, DDPClie
 
 quint64 DDPClient::method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType)
 {
+    qDebug() << " params" << params.toJson(QJsonDocument::Indented);
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, m_uid);
     qint64 bytes = m_webSocket.sendTextMessage(result.result);
     if (bytes < result.result.length()) {
