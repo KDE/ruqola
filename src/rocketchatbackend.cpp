@@ -61,7 +61,10 @@ void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
                 r.name = room[QStringLiteral("name")].toString();
                 r.topic = room[QStringLiteral("topic")].toString();
                 r.mAnnouncement = room[QStringLiteral("announcement")].toString();
-                r.ro = room[QStringLiteral("topic")].toString() == QLatin1String("true");
+                //Only private room has this settings.
+                if (roomType == QLatin1String("p")) {
+                    r.ro = room[QStringLiteral("topic")].toString() == QLatin1String("true");
+                }
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
 
                 model->addRoom(r);
@@ -80,7 +83,9 @@ void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
             Ruqola::self()->ddp()->method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
         } else if (roomType == QLatin1String("d")) { //Direct chat
             //Add direct room!
-            qDebug() << " Add direct room not implemented yet";
+            const QString roomId = room.value(QStringLiteral("_id")).toString();
+            qDebug() << " Add direct room not implemented yet" << " room id : " << roomId;
+
         } else if (roomType == QLatin1String("l")) { //Live chat
             qDebug() << "Live Chat not implemented yet";
         }
