@@ -50,7 +50,7 @@ Kirigami.BasicListItem {
     }
     
     Row {
-        visible: editingMode // && root.hover ?
+
         
         id: editingActions
         anchors.top: parent.top
@@ -59,8 +59,21 @@ Kirigami.BasicListItem {
         //         anchors.left: parent.left
         width: 50
         spacing: Kirigami.Units.smallSpacing
+        Kirigami.Label {
+            id: notification
+
+            //Show it when notification implemented
+            visible: false && !editingMode
+            height: parent.height
+            width: height
+            font.bold: true
+            text: "3"
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+        }
         Kirigami.Icon {
             id: hideAction
+
+            visible: editingMode // && root.hover ?
             source: "hide_table_row"
             height: parent.height
             width: height
@@ -79,6 +92,8 @@ Kirigami.BasicListItem {
         
         Kirigami.Icon {
             id: quitAction
+
+            visible: editingMode // && root.hover ?
             source: "dialog-close"
             height: parent.height
             width: height
