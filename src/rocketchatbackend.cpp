@@ -47,7 +47,10 @@ void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
 
-        if (room.value(QStringLiteral("t")).toString() != QLatin1String("d")) {
+        const QString roomType = room.value(QStringLiteral("t")).toString();
+
+        if (roomType == QLatin1String("c") //Chat
+                 || roomType == QLatin1String("p") /*Private chat*/) {
             QString roomID = room.value(roomIdElement).toString();
             MessageModel *roomModel = Ruqola::self()->getModelForRoom(roomID);
 
@@ -75,9 +78,11 @@ void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
             dateObject[QStringLiteral("$date")] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
             Ruqola::self()->ddp()->method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
-        } else if (room.value(QStringLiteral("t")).toString() == QLatin1String("d")) {
+        } else if (roomType == QLatin1String("d")) { //Direct chat
             //Add direct room!
             qDebug() << " Add direct room not implemented yet";
+        } else if (roomType == QLatin1String("l")) { //Live chat
+            qDebug() << "Live Chat not implemented yet";
         }
     }
 
