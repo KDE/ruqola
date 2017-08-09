@@ -10,3 +10,4 @@ endmacro()
 
 add_ruqola_test(rocketchatmessagetest.cpp "")
 add_ruqola_test(roommodeltest.cpp "")
+add_ruqola_test(messagemodeltest.cpp "")

@@ -26,11 +26,9 @@
 #include "libruqolacore_export.h"
 #include "libruqola_private_export.h"
 #include <QAbstractListModel>
-#include <QStringList>
 #include <QObject>
 #include <QByteArray>
 #include <QJsonObject>
-#include <QFile>
 
 class LIBRUQOLACORE_TESTS_EXPORT Message
 {
@@ -47,6 +45,10 @@ public:
     {
         return timestamp < other.timestamp;
     }
+
+    //Need for autotest as operator== is already defined
+    bool isEqual(const Message &other) const;
+
     //Message Object Fields
 
     // _id

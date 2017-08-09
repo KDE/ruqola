@@ -32,20 +32,6 @@
 #include "ruqola.h"
 #include "ruqola_debug.h"
 
-//Message::MessageStatus Message::messageStatus() const
-//{
-//    return m_messageStatus;
-//}
-
-//void Message::setMessageStatus(MessageStatus m)
-//{
-//    if (m_messageStatus!= m){
-//        m_messageStatus = m;
-//        emit messageStatusChanged();
-//    }
-//}
-
-
 MessageModel::MessageModel(const QString &roomID, QObject *parent)
     : QAbstractListModel(parent)
     , m_roomID(roomID)
@@ -259,4 +245,28 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     }
 }
 
-// #include "messagelist.moc"
+bool Message::isEqual(const Message &other) const
+{
+    return (messageID == other.messageID)
+            && (roomID == other.roomID)
+            && (message == other.message)
+            && (timestamp == other.timestamp)
+            && (username == other.username)
+            && (userID == other.userID)
+            && (updatedAt == other.updatedAt)
+            && (editedAt == other.editedAt)
+            && (editedByUsername == other.editedByUsername)
+            && (editedByUserID == other.editedByUserID)
+            && (url == other.url)
+            && (meta == other.meta)
+            && (headers == other.headers)
+            && (parsedUrl == other.parsedUrl)
+            && (imageUrl == other.imageUrl)
+            && (color == other.color)
+            && (alias == other.alias)
+            && (avatar == other.avatar)
+            && (systemMessageType == other.systemMessageType)
+            && (groupable == other.groupable)
+            && (parseUrls == other.parseUrls)
+            && (systemMessage == other.systemMessage);
+}
