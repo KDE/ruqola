@@ -52,8 +52,8 @@ public:
     explicit RoomModel(QObject *parent = nullptr);
     virtual ~RoomModel();
 
-    virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
-    virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     /**
     * @brief Constructs room object from @param roomID and @param roomName and @param selected, then calls @method addRoom
@@ -104,9 +104,7 @@ protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
-
     QVector<Room> m_roomsList;
-    //QHash< QString, Room > m_roomsHash;
 };
 
 #endif // ROOMMODEL_H
