@@ -24,6 +24,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QDebug>
+#include <QDateTime>
 
 RocketChatMessage::RocketChatMessage()
     : mJsonFormat(QJsonDocument::Compact)
@@ -159,6 +160,20 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus
     return generateMethod(QStringLiteral("stream-notify-room"), QJsonDocument(params), id);
 }
 
+QJsonValue RocketChatMessage::toJsonDateTime(const QDateTime &dateTime)
+{
+    if (dateTime.isNull())
+        return {};
+
+    return QJsonObject{{QStringLiteral("$date"), dateTime.toMSecsSinceEpoch()}};
+}
+
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::getSubscriptions(const QDateTime &lastUpdate, quint64 id)
+{
+    const QJsonArray params{toJsonDateTime(lastUpdate)};
+    return generateMethod(QStringLiteral("subscriptions/get"), QJsonDocument(params), id);
+}
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QString &name, const QJsonDocument &params, quint64 id)
 {

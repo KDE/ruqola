@@ -24,7 +24,7 @@
 #include "libruqola_private_export.h"
 #include <QString>
 #include <QJsonDocument>
-
+class QDateTime;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatMessage
 {
 public:
@@ -63,7 +63,9 @@ public:
     RocketChatMessage::RocketChatMessageResult readMessages(const QString &roomID, quint64 id);
     RocketChatMessage::RocketChatMessageResult joinRoom(const QString &roomId, const QString &accessCode, quint64 id);
     RocketChatMessage::RocketChatMessageResult informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id);
+    RocketChatMessage::RocketChatMessageResult getSubscriptions(const QDateTime &lastUpdate, quint64 id);
 private:
+    QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
     RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
     QJsonDocument::JsonFormat mJsonFormat;
