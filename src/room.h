@@ -100,4 +100,6 @@ public:
     int unread = -1;
     bool selected = false;
 };
+
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);
 #endif // ROOM_H
