@@ -24,6 +24,7 @@
 #define MESSAGEMODEL_H
 
 #include "libruqolacore_export.h"
+#include "libruqola_private_export.h"
 #include <QAbstractListModel>
 #include <QStringList>
 #include <QObject>
@@ -31,18 +32,9 @@
 #include <QJsonObject>
 #include <QFile>
 
-class Message //: public QObject
+class LIBRUQOLACORE_TESTS_EXPORT Message
 {
-//       Q_OBJECT
 public:
-
-//    enum MessageStatus {
-//        Unsent,
-//        Sending,
-//        Sent,
-//        SendFailed
-//    };
-//    Q_ENUM(MessageStatus)
 
     // To be used in ID find: message ID
     inline bool operator==(const Message &other) const
@@ -55,10 +47,6 @@ public:
     {
         return timestamp < other.timestamp;
     }
-
-//    MessageStatus messageStatus() const;
-//    void setMessageStatus(MessageStatus m);
-
     //Message Object Fields
 
     // _id
@@ -71,17 +59,17 @@ public:
     QString message;
 
     // ts
-    qint64 timestamp;
+    qint64 timestamp = -1;
 
     // u
     QString username;
     QString userID;
 
     // _updatedAt
-    qint64 updatedAt;
+    qint64 updatedAt = -1;
 
     // editedAt
-    qint64 editedAt;
+    qint64 editedAt = -1;
 
     // editedBy
     QString editedByUsername;
@@ -102,20 +90,15 @@ public:
 
     // avatar
     QString avatar;
-
-    // groupable
-    bool groupable;
-
-    // parseUrls
-    bool parseUrls;
-
-    bool systemMessage = false;
     QString systemMessageType;
 
-//    MessageStatus m_messageStatus;
+    // groupable
+    bool groupable = false;
 
-signals:
-//    void messageStatusChanged();
+    // parseUrls
+    bool parseUrls = false;
+
+    bool systemMessage = false;
 };
 
 class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel

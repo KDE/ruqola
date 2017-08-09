@@ -45,6 +45,50 @@
 //    }
 //}
 
+
+MessageModel::MessageModel(const QString &roomID, QObject *parent)
+    : QAbstractListModel(parent)
+    , m_roomID(roomID)
+{
+    qCDebug(RUQOLA_LOG) << "Creating message Model";
+    QDir cacheDir(Ruqola::self()->cacheBasePath()+QStringLiteral("/rooms_cache"));
+
+    // load cache
+    if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
+        QFile f(cacheDir.absoluteFilePath(roomID));
+        if (f.open(QIODevice::ReadOnly)) {
+            QDataStream in(&f);
+            while (!f.atEnd()) {
+                char *byteArray;
+                quint32 length;
+                in.readBytes(byteArray, length);
+                const QByteArray arr = QByteArray::fromRawData(byteArray, length);
+                Message m = MessageModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
+                addMessage(m);
+            }
+        }
+    }
+}
+
+MessageModel::~MessageModel()
+{
+    QDir cacheDir(Ruqola::self()->cacheBasePath()+QStringLiteral("/rooms_cache"));
+    qCDebug(RUQOLA_LOG) << "Caching to..." << cacheDir.path();
+    if (!cacheDir.exists(cacheDir.path())) {
+        cacheDir.mkpath(cacheDir.path());
+    }
+
+    QFile f(cacheDir.absoluteFilePath(m_roomID));
+
+    if (f.open(QIODevice::WriteOnly)) {
+        QDataStream out(&f);
+        for (const Message &m : qAsConst(m_allMessages)) {
+            const QByteArray ms = MessageModel::serialize(m);
+            out.writeBytes(ms, ms.size());
+        }
+    }
+}
+
 Message MessageModel::fromJSon(const QJsonObject &o)
 {
     Message message;
@@ -109,48 +153,6 @@ QByteArray MessageModel::serialize(const Message &message)
     return d.toBinaryData();
 }
 
-MessageModel::MessageModel(const QString &roomID, QObject *parent)
-    : QAbstractListModel(parent)
-    , m_roomID(roomID)
-{
-    qCDebug(RUQOLA_LOG) << "Creating message Model";
-    QDir cacheDir(Ruqola::self()->cacheBasePath()+QStringLiteral("/rooms_cache"));
-
-    // load cache
-    if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
-        QFile f(cacheDir.absoluteFilePath(roomID));
-        if (f.open(QIODevice::ReadOnly)) {
-            QDataStream in(&f);
-            while (!f.atEnd()) {
-                char *byteArray;
-                quint32 length;
-                in.readBytes(byteArray, length);
-                const QByteArray arr = QByteArray::fromRawData(byteArray, length);
-                Message m = MessageModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
-                addMessage(m);
-            }
-        }
-    }
-}
-
-MessageModel::~MessageModel()
-{
-    QDir cacheDir(Ruqola::self()->cacheBasePath()+QStringLiteral("/rooms_cache"));
-    qCDebug(RUQOLA_LOG) << "Caching to..." << cacheDir.path();
-    if (!cacheDir.exists(cacheDir.path())) {
-        cacheDir.mkpath(cacheDir.path());
-    }
-
-    QFile f(cacheDir.absoluteFilePath(m_roomID));
-
-    if (f.open(QIODevice::WriteOnly)) {
-        QDataStream out(&f);
-        for (const Message &m : qAsConst(m_allMessages)) {
-            const QByteArray ms = MessageModel::serialize(m);
-            out.writeBytes(ms, ms.size());
-        }
-    }
-}
 
 QHash<int, QByteArray> MessageModel::roleNames() const
 {
