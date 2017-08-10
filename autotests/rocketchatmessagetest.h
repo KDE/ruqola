@@ -31,6 +31,32 @@ public:
     ~RocketChatMessageTest() = default;
 private Q_SLOTS:
     void shouldGenerateSetTemporaryStatus();
+    void shouldHideRoom();
+    void shouldLeaveRoom();
+    void shouldOpenRoom();
+    void shouldUnarchiveRoom();
+    void shouldArchiveRoom();
+    void showEraseRoom();
+#if 0
+    RocketChatMessageResult getRoomRoles(const QString &roomID, quint64 id);
+    RocketChatMessageResult toggleFavorite(const QString &roomId, bool favorite, quint64 id);
+    RocketChatMessageResult setRoomName(const QString &roomId, const QString &name, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomIsReadOnly(const QString &roomId, bool readOnly, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomHasSystemMessages(const QString &roomId, bool systemMessages, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomIsDefault(const QString &roomId, bool isDefault, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomJoinCode(const QString &roomId, const QString &joinCode, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomTopic(const QString &roomId, const QString &topic, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomDescription(const QString &roomId, const QString &description, quint64 id);
+    RocketChatMessage::RocketChatMessageResult readMessages(const QString &roomID, quint64 id);
+    RocketChatMessage::RocketChatMessageResult joinRoom(const QString &roomId, const QString &accessCode, quint64 id);
+    RocketChatMessage::RocketChatMessageResult informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id);
+    RocketChatMessage::RocketChatMessageResult getSubscriptions(const QDateTime &lastUpdate, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setDefaultStatus(RocketChatMessage::PresenceStatus status, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setTemporaryStatus(RocketChatMessage::PresenceStatus status, quint64 id);
+
+#endif
+
+
 
 private:
     void compareFile(const QString &data, const QString &name);

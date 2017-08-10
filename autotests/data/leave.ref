@@ -1,0 +1,8 @@
+{
+    "id": "42",
+    "method": "leaveRoom",
+    "msg": "method",
+    "params": [
+        "foo"
+    ]
+}

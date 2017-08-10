@@ -1,0 +1,8 @@
+{
+    "id": "42",
+    "method": "archiveRoom",
+    "msg": "method",
+    "params": [
+        "foo"
+    ]
+}

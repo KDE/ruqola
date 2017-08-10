@@ -1,0 +1,8 @@
+{
+    "id": "42",
+    "method": "openRoom",
+    "msg": "method",
+    "params": [
+        "foo"
+    ]
+}

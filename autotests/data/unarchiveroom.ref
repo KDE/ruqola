@@ -1,0 +1,8 @@
+{
+    "id": "42",
+    "method": "unarchiveRoom",
+    "msg": "method",
+    "params": [
+        "foo"
+    ]
+}

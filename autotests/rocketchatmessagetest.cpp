@@ -49,6 +49,7 @@ void RocketChatMessageTest::compareFile(const QString &data, const QString &name
     proc.setProcessChannelMode(QProcess::ForwardedChannels);
     proc.start(QStringLiteral("diff"), args);
     QVERIFY(proc.waitForFinished());
+    QCOMPARE(proc.exitCode(), 0);
 
 }
 
@@ -59,4 +60,58 @@ void RocketChatMessageTest::shouldGenerateSetTemporaryStatus()
     RocketChatMessage::RocketChatMessageResult r = m.setTemporaryStatus(RocketChatMessage::PresenceStatus::PresenceBusy, 42);
 
     compareFile(r.result, QStringLiteral("temporarybusy"));
+}
+
+void RocketChatMessageTest::shouldHideRoom()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.hideRoom(QStringLiteral("foo"), 42);
+
+    compareFile(r.result, QStringLiteral("hide"));
+}
+
+void RocketChatMessageTest::shouldLeaveRoom()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.leaveRoom(QStringLiteral("foo"), 42);
+
+    compareFile(r.result, QStringLiteral("leave"));
+}
+
+void RocketChatMessageTest::shouldOpenRoom()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.openRoom(QStringLiteral("foo"), 42);
+
+    compareFile(r.result, QStringLiteral("openroom"));
+}
+
+void RocketChatMessageTest::shouldUnarchiveRoom()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.unarchiveRoom(QStringLiteral("foo"), 42);
+
+    compareFile(r.result, QStringLiteral("unarchiveroom"));
+}
+
+void RocketChatMessageTest::shouldArchiveRoom()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.archiveRoom(QStringLiteral("foo"), 42);
+
+    compareFile(r.result, QStringLiteral("archiveroom"));
+}
+
+void RocketChatMessageTest::showEraseRoom()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.eraseRoom(QStringLiteral("foo"), 42);
+
+    compareFile(r.result, QStringLiteral("eraseroom"));
 }
