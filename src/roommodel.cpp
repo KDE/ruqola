@@ -212,9 +212,6 @@ void RoomModel::addRoom(const Room &room)
 
 void RoomModel::updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement)
 {
-    //FIXME
-    //return;
-
     Room room;
     room.id = roomID;
     room.name = name;
@@ -240,12 +237,9 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
     }
 
     if (roomChanged) {
-        qDebug() <<" POS " << pos;
         Room foundRoom = m_roomsList.value(pos - 1);
-        qDebug() << " foundRoom " << foundRoom;
         foundRoom.topic = topic;
         foundRoom.mAnnouncement = announcement;
-        qDebug() << " foundRoom.mAnnouncement"<<foundRoom.mAnnouncement<<" foundRoom.topic"<<foundRoom.topic << foundRoom.name;
         m_roomsList.replace(pos - 1, foundRoom);
     }
 

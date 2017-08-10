@@ -42,12 +42,12 @@ void rooms_parsing(const QJsonDocument &doc)
 {
     RoomModel *model = Ruqola::self()->roomModel();
 
-    qDebug() << " doc " << doc;
+    //qDebug() << " doc " << doc;
 
     QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
-    qDebug() << " rooms_parsing: room removed *************************************************" << removed;
+    //qDebug() << " rooms_parsing: room removed *************************************************" << removed;
     const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
-    qDebug() << " rooms_parsing: updated  *******************************************************: "<< updated;
+    //qDebug() << " rooms_parsing: updated  *******************************************************: "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
@@ -74,12 +74,12 @@ void getsubscription_parsing(const QJsonDocument &doc)
 {
     RoomModel *model = Ruqola::self()->roomModel();
 
-    qDebug() << " doc " << doc;
+    //qDebug() << " doc " << doc;
 
     QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
-    qDebug() << " room removed " << removed;
+    //qDebug() << " room removed " << removed;
     const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
-    qDebug() << " updated : "<< updated;
+    //qDebug() << " updated : "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
