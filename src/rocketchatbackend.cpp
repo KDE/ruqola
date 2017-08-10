@@ -38,7 +38,12 @@ void process_backlog(const QJsonDocument &messages)
     RocketChatBackend::processIncomingMessages(messages.object().value(QStringLiteral("messages")).toArray());
 }
 
-void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
+void rooms_parsing(const QJsonDocument &doc)
+{
+    //TODO
+}
+
+void getsubscription_parsing(const QJsonDocument &doc)
 {
     RoomModel *model = Ruqola::self()->roomModel();
 
@@ -55,8 +60,9 @@ void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
         const QString roomType = room.value(QStringLiteral("t")).toString();
 
         if (roomType == QLatin1String("c") //Chat
-                 || roomType == QLatin1String("p") /*Private chat*/) {
-            QString roomID = room.value(roomIdElement).toString();
+                || roomType == QLatin1String("p") /*Private chat*/
+                ||roomType == QLatin1String("d")) { //Direct chat) {
+            QString roomID = room.value(QStringLiteral("rid")).toString();
             MessageModel *roomModel = Ruqola::self()->getModelForRoom(roomID);
 
             // let's be extra safe around crashes
@@ -93,45 +99,6 @@ void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
             dateObject[QStringLiteral("$date")] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
             Ruqola::self()->ddp()->method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
-        } else if (roomType == QLatin1String("d")) { //Direct chat
-            //Add direct room!
-            const QString roomId = room.value(QStringLiteral("_id")).toString();
-            QString roomID = room.value(roomIdElement).toString();
-            MessageModel *roomModel = Ruqola::self()->getModelForRoom(roomID);
-
-            // let's be extra safe around crashes
-            if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
-                Room r;
-                r.id = roomID;
-                r.name = room[QStringLiteral("name")].toString();
-                r.topic = room[QStringLiteral("topic")].toString();
-                r.mAnnouncement = room[QStringLiteral("announcement")].toString();
-                r.type = roomType;
-                QJsonValue favoriteValue = room.value(QStringLiteral("f"));
-                if (!favoriteValue.isUndefined()) {
-                    r.favorite = favoriteValue.toBool();
-                }
-                r.unread = room[QStringLiteral("unread")].toInt();
-                r.open = room[QStringLiteral("open")].toBool();
-                qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
-
-                model->addRoom(r);
-            }
-
-            QJsonArray params;
-            params.append(QJsonValue(roomID));
-            Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-room-messages"), params);
-
-            // Load history
-            params.append(QJsonValue(QJsonValue::Null));
-            params.append(QJsonValue(50)); // Max number of messages to load;
-            QJsonObject dateObject;
-            dateObject[QStringLiteral("$date")] = QJsonValue(roomModel->lastTimestamp());
-            params.append(dateObject);
-            Ruqola::self()->ddp()->method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
-
-            qDebug() << " Add direct room not implemented yet" << " room id : " << roomId;
-
         } else if (roomType == QLatin1String("l")) { //Live chat
             qDebug() << "Live Chat not implemented yet";
         }
@@ -140,12 +107,12 @@ void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
 
 void rooms_callback(const QJsonDocument &doc)
 {
-    rooms_parsing(doc, QStringLiteral("_id"));
+    rooms_parsing(doc);
 }
 
-void subs_callback(const QJsonDocument &doc)
+void subscription_callback(const QJsonDocument &doc)
 {
-    rooms_parsing(doc, QStringLiteral("rid"));
+    getsubscription_parsing(doc);
 }
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
@@ -212,7 +179,7 @@ void RocketChatBackend::onLoginStatusChanged()
 //         qCDebug(RUQOLA_LOG) << "GETTING LIST OF ROOMS";
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
-        Ruqola::self()->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subs_callback);
+        Ruqola::self()->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
     }
 }
 
