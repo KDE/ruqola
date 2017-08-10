@@ -210,13 +210,14 @@ void RoomModel::addRoom(const Room &room)
     Ruqola::self()->getModelForRoom(room.id);
 }
 
-void RoomModel::updateRoom(const QString &roomID, const QString &topic, const QString &announcement)
+void RoomModel::updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement)
 {
     //FIXME
-    return;
+    //return;
 
     Room room;
     room.id = roomID;
+    room.name = name;
     auto existingRoom = std::find(m_roomsList.begin(), m_roomsList.end(), room);
     bool present = (existingRoom != m_roomsList.end());
 
@@ -239,16 +240,18 @@ void RoomModel::updateRoom(const QString &roomID, const QString &topic, const QS
     }
 
     if (roomChanged) {
-        Room foundRoom = m_roomsList.value(pos-1);
+        qDebug() <<" POS " << pos;
+        Room foundRoom = m_roomsList.value(pos - 1);
+        qDebug() << " foundRoom " << foundRoom;
         foundRoom.topic = topic;
         foundRoom.mAnnouncement = announcement;
-        m_roomsList.insert(pos-1, foundRoom);
+        qDebug() << " foundRoom.mAnnouncement"<<foundRoom.mAnnouncement<<" foundRoom.topic"<<foundRoom.topic << foundRoom.name;
+        m_roomsList.replace(pos - 1, foundRoom);
     }
 
     emit dataChanged(createIndex(1, 1), createIndex(pos, 1));
 
     Ruqola::self()->getModelForRoom(room.id);
-
 }
 
 Room RoomModel::fromJSon(const QJsonObject &o)

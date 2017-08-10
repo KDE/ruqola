@@ -71,7 +71,7 @@ public:
     */
     void addRoom(const Room &room);
 
-    void updateRoom(const QString &roomID, const QString &topic, const QString &announcement);
+    void updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement);
 
 
     /**
