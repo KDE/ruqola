@@ -31,6 +31,13 @@ public:
     RocketChatMessage();
     ~RocketChatMessage() = default;
 
+    enum class PresenceStatus {
+        PresenceOnline,
+        PresenceBusy,
+        PresenceAway,
+        PresenceOffline
+    };
+
     struct RocketChatMessageResult
     {
         QString method;
@@ -64,7 +71,10 @@ public:
     RocketChatMessage::RocketChatMessageResult joinRoom(const QString &roomId, const QString &accessCode, quint64 id);
     RocketChatMessage::RocketChatMessageResult informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id);
     RocketChatMessage::RocketChatMessageResult getSubscriptions(const QDateTime &lastUpdate, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setDefaultStatus(RocketChatMessage::PresenceStatus status, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setTemporaryStatus(RocketChatMessage::PresenceStatus status, quint64 id);
 private:
+    QString presenceStatusToString(RocketChatMessage::PresenceStatus status);
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
     RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);

@@ -37,6 +37,22 @@ void RocketChatMessage::setJsonFormat(const QJsonDocument::JsonFormat &jsonForma
     mJsonFormat = jsonFormat;
 }
 
+QString RocketChatMessage::presenceStatusToString(RocketChatMessage::PresenceStatus status)
+{
+    switch(status) {
+    case PresenceStatus::PresenceOnline:
+        return QStringLiteral("online");
+    case PresenceStatus::PresenceBusy:
+        return QStringLiteral("busy");
+    case PresenceStatus::PresenceAway:
+        return QStringLiteral("away");
+    case PresenceStatus::PresenceOffline:
+        return QStringLiteral("offline");
+    }
+    return {};
+}
+
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomRoles(const QString &roomID, quint64 id)
 {
     const QJsonArray params{QJsonValue(roomID)};
@@ -173,6 +189,20 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::getSubscriptions(c
 {
     const QJsonArray params{toJsonDateTime(lastUpdate)};
     return generateMethod(QStringLiteral("subscriptions/get"), QJsonDocument(params), id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setDefaultStatus(RocketChatMessage::PresenceStatus status, quint64 id)
+{
+    const QString strPresence = presenceStatusToString(status);
+    const QJsonArray params{{strPresence}};
+    return generateMethod(QStringLiteral("UserPresence:setDefaultStatus"), QJsonDocument(params), id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setTemporaryStatus(RocketChatMessage::PresenceStatus status, quint64 id)
+{
+    const QString strPresence = presenceStatusToString(status);
+    const QJsonArray params{{}};
+    return generateMethod((QStringLiteral("UserPresence:") + strPresence), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QString &name, const QJsonDocument &params, quint64 id)
