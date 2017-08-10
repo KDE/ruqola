@@ -24,9 +24,11 @@
 #include "libruqola_private_export.h"
 #include <QString>
 #include <QJsonDocument>
+#include <QObject>
 class QDateTime;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatMessage
 {
+    Q_GADGET
 public:
     RocketChatMessage();
     ~RocketChatMessage() = default;
@@ -37,6 +39,7 @@ public:
         PresenceAway,
         PresenceOffline
     };
+    Q_ENUM(PresenceStatus)
 
     struct RocketChatMessageResult
     {

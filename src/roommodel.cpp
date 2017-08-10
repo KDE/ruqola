@@ -210,6 +210,47 @@ void RoomModel::addRoom(const Room &room)
     Ruqola::self()->getModelForRoom(room.id);
 }
 
+void RoomModel::updateRoom(const QString &roomID, const QString &topic, const QString &announcement)
+{
+    //FIXME
+    return;
+
+    Room room;
+    room.id = roomID;
+    auto existingRoom = std::find(m_roomsList.begin(), m_roomsList.end(), room);
+    bool present = (existingRoom != m_roomsList.end());
+
+    auto i = std::upper_bound(m_roomsList.begin(), m_roomsList.end(),
+                              room);
+    int pos = i-m_roomsList.begin();
+    bool roomChanged = false;
+    qCDebug(RUQOLA_LOG) << pos;
+
+//     if (qFind(m_roomsList.begin(), m_roomsList.end(), room) != m_roomsList.end() && pos > 0) {
+    if (present) {
+//         qCDebug(RUQOLA_LOG) << (qFind(m_roomsList.begin(), m_roomsList.end(), room) - m_roomsList.begin());
+//     if (pos != m_roomsList.size()) { // we're at the end
+        qCDebug(RUQOLA_LOG) << "Room changed!";
+        roomChanged = true;
+        //Figure out a better way to update just the really changed message
+    } else {
+        qCWarning(RUQOLA_LOG) << " ROOM DOESNT EXIST " << roomID;
+        return ;
+    }
+
+    if (roomChanged) {
+        Room foundRoom = m_roomsList.value(pos-1);
+        foundRoom.topic = topic;
+        foundRoom.mAnnouncement = announcement;
+        m_roomsList.insert(pos-1, foundRoom);
+    }
+
+    emit dataChanged(createIndex(1, 1), createIndex(pos, 1));
+
+    Ruqola::self()->getModelForRoom(room.id);
+
+}
+
 Room RoomModel::fromJSon(const QJsonObject &o)
 {
     Room r;

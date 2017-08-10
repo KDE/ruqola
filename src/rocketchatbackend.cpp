@@ -40,7 +40,33 @@ void process_backlog(const QJsonDocument &messages)
 
 void rooms_parsing(const QJsonDocument &doc)
 {
-    //TODO
+    RoomModel *model = Ruqola::self()->roomModel();
+
+    qDebug() << " doc " << doc;
+
+    QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
+    qDebug() << " rooms_parsing: room removed *************************************************" << removed;
+    const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
+    qDebug() << " rooms_parsing: updated  *******************************************************: "<< updated;
+
+    for (int i = 0; i < updated.size(); i++) {
+        QJsonObject room = updated.at(i).toObject();
+
+        const QString roomType = room.value(QStringLiteral("t")).toString();
+
+        if (roomType == QLatin1String("c") //Chat
+                || roomType == QLatin1String("p") /*Private chat*/) {
+            // let's be extra safe around crashes
+            if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
+                const QString roomID = room.value(QStringLiteral("_id")).toString();
+                QString topic = room[QStringLiteral("topic")].toString();
+                QString announcement = room[QStringLiteral("announcement")].toString();
+                qCDebug(RUQOLA_LOG) << "Adding room" << roomID << topic << announcement;
+                model->updateRoom(roomID, topic, announcement);
+
+            }
+        }
+    }
 }
 
 void getsubscription_parsing(const QJsonDocument &doc)
@@ -79,7 +105,7 @@ void getsubscription_parsing(const QJsonDocument &doc)
                 }
                 //Only private room has this settings.
                 if (roomType == QLatin1String("p")) {
-                    r.ro = room[QStringLiteral("topic")].toString() == QLatin1String("true");
+                    r.ro = room[QStringLiteral("ro")].toString() == QLatin1String("true");
                 }
                 r.unread = room[QStringLiteral("unread")].toInt();
                 r.open = room[QStringLiteral("open")].toBool();
@@ -103,6 +129,9 @@ void getsubscription_parsing(const QJsonDocument &doc)
             qDebug() << "Live Chat not implemented yet";
         }
     }
+    QJsonObject params;
+    params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
+    Ruqola::self()->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
 }
 
 void rooms_callback(const QJsonDocument &doc)

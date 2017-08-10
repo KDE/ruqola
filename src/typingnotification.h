@@ -22,8 +22,9 @@
 #define TYPINGNOTIFICATION_H
 
 #include <QObject>
+#include "libruqola_private_export.h"
 class QTimer;
-class TypingNotification : public QObject
+class LIBRUQOLACORE_TESTS_EXPORT TypingNotification : public QObject
 {
     Q_OBJECT
 public:
