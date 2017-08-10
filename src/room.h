@@ -102,6 +102,8 @@ public:
     bool favorite = false;
     //We can hide it or not.
     bool open = false;
+
+    bool alert = false;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);

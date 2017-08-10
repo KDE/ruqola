@@ -75,6 +75,8 @@ void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
                 if (roomType == QLatin1String("p")) {
                     r.ro = room[QStringLiteral("topic")].toString() == QLatin1String("true");
                 }
+                r.unread = room[QStringLiteral("unread")].toInt();
+                r.open = room[QStringLiteral("open")].toBool();
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
 
                 model->addRoom(r);
@@ -109,6 +111,8 @@ void rooms_parsing(const QJsonDocument &doc, const QString &roomIdElement)
                 if (!favoriteValue.isUndefined()) {
                     r.favorite = favoriteValue.toBool();
                 }
+                r.unread = room[QStringLiteral("unread")].toInt();
+                r.open = room[QStringLiteral("open")].toBool();
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
 
                 model->addRoom(r);
