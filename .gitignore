@@ -19,3 +19,4 @@ Makefile
 /build/
 CMakeLists.txt.user*
 *.Ruqola.pro.user
+*-generated.ref
