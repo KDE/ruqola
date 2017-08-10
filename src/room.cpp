@@ -41,7 +41,8 @@ bool Room::isEqual(const Room &other) const
             (ro == other.ro) &&
             (unread == other.unread) &&
             (selected == other.selected) &&
-            (favorite == other.favorite);
+            (favorite == other.favorite) &&
+            (open == other.open);
 }
 
 QDebug operator <<(QDebug d, const Room &t)
@@ -59,5 +60,6 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "unread :" << t.unread;
     d << "selected :" << t.selected;
     d << "favorite :" << t.favorite;
+    d << "open :" << t.open;
     return d;
 }

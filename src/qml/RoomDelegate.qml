@@ -31,6 +31,7 @@ Kirigami.BasicListItem {
     property bool d_selected: false;
     property string d_roomID : "";
     property string d_type: "";
+    property bool d_open: false;
     
     property bool d_editingMode: false;
     
@@ -42,7 +43,7 @@ Kirigami.BasicListItem {
     
     icon: d_type == "c" ? "irc-channel-active" : "user-avaliable"
     
-    visible: !d_name.empty
+    visible: !d_name.empty && d_open
 
     font.bold: d_unread > 0
     label: d_name

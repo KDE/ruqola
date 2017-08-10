@@ -38,6 +38,7 @@ ListView {
         d_unread: unread
         d_roomID: room_id
         d_type: type
+        d_open: open
         d_selected: selectedRoomID == room_id
         d_editingMode: editingMode
         

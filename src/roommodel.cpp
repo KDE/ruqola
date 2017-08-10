@@ -115,6 +115,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomJitsiTimeout] = "jitsiTimeout";
     roles[RoomRO] = "readOnly";
     roles[RoomAnnoucement] = "announcement";
+    roles[RoomOpen] = "open";
     return roles;
 }
 
@@ -153,6 +154,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r.mAnnouncement;
     case RoomModel::RoomUnread:
         return r.unread;
+    case RoomModel::RoomOpen:
+        return r.open;
     }
     return QVariant(QStringLiteral("0"));
 }
@@ -266,6 +269,7 @@ Room RoomModel::fromJSon(const QJsonObject &o)
     r.selected = o[QStringLiteral("selected")].toBool();
     r.favorite = o[QStringLiteral("favorite")].toBool();
     r.alert = o[QStringLiteral("alert")].toBool();
+    r.open = o[QStringLiteral("open")].toBool();
 
     return r;
 }
@@ -289,6 +293,7 @@ QByteArray RoomModel::serialize(const Room &r)
     o[QStringLiteral("selected")] = r.selected;
     o[QStringLiteral("favorite")] = r.favorite;
     o[QStringLiteral("alert")] = r.alert;
+    o[QStringLiteral("open")] = r.open;
 
     d.setObject(o);
     return d.toBinaryData();

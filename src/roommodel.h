@@ -45,8 +45,8 @@ public:
         RoomMutedUsers,
         RoomJitsiTimeout,
         RoomRO,
-        RoomAnnoucement
-
+        RoomAnnoucement,
+        RoomOpen
     };
 
     explicit RoomModel(QObject *parent = nullptr);
