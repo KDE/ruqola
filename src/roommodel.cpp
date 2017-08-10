@@ -207,7 +207,7 @@ void RoomModel::addRoom(const Room &room)
         endInsertRows();
     }
 
-    Ruqola::self()->getModelForRoom(room.id);
+    Ruqola::self()->getMessageModelForRoom(room.id);
 }
 
 void RoomModel::updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement)
@@ -245,7 +245,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
 
     emit dataChanged(createIndex(1, 1), createIndex(pos, 1));
 
-    Ruqola::self()->getModelForRoom(room.id);
+    Ruqola::self()->getMessageModelForRoom(room.id);
 }
 
 Room RoomModel::fromJSon(const QJsonObject &o)

@@ -180,7 +180,7 @@ Kirigami.ApplicationWindow {
                     }
                     console.log("Choosing room", roomID);
                     appid.selectedRoomID = roomID;
-                    appid.model = Ruqola.getModelForRoom(roomID)
+                    appid.model = Ruqola.getMessageModelForRoom(roomID)
                     appid.selectedRoom = Ruqola.getRoom(roomID)
                 }
                 

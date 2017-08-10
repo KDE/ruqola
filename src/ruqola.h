@@ -96,7 +96,7 @@ public:
     *
     * @return MessageModel Pointer, model for room
     */
-    Q_INVOKABLE MessageModel *getModelForRoom(const QString &roomID);
+    Q_INVOKABLE MessageModel *getMessageModelForRoom(const QString &roomID);
 
     /**
     * @brief Reset models, load cache and call DDPClient's object to automatically try to connect and log in via username and password

@@ -90,7 +90,7 @@ void getsubscription_parsing(const QJsonDocument &doc)
                 || roomType == QLatin1String("p") /*Private chat*/
                 ||roomType == QLatin1String("d")) { //Direct chat) {
             QString roomID = room.value(QStringLiteral("rid")).toString();
-            MessageModel *roomModel = Ruqola::self()->getModelForRoom(roomID);
+            MessageModel *roomModel = Ruqola::self()->getMessageModelForRoom(roomID);
 
             // let's be extra safe around crashes
             if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
@@ -186,7 +186,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         }
 
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
-        Ruqola::self()->getModelForRoom(roomId)->addMessage(m);
+        Ruqola::self()->getMessageModelForRoom(roomId)->addMessage(m);
     }
 }
 

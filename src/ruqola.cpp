@@ -229,7 +229,7 @@ void Ruqola::hideRoom(const QString &roomID)
     ddp()->hideRoom(roomID);
 }
 
-MessageModel *Ruqola::getModelForRoom(const QString &roomID)
+MessageModel *Ruqola::getMessageModelForRoom(const QString &roomID)
 {
     if (MessageModel *model = m_messageModels.value(roomID)) {
         return model;
