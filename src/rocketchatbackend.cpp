@@ -258,14 +258,29 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         //Laurent FIXME!
         const QString room = contents.at(0).toObject()[QStringLiteral("name")].toString();
         Ruqola::self()->notification()->showMessage(tr("New message from %1").arg(room), message, QSystemTrayIcon::Information, 5000);
-        qCDebug(RUQOLA_LOG) << "New notification" << object.value(QStringLiteral("fields")).toObject();
+        qCDebug(RUQOLA_LOG) << "New notification" << fields;
     }
 }
 
 void RocketChatBackend::onUserIDChanged()
 {
-    qCDebug(RUQOLA_LOG) << "subscribing to notification feed";
-    QJsonArray params;
-    params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("notification"))));
-    Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    qDebug() << " void RocketChatBackend::onUserIDChanged()****************************************************************";
+    {
+        //Subscribe notification.
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("notification"))));
+        Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    }
+    {
+        //Subscribe room-changed.
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("rooms-changed"))));
+        Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    }
+    {
+        //Subscribe subscriptions-changed
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("subscriptions-changed"))));
+        Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    }
 }
