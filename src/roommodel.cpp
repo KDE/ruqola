@@ -151,6 +151,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r.ro;
     case RoomModel::RoomAnnoucement:
         return r.mAnnouncement;
+    case RoomModel::RoomUnread:
+        return r.unread;
     }
     return QVariant(QStringLiteral("0"));
 }

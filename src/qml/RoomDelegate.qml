@@ -61,6 +61,17 @@ Kirigami.BasicListItem {
         width: 50
         spacing: Kirigami.Units.smallSpacing
         Kirigami.Label {
+            id: unreadMessage
+
+            //Show it when notification implemented
+            visible: !editingMode && d_unread > 0
+            height: parent.height
+            width: height
+            font.bold: true
+            text: qsTr("(%1)").arg(d_unread)
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+        }
+        Kirigami.Label {
             id: notification
 
             //Show it when notification implemented
