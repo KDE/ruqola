@@ -39,9 +39,9 @@ private Q_SLOTS:
     void shouldEraseRoom();
     void shouldGetRoomRoles();
     void shouldSetRoomTopic();
+    void shouldToggleFavorite();
+    void shouldSetRoomName();
 #if 0
-    RocketChatMessageResult toggleFavorite(const QString &roomId, bool favorite, quint64 id);
-    RocketChatMessageResult setRoomName(const QString &roomId, const QString &name, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomIsReadOnly(const QString &roomId, bool readOnly, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomHasSystemMessages(const QString &roomId, bool systemMessages, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomIsDefault(const QString &roomId, bool isDefault, quint64 id);

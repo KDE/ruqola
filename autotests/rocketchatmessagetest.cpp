@@ -133,3 +133,25 @@ void RocketChatMessageTest::shouldSetRoomTopic()
 
     compareFile(r.result, QStringLiteral("setRoomTopic"));
 }
+
+void RocketChatMessageTest::shouldToggleFavorite()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.toggleFavorite(QStringLiteral("foo"), true, 42);
+
+    compareFile(r.result, QStringLiteral("togglefavoritetrue"));
+
+    r = m.toggleFavorite(QStringLiteral("foo1"), false, 43);
+
+    compareFile(r.result, QStringLiteral("togglefavoritefalse"));
+}
+
+void RocketChatMessageTest::shouldSetRoomName()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.setRoomName(QStringLiteral("foo"), QStringLiteral("name1"), 42);
+
+    compareFile(r.result, QStringLiteral("roomname"));
+}

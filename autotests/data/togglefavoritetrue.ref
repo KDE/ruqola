@@ -1,0 +1,9 @@
+{
+    "id": "42",
+    "method": "toggleFavorite",
+    "msg": "method",
+    "params": [
+        "foo",
+        true
+    ]
+}
