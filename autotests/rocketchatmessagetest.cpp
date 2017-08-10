@@ -19,7 +19,8 @@
 */
 
 #include "rocketchatmessagetest.h"
-#include "../src/rocketchatmessage.h"
+#include "rocketchatmessage.h"
+#include <QProcess>
 #include <QTest>
 QTEST_MAIN(RocketChatMessageTest)
 
@@ -27,4 +28,35 @@ RocketChatMessageTest::RocketChatMessageTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void RocketChatMessageTest::compareFile(const QString &data, const QString &name)
+{
+    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1Char('/') + name + QStringLiteral(".ref");
+    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1Char('/') + name + QStringLiteral("-generated.ref");
+    //Create generated file
+    QFile f(generatedFile);
+    QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));
+    f.write(data.toUtf8());
+    f.close();
+
+    // compare to reference file
+    QStringList args = QStringList()
+                       << QStringLiteral("-u")
+                       << refFile
+                       << generatedFile;
+    QProcess proc;
+    proc.setProcessChannelMode(QProcess::ForwardedChannels);
+    proc.start(QStringLiteral("diff"), args);
+    QVERIFY(proc.waitForFinished());
+
+}
+
+void RocketChatMessageTest::shouldGenerateSetTemporaryStatus()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.setTemporaryStatus(RocketChatMessage::PresenceStatus::PresenceBusy, 42);
+
+    compareFile(r.result, QStringLiteral("temporarybusy"));
 }

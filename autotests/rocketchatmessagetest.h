@@ -29,6 +29,11 @@ class RocketChatMessageTest : public QObject
 public:
     explicit RocketChatMessageTest(QObject *parent = nullptr);
     ~RocketChatMessageTest() = default;
+private Q_SLOTS:
+    void shouldGenerateSetTemporaryStatus();
+
+private:
+    void compareFile(const QString &data, const QString &name);
 };
 
 #endif // ROCKETCHATMESSAGETEST_H
