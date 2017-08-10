@@ -172,7 +172,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus
 {
     const QString eventName = roomId + QStringLiteral("/typing");
     const QJsonArray params{{eventName}, {userId}, {typingStatus}};
-    qDebug() << " params"<<params;
     return generateMethod(QStringLiteral("stream-notify-room"), QJsonDocument(params), id);
 }
 
