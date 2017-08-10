@@ -126,12 +126,11 @@ void Ruqola::setUserName(const QString &username)
 
 void Ruqola::setUserID(const QString &userID)
 {
-    if (m_userID != userID) {
-        m_userID = userID;
-        QSettings s;
-        s.setValue(QStringLiteral("userID"), userID);
-        emit userIDChanged();
-    }
+    //Don't use if( m_userID != userID) as we need to emit userIDChanged
+    m_userID = userID;
+    QSettings s;
+    s.setValue(QStringLiteral("userID"), userID);
+    emit userIDChanged();
 }
 
 RoomModel *Ruqola::roomModel()
