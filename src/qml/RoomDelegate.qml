@@ -32,6 +32,7 @@ Kirigami.BasicListItem {
     property string d_roomID : "";
     property string d_type: "";
     property bool d_open: false;
+    property bool d_alert: false;
     
     property bool d_editingMode: false;
     
@@ -45,7 +46,7 @@ Kirigami.BasicListItem {
     
     visible: !d_name.empty && d_open
 
-    font.bold: d_unread > 0
+    font.bold: (d_unread > 0) || d_alert
     label: d_name
     checked: d_selected
     onClicked: {

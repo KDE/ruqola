@@ -110,6 +110,7 @@ void getsubscription_parsing(const QJsonDocument &doc)
                 }
                 r.unread = room[QStringLiteral("unread")].toInt();
                 r.open = room[QStringLiteral("open")].toBool();
+                r.alert = room[QStringLiteral("alert")].toBool();
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
 
                 model->addRoom(r);

@@ -116,6 +116,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomRO] = "readOnly";
     roles[RoomAnnoucement] = "announcement";
     roles[RoomOpen] = "open";
+    roles[RoomAlert] = "alert";
     return roles;
 }
 
@@ -156,6 +157,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r.unread;
     case RoomModel::RoomOpen:
         return r.open;
+    case RoomModel::RoomAlert:
+        return r.alert;
     }
     return QVariant(QStringLiteral("0"));
 }

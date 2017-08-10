@@ -46,7 +46,8 @@ public:
         RoomJitsiTimeout,
         RoomRO,
         RoomAnnoucement,
-        RoomOpen
+        RoomOpen,
+        RoomAlert
     };
 
     explicit RoomModel(QObject *parent = nullptr);
