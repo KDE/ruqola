@@ -44,6 +44,7 @@ Kirigami.BasicListItem {
     
     visible: !d_name.empty
 
+    font.bold: d_unread > 0
     label: d_name
     checked: d_selected
     onClicked: {
