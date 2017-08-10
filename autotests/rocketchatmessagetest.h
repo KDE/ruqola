@@ -36,16 +36,16 @@ private Q_SLOTS:
     void shouldOpenRoom();
     void shouldUnarchiveRoom();
     void shouldArchiveRoom();
-    void showEraseRoom();
+    void shouldEraseRoom();
+    void shouldGetRoomRoles();
+    void shouldSetRoomTopic();
 #if 0
-    RocketChatMessageResult getRoomRoles(const QString &roomID, quint64 id);
     RocketChatMessageResult toggleFavorite(const QString &roomId, bool favorite, quint64 id);
     RocketChatMessageResult setRoomName(const QString &roomId, const QString &name, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomIsReadOnly(const QString &roomId, bool readOnly, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomHasSystemMessages(const QString &roomId, bool systemMessages, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomIsDefault(const QString &roomId, bool isDefault, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomJoinCode(const QString &roomId, const QString &joinCode, quint64 id);
-    RocketChatMessage::RocketChatMessageResult setRoomTopic(const QString &roomId, const QString &topic, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomDescription(const QString &roomId, const QString &description, quint64 id);
     RocketChatMessage::RocketChatMessageResult readMessages(const QString &roomID, quint64 id);
     RocketChatMessage::RocketChatMessageResult joinRoom(const QString &roomId, const QString &accessCode, quint64 id);

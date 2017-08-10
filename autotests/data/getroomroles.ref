@@ -1,0 +1,8 @@
+{
+    "id": "42",
+    "method": "getRoomRoles",
+    "msg": "method",
+    "params": [
+        "foo"
+    ]
+}

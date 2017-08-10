@@ -107,11 +107,29 @@ void RocketChatMessageTest::shouldArchiveRoom()
     compareFile(r.result, QStringLiteral("archiveroom"));
 }
 
-void RocketChatMessageTest::showEraseRoom()
+void RocketChatMessageTest::shouldEraseRoom()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
     RocketChatMessage::RocketChatMessageResult r = m.eraseRoom(QStringLiteral("foo"), 42);
 
     compareFile(r.result, QStringLiteral("eraseroom"));
+}
+
+void RocketChatMessageTest::shouldGetRoomRoles()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.getRoomRoles(QStringLiteral("foo"), 42);
+
+    compareFile(r.result, QStringLiteral("getroomroles"));
+}
+
+void RocketChatMessageTest::shouldSetRoomTopic()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.setRoomTopic(QStringLiteral("foo"), QStringLiteral("topic"), 42);
+
+    compareFile(r.result, QStringLiteral("setRoomTopic"));
 }
