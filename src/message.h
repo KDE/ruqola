@@ -30,6 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Message
 public:
     Message();
     void parseMessage(const QJsonObject &o);
+    void parseAttachment();
 
     // To be used in ID find: message ID
     inline bool operator==(const Message &other) const

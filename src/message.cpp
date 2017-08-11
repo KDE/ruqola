@@ -60,3 +60,8 @@ void Message::parseMessage(const QJsonObject &o)
         mSystemMessageType = type;
     }
 }
+
+void Message::parseAttachment()
+{
+    //TODO
+}
