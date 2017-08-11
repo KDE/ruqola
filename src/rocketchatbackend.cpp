@@ -259,11 +259,15 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
 
         if (eventname.endsWith(QStringLiteral("/subscriptions-changed"))) {
             qDebug() << " subscriptions-changed " << eventname;
-        } else {
+        } else if (eventname.endsWith(QStringLiteral("/rooms-changed"))) {
+            qDebug() << "rooms-changed " << eventname;
+        } else if (eventname.endsWith(QStringLiteral("/notification"))){
             const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
             //Laurent FIXME!
             const QString room = contents.at(0).toObject()[QStringLiteral("name")].toString();
             Ruqola::self()->notification()->showMessage(tr("New message from %1").arg(room), message, QSystemTrayIcon::Information, 5000);
+        } else {
+            qDebug() << " Unknown event ? " << eventname;
         }
         qCDebug(RUQOLA_LOG) << "New notification" << fields;
     }
@@ -289,4 +293,5 @@ void RocketChatBackend::onUserIDChanged()
         params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("subscriptions-changed"))));
         Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
+    //TODO stream-notify-all ?
 }
