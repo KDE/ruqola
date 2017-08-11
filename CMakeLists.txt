@@ -43,7 +43,7 @@ add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
 
 # TODO customize it.
-set(RUQOLA_VERSION "0.1")
+set(RUQOLA_VERSION "0.2")
 
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
 set(RUQOLA_LIB_SOVERSION "0")
