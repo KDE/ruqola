@@ -253,18 +253,24 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {
         QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
+        const QString eventname = fields.value(QStringLiteral("eventName")).toString();
         QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
-        const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
-        //Laurent FIXME!
-        const QString room = contents.at(0).toObject()[QStringLiteral("name")].toString();
-        Ruqola::self()->notification()->showMessage(tr("New message from %1").arg(room), message, QSystemTrayIcon::Information, 5000);
+        qDebug() << " EVENT " << eventname << " contents " << contents;
+
+        if (eventname.endsWith(QStringLiteral("/subscriptions-changed"))) {
+            qDebug() << " subscriptions-changed " << eventname;
+        } else {
+            const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
+            //Laurent FIXME!
+            const QString room = contents.at(0).toObject()[QStringLiteral("name")].toString();
+            Ruqola::self()->notification()->showMessage(tr("New message from %1").arg(room), message, QSystemTrayIcon::Information, 5000);
+        }
         qCDebug(RUQOLA_LOG) << "New notification" << fields;
     }
 }
 
 void RocketChatBackend::onUserIDChanged()
 {
-    qDebug() << " void RocketChatBackend::onUserIDChanged()****************************************************************";
     {
         //Subscribe notification.
         QJsonArray params;
