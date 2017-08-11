@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>JSONListModel.qml</file>
         <file>Desktop.qml</file>
         <file>FancyMessageDelegate.qml</file>
         <file>RoomsView.qml</file>
