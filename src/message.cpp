@@ -24,3 +24,41 @@ Message::Message()
 {
 
 }
+
+void Message::parseMessage(const QJsonObject &o)
+{
+    const QString roomId = o.value(QStringLiteral("rid")).toString();
+
+    //t ? I can't find it.
+    const QString type = o.value(QStringLiteral("t")).toString();
+
+    messageID = o.value(QStringLiteral("_id")).toString();
+    roomID = roomId;
+    message = o.value(QStringLiteral("msg")).toString();
+    timestamp = (qint64)o.value(QStringLiteral("ts")).toObject().value(QStringLiteral("$date")).toDouble();
+    username = o.value(QStringLiteral("u")).toObject().value(QStringLiteral("username")).toString();
+    userID = o.value(QStringLiteral("u")).toObject().value(QStringLiteral("_id")).toString();
+    updatedAt = o.value(QStringLiteral("_updatedAt")).toObject().value(QStringLiteral("$date")).toDouble();
+    editedAt = o.value(QStringLiteral("editedAt")).toObject().value(QStringLiteral("$date")).toDouble();
+    editedByUsername = o.value(QStringLiteral("editedBy")).toObject().value(QStringLiteral("username")).toString();
+    editedByUserID = o.value(QStringLiteral("editedBy")).toObject().value(QStringLiteral("userID")).toString();
+    url = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("url")).toString();
+    meta = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("meta")).toString();
+    headers = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("headers")).toString();
+    parsedUrl = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("parsedUrl")).toString();
+    imageUrl = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("image_url")).toString();
+    color = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("color")).toString();
+    alias = o.value(QStringLiteral("alias")).toString();
+    avatar = o.value(QStringLiteral("avatar")).toString();
+    groupable = o.value(QStringLiteral("groupable")).toBool();
+    parseUrls = o.value(QStringLiteral("parseUrls")).toBool();
+
+    if (type.isEmpty()) {
+        systemMessage = false;
+    } else {
+        systemMessage = true;
+        systemMessageType = type;
+    }
+
+
+}

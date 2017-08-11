@@ -153,41 +153,9 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 
         qDebug() <<" o" << o;
         Message m;
-        QString roomId = o.value(QStringLiteral("rid")).toString();
-
-        //t ? I can't find it.
-        QString type = o.value(QStringLiteral("t")).toString();
-
-        m.messageID = o.value(QStringLiteral("_id")).toString();
-        m.roomID = roomId;
-        m.message = o.value(QStringLiteral("msg")).toString();
-        m.timestamp = (qint64)o.value(QStringLiteral("ts")).toObject().value(QStringLiteral("$date")).toDouble();
-        m.username = o.value(QStringLiteral("u")).toObject().value(QStringLiteral("username")).toString();
-        m.userID = o.value(QStringLiteral("u")).toObject().value(QStringLiteral("_id")).toString();
-        m.updatedAt = o.value(QStringLiteral("_updatedAt")).toObject().value(QStringLiteral("$date")).toDouble();
-        m.editedAt = o.value(QStringLiteral("editedAt")).toObject().value(QStringLiteral("$date")).toDouble();
-        m.editedByUsername = o.value(QStringLiteral("editedBy")).toObject().value(QStringLiteral("username")).toString();
-        m.editedByUserID = o.value(QStringLiteral("editedBy")).toObject().value(QStringLiteral("userID")).toString();
-        m.url = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("url")).toString();
-        m.meta = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("meta")).toString();
-        m.headers = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("headers")).toString();
-        m.parsedUrl = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("parsedUrl")).toString();
-        m.imageUrl = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("image_url")).toString();
-        m.color = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("color")).toString();
-        m.alias = o.value(QStringLiteral("alias")).toString();
-        m.avatar = o.value(QStringLiteral("avatar")).toString();
-        m.groupable = o.value(QStringLiteral("groupable")).toBool();
-        m.parseUrls = o.value(QStringLiteral("parseUrls")).toBool();
-
-        if (type.isEmpty()) {
-            m.systemMessage = false;
-        } else {
-            m.systemMessage = true;
-            m.systemMessageType = type;
-        }
-
+        m.parseMessage(o);
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
-        Ruqola::self()->getMessageModelForRoom(roomId)->addMessage(m);
+        Ruqola::self()->getMessageModelForRoom(m.roomID)->addMessage(m);
     }
 }
 
