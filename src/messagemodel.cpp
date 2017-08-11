@@ -29,6 +29,7 @@
 #include <QAbstractListModel>
 
 #include "messagemodel.h"
+#include "message.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
 

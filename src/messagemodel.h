@@ -25,83 +25,13 @@
 
 #include "libruqolacore_export.h"
 #include "libruqola_private_export.h"
+#include "message.h"
 #include <QAbstractListModel>
 #include <QObject>
 #include <QByteArray>
 #include <QJsonObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT Message
-{
-public:
 
-    // To be used in ID find: message ID
-    inline bool operator==(const Message &other) const
-    {
-        return other.messageID == messageID;
-    }
-
-    // To be used in sorted insert: timestamp
-    inline bool operator<(const Message &other) const
-    {
-        return timestamp < other.timestamp;
-    }
-
-    //Need for autotest as operator== is already defined
-    bool isEqual(const Message &other) const;
-
-    //Message Object Fields
-
-    // _id
-    QString messageID;
-
-    // rid
-    QString roomID;
-
-    // msg
-    QString message;
-
-    // ts
-    qint64 timestamp = -1;
-
-    // u
-    QString username;
-    QString userID;
-
-    // _updatedAt
-    qint64 updatedAt = -1;
-
-    // editedAt
-    qint64 editedAt = -1;
-
-    // editedBy
-    QString editedByUsername;
-    QString editedByUserID;
-
-    // urls
-    QString url;
-    QString meta;
-    QString headers;
-    QString parsedUrl;
-
-    // attachments
-    QString imageUrl;
-    QString color;
-
-    // alias
-    QString alias;
-
-    // avatar
-    QString avatar;
-    QString systemMessageType;
-
-    // groupable
-    bool groupable = false;
-
-    // parseUrls
-    bool parseUrls = false;
-
-    bool systemMessage = false;
-};
 
 class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
 {

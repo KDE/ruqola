@@ -151,7 +151,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
     for (const QJsonValue &v : messages) {
         QJsonObject o = v.toObject();
 
-        //qDebug() <<" o" << o;
+        qDebug() <<" o" << o;
         Message m;
         QString roomId = o.value(QStringLiteral("rid")).toString();
 
