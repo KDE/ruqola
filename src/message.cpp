@@ -32,32 +32,32 @@ void Message::parseMessage(const QJsonObject &o)
     //t ? I can't find it.
     const QString type = o.value(QStringLiteral("t")).toString();
 
-    messageID = o.value(QStringLiteral("_id")).toString();
-    roomID = roomId;
-    message = o.value(QStringLiteral("msg")).toString();
-    timestamp = (qint64)o.value(QStringLiteral("ts")).toObject().value(QStringLiteral("$date")).toDouble();
-    username = o.value(QStringLiteral("u")).toObject().value(QStringLiteral("username")).toString();
-    userID = o.value(QStringLiteral("u")).toObject().value(QStringLiteral("_id")).toString();
-    updatedAt = o.value(QStringLiteral("_updatedAt")).toObject().value(QStringLiteral("$date")).toDouble();
-    editedAt = o.value(QStringLiteral("editedAt")).toObject().value(QStringLiteral("$date")).toDouble();
-    editedByUsername = o.value(QStringLiteral("editedBy")).toObject().value(QStringLiteral("username")).toString();
-    editedByUserID = o.value(QStringLiteral("editedBy")).toObject().value(QStringLiteral("userID")).toString();
-    url = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("url")).toString();
-    meta = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("meta")).toString();
-    headers = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("headers")).toString();
-    parsedUrl = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("parsedUrl")).toString();
-    imageUrl = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("image_url")).toString();
-    color = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("color")).toString();
-    alias = o.value(QStringLiteral("alias")).toString();
-    avatar = o.value(QStringLiteral("avatar")).toString();
-    groupable = o.value(QStringLiteral("groupable")).toBool();
-    parseUrls = o.value(QStringLiteral("parseUrls")).toBool();
+    mMessageId = o.value(QStringLiteral("_id")).toString();
+    mRoomId = roomId;
+    mText = o.value(QStringLiteral("msg")).toString();
+    mTimeStamp = (qint64)o.value(QStringLiteral("ts")).toObject().value(QStringLiteral("$date")).toDouble();
+    mUsername = o.value(QStringLiteral("u")).toObject().value(QStringLiteral("username")).toString();
+    mUserId = o.value(QStringLiteral("u")).toObject().value(QStringLiteral("_id")).toString();
+    mUpdatedAt = o.value(QStringLiteral("_updatedAt")).toObject().value(QStringLiteral("$date")).toDouble();
+    mEditedAt = o.value(QStringLiteral("editedAt")).toObject().value(QStringLiteral("$date")).toDouble();
+    mEditedByUsername = o.value(QStringLiteral("editedBy")).toObject().value(QStringLiteral("username")).toString();
+    mEditedByUserId = o.value(QStringLiteral("editedBy")).toObject().value(QStringLiteral("userID")).toString();
+    mUrl = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("url")).toString();
+    mMeta = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("meta")).toString();
+    mHeaders = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("headers")).toString();
+    mParsedUrl = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("parsedUrl")).toString();
+    mImageUrl = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("image_url")).toString();
+    mColor = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("color")).toString();
+    mAlias = o.value(QStringLiteral("alias")).toString();
+    mAvatar = o.value(QStringLiteral("avatar")).toString();
+    mGroupable = o.value(QStringLiteral("groupable")).toBool();
+    mParseUrls = o.value(QStringLiteral("parseUrls")).toBool();
 
     if (type.isEmpty()) {
-        systemMessage = false;
+        mSystemMessage = false;
     } else {
-        systemMessage = true;
-        systemMessageType = type;
+        mSystemMessage = true;
+        mSystemMessageType = type;
     }
 
 

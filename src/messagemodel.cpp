@@ -80,29 +80,29 @@ Message MessageModel::fromJSon(const QJsonObject &o)
 {
     Message message;
 
-    message.messageID = o[QStringLiteral("messageID")].toString();
-    message.roomID = o[QStringLiteral("roomID")].toString();
-    message.message = o[QStringLiteral("message")].toString();
-    message.timestamp = (qint64)o[QStringLiteral("timestamp")].toDouble();
-    message.username = o[QStringLiteral("username")].toString();
-    message.userID = o[QStringLiteral("userID")].toString();
-    message.updatedAt = (qint64)o[QStringLiteral("updatedAt")].toDouble();
-    message.editedAt = (qint64)o[QStringLiteral("editedAt")].toDouble();
-    message.editedByUsername = o[QStringLiteral("editedByUsername")].toString();
-    message.editedByUserID = o[QStringLiteral("editedByUserID")].toString();
-    message.url = o[QStringLiteral("url")].toString();
-    message.meta = o[QStringLiteral("meta")].toString();
-    message.headers = o[QStringLiteral("headers")].toString();
-    message.parsedUrl = o[QStringLiteral("parsedUrl")].toString();
-    message.imageUrl = o[QStringLiteral("imageUrl")].toString();
-    message.color = o[QStringLiteral("color")].toString();
-    message.alias = o[QStringLiteral("alias")].toString();
-    message.avatar = o[QStringLiteral("avatar")].toString();
-    message.groupable = o[QStringLiteral("groupable")].toBool();
-    message.parseUrls = o[QStringLiteral("parseUrls")].toBool();
+    message.mMessageId = o[QStringLiteral("messageID")].toString();
+    message.mRoomId = o[QStringLiteral("roomID")].toString();
+    message.mText = o[QStringLiteral("message")].toString();
+    message.mTimeStamp = (qint64)o[QStringLiteral("timestamp")].toDouble();
+    message.mUsername = o[QStringLiteral("username")].toString();
+    message.mUserId = o[QStringLiteral("userID")].toString();
+    message.mUpdatedAt = (qint64)o[QStringLiteral("updatedAt")].toDouble();
+    message.mEditedAt = (qint64)o[QStringLiteral("editedAt")].toDouble();
+    message.mEditedByUsername = o[QStringLiteral("editedByUsername")].toString();
+    message.mEditedByUserId = o[QStringLiteral("editedByUserID")].toString();
+    message.mUrl = o[QStringLiteral("url")].toString();
+    message.mMeta = o[QStringLiteral("meta")].toString();
+    message.mHeaders = o[QStringLiteral("headers")].toString();
+    message.mParsedUrl = o[QStringLiteral("parsedUrl")].toString();
+    message.mImageUrl = o[QStringLiteral("imageUrl")].toString();
+    message.mColor = o[QStringLiteral("color")].toString();
+    message.mAlias = o[QStringLiteral("alias")].toString();
+    message.mAvatar = o[QStringLiteral("avatar")].toString();
+    message.mGroupable = o[QStringLiteral("groupable")].toBool();
+    message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
 
-    message.systemMessage = o[QStringLiteral("systemMessage")].toBool();
-    message.systemMessageType = o[QStringLiteral("type")].toString();
+    message.mSystemMessage = o[QStringLiteral("systemMessage")].toBool();
+    message.mSystemMessageType = o[QStringLiteral("type")].toString();
 
     return message;
 }
@@ -112,29 +112,29 @@ QByteArray MessageModel::serialize(const Message &message)
     QJsonDocument d;
     QJsonObject o;
 
-    o[QStringLiteral("messageID")] = message.messageID;
-    o[QStringLiteral("roomID")] = message.roomID;
-    o[QStringLiteral("message")] = message.message;
-    o[QStringLiteral("timestamp")] = message.timestamp;
-    o[QStringLiteral("username")] = message.username;
-    o[QStringLiteral("userID")] = message.userID;
-    o[QStringLiteral("updatedAt")] = message.updatedAt;
-    o[QStringLiteral("editedAt")] = message.editedAt;
-    o[QStringLiteral("editedByUsername")] = message.editedByUsername;
-    o[QStringLiteral("editedByUserID")] = message.editedByUserID;
-    o[QStringLiteral("url")] = message.url;
-    o[QStringLiteral("meta")] = message.meta;
-    o[QStringLiteral("headers")] = message.headers;
-    o[QStringLiteral("parsedUrl")] = message.parsedUrl;
-    o[QStringLiteral("imageUrl")] = message.imageUrl;
-    o[QStringLiteral("color")] = message.color;
-    o[QStringLiteral("alias")] = message.alias;
-    o[QStringLiteral("avatar")] = message.avatar;
-    o[QStringLiteral("groupable")] = message.groupable;
-    o[QStringLiteral("parseUrls")] = message.parseUrls;
+    o[QStringLiteral("messageID")] = message.mMessageId;
+    o[QStringLiteral("roomID")] = message.mRoomId;
+    o[QStringLiteral("message")] = message.mText;
+    o[QStringLiteral("timestamp")] = message.mTimeStamp;
+    o[QStringLiteral("username")] = message.mUsername;
+    o[QStringLiteral("userID")] = message.mUserId;
+    o[QStringLiteral("updatedAt")] = message.mUpdatedAt;
+    o[QStringLiteral("editedAt")] = message.mEditedAt;
+    o[QStringLiteral("editedByUsername")] = message.mEditedByUsername;
+    o[QStringLiteral("editedByUserID")] = message.mEditedByUserId;
+    o[QStringLiteral("url")] = message.mUrl;
+    o[QStringLiteral("meta")] = message.mMeta;
+    o[QStringLiteral("headers")] = message.mHeaders;
+    o[QStringLiteral("parsedUrl")] = message.mParsedUrl;
+    o[QStringLiteral("imageUrl")] = message.mImageUrl;
+    o[QStringLiteral("color")] = message.mColor;
+    o[QStringLiteral("alias")] = message.mAlias;
+    o[QStringLiteral("avatar")] = message.mAvatar;
+    o[QStringLiteral("groupable")] = message.mGroupable;
+    o[QStringLiteral("parseUrls")] = message.mParseUrls;
 
-    o[QStringLiteral("systemMessage")] = message.systemMessage;
-    o[QStringLiteral("type")] = message.systemMessageType;
+    o[QStringLiteral("systemMessage")] = message.mSystemMessage;
+    o[QStringLiteral("type")] = message.mSystemMessageType;
 
     d.setObject(o);
     return d.toBinaryData();
@@ -173,8 +173,8 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 qint64 MessageModel::lastTimestamp() const
 {
     if (m_allMessages.size()) {
-        qCDebug(RUQOLA_LOG) << "returning timestamp" << m_allMessages.last().timestamp;
-        return m_allMessages.last().timestamp;
+        qCDebug(RUQOLA_LOG) << "returning timestamp" << m_allMessages.last().mTimeStamp;
+        return m_allMessages.last().mTimeStamp;
     } else {
         return 0;
     }
@@ -189,7 +189,7 @@ int MessageModel::rowCount(const QModelIndex &parent) const
 void MessageModel::addMessage(const Message &message)
 {
     // Don't add empty messages
-    if (message.message.isEmpty()) {
+    if (message.mText.isEmpty()) {
         return;
     }
 
@@ -226,21 +226,21 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 {
     int idx = index.row();
     if (role == MessageModel::Username) {
-        return m_allMessages.at(idx).username;
+        return m_allMessages.at(idx).mUsername;
     } else if (role == MessageModel::MessageText) {
-        return m_allMessages.at(idx).message;
+        return m_allMessages.at(idx).mText;
     } else if (role == MessageModel::Timestamp) {
-        return QVariant(m_allMessages.at(idx).timestamp);
+        return QVariant(m_allMessages.at(idx).mTimeStamp);
     } else if (role == MessageModel::UserID) {
-        return QVariant(m_allMessages.at(idx).userID);
+        return QVariant(m_allMessages.at(idx).mUserId);
     } else if (role == MessageModel::SystemMessage) {
-        return QVariant(m_allMessages.at(idx).systemMessage);
+        return QVariant(m_allMessages.at(idx).mSystemMessage);
     } else if (role == MessageModel::SystemMessageType) {
-        return QVariant(m_allMessages.at(idx).systemMessageType);
+        return QVariant(m_allMessages.at(idx).mSystemMessageType);
     } else if (role == MessageModel::MessageID) {
-        return QVariant(m_allMessages.at(idx).messageID);
+        return QVariant(m_allMessages.at(idx).mMessageId);
     } else if (role == MessageModel::Alias) {
-        return QVariant(m_allMessages.at(idx).alias);
+        return QVariant(m_allMessages.at(idx).mAlias);
     } else {
         return QVariant(QString());
     }
@@ -248,26 +248,26 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
 bool Message::isEqual(const Message &other) const
 {
-    return (messageID == other.messageID)
-            && (roomID == other.roomID)
-            && (message == other.message)
-            && (timestamp == other.timestamp)
-            && (username == other.username)
-            && (userID == other.userID)
-            && (updatedAt == other.updatedAt)
-            && (editedAt == other.editedAt)
-            && (editedByUsername == other.editedByUsername)
-            && (editedByUserID == other.editedByUserID)
-            && (url == other.url)
-            && (meta == other.meta)
-            && (headers == other.headers)
-            && (parsedUrl == other.parsedUrl)
-            && (imageUrl == other.imageUrl)
-            && (color == other.color)
-            && (alias == other.alias)
-            && (avatar == other.avatar)
-            && (systemMessageType == other.systemMessageType)
-            && (groupable == other.groupable)
-            && (parseUrls == other.parseUrls)
-            && (systemMessage == other.systemMessage);
+    return (mMessageId == other.mMessageId)
+            && (mRoomId == other.mRoomId)
+            && (mText == other.mText)
+            && (mTimeStamp == other.mTimeStamp)
+            && (mUsername == other.mUsername)
+            && (mUserId == other.mUserId)
+            && (mUpdatedAt == other.mUpdatedAt)
+            && (mEditedAt == other.mEditedAt)
+            && (mEditedByUsername == other.mEditedByUsername)
+            && (mEditedByUserId == other.mEditedByUserId)
+            && (mUrl == other.mUrl)
+            && (mMeta == other.mMeta)
+            && (mHeaders == other.mHeaders)
+            && (mParsedUrl == other.mParsedUrl)
+            && (mImageUrl == other.mImageUrl)
+            && (mColor == other.mColor)
+            && (mAlias == other.mAlias)
+            && (mAvatar == other.mAvatar)
+            && (mSystemMessageType == other.mSystemMessageType)
+            && (mGroupable == other.mGroupable)
+            && (mParseUrls == other.mParseUrls)
+            && (mSystemMessage == other.mSystemMessage);
 }

@@ -34,13 +34,13 @@ public:
     // To be used in ID find: message ID
     inline bool operator==(const Message &other) const
     {
-        return other.messageID == messageID;
+        return other.mMessageId == mMessageId;
     }
 
     // To be used in sorted insert: timestamp
     inline bool operator<(const Message &other) const
     {
-        return timestamp < other.timestamp;
+        return mTimeStamp < other.mTimeStamp;
     }
 
     //Need for autotest as operator== is already defined
@@ -49,54 +49,54 @@ public:
     //Message Object Fields
 
     // _id
-    QString messageID;
+    QString mMessageId;
 
     // rid
-    QString roomID;
+    QString mRoomId;
 
     // msg
-    QString message;
+    QString mText;
 
     // ts
-    qint64 timestamp = -1;
+    qint64 mTimeStamp = -1;
 
     // u
-    QString username;
-    QString userID;
+    QString mUsername;
+    QString mUserId;
 
     // _updatedAt
-    qint64 updatedAt = -1;
+    qint64 mUpdatedAt = -1;
 
     // editedAt
-    qint64 editedAt = -1;
+    qint64 mEditedAt = -1;
 
     // editedBy
-    QString editedByUsername;
-    QString editedByUserID;
+    QString mEditedByUsername;
+    QString mEditedByUserId;
 
     // urls
-    QString url;
-    QString meta;
-    QString headers;
-    QString parsedUrl;
+    QString mUrl;
+    QString mMeta;
+    QString mHeaders;
+    QString mParsedUrl;
 
     // attachments
-    QString imageUrl;
-    QString color;
+    QString mImageUrl;
+    QString mColor;
 
     // alias
-    QString alias;
+    QString mAlias;
 
     // avatar
-    QString avatar;
-    QString systemMessageType;
+    QString mAvatar;
+    QString mSystemMessageType;
 
     // groupable
-    bool groupable = false;
+    bool mGroupable = false;
 
     // parseUrls
-    bool parseUrls = false;
+    bool mParseUrls = false;
 
-    bool systemMessage = false;
+    bool mSystemMessage = false;
 };
 #endif // MESSAGE_H
