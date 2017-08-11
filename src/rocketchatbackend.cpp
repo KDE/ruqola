@@ -231,9 +231,8 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             qDebug() << "rooms-changed " << eventname;
         } else if (eventname.endsWith(QStringLiteral("/notification"))){
             const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
-            //Laurent FIXME!
-            const QString room = contents.at(0).toObject()[QStringLiteral("name")].toString();
-            Ruqola::self()->notification()->showMessage(tr("New message from %1").arg(room), message, QSystemTrayIcon::Information, 5000);
+            const QString title = contents.at(0).toObject()[QStringLiteral("title")].toString();
+            Ruqola::self()->notification()->showMessage(title, message, QSystemTrayIcon::Information, 5000);
         } else {
             qDebug() << " Unknown event ? " << eventname;
         }
