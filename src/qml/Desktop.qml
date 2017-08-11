@@ -188,10 +188,7 @@ Kirigami.ApplicationWindow {
             Kirigami.OverlaySheet {
                 id: channelsList
                 contentItem: ChannelsList {
-                    //                     anchors.fill: parent
-                    
                 }
-                
             }
         }
     }
