@@ -111,10 +111,7 @@ protected:
 
 private:
     const QString m_roomID;
-
     QVector<Message> m_allMessages;
-
-    QString m_writableLocation;
 };
 
 #endif
