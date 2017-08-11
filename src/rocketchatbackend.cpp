@@ -293,5 +293,11 @@ void RocketChatBackend::onUserIDChanged()
         params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("subscriptions-changed"))));
         Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
+    {
+        //Subscribe message
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("message"))));
+        Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    }
     //TODO stream-notify-all ?
 }
