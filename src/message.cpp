@@ -59,6 +59,4 @@ void Message::parseMessage(const QJsonObject &o)
         mSystemMessage = true;
         mSystemMessageType = type;
     }
-
-
 }
