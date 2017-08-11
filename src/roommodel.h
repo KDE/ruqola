@@ -47,7 +47,8 @@ public:
         RoomRO,
         RoomAnnoucement,
         RoomOpen,
-        RoomAlert
+        RoomAlert,
+        RoomOrder
     };
 
     explicit RoomModel(QObject *parent = nullptr);

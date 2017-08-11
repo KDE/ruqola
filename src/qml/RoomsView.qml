@@ -32,7 +32,28 @@ ListView {
     property bool editingMode: false;
     
     signal roomSelected(string roomID)
-    
+    /*
+    // The delegate for each section header
+    Component {
+        id: sectionHeading
+        Rectangle {
+            width: container.width
+            height: childrenRect.height
+            color: "lightsteelblue"
+
+            Text {
+                text: section
+                font.bold: true
+            }
+        }
+    }
+
+    section {
+        property: "roomorder";
+        criteria: ViewSection.FullString
+        delegate: sectionHeading
+    }
+*/
     delegate: RoomDelegate {
         d_name: name
         d_unread: unread

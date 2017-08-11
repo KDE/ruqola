@@ -248,7 +248,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
         processIncomingMessages(contents);
     } else if (collection == QLatin1String("users")) {
-        qCDebug(RUQOLA_LOG) << "USER CHANGED";
+        qCDebug(RUQOLA_LOG) << "USER CHANGED" << object;
     } else if (collection == QLatin1String("rooms")) {
         qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {
@@ -270,6 +270,8 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             qDebug() << " Unknown event ? " << eventname;
         }
         qCDebug(RUQOLA_LOG) << "New notification" << fields;
+    } else {
+        qCDebug(RUQOLA_LOG) << " Other collection type " << collection;
     }
 }
 
@@ -298,6 +300,12 @@ void RocketChatBackend::onUserIDChanged()
         QJsonArray params;
         params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("message"))));
         Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    }
+    {
+        //Subscribe activeUsers
+        QJsonArray params;
+        params.append(QJsonValue(params));
+        Ruqola::self()->ddp()->subscribe(QStringLiteral("activeUsers"), params);
     }
     //TODO stream-notify-all ?
 }

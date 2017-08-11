@@ -117,6 +117,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomAnnoucement] = "announcement";
     roles[RoomOpen] = "open";
     roles[RoomAlert] = "alert";
+    roles[RoomOrder] = "roomorder";
     return roles;
 }
 
@@ -159,6 +160,22 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r.open;
     case RoomModel::RoomAlert:
         return r.alert;
+    case RoomModel::RoomOrder: {
+        QString str;
+        if (r.favorite) {
+            str = tr("Favorites");
+        } else {
+            if (r.type == QLatin1String("c")) {
+                str = tr("Rooms");
+            } else if (r.type == QLatin1String("d")) {
+                str =tr("Private Message");
+            } else {
+                str = QString();
+            }
+        }
+        qDebug() <<" str " << str << " name "<< r.name;
+        return str;
+    }
     }
     return QVariant(QStringLiteral("0"));
 }

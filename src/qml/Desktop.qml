@@ -243,7 +243,7 @@ Kirigami.ApplicationWindow {
                     visible: appid.selectedRoom
                 }
             }
-            
+
             ListView {
                 id: activeChat
                 model: appid.model
