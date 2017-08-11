@@ -33,6 +33,7 @@
 #include "notification.h"
 #include "messagequeue.h"
 #include "authentication.h"
+class RoomFilterProxyModel;
 
 class TypingNotification;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
@@ -130,6 +131,8 @@ public:
     */
     QString cacheBasePath() const;
 
+    Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
+
 signals:
     void userNameChanged();
     void userIDChanged();
@@ -149,6 +152,7 @@ private:
     DDPClient *m_ddp;
     MessageQueue *m_messageQueue;
     RoomModel *m_roomModel;
+    RoomFilterProxyModel *mRoomFilterProxyModel;
     Notification *m_notification;
     Authentication *m_authentication;
 

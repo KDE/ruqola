@@ -3,6 +3,7 @@ ecm_create_qm_loader(ruqola_QM_LOADER ruqola_qt)
 set (Ruqola_core_srcs
     messagemodel.cpp
     roommodel.cpp
+    roomfilterproxymodel.cpp
     room.cpp
     roomwrapper.cpp
     ddpclient.cpp

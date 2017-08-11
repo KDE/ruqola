@@ -27,6 +27,7 @@
 #include "notification.h"
 #include "messagequeue.h"
 #include "ruqola_debug.h"
+#include "roomfilterproxymodel.h"
 #include <QFileDialog>
 #include <QTcpSocket>
 #include <QDataStream>
@@ -40,10 +41,15 @@ Ruqola::Ruqola(QObject *parent)
     , m_ddp(nullptr)
     , m_messageQueue(nullptr)
     , m_roomModel(nullptr)
+    , mRoomFilterProxyModel(nullptr)
     , m_notification(nullptr)
     , m_authentication(nullptr)
     , mTypingNotification(nullptr)
 {
+    m_roomModel = new RoomModel(this);
+    mRoomFilterProxyModel = new RoomFilterProxyModel(this);
+    mRoomFilterProxyModel->setSourceModel(m_roomModel);
+
     mTypingNotification = new TypingNotification(this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &Ruqola::slotInformTypingStatus);
     QSettings s;
@@ -51,6 +57,11 @@ Ruqola::Ruqola(QObject *parent)
     m_userName = s.value(QStringLiteral("username")).toString();
     m_userID = s.value(QStringLiteral("userID")).toString();
     m_authToken = s.value(QStringLiteral("authToken")).toString();
+}
+
+RoomFilterProxyModel *Ruqola::roomFilterProxyModel() const
+{
+    return mRoomFilterProxyModel;
 }
 
 Ruqola *Ruqola::self()
@@ -135,11 +146,6 @@ void Ruqola::setUserID(const QString &userID)
 
 RoomModel *Ruqola::roomModel()
 {
-    if (!m_roomModel) {
-        qCDebug(RUQOLA_LOG) << "creating new RoomModel";
-        m_roomModel = new RoomModel(this);
-        qCDebug(RUQOLA_LOG) << m_roomModel;
-    }
     return m_roomModel;
 }
 
