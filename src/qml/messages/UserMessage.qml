@@ -142,6 +142,11 @@ function slimdown() {
         return colour;
     }
 
+    function displayDateTime(timestamp)
+    {
+        return Qt.formatDate(new Date(timestamp), qsTr("yyyy-MM-dd")) + "\n" + Qt.formatTime(new Date(timestamp), qsTr("hh:mm"));
+    }
+
     property string i_messageText
     property string i_messageID
     property string i_username
@@ -278,17 +283,14 @@ function slimdown() {
         Kirigami.Label {
             id: timestampText
 
-            text: Qt.formatTime(new Date(i_timestamp), "hh:mm")
+            text: displayDateTime(i_timestamp)
             opacity: .5
-            
+
             anchors.top: parent.top
             anchors.right: parent.right
             anchors.leftMargin: Kirigami.Units.smallSpacing
-            
+
             z: 10
         }
     }
-    
-//     Component.onCompleted: console.log(i_timestamp)
-
 }
