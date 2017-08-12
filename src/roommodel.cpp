@@ -57,7 +57,7 @@ void RoomModel::clear()
     if (!mRoomsList.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, rowCount()-1);
         mRoomsList.clear();
-        QAbstractItemModel::endRemoveRows();
+        endRemoveRows();
     }
 }
 
