@@ -46,7 +46,6 @@ public:
 private slots:
     void onAdded(const QJsonObject &object);
     void onChanged(const QJsonObject &object);
-    void onLoggedIn();
     void onLoginStatusChanged();
     void onUserIDChanged();
 };

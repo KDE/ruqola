@@ -177,15 +177,13 @@ void RocketChatBackend::onLoginStatusChanged()
     }
 }
 
-void RocketChatBackend::onLoggedIn()
-{
-}
-
 void RocketChatBackend::onAdded(const QJsonObject &object)
 {
     QString collection = object.value(QStringLiteral("collection")).toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
+
+        qCDebug(RUQOLA_LOG) << "stream-room-messages : " << object;
     } else if (collection == QLatin1String("users")) {
         QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
         QString username = fields.value(QStringLiteral("username")).toString();
@@ -194,10 +192,11 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
             qCDebug(RUQOLA_LOG) << "User id set to " << Ruqola::self()->userID();
         }
 
-        qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username;
+        qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username << fields;
     } else if (collection == QLatin1String("rooms")) {
         qCDebug(RUQOLA_LOG) << "NEW ROOMS ADDED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {
+        qCDebug(RUQOLA_LOG) << "stream-notify-user: " << object;
     }
 }
 
