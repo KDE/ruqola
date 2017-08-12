@@ -126,6 +126,7 @@ void getsubscription_parsing(const QJsonDocument &doc)
             qDebug() << "Live Chat not implemented yet";
         }
     }
+    //We need to load all room after get subscription to update parameters
     QJsonObject params;
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
     Ruqola::self()->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
