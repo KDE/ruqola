@@ -27,11 +27,6 @@
 #include "ruqola.h"
 #include "ddpclient.h"
 
-void process_subscription(const QJsonDocument &messages)
-{
-    qDebug() << " subscription message :" << messages;
-}
-
 void process_backlog(const QJsonDocument &messages)
 {
     qCDebug(RUQOLA_LOG) << messages.object().value(QStringLiteral("messages")).toArray().size();
@@ -211,9 +206,8 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
     const QString collection = object[QStringLiteral("collection")].toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
-        QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
-        //QString roomId = fields.value(QStringLiteral("eventName")).toString();
-        QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
+        const QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
+        const QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
         processIncomingMessages(contents);
     } else if (collection == QLatin1String("users")) {
         qCDebug(RUQOLA_LOG) << "USER CHANGED" << object;
