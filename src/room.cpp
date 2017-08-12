@@ -24,25 +24,24 @@
 #include <QDebug>
 Room::Room()
 {
-
 }
 
 bool Room::isEqual(const Room &other) const
 {
-    return (id == other.id) &&
-            (type == other.type) &&
-            (name == other.name) &&
-            (mAnnouncement == other.mAnnouncement) &&
-            (userName == other.userName) &&
-            (userID == other.userID) &&
-            (topic == other.topic) &&
-            (mutedUsers == other.mutedUsers) &&
-            (jitsiTimeout == other.jitsiTimeout) &&
-            (ro == other.ro) &&
-            (unread == other.unread) &&
-            (selected == other.selected) &&
-            (favorite == other.favorite) &&
-            (open == other.open);
+    return (id == other.id)
+           && (type == other.type)
+           && (name == other.name)
+           && (mAnnouncement == other.mAnnouncement)
+           && (userName == other.userName)
+           && (userID == other.userID)
+           && (topic == other.topic)
+           && (mutedUsers == other.mutedUsers)
+           && (jitsiTimeout == other.jitsiTimeout)
+           && (ro == other.ro)
+           && (unread == other.unread)
+           && (selected == other.selected)
+           && (favorite == other.favorite)
+           && (open == other.open);
 }
 
 QDebug operator <<(QDebug d, const Room &t)

@@ -18,19 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "roomfilterproxymodel.h"
 #include "roommodel.h"
 
 RoomFilterProxyModel::RoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-
 }
 
 RoomFilterProxyModel::~RoomFilterProxyModel()
 {
-
 }
 
 bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const

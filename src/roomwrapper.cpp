@@ -20,7 +20,6 @@
  *
  */
 
-
 #include "roomwrapper.h"
 #include "room.h"
 

@@ -62,7 +62,6 @@ public:
     //save room settings
     RocketChatMessageResult setRoomName(const QString &roomId, const QString &name, quint64 id);
 
-
     RocketChatMessageResult generateMethod(const QString &method, const QJsonDocument &params, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomIsReadOnly(const QString &roomId, bool readOnly, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomHasSystemMessages(const QString &roomId, bool systemMessages, quint64 id);

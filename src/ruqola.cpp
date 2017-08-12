@@ -35,7 +35,6 @@
 
 Ruqola *Ruqola::m_self = nullptr;
 
-
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
     , m_ddp(nullptr)
@@ -88,7 +87,6 @@ Ruqola *Ruqola::self()
     }
     return m_self;
 }
-
 
 QString Ruqola::authToken() const
 {

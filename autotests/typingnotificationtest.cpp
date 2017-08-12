@@ -27,5 +27,4 @@ QTEST_MAIN(TypingNotificationTest)
 TypingNotificationTest::TypingNotificationTest(QObject *parent)
     : QObject(parent)
 {
-
 }

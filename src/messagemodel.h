@@ -1,5 +1,5 @@
 /*
- 
+
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -30,8 +30,6 @@
 #include <QObject>
 #include <QByteArray>
 #include <QJsonObject>
-
-
 
 class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
 {

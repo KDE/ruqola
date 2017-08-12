@@ -1,5 +1,5 @@
 /*
- 
+
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -23,7 +23,6 @@
 #include "ruqola.h"
 #include "ddpclient.h"
 #include "ruqola_debug.h"
-
 
 MessageQueue::MessageQueue(QObject *parent)
     : QObject(parent)

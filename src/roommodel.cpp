@@ -28,7 +28,6 @@
 #include <QAbstractItemModel>
 #include <QtCore>
 
-
 RoomModel::RoomModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -131,7 +130,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
 {
     Room r = mRoomsList.at(index.row());
 
-    switch(role) {
+    switch (role) {
     case RoomModel::RoomName:
         return r.name;
     case RoomModel::RoomID:
@@ -160,7 +159,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r.open;
     case RoomModel::RoomAlert:
         return r.alert;
-    case RoomModel::RoomOrder: {
+    case RoomModel::RoomOrder:
+    {
         QString str;
         if (r.favorite) {
             str = tr("Favorites");
@@ -168,7 +168,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
             if (r.type == QLatin1String("c")) {
                 str = tr("Rooms");
             } else if (r.type == QLatin1String("d")) {
-                str =tr("Private Message");
+                str = tr("Private Message");
             } else {
                 str = QString();
             }
@@ -266,7 +266,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
         //Figure out a better way to update just the really changed message
     } else {
         qCWarning(RUQOLA_LOG) << " ROOM DOESNT EXIST " << roomID;
-        return ;
+        return;
     }
 
     if (roomChanged) {

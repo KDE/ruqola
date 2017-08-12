@@ -50,7 +50,7 @@ void rooms_parsing(const QJsonDocument &doc)
         const QString roomType = room.value(QStringLiteral("t")).toString();
 
         if (roomType == QLatin1String("c") //Chat
-                || roomType == QLatin1String("p") /*Private chat*/) {
+            || roomType == QLatin1String("p") /*Private chat*/) {
             // let's be extra safe around crashes
             if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
                 const QString roomID = room.value(QStringLiteral("_id")).toString();
@@ -81,8 +81,8 @@ void getsubscription_parsing(const QJsonDocument &doc)
         const QString roomType = room.value(QStringLiteral("t")).toString();
 
         if (roomType == QLatin1String("c") //Chat
-                || roomType == QLatin1String("p") /*Private chat*/
-                ||roomType == QLatin1String("d")) { //Direct chat) {
+            || roomType == QLatin1String("p")     /*Private chat*/
+            || roomType == QLatin1String("d")) {    //Direct chat) {
             QString roomID = room.value(QStringLiteral("rid")).toString();
             MessageModel *roomModel = Ruqola::self()->getMessageModelForRoom(roomID);
 
@@ -182,7 +182,6 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
     QString collection = object.value(QStringLiteral("collection")).toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
-
         qCDebug(RUQOLA_LOG) << "stream-room-messages : " << object;
     } else if (collection == QLatin1String("users")) {
         const QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
@@ -226,7 +225,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             qDebug() << "rooms-changed " << eventname;
             RoomModel *model = Ruqola::self()->roomModel();
             model->updateRoom(contents);
-        } else if (eventname.endsWith(QStringLiteral("/notification"))){
+        } else if (eventname.endsWith(QStringLiteral("/notification"))) {
             const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
             const QString title = contents.at(0).toObject()[QStringLiteral("title")].toString();
             Ruqola::self()->notification()->showMessage(title, message, QSystemTrayIcon::Information, 5000);

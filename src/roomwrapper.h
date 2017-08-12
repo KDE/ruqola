@@ -20,7 +20,6 @@
  *
  */
 
-
 #ifndef ROOMWRAPPER_H
 #define ROOMWRAPPER_H
 

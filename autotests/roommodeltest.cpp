@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "roommodeltest.h"
 #include "roommodel.h"
 #include "room.h"
@@ -31,7 +30,6 @@ QTEST_MAIN(RoomModelTest)
 RoomModelTest::RoomModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RoomModelTest::shouldSerialized()

@@ -1,5 +1,5 @@
 /*
- 
+
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -140,7 +140,6 @@ QByteArray MessageModel::serialize(const Message &message)
     return d.toBinaryData();
 }
 
-
 QHash<int, QByteArray> MessageModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
@@ -249,25 +248,25 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 bool Message::isEqual(const Message &other) const
 {
     return (mMessageId == other.mMessageId)
-            && (mRoomId == other.mRoomId)
-            && (mText == other.mText)
-            && (mTimeStamp == other.mTimeStamp)
-            && (mUsername == other.mUsername)
-            && (mUserId == other.mUserId)
-            && (mUpdatedAt == other.mUpdatedAt)
-            && (mEditedAt == other.mEditedAt)
-            && (mEditedByUsername == other.mEditedByUsername)
-            && (mEditedByUserId == other.mEditedByUserId)
-            && (mUrl == other.mUrl)
-            && (mMeta == other.mMeta)
-            && (mHeaders == other.mHeaders)
-            && (mParsedUrl == other.mParsedUrl)
-            && (mImageUrl == other.mImageUrl)
-            && (mColor == other.mColor)
-            && (mAlias == other.mAlias)
-            && (mAvatar == other.mAvatar)
-            && (mSystemMessageType == other.mSystemMessageType)
-            && (mGroupable == other.mGroupable)
-            && (mParseUrls == other.mParseUrls)
-            && (mSystemMessage == other.mSystemMessage);
+           && (mRoomId == other.mRoomId)
+           && (mText == other.mText)
+           && (mTimeStamp == other.mTimeStamp)
+           && (mUsername == other.mUsername)
+           && (mUserId == other.mUserId)
+           && (mUpdatedAt == other.mUpdatedAt)
+           && (mEditedAt == other.mEditedAt)
+           && (mEditedByUsername == other.mEditedByUsername)
+           && (mEditedByUserId == other.mEditedByUserId)
+           && (mUrl == other.mUrl)
+           && (mMeta == other.mMeta)
+           && (mHeaders == other.mHeaders)
+           && (mParsedUrl == other.mParsedUrl)
+           && (mImageUrl == other.mImageUrl)
+           && (mColor == other.mColor)
+           && (mAlias == other.mAlias)
+           && (mAvatar == other.mAvatar)
+           && (mSystemMessageType == other.mSystemMessageType)
+           && (mGroupable == other.mGroupable)
+           && (mParseUrls == other.mParseUrls)
+           && (mSystemMessage == other.mSystemMessage);
 }

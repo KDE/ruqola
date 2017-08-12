@@ -22,7 +22,6 @@
 
 Message::Message()
 {
-
 }
 
 void Message::parseMessage(const QJsonObject &o)

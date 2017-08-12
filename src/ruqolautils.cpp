@@ -1,5 +1,5 @@
 /*
- 
+
  * Copyright 2017  Riccardo Iaconelli <riccardo@kde.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -45,7 +45,7 @@ QString RuqolaUtils::markdownToRichText(const QString &markDown)
 {
     //qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
     //Problem with smileys as qml load image as qrc:/.... so perhaps we need to change contextProperty("baseUrl"...)
-    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText/* | KTextToHTML::ReplaceSmileys*/;
+    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText /* | KTextToHTML::ReplaceSmileys*/;
     const QString str = KTextToHTML::convertToHtml(markDown, convertFlags);
     //qCDebug(RUQOLA_LOG) << "markdownToRichText "<<str;
     return str;

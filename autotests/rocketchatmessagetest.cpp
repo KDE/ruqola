@@ -27,7 +27,6 @@ QTEST_MAIN(RocketChatMessageTest)
 RocketChatMessageTest::RocketChatMessageTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RocketChatMessageTest::compareFile(const QString &data, const QString &name)
@@ -50,7 +49,6 @@ void RocketChatMessageTest::compareFile(const QString &data, const QString &name
     proc.start(QStringLiteral("diff"), args);
     QVERIFY(proc.waitForFinished());
     QCOMPARE(proc.exitCode(), 0);
-
 }
 
 void RocketChatMessageTest::shouldGenerateSetTemporaryStatus()
@@ -163,5 +161,4 @@ void RocketChatMessageTest::shouldSetRoomDescription()
     RocketChatMessage::RocketChatMessageResult r = m.setRoomDescription(QStringLiteral("foo"), QStringLiteral("description1"), 43);
 
     compareFile(r.result, QStringLiteral("roomdescription"));
-
 }

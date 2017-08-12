@@ -55,8 +55,6 @@ private Q_SLOTS:
     RocketChatMessage::RocketChatMessageResult setTemporaryStatus(RocketChatMessage::PresenceStatus status, quint64 id);
 #endif
 
-
-
 private:
     void compareFile(const QString &data, const QString &name);
 };

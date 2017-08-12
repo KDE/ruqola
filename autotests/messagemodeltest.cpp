@@ -28,7 +28,6 @@ QTEST_MAIN(MessageModelTest)
 MessageModelTest::MessageModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MessageModelTest::shouldSerializeData()
