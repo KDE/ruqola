@@ -49,6 +49,7 @@ QString RocketChatMessage::presenceStatusToString(RocketChatMessage::PresenceSta
     case PresenceStatus::PresenceOffline:
         return QStringLiteral("offline");
     }
+    Q_UNREACHABLE();
     return {};
 }
 
