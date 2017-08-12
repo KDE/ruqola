@@ -59,7 +59,6 @@ void rooms_parsing(const QJsonDocument &doc)
                 QString announcement = room[QStringLiteral("announcement")].toString();
                 qCDebug(RUQOLA_LOG) << "Adding room" << roomID << topic << announcement;
                 model->updateRoom(name, roomID, topic, announcement);
-
             }
         }
     }
@@ -186,8 +185,8 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
 
         qCDebug(RUQOLA_LOG) << "stream-room-messages : " << object;
     } else if (collection == QLatin1String("users")) {
-        QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
-        QString username = fields.value(QStringLiteral("username")).toString();
+        const QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
+        const QString username = fields.value(QStringLiteral("username")).toString();
         if (username == Ruqola::self()->userName()) {
             Ruqola::self()->setUserID(object[QStringLiteral("id")].toString());
             qCDebug(RUQOLA_LOG) << "User id set to " << Ruqola::self()->userID();
@@ -216,13 +215,17 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
     } else if (collection == QLatin1String("stream-notify-user")) {
         QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
         const QString eventname = fields.value(QStringLiteral("eventName")).toString();
-        QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
+        const QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
         qDebug() << " EVENT " << eventname << " contents " << contents;
 
         if (eventname.endsWith(QStringLiteral("/subscriptions-changed"))) {
             qDebug() << " subscriptions-changed " << eventname;
+            RoomModel *model = Ruqola::self()->roomModel();
+            model->updateSubscription(contents);
         } else if (eventname.endsWith(QStringLiteral("/rooms-changed"))) {
             qDebug() << "rooms-changed " << eventname;
+            RoomModel *model = Ruqola::self()->roomModel();
+            model->updateRoom(contents);
         } else if (eventname.endsWith(QStringLiteral("/notification"))){
             const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
             const QString title = contents.at(0).toObject()[QStringLiteral("title")].toString();

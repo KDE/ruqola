@@ -233,6 +233,16 @@ void RoomModel::addRoom(const Room &room)
     Ruqola::self()->getMessageModelForRoom(room.id);
 }
 
+void RoomModel::updateSubscription(const QJsonArray &array)
+{
+    //TODO
+}
+
+void RoomModel::updateRoom(const QJsonArray &array)
+{
+    //TODO
+}
+
 void RoomModel::updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement)
 {
     Room room;

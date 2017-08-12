@@ -105,6 +105,9 @@ public:
     //Clear data and refill it with data in the cache, if there is
     void reset();
     void clear();
+    //TODO
+    void updateSubscription(const QJsonArray &array);
+    void updateRoom(const QJsonArray &array);
 protected:
     QHash<int, QByteArray> roleNames() const override;
 
