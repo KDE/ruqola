@@ -234,8 +234,9 @@ quint64 DDPClient::method(const QString &method, const QJsonDocument &params, st
 
     m_callbackHash[m_uid] = callback;
 
+    const quint64 uidCurrent = m_uid;
     m_uid++;
-    return m_uid - 1;
+    return uidCurrent;
 }
 
 void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
