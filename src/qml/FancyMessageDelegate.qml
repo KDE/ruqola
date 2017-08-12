@@ -98,7 +98,7 @@ Rectangle {
                           {
                               i_messageText: i_messageText,
                               i_username: i_username,
-                              i_aliasname: alias,
+                              i_aliasname: i_aliasname,
                               i_timestamp: i_timestamp,
                               i_messageID: i_messageID
                           }
