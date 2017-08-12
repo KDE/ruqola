@@ -21,9 +21,8 @@
 #include "typingnotification.h"
 #include <QTimer>
 
-namespace {
-int timerTimeOutValue() { return 2000;}
-}
+extern LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs;
+LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs = 2000;
 
 TypingNotification::TypingNotification(QObject *parent)
     : QObject(parent)
@@ -31,7 +30,7 @@ TypingNotification::TypingNotification(QObject *parent)
 {
     mTimer = new QTimer(this);
     mTimer->setObjectName(QStringLiteral("typingnotificationtimer"));
-    mTimer->setInterval(timerTimeOutValue());
+    mTimer->setInterval(timerTimeOutValueMs);
     mTimer->setSingleShot(true);
     connect(mTimer, &QTimer::timeout, this, &TypingNotification::slotTimeout);
 }
