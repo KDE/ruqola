@@ -45,7 +45,7 @@ RoomModel::~RoomModel()
 
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
-        for (const Room &m : qAsConst(m_roomsList)) {
+        for (const Room &m : qAsConst(mRoomsList)) {
             const QByteArray ms = RoomModel::serialize(m);
             out.writeBytes(ms, ms.size());
         }
@@ -54,16 +54,16 @@ RoomModel::~RoomModel()
 
 void RoomModel::clear()
 {
-    if (!m_roomsList.isEmpty()) {
+    if (!mRoomsList.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, rowCount()-1);
-        m_roomsList.clear();
+        mRoomsList.clear();
         QAbstractItemModel::endRemoveRows();
     }
 }
 
 RoomWrapper *RoomModel::findRoom(const QString &roomID) const
 {
-    foreach (const Room &r, m_roomsList) {
+    foreach (const Room &r, mRoomsList) {
         if (r.id == roomID) {
             return new RoomWrapper(r);
         }
@@ -124,12 +124,12 @@ QHash<int, QByteArray> RoomModel::roleNames() const
 int RoomModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return m_roomsList.size();
+    return mRoomsList.size();
 }
 
 QVariant RoomModel::data(const QModelIndex &index, int role) const
 {
-    Room r = m_roomsList.at(index.row());
+    Room r = mRoomsList.at(index.row());
 
     switch(role) {
     case RoomModel::RoomName:
@@ -197,12 +197,12 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
 
 void RoomModel::addRoom(const Room &room)
 {
-    auto existingRoom = std::find(m_roomsList.begin(), m_roomsList.end(), room);
-    bool present = (existingRoom != m_roomsList.end());
+    auto existingRoom = std::find(mRoomsList.begin(), mRoomsList.end(), room);
+    bool present = (existingRoom != mRoomsList.end());
 
-    auto i = std::upper_bound(m_roomsList.begin(), m_roomsList.end(),
+    auto i = std::upper_bound(mRoomsList.begin(), mRoomsList.end(),
                               room);
-    int pos = i-m_roomsList.begin();
+    int pos = i-mRoomsList.begin();
     bool roomChanged = false;
     qCDebug(RUQOLA_LOG) << pos;
 
@@ -218,10 +218,10 @@ void RoomModel::addRoom(const Room &room)
     }
 
     if (roomChanged) {
-        m_roomsList.replace(pos-1, room);
+        mRoomsList.replace(pos-1, room);
     } else {
         qCDebug(RUQOLA_LOG) << "Inserting room at position" <<pos;
-        m_roomsList.insert(i, room);
+        mRoomsList.insert(i, room);
     }
 
     if (roomChanged) {
@@ -248,12 +248,12 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
     Room room;
     room.id = roomID;
     room.name = name;
-    auto existingRoom = std::find(m_roomsList.begin(), m_roomsList.end(), room);
-    bool present = (existingRoom != m_roomsList.end());
+    auto existingRoom = std::find(mRoomsList.begin(), mRoomsList.end(), room);
+    bool present = (existingRoom != mRoomsList.end());
 
-    auto i = std::upper_bound(m_roomsList.begin(), m_roomsList.end(),
+    auto i = std::upper_bound(mRoomsList.begin(), mRoomsList.end(),
                               room);
-    int pos = i-m_roomsList.begin();
+    int pos = i-mRoomsList.begin();
     bool roomChanged = false;
     qCDebug(RUQOLA_LOG) << pos;
 
@@ -270,10 +270,10 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
     }
 
     if (roomChanged) {
-        Room foundRoom = m_roomsList.value(pos - 1);
+        Room foundRoom = mRoomsList.value(pos - 1);
         foundRoom.topic = topic;
         foundRoom.mAnnouncement = announcement;
-        m_roomsList.replace(pos - 1, foundRoom);
+        mRoomsList.replace(pos - 1, foundRoom);
     }
 
     emit dataChanged(createIndex(1, 1), createIndex(pos, 1));

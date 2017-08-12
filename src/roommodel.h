@@ -112,7 +112,7 @@ protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
-    QVector<Room> m_roomsList;
+    QVector<Room> mRoomsList;
 };
 
 #endif // ROOMMODEL_H
