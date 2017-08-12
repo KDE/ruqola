@@ -3,7 +3,7 @@
  * Copyright (c) 2007 Stefan Goessner (goessner.net)
  * Licensed under the MIT (MIT-LICENSE.txt) licence.
  *
- * <one line to give the program's name and a brief idea of what it does.>
+ 
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
  *
  * This program is free software; you can redistribute it and/or
