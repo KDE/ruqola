@@ -25,15 +25,9 @@
 #include "ruqola_debug.h"
 #include "rocketchatmessage.h"
 
-#include <QtCore/QJsonDocument>
-#include <QtCore/QJsonObject>
-#include <QtCore/QJsonArray>
-
-void process_test(const QJsonDocument &doc)
-{
-    qCDebug(RUQOLA_LOG) << "Callback test:" << doc;
-    qCDebug(RUQOLA_LOG) << "End callback";
-}
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
 
 void login_callback(const QJsonDocument &doc)
 {
