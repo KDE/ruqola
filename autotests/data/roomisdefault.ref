@@ -1,0 +1,10 @@
+{
+    "id": "43",
+    "method": "saveRoomSettings",
+    "msg": "method",
+    "params": [
+        "foo",
+        "default",
+        true
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "id": "43",
+    "method": "joinRoom",
+    "msg": "method",
+    "params": [
+        "foo",
+        "access_code"
+    ]
+}

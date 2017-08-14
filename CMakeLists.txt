@@ -13,26 +13,21 @@ include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
 include(ECMAddTests)
 include(GenerateExportHeader)
+include(FeatureSummary)
+# Use i18n ?
+include(ECMPoQmTools)
 
-
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUXX)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
-endif()
+set(KF5_VERSION "5.37.0")
 
 set(REQUIRED_QT_VERSION "5.7.0")
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth Test)
 
-find_package(KF5 REQUIRED COMPONENTS
+find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
     Kirigami2
     CoreAddons
 )
 
-include(ECMPoQmTools)
 # 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 

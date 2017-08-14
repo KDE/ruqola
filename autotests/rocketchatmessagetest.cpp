@@ -162,3 +162,35 @@ void RocketChatMessageTest::shouldSetRoomDescription()
 
     compareFile(r.result, QStringLiteral("roomdescription"));
 }
+
+void RocketChatMessageTest::shouldSetRoomIsReadOnly()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.setRoomIsReadOnly(QStringLiteral("foo"), true, 43);
+    compareFile(r.result, QStringLiteral("roomisreadonly"));
+}
+
+void RocketChatMessageTest::shouldSetRoomIsDefault()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.setRoomIsDefault(QStringLiteral("foo"), true, 43);
+    compareFile(r.result, QStringLiteral("roomisdefault"));
+}
+
+void RocketChatMessageTest::shouldJoinRoom()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.joinRoom(QStringLiteral("foo"), QStringLiteral("access_code"), 43);
+    compareFile(r.result, QStringLiteral("joinroom"));
+}
+
+void RocketChatMessageTest::shouldSetRoomJoinCode()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.setRoomJoinCode(QStringLiteral("foo"), QStringLiteral("access_code"), 43);
+    compareFile(r.result, QStringLiteral("setroomjoincode"));
+}
