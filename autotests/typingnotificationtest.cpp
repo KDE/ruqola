@@ -19,12 +19,90 @@
 */
 
 #include "typingnotificationtest.h"
+#include "libruqola_private_export.h"
 #include "typingnotification.h"
+#include <QSignalSpy>
 
 #include <QTest>
 QTEST_MAIN(TypingNotificationTest)
 
+extern LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs;
+
 TypingNotificationTest::TypingNotificationTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void TypingNotificationTest::shouldNotEmitSignalByDefault()
+{
+    timerTimeOutValueMs = 100; //100ms
+    TypingNotification t;
+    QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
+    //Wait 500ms
+    QTest::qSleep(200);
+    QCOMPARE(signal.count(), 0);
+}
+
+void TypingNotificationTest::shouldEmitSignalWhenTyping()
+{
+    timerTimeOutValueMs = 100; //100ms
+    TypingNotification t;
+    QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
+    t.setText(QStringLiteral("foo"), QStringLiteral("bla"));
+    //Wait 500ms
+    QTest::qWait(50);
+    QCOMPARE(signal.count(), 1);
+}
+
+void TypingNotificationTest::shouldEmitSignalWhenTypingAndEmitTypingFalseAfterTimeout()
+{
+    timerTimeOutValueMs = 100; //100ms
+    TypingNotification t;
+    QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
+    t.setText(QStringLiteral("foo"), QStringLiteral("bla"));
+    //Wait 50ms
+    QTest::qWait(50);
+    QCOMPARE(signal.count(), 1);
+
+    QTest::qWait(150); // 150 ms
+    QCOMPARE(signal.count(), 2);
+}
+
+void TypingNotificationTest::shouldDontEmitSignalWhenTypingSeveralTextBeforeTimeOut()
+{
+    timerTimeOutValueMs = 100; //100ms
+    TypingNotification t;
+    QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
+    t.setText(QStringLiteral("foo"), QStringLiteral("bla"));
+    //Wait 50ms
+    QTest::qWait(50);
+    QCOMPARE(signal.count(), 1);
+    t.setText(QStringLiteral("foo"), QStringLiteral("bla1"));
+    QTest::qWait(50);
+    QCOMPARE(signal.count(), 1);
+    t.setText(QStringLiteral("foo"), QStringLiteral("bla2"));
+    QTest::qWait(50);
+    QCOMPARE(signal.count(), 1);
+
+
+    QTest::qWait(150); // 150 ms
+    QCOMPARE(signal.count(), 2);
+}
+
+void TypingNotificationTest::shouldEmitTwoSignalWhenChangeRoom()
+{
+    timerTimeOutValueMs = 100; //100ms
+    TypingNotification t;
+    QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
+    QString room1 = QStringLiteral("room1");
+    QString room2 = QStringLiteral("room2");
+    t.setText(room1, QStringLiteral("bla"));
+    //Wait 50ms
+    QTest::qWait(50);
+    QCOMPARE(signal.count(), 1);
+
+    t.setText(room2, QStringLiteral("bla"));
+    //Wait 50ms
+    QTest::qWait(50);
+    QCOMPARE(signal.count(), 3); //Two signal send.
 }

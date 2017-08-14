@@ -29,6 +29,12 @@ class TypingNotificationTest : public QObject
 public:
     explicit TypingNotificationTest(QObject *parent = nullptr);
     ~TypingNotificationTest() = default;
+private Q_SLOTS:
+    void shouldNotEmitSignalByDefault();
+    void shouldEmitSignalWhenTyping();
+    void shouldEmitSignalWhenTypingAndEmitTypingFalseAfterTimeout();
+    void shouldDontEmitSignalWhenTypingSeveralTextBeforeTimeOut();
+    void shouldEmitTwoSignalWhenChangeRoom();
 };
 
 #endif // TYPINGNOTIFICATIONTEST_H

@@ -20,6 +20,7 @@
 
 #include "typingnotification.h"
 #include <QTimer>
+#include <QDebug>
 
 extern LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs;
 LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs = 2000;
@@ -51,15 +52,15 @@ void TypingNotification::setText(const QString &roomId, const QString &str)
         if (str.isEmpty()) {
             mTypingInprogress = false;
             //1) Send info about typing.
-            informTypingStatus(roomId, false);
+            Q_EMIT informTypingStatus(roomId, false);
         } else {
             if (mRoomId != roomId) {
                 //We changed room.
                 //1) stop typing in old room
-                informTypingStatus(roomId, false);
+                Q_EMIT informTypingStatus(roomId, false);
 
                 //2) start info about typing in new room.
-                informTypingStatus(mRoomId, true);
+                Q_EMIT informTypingStatus(mRoomId, true);
             }
 
             //3) restart timer.
@@ -67,7 +68,7 @@ void TypingNotification::setText(const QString &roomId, const QString &str)
         }
     } else {
         mTypingInprogress = true;
-        informTypingStatus(roomId, true);
+        Q_EMIT informTypingStatus(roomId, true);
         //Send info about typing.
         //Restart timer.
         mTimer->start();
