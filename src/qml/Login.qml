@@ -76,8 +76,6 @@ Kirigami.Page {
         }
         TextField {
             id: urlField
-
-            //             text: loginForm.serverURL
             width: parent.width
             placeholderText: qsTr("Enter address of the server")
         }

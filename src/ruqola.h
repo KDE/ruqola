@@ -108,12 +108,6 @@ public:
     * @brief Clear models, stores cache and logs out the user
     */
     Q_INVOKABLE void logOut();
-
-    /**
-    * @brief Reset models, load cache and call DDPClient's object to automatically try to connect and log in via Google account
-    */
-    Q_INVOKABLE void tryOAuthLogin();
-
     /**
     * @brief Finds room with @param roomID
     *

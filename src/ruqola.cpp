@@ -289,27 +289,6 @@ void Ruqola::tryLogin()
     //}
 }
 
-void Ruqola::tryOAuthLogin()
-{
-    // Reset model views
-    foreach (const QString &key, m_messageModels.keys()) {
-        MessageModel *m = m_messageModels.take(key);
-        delete m;
-    }
-    delete m_ddp;
-    m_ddp = nullptr;
-
-    // This creates a new ddp() object.
-    // DDP will automatically try to connect and login.
-    ddp();
-
-    m_roomModel->reset();
-
-    if (Ruqola::self()->ddp()->isConnected()) {
-        m_authentication->OAuthLogin();
-    }
-}
-
 void Ruqola::logOut()
 {
     QSettings s;
