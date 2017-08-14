@@ -58,6 +58,15 @@ void RocketChatMessageTest::shouldGenerateSetTemporaryStatus()
     RocketChatMessage::RocketChatMessageResult r = m.setTemporaryStatus(RocketChatMessage::PresenceStatus::PresenceBusy, 42);
 
     compareFile(r.result, QStringLiteral("temporarybusy"));
+
+    r = m.setTemporaryStatus(RocketChatMessage::PresenceStatus::PresenceAway, 43);
+    compareFile(r.result, QStringLiteral("temporaryaway"));
+
+    r = m.setTemporaryStatus(RocketChatMessage::PresenceStatus::PresenceOffline, 44);
+    compareFile(r.result, QStringLiteral("temporaryoffline"));
+
+    r = m.setTemporaryStatus(RocketChatMessage::PresenceStatus::PresenceOnline, 45);
+    compareFile(r.result, QStringLiteral("temporaryonline"));
 }
 
 void RocketChatMessageTest::shouldHideRoom()
@@ -193,4 +202,22 @@ void RocketChatMessageTest::shouldSetRoomJoinCode()
     m.setJsonFormat(QJsonDocument::Indented);
     RocketChatMessage::RocketChatMessageResult r = m.setRoomJoinCode(QStringLiteral("foo"), QStringLiteral("access_code"), 43);
     compareFile(r.result, QStringLiteral("setroomjoincode"));
+}
+
+void RocketChatMessageTest::shouldSetDefaultStatus()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.setDefaultStatus(RocketChatMessage::PresenceStatus::PresenceBusy, 42);
+
+    compareFile(r.result, QStringLiteral("defaultstatusbusy"));
+
+    r = m.setDefaultStatus(RocketChatMessage::PresenceStatus::PresenceAway, 43);
+    compareFile(r.result, QStringLiteral("defaultstatusaway"));
+
+    r = m.setDefaultStatus(RocketChatMessage::PresenceStatus::PresenceOffline, 44);
+    compareFile(r.result, QStringLiteral("defaultstatusoffline"));
+
+    r = m.setDefaultStatus(RocketChatMessage::PresenceStatus::PresenceOnline, 45);
+    compareFile(r.result, QStringLiteral("defaultstatusonline"));
 }

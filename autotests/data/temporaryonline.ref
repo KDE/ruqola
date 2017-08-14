@@ -1,0 +1,8 @@
+{
+    "id": "45",
+    "method": "UserPresence:online",
+    "msg": "method",
+    "params": [
+        null
+    ]
+}

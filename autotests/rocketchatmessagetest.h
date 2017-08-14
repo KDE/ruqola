@@ -46,13 +46,12 @@ private Q_SLOTS:
     void shouldSetRoomIsDefault();
     void shouldJoinRoom();
     void shouldSetRoomJoinCode();
+    void shouldSetDefaultStatus();
 #if 0
     RocketChatMessage::RocketChatMessageResult setRoomHasSystemMessages(const QString &roomId, bool systemMessages, quint64 id);
     RocketChatMessage::RocketChatMessageResult readMessages(const QString &roomID, quint64 id);
     RocketChatMessage::RocketChatMessageResult informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id);
     RocketChatMessage::RocketChatMessageResult getSubscriptions(const QDateTime &lastUpdate, quint64 id);
-    RocketChatMessage::RocketChatMessageResult setDefaultStatus(RocketChatMessage::PresenceStatus status, quint64 id);
-    RocketChatMessage::RocketChatMessageResult setTemporaryStatus(RocketChatMessage::PresenceStatus status, quint64 id);
 #endif
 
 private:

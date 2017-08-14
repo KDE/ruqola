@@ -23,6 +23,7 @@
 #ifndef ROOM_H
 #define ROOM_H
 
+#include <QJsonObject>
 #include <QString>
 #include "libruqola_private_export.h"
 
@@ -65,6 +66,8 @@ public:
     {
         return topic;
     }
+
+    void parseSubscriptionRoom(const QJsonObject &json);
 
     //Room Object Fields
 

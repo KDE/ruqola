@@ -1,0 +1,8 @@
+{
+    "id": "42",
+    "method": "UserPresence:setDefaultStatus",
+    "msg": "method",
+    "params": [
+        "busy"
+    ]
+}

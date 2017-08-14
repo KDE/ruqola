@@ -89,22 +89,7 @@ void getsubscription_parsing(const QJsonDocument &doc)
             // let's be extra safe around crashes
             if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
                 Room r;
-                r.id = roomID;
-                r.name = room[QStringLiteral("name")].toString();
-                r.topic = room[QStringLiteral("topic")].toString();
-                r.mAnnouncement = room[QStringLiteral("announcement")].toString();
-                r.type = roomType;
-                QJsonValue favoriteValue = room.value(QStringLiteral("f"));
-                if (!favoriteValue.isUndefined()) {
-                    r.favorite = favoriteValue.toBool();
-                }
-                //Only private room has this settings.
-                if (roomType == QLatin1String("p")) {
-                    r.ro = room[QStringLiteral("ro")].toString() == QLatin1String("true");
-                }
-                r.unread = room[QStringLiteral("unread")].toInt();
-                r.open = room[QStringLiteral("open")].toBool();
-                r.alert = room[QStringLiteral("alert")].toBool();
+                r.parseSubscriptionRoom(room);
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
 
                 model->addRoom(r);
@@ -201,6 +186,7 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
 
 void RocketChatBackend::onChanged(const QJsonObject &object)
 {
+    qDebug() << " void RocketChatBackend::onChanged(const QJsonObject &object)"<<object;
     const QString collection = object[QStringLiteral("collection")].toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
@@ -215,7 +201,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
         const QString eventname = fields.value(QStringLiteral("eventName")).toString();
         const QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
-        qDebug() << " EVENT " << eventname << " contents " << contents;
+        qDebug() << " EVENT " << eventname << " contents " << contents << fields.value(QStringLiteral("args")).toArray().toVariantList();
 
         if (eventname.endsWith(QStringLiteral("/subscriptions-changed"))) {
             qDebug() << " subscriptions-changed " << eventname;

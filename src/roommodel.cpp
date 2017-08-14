@@ -235,6 +235,9 @@ void RoomModel::addRoom(const Room &room)
 
 void RoomModel::updateSubscription(const QJsonArray &array)
 {
+    for (const QJsonValue &v : array) {
+        qDebug() << " V " << v;
+    }
     //TODO
 }
 

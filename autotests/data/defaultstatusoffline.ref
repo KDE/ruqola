@@ -1,0 +1,8 @@
+{
+    "id": "44",
+    "method": "UserPresence:setDefaultStatus",
+    "msg": "method",
+    "params": [
+        "offline"
+    ]
+}

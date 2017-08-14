@@ -62,3 +62,25 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "open :" << t.open;
     return d;
 }
+
+void Room::parseSubscriptionRoom(const QJsonObject &json)
+{
+    QString roomID = json.value(QStringLiteral("rid")).toString();
+    id = roomID;
+    name = json[QStringLiteral("name")].toString();
+    topic = json[QStringLiteral("topic")].toString();
+    mAnnouncement = json[QStringLiteral("announcement")].toString();
+    const QString roomType = json.value(QStringLiteral("t")).toString();
+    type = roomType;
+    QJsonValue favoriteValue = json.value(QStringLiteral("f"));
+    if (!favoriteValue.isUndefined()) {
+        favorite = favoriteValue.toBool();
+    }
+    //Only private room has this settings.
+    if (roomType == QLatin1String("p")) {
+        ro = json[QStringLiteral("ro")].toString() == QLatin1String("true");
+    }
+    unread = json[QStringLiteral("unread")].toInt();
+    open = json[QStringLiteral("open")].toBool();
+    alert = json[QStringLiteral("alert")].toBool();
+}
