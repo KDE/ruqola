@@ -1,0 +1,10 @@
+{
+    "id": "43",
+    "method": "stream-notify-room",
+    "msg": "method",
+    "params": [
+        "roomId2/typing",
+        "user2",
+        true
+    ]
+}

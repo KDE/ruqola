@@ -209,7 +209,6 @@ void RocketChatMessageTest::shouldSetDefaultStatus()
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
     RocketChatMessage::RocketChatMessageResult r = m.setDefaultStatus(RocketChatMessage::PresenceStatus::PresenceBusy, 42);
-
     compareFile(r.result, QStringLiteral("defaultstatusbusy"));
 
     r = m.setDefaultStatus(RocketChatMessage::PresenceStatus::PresenceAway, 43);
@@ -220,4 +219,15 @@ void RocketChatMessageTest::shouldSetDefaultStatus()
 
     r = m.setDefaultStatus(RocketChatMessage::PresenceStatus::PresenceOnline, 45);
     compareFile(r.result, QStringLiteral("defaultstatusonline"));
+}
+
+void RocketChatMessageTest::shouldInformTypingStatus()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.informTypingStatus(QStringLiteral("roomId"), QStringLiteral("user1"), false, 42);
+    compareFile(r.result, QStringLiteral("informtypingstatusfalse"));
+
+    r = m.informTypingStatus(QStringLiteral("roomId2"), QStringLiteral("user2"), true, 43);
+    compareFile(r.result, QStringLiteral("informtypingstatustrue"));
 }
