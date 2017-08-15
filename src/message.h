@@ -25,6 +25,13 @@
 #include <QJsonObject>
 #include <QString>
 
+class LIBRUQOLACORE_TESTS_EXPORT Attachment
+{
+public:
+    Attachment();
+};
+
+
 class LIBRUQOLACORE_TESTS_EXPORT Message
 {
 public:

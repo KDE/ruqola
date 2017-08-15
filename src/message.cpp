@@ -64,3 +64,8 @@ void Message::parseAttachment()
 {
     //TODO
 }
+
+Attachment::Attachment()
+{
+
+}
