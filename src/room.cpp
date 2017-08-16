@@ -43,16 +43,16 @@ bool Room::isEqual(const Room &other) const
             && (type == other.type)
             && (name == other.name)
             && (mAnnouncement == other.mAnnouncement)
-           && (userName == other.userName)
-           && (userID == other.userID)
-           && (topic == other.topic)
-           && (mutedUsers == other.mutedUsers)
-           && (jitsiTimeout == other.jitsiTimeout)
-           && (ro == other.ro)
-           && (unread == other.unread)
-           && (selected == other.selected)
-           && (favorite == other.favorite)
-           && (open == other.open);
+            && (userName == other.userName)
+            && (userID == other.userID)
+            && (topic == other.topic)
+            && (mutedUsers == other.mutedUsers)
+            && (jitsiTimeout == other.jitsiTimeout)
+            && (ro == other.ro)
+            && (unread == other.unread)
+            && (selected == other.selected)
+            && (favorite == other.favorite)
+            && (open == other.open);
 }
 
 QDebug operator <<(QDebug d, const Room &t)
