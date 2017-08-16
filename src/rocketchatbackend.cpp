@@ -88,7 +88,7 @@ void getsubscription_parsing(const QJsonDocument &doc)
             if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
                 Room r;
                 r.parseSubscriptionRoom(room);
-                qCDebug(RUQOLA_LOG) << "Adding room" << r.name << r.id << r.topic;
+                qCDebug(RUQOLA_LOG) << "Adding room subscription" << r.name << r.id << r.topic;
 
                 model->addRoom(r);
             }

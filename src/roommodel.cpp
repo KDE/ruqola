@@ -92,6 +92,7 @@ void RoomModel::reset()
                 in.readBytes(byteArray, length);
                 QByteArray arr = QByteArray::fromRawData(byteArray, length);
                 Room m = RoomModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
+                qDebug() <<" Load from cache " << m.name;
                 addRoom(m.id, m.name, m.selected);
             }
         }
