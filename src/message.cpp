@@ -65,7 +65,23 @@ void Message::parseAttachment()
     //TODO
 }
 
+bool Message::operator==(const Message &other) const
+{
+    return other.mMessageId == mMessageId;
+}
+
+bool Message::operator<(const Message &other) const
+{
+    return mTimeStamp < other.mTimeStamp;
+}
+
 Attachment::Attachment()
 {
 
+}
+
+bool Attachment::isEmpty() const
+{
+    //TODO fix me
+    return true;
 }

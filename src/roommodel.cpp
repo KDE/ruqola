@@ -45,6 +45,7 @@ RoomModel::~RoomModel()
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
         for (const Room &m : qAsConst(mRoomsList)) {
+            qDebug() << " save cache for room " << m.name;
             const QByteArray ms = RoomModel::serialize(m);
             out.writeBytes(ms, ms.size());
         }
@@ -92,7 +93,7 @@ void RoomModel::reset()
                 in.readBytes(byteArray, length);
                 QByteArray arr = QByteArray::fromRawData(byteArray, length);
                 Room m = RoomModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
-                qDebug() <<" Load from cache " << m.name;
+                qDebug() <<" Load from cache room name: " << m.name;
                 addRoom(m.id, m.name, m.selected);
             }
         }
@@ -236,8 +237,8 @@ void RoomModel::addRoom(const Room &room)
 
 void RoomModel::updateSubscription(const QJsonArray &array)
 {
-    QString firstElement = array[0].toString();
-    if (firstElement == QStringLiteral("removed")) {
+    const QString actionName = array[0].toString();
+    if (actionName == QStringLiteral("removed")) {
         qDebug() << " REMOVE ROOM";
         const QJsonObject roomData = array[1].toObject();
         qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
@@ -256,15 +257,17 @@ void RoomModel::updateSubscription(const QJsonArray &array)
             endRemoveRows();
         }
 
-    } else if (firstElement == QStringLiteral("inserted")) {
+    } else if (actionName == QStringLiteral("inserted")) {
         qDebug() << " INSERT ROOM";
         const QJsonObject roomData = array[1].toObject();
         qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
         addRoom(roomData.value(QStringLiteral("rid")).toString(), roomData.value(QStringLiteral("name")).toString(), false);
-    } else if (firstElement == QStringLiteral("updated")) {
+    } else if (actionName == QStringLiteral("updated")) {
         qDebug() << " UPDATE ROOM";
+        const QJsonObject roomData = array[1].toObject();
+        qDebug() << "UPDATE ROOM name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
     } else {
-        qDebug() << " Undefined type" << firstElement;
+        qDebug() << " Undefined type" << actionName;
     }
     qDebug() << " V " << array;
 }

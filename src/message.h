@@ -29,6 +29,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Attachment
 {
 public:
     Attachment();
+    bool isEmpty() const;
 };
 
 
@@ -40,16 +41,10 @@ public:
     void parseAttachment();
 
     // To be used in ID find: message ID
-    inline bool operator==(const Message &other) const
-    {
-        return other.mMessageId == mMessageId;
-    }
+    bool operator==(const Message &other) const;
 
     // To be used in sorted insert: timestamp
-    inline bool operator<(const Message &other) const
-    {
-        return mTimeStamp < other.mTimeStamp;
-    }
+    bool operator<(const Message &other) const;
 
     //Need for autotest as operator== is already defined
     bool isEqual(const Message &other) const;

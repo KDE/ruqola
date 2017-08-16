@@ -129,7 +129,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
     for (const QJsonValue &v : messages) {
         QJsonObject o = v.toObject();
 
-        qDebug() <<" o" << o;
+        //qDebug() <<" o" << o;
         Message m;
         m.parseMessage(o);
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
