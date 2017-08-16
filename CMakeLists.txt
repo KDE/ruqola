@@ -28,8 +28,8 @@ find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
     CoreAddons
 )
 
-# 
-include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
+
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_definitions("-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII")
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
@@ -38,7 +38,7 @@ add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
 
 # TODO customize it.
-set(RUQOLA_VERSION "0.2")
+set(RUQOLA_VERSION "0.3")
 
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
 set(RUQOLA_LIB_SOVERSION "0")
