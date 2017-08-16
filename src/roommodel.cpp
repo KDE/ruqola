@@ -235,10 +235,17 @@ void RoomModel::addRoom(const Room &room)
 
 void RoomModel::updateSubscription(const QJsonArray &array)
 {
-    for (const QJsonValue &v : array) {
-        qDebug() << " V " << v;
+    QString firstElement = array[0].toString();
+    if (firstElement == QStringLiteral("removed")) {
+        qDebug() << " REMOVE ROOM";
+    } else if (firstElement == QStringLiteral("inserted")) {
+        qDebug() << " INSERT ROOM";
+    } else if (firstElement == QStringLiteral("updated")) {
+        qDebug() << " UPDATE ROOM";
+    } else {
+        qDebug() << " Undefined type" << firstElement;
     }
-    //TODO
+    qDebug() << " V " << array;
 }
 
 void RoomModel::updateRoom(const QJsonArray &array)
