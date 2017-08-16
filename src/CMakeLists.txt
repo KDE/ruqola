@@ -16,6 +16,7 @@ set (Ruqola_core_srcs
     authentication.cpp
     rocketchatmessage.cpp
     typingnotification.cpp
+    changetemporarystatus.cpp
     ${ruqola_QM_LOADER}
 )
 
