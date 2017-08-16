@@ -25,6 +25,7 @@
 
 #include <QJsonObject>
 #include <QString>
+
 #include "libruqola_private_export.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT Room
@@ -33,16 +34,10 @@ public:
     Room();
 
     // To be used in ID find: message ID
-    inline bool operator==(const Room &other) const
-    {
-        return other.id == id;
-    }
+    bool operator==(const Room &other) const;
 
     // To be used in sorted insert: timestamp
-    inline bool operator<(const Room &other) const
-    {
-        return name < other.name;
-    }
+    bool operator<(const Room &other) const;
 
     //we can't use operator== as it tests only id. We need it for autotest
     bool isEqual(const Room &other) const;

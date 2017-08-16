@@ -26,12 +26,23 @@ Room::Room()
 {
 }
 
+bool Room::operator==(const Room &other) const
+{
+    qDebug() << " other.id"<<other.id << " id " << id;
+    return other.id == id;
+}
+
+bool Room::operator<(const Room &other) const
+{
+    return name < other.name;
+}
+
 bool Room::isEqual(const Room &other) const
 {
     return (id == other.id)
-           && (type == other.type)
-           && (name == other.name)
-           && (mAnnouncement == other.mAnnouncement)
+            && (type == other.type)
+            && (name == other.name)
+            && (mAnnouncement == other.mAnnouncement)
            && (userName == other.userName)
            && (userID == other.userID)
            && (topic == other.topic)
