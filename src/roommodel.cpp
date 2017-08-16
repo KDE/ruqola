@@ -238,8 +238,28 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     QString firstElement = array[0].toString();
     if (firstElement == QStringLiteral("removed")) {
         qDebug() << " REMOVE ROOM";
+        const QJsonObject roomData = array[1].toObject();
+        qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
+        Room room;
+        room.id = roomData.value(QStringLiteral("rid")).toString();
+        room.name = roomData.value(QStringLiteral("name")).toString();
+        auto existingRoom = std::find(mRoomsList.begin(), mRoomsList.end(), room);
+        bool present = (existingRoom != mRoomsList.end());
+        if (present) {
+            qDebug() << " We remove this room " <<  roomData.value(QStringLiteral("rid"));
+            auto i = std::upper_bound(mRoomsList.begin(), mRoomsList.end(),
+                                      room);
+            int pos = i-mRoomsList.begin();
+            beginRemoveRows(QModelIndex(), pos -1 , pos - 1);
+            mRoomsList.remove(pos);
+            endRemoveRows();
+        }
+
     } else if (firstElement == QStringLiteral("inserted")) {
         qDebug() << " INSERT ROOM";
+        const QJsonObject roomData = array[1].toObject();
+        qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
+        addRoom(roomData.value(QStringLiteral("rid")).toString(), roomData.value(QStringLiteral("name")).toString(), false);
     } else if (firstElement == QStringLiteral("updated")) {
         qDebug() << " UPDATE ROOM";
     } else {
