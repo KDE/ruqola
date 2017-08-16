@@ -68,6 +68,8 @@ public:
     }
 
     void parseSubscriptionRoom(const QJsonObject &json);
+    void parseRoom(const QJsonObject &json);
+
 
     //Room Object Fields
 

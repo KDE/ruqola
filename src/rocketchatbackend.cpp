@@ -53,12 +53,10 @@ void rooms_parsing(const QJsonDocument &doc)
             || roomType == QLatin1String("p") /*Private chat*/) {
             // let's be extra safe around crashes
             if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
-                const QString roomID = room.value(QStringLiteral("_id")).toString();
-                QString name = room[QStringLiteral("name")].toString();
-                QString topic = room[QStringLiteral("topic")].toString();
-                QString announcement = room[QStringLiteral("announcement")].toString();
-                qCDebug(RUQOLA_LOG) << "Adding room" << roomID << topic << announcement;
-                model->updateRoom(name, roomID, topic, announcement);
+                Room r;
+                r.parseRoom(room);
+                qCDebug(RUQOLA_LOG) << "Adding room" << r.id << r.topic << r.mAnnouncement;
+                model->updateRoom(r.name, r.id, r.topic, r.mAnnouncement);
             }
         }
     }

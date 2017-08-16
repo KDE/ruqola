@@ -63,6 +63,15 @@ QDebug operator <<(QDebug d, const Room &t)
     return d;
 }
 
+
+void Room::parseRoom(const QJsonObject &json)
+{
+    id = json.value(QStringLiteral("_id")).toString();
+    name = json[QStringLiteral("name")].toString();
+    topic = json[QStringLiteral("topic")].toString();
+    mAnnouncement = json[QStringLiteral("announcement")].toString();
+}
+
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     QString roomID = json.value(QStringLiteral("rid")).toString();
