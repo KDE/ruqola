@@ -36,6 +36,7 @@
 class RoomFilterProxyModel;
 
 class TypingNotification;
+class UserModel;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT
@@ -151,6 +152,7 @@ private:
 
     QHash< QString, MessageModel * > m_messageModels;
     TypingNotification *mTypingNotification;
+    UserModel *mUserModel = nullptr;
 };
 
 inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

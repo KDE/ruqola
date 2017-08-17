@@ -30,3 +30,16 @@ UserModel::~UserModel()
 {
 
 }
+
+int UserModel::rowCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+    return mUsers.size();
+}
+
+
+QVariant UserModel::data(const QModelIndex &index, int role) const
+{
+    //FIXME
+    return {};
+}

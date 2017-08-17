@@ -31,6 +31,10 @@ class LIBRUQOLACORE_TESTS_EXPORT UserModel : public QAbstractListModel
 public:
     explicit UserModel(QObject *parent = nullptr);
     ~UserModel();
+
+    int rowCount(const QModelIndex &parent) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
+
 private:
     QVector<User> mUsers;
 };

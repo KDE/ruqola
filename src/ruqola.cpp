@@ -28,6 +28,7 @@
 #include "messagequeue.h"
 #include "ruqola_debug.h"
 #include "roomfilterproxymodel.h"
+#include "usermodel.h"
 #include <QFileDialog>
 #include <QTcpSocket>
 #include <QDataStream>
@@ -46,6 +47,8 @@ Ruqola::Ruqola(QObject *parent)
     m_roomModel = new RoomModel(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mRoomFilterProxyModel->setSourceModel(m_roomModel);
+
+    mUserModel = new UserModel(this);
 
     mTypingNotification = new TypingNotification(this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &Ruqola::slotInformTypingStatus);
