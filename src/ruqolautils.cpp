@@ -26,8 +26,6 @@
 #include <QDesktopServices>
 #include <QUrl>
 
-RuqolaUtils *RuqolaUtils::m_self = nullptr;
-
 RuqolaUtils::RuqolaUtils(QObject *parent)
     : QObject(parent)
 {
@@ -35,10 +33,8 @@ RuqolaUtils::RuqolaUtils(QObject *parent)
 
 RuqolaUtils *RuqolaUtils::self()
 {
-    if (!m_self) {
-        m_self = new RuqolaUtils;
-    }
-    return m_self;
+    static RuqolaUtils s_self;
+    return &s_self;
 }
 
 QString RuqolaUtils::markdownToRichText(const QString &markDown)

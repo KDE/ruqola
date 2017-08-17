@@ -40,7 +40,6 @@ public:
 
 private:
     explicit RuqolaUtils(QObject *parent = nullptr);
-    static RuqolaUtils *m_self;
 };
 
 inline static QObject *ruqolautils_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

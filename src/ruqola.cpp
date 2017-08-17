@@ -63,7 +63,7 @@ RoomFilterProxyModel *Ruqola::roomFilterProxyModel() const
 
 Ruqola *Ruqola::self()
 {
-    static Ruqola *s_self;
+    static Ruqola *s_self = nullptr;
     if (!s_self) {
         s_self = new Ruqola;
 
