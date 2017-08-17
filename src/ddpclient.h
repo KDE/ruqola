@@ -169,8 +169,6 @@ private:
     LoginType loginType() const;
     Q_INVOKABLE void setLoginType(LoginType t);
 
-    void resume_login_callback(const QJsonDocument &doc);
-
     QString m_url;
     QWebSocket m_webSocket;
 

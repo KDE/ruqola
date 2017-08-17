@@ -29,20 +29,6 @@
 #include <QJsonObject>
 #include <QJsonArray>
 
-void login_callback(const QJsonDocument &doc)
-{
-    qCDebug(RUQOLA_LOG) << "LOGIN:" << doc;
-    Ruqola::self()->setAuthToken(doc.object().value(QStringLiteral("token")).toString());
-    qCDebug(RUQOLA_LOG) << "End callback";
-}
-
-void DDPClient::resume_login_callback(const QJsonDocument &doc)
-{
-    qCDebug(RUQOLA_LOG) << "LOGIN:" << doc;
-    Ruqola::self()->setAuthToken(doc.object().value(QStringLiteral("token")).toString());
-    qCDebug(RUQOLA_LOG) << "End callback";
-}
-
 void empty_callback(const QJsonDocument &doc)
 {
     Q_UNUSED(doc);
