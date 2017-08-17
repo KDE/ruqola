@@ -80,7 +80,8 @@ void RoomModel::reset()
     }
 
     clear();
-
+    //Laurent disable cache for the moment
+/*
     QDir cacheDir(Ruqola::self()->cacheBasePath());
     // load cache
     if (cacheDir.exists(cacheDir.path())) {
@@ -99,6 +100,7 @@ void RoomModel::reset()
         }
         qCDebug(RUQOLA_LOG) << "Cache Loaded";
     }
+    */
 }
 
 QHash<int, QByteArray> RoomModel::roleNames() const
