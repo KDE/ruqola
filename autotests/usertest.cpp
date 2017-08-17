@@ -18,29 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USER_H
-#define USER_H
 
-#include <QString>
+#include "usertest.h"
+#include <QTest>
+QTEST_MAIN(UserTest)
 
-class User
+UserTest::UserTest(QObject *parent)
+    : QObject(parent)
 {
-public:
-    User();
 
-    QString name() const;
-    void setName(const QString &name);
-
-    QString userId() const;
-    void setUserId(const QString &userId);
-
-    QString status() const;
-    void setStatus(const QString &status);
-
-private:
-    QString mStatus;
-    QString mUserId;
-    QString mName;
-};
-
-#endif // USER_H
+}

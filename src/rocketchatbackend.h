@@ -43,7 +43,7 @@ public:
     */
     static void processIncomingMessages(const QJsonArray &messages);
 
-private slots:
+private:
     void onAdded(const QJsonObject &object);
     void onChanged(const QJsonObject &object);
     void onLoginStatusChanged();

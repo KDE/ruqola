@@ -24,3 +24,33 @@ User::User()
 {
 
 }
+
+QString User::name() const
+{
+    return mName;
+}
+
+void User::setName(const QString &name)
+{
+    mName = name;
+}
+
+QString User::userId() const
+{
+    return mUserId;
+}
+
+void User::setUserId(const QString &userId)
+{
+    mUserId = userId;
+}
+
+QString User::status() const
+{
+    return mStatus;
+}
+
+void User::setStatus(const QString &status)
+{
+    mStatus = status;
+}
