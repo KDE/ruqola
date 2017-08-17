@@ -136,7 +136,6 @@ signals:
 private:
     void slotInformTypingStatus(const QString &room, bool typing);
     explicit Ruqola(QObject *parent = nullptr);
-    static Ruqola *m_self;
     QString m_password;
     QString m_userName;
     QString m_userID;

@@ -33,8 +33,6 @@
 #include <QDataStream>
 #include <QDebug>
 
-Ruqola *Ruqola::m_self = nullptr;
-
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
     , m_ddp(nullptr)
@@ -65,27 +63,28 @@ RoomFilterProxyModel *Ruqola::roomFilterProxyModel() const
 
 Ruqola *Ruqola::self()
 {
-    if (!m_self) {
-        m_self = new Ruqola;
+    static Ruqola *s_self;
+    if (!s_self) {
+        s_self = new Ruqola;
 
         // Create DDP object so we try to connect at startup
-        m_self->ddp();
+        s_self->ddp();
 
         // Clear rooms data and refill it with data in the cache, if there is
-        m_self->roomModel()->reset();
+        s_self->roomModel()->reset();
 
         // Create systray to show notifications on Desktop
 #if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
-        m_self->notification();
+        s_self->notification();
 #endif
 
         //Initialize the messageQueue object
-        m_self->messageQueue();
+        s_self->messageQueue();
 
         //Initialize the OAuth object
-        m_self->authentication();
+        s_self->authentication();
     }
-    return m_self;
+    return s_self;
 }
 
 QString Ruqola::authToken() const
