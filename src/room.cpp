@@ -85,7 +85,7 @@ void Room::parseRoom(const QJsonObject &json)
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
-    QString roomID = json.value(QStringLiteral("rid")).toString();
+    const QString roomID = json.value(QStringLiteral("rid")).toString();
     id = roomID;
     name = json[QStringLiteral("name")].toString();
     topic = json[QStringLiteral("topic")].toString();

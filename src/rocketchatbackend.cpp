@@ -45,16 +45,16 @@ void rooms_parsing(const QJsonDocument &doc)
     //qDebug() << " rooms_parsing: updated  *******************************************************: "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
-        QJsonObject room = updated.at(i).toObject();
+        QJsonObject roomJson = updated.at(i).toObject();
 
-        const QString roomType = room.value(QStringLiteral("t")).toString();
+        const QString roomType = roomJson.value(QStringLiteral("t")).toString();
 
         if (roomType == QLatin1String("c") //Chat
             || roomType == QLatin1String("p") /*Private chat*/) {
             // let's be extra safe around crashes
             if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
                 Room r;
-                r.parseRoom(room);
+                r.parseRoom(roomJson);
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.id << r.topic << r.mAnnouncement;
                 model->updateRoom(r.name, r.id, r.topic, r.mAnnouncement);
             }
