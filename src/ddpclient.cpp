@@ -21,6 +21,7 @@
  */
 
 #include "ddpclient.h"
+#include "utils.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
 #include "rocketchatmessage.h"
@@ -69,15 +70,7 @@ DDPClient::~DDPClient()
 
 QUrl DDPClient::adaptUrl(const QString &url)
 {
-    QString serverUrl = url;
-    if (serverUrl.startsWith(QLatin1String("https://"))) {
-        serverUrl.replace(QStringLiteral("https://"), QStringLiteral("wss://"));
-    } else if (serverUrl.startsWith(QLatin1String("http://"))) {
-        serverUrl.replace(QStringLiteral("http://"), QStringLiteral("ws://"));
-    } else {
-        serverUrl = QStringLiteral("wss://") + serverUrl;
-    }
-    return QUrl(serverUrl + QStringLiteral("/websocket"));
+    return Utils::generateServerUrl(url);
 }
 
 void DDPClient::onServerURLChange()

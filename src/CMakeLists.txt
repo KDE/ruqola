@@ -19,6 +19,7 @@ set (Ruqola_core_srcs
     changetemporarystatus.cpp
     usermodel.cpp
     user.cpp
+    utils.cpp
     ${ruqola_QM_LOADER}
 )
 
