@@ -29,6 +29,9 @@ class UtilsTest : public QObject
 public:
     explicit UtilsTest(QObject *parent = nullptr);
     ~UtilsTest() = default;
+private Q_SLOTS:
+    void shouldGenerateServerUrl_data();
+    void shouldGenerateServerUrl();
 };
 
 #endif // UTILSTEST_H

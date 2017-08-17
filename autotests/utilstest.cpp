@@ -20,6 +20,7 @@
 
 
 #include "utilstest.h"
+#include "utils.h"
 #include <QTest>
 QTEST_MAIN(UtilsTest)
 
@@ -27,4 +28,21 @@ UtilsTest::UtilsTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void UtilsTest::shouldGenerateServerUrl_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QUrl>("output");
+    QTest::newRow("empty") << QString() << QUrl();
+    QTest::newRow("http") << QStringLiteral("http://foo.kde.org/") << QUrl(QStringLiteral("ws://foo.kde.org//websocket"));
+    QTest::newRow("http2") << QStringLiteral("http://foo.kde.org") << QUrl(QStringLiteral("ws://foo.kde.org/websocket"));
+    QTest::newRow("https") << QStringLiteral("https://foo.kde.org") << QUrl(QStringLiteral("wss://foo.kde.org/websocket"));
+}
+
+void UtilsTest::shouldGenerateServerUrl()
+{
+    QFETCH(QString, input);
+    QFETCH(QUrl, output);
+    QCOMPARE(Utils::generateServerUrl(input), output);
 }
