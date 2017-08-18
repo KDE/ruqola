@@ -30,6 +30,8 @@ class UserTest : public QObject
 public:
     explicit UserTest(QObject *parent = nullptr);
     ~UserTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // USERTEST_H

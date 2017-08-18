@@ -22,8 +22,8 @@
 #define USER_H
 
 #include <QString>
-
-class User
+#include "libruqola_private_export.h"
+class LIBRUQOLACORE_TESTS_EXPORT User
 {
 public:
     User();
