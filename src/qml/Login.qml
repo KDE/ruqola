@@ -117,5 +117,20 @@ Kirigami.Page {
             onClicked: loginForm.accepted()
             isDefault: true
         }        
+
+        Item {
+            id: spacer3
+            width: 30
+            height: 30
+        }
+
+        Text {
+            text: qsTr("Login Failed");
+            horizontalAlignment: Text.AlignHCenter
+            width: parent.width
+            color: "#FF0000"
+            font.bold: true
+            visible: Ruqola.loginStatus == DDPClient.LoginFailed
+        }
     }
 }
