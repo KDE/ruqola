@@ -42,7 +42,7 @@ public:
     QString topic() const;
     QString announcement() const;
 
-signals:
+Q_SIGNALS:
     void nameChanged();
     void topicChanged();
     void announcementChanged();

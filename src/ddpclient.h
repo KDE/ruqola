@@ -138,7 +138,7 @@ public:
 
     quint64 informTypingStatus(const QString &room, bool typing, const QString &userName);
 
-signals:
+Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
     void loginTypeChanged();

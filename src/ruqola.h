@@ -128,7 +128,7 @@ public:
 
     Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
 
-signals:
+Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
     void serverURLChanged();
