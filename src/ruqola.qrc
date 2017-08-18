@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>client_secret.json</file>
+    </qresource>
+</RCC>
