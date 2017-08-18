@@ -47,3 +47,27 @@ void UtilsTest::shouldGenerateServerUrl()
     QFETCH(QUrl, output);
     QCOMPARE(Utils::generateServerUrl(input), output);
 }
+
+void UtilsTest::shouldMarkdownToRichText_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("output");
+    QTest::newRow("empty") << QString() << QString();
+    QTest::newRow("testurl") << QStringLiteral("http://www.kde.org http://www.kde.org")
+                             << QStringLiteral("<a href=\"http://www.kde.org\">http://www.kde.org</a> <a href=\"http://www.kde.org\">http://www.kde.org</a>");
+    QTest::newRow("bold") << QStringLiteral("*bla*")
+                             << QStringLiteral("<b>bla</b>");
+    QTest::newRow("multi star") << QStringLiteral("**bla**")
+                             << QStringLiteral("<b>bla</b>");
+    QTest::newRow("multi star2") << QStringLiteral("***bla***")
+                             << QStringLiteral("***bla***");
+    QTest::newRow("multi star3") << QStringLiteral("***bla ******")
+                             << QStringLiteral("***bla ******");
+}
+
+void UtilsTest::shouldMarkdownToRichText()
+{
+    QFETCH(QString, input);
+    QFETCH(QString, output);
+    QCOMPARE(Utils::markdownToRichText(input), output);
+}

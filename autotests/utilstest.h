@@ -32,6 +32,9 @@ public:
 private Q_SLOTS:
     void shouldGenerateServerUrl_data();
     void shouldGenerateServerUrl();
+
+    void shouldMarkdownToRichText_data();
+    void shouldMarkdownToRichText();
 };
 
 #endif // UTILSTEST_H
