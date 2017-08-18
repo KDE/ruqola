@@ -22,6 +22,7 @@ set (Ruqola_core_srcs
     utils.cpp
     abstractwebsocket.cpp
     ruqolawebsocket.cpp
+    messageattachment.cpp
     ${ruqola_QM_LOADER}
 )
 

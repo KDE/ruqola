@@ -25,13 +25,6 @@
 #include <QJsonObject>
 #include <QString>
 
-class LIBRUQOLACORE_TESTS_EXPORT Attachment
-{
-public:
-    Attachment();
-    bool isEmpty() const;
-};
-
 
 class LIBRUQOLACORE_TESTS_EXPORT Message
 {
