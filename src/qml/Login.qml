@@ -97,8 +97,11 @@ Kirigami.Page {
             echoMode: TextInput.Password
             inputMethodHints: Qt.ImhHiddenText
             placeholderText: qsTr("Enter password")
+            onAccepted: {
+                acceptingButton.clicked();
+            }
         }
-        
+
         Item {
             id: spacer2
             width: 30
