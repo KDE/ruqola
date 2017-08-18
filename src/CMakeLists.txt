@@ -20,6 +20,7 @@ set (Ruqola_core_srcs
     usermodel.cpp
     user.cpp
     utils.cpp
+    abstractwebsocket.cpp
     ${ruqola_QM_LOADER}
 )
 

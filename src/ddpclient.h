@@ -170,7 +170,7 @@ private:
     Q_INVOKABLE void setLoginType(LoginType t);
 
     QString m_url;
-    QWebSocket m_webSocket;
+    QWebSocket mWebSocket;
 
     /**
      * @brief Unique message ID for each message sent over network
