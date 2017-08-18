@@ -18,35 +18,32 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ABSTRACTWEBSOCKET_H
-#define ABSTRACTWEBSOCKET_H
+#ifndef RUQOLAWEBSOCKET_H
+#define RUQOLAWEBSOCKET_H
 
-#include <QObject>
-#include <QAbstractSocket>
-#include <QWebSocketProtocol>
-class AbstractWebSocket : public QObject
+#include "abstractwebsocket.h"
+
+class QWebSocket;
+class RuqolaWebSocket : public AbstractWebSocket
 {
-    Q_OBJECT
 public:
-    explicit AbstractWebSocket(QObject *parent = nullptr);
-    ~AbstractWebSocket();
+    explicit RuqolaWebSocket(QObject *parent = nullptr);
+    ~RuqolaWebSocket();
 
-    virtual void openUrl(const QUrl &url) = 0;
-    virtual qint64 sendTextMessage(const QString &message) = 0;
-    virtual bool isValid() const = 0;
-    virtual void flush() = 0;
-    virtual void close() = 0;
-    virtual QAbstractSocket::SocketError error() const = 0;
-    virtual QUrl requestUrl() const = 0;
-    virtual QWebSocketProtocol::CloseCode closeCode() const = 0;
-    virtual QString	closeReason() const = 0;
-    virtual qint64 sendBinaryMessage(const QByteArray &data) = 0;
-    virtual void ignoreSslErrors() = 0;
+    void openUrl(const QUrl &url) override;
+    qint64 sendTextMessage(const QString &message) override;
+    bool isValid() const override;
+    void flush() override;
+    void close() override;
+    QAbstractSocket::SocketError error() const override;
+    QUrl requestUrl() const override;
+    QWebSocketProtocol::CloseCode closeCode() const override;
+    QString closeReason() const override;
+    qint64 sendBinaryMessage(const QByteArray &data) override;
+    void ignoreSslErrors() override;
 
-Q_SIGNALS:
-    void disconnected();
-    void connected();
-    void textMessageReceived(const QString &message);
+private:
+    QWebSocket *mWebSocket = nullptr;
 };
 
-#endif // ABSTRACTWEBSOCKET_H
+#endif // RUQOLAWEBSOCKET_H

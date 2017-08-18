@@ -21,6 +21,7 @@ set (Ruqola_core_srcs
     user.cpp
     utils.cpp
     abstractwebsocket.cpp
+    ruqolawebsocket.cpp
     ${ruqola_QM_LOADER}
 )
 
@@ -47,7 +48,7 @@ set_target_properties(libruqolacore
     )
 
 
-qt5_add_resources(RuqolaResources qml/qml.qrc)
+qt5_add_resources(RuqolaResources qml/qml.qrc ruqola.qrc)
 
 add_executable(ruqola main.cpp ${RuqolaResources})
 
