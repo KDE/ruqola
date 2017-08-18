@@ -24,7 +24,8 @@
 import QtQuick 2.7
 import QtQuick.Controls 1.3
 import org.kde.kirigami 2.1 as Kirigami
-
+import KDE.Ruqola.DDPClient 1.0
+import KDE.Ruqola.Ruqola 1.0
 Kirigami.Page {
     
     property alias username: usernameField.text;
@@ -33,18 +34,9 @@ Kirigami.Page {
 
     signal accepted()
 
-    Keys.onPressed: {
-        if (event.key === Qt.Key_Enter) {
-            acceptingButton.clicked();
-            
-        } else if (event.key === StandardKey.Escape) {
-
-        }
-    }
-
     
     id: loginForm
-    //     color: "#eeeeee"
+
     implicitHeight: 400
     implicitWidth: 300
 
@@ -55,9 +47,9 @@ Kirigami.Page {
         width: 0.8*parent.width
         spacing: 3
         Text {
+            id: loginLabel
             text: qsTr("Ruqola Log in")
             color: "#555"
-            id: loginLabel
             font.pixelSize: 40
             horizontalAlignment: Text.AlignHCenter
             width: parent.width

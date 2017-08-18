@@ -7,6 +7,7 @@
         <file>ChannelsList.qml</file>
         <file>Login.qml</file>
         <file>UserInput.qml</file>
+        <file>LoginPage.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

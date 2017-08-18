@@ -113,25 +113,13 @@ Kirigami.ApplicationWindow {
         ]
     }
     
-    Login {
+    LoginPage {
         id: loginTab
-        anchors.fill: parent
-        visible: Ruqola.loginStatus != DDPClient.LoggedIn
-        serverURL: Ruqola.serverURL
-        username: Ruqola.userName
-        onAccepted: {
-            Ruqola.password = loginTab.password;
-            Ruqola.userName = loginTab.username;
-            Ruqola.serverURL = loginTab.serverURL;
-            //            DDPClient.loginType = Password;
-            Ruqola.tryLogin();
-        }
     }
 
 
     BusyIndicator {
         id: busy
-        //         indeterminate: true
         anchors.centerIn: parent
         visible: Ruqola.loginStatus == DDPClient.LoggingIn
     }
@@ -140,17 +128,15 @@ Kirigami.ApplicationWindow {
         id: roomsComponent
         Kirigami.ScrollablePage {
             id: roomsPage
-            
+
             actions.main: Kirigami.Action {
                 id: editAction
                 iconName: "list-add"
-                //                 checkable: true
                 onTriggered: {
                     channelsList.open();
                 }
             }
             actions.left: Kirigami.Action {
-                //                 enabled: editAction.checked
                 iconName: "edit-symbolic"
                 checkable: true
                 onToggled: {
@@ -162,9 +148,8 @@ Kirigami.ApplicationWindow {
             background: Rectangle {
                 color: Kirigami.Theme.viewBackgroundColor
             }
-            
+
             mainItem:
-                
                 RoomsView {
 
                 id: roomsList
@@ -187,6 +172,7 @@ Kirigami.ApplicationWindow {
             } //RoomsView
             Kirigami.OverlaySheet {
                 id: channelsList
+
                 contentItem: ChannelsList {
                 }
             }
@@ -204,8 +190,8 @@ Kirigami.ApplicationWindow {
             rightPadding: Kirigami.Units.smallSpacing
             topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
-            
             header: Column {
+
                 Kirigami.Heading {
                     text: "#" +appid.selectedRoom.name
                     level: 3
@@ -244,10 +230,7 @@ Kirigami.ApplicationWindow {
             ListView {
                 id: activeChat
                 model: appid.model
-                //                 anchors.top: mainWidget.top
-                //                 anchors.bottom: footerItem.top
-                //                 anchors.bottomPadding: 100// footerItem.height
-                
+
                 onCountChanged: {
                     positionViewAtIndex(count - 1, ListView.Beginning)
                 }
@@ -272,8 +255,6 @@ Kirigami.ApplicationWindow {
                     Ruqola.textEditing(appid.selectedRoomID, str)
                 }
             }
-
-            
         }// mainWidget Item
     }
 
@@ -297,25 +278,4 @@ Kirigami.ApplicationWindow {
         systrayIcon.activated.connect(toggleShow);
         systrayIcon.messageClicked.connect(toggleShow);
     }
-
-    /*
-    Timer {
-        id: timer
-        interval: 1000
-        onTriggered: {
-//             console.log("FIRE");
-            switch (Ruqola.loginStatus) {
-                case Ruqola.NotConnected:
-                    statusText = qsTr("Not connected.");
-                    break;
-                case Ruqola.LoggedIn:
-                        statusText = qsTr("Connected to " + Ruqola.serverURL);
-                        break;
-
-            }
-        }
-        repeat: true
-    }*/
-
-    //    onStatusTextChanged: timer.restart();
 }
