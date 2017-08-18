@@ -25,6 +25,7 @@
 #include "ruqola.h"
 #include "ruqola_debug.h"
 #include "rocketchatmessage.h"
+#include "ruqolawebsocket.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -47,25 +48,32 @@ DDPClient::DDPClient(const QString &url, QObject *parent)
     , m_attemptedTokenLogin(false)
     , mRocketChatMessage(new RocketChatMessage)
 {
-    mWebSocket.ignoreSslErrors();
-    connect(&mWebSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
-    connect(&mWebSocket, &QWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
-    connect(&mWebSocket, &QWebSocket::disconnected, this, &DDPClient::onWSclosed);
-    connect(Ruqola::self(), &Ruqola::serverURLChanged, this, &DDPClient::onServerURLChange);
-
-    if (!url.isEmpty()) {
-        const QUrl serverUrl = adaptUrl(url);
-        mWebSocket.open(serverUrl);
-        qCDebug(RUQOLA_LOG) << "Trying to connect to URL" << serverUrl;
-    } else {
-        qCDebug(RUQOLA_LOG) << "url is empty";
-    }
+    initialize(url);
 }
 
 DDPClient::~DDPClient()
 {
-    mWebSocket.close();
+    mWebSocket->close();
+    delete mWebSocket;
     delete mRocketChatMessage;
+}
+
+void DDPClient::initialize(const QString &url)
+{
+    mWebSocket = new RuqolaWebSocket(this);
+    mWebSocket->ignoreSslErrors();
+    connect(mWebSocket, &AbstractWebSocket::connected, this, &DDPClient::onWSConnected);
+    connect(mWebSocket, &AbstractWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
+    connect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
+    connect(Ruqola::self(), &Ruqola::serverURLChanged, this, &DDPClient::onServerURLChange);
+
+    if (!url.isEmpty()) {
+        const QUrl serverUrl = adaptUrl(url);
+        mWebSocket->openUrl(serverUrl);
+        qCDebug(RUQOLA_LOG) << "Trying to connect to URL" << serverUrl;
+    } else {
+        qCDebug(RUQOLA_LOG) << "url is empty";
+    }
 }
 
 QUrl DDPClient::adaptUrl(const QString &url)
@@ -75,14 +83,14 @@ QUrl DDPClient::adaptUrl(const QString &url)
 
 void DDPClient::onServerURLChange()
 {
-    if (Ruqola::self()->serverURL() != m_url || !mWebSocket.isValid()) {
-        if (mWebSocket.isValid()) {
-            mWebSocket.flush();
-            mWebSocket.close();
+    if (Ruqola::self()->serverURL() != m_url || !mWebSocket->isValid()) {
+        if (mWebSocket->isValid()) {
+            mWebSocket->flush();
+            mWebSocket->close();
         }
         m_url = Ruqola::self()->serverURL();
-        mWebSocket.open(adaptUrl(m_url));
-        connect(&mWebSocket, &QWebSocket::connected, this, &DDPClient::onWSConnected);
+        mWebSocket->openUrl(adaptUrl(m_url));
+        connect(mWebSocket, &AbstractWebSocket::connected, this, &DDPClient::onWSConnected);
         qCDebug(RUQOLA_LOG) << "Reconnecting" << m_url;
     }
 }
@@ -154,7 +162,7 @@ quint64 DDPClient::hideRoom(const QString &roomID)
 quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->informTypingStatus(roomId, userName, typing, m_uid);
-    qint64 bytes = mWebSocket.sendTextMessage(result.result);
+    qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
     }
@@ -164,10 +172,10 @@ quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const 
 
 quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType)
 {
-    qint64 bytes = mWebSocket.sendTextMessage(result.result);
+    qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
-        qCDebug(RUQOLA_LOG) << mWebSocket.isValid() << mWebSocket.error() << mWebSocket.requestUrl();
+        qCDebug(RUQOLA_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
 
         if (messageType == DDPClient::Persistent) {
             m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
@@ -192,10 +200,10 @@ quint64 DDPClient::method(const QString &method, const QJsonDocument &params, st
 {
     qDebug() << " params" << params.toJson(QJsonDocument::Indented);
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, m_uid);
-    qint64 bytes = mWebSocket.sendTextMessage(result.result);
+    qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
-        qCDebug(RUQOLA_LOG) << mWebSocket.isValid() << mWebSocket.error() << mWebSocket.requestUrl();
+        qCDebug(RUQOLA_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
 
         if (messageType == DDPClient::Persistent) {
             m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
@@ -220,7 +228,7 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
     json[QStringLiteral("name")] = collection;
     json[QStringLiteral("params")] = params;
 
-    qint64 bytes = mWebSocket.sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
+    qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
         qCDebug(RUQOLA_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
     }
@@ -271,7 +279,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             qCDebug(RUQOLA_LOG) << "Ping - Pong";
             QJsonObject pong;
             pong[QStringLiteral("msg")] = QStringLiteral("pong");
-            mWebSocket.sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
+            mWebSocket->sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
         } else if (messageType == QLatin1String("added")) {
             qCDebug(RUQOLA_LOG) << "ADDING" <<root;
             emit added(root);
@@ -321,7 +329,7 @@ void DDPClient::onWSConnected()
     protocol[QStringLiteral("version")] = QStringLiteral("1");
     protocol[QStringLiteral("support")] = supportedVersions;
     QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
-    qint64 bytes = mWebSocket.sendTextMessage(QString::fromUtf8(serialize));
+    qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialize));
     if (bytes < serialize.length()) {
         qCDebug(RUQOLA_LOG) << "onWSConnected: ERROR! I couldn't send all of my message. This is a bug! (try again)";
     } else {
@@ -331,6 +339,6 @@ void DDPClient::onWSConnected()
 
 void DDPClient::onWSclosed()
 {
-    qCDebug(RUQOLA_LOG) << "WebSocket CLOSED" << mWebSocket.closeReason() << mWebSocket.error() << mWebSocket.closeCode();
+    qCDebug(RUQOLA_LOG) << "WebSocket CLOSED" << mWebSocket->closeReason() << mWebSocket->error() << mWebSocket->closeCode();
     setLoginStatus(NotConnected);
 }

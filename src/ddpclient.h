@@ -32,7 +32,7 @@
 class QJsonObject;
 class QJsonDocument;
 class RocketChatMessage;
-
+class AbstractWebSocket;
 class LIBRUQOLACORE_EXPORT DDPClient : public QObject
 {
     Q_OBJECT
@@ -160,6 +160,7 @@ private slots:
     void onWSclosed();
 
 private:
+    void initialize(const QString &url);
 
     QUrl adaptUrl(const QString &url);
 
@@ -170,7 +171,7 @@ private:
     Q_INVOKABLE void setLoginType(LoginType t);
 
     QString m_url;
-    QWebSocket mWebSocket;
+    AbstractWebSocket *mWebSocket = nullptr;
 
     /**
      * @brief Unique message ID for each message sent over network

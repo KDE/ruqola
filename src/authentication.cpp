@@ -35,7 +35,7 @@ Authentication::Authentication()
 
 void Authentication::getDataFromJson()
 {
-    QDir cacheDir(QStringLiteral(":/src"));
+    QDir cacheDir(QStringLiteral(":/"));
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }

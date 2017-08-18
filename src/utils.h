@@ -26,6 +26,7 @@
 namespace Utils
 {
 LIBRUQOLACORE_TESTS_EXPORT QUrl generateServerUrl(const QString &url);
+LIBRUQOLACORE_TESTS_EXPORT QString markdownToRichText(const QString &markDown);
 }
 
 #endif // UTILS_H

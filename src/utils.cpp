@@ -19,6 +19,7 @@
 */
 
 #include "utils.h"
+#include <KTextToHTML>
 
 
 QUrl Utils::generateServerUrl(const QString &url)
@@ -35,4 +36,14 @@ QUrl Utils::generateServerUrl(const QString &url)
         serverUrl = QStringLiteral("wss://") + serverUrl;
     }
     return QUrl(serverUrl + QStringLiteral("/websocket"));
+}
+
+QString Utils::markdownToRichText(const QString &markDown)
+{
+    //qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
+    //Problem with smileys as qml load image as qrc:/.... so perhaps we need to change contextProperty("baseUrl"...)
+    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText /* | KTextToHTML::ReplaceSmileys*/;
+    const QString str = KTextToHTML::convertToHtml(markDown, convertFlags);
+    //qCDebug(RUQOLA_LOG) << "markdownToRichText "<<str;
+    return str;
 }
