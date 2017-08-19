@@ -149,6 +149,11 @@ RoomModel *Ruqola::roomModel()
     return m_roomModel;
 }
 
+UserModel *Ruqola::userModel() const
+{
+    return mUserModel;
+}
+
 DDPClient *Ruqola::ddp()
 {
     if (!m_ddp) {

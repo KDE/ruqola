@@ -33,6 +33,7 @@
 #include "notification.h"
 #include "messagequeue.h"
 #include "authentication.h"
+
 class RoomFilterProxyModel;
 
 class TypingNotification;
@@ -84,6 +85,7 @@ public:
     Authentication *authentication();
 
     Q_INVOKABLE RoomModel *roomModel();
+    Q_INVOKABLE UserModel *userModel() const;
 
     /**
     * @brief Constructs a Json with @param roomID and @param message and @param type, then calls DDPClient's method to send text message over the network
