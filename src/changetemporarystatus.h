@@ -29,6 +29,9 @@ class ChangeTemporaryStatus : public QObject
 public:
     explicit ChangeTemporaryStatus(QObject *parent = nullptr);
     ~ChangeTemporaryStatus() = default;
+
+Q_SIGNALS:
+    void changeStatusAway(bool away);
 };
 
 #endif // CHANGETEMPORARYSTATUS_H
