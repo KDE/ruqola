@@ -23,7 +23,6 @@
 #include "ruqolautils.h"
 #include "ruqola_debug.h"
 #include "utils.h"
-#include <KTextToHTML>
 #include <QDesktopServices>
 #include <QUrl>
 
@@ -45,9 +44,9 @@ QString RuqolaUtils::markdownToRichText(const QString &markDown)
 
 void RuqolaUtils::openUrl(const QString &url)
 {
-    if (!url.startsWith(QStringLiteral("ruqola:"))) {
-        QDesktopServices::openUrl(QUrl(url));
-    } else {
+    if (url.startsWith(QStringLiteral("ruqola:"))) {
         qDebug() << " url " << url;
+    } else {
+        QDesktopServices::openUrl(QUrl(url));
     }
 }
