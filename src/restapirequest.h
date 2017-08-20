@@ -22,6 +22,7 @@
 #define RESTAPIREQUEST_H
 
 #include <QObject>
+#include <QSslError>
 class QNetworkAccessManager;
 class QNetworkReply;
 class RestApiRequest : public QObject
@@ -32,6 +33,7 @@ public:
     ~RestApiRequest();
 private:
     void slotResult(QNetworkReply *reply);
+    void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
 };
 

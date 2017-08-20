@@ -19,6 +19,7 @@
 */
 
 #include "restapirequest.h"
+#include "ruqola_debug.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -29,6 +30,7 @@ RestApiRequest::RestApiRequest(QObject *parent)
 {
     mNetworkAccessManager = new QNetworkAccessManager(this);
     connect(mNetworkAccessManager, &QNetworkAccessManager::finished, this, &RestApiRequest::slotResult);
+    connect(mNetworkAccessManager, &QNetworkAccessManager::sslErrors, this, &RestApiRequest::slotSslErrors);
 }
 
 RestApiRequest::~RestApiRequest()
@@ -44,4 +46,11 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
     }
     //TODO
     reply->deleteLater();
+}
+
+
+void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)
+{
+    qCDebug(RUQOLA_LOG) << " void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)" << error.count();
+    reply->ignoreSslErrors(error);
 }
