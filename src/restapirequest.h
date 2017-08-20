@@ -22,13 +22,17 @@
 #define RESTAPIREQUEST_H
 
 #include <QObject>
-
+class QNetworkAccessManager;
+class QNetworkReply;
 class RestApiRequest : public QObject
 {
     Q_OBJECT
 public:
     explicit RestApiRequest(QObject *parent = nullptr);
     ~RestApiRequest();
+private:
+    void slotResult(QNetworkReply *reply);
+    QNetworkAccessManager *mNetworkAccessManager = nullptr;
 };
 
 #endif // RESTAPIREQUEST_H

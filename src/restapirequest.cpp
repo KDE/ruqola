@@ -20,13 +20,28 @@
 
 #include "restapirequest.h"
 
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QDebug>
+
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
 {
-
+    mNetworkAccessManager = new QNetworkAccessManager(this);
+    connect(mNetworkAccessManager, &QNetworkAccessManager::finished, this, &RestApiRequest::slotResult);
 }
 
 RestApiRequest::~RestApiRequest()
 {
 
+}
+
+void RestApiRequest::slotResult(QNetworkReply *reply)
+{
+    if (reply->error() == QNetworkReply::NoError) {
+        QByteArray data = reply->readAll();
+        qDebug() << data;
+    }
+    //TODO
+    reply->deleteLater();
 }
