@@ -55,7 +55,9 @@ MessageQueue::~MessageQueue()
     QDir cacheDir(Ruqola::self()->ddp()->cachePath());
     qCDebug(RUQOLA_LOG) << "Caching Unsent messages to... " << cacheDir.path();
     if (!cacheDir.exists(cacheDir.path())) {
-        cacheDir.mkpath(cacheDir.path());
+        if (!cacheDir.mkpath(cacheDir.path())) {
+            qCWarning(RUQOLA_LOG) << "Problem for creating cachedir " << cacheDir;
+        }
     }
     QFile f(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")));
     if (f.open(QIODevice::WriteOnly)) {
