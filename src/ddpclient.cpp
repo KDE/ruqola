@@ -175,8 +175,9 @@ quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const 
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
     }
+    const int value = m_uid;
     m_uid++;
-    return m_uid - 1;
+    return value;
 }
 
 quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType)
@@ -196,8 +197,9 @@ quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &resu
 
     m_callbackHash[m_uid] = callback;
 
+    const int value = m_uid;
     m_uid++;
-    return m_uid - 1;
+    return value;
 }
 
 quint64 DDPClient::method(const QString &m, const QJsonDocument &params, DDPClient::MessageType messageType)
