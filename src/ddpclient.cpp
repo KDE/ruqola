@@ -122,7 +122,7 @@ void DDPClient::setLoginStatus(DDPClient::LoginStatus l)
 {
     qCDebug(RUQOLA_LOG) << "Setting login status to" << l;
     m_loginStatus = l;
-    emit loginStatusChanged();
+    Q_EMIT loginStatusChanged();
 
     // reset flags
     if (l == LoginFailed) {
@@ -141,7 +141,7 @@ void DDPClient::setLoginType(DDPClient::LoginType t)
     if (m_loginType != t) {
         qCDebug(RUQOLA_LOG) << "Setting login type to" << t;
         m_loginType = t;
-        emit loginTypeChanged();
+        Q_EMIT loginTypeChanged();
     }
 }
 
@@ -273,7 +273,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
 
                 callback(QJsonDocument(root.value(QStringLiteral("result")).toObject()));
             }
-            emit result(id, QJsonDocument(root.value(QStringLiteral("result")).toObject()));
+            Q_EMIT result(id, QJsonDocument(root.value(QStringLiteral("result")).toObject()));
 
             if (id == m_loginJob) {
                 if (root.value(QStringLiteral("error")).toObject().value(QStringLiteral("error")).toInt() == 403) {
@@ -288,7 +288,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
         } else if (messageType == QLatin1String("connected")) {
             qCDebug(RUQOLA_LOG) << "Connected";
             m_connected = true;
-            emit connectedChanged();
+            Q_EMIT connectedChanged();
             setLoginStatus(DDPClient::LoggingIn);
             //Ruqola::self()->authentication()->OAuthLogin();
 
@@ -302,9 +302,9 @@ void DDPClient::onTextMessageReceived(const QString &message)
             mWebSocket->sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
         } else if (messageType == QLatin1String("added")) {
             qCDebug(RUQOLA_LOG) << "ADDING" <<root;
-            emit added(root);
+            Q_EMIT added(root);
         } else if (messageType == QLatin1String("changed")) {
-            emit changed(root);
+            Q_EMIT changed(root);
         } else if (messageType == QLatin1String("ready")) {
             // do nothing
         } else {

@@ -131,17 +131,17 @@ void Ruqola::setUserName(const QString &username)
         m_userName = username;
         QSettings s;
         s.setValue(QStringLiteral("username"), username);
-        emit userNameChanged();
+        Q_EMIT userNameChanged();
     }
 }
 
 void Ruqola::setUserID(const QString &userID)
 {
-    //Don't use if( m_userID != userID) as we need to emit userIDChanged
+    //Don't use if( m_userID != userID) as we need to Q_EMIT userIDChanged
     m_userID = userID;
     QSettings s;
     s.setValue(QStringLiteral("userID"), userID);
-    emit userIDChanged();
+    Q_EMIT userIDChanged();
 }
 
 RoomModel *Ruqola::roomModel()
@@ -264,7 +264,7 @@ void Ruqola::setServerURL(const QString &serverURL)
     QSettings s;
     s.setValue(QStringLiteral("serverURL"), serverURL);
     m_serverURL = serverURL;
-    emit serverURLChanged();
+    Q_EMIT serverURLChanged();
 }
 
 DDPClient::LoginStatus Ruqola::loginStatus()
@@ -320,7 +320,7 @@ void Ruqola::logOut()
 
     delete m_ddp;
     m_ddp = nullptr;
-    emit loginStatusChanged();
+    Q_EMIT loginStatusChanged();
     qCDebug(RUQOLA_LOG) << "Successfully logged out!";
 }
 

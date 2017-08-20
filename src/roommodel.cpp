@@ -229,7 +229,7 @@ void RoomModel::addRoom(const Room &room)
     }
 
     if (roomChanged) {
-        emit dataChanged(createIndex(1, 1), createIndex(pos, 1));
+        Q_EMIT dataChanged(createIndex(1, 1), createIndex(pos, 1));
     } else {
         endInsertRows();
     }
@@ -312,7 +312,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
         mRoomsList.replace(pos - 1, foundRoom);
     }
 
-    emit dataChanged(createIndex(1, 1), createIndex(pos, 1));
+    Q_EMIT dataChanged(createIndex(1, 1), createIndex(pos, 1));
 
     Ruqola::self()->getMessageModelForRoom(room.id);
 }

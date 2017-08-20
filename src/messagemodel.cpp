@@ -215,7 +215,7 @@ void MessageModel::addMessage(const Message &message)
     }
 
     if (messageChanged) {
-        emit dataChanged(createIndex(1, 1), createIndex(pos, 1));
+        Q_EMIT dataChanged(createIndex(1, 1), createIndex(pos, 1));
     } else {
         endInsertRows();
     }
