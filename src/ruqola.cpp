@@ -159,6 +159,7 @@ DDPClient *Ruqola::ddp()
     if (!m_ddp) {
         m_ddp = new DDPClient();
         m_ddp->setServerUrl(serverURL());
+        m_ddp->start();
         connect(m_ddp, &DDPClient::loginStatusChanged, this, &Ruqola::loginStatusChanged);
     }
     return m_ddp;

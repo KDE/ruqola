@@ -139,7 +139,9 @@ public:
     quint64 informTypingStatus(const QString &room, bool typing, const QString &userName);
 
     void setServerUrl(const QString &url);
+    void start();
 
+    void setWebSocket(AbstractWebSocket *socket);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
@@ -162,7 +164,7 @@ private slots:
     void onWSclosed();
 
 private:
-    void initialize();
+    void initializeWebSocket();
 
     QUrl adaptUrl(const QString &url);
 

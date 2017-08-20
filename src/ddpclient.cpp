@@ -59,20 +59,29 @@ DDPClient::~DDPClient()
 
 void DDPClient::setServerUrl(const QString &url)
 {
-    if (m_url != url) {
-        m_url = url;
-        initialize();
-    }
+    m_url = url;
 }
 
-void DDPClient::initialize()
+void DDPClient::setWebSocket(AbstractWebSocket *socket)
+{
+    delete mWebSocket;
+    mWebSocket = socket;
+    initializeWebSocket();
+}
+
+void DDPClient::initializeWebSocket()
+{
+    mWebSocket->ignoreSslErrors();
+    connect(mWebSocket, &AbstractWebSocket::connected, this, &DDPClient::onWSConnected);
+    connect(mWebSocket, &AbstractWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
+    connect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
+}
+
+void DDPClient::start()
 {
     if (!mWebSocket) {
         mWebSocket = new RuqolaWebSocket(this);
-        mWebSocket->ignoreSslErrors();
-        connect(mWebSocket, &AbstractWebSocket::connected, this, &DDPClient::onWSConnected);
-        connect(mWebSocket, &AbstractWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
-        connect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
+        initializeWebSocket();
     }
     connect(Ruqola::self(), &Ruqola::serverURLChanged, this, &DDPClient::onServerURLChange);
 
