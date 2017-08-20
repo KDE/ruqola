@@ -56,7 +56,7 @@ public:
         Google
     };
 
-    explicit DDPClient(const QString &url = QString(), QObject *parent = nullptr);
+    explicit DDPClient(QObject *parent = nullptr);
     ~DDPClient();
 
     /**
@@ -138,6 +138,8 @@ public:
 
     quint64 informTypingStatus(const QString &room, bool typing, const QString &userName);
 
+    void setServerUrl(const QString &url);
+
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
@@ -160,7 +162,7 @@ private slots:
     void onWSclosed();
 
 private:
-    void initialize(const QString &url);
+    void initialize();
 
     QUrl adaptUrl(const QString &url);
 

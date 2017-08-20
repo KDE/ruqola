@@ -37,9 +37,8 @@ void empty_callback(const QJsonDocument &doc)
     Q_UNUSED(doc);
 }
 
-DDPClient::DDPClient(const QString &url, QObject *parent)
+DDPClient::DDPClient(QObject *parent)
     : QObject(parent)
-    , m_url(url)
     , m_uid(1)
     , m_loginJob(0)
     , m_loginStatus(NotConnected)
@@ -49,7 +48,6 @@ DDPClient::DDPClient(const QString &url, QObject *parent)
     , m_attemptedTokenLogin(false)
     , mRocketChatMessage(new RocketChatMessage)
 {
-    initialize(url);
 }
 
 DDPClient::~DDPClient()
@@ -59,17 +57,27 @@ DDPClient::~DDPClient()
     delete mRocketChatMessage;
 }
 
-void DDPClient::initialize(const QString &url)
+void DDPClient::setServerUrl(const QString &url)
 {
-    mWebSocket = new RuqolaWebSocket(this);
-    mWebSocket->ignoreSslErrors();
-    connect(mWebSocket, &AbstractWebSocket::connected, this, &DDPClient::onWSConnected);
-    connect(mWebSocket, &AbstractWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
-    connect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
+    if (m_url != url) {
+        m_url = url;
+        initialize();
+    }
+}
+
+void DDPClient::initialize()
+{
+    if (!mWebSocket) {
+        mWebSocket = new RuqolaWebSocket(this);
+        mWebSocket->ignoreSslErrors();
+        connect(mWebSocket, &AbstractWebSocket::connected, this, &DDPClient::onWSConnected);
+        connect(mWebSocket, &AbstractWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
+        connect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
+    }
     connect(Ruqola::self(), &Ruqola::serverURLChanged, this, &DDPClient::onServerURLChange);
 
-    if (!url.isEmpty()) {
-        const QUrl serverUrl = adaptUrl(url);
+    if (!m_url.isEmpty()) {
+        const QUrl serverUrl = adaptUrl(m_url);
         mWebSocket->openUrl(serverUrl);
         qCDebug(RUQOLA_LOG) << "Trying to connect to URL" << serverUrl;
     } else {

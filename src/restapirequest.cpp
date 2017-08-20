@@ -48,7 +48,6 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
     reply->deleteLater();
 }
 
-
 void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)
 {
     qCDebug(RUQOLA_LOG) << " void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)" << error.count();

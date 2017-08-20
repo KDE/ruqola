@@ -157,7 +157,8 @@ UserModel *Ruqola::userModel() const
 DDPClient *Ruqola::ddp()
 {
     if (!m_ddp) {
-        m_ddp = new DDPClient(serverURL());
+        m_ddp = new DDPClient();
+        m_ddp->setServerUrl(serverURL());
         connect(m_ddp, &DDPClient::loginStatusChanged, this, &Ruqola::loginStatusChanged);
     }
     return m_ddp;
