@@ -23,6 +23,7 @@ set (Ruqola_core_srcs
     abstractwebsocket.cpp
     ruqolawebsocket.cpp
     messageattachment.cpp
+    restapirequest.cpp
     ${ruqola_QM_LOADER}
 )
 
