@@ -89,6 +89,7 @@ QString RestApiRequest::userId() const
 
 void RestApiRequest::login()
 {
+    qDebug() <<" ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss" << mServerUrl << "user "<<mUserName << " mPassword" << mPassword;
     if (!mUserName.isEmpty() && !mPassword.isEmpty() && !mServerUrl.isEmpty()) {
         QUrl url = QUrl(mServerUrl + QStringLiteral("/api/v1/login"));
         QNetworkRequest request(url);

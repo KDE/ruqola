@@ -124,6 +124,7 @@ void Ruqola::setAuthToken(const QString &token)
 void Ruqola::setPassword(const QString &password)
 {
     m_password = password;
+    qDebug() << "*****************************************************************" << m_password;
 }
 
 void Ruqola::setUserName(const QString &username)

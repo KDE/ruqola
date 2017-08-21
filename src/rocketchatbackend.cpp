@@ -26,6 +26,7 @@
 #include "ruqola_debug.h"
 #include "ruqola.h"
 #include "ddpclient.h"
+#include "restapi/restapirequest.h"
 
 void process_backlog(const QJsonDocument &messages)
 {
@@ -172,6 +173,9 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
         if (username == Ruqola::self()->userName()) {
             Ruqola::self()->setUserID(object[QStringLiteral("id")].toString());
             qCDebug(RUQOLA_LOG) << "User id set to " << Ruqola::self()->userID();
+            Ruqola::self()->restapi()->setUserName(Ruqola::self()->userName());
+            Ruqola::self()->restapi()->setPassword(Ruqola::self()->password());
+            Ruqola::self()->restapi()->login();
         }
 
         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username << fields;
