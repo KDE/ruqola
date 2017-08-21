@@ -24,6 +24,8 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QDebug>
+#include <QUrl>
+#include <QUrlQuery>
 
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
@@ -52,4 +54,48 @@ void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> 
 {
     qCDebug(RUQOLA_LOG) << " void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)" << error.count();
     reply->ignoreSslErrors(error);
+}
+
+void RestApiRequest::setPassword(const QString &password)
+{
+    mPassword = password;
+}
+
+void RestApiRequest::setUserName(const QString &userName)
+{
+    mUserName = userName;
+}
+
+QString RestApiRequest::serverUrl() const
+{
+    return mServerUrl;
+}
+
+void RestApiRequest::setServerUrl(const QString &serverUrl)
+{
+    mServerUrl = serverUrl;
+}
+
+QString RestApiRequest::authToken() const
+{
+    return mAuthToken;
+}
+
+QString RestApiRequest::userId() const
+{
+    return mUserId;
+}
+
+void RestApiRequest::login()
+{
+    if (!mUserName.isEmpty() && !mPassword.isEmpty() && !mServerUrl.isEmpty()) {
+        QUrl url = QUrl(mServerUrl + QStringLiteral("/api/v1/login"));
+        QUrlQuery query;
+        query.addQueryItem(QStringLiteral("user"), mUserName);
+        query.addQueryItem(QStringLiteral("password"), mPassword);
+        url.setQuery(query);
+        qCDebug(RUQOLA_LOG) << " using url for login " << url.toDisplayString();
+    } else {
+        qCWarning(RUQOLA_LOG) << "Password or user or url is empty";
+    }
 }

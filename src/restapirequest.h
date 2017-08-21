@@ -31,10 +31,29 @@ class RestApiRequest : public QObject
 public:
     explicit RestApiRequest(QObject *parent = nullptr);
     ~RestApiRequest();
+
+
+    QString userId() const;
+    QString authToken() const;
+
+
+    //Assign/get server url
+    QString serverUrl() const;
+    void setServerUrl(const QString &serverUrl);
+
+    void setUserName(const QString &userName);
+    void setPassword(const QString &password);
+
+    void login();
 private:
     void slotResult(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
+    QString mUserId;
+    QString mAuthToken;
+    QString mServerUrl;
+    QString mUserName;
+    QString mPassword;
 };
 
 #endif // RESTAPIREQUEST_H
