@@ -90,11 +90,18 @@ void RestApiRequest::login()
 {
     if (!mUserName.isEmpty() && !mPassword.isEmpty() && !mServerUrl.isEmpty()) {
         QUrl url = QUrl(mServerUrl + QStringLiteral("/api/v1/login"));
-        QUrlQuery query;
-        query.addQueryItem(QStringLiteral("user"), mUserName);
-        query.addQueryItem(QStringLiteral("password"), mPassword);
-        url.setQuery(query);
-        qCDebug(RUQOLA_LOG) << " using url for login " << url.toDisplayString();
+        QNetworkRequest request(url);
+        request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+
+        const QByteArray baPostData;// = jsonRequest();
+        /*
+        curl -H "Content-type:application/json" \
+              http://localhost:3000/api/v1/login \
+              -d '{ "user": "myusername", "password": "mypassword" }'
+        */
+        //curl -H "Content-Type: application/json" -X POST -d '{"client":{"clientId":"KDE","clientVersion":"5.4.0"},"threatInfo":{"platformTypes":["WINDOWS"],"threatEntries":[{"url":"http://www.kde.org"}],"threatEntryTypes":["URL"],"threatTypes":["MALWARE"]}}' https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyBS62pXATjabbH2RM_jO2EzDg1mTMHlnyo
+        QNetworkReply *reply = mNetworkAccessManager->post(request, baPostData);
+        //connect(reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &CreatePhishingUrlDataBaseJob::slotError);
     } else {
         qCWarning(RUQOLA_LOG) << "Password or user or url is empty";
     }
