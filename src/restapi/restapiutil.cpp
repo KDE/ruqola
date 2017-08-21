@@ -20,7 +20,12 @@
 
 #include "restapiutil.h"
 
-RestApiUtil::RestApiUtil()
+QString RestApiUtil::adaptUrl(const QString &url)
 {
-
+    if (url.startsWith(QStringLiteral("https://")) || url.startsWith(QStringLiteral("http://"))) {
+        return url;
+    } else {
+        //Default to https
+        return QStringLiteral("https://") + url;
+    }
 }

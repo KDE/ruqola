@@ -20,6 +20,7 @@
 
 #include "restapirequest.h"
 #include "ruqola_debug.h"
+#include "restapiutil.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -27,6 +28,7 @@
 #include <QUrl>
 #include <QUrlQuery>
 #include <QJsonDocument>
+#include <QJsonObject>
 
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
@@ -41,12 +43,42 @@ RestApiRequest::~RestApiRequest()
 
 }
 
+void RestApiRequest::parseLogin(const QByteArray &data)
+{
+    QJsonDocument replyJson = QJsonDocument::fromJson(data);
+    QJsonObject replyObject = replyJson.object();
+
+    if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success") && replyObject.contains(QStringLiteral("data"))) {
+        QJsonObject data = replyObject[QStringLiteral("data")].toObject();
+
+        if ( data.contains(QStringLiteral("authToken")) && data.contains(QStringLiteral("userId"))) {
+            mAuthToken = data[QStringLiteral("authToken")].toString();
+            mUserId = data[QStringLiteral("userId")].toString();
+            if (!mSearchRoom) {
+                channelList();
+                mSearchRoom = true;
+            }
+        }
+    } else {
+        qCWarning(RUQOLA_LOG) << "Error during login" << data;
+    }
+}
+
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
+    qDebug() <<" void RestApiRequest::slotResult(QNetworkReply *reply)" << reply;
     if (reply->error() == QNetworkReply::NoError) {
         const QByteArray data = reply->readAll();
-        qDebug() << " result :" << data;
+        if (reply->property("method").toString() == QStringLiteral("login")) {
+            qDebug() << " result :" << data;
+            parseLogin(data);
+        } else {
+            qDebug() << " result :" << data;
+        }
+    } else {
+        qDebug() << " reply - "<<reply->errorString();
     }
+    qDebug() << "sssssssssssssssssssssssssssssssssssaaaaaaaaaa";
     //TODO
     reply->deleteLater();
 }
@@ -91,7 +123,7 @@ void RestApiRequest::login()
 {
     qDebug() <<" ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss" << mServerUrl << "user "<<mUserName << " mPassword" << mPassword;
     if (!mUserName.isEmpty() && !mPassword.isEmpty() && !mServerUrl.isEmpty()) {
-        QUrl url = QUrl(mServerUrl + QStringLiteral("/api/v1/login"));
+        QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/login"));
         QNetworkRequest request(url);
         request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
 
@@ -101,8 +133,30 @@ void RestApiRequest::login()
         const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
         const QByteArray baPostData = postData.toJson(QJsonDocument::Compact);
         QNetworkReply *reply = mNetworkAccessManager->post(request, baPostData);
+        reply->setProperty("method", QStringLiteral("login"));
+        qDebug() << " ssssssssssssssssssssssssdfsfsdfsd" << reply;
         //connect(reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &CreatePhishingUrlDataBaseJob::slotError);
     } else {
         qCWarning(RUQOLA_LOG) << "Password or user or url is empty";
     }
+}
+
+void RestApiRequest::logout()
+{
+    const QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/logout"));
+    QNetworkRequest request(url);
+    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
+    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+    QNetworkReply *reply = mNetworkAccessManager->get(request);
+    reply->setProperty("method", QStringLiteral("logout"));
+}
+
+void RestApiRequest::channelList()
+{
+    const QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/channels.list"));
+    QNetworkRequest request(url);
+    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
+    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+    QNetworkReply *reply = mNetworkAccessManager->get(request);
+    reply->setProperty("method", QStringLiteral("channellist"));
 }

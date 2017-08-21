@@ -21,11 +21,11 @@
 #ifndef RESTAPIUTIL_H
 #define RESTAPIUTIL_H
 
+#include <QString>
 
-class RestApiUtil
+namespace RestApiUtil
 {
-public:
-    RestApiUtil();
-};
+QString adaptUrl(const QString &url);
+}
 
 #endif // RESTAPIUTIL_H

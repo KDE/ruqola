@@ -303,6 +303,8 @@ void Ruqola::tryLogin()
     // DDP will automatically try to connect and login.
     ddp();
     restapi();
+    restapi()->setPassword(password());
+    restapi()->login();
 
     // In the meantime, load cache...
     //if(Ruqola::self()->ddp()->isConnected() && Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {

@@ -45,15 +45,19 @@ public:
     void setPassword(const QString &password);
 
     void login();
+    void logout();
+    void channelList();
 private:
     void slotResult(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
+    void parseLogin(const QByteArray &data);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QString mUserId;
     QString mAuthToken;
     QString mServerUrl;
     QString mUserName;
     QString mPassword;
+    bool mSearchRoom = false;
 };
 
 #endif // RESTAPIREQUEST_H
