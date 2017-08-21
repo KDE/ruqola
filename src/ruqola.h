@@ -38,6 +38,7 @@ class RoomFilterProxyModel;
 
 class TypingNotification;
 class UserModel;
+class RestApiRequest;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT
@@ -130,6 +131,7 @@ public:
 
     Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
 
+    RestApiRequest *restapi();
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
@@ -155,6 +157,7 @@ private:
     QHash< QString, MessageModel * > m_messageModels;
     TypingNotification *mTypingNotification;
     UserModel *mUserModel = nullptr;
+    RestApiRequest *mRestApi = nullptr;
 };
 
 inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

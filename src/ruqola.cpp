@@ -29,6 +29,7 @@
 #include "ruqola_debug.h"
 #include "roomfilterproxymodel.h"
 #include "usermodel.h"
+#include "restapi/restapirequest.h"
 #include <QFileDialog>
 #include <QTcpSocket>
 #include <QDataStream>
@@ -152,6 +153,15 @@ RoomModel *Ruqola::roomModel()
 UserModel *Ruqola::userModel() const
 {
     return mUserModel;
+}
+
+RestApiRequest *Ruqola::restapi()
+{
+    if (!mRestApi) {
+        mRestApi = new RestApiRequest(this);
+        mRestApi->setServerUrl(serverURL());
+    }
+    return mRestApi;
 }
 
 DDPClient *Ruqola::ddp()
@@ -291,6 +301,7 @@ void Ruqola::tryLogin()
     // This creates a new ddp() object.
     // DDP will automatically try to connect and login.
     ddp();
+    restapi();
 
     // In the meantime, load cache...
     //if(Ruqola::self()->ddp()->isConnected() && Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
