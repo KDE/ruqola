@@ -26,6 +26,7 @@
 #include <QDebug>
 #include <QUrl>
 #include <QUrlQuery>
+#include <QJsonDocument>
 
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
@@ -43,8 +44,8 @@ RestApiRequest::~RestApiRequest()
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError) {
-        QByteArray data = reply->readAll();
-        qDebug() << data;
+        const QByteArray data = reply->readAll();
+        qDebug() << " result :" << data;
     }
     //TODO
     reply->deleteLater();
@@ -93,13 +94,11 @@ void RestApiRequest::login()
         QNetworkRequest request(url);
         request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
 
-        const QByteArray baPostData;// = jsonRequest();
-        /*
-        curl -H "Content-type:application/json" \
-              http://localhost:3000/api/v1/login \
-              -d '{ "user": "myusername", "password": "mypassword" }'
-        */
-        //curl -H "Content-Type: application/json" -X POST -d '{"client":{"clientId":"KDE","clientVersion":"5.4.0"},"threatInfo":{"platformTypes":["WINDOWS"],"threatEntries":[{"url":"http://www.kde.org"}],"threatEntryTypes":["URL"],"threatTypes":["MALWARE"]}}' https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyBS62pXATjabbH2RM_jO2EzDg1mTMHlnyo
+        QVariantMap loginMap;
+        loginMap.insert(QStringLiteral("user"), mUserName);
+        loginMap.insert(QStringLiteral("password"), mPassword);
+        const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
+        const QByteArray baPostData = postData.toJson(QJsonDocument::Compact);
         QNetworkReply *reply = mNetworkAccessManager->post(request, baPostData);
         //connect(reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &CreatePhishingUrlDataBaseJob::slotError);
     } else {
