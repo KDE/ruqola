@@ -46,7 +46,7 @@ Rectangle {
                  {regex: /\n(#+)(.*)/g, replacement: header},                                         // headers
                  {regex: /!\[([^\[]+)\]\(([^\)]+)\)/g, replacement: '<img src=\'$2\' alt=\'$1\'>'}, // image
                  {regex: /\[([^\[]+)\]\(([^\)]+)\)/g, replacement: '<a href=\'$2\'>$1</a>'},        // hyperlink
-                 {regex: /(_)(.*?)\1/g, replacement: '<i>$2</i>'},                             // emphasis
+                 //{regex: /(_)(.*?)\1/g, replacement: '<i>$2</i>'},                             // emphasis
                  {regex: /\~\~(.*?)\~\~/g, replacement: '<del>$1</del>'},                           // del
                  {regex: /\:\"(.*?)\"\:/g, replacement: '<q>$1</q>'},                               // quote
                  {regex: /`(.*?)`/g, replacement: '<code>$1</code>'},                               // inline code
