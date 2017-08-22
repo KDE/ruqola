@@ -30,6 +30,8 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
+//TODO save/load token
+
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
 {
