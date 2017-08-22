@@ -29,6 +29,14 @@ class RestApiRequest : public QObject
 {
     Q_OBJECT
 public:
+    enum RestMethod {
+        Unknown = 0,
+        Login,
+        Logout,
+        ChannelList
+    };
+    Q_ENUM(RestMethod)
+
     explicit RestApiRequest(QObject *parent = nullptr);
     ~RestApiRequest();
 
@@ -48,6 +56,7 @@ public:
     void logout();
     void channelList();
 private:
+
     void slotResult(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
     void parseLogin(const QByteArray &data);

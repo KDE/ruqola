@@ -66,10 +66,9 @@ void RestApiRequest::parseLogin(const QByteArray &data)
 
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
-    qDebug() <<" void RestApiRequest::slotResult(QNetworkReply *reply)" << reply;
     if (reply->error() == QNetworkReply::NoError) {
         const QByteArray data = reply->readAll();
-        if (reply->property("method").toString() == QStringLiteral("login")) {
+        if (reply->property("method").value<RestMethod>() == RestMethod::Login) {
             qDebug() << " result :" << data;
             parseLogin(data);
         } else {
@@ -78,8 +77,6 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
     } else {
         qDebug() << " reply - "<<reply->errorString();
     }
-    qDebug() << "sssssssssssssssssssssssssssssssssssaaaaaaaaaa";
-    //TODO
     reply->deleteLater();
 }
 
@@ -121,7 +118,6 @@ QString RestApiRequest::userId() const
 
 void RestApiRequest::login()
 {
-    qDebug() <<" ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss" << mServerUrl << "user "<<mUserName << " mPassword" << mPassword;
     if (!mUserName.isEmpty() && !mPassword.isEmpty() && !mServerUrl.isEmpty()) {
         QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/login"));
         QNetworkRequest request(url);
@@ -133,8 +129,7 @@ void RestApiRequest::login()
         const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
         const QByteArray baPostData = postData.toJson(QJsonDocument::Compact);
         QNetworkReply *reply = mNetworkAccessManager->post(request, baPostData);
-        reply->setProperty("method", QStringLiteral("login"));
-        qDebug() << " ssssssssssssssssssssssssdfsfsdfsd" << reply;
+        reply->setProperty("method", QVariant::fromValue(RestMethod::Login));
         //connect(reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &CreatePhishingUrlDataBaseJob::slotError);
     } else {
         qCWarning(RUQOLA_LOG) << "Password or user or url is empty";
@@ -148,7 +143,7 @@ void RestApiRequest::logout()
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
     QNetworkReply *reply = mNetworkAccessManager->get(request);
-    reply->setProperty("method", QStringLiteral("logout"));
+    reply->setProperty("method", QVariant::fromValue(RestMethod::Logout));
 }
 
 void RestApiRequest::channelList()
@@ -158,5 +153,5 @@ void RestApiRequest::channelList()
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
     QNetworkReply *reply = mNetworkAccessManager->get(request);
-    reply->setProperty("method", QStringLiteral("channellist"));
+    reply->setProperty("method", QVariant::fromValue(RestMethod::ChannelList));
 }
