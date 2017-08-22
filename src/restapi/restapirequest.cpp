@@ -76,6 +76,11 @@ void RestApiRequest::parseChannelList(const QByteArray &data)
     qDebug() << " void RestApiRequest::parseChannelList(const QByteArray &data)" << data;
 }
 
+void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userId)
+{
+    qDebug() << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
+}
+
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError) {
@@ -90,6 +95,9 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             break;
         case ChannelList:
             parseChannelList(data);
+            break;
+        case GetAvatar:
+            parseGetAvatar(data, reply->property("userId").toString());
             break;
         case Unknown:
             qWarning() << " Unknown restapi method" << data;
@@ -175,4 +183,16 @@ void RestApiRequest::channelList()
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
     QNetworkReply *reply = mNetworkAccessManager->get(request);
     reply->setProperty("method", QVariant::fromValue(RestMethod::ChannelList));
+}
+
+void RestApiRequest::getAvatar(const QString &userId)
+{
+    QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/users.getAvatar"));
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("userId"), userId);
+    url.setQuery(queryUrl);
+    QNetworkRequest request(url);
+    QNetworkReply *reply = mNetworkAccessManager->get(request);
+    reply->setProperty("method", QVariant::fromValue(RestMethod::GetAvatar));
+    reply->setProperty("userId", userId);
 }

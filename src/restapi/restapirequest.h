@@ -33,7 +33,8 @@ public:
         Unknown = 0,
         Login,
         Logout,
-        ChannelList
+        ChannelList,
+        GetAvatar
     };
     Q_ENUM(RestMethod)
 
@@ -55,10 +56,12 @@ public:
     void login();
     void logout();
     void channelList();
+    void getAvatar(const QString &userId);
 private:
     void slotResult(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
 
+    void parseGetAvatar(const QByteArray &data, const QString &userId);
     void parseLogout(const QByteArray &data);
     void parseLogin(const QByteArray &data);
     void parseChannelList(const QByteArray &data);
