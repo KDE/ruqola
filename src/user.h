@@ -22,10 +22,21 @@
 #define USER_H
 
 #include <QString>
+#include <QObject>
 #include "libruqola_private_export.h"
 class LIBRUQOLACORE_TESTS_EXPORT User
 {
+    Q_GADGET
 public:
+
+    enum class PresenceStatus {
+        PresenceOnline,
+        PresenceBusy,
+        PresenceAway,
+        PresenceOffline
+    };
+    Q_ENUM(PresenceStatus)
+
     User();
 
     QString name() const;

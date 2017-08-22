@@ -57,6 +57,10 @@ public:
     void logout();
     void channelList();
     void getAvatar(const QString &userId);
+
+Q_SIGNALS:
+    void avartar(const QString &userId, const QString &url);
+
 private:
     void slotResult(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
@@ -71,7 +75,6 @@ private:
     QString mServerUrl;
     QString mUserName;
     QString mPassword;
-    bool mSearchRoom = false;
 };
 
 #endif // RESTAPIREQUEST_H

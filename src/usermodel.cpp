@@ -44,6 +44,16 @@ QVariant UserModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+void UserModel::removeUser()
+{
+
+}
+
+void UserModel::addUser()
+{
+
+}
+
 QHash<int, QByteArray> UserModel::roleNames() const
 {
     QHash<int, QByteArray> roles;

@@ -47,8 +47,8 @@ RestApiRequest::~RestApiRequest()
 
 void RestApiRequest::parseLogin(const QByteArray &data)
 {
-    QJsonDocument replyJson = QJsonDocument::fromJson(data);
-    QJsonObject replyObject = replyJson.object();
+    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+    const QJsonObject replyObject = replyJson.object();
 
     if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success") && replyObject.contains(QStringLiteral("data"))) {
         QJsonObject data = replyObject[QStringLiteral("data")].toObject();
@@ -56,10 +56,6 @@ void RestApiRequest::parseLogin(const QByteArray &data)
         if ( data.contains(QStringLiteral("authToken")) && data.contains(QStringLiteral("userId"))) {
             mAuthToken = data[QStringLiteral("authToken")].toString();
             mUserId = data[QStringLiteral("userId")].toString();
-            if (!mSearchRoom) {
-                channelList();
-                mSearchRoom = true;
-            }
         }
     } else {
         qCWarning(RUQOLA_LOG) << "Error during login" << data;
@@ -68,6 +64,17 @@ void RestApiRequest::parseLogin(const QByteArray &data)
 
 void RestApiRequest::parseLogout(const QByteArray &data)
 {
+    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+    const QJsonObject replyObject = replyJson.object();
+
+    if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success")) {
+        qDebug() << " Logout";
+        mUserId.clear();
+        mAuthToken.clear();
+    } else {
+        qWarning() <<" Problem when we try to logout";
+    }
+
     qDebug() << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
 }
 

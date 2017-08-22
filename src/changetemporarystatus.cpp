@@ -20,6 +20,7 @@
 
 #include "changetemporarystatus.h"
 
+//TODO use QTimer to change status
 ChangeTemporaryStatus::ChangeTemporaryStatus(QObject *parent)
     : QObject(parent)
 {

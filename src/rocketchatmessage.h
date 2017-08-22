@@ -22,6 +22,7 @@
 #define ROCKETCHATMESSAGE_H
 
 #include "libruqola_private_export.h"
+#include "user.h"
 #include <QString>
 #include <QJsonDocument>
 #include <QObject>
@@ -32,14 +33,6 @@ class LIBRUQOLACORE_TESTS_EXPORT RocketChatMessage
 public:
     RocketChatMessage();
     ~RocketChatMessage() = default;
-
-    enum class PresenceStatus {
-        PresenceOnline,
-        PresenceBusy,
-        PresenceAway,
-        PresenceOffline
-    };
-    Q_ENUM(PresenceStatus)
 
     struct RocketChatMessageResult
     {
@@ -73,10 +66,11 @@ public:
     RocketChatMessage::RocketChatMessageResult joinRoom(const QString &roomId, const QString &accessCode, quint64 id);
     RocketChatMessage::RocketChatMessageResult informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id);
     RocketChatMessage::RocketChatMessageResult getSubscriptions(const QDateTime &lastUpdate, quint64 id);
-    RocketChatMessage::RocketChatMessageResult setDefaultStatus(RocketChatMessage::PresenceStatus status, quint64 id);
-    RocketChatMessage::RocketChatMessageResult setTemporaryStatus(RocketChatMessage::PresenceStatus status, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setDefaultStatus(User::PresenceStatus status, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setTemporaryStatus(User::PresenceStatus status, quint64 id);
+    RocketChatMessage::RocketChatMessageResult getUsersOfRoom(const QString &roomId, bool showAll, quint64 id);
 private:
-    QString presenceStatusToString(RocketChatMessage::PresenceStatus status);
+    QString presenceStatusToString(User::PresenceStatus status);
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
     RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);

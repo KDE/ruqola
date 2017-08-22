@@ -55,17 +55,17 @@ void RocketChatMessageTest::shouldGenerateSetTemporaryStatus()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setTemporaryStatus(RocketChatMessage::PresenceStatus::PresenceBusy, 42);
+    RocketChatMessage::RocketChatMessageResult r = m.setTemporaryStatus(User::PresenceStatus::PresenceBusy, 42);
 
     compareFile(r.result, QStringLiteral("temporarybusy"));
 
-    r = m.setTemporaryStatus(RocketChatMessage::PresenceStatus::PresenceAway, 43);
+    r = m.setTemporaryStatus(User::PresenceStatus::PresenceAway, 43);
     compareFile(r.result, QStringLiteral("temporaryaway"));
 
-    r = m.setTemporaryStatus(RocketChatMessage::PresenceStatus::PresenceOffline, 44);
+    r = m.setTemporaryStatus(User::PresenceStatus::PresenceOffline, 44);
     compareFile(r.result, QStringLiteral("temporaryoffline"));
 
-    r = m.setTemporaryStatus(RocketChatMessage::PresenceStatus::PresenceOnline, 45);
+    r = m.setTemporaryStatus(User::PresenceStatus::PresenceOnline, 45);
     compareFile(r.result, QStringLiteral("temporaryonline"));
 }
 
@@ -208,16 +208,16 @@ void RocketChatMessageTest::shouldSetDefaultStatus()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.setDefaultStatus(RocketChatMessage::PresenceStatus::PresenceBusy, 42);
+    RocketChatMessage::RocketChatMessageResult r = m.setDefaultStatus(User::PresenceStatus::PresenceBusy, 42);
     compareFile(r.result, QStringLiteral("defaultstatusbusy"));
 
-    r = m.setDefaultStatus(RocketChatMessage::PresenceStatus::PresenceAway, 43);
+    r = m.setDefaultStatus(User::PresenceStatus::PresenceAway, 43);
     compareFile(r.result, QStringLiteral("defaultstatusaway"));
 
-    r = m.setDefaultStatus(RocketChatMessage::PresenceStatus::PresenceOffline, 44);
+    r = m.setDefaultStatus(User::PresenceStatus::PresenceOffline, 44);
     compareFile(r.result, QStringLiteral("defaultstatusoffline"));
 
-    r = m.setDefaultStatus(RocketChatMessage::PresenceStatus::PresenceOnline, 45);
+    r = m.setDefaultStatus(User::PresenceStatus::PresenceOnline, 45);
     compareFile(r.result, QStringLiteral("defaultstatusonline"));
 }
 

@@ -41,6 +41,8 @@ public:
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
+    void addUser();
+    void removeUser();
 
 protected:
     QHash<int, QByteArray> roleNames() const override;
@@ -48,5 +50,6 @@ protected:
 private:
     QVector<User> mUsers;
 };
+
 
 #endif // USERMODEL_H
