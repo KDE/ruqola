@@ -22,6 +22,7 @@
 
 QString RestApiUtil::adaptUrl(const QString &url)
 {
+    //Avoid to add more https:// :)
     if (url.startsWith(QStringLiteral("https://")) || url.startsWith(QStringLiteral("http://"))) {
         return url;
     } else {

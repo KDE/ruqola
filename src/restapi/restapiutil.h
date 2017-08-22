@@ -22,10 +22,11 @@
 #define RESTAPIUTIL_H
 
 #include <QString>
+#include "libruqola_private_export.h"
 
 namespace RestApiUtil
 {
-QString adaptUrl(const QString &url);
+LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);
 }
 
 #endif // RESTAPIUTIL_H
