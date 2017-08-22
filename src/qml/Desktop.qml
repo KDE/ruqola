@@ -63,17 +63,6 @@ Kirigami.ApplicationWindow {
     pageStack.initialPage: [roomsComponent, mainComponent]
     pageStack.visible: Ruqola.loginStatus == DDPClient.LoggedIn
 
-    //     Keys.onShortcutOverride: event.accepted = (event.key === StandardKey.Quit)
-
-    //     Shortcut {
-    //         sequence: StandardKey.Quit
-    //         context: Qt.ApplicationShortcut
-    //         onActivated: {
-    //             console.log("QUITTING (trying)");
-    //             Qt.quit();
-    //         }
-    //     }
-
     globalDrawer: Kirigami.GlobalDrawer {
         drawerOpen: false
         handleVisible: true
