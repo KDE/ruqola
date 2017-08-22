@@ -29,11 +29,21 @@ class LIBRUQOLACORE_TESTS_EXPORT UserModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum UserRoles {
+        UserName = Qt::UserRole + 1,
+        UserId,
+        UserStatus,
+    };
+
     explicit UserModel(QObject *parent = nullptr);
     ~UserModel();
 
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
+
+
+protected:
+    QHash<int, QByteArray> roleNames() const override;
 
 private:
     QVector<User> mUsers;

@@ -36,7 +36,7 @@ public:
 
     QString status() const;
     void setStatus(const QString &status);
-
+    bool operator ==(const User &other) const;
 private:
     QString mStatus;
     QString mUserId;

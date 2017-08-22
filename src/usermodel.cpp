@@ -43,3 +43,12 @@ QVariant UserModel::data(const QModelIndex &index, int role) const
     //FIXME
     return {};
 }
+
+QHash<int, QByteArray> UserModel::roleNames() const
+{
+    QHash<int, QByteArray> roles;
+    roles[UserName] = "username";
+    roles[UserId] = "userid";
+    roles[UserStatus] = "userstatus";
+    return roles;
+}

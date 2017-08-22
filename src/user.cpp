@@ -54,3 +54,8 @@ void User::setStatus(const QString &status)
 {
     mStatus = status;
 }
+
+bool User::operator ==(const User &other) const
+{
+    return (mName == other.name()) && (mUserId == other.userId()) && (mStatus == other.status());
+}
