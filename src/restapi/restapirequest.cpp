@@ -64,15 +64,34 @@ void RestApiRequest::parseLogin(const QByteArray &data)
     }
 }
 
+void RestApiRequest::parseLogout(const QByteArray &data)
+{
+    qDebug() << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
+}
+
+void RestApiRequest::parseChannelList(const QByteArray &data)
+{
+    qDebug() << " void RestApiRequest::parseChannelList(const QByteArray &data)" << data;
+}
+
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError) {
         const QByteArray data = reply->readAll();
-        if (reply->property("method").value<RestMethod>() == RestMethod::Login) {
-            qDebug() << " result :" << data;
+        const RestMethod restMethod = reply->property("method").value<RestMethod>();
+        switch (restMethod) {
+        case Login:
             parseLogin(data);
-        } else {
-            qDebug() << " result :" << data;
+            break;
+        case Logout:
+            parseLogout(data);
+            break;
+        case ChannelList:
+            parseChannelList(data);
+            break;
+        case Unknown:
+            qWarning() << " Unknown restapi method" << data;
+            break;
         }
     } else {
         qDebug() << " reply - "<<reply->errorString();

@@ -56,10 +56,12 @@ public:
     void logout();
     void channelList();
 private:
-
     void slotResult(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
+
+    void parseLogout(const QByteArray &data);
     void parseLogin(const QByteArray &data);
+    void parseChannelList(const QByteArray &data);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QString mUserId;
     QString mAuthToken;
