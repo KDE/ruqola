@@ -18,17 +18,31 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RESTAPIUTIL_H
-#define RESTAPIUTIL_H
+#include "restapiutiltest.h"
+#include "restapi/restapiutil.h"
+#include <QTest>
 
-#include <QObject>
+QTEST_MAIN(RestApiUtilTest)
 
-class RestApiUtil : public QObject
+RestApiUtilTest::RestApiUtilTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit RestApiUtil(QObject *parent = nullptr);
-    ~RestApiUtil() = default;
-};
 
-#endif // RESTAPIUTIL_H
+}
+
+void RestApiUtilTest::shouldAdaptUrl_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("output");
+    QTest::newRow("empty") << QString() << QString();
+    QTest::newRow("withoutscheme") << QStringLiteral("foo.kde.org") << QStringLiteral("https://foo.kde.org");
+    QTest::newRow("withhttps") << QStringLiteral("https://foo.kde.org") << QStringLiteral("https://foo.kde.org");
+    QTest::newRow("withhttp") << QStringLiteral("http://foo.kde.org") << QStringLiteral("http://foo.kde.org");
+}
+
+void RestApiUtilTest::shouldAdaptUrl()
+{
+    QFETCH(QString, input);
+    QFETCH(QString, output);
+    QCOMPARE(RestApiUtil::adaptUrl(input), output);
+}

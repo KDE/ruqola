@@ -18,13 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "restapiutil.h"
-#include <QTest>
+#ifndef RESTAPIUTILTEST_H
+#define RESTAPIUTILTEST_H
 
-QTEST_MAIN(RestApiUtil)
+#include <QObject>
 
-RestApiUtil::RestApiUtil(QObject *parent)
-    : QObject(parent)
+class RestApiUtilTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit RestApiUtilTest(QObject *parent = nullptr);
+    ~RestApiUtilTest() = default;
+private Q_SLOTS:
+    void shouldAdaptUrl_data();
+    void shouldAdaptUrl();
+};
 
-}
+#endif // RESTAPIUTIL_H
