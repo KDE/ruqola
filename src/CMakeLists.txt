@@ -1,5 +1,14 @@
 ecm_create_qm_loader(ruqola_QM_LOADER ruqola_qt)
 
+set (Ruqola_restapi_SRCS
+    restapi/restapirequest.cpp
+    restapi/restapiutil.cpp
+    )
+
+set(Ruqola_ddpapi_SRCS
+    ddpapi/ddpclient.cpp
+    )
+
 set (Ruqola_core_srcs
     messagemodel.cpp
     message.cpp
@@ -7,7 +16,6 @@ set (Ruqola_core_srcs
     roomfilterproxymodel.cpp
     room.cpp
     roomwrapper.cpp
-    ddpapi/ddpclient.cpp
     ruqola.cpp
     ruqolautils.cpp
     rocketchatbackend.cpp
@@ -23,8 +31,8 @@ set (Ruqola_core_srcs
     abstractwebsocket.cpp
     ruqolawebsocket.cpp
     messageattachment.cpp
-    restapi/restapirequest.cpp
-    restapi/restapiutil.cpp
+    ${Ruqola_ddpapi_SRCS}
+    ${Ruqola_restapi_SRCS}
     ${ruqola_QM_LOADER}
 )
 
