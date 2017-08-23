@@ -19,10 +19,10 @@
 */
 
 #include "rocketchatmessage.h"
+#include "ruqola_debug.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
-#include <QDebug>
 #include <QDateTime>
 
 RocketChatMessage::RocketChatMessage()
