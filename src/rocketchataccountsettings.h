@@ -21,11 +21,22 @@
 #ifndef ROCKETCHATACCOUNTSETTINGS_H
 #define ROCKETCHATACCOUNTSETTINGS_H
 
+#include <QString>
 
 class RocketChatAccountSettings
 {
 public:
     RocketChatAccountSettings();
+    void setDdpUserId(const QString &ddpUserId);
+
+    QString ddpUserId() const;
+
+    QString ddpAuthToken() const;
+    void setDdpAuthToken(const QString &ddpAuthToken);
+
+private:
+    QString mDdpUserId;
+    QString mDdpAuthToken;
 };
 
 #endif // ROCKETCHATACCOUNTSETTINGS_H

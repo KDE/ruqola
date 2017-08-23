@@ -24,3 +24,23 @@ RocketChatAccountSettings::RocketChatAccountSettings()
 {
 
 }
+
+void RocketChatAccountSettings::setDdpUserId(const QString &ddpUserId)
+{
+    mDdpUserId = ddpUserId;
+}
+
+QString RocketChatAccountSettings::ddpUserId() const
+{
+    return mDdpUserId;
+}
+
+QString RocketChatAccountSettings::ddpAuthToken() const
+{
+    return mDdpAuthToken;
+}
+
+void RocketChatAccountSettings::setDdpAuthToken(const QString &ddpAuthToken)
+{
+    mDdpAuthToken = ddpAuthToken;
+}
