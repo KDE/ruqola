@@ -27,7 +27,7 @@
 #include "libruqolacore_export.h"
 #include <QQmlEngine>
 #include <QJSEngine>
-#include "ddpclient.h"
+#include "ddpapi/ddpclient.h"
 #include "roommodel.h"
 #include "messagemodel.h"
 #include "notification.h"

@@ -21,7 +21,7 @@
  */
 
 #include "ruqola.h"
-#include "ddpclient.h"
+#include "ddpapi/ddpclient.h"
 #include "ruqola_debug.h"
 
 MessageQueue::MessageQueue(QObject *parent)

@@ -7,7 +7,7 @@ set (Ruqola_core_srcs
     roomfilterproxymodel.cpp
     room.cpp
     roomwrapper.cpp
-    ddpclient.cpp
+    ddpapi/ddpclient.cpp
     ruqola.cpp
     ruqolautils.cpp
     rocketchatbackend.cpp

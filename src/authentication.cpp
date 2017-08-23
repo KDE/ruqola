@@ -22,7 +22,7 @@
 
 #include "ruqola.h"
 #include "authentication.h"
-#include "ddpclient.h"
+#include "ddpapi/ddpclient.h"
 #include "ruqola_debug.h"
 
 #include <QOAuth2AuthorizationCodeFlow>

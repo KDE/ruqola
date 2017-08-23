@@ -25,7 +25,7 @@
 #include <QJsonObject>
 #include "ruqola_debug.h"
 #include "ruqola.h"
-#include "ddpclient.h"
+#include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
 
 void process_backlog(const QJsonDocument &messages)

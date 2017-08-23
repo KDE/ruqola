@@ -23,7 +23,7 @@
 #include "ruqola.h"
 #include "roommodel.h"
 #include "typingnotification.h"
-#include "ddpclient.h"
+#include "ddpapi/ddpclient.h"
 #include "notification.h"
 #include "messagequeue.h"
 #include "ruqola_debug.h"
