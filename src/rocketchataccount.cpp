@@ -30,3 +30,13 @@ RocketChatAccount::~RocketChatAccount()
 {
 
 }
+
+RocketChatAccountSettings RocketChatAccount::settings() const
+{
+    return mSettings;
+}
+
+void RocketChatAccount::setSettings(const RocketChatAccountSettings &settings)
+{
+    mSettings = settings;
+}

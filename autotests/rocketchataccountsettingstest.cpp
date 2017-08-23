@@ -18,24 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROCKETCHATACCOUNT_H
-#define ROCKETCHATACCOUNT_H
+#include "rocketchataccountsettingstest.h"
+#include <QTest>
+QTEST_MAIN(RocketChatAccountSettingsTest)
 
-#include <QObject>
-#include "rocketchataccountsettings.h"
-#include "libruqola_private_export.h"
-
-class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
+RocketChatAccountSettingsTest::RocketChatAccountSettingsTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit RocketChatAccount(QObject *parent = nullptr);
-    ~RocketChatAccount();
 
-    RocketChatAccountSettings settings() const;
-    void setSettings(const RocketChatAccountSettings &settings);
-private:
-    RocketChatAccountSettings mSettings;
-};
-
-#endif // ROCKETCHATACCOUNT_H
+}

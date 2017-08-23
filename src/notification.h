@@ -47,8 +47,8 @@ private:
     */
     bool createTrayIcon();
 
-    QAction *m_quitAction;
-    QMenu *m_trayIconMenu;
+    QAction *m_quitAction = nullptr;
+    QMenu *m_trayIconMenu = nullptr;
 };
 
 #endif // NOTIFICATION_H

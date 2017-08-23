@@ -22,25 +22,61 @@
 
 RocketChatAccountSettings::RocketChatAccountSettings()
 {
-
 }
 
-void RocketChatAccountSettings::setDdpUserId(const QString &ddpUserId)
+QString RocketChatAccountSettings::userId() const
 {
-    mDdpUserId = ddpUserId;
+    return mUserId;
 }
 
-QString RocketChatAccountSettings::ddpUserId() const
+void RocketChatAccountSettings::setUserId(const QString &userId)
 {
-    return mDdpUserId;
+    mUserId = userId;
 }
 
-QString RocketChatAccountSettings::ddpAuthToken() const
+QString RocketChatAccountSettings::authToken() const
 {
-    return mDdpAuthToken;
+    return mAuthToken;
 }
 
-void RocketChatAccountSettings::setDdpAuthToken(const QString &ddpAuthToken)
+void RocketChatAccountSettings::setAuthToken(const QString &authToken)
 {
-    mDdpAuthToken = ddpAuthToken;
+    mAuthToken = authToken;
+}
+
+void RocketChatAccountSettings::logout()
+{
+    mAuthToken.clear();
+    mUserId.clear();
+    //Save new settings ?
+}
+
+void RocketChatAccountSettings::saveSettings()
+{
+    //TODO
+}
+
+void RocketChatAccountSettings::loadSettings()
+{
+    //TODO
+}
+
+QString RocketChatAccountSettings::accountName() const
+{
+    return mAccountName;
+}
+
+void RocketChatAccountSettings::setAccountName(const QString &accountName)
+{
+    mAccountName = accountName;
+}
+
+QString RocketChatAccountSettings::serverUrl() const
+{
+    return mServerUrl;
+}
+
+void RocketChatAccountSettings::setServerUrl(const QString &serverUrl)
+{
+    mServerUrl = serverUrl;
 }

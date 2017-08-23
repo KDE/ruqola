@@ -22,21 +22,33 @@
 #define ROCKETCHATACCOUNTSETTINGS_H
 
 #include <QString>
+#include "libruqola_private_export.h"
 
-class RocketChatAccountSettings
+class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccountSettings
 {
 public:
     RocketChatAccountSettings();
-    void setDdpUserId(const QString &ddpUserId);
 
-    QString ddpUserId() const;
+    QString userId() const;
+    void setUserId(const QString &userId);
 
-    QString ddpAuthToken() const;
-    void setDdpAuthToken(const QString &ddpAuthToken);
+    QString authToken() const;
+    void setAuthToken(const QString &authToken);
 
+    QString serverUrl() const;
+    void setServerUrl(const QString &serverUrl);
+
+    QString accountName() const;
+    void setAccountName(const QString &accountName);
+
+    void logout();
 private:
-    QString mDdpUserId;
-    QString mDdpAuthToken;
+    void saveSettings();
+    void loadSettings();
+    QString mUserId;
+    QString mAuthToken;
+    QString mServerUrl;
+    QString mAccountName;
 };
 
 #endif // ROCKETCHATACCOUNTSETTINGS_H
