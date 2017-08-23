@@ -69,6 +69,7 @@ public:
     RocketChatMessage::RocketChatMessageResult setDefaultStatus(User::PresenceStatus status, quint64 id);
     RocketChatMessage::RocketChatMessageResult setTemporaryStatus(User::PresenceStatus status, quint64 id);
     RocketChatMessage::RocketChatMessageResult getUsersOfRoom(const QString &roomId, bool showAll, quint64 id);
+    RocketChatMessage::RocketChatMessageResult logout(const QString &name, quint64 id);
 private:
     QString presenceStatusToString(User::PresenceStatus status);
     QJsonValue toJsonDateTime(const QDateTime &dateTime);

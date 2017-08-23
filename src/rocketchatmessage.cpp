@@ -251,6 +251,14 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::getUsersOfRoom(con
     return generateMethod(QStringLiteral("getUsersOfRoom"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::logout(const QString &name, quint64 id)
+{
+    //TODO add name
+    const QJsonArray params{{}};
+    return generateMethod(QStringLiteral("logout"), QJsonDocument(params), id);
+}
+
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QString &name, const QJsonDocument &params, quint64 id)
 {
     QJsonObject json;
