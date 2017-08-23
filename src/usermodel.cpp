@@ -20,45 +20,46 @@
 
 #include "usermodel.h"
 
-UserModel::UserModel(QObject *parent)
+UsersModel::UsersModel(QObject *parent)
     : QAbstractListModel(parent)
 {
 
 }
 
-UserModel::~UserModel()
+UsersModel::~UsersModel()
 {
 
 }
 
-int UserModel::rowCount(const QModelIndex &parent) const
+int UsersModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return mUsers.size();
 }
 
-
-QVariant UserModel::data(const QModelIndex &index, int role) const
+QVariant UsersModel::data(const QModelIndex &index, int role) const
 {
-    //FIXME
+    User user = mUsers.at(index.row());
+
+    switch (role) {
+    case UserName:
+        return user.name();
+    case UserId:
+        return user.userId();
+    case UserStatus:
+        return user.status();
+    case UserListRooms:
+        return user.listRooms();
+    }
     return {};
 }
 
-void UserModel::removeUser()
+void UsersModel::removeUser()
 {
 
 }
 
-void UserModel::addUser()
+void UsersModel::addUser()
 {
 
-}
-
-QHash<int, QByteArray> UserModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    roles[UserName] = "username";
-    roles[UserId] = "userid";
-    roles[UserStatus] = "userstatus";
-    return roles;
 }

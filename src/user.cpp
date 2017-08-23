@@ -57,5 +57,15 @@ void User::setStatus(const QString &status)
 
 bool User::operator ==(const User &other) const
 {
-    return (mName == other.name()) && (mUserId == other.userId()) && (mStatus == other.status());
+    return (mName == other.name()) && (mUserId == other.userId()) && (mStatus == other.status() && (mListRooms == other.listRooms()));
+}
+
+QStringList User::listRooms() const
+{
+    return mListRooms;
+}
+
+void User::setListRooms(const QStringList &listRooms)
+{
+    mListRooms = listRooms;
 }

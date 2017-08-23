@@ -49,7 +49,7 @@ Ruqola::Ruqola(QObject *parent)
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
 
-    mUserModel = new UserModel(this);
+    mUserModel = new UsersModel(this);
 
     mTypingNotification = new TypingNotification(this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &Ruqola::slotInformTypingStatus);
@@ -150,7 +150,7 @@ RoomModel *Ruqola::roomModel()
     return mRoomModel;
 }
 
-UserModel *Ruqola::userModel() const
+UsersModel *Ruqola::userModel() const
 {
     return mUserModel;
 }

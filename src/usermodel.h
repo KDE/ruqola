@@ -25,7 +25,7 @@
 #include <QAbstractListModel>
 #include "user.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT UserModel : public QAbstractListModel
+class LIBRUQOLACORE_TESTS_EXPORT UsersModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
@@ -33,19 +33,17 @@ public:
         UserName = Qt::UserRole + 1,
         UserId,
         UserStatus,
+        UserListRooms
     };
 
-    explicit UserModel(QObject *parent = nullptr);
-    ~UserModel();
+    explicit UsersModel(QObject *parent = nullptr);
+    ~UsersModel();
 
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
     void addUser();
     void removeUser();
-
-protected:
-    QHash<int, QByteArray> roleNames() const override;
 
 private:
     QVector<User> mUsers;

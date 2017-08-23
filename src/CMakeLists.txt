@@ -33,6 +33,7 @@ set (Ruqola_core_srcs
     messageattachment.cpp
     rocketchataccount.cpp
     rocketchataccountsettings.cpp
+    usersforroommodel.cpp
     ${Ruqola_ddpapi_SRCS}
     ${Ruqola_restapi_SRCS}
     ${ruqola_QM_LOADER}

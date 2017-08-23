@@ -48,10 +48,14 @@ public:
     QString status() const;
     void setStatus(const QString &status);
     bool operator ==(const User &other) const;
+
+    QStringList listRooms() const;
+    void setListRooms(const QStringList &listRooms);
 private:
     QString mStatus;
     QString mUserId;
     QString mName;
+    QStringList mListRooms;
 };
 
 #endif // USER_H
