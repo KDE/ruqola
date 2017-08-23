@@ -32,7 +32,6 @@
 #include "messagemodel.h"
 #include "notification.h"
 #include "messagequeue.h"
-#include "authentication.h"
 
 class RoomFilterProxyModel;
 
@@ -83,7 +82,6 @@ public:
     DDPClient *ddp();
     Notification *notification();
     MessageQueue *messageQueue();
-    Authentication *authentication();
 
     Q_INVOKABLE RoomModel *roomModel();
     Q_INVOKABLE UsersModel *userModel() const;
@@ -152,7 +150,6 @@ private:
     RoomModel *mRoomModel = nullptr;
     RoomFilterProxyModel *mRoomFilterProxyModel = nullptr;
     Notification *mNotification = nullptr;
-    Authentication *mAuthentication = nullptr;
 
     //room, messagemodel
     QHash<QString, MessageModel * > m_messageModels;

@@ -42,7 +42,6 @@ Ruqola::Ruqola(QObject *parent)
     , mRoomModel(nullptr)
     , mRoomFilterProxyModel(nullptr)
     , mNotification(nullptr)
-    , mAuthentication(nullptr)
     , mTypingNotification(nullptr)
 {
     mRoomModel = new RoomModel(this);
@@ -84,9 +83,6 @@ Ruqola *Ruqola::self()
 
         //Initialize the messageQueue object
         s_self->messageQueue();
-
-        //Initialize the OAuth object
-        s_self->authentication();
     }
     return s_self;
 }
@@ -192,14 +188,6 @@ Notification *Ruqola::notification()
         mNotification->show();
     }
     return mNotification;
-}
-
-Authentication *Ruqola::authentication()
-{
-    if (!mAuthentication) {
-        mAuthentication = new Authentication();
-    }
-    return mAuthentication;
 }
 
 void Ruqola::attachmentButtonClicked(const QString &roomId)
