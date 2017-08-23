@@ -142,20 +142,21 @@ private:
     void slotInformTypingStatus(const QString &room, bool typing);
     explicit Ruqola(QObject *parent = nullptr);
     QString m_password;
-    QString m_userName;
-    QString m_userID;
-    QString m_authToken;
-    QString m_serverURL;
+    QString mUserName;
+    QString mUserID;
+    QString mAuthToken;
+    QString mServerURL;
 
-    DDPClient *m_ddp;
-    MessageQueue *m_messageQueue;
-    RoomModel *m_roomModel;
-    RoomFilterProxyModel *mRoomFilterProxyModel;
-    Notification *m_notification;
-    Authentication *m_authentication;
+    DDPClient *m_ddp = nullptr;
+    MessageQueue *m_messageQueue = nullptr;
+    RoomModel *mRoomModel = nullptr;
+    RoomFilterProxyModel *mRoomFilterProxyModel = nullptr;
+    Notification *mNotification = nullptr;
+    Authentication *mAuthentication = nullptr;
 
-    QHash< QString, MessageModel * > m_messageModels;
-    TypingNotification *mTypingNotification;
+    //room, messagemodel
+    QHash<QString, MessageModel * > m_messageModels;
+    TypingNotification *mTypingNotification = nullptr;
     UserModel *mUserModel = nullptr;
     RestApiRequest *mRestApi = nullptr;
 };

@@ -39,25 +39,25 @@ Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
     , m_ddp(nullptr)
     , m_messageQueue(nullptr)
-    , m_roomModel(nullptr)
+    , mRoomModel(nullptr)
     , mRoomFilterProxyModel(nullptr)
-    , m_notification(nullptr)
-    , m_authentication(nullptr)
+    , mNotification(nullptr)
+    , mAuthentication(nullptr)
     , mTypingNotification(nullptr)
 {
-    m_roomModel = new RoomModel(this);
+    mRoomModel = new RoomModel(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
-    mRoomFilterProxyModel->setSourceModel(m_roomModel);
+    mRoomFilterProxyModel->setSourceModel(mRoomModel);
 
     mUserModel = new UserModel(this);
 
     mTypingNotification = new TypingNotification(this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &Ruqola::slotInformTypingStatus);
     QSettings s;
-    m_serverURL = s.value(QStringLiteral("serverURL"), QStringLiteral("demo.rocket.chat")).toString();
-    m_userName = s.value(QStringLiteral("username")).toString();
-    m_userID = s.value(QStringLiteral("userID")).toString();
-    m_authToken = s.value(QStringLiteral("authToken")).toString();
+    mServerURL = s.value(QStringLiteral("serverURL"), QStringLiteral("demo.rocket.chat")).toString();
+    mUserName = s.value(QStringLiteral("username")).toString();
+    mUserID = s.value(QStringLiteral("userID")).toString();
+    mAuthToken = s.value(QStringLiteral("authToken")).toString();
 }
 
 RoomFilterProxyModel *Ruqola::roomFilterProxyModel() const
@@ -93,17 +93,17 @@ Ruqola *Ruqola::self()
 
 QString Ruqola::authToken() const
 {
-    return m_authToken;
+    return mAuthToken;
 }
 
 QString Ruqola::userName() const
 {
-    return m_userName;
+    return mUserName;
 }
 
 QString Ruqola::userID() const
 {
-    return m_userID;
+    return mUserID;
 }
 
 QString Ruqola::password() const
@@ -113,10 +113,10 @@ QString Ruqola::password() const
 
 void Ruqola::setAuthToken(const QString &token)
 {
-    if (m_authToken != token) {
+    if (mAuthToken != token) {
         qCDebug(RUQOLA_LOG) << "Setting token to" << token;
         QSettings s;
-        m_authToken = token;
+        mAuthToken = token;
         s.setValue(QStringLiteral("authToken"), token);
     }
 }
@@ -128,8 +128,8 @@ void Ruqola::setPassword(const QString &password)
 
 void Ruqola::setUserName(const QString &username)
 {
-    if (m_userName != username) {
-        m_userName = username;
+    if (mUserName != username) {
+        mUserName = username;
         QSettings s;
         s.setValue(QStringLiteral("username"), username);
         Q_EMIT userNameChanged();
@@ -139,7 +139,7 @@ void Ruqola::setUserName(const QString &username)
 void Ruqola::setUserID(const QString &userID)
 {
     //Don't use if( m_userID != userID) as we need to Q_EMIT userIDChanged
-    m_userID = userID;
+    mUserID = userID;
     QSettings s;
     s.setValue(QStringLiteral("userID"), userID);
     Q_EMIT userIDChanged();
@@ -147,7 +147,7 @@ void Ruqola::setUserID(const QString &userID)
 
 RoomModel *Ruqola::roomModel()
 {
-    return m_roomModel;
+    return mRoomModel;
 }
 
 UserModel *Ruqola::userModel() const
@@ -187,19 +187,19 @@ MessageQueue *Ruqola::messageQueue()
 
 Notification *Ruqola::notification()
 {
-    if (!m_notification) {
-        m_notification = new Notification();
-        m_notification->show();
+    if (!mNotification) {
+        mNotification = new Notification();
+        mNotification->show();
     }
-    return m_notification;
+    return mNotification;
 }
 
 Authentication *Ruqola::authentication()
 {
-    if (!m_authentication) {
-        m_authentication = new Authentication();
+    if (!mAuthentication) {
+        mAuthentication = new Authentication();
     }
-    return m_authentication;
+    return mAuthentication;
 }
 
 void Ruqola::attachmentButtonClicked(const QString &roomId)
@@ -262,18 +262,18 @@ MessageModel *Ruqola::getMessageModelForRoom(const QString &roomID)
 
 QString Ruqola::serverURL() const
 {
-    return m_serverURL;
+    return mServerURL;
 }
 
 void Ruqola::setServerURL(const QString &serverURL)
 {
-    if (m_serverURL == serverURL) {
+    if (mServerURL == serverURL) {
         return;
     }
 
     QSettings s;
     s.setValue(QStringLiteral("serverURL"), serverURL);
-    m_serverURL = serverURL;
+    mServerURL = serverURL;
     Q_EMIT serverURLChanged();
 }
 
@@ -307,7 +307,7 @@ void Ruqola::tryLogin()
 
     // In the meantime, load cache...
     //if(Ruqola::self()->ddp()->isConnected() && Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
-    m_roomModel->reset();
+    mRoomModel->reset();
     //}
 }
 
@@ -323,7 +323,7 @@ void Ruqola::logOut()
         delete m;
     }
 
-    m_roomModel->clear();
+    mRoomModel->clear();
 
     QJsonObject user;
     user[QStringLiteral("username")] = Ruqola::self()->userName();
@@ -339,11 +339,11 @@ void Ruqola::logOut()
 
 QString Ruqola::cacheBasePath() const
 {
-    if (m_serverURL.isEmpty()) {
+    if (mServerURL.isEmpty()) {
         return QString();
     }
 
-    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+QLatin1Char('/')+m_serverURL;
+    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+QLatin1Char('/')+mServerURL;
 }
 
 RoomWrapper *Ruqola::getRoom(const QString &roomID)
@@ -353,5 +353,5 @@ RoomWrapper *Ruqola::getRoom(const QString &roomID)
 
 void Ruqola::slotInformTypingStatus(const QString &room, bool typing)
 {
-    ddp()->informTypingStatus(room, typing, m_userName);
+    ddp()->informTypingStatus(room, typing, mUserName);
 }

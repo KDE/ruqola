@@ -60,6 +60,8 @@ public:
 
 Q_SIGNALS:
     void avartar(const QString &userId, const QString &url);
+    void logoutDone();
+    void loginDone(const QString &authToken, const QString &userId);
 
 private:
     void slotResult(QNetworkReply *reply);
