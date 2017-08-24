@@ -49,9 +49,10 @@ public:
 
     QString password() const;
     void setPassword(const QString &password);
+
+    void loadSettings();
 private:
     void saveSettings();
-    void loadSettings();
     QString mUserId;
     QString mAuthToken;
     QString mServerUrl;

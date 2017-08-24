@@ -20,6 +20,7 @@
 
 #include "rocketchataccountsettings.h"
 
+#include <QSettings>
 #include <QStandardPaths>
 
 RocketChatAccountSettings::RocketChatAccountSettings()
@@ -60,7 +61,12 @@ void RocketChatAccountSettings::saveSettings()
 
 void RocketChatAccountSettings::loadSettings()
 {
-    //TODO
+    QSettings s;
+    //TODO add specific group name.
+    mServerUrl = s.value(QStringLiteral("serverURL"), QStringLiteral("demo.rocket.chat")).toString();
+    mUserName = s.value(QStringLiteral("username")).toString();
+    mUserId = s.value(QStringLiteral("userID")).toString();
+    mAuthToken = s.value(QStringLiteral("authToken")).toString();
 }
 
 QString RocketChatAccountSettings::password() const

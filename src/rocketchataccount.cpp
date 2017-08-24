@@ -20,17 +20,25 @@
 
 #include "rocketchataccount.h"
 #include "typingnotification.h"
+#include "usermodel.h"
 
 RocketChatAccount::RocketChatAccount(QObject *parent)
     : QObject(parent)
 {
+    mUserModel = new UsersModel(this);
     mTypingNotification = new TypingNotification(this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
+    loadSettings();
 }
 
 RocketChatAccount::~RocketChatAccount()
 {
 
+}
+
+void RocketChatAccount::loadSettings()
+{
+    mSettings.loadSettings();
 }
 
 RocketChatAccountSettings RocketChatAccount::settings() const
@@ -46,4 +54,9 @@ void RocketChatAccount::setSettings(const RocketChatAccountSettings &settings)
 void RocketChatAccount::slotInformTypingStatus(const QString &room, bool typing)
 {
     //TODO ddp()->informTypingStatus(room, typing, mUserName);
+}
+
+UsersModel *RocketChatAccount::userModel() const
+{
+    return mUserModel;
 }
