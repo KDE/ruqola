@@ -42,6 +42,13 @@ public:
     void setAccountName(const QString &accountName);
 
     void logout();
+    QString cacheBasePath();
+
+    QString userName() const;
+    void setUserName(const QString &userName);
+
+    QString password() const;
+    void setPassword(const QString &password);
 private:
     void saveSettings();
     void loadSettings();
@@ -49,6 +56,9 @@ private:
     QString mAuthToken;
     QString mServerUrl;
     QString mAccountName;
+    QString mCachePath;
+    QString mUserName;
+    QString mPassword;
 };
 
 #endif // ROCKETCHATACCOUNTSETTINGS_H

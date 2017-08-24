@@ -20,6 +20,8 @@
 
 #include "rocketchataccountsettings.h"
 
+#include <QStandardPaths>
+
 RocketChatAccountSettings::RocketChatAccountSettings()
 {
 }
@@ -61,6 +63,26 @@ void RocketChatAccountSettings::loadSettings()
     //TODO
 }
 
+QString RocketChatAccountSettings::password() const
+{
+    return mPassword;
+}
+
+void RocketChatAccountSettings::setPassword(const QString &password)
+{
+    mPassword = password;
+}
+
+QString RocketChatAccountSettings::userName() const
+{
+    return mUserName;
+}
+
+void RocketChatAccountSettings::setUserName(const QString &userName)
+{
+    mUserName = userName;
+}
+
 QString RocketChatAccountSettings::accountName() const
 {
     return mAccountName;
@@ -80,3 +102,15 @@ void RocketChatAccountSettings::setServerUrl(const QString &serverUrl)
 {
     mServerUrl = serverUrl;
 }
+
+QString RocketChatAccountSettings::cacheBasePath()
+{
+    if (mServerUrl.isEmpty()) {
+        return QString();
+    }
+    if (mCachePath.isEmpty()) {
+        mCachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + mServerUrl;
+    }
+    return mCachePath;
+}
+
