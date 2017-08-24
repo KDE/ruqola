@@ -145,7 +145,7 @@ private:
     QString mAuthToken;
     QString mServerURL;
 
-    DDPClient *m_ddp = nullptr;
+    DDPClient *mDdp = nullptr;
     MessageQueue *m_messageQueue = nullptr;
     RoomModel *mRoomModel = nullptr;
     RoomFilterProxyModel *mRoomFilterProxyModel = nullptr;

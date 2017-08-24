@@ -37,7 +37,7 @@
 
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
-    , m_ddp(nullptr)
+    , mDdp(nullptr)
     , m_messageQueue(nullptr)
     , mRoomModel(nullptr)
     , mRoomFilterProxyModel(nullptr)
@@ -162,13 +162,13 @@ RestApiRequest *Ruqola::restapi()
 
 DDPClient *Ruqola::ddp()
 {
-    if (!m_ddp) {
-        m_ddp = new DDPClient();
-        m_ddp->setServerUrl(serverURL());
-        m_ddp->start();
-        connect(m_ddp, &DDPClient::loginStatusChanged, this, &Ruqola::loginStatusChanged);
+    if (!mDdp) {
+        mDdp = new DDPClient();
+        mDdp->setServerUrl(serverURL());
+        mDdp->start();
+        connect(mDdp, &DDPClient::loginStatusChanged, this, &Ruqola::loginStatusChanged);
     }
-    return m_ddp;
+    return mDdp;
 }
 
 MessageQueue *Ruqola::messageQueue()
@@ -267,7 +267,7 @@ void Ruqola::setServerURL(const QString &serverURL)
 
 DDPClient::LoginStatus Ruqola::loginStatus()
 {
-    if (m_ddp) {
+    if (mDdp) {
         return ddp()->loginStatus();
     } else {
         return DDPClient::LoggedOut;
@@ -283,8 +283,8 @@ void Ruqola::tryLogin()
         MessageModel *m = m_messageModels.take(key);
         delete m;
     }
-    delete m_ddp;
-    m_ddp = nullptr;
+    delete mDdp;
+    mDdp = nullptr;
 
     // This creates a new ddp() object.
     // DDP will automatically try to connect and login.
@@ -319,8 +319,8 @@ void Ruqola::logOut()
     json[QStringLiteral("user")] = user;
     Ruqola::self()->ddp()->method(QStringLiteral("logout"), QJsonDocument(json));
 
-    delete m_ddp;
-    m_ddp = nullptr;
+    delete mDdp;
+    mDdp = nullptr;
     Q_EMIT loginStatusChanged();
     qCDebug(RUQOLA_LOG) << "Successfully logged out!";
 }
