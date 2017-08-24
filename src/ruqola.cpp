@@ -27,7 +27,7 @@
 #include "notification.h"
 #include "messagequeue.h"
 #include "ruqola_debug.h"
-#include "roomfilterproxymodel.h"
+#include "rocketchataccount.h"
 #include "restapi/restapirequest.h"
 #include <QFileDialog>
 #include <QTcpSocket>
@@ -39,14 +39,13 @@ Ruqola::Ruqola(QObject *parent)
     , mDdp(nullptr)
     , m_messageQueue(nullptr)
     , mRoomModel(nullptr)
-    , mRoomFilterProxyModel(nullptr)
     , mNotification(nullptr)
     , mTypingNotification(nullptr)
 {
     mRoomModel = new RoomModel(this);
-    mRoomFilterProxyModel = new RoomFilterProxyModel(this);
-    mRoomFilterProxyModel->setSourceModel(mRoomModel);
 
+    //Todo load all account
+    mRocketChatAccount = new RocketChatAccount(this);
 
     mTypingNotification = new TypingNotification(this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &Ruqola::slotInformTypingStatus);
@@ -55,11 +54,6 @@ Ruqola::Ruqola(QObject *parent)
     mUserName = s.value(QStringLiteral("username")).toString();
     mUserID = s.value(QStringLiteral("userID")).toString();
     mAuthToken = s.value(QStringLiteral("authToken")).toString();
-}
-
-RoomFilterProxyModel *Ruqola::roomFilterProxyModel() const
-{
-    return mRoomFilterProxyModel;
 }
 
 Ruqola *Ruqola::self()
@@ -329,7 +323,7 @@ QString Ruqola::cacheBasePath() const
 
 RoomWrapper *Ruqola::getRoom(const QString &roomID)
 {
-    return roomModel()->findRoom(roomID);
+    return mRoomModel->findRoom(roomID);
 }
 
 void Ruqola::slotInformTypingStatus(const QString &room, bool typing)

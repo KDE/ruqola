@@ -28,7 +28,7 @@ Room::Room()
 
 bool Room::operator==(const Room &other) const
 {
-    qDebug() << " other.id"<<other.id << " id " << id;
+    //qDebug() << " other.id"<<other.id << " id " << id;
     return other.id == id;
 }
 

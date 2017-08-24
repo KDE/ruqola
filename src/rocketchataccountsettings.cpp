@@ -55,9 +55,11 @@ void RocketChatAccountSettings::setAuthToken(const QString &authToken)
 
 void RocketChatAccountSettings::logout()
 {
+    QSettings s;
+    s.setValue(QStringLiteral("authToken"), QString());
     mAuthToken.clear();
     mUserId.clear();
-    //Save new settings ?
+    mPassword.clear();
 }
 
 void RocketChatAccountSettings::saveSettings()

@@ -125,18 +125,6 @@ void subscription_callback(const QJsonDocument &doc)
     getsubscription_parsing(doc);
 }
 
-void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
-{
-    for (const QJsonValue &v : messages) {
-        QJsonObject o = v.toObject();
-
-        //qDebug() <<" o" << o;
-        Message m;
-        m.parseMessage(o);
-        //qDebug() << " roomId"<<roomId << " add message " << m.message;
-        Ruqola::self()->getMessageModelForRoom(m.mRoomId)->addMessage(m);
-    }
-}
 
 RocketChatBackend::RocketChatBackend(QObject *parent)
     : QObject(parent)
@@ -149,6 +137,19 @@ RocketChatBackend::RocketChatBackend(QObject *parent)
 
 RocketChatBackend::~RocketChatBackend()
 {
+}
+
+void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
+{
+    for (const QJsonValue &v : messages) {
+        QJsonObject o = v.toObject();
+
+        //qDebug() <<" o" << o;
+        Message m;
+        m.parseMessage(o);
+        //qDebug() << " roomId"<<roomId << " add message " << m.message;
+        Ruqola::self()->getMessageModelForRoom(m.mRoomId)->addMessage(m);
+    }
 }
 
 void RocketChatBackend::onLoginStatusChanged()

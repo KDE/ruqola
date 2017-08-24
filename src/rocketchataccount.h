@@ -22,11 +22,16 @@
 #define ROCKETCHATACCOUNT_H
 
 #include <QObject>
+#include <ddpapi/ddpclient.h>
 #include "rocketchataccountsettings.h"
 #include "libruqola_private_export.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
+class RoomWrapper;
+class MessageModel;
+class DDPClient;
+class RestApiRequest;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
@@ -41,13 +46,42 @@ public:
 
     RoomModel *roomModel() const;
 
+    Q_INVOKABLE RoomWrapper *getRoom(const QString &roomId);
+    MessageModel *getMessageModelForRoom(const QString &roomID);
+
+    Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
+
+    Q_INVOKABLE void attachmentButtonClicked(const QString &roomId);
+    Q_INVOKABLE void leaveRoom(const QString &roomId);
+    Q_INVOKABLE void hideRoom(const QString &roomId);
+    Q_INVOKABLE void tryLogin();
+    Q_INVOKABLE void logOut();
+
+    DDPClient *ddp();
+
+    DDPClient::LoginStatus loginStatus();
+    RestApiRequest *restApi() const;
+    RestApiRequest *restapi();
+
+Q_SIGNALS:
+    void userNameChanged();
+    void userIDChanged();
+    void serverURLChanged();
+    void loginStatusChanged();
+
 private:
     void loadSettings();
     void slotInformTypingStatus(const QString &room, bool typing);
+    void sendMessage(const QString &roomID, const QString &message, const QString &type);
     RocketChatAccountSettings mSettings;
+    //room, messagemodel
+    QHash<QString, MessageModel *> mMessageModels;
+
     TypingNotification *mTypingNotification = nullptr;
     UsersModel *mUserModel = nullptr;
     RoomModel *mRoomModel = nullptr;
+    DDPClient *mDdp = nullptr;
+    RestApiRequest *mRestApi = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H

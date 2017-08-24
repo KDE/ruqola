@@ -18,10 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "messagemodel.h"
 #include "rocketchataccount.h"
 #include "roommodel.h"
+#include "roomwrapper.h"
 #include "typingnotification.h"
 #include "usermodel.h"
+#include "ruqola_debug.h"
+#include "ruqola.h"
+
+#include <QFile>
+#include <QFileDialog>
+
+#include <ddpapi/ddpclient.h>
+
+#include <restapi/restapirequest.h>
 
 RocketChatAccount::RocketChatAccount(QObject *parent)
     : QObject(parent)
@@ -55,7 +66,7 @@ void RocketChatAccount::setSettings(const RocketChatAccountSettings &settings)
 
 void RocketChatAccount::slotInformTypingStatus(const QString &room, bool typing)
 {
-    //TODO ddp()->informTypingStatus(room, typing, mUserName);
+    ddp()->informTypingStatus(room, typing, mSettings.userName());
 }
 
 RoomModel *RocketChatAccount::roomModel() const
@@ -67,3 +78,156 @@ UsersModel *RocketChatAccount::userModel() const
 {
     return mUserModel;
 }
+
+RoomWrapper *RocketChatAccount::getRoom(const QString &roomId)
+{
+    return mRoomModel->findRoom(roomId);
+}
+
+MessageModel *RocketChatAccount::getMessageModelForRoom(const QString &roomID)
+{
+    if (MessageModel *model = mMessageModels.value(roomID)) {
+        return model;
+    } else {
+        mMessageModels[roomID] = new MessageModel(roomID, this);
+        return mMessageModels[roomID];
+    }
+}
+
+
+void RocketChatAccount::textEditing(const QString &roomId, const QString &str)
+{
+    mTypingNotification->setText(roomId, str);
+}
+
+void RocketChatAccount::attachmentButtonClicked(const QString &roomId)
+{
+    const QString fileName = QFileDialog::getOpenFileName(nullptr,
+                                                          tr("Select one or more files to open"),
+                                                          QDir::homePath(),
+                                                          tr("Images (*.png *.jpeg *.jpg)"));
+    if (fileName.isEmpty()) {
+        return;
+    }
+
+    qCDebug(RUQOLA_LOG) << "Selected Image " << fileName;
+
+    QFile file(fileName);
+    if (!file.open(QFile::ReadOnly)) {
+        qCDebug(RUQOLA_LOG) << "Cannot open the selected file" << fileName;
+        return;
+    }
+    const QString message = QString::fromLatin1(file.readAll().toBase64());
+    const QString roomID(roomId);
+    const QString type(QStringLiteral("image"));
+    sendMessage(roomID, message, type);
+}
+
+void RocketChatAccount::sendMessage(const QString &roomID, const QString &message, const QString &type)
+{
+    QJsonObject json;
+    json[QStringLiteral("rid")] = roomID;
+    json[QStringLiteral("msg")] = message;
+    json[QStringLiteral("type")] = type;
+
+    ddp()->method(QStringLiteral("sendMessage"), QJsonDocument(json), DDPClient::Persistent);
+}
+
+RestApiRequest *RocketChatAccount::restApi() const
+{
+    return mRestApi;
+}
+
+RestApiRequest *RocketChatAccount::restapi()
+{
+    if (!mRestApi) {
+        mRestApi = new RestApiRequest(this);
+        mRestApi->setServerUrl(mSettings.serverUrl());
+    }
+    return mRestApi;
+}
+
+
+void RocketChatAccount::leaveRoom(const QString &roomId)
+{
+    ddp()->leaveRoom(roomId);
+}
+
+void RocketChatAccount::hideRoom(const QString &roomId)
+{
+    ddp()->hideRoom(roomId);
+}
+
+DDPClient *RocketChatAccount::ddp()
+{
+    if (!mDdp) {
+        mDdp = new DDPClient();
+        mDdp->setServerUrl(mSettings.serverUrl());
+        mDdp->start();
+        connect(mDdp, &DDPClient::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
+    }
+    return mDdp;
+}
+
+
+DDPClient::LoginStatus RocketChatAccount::loginStatus()
+{
+    if (mDdp) {
+        return ddp()->loginStatus();
+    } else {
+        return DDPClient::LoggedOut;
+    }
+}
+
+void RocketChatAccount::tryLogin()
+{
+    qCDebug(RUQOLA_LOG) << "Attempting login" << mSettings.userName() << "on" << mSettings.serverUrl();
+
+    // Reset model views
+    foreach (const QString &key, mMessageModels.keys()) {
+        MessageModel *m = mMessageModels.take(key);
+        delete m;
+    }
+    delete mDdp;
+    mDdp = nullptr;
+
+    // This creates a new ddp() object.
+    // DDP will automatically try to connect and login.
+    ddp();
+
+    //FIXME
+    //TODO we need to load it after ddp login done
+    restapi();
+    restapi()->setPassword(mSettings.password());
+    restapi()->login();
+
+    // In the meantime, load cache...
+    //if(Ruqola::self()->ddp()->isConnected() && Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
+    mRoomModel->reset();
+    //}
+}
+
+void RocketChatAccount::logOut()
+{
+    mSettings.logout();
+
+    foreach (const QString &key, mMessageModels.keys()) {
+        MessageModel *m = mMessageModels.take(key);
+        delete m;
+    }
+
+    mRoomModel->clear();
+
+    QJsonObject user;
+    user[QStringLiteral("username")] = Ruqola::self()->userName();
+    QJsonObject json;
+    json[QStringLiteral("user")] = user;
+    Ruqola::self()->ddp()->method(QStringLiteral("logout"), QJsonDocument(json));
+
+    delete mDdp;
+    mDdp = nullptr;
+    Q_EMIT loginStatusChanged();
+    qCDebug(RUQOLA_LOG) << "Successfully logged out!";
+}
+
+

@@ -142,6 +142,7 @@ public:
     void start();
 
     void setWebSocket(AbstractWebSocket *socket);
+    LoginStatus loginStatus() const;
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
@@ -168,7 +169,6 @@ private:
 
     QUrl adaptUrl(const QString &url);
 
-    LoginStatus loginStatus() const;
     void setLoginStatus(LoginStatus l);
 
     LoginType loginType() const;

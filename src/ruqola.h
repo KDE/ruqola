@@ -33,11 +33,10 @@
 #include "notification.h"
 #include "messagequeue.h"
 
-class RoomFilterProxyModel;
-
 class TypingNotification;
 class UsersModel;
 class RestApiRequest;
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT
@@ -126,8 +125,6 @@ public:
     */
     QString cacheBasePath() const;
 
-    Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
-
     RestApiRequest *restapi();
 Q_SIGNALS:
     void userNameChanged();
@@ -147,13 +144,13 @@ private:
     DDPClient *mDdp = nullptr;
     MessageQueue *m_messageQueue = nullptr;
     RoomModel *mRoomModel = nullptr;
-    RoomFilterProxyModel *mRoomFilterProxyModel = nullptr;
     Notification *mNotification = nullptr;
 
     //room, messagemodel
     QHash<QString, MessageModel * > m_messageModels;
     TypingNotification *mTypingNotification = nullptr;
     RestApiRequest *mRestApi = nullptr;
+    RocketChatAccount *mRocketChatAccount;
 };
 
 inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
