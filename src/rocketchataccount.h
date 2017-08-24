@@ -24,7 +24,7 @@
 #include <QObject>
 #include "rocketchataccountsettings.h"
 #include "libruqola_private_export.h"
-
+class TypingNotification;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
@@ -35,7 +35,9 @@ public:
     RocketChatAccountSettings settings() const;
     void setSettings(const RocketChatAccountSettings &settings);
 private:
+    void slotInformTypingStatus(const QString &room, bool typing);
     RocketChatAccountSettings mSettings;
+    TypingNotification *mTypingNotification = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H
