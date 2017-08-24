@@ -19,6 +19,7 @@
 */
 
 #include "rocketchataccountsettings.h"
+#include "ruqola_debug.h"
 
 #include <QSettings>
 #include <QStandardPaths>
@@ -44,7 +45,12 @@ QString RocketChatAccountSettings::authToken() const
 
 void RocketChatAccountSettings::setAuthToken(const QString &authToken)
 {
-    mAuthToken = authToken;
+    if (mAuthToken != authToken) {
+        qCDebug(RUQOLA_LOG) << "Setting token to" << authToken;
+        QSettings s;
+        mAuthToken = authToken;
+        s.setValue(QStringLiteral("authToken"), authToken);
+    }
 }
 
 void RocketChatAccountSettings::logout()

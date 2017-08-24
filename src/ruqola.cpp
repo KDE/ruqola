@@ -28,7 +28,6 @@
 #include "messagequeue.h"
 #include "ruqola_debug.h"
 #include "roomfilterproxymodel.h"
-#include "usermodel.h"
 #include "restapi/restapirequest.h"
 #include <QFileDialog>
 #include <QTcpSocket>
@@ -48,7 +47,6 @@ Ruqola::Ruqola(QObject *parent)
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
 
-    mUserModel = new UsersModel(this);
 
     mTypingNotification = new TypingNotification(this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &Ruqola::slotInformTypingStatus);
@@ -144,11 +142,6 @@ void Ruqola::setUserID(const QString &userID)
 RoomModel *Ruqola::roomModel()
 {
     return mRoomModel;
-}
-
-UsersModel *Ruqola::userModel() const
-{
-    return mUserModel;
 }
 
 RestApiRequest *Ruqola::restapi()

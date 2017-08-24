@@ -84,7 +84,6 @@ public:
     MessageQueue *messageQueue();
 
     Q_INVOKABLE RoomModel *roomModel();
-    Q_INVOKABLE UsersModel *userModel() const;
 
     /**
     * @brief Constructs a Json with @param roomID and @param message and @param type, then calls DDPClient's method to send text message over the network
@@ -154,7 +153,6 @@ private:
     //room, messagemodel
     QHash<QString, MessageModel * > m_messageModels;
     TypingNotification *mTypingNotification = nullptr;
-    UsersModel *mUserModel = nullptr;
     RestApiRequest *mRestApi = nullptr;
 };
 
