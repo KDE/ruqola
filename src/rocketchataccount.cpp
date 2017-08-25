@@ -51,7 +51,7 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
     mTypingNotification = new TypingNotification(this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
     loadSettings();
-    QTimer::singleShot(0, this, &RocketChatAccount::slotInitializeMessageQueue);
+    QTimer::singleShot(0, this, &RocketChatAccount::initialize);
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -59,8 +59,11 @@ RocketChatAccount::~RocketChatAccount()
 
 }
 
-void RocketChatAccount::slotInitializeMessageQueue()
+void RocketChatAccount::initialize()
 {
+    // Clear rooms data and refill it with data in the cache, if there is
+    mRoomModel->reset();
+
     mMessageQueue->loadCache();
     //Try to send queue message
     mMessageQueue->processQueue();

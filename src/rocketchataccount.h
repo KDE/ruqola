@@ -82,7 +82,7 @@ Q_SIGNALS:
 
 private:
     void loadSettings();
-    void slotInitializeMessageQueue();
+    void initialize();
     RocketChatAccountSettings *mSettings;
     //room, messagemodel
     QHash<QString, MessageModel *> mMessageModels;
