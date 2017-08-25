@@ -239,7 +239,7 @@ void RocketChatAccount::logOut()
     user[QStringLiteral("username")] = mSettings->userName();
     QJsonObject json;
     json[QStringLiteral("user")] = user;
-    Ruqola::self()->ddp()->method(QStringLiteral("logout"), QJsonDocument(json));
+    ddp()->method(QStringLiteral("logout"), QJsonDocument(json));
 
     delete mDdp;
     mDdp = nullptr;
