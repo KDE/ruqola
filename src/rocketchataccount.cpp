@@ -76,7 +76,7 @@ MessageQueue *RocketChatAccount::messageQueue() const
     return mMessageQueue;
 }
 
-RocketChatAccountSettings* RocketChatAccount::settings() const
+RocketChatAccountSettings *RocketChatAccount::settings() const
 {
     return mSettings;
 }
