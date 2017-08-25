@@ -27,6 +27,8 @@
 #include "ruqola_debug.h"
 #include "rocketchatmessage.h"
 #include "ruqolawebsocket.h"
+#include "rocketchataccount.h"
+#include "messagequeue.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -37,7 +39,7 @@ void empty_callback(const QJsonDocument &doc)
     Q_UNUSED(doc);
 }
 
-DDPClient::DDPClient(QObject *parent)
+DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , m_uid(1)
     , m_loginJob(0)
@@ -47,6 +49,7 @@ DDPClient::DDPClient(QObject *parent)
     , m_attemptedPasswordLogin(false)
     , m_attemptedTokenLogin(false)
     , mRocketChatMessage(new RocketChatMessage)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -101,12 +104,12 @@ QUrl DDPClient::adaptUrl(const QString &url)
 
 void DDPClient::onServerURLChange()
 {
-    if (Ruqola::self()->serverURL() != m_url || !mWebSocket->isValid()) {
+    if (mRocketChatAccount->settings()->serverUrl() != m_url || !mWebSocket->isValid()) {
         if (mWebSocket->isValid()) {
             mWebSocket->flush();
             mWebSocket->close();
         }
-        m_url = Ruqola::self()->serverURL();
+        m_url = mRocketChatAccount->settings()->serverUrl();
         mWebSocket->openUrl(adaptUrl(m_url));
         connect(mWebSocket, &AbstractWebSocket::connected, this, &DDPClient::onWSConnected);
         qCDebug(RUQOLA_LOG) << "Reconnecting" << m_url;
@@ -198,7 +201,7 @@ quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &resu
 
         if (messageType == DDPClient::Persistent) {
             m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
-            Ruqola::self()->messageQueue()->processQueue();
+            mRocketChatAccount->messageQueue()->processQueue();
         }
     } else {
         qCDebug(RUQOLA_LOG) << "Successfully sent " << result.result;
@@ -227,7 +230,7 @@ quint64 DDPClient::method(const QString &method, const QJsonDocument &params, st
 
         if (messageType == DDPClient::Persistent) {
             m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
-            Ruqola::self()->messageQueue()->processQueue();
+            mRocketChatAccount->messageQueue()->processQueue();
         }
     } else {
         qCDebug(RUQOLA_LOG) << "Successfully sent " << result.result;
@@ -281,7 +284,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
 
                     login(); // Let's keep trying to log in
                 } else {
-                    Ruqola::self()->setAuthToken(root.value(QStringLiteral("result")).toObject().value(QStringLiteral("token")).toString());
+                    mRocketChatAccount->settings()->setAuthToken(root.value(QStringLiteral("result")).toObject().value(QStringLiteral("token")).toString());
                     setLoginStatus(DDPClient::LoggedIn);
                 }
             }
@@ -315,7 +318,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
 
 void DDPClient::login()
 {
-    if (!Ruqola::self()->password().isEmpty()) {
+    if (!mRocketChatAccount->settings()->password().isEmpty()) {
         // If we have a password and we couldn't log in, let's stop here
         if (m_attemptedPasswordLogin) {
             setLoginStatus(LoginFailed);
@@ -323,15 +326,15 @@ void DDPClient::login()
         }
         m_attemptedPasswordLogin = true;
         QJsonObject user;
-        user[QStringLiteral("username")] = Ruqola::self()->userName();
+        user[QStringLiteral("username")] = mRocketChatAccount->settings()->userName();
         QJsonObject json;
-        json[QStringLiteral("password")] = Ruqola::self()->password();
+        json[QStringLiteral("password")] = mRocketChatAccount->settings()->password();
         json[QStringLiteral("user")] = user;
         m_loginJob = method(QStringLiteral("login"), QJsonDocument(json));
-    } else if (!Ruqola::self()->authToken().isEmpty() && !m_attemptedTokenLogin) {
+    } else if (!mRocketChatAccount->settings()->authToken().isEmpty() && !m_attemptedTokenLogin) {
         m_attemptedPasswordLogin = true;
         QJsonObject json;
-        json[QStringLiteral("resume")] = Ruqola::self()->authToken();
+        json[QStringLiteral("resume")] = mRocketChatAccount->settings()->authToken();
         m_loginJob = method(QStringLiteral("login"), QJsonDocument(json));
     } else {
         setLoginStatus(LoginFailed);

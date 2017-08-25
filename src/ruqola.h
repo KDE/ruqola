@@ -31,7 +31,6 @@
 #include "roommodel.h"
 #include "messagemodel.h"
 #include "notification.h"
-#include "messagequeue.h"
 
 class TypingNotification;
 class UsersModel;
@@ -46,7 +45,6 @@ class LIBRUQOLACORE_EXPORT Ruqola : public QObject
     Q_PROPERTY(QString serverURL READ serverURL WRITE setServerURL NOTIFY serverURLChanged)
     Q_PROPERTY(QString password WRITE setPassword)
     Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
-//     Q_PROPERTY(QString activeRoom READ activeRoom WRITE setActiveRoom NOTIFY activeRoomChanged)
 
 public:
 
@@ -75,12 +73,9 @@ public:
     QString serverURL() const;
     void setServerURL(const QString &serverURL);
 
-//     QString activeRoom() const;
-//     void setActiveRoom(const QString &activeRoom);
 
     DDPClient *ddp();
     Notification *notification();
-    MessageQueue *messageQueue();
 
     Q_INVOKABLE RoomModel *roomModel();
 
@@ -136,7 +131,6 @@ private:
     void slotInformTypingStatus(const QString &room, bool typing);
     explicit Ruqola(QObject *parent = nullptr);
     RocketChatAccount *mRocketChatAccount;
-    MessageQueue *m_messageQueue = nullptr;
     Notification *mNotification = nullptr;
 
 };

@@ -25,13 +25,13 @@
 
 #include <QtCore>
 #include <QObject>
-
+class RocketChatAccount;
 class MessageQueue : public QObject
 {
     Q_OBJECT
 public:
 
-    explicit MessageQueue(QObject *parent = nullptr);
+    explicit MessageQueue(RocketChatAccount *account, QObject *parent = nullptr);
     ~MessageQueue();
 
     /**
@@ -55,8 +55,10 @@ public:
     */
     static QByteArray serialize(const QPair<QString, QJsonDocument> &pair);
 
-public slots:
+    void loadCache();
+private:
     void onLoginStatusChanged();
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
 #endif // MESSAGEQUEUE_H

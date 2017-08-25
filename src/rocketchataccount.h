@@ -32,6 +32,7 @@ class RoomWrapper;
 class MessageModel;
 class DDPClient;
 class RestApiRequest;
+class MessageQueue;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
@@ -71,6 +72,8 @@ public:
     void slotInformTypingStatus(const QString &room, bool typing);
     void sendMessage(const QString &roomID, const QString &message, const QString &type);
 
+    MessageQueue *messageQueue() const;
+
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
@@ -79,6 +82,7 @@ Q_SIGNALS:
 
 private:
     void loadSettings();
+    void slotInitializeMessageQueue();
     RocketChatAccountSettings *mSettings;
     //room, messagemodel
     QHash<QString, MessageModel *> mMessageModels;
@@ -88,6 +92,7 @@ private:
     RoomModel *mRoomModel = nullptr;
     DDPClient *mDdp = nullptr;
     RestApiRequest *mRestApi = nullptr;
+    MessageQueue *mMessageQueue = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H

@@ -26,6 +26,7 @@
 #include "usermodel.h"
 #include "ruqola_debug.h"
 #include "ruqola.h"
+#include "messagequeue.h"
 
 #include <QFile>
 #include <QFileDialog>
@@ -46,9 +47,11 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
 
     mRoomModel = new RoomModel(this);
     mUserModel = new UsersModel(this);
+    mMessageQueue = new MessageQueue(this);
     mTypingNotification = new TypingNotification(this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
     loadSettings();
+    QTimer::singleShot(0, this, &RocketChatAccount::slotInitializeMessageQueue);
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -56,9 +59,21 @@ RocketChatAccount::~RocketChatAccount()
 
 }
 
+void RocketChatAccount::slotInitializeMessageQueue()
+{
+    mMessageQueue->loadCache();
+    //Try to send queue message
+    mMessageQueue->processQueue();
+}
+
 void RocketChatAccount::loadSettings()
 {
     mSettings->loadSettings();
+}
+
+MessageQueue *RocketChatAccount::messageQueue() const
+{
+    return mMessageQueue;
 }
 
 RocketChatAccountSettings* RocketChatAccount::settings() const
@@ -163,7 +178,7 @@ void RocketChatAccount::hideRoom(const QString &roomId)
 DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp) {
-        mDdp = new DDPClient();
+        mDdp = new DDPClient(this, this);
         mDdp->setServerUrl(mSettings->serverUrl());
         mDdp->start();
         connect(mDdp, &DDPClient::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
@@ -221,7 +236,7 @@ void RocketChatAccount::logOut()
     mRoomModel->clear();
 
     QJsonObject user;
-    user[QStringLiteral("username")] = Ruqola::self()->userName();
+    user[QStringLiteral("username")] = mSettings->userName();
     QJsonObject json;
     json[QStringLiteral("user")] = user;
     Ruqola::self()->ddp()->method(QStringLiteral("logout"), QJsonDocument(json));
@@ -231,5 +246,3 @@ void RocketChatAccount::logOut()
     Q_EMIT loginStatusChanged();
     qCDebug(RUQOLA_LOG) << "Successfully logged out!";
 }
-
-

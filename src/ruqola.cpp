@@ -50,20 +50,17 @@ Ruqola *Ruqola::self()
     static Ruqola *s_self = nullptr;
     if (!s_self) {
         s_self = new Ruqola;
-
+/*
         // Create DDP object so we try to connect at startup
         s_self->ddp();
 
         // Clear rooms data and refill it with data in the cache, if there is
         s_self->roomModel()->reset();
-
+*/
         // Create systray to show notifications on Desktop
 #if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
         s_self->notification();
 #endif
-
-        //Initialize the messageQueue object
-        s_self->messageQueue();
     }
     return s_self;
 }
@@ -121,16 +118,6 @@ RestApiRequest *Ruqola::restapi()
 DDPClient *Ruqola::ddp()
 {
     return mRocketChatAccount->ddp();
-}
-
-MessageQueue *Ruqola::messageQueue()
-{
-    if (!m_messageQueue) {
-        m_messageQueue = new MessageQueue();
-        // retry to send any unsent messages
-        Ruqola::self()->messageQueue()->processQueue();
-    }
-    return m_messageQueue;
 }
 
 Notification *Ruqola::notification()

@@ -23,12 +23,40 @@
 #include "ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "ruqola_debug.h"
+#include "messagequeue.h"
+#include "rocketchataccount.h"
 
-MessageQueue::MessageQueue(QObject *parent)
+MessageQueue::MessageQueue(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mRocketChatAccount(account)
 {
-    connect(Ruqola::self()->ddp(), &DDPClient::loginStatusChanged, this, &MessageQueue::onLoginStatusChanged);
-    QDir cacheDir(Ruqola::self()->ddp()->cachePath());
+}
+
+MessageQueue::~MessageQueue()
+{
+    QDir cacheDir(mRocketChatAccount->ddp()->cachePath());
+    qCDebug(RUQOLA_LOG) << "Caching Unsent messages to... " << cacheDir.path();
+    if (!cacheDir.exists(cacheDir.path())) {
+        if (!cacheDir.mkpath(cacheDir.path())) {
+            qCWarning(RUQOLA_LOG) << "Problem for creating cachedir " << cacheDir;
+        }
+    }
+    QFile f(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")));
+    if (f.open(QIODevice::WriteOnly)) {
+        QDataStream out(&f);
+        QQueue<QPair<QString, QJsonDocument> > queue = mRocketChatAccount->ddp()->messageQueue();
+        for (QQueue<QPair<QString, QJsonDocument> >::iterator it = queue.begin(), end = queue.end(); it != end; ++it) {
+            const QPair<QString, QJsonDocument> pair = *it;
+            const QByteArray ba = serialize(pair);
+            out.writeBytes(ba, ba.size());
+        }
+    }
+}
+
+void MessageQueue::loadCache()
+{
+    connect(mRocketChatAccount->ddp(), &DDPClient::loginStatusChanged, this, &MessageQueue::onLoginStatusChanged);
+    QDir cacheDir(mRocketChatAccount->ddp()->cachePath());
 
     // load unsent messages cache
     if (QFile::exists(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")))) {
@@ -44,29 +72,8 @@ MessageQueue::MessageQueue(QObject *parent)
 
                 QString method = pair.first;
                 QJsonDocument params = pair.second;
-                Ruqola::self()->ddp()->messageQueue().enqueue(qMakePair(method, params));
+                mRocketChatAccount->ddp()->messageQueue().enqueue(qMakePair(method, params));
             }
-        }
-    }
-}
-
-MessageQueue::~MessageQueue()
-{
-    QDir cacheDir(Ruqola::self()->ddp()->cachePath());
-    qCDebug(RUQOLA_LOG) << "Caching Unsent messages to... " << cacheDir.path();
-    if (!cacheDir.exists(cacheDir.path())) {
-        if (!cacheDir.mkpath(cacheDir.path())) {
-            qCWarning(RUQOLA_LOG) << "Problem for creating cachedir " << cacheDir;
-        }
-    }
-    QFile f(cacheDir.absoluteFilePath(QStringLiteral("QueueCache")));
-    if (f.open(QIODevice::WriteOnly)) {
-        QDataStream out(&f);
-        QQueue<QPair<QString, QJsonDocument> > queue = Ruqola::self()->ddp()->messageQueue();
-        for (QQueue<QPair<QString, QJsonDocument> >::iterator it = queue.begin(), end = queue.end(); it != end; ++it) {
-            const QPair<QString, QJsonDocument> pair = *it;
-            const QByteArray ba = serialize(pair);
-            out.writeBytes(ba, ba.size());
         }
     }
 }
@@ -110,10 +117,10 @@ void MessageQueue::onLoginStatusChanged()
 void MessageQueue::processQueue()
 {
     //can be optimized using single shot timer
-    while (Ruqola::self()->loginStatus() == DDPClient::LoggedIn && !Ruqola::self()->ddp()->messageQueue().empty()) {
-        QPair<QString, QJsonDocument> pair = Ruqola::self()->ddp()->messageQueue().head();
+    while (mRocketChatAccount->loginStatus() == DDPClient::LoggedIn && !mRocketChatAccount->ddp()->messageQueue().empty()) {
+        QPair<QString, QJsonDocument> pair = mRocketChatAccount->ddp()->messageQueue().head();
         QString method = pair.first;
         QJsonDocument params = pair.second;
-        Ruqola::self()->ddp()->method(method, params);
+        mRocketChatAccount->ddp()->method(method, params);
     }
 }

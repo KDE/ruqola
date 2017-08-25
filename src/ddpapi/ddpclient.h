@@ -33,6 +33,7 @@ class QJsonObject;
 class QJsonDocument;
 class RocketChatMessage;
 class AbstractWebSocket;
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT DDPClient : public QObject
 {
     Q_OBJECT
@@ -56,7 +57,7 @@ public:
         Google
     };
 
-    explicit DDPClient(QObject *parent = nullptr);
+    explicit DDPClient(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~DDPClient();
 
     /**
@@ -206,7 +207,8 @@ private:
     QQueue<QPair<QString, QJsonDocument> > m_messageQueue;
 
     friend class Ruqola;
-    RocketChatMessage *mRocketChatMessage;
+    RocketChatMessage *mRocketChatMessage = nullptr;
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
 #endif // DDPCLIENT_H
