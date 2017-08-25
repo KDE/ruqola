@@ -36,24 +36,13 @@
 
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
-    , mDdp(nullptr)
-    , m_messageQueue(nullptr)
-    , mRoomModel(nullptr)
-    , mNotification(nullptr)
-    , mTypingNotification(nullptr)
 {
-    mRoomModel = new RoomModel(this);
-
     //Todo load all account
     mRocketChatAccount = new RocketChatAccount(this);
-
-    mTypingNotification = new TypingNotification(this);
-    connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &Ruqola::slotInformTypingStatus);
-    QSettings s;
-    mServerURL = s.value(QStringLiteral("serverURL"), QStringLiteral("demo.rocket.chat")).toString();
-    mUserName = s.value(QStringLiteral("username")).toString();
-    mUserID = s.value(QStringLiteral("userID")).toString();
-    mAuthToken = s.value(QStringLiteral("authToken")).toString();
+    connect(mRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &Ruqola::loginStatusChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::serverURLChanged, this, &Ruqola::serverURLChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &Ruqola::userIDChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::userNameChanged, this, &Ruqola::userNameChanged);
 }
 
 Ruqola *Ruqola::self()
@@ -81,81 +70,57 @@ Ruqola *Ruqola::self()
 
 QString Ruqola::authToken() const
 {
-    return mAuthToken;
+    return mRocketChatAccount->settings()->authToken();
 }
 
 QString Ruqola::userName() const
 {
-    return mUserName;
+    return mRocketChatAccount->settings()->userName();
 }
 
 QString Ruqola::userID() const
 {
-    return mUserID;
+    return mRocketChatAccount->settings()->userId();
 }
 
 QString Ruqola::password() const
 {
-    return m_password;
+    return mRocketChatAccount->settings()->password();
 }
 
 void Ruqola::setAuthToken(const QString &token)
 {
-    if (mAuthToken != token) {
-        qCDebug(RUQOLA_LOG) << "Setting token to" << token;
-        QSettings s;
-        mAuthToken = token;
-        s.setValue(QStringLiteral("authToken"), token);
-    }
+    mRocketChatAccount->settings()->setAccountName(token);
 }
 
 void Ruqola::setPassword(const QString &password)
 {
-    m_password = password;
+    mRocketChatAccount->settings()->setPassword(password);
 }
 
 void Ruqola::setUserName(const QString &username)
 {
-    if (mUserName != username) {
-        mUserName = username;
-        QSettings s;
-        s.setValue(QStringLiteral("username"), username);
-        Q_EMIT userNameChanged();
-    }
+    mRocketChatAccount->settings()->setUserName(username);
 }
 
 void Ruqola::setUserID(const QString &userID)
 {
-    //Don't use if( m_userID != userID) as we need to Q_EMIT userIDChanged
-    mUserID = userID;
-    QSettings s;
-    s.setValue(QStringLiteral("userID"), userID);
-    Q_EMIT userIDChanged();
+    mRocketChatAccount->settings()->setUserId(userID);
 }
 
 RoomModel *Ruqola::roomModel()
 {
-    return mRoomModel;
+    return mRocketChatAccount->roomModel();
 }
 
 RestApiRequest *Ruqola::restapi()
 {
-    if (!mRestApi) {
-        mRestApi = new RestApiRequest(this);
-        mRestApi->setServerUrl(serverURL());
-    }
-    return mRestApi;
+    return mRocketChatAccount->restapi();
 }
 
 DDPClient *Ruqola::ddp()
 {
-    if (!mDdp) {
-        mDdp = new DDPClient();
-        mDdp->setServerUrl(serverURL());
-        mDdp->start();
-        connect(mDdp, &DDPClient::loginStatusChanged, this, &Ruqola::loginStatusChanged);
-    }
-    return mDdp;
+    return mRocketChatAccount->ddp();
 }
 
 MessageQueue *Ruqola::messageQueue()
@@ -179,154 +144,70 @@ Notification *Ruqola::notification()
 
 void Ruqola::attachmentButtonClicked(const QString &roomId)
 {
-    const QString fileName = QFileDialog::getOpenFileName(nullptr,
-                                                          tr("Select one or more files to open"),
-                                                          QDir::homePath(),
-                                                          tr("Images (*.png *.jpeg *.jpg)"));
-    if (fileName.isEmpty()) {
-        return;
-    }
-
-    qCDebug(RUQOLA_LOG) << "Selected Image " << fileName;
-
-    QFile file(fileName);
-    if (!file.open(QFile::ReadOnly)) {
-        qCDebug(RUQOLA_LOG) << "Cannot open the selected file" << fileName;
-        return;
-    }
-    const QString message = QString::fromLatin1(file.readAll().toBase64());
-    const QString roomID(roomId);
-    const QString type(QStringLiteral("image"));
-    sendMessage(roomID, message, type);
+    mRocketChatAccount->attachmentButtonClicked(roomId);
 }
 
 void Ruqola::textEditing(const QString &roomId, const QString &str)
 {
-    mTypingNotification->setText(roomId, str);
+    mRocketChatAccount->textEditing(roomId, str);
 }
 
 void Ruqola::sendMessage(const QString &roomID, const QString &message, const QString &type)
 {
-    QJsonObject json;
-    json[QStringLiteral("rid")] = roomID;
-    json[QStringLiteral("msg")] = message;
-    json[QStringLiteral("type")] = type;
-
-    ddp()->method(QStringLiteral("sendMessage"), QJsonDocument(json), DDPClient::Persistent);
+    mRocketChatAccount->sendMessage(roomID, message, type);
 }
 
 void Ruqola::leaveRoom(const QString &roomID)
 {
-    ddp()->leaveRoom(roomID);
+    mRocketChatAccount->leaveRoom(roomID);
 }
 
 void Ruqola::hideRoom(const QString &roomID)
 {
-    ddp()->hideRoom(roomID);
+    mRocketChatAccount->hideRoom(roomID);
 }
 
 MessageModel *Ruqola::getMessageModelForRoom(const QString &roomID)
 {
-    if (MessageModel *model = m_messageModels.value(roomID)) {
-        return model;
-    } else {
-        m_messageModels[roomID] = new MessageModel(roomID, this);
-        return m_messageModels[roomID];
-    }
+    return mRocketChatAccount->getMessageModelForRoom(roomID);
 }
 
 QString Ruqola::serverURL() const
 {
-    return mServerURL;
+    return mRocketChatAccount->settings()->serverUrl();
 }
 
 void Ruqola::setServerURL(const QString &serverURL)
 {
-    if (mServerURL == serverURL) {
-        return;
-    }
-
-    QSettings s;
-    s.setValue(QStringLiteral("serverURL"), serverURL);
-    mServerURL = serverURL;
-    Q_EMIT serverURLChanged();
+    mRocketChatAccount->settings()->setServerUrl(serverURL);
 }
 
 DDPClient::LoginStatus Ruqola::loginStatus()
 {
-    if (mDdp) {
-        return ddp()->loginStatus();
-    } else {
-        return DDPClient::LoggedOut;
-    }
+    return mRocketChatAccount->loginStatus();
 }
 
 void Ruqola::tryLogin()
 {
-    qCDebug(RUQOLA_LOG) << "Attempting login" << userName() << "on" << serverURL();
-
-    // Reset model views
-    foreach (const QString &key, m_messageModels.keys()) {
-        MessageModel *m = m_messageModels.take(key);
-        delete m;
-    }
-    delete mDdp;
-    mDdp = nullptr;
-
-    // This creates a new ddp() object.
-    // DDP will automatically try to connect and login.
-    ddp();
-    restapi();
-    restapi()->setPassword(password());
-    restapi()->login();
-
-    // In the meantime, load cache...
-    //if(Ruqola::self()->ddp()->isConnected() && Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
-    mRoomModel->reset();
-    //}
+    mRocketChatAccount->tryLogin();
 }
 
 void Ruqola::logOut()
 {
-    QSettings s;
-    s.setValue(QStringLiteral("authToken"), QString());
-    setAuthToken(QString());
-    setPassword(QString());
-
-    foreach (const QString &key, m_messageModels.keys()) {
-        MessageModel *m = m_messageModels.take(key);
-        delete m;
-    }
-
-    mRoomModel->clear();
-
-    QJsonObject user;
-    user[QStringLiteral("username")] = Ruqola::self()->userName();
-    QJsonObject json;
-    json[QStringLiteral("user")] = user;
-    Ruqola::self()->ddp()->method(QStringLiteral("logout"), QJsonDocument(json));
-
-    delete mDdp;
-    mDdp = nullptr;
-    Q_EMIT loginStatusChanged();
-    qCDebug(RUQOLA_LOG) << "Successfully logged out!";
+    mRocketChatAccount->logOut();
 }
 
 QString Ruqola::cacheBasePath() const
 {
-    if (mServerURL.isEmpty()) {
-        return QString();
-    }
-
-    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+QLatin1Char('/')+mServerURL;
+    return mRocketChatAccount->settings()->cacheBasePath();
 }
 
 RoomWrapper *Ruqola::getRoom(const QString &roomID)
 {
-    return mRoomModel->findRoom(roomID);
+    return mRocketChatAccount->getRoom(roomID);
 }
 
 void Ruqola::slotInformTypingStatus(const QString &room, bool typing)
 {
-    ddp()->informTypingStatus(room, typing, mUserName);
+    mRocketChatAccount->slotInformTypingStatus(room, typing);
 }

@@ -135,22 +135,10 @@ Q_SIGNALS:
 private:
     void slotInformTypingStatus(const QString &room, bool typing);
     explicit Ruqola(QObject *parent = nullptr);
-    QString m_password;
-    QString mUserName;
-    QString mUserID;
-    QString mAuthToken;
-    QString mServerURL;
-
-    DDPClient *mDdp = nullptr;
+    RocketChatAccount *mRocketChatAccount;
     MessageQueue *m_messageQueue = nullptr;
-    RoomModel *mRoomModel = nullptr;
     Notification *mNotification = nullptr;
 
-    //room, messagemodel
-    QHash<QString, MessageModel * > m_messageModels;
-    TypingNotification *mTypingNotification = nullptr;
-    RestApiRequest *mRestApi = nullptr;
-    RocketChatAccount *mRocketChatAccount;
 };
 
 inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

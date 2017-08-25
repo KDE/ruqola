@@ -22,12 +22,14 @@
 #define ROCKETCHATACCOUNTSETTINGS_H
 
 #include <QString>
+#include <QObject>
 #include "libruqola_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccountSettings
+class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccountSettings : public QObject
 {
+    Q_OBJECT
 public:
-    RocketChatAccountSettings();
+    explicit RocketChatAccountSettings(QObject *parent = nullptr);
 
     QString userId() const;
     void setUserId(const QString &userId);
@@ -51,6 +53,13 @@ public:
     void setPassword(const QString &password);
 
     void loadSettings();
+
+Q_SIGNALS:
+    void serverURLChanged();
+    void userNameChanged();
+    void userIDChanged();
+    void loginStatusChanged();
+
 private:
     void saveSettings();
     QString mUserId;

@@ -39,8 +39,7 @@ public:
     explicit RocketChatAccount(QObject *parent = nullptr);
     ~RocketChatAccount();
 
-    RocketChatAccountSettings settings() const;
-    void setSettings(const RocketChatAccountSettings &settings);
+    RocketChatAccountSettings *settings() const;
 
     UsersModel *userModel() const;
 
@@ -63,6 +62,10 @@ public:
     RestApiRequest *restApi() const;
     RestApiRequest *restapi();
 
+    //Make it private in future
+    void slotInformTypingStatus(const QString &room, bool typing);
+    void sendMessage(const QString &roomID, const QString &message, const QString &type);
+
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
@@ -71,9 +74,7 @@ Q_SIGNALS:
 
 private:
     void loadSettings();
-    void slotInformTypingStatus(const QString &room, bool typing);
-    void sendMessage(const QString &roomID, const QString &message, const QString &type);
-    RocketChatAccountSettings mSettings;
+    RocketChatAccountSettings *mSettings;
     //room, messagemodel
     QHash<QString, MessageModel *> mMessageModels;
 

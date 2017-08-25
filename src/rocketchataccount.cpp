@@ -37,6 +37,13 @@
 RocketChatAccount::RocketChatAccount(QObject *parent)
     : QObject(parent)
 {
+    mSettings = new RocketChatAccountSettings(this);
+    connect(mSettings, &RocketChatAccountSettings::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
+    connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverURLChanged);
+    connect(mSettings, &RocketChatAccountSettings::userIDChanged, this, &RocketChatAccount::userIDChanged);
+    connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
+
+
     mRoomModel = new RoomModel(this);
     mUserModel = new UsersModel(this);
     mTypingNotification = new TypingNotification(this);
@@ -51,22 +58,17 @@ RocketChatAccount::~RocketChatAccount()
 
 void RocketChatAccount::loadSettings()
 {
-    mSettings.loadSettings();
+    mSettings->loadSettings();
 }
 
-RocketChatAccountSettings RocketChatAccount::settings() const
+RocketChatAccountSettings* RocketChatAccount::settings() const
 {
     return mSettings;
 }
 
-void RocketChatAccount::setSettings(const RocketChatAccountSettings &settings)
-{
-    mSettings = settings;
-}
-
 void RocketChatAccount::slotInformTypingStatus(const QString &room, bool typing)
 {
-    ddp()->informTypingStatus(room, typing, mSettings.userName());
+    ddp()->informTypingStatus(room, typing, mSettings->userName());
 }
 
 RoomModel *RocketChatAccount::roomModel() const
@@ -142,7 +144,7 @@ RestApiRequest *RocketChatAccount::restapi()
 {
     if (!mRestApi) {
         mRestApi = new RestApiRequest(this);
-        mRestApi->setServerUrl(mSettings.serverUrl());
+        mRestApi->setServerUrl(mSettings->serverUrl());
     }
     return mRestApi;
 }
@@ -162,7 +164,7 @@ DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp) {
         mDdp = new DDPClient();
-        mDdp->setServerUrl(mSettings.serverUrl());
+        mDdp->setServerUrl(mSettings->serverUrl());
         mDdp->start();
         connect(mDdp, &DDPClient::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
     }
@@ -181,7 +183,7 @@ DDPClient::LoginStatus RocketChatAccount::loginStatus()
 
 void RocketChatAccount::tryLogin()
 {
-    qCDebug(RUQOLA_LOG) << "Attempting login" << mSettings.userName() << "on" << mSettings.serverUrl();
+    qCDebug(RUQOLA_LOG) << "Attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
 
     // Reset model views
     foreach (const QString &key, mMessageModels.keys()) {
@@ -198,7 +200,7 @@ void RocketChatAccount::tryLogin()
     //FIXME
     //TODO we need to load it after ddp login done
     restapi();
-    restapi()->setPassword(mSettings.password());
+    restapi()->setPassword(mSettings->password());
     restapi()->login();
 
     // In the meantime, load cache...
@@ -209,7 +211,7 @@ void RocketChatAccount::tryLogin()
 
 void RocketChatAccount::logOut()
 {
-    mSettings.logout();
+    mSettings->logout();
 
     foreach (const QString &key, mMessageModels.keys()) {
         MessageModel *m = mMessageModels.take(key);

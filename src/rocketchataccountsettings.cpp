@@ -24,7 +24,8 @@
 #include <QSettings>
 #include <QStandardPaths>
 
-RocketChatAccountSettings::RocketChatAccountSettings()
+RocketChatAccountSettings::RocketChatAccountSettings(QObject *parent)
+    : QObject(parent)
 {
 }
 
@@ -35,7 +36,11 @@ QString RocketChatAccountSettings::userId() const
 
 void RocketChatAccountSettings::setUserId(const QString &userId)
 {
+    //Don't use if( m_userID != userID) as we need to Q_EMIT userIDChanged
     mUserId = userId;
+    QSettings s;
+    s.setValue(QStringLiteral("userID"), userId);
+    Q_EMIT userIDChanged();
 }
 
 QString RocketChatAccountSettings::authToken() const
@@ -94,7 +99,12 @@ QString RocketChatAccountSettings::userName() const
 
 void RocketChatAccountSettings::setUserName(const QString &userName)
 {
-    mUserName = userName;
+    if (mUserName != userName) {
+        mUserName = userName;
+        QSettings s;
+        s.setValue(QStringLiteral("username"), mUserName);
+        Q_EMIT userNameChanged();
+    }
 }
 
 QString RocketChatAccountSettings::accountName() const
@@ -114,7 +124,14 @@ QString RocketChatAccountSettings::serverUrl() const
 
 void RocketChatAccountSettings::setServerUrl(const QString &serverUrl)
 {
+    if (mServerUrl == serverUrl) {
+        return;
+    }
+
+    QSettings s;
+    s.setValue(QStringLiteral("serverURL"), serverUrl);
     mServerUrl = serverUrl;
+    Q_EMIT serverURLChanged();
 }
 
 QString RocketChatAccountSettings::cacheBasePath()
