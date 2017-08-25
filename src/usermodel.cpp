@@ -54,12 +54,12 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-void UsersModel::removeUser()
+void UsersModel::removeUser(const QString &userId)
 {
 
 }
 
-void UsersModel::addUser()
+void UsersModel::addUser(const User &user)
 {
 
 }

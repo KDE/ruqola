@@ -42,8 +42,8 @@ public:
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
-    void addUser();
-    void removeUser();
+    void addUser(const User &user);
+    void removeUser(const QString &userId);
 
 private:
     QVector<User> mUsers;
