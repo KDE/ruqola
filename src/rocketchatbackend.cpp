@@ -120,12 +120,6 @@ void rooms_callback(const QJsonDocument &doc)
     rooms_parsing(doc);
 }
 
-void subscription_callback(const QJsonDocument &doc)
-{
-    getsubscription_parsing(doc);
-}
-
-
 RocketChatBackend::RocketChatBackend(QObject *parent)
     : QObject(parent)
 {
@@ -158,6 +152,11 @@ void RocketChatBackend::onLoginStatusChanged()
 //         qCDebug(RUQOLA_LOG) << "GETTING LIST OF ROOMS";
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
+
+        std::function<void (QJsonDocument)> subscription_callback = [ = ](const QJsonDocument &doc) {
+            getsubscription_parsing(doc);
+        };
+
         Ruqola::self()->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
     }
 }
