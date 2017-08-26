@@ -79,9 +79,9 @@ public:
     * @param messageType The type of message
     * @return unsigned int, the ID of the called method
     */
-    quint64 method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
+    quint64 method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument, RocketChatAccount *)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
 
-    quint64 method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
+    quint64 method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonDocument, RocketChatAccount *)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
 
     /**
     * @brief Subscribes to a collection with name @param collection and parameters @param params
@@ -188,7 +188,7 @@ private:
      *
      * @def QHash unsigned messageID and std::function<void (QJsonDocument)> pointer to callback
      */
-    QHash <unsigned, std::function<void(QJsonDocument)> > m_callbackHash;
+    QHash <unsigned, std::function<void(QJsonDocument, RocketChatAccount *)> > m_callbackHash;
 
     unsigned m_loginJob;
     LoginStatus m_loginStatus;

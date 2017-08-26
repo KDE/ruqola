@@ -34,7 +34,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 
-void empty_callback(const QJsonDocument &doc)
+void empty_callback(const QJsonDocument &doc, RocketChatAccount *)
 {
     Q_UNUSED(doc);
 }
@@ -192,7 +192,7 @@ quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const 
     return value;
 }
 
-quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType)
+quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonDocument, RocketChatAccount *)> callback, DDPClient::MessageType messageType)
 {
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
@@ -219,7 +219,7 @@ quint64 DDPClient::method(const QString &m, const QJsonDocument &params, DDPClie
     return method(m, params, empty_callback, messageType);
 }
 
-quint64 DDPClient::method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument)> callback, DDPClient::MessageType messageType)
+quint64 DDPClient::method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument, RocketChatAccount *)> callback, DDPClient::MessageType messageType)
 {
     qDebug() << " params" << params.toJson(QJsonDocument::Indented);
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, m_uid);
@@ -272,9 +272,9 @@ void DDPClient::onTextMessageReceived(const QString &message)
             unsigned id = root.value(QStringLiteral("id")).toString().toInt();
 
             if (m_callbackHash.contains(id)) {
-                std::function<void(QJsonDocument)> callback = m_callbackHash.take(id);
+                std::function<void(QJsonDocument, RocketChatAccount *)> callback = m_callbackHash.take(id);
 
-                callback(QJsonDocument(root.value(QStringLiteral("result")).toObject()));
+                callback(QJsonDocument(root.value(QStringLiteral("result")).toObject()), mRocketChatAccount);
             }
             Q_EMIT result(id, QJsonDocument(root.value(QStringLiteral("result")).toObject()));
 

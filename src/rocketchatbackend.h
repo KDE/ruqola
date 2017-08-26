@@ -28,12 +28,12 @@
 #include <QJsonObject>
 
 #include "roommodel.h"
-
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT RocketChatBackend : public QObject
 {
     Q_OBJECT
 public:
-    explicit RocketChatBackend(QObject *parent = nullptr);
+    explicit RocketChatBackend(RocketChatAccount *account, QObject *parent = nullptr);
     ~RocketChatBackend();
 
     /**
@@ -41,13 +41,15 @@ public:
     *
     * @param messages The Json containing the message
     */
-    static void processIncomingMessages(const QJsonArray &messages);
+    void processIncomingMessages(const QJsonArray &messages);
 
 private:
     void onAdded(const QJsonObject &object);
     void onChanged(const QJsonObject &object);
     void onLoginStatusChanged();
     void onUserIDChanged();
+
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
 #endif // ROCKETCHATBACKEND_H

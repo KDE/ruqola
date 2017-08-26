@@ -33,6 +33,7 @@ class MessageModel;
 class DDPClient;
 class RestApiRequest;
 class MessageQueue;
+class RocketChatBackend;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
@@ -74,11 +75,15 @@ public:
 
     MessageQueue *messageQueue() const;
 
+    RocketChatBackend *rocketChatBackend() const;
+
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
     void serverURLChanged();
     void loginStatusChanged();
+    void added(const QJsonObject &item);
+    void changed(const QJsonObject &item);
 
 private:
     void loadSettings();
@@ -93,6 +98,7 @@ private:
     DDPClient *mDdp = nullptr;
     RestApiRequest *mRestApi = nullptr;
     MessageQueue *mMessageQueue = nullptr;
+    RocketChatBackend *mRocketChatBackend = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H

@@ -20,23 +20,23 @@
  *
  */
 
+#include "rocketchataccount.h"
 #include "rocketchatbackend.h"
-#include <QtCore>
 #include <QJsonObject>
 #include "ruqola_debug.h"
-#include "ruqola.h"
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
+#include "ruqola.h"
 
-void process_backlog(const QJsonDocument &messages)
+void process_backlog(const QJsonDocument &messages, RocketChatAccount *account)
 {
     qCDebug(RUQOLA_LOG) << messages.object().value(QStringLiteral("messages")).toArray().size();
-    RocketChatBackend::processIncomingMessages(messages.object().value(QStringLiteral("messages")).toArray());
+    account->rocketChatBackend()->processIncomingMessages(messages.object().value(QStringLiteral("messages")).toArray());
 }
 
-void rooms_parsing(const QJsonDocument &doc)
+void rooms_parsing(const QJsonDocument &doc, RocketChatAccount *account)
 {
-    RoomModel *model = Ruqola::self()->roomModel();
+    RoomModel *model = account->roomModel();
 
     //qDebug() << " doc " << doc;
 
@@ -53,7 +53,7 @@ void rooms_parsing(const QJsonDocument &doc)
         if (roomType == QLatin1String("c") //Chat
             || roomType == QLatin1String("p") /*Private chat*/) {
             // let's be extra safe around crashes
-            if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
+            if (account->loginStatus() == DDPClient::LoggedIn) {
                 Room r;
                 r.parseRoom(roomJson);
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.id << r.topic << r.mAnnouncement;
@@ -63,9 +63,9 @@ void rooms_parsing(const QJsonDocument &doc)
     }
 }
 
-void getsubscription_parsing(const QJsonDocument &doc)
+void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *account)
 {
-    RoomModel *model = Ruqola::self()->roomModel();
+    RoomModel *model = account->roomModel();
 
     //qDebug() << " doc " << doc;
 
@@ -83,10 +83,10 @@ void getsubscription_parsing(const QJsonDocument &doc)
             || roomType == QLatin1String("p")     /*Private chat*/
             || roomType == QLatin1String("d")) {    //Direct chat) {
             QString roomID = room.value(QStringLiteral("rid")).toString();
-            MessageModel *roomModel = Ruqola::self()->getMessageModelForRoom(roomID);
+            MessageModel *roomModel = account->getMessageModelForRoom(roomID);
 
             // let's be extra safe around crashes
-            if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
+            if (account->loginStatus() == DDPClient::LoggedIn) {
                 Room r;
                 r.parseSubscriptionRoom(room);
                 qCDebug(RUQOLA_LOG) << "Adding room subscription" << r.name << r.id << r.topic;
@@ -96,7 +96,7 @@ void getsubscription_parsing(const QJsonDocument &doc)
 
             QJsonArray params;
             params.append(QJsonValue(roomID));
-            Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-room-messages"), params);
+            account->ddp()->subscribe(QStringLiteral("stream-room-messages"), params);
 
             // Load history
             params.append(QJsonValue(QJsonValue::Null));
@@ -104,7 +104,7 @@ void getsubscription_parsing(const QJsonDocument &doc)
             QJsonObject dateObject;
             dateObject[QStringLiteral("$date")] = QJsonValue(roomModel->lastTimestamp());
             params.append(dateObject);
-            Ruqola::self()->ddp()->method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
+            account->ddp()->method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
         } else if (roomType == QLatin1String("l")) { //Live chat
             qDebug() << "Live Chat not implemented yet";
         }
@@ -112,21 +112,23 @@ void getsubscription_parsing(const QJsonDocument &doc)
     //We need to load all room after get subscription to update parameters
     QJsonObject params;
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
-    Ruqola::self()->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
+    account->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
 }
-
+/*
 void rooms_callback(const QJsonDocument &doc)
 {
     rooms_parsing(doc);
 }
+*/
 
-RocketChatBackend::RocketChatBackend(QObject *parent)
+RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mRocketChatAccount(account)
 {
-    connect(Ruqola::self(), &Ruqola::loginStatusChanged, this, &RocketChatBackend::onLoginStatusChanged);
-    connect(Ruqola::self(), &Ruqola::userIDChanged, this, &RocketChatBackend::onUserIDChanged);
-    connect(Ruqola::self()->ddp(), &DDPClient::changed, this, &RocketChatBackend::onChanged);
-    connect(Ruqola::self()->ddp(), &DDPClient::added, this, &RocketChatBackend::onAdded);
+    connect(mRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RocketChatBackend::onLoginStatusChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &RocketChatBackend::onUserIDChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::changed, this, &RocketChatBackend::onChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::added, this, &RocketChatBackend::onAdded);
 }
 
 RocketChatBackend::~RocketChatBackend()
@@ -142,22 +144,22 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         Message m;
         m.parseMessage(o);
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
-        Ruqola::self()->getMessageModelForRoom(m.mRoomId)->addMessage(m);
+        mRocketChatAccount->getMessageModelForRoom(m.mRoomId)->addMessage(m);
     }
 }
 
 void RocketChatBackend::onLoginStatusChanged()
 {
-    if (Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
+    if (mRocketChatAccount->loginStatus() == DDPClient::LoggedIn) {
 //         qCDebug(RUQOLA_LOG) << "GETTING LIST OF ROOMS";
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
-        std::function<void (QJsonDocument)> subscription_callback = [ = ](const QJsonDocument &doc) {
-            getsubscription_parsing(doc);
+        std::function<void (QJsonDocument, RocketChatAccount *)> subscription_callback = [ = ](const QJsonDocument &doc, RocketChatAccount *account) {
+            getsubscription_parsing(doc, account);
         };
 
-        Ruqola::self()->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
+        mRocketChatAccount->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
     }
 }
 
@@ -170,12 +172,12 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
     } else if (collection == QLatin1String("users")) {
         const QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
         const QString username = fields.value(QStringLiteral("username")).toString();
-        if (username == Ruqola::self()->userName()) {
-            Ruqola::self()->setUserID(object[QStringLiteral("id")].toString());
-            qCDebug(RUQOLA_LOG) << "User id set to " << Ruqola::self()->userID();
-            Ruqola::self()->restapi()->setUserName(Ruqola::self()->userName());
-            Ruqola::self()->restapi()->setPassword(Ruqola::self()->password());
-            Ruqola::self()->restapi()->login();
+        if (username == mRocketChatAccount->settings()->userName()) {
+            mRocketChatAccount->settings()->setUserId(object[QStringLiteral("id")].toString());
+            qCDebug(RUQOLA_LOG) << "User id set to " << mRocketChatAccount->settings()->userId();
+            mRocketChatAccount->restapi()->setUserName(mRocketChatAccount->settings()->userName());
+            mRocketChatAccount->restapi()->setPassword(mRocketChatAccount->settings()->password());
+            mRocketChatAccount->restapi()->login();
         }
 
         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username << fields;
@@ -207,11 +209,11 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
 
         if (eventname.endsWith(QStringLiteral("/subscriptions-changed"))) {
             qDebug() << " subscriptions-changed " << eventname;
-            RoomModel *model = Ruqola::self()->roomModel();
+            RoomModel *model = mRocketChatAccount->roomModel();
             model->updateSubscription(contents);
         } else if (eventname.endsWith(QStringLiteral("/rooms-changed"))) {
             qDebug() << "rooms-changed " << eventname;
-            RoomModel *model = Ruqola::self()->roomModel();
+            RoomModel *model = mRocketChatAccount->roomModel();
             model->updateRoom(contents);
         } else if (eventname.endsWith(QStringLiteral("/notification"))) {
             const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
@@ -228,35 +230,36 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
 
 void RocketChatBackend::onUserIDChanged()
 {
+    const QString userId{mRocketChatAccount->settings()->userId()};
     {
         //Subscribe notification.
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("notification"))));
-        Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("notification"))));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
         //Subscribe room-changed.
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("rooms-changed"))));
-        Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("rooms-changed"))));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
         //Subscribe subscriptions-changed
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("subscriptions-changed"))));
-        Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("subscriptions-changed"))));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
         //Subscribe message
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(Ruqola::self()->userID()).arg(QStringLiteral("message"))));
-        Ruqola::self()->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("message"))));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
         //Subscribe activeUsers
         QJsonArray params;
         params.append(QJsonValue(params));
-        Ruqola::self()->ddp()->subscribe(QStringLiteral("activeUsers"), params);
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("activeUsers"), params);
     }
     //TODO stream-notify-all ?
 }

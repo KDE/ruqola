@@ -27,6 +27,7 @@
 #include "ruqola_debug.h"
 #include "ruqola.h"
 #include "messagequeue.h"
+#include "rocketchatbackend.h"
 
 #include <QFile>
 #include <QFileDialog>
@@ -45,6 +46,7 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
     connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
 
 
+    mRocketChatBackend = new RocketChatBackend(this, this);
     mRoomModel = new RoomModel(this);
     mUserModel = new UsersModel(this);
     mMessageQueue = new MessageQueue(this);
@@ -67,6 +69,11 @@ void RocketChatAccount::initialize()
     mMessageQueue->loadCache();
     //Try to send queue message
     mMessageQueue->processQueue();
+}
+
+RocketChatBackend *RocketChatAccount::rocketChatBackend() const
+{
+    return mRocketChatBackend;
 }
 
 void RocketChatAccount::loadSettings()
@@ -182,9 +189,12 @@ DDPClient *RocketChatAccount::ddp()
 {
     if (!mDdp) {
         mDdp = new DDPClient(this, this);
+        connect(mDdp, &DDPClient::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
+        connect(mDdp, &DDPClient::changed, this, &RocketChatAccount::changed);
+        connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
+
         mDdp->setServerUrl(mSettings->serverUrl());
         mDdp->start();
-        connect(mDdp, &DDPClient::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
     }
     return mDdp;
 }

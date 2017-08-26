@@ -83,6 +83,16 @@ void RestApiRequest::parseChannelList(const QByteArray &data)
     qDebug() << " void RestApiRequest::parseChannelList(const QByteArray &data)" << data;
 }
 
+void RestApiRequest::setAuthToken(const QString &authToken)
+{
+    mAuthToken = authToken;
+}
+
+void RestApiRequest::setUserId(const QString &userId)
+{
+    mUserId = userId;
+}
+
 void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userId)
 {
     qDebug() << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
@@ -107,7 +117,7 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             parseGetAvatar(data, reply->property("userId").toString());
             break;
         case Unknown:
-            qWarning() << " Unknown restapi method" << data;
+            qCWarning(RUQOLA_LOG) << " Unknown restapi method" << data;
             break;
         }
     } else {
@@ -184,22 +194,31 @@ void RestApiRequest::logout()
 
 void RestApiRequest::channelList()
 {
-    const QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/channels.list"));
-    QNetworkRequest request(url);
-    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
-    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-    QNetworkReply *reply = mNetworkAccessManager->get(request);
-    reply->setProperty("method", QVariant::fromValue(RestMethod::ChannelList));
+    if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << "RestApiRequest::channelList problem with mUserId or mAuthToken";
+    } else {
+        const QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/channels.list"));
+        QNetworkRequest request(url);
+        request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
+        request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+        QNetworkReply *reply = mNetworkAccessManager->get(request);
+        reply->setProperty("method", QVariant::fromValue(RestMethod::ChannelList));
+    }
 }
 
 void RestApiRequest::getAvatar(const QString &userId)
 {
-    QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/users.getAvatar"));
-    QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("userId"), userId);
-    url.setQuery(queryUrl);
-    QNetworkRequest request(url);
-    QNetworkReply *reply = mNetworkAccessManager->get(request);
-    reply->setProperty("method", QVariant::fromValue(RestMethod::GetAvatar));
-    reply->setProperty("userId", userId);
+    if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << "RestApiRequest::getAvatar problem with mUserId or mAuthToken";
+    } else {
+
+        QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/users.getAvatar"));
+        QUrlQuery queryUrl;
+        queryUrl.addQueryItem(QStringLiteral("userId"), userId);
+        url.setQuery(queryUrl);
+        QNetworkRequest request(url);
+        QNetworkReply *reply = mNetworkAccessManager->get(request);
+        reply->setProperty("method", QVariant::fromValue(RestMethod::GetAvatar));
+        reply->setProperty("userId", userId);
+    }
 }

@@ -24,7 +24,6 @@
 #include <QtQml>
 
 #include "roommodel.h"
-#include "rocketchatbackend.h"
 #include "ruqola.h"
 #include "roomwrapper.h"
 #include "ruqolautils.h"
@@ -32,7 +31,6 @@
 #include "config-ruqola.h"
 
 #include <QJsonDocument>
-#include <QtCore>
 
 int main(int argc, char *argv[])
 {
@@ -58,7 +56,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<RoomModel>("KDE.Ruqola.RoomModel", 1, 0, "RoomModel");
     qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
 
-    RocketChatBackend c;
+    //RocketChatBackend c;
+    (void) Ruqola::self();
     QQmlApplicationEngine engine;
 
 #if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
