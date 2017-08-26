@@ -220,7 +220,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             const QString title = contents.at(0).toObject()[QStringLiteral("title")].toString();
             Ruqola::self()->notification()->showMessage(title, message, QSystemTrayIcon::Information, 5000);
         } else {
-            qDebug() << " Unknown event ? " << eventname;
+            qCWarning(RUQOLA_LOG) << " Unknown event ? " << eventname;
         }
         qCDebug(RUQOLA_LOG) << "New notification" << fields;
     } else {
