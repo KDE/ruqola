@@ -61,7 +61,6 @@ Q_SIGNALS:
     void loginStatusChanged();
 
 private:
-    void saveSettings();
     QString mUserId;
     QString mAuthToken;
     QString mServerUrl;

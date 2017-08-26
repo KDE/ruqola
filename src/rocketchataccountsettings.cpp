@@ -67,11 +67,6 @@ void RocketChatAccountSettings::logout()
     mPassword.clear();
 }
 
-void RocketChatAccountSettings::saveSettings()
-{
-    //TODO
-}
-
 void RocketChatAccountSettings::loadSettings()
 {
     QSettings s;
