@@ -1,3 +1,2 @@
-#!/bin/sh
-
-$EXTRACT_TR_STRINGS `find . -name \*.cpp -o -name \*.h -o -name \*.ui -o -name \*.qml` -o $podir/ruqola_qt.pot
+#! /usr/bin/env bash
+$XGETTEXT `find . -name "*.cpp" -o -name "*.qml" -o -name "*.ui" -name "*.h"` -L Java -o $podir/ruqola.pot

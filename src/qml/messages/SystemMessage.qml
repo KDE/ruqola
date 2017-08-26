@@ -35,26 +35,26 @@ Rectangle {
     function getTextFor(type) {
         
         if (type === "uj") {
-            return qsTr("has joined the channel");
+            return i18n("has joined the channel");
         } else if (type === "ul") {
-            return qsTr("has left the channel");
+            return i18n("has left the channel");
         } else if (type === "room_changed_topic") {
-            return qsTr("changed topic to: <i>%1</i>").arg(i_messageText)
+            return i18n("changed topic to: <i>%1</i>").arg(i_messageText)
         } else if (type === "au") {
-            return qsTr("added %1 to the conversation").arg(i_messageText)
+            return i18n("added %1 to the conversation").arg(i_messageText)
         } else if (type === "r") {
-            return qsTr("changed room name to <a href=\"ruqola:/room/%1\">#%1</a>").arg(i_messageText)
+            return i18n("changed room name to <a href=\"ruqola:/room/%1\">#%1</a>").arg(i_messageText)
         } else if (type === "ru") {
-            return qsTr("removed user %1").arg(i_messageText)
+            return i18n("removed user %1").arg(i_messageText)
         } else if (type === "room_changed_description") {
-            return qsTr("changed room description to %1").arg(i_messageText)
+            return i18n("changed room description to %1").arg(i_messageText)
         }  else if (type === "room_changed_privacy") {
-            return qsTr("changed room privacy to %1").arg(i_messageText)
+            return i18n("changed room privacy to %1").arg(i_messageText)
         } else {
             console.log("Unkown type for message");
             console.log(type);
             console.log(i_messageText)
-            return qsTr("Unknown action!");
+            return i18n("Unknown action!");
         }
     }
 

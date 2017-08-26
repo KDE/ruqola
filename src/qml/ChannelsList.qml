@@ -35,14 +35,14 @@ ScrollablePage {
     header: Column {
         Heading {
             id: heading
-            text: qsTr("Channels list")
+            text: i18n("Channels list")
             level: 1
         }
         QQC.TextField {
             id: searchField
             Behavior on opacity { NumberAnimation{} }
             visible: opacity ? true : false
-            placeholderText: qsTr("Search...")
+            placeholderText: i18n("Search...")
             width: parent.width
             onTextChanged: {
                 if (!ignoreTextChange) {

@@ -68,7 +68,7 @@ RowLayout {
         anchors.bottom: parent.bottom
         
         Layout.fillWidth: true
-        placeholderText: qsTr("Enter message")
+        placeholderText: i18n("Enter message")
 
         property string type: "text";
         onAccepted: {

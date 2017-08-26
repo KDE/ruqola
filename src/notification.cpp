@@ -22,6 +22,7 @@
 
 #include "notification.h"
 #include "ruqola.h"
+#include <KLocalizedString>
 
 #include <QAction>
 #include <QMenu>
@@ -40,7 +41,7 @@ Notification::Notification(QObject *parent)
 //create actions in Menu
 void Notification::createActions()
 {
-    m_quitAction = new QAction(tr("&Quit"), this);
+    m_quitAction = new QAction(i18n("&Quit"), this);
     connect(m_quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
     m_trayIconMenu = new QMenu();
     m_trayIconMenu->addAction(m_quitAction);
@@ -53,7 +54,7 @@ void Notification::createActions()
 bool Notification::createTrayIcon()
 {
     if (!QSystemTrayIcon::isSystemTrayAvailable()) {
-        QMessageBox::critical(nullptr, QObject::tr("Systray"), QObject::tr("Cannot detect SystemTray on this system."));
+        QMessageBox::critical(nullptr, i18n("Systray"), i18n("Cannot detect SystemTray on this system."));
         return false;
     }
 

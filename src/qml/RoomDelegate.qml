@@ -71,7 +71,7 @@ Kirigami.BasicListItem {
             height: parent.height
             width: height
             font.bold: true
-            text: qsTr("(%1)").arg(d_unread)
+            text: i18n("(%1)", d_unread)
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
         }
         Kirigami.Label {

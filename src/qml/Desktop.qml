@@ -56,7 +56,7 @@ Kirigami.ApplicationWindow {
     width: Kirigami.Units.gridUnit * 55
     height: Kirigami.Units.gridUnit * 40
 
-    title: qsTr("Ruqola")
+    title: i18n("Ruqola")
     
     header: Kirigami.ApplicationHeader {}
 
@@ -70,21 +70,21 @@ Kirigami.ApplicationWindow {
         
         topContent: [
             Text {
-                text: qsTr("Hello, %1").arg(Ruqola.userName)
+                text: i18n("Hello, %1").arg(Ruqola.userName)
             }
         ]
         
         actions: [
             Kirigami.Action {
-                text: qsTr("Preferences")
+                text: i18n("Preferences")
                 iconName: "user-available"
                 Kirigami.Action {
-                    text: qsTr("Change theme")
+                    text: i18n("Change theme")
                     iconName: "preferences-desktop-theme"
                 }
             },
             Kirigami.Action {
-                text: qsTr("Log out")
+                text: i18n("Log out")
                 iconName: "system-log-out"
                 onTriggered: {
                     Ruqola.logOut();
@@ -93,7 +93,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 shortcut: StandardKey.Quit
-                text: qsTr("Quit")
+                text: i18n("Quit")
                 iconName: "application-exit"
                 onTriggered: {
                     Qt.quit();

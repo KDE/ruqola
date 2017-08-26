@@ -143,7 +143,7 @@ Rectangle {
 
     function displayDateTime(timestamp)
     {
-        return Qt.formatDate(new Date(timestamp), qsTr("yyyy-MM-dd")) + "\n" + Qt.formatTime(new Date(timestamp), qsTr("hh:mm"));
+        return Qt.formatDate(new Date(timestamp), i18n("yyyy-MM-dd")) + "\n" + Qt.formatTime(new Date(timestamp), i18n("hh:mm"));
     }
 
     property string i_messageText
@@ -173,7 +173,7 @@ Rectangle {
         MenuItem {
             //             enabled: i_username == Ruqola.userName
             contentItem: Kirigami.Label {
-                text: qsTr("Edit")
+                text: i18n("Edit")
                 enabled: i_username == Ruqola.userName
             }
             onTriggered: {
@@ -183,7 +183,7 @@ Rectangle {
         }
         MenuItem {
             contentItem: Kirigami.Label {
-                text: qsTr("Reply")
+                text: i18n("Reply")
             }
             onTriggered: {
                 console.log("Reply to", i_messageID);

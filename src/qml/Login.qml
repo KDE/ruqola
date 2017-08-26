@@ -48,7 +48,7 @@ Kirigami.Page {
         spacing: 3
         Text {
             id: loginLabel
-            text: qsTr("Ruqola Log in")
+            text: i18n("Ruqola Log in")
             color: "#555"
             font.pixelSize: 40
             horizontalAlignment: Text.AlignHCenter
@@ -63,32 +63,32 @@ Kirigami.Page {
         
         Text {
             width: parent.width
-            text: qsTr("Rocket Chat Server")
+            text: i18n("Rocket Chat Server")
             
         }
         TextField {
             id: urlField
             width: parent.width
-            placeholderText: qsTr("Enter address of the server")
+            placeholderText: i18n("Enter address of the server")
         }
         
         Text {
             id:username
 
             width: parent.width
-            text: qsTr("Enter your username")
+            text: i18n("Enter your username")
         }
         TextField {
             width: parent.width
             id: usernameField
-            placeholderText: qsTr("Enter username")
+            placeholderText: i18n("Enter username")
         }
         
         Text {
             id: passLabel
 
             width: parent.width
-            text: qsTr("Enter your password")
+            text: i18n("Enter your password")
         }
         
         TextField {
@@ -96,7 +96,7 @@ Kirigami.Page {
             id:passField
             echoMode: TextInput.Password
             inputMethodHints: Qt.ImhHiddenText
-            placeholderText: qsTr("Enter password")
+            placeholderText: i18n("Enter password")
             onAccepted: {
                 acceptingButton.clicked();
             }
@@ -112,7 +112,7 @@ Kirigami.Page {
             id: acceptingButton
 
             width: parent.width
-            text: qsTr("Log in")
+            text: i18n("Log in")
             enabled: (passField.text && urlField.text && usernameField.text)
             onClicked: loginForm.accepted()
             isDefault: true
@@ -125,7 +125,7 @@ Kirigami.Page {
         }
 
         Text {
-            text: qsTr("Login Failed");
+            text: i18n("Login Failed");
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
             color: "#FF0000"

@@ -22,6 +22,7 @@
 
 #include <QApplication>
 #include <QtQml>
+#include <KLocalizedString>
 
 #include "roommodel.h"
 #include "ruqola.h"
@@ -44,7 +45,7 @@ int main(int argc, char *argv[])
     QCommandLineParser parser;
 
     //TODO improve it.
-    parser.setApplicationDescription(QObject::tr("Qt Rocket Chat"));
+    parser.setApplicationDescription(i18n("Qt Rocket Chat"));
     parser.addHelpOption();
     parser.addVersionOption();
     parser.process(app);
