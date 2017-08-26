@@ -29,6 +29,7 @@
 #include "messagequeue.h"
 #include "rocketchatbackend.h"
 
+#include <KLocalizedString>
 #include <QFile>
 #include <QFileDialog>
 
@@ -130,9 +131,9 @@ void RocketChatAccount::textEditing(const QString &roomId, const QString &str)
 void RocketChatAccount::attachmentButtonClicked(const QString &roomId)
 {
     const QString fileName = QFileDialog::getOpenFileName(nullptr,
-                                                          tr("Select one or more files to open"),
+                                                          i18n("Select one or more files to open"),
                                                           QDir::homePath(),
-                                                          tr("Images (*.png *.jpeg *.jpg)"));
+                                                          i18n("Images (*.png *.jpeg *.jpg)"));
     if (fileName.isEmpty()) {
         return;
     }
@@ -224,12 +225,6 @@ void RocketChatAccount::tryLogin()
     // This creates a new ddp() object.
     // DDP will automatically try to connect and login.
     ddp();
-
-    //FIXME
-    //TODO we need to load it after ddp login done
-    restapi();
-    restapi()->setPassword(mSettings->password());
-    restapi()->login();
 
     // In the meantime, load cache...
     //if(Ruqola::self()->ddp()->isConnected() && Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {

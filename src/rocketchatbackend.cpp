@@ -82,7 +82,7 @@ void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *accoun
         if (roomType == QLatin1String("c") //Chat
             || roomType == QLatin1String("p")     /*Private chat*/
             || roomType == QLatin1String("d")) {    //Direct chat) {
-            QString roomID = room.value(QStringLiteral("rid")).toString();
+            const QString roomID = room.value(QStringLiteral("rid")).toString();
             MessageModel *roomModel = account->getMessageModelForRoom(roomID);
 
             // let's be extra safe around crashes
@@ -114,12 +114,6 @@ void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *accoun
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
     account->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
 }
-/*
-void rooms_callback(const QJsonDocument &doc)
-{
-    rooms_parsing(doc);
-}
-*/
 
 RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
@@ -160,6 +154,9 @@ void RocketChatBackend::onLoginStatusChanged()
         };
 
         mRocketChatAccount->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
+        mRocketChatAccount->restapi()->setAuthToken(mRocketChatAccount->settings()->authToken());
+        mRocketChatAccount->restapi()->setUserId(mRocketChatAccount->settings()->userId());
+        mRocketChatAccount->restApi()->channelList();
     }
 }
 
