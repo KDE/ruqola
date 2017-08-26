@@ -38,7 +38,7 @@ Q_SIGNALS:
 private:
     void slotTimeout();
     QString mRoomId;
-    bool mTypingInprogress;
+    bool mTypingInprogress = false;
     QTimer *mTimer = nullptr;
 };
 

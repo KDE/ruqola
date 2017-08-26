@@ -49,7 +49,7 @@ private slots:
     void onGranted();
 
 private:
-    bool m_authGranted;
+    bool m_authGranted = false;
     QString m_clientID;
     QString m_clientSecret;
 };

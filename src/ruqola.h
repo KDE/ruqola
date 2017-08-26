@@ -74,10 +74,10 @@ public:
     void setServerURL(const QString &serverURL);
 
 
-    DDPClient *ddp();
+    DDPClient *ddp() const;
     Notification *notification();
 
-    Q_INVOKABLE RoomModel *roomModel();
+    Q_INVOKABLE RoomModel *roomModel() const;
 
     /**
     * @brief Constructs a Json with @param roomID and @param message and @param type, then calls DDPClient's method to send text message over the network
@@ -120,7 +120,7 @@ public:
     */
     QString cacheBasePath() const;
 
-    RestApiRequest *restapi();
+    RestApiRequest *restapi() const;
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();

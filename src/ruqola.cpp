@@ -98,17 +98,17 @@ void Ruqola::setUserID(const QString &userID)
     mRocketChatAccount->settings()->setUserId(userID);
 }
 
-RoomModel *Ruqola::roomModel()
+RoomModel *Ruqola::roomModel() const
 {
     return mRocketChatAccount->roomModel();
 }
 
-RestApiRequest *Ruqola::restapi()
+RestApiRequest *Ruqola::restapi() const
 {
     return mRocketChatAccount->restapi();
 }
 
-DDPClient *Ruqola::ddp()
+DDPClient *Ruqola::ddp() const
 {
     return mRocketChatAccount->ddp();
 }
