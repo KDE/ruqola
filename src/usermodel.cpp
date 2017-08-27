@@ -19,7 +19,7 @@
 */
 
 #include "usermodel.h"
-
+#include "ruqola_debug.h"
 UsersModel::UsersModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -50,6 +50,8 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
         return user.status();
     case UserListRooms:
         return user.listRooms();
+    default:
+        qCWarning(RUQOLA_LOG) << "Unknow usersmodel roles: " << role;
     }
     return {};
 }
