@@ -28,6 +28,7 @@
 #include "ruqola.h"
 #include "messagequeue.h"
 #include "rocketchatbackend.h"
+#include "usersforroommodel.h"
 
 #include <KLocalizedString>
 #include <QFile>
@@ -119,6 +120,19 @@ MessageModel *RocketChatAccount::getMessageModelForRoom(const QString &roomID)
     } else {
         mMessageModels[roomID] = new MessageModel(roomID, this);
         return mMessageModels[roomID];
+    }
+}
+
+UsersForRoomModel *RocketChatAccount::getUsersForRoomModel(const QString &roomId)
+{
+    UsersForRoomModel *model = nullptr;
+    if ((model = mUsersForRoomModels.value(roomId))) {
+        return model;
+    } else {
+        model = new UsersForRoomModel(this);
+        model->setCurrentRoomId(roomId);
+        mUsersForRoomModels[roomId] = model;
+        return model;
     }
 }
 

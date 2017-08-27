@@ -34,6 +34,7 @@ class DDPClient;
 class RestApiRequest;
 class MessageQueue;
 class RocketChatBackend;
+class UsersForRoomModel;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
@@ -77,6 +78,8 @@ public:
 
     RocketChatBackend *rocketChatBackend() const;
 
+    UsersForRoomModel *getUsersForRoomModel(const QString &roomId);
+
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
@@ -91,6 +94,7 @@ private:
     RocketChatAccountSettings *mSettings = nullptr;
     //room, messagemodel
     QHash<QString, MessageModel *> mMessageModels;
+    QHash<QString, UsersForRoomModel *> mUsersForRoomModels;
 
     TypingNotification *mTypingNotification = nullptr;
     UsersModel *mUserModel = nullptr;
