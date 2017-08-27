@@ -58,10 +58,10 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
 
 void UsersModel::removeUser(const QString &userId)
 {
-
+    qCDebug(RUQOLA_LOG) << " User removed " << userId;
 }
 
 void UsersModel::addUser(const User &user)
 {
-
+    qCDebug(RUQOLA_LOG) << " User added ";
 }
