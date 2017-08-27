@@ -1,0 +1,34 @@
+
+
+                UsersForRoomModel UsersForRoomModel .... 
+                                |       |       |      |
+                              Room1   Room2   Room3   Room4 ...
+                                   \    |      |    /
+
+                                        RoomModel
+                                            |
+                                            |
+RocketChatAccountSettings <--------> RocketChatAccount1  <-----------> RocketChatBackend     ...RocketChatAccount2....
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |                                                       |
+                                            |-------------------------------------------------------
+                                                                                                    |
+                                                                                                    |
+                                                                                                    |
+                                                                                                    |
+                                                                                                    |
+                                                                                                    |
+                                                                                                  Ruqola
