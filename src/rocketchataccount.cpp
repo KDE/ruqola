@@ -136,7 +136,6 @@ UsersForRoomModel *RocketChatAccount::getUsersForRoomModel(const QString &roomId
     }
 }
 
-
 void RocketChatAccount::textEditing(const QString &roomId, const QString &str)
 {
     mTypingNotification->setText(roomId, str);
