@@ -36,4 +36,5 @@ void UserTest::shouldHaveDefaultValue()
     QVERIFY(u.name().isEmpty());
     QVERIFY(u.userId().isEmpty());
     QVERIFY(u.status().isEmpty());
+    QVERIFY(u.listRooms().isEmpty());
 }
