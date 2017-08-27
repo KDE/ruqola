@@ -267,7 +267,8 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     } else if (actionName == QStringLiteral("updated")) {
         qDebug() << " UPDATE ROOM";
         const QJsonObject roomData = array[1].toObject();
-        qDebug() << "UPDATE ROOM name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
+        qDebug() << "UPDATE ROOM name " << roomData.value(QStringLiteral("name")).toString() << " rid " << roomData.value(QStringLiteral("rid")) << " roomData " << roomData;
+        //updateRoom();
     } else {
         qDebug() << " Undefined type" << actionName;
     }
@@ -276,6 +277,16 @@ void RoomModel::updateSubscription(const QJsonArray &array)
 
 void RoomModel::updateRoom(const QJsonArray &array)
 {
+    const QJsonObject roomData = array[1].toObject();
+    const QString roomName = roomData.value(QStringLiteral("name")).toString();
+    if (!roomName.isEmpty()) {
+        for (int i = 0; i < mRoomsList.size(); ++i) {
+            if (mRoomsList.at(i).name == roomName) {
+                //TODO update it.
+                break;
+            }
+        }
+    }
     //TODO
 }
 
