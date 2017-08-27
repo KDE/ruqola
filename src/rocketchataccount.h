@@ -63,6 +63,7 @@ public:
     Q_INVOKABLE void hideRoom(const QString &roomId);
     Q_INVOKABLE void tryLogin();
     Q_INVOKABLE void logOut();
+    Q_INVOKABLE void clearUnreadMessages(const QString &roomId);
 
     DDPClient *ddp();
 

@@ -136,6 +136,7 @@ public:
 
     quint64 leaveRoom(const QString &roomID);
     quint64 hideRoom(const QString &roomID);
+    quint64 clearUnreadMessages(const QString &roomID);
 
     quint64 informTypingStatus(const QString &room, bool typing, const QString &userName);
 

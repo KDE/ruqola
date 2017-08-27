@@ -180,6 +180,12 @@ quint64 DDPClient::hideRoom(const QString &roomID)
     return method(result, empty_callback, DDPClient::Persistent);
 }
 
+quint64 DDPClient::clearUnreadMessages(const QString &roomID)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->readMessages(roomID, m_uid);
+    return method(result, empty_callback, DDPClient::Persistent);
+}
+
 quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->informTypingStatus(roomId, userName, typing, m_uid);

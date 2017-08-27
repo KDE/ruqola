@@ -45,6 +45,7 @@ RowLayout {
     anchors.right: parent.right
     anchors.bottom: mainWidget.bottom
     signal textEditing(string str)
+    signal clearUnreadMessages()
     
     height: 3*Kirigami.Units.largeSpacing
     
@@ -79,6 +80,12 @@ RowLayout {
         }
         onTextChanged: {
             footerItem.textEditing(text)
+        }
+        Shortcut {
+            sequence: "Escape"
+            onActivated: {
+                clearUnreadMessages();
+            }
         }
     }
     

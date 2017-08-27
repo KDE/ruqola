@@ -238,6 +238,9 @@ Kirigami.ApplicationWindow {
                 onTextEditing: {
                     Ruqola.textEditing(appid.selectedRoomID, str)
                 }
+                onClearUnreadMessages: {
+                    Ruqola.clearUnreadMessages(appid.selectedRoomID)
+                }
             }
         }// mainWidget Item
     }

@@ -267,3 +267,8 @@ void RocketChatAccount::logOut()
     Q_EMIT loginStatusChanged();
     qCDebug(RUQOLA_LOG) << "Successfully logged out!";
 }
+
+void RocketChatAccount::clearUnreadMessages(const QString &roomId)
+{
+     ddp()->clearUnreadMessages(roomId);
+}

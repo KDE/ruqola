@@ -127,6 +127,11 @@ void Ruqola::attachmentButtonClicked(const QString &roomId)
     mRocketChatAccount->attachmentButtonClicked(roomId);
 }
 
+void Ruqola::clearUnreadMessages(const QString &roomId)
+{
+    mRocketChatAccount->clearUnreadMessages(roomId);
+}
+
 void Ruqola::textEditing(const QString &roomId, const QString &str)
 {
     mRocketChatAccount->textEditing(roomId, str);
