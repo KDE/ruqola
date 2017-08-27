@@ -23,6 +23,7 @@
 
 #include <QString>
 #include <QObject>
+#include <QDebug>
 #include "libruqola_private_export.h"
 class LIBRUQOLACORE_TESTS_EXPORT User
 {
@@ -57,5 +58,8 @@ private:
     QString mName;
     QStringList mListRooms;
 };
+
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const User &t);
+
 
 #endif // USER_H

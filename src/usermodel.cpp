@@ -63,5 +63,5 @@ void UsersModel::removeUser(const QString &userId)
 
 void UsersModel::addUser(const User &user)
 {
-    qCDebug(RUQOLA_LOG) << " User added ";
+    qCDebug(RUQOLA_LOG) << " User added " << user;
 }

@@ -69,3 +69,12 @@ void User::setListRooms(const QStringList &listRooms)
 {
     mListRooms = listRooms;
 }
+
+QDebug operator <<(QDebug d, const User &t)
+{
+    d << "Name " << t.name();
+    d << "UserId " << t.userId();
+    d << "Status " << t.status();
+    d << "List Rooms " << t.listRooms();
+    return d;
+}
