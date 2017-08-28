@@ -77,8 +77,8 @@ QDebug operator <<(QDebug d, const Room &t)
 void Room::parseUpdateRoom(const QJsonObject &json)
 {
     //QJsonArray(["updated",{"_id":"7jHqcrZ8FYXJBwgRB","_updatedAt":{"$date":1503902695955},"alert":false,"f":true,"groupMentions":0,"ls":{"$date":1503902695955},"name":"dev","open":true,"rid":"dBWXYy4nyBHn8Q7dv","t":"c","ts":{"$date":1493034182680},"u":{"_id":"uKK39zoewTkdacidH","username":"laurent"},"unread":0,"userMentions":0}])
-    if (json.contains(QStringLiteral("_id"))) {
-        id = json.value(QStringLiteral("_id")).toString();
+    if (json.contains(QStringLiteral("rid"))) {
+        id = json.value(QStringLiteral("rid")).toString();
     }
     if (json.contains(QStringLiteral("alert"))) {
         mAlert = json[QStringLiteral("alert")].toBool();
