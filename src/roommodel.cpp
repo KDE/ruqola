@@ -24,6 +24,7 @@
 #include "ruqola.h"
 #include "ruqola_debug.h"
 #include "roomwrapper.h"
+#include <KLocalizedString>
 
 #include <QAbstractItemModel>
 #include <QtCore>
@@ -167,12 +168,12 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     {
         QString str;
         if (r.mFavorite) {
-            str = tr("Favorites");
+            str = i18n("Favorites");
         } else {
             if (r.mChannelType == QLatin1String("c")) {
-                str = tr("Rooms");
+                str = i18n("Rooms");
             } else if (r.mChannelType == QLatin1String("d")) {
-                str = tr("Private Message");
+                str = i18n("Private Message");
             } else {
                 str = QString();
             }
