@@ -301,28 +301,19 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
     auto i = std::upper_bound(mRoomsList.begin(), mRoomsList.end(),
                               room);
     int pos = i-mRoomsList.begin();
-    bool roomChanged = false;
     qCDebug(RUQOLA_LOG) << pos;
 
-//     if (qFind(m_roomsList.begin(), m_roomsList.end(), room) != m_roomsList.end() && pos > 0) {
     if (present) {
-//         qCDebug(RUQOLA_LOG) << (qFind(m_roomsList.begin(), m_roomsList.end(), room) - m_roomsList.begin());
-//     if (pos != m_roomsList.size()) { // we're at the end
-        qCDebug(RUQOLA_LOG) << "Room changed!";
-        roomChanged = true;
-        //Figure out a better way to update just the really changed message
+        qCDebug(RUQOLA_LOG) << "Room changed!" << roomID;
     } else {
         qCWarning(RUQOLA_LOG) << " ROOM DOESNT EXIST " << roomID;
         return;
     }
 
-    if (roomChanged) {
-        Room foundRoom = mRoomsList.value(pos - 1);
-        foundRoom.mTopic = topic;
-        foundRoom.mAnnouncement = announcement;
-        mRoomsList.replace(pos - 1, foundRoom);
-    }
-
+    Room foundRoom = mRoomsList.value(pos - 1);
+    foundRoom.mTopic = topic;
+    foundRoom.mAnnouncement = announcement;
+    mRoomsList.replace(pos - 1, foundRoom);
     Q_EMIT dataChanged(createIndex(1, 1), createIndex(pos, 1));
 
     Ruqola::self()->getMessageModelForRoom(room.id);
