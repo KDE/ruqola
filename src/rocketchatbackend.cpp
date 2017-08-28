@@ -27,6 +27,8 @@
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
 #include "ruqola.h"
+#include "user.h"
+#include "usermodel.h"
 
 void process_backlog(const QJsonDocument &messages, RocketChatAccount *account)
 {
@@ -175,9 +177,16 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
             mRocketChatAccount->restapi()->setUserName(mRocketChatAccount->settings()->userName());
             mRocketChatAccount->restapi()->setPassword(mRocketChatAccount->settings()->password());
             mRocketChatAccount->restapi()->login();
+        } else {
+            //TODO add current user ? me ?
+            User user;
+            user.parseUser(object);
+            qCDebug(RUQOLA_LOG) << " USER ADDED VALUE " << user;
+            mRocketChatAccount->userModel()->addUser(user);
         }
 
         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username << fields;
+
     } else if (collection == QLatin1String("rooms")) {
         qCDebug(RUQOLA_LOG) << "NEW ROOMS ADDED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {

@@ -50,6 +50,8 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
         return user.status();
     case UserListRooms:
         return user.listRooms();
+    case UserIcon:
+        return user.iconFromStatus();
     default:
         qCWarning(RUQOLA_LOG) << "Unknow usersmodel roles: " << role;
     }
@@ -64,4 +66,10 @@ void UsersModel::removeUser(const QString &userId)
 void UsersModel::addUser(const User &user)
 {
     qCDebug(RUQOLA_LOG) << " User added " << user;
+    //TODO verify if duplicate ?
+    int pos = mUsers.size();
+    beginInsertRows(QModelIndex(), pos, pos);
+    mUsers.append(user);
+    //TODO emit signal that we added element
+    endInsertRows();
 }

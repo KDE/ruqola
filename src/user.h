@@ -34,7 +34,8 @@ public:
         PresenceOnline,
         PresenceBusy,
         PresenceAway,
-        PresenceOffline
+        PresenceOffline,
+        Unknown
     };
     Q_ENUM(PresenceStatus)
 
@@ -52,6 +53,11 @@ public:
 
     QStringList listRooms() const;
     void setListRooms(const QStringList &listRooms);
+
+    void parseUser(const QJsonObject &json);
+    void updateUser(const QJsonObject &object);
+
+    QString iconFromStatus() const;
 private:
     QString mStatus;
     QString mUserId;

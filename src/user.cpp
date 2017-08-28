@@ -20,6 +20,8 @@
 
 #include "user.h"
 
+#include <QJsonObject>
+
 User::User()
 {
 
@@ -77,4 +79,23 @@ QDebug operator <<(QDebug d, const User &t)
     d << "Status " << t.status();
     d << "List Rooms " << t.listRooms();
     return d;
+}
+
+void User::updateUser(const QJsonObject &object)
+{
+    //TODO
+}
+
+void User::parseUser(const QJsonObject &object)
+{
+    const QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
+    mName = fields.value(QStringLiteral("name")).toString();
+    mUserId = object.value(QStringLiteral("id")).toString();
+    mStatus = fields.value(QStringLiteral("status")).toString();
+}
+
+QString User::iconFromStatus() const
+{
+    //TODO
+    return {};
 }

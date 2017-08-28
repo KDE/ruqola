@@ -33,7 +33,8 @@ public:
         UserName = Qt::UserRole + 1,
         UserId,
         UserStatus,
-        UserListRooms
+        UserListRooms,
+        UserIcon
     };
 
     explicit UsersModel(QObject *parent = nullptr);
