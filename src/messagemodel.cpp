@@ -224,24 +224,25 @@ void MessageModel::addMessage(const Message &message)
 QVariant MessageModel::data(const QModelIndex &index, int role) const
 {
     int idx = index.row();
-    if (role == MessageModel::Username) {
+    switch(role) {
+    case MessageModel::Username:
         return m_allMessages.at(idx).mUsername;
-    } else if (role == MessageModel::MessageText) {
+   case MessageModel::MessageText:
         return m_allMessages.at(idx).mText;
-    } else if (role == MessageModel::Timestamp) {
-        return QVariant(m_allMessages.at(idx).mTimeStamp);
-    } else if (role == MessageModel::UserID) {
-        return QVariant(m_allMessages.at(idx).mUserId);
-    } else if (role == MessageModel::SystemMessage) {
-        return QVariant(m_allMessages.at(idx).mSystemMessage);
-    } else if (role == MessageModel::SystemMessageType) {
-        return QVariant(m_allMessages.at(idx).mSystemMessageType);
-    } else if (role == MessageModel::MessageID) {
-        return QVariant(m_allMessages.at(idx).mMessageId);
-    } else if (role == MessageModel::Alias) {
-        return QVariant(m_allMessages.at(idx).mAlias);
-    } else {
-        return QVariant(QString());
+   case MessageModel::Timestamp:
+        return m_allMessages.at(idx).mTimeStamp;
+   case MessageModel::UserID:
+        return m_allMessages.at(idx).mUserId;
+   case MessageModel::SystemMessage:
+        return m_allMessages.at(idx).mSystemMessage;
+   case MessageModel::SystemMessageType:
+        return m_allMessages.at(idx).mSystemMessageType;
+   case MessageModel::MessageID:
+        return m_allMessages.at(idx).mMessageId;
+   case MessageModel::Alias:
+        return m_allMessages.at(idx).mAlias;
+   default:
+        return QString();
     }
 }
 

@@ -282,12 +282,18 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
         for (int i = 0; i < mRoomsList.size(); ++i) {
             if (mRoomsList.at(i).mName == roomName) {
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
-                //TODO update it.
+                Room room = mRoomsList.at(i);
+                room.parseUpdateRoom(roomData);
+                mRoomsList.replace(i, room);
+                Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
+
+                Ruqola::self()->getMessageModelForRoom(room.id);
                 break;
             }
         }
+    } else {
+        qCWarning(RUQOLA_LOG) << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
     }
-    //TODO
 }
 
 void RoomModel::updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement)
