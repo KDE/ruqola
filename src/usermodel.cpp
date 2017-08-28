@@ -73,3 +73,8 @@ void UsersModel::addUser(const User &user)
     //TODO emit signal that we added element
     endInsertRows();
 }
+
+void UsersModel::updateUser(const QJsonObject &array)
+{
+
+}

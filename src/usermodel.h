@@ -46,6 +46,7 @@ public:
     void addUser(const User &user);
     void removeUser(const QString &userId);
 
+    void updateUser(const QJsonObject &array);
 private:
     QVector<User> mUsers;
 };
