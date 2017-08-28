@@ -211,7 +211,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         } else if (eventname.endsWith(QStringLiteral("/rooms-changed"))) {
             qDebug() << "rooms-changed " << eventname;
             RoomModel *model = mRocketChatAccount->roomModel();
-            model->updateRoom(contents);
+            model->updateRoom(fields);
         } else if (eventname.endsWith(QStringLiteral("/notification"))) {
             const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
             const QString title = contents.at(0).toObject()[QStringLiteral("title")].toString();

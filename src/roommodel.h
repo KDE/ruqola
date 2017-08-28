@@ -106,7 +106,7 @@ public:
     void clear();
     //TODO
     void updateSubscription(const QJsonArray &array);
-    void updateRoom(const QJsonArray &array);
+    void updateRoom(const QJsonObject &array);
 protected:
     QHash<int, QByteArray> roleNames() const override;
 
