@@ -36,6 +36,7 @@ class TypingNotification;
 class UsersModel;
 class RestApiRequest;
 class RocketChatAccount;
+class UsersForRoomModel;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT
@@ -122,6 +123,7 @@ public:
     QString cacheBasePath() const;
 
     RestApiRequest *restapi() const;
+    Q_INVOKABLE UsersForRoomModel *getUsersForRoomModel(const QString &roomId);
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();

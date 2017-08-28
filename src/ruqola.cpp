@@ -108,6 +108,11 @@ RestApiRequest *Ruqola::restapi() const
     return mRocketChatAccount->restapi();
 }
 
+UsersForRoomModel *Ruqola::getUsersForRoomModel(const QString &roomId)
+{
+    return mRocketChatAccount->getUsersForRoomModel(roomId);
+}
+
 DDPClient *Ruqola::ddp() const
 {
     return mRocketChatAccount->ddp();

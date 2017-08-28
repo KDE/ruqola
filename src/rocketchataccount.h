@@ -54,7 +54,8 @@ public:
     RoomModel *roomModel() const;
 
     Q_INVOKABLE RoomWrapper *getRoom(const QString &roomId);
-    MessageModel *getMessageModelForRoom(const QString &roomID);
+    Q_INVOKABLE MessageModel *getMessageModelForRoom(const QString &roomID);
+    Q_INVOKABLE UsersForRoomModel *getUsersForRoomModel(const QString &roomId);
 
     Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
 
@@ -79,7 +80,6 @@ public:
 
     RocketChatBackend *rocketChatBackend() const;
 
-    UsersForRoomModel *getUsersForRoomModel(const QString &roomId);
 
 Q_SIGNALS:
     void userNameChanged();
