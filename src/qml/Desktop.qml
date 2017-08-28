@@ -47,6 +47,7 @@ Kirigami.ApplicationWindow {
     property QtObject selectedRoom
 
     property QtObject model
+    property QtObject userModel
 
     width: Kirigami.Units.gridUnit * 55
     height: Kirigami.Units.gridUnit * 40
@@ -151,6 +152,7 @@ Kirigami.ApplicationWindow {
                     appid.selectedRoomID = roomID;
                     appid.model = Ruqola.getMessageModelForRoom(roomID)
                     appid.selectedRoom = Ruqola.getRoom(roomID)
+                    appid.userModel = Ruqola.getUsersForRoomModel(roomID)
                 }
                 
             } //RoomsView

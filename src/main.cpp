@@ -25,6 +25,7 @@
 #include <KLocalizedString>
 
 #include "roommodel.h"
+#include "usersforroommodel.h"
 #include "ruqola.h"
 #include "roomwrapper.h"
 #include "ruqolautils.h"
@@ -56,6 +57,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");
     qmlRegisterType<RoomModel>("KDE.Ruqola.RoomModel", 1, 0, "RoomModel");
     qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
+    qmlRegisterType<UsersForRoomModel>("KDE.Ruqola.UsersForRoomModel", 1, 0, "UsersForRoomModel");
 
     //RocketChatBackend c;
     (void) Ruqola::self();

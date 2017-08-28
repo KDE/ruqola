@@ -22,8 +22,9 @@
 #define USERSFORROOMMODEL_H
 
 #include <QSortFilterProxyModel>
+#include "libruqolacore_export.h"
 
-class UsersForRoomModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT UsersForRoomModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
