@@ -74,6 +74,10 @@ QDebug operator <<(QDebug d, const Room &t)
     return d;
 }
 
+void Room::parseUpdateRoom(const QJsonObject &json)
+{
+
+}
 
 void Room::parseRoom(const QJsonObject &json)
 {

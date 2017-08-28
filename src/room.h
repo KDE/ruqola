@@ -52,18 +52,9 @@ public:
         return name;
     }
 
-    /**
-    * @brief Return topic name
-    *
-    * @return QString, The name of the topic of room
-    */
-    QString getTopic() const
-    {
-        return topic;
-    }
-
     void parseSubscriptionRoom(const QJsonObject &json);
     void parseRoom(const QJsonObject &json);
+    void parseUpdateRoom(const QJsonObject &json);
 
 
     //Room Object Fields
