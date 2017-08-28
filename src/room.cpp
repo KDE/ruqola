@@ -34,43 +34,43 @@ bool Room::operator==(const Room &other) const
 
 bool Room::operator<(const Room &other) const
 {
-    return name < other.name;
+    return mName < other.mName;
 }
 
 bool Room::isEqual(const Room &other) const
 {
     return (id == other.id)
-            && (type == other.type)
-            && (name == other.name)
+            && (mChannelType == other.mChannelType)
+            && (mName == other.mName)
             && (mAnnouncement == other.mAnnouncement)
-            && (userName == other.userName)
-            && (userID == other.userID)
-            && (topic == other.topic)
-            && (mutedUsers == other.mutedUsers)
-            && (jitsiTimeout == other.jitsiTimeout)
-            && (ro == other.ro)
-            && (unread == other.unread)
-            && (selected == other.selected)
-            && (favorite == other.favorite)
-            && (open == other.open);
+            && (mUserName == other.mUserName)
+            && (mUserId == other.mUserId)
+            && (mTopic == other.mTopic)
+            && (mMutedUsers == other.mMutedUsers)
+            && (mJitsiTimeout == other.mJitsiTimeout)
+            && (mReadOnly == other.mReadOnly)
+            && (mUnread == other.mUnread)
+            && (mSelected == other.mSelected)
+            && (mFavorite == other.mFavorite)
+            && (mOpen == other.mOpen);
 }
 
 QDebug operator <<(QDebug d, const Room &t)
 {
     d << "id :" << t.id;
-    d << "type :" << t.type;
-    d << "name :" << t.name;
+    d << "type :" << t.mChannelType;
+    d << "name :" << t.mName;
     d << "mAnnouncement :" << t.mAnnouncement;
-    d << "userName :" << t.userName;
-    d << "userID :" << t.userID;
-    d << "topic :" << t.topic;
-    d << "mutedUsers :" << t.mutedUsers;
-    d << "jitsiTimeout :" << t.jitsiTimeout;
-    d << "ro :" << t.ro;
-    d << "unread :" << t.unread;
-    d << "selected :" << t.selected;
-    d << "favorite :" << t.favorite;
-    d << "open :" << t.open;
+    d << "userName :" << t.mUserName;
+    d << "userID :" << t.mUserId;
+    d << "topic :" << t.mTopic;
+    d << "mutedUsers :" << t.mMutedUsers;
+    d << "jitsiTimeout :" << t.mJitsiTimeout;
+    d << "ro :" << t.mReadOnly;
+    d << "unread :" << t.mUnread;
+    d << "selected :" << t.mSelected;
+    d << "favorite :" << t.mFavorite;
+    d << "open :" << t.mOpen;
     return d;
 }
 
@@ -82,8 +82,8 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 void Room::parseRoom(const QJsonObject &json)
 {
     id = json.value(QStringLiteral("_id")).toString();
-    name = json[QStringLiteral("name")].toString();
-    topic = json[QStringLiteral("topic")].toString();
+    mName = json[QStringLiteral("name")].toString();
+    mTopic = json[QStringLiteral("topic")].toString();
     mAnnouncement = json[QStringLiteral("announcement")].toString();
 }
 
@@ -91,20 +91,20 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     const QString roomID = json.value(QStringLiteral("rid")).toString();
     id = roomID;
-    name = json[QStringLiteral("name")].toString();
-    topic = json[QStringLiteral("topic")].toString();
+    mName = json[QStringLiteral("name")].toString();
+    mTopic = json[QStringLiteral("topic")].toString();
     mAnnouncement = json[QStringLiteral("announcement")].toString();
     const QString roomType = json.value(QStringLiteral("t")).toString();
-    type = roomType;
+    mChannelType = roomType;
     QJsonValue favoriteValue = json.value(QStringLiteral("f"));
     if (!favoriteValue.isUndefined()) {
-        favorite = favoriteValue.toBool();
+        mFavorite = favoriteValue.toBool();
     }
     //Only private room has this settings.
     if (roomType == QLatin1String("p")) {
-        ro = json[QStringLiteral("ro")].toString() == QLatin1String("true");
+        mReadOnly = json[QStringLiteral("ro")].toString() == QLatin1String("true");
     }
-    unread = json[QStringLiteral("unread")].toInt();
-    open = json[QStringLiteral("open")].toBool();
-    alert = json[QStringLiteral("alert")].toBool();
+    mUnread = json[QStringLiteral("unread")].toInt();
+    mOpen = json[QStringLiteral("open")].toBool();
+    mAlert = json[QStringLiteral("alert")].toBool();
 }

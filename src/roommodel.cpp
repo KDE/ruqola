@@ -45,7 +45,7 @@ RoomModel::~RoomModel()
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
         for (const Room &m : qAsConst(mRoomsList)) {
-            qDebug() << " save cache for room " << m.name;
+            qDebug() << " save cache for room " << m.mName;
             const QByteArray ms = RoomModel::serialize(m);
             out.writeBytes(ms, ms.size());
         }
@@ -136,48 +136,48 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
 
     switch (role) {
     case RoomModel::RoomName:
-        return r.name;
+        return r.mName;
     case RoomModel::RoomID:
         return r.id;
     case RoomModel::RoomSelected:
-        return r.selected;
+        return r.mSelected;
     case RoomModel::RoomType:
-        return r.type;
+        return r.mChannelType;
     case RoomModel::RoomUserID:
-        return r.userID;
+        return r.mUserId;
     case RoomModel::RoomUserName:
-        return r.userName;
+        return r.mUserName;
     case RoomModel::RoomTopic:
-        return r.topic;
+        return r.mTopic;
     case RoomModel::RoomMutedUsers:
-        return r.mutedUsers;
+        return r.mMutedUsers;
     case RoomModel::RoomJitsiTimeout:
-        return r.jitsiTimeout;
+        return r.mJitsiTimeout;
     case RoomModel::RoomRO:
-        return r.ro;
+        return r.mReadOnly;
     case RoomModel::RoomAnnoucement:
         return r.mAnnouncement;
     case RoomModel::RoomUnread:
-        return r.unread;
+        return r.mUnread;
     case RoomModel::RoomOpen:
-        return r.open;
+        return r.mOpen;
     case RoomModel::RoomAlert:
-        return r.alert;
+        return r.mAlert;
     case RoomModel::RoomOrder:
     {
         QString str;
-        if (r.favorite) {
+        if (r.mFavorite) {
             str = tr("Favorites");
         } else {
-            if (r.type == QLatin1String("c")) {
+            if (r.mChannelType == QLatin1String("c")) {
                 str = tr("Rooms");
-            } else if (r.type == QLatin1String("d")) {
+            } else if (r.mChannelType == QLatin1String("d")) {
                 str = tr("Private Message");
             } else {
                 str = QString();
             }
         }
-        qDebug() <<" str " << str << " name "<< r.name;
+        qDebug() <<" str " << str << " name "<< r.mName;
         return str;
     }
     }
@@ -194,8 +194,8 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
 
     Room r;
     r.id = roomID;
-    r.name = roomName;
-    r.selected = selected;
+    r.mName = roomName;
+    r.mSelected = selected;
     addRoom(r);
 }
 
@@ -246,7 +246,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
         Room room;
         room.id = roomData.value(QStringLiteral("rid")).toString();
-        room.name = roomData.value(QStringLiteral("name")).toString();
+        room.mName = roomData.value(QStringLiteral("name")).toString();
         auto existingRoom = std::find(mRoomsList.begin(), mRoomsList.end(), room);
         bool present = (existingRoom != mRoomsList.end());
         if (present) {
@@ -281,7 +281,7 @@ void RoomModel::updateRoom(const QJsonArray &array)
     const QString roomName = roomData.value(QStringLiteral("name")).toString();
     if (!roomName.isEmpty()) {
         for (int i = 0; i < mRoomsList.size(); ++i) {
-            if (mRoomsList.at(i).name == roomName) {
+            if (mRoomsList.at(i).mName == roomName) {
                 //TODO update it.
                 break;
             }
@@ -294,7 +294,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
 {
     Room room;
     room.id = roomID;
-    room.name = name;
+    room.mName = name;
     auto existingRoom = std::find(mRoomsList.begin(), mRoomsList.end(), room);
     bool present = (existingRoom != mRoomsList.end());
 
@@ -318,7 +318,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
 
     if (roomChanged) {
         Room foundRoom = mRoomsList.value(pos - 1);
-        foundRoom.topic = topic;
+        foundRoom.mTopic = topic;
         foundRoom.mAnnouncement = announcement;
         mRoomsList.replace(pos - 1, foundRoom);
     }
@@ -333,20 +333,20 @@ Room RoomModel::fromJSon(const QJsonObject &o)
     Room r;
 
     r.id = o[QStringLiteral("id")].toString();
-    r.type = o[QStringLiteral("t")].toString();
-    r.name = o[QStringLiteral("name")].toString();
-    r.userName = o[QStringLiteral("userName")].toString();
-    r.userID = o[QStringLiteral("userID")].toString();
-    r.topic = o[QStringLiteral("topic")].toString();
-    r.mutedUsers = o[QStringLiteral("mutedUsers")].toString();
-    r.jitsiTimeout = o[QStringLiteral("jitsiTimeout")].toDouble();
-    r.ro = o[QStringLiteral("ro")].toBool();
-    r.unread = o[QStringLiteral("unread")].toInt(0);
+    r.mChannelType = o[QStringLiteral("t")].toString();
+    r.mName = o[QStringLiteral("name")].toString();
+    r.mUserName = o[QStringLiteral("userName")].toString();
+    r.mUserId = o[QStringLiteral("userID")].toString();
+    r.mTopic = o[QStringLiteral("topic")].toString();
+    r.mMutedUsers = o[QStringLiteral("mutedUsers")].toString();
+    r.mJitsiTimeout = o[QStringLiteral("jitsiTimeout")].toDouble();
+    r.mReadOnly = o[QStringLiteral("ro")].toBool();
+    r.mUnread = o[QStringLiteral("unread")].toInt(0);
     r.mAnnouncement = o[QStringLiteral("announcement")].toString();
-    r.selected = o[QStringLiteral("selected")].toBool();
-    r.favorite = o[QStringLiteral("favorite")].toBool();
-    r.alert = o[QStringLiteral("alert")].toBool();
-    r.open = o[QStringLiteral("open")].toBool();
+    r.mSelected = o[QStringLiteral("selected")].toBool();
+    r.mFavorite = o[QStringLiteral("favorite")].toBool();
+    r.mAlert = o[QStringLiteral("alert")].toBool();
+    r.mOpen = o[QStringLiteral("open")].toBool();
 
     return r;
 }
@@ -357,20 +357,20 @@ QByteArray RoomModel::serialize(const Room &r)
     QJsonObject o;
 
     o[QStringLiteral("id")] = r.id;
-    o[QStringLiteral("t")] = r.type;
-    o[QStringLiteral("name")] = r.name;
-    o[QStringLiteral("userName")] = r.userName;
-    o[QStringLiteral("userID")] = r.userID;
-    o[QStringLiteral("topic")] = r.topic;
-    o[QStringLiteral("mutedUsers")] = r.mutedUsers;
-    o[QStringLiteral("jitsiTimeout")] = r.jitsiTimeout;
-    o[QStringLiteral("ro")] = r.ro;
-    o[QStringLiteral("unread")] = r.unread;
+    o[QStringLiteral("t")] = r.mChannelType;
+    o[QStringLiteral("name")] = r.mName;
+    o[QStringLiteral("userName")] = r.mUserName;
+    o[QStringLiteral("userID")] = r.mUserId;
+    o[QStringLiteral("topic")] = r.mTopic;
+    o[QStringLiteral("mutedUsers")] = r.mMutedUsers;
+    o[QStringLiteral("jitsiTimeout")] = r.mJitsiTimeout;
+    o[QStringLiteral("ro")] = r.mReadOnly;
+    o[QStringLiteral("unread")] = r.mUnread;
     o[QStringLiteral("announcement")] = r.mAnnouncement;
-    o[QStringLiteral("selected")] = r.selected;
-    o[QStringLiteral("favorite")] = r.favorite;
-    o[QStringLiteral("alert")] = r.alert;
-    o[QStringLiteral("open")] = r.open;
+    o[QStringLiteral("selected")] = r.mSelected;
+    o[QStringLiteral("favorite")] = r.mFavorite;
+    o[QStringLiteral("alert")] = r.mAlert;
+    o[QStringLiteral("open")] = r.mOpen;
 
     d.setObject(o);
     return d.toBinaryData();

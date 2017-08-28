@@ -49,7 +49,7 @@ public:
     */
     QString getName() const
     {
-        return name;
+        return mName;
     }
 
     void parseSubscriptionRoom(const QJsonObject &json);
@@ -63,37 +63,38 @@ public:
     QString id;
 
     // t (can take values "d" , "c" or "p")
-    QString type;
+    QString mChannelType;
 
     // name
-    QString name;
+    QString mName;
 
     // Announcement
     QString mAnnouncement;
 
     // u
-    QString userName;
-    QString userID;
+    QString mUserName;
+    QString mUserId;
 
     // topic
-    QString topic;
+    QString mTopic;
 
     // muted - collection of muted users by its usernames
-    QString mutedUsers; // --> TODO: this really is a list - it requires some more work
+    QString mMutedUsers; // --> TODO: this really is a list - it requires some more work
 
     // jitsiTimeout
-    qint64 jitsiTimeout = -1;
+    qint64 mJitsiTimeout = -1;
 
     // ro - read-only chat or not
-    bool ro = false;
+    bool mReadOnly = false;
 
-    int unread = -1;
-    bool selected = false;
-    bool favorite = false;
+    //quint64 ?
+    int mUnread = -1;
+    bool mSelected = false;
+    bool mFavorite = false;
     //We can hide it or not.
-    bool open = false;
+    bool mOpen = false;
 
-    bool alert = false;
+    bool mAlert = false;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);
