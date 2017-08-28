@@ -207,30 +207,17 @@ void RoomModel::addRoom(const Room &room)
     auto i = std::upper_bound(mRoomsList.begin(), mRoomsList.end(),
                               room);
     int pos = i-mRoomsList.begin();
-    bool roomChanged = false;
     qCDebug(RUQOLA_LOG) << pos;
 
-//     if (qFind(m_roomsList.begin(), m_roomsList.end(), room) != m_roomsList.end() && pos > 0) {
     if (present) {
-//         qCDebug(RUQOLA_LOG) << (qFind(m_roomsList.begin(), m_roomsList.end(), room) - m_roomsList.begin());
-//     if (pos != m_roomsList.size()) { // we're at the end
         qCDebug(RUQOLA_LOG) << "Room changed!";
-        roomChanged = true;
         //Figure out a better way to update just the really changed message
-    } else {
-        beginInsertRows(QModelIndex(), pos, pos);
-    }
-
-    if (roomChanged) {
         mRoomsList.replace(pos-1, room);
-    } else {
-        qCDebug(RUQOLA_LOG) << "Inserting room at position" <<pos;
-        mRoomsList.insert(i, room);
-    }
-
-    if (roomChanged) {
         Q_EMIT dataChanged(createIndex(1, 1), createIndex(pos, 1));
     } else {
+        beginInsertRows(QModelIndex(), pos, pos);
+        qCDebug(RUQOLA_LOG) << "Inserting room at position" <<pos;
+        mRoomsList.insert(i, room);
         endInsertRows();
     }
 
@@ -240,9 +227,9 @@ void RoomModel::addRoom(const Room &room)
 void RoomModel::updateSubscription(const QJsonArray &array)
 {
     const QString actionName = array[0].toString();
+    const QJsonObject roomData = array[1].toObject();
     if (actionName == QStringLiteral("removed")) {
         qDebug() << " REMOVE ROOM";
-        const QJsonObject roomData = array[1].toObject();
         qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
         Room room;
         room.id = roomData.value(QStringLiteral("rid")).toString();
@@ -261,12 +248,9 @@ void RoomModel::updateSubscription(const QJsonArray &array)
 
     } else if (actionName == QStringLiteral("inserted")) {
         qDebug() << " INSERT ROOM";
-        const QJsonObject roomData = array[1].toObject();
         qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
         addRoom(roomData.value(QStringLiteral("rid")).toString(), roomData.value(QStringLiteral("name")).toString(), false);
     } else if (actionName == QStringLiteral("updated")) {
-        qDebug() << " UPDATE ROOM";
-        const QJsonObject roomData = array[1].toObject();
         qDebug() << "UPDATE ROOM name " << roomData.value(QStringLiteral("name")).toString() << " rid " << roomData.value(QStringLiteral("rid")) << " roomData " << roomData;
         updateRoom(roomData);
     } else {
@@ -281,13 +265,18 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     if (!roomName.isEmpty()) {
         for (int i = 0; i < mRoomsList.size(); ++i) {
             if (mRoomsList.at(i).mName == roomName) {
+                //TODO change with rid and not roomname as it can be changed!
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
+                qCDebug(RUQOLA_LOG) << " number of room " << mRoomsList.count();
                 Room room = mRoomsList.at(i);
+                qCDebug(RUQOLA_LOG) << "ROOM id " << room.id;
                 room.parseUpdateRoom(roomData);
                 mRoomsList.replace(i, room);
+                qCDebug(RUQOLA_LOG) << "ROOM ATFER id " << room.id;
                 Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
 
                 Ruqola::self()->getMessageModelForRoom(room.id);
+                qCDebug(RUQOLA_LOG) << " number of room AFTER " << mRoomsList.count();
                 break;
             }
         }
