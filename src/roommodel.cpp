@@ -282,6 +282,7 @@ void RoomModel::updateRoom(const QJsonArray &array)
     if (!roomName.isEmpty()) {
         for (int i = 0; i < mRoomsList.size(); ++i) {
             if (mRoomsList.at(i).mName == roomName) {
+                qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
                 //TODO update it.
                 break;
             }
