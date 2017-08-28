@@ -205,6 +205,8 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         processIncomingMessages(contents);
     } else if (collection == QLatin1String("users")) {
         qCDebug(RUQOLA_LOG) << "USER CHANGED" << object;
+        UsersModel *model = mRocketChatAccount->userModel();
+        model->updateUser(object);
     } else if (collection == QLatin1String("rooms")) {
         qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {

@@ -20,6 +20,8 @@
 
 #include "usermodel.h"
 #include "ruqola_debug.h"
+
+#include <QJsonObject>
 UsersModel::UsersModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -76,5 +78,16 @@ void UsersModel::addUser(const User &user)
 
 void UsersModel::updateUser(const QJsonObject &array)
 {
-
+    const QString id = array.value(QStringLiteral("id")).toString();
+    for (int i = 0; i < mUsers.count(); ++i) {
+        if (mUsers.at(i).userId() == id) {
+            User user = mUsers.at(i);
+            const QJsonObject fields = array.value(QStringLiteral("fields")).toObject();
+            const QString newStatus = fields.value(QStringLiteral("status")).toString();
+            user.setStatus(newStatus);
+            mUsers.replace(i, user);
+            Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
+            break;
+        }
+    }
 }
