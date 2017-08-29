@@ -35,6 +35,7 @@ set (Ruqola_core_srcs
     rocketchataccountsettings.cpp
     usersforroommodel.cpp
     fakewebsocket.cpp
+    avatarfilecache.cpp
     ${Ruqola_ddpapi_SRCS}
     ${Ruqola_restapi_SRCS}
     ${ruqola_QM_LOADER}
