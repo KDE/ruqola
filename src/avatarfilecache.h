@@ -29,7 +29,6 @@ class AvatarFileCache : public QObject
 public:
     explicit AvatarFileCache(QObject *parent = nullptr);
     ~AvatarFileCache();
-
 };
 
 #endif // AVATARFILECACHE_H

@@ -67,5 +67,4 @@ private:
 
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const User &t);
 
-
 #endif // USER_H

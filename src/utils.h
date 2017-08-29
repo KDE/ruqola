@@ -23,8 +23,7 @@
 #include "libruqola_private_export.h"
 #include <QUrl>
 
-namespace Utils
-{
+namespace Utils {
 LIBRUQOLACORE_TESTS_EXPORT QUrl generateServerUrl(const QString &url);
 LIBRUQOLACORE_TESTS_EXPORT QString markdownToRichText(const QString &markDown);
 }

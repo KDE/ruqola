@@ -23,10 +23,8 @@
 AbstractWebSocket::AbstractWebSocket(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 AbstractWebSocket::~AbstractWebSocket()
 {
-
 }

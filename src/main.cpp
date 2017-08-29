@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<UsersForRoomModel>("KDE.Ruqola.UsersForRoomModel", 1, 0, "UsersForRoomModel");
 
     //RocketChatBackend c;
-    (void) Ruqola::self();
+    (void)Ruqola::self();
     QQmlApplicationEngine engine;
 
 #if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)

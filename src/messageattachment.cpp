@@ -22,7 +22,6 @@
 
 MessageAttachment::MessageAttachment()
 {
-
 }
 
 bool MessageAttachment::isEmpty() const

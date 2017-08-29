@@ -25,14 +25,11 @@
 UsersForRoomModel::UsersForRoomModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-
 }
 
 UsersForRoomModel::~UsersForRoomModel()
 {
-
 }
-
 
 bool UsersForRoomModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {

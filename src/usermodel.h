@@ -51,5 +51,4 @@ private:
     QVector<User> mUsers;
 };
 
-
 #endif // USERMODEL_H

@@ -25,12 +25,10 @@
 UsersModel::UsersModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 UsersModel::~UsersModel()
 {
-
 }
 
 int UsersModel::rowCount(const QModelIndex &parent) const

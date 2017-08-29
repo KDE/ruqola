@@ -23,7 +23,6 @@
 FakeWebSocket::FakeWebSocket(QObject *parent)
     : AbstractWebSocket(parent)
 {
-
 }
 
 void FakeWebSocket::forceSendTextMessage(const QString &message)

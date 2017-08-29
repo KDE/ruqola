@@ -31,7 +31,6 @@ public:
     explicit UsersForRoomModel(QObject *parent = nullptr);
     ~UsersForRoomModel();
 
-
     QString currentRoomId() const;
     void setCurrentRoomId(const QString &currentRoomId);
 

@@ -39,7 +39,7 @@ public:
     virtual QAbstractSocket::SocketError error() const = 0;
     virtual QUrl requestUrl() const = 0;
     virtual QWebSocketProtocol::CloseCode closeCode() const = 0;
-    virtual QString	closeReason() const = 0;
+    virtual QString closeReason() const = 0;
     virtual qint64 sendBinaryMessage(const QByteArray &data) = 0;
     virtual void ignoreSslErrors() = 0;
 

@@ -80,7 +80,6 @@ public:
 
     RocketChatBackend *rocketChatBackend() const;
 
-
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();

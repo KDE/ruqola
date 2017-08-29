@@ -56,7 +56,6 @@ public:
     void parseRoom(const QJsonObject &json);
     void parseUpdateRoom(const QJsonObject &json);
 
-
     //Room Object Fields
 
     // _id

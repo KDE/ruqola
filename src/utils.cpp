@@ -21,7 +21,6 @@
 #include "utils.h"
 #include <KTextToHTML>
 
-
 QUrl Utils::generateServerUrl(const QString &url)
 {
     if (url.isEmpty()) {

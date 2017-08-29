@@ -242,11 +242,10 @@ void RoomModel::updateSubscription(const QJsonArray &array)
             auto i = std::upper_bound(mRoomsList.begin(), mRoomsList.end(),
                                       room);
             int pos = i-mRoomsList.begin();
-            beginRemoveRows(QModelIndex(), pos -1 , pos - 1);
+            beginRemoveRows(QModelIndex(), pos -1, pos - 1);
             mRoomsList.remove(pos);
             endRemoveRows();
         }
-
     } else if (actionName == QStringLiteral("inserted")) {
         qDebug() << " INSERT ROOM";
         qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));

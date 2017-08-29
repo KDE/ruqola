@@ -62,7 +62,6 @@ void RuqolaWebSocket::close()
     mWebSocket->close();
 }
 
-
 QAbstractSocket::SocketError RuqolaWebSocket::error() const
 {
     return mWebSocket->error();
@@ -82,7 +81,6 @@ QString RuqolaWebSocket::closeReason() const
 {
     return mWebSocket->closeReason();
 }
-
 
 qint64 RuqolaWebSocket::sendBinaryMessage(const QByteArray &data)
 {

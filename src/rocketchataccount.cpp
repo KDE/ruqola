@@ -47,7 +47,6 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
     connect(mSettings, &RocketChatAccountSettings::userIDChanged, this, &RocketChatAccount::userIDChanged);
     connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
 
-
     mRocketChatBackend = new RocketChatBackend(this, this);
     mRoomModel = new RoomModel(this);
     mUserModel = new UsersModel(this);
@@ -60,7 +59,6 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
 
 RocketChatAccount::~RocketChatAccount()
 {
-
 }
 
 void RocketChatAccount::initialize()
@@ -188,7 +186,6 @@ RestApiRequest *RocketChatAccount::restapi()
     return mRestApi;
 }
 
-
 void RocketChatAccount::leaveRoom(const QString &roomId)
 {
     ddp()->leaveRoom(roomId);
@@ -212,7 +209,6 @@ DDPClient *RocketChatAccount::ddp()
     }
     return mDdp;
 }
-
 
 DDPClient::LoginStatus RocketChatAccount::loginStatus()
 {
@@ -270,5 +266,5 @@ void RocketChatAccount::logOut()
 
 void RocketChatAccount::clearUnreadMessages(const QString &roomId)
 {
-     ddp()->clearUnreadMessages(roomId);
+    ddp()->clearUnreadMessages(roomId);
 }

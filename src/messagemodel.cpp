@@ -224,24 +224,24 @@ void MessageModel::addMessage(const Message &message)
 QVariant MessageModel::data(const QModelIndex &index, int role) const
 {
     int idx = index.row();
-    switch(role) {
+    switch (role) {
     case MessageModel::Username:
         return m_allMessages.at(idx).mUsername;
-   case MessageModel::MessageText:
+    case MessageModel::MessageText:
         return m_allMessages.at(idx).mText;
-   case MessageModel::Timestamp:
+    case MessageModel::Timestamp:
         return m_allMessages.at(idx).mTimeStamp;
-   case MessageModel::UserID:
+    case MessageModel::UserID:
         return m_allMessages.at(idx).mUserId;
-   case MessageModel::SystemMessage:
+    case MessageModel::SystemMessage:
         return m_allMessages.at(idx).mSystemMessage;
-   case MessageModel::SystemMessageType:
+    case MessageModel::SystemMessageType:
         return m_allMessages.at(idx).mSystemMessageType;
-   case MessageModel::MessageID:
+    case MessageModel::MessageID:
         return m_allMessages.at(idx).mMessageId;
-   case MessageModel::Alias:
+    case MessageModel::Alias:
         return m_allMessages.at(idx).mAlias;
-   default:
+    default:
         return QString();
     }
 }

@@ -24,8 +24,7 @@
 #include <QString>
 #include "libruqola_private_export.h"
 
-namespace RestApiUtil
-{
+namespace RestApiUtil {
 LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);
 }
 

@@ -74,7 +74,6 @@ public:
     QString serverURL() const;
     void setServerURL(const QString &serverURL);
 
-
     DDPClient *ddp() const;
     Notification *notification();
 
@@ -135,7 +134,6 @@ private:
     explicit Ruqola(QObject *parent = nullptr);
     RocketChatAccount *mRocketChatAccount;
     Notification *mNotification = nullptr;
-
 };
 
 inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

@@ -25,7 +25,6 @@
 #include <QJsonObject>
 #include <QString>
 
-
 class LIBRUQOLACORE_TESTS_EXPORT Message
 {
 public:

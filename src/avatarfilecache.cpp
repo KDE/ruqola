@@ -23,10 +23,8 @@
 AvatarFileCache::AvatarFileCache(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 AvatarFileCache::~AvatarFileCache()
 {
-
 }

@@ -151,9 +151,9 @@ void RocketChatBackend::onLoginStatusChanged()
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
-        std::function<void (QJsonDocument, RocketChatAccount *)> subscription_callback = [ = ](const QJsonDocument &doc, RocketChatAccount *account) {
-            getsubscription_parsing(doc, account);
-        };
+        std::function<void(QJsonDocument, RocketChatAccount *)> subscription_callback = [=](const QJsonDocument &doc, RocketChatAccount *account) {
+                                                                                            getsubscription_parsing(doc, account);
+                                                                                        };
 
         mRocketChatAccount->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
         mRocketChatAccount->restapi()->setAuthToken(mRocketChatAccount->settings()->authToken());
@@ -186,7 +186,6 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
         }
 
         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username << fields;
-
     } else if (collection == QLatin1String("rooms")) {
         qCDebug(RUQOLA_LOG) << "NEW ROOMS ADDED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {
@@ -238,7 +237,9 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
 
 void RocketChatBackend::onUserIDChanged()
 {
-    const QString userId{mRocketChatAccount->settings()->userId()};
+    const QString userId{
+        mRocketChatAccount->settings()->userId()
+    };
     {
         //Subscribe notification.
         QJsonArray params;

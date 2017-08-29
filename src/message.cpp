@@ -74,4 +74,3 @@ bool Message::operator<(const Message &other) const
 {
     return mTimeStamp < other.mTimeStamp;
 }
-

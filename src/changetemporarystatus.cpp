@@ -24,5 +24,4 @@
 ChangeTemporaryStatus::ChangeTemporaryStatus(QObject *parent)
     : QObject(parent)
 {
-
 }

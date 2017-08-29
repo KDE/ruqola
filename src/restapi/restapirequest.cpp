@@ -43,7 +43,6 @@ RestApiRequest::RestApiRequest(QObject *parent)
 
 RestApiRequest::~RestApiRequest()
 {
-
 }
 
 void RestApiRequest::parseLogin(const QByteArray &data)
@@ -54,7 +53,7 @@ void RestApiRequest::parseLogin(const QByteArray &data)
     if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success") && replyObject.contains(QStringLiteral("data"))) {
         QJsonObject data = replyObject[QStringLiteral("data")].toObject();
 
-        if ( data.contains(QStringLiteral("authToken")) && data.contains(QStringLiteral("userId"))) {
+        if (data.contains(QStringLiteral("authToken")) && data.contains(QStringLiteral("userId"))) {
             mAuthToken = data[QStringLiteral("authToken")].toString();
             mUserId = data[QStringLiteral("userId")].toString();
         }
@@ -221,7 +220,6 @@ void RestApiRequest::getAvatar(const QString &userId)
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "RestApiRequest::getAvatar problem with mUserId or mAuthToken";
     } else {
-
         QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/users.getAvatar"));
         QUrlQuery queryUrl;
         queryUrl.addQueryItem(QStringLiteral("userId"), userId);

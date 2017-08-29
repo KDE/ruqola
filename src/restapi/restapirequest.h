@@ -41,12 +41,10 @@ public:
     explicit RestApiRequest(QObject *parent = nullptr);
     ~RestApiRequest();
 
-
     QString userId() const;
     QString authToken() const;
     void setUserId(const QString &userId);
     void setAuthToken(const QString &authToken);
-
 
     //Assign/get server url
     QString serverUrl() const;
@@ -59,7 +57,6 @@ public:
     void logout();
     void channelList();
     void getAvatar(const QString &userId);
-
 
 Q_SIGNALS:
     void avartar(const QString &userId, const QString &url);

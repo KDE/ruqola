@@ -246,8 +246,8 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setTemporaryStatus
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::getUsersOfRoom(const QString &roomId, bool showAll, quint64 id)
 {
     const QJsonArray params{{
-        QJsonValue(roomId), showAll
-    }};
+                                QJsonValue(roomId), showAll
+                            }};
     return generateMethod(QStringLiteral("getUsersOfRoom"), QJsonDocument(params), id);
 }
 
@@ -257,7 +257,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::logout(const QStri
     const QJsonArray params{{}};
     return generateMethod(QStringLiteral("logout"), QJsonDocument(params), id);
 }
-
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QString &name, const QJsonDocument &params, quint64 id)
 {

@@ -40,19 +40,19 @@ bool Room::operator<(const Room &other) const
 bool Room::isEqual(const Room &other) const
 {
     return (id == other.id)
-            && (mChannelType == other.mChannelType)
-            && (mName == other.mName)
-            && (mAnnouncement == other.mAnnouncement)
-            && (mUserName == other.mUserName)
-            && (mUserId == other.mUserId)
-            && (mTopic == other.mTopic)
-            && (mMutedUsers == other.mMutedUsers)
-            && (mJitsiTimeout == other.mJitsiTimeout)
-            && (mReadOnly == other.mReadOnly)
-            && (mUnread == other.mUnread)
-            && (mSelected == other.mSelected)
-            && (mFavorite == other.mFavorite)
-            && (mOpen == other.mOpen);
+           && (mChannelType == other.mChannelType)
+           && (mName == other.mName)
+           && (mAnnouncement == other.mAnnouncement)
+           && (mUserName == other.mUserName)
+           && (mUserId == other.mUserId)
+           && (mTopic == other.mTopic)
+           && (mMutedUsers == other.mMutedUsers)
+           && (mJitsiTimeout == other.mJitsiTimeout)
+           && (mReadOnly == other.mReadOnly)
+           && (mUnread == other.mUnread)
+           && (mSelected == other.mSelected)
+           && (mFavorite == other.mFavorite)
+           && (mOpen == other.mOpen);
 }
 
 QDebug operator <<(QDebug d, const Room &t)
@@ -84,7 +84,6 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         mAlert = json[QStringLiteral("alert")].toBool();
     }
     if (json.contains(QStringLiteral("f"))) {
-
     }
     if (json.contains(QStringLiteral("unread"))) {
         mUnread = json[QStringLiteral("unread")].toInt();

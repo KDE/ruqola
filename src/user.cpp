@@ -24,7 +24,6 @@
 
 User::User()
 {
-
 }
 
 QString User::name() const
