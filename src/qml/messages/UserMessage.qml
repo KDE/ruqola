@@ -157,7 +157,7 @@ Rectangle {
 
     
     signal linkActivated(string link)
-    
+
     
     id: messageMain
     color: "#eeeeee"
@@ -282,24 +282,23 @@ Rectangle {
                     anchors.left: parent.left
                     height: avatarRect.height
                 }
-                Kirigami.Label {
+                Text {
                     id: textLabel
                     anchors.right: parent.right
                     anchors.left: parent.left
                     
                     anchors.leftMargin: Kirigami.Units.smallSpacing
                     anchors.rightMargin: Kirigami.Units.smallSpacing
-                    
+                    renderType: Text.NativeRendering
+                    textFormat: Text.RichText
+
+
                     text: markdownme(RuqolaUtils.markdownToRichText(i_messageText))
                     wrapMode: Label.Wrap
-                    
-                    renderType: Text.NativeRendering
                     
                     onLinkActivated: messageMain.linkActivated(link)
                 }
             }
-            
-
         }
         Kirigami.Label {
             id: timestampText
