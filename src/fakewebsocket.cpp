@@ -26,6 +26,16 @@ FakeWebSocket::FakeWebSocket(QObject *parent)
 
 }
 
+void FakeWebSocket::forceSendTextMessage(const QString &message)
+{
+    sendTextMessage(message);
+}
+
+void FakeWebSocket::forceSendBinaryMessage(const QByteArray &message)
+{
+    sendBinaryMessage(message);
+}
+
 void FakeWebSocket::openUrl(const QUrl &url)
 {
 }

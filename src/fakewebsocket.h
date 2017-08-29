@@ -31,9 +31,11 @@ class FakeWebSocket : public AbstractWebSocket
     Q_OBJECT
 public:
     explicit FakeWebSocket(QObject *parent = nullptr);
+    ~FakeWebSocket() = default;
 
-    // AbstractWebSocket interface
-public:
+    void forceSendTextMessage(const QString &message);
+    void forceSendBinaryMessage(const QByteArray &message);
+
     void openUrl(const QUrl &url) override;
     qint64 sendTextMessage(const QString &message) override;
     bool isValid() const override;
