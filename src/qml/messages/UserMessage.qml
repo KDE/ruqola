@@ -171,10 +171,9 @@ Rectangle {
         id: menu
 
         MenuItem {
-            //             enabled: i_username == Ruqola.userName
+            enabled: i_username == Ruqola.userName
             contentItem: Kirigami.Label {
                 text: i18n("Edit")
-                enabled: i_username == Ruqola.userName
             }
             onTriggered: {
                 console.log("Edit", i_messageID, i_messageText);
