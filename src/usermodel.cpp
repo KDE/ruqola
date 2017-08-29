@@ -63,6 +63,15 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
 void UsersModel::removeUser(const QString &userId)
 {
     qCDebug(RUQOLA_LOG) << " User removed " << userId;
+    for (int i = 0; i < mUsers.count(); ++i) {
+        if (mUsers.at(i).userId() == userId) {
+            qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i).name();
+            beginRemoveRows(QModelIndex(), i, i);
+            mUsers.remove(i);
+            endRemoveRows();
+            break;
+        }
+    }
 }
 
 void UsersModel::addUser(const User &user)
