@@ -29,6 +29,7 @@
 #include <QUrlQuery>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJsonArray>
 
 //TODO save/load token
 
@@ -81,6 +82,15 @@ void RestApiRequest::parseLogout(const QByteArray &data)
 void RestApiRequest::parseChannelList(const QByteArray &data)
 {
     qDebug() << " void RestApiRequest::parseChannelList(const QByteArray &data)" << data;
+    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+    const QJsonObject replyObject = replyJson.object();
+    qDebug() << " replyObject"<<replyObject;
+    const QVariantList lst = replyObject.value(QStringLiteral("channels")).toArray().toVariantList();
+    for (const QVariant &item : lst) {
+        qDebug() << " item " << item;
+        qDebug() << " map  ? : "<<item.toMap();
+    }
+    //qDebug() << "*******************************" << ;
 }
 
 void RestApiRequest::setAuthToken(const QString &authToken)
