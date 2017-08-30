@@ -44,9 +44,16 @@ QString RuqolaUtils::markdownToRichText(const QString &markDown)
 
 void RuqolaUtils::openUrl(const QString &url)
 {
-    if (url.startsWith(QStringLiteral("ruqola:"))) {
-        qDebug() << " url " << url;
+    const QUrl clickedUrl = QUrl::fromUserInput(url);
+    if (clickedUrl.scheme() == QStringLiteral("ruqola")) {
+        if (clickedUrl.path().startsWith(QLatin1String("/room/"))) {
+            qDebug() << " room clicked ";
+        } else if (clickedUrl.path().startsWith(QLatin1String("/user/"))){
+            qDebug() << " clickedUrl.path() " << clickedUrl.path();
+        } else {
+            qDebug() << " Unknown url " << url;
+        }
     } else {
-        QDesktopServices::openUrl(QUrl(url));
+        QDesktopServices::openUrl(clickedUrl);
     }
 }
