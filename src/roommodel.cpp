@@ -259,7 +259,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     } else {
         qDebug() << " Undefined type" << actionName;
     }
-    qDebug() << " V " << array;
+    //qDebug() << " V " << array;
 }
 
 void RoomModel::updateRoom(const QJsonObject &roomData)
@@ -270,16 +270,12 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
             if (mRoomsList.at(i).mName == roomName) {
                 //TODO change with rid and not roomname as it can be changed!
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
-                qCDebug(RUQOLA_LOG) << " number of room " << mRoomsList.count();
                 Room room = mRoomsList.at(i);
-                qCDebug(RUQOLA_LOG) << "ROOM id " << room.id;
                 room.parseUpdateRoom(roomData);
                 mRoomsList.replace(i, room);
-                qCDebug(RUQOLA_LOG) << "ROOM ATFER id " << room.id;
                 Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
 
                 Ruqola::self()->getMessageModelForRoom(room.id);
-                qCDebug(RUQOLA_LOG) << " number of room AFTER " << mRoomsList.count();
                 break;
             }
         }

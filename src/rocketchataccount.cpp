@@ -136,13 +136,11 @@ UsersForRoomModel *RocketChatAccount::getUsersForRoomModel(const QString &roomId
 
 QString RocketChatAccount::getUserCurrentMessage(const QString &roomId)
 {
-    qDebug() << " QString RocketChatAccount::getUserCurrentMessage(const QString &roomId)"<<roomId << " mUserCurrentMessage.value(roomId)"<<mUserCurrentMessage.value(roomId);
     return mUserCurrentMessage.value(roomId);
 }
 
 void RocketChatAccount::setUserCurrentMessage(const QString &message, const QString &roomId)
 {
-    qDebug() << " void RocketChatAccount::setUserCurrentMessage(const QString &message, const QString &roomId)"<< message << " roomid " << roomId;
     if (mUserCurrentMessage.contains(roomId)) {
         if (!message.trimmed().isEmpty()) {
             mUserCurrentMessage[roomId] = message;
