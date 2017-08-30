@@ -22,7 +22,6 @@
 
 
 import QtQuick 2.0
-// import "marked.js" as Markdown
 import "js/marked.js" as MarkDown;
 
 import KDE.Ruqola.RuqolaUtils 1.0
@@ -67,14 +66,11 @@ Rectangle {
 
     id: messageMain
     color: "#eeeeee"
-    //     implicitHeight: textLabel.contentHeight
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.implicitHeight
     
     implicitWidth: 150
     
     anchors.bottomMargin: 200
-    
-    //     anchors.margins: 50
     
     Loader {
         id: loaded

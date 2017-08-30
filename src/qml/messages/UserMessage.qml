@@ -22,7 +22,6 @@
 
 
 import QtQuick 2.0
-// import "marked.js" as Markdown
 import "../js/marked.js" as MarkDown;
 
 import QtQuick.Controls 2.2

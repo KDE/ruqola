@@ -22,7 +22,6 @@
 
 import QtQuick 2.0
 import org.kde.kirigami 2.1 as Kirigami
-// import QtQuick.Controls 2.2 as QQC
 import KDE.Ruqola.Ruqola 1.0
 
 ListView {
@@ -32,28 +31,7 @@ ListView {
     property bool editingMode: false;
     
     signal roomSelected(string roomID)
-    /*
-    // The delegate for each section header
-    Component {
-        id: sectionHeading
-        Rectangle {
-            width: container.width
-            height: childrenRect.height
-            color: "lightsteelblue"
 
-            Text {
-                text: section
-                font.bold: true
-            }
-        }
-    }
-
-    section {
-        property: "roomorder";
-        criteria: ViewSection.FullString
-        delegate: sectionHeading
-    }
-*/
     delegate: RoomDelegate {
         d_name: name
         d_unread: unread
