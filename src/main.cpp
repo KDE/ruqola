@@ -31,6 +31,7 @@
 #include "ruqolautils.h"
 #include "notification.h"
 #include "config-ruqola.h"
+#include "rocketchataccount.h"
 
 #include <QJsonDocument>
 
@@ -58,8 +59,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<RoomModel>("KDE.Ruqola.RoomModel", 1, 0, "RoomModel");
     qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
     qmlRegisterType<UsersForRoomModel>("KDE.Ruqola.UsersForRoomModel", 1, 0, "UsersForRoomModel");
+    qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
 
-    //RocketChatBackend c;
     (void)Ruqola::self();
     QQmlApplicationEngine engine;
 
@@ -68,8 +69,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<Notification>("KDE.Ruqola.Notification", 1, 0, "Notification");
     ctxt->setContextProperty(QStringLiteral("systrayIcon"), Ruqola::self()->notification());
 #endif
-
-//    ctxt->setContextProperty("attachmentButton", Ruqola::self()->attachmentButtonClicked());
 
     engine.load(QUrl(QStringLiteral("qrc:/Desktop.qml")));
 
