@@ -56,6 +56,8 @@ public:
     Q_INVOKABLE RoomWrapper *getRoom(const QString &roomId);
     Q_INVOKABLE MessageModel *getMessageModelForRoom(const QString &roomID);
     Q_INVOKABLE UsersForRoomModel *getUsersForRoomModel(const QString &roomId);
+    Q_INVOKABLE QString getUserCurrentMessage(const QString &roomId);
+    Q_INVOKABLE void setUserCurrentMessage(const QString &message, const QString &roomId);
 
     Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
 
@@ -95,6 +97,7 @@ private:
     //room, messagemodel
     QHash<QString, MessageModel *> mMessageModels;
     QHash<QString, UsersForRoomModel *> mUsersForRoomModels;
+    QHash<QString, QString> mUserCurrentMessage;
 
     TypingNotification *mTypingNotification = nullptr;
     UsersModel *mUserModel = nullptr;

@@ -48,6 +48,7 @@ Kirigami.ApplicationWindow {
 
     property QtObject model
     property QtObject userModel
+    property string userInputMessageText: userInputMessage.currentMessage
 
     width: Kirigami.Units.gridUnit * 55
     height: Kirigami.Units.gridUnit * 40
@@ -140,14 +141,14 @@ Kirigami.ApplicationWindow {
                 id: roomsList
                 implicitWidth: Kirigami.Units.gridUnit * 10
                 anchors.fill: parent
-                //                     width: parent.width
-                //                     height: parent.height
                 model: Ruqola.roomModel()
                 selectedRoomID: appid.selectedRoomID;
                 onRoomSelected: {
                     if (roomID == selectedRoomID) {
                         return;
                     }
+                    console.log("USER UN" +  userInputMessageText)
+                    Ruqola.setUserCurrentMessage(userInputMessageText, roomID)
                     console.log("Choosing room", roomID);
                     appid.selectedRoomID = roomID;
                     appid.model = Ruqola.getMessageModelForRoom(roomID)
@@ -236,7 +237,9 @@ Kirigami.ApplicationWindow {
                 }
             }
             footer: UserInput {
-                id: footerItem
+                id: userInputMessage
+                property string currentMessage: messageLineText
+                //messageLineText: Ruqola.getUserCurrentMessage(appid.selectedRoomID)
                 onTextEditing: {
                     Ruqola.textEditing(appid.selectedRoomID, str)
                 }

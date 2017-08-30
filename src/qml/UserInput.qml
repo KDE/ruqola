@@ -39,6 +39,8 @@ RowLayout {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: mainWidget.bottom
+    property string messageLineText: messageLine.text
+
     signal textEditing(string str)
     signal clearUnreadMessages()
     
@@ -65,7 +67,6 @@ RowLayout {
         Layout.fillWidth: true
         placeholderText: i18n("Enter message")
 
-        property string type: "text";
         onAccepted: {
             if (text != "" && Ruqola.loginStatus == DDPClient.LoggedIn && !(selectedRoomID == "")) {
                 Ruqola.sendMessage(selectedRoomID, text, type);
