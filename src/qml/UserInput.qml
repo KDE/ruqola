@@ -39,7 +39,7 @@ RowLayout {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: mainWidget.bottom
-    property string messageLineText: messageLine.text
+    property alias messageLineText: messageLine.text
 
     signal textEditing(string str)
     signal clearUnreadMessages()
