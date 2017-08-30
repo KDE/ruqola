@@ -108,7 +108,8 @@ Kirigami.BasicListItem {
         Kirigami.Icon {
             id: quitAction
 
-            visible: editingMode // && root.hover ?
+            //We can leave only channel not private chat
+            visible: editingMode && d_type == "c"
             source: "dialog-close"
             height: parent.height
             width: height
