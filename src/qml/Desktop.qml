@@ -38,7 +38,6 @@ import org.kde.kirigami 2.1 as Kirigami
 Kirigami.ApplicationWindow {
     id: appid
     property int margin: 11
-    property string statusText
 
     property string lightGreen: "#6ab141";
     property string darkGreen: "#00613a";
