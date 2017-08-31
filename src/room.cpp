@@ -111,7 +111,9 @@ bool Room::selected() const
 
 void Room::setSelected(bool selected)
 {
-    mSelected = selected;
+    if (mSelected != selected) {
+        mSelected = selected;
+    }
 }
 
 int Room::unread() const
@@ -121,7 +123,9 @@ int Room::unread() const
 
 void Room::setUnread(int unread)
 {
-    mUnread = unread;
+    if (mUnread != unread) {
+        mUnread = unread;
+    }
 }
 
 qint64 Room::jitsiTimeout() const
@@ -131,7 +135,9 @@ qint64 Room::jitsiTimeout() const
 
 void Room::setJitsiTimeout(const qint64 &jitsiTimeout)
 {
-    mJitsiTimeout = jitsiTimeout;
+    if (mJitsiTimeout != jitsiTimeout) {
+        mJitsiTimeout = jitsiTimeout;
+    }
 }
 
 QString Room::mutedUsers() const
@@ -141,7 +147,9 @@ QString Room::mutedUsers() const
 
 void Room::setMutedUsers(const QString &mutedUsers)
 {
-    mMutedUsers = mutedUsers;
+    if (mMutedUsers != mutedUsers) {
+        mMutedUsers = mutedUsers;
+    }
 }
 
 QString Room::userId() const
@@ -151,7 +159,9 @@ QString Room::userId() const
 
 void Room::setUserId(const QString &userId)
 {
-    mUserId = userId;
+    if (mUserId != userId) {
+        mUserId = userId;
+    }
 }
 
 QString Room::userName() const
@@ -161,7 +171,9 @@ QString Room::userName() const
 
 void Room::setUserName(const QString &userName)
 {
-    mUserName = userName;
+    if (mUserName != userName) {
+        mUserName = userName;
+    }
 }
 
 QString Room::id() const
@@ -181,7 +193,9 @@ bool Room::alert() const
 
 void Room::setAlert(bool alert)
 {
-    mAlert = alert;
+    if (mAlert != alert) {
+        mAlert = alert;
+    }
 }
 
 bool Room::open() const
@@ -191,7 +205,9 @@ bool Room::open() const
 
 void Room::setOpen(bool open)
 {
-    mOpen = open;
+    if (mOpen != open) {
+        mOpen = open;
+    }
 }
 
 bool Room::readOnly() const

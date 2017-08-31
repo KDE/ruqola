@@ -36,20 +36,20 @@ RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
 
 QString RoomWrapper::name() const
 {
-    return mRoom.mName;
+    return mRoom.name();
 }
 
 QString RoomWrapper::topic() const
 {
-    return mRoom.mTopic;
+    return mRoom.topic();
 }
 
 QString RoomWrapper::announcement() const
 {
-    return mRoom.mAnnouncement;
+    return mRoom.announcement();
 }
 
 bool RoomWrapper::favorite() const
 {
-    return mRoom.mFavorite;
+    return mRoom.favorite();
 }
