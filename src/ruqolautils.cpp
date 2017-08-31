@@ -47,9 +47,9 @@ void RuqolaUtils::openUrl(const QString &url)
     const QUrl clickedUrl = QUrl::fromUserInput(url);
     if (clickedUrl.scheme() == QStringLiteral("ruqola")) {
         if (clickedUrl.path().startsWith(QLatin1String("/room/"))) {
-            qDebug() << " room clicked ";
+            qDebug() << " room clicked " << clickedUrl.path();
         } else if (clickedUrl.path().startsWith(QLatin1String("/user/"))){
-            qDebug() << " clickedUrl.path() " << clickedUrl.path();
+            qDebug() << "user clickedUrl.path() " << clickedUrl.path();
         } else {
             qDebug() << " Unknown url " << url;
         }
