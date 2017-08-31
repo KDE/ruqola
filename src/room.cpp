@@ -29,7 +29,7 @@ Room::Room()
 bool Room::operator==(const Room &other) const
 {
     //qDebug() << " other.id"<<other.id << " id " << id;
-    return other.id == id;
+    return other.mId == mId;
 }
 
 bool Room::operator<(const Room &other) const
@@ -39,7 +39,7 @@ bool Room::operator<(const Room &other) const
 
 bool Room::isEqual(const Room &other) const
 {
-    return (id == other.id)
+    return (mId == other.mId)
            && (mChannelType == other.mChannelType)
            && (mName == other.mName)
            && (mAnnouncement == other.mAnnouncement)
@@ -55,9 +55,14 @@ bool Room::isEqual(const Room &other) const
            && (mOpen == other.mOpen);
 }
 
+QString Room::getName() const
+{
+    return mName;
+}
+
 QDebug operator <<(QDebug d, const Room &t)
 {
-    d << "id :" << t.id;
+    d << "id :" << t.mId;
     d << "type :" << t.mChannelType;
     d << "name :" << t.mName;
     d << "mAnnouncement :" << t.mAnnouncement;
@@ -78,7 +83,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 {
     //QJsonArray(["updated",{"_id":"7jHqcrZ8FYXJBwgRB","_updatedAt":{"$date":1503902695955},"alert":false,"f":true,"groupMentions":0,"ls":{"$date":1503902695955},"name":"dev","open":true,"rid":"dBWXYy4nyBHn8Q7dv","t":"c","ts":{"$date":1493034182680},"u":{"_id":"uKK39zoewTkdacidH","username":"laurent"},"unread":0,"userMentions":0}])
     if (json.contains(QStringLiteral("rid"))) {
-        id = json.value(QStringLiteral("rid")).toString();
+        mId = json.value(QStringLiteral("rid")).toString();
     }
     if (json.contains(QStringLiteral("alert"))) {
         mAlert = json[QStringLiteral("alert")].toBool();
@@ -101,7 +106,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 
 void Room::parseRoom(const QJsonObject &json)
 {
-    id = json.value(QStringLiteral("_id")).toString();
+    mId = json.value(QStringLiteral("_id")).toString();
     mName = json[QStringLiteral("name")].toString();
     mTopic = json[QStringLiteral("topic")].toString();
     mAnnouncement = json[QStringLiteral("announcement")].toString();
@@ -110,7 +115,7 @@ void Room::parseRoom(const QJsonObject &json)
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     const QString roomID = json.value(QStringLiteral("rid")).toString();
-    id = roomID;
+    mId = roomID;
     mName = json[QStringLiteral("name")].toString();
     mTopic = json[QStringLiteral("topic")].toString();
     mAnnouncement = json[QStringLiteral("announcement")].toString();

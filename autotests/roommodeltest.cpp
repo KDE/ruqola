@@ -35,7 +35,7 @@ RoomModelTest::RoomModelTest(QObject *parent)
 void RoomModelTest::shouldSerialized()
 {
     Room input;
-    input.id = QStringLiteral("foo");
+    input.mId = QStringLiteral("foo");
     input.mChannelType = QStringLiteral("p");
     input.mName = QStringLiteral("d");
     input.mAnnouncement = QStringLiteral("AA");

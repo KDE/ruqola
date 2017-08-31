@@ -59,8 +59,8 @@ void rooms_parsing(const QJsonDocument &doc, RocketChatAccount *account)
             if (account->loginStatus() == DDPClient::LoggedIn) {
                 Room r;
                 r.parseRoom(roomJson);
-                qCDebug(RUQOLA_LOG) << "Adding room" << r.id << r.mTopic << r.mAnnouncement;
-                model->updateRoom(r.mName, r.id, r.mTopic, r.mAnnouncement);
+                qCDebug(RUQOLA_LOG) << "Adding room" << r.mId << r.mTopic << r.mAnnouncement;
+                model->updateRoom(r.mName, r.mId, r.mTopic, r.mAnnouncement);
             }
         }
     }
@@ -92,7 +92,7 @@ void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *accoun
             if (account->loginStatus() == DDPClient::LoggedIn) {
                 Room r;
                 r.parseSubscriptionRoom(room);
-                qCDebug(RUQOLA_LOG) << "Adding room subscription" << r.mName << r.id << r.mTopic;
+                qCDebug(RUQOLA_LOG) << "Adding room subscription" << r.mName << r.mId << r.mTopic;
 
                 model->addRoom(r);
             }

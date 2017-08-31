@@ -47,10 +47,7 @@ public:
     *
     * @return QString, The name of the room
     */
-    QString getName() const
-    {
-        return mName;
-    }
+    QString getName() const;
 
     void parseSubscriptionRoom(const QJsonObject &json);
     void parseRoom(const QJsonObject &json);
@@ -59,7 +56,7 @@ public:
     //Room Object Fields
 
     // _id
-    QString id;
+    QString mId;
 
     // t (can take values "d" , "c" or "p")
     QString mChannelType;
