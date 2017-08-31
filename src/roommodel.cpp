@@ -47,7 +47,7 @@ RoomModel::~RoomModel()
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
         for (const Room &m : qAsConst(mRoomsList)) {
-            qDebug() << " save cache for room " << m.mName;
+            qCDebug(RUQOLA_LOG) << " save cache for room " << m.mName;
             const QByteArray ms = RoomModel::serialize(m);
             out.writeBytes(ms, ms.size());
         }
@@ -139,35 +139,35 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
 
     switch (role) {
     case RoomModel::RoomName:
-        return r.mName;
+        return r.name();
     case RoomModel::RoomID:
-        return r.mId;
+        return r.id();
     case RoomModel::RoomSelected:
-        return r.mSelected;
+        return r.selected();
     case RoomModel::RoomType:
-        return r.mChannelType;
+        return r.channelType();
     case RoomModel::RoomUserID:
-        return r.mUserId;
+        return r.userId();
     case RoomModel::RoomUserName:
-        return r.mUserName;
+        return r.userName();
     case RoomModel::RoomTopic:
-        return r.mTopic;
+        return r.topic();
     case RoomModel::RoomMutedUsers:
-        return r.mMutedUsers;
+        return r.mutedUsers();
     case RoomModel::RoomJitsiTimeout:
-        return r.mJitsiTimeout;
+        return r.jitsiTimeout();
     case RoomModel::RoomRO:
-        return r.mReadOnly;
+        return r.readOnly();
     case RoomModel::RoomAnnoucement:
-        return r.mAnnouncement;
+        return r.announcement();
     case RoomModel::RoomUnread:
-        return r.mUnread;
+        return r.unread();
     case RoomModel::RoomOpen:
-        return r.mOpen;
+        return r.open();
     case RoomModel::RoomAlert:
-        return r.mAlert;
+        return r.alert();
     case RoomModel::RoomFavorite:
-        return r.mFavorite;
+        return r.favorite();
     case RoomModel::RoomOrder:
     {
         QString str;
@@ -296,8 +296,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
     auto existingRoom = std::find(mRoomsList.begin(), mRoomsList.end(), room);
     bool present = (existingRoom != mRoomsList.end());
 
-    auto i = std::upper_bound(mRoomsList.begin(), mRoomsList.end(),
-                              room);
+    auto i = std::upper_bound(mRoomsList.begin(), mRoomsList.end(), room);
     int pos = i-mRoomsList.begin();
     qCDebug(RUQOLA_LOG) << pos;
 

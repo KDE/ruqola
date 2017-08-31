@@ -104,6 +104,76 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
 }
 
+bool Room::selected() const
+{
+    return mSelected;
+}
+
+void Room::setSelected(bool selected)
+{
+    mSelected = selected;
+}
+
+int Room::unread() const
+{
+    return mUnread;
+}
+
+void Room::setUnread(int unread)
+{
+    mUnread = unread;
+}
+
+qint64 Room::jitsiTimeout() const
+{
+    return mJitsiTimeout;
+}
+
+void Room::setJitsiTimeout(const qint64 &jitsiTimeout)
+{
+    mJitsiTimeout = jitsiTimeout;
+}
+
+QString Room::mutedUsers() const
+{
+    return mMutedUsers;
+}
+
+void Room::setMutedUsers(const QString &mutedUsers)
+{
+    mMutedUsers = mutedUsers;
+}
+
+QString Room::userId() const
+{
+    return mUserId;
+}
+
+void Room::setUserId(const QString &userId)
+{
+    mUserId = userId;
+}
+
+QString Room::userName() const
+{
+    return mUserName;
+}
+
+void Room::setUserName(const QString &userName)
+{
+    mUserName = userName;
+}
+
+QString Room::id() const
+{
+    return mId;
+}
+
+void Room::setId(const QString &id)
+{
+    mId = id;
+}
+
 bool Room::alert() const
 {
     return mAlert;

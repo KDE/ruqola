@@ -42,6 +42,24 @@ public:
     //we can't use operator== as it tests only id. We need it for autotest
     bool isEqual(const Room &other) const;
 
+    QString userName() const;
+    void setUserName(const QString &userName);
+
+    QString userId() const;
+    void setUserId(const QString &userId);
+
+    QString mutedUsers() const;
+    void setMutedUsers(const QString &mutedUsers);
+
+    qint64 jitsiTimeout() const;
+    void setJitsiTimeout(const qint64 &jitsiTimeout);
+
+    int unread() const;
+    void setUnread(int unread);
+
+    bool selected() const;
+    void setSelected(bool selected);
+
     /**
     * @brief Return room name
     *
@@ -70,6 +88,9 @@ public:
 
     bool alert() const;
     void setAlert(bool alert);
+
+    QString id() const;
+    void setId(const QString &id);
 
     void parseSubscriptionRoom(const QJsonObject &json);
     void parseRoom(const QJsonObject &json);
