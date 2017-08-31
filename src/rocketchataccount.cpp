@@ -116,7 +116,7 @@ MessageModel *RocketChatAccount::getMessageModelForRoom(const QString &roomID)
     if (MessageModel *model = mMessageModels.value(roomID)) {
         return model;
     } else {
-        mMessageModels[roomID] = new MessageModel(roomID, this);
+        mMessageModels[roomID] = new MessageModel(roomID, this, this);
         return mMessageModels[roomID];
     }
 }

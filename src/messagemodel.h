@@ -31,6 +31,7 @@
 #include <QByteArray>
 #include <QJsonObject>
 
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -61,7 +62,7 @@ public:
     };
     Q_ENUM(MessageRoles)
 
-    explicit MessageModel(const QString &roomID = QStringLiteral("no_room"), QObject *parent = nullptr);
+    explicit MessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     virtual ~MessageModel();
 
     /**
@@ -110,6 +111,7 @@ protected:
 private:
     const QString m_roomID;
     QVector<Message> m_allMessages;
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
 #endif

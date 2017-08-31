@@ -30,15 +30,16 @@
 
 #include "messagemodel.h"
 #include "message.h"
-#include "ruqola.h"
 #include "ruqola_debug.h"
+#include "rocketchataccount.h"
 
-MessageModel::MessageModel(const QString &roomID, QObject *parent)
+MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , m_roomID(roomID)
+    , mRocketChatAccount(account)
 {
     qCDebug(RUQOLA_LOG) << "Creating message Model";
-    QDir cacheDir(Ruqola::self()->cacheBasePath()+QStringLiteral("/rooms_cache"));
+    QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath()+QStringLiteral("/rooms_cache"));
 
     // load cache
     if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
@@ -59,7 +60,7 @@ MessageModel::MessageModel(const QString &roomID, QObject *parent)
 
 MessageModel::~MessageModel()
 {
-    QDir cacheDir(Ruqola::self()->cacheBasePath()+QStringLiteral("/rooms_cache"));
+    QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath()+QStringLiteral("/rooms_cache"));
     qCDebug(RUQOLA_LOG) << "Caching to..." << cacheDir.path();
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
