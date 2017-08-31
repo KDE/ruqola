@@ -32,6 +32,9 @@ RoomFilterProxyModel::~RoomFilterProxyModel()
 
 bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
+    if (!sourceModel()) {
+        return false;
+    }
     QString leftData = sourceModel()->data(left, RoomModel::RoomOrder).toString();
     QString rightData = sourceModel()->data(right, RoomModel::RoomOrder).toString();
     if (leftData == rightData) {
