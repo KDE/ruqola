@@ -23,7 +23,6 @@
 
 #include "ddpclient.h"
 #include "utils.h"
-#include "ruqola.h"
 #include "ruqola_debug.h"
 #include "rocketchatmessage.h"
 #include "ruqolawebsocket.h"
@@ -86,7 +85,7 @@ void DDPClient::start()
         mWebSocket = new RuqolaWebSocket(this);
         initializeWebSocket();
     }
-    connect(Ruqola::self(), &Ruqola::serverURLChanged, this, &DDPClient::onServerURLChange);
+    connect(mRocketChatAccount, &RocketChatAccount::serverURLChanged, this, &DDPClient::onServerURLChange);
 
     if (!m_url.isEmpty()) {
         const QUrl serverUrl = adaptUrl(m_url);
