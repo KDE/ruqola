@@ -21,22 +21,23 @@
  */
 
 #include "roommodel.h"
-#include "ruqola.h"
 #include "ruqola_debug.h"
+#include "rocketchataccount.h"
 #include "roomwrapper.h"
 #include <KLocalizedString>
 
 #include <QAbstractItemModel>
 #include <QtCore>
 
-RoomModel::RoomModel(QObject *parent)
+RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
+    , mRocketChatAccount(account)
 {
 }
 
 RoomModel::~RoomModel()
 {
-    QDir cacheDir(Ruqola::self()->cacheBasePath());
+    QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath());
     if (!cacheDir.exists(cacheDir.path())) {
         cacheDir.mkpath(cacheDir.path());
     }
@@ -76,7 +77,7 @@ RoomWrapper *RoomModel::findRoom(const QString &roomID) const
 // Clear data and refill it with data in the cache, if there is
 void RoomModel::reset()
 {
-    if (Ruqola::self()->cacheBasePath().isEmpty()) {
+    if (mRocketChatAccount->settings()->cacheBasePath().isEmpty()) {
         return;
     }
 
@@ -222,7 +223,7 @@ void RoomModel::addRoom(const Room &room)
         endInsertRows();
     }
 
-    Ruqola::self()->getMessageModelForRoom(room.id);
+    mRocketChatAccount->getMessageModelForRoom(room.id);
 }
 
 void RoomModel::updateSubscription(const QJsonArray &array)
@@ -275,7 +276,7 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
                 mRoomsList.replace(i, room);
                 Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
 
-                Ruqola::self()->getMessageModelForRoom(room.id);
+                mRocketChatAccount->getMessageModelForRoom(room.id);
                 break;
             }
         }
@@ -310,7 +311,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
     mRoomsList.replace(pos - 1, foundRoom);
     Q_EMIT dataChanged(createIndex(1, 1), createIndex(pos, 1));
 
-    Ruqola::self()->getMessageModelForRoom(room.id);
+    mRocketChatAccount->getMessageModelForRoom(room.id);
 }
 
 Room RoomModel::fromJSon(const QJsonObject &o)

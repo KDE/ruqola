@@ -27,7 +27,7 @@
 #include <QAbstractListModel>
 #include <QObject>
 class RoomWrapper;
-
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT RoomModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -51,7 +51,7 @@ public:
         RoomOrder
     };
 
-    explicit RoomModel(QObject *parent = nullptr);
+    explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     virtual ~RoomModel();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -111,6 +111,7 @@ protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
+    RocketChatAccount *mRocketChatAccount = nullptr;
     QVector<Room> mRoomsList;
 };
 

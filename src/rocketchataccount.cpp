@@ -48,7 +48,7 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
     connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
 
     mRocketChatBackend = new RocketChatBackend(this, this);
-    mRoomModel = new RoomModel(this);
+    mRoomModel = new RoomModel(this, this);
     mUserModel = new UsersModel(this);
     mMessageQueue = new MessageQueue(this);
     mTypingNotification = new TypingNotification(this);
@@ -256,9 +256,7 @@ void RocketChatAccount::tryLogin()
     ddp();
 
     // In the meantime, load cache...
-    //if(Ruqola::self()->ddp()->isConnected() && Ruqola::self()->loginStatus() == DDPClient::LoggedIn) {
     mRoomModel->reset();
-    //}
 }
 
 void RocketChatAccount::logOut()
