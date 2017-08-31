@@ -54,7 +54,7 @@ Kirigami.ApplicationWindow {
 
     title: i18n("Ruqola")
     
-    header: Kirigami.ApplicationHeader {}
+    //header: Kirigami.ApplicationHeader {}
 
     pageStack.initialPage: [roomsComponent, mainComponent]
     pageStack.visible: Ruqola.loginStatus == DDPClient.LoggedIn
