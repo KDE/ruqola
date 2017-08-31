@@ -43,12 +43,12 @@ public:
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
-    void addUser(const User &user);
+    void addUser(User *user);
     void removeUser(const QString &userId);
 
     void updateUser(const QJsonObject &array);
 private:
-    QVector<User> mUsers;
+    QVector<User *> mUsers;
 };
 
 #endif // USERMODEL_H

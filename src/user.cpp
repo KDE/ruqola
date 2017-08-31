@@ -22,7 +22,8 @@
 
 #include <QJsonObject>
 
-User::User()
+User::User(QObject *parent)
+    : QObject(parent)
 {
 }
 
@@ -33,7 +34,10 @@ QString User::name() const
 
 void User::setName(const QString &name)
 {
-    mName = name;
+    if (mName != name) {
+        mName = name;
+        Q_EMIT nameChanged();
+    }
 }
 
 QString User::userId() const
@@ -53,7 +57,10 @@ QString User::status() const
 
 void User::setStatus(const QString &status)
 {
-    mStatus = status;
+    if (mStatus != status) {
+        mStatus = status;
+        Q_EMIT statusChanged();
+    }
 }
 
 bool User::operator ==(const User &other) const
