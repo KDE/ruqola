@@ -179,14 +179,22 @@ Kirigami.ApplicationWindow {
             bottomPadding: Kirigami.Units.smallSpacing
             header: Column {
 
-                Kirigami.Heading {
-                    text: "#" +appid.selectedRoom.name
-                    level: 3
-                    font.bold: true
-                    anchors.right: parent.right
+                RowLayout {
                     anchors.left: parent.left
+                    anchors.right: parent.right
                     anchors.leftMargin: 2*Kirigami.Units.smallSpacing
+
+                    Controls.ToolButton {
+                        text: "ToolButton"
+                        visible: false//appid.selectedRoom
+                    }
+                    Kirigami.Heading {
+                        text: "#" +appid.selectedRoom.name
+                        level: 3
+                        font.bold: true
+                    }
                 }
+
                 Kirigami.Label {
                     visible: appid.selectedRoom.topic !== ""
                     text: appid.selectedRoom.topic
