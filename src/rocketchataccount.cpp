@@ -48,6 +48,7 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
     connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
 
     mRocketChatBackend = new RocketChatBackend(this, this);
+    connect(mRocketChatBackend, &RocketChatBackend::notification, this, &RocketChatAccount::notification);
     mRoomModel = new RoomModel(this, this);
     mUserModel = new UsersModel(this);
     mMessageQueue = new MessageQueue(this);

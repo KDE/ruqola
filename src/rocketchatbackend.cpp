@@ -22,13 +22,14 @@
 
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
-#include <QJsonObject>
 #include "ruqola_debug.h"
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
-#include "ruqola.h"
 #include "user.h"
 #include "usermodel.h"
+#include "messagemodel.h"
+
+#include <QJsonObject>
 
 void process_backlog(const QJsonDocument &messages, RocketChatAccount *account)
 {
@@ -225,7 +226,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         } else if (eventname.endsWith(QStringLiteral("/notification"))) {
             const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
             const QString title = contents.at(0).toObject()[QStringLiteral("title")].toString();
-            Ruqola::self()->notification()->showMessage(title, message, QSystemTrayIcon::Information, 5000);
+            Q_EMIT notification(title, message);
         } else {
             qCWarning(RUQOLA_LOG) << " Unknown event ? " << eventname;
         }

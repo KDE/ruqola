@@ -43,6 +43,9 @@ public:
     */
     void processIncomingMessages(const QJsonArray &messages);
 
+Q_SIGNALS:
+    void notification(const QString &title, const QString &message);
+
 private:
     void onAdded(const QJsonObject &object);
     void onChanged(const QJsonObject &object);

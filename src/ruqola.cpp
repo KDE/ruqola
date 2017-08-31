@@ -43,6 +43,7 @@ Ruqola::Ruqola(QObject *parent)
     connect(mRocketChatAccount, &RocketChatAccount::serverURLChanged, this, &Ruqola::serverURLChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &Ruqola::userIDChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userNameChanged, this, &Ruqola::userNameChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::notification, this, &Ruqola::sendNotification);
 }
 
 Ruqola *Ruqola::self()
@@ -111,6 +112,11 @@ RestApiRequest *Ruqola::restapi() const
 UsersForRoomModel *Ruqola::getUsersForRoomModel(const QString &roomId)
 {
     return mRocketChatAccount->getUsersForRoomModel(roomId);
+}
+
+void Ruqola::sendNotification(const QString &title, const QString &message)
+{
+    notification()->showMessage(title, message, QSystemTrayIcon::Information, 5000);
 }
 
 DDPClient *Ruqola::ddp() const
