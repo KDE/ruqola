@@ -55,14 +55,14 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
     mTypingNotification = new TypingNotification(this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
     loadSettings();
-    QTimer::singleShot(0, this, &RocketChatAccount::initialize);
+    QTimer::singleShot(0, this, &RocketChatAccount::clearModels);
 }
 
 RocketChatAccount::~RocketChatAccount()
 {
 }
 
-void RocketChatAccount::initialize()
+void RocketChatAccount::clearModels()
 {
     // Clear rooms data and refill it with data in the cache, if there is
     mRoomModel->reset();

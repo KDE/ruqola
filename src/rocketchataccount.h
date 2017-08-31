@@ -93,7 +93,7 @@ Q_SIGNALS:
 
 private:
     void loadSettings();
-    void initialize();
+    void clearModels();
     RocketChatAccountSettings *mSettings = nullptr;
     //room, messagemodel
     QHash<QString, MessageModel *> mMessageModels;
