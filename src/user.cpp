@@ -75,7 +75,10 @@ QStringList User::listRooms() const
 
 void User::setListRooms(const QStringList &listRooms)
 {
-    mListRooms = listRooms;
+    if (mListRooms != listRooms) {
+        mListRooms = listRooms;
+        Q_EMIT listRoomsChanged();
+    }
 }
 
 QDebug operator <<(QDebug d, const User &t)

@@ -30,6 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT User : public QObject
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString status READ status WRITE setStatus NOTIFY statusChanged)
+    Q_PROPERTY(QStringList listRooms READ listRooms WRITE setListRooms NOTIFY listRoomsChanged)
 public:
 
     enum class PresenceStatus {
@@ -58,13 +59,14 @@ public:
     void parseUser(const QJsonObject &json);
     void updateUser(const QJsonObject &object);
 
-    QString iconFromStatus() const;
+    Q_INVOKABLE QString iconFromStatus() const;
 
     bool operator ==(const User &other) const;
 
 Q_SIGNALS:
     void nameChanged();
     void statusChanged();
+    void listRoomsChanged();
 
 private:
     QString mStatus;
