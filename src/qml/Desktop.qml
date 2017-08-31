@@ -189,13 +189,13 @@ Kirigami.ApplicationWindow {
                     ToolButton {
                         iconName: "favorite"
                         checkable: true
-                        checked: appid.selectedRoom.favorite
+                        checked: appid.selectedRoom && appid.selectedRoom.favorite
                         onCheckedChanged: {
                             console.log("checked favorite" + checked)
                         }
                     }                    
                     Kirigami.Heading {
-                        text: "#" +appid.selectedRoom.name
+                        text: "#" + (appid.selectedRoom ? appid.selectedRoom.name : "")
                         level: 3
                         font.bold: true
                     }
@@ -205,8 +205,8 @@ Kirigami.ApplicationWindow {
                 }
 
                 Kirigami.Label {
-                    visible: appid.selectedRoom.topic !== ""
-                    text: appid.selectedRoom.topic
+                    visible: appid.selectedRoom && (appid.selectedRoom.topic !== "")
+                    text: appid.selectedRoom ? appid.selectedRoom.topic : ""
                     font.italic: true
                     anchors.right: parent.right
                     anchors.left: parent.left
@@ -214,8 +214,8 @@ Kirigami.ApplicationWindow {
                     wrapMode: Label.Wrap
                 }
                 Kirigami.Label {
-                    visible: appid.selectedRoom.announcement !== ""
-                    text: appid.selectedRoom.announcement
+                    visible: appid.selectedRoom && (appid.selectedRoom.announcement !== "")
+                    text: appid.selectedRoom ? appid.selectedRoom.announcement : ""
                     anchors.right: parent.right
                     anchors.left: parent.left
                     anchors.margins: 2*Kirigami.Units.smallSpacing

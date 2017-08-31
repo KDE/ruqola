@@ -87,7 +87,7 @@ void UsersModel::removeUser(const QString &userId)
 
 void UsersModel::addUser(User *user)
 {
-    qCDebug(RUQOLA_LOG) << " User added " << user;
+    qCDebug(RUQOLA_LOG) << " User added " << *user;
     //TODO verify if duplicate ?
     int pos = mUsers.size();
     qDebug() << "addUser mUsers before"<<mUsers.count();
