@@ -48,6 +48,7 @@ RowLayout {
     
     Kirigami.Icon {
         id: attachment
+
         enabled: selectedRoomID !== ""
         source: "document-send-symbolic"
         anchors.bottom: parent.bottom
@@ -61,6 +62,7 @@ RowLayout {
     }
     TextField {
         id: messageLine
+
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         

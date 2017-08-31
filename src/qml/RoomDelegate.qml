@@ -26,6 +26,8 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 
 Kirigami.BasicListItem {
+    id: root
+
     property int d_unread: 0;
     property string d_name: "roomName";
     property bool d_selected: false;
@@ -36,7 +38,6 @@ Kirigami.BasicListItem {
     
     property bool d_editingMode: false;
     
-    id: root
     
     signal roomSelected(string roomID)
     signal leaveRoom(string roomID)
@@ -60,29 +61,16 @@ Kirigami.BasicListItem {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.right: parent.right
-        //         anchors.left: parent.left
         width: 50
         spacing: Kirigami.Units.smallSpacing
         Kirigami.Label {
             id: unreadMessage
 
-            //Show it when notification implemented
             visible: !editingMode && d_unread > 0
             height: parent.height
             width: height
             font.bold: true
             text: i18n("(%1)", d_unread)
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
-        }
-        Kirigami.Label {
-            id: notification
-
-            //Show it when notification implemented
-            visible: false && !editingMode
-            height: parent.height
-            width: height
-            font.bold: true
-            text: "3" //TODO use real value
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
         }
         Kirigami.Icon {
@@ -125,7 +113,5 @@ Kirigami.BasicListItem {
             }
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
         }
-        
     }
-    
 } // Item closed

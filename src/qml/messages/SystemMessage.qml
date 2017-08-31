@@ -110,51 +110,5 @@ Rectangle {
         
         onLinkActivated: messageMain.linkActivated(link)
     }
-            
-//     Rectangle {
-//         
-//         anchors.topMargin: Kirigami.Units.smallSpacing
-//         
-//         anchors.centerIn: parent
-//         color: "red"
-//         anchors.top: parent.top
-//         anchors.bottom: parent.bottom
-//         
-//         
-//         
-// //         spacing: Kirigami.Units.smallSpacing
-//         
-//         Rectangle {
-//             id: textRect
-//             color: "blue"
-//             radius: height
-//             
-//             anchors.fill: parent
-//             
-// //             color: "#eeeeee"
-// //             anchors.top: parent.top
-// //             anchors.bottom: parent.bottom
-//             anchors.bottomMargin:  Kirigami.Units.smallSpacing
-// //             anchors.horizontalCenter: parent.horizontalCenter
-//             
-// //             height: textLabel.implicitHeight + usernameLabel.implicitHeight
-//             
-//            
-//         }
-
-//         Kirigami.Label {
-//             id: timeLabel
-//             text: "["+(new Date(i_timestamp)).toLocaleTimeString(Locale.ShortFormat)+"]"
-// 
-//             anchors.top: parent.top
-//             anchors.bottom: parent.bottom
-//             
-//             color: Kirigami.Theme.textColor
-//             opacity: .5
-//             
-//             z:1
-//         }
-//     }
-//    
 
 }
