@@ -22,7 +22,7 @@
 
 import QtQuick 2.7
 import QtQuick.Controls 1.4
-import QtQuick.Controls 2.0 as QQC2
+import QtQuick.Controls 2.0 as Controls
 import QtQuick.Controls.Styles 1.2
 import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
@@ -117,12 +117,14 @@ Kirigami.ApplicationWindow {
             actions.main: Kirigami.Action {
                 id: editAction
                 iconName: "list-add"
+                text: i18n("Open room");
                 onTriggered: {
                     channelsList.open();
                 }
             }
             actions.left: Kirigami.Action {
                 iconName: "edit-symbolic"
+                text: i18n("Edit room");
                 checkable: true
                 onToggled: {
                     roomsList.editingMode = checked
@@ -202,6 +204,12 @@ Kirigami.ApplicationWindow {
                     anchors.margins: 2*Kirigami.Units.smallSpacing
                     wrapMode: Label.Wrap
                 }
+
+                Controls.ToolButton {
+                    text: "ToolButton"
+                    visible: false //appid.selectedRoom
+                }
+
                 Rectangle {
                     color: Kirigami.Theme.textColor
                     height:1
