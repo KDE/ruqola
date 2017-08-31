@@ -55,7 +55,7 @@ bool Room::isEqual(const Room &other) const
            && (mOpen == other.mOpen);
 }
 
-QString Room::getName() const
+QString Room::name() const
 {
     return mName;
 }
@@ -101,6 +101,83 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
     if (json.contains(QStringLiteral("topic"))) {
         mTopic = json[QStringLiteral("topic")].toString();
+    }
+}
+
+bool Room::alert() const
+{
+    return mAlert;
+}
+
+void Room::setAlert(bool alert)
+{
+    mAlert = alert;
+}
+
+bool Room::open() const
+{
+    return mOpen;
+}
+
+void Room::setOpen(bool open)
+{
+    mOpen = open;
+}
+
+bool Room::readOnly() const
+{
+    return mReadOnly;
+}
+
+void Room::setReadOnly(bool readOnly)
+{
+    mReadOnly = readOnly;
+}
+
+QString Room::topic() const
+{
+    return mTopic;
+}
+
+void Room::setTopic(const QString &topic)
+{
+    mTopic = topic;
+}
+
+bool Room::favorite() const
+{
+    return mFavorite;
+}
+
+void Room::setFavorite(bool favorite)
+{
+    mFavorite = favorite;
+}
+
+QString Room::channelType() const
+{
+    return mChannelType;
+}
+
+void Room::setChannelType(const QString &channelType)
+{
+    mChannelType = channelType;
+}
+
+QString Room::announcement() const
+{
+    return mAnnouncement;
+}
+
+void Room::setAnnouncement(const QString &announcement)
+{
+    mAnnouncement = announcement;
+}
+
+void Room::setName(const QString &name)
+{
+    if (mName != name) {
+        mName = name;
     }
 }
 

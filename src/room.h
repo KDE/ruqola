@@ -47,7 +47,29 @@ public:
     *
     * @return QString, The name of the room
     */
-    QString getName() const;
+    QString name() const;
+    void setName(const QString &name);
+
+    QString announcement() const;
+    void setAnnouncement(const QString &announcement);
+
+    QString channelType() const;
+    void setChannelType(const QString &channelType);
+
+    bool favorite() const;
+    void setFavorite(bool favorite);
+
+    QString topic() const;
+    void setTopic(const QString &topic);
+
+    bool readOnly() const;
+    void setReadOnly(bool readOnly);
+
+    bool open() const;
+    void setOpen(bool open);
+
+    bool alert() const;
+    void setAlert(bool alert);
 
     void parseSubscriptionRoom(const QJsonObject &json);
     void parseRoom(const QJsonObject &json);
