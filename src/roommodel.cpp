@@ -270,7 +270,8 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
 {
     const QString roomName = roomData.value(QStringLiteral("name")).toString();
     if (!roomName.isEmpty()) {
-        for (int i = 0; i < mRoomsList.size(); ++i) {
+        const int roomCount{mRoomsList.size()};
+        for (int i = 0; i < roomCount; ++i) {
             if (mRoomsList.at(i).mName == roomName) {
                 //TODO change with rid and not roomname as it can be changed!
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
