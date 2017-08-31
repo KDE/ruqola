@@ -177,21 +177,30 @@ Kirigami.ApplicationWindow {
             rightPadding: Kirigami.Units.smallSpacing
             topPadding: Kirigami.Units.smallSpacing
             bottomPadding: Kirigami.Units.smallSpacing
+
             header: Column {
 
                 RowLayout {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.leftMargin: 2*Kirigami.Units.smallSpacing
+                    visible: appid.selectedRoom
 
-                    Controls.ToolButton {
-                        text: "ToolButton"
-                        visible: false//appid.selectedRoom
-                    }
+                    ToolButton {
+                        iconName: "favorite"
+                        checkable: true
+                        checked: appid.selectedRoom.favorite
+                        onCheckedChanged: {
+                            console.log("checked favorite" + checked)
+                        }
+                    }                    
                     Kirigami.Heading {
                         text: "#" +appid.selectedRoom.name
                         level: 3
                         font.bold: true
+                    }
+                    Item {
+                        Layout.fillWidth: true
                     }
                 }
 
@@ -211,11 +220,6 @@ Kirigami.ApplicationWindow {
                     anchors.left: parent.left
                     anchors.margins: 2*Kirigami.Units.smallSpacing
                     wrapMode: Label.Wrap
-                }
-
-                Controls.ToolButton {
-                    text: "ToolButton"
-                    visible: false //appid.selectedRoom
                 }
 
                 Rectangle {

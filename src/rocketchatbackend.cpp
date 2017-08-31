@@ -180,8 +180,8 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
             mRocketChatAccount->restapi()->login();
         } else {
             //TODO add current user ? me ?
-            User user;
-            user.parseUser(object);
+            User *user = new User;
+            user->parseUser(object);
             qCDebug(RUQOLA_LOG) << " USER ADDED VALUE " << user;
             mRocketChatAccount->userModel()->addUser(user);
         }

@@ -48,3 +48,8 @@ QString RoomWrapper::announcement() const
 {
     return mRoom.mAnnouncement;
 }
+
+bool RoomWrapper::favorite() const
+{
+    return mRoom.mFavorite;
+}

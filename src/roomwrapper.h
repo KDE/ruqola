@@ -32,6 +32,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString topic READ topic NOTIFY topicChanged)
     Q_PROPERTY(QString announcement READ announcement NOTIFY announcementChanged)
+    Q_PROPERTY(bool favorite READ favorite NOTIFY favoriteChanged)
     Q_OBJECT
 
 public:
@@ -40,12 +41,14 @@ public:
 
     QString name() const;
     QString topic() const;
-    QString announcement() const;
+    QString announcement() const;    
+    bool favorite() const;
 
 Q_SIGNALS:
     void nameChanged();
     void topicChanged();
     void announcementChanged();
+    void favoriteChanged();
 
 private:
     Room mRoom;
