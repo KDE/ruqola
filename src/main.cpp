@@ -26,6 +26,7 @@
 
 #include "roommodel.h"
 #include "usersforroommodel.h"
+#include "usermodel.h"
 #include "ruqola.h"
 #include "roomwrapper.h"
 #include "ruqolautils.h"
@@ -60,6 +61,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
     qmlRegisterType<UsersForRoomModel>("KDE.Ruqola.UsersForRoomModel", 1, 0, "UsersForRoomModel");
     qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
+    qmlRegisterType<UsersModel>("KDE.Ruqola.UsersModel", 1, 0, "UsersModel");
 
     (void)Ruqola::self();
     QQmlApplicationEngine engine;

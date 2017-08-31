@@ -61,6 +61,16 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+User *UsersModel::user(const QString &userId)
+{
+    for (int i = 0; i < mUsers.count(); ++i) {
+        if (mUsers.at(i)->userId() == userId) {
+            return mUsers.at(i);
+        }
+    }
+    return nullptr;
+}
+
 void UsersModel::removeUser(const QString &userId)
 {
     qCDebug(RUQOLA_LOG) << " User removed " << userId;
