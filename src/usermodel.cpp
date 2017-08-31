@@ -29,6 +29,7 @@ UsersModel::UsersModel(QObject *parent)
 
 UsersModel::~UsersModel()
 {
+    qDebug() << "UsersModel::~UsersModel() "<< mUsers.count();
     qDeleteAll(mUsers);
 }
 
@@ -79,9 +80,11 @@ void UsersModel::addUser(User *user)
     qCDebug(RUQOLA_LOG) << " User added " << user;
     //TODO verify if duplicate ?
     int pos = mUsers.size();
+    qDebug() << "addUser mUsers before"<<mUsers.count();
     beginInsertRows(QModelIndex(), pos, pos);
     mUsers.append(user);
     //TODO emit signal that we added element
+    qDebug() << "addUser mUsers after"<<mUsers.count();
     endInsertRows();
 }
 
@@ -94,7 +97,6 @@ void UsersModel::updateUser(const QJsonObject &array)
             const QJsonObject fields = array.value(QStringLiteral("fields")).toObject();
             const QString newStatus = fields.value(QStringLiteral("status")).toString();
             user->setStatus(newStatus);
-            //mUsers.replace(i, user);
             Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
             break;
         }
