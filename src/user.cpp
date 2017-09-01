@@ -117,7 +117,6 @@ QString User::iconFromStatus() const
     case PresenceStatus::PresenceOffline:
         return QStringLiteral("user-offline");
     case PresenceStatus::Unknown:
-        qDebug() << " unknown !!!!!!!";
         return QStringLiteral("unknown");
     }
     return {};

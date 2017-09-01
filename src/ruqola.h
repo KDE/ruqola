@@ -127,6 +127,8 @@ public:
     Q_INVOKABLE UsersForRoomModel *getUsersForRoomModel(const QString &roomId);
     Q_INVOKABLE UsersModel *usersModel() const;
 
+    Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
+
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();

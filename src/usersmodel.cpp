@@ -109,6 +109,7 @@ void UsersModel::updateUser(const QJsonObject &array)
             const QJsonObject fields = array.value(QStringLiteral("fields")).toObject();
             const QString newStatus = fields.value(QStringLiteral("status")).toString();
             user->setStatus(newStatus);
+            //TODO name ?
             Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
             break;
         }

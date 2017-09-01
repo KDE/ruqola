@@ -46,6 +46,12 @@ Ruqola::Ruqola(QObject *parent)
     connect(mRocketChatAccount, &RocketChatAccount::notification, this, &Ruqola::sendNotification);
 }
 
+RocketChatAccount *Ruqola::rocketChatAccount() const
+{
+    qDebug() << " RocketChatAccount *Ruqola::rocketChatAccount() const"<<mRocketChatAccount;
+    return mRocketChatAccount;
+}
+
 Ruqola *Ruqola::self()
 {
     static Ruqola *s_self = nullptr;

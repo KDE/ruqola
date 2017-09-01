@@ -151,9 +151,9 @@ Kirigami.ApplicationWindow {
                     Ruqola.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
                     console.log("Choosing room", roomID);
                     appid.selectedRoomID = roomID;
-                    appid.model = Ruqola.getMessageModelForRoom(roomID)
-                    appid.selectedRoom = Ruqola.getRoom(roomID)
-                    appid.userModel = Ruqola.getUsersForRoomModel(roomID)
+                    appid.model = Ruqola.rocketChatAccount().getMessageModelForRoom(roomID)
+                    appid.selectedRoom = Ruqola.rocketChatAccount().getRoom(roomID)
+                    appid.userModel = Ruqola.rocketChatAccount().getUsersForRoomModel(roomID)
                 }
                 
             } //RoomsView
