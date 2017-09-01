@@ -48,7 +48,7 @@ add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
 
 # TODO customize it.
-set(RUQOLA_VERSION "0.3.3")
+set(RUQOLA_VERSION "0.3.4")
 
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
 set(RUQOLA_LIB_SOVERSION "0")
@@ -66,10 +66,6 @@ add_subdirectory(src)
 if (BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
-endif()
-
-if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
-    ecm_install_po_files_as_qm(po)
 endif()
 
 install(FILES ruqola.categories DESTINATION ${KDE_INSTALL_CONFDIR})
