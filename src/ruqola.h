@@ -110,9 +110,7 @@ public:
     */
     Q_INVOKABLE RoomWrapper *getRoom(const QString &roomID);
 
-    Q_INVOKABLE void attachmentButtonClicked(const QString &roomId);
     Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
-    Q_INVOKABLE void clearUnreadMessages(const QString &roomId);
     Q_INVOKABLE QString getUserCurrentMessage(const QString &roomId);
     Q_INVOKABLE void setUserCurrentMessage(const QString &message, const QString &roomId);
 

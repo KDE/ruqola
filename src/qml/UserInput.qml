@@ -57,7 +57,7 @@ RowLayout {
         height: messageLine.height/2
         MouseArea {
             anchors.fill: parent
-            onClicked: Ruqola.attachmentButtonClicked(selectedRoomID);
+            onClicked: Ruqola.rocketChatAccount().attachmentButtonClicked(selectedRoomID);
         }
     }
     TextField {

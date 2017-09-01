@@ -143,16 +143,6 @@ Notification *Ruqola::notification()
     return mNotification;
 }
 
-void Ruqola::attachmentButtonClicked(const QString &roomId)
-{
-    mRocketChatAccount->attachmentButtonClicked(roomId);
-}
-
-void Ruqola::clearUnreadMessages(const QString &roomId)
-{
-    mRocketChatAccount->clearUnreadMessages(roomId);
-}
-
 QString Ruqola::getUserCurrentMessage(const QString &roomId)
 {
     return mRocketChatAccount->getUserCurrentMessage(roomId);

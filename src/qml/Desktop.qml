@@ -272,7 +272,7 @@ Kirigami.ApplicationWindow {
                     appid.userInputMessageText = str;
                 }
                 onClearUnreadMessages: {
-                    Ruqola.clearUnreadMessages(appid.selectedRoomID)
+                    Ruqola.rocketChatAccount().clearUnreadMessages(appid.selectedRoomID)
                 }
             }
         }// mainWidget Item
