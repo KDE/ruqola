@@ -101,9 +101,9 @@ void User::updateUser(const QJsonObject &object)
 void User::parseUser(const QJsonObject &object)
 {
     const QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
-    mName = fields.value(QStringLiteral("name")).toString();
-    mUserId = object.value(QStringLiteral("id")).toString();
-    mStatus = fields.value(QStringLiteral("status")).toString();
+    setName(fields.value(QStringLiteral("name")).toString());
+    setUserId(object.value(QStringLiteral("id")).toString());
+    setStatus(fields.value(QStringLiteral("status")).toString());
 }
 
 QString User::iconFromStatus() const
