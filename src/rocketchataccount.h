@@ -49,7 +49,7 @@ public:
 
     RocketChatAccountSettings *settings() const;
 
-    UsersModel *userModel() const;
+    UsersModel *usersModel() const;
 
     RoomModel *roomModel() const;
 

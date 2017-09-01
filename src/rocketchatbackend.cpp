@@ -183,7 +183,7 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
             User *user = new User;
             user->parseUser(object);
             qCDebug(RUQOLA_LOG) << " USER ADDED VALUE " << user;
-            mRocketChatAccount->userModel()->addUser(user);
+            mRocketChatAccount->usersModel()->addUser(user);
         }
 
         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username << fields;
@@ -205,7 +205,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         processIncomingMessages(contents);
     } else if (collection == QLatin1String("users")) {
         qCDebug(RUQOLA_LOG) << "USER CHANGED" << object;
-        UsersModel *model = mRocketChatAccount->userModel();
+        UsersModel *model = mRocketChatAccount->usersModel();
         model->updateUser(object);
     } else if (collection == QLatin1String("rooms")) {
         qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;

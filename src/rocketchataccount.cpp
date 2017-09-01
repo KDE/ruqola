@@ -102,7 +102,7 @@ RoomModel *RocketChatAccount::roomModel() const
     return mRoomModel;
 }
 
-UsersModel *RocketChatAccount::userModel() const
+UsersModel *RocketChatAccount::usersModel() const
 {
     return mUserModel;
 }
