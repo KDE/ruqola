@@ -125,6 +125,8 @@ public:
 
     RestApiRequest *restapi() const;
     Q_INVOKABLE UsersForRoomModel *getUsersForRoomModel(const QString &roomId);
+    Q_INVOKABLE UsersModel *userModel() const;
+
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();

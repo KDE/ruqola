@@ -114,6 +114,11 @@ UsersForRoomModel *Ruqola::getUsersForRoomModel(const QString &roomId)
     return mRocketChatAccount->getUsersForRoomModel(roomId);
 }
 
+UsersModel *Ruqola::userModel() const
+{
+    return mRocketChatAccount->userModel();
+}
+
 void Ruqola::sendNotification(const QString &title, const QString &message)
 {
     notification()->showMessage(title, message, QSystemTrayIcon::Information, 5000);
