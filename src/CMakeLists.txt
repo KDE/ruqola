@@ -25,7 +25,7 @@ set (Ruqola_core_srcs
     rocketchatmessage.cpp
     typingnotification.cpp
     changetemporarystatus.cpp
-    usermodel.cpp
+    usersmodel.cpp
     user.cpp
     utils.cpp
     abstractwebsocket.cpp

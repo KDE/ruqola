@@ -26,7 +26,7 @@
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
 #include "user.h"
-#include "usermodel.h"
+#include "usersmodel.h"
 #include "messagemodel.h"
 
 #include <QJsonObject>

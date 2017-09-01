@@ -26,7 +26,7 @@
 #include <KCrash>
 #include "roommodel.h"
 #include "usersforroommodel.h"
-#include "usermodel.h"
+#include "usersmodel.h"
 #include "ruqola.h"
 #include "roomwrapper.h"
 #include "ruqolautils.h"

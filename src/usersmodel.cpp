@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usermodel.h"
+#include "usersmodel.h"
 #include "ruqola_debug.h"
 
 #include <QJsonObject>

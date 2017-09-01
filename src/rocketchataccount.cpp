@@ -23,7 +23,7 @@
 #include "roommodel.h"
 #include "roomwrapper.h"
 #include "typingnotification.h"
-#include "usermodel.h"
+#include "usersmodel.h"
 #include "ruqola_debug.h"
 #include "ruqola.h"
 #include "messagequeue.h"

@@ -19,7 +19,7 @@
 */
 
 #include "usersforroommodel.h"
-#include "usermodel.h"
+#include "usersmodel.h"
 #include "ruqola_debug.h"
 
 UsersForRoomModel::UsersForRoomModel(QObject *parent)
