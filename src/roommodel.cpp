@@ -28,7 +28,7 @@
 
 #include <QAbstractItemModel>
 #include <QtCore>
-
+#define REMOVESORTING 1
 RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , mRocketChatAccount(account)
@@ -194,6 +194,21 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
 
 void RoomModel::addRoom(const Room &room)
 {
+    qDebug() << " void RoomModel::addRoom(const Room &room)"<<room.name();
+#ifdef REMOVESORTING
+    const int roomCount{mRoomsList.count()};
+    for (int i = 0; i < roomCount; ++i) {
+        if (mRoomsList.at(i).id() == room.id()) {
+            mRoomsList.replace(i, room);
+            Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
+            return;
+        }
+    }
+    beginInsertRows(QModelIndex(), mRoomsList.count(), mRoomsList.count());
+    qCDebug(RUQOLA_LOG) << "Inserting room at position" <<roomCount;
+    mRoomsList.append(room);
+    endInsertRows();
+#else
     auto existingRoom = std::find(mRoomsList.begin(), mRoomsList.end(), room);
     bool present = (existingRoom != mRoomsList.end());
 
@@ -213,7 +228,7 @@ void RoomModel::addRoom(const Room &room)
         mRoomsList.insert(i, room);
         endInsertRows();
     }
-
+#endif
     mRocketChatAccount->getMessageModelForRoom(room.id());
 }
 
@@ -227,6 +242,17 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         Room room;
         room.setId(roomData.value(QStringLiteral("rid")).toString());
         room.setName(roomData.value(QStringLiteral("name")).toString());
+#ifdef REMOVESORTING
+        const int roomCount{mRoomsList.count()};
+        for (int i = 0; i < roomCount; ++i) {
+            if (mRoomsList.at(i).id() == room.id()) {
+                beginRemoveRows(QModelIndex(), i, i);
+                mRoomsList.remove(i);
+                endRemoveRows();
+                break;
+            }
+        }
+#else
         auto existingRoom = std::find(mRoomsList.begin(), mRoomsList.end(), room);
         bool present = (existingRoom != mRoomsList.end());
         if (present) {
@@ -238,6 +264,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
             mRoomsList.remove(pos);
             endRemoveRows();
         }
+#endif
     } else if (actionName == QStringLiteral("inserted")) {
         qDebug() << " INSERT ROOM";
         qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
@@ -282,6 +309,25 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
     Room room;
     room.setId(roomID);
     room.setName(name);
+
+#ifdef REMOVESORTING
+    const int roomCount{mRoomsList.count()};
+    for (int i = 0; i < roomCount; ++i) {
+        if (mRoomsList.at(i).id() == roomID) {
+            qCDebug(RUQOLA_LOG) << "Room changed!" << roomID;
+            Room foundRoom = mRoomsList.value(i);
+            foundRoom.setTopic(topic);
+            foundRoom.setAnnouncement(announcement);
+            mRoomsList.replace(i, foundRoom);
+            Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
+
+            mRocketChatAccount->getMessageModelForRoom(room.id());
+            return;
+        }
+    }
+    qCWarning(RUQOLA_LOG) << " ROOM DOESNT EXIST " << roomID;
+#else
+
     auto existingRoom = std::find(mRoomsList.begin(), mRoomsList.end(), room);
     bool present = (existingRoom != mRoomsList.end());
 
@@ -303,6 +349,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
     Q_EMIT dataChanged(createIndex(1, 1), createIndex(pos, 1));
 
     mRocketChatAccount->getMessageModelForRoom(room.id());
+#endif
 }
 
 Room RoomModel::fromJSon(const QJsonObject &o)
