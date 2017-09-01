@@ -63,6 +63,7 @@ void UtilsTest::shouldMarkdownToRichText_data()
                              << QStringLiteral("***bla***");
     QTest::newRow("multi star3") << QStringLiteral("***bla ******")
                              << QStringLiteral("***bla ******");
+    QTest::newRow("Remove <br/>") << QStringLiteral("foo<br />") << QStringLiteral("foo");
 }
 
 void UtilsTest::shouldMarkdownToRichText()
