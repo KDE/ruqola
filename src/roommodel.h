@@ -113,6 +113,8 @@ protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
+    int order(const Room &r) const;
+    QString sectionName(const Room &r) const;
     RocketChatAccount *mRocketChatAccount = nullptr;
     QVector<Room> mRoomsList;
 };

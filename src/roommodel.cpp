@@ -136,7 +136,7 @@ int RoomModel::rowCount(const QModelIndex &parent) const
 
 QVariant RoomModel::data(const QModelIndex &index, int role) const
 {
-    Room r = mRoomsList.at(index.row());
+    const Room r = mRoomsList.at(index.row());
 
     switch (role) {
     case RoomModel::RoomName:
@@ -170,44 +170,9 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomFavorite:
         return r.favorite();
     case RoomModel::RoomSection:
-    {
-        QString str;
-        if (r.favorite()) {
-            str = i18n("Favorites");
-        } else {
-            if (r.channelType() == QLatin1String("c")) {
-                str = i18n("Rooms");
-            } else if (r.channelType() == QLatin1String("d")) {
-                str = i18n("Private Message");
-            } else {
-                str = QString();
-            }
-        }
-        return str;
-    }
+        return sectionName(r);
     case RoomModel::RoomOrder:
-    {
-        int order = 0;
-        if (r.favorite()) {
-            if (r.channelType() == QLatin1String("c")) {
-                order = 1;
-            } else if (r.channelType() == QLatin1String("d")) {
-                order = 2;
-            } else {
-                order = 3;
-            }
-        } else {
-            if (r.channelType() == QLatin1String("c")) {
-                order = 4;
-            } else if (r.channelType() == QLatin1String("d")) {
-                order = 5;
-            } else {
-                order = 6;
-            }
-        }
-        qDebug() <<" str " << order << " name "<< r.name();
-        return order;
-    }
+        return order(r);
     }
     return QVariant(QStringLiteral("0"));
 }
@@ -386,4 +351,39 @@ QByteArray RoomModel::serialize(const Room &r)
 
     d.setObject(o);
     return d.toBinaryData();
+}
+
+QString RoomModel::sectionName(const Room &r) const
+{
+    QString str;
+    if (r.favorite()) {
+        str = i18n("Favorites");
+    } else {
+        if (r.channelType() == QLatin1String("c")) {
+            str = i18n("Rooms");
+        } else if (r.channelType() == QLatin1String("d")) {
+            str = i18n("Private Message");
+        } else {
+            str = QString();
+        }
+    }
+    return str;
+}
+
+int RoomModel::order(const Room &r) const
+{
+    int order = 0;
+    if (!r.favorite()) {
+        order +=3;
+    }
+    const QString channelTypeStr{r.channelType()};
+    if (channelTypeStr == QLatin1String("c")) {
+        order += 1;
+    } else if (channelTypeStr == QLatin1String("d")) {
+        order += 2;
+    } else {
+        order += 3;
+    }
+    qDebug() <<" str " << order << " name "<< r.name();
+    return order;
 }
