@@ -27,7 +27,7 @@
 #include <KLocalizedString>
 
 #include <QAbstractItemModel>
-#include <QtCore>
+
 #define REMOVESORTING 1
 RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
