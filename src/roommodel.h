@@ -73,7 +73,7 @@ public:
     *
     * @param room The room to be added
     */
-    void addRoom(const Room &room);
+    void addRoom(Room *room);
 
     void updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement);
 
@@ -91,7 +91,7 @@ public:
     * @param source The Json containing room attributes
     * @return Room object, The room constructed from Json
     */
-    static Room fromJSon(const QJsonObject &source);
+    static Room *fromJSon(const QJsonObject &source);
 
     /**
     * @brief Constructs QBytearray from Room object
@@ -99,7 +99,7 @@ public:
     * @param message The Room object
     * @return QByteArray, The Json containing room attributes
     */
-    static QByteArray serialize(const Room &r);
+    static QByteArray serialize(Room *r);
 
     //void setActiveRoom(const QString &activeRoom);
 
@@ -113,10 +113,10 @@ protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
-    int order(const Room &r) const;
-    QString sectionName(const Room &r) const;
+    int order(Room *r) const;
+    QString sectionName(Room *r) const;
     RocketChatAccount *mRocketChatAccount = nullptr;
-    QVector<Room> mRoomsList;
+    QVector<Room *> mRoomsList;
 };
 
 #endif // ROOMMODEL_H

@@ -90,9 +90,9 @@ void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *accoun
 
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPClient::LoggedIn) {
-                Room r;
-                r.parseSubscriptionRoom(room);
-                qCDebug(RUQOLA_LOG) << "Adding room subscription" << r.name() << r.id() << r.topic();
+                Room *r = new Room;
+                r->parseSubscriptionRoom(room);
+                qCDebug(RUQOLA_LOG) << "Adding room subscription" << r->name() << r->id() << r->topic();
 
                 model->addRoom(r);
             }

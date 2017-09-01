@@ -22,7 +22,9 @@
 
 #include "room.h"
 #include <QDebug>
-Room::Room()
+
+Room::Room(QObject *parent)
+    : QObject(parent)
 {
 }
 
@@ -230,6 +232,7 @@ void Room::setTopic(const QString &topic)
 {
     if (mTopic != topic) {
         mTopic = topic;
+        Q_EMIT topicChanged();
     }
 }
 
@@ -242,6 +245,7 @@ void Room::setFavorite(bool favorite)
 {
     if (mFavorite != favorite) {
         mFavorite = favorite;
+        Q_EMIT favoriteChanged();
     }
 }
 
@@ -266,6 +270,7 @@ void Room::setAnnouncement(const QString &announcement)
 {
     if (mAnnouncement != announcement) {
         mAnnouncement = announcement;
+        Q_EMIT announcementChanged();
     }
 }
 
@@ -273,6 +278,7 @@ void Room::setName(const QString &name)
 {
     if (mName != name) {
         mName = name;
+        Q_EMIT nameChanged();
     }
 }
 

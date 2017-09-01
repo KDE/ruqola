@@ -37,7 +37,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
 
 public:
     explicit RoomWrapper(QObject *parent = nullptr);
-    RoomWrapper(const Room &r, QObject *parent = nullptr);
+    RoomWrapper(Room *r, QObject *parent = nullptr);
 
     QString name() const;
     QString topic() const;
@@ -51,7 +51,7 @@ Q_SIGNALS:
     void favoriteChanged();
 
 private:
-    Room mRoom;
+    Room *mRoom = nullptr;
 };
 
 #endif // ROOMWRAPPER_H

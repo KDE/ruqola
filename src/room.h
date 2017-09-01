@@ -24,14 +24,19 @@
 #define ROOM_H
 
 #include <QJsonObject>
-#include <QString>
+#include <QObject>
 
 #include "libruqola_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT Room
+class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
 {
+    Q_OBJECT
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(QString announcement READ announcement WRITE setAnnouncement NOTIFY announcementChanged)
+    Q_PROPERTY(QString topic READ topic WRITE setTopic NOTIFY topicChanged)
+    Q_PROPERTY(bool favorite READ favorite WRITE setFavorite NOTIFY favoriteChanged)
 public:
-    Room();
+    explicit Room(QObject *parent = nullptr);
 
     // To be used in ID find: message ID
     bool operator==(const Room &other) const;
@@ -92,6 +97,12 @@ public:
     void parseSubscriptionRoom(const QJsonObject &json);
     void parseRoom(const QJsonObject &json);
     void parseUpdateRoom(const QJsonObject &json);
+
+Q_SIGNALS:
+    void nameChanged();
+    void announcementChanged();
+    void topicChanged();
+    void favoriteChanged();
 
 private:
     //Room Object Fields

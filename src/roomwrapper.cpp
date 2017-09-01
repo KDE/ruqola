@@ -28,7 +28,7 @@ RoomWrapper::RoomWrapper(QObject *parent)
 {
 }
 
-RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
+RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     : QObject(parent)
 {
     mRoom = r;
@@ -36,20 +36,20 @@ RoomWrapper::RoomWrapper(const Room &r, QObject *parent)
 
 QString RoomWrapper::name() const
 {
-    return mRoom.name();
+    return mRoom->name();
 }
 
 QString RoomWrapper::topic() const
 {
-    return mRoom.topic();
+    return mRoom->topic();
 }
 
 QString RoomWrapper::announcement() const
 {
-    return mRoom.announcement();
+    return mRoom->announcement();
 }
 
 bool RoomWrapper::favorite() const
 {
-    return mRoom.favorite();
+    return mRoom->favorite();
 }

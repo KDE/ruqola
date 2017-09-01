@@ -46,18 +46,20 @@ RoomModel::~RoomModel()
 
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
-        for (const Room &m : qAsConst(mRoomsList)) {
-            qCDebug(RUQOLA_LOG) << " save cache for room " << m.name();
+        for (Room *m : qAsConst(mRoomsList)) {
+            qCDebug(RUQOLA_LOG) << " save cache for room " << m->name();
             const QByteArray ms = RoomModel::serialize(m);
             out.writeBytes(ms, ms.size());
         }
     }
+    qDeleteAll(mRoomsList);
 }
 
 void RoomModel::clear()
 {
     if (!mRoomsList.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, rowCount()-1);
+        qDeleteAll(mRoomsList);
         mRoomsList.clear();
         endRemoveRows();
     }
@@ -65,12 +67,12 @@ void RoomModel::clear()
 
 RoomWrapper *RoomModel::findRoom(const QString &roomID) const
 {
-    foreach (const Room &r, mRoomsList) {
-        if (r.id() == roomID) {
+    foreach (Room *r, qAsConst(mRoomsList)) {
+        if (r->id() == roomID) {
             return new RoomWrapper(r);
         }
     }
-    Room r;
+    Room *r = new Room;
     return new RoomWrapper(r);
 }
 
@@ -136,39 +138,39 @@ int RoomModel::rowCount(const QModelIndex &parent) const
 
 QVariant RoomModel::data(const QModelIndex &index, int role) const
 {
-    const Room r = mRoomsList.at(index.row());
+    Room *r = mRoomsList.at(index.row());
 
     switch (role) {
     case RoomModel::RoomName:
-        return r.name();
+        return r->name();
     case RoomModel::RoomID:
-        return r.id();
+        return r->id();
     case RoomModel::RoomSelected:
-        return r.selected();
+        return r->selected();
     case RoomModel::RoomType:
-        return r.channelType();
+        return r->channelType();
     case RoomModel::RoomUserID:
-        return r.userId();
+        return r->userId();
     case RoomModel::RoomUserName:
-        return r.userName();
+        return r->userName();
     case RoomModel::RoomTopic:
-        return r.topic();
+        return r->topic();
     case RoomModel::RoomMutedUsers:
-        return r.mutedUsers();
+        return r->mutedUsers();
     case RoomModel::RoomJitsiTimeout:
-        return r.jitsiTimeout();
+        return r->jitsiTimeout();
     case RoomModel::RoomRO:
-        return r.readOnly();
+        return r->readOnly();
     case RoomModel::RoomAnnoucement:
-        return r.announcement();
+        return r->announcement();
     case RoomModel::RoomUnread:
-        return r.unread();
+        return r->unread();
     case RoomModel::RoomOpen:
-        return r.open();
+        return r->open();
     case RoomModel::RoomAlert:
-        return r.alert();
+        return r->alert();
     case RoomModel::RoomFavorite:
-        return r.favorite();
+        return r->favorite();
     case RoomModel::RoomSection:
         return sectionName(r);
     case RoomModel::RoomOrder:
@@ -185,20 +187,20 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
     }
     qCDebug(RUQOLA_LOG) << "Adding room : roomId: " << roomID << " room Name " << roomName << " isSelected : " << selected;
 
-    Room r;
-    r.setId(roomID);
-    r.setName(roomName);
-    r.setSelected(selected);
+    Room *r = new Room;
+    r->setId(roomID);
+    r->setName(roomName);
+    r->setSelected(selected);
     addRoom(r);
 }
 
-void RoomModel::addRoom(const Room &room)
+void RoomModel::addRoom(Room *room)
 {
-    qDebug() << " void RoomModel::addRoom(const Room &room)"<<room.name();
+    qDebug() << " void RoomModel::addRoom(const Room &room)"<<room->name();
 #ifdef REMOVESORTING
     const int roomCount{mRoomsList.count()};
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i).id() == room.id()) {
+        if (mRoomsList.at(i)->id() == room->id()) {
             mRoomsList.replace(i, room);
             Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
             return;
@@ -229,7 +231,7 @@ void RoomModel::addRoom(const Room &room)
         endInsertRows();
     }
 #endif
-    mRocketChatAccount->getMessageModelForRoom(room.id());
+    mRocketChatAccount->getMessageModelForRoom(room->id());
 }
 
 void RoomModel::updateSubscription(const QJsonArray &array)
@@ -239,13 +241,13 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     if (actionName == QStringLiteral("removed")) {
         qDebug() << " REMOVE ROOM";
         qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
-        Room room;
-        room.setId(roomData.value(QStringLiteral("rid")).toString());
-        room.setName(roomData.value(QStringLiteral("name")).toString());
+        Room *room = new Room;
+        room->setId(roomData.value(QStringLiteral("rid")).toString());
+        room->setName(roomData.value(QStringLiteral("name")).toString());
 #ifdef REMOVESORTING
         const int roomCount{mRoomsList.count()};
         for (int i = 0; i < roomCount; ++i) {
-            if (mRoomsList.at(i).id() == room.id()) {
+            if (mRoomsList.at(i)->id() == room->id()) {
                 beginRemoveRows(QModelIndex(), i, i);
                 mRoomsList.remove(i);
                 endRemoveRows();
@@ -287,15 +289,15 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     if (!roomName.isEmpty()) {
         const int roomCount{mRoomsList.size()};
         for (int i = 0; i < roomCount; ++i) {
-            if (mRoomsList.at(i).name() == roomName) {
+            if (mRoomsList.at(i)->name() == roomName) {
                 //TODO change with rid and not roomname as it can be changed!
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
-                Room room = mRoomsList.at(i);
-                room.parseUpdateRoom(roomData);
+                Room *room = mRoomsList.at(i);
+                room->parseUpdateRoom(roomData);
                 mRoomsList.replace(i, room);
                 Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
 
-                mRocketChatAccount->getMessageModelForRoom(room.id());
+                mRocketChatAccount->getMessageModelForRoom(room->id());
                 break;
             }
         }
@@ -306,22 +308,22 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
 
 void RoomModel::updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement)
 {
-    Room room;
-    room.setId(roomID);
-    room.setName(name);
+    Room *room = new Room;
+    room->setId(roomID);
+    room->setName(name);
 
 #ifdef REMOVESORTING
     const int roomCount{mRoomsList.count()};
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i).id() == roomID) {
+        if (mRoomsList.at(i)->id() == roomID) {
             qCDebug(RUQOLA_LOG) << "Room changed!" << roomID;
-            Room foundRoom = mRoomsList.value(i);
-            foundRoom.setTopic(topic);
-            foundRoom.setAnnouncement(announcement);
+            Room *foundRoom = mRoomsList.value(i);
+            foundRoom->setTopic(topic);
+            foundRoom->setAnnouncement(announcement);
             mRoomsList.replace(i, foundRoom);
             Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
 
-            mRocketChatAccount->getMessageModelForRoom(room.id());
+            mRocketChatAccount->getMessageModelForRoom(room->id());
             return;
         }
     }
@@ -352,63 +354,63 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
 #endif
 }
 
-Room RoomModel::fromJSon(const QJsonObject &o)
+Room *RoomModel::fromJSon(const QJsonObject &o)
 {
-    Room r;
+    Room *r = new Room;
 
-    r.setId(o[QStringLiteral("id")].toString());
-    r.setChannelType(o[QStringLiteral("t")].toString());
-    r.setName(o[QStringLiteral("name")].toString());
-    r.setUserName(o[QStringLiteral("userName")].toString());
-    r.setUserId(o[QStringLiteral("userID")].toString());
-    r.setTopic(o[QStringLiteral("topic")].toString());
-    r.setMutedUsers(o[QStringLiteral("mutedUsers")].toString());
-    r.setJitsiTimeout(o[QStringLiteral("jitsiTimeout")].toDouble());
-    r.setReadOnly(o[QStringLiteral("ro")].toBool());
-    r.setUnread(o[QStringLiteral("unread")].toInt(0));
-    r.setAnnouncement(o[QStringLiteral("announcement")].toString());
-    r.setSelected(o[QStringLiteral("selected")].toBool());
-    r.setFavorite(o[QStringLiteral("favorite")].toBool());
-    r.setAlert(o[QStringLiteral("alert")].toBool());
-    r.setOpen(o[QStringLiteral("open")].toBool());
+    r->setId(o[QStringLiteral("id")].toString());
+    r->setChannelType(o[QStringLiteral("t")].toString());
+    r->setName(o[QStringLiteral("name")].toString());
+    r->setUserName(o[QStringLiteral("userName")].toString());
+    r->setUserId(o[QStringLiteral("userID")].toString());
+    r->setTopic(o[QStringLiteral("topic")].toString());
+    r->setMutedUsers(o[QStringLiteral("mutedUsers")].toString());
+    r->setJitsiTimeout(o[QStringLiteral("jitsiTimeout")].toDouble());
+    r->setReadOnly(o[QStringLiteral("ro")].toBool());
+    r->setUnread(o[QStringLiteral("unread")].toInt(0));
+    r->setAnnouncement(o[QStringLiteral("announcement")].toString());
+    r->setSelected(o[QStringLiteral("selected")].toBool());
+    r->setFavorite(o[QStringLiteral("favorite")].toBool());
+    r->setAlert(o[QStringLiteral("alert")].toBool());
+    r->setOpen(o[QStringLiteral("open")].toBool());
 
     return r;
 }
 
-QByteArray RoomModel::serialize(const Room &r)
+QByteArray RoomModel::serialize(Room *r)
 {
     QJsonDocument d;
     QJsonObject o;
 
-    o[QStringLiteral("id")] = r.id();
-    o[QStringLiteral("t")] = r.channelType();
-    o[QStringLiteral("name")] = r.name();
-    o[QStringLiteral("userName")] = r.userName();
-    o[QStringLiteral("userID")] = r.userId();
-    o[QStringLiteral("topic")] = r.topic();
-    o[QStringLiteral("mutedUsers")] = r.mutedUsers();
-    o[QStringLiteral("jitsiTimeout")] = r.jitsiTimeout();
-    o[QStringLiteral("ro")] = r.readOnly();
-    o[QStringLiteral("unread")] = r.unread();
-    o[QStringLiteral("announcement")] = r.announcement();
-    o[QStringLiteral("selected")] = r.selected();
-    o[QStringLiteral("favorite")] = r.favorite();
-    o[QStringLiteral("alert")] = r.alert();
-    o[QStringLiteral("open")] = r.open();
+    o[QStringLiteral("id")] = r->id();
+    o[QStringLiteral("t")] = r->channelType();
+    o[QStringLiteral("name")] = r->name();
+    o[QStringLiteral("userName")] = r->userName();
+    o[QStringLiteral("userID")] = r->userId();
+    o[QStringLiteral("topic")] = r->topic();
+    o[QStringLiteral("mutedUsers")] = r->mutedUsers();
+    o[QStringLiteral("jitsiTimeout")] = r->jitsiTimeout();
+    o[QStringLiteral("ro")] = r->readOnly();
+    o[QStringLiteral("unread")] = r->unread();
+    o[QStringLiteral("announcement")] = r->announcement();
+    o[QStringLiteral("selected")] = r->selected();
+    o[QStringLiteral("favorite")] = r->favorite();
+    o[QStringLiteral("alert")] = r->alert();
+    o[QStringLiteral("open")] = r->open();
 
     d.setObject(o);
     return d.toBinaryData();
 }
 
-QString RoomModel::sectionName(const Room &r) const
+QString RoomModel::sectionName(Room *r) const
 {
     QString str;
-    if (r.favorite()) {
+    if (r->favorite()) {
         str = i18n("Favorites");
     } else {
-        if (r.channelType() == QLatin1String("c")) {
+        if (r->channelType() == QLatin1String("c")) {
             str = i18n("Rooms");
-        } else if (r.channelType() == QLatin1String("d")) {
+        } else if (r->channelType() == QLatin1String("d")) {
             str = i18n("Private Message");
         } else {
             str = QString();
@@ -417,14 +419,14 @@ QString RoomModel::sectionName(const Room &r) const
     return str;
 }
 
-int RoomModel::order(const Room &r) const
+int RoomModel::order(Room *r) const
 {
     int order = 0;
     //First item are favorites channels
-    if (!r.favorite()) {
+    if (!r->favorite()) {
         order +=3;
     }
-    const QString channelTypeStr{r.channelType()};
+    const QString channelTypeStr{r->channelType()};
     if (channelTypeStr == QLatin1String("c")) {
         order += 1;
     } else if (channelTypeStr == QLatin1String("d")) {
@@ -432,6 +434,6 @@ int RoomModel::order(const Room &r) const
     } else {
         order += 3;
     }
-    qDebug() <<" str " << order << " name "<< r.name();
+    qDebug() <<" str " << order << " name "<< r->name();
     return order;
 }
