@@ -171,18 +171,18 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomOrder:
     {
         QString str;
-        if (r.mFavorite) {
+        if (r.favorite()) {
             str = i18n("Favorites");
         } else {
-            if (r.mChannelType == QLatin1String("c")) {
+            if (r.channelType() == QLatin1String("c")) {
                 str = i18n("Rooms");
-            } else if (r.mChannelType == QLatin1String("d")) {
+            } else if (r.channelType() == QLatin1String("d")) {
                 str = i18n("Private Message");
             } else {
                 str = QString();
             }
         }
-        qDebug() <<" str " << str << " name "<< r.mName;
+        qDebug() <<" str " << str << " name "<< r.name();
         return str;
     }
     }
@@ -198,9 +198,9 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
     qCDebug(RUQOLA_LOG) << "Adding room : roomId: " << roomID << " room Name " << roomName << " isSelected : " << selected;
 
     Room r;
-    r.mId = roomID;
-    r.mName = roomName;
-    r.mSelected = selected;
+    r.setId(roomID);
+    r.setName(roomName);
+    r.setSelected(selected);
     addRoom(r);
 }
 
@@ -237,8 +237,8 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         qDebug() << " REMOVE ROOM";
         qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
         Room room;
-        room.mId = roomData.value(QStringLiteral("rid")).toString();
-        room.mName = roomData.value(QStringLiteral("name")).toString();
+        room.setId(roomData.value(QStringLiteral("rid")).toString());
+        room.setName(roomData.value(QStringLiteral("name")).toString());
         auto existingRoom = std::find(mRoomsList.begin(), mRoomsList.end(), room);
         bool present = (existingRoom != mRoomsList.end());
         if (present) {
@@ -309,8 +309,8 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
     }
 
     Room foundRoom = mRoomsList.value(pos - 1);
-    foundRoom.mTopic = topic;
-    foundRoom.mAnnouncement = announcement;
+    foundRoom.setTopic(topic);
+    foundRoom.setAnnouncement(announcement);
     mRoomsList.replace(pos - 1, foundRoom);
     Q_EMIT dataChanged(createIndex(1, 1), createIndex(pos, 1));
 

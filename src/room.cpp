@@ -62,20 +62,20 @@ QString Room::name() const
 
 QDebug operator <<(QDebug d, const Room &t)
 {
-    d << "id :" << t.mId;
-    d << "type :" << t.mChannelType;
-    d << "name :" << t.mName;
-    d << "mAnnouncement :" << t.mAnnouncement;
-    d << "userName :" << t.mUserName;
-    d << "userID :" << t.mUserId;
-    d << "topic :" << t.mTopic;
-    d << "mutedUsers :" << t.mMutedUsers;
-    d << "jitsiTimeout :" << t.mJitsiTimeout;
-    d << "ro :" << t.mReadOnly;
-    d << "unread :" << t.mUnread;
-    d << "selected :" << t.mSelected;
-    d << "favorite :" << t.mFavorite;
-    d << "open :" << t.mOpen;
+    d << "id :" << t.id();
+    d << "type :" << t.channelType();
+    d << "name :" << t.name();
+    d << "mAnnouncement :" << t.announcement();
+    d << "userName :" << t.userName();
+    d << "userID :" << t.userId();
+    d << "topic :" << t.topic();
+    d << "mutedUsers :" << t.mutedUsers();
+    d << "jitsiTimeout :" << t.jitsiTimeout();
+    d << "ro :" << t.readOnly();
+    d << "unread :" << t.unread();
+    d << "selected :" << t.selected();
+    d << "favorite :" << t.favorite();
+    d << "open :" << t.open();
     return d;
 }
 
