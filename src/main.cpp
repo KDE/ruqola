@@ -33,6 +33,7 @@
 #include "notification.h"
 #include "config-ruqola.h"
 #include "rocketchataccount.h"
+#include "roomfilterproxymodel.h"
 
 #include <QJsonDocument>
 
@@ -69,6 +70,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
     qmlRegisterType<UsersModel>("KDE.Ruqola.UsersModel", 1, 0, "UsersModel");
     qmlRegisterType<User>("KDE.Ruqola.User", 1, 0, "User");
+    qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
 
     (void)Ruqola::self();
     QQmlApplicationEngine engine;

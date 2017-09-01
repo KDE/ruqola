@@ -37,6 +37,7 @@ class UsersModel;
 class RestApiRequest;
 class RocketChatAccount;
 class UsersForRoomModel;
+class RoomFilterProxyModel;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT
@@ -77,6 +78,7 @@ public:
     Notification *notification();
 
     Q_INVOKABLE RoomModel *roomModel() const;
+    Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
 
     /**
     * @brief Constructs a Json with @param roomID and @param message and @param type, then calls DDPClient's method to send text message over the network

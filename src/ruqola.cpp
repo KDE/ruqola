@@ -109,6 +109,11 @@ RoomModel *Ruqola::roomModel() const
     return mRocketChatAccount->roomModel();
 }
 
+RoomFilterProxyModel *Ruqola::roomFilterProxyModel() const
+{
+    return mRocketChatAccount->roomFilterProxyModel();
+}
+
 RestApiRequest *Ruqola::restapi() const
 {
     return mRocketChatAccount->restapi();

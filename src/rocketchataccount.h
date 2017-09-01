@@ -35,6 +35,7 @@ class RestApiRequest;
 class MessageQueue;
 class RocketChatBackend;
 class UsersForRoomModel;
+class RoomFilterProxyModel;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
@@ -49,10 +50,11 @@ public:
 
     RocketChatAccountSettings *settings() const;
 
-    UsersModel *usersModel() const;
+    Q_INVOKABLE UsersModel *usersModel() const;
 
-    RoomModel *roomModel() const;
+    Q_INVOKABLE RoomModel *roomModel() const;
 
+    Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
     Q_INVOKABLE RoomWrapper *getRoom(const QString &roomId);
     Q_INVOKABLE MessageModel *getMessageModelForRoom(const QString &roomID);
     Q_INVOKABLE UsersForRoomModel *getUsersForRoomModel(const QString &roomId);
@@ -82,6 +84,7 @@ public:
 
     RocketChatBackend *rocketChatBackend() const;
 
+
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
@@ -103,6 +106,7 @@ private:
     TypingNotification *mTypingNotification = nullptr;
     UsersModel *mUserModel = nullptr;
     RoomModel *mRoomModel = nullptr;
+    RoomFilterProxyModel *mRoomFilterProxyModel = nullptr;
     DDPClient *mDdp = nullptr;
     RestApiRequest *mRestApi = nullptr;
     MessageQueue *mMessageQueue = nullptr;

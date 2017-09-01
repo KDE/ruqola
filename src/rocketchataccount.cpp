@@ -29,6 +29,7 @@
 #include "messagequeue.h"
 #include "rocketchatbackend.h"
 #include "usersforroommodel.h"
+#include "roomfilterproxymodel.h"
 
 #include <KLocalizedString>
 #include <QFile>
@@ -49,7 +50,9 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
 
     mRocketChatBackend = new RocketChatBackend(this, this);
     connect(mRocketChatBackend, &RocketChatBackend::notification, this, &RocketChatAccount::notification);
+    mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mRoomModel = new RoomModel(this, this);
+    mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
     mMessageQueue = new MessageQueue(this);
     mTypingNotification = new TypingNotification(this);
@@ -70,6 +73,11 @@ void RocketChatAccount::clearModels()
     mMessageQueue->loadCache();
     //Try to send queue message
     mMessageQueue->processQueue();
+}
+
+RoomFilterProxyModel *RocketChatAccount::roomFilterProxyModel() const
+{
+    return mRoomFilterProxyModel;
 }
 
 RocketChatBackend *RocketChatAccount::rocketChatBackend() const

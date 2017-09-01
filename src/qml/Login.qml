@@ -63,8 +63,7 @@ Kirigami.Page {
         
         Text {
             width: parent.width
-            text: i18n("Rocket Chat Server")
-            
+            text: i18n("Rocket Chat Server")    
         }
         TextField {
             id: urlField

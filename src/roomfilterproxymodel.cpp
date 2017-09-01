@@ -20,10 +20,13 @@
 
 #include "roomfilterproxymodel.h"
 #include "roommodel.h"
+#include <QDebug>
 
 RoomFilterProxyModel::RoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
+    setDynamicSortFilter(true);
+    sort(0);
 }
 
 RoomFilterProxyModel::~RoomFilterProxyModel()
@@ -38,10 +41,19 @@ bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &
     QString leftData = sourceModel()->data(left, RoomModel::RoomOrder).toString();
     QString rightData = sourceModel()->data(right, RoomModel::RoomOrder).toString();
     if (leftData == rightData) {
-        const QString leftString = sourceModel()->data(left).toString();
-        const QString rightString = sourceModel()->data(right).toString();
+        const QString leftString = sourceModel()->data(left, RoomModel::RoomName).toString();
+        const QString rightString = sourceModel()->data(right, RoomModel::RoomName).toString();
         return QString::localeAwareCompare(leftString, rightString) < 0;
     } else {
         return leftData < rightData;
     }
+}
+
+
+QHash<int, QByteArray> RoomFilterProxyModel::roleNames() const
+{
+    if (QAbstractItemModel *source = sourceModel()) {
+        return source->roleNames();
+    }
+    return QHash<int, QByteArray>();
 }

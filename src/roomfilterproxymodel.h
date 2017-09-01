@@ -22,13 +22,16 @@
 #define ROOMFILTERPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
+#include "libruqolacore_export.h"
 
-class RoomFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT RoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
     explicit RoomFilterProxyModel(QObject *parent = nullptr);
     ~RoomFilterProxyModel();
+
+    QHash<int, QByteArray> roleNames() const override;
 
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;

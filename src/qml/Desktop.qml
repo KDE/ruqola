@@ -32,6 +32,7 @@ import QtGraphicalEffects 1.0
 
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.DDPClient 1.0
+import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
 
@@ -142,7 +143,7 @@ Kirigami.ApplicationWindow {
                 id: roomsList
                 implicitWidth: Kirigami.Units.gridUnit * 10
                 anchors.fill: parent
-                model: Ruqola.roomModel()
+                model: Ruqola.roomFilterProxyModel()
                 selectedRoomID: appid.selectedRoomID;
                 onRoomSelected: {
                     if (roomID == selectedRoomID) {
