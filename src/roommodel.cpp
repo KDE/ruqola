@@ -47,7 +47,7 @@ RoomModel::~RoomModel()
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
         for (const Room &m : qAsConst(mRoomsList)) {
-            qCDebug(RUQOLA_LOG) << " save cache for room " << m.mName;
+            qCDebug(RUQOLA_LOG) << " save cache for room " << m.name();
             const QByteArray ms = RoomModel::serialize(m);
             out.writeBytes(ms, ms.size());
         }
@@ -66,7 +66,7 @@ void RoomModel::clear()
 RoomWrapper *RoomModel::findRoom(const QString &roomID) const
 {
     foreach (const Room &r, mRoomsList) {
-        if (r.mId == roomID) {
+        if (r.id() == roomID) {
             return new RoomWrapper(r);
         }
     }
@@ -226,7 +226,7 @@ void RoomModel::addRoom(const Room &room)
         endInsertRows();
     }
 
-    mRocketChatAccount->getMessageModelForRoom(room.mId);
+    mRocketChatAccount->getMessageModelForRoom(room.id());
 }
 
 void RoomModel::updateSubscription(const QJsonArray &array)
@@ -272,7 +272,7 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     if (!roomName.isEmpty()) {
         const int roomCount{mRoomsList.size()};
         for (int i = 0; i < roomCount; ++i) {
-            if (mRoomsList.at(i).mName == roomName) {
+            if (mRoomsList.at(i).name() == roomName) {
                 //TODO change with rid and not roomname as it can be changed!
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
                 Room room = mRoomsList.at(i);
@@ -280,7 +280,7 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
                 mRoomsList.replace(i, room);
                 Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
 
-                mRocketChatAccount->getMessageModelForRoom(room.mId);
+                mRocketChatAccount->getMessageModelForRoom(room.id());
                 break;
             }
         }
@@ -292,8 +292,8 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
 void RoomModel::updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement)
 {
     Room room;
-    room.mId = roomID;
-    room.mName = name;
+    room.setId(roomID);
+    room.setName(name);
     auto existingRoom = std::find(mRoomsList.begin(), mRoomsList.end(), room);
     bool present = (existingRoom != mRoomsList.end());
 
@@ -314,7 +314,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
     mRoomsList.replace(pos - 1, foundRoom);
     Q_EMIT dataChanged(createIndex(1, 1), createIndex(pos, 1));
 
-    mRocketChatAccount->getMessageModelForRoom(room.mId);
+    mRocketChatAccount->getMessageModelForRoom(room.id());
 }
 
 Room RoomModel::fromJSon(const QJsonObject &o)

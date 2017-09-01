@@ -96,6 +96,7 @@ public:
     void parseRoom(const QJsonObject &json);
     void parseUpdateRoom(const QJsonObject &json);
 
+private:
     //Room Object Fields
 
     // _id
@@ -114,7 +115,6 @@ public:
     QString mUserName;
     QString mUserId;
 
-private:
     // topic
     QString mTopic;
 
