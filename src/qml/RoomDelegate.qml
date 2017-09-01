@@ -24,6 +24,9 @@ import QtQuick 2.0
 import org.kde.kirigami 2.1 as Kirigami
 
 import QtQuick.Layouts 1.1
+import KDE.Ruqola.Ruqola 1.0
+import KDE.Ruqola.UsersModel 1.0
+import KDE.Ruqola.User 1.0
 
 Kirigami.BasicListItem {
     id: root
@@ -43,6 +46,7 @@ Kirigami.BasicListItem {
     signal leaveRoom(string roomID)
     signal hideRoom(string roomID)
     
+    //icon: Ruqola.usersModel().user(d_name) ?  ((Ruqola.usersModel().user(d_name).iconFromStatus() !== "") ? Ruqola.usersModel().user(d_name).iconFromStatus() : (d_type == "c" ? "irc-channel-active" : "user-avaliable")) : "user-avaliable"
     icon: d_type == "c" ? "irc-channel-active" : "user-avaliable"
     
     visible: !d_name.empty && d_open

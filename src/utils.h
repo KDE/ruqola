@@ -21,11 +21,14 @@
 #define UTILS_H
 
 #include "libruqola_private_export.h"
+#include "user.h"
 #include <QUrl>
 
 namespace Utils {
 LIBRUQOLACORE_TESTS_EXPORT QUrl generateServerUrl(const QString &url);
 LIBRUQOLACORE_TESTS_EXPORT QString markdownToRichText(const QString &markDown);
+LIBRUQOLACORE_TESTS_EXPORT QString presenceStatusToString(User::PresenceStatus status);
+LIBRUQOLACORE_TESTS_EXPORT User::PresenceStatus presenceStatusFromString(const QString &status);
 }
 
 #endif // UTILS_H

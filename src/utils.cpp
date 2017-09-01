@@ -19,6 +19,7 @@
 */
 
 #include "utils.h"
+#include "ruqola_debug.h"
 #include <KTextToHTML>
 
 QUrl Utils::generateServerUrl(const QString &url)
@@ -45,4 +46,38 @@ QString Utils::markdownToRichText(const QString &markDown)
     const QString str = KTextToHTML::convertToHtml(markDown, convertFlags);
     //qCDebug(RUQOLA_LOG) << "markdownToRichText "<<str;
     return str;
+}
+
+QString Utils::presenceStatusToString(User::PresenceStatus status)
+{
+    switch (status) {
+    case User::PresenceStatus::PresenceOnline:
+        return QStringLiteral("online");
+    case User::PresenceStatus::PresenceBusy:
+        return QStringLiteral("busy");
+    case User::PresenceStatus::PresenceAway:
+        return QStringLiteral("away");
+    case User::PresenceStatus::PresenceOffline:
+        return QStringLiteral("offline");
+    case User::PresenceStatus::Unknown:
+        return {};
+    }
+    Q_UNREACHABLE();
+    return {};
+}
+
+User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
+{
+    if (status == QStringLiteral("online")) {
+        return User::PresenceStatus::PresenceOnline;
+    } else if (status == QStringLiteral("busy")) {
+        return User::PresenceStatus::PresenceBusy;
+    } else if (status == QStringLiteral("away")) {
+        return User::PresenceStatus::PresenceAway;
+    } else if (status == QStringLiteral("offline")) {
+        return User::PresenceStatus::PresenceOffline;
+    } else {
+        qCDebug(RUQOLA_LOG) << "Problem with status " << status;
+        return {};
+    }
 }

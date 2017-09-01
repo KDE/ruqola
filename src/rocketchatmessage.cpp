@@ -20,6 +20,7 @@
 
 #include "rocketchatmessage.h"
 #include "ruqola_debug.h"
+#include "utils.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
@@ -33,22 +34,6 @@ RocketChatMessage::RocketChatMessage()
 void RocketChatMessage::setJsonFormat(const QJsonDocument::JsonFormat &jsonFormat)
 {
     mJsonFormat = jsonFormat;
-}
-
-QString RocketChatMessage::presenceStatusToString(User::PresenceStatus status)
-{
-    switch (status) {
-    case User::PresenceStatus::PresenceOnline:
-        return QStringLiteral("online");
-    case User::PresenceStatus::PresenceBusy:
-        return QStringLiteral("busy");
-    case User::PresenceStatus::PresenceAway:
-        return QStringLiteral("away");
-    case User::PresenceStatus::PresenceOffline:
-        return QStringLiteral("offline");
-    }
-    Q_UNREACHABLE();
-    return {};
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomRoles(const QString &roomID, quint64 id)
@@ -229,7 +214,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::getSubscriptions(c
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setDefaultStatus(User::PresenceStatus status, quint64 id)
 {
-    const QString strPresence = presenceStatusToString(status);
+    const QString strPresence = Utils::presenceStatusToString(status);
     const QJsonArray params{{
                                 strPresence
                             }};
@@ -238,7 +223,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setDefaultStatus(U
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setTemporaryStatus(User::PresenceStatus status, quint64 id)
 {
-    const QString strPresence = presenceStatusToString(status);
+    const QString strPresence = Utils::presenceStatusToString(status);
     const QJsonArray params{{}};
     return generateMethod((QStringLiteral("UserPresence:") + strPresence), QJsonDocument(params), id);
 }

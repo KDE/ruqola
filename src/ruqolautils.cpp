@@ -57,3 +57,4 @@ void RuqolaUtils::openUrl(const QString &url)
         QDesktopServices::openUrl(clickedUrl);
     }
 }
+

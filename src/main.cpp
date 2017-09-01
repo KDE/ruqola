@@ -68,6 +68,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<UsersForRoomModel>("KDE.Ruqola.UsersForRoomModel", 1, 0, "UsersForRoomModel");
     qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
     qmlRegisterType<UsersModel>("KDE.Ruqola.UsersModel", 1, 0, "UsersModel");
+    qmlRegisterType<User>("KDE.Ruqola.User", 1, 0, "User");
 
     (void)Ruqola::self();
     QQmlApplicationEngine engine;

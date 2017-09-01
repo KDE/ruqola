@@ -19,6 +19,7 @@
 */
 
 #include "user.h"
+#include "utils.h"
 
 #include <QJsonObject>
 
@@ -93,11 +94,6 @@ QDebug operator <<(QDebug d, const User &t)
     return d;
 }
 
-void User::updateUser(const QJsonObject &object)
-{
-    //TODO
-}
-
 void User::parseUser(const QJsonObject &object)
 {
     const QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
@@ -108,6 +104,21 @@ void User::parseUser(const QJsonObject &object)
 
 QString User::iconFromStatus() const
 {
-    //TODO
+    qDebug() << " QString User::iconFromStatus() const" << name() << " mStatus" << mStatus;
+    //TODO optimization ?
+    const PresenceStatus status = Utils::presenceStatusFromString(mStatus);
+    switch (status) {
+    case PresenceStatus::PresenceOnline:
+        return QStringLiteral("user-online");
+    case PresenceStatus::PresenceBusy:
+        return QStringLiteral("user-busy");
+    case PresenceStatus::PresenceAway:
+        return QStringLiteral("user-away");
+    case PresenceStatus::PresenceOffline:
+        return QStringLiteral("user-offline");
+    case PresenceStatus::Unknown:
+        qDebug() << " unknown !!!!!!!";
+        return QStringLiteral("unknown");
+    }
     return {};
 }

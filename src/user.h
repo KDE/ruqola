@@ -57,7 +57,6 @@ public:
     void setListRooms(const QStringList &listRooms);
 
     void parseUser(const QJsonObject &json);
-    void updateUser(const QJsonObject &object);
 
     Q_INVOKABLE QString iconFromStatus() const;
 

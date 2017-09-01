@@ -71,7 +71,6 @@ public:
     RocketChatMessage::RocketChatMessageResult getUsersOfRoom(const QString &roomId, bool showAll, quint64 id);
     RocketChatMessage::RocketChatMessageResult logout(const QString &name, quint64 id);
 private:
-    QString presenceStatusToString(User::PresenceStatus status);
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
     RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
