@@ -68,7 +68,6 @@ public:
     void setAuthToken(const QString &token);
     QString authToken() const;
 
-    bool connected();
     DDPClient::LoginStatus loginStatus();
 
     QString serverURL() const;
