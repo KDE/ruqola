@@ -204,6 +204,7 @@ Kirigami.ApplicationWindow {
                         Layout.fillWidth: true
                     }
                     /*
+                      //Add menu
                     ToolButton {
                         iconName: "favorite"
                         checkable: true
