@@ -132,7 +132,7 @@ public:
     bool mFavorite = false;
     //We can hide it or not.
     bool mOpen = false;
-
+private:
     bool mAlert = false;
 };
 

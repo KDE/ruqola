@@ -321,21 +321,21 @@ Room RoomModel::fromJSon(const QJsonObject &o)
 {
     Room r;
 
-    r.mId = o[QStringLiteral("id")].toString();
-    r.mChannelType = o[QStringLiteral("t")].toString();
-    r.mName = o[QStringLiteral("name")].toString();
-    r.mUserName = o[QStringLiteral("userName")].toString();
-    r.mUserId = o[QStringLiteral("userID")].toString();
-    r.mTopic = o[QStringLiteral("topic")].toString();
-    r.mMutedUsers = o[QStringLiteral("mutedUsers")].toString();
-    r.mJitsiTimeout = o[QStringLiteral("jitsiTimeout")].toDouble();
-    r.mReadOnly = o[QStringLiteral("ro")].toBool();
-    r.mUnread = o[QStringLiteral("unread")].toInt(0);
-    r.mAnnouncement = o[QStringLiteral("announcement")].toString();
-    r.mSelected = o[QStringLiteral("selected")].toBool();
-    r.mFavorite = o[QStringLiteral("favorite")].toBool();
-    r.mAlert = o[QStringLiteral("alert")].toBool();
-    r.mOpen = o[QStringLiteral("open")].toBool();
+    r.setId(o[QStringLiteral("id")].toString());
+    r.setChannelType(o[QStringLiteral("t")].toString());
+    r.setName(o[QStringLiteral("name")].toString());
+    r.setUserName(o[QStringLiteral("userName")].toString());
+    r.setUserId(o[QStringLiteral("userID")].toString());
+    r.setTopic(o[QStringLiteral("topic")].toString());
+    r.setMutedUsers(o[QStringLiteral("mutedUsers")].toString());
+    r.setJitsiTimeout(o[QStringLiteral("jitsiTimeout")].toDouble());
+    r.setReadOnly(o[QStringLiteral("ro")].toBool());
+    r.setUnread(o[QStringLiteral("unread")].toInt(0));
+    r.setAnnouncement(o[QStringLiteral("announcement")].toString());
+    r.setSelected(o[QStringLiteral("selected")].toBool());
+    r.setFavorite(o[QStringLiteral("favorite")].toBool());
+    r.setAlert(o[QStringLiteral("alert")].toBool());
+    r.setOpen(o[QStringLiteral("open")].toBool());
 
     return r;
 }
@@ -345,21 +345,21 @@ QByteArray RoomModel::serialize(const Room &r)
     QJsonDocument d;
     QJsonObject o;
 
-    o[QStringLiteral("id")] = r.mId;
-    o[QStringLiteral("t")] = r.mChannelType;
-    o[QStringLiteral("name")] = r.mName;
-    o[QStringLiteral("userName")] = r.mUserName;
-    o[QStringLiteral("userID")] = r.mUserId;
-    o[QStringLiteral("topic")] = r.mTopic;
-    o[QStringLiteral("mutedUsers")] = r.mMutedUsers;
-    o[QStringLiteral("jitsiTimeout")] = r.mJitsiTimeout;
-    o[QStringLiteral("ro")] = r.mReadOnly;
-    o[QStringLiteral("unread")] = r.mUnread;
-    o[QStringLiteral("announcement")] = r.mAnnouncement;
-    o[QStringLiteral("selected")] = r.mSelected;
-    o[QStringLiteral("favorite")] = r.mFavorite;
-    o[QStringLiteral("alert")] = r.mAlert;
-    o[QStringLiteral("open")] = r.mOpen;
+    o[QStringLiteral("id")] = r.id();
+    o[QStringLiteral("t")] = r.channelType();
+    o[QStringLiteral("name")] = r.name();
+    o[QStringLiteral("userName")] = r.userName();
+    o[QStringLiteral("userID")] = r.userId();
+    o[QStringLiteral("topic")] = r.topic();
+    o[QStringLiteral("mutedUsers")] = r.mutedUsers();
+    o[QStringLiteral("jitsiTimeout")] = r.jitsiTimeout();
+    o[QStringLiteral("ro")] = r.readOnly();
+    o[QStringLiteral("unread")] = r.unread();
+    o[QStringLiteral("announcement")] = r.announcement();
+    o[QStringLiteral("selected")] = r.selected();
+    o[QStringLiteral("favorite")] = r.favorite();
+    o[QStringLiteral("alert")] = r.alert();
+    o[QStringLiteral("open")] = r.open();
 
     d.setObject(o);
     return d.toBinaryData();

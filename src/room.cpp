@@ -29,30 +29,30 @@ Room::Room()
 bool Room::operator==(const Room &other) const
 {
     //qDebug() << " other.id"<<other.id << " id " << id;
-    return other.mId == mId;
+    return other.mId == id();
 }
 
 bool Room::operator<(const Room &other) const
 {
-    return mName < other.mName;
+    return mName < other.name();
 }
 
 bool Room::isEqual(const Room &other) const
 {
-    return (mId == other.mId)
-           && (mChannelType == other.mChannelType)
-           && (mName == other.mName)
-           && (mAnnouncement == other.mAnnouncement)
-           && (mUserName == other.mUserName)
-           && (mUserId == other.mUserId)
-           && (mTopic == other.mTopic)
-           && (mMutedUsers == other.mMutedUsers)
-           && (mJitsiTimeout == other.mJitsiTimeout)
-           && (mReadOnly == other.mReadOnly)
-           && (mUnread == other.mUnread)
-           && (mSelected == other.mSelected)
-           && (mFavorite == other.mFavorite)
-           && (mOpen == other.mOpen);
+    return (mId == other.id())
+           && (mChannelType == other.channelType())
+           && (mName == other.name())
+           && (mAnnouncement == other.announcement())
+           && (mUserName == other.userName())
+           && (mUserId == other.userId())
+           && (mTopic == other.topic())
+           && (mMutedUsers == other.mutedUsers())
+           && (mJitsiTimeout == other.jitsiTimeout())
+           && (mReadOnly == other.readOnly())
+           && (mUnread == other.unread())
+           && (mSelected == other.selected())
+           && (mFavorite == other.favorite())
+           && (mOpen == other.open());
 }
 
 QString Room::name() const
@@ -83,24 +83,26 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 {
     //QJsonArray(["updated",{"_id":"7jHqcrZ8FYXJBwgRB","_updatedAt":{"$date":1503902695955},"alert":false,"f":true,"groupMentions":0,"ls":{"$date":1503902695955},"name":"dev","open":true,"rid":"dBWXYy4nyBHn8Q7dv","t":"c","ts":{"$date":1493034182680},"u":{"_id":"uKK39zoewTkdacidH","username":"laurent"},"unread":0,"userMentions":0}])
     if (json.contains(QStringLiteral("rid"))) {
-        mId = json.value(QStringLiteral("rid")).toString();
+        setId(json.value(QStringLiteral("rid")).toString());
     }
     if (json.contains(QStringLiteral("alert"))) {
-        mAlert = json[QStringLiteral("alert")].toBool();
+        setAlert(json[QStringLiteral("alert")].toBool());
     }
     if (json.contains(QStringLiteral("f"))) {
+        //TODO
     }
+
     if (json.contains(QStringLiteral("unread"))) {
-        mUnread = json[QStringLiteral("unread")].toInt();
+        setUnread(json[QStringLiteral("unread")].toInt());
     }
     if (json.contains(QStringLiteral("announcement"))) {
-        mAnnouncement = json[QStringLiteral("announcement")].toString();
+        setAnnouncement(json[QStringLiteral("announcement")].toString());
     }
     if (json.contains(QStringLiteral("open"))) {
-        mOpen = json[QStringLiteral("open")].toBool();
+        setOpen(json[QStringLiteral("open")].toBool());
     }
     if (json.contains(QStringLiteral("topic"))) {
-        mTopic = json[QStringLiteral("topic")].toString();
+        setTopic(json[QStringLiteral("topic")].toString());
     }
 }
 
@@ -281,30 +283,30 @@ void Room::setName(const QString &name)
 
 void Room::parseRoom(const QJsonObject &json)
 {
-    mId = json.value(QStringLiteral("_id")).toString();
-    mName = json[QStringLiteral("name")].toString();
-    mTopic = json[QStringLiteral("topic")].toString();
-    mAnnouncement = json[QStringLiteral("announcement")].toString();
+    setId(json.value(QStringLiteral("_id")).toString());
+    setName(json[QStringLiteral("name")].toString());
+    setTopic(json[QStringLiteral("topic")].toString());
+    setAnnouncement(json[QStringLiteral("announcement")].toString());
 }
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     const QString roomID = json.value(QStringLiteral("rid")).toString();
-    mId = roomID;
-    mName = json[QStringLiteral("name")].toString();
-    mTopic = json[QStringLiteral("topic")].toString();
-    mAnnouncement = json[QStringLiteral("announcement")].toString();
+    setId(roomID);
+    setName(json[QStringLiteral("name")].toString());
+    setTopic(json[QStringLiteral("topic")].toString());
+    setAnnouncement(json[QStringLiteral("announcement")].toString());
     const QString roomType = json.value(QStringLiteral("t")).toString();
-    mChannelType = roomType;
+    setChannelType(roomType);
     QJsonValue favoriteValue = json.value(QStringLiteral("f"));
     if (!favoriteValue.isUndefined()) {
-        mFavorite = favoriteValue.toBool();
+        setFavorite(favoriteValue.toBool());
     }
     //Only private room has this settings.
     if (roomType == QLatin1String("p")) {
-        mReadOnly = json[QStringLiteral("ro")].toString() == QLatin1String("true");
+        setReadOnly(json[QStringLiteral("ro")].toString() == QLatin1String("true"));
     }
-    mUnread = json[QStringLiteral("unread")].toInt();
-    mOpen = json[QStringLiteral("open")].toBool();
-    mAlert = json[QStringLiteral("alert")].toBool();
+    setUnread(json[QStringLiteral("unread")].toInt());
+    setOpen(json[QStringLiteral("open")].toBool());
+    setAlert(json[QStringLiteral("alert")].toBool());
 }

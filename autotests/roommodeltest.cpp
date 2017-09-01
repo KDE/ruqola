@@ -35,21 +35,21 @@ RoomModelTest::RoomModelTest(QObject *parent)
 void RoomModelTest::shouldSerialized()
 {
     Room input;
-    input.mId = QStringLiteral("foo");
-    input.mChannelType = QStringLiteral("p");
-    input.mName = QStringLiteral("d");
-    input.mAnnouncement = QStringLiteral("AA");
-    input.mUserName = QStringLiteral("pp");
-    input.mUserId = QStringLiteral("sdfsdfs");
-    input.mTopic = QStringLiteral("topic");
-    input.mMutedUsers = QStringLiteral("mutedUsers");
-    input.mJitsiTimeout = 55;
-    input.mReadOnly = true;
-    input.mUnread = 66;
-    input.mSelected = true;
-    input.mFavorite = true;
-    input.mAlert = true;
-    input.mOpen = true;
+    input.setId(QStringLiteral("foo"));
+    input.setChannelType(QStringLiteral("p"));
+    input.setName(QStringLiteral("d"));
+    input.setAnnouncement(QStringLiteral("AA"));
+    input.setUserName(QStringLiteral("pp"));
+    input.setUserId(QStringLiteral("sdfsdfs"));
+    input.setTopic(QStringLiteral("topic"));
+    input.setMutedUsers(QStringLiteral("mutedUsers"));
+    input.setJitsiTimeout(55);
+    input.setReadOnly(true);
+    input.setUnread(66);
+    input.setSelected(true);
+    input.setFavorite(true);
+    input.setAlert(true);
+    input.setOpen(true);
     const QByteArray ba = RoomModel::serialize(input);
     Room output = RoomModel::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(output));
