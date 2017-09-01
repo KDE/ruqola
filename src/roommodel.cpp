@@ -420,6 +420,7 @@ QString RoomModel::sectionName(const Room &r) const
 int RoomModel::order(const Room &r) const
 {
     int order = 0;
+    //First item are favorites channels
     if (!r.favorite()) {
         order +=3;
     }
