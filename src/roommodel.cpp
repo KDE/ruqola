@@ -168,7 +168,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r.alert();
     case RoomModel::RoomFavorite:
         return r.favorite();
-    case RoomModel::RoomOrder:
+    case RoomModel::RoomSection:
     {
         QString str;
         if (r.favorite()) {
@@ -182,8 +182,30 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
                 str = QString();
             }
         }
-        qDebug() <<" str " << str << " name "<< r.name();
         return str;
+    }
+    case RoomModel::RoomOrder:
+    {
+        int order = 0;
+        if (r.favorite()) {
+            if (r.channelType() == QLatin1String("c")) {
+                order = 1;
+            } else if (r.channelType() == QLatin1String("d")) {
+                order = 2;
+            } else {
+                order = 3;
+            }
+        } else {
+            if (r.channelType() == QLatin1String("c")) {
+                order = 4;
+            } else if (r.channelType() == QLatin1String("d")) {
+                order = 5;
+            } else {
+                order = 6;
+            }
+        }
+        qDebug() <<" str " << order << " name "<< r.name();
+        return order;
     }
     }
     return QVariant(QStringLiteral("0"));

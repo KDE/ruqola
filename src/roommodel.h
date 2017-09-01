@@ -49,7 +49,8 @@ public:
         RoomOpen,
         RoomAlert,
         RoomOrder,
-        RoomFavorite
+        RoomFavorite,
+        RoomSection
     };
 
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
