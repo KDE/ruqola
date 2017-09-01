@@ -202,6 +202,16 @@ Kirigami.ApplicationWindow {
                     Item {
                         Layout.fillWidth: true
                     }
+                    /*
+                    ToolButton {
+                        iconName: "favorite"
+                        checkable: true
+                        checked: appid.selectedRoom && appid.selectedRoom.favorite
+                        onCheckedChanged: {
+                            console.log("checked favorite" + checked)
+                        }
+                    }
+                    */
                 }
 
                 Kirigami.Label {

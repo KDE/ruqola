@@ -48,7 +48,6 @@ Ruqola::Ruqola(QObject *parent)
 
 RocketChatAccount *Ruqola::rocketChatAccount() const
 {
-    qDebug() << " RocketChatAccount *Ruqola::rocketChatAccount() const"<<mRocketChatAccount;
     return mRocketChatAccount;
 }
 
