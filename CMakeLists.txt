@@ -36,6 +36,7 @@ find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
     Kirigami2
     CoreAddons
     I18n
+    Crash
 )
 
 

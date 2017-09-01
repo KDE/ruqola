@@ -23,7 +23,7 @@
 #include <QApplication>
 #include <QtQml>
 #include <KLocalizedString>
-
+#include <KCrash>
 #include "roommodel.h"
 #include "usersforroommodel.h"
 #include "usermodel.h"
@@ -38,9 +38,15 @@
 
 int main(int argc, char *argv[])
 {
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
     QApplication app(argc, argv);
+    app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
     app.setWindowIcon(QIcon(QStringLiteral(":/icons/systray.png")));
 
+    KCrash::initialize();
+
+    KLocalizedString::setApplicationDomain("ruqola");
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Ruqola"));

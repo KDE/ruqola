@@ -58,6 +58,7 @@ target_link_libraries(libruqolacore
     Qt5::NetworkAuth
     KF5::CoreAddons
     KF5::I18n
+    KF5::Crash
 )
 
 set_target_properties(libruqolacore
