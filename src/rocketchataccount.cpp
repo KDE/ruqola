@@ -165,7 +165,7 @@ void RocketChatAccount::attachmentButtonClicked(const QString &roomId)
     const QString fileName = QFileDialog::getOpenFileName(nullptr,
                                                           i18n("Select one or more files to open"),
                                                           QDir::homePath(),
-                                                          i18n("Images (*.png *.jpeg *.jpg)"));
+                                                          QStringLiteral("%1 (*.png *.jpeg *.jpg)").arg(i18n("Images")));
     if (fileName.isEmpty()) {
         return;
     }
