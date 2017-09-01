@@ -183,7 +183,9 @@ QString Room::id() const
 
 void Room::setId(const QString &id)
 {
-    mId = id;
+    if (mId != id) {
+        mId = id;
+    }
 }
 
 bool Room::alert() const
@@ -217,7 +219,9 @@ bool Room::readOnly() const
 
 void Room::setReadOnly(bool readOnly)
 {
-    mReadOnly = readOnly;
+    if (mReadOnly != readOnly) {
+        mReadOnly = readOnly;
+    }
 }
 
 QString Room::topic() const
@@ -227,7 +231,9 @@ QString Room::topic() const
 
 void Room::setTopic(const QString &topic)
 {
-    mTopic = topic;
+    if (mTopic != topic) {
+        mTopic = topic;
+    }
 }
 
 bool Room::favorite() const
@@ -237,7 +243,9 @@ bool Room::favorite() const
 
 void Room::setFavorite(bool favorite)
 {
-    mFavorite = favorite;
+    if (mFavorite != favorite) {
+        mFavorite = favorite;
+    }
 }
 
 QString Room::channelType() const
@@ -247,7 +255,9 @@ QString Room::channelType() const
 
 void Room::setChannelType(const QString &channelType)
 {
-    mChannelType = channelType;
+    if (mChannelType != channelType) {
+        mChannelType = channelType;
+    }
 }
 
 QString Room::announcement() const
@@ -257,7 +267,9 @@ QString Room::announcement() const
 
 void Room::setAnnouncement(const QString &announcement)
 {
-    mAnnouncement = announcement;
+    if (mAnnouncement != announcement) {
+        mAnnouncement = announcement;
+    }
 }
 
 void Room::setName(const QString &name)
