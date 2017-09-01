@@ -36,9 +36,6 @@ public:
     // To be used in ID find: message ID
     bool operator==(const Room &other) const;
 
-    // To be used in sorted insert: timestamp
-    bool operator<(const Room &other) const;
-
     //we can't use operator== as it tests only id. We need it for autotest
     bool isEqual(const Room &other) const;
 

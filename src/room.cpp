@@ -32,11 +32,6 @@ bool Room::operator==(const Room &other) const
     return other.mId == id();
 }
 
-bool Room::operator<(const Room &other) const
-{
-    return mName < other.name();
-}
-
 bool Room::isEqual(const Room &other) const
 {
     return (mId == other.id())
