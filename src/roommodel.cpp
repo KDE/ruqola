@@ -239,8 +239,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     const QString actionName = array[0].toString();
     const QJsonObject roomData = array[1].toObject();
     if (actionName == QStringLiteral("removed")) {
-        qDebug() << " REMOVE ROOM";
-        qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
+        qDebug() << "REMOVE ROOM name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
         Room *room = new Room;
         room->setId(roomData.value(QStringLiteral("rid")).toString());
         room->setName(roomData.value(QStringLiteral("name")).toString());
@@ -268,15 +267,15 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         }
 #endif
     } else if (actionName == QStringLiteral("inserted")) {
-        qDebug() << " INSERT ROOM";
-        qDebug() << " name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
+        qDebug() << "INSERT ROOM  name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
         addRoom(roomData.value(QStringLiteral("rid")).toString(), roomData.value(QStringLiteral("name")).toString(), false);
     } else if (actionName == QStringLiteral("updated")) {
         qDebug() << "UPDATE ROOM name " << roomData.value(QStringLiteral("name")).toString() << " rid " << roomData.value(QStringLiteral("rid")) << " roomData " << roomData;
         updateRoom(roomData);
     } else if (actionName == QStringLiteral("changed")) {
         qDebug() << "CHANGED ROOM name " << roomData.value(QStringLiteral("name")).toString() << " rid " << roomData.value(QStringLiteral("rid")) << " roomData " << roomData;
-        qDebug() << " Not implementer changed room yet";
+        //qDebug() << " Not implementer changed room yet";
+        updateRoom(roomData);
     } else {
         qDebug() << " Undefined type" << actionName;
     }
