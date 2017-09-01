@@ -124,6 +124,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomAlert] = "alert";
     roles[RoomOrder] = "roomorder";
     roles[RoomFavorite] = "favorite";
+    roles[RoomSection] = "sectionname";
     return roles;
 }
 

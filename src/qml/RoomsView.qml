@@ -32,6 +32,28 @@ ListView {
     
     signal roomSelected(string roomID)
 
+    //Need to customize it
+    section.property: "sectionname"
+    section.criteria: ViewSection.FullString
+    section.delegate: sectionHeading
+
+    Component {
+        id: sectionHeading
+        Rectangle {
+            width: parent.width
+            height: childrenRect.height
+            color: "lightsteelblue"
+
+            Text {
+                anchors.leftMargin: 2*Kirigami.Units.smallSpacing
+                text: section
+                font.bold: true
+                color: "grey"
+                font.pixelSize: 18
+            }
+        }
+    }
+
     delegate: RoomDelegate {
         d_name: name
         d_unread: unread
