@@ -213,11 +213,6 @@ void Ruqola::logOut()
     mRocketChatAccount->logOut();
 }
 
-QString Ruqola::cacheBasePath() const
-{
-    return mRocketChatAccount->settings()->cacheBasePath();
-}
-
 RoomWrapper *Ruqola::getRoom(const QString &roomID)
 {
     return mRocketChatAccount->getRoom(roomID);

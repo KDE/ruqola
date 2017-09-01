@@ -116,12 +116,6 @@ public:
     Q_INVOKABLE QString getUserCurrentMessage(const QString &roomId);
     Q_INVOKABLE void setUserCurrentMessage(const QString &message, const QString &roomId);
 
-    /**
-    * @brief Returns standard cache path
-    *
-    * @return QString, The standard cache path
-    */
-    QString cacheBasePath() const;
 
     RestApiRequest *restapi() const;
     Q_INVOKABLE UsersForRoomModel *getUsersForRoomModel(const QString &roomId);
