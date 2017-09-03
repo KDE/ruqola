@@ -1,5 +1,7 @@
-project(Ruqola)
+# TODO customize it.
+set(RUQOLA_VERSION "0.3.4")
 cmake_minimum_required(VERSION 3.0)
+project(Ruqola VERSION ${RUQOLA_VERSION})
 
 find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
@@ -48,8 +50,6 @@ add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
 
-# TODO customize it.
-set(RUQOLA_VERSION "0.3.4")
 
 set(RUQOLA_LIB_VERSION "${RUQOLA_VERSION}")
 set(RUQOLA_LIB_SOVERSION "0")
