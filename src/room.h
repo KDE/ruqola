@@ -103,6 +103,9 @@ Q_SIGNALS:
     void announcementChanged();
     void topicChanged();
     void favoriteChanged();
+    void userIdChanged();
+    void alertChanged();
+    void readOnlyChanged();
 
 private:
     //Room Object Fields

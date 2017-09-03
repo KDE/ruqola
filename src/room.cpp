@@ -172,6 +172,7 @@ void Room::setUserName(const QString &userName)
 {
     if (mUserName != userName) {
         mUserName = userName;
+        Q_EMIT userIdChanged();
     }
 }
 
@@ -196,6 +197,7 @@ void Room::setAlert(bool alert)
 {
     if (mAlert != alert) {
         mAlert = alert;
+        Q_EMIT alertChanged();
     }
 }
 
@@ -220,6 +222,7 @@ void Room::setReadOnly(bool readOnly)
 {
     if (mReadOnly != readOnly) {
         mReadOnly = readOnly;
+        Q_EMIT readOnlyChanged();
     }
 }
 
