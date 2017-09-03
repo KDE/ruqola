@@ -113,7 +113,7 @@ private:
     //Room Object Fields
 
     // _id
-    QString mId;
+    QString mRoomId;
 
     // t (can take values "d" , "c" or "p")
     QString mChannelType;

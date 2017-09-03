@@ -31,12 +31,12 @@ Room::Room(QObject *parent)
 bool Room::operator==(const Room &other) const
 {
     //qDebug() << " other.id"<<other.id << " id " << id;
-    return other.mId == id();
+    return other.mRoomId == id();
 }
 
 bool Room::isEqual(const Room &other) const
 {
-    return (mId == other.id())
+    return (mRoomId == other.id())
            && (mChannelType == other.channelType())
            && (mName == other.name())
            && (mAnnouncement == other.announcement())
@@ -178,13 +178,13 @@ void Room::setUserName(const QString &userName)
 
 QString Room::id() const
 {
-    return mId;
+    return mRoomId;
 }
 
 void Room::setId(const QString &id)
 {
-    if (mId != id) {
-        mId = id;
+    if (mRoomId != id) {
+        mRoomId = id;
     }
 }
 
