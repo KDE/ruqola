@@ -35,6 +35,8 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(QString announcement READ announcement WRITE setAnnouncement NOTIFY announcementChanged)
     Q_PROPERTY(QString topic READ topic WRITE setTopic NOTIFY topicChanged)
     Q_PROPERTY(bool favorite READ favorite WRITE setFavorite NOTIFY favoriteChanged)
+    Q_PROPERTY(bool readOnly READ readOnly WRITE setReadOnly NOTIFY readOnlyChanged)
+    Q_PROPERTY(bool alert READ alert WRITE setAlert NOTIFY alertChanged)
 public:
     explicit Room(QObject *parent = nullptr);
 
