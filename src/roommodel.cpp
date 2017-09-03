@@ -201,9 +201,8 @@ void RoomModel::addRoom(Room *room)
     const int roomCount{mRoomsList.count()};
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->id() == room->id()) {
-            mRoomsList.replace(i, room);
-            Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
-            return;
+            delete mRoomsList.takeAt(i);
+            break;
         }
     }
     beginInsertRows(QModelIndex(), mRoomsList.count(), mRoomsList.count());
@@ -258,7 +257,8 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
                 Room *room = mRoomsList.at(i);
                 room->parseUpdateRoom(roomData);
-                mRoomsList.replace(i, room);
+                //TODO ?
+                //mRoomsList.replace(i, room);
                 Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
 
                 mRocketChatAccount->getMessageModelForRoom(room->id());
