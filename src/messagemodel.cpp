@@ -70,7 +70,7 @@ MessageModel::~MessageModel()
 
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
-        for (const Message &m : qAsConst(m_allMessages)) {
+        for (const Message &m : qAsConst(mAllMessages)) {
             const QByteArray ms = MessageModel::serialize(m);
             out.writeBytes(ms, ms.size());
         }
@@ -172,9 +172,9 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 
 qint64 MessageModel::lastTimestamp() const
 {
-    if (m_allMessages.size()) {
-        qCDebug(RUQOLA_LOG) << "returning timestamp" << m_allMessages.last().mTimeStamp;
-        return m_allMessages.last().mTimeStamp;
+    if (mAllMessages.size()) {
+        qCDebug(RUQOLA_LOG) << "returning timestamp" << mAllMessages.last().mTimeStamp;
+        return mAllMessages.last().mTimeStamp;
     } else {
         return 0;
     }
@@ -183,7 +183,7 @@ qint64 MessageModel::lastTimestamp() const
 int MessageModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return m_allMessages.size();
+    return mAllMessages.size();
 }
 
 void MessageModel::addMessage(const Message &message)
@@ -193,10 +193,10 @@ void MessageModel::addMessage(const Message &message)
         return;
     }
 
-    auto existingMessage = std::find(m_allMessages.begin(), m_allMessages.end(), message);
-    bool present = (existingMessage != m_allMessages.end());
-    auto i = std::upper_bound(m_allMessages.begin(), m_allMessages.end(), message);
-    int pos = i-m_allMessages.begin();
+    auto existingMessage = std::find(mAllMessages.begin(), mAllMessages.end(), message);
+    bool present = (existingMessage != mAllMessages.end());
+    auto i = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message);
+    int pos = i-mAllMessages.begin();
     bool messageChanged = false;
 
 //     if (qFind(m_allMessages.begin(), m_allMessages.end(), message) != m_allMessages.end()) {
@@ -210,9 +210,9 @@ void MessageModel::addMessage(const Message &message)
     }
 
     if (messageChanged) {
-        m_allMessages.replace(pos-1, message);
+        mAllMessages.replace(pos-1, message);
     } else {
-        m_allMessages.insert(i, message);
+        mAllMessages.insert(i, message);
     }
 
     if (messageChanged) {
@@ -227,21 +227,21 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     int idx = index.row();
     switch (role) {
     case MessageModel::Username:
-        return m_allMessages.at(idx).mUsername;
+        return mAllMessages.at(idx).mUsername;
     case MessageModel::MessageText:
-        return m_allMessages.at(idx).mText;
+        return mAllMessages.at(idx).mText;
     case MessageModel::Timestamp:
-        return m_allMessages.at(idx).mTimeStamp;
+        return mAllMessages.at(idx).mTimeStamp;
     case MessageModel::UserID:
-        return m_allMessages.at(idx).mUserId;
+        return mAllMessages.at(idx).mUserId;
     case MessageModel::SystemMessage:
-        return m_allMessages.at(idx).mSystemMessage;
+        return mAllMessages.at(idx).mSystemMessage;
     case MessageModel::SystemMessageType:
-        return m_allMessages.at(idx).mSystemMessageType;
+        return mAllMessages.at(idx).mSystemMessageType;
     case MessageModel::MessageID:
-        return m_allMessages.at(idx).mMessageId;
+        return mAllMessages.at(idx).mMessageId;
     case MessageModel::Alias:
-        return m_allMessages.at(idx).mAlias;
+        return mAllMessages.at(idx).mAlias;
     default:
         return QString();
     }

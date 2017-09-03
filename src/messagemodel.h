@@ -110,7 +110,7 @@ protected:
 
 private:
     const QString m_roomID;
-    QVector<Message> m_allMessages;
+    QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
