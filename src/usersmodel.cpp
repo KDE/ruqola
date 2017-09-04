@@ -91,11 +91,9 @@ void UsersModel::addUser(User *user)
 {
     qCDebug(RUQOLA_LOG) << " User added " << *user;
     //TODO verify if duplicate ?
-    int pos = mUsers.size();
-    qDebug() << "addUser mUsers before"<<mUsers.count();
+    const int pos = mUsers.size();
     beginInsertRows(QModelIndex(), pos, pos);
     mUsers.append(user);
-    qDebug() << "addUser mUsers after"<<mUsers.count();
     endInsertRows();
 }
 
