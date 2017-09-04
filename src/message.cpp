@@ -21,6 +21,7 @@
 #include "message.h"
 #include <QDebug>
 
+#include <QJsonArray>
 #include <QJsonDocument>
 
 Message::Message()
@@ -55,7 +56,7 @@ void Message::parseMessage(const QJsonObject &o)
     mGroupable = o.value(QStringLiteral("groupable")).toBool();
     mParseUrls = o.value(QStringLiteral("parseUrls")).toBool();
 
-    parseAttachment(o.value(QStringLiteral("attachments")).toObject());
+    parseAttachment(o.value(QStringLiteral("attachments")).toArray());
     if (type.isEmpty()) {
         mSystemMessage = false;
     } else {
@@ -64,9 +65,9 @@ void Message::parseMessage(const QJsonObject &o)
     }
 }
 
-void Message::parseAttachment(const QJsonObject &attachements)
+void Message::parseAttachment(const QJsonArray &attachments)
 {
-    qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachements;
+    qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
     //TODO
 }
 
@@ -78,6 +79,186 @@ bool Message::operator==(const Message &other) const
 bool Message::operator<(const Message &other) const
 {
     return mTimeStamp < other.mTimeStamp;
+}
+
+QString Message::systemMessageType() const
+{
+    return mSystemMessageType;
+}
+
+void Message::setSystemMessageType(const QString &systemMessageType)
+{
+    mSystemMessageType = systemMessageType;
+}
+
+QString Message::alias() const
+{
+    return mAlias;
+}
+
+void Message::setAlias(const QString &alias)
+{
+    mAlias = alias;
+}
+
+QString Message::color() const
+{
+    return mColor;
+}
+
+void Message::setColor(const QString &color)
+{
+    mColor = color;
+}
+
+QString Message::imageUrl() const
+{
+    return mImageUrl;
+}
+
+void Message::setImageUrl(const QString &imageUrl)
+{
+    mImageUrl = imageUrl;
+}
+
+QString Message::parsedUrl() const
+{
+    return mParsedUrl;
+}
+
+void Message::setParsedUrl(const QString &parsedUrl)
+{
+    mParsedUrl = parsedUrl;
+}
+
+QString Message::headers() const
+{
+    return mHeaders;
+}
+
+void Message::setHeaders(const QString &headers)
+{
+    mHeaders = headers;
+}
+
+QString Message::meta() const
+{
+    return mMeta;
+}
+
+void Message::setMeta(const QString &meta)
+{
+    mMeta = meta;
+}
+
+QString Message::url() const
+{
+    return mUrl;
+}
+
+void Message::setUrl(const QString &url)
+{
+    mUrl = url;
+}
+
+QString Message::editedByUserId() const
+{
+    return mEditedByUserId;
+}
+
+void Message::setEditedByUserId(const QString &editedByUserId)
+{
+    mEditedByUserId = editedByUserId;
+}
+
+QString Message::editedByUsername() const
+{
+    return mEditedByUsername;
+}
+
+void Message::setEditedByUsername(const QString &editedByUsername)
+{
+    mEditedByUsername = editedByUsername;
+}
+
+qint64 Message::editedAt() const
+{
+    return mEditedAt;
+}
+
+void Message::setEditedAt(const qint64 &editedAt)
+{
+    mEditedAt = editedAt;
+}
+
+qint64 Message::updatedAt() const
+{
+    return mUpdatedAt;
+}
+
+void Message::setUpdatedAt(const qint64 &updatedAt)
+{
+    mUpdatedAt = updatedAt;
+}
+
+QString Message::userId() const
+{
+    return mUserId;
+}
+
+void Message::setUserId(const QString &userId)
+{
+    mUserId = userId;
+}
+
+QString Message::username() const
+{
+    return mUsername;
+}
+
+void Message::setUsername(const QString &username)
+{
+    mUsername = username;
+}
+
+qint64 Message::timeStamp() const
+{
+    return mTimeStamp;
+}
+
+void Message::setTimeStamp(const qint64 &timeStamp)
+{
+    mTimeStamp = timeStamp;
+}
+
+QString Message::text() const
+{
+    return mText;
+}
+
+void Message::setText(const QString &text)
+{
+    mText = text;
+}
+
+QString Message::messageId() const
+{
+    return mMessageId;
+}
+
+void Message::setMessageId(const QString &messageId)
+{
+    mMessageId = messageId;
+}
+
+QString Message::roomId() const
+{
+    return mRoomId;
+}
+
+void Message::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
 }
 
 QString Message::avatar() const
@@ -182,4 +363,32 @@ QByteArray Message::serialize(const Message &message)
 
     d.setObject(o);
     return d.toBinaryData();
+}
+
+QDebug operator <<(QDebug d, const Message &t)
+{
+    d << "mMessageId : " << t.messageId();
+    d << "mText: " << t.text();
+    d << "mTimeStamp: " << t.timeStamp();
+    d << "mUsername: " << t.username();
+    d << "mUserId: " << t.userId();
+    d << "mUpdatedAt: " << t.updatedAt();
+    d << "mEditedAt: " << t.editedAt();
+    d << "mEditedByUsername: " << t.editedByUsername();
+    d << "mEditedByUserId: " << t.editedByUserId();
+    d << "mUrl: " << t.url();
+    d << "mMeta: " << t.meta();
+    d << "mHeaders: " << t.headers();
+    d << "mParsedUrl: " << t.parsedUrl();
+    d << "mImageUrl: " << t.imageUrl();
+    d << "mColor: " << t.color();
+    d << "mAlias: " << t.alias();
+    d << "mSystemMessageType: " << t.systemMessageType();
+    d << "mRoomId: " << t.roomId();
+    d << "mAvatar: " << t.avatar();
+    d << "mGroupable: " << t.groupable();
+    d << "mParseUrls: " << t.parseUrls();
+    d << "mSystemMessage: " << t.systemMessage();
+    //TODO add t.mAttachement
+    return d;
 }

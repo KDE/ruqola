@@ -34,25 +34,25 @@ void MessageModelTest::shouldSerializeData()
 {
     Message input;
 
-    input.mMessageId = QStringLiteral("ff");
-    input.mRoomId = QStringLiteral("room1");
-    input.mText = QStringLiteral("message1");
-    input.mTimeStamp = 42;
-    input.mUsername = QStringLiteral("user1");
-    input.mUserId = QStringLiteral("userid1");
-    input.mUpdatedAt = 45;
-    input.mEditedAt = 89;
-    input.mEditedByUsername = QStringLiteral("editeduser1");
-    input.mEditedByUserId = QStringLiteral("editedbyid1");
-    input.mUrl = QStringLiteral("url1");
-    input.mMeta = QStringLiteral("meta1");
-    input.mHeaders = QStringLiteral("headers111");
-    input.mParsedUrl = QStringLiteral("parseurl1");
-    input.mImageUrl = QStringLiteral("imageurl1");
-    input.mColor = QStringLiteral("color1");
-    input.mAlias = QStringLiteral("ali");
+    input.setMessageId(QStringLiteral("ff"));
+    input.setRoomId(QStringLiteral("room1"));
+    input.setText(QStringLiteral("message1"));
+    input.setTimeStamp(42);
+    input.setUsername(QStringLiteral("user1"));
+    input.setUserId(QStringLiteral("userid1"));
+    input.setUpdatedAt(45);
+    input.setEditedAt(89);
+    input.setEditedByUsername(QStringLiteral("editeduser1"));
+    input.setEditedByUserId(QStringLiteral("editedbyid1"));
+    input.setUrl(QStringLiteral("url1"));
+    input.setMeta(QStringLiteral("meta1"));
+    input.setHeaders(QStringLiteral("headers111"));
+    input.setParsedUrl(QStringLiteral("parseurl1"));
+    input.setImageUrl(QStringLiteral("imageurl1"));
+    input.setColor(QStringLiteral("color1"));
+    input.setAlias(QStringLiteral("ali"));
     input.setAvatar(QStringLiteral("avatar1"));
-    input.mSystemMessageType = QStringLiteral("type");
+    input.setSystemMessageType(QStringLiteral("type"));
     input.setGroupable(true);
     input.setParseUrls(true);
 

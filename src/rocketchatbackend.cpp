@@ -141,7 +141,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         Message m;
         m.parseMessage(o);
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
-        mRocketChatAccount->getMessageModelForRoom(m.mRoomId)->addMessage(m);
+        mRocketChatAccount->getMessageModelForRoom(m.roomId())->addMessage(m);
     }
 }
 

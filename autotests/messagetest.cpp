@@ -23,27 +23,34 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_MAIN(MessageTest)
+Q_DECLARE_METATYPE(Message)
 MessageTest::MessageTest(QObject *parent)
     : QObject(parent)
 {
 
 }
 
+void MessageTest::shouldParseMessage_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<Message>("expectedMessage");
+    QTest::addRow("first") << QStringLiteral("first") << Message();
+}
+
 void MessageTest::shouldParseMessage()
 {
     QFETCH(QString, name);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1Char('/') + name + QStringLiteral(".json");
+    QFETCH(Message, expectedMessage);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + name + QStringLiteral(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
     f.close();
-    const QJsonDocument obj = QJsonDocument::fromJson(content);
-    //TODO
-
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    QJsonObject obj = doc.object();
+    Message originalMessage;
+    originalMessage.parseMessage(obj);
+    qDebug() << " originalMessage"<<originalMessage;
+    QCOMPARE(originalMessage, expectedMessage);
 }
 
-void MessageTest::shouldParseMessage_data()
-{
-    QTest::addColumn<QString>("name");
-    QTest::addRow("first") << QStringLiteral("first");
-}

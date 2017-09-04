@@ -32,6 +32,9 @@ class LIBRUQOLACORE_TESTS_EXPORT Message
 public:
     Message();
 
+    QString roomId() const;
+    void setRoomId(const QString &roomId);
+
     bool groupable() const;
     void setGroupable(bool groupable);
 
@@ -61,7 +64,7 @@ public:
     static QByteArray serialize(const Message &message);
 
     void parseMessage(const QJsonObject &o);
-    void parseAttachment(const QJsonObject &attachements);
+    void parseAttachment(const QJsonArray &attachments);
 
     // To be used in ID find: message ID
     bool operator==(const Message &other) const;
@@ -72,6 +75,58 @@ public:
     //Need for autotest as operator== is already defined
     bool isEqual(const Message &other) const;
 
+    QString messageId() const;
+    void setMessageId(const QString &messageId);
+
+    QString text() const;
+    void setText(const QString &text);
+
+    qint64 timeStamp() const;
+    void setTimeStamp(const qint64 &timeStamp);
+
+    QString username() const;
+    void setUsername(const QString &username);
+
+    QString userId() const;
+    void setUserId(const QString &userId);
+
+    qint64 updatedAt() const;
+    void setUpdatedAt(const qint64 &updatedAt);
+
+    qint64 editedAt() const;
+    void setEditedAt(const qint64 &editedAt);
+
+    QString editedByUsername() const;
+    void setEditedByUsername(const QString &editedByUsername);
+
+    QString editedByUserId() const;
+    void setEditedByUserId(const QString &editedByUserId);
+
+    QString url() const;
+    void setUrl(const QString &url);
+
+    QString meta() const;
+    void setMeta(const QString &meta);
+
+    QString headers() const;
+    void setHeaders(const QString &headers);
+
+    QString parsedUrl() const;
+    void setParsedUrl(const QString &parsedUrl);
+
+    QString imageUrl() const;
+    void setImageUrl(const QString &imageUrl);
+
+    QString color() const;
+    void setColor(const QString &color);
+
+    QString alias() const;
+    void setAlias(const QString &alias);
+
+    QString systemMessageType() const;
+    void setSystemMessageType(const QString &systemMessageType);
+
+private:
     //Message Object Fields
 
     QVector<MessageAttachment> mAttachements;
@@ -79,8 +134,6 @@ public:
     // _id
     QString mMessageId;
 
-    // rid
-    QString mRoomId;
 
     // msg
     QString mText;
@@ -117,8 +170,9 @@ public:
 
     QString mSystemMessageType;
 
+    // rid
+    QString mRoomId;
 
-private:
     // avatar
     QString mAvatar;
     // groupable
@@ -129,4 +183,5 @@ private:
 
     bool mSystemMessage = false;
 };
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Message &t);
 #endif // MESSAGE_H

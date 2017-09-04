@@ -109,8 +109,8 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 qint64 MessageModel::lastTimestamp() const
 {
     if (mAllMessages.size()) {
-        qCDebug(RUQOLA_LOG) << "returning timestamp" << mAllMessages.last().mTimeStamp;
-        return mAllMessages.last().mTimeStamp;
+        qCDebug(RUQOLA_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
+        return mAllMessages.last().timeStamp();
     } else {
         return 0;
     }
@@ -125,7 +125,7 @@ int MessageModel::rowCount(const QModelIndex &parent) const
 void MessageModel::addMessage(const Message &message)
 {
     // Don't add empty messages
-    if (message.mText.isEmpty()) {
+    if (message.text().isEmpty()) {
         return;
     }
 
@@ -163,21 +163,21 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     int idx = index.row();
     switch (role) {
     case MessageModel::Username:
-        return mAllMessages.at(idx).mUsername;
+        return mAllMessages.at(idx).username();
     case MessageModel::MessageText:
-        return mAllMessages.at(idx).mText;
+        return mAllMessages.at(idx).text();
     case MessageModel::Timestamp:
-        return mAllMessages.at(idx).mTimeStamp;
+        return mAllMessages.at(idx).timeStamp();
     case MessageModel::UserID:
-        return mAllMessages.at(idx).mUserId;
+        return mAllMessages.at(idx).userId();
     case MessageModel::SystemMessage:
         return mAllMessages.at(idx).systemMessage();
     case MessageModel::SystemMessageType:
-        return mAllMessages.at(idx).mSystemMessageType;
+        return mAllMessages.at(idx).systemMessageType();
     case MessageModel::MessageID:
-        return mAllMessages.at(idx).mMessageId;
+        return mAllMessages.at(idx).messageId();
     case MessageModel::Alias:
-        return mAllMessages.at(idx).mAlias;
+        return mAllMessages.at(idx).alias();
     default:
         return QString();
     }
@@ -185,26 +185,26 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
 bool Message::isEqual(const Message &other) const
 {
-    return (mMessageId == other.mMessageId)
-           && (mRoomId == other.mRoomId)
-           && (mText == other.mText)
-           && (mTimeStamp == other.mTimeStamp)
-           && (mUsername == other.mUsername)
-           && (mUserId == other.mUserId)
-           && (mUpdatedAt == other.mUpdatedAt)
-           && (mEditedAt == other.mEditedAt)
-           && (mEditedByUsername == other.mEditedByUsername)
-           && (mEditedByUserId == other.mEditedByUserId)
-           && (mUrl == other.mUrl)
-           && (mMeta == other.mMeta)
-           && (mHeaders == other.mHeaders)
-           && (mParsedUrl == other.mParsedUrl)
-           && (mImageUrl == other.mImageUrl)
-           && (mColor == other.mColor)
-           && (mAlias == other.mAlias)
-           && (mAvatar == other.mAvatar)
-           && (mSystemMessageType == other.mSystemMessageType)
-           && (mGroupable == other.mGroupable)
-           && (mParseUrls == other.mParseUrls)
-           && (mSystemMessage == other.mSystemMessage);
+    return (mMessageId == other.messageId())
+           && (mRoomId == other.roomId())
+           && (mText == other.text())
+           && (mTimeStamp == other.timeStamp())
+           && (mUsername == other.username())
+           && (mUserId == other.userId())
+           && (mUpdatedAt == other.updatedAt())
+           && (mEditedAt == other.editedAt())
+           && (mEditedByUsername == other.editedByUsername())
+           && (mEditedByUserId == other.editedByUserId())
+           && (mUrl == other.url())
+           && (mMeta == other.meta())
+           && (mHeaders == other.headers())
+           && (mParsedUrl == other.parsedUrl())
+           && (mImageUrl == other.imageUrl())
+           && (mColor == other.color())
+           && (mAlias == other.alias())
+           && (mAvatar == other.avatar())
+           && (mSystemMessageType == other.systemMessageType())
+           && (mGroupable == other.groupable())
+           && (mParseUrls == other.parseUrls())
+           && (mSystemMessage == other.systemMessage());
 }
