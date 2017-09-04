@@ -177,7 +177,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomOrder:
         return order(r);
     }
-    return QVariant(QStringLiteral("0"));
+    return {};
 }
 
 void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool selected)
