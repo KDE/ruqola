@@ -53,11 +53,11 @@ void MessageModelTest::shouldSerializeData()
     input.mAlias = QStringLiteral("ali");
     input.mAvatar = QStringLiteral("avatar1");
     input.mSystemMessageType = QStringLiteral("type");
-    input.mGroupable = true;
-    input.mParseUrls = true;
+    input.setGroupable(true);
+    input.setParseUrls(true);
 
-    input.mSystemMessage = true;
-    const QByteArray ba = MessageModel::serialize(input);
-    Message output = MessageModel::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+    input.setSystemMessage(true);
+    const QByteArray ba = Message::serialize(input);
+    Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(output));
 }

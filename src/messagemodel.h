@@ -89,21 +89,7 @@ public:
     */
     qint64 lastTimestamp() const;
 
-    /**
-    * @brief Constructs Message object from QJsonObject
-    *
-    * @param source The Json containing message attributes
-    * @return Message object, The message constructed from Json
-    */
-    static Message fromJSon(const QJsonObject &source);
 
-    /**
-    * @brief Constructs QBytearray from Message object
-    *
-    * @param message The Message object
-    * @return QByteArray, The Json containing message attributes
-    */
-    static QByteArray serialize(const Message &message);
 
 protected:
     QHash<int, QByteArray> roleNames() const override;

@@ -22,15 +22,43 @@
 #define MESSAGE_H
 
 #include "libruqola_private_export.h"
+#include "messageattachment.h"
 #include <QJsonObject>
 #include <QString>
+#include <QVector>
 
 class LIBRUQOLACORE_TESTS_EXPORT Message
 {
 public:
     Message();
+
+    bool groupable() const;
+    void setGroupable(bool groupable);
+
+    bool parseUrls() const;
+    void setParseUrls(bool parseUrls);
+
+    bool systemMessage() const;
+    void setSystemMessage(bool systemMessage);
+
+    /**
+    * @brief Constructs Message object from QJsonObject
+    *
+    * @param source The Json containing message attributes
+    * @return Message object, The message constructed from Json
+    */
+    static Message fromJSon(const QJsonObject &source);
+
+    /**
+    * @brief Constructs QBytearray from Message object
+    *
+    * @param message The Message object
+    * @return QByteArray, The Json containing message attributes
+    */
+    static QByteArray serialize(const Message &message);
+
     void parseMessage(const QJsonObject &o);
-    void parseAttachment();
+    void parseAttachment(const QJsonObject &attachements);
 
     // To be used in ID find: message ID
     bool operator==(const Message &other) const;
@@ -42,6 +70,8 @@ public:
     bool isEqual(const Message &other) const;
 
     //Message Object Fields
+
+    QVector<MessageAttachment> mAttachements;
 
     // _id
     QString mMessageId;
@@ -86,6 +116,7 @@ public:
     QString mAvatar;
     QString mSystemMessageType;
 
+private:
     // groupable
     bool mGroupable = false;
 

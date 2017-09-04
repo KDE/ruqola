@@ -19,6 +19,9 @@
 */
 
 #include "message.h"
+#include <QDebug>
+
+#include <QJsonDocument>
 
 Message::Message()
 {
@@ -52,6 +55,7 @@ void Message::parseMessage(const QJsonObject &o)
     mGroupable = o.value(QStringLiteral("groupable")).toBool();
     mParseUrls = o.value(QStringLiteral("parseUrls")).toBool();
 
+    parseAttachment(o.value(QStringLiteral("attachments")).toObject());
     if (type.isEmpty()) {
         mSystemMessage = false;
     } else {
@@ -60,8 +64,9 @@ void Message::parseMessage(const QJsonObject &o)
     }
 }
 
-void Message::parseAttachment()
+void Message::parseAttachment(const QJsonObject &attachements)
 {
+    qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachements;
     //TODO
 }
 
@@ -73,4 +78,98 @@ bool Message::operator==(const Message &other) const
 bool Message::operator<(const Message &other) const
 {
     return mTimeStamp < other.mTimeStamp;
+}
+
+bool Message::systemMessage() const
+{
+    return mSystemMessage;
+}
+
+void Message::setSystemMessage(bool systemMessage)
+{
+    mSystemMessage = systemMessage;
+}
+
+bool Message::parseUrls() const
+{
+    return mParseUrls;
+}
+
+void Message::setParseUrls(bool parseUrls)
+{
+    mParseUrls = parseUrls;
+}
+
+bool Message::groupable() const
+{
+    return mGroupable;
+}
+
+void Message::setGroupable(bool groupable)
+{
+    mGroupable = groupable;
+}
+
+Message Message::fromJSon(const QJsonObject &o)
+{
+    Message message;
+
+    message.mMessageId = o[QStringLiteral("messageID")].toString();
+    message.mRoomId = o[QStringLiteral("roomID")].toString();
+    message.mText = o[QStringLiteral("message")].toString();
+    message.mTimeStamp = (qint64)o[QStringLiteral("timestamp")].toDouble();
+    message.mUsername = o[QStringLiteral("username")].toString();
+    message.mUserId = o[QStringLiteral("userID")].toString();
+    message.mUpdatedAt = (qint64)o[QStringLiteral("updatedAt")].toDouble();
+    message.mEditedAt = (qint64)o[QStringLiteral("editedAt")].toDouble();
+    message.mEditedByUsername = o[QStringLiteral("editedByUsername")].toString();
+    message.mEditedByUserId = o[QStringLiteral("editedByUserID")].toString();
+    message.mUrl = o[QStringLiteral("url")].toString();
+    message.mMeta = o[QStringLiteral("meta")].toString();
+    message.mHeaders = o[QStringLiteral("headers")].toString();
+    message.mParsedUrl = o[QStringLiteral("parsedUrl")].toString();
+    message.mImageUrl = o[QStringLiteral("imageUrl")].toString();
+    message.mColor = o[QStringLiteral("color")].toString();
+    message.mAlias = o[QStringLiteral("alias")].toString();
+    message.mAvatar = o[QStringLiteral("avatar")].toString();
+    message.mGroupable = o[QStringLiteral("groupable")].toBool();
+    message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
+
+    message.mSystemMessage = o[QStringLiteral("systemMessage")].toBool();
+    message.mSystemMessageType = o[QStringLiteral("type")].toString();
+
+    return message;
+}
+
+QByteArray Message::serialize(const Message &message)
+{
+    QJsonDocument d;
+    QJsonObject o;
+
+    o[QStringLiteral("messageID")] = message.mMessageId;
+    o[QStringLiteral("roomID")] = message.mRoomId;
+    o[QStringLiteral("message")] = message.mText;
+    o[QStringLiteral("timestamp")] = message.mTimeStamp;
+    o[QStringLiteral("username")] = message.mUsername;
+    o[QStringLiteral("userID")] = message.mUserId;
+    o[QStringLiteral("updatedAt")] = message.mUpdatedAt;
+    o[QStringLiteral("editedAt")] = message.mEditedAt;
+    o[QStringLiteral("editedByUsername")] = message.mEditedByUsername;
+    o[QStringLiteral("editedByUserID")] = message.mEditedByUserId;
+    o[QStringLiteral("url")] = message.mUrl;
+    o[QStringLiteral("meta")] = message.mMeta;
+    o[QStringLiteral("headers")] = message.mHeaders;
+    o[QStringLiteral("parsedUrl")] = message.mParsedUrl;
+    o[QStringLiteral("imageUrl")] = message.mImageUrl;
+    o[QStringLiteral("color")] = message.mColor;
+    o[QStringLiteral("alias")] = message.mAlias;
+    o[QStringLiteral("avatar")] = message.mAvatar;
+    o[QStringLiteral("groupable")] = message.mGroupable;
+    o[QStringLiteral("parseUrls")] = message.mParseUrls;
+
+    o[QStringLiteral("systemMessage")] = message.mSystemMessage;
+    o[QStringLiteral("type")] = message.mSystemMessageType;
+
+    d.setObject(o);
+    return d.toBinaryData();
 }

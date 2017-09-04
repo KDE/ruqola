@@ -51,7 +51,7 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QO
                 quint32 length;
                 in.readBytes(byteArray, length);
                 const QByteArray arr = QByteArray::fromRawData(byteArray, length);
-                Message m = MessageModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
+                Message m = Message::fromJSon(QJsonDocument::fromBinaryData(arr).object());
                 addMessage(m);
             }
         }
@@ -71,74 +71,10 @@ MessageModel::~MessageModel()
     if (f.open(QIODevice::WriteOnly)) {
         QDataStream out(&f);
         for (const Message &m : qAsConst(mAllMessages)) {
-            const QByteArray ms = MessageModel::serialize(m);
+            const QByteArray ms = Message::serialize(m);
             out.writeBytes(ms, ms.size());
         }
     }
-}
-
-Message MessageModel::fromJSon(const QJsonObject &o)
-{
-    Message message;
-
-    message.mMessageId = o[QStringLiteral("messageID")].toString();
-    message.mRoomId = o[QStringLiteral("roomID")].toString();
-    message.mText = o[QStringLiteral("message")].toString();
-    message.mTimeStamp = (qint64)o[QStringLiteral("timestamp")].toDouble();
-    message.mUsername = o[QStringLiteral("username")].toString();
-    message.mUserId = o[QStringLiteral("userID")].toString();
-    message.mUpdatedAt = (qint64)o[QStringLiteral("updatedAt")].toDouble();
-    message.mEditedAt = (qint64)o[QStringLiteral("editedAt")].toDouble();
-    message.mEditedByUsername = o[QStringLiteral("editedByUsername")].toString();
-    message.mEditedByUserId = o[QStringLiteral("editedByUserID")].toString();
-    message.mUrl = o[QStringLiteral("url")].toString();
-    message.mMeta = o[QStringLiteral("meta")].toString();
-    message.mHeaders = o[QStringLiteral("headers")].toString();
-    message.mParsedUrl = o[QStringLiteral("parsedUrl")].toString();
-    message.mImageUrl = o[QStringLiteral("imageUrl")].toString();
-    message.mColor = o[QStringLiteral("color")].toString();
-    message.mAlias = o[QStringLiteral("alias")].toString();
-    message.mAvatar = o[QStringLiteral("avatar")].toString();
-    message.mGroupable = o[QStringLiteral("groupable")].toBool();
-    message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
-
-    message.mSystemMessage = o[QStringLiteral("systemMessage")].toBool();
-    message.mSystemMessageType = o[QStringLiteral("type")].toString();
-
-    return message;
-}
-
-QByteArray MessageModel::serialize(const Message &message)
-{
-    QJsonDocument d;
-    QJsonObject o;
-
-    o[QStringLiteral("messageID")] = message.mMessageId;
-    o[QStringLiteral("roomID")] = message.mRoomId;
-    o[QStringLiteral("message")] = message.mText;
-    o[QStringLiteral("timestamp")] = message.mTimeStamp;
-    o[QStringLiteral("username")] = message.mUsername;
-    o[QStringLiteral("userID")] = message.mUserId;
-    o[QStringLiteral("updatedAt")] = message.mUpdatedAt;
-    o[QStringLiteral("editedAt")] = message.mEditedAt;
-    o[QStringLiteral("editedByUsername")] = message.mEditedByUsername;
-    o[QStringLiteral("editedByUserID")] = message.mEditedByUserId;
-    o[QStringLiteral("url")] = message.mUrl;
-    o[QStringLiteral("meta")] = message.mMeta;
-    o[QStringLiteral("headers")] = message.mHeaders;
-    o[QStringLiteral("parsedUrl")] = message.mParsedUrl;
-    o[QStringLiteral("imageUrl")] = message.mImageUrl;
-    o[QStringLiteral("color")] = message.mColor;
-    o[QStringLiteral("alias")] = message.mAlias;
-    o[QStringLiteral("avatar")] = message.mAvatar;
-    o[QStringLiteral("groupable")] = message.mGroupable;
-    o[QStringLiteral("parseUrls")] = message.mParseUrls;
-
-    o[QStringLiteral("systemMessage")] = message.mSystemMessage;
-    o[QStringLiteral("type")] = message.mSystemMessageType;
-
-    d.setObject(o);
-    return d.toBinaryData();
 }
 
 QHash<int, QByteArray> MessageModel::roleNames() const
@@ -235,7 +171,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::UserID:
         return mAllMessages.at(idx).mUserId;
     case MessageModel::SystemMessage:
-        return mAllMessages.at(idx).mSystemMessage;
+        return mAllMessages.at(idx).systemMessage();
     case MessageModel::SystemMessageType:
         return mAllMessages.at(idx).mSystemMessageType;
     case MessageModel::MessageID:
