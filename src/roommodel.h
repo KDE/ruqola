@@ -85,21 +85,6 @@ public:
     */
     RoomWrapper *findRoom(const QString &roomID) const;
 
-    /**
-    * @brief Constructs Room object from QJsonObject (cache)
-    *
-    * @param source The Json containing room attributes
-    * @return Room object, The room constructed from Json
-    */
-    static Room *fromJSon(const QJsonObject &source);
-
-    /**
-    * @brief Constructs QBytearray from Room object
-    *
-    * @param message The Room object
-    * @return QByteArray, The Json containing room attributes
-    */
-    static QByteArray serialize(Room *r);
 
     //void setActiveRoom(const QString &activeRoom);
 

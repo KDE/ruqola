@@ -48,7 +48,7 @@ RoomModel::~RoomModel()
         QDataStream out(&f);
         for (Room *m : qAsConst(mRoomsList)) {
             qCDebug(RUQOLA_LOG) << " save cache for room " << m->name();
-            const QByteArray ms = RoomModel::serialize(m);
+            const QByteArray ms = Room::serialize(m);
             out.writeBytes(ms, ms.size());
         }
     }
@@ -283,7 +283,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
             Room *foundRoom = mRoomsList.value(i);
             foundRoom->setTopic(topic);
             foundRoom->setAnnouncement(announcement);
-            mRoomsList.replace(i, foundRoom);
+            //mRoomsList.replace(i, foundRoom);
             Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
 
             mRocketChatAccount->getMessageModelForRoom(room->id());
@@ -291,54 +291,6 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
         }
     }
     qCWarning(RUQOLA_LOG) << " ROOM DOESNT EXIST " << roomID;
-}
-
-Room *RoomModel::fromJSon(const QJsonObject &o)
-{
-    Room *r = new Room;
-
-    r->setId(o[QStringLiteral("id")].toString());
-    r->setChannelType(o[QStringLiteral("t")].toString());
-    r->setName(o[QStringLiteral("name")].toString());
-    r->setUserName(o[QStringLiteral("userName")].toString());
-    r->setUserId(o[QStringLiteral("userID")].toString());
-    r->setTopic(o[QStringLiteral("topic")].toString());
-    r->setMutedUsers(o[QStringLiteral("mutedUsers")].toString());
-    r->setJitsiTimeout(o[QStringLiteral("jitsiTimeout")].toDouble());
-    r->setReadOnly(o[QStringLiteral("ro")].toBool());
-    r->setUnread(o[QStringLiteral("unread")].toInt(0));
-    r->setAnnouncement(o[QStringLiteral("announcement")].toString());
-    r->setSelected(o[QStringLiteral("selected")].toBool());
-    r->setFavorite(o[QStringLiteral("favorite")].toBool());
-    r->setAlert(o[QStringLiteral("alert")].toBool());
-    r->setOpen(o[QStringLiteral("open")].toBool());
-
-    return r;
-}
-
-QByteArray RoomModel::serialize(Room *r)
-{
-    QJsonDocument d;
-    QJsonObject o;
-
-    o[QStringLiteral("id")] = r->id();
-    o[QStringLiteral("t")] = r->channelType();
-    o[QStringLiteral("name")] = r->name();
-    o[QStringLiteral("userName")] = r->userName();
-    o[QStringLiteral("userID")] = r->userId();
-    o[QStringLiteral("topic")] = r->topic();
-    o[QStringLiteral("mutedUsers")] = r->mutedUsers();
-    o[QStringLiteral("jitsiTimeout")] = r->jitsiTimeout();
-    o[QStringLiteral("ro")] = r->readOnly();
-    o[QStringLiteral("unread")] = r->unread();
-    o[QStringLiteral("announcement")] = r->announcement();
-    o[QStringLiteral("selected")] = r->selected();
-    o[QStringLiteral("favorite")] = r->favorite();
-    o[QStringLiteral("alert")] = r->alert();
-    o[QStringLiteral("open")] = r->open();
-
-    d.setObject(o);
-    return d.toBinaryData();
 }
 
 QString RoomModel::sectionName(Room *r) const

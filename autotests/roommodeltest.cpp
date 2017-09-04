@@ -50,7 +50,7 @@ void RoomModelTest::shouldSerialized()
     input.setFavorite(true);
     input.setAlert(true);
     input.setOpen(true);
-    const QByteArray ba = RoomModel::serialize(&input);
-    Room *output = RoomModel::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+    const QByteArray ba = Room::serialize(&input);
+    Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(*output));
 }
