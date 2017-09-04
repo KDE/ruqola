@@ -373,6 +373,5 @@ int RoomModel::order(Room *r) const
     } else {
         order += 3;
     }
-    qDebug() <<" str " << order << " name "<< r->name();
     return order;
 }
