@@ -41,6 +41,9 @@ public:
     bool systemMessage() const;
     void setSystemMessage(bool systemMessage);
 
+    QString avatar() const;
+    void setAvatar(const QString &avatar);
+
     /**
     * @brief Constructs Message object from QJsonObject
     *
@@ -112,11 +115,12 @@ public:
     // alias
     QString mAlias;
 
-    // avatar
-    QString mAvatar;
     QString mSystemMessageType;
 
+
 private:
+    // avatar
+    QString mAvatar;
     // groupable
     bool mGroupable = false;
 

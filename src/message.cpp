@@ -80,6 +80,16 @@ bool Message::operator<(const Message &other) const
     return mTimeStamp < other.mTimeStamp;
 }
 
+QString Message::avatar() const
+{
+    return mAvatar;
+}
+
+void Message::setAvatar(const QString &avatar)
+{
+    mAvatar = avatar;
+}
+
 bool Message::systemMessage() const
 {
     return mSystemMessage;

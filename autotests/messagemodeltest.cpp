@@ -51,7 +51,7 @@ void MessageModelTest::shouldSerializeData()
     input.mImageUrl = QStringLiteral("imageurl1");
     input.mColor = QStringLiteral("color1");
     input.mAlias = QStringLiteral("ali");
-    input.mAvatar = QStringLiteral("avatar1");
+    input.setAvatar(QStringLiteral("avatar1"));
     input.mSystemMessageType = QStringLiteral("type");
     input.setGroupable(true);
     input.setParseUrls(true);
