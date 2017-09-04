@@ -21,6 +21,7 @@
 #include "messagetest.h"
 #include "message.h"
 #include <QTest>
+#include <QJsonDocument>
 QTEST_MAIN(MessageTest)
 MessageTest::MessageTest(QObject *parent)
     : QObject(parent)
@@ -32,6 +33,13 @@ void MessageTest::shouldParseMessage()
 {
     QFETCH(QString, name);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1Char('/') + name + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument obj = QJsonDocument::fromJson(content);
+    //TODO
+
 }
 
 void MessageTest::shouldParseMessage_data()
