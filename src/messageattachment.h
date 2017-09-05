@@ -22,12 +22,26 @@
 #define MESSAGEATTACHMENT_H
 
 #include "libruqola_private_export.h"
-
+#include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
 {
 public:
     MessageAttachment();
     bool isEmpty() const;
+    QString description() const;
+    void setDescription(const QString &description);
+
+    QString title() const;
+    void setTitle(const QString &title);
+
+    QString link() const;
+    void setLink(const QString &link);
+
+private:
+    QString mDescription;
+    QString mTitle;
+    QString mLink;
 };
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageAttachment &t);
 
 #endif // MESSAGEATTACHMENT_H

@@ -27,5 +27,43 @@ MessageAttachment::MessageAttachment()
 bool MessageAttachment::isEmpty() const
 {
     //TODO
-    return true;
+    return mLink.isEmpty();
+}
+
+QString MessageAttachment::description() const
+{
+    return mDescription;
+}
+
+void MessageAttachment::setDescription(const QString &description)
+{
+    mDescription = description;
+}
+
+QString MessageAttachment::title() const
+{
+    return mTitle;
+}
+
+void MessageAttachment::setTitle(const QString &title)
+{
+    mTitle = title;
+}
+
+QString MessageAttachment::link() const
+{
+    return mLink;
+}
+
+void MessageAttachment::setLink(const QString &link)
+{
+    mLink = link;
+}
+
+QDebug operator <<(QDebug d, const MessageAttachment &t)
+{
+    d << "Title : " << t.title();
+    d << "Description: " << t.description();
+    d << "Link: " << t.link();
+    return d;
 }
