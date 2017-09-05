@@ -26,9 +26,11 @@
 #include <QJsonObject>
 #include <QString>
 #include <QVector>
+#include <QObject>
 
 class LIBRUQOLACORE_TESTS_EXPORT Message
 {
+    Q_GADGET
 public:
     Message();
 
@@ -39,6 +41,8 @@ public:
         Audio,
         Image
     };
+
+    Q_ENUM(MessageType)
 
     QString roomId() const;
     void setRoomId(const QString &roomId);

@@ -12,6 +12,7 @@
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
         <file alias="UserMessage.qml">messages/UserMessage.qml</file>
+        <file alias="AttachmentMessageFile.qml">messages/AttachmentMessageFile.qml</file>
     </qresource>
     <qresource prefix="/js">
         <file alias="jsonpath.js">js/jsonpath.js</file>
