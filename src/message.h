@@ -32,6 +32,13 @@ class LIBRUQOLACORE_TESTS_EXPORT Message
 public:
     Message();
 
+    enum class MessageType {
+        NormalText,
+        File,
+        Video,
+        Audio
+    };
+
     QString roomId() const;
     void setRoomId(const QString &roomId);
 
@@ -126,6 +133,9 @@ public:
     QString systemMessageType() const;
     void setSystemMessageType(const QString &systemMessageType);
 
+    MessageType messageType() const;
+    void setMessageType(const MessageType &messageType);
+
 private:
     //Message Object Fields
 
@@ -182,6 +192,7 @@ private:
     bool mParseUrls = false;
 
     bool mSystemMessage = false;
+    MessageType mMessageType = MessageType::NormalText;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Message &t);
 #endif // MESSAGE_H

@@ -91,6 +91,16 @@ void Message::setSystemMessageType(const QString &systemMessageType)
     mSystemMessageType = systemMessageType;
 }
 
+Message::MessageType Message::messageType() const
+{
+    return mMessageType;
+}
+
+void Message::setMessageType(const MessageType &messageType)
+{
+    mMessageType = messageType;
+}
+
 QString Message::alias() const
 {
     return mAlias;
@@ -328,7 +338,7 @@ Message Message::fromJSon(const QJsonObject &o)
 
     message.mSystemMessage = o[QStringLiteral("systemMessage")].toBool();
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
-
+    //TODO add message type
     return message;
 }
 
@@ -360,7 +370,7 @@ QByteArray Message::serialize(const Message &message)
 
     o[QStringLiteral("systemMessage")] = message.mSystemMessage;
     o[QStringLiteral("type")] = message.mSystemMessageType;
-
+    //TODO add message type
     d.setObject(o);
     return d.toBinaryData();
 }
@@ -390,5 +400,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mParseUrls: " << t.parseUrls();
     d << "mSystemMessage: " << t.systemMessage();
     //TODO add t.mAttachement
+    //TODO add message type
     return d;
 }
