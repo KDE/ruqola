@@ -29,6 +29,8 @@ class MessageAttachmentTest : public QObject
 public:
     explicit MessageAttachmentTest(QObject *parent = nullptr);
     ~MessageAttachmentTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // MESSAGEATTACHMENTTEST_H

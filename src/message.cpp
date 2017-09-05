@@ -56,13 +56,14 @@ void Message::parseMessage(const QJsonObject &o)
     mGroupable = o.value(QStringLiteral("groupable")).toBool();
     mParseUrls = o.value(QStringLiteral("parseUrls")).toBool();
 
-    parseAttachment(o.value(QStringLiteral("attachments")).toArray());
+    mMessageType = Message::MessageType::NormalText;
     if (type.isEmpty()) {
         mSystemMessage = false;
     } else {
         mSystemMessage = true;
         mSystemMessageType = type;
     }
+    parseAttachment(o.value(QStringLiteral("attachments")).toArray());
 }
 
 void Message::parseAttachment(const QJsonArray &attachments)
@@ -79,12 +80,20 @@ void Message::parseAttachment(const QJsonArray &attachments)
         if (!title.isUndefined()) {
             messageAttachement.setTitle(title.toString());
         }
-        const QJsonValue titleLink = attachment.value(QStringLiteral("title_link"));
-        if (!titleLink.isUndefined()) {
-            messageAttachement.setLink(titleLink.toString());
-        }
 
-        //TODO
+        if (attachment.contains(QStringLiteral("title_link"))) {
+            messageAttachement.setLink(attachment.value(QStringLiteral("title_link")).toString());
+            mMessageType = Message::MessageType::File;
+        } else if (attachment.contains(QStringLiteral("video_url"))) {
+            messageAttachement.setLink(attachment.value(QStringLiteral("video_url")).toString());
+            mMessageType = Message::MessageType::Video;
+        } else if (attachment.contains(QStringLiteral("image_url"))) {
+            messageAttachement.setLink(attachment.value(QStringLiteral("image_url")).toString());
+            mMessageType = Message::MessageType::Image;
+        } else if (attachment.contains(QStringLiteral("audio_url"))) {
+            messageAttachement.setLink(attachment.value(QStringLiteral("audio_url")).toString());
+            mMessageType = Message::MessageType::Audio;
+        }
         if (!messageAttachement.isEmpty()) {
             mAttachements.append(messageAttachement);
         }

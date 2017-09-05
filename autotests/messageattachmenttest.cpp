@@ -19,6 +19,7 @@
 */
 
 #include "messageattachmenttest.h"
+#include "messageattachment.h"
 #include <QTest>
 QTEST_MAIN(MessageAttachmentTest)
 
@@ -26,4 +27,13 @@ MessageAttachmentTest::MessageAttachmentTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void MessageAttachmentTest::shouldHaveDefaultValue()
+{
+    MessageAttachment attachment;
+    QVERIFY(attachment.description().isEmpty());
+    QVERIFY(attachment.title().isEmpty());
+    QVERIFY(attachment.link().isEmpty());
+    QVERIFY(attachment.isEmpty());
 }

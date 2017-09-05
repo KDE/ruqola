@@ -36,7 +36,8 @@ public:
         NormalText,
         File,
         Video,
-        Audio
+        Audio,
+        Image
     };
 
     QString roomId() const;
