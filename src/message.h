@@ -136,6 +136,9 @@ public:
     MessageType messageType() const;
     void setMessageType(const MessageType &messageType);
 
+    QVector<MessageAttachment> attachements() const;
+    void setAttachements(const QVector<MessageAttachment> &attachements);
+
 private:
     //Message Object Fields
 

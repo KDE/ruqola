@@ -68,7 +68,27 @@ void Message::parseMessage(const QJsonObject &o)
 void Message::parseAttachment(const QJsonArray &attachments)
 {
     qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
-    //TODO
+    for (int i = 0; i < attachments.size(); i++) {
+        const QJsonObject attachment = attachments.at(i).toObject();
+        MessageAttachment messageAttachement;
+        const QJsonValue description = attachment.value(QStringLiteral("description"));
+        if (!description.isUndefined()) {
+            messageAttachement.setDescription(description.toString());
+        }
+        const QJsonValue title = attachment.value(QStringLiteral("title"));
+        if (!title.isUndefined()) {
+            messageAttachement.setTitle(title.toString());
+        }
+        const QJsonValue titleLink = attachment.value(QStringLiteral("title_link"));
+        if (!titleLink.isUndefined()) {
+            messageAttachement.setLink(titleLink.toString());
+        }
+
+        //TODO
+        if (!messageAttachement.isEmpty()) {
+            mAttachements.append(messageAttachement);
+        }
+    }
 }
 
 bool Message::operator==(const Message &other) const
@@ -99,6 +119,16 @@ Message::MessageType Message::messageType() const
 void Message::setMessageType(const MessageType &messageType)
 {
     mMessageType = messageType;
+}
+
+QVector<MessageAttachment> Message::attachements() const
+{
+    return mAttachements;
+}
+
+void Message::setAttachements(const QVector<MessageAttachment> &attachements)
+{
+    mAttachements = attachements;
 }
 
 QString Message::alias() const
@@ -399,7 +429,9 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mGroupable: " << t.groupable();
     d << "mParseUrls: " << t.parseUrls();
     d << "mSystemMessage: " << t.systemMessage();
-    //TODO add t.mAttachement
+    for (int i = 0; i < t.attachements().count(); ++i) {
+        d << "Attachment " << t.attachements().at(i);
+    }
     //TODO add message type
     return d;
 }
