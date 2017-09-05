@@ -49,7 +49,6 @@ void Message::parseMessage(const QJsonObject &o)
     mMeta = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("meta")).toString();
     mHeaders = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("headers")).toString();
     mParsedUrl = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("parsedUrl")).toString();
-    mImageUrl = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("image_url")).toString();
     mColor = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("color")).toString();
     mAlias = o.value(QStringLiteral("alias")).toString();
     mAvatar = o.value(QStringLiteral("avatar")).toString();
@@ -62,6 +61,7 @@ void Message::parseMessage(const QJsonObject &o)
     } else {
         mSystemMessage = true;
         mSystemMessageType = type;
+        mMessageType = System;
     }
     parseAttachment(o.value(QStringLiteral("attachments")).toArray());
 }
@@ -158,16 +158,6 @@ QString Message::color() const
 void Message::setColor(const QString &color)
 {
     mColor = color;
-}
-
-QString Message::imageUrl() const
-{
-    return mImageUrl;
-}
-
-void Message::setImageUrl(const QString &imageUrl)
-{
-    mImageUrl = imageUrl;
 }
 
 QString Message::parsedUrl() const
@@ -368,7 +358,6 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mMeta = o[QStringLiteral("meta")].toString();
     message.mHeaders = o[QStringLiteral("headers")].toString();
     message.mParsedUrl = o[QStringLiteral("parsedUrl")].toString();
-    message.mImageUrl = o[QStringLiteral("imageUrl")].toString();
     message.mColor = o[QStringLiteral("color")].toString();
     message.mAlias = o[QStringLiteral("alias")].toString();
     message.mAvatar = o[QStringLiteral("avatar")].toString();
@@ -400,7 +389,6 @@ QByteArray Message::serialize(const Message &message)
     o[QStringLiteral("meta")] = message.mMeta;
     o[QStringLiteral("headers")] = message.mHeaders;
     o[QStringLiteral("parsedUrl")] = message.mParsedUrl;
-    o[QStringLiteral("imageUrl")] = message.mImageUrl;
     o[QStringLiteral("color")] = message.mColor;
     o[QStringLiteral("alias")] = message.mAlias;
     o[QStringLiteral("avatar")] = message.mAvatar;
@@ -429,7 +417,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mMeta: " << t.meta();
     d << "mHeaders: " << t.headers();
     d << "mParsedUrl: " << t.parsedUrl();
-    d << "mImageUrl: " << t.imageUrl();
     d << "mColor: " << t.color();
     d << "mAlias: " << t.alias();
     d << "mSystemMessageType: " << t.systemMessageType();
@@ -443,4 +430,30 @@ QDebug operator <<(QDebug d, const Message &t)
     }
     //TODO add message type
     return d;
+}
+
+
+bool Message::isEqual(const Message &other) const
+{
+    return (mMessageId == other.messageId())
+           && (mRoomId == other.roomId())
+           && (mText == other.text())
+           && (mTimeStamp == other.timeStamp())
+           && (mUsername == other.username())
+           && (mUserId == other.userId())
+           && (mUpdatedAt == other.updatedAt())
+           && (mEditedAt == other.editedAt())
+           && (mEditedByUsername == other.editedByUsername())
+           && (mEditedByUserId == other.editedByUserId())
+           && (mUrl == other.url())
+           && (mMeta == other.meta())
+           && (mHeaders == other.headers())
+           && (mParsedUrl == other.parsedUrl())
+           && (mColor == other.color())
+           && (mAlias == other.alias())
+           && (mAvatar == other.avatar())
+           && (mSystemMessageType == other.systemMessageType())
+           && (mGroupable == other.groupable())
+           && (mParseUrls == other.parseUrls())
+           && (mSystemMessage == other.systemMessage());
 }

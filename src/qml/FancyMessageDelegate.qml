@@ -33,28 +33,6 @@ import QtQuick.Layouts 1.1
 
 Rectangle {
 
-    function getTextFor(type) {
-        
-        if (type === "uj") {
-            return i18n("has joined the channel");
-        } else if (type === "ul") {
-            return i18n("has left the channel");
-        } else if (type === "room_changed_topic") {
-            return i18n("changed topic to \"%1\"").arg(i_messageText)
-        } else if (type === "au") {
-            return i18n("added %1 to the conversation").arg(i_messageText)
-        } else if (type === "r") {
-            return i18n("changed room name to \"%1\"").arg(i_messageText)
-        } else if (type === "room_changed_description") {
-            return i18n("changed room description to \"%1\"").arg(i_messageText)
-        } else {
-            console.log("Unkown type for message");
-            console.log(type);
-            console.log(i_messageText)
-            return i18n("Unknown action!");
-        }
-    }
-
     property string i_messageID
     property string i_messageText
     property string i_username

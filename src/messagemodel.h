@@ -53,12 +53,12 @@ public:
         Meta,
         Headers,
         ParsedUrl,
-        ImageUrl,
         Color,
         Alias,
         Avatar,
         Groupable,
-        ParseUrls
+        ParseUrls,
+        MessageType
     };
     Q_ENUM(MessageRoles)
 

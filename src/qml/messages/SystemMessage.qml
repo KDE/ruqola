@@ -73,8 +73,6 @@ Rectangle {
     
     anchors.bottomMargin: 200
     
-//     anchors.margins: 50
-
     Rectangle {
         
         anchors.rightMargin: 2*Kirigami.Units.largeSpacing

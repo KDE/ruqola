@@ -48,7 +48,6 @@ void MessageModelTest::shouldSerializeData()
     input.setMeta(QStringLiteral("meta1"));
     input.setHeaders(QStringLiteral("headers111"));
     input.setParsedUrl(QStringLiteral("parseurl1"));
-    input.setImageUrl(QStringLiteral("imageurl1"));
     input.setColor(QStringLiteral("color1"));
     input.setAlias(QStringLiteral("ali"));
     input.setAvatar(QStringLiteral("avatar1"));

@@ -23,7 +23,6 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_MAIN(MessageTest)
-Q_DECLARE_METATYPE(Message)
 MessageTest::MessageTest(QObject *parent)
     : QObject(parent)
 {

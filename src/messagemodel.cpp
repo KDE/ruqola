@@ -96,12 +96,12 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Meta] = "meta";
     roles[Headers] = "headers";
     roles[ParsedUrl] = "parsedUrl";
-    roles[ImageUrl] = "imageUrl";
     roles[Color] = "color";
     roles[Alias] = "alias";
     roles[Avatar] = "avatar";
     roles[Groupable] = "groupable";
     roles[ParseUrls] = "parseUrls";
+    roles[MessageType] = "messagetype";
 
     return roles;
 }
@@ -178,33 +178,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mAllMessages.at(idx).messageId();
     case MessageModel::Alias:
         return mAllMessages.at(idx).alias();
+    case MessageModel::MessageType:
+        return mAllMessages.at(idx).messageType();
     default:
         return QString();
     }
-}
-
-bool Message::isEqual(const Message &other) const
-{
-    return (mMessageId == other.messageId())
-           && (mRoomId == other.roomId())
-           && (mText == other.text())
-           && (mTimeStamp == other.timeStamp())
-           && (mUsername == other.username())
-           && (mUserId == other.userId())
-           && (mUpdatedAt == other.updatedAt())
-           && (mEditedAt == other.editedAt())
-           && (mEditedByUsername == other.editedByUsername())
-           && (mEditedByUserId == other.editedByUserId())
-           && (mUrl == other.url())
-           && (mMeta == other.meta())
-           && (mHeaders == other.headers())
-           && (mParsedUrl == other.parsedUrl())
-           && (mImageUrl == other.imageUrl())
-           && (mColor == other.color())
-           && (mAlias == other.alias())
-           && (mAvatar == other.avatar())
-           && (mSystemMessageType == other.systemMessageType())
-           && (mGroupable == other.groupable())
-           && (mParseUrls == other.parseUrls())
-           && (mSystemMessage == other.systemMessage());
 }

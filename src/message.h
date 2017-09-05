@@ -34,7 +34,9 @@ class LIBRUQOLACORE_TESTS_EXPORT Message
 public:
     Message();
 
-    enum class MessageType {
+    enum MessageType {
+        //TODO add system message ?
+        System,
         NormalText,
         File,
         Video,
@@ -180,7 +182,6 @@ private:
     QString mParsedUrl;
 
     // attachments
-    QString mImageUrl;
     QString mColor;
 
     // alias
@@ -202,5 +203,6 @@ private:
     bool mSystemMessage = false;
     MessageType mMessageType = MessageType::NormalText;
 };
+Q_DECLARE_METATYPE(Message)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Message &t);
 #endif // MESSAGE_H

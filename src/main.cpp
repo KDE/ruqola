@@ -33,6 +33,7 @@
 #include "config-ruqola.h"
 #include "rocketchataccount.h"
 #include "roomfilterproxymodel.h"
+#include "message.h"
 
 #include <QJsonDocument>
 
@@ -69,6 +70,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<UsersModel>("KDE.Ruqola.UsersModel", 1, 0, "UsersModel");
     qmlRegisterType<User>("KDE.Ruqola.User", 1, 0, "User");
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
+    qRegisterMetaType<Message::MessageType>();
+    qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
 
     (void)Ruqola::self();
     QQmlApplicationEngine engine;
