@@ -20,6 +20,53 @@
 
 import QtQuick 2.0
 
+import QtQuick.Controls 2.2
+import org.kde.kirigami 2.1 as Kirigami
+
+import QtQuick.Layouts 1.1
 Rectangle {
+    id: attachmentAudio
+    color: "#eeeeee"
+    implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight
+
+    implicitWidth: 150
+
+    anchors.bottomMargin: 200
+
+    Rectangle {
+
+        anchors.rightMargin: 2*Kirigami.Units.largeSpacing
+        anchors.leftMargin: 2*Kirigami.Units.largeSpacing
+
+        anchors.centerIn: parent
+
+        width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
+        height: textLabel.height
+
+        color: Kirigami.Theme.disabledTextColor
+        radius: 4*Kirigami.Units.smallSpacing
+
+    }
+
+
+    Kirigami.Label {
+        id: textLabel
+        color: Kirigami.Theme.textColor
+        opacity: 1
+
+        anchors.centerIn: parent
+        anchors.leftMargin: Kirigami.Units.smallSpacing
+        anchors.rightMargin: Kirigami.Units.smallSpacing
+
+        width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
+
+        text: i_username + " Audio Message "
+
+        wrapMode: Label.Wrap
+
+        renderType: Text.NativeRendering
+
+        onLinkActivated: attachmentAudio.linkActivated(link)
+    }
 
 }

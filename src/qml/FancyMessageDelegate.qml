@@ -25,6 +25,7 @@ import QtQuick 2.0
 import "js/marked.js" as MarkDown;
 
 import KDE.Ruqola.RuqolaUtils 1.0
+import KDE.Ruqola.Message 1.0
 
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
@@ -41,6 +42,7 @@ Rectangle {
     property string i_avatar
     property string i_aliasname
     property var i_timestamp
+    property var i_messageType
 
     id: messageMain
     color: "#eeeeee"
@@ -56,7 +58,7 @@ Rectangle {
         anchors.fill: parent
         
         Component.onCompleted: {
-            if (i_systemMessage) {
+            if (/*i_systemMessage*/i_messageType === Message.System) {
                 setSource("messages/SystemMessage.qml",
                           {
                               i_messageText: i_messageText,
@@ -67,7 +69,7 @@ Rectangle {
                               i_messageID: i_messageID
                           }
                           )
-            } else {
+            } else if (i_messageType === Message.NormalText) {
                 setSource("messages/UserMessage.qml",
                           {
                               i_messageText: i_messageText,
@@ -77,6 +79,16 @@ Rectangle {
                               i_messageID: i_messageID
                           }
                           )
+            } else if (i_messageType === Message.File) {
+                setSource("messages/AttachmentMessageFile.qml")
+            } else if (i_messageType === Message.Audio) {
+                setSource("messages/AttachmentMessageAudio.qml")
+            } else if (i_messageType === Message.Video) {
+                setSource("messages/AttachmentMessageVideo.qml")
+            } else if (i_messageType === Message.Image) {
+                setSource("messages/AttachmentMessageImage.qml")
+            } else {
+                console.log("Unknown message type: " + i_messageType)
             }
         }
     }
