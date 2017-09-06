@@ -131,9 +131,6 @@ public:
     QString imageUrl() const;
     void setImageUrl(const QString &imageUrl);
 
-    QString color() const;
-    void setColor(const QString &color);
-
     QString alias() const;
     void setAlias(const QString &alias);
 
@@ -180,9 +177,6 @@ private:
     QString mMeta;
     QString mHeaders;
     QString mParsedUrl;
-
-    // attachments
-    QString mColor;
 
     // alias
     QString mAlias;

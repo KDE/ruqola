@@ -49,7 +49,6 @@ void Message::parseMessage(const QJsonObject &o)
     mMeta = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("meta")).toString();
     mHeaders = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("headers")).toString();
     mParsedUrl = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("parsedUrl")).toString();
-    mColor = o.value(QStringLiteral("attachments")).toObject().value(QStringLiteral("color")).toString();
     mAlias = o.value(QStringLiteral("alias")).toString();
     mAvatar = o.value(QStringLiteral("avatar")).toString();
     mGroupable = o.value(QStringLiteral("groupable")).toBool();
@@ -147,16 +146,6 @@ QString Message::alias() const
 void Message::setAlias(const QString &alias)
 {
     mAlias = alias;
-}
-
-QString Message::color() const
-{
-    return mColor;
-}
-
-void Message::setColor(const QString &color)
-{
-    mColor = color;
 }
 
 QString Message::parsedUrl() const
@@ -347,7 +336,6 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mMeta = o[QStringLiteral("meta")].toString();
     message.mHeaders = o[QStringLiteral("headers")].toString();
     message.mParsedUrl = o[QStringLiteral("parsedUrl")].toString();
-    message.mColor = o[QStringLiteral("color")].toString();
     message.mAlias = o[QStringLiteral("alias")].toString();
     message.mAvatar = o[QStringLiteral("avatar")].toString();
     message.mGroupable = o[QStringLiteral("groupable")].toBool();
@@ -378,7 +366,6 @@ QByteArray Message::serialize(const Message &message)
     o[QStringLiteral("meta")] = message.mMeta;
     o[QStringLiteral("headers")] = message.mHeaders;
     o[QStringLiteral("parsedUrl")] = message.mParsedUrl;
-    o[QStringLiteral("color")] = message.mColor;
     o[QStringLiteral("alias")] = message.mAlias;
     o[QStringLiteral("avatar")] = message.mAvatar;
     o[QStringLiteral("groupable")] = message.mGroupable;
@@ -405,7 +392,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mMeta: " << t.meta();
     d << "mHeaders: " << t.headers();
     d << "mParsedUrl: " << t.parsedUrl();
-    d << "mColor: " << t.color();
     d << "mAlias: " << t.alias();
     d << "mSystemMessageType: " << t.systemMessageType();
     d << "mRoomId: " << t.roomId();
@@ -436,7 +422,6 @@ bool Message::isEqual(const Message &other) const
            && (mMeta == other.meta())
            && (mHeaders == other.headers())
            && (mParsedUrl == other.parsedUrl())
-           && (mColor == other.color())
            && (mAlias == other.alias())
            && (mAvatar == other.avatar())
            && (mSystemMessageType == other.systemMessageType())

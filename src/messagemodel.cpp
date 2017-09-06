@@ -179,7 +179,15 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mAllMessages.at(idx).messageType();
     case MessageModel::Avatar:
         return mAllMessages.at(idx).avatar();
+    case MessageModel::ParseUrls:
+        return mAllMessages.at(idx).parsedUrl();
+    case MessageModel::EditedAt:
+        return mAllMessages.at(idx).editedAt();
+    case MessageModel::EditedByUserName:
+        return mAllMessages.at(idx).editedByUsername();
+        //TODO add missing roles.
     default:
         return QString();
-    }
+    }    
+
 }
