@@ -343,6 +343,7 @@ Message Message::fromJSon(const QJsonObject &o)
 
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
     message.mMessageType = o[QStringLiteral("messageType")].toVariant().value<MessageType>();
+    //message.mAttachements = o[QStringLiteral("attachments")].toVariant().toList().toVector();
     //TODO add message type
     return message;
 }
@@ -409,22 +410,23 @@ QDebug operator <<(QDebug d, const Message &t)
 bool Message::isEqual(const Message &other) const
 {
     return (mMessageId == other.messageId())
-           && (mRoomId == other.roomId())
-           && (mText == other.text())
-           && (mTimeStamp == other.timeStamp())
-           && (mUsername == other.username())
-           && (mUserId == other.userId())
-           && (mUpdatedAt == other.updatedAt())
-           && (mEditedAt == other.editedAt())
-           && (mEditedByUsername == other.editedByUsername())
-           && (mEditedByUserId == other.editedByUserId())
-           && (mUrl == other.url())
-           && (mMeta == other.meta())
-           && (mHeaders == other.headers())
-           && (mParsedUrl == other.parsedUrl())
-           && (mAlias == other.alias())
-           && (mAvatar == other.avatar())
-           && (mSystemMessageType == other.systemMessageType())
-           && (mGroupable == other.groupable())
-           && (mParseUrls == other.parseUrls());
+            && (mRoomId == other.roomId())
+            && (mText == other.text())
+            && (mTimeStamp == other.timeStamp())
+            && (mUsername == other.username())
+            && (mUserId == other.userId())
+            && (mUpdatedAt == other.updatedAt())
+            && (mEditedAt == other.editedAt())
+            && (mEditedByUsername == other.editedByUsername())
+            && (mEditedByUserId == other.editedByUserId())
+            && (mUrl == other.url())
+            && (mMeta == other.meta())
+            && (mHeaders == other.headers())
+            && (mParsedUrl == other.parsedUrl())
+            && (mAlias == other.alias())
+            && (mAvatar == other.avatar())
+            && (mSystemMessageType == other.systemMessageType())
+            && (mGroupable == other.groupable())
+            && (mParseUrls == other.parseUrls())
+            && (mAttachements == other.attachements());
 }

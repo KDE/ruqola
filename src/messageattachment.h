@@ -37,6 +37,8 @@ public:
     QString link() const;
     void setLink(const QString &link);
 
+    bool operator==(const MessageAttachment &other) const;
+
 private:
     QString mDescription;
     QString mTitle;

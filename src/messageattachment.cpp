@@ -60,6 +60,11 @@ void MessageAttachment::setLink(const QString &link)
     mLink = link;
 }
 
+bool MessageAttachment::operator==(const MessageAttachment &other) const
+{
+    return (mDescription == other.description()) && (mTitle == other.title()) && (mLink == other.link());
+}
+
 QDebug operator <<(QDebug d, const MessageAttachment &t)
 {
     d << "Title : " << t.title();
