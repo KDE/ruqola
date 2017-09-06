@@ -70,6 +70,8 @@ public:
     Q_INVOKABLE void logOut();
     Q_INVOKABLE void clearUnreadMessages(const QString &roomId);
 
+    Q_INVOKABLE void changeFavorite(const QString &roomId, bool checked);
+
     DDPClient *ddp();
 
     DDPClient::LoginStatus loginStatus();

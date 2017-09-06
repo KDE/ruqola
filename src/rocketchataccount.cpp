@@ -295,3 +295,8 @@ void RocketChatAccount::clearUnreadMessages(const QString &roomId)
 {
     ddp()->clearUnreadMessages(roomId);
 }
+
+void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
+{
+    //TODO change favorite
+}
