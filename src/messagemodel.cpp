@@ -177,6 +177,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mAllMessages.at(idx).alias();
     case MessageModel::MessageType:
         return mAllMessages.at(idx).messageType();
+    case MessageModel::Avatar:
+        return mAllMessages.at(idx).avatar();
     default:
         return QString();
     }

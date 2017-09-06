@@ -205,34 +205,40 @@ Rectangle {
             
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
             
-            color: stringToColour(i_username)
+            color: i_avatar !== "" ? Qt.transparent : stringToColour(i_username)
             
             anchors.top: parent.top
+            Image {
+                anchors.fill: parent
+                visible: i_avatar !== ""
+                source: i_avatar
+            }
             Text {
-                 anchors.fill: parent
-                 anchors.margins: Kirigami.Units.smallSpacing
+                visible: i_avatar == ""
+                anchors.fill: parent
+                anchors.margins: Kirigami.Units.smallSpacing
 
-                 renderType: Text.QtRendering
-                 color: "white"
+                renderType: Text.QtRendering
+                color: "white"
 
-                 font.weight: Font.Bold
-                 font.pointSize: 100
-                 minimumPointSize: theme.defaultFont.pointSize
-                 fontSizeMode: Text.Fit
+                font.weight: Font.Bold
+                font.pointSize: 100
+                minimumPointSize: theme.defaultFont.pointSize
+                fontSizeMode: Text.Fit
 
-                 horizontalAlignment: Text.AlignHCenter
-                 verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
 
-                 text: {
-                     //TODO verify if it works with non latin char.
-                     var match = i_username.match(/([a-zA-Z])([a-zA-Z])/);
-                     var abbrev = match[1].toUpperCase();
-                     if (match.length > 2) {
-                         abbrev += match[2].toLowerCase();
-                     }
-                     return abbrev;
-                 }
-             }
+                text: {
+                    //TODO verify if it works with non latin char.
+                    var match = i_username.match(/([a-zA-Z])([a-zA-Z])/);
+                    var abbrev = match[1].toUpperCase();
+                    if (match.length > 2) {
+                        abbrev += match[2].toLowerCase();
+                    }
+                    return abbrev;
+                }
+            }
         }
         
         Rectangle {

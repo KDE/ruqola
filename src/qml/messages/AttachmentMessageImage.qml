@@ -26,6 +26,8 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 Rectangle {
     id: attachmentImage
+
+    signal linkActivated(string link)
     color: "#eeeeee"
     implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight
 

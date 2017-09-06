@@ -265,6 +265,7 @@ Kirigami.ApplicationWindow {
                     i_timestamp: timestamp
                     i_messageID: messageID
                     i_messageType: messagetype
+                    i_avatar: avatar
                 }
             }
             footer: UserInput {

@@ -65,7 +65,9 @@ void Message::parseMessage(const QJsonObject &o)
 
 void Message::parseAttachment(const QJsonArray &attachments)
 {
-    qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
+    if (!attachments.isEmpty()) {
+        qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
+    }
     for (int i = 0; i < attachments.size(); i++) {
         const QJsonObject attachment = attachments.at(i).toObject();
         MessageAttachment messageAttachement;
