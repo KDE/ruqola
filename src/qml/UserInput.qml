@@ -69,6 +69,7 @@ RowLayout {
         Layout.fillWidth: true
         placeholderText: i18n("Enter message")
 
+        property string type: "text"
         onAccepted: {
             if (text != "" && Ruqola.loginStatus == DDPClient.LoggedIn && !(selectedRoomID == "")) {
                 Ruqola.sendMessage(selectedRoomID, text, type);
