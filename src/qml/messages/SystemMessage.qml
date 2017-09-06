@@ -59,7 +59,6 @@ Rectangle {
     property string i_messageText
     property string i_username
     property string i_aliasname
-    property bool i_systemMessage
     property string i_systemMessageType
     property var i_timestamp
 

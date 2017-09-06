@@ -54,8 +54,8 @@ void MessageModelTest::shouldSerializeData()
     input.setSystemMessageType(QStringLiteral("type"));
     input.setGroupable(true);
     input.setParseUrls(true);
+    input.setMessageType(Message::MessageType::Audio);
 
-    input.setSystemMessage(true);
     const QByteArray ba = Message::serialize(input);
     Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(output));

@@ -149,8 +149,6 @@ Rectangle {
     property string i_messageID
     property string i_username
     property string i_aliasname
-    property bool i_systemMessage
-    property string i_systemMessageType
     property string i_avatar
     property var i_timestamp
 

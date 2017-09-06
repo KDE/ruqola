@@ -199,8 +199,6 @@ private:
 
     // parseUrls
     bool mParseUrls = false;
-
-    bool mSystemMessage = false;
     MessageType mMessageType = MessageType::NormalText;
 };
 Q_DECLARE_METATYPE(Message)

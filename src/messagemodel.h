@@ -41,7 +41,6 @@ public:
         MessageText,
         Timestamp,
         UserID,
-        SystemMessage,
         SystemMessageType,
         MessageID,
         RoomID,

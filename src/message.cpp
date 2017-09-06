@@ -56,10 +56,7 @@ void Message::parseMessage(const QJsonObject &o)
     mParseUrls = o.value(QStringLiteral("parseUrls")).toBool();
 
     mMessageType = Message::MessageType::NormalText;
-    if (type.isEmpty()) {
-        mSystemMessage = false;
-    } else {
-        mSystemMessage = true;
+    if (!type.isEmpty()) {
         mSystemMessageType = type;
         mMessageType = System;
     }
@@ -310,16 +307,6 @@ void Message::setAvatar(const QString &avatar)
     mAvatar = avatar;
 }
 
-bool Message::systemMessage() const
-{
-    return mSystemMessage;
-}
-
-void Message::setSystemMessage(bool systemMessage)
-{
-    mSystemMessage = systemMessage;
-}
-
 bool Message::parseUrls() const
 {
     return mParseUrls;
@@ -364,8 +351,8 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mGroupable = o[QStringLiteral("groupable")].toBool();
     message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
 
-    message.mSystemMessage = o[QStringLiteral("systemMessage")].toBool();
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
+    message.mMessageType = o[QStringLiteral("messageType")].toVariant().value<MessageType>();
     //TODO add message type
     return message;
 }
@@ -395,9 +382,8 @@ QByteArray Message::serialize(const Message &message)
     o[QStringLiteral("groupable")] = message.mGroupable;
     o[QStringLiteral("parseUrls")] = message.mParseUrls;
 
-    o[QStringLiteral("systemMessage")] = message.mSystemMessage;
     o[QStringLiteral("type")] = message.mSystemMessageType;
-    //TODO add message type
+    o[QStringLiteral("messageType")]  = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
     d.setObject(o);
     return d.toBinaryData();
 }
@@ -424,11 +410,10 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mAvatar: " << t.avatar();
     d << "mGroupable: " << t.groupable();
     d << "mParseUrls: " << t.parseUrls();
-    d << "mSystemMessage: " << t.systemMessage();
     for (int i = 0; i < t.attachements().count(); ++i) {
         d << "Attachment " << t.attachements().at(i);
     }
-    //TODO add message type
+    d << "mMessageType: " << t.messageType();
     return d;
 }
 
@@ -454,6 +439,5 @@ bool Message::isEqual(const Message &other) const
            && (mAvatar == other.avatar())
            && (mSystemMessageType == other.systemMessageType())
            && (mGroupable == other.groupable())
-           && (mParseUrls == other.parseUrls())
-           && (mSystemMessage == other.systemMessage());
+           && (mParseUrls == other.parseUrls());
 }

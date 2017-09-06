@@ -84,7 +84,6 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Username] = "username";
     roles[Timestamp] = "timestamp";
     roles[UserID] = "userID";
-    roles[SystemMessage] = "systemMessage";
     roles[SystemMessageType] = "type";
     roles[MessageID] = "messageID";
     roles[RoomID] = "roomID";
@@ -170,8 +169,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mAllMessages.at(idx).timeStamp();
     case MessageModel::UserID:
         return mAllMessages.at(idx).userId();
-    case MessageModel::SystemMessage:
-        return mAllMessages.at(idx).systemMessage();
     case MessageModel::SystemMessageType:
         return mAllMessages.at(idx).systemMessageType();
     case MessageModel::MessageID:

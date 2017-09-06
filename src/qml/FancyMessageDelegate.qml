@@ -58,7 +58,7 @@ Rectangle {
         anchors.fill: parent
         
         Component.onCompleted: {
-            if (/*i_systemMessage*/i_messageType === Message.System) {
+            if (i_messageType === Message.System) {
                 setSource("messages/SystemMessage.qml",
                           {
                               i_messageText: i_messageText,
