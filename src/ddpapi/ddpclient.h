@@ -146,6 +146,8 @@ public:
 
     void setWebSocket(AbstractWebSocket *socket);
     LoginStatus loginStatus() const;
+
+    quint64 toggleFavorite(const QString &roomID, bool favorite);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

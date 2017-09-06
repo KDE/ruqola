@@ -283,7 +283,6 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
             Room *foundRoom = mRoomsList.value(i);
             foundRoom->setTopic(topic);
             foundRoom->setAnnouncement(announcement);
-            //mRoomsList.replace(i, foundRoom);
             Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
 
             mRocketChatAccount->getMessageModelForRoom(room->id());

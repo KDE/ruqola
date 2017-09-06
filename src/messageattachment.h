@@ -39,6 +39,8 @@ public:
 
     bool operator==(const MessageAttachment &other) const;
 
+    static QByteArray serialize(const MessageAttachment &message);
+    static MessageAttachment fromJSon(const QJsonObject &o);
 private:
     QString mDescription;
     QString mTitle;

@@ -179,6 +179,13 @@ quint64 DDPClient::hideRoom(const QString &roomID)
     return method(result, empty_callback, DDPClient::Persistent);
 }
 
+quint64 DDPClient::toggleFavorite(const QString &roomID, bool favorite)
+{
+    qDebug() << " quint64 DDPClient::toggleFavorite(const QString &roomID, bool favorite)"<<roomID << favorite;
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->toggleFavorite(roomID, favorite, m_uid);
+    return method(result, empty_callback, DDPClient::Persistent);
+}
+
 quint64 DDPClient::clearUnreadMessages(const QString &roomID)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->readMessages(roomID, m_uid);

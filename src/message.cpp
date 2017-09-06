@@ -374,6 +374,8 @@ QByteArray Message::serialize(const Message &message)
 
     o[QStringLiteral("type")] = message.mSystemMessageType;
     o[QStringLiteral("messageType")]  = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
+    QJsonObject b;
+    o[QStringLiteral("b")]  = b;
     d.setObject(o);
     return d.toBinaryData();
 }

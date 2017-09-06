@@ -192,8 +192,7 @@ Kirigami.ApplicationWindow {
                         checkable: true
                         checked: appid.selectedRoom && appid.selectedRoom.favorite
                         onCheckedChanged: {
-                            Ruqola.rocketChatAccount().changeFavorite(appid.selectedRoom.name, checked)
-                            console.log("checked favorite" + checked)
+                            Ruqola.rocketChatAccount().changeFavorite(appid.selectedRoomID, checked)
                         }
                     }                    
                     Kirigami.Heading {

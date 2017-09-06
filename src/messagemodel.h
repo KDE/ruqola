@@ -52,7 +52,6 @@ public:
         Meta,
         Headers,
         ParsedUrl,
-        Color,
         Alias,
         Avatar,
         Groupable,

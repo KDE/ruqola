@@ -24,6 +24,16 @@ MessageAttachment::MessageAttachment()
 {
 }
 
+QByteArray MessageAttachment::serialize(const MessageAttachment &message)
+{
+    return {};
+}
+
+MessageAttachment MessageAttachment::fromJSon(const QJsonObject &o)
+{
+    return {};
+}
+
 bool MessageAttachment::isEmpty() const
 {
     //TODO

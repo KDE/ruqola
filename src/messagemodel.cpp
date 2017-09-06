@@ -95,7 +95,6 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Meta] = "meta";
     roles[Headers] = "headers";
     roles[ParsedUrl] = "parsedUrl";
-    roles[Color] = "color";
     roles[Alias] = "alias";
     roles[Avatar] = "avatar";
     roles[Groupable] = "groupable";
