@@ -30,6 +30,7 @@
 #include "rocketchatbackend.h"
 #include "usersforroommodel.h"
 #include "roomfilterproxymodel.h"
+#include "ruqolalogger.h"
 
 #include <KLocalizedString>
 #include <QFile>
@@ -42,6 +43,9 @@
 RocketChatAccount::RocketChatAccount(QObject *parent)
     : QObject(parent)
 {
+    if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
+        mRuqolaLogger = new RuqolaLogger;
+    }
     mSettings = new RocketChatAccountSettings(this);
     connect(mSettings, &RocketChatAccountSettings::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
     connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverURLChanged);
@@ -73,6 +77,11 @@ void RocketChatAccount::clearModels()
     mMessageQueue->loadCache();
     //Try to send queue message
     mMessageQueue->processQueue();
+}
+
+RuqolaLogger *RocketChatAccount::ruqolaLogger() const
+{
+    return mRuqolaLogger;
 }
 
 RoomFilterProxyModel *RocketChatAccount::roomFilterProxyModel() const

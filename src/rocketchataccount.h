@@ -36,6 +36,7 @@ class MessageQueue;
 class RocketChatBackend;
 class UsersForRoomModel;
 class RoomFilterProxyModel;
+class RuqolaLogger;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
@@ -87,6 +88,8 @@ public:
     RocketChatBackend *rocketChatBackend() const;
 
 
+    RuqolaLogger *ruqolaLogger() const;
+
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
@@ -113,6 +116,7 @@ private:
     RestApiRequest *mRestApi = nullptr;
     MessageQueue *mMessageQueue = nullptr;
     RocketChatBackend *mRocketChatBackend = nullptr;
+    RuqolaLogger *mRuqolaLogger = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H
