@@ -141,8 +141,9 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
             QJsonDocument d;
             d.setObject(o);
             mRocketChatAccount->ruqolaLogger()->dataReceived(d.toJson());
+        } else {
+            qCDebug(RUQOLA_LOG) <<" o" << o;
         }
-        qDebug() <<" o" << o;
         Message m;
         m.parseMessage(o);
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
