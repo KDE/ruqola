@@ -191,7 +191,6 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
             qCDebug(RUQOLA_LOG) << " USER ADDED VALUE " << user;
             mRocketChatAccount->usersModel()->addUser(user);
         }
-
         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username << fields;
     } else if (collection == QLatin1String("rooms")) {
         qCDebug(RUQOLA_LOG) << "NEW ROOMS ADDED: " << object;
@@ -202,7 +201,7 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
 
 void RocketChatBackend::onChanged(const QJsonObject &object)
 {
-    qDebug() << " void RocketChatBackend::onChanged(const QJsonObject &object)"<<object;
+    //qDebug() << " void RocketChatBackend::onChanged(const QJsonObject &object)"<<object;
     const QString collection = object[QStringLiteral("collection")].toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
@@ -215,7 +214,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("User Added:") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("users: User Changed:") + d.toJson());
         } else {
             qCDebug(RUQOLA_LOG) << "USER CHANGED" << object;
         }
@@ -223,7 +222,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("Room Changed:") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("rooms: Room Changed:") + d.toJson());
         } else {
             qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
         }
@@ -238,9 +237,15 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             RoomModel *model = mRocketChatAccount->roomModel();
             model->updateSubscription(contents);
         } else if (eventname.endsWith(QStringLiteral("/rooms-changed"))) {
-            qDebug() << "rooms-changed " << eventname;
             RoomModel *model = mRocketChatAccount->roomModel();
             model->updateRoom(fields);
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: Room Changed:") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
+            }
         } else if (eventname.endsWith(QStringLiteral("/notification"))) {
             const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
             const QString title = contents.at(0).toObject()[QStringLiteral("title")].toString();
@@ -248,7 +253,6 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         } else {
             qCWarning(RUQOLA_LOG) << " Unknown event ? " << eventname;
         }
-        qCDebug(RUQOLA_LOG) << "New notification" << fields;
     } else {
         qCDebug(RUQOLA_LOG) << " Other collection type " << collection;
     }
@@ -256,9 +260,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
 
 void RocketChatBackend::onUserIDChanged()
 {
-    const QString userId{
-        mRocketChatAccount->settings()->userId()
-    };
+    const QString userId{mRocketChatAccount->settings()->userId()};
     {
         //Subscribe notification.
         QJsonArray params;
