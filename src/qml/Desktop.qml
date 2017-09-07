@@ -190,7 +190,9 @@ Kirigami.ApplicationWindow {
                     ToolButton {
                         iconName: "favorite"
                         checkable: true
-                        checked: appid.selectedRoom && appid.selectedRoom.favorite
+                        Binding on checked {
+                            value: appid.selectedRoom && appid.selectedRoom.favorite
+                        }
                         onCheckedChanged: {
                             Ruqola.rocketChatAccount().changeFavorite(appid.selectedRoomID, checked)
                         }

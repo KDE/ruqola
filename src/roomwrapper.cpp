@@ -32,6 +32,7 @@ RoomWrapper::RoomWrapper(QObject *parent)
 RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     : QObject(parent)
 {
+    qDebug() << " RoomWrapper::RoomWrapper()********************************************"<<this;
     mRoom = r;
     connect(mRoom, &Room::favoriteChanged, this, &RoomWrapper::favoriteChanged);
     connect(mRoom, &Room::topicChanged, this, &RoomWrapper::topicChanged);
@@ -41,7 +42,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
 
 RoomWrapper::~RoomWrapper()
 {
-    //qDebug() << " RoomWrapper::~RoomWrapper()"<<this;
+    qDebug() << " RoomWrapper::~RoomWrapper()*************************************"<<this;
 }
 
 QString RoomWrapper::name() const
