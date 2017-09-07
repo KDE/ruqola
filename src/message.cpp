@@ -92,6 +92,21 @@ void Message::parseAttachment(const QJsonArray &attachments)
             messageAttachement.setLink(attachment.value(QStringLiteral("audio_url")).toString());
             mMessageType = Message::MessageType::Audio;
         }
+        //Add image dimension
+        const QJsonValue imageDimensions = attachment.value(QStringLiteral("image_dimensions"));
+        if (!imageDimensions.isUndefined()) {
+            const QJsonObject imageDimensionsParams = imageDimensions.toObject();
+
+            messageAttachement.setImageHeight(imageDimensionsParams.value(QStringLiteral("height")).toInt());
+            messageAttachement.setImageWidth(imageDimensionsParams.value(QStringLiteral("width")).toInt());
+        }
+
+        //Color
+        const QJsonValue color = attachment.value(QStringLiteral("color"));
+        if (!color.isUndefined()) {
+            messageAttachement.setColor(color.toString());
+        }
+
         if (!messageAttachement.isEmpty()) {
             mAttachements.append(messageAttachement);
         }

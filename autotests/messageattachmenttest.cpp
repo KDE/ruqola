@@ -20,6 +20,7 @@
 
 #include "messageattachmenttest.h"
 #include "messageattachment.h"
+#include <QJsonObject>
 #include <QTest>
 QTEST_MAIN(MessageAttachmentTest)
 
@@ -36,4 +37,43 @@ void MessageAttachmentTest::shouldHaveDefaultValue()
     QVERIFY(attachment.title().isEmpty());
     QVERIFY(attachment.link().isEmpty());
     QVERIFY(attachment.isEmpty());
+    QVERIFY(attachment.color().isEmpty());
+    QCOMPARE(attachment.imageHeight(), -1);
+    QCOMPARE(attachment.imageWidth(), -1);
+}
+
+void MessageAttachmentTest::shouldSerializeData()
+{
+    {
+        MessageAttachment input;
+        input.setColor(QStringLiteral("foo1"));
+        input.setDescription(QStringLiteral("foo2"));
+        input.setTitle(QStringLiteral("foo3"));
+        input.setLink(QStringLiteral("foo4"));
+        input.setImageHeight(53);
+        input.setImageWidth(83);
+        const QJsonObject ba = MessageAttachment::serialize(input);
+        const MessageAttachment output = MessageAttachment::fromJSon(ba);
+        QCOMPARE(input, output);
+    }
+
+    {
+        MessageAttachment input;
+        input.setDescription(QStringLiteral("foo2"));
+        input.setTitle(QStringLiteral("foo3"));
+        input.setLink(QStringLiteral("foo4"));
+        const QJsonObject ba = MessageAttachment::serialize(input);
+        const MessageAttachment output = MessageAttachment::fromJSon(ba);
+        QCOMPARE(input, output);
+    }
+    {
+        MessageAttachment input;
+        input.setColor(QStringLiteral("foo1"));
+        input.setDescription(QStringLiteral("foo2"));
+        input.setTitle(QStringLiteral("foo3"));
+        input.setLink(QStringLiteral("foo4"));
+        const QJsonObject ba = MessageAttachment::serialize(input);
+        const MessageAttachment output = MessageAttachment::fromJSon(ba);
+        QCOMPARE(input, output);
+    }
 }

@@ -31,6 +31,7 @@ public:
     ~MessageAttachmentTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldSerializeData();
 };
 
 #endif // MESSAGEATTACHMENTTEST_H

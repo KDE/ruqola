@@ -41,10 +41,22 @@ public:
 
     static QJsonObject serialize(const MessageAttachment &message);
     static MessageAttachment fromJSon(const QJsonObject &o);
+    int imageWidth() const;
+    void setImageWidth(int imageWidth);
+
+    int imageHeight() const;
+    void setImageHeight(int imageHeight);
+
+    QString color() const;
+    void setColor(const QString &color);
+
 private:
+    QString mColor;
     QString mDescription;
     QString mTitle;
     QString mLink;
+    int mImageHeight = -1;
+    int mImageWidth = -1;
 };
 Q_DECLARE_TYPEINFO(MessageAttachment, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageAttachment &t);

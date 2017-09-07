@@ -32,6 +32,13 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
     obj[QStringLiteral("description")]  = message.description();
     obj[QStringLiteral("title")]  = message.title();
     obj[QStringLiteral("url")]  = message.link();
+    if ((message.imageHeight() != -1) && (message.imageWidth() != -1)) {
+        obj[QStringLiteral("image_height")] = message.imageHeight();
+        obj[QStringLiteral("image_width")] = message.imageWidth();
+    }
+    if (!message.color().isEmpty()) {
+        obj[QStringLiteral("color")] = message.color();
+    }
     return obj;
 }
 
@@ -41,7 +48,46 @@ MessageAttachment MessageAttachment::fromJSon(const QJsonObject &o)
     att.setDescription(o.value(QStringLiteral("description")).toString());
     att.setTitle(o.value(QStringLiteral("title")).toString());
     att.setLink(o.value(QStringLiteral("url")).toString());
+    const QJsonValue valHeight = o.value(QStringLiteral("image_height"));
+    if (!valHeight.isUndefined()) {
+        att.setImageHeight(valHeight.toInt());
+    }
+    const QJsonValue valWidth = o.value(QStringLiteral("image_width"));
+    if (!valWidth.isUndefined()) {
+        att.setImageWidth(valWidth.toInt());
+    }
+    att.setColor(o.value(QStringLiteral("color")).toString());
     return att;
+}
+
+int MessageAttachment::imageWidth() const
+{
+    return mImageWidth;
+}
+
+void MessageAttachment::setImageWidth(int imageWidth)
+{
+    mImageWidth = imageWidth;
+}
+
+int MessageAttachment::imageHeight() const
+{
+    return mImageHeight;
+}
+
+void MessageAttachment::setImageHeight(int imageHeight)
+{
+    mImageHeight = imageHeight;
+}
+
+QString MessageAttachment::color() const
+{
+    return mColor;
+}
+
+void MessageAttachment::setColor(const QString &color)
+{
+    mColor = color;
 }
 
 bool MessageAttachment::isEmpty() const
@@ -81,7 +127,12 @@ void MessageAttachment::setLink(const QString &link)
 
 bool MessageAttachment::operator==(const MessageAttachment &other) const
 {
-    return (mDescription == other.description()) && (mTitle == other.title()) && (mLink == other.link());
+    return (mDescription == other.description()) &&
+            (mTitle == other.title()) &&
+            (mLink == other.link()) &&
+            (mColor == other.color()) &&
+            (mImageHeight == other.imageHeight()) &&
+            (mImageWidth == other.imageWidth());
 }
 
 QDebug operator <<(QDebug d, const MessageAttachment &t)
@@ -89,5 +140,7 @@ QDebug operator <<(QDebug d, const MessageAttachment &t)
     d << "Title : " << t.title();
     d << "Description: " << t.description();
     d << "Link: " << t.link();
+    d << "image dimension: width: " << t.imageWidth() << " height: " << t.imageHeight();
+    d << "color: " << t.color();
     return d;
 }
