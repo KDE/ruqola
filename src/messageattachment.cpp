@@ -26,9 +26,13 @@ MessageAttachment::MessageAttachment()
 {
 }
 
-QByteArray MessageAttachment::serialize(const MessageAttachment &message)
+QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
 {
-    return {};
+    QJsonObject obj;
+    obj[QStringLiteral("description")]  = message.description();
+    obj[QStringLiteral("title")]  = message.title();
+    obj[QStringLiteral("url")]  = message.link();
+    return obj;
 }
 
 MessageAttachment MessageAttachment::fromJSon(const QJsonObject &o)
@@ -37,7 +41,6 @@ MessageAttachment MessageAttachment::fromJSon(const QJsonObject &o)
     att.setDescription(o.value(QStringLiteral("description")).toString());
     att.setTitle(o.value(QStringLiteral("title")).toString());
     att.setLink(o.value(QStringLiteral("url")).toString());
-
     return att;
 }
 

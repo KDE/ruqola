@@ -343,8 +343,14 @@ Message Message::fromJSon(const QJsonObject &o)
 
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
     message.mMessageType = o[QStringLiteral("messageType")].toVariant().value<MessageType>();
-    //message.mAttachements = o[QStringLiteral("attachments")].toVariant().toList().toVector();
-    //TODO add message type
+    const QJsonArray array = o.value(QStringLiteral("attachments")).toArray();
+    for (int i = 0; i < array.count(); ++i) {
+        const QJsonObject attachment = array.at(i).toObject();
+        const MessageAttachment att = MessageAttachment::fromJSon(attachment);
+        if (!att.isEmpty()) {
+            message.mAttachements.append(att);
+        }
+    }
     return message;
 }
 
@@ -374,6 +380,9 @@ QByteArray Message::serialize(const Message &message)
 
     o[QStringLiteral("type")] = message.mSystemMessageType;
     o[QStringLiteral("messageType")]  = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
+    if (!message.mAttachements.isEmpty()) {
+        //TODO
+    }
     QJsonObject b;
     o[QStringLiteral("b")]  = b;
     d.setObject(o);
