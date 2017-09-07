@@ -36,6 +36,7 @@ set (Ruqola_core_srcs
     usersforroommodel.cpp
     fakewebsocket.cpp
     avatarfilecache.cpp
+    ruqolalogger.cpp
     ${Ruqola_ddpapi_SRCS}
     ${Ruqola_restapi_SRCS}
     ${ruqola_QM_LOADER}
