@@ -145,7 +145,6 @@ public:
 
 private:
     //Message Object Fields
-
     QVector<MessageAttachment> mAttachements;
 
     // _id
@@ -155,18 +154,11 @@ private:
     // msg
     QString mText;
 
-    // ts
-    qint64 mTimeStamp = -1;
 
     // u
     QString mUsername;
     QString mUserId;
 
-    // _updatedAt
-    qint64 mUpdatedAt = -1;
-
-    // editedAt
-    qint64 mEditedAt = -1;
 
     // editedBy
     QString mEditedByUsername;
@@ -188,12 +180,21 @@ private:
 
     // avatar
     QString mAvatar;
+
+    // ts
+    qint64 mTimeStamp = -1;
+    // _updatedAt
+    qint64 mUpdatedAt = -1;
+
+    // editedAt
+    qint64 mEditedAt = -1;
+
+    MessageType mMessageType = MessageType::NormalText;
     // groupable
     bool mGroupable = false;
 
     // parseUrls
     bool mParseUrls = false;
-    MessageType mMessageType = MessageType::NormalText;
 };
 Q_DECLARE_METATYPE(Message)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Message &t);

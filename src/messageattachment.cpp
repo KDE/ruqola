@@ -20,6 +20,8 @@
 
 #include "messageattachment.h"
 
+#include <QJsonObject>
+
 MessageAttachment::MessageAttachment()
 {
 }
@@ -31,12 +33,16 @@ QByteArray MessageAttachment::serialize(const MessageAttachment &message)
 
 MessageAttachment MessageAttachment::fromJSon(const QJsonObject &o)
 {
-    return {};
+    MessageAttachment att;
+    att.setDescription(o.value(QStringLiteral("description")).toString());
+    att.setTitle(o.value(QStringLiteral("title")).toString());
+    att.setLink(o.value(QStringLiteral("url")).toString());
+
+    return att;
 }
 
 bool MessageAttachment::isEmpty() const
 {
-    //TODO
     return mLink.isEmpty();
 }
 
