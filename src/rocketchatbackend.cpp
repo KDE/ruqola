@@ -27,6 +27,7 @@
 #include "restapi/restapirequest.h"
 #include "user.h"
 #include "usersmodel.h"
+#include "ruqolalogger.h"
 #include "messagemodel.h"
 
 #include <QJsonObject>
@@ -136,7 +137,9 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 {
     for (const QJsonValue &v : messages) {
         QJsonObject o = v.toObject();
-
+        if (mRocketChatAccount->ruqolaLogger()) {
+            //TODO mRocketChatAccount->ruqolaLogger()->dataReceived(o.);
+        }
         qDebug() <<" o" << o;
         Message m;
         m.parseMessage(o);
