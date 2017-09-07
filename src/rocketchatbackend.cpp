@@ -140,7 +140,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(o);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("Message:") + d.toJson());
         } else {
             qCDebug(RUQOLA_LOG) <<" o" << o;
         }
