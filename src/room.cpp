@@ -87,7 +87,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setAlert(json[QStringLiteral("alert")].toBool());
     }
     if (json.contains(QStringLiteral("f"))) {
-        //TODO
+        setFavorite(json[QStringLiteral("f")].toBool());
     }
 
     if (json.contains(QStringLiteral("unread"))) {

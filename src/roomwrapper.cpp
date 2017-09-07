@@ -22,6 +22,7 @@
 
 #include "roomwrapper.h"
 #include "room.h"
+#include <QDebug>
 
 RoomWrapper::RoomWrapper(QObject *parent)
     : QObject(parent)
@@ -32,6 +33,15 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     : QObject(parent)
 {
     mRoom = r;
+    connect(mRoom, &Room::favoriteChanged, this, &RoomWrapper::favoriteChanged);
+    connect(mRoom, &Room::topicChanged, this, &RoomWrapper::topicChanged);
+    connect(mRoom, &Room::announcementChanged, this, &RoomWrapper::announcementChanged);
+    connect(mRoom, &Room::nameChanged, this, &RoomWrapper::nameChanged);
+}
+
+RoomWrapper::~RoomWrapper()
+{
+    //qDebug() << " RoomWrapper::~RoomWrapper()"<<this;
 }
 
 QString RoomWrapper::name() const

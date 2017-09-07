@@ -28,7 +28,6 @@
 
 #include <QAbstractItemModel>
 
-#define REMOVESORTING 1
 RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , mRocketChatAccount(account)
@@ -257,8 +256,6 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
                 Room *room = mRoomsList.at(i);
                 room->parseUpdateRoom(roomData);
-                //TODO ?
-                //mRoomsList.replace(i, room);
                 Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
 
                 mRocketChatAccount->getMessageModelForRoom(room->id());
