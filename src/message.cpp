@@ -396,10 +396,13 @@ QByteArray Message::serialize(const Message &message)
     o[QStringLiteral("type")] = message.mSystemMessageType;
     o[QStringLiteral("messageType")]  = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
     if (!message.mAttachements.isEmpty()) {
-        //TODO
+        QJsonArray array;
+        for (int i = 0; i < message.mAttachements.count(); ++i) {
+            array.append(MessageAttachment::serialize(message.mAttachements.at(i)));
+        }
+        o[QStringLiteral("attachments")] = array;
     }
-    QJsonObject b;
-    o[QStringLiteral("b")]  = b;
+    qDebug() << "QByteArray Message::serialize(const Message &message) "<<o;
     d.setObject(o);
     return d.toBinaryData();
 }

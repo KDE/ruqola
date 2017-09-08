@@ -55,6 +55,19 @@ void MessageModelTest::shouldSerializeData()
     input.setParseUrls(true);
     input.setMessageType(Message::MessageType::Audio);
 
+    QVector<MessageAttachment> lstAttachement;
+    MessageAttachment attachment;
+    attachment.setDescription(QStringLiteral("foo1"));
+    attachment.setTitle(QStringLiteral("foo2"));
+    attachment.setLink(QStringLiteral("foo3"));
+    lstAttachement.append(attachment);
+    MessageAttachment attachment2;
+    attachment2.setDescription(QStringLiteral("foo5"));
+    attachment2.setTitle(QStringLiteral("foo6"));
+    attachment2.setLink(QStringLiteral("foo7"));
+    lstAttachement.append(attachment2);
+    input.setAttachements(lstAttachement);
+
     const QByteArray ba = Message::serialize(input);
     Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(output));
