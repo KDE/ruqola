@@ -29,6 +29,8 @@ class MessageUrlTest : public QObject
 public:
     explicit MessageUrlTest(QObject *parent = nullptr);
     ~MessageUrlTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // MESSAGEURLTEST_H

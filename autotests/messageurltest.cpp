@@ -19,6 +19,7 @@
 */
 
 #include "messageurltest.h"
+#include "messageurl.h"
 #include <QTest>
 QTEST_MAIN(MessageUrlTest)
 
@@ -26,4 +27,12 @@ MessageUrlTest::MessageUrlTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void MessageUrlTest::shouldHaveDefaultValue()
+{
+    MessageUrl url;
+    QVERIFY(url.url().isEmpty());
+    QVERIFY(url.pageTitle().isEmpty());
+    QVERIFY(url.isEmpty());
 }
