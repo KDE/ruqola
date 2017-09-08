@@ -88,6 +88,17 @@ void MessageTest::shouldSerializeData()
     lstAttachement.append(attachment2);
     input.setAttachements(lstAttachement);
 
+    QVector<MessageUrl> lstUrls;
+    MessageUrl url1;
+    url1.setUrl(QStringLiteral("foo1"));
+    url1.setPageTitle(QStringLiteral("foo2"));
+    lstUrls.append(url1);
+    MessageUrl url2;
+    url2.setUrl(QStringLiteral("foo5"));
+    url2.setPageTitle(QStringLiteral("foo6"));
+    lstUrls.append(url2);
+    input.setUrls(lstUrls);
+
     const QByteArray ba = Message::serialize(input);
     Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(output));
