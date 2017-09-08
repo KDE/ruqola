@@ -32,6 +32,7 @@ public:
 private Q_SLOTS:
     void shouldParseMessage_data();
     void shouldParseMessage();
+    void shouldSerializeData();
 };
 
 #endif // MESSAGETEST_H

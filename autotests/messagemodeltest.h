@@ -29,8 +29,6 @@ class MessageModelTest : public QObject
 public:
     explicit MessageModelTest(QObject *parent = nullptr);
     ~MessageModelTest() = default;
-private Q_SLOTS:
-    void shouldSerializeData();
 };
 
 #endif // MESSAGEMODELTEST_H
