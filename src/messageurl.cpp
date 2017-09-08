@@ -70,14 +70,12 @@ bool MessageUrl::isEmpty() const
 
 bool MessageUrl::operator==(const MessageUrl &other) const
 {
-    //TODO
     return (mUrl == other.url())
             && (mPageTitle == other.pageTitle());
 }
 
 QDebug operator <<(QDebug d, const MessageUrl &t)
 {
-    //TODO
     d << "Url: " << t.url();
     d << "Page Title: " << t.pageTitle();
     return d;
