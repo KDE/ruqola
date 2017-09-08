@@ -30,26 +30,55 @@ MessageUrl::MessageUrl()
 QJsonObject MessageUrl::serialize(const MessageUrl &url)
 {
     QJsonObject obj;
-    //TODO
+    obj[QStringLiteral("pagetitle")]  = url.pageTitle();
+    obj[QStringLiteral("url")]  = url.url();
     return obj;
 }
 
 MessageUrl MessageUrl::fromJSon(const QJsonObject &o)
 {
     MessageUrl url;
-    //TODO
+    url.setPageTitle(o.value(QStringLiteral("pagetitle")).toString());
+    url.setUrl(o.value(QStringLiteral("url")).toString());
     return url;
 }
 
+QString MessageUrl::url() const
+{
+    return mUrl;
+}
+
+void MessageUrl::setUrl(const QString &url)
+{
+    mUrl = url;
+}
+
+QString MessageUrl::pageTitle() const
+{
+    return mPageTitle;
+}
+
+void MessageUrl::setPageTitle(const QString &pageTitle)
+{
+    mPageTitle = pageTitle;
+}
+
+bool MessageUrl::isEmpty() const
+{
+    return mUrl.isEmpty();
+}
 
 bool MessageUrl::operator==(const MessageUrl &other) const
 {
     //TODO
-    return true;
+    return (mUrl == other.url())
+            && (mPageTitle == other.pageTitle());
 }
 
 QDebug operator <<(QDebug d, const MessageUrl &t)
 {
     //TODO
+    d << "Url: " << t.url();
+    d << "Page Title: " << t.pageTitle();
     return d;
 }

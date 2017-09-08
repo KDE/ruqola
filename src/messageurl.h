@@ -31,6 +31,19 @@ public:
     bool operator==(const MessageUrl &other) const;
     static QJsonObject serialize(const MessageUrl &url);
     static MessageUrl fromJSon(const QJsonObject &o);
+
+    QString url() const;
+    void setUrl(const QString &url);
+
+    QString pageTitle() const;
+    void setPageTitle(const QString &pageTitle);
+
+    bool isEmpty() const;
+
+private:
+    //TODO add more
+    QString mUrl;
+    QString mPageTitle;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_MOVABLE_TYPE);

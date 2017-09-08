@@ -330,12 +330,20 @@ Message Message::fromJSon(const QJsonObject &o)
 
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
     message.mMessageType = o[QStringLiteral("messageType")].toVariant().value<MessageType>();
-    const QJsonArray array = o.value(QStringLiteral("attachments")).toArray();
-    for (int i = 0; i < array.count(); ++i) {
-        const QJsonObject attachment = array.at(i).toObject();
+    const QJsonArray attachmentsArray = o.value(QStringLiteral("attachments")).toArray();
+    for (int i = 0; i < attachmentsArray.count(); ++i) {
+        const QJsonObject attachment = attachmentsArray.at(i).toObject();
         const MessageAttachment att = MessageAttachment::fromJSon(attachment);
         if (!att.isEmpty()) {
             message.mAttachements.append(att);
+        }
+    }
+    const QJsonArray urlsArray = o.value(QStringLiteral("urls")).toArray();
+    for (int i = 0; i < urlsArray.count(); ++i) {
+        const QJsonObject urlObj = urlsArray.at(i).toObject();
+        const MessageUrl url = MessageUrl::fromJSon(urlObj);
+        if (!url.isEmpty()) {
+            message.mUrls.append(url);
         }
     }
     return message;
@@ -363,6 +371,7 @@ QByteArray Message::serialize(const Message &message)
 
     o[QStringLiteral("type")] = message.mSystemMessageType;
     o[QStringLiteral("messageType")]  = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
+    //Attachments
     if (!message.mAttachements.isEmpty()) {
         QJsonArray array;
         const int nbAttachment{message.mAttachements.count()};
@@ -371,6 +380,16 @@ QByteArray Message::serialize(const Message &message)
         }
         o[QStringLiteral("attachments")] = array;
     }
+    //Urls
+    if (!message.mUrls.isEmpty()) {
+        QJsonArray array;
+        const int nbUrls{message.mUrls.count()};
+        for (int i = 0; i < nbUrls; ++i) {
+            array.append(MessageUrl::serialize(message.mUrls.at(i)));
+        }
+        o[QStringLiteral("urls")] = array;
+    }
+
     qDebug() << "QByteArray Message::serialize(const Message &message) "<<o;
     d.setObject(o);
     return d.toBinaryData();

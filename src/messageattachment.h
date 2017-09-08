@@ -51,6 +51,7 @@ public:
     void setColor(const QString &color);
 
 private:
+    //TODO add fields support ?
     QString mColor;
     QString mDescription;
     QString mTitle;
