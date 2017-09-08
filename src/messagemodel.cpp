@@ -39,20 +39,22 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QO
     , mRocketChatAccount(account)
 {
     qCDebug(RUQOLA_LOG) << "Creating message Model";
-    QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath()+QStringLiteral("/rooms_cache"));
+    if (mRocketChatAccount) {
+        QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath()+QStringLiteral("/rooms_cache"));
 
-    // load cache
-    if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
-        QFile f(cacheDir.absoluteFilePath(roomID));
-        if (f.open(QIODevice::ReadOnly)) {
-            QDataStream in(&f);
-            while (!f.atEnd()) {
-                char *byteArray;
-                quint32 length;
-                in.readBytes(byteArray, length);
-                const QByteArray arr = QByteArray::fromRawData(byteArray, length);
-                Message m = Message::fromJSon(QJsonDocument::fromBinaryData(arr).object());
-                addMessage(m);
+        // load cache
+        if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
+            QFile f(cacheDir.absoluteFilePath(roomID));
+            if (f.open(QIODevice::ReadOnly)) {
+                QDataStream in(&f);
+                while (!f.atEnd()) {
+                    char *byteArray;
+                    quint32 length;
+                    in.readBytes(byteArray, length);
+                    const QByteArray arr = QByteArray::fromRawData(byteArray, length);
+                    Message m = Message::fromJSon(QJsonDocument::fromBinaryData(arr).object());
+                    addMessage(m);
+                }
             }
         }
     }
@@ -60,19 +62,21 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QO
 
 MessageModel::~MessageModel()
 {
-    QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath()+QStringLiteral("/rooms_cache"));
-    qCDebug(RUQOLA_LOG) << "Caching to..." << cacheDir.path();
-    if (!cacheDir.exists(cacheDir.path())) {
-        cacheDir.mkpath(cacheDir.path());
-    }
+    if (mRocketChatAccount) {
+        QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath()+QStringLiteral("/rooms_cache"));
+        qCDebug(RUQOLA_LOG) << "Caching to..." << cacheDir.path();
+        if (!cacheDir.exists(cacheDir.path())) {
+            cacheDir.mkpath(cacheDir.path());
+        }
 
-    QFile f(cacheDir.absoluteFilePath(m_roomID));
+        QFile f(cacheDir.absoluteFilePath(m_roomID));
 
-    if (f.open(QIODevice::WriteOnly)) {
-        QDataStream out(&f);
-        for (const Message &m : qAsConst(mAllMessages)) {
-            const QByteArray ms = Message::serialize(m);
-            out.writeBytes(ms, ms.size());
+        if (f.open(QIODevice::WriteOnly)) {
+            QDataStream out(&f);
+            for (const Message &m : qAsConst(mAllMessages)) {
+                const QByteArray ms = Message::serialize(m);
+                out.writeBytes(ms, ms.size());
+            }
         }
     }
 }
@@ -95,6 +99,8 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Avatar] = "avatar";
     roles[Groupable] = "groupable";
     roles[MessageType] = "messagetype";
+    roles[Attachments] = "attachments";
+    roles[Urls] = "urls";
 
     return roles;
 }
@@ -178,6 +184,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::EditedByUserName:
         return mAllMessages.at(idx).editedByUsername();
         //TODO add missing roles.
+    case MessageModel::Attachments:
+    case MessageModel::Urls:
     default:
         return QString();
     }    

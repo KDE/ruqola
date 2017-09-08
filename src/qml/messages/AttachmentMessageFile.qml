@@ -26,49 +26,149 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 Rectangle {
     id: attachmentFile
+    function stringToColour(str) {
+        var hash = 0;
+        for (var i = 0; i < str.length; i++) {
+            hash = str.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        var colour = '#';
+        for (var j = 0; j < 3; j++) {
+            var value = (hash >> (j * 8)) & 0xFF;
+            colour += ('00' + value.toString(16)).substr(-2);
+        }
+        return colour;
+    }
 
-    signal linkActivated(string link)
+    function displayDateTime(timestamp)
+    {
+        return Qt.formatDate(new Date(timestamp), i18n("yyyy-MM-dd")) + "\n" + Qt.formatTime(new Date(timestamp), i18n("hh:mm"));
+    }
+
+    property string i_messageText
+    property string i_messageID
+    property string i_username
+    property string i_aliasname
+    property string i_avatar
+    property var i_timestamp
+
     color: "#eeeeee"
-    implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight
-
-    implicitWidth: 150
+    implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight, avatarRect.implicitHeight)
 
     anchors.bottomMargin: 200
 
-    Rectangle {
 
-        anchors.rightMargin: 2*Kirigami.Units.largeSpacing
-        anchors.leftMargin: 2*Kirigami.Units.largeSpacing
+    RowLayout {
 
-        anchors.centerIn: parent
+        anchors.topMargin: Kirigami.Units.smallSpacing
+        anchors.fill: parent
+        anchors.rightMargin: Kirigami.Units.largeSpacing
+        anchors.leftMargin: Kirigami.Units.largeSpacing
 
-        width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
-        height: textLabel.height
+        spacing: Kirigami.Units.smallSpacing
 
-        color: Kirigami.Theme.disabledTextColor
-        radius: 4*Kirigami.Units.smallSpacing
+        Rectangle {
+            id: avatarRect
 
+            Layout.fillHeight: false
+            implicitWidth: textLabel.font.pixelSize * 3
+            implicitHeight: textLabel.font.pixelSize * 3
+
+            radius: 3
+
+            anchors.rightMargin: 2*Kirigami.Units.smallSpacing
+
+            color: i_avatar !== "" ? "transparent" : stringToColour(i_username)
+
+            anchors.top: parent.top
+            Image {
+                anchors.fill: parent
+                visible: i_avatar !== ""
+                source: i_avatar
+            }
+            Text {
+                visible: i_avatar == ""
+                anchors.fill: parent
+                anchors.margins: Kirigami.Units.smallSpacing
+
+                renderType: Text.QtRendering
+                color: "white"
+
+                font.weight: Font.Bold
+                font.pointSize: 100
+                minimumPointSize: theme.defaultFont.pointSize
+                fontSizeMode: Text.Fit
+
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+
+                text: {
+                    //TODO verify if it works with non latin char.
+                    var match = i_username.match(/([a-zA-Z])([a-zA-Z])/);
+                    var abbrev = match[1].toUpperCase();
+                    if (match.length > 2) {
+                        abbrev += match[2].toLowerCase();
+                    }
+                    return abbrev;
+                }
+            }
+        }
+
+        Rectangle {
+            id: textRect
+
+            Layout.fillWidth: true
+            radius: 3
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: Kirigami.Units.smallSpacing
+            anchors.leftMargin: Kirigami.Units.smallSpacing
+
+            Column {
+                anchors.leftMargin: Kirigami.Units.smallSpacing
+                anchors.rightMargin: Kirigami.Units.smallSpacing
+                anchors.fill: parent
+
+                Kirigami.Heading {
+                    id: usernameLabel
+
+                    level: 5
+                    font.bold: true
+                    text: i_aliasname + ' @' + i_username
+
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+                    height: avatarRect.height
+                }
+                Text {
+                    id: textLabel
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+
+                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                    renderType: Text.NativeRendering
+                    textFormat: Text.RichText
+
+
+                    text: markdownme(RuqolaUtils.markdownToRichText(i_messageText))
+                    wrapMode: Label.Wrap
+
+                    onLinkActivated: attachmentFile.linkActivated(link)
+                }
+            }
+        }
+        Kirigami.Label {
+            id: timestampText
+
+            text: displayDateTime(i_timestamp)
+            opacity: .5
+
+            anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.leftMargin: Kirigami.Units.smallSpacing
+
+            z: 10
+        }
+        //TODO add attachments!
     }
-
-
-    Kirigami.Label {
-        id: textLabel
-        color: Kirigami.Theme.textColor
-        opacity: 1
-
-        anchors.centerIn: parent
-        anchors.leftMargin: Kirigami.Units.smallSpacing
-        anchors.rightMargin: Kirigami.Units.smallSpacing
-
-        width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
-
-        text: i_username + " File Message "
-
-        wrapMode: Label.Wrap
-
-        renderType: Text.NativeRendering
-
-        onLinkActivated: attachmentFile.linkActivated(link)
-    }
-
 }

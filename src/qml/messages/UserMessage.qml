@@ -22,7 +22,6 @@
 
 
 import QtQuick 2.0
-import "../js/marked.js" as MarkDown;
 
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami

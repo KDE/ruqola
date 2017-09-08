@@ -22,7 +22,6 @@
 
 
 import QtQuick 2.0
-import "js/marked.js" as MarkDown;
 
 import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.Message 1.0
@@ -81,7 +80,15 @@ Rectangle {
                           }
                           )
             } else if (i_messageType === Message.File) {
-                setSource("messages/AttachmentMessageFile.qml")
+                setSource("messages/AttachmentMessageFile.qml",
+                          {
+                              i_messageText: i_messageText,
+                              i_username: i_username,
+                              i_aliasname: i_aliasname,
+                              i_timestamp: i_timestamp,
+                              i_messageID: i_messageID,
+                              i_avatar: i_avatar
+                          })
             } else if (i_messageType === Message.Audio) {
                 setSource("messages/AttachmentMessageAudio.qml")
             } else if (i_messageType === Message.Video) {

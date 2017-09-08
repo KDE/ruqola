@@ -29,3 +29,42 @@ MessageModelTest::MessageModelTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+void MessageModelTest::shouldHaveDefaultValue()
+{
+    MessageModel w;
+    QCOMPARE(w.rowCount(), 0);
+}
+
+void MessageModelTest::shouldAddMessage()
+{
+    MessageModel w;
+    Message input;
+
+    input.setMessageId(QStringLiteral("ff"));
+    input.setRoomId(QStringLiteral("room2"));
+    input.setText(QStringLiteral("message1"));
+    input.setTimeStamp(42);
+    input.setUsername(QStringLiteral("user1"));
+    input.setUserId(QStringLiteral("userid1"));
+    input.setUpdatedAt(45);
+    input.setEditedAt(89);
+    input.setEditedByUsername(QStringLiteral("editeduser1"));
+    input.setEditedByUserId(QStringLiteral("editedbyid1"));
+    input.setAlias(QStringLiteral("ali"));
+    input.setAvatar(QStringLiteral("avatar1"));
+    input.setSystemMessageType(QStringLiteral("type"));
+    input.setGroupable(true);
+    input.setParseUrls(true);
+    input.setMessageType(Message::MessageType::Audio);
+    w.addMessage(input);
+
+    QCOMPARE(w.rowCount(), 1);
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 1);
+
+    input.setMessageId(QStringLiteral("ff2"));
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 2);
+
+}

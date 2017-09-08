@@ -52,7 +52,9 @@ public:
         Avatar,
         Groupable,
         ParseUrls,
-        MessageType
+        MessageType,
+        Attachments,
+        Urls
     };
     Q_ENUM(MessageRoles)
 
@@ -70,14 +72,14 @@ public:
     * @brief returns number of messages in QVector m_allMessages
     *
     * @param parent, it is void
-    * @return int, The number of messages in QVector m_allMessages
+    * @return int, The number of messages in QVector mAllMessages
     */
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     /**
-    * @brief Returns last timestamp of last message in QVector m_allMessages
+    * @brief Returns last timestamp of last message in QVector mAllMessages
     *
     * @return qint64 The last timestamp
     */
