@@ -20,6 +20,7 @@
 
 #include "messageurltest.h"
 #include "messageurl.h"
+#include <QJsonObject>
 #include <QTest>
 QTEST_MAIN(MessageUrlTest)
 
@@ -35,4 +36,30 @@ void MessageUrlTest::shouldHaveDefaultValue()
     QVERIFY(url.url().isEmpty());
     QVERIFY(url.pageTitle().isEmpty());
     QVERIFY(url.isEmpty());
+}
+
+void MessageUrlTest::shouldSerializeData()
+{
+    {
+        MessageUrl input;
+        input.setUrl(QStringLiteral("foo1"));
+        input.setPageTitle(QStringLiteral("foo2"));
+        const QJsonObject ba = MessageUrl::serialize(input);
+        const MessageUrl output = MessageUrl::fromJSon(ba);
+        QCOMPARE(input, output);
+    }
+    {
+        MessageUrl input;
+        input.setPageTitle(QStringLiteral("foo2"));
+        const QJsonObject ba = MessageUrl::serialize(input);
+        const MessageUrl output = MessageUrl::fromJSon(ba);
+        QCOMPARE(input, output);
+    }
+    {
+        MessageUrl input;
+        input.setUrl(QStringLiteral("foo1"));
+        const QJsonObject ba = MessageUrl::serialize(input);
+        const MessageUrl output = MessageUrl::fromJSon(ba);
+        QCOMPARE(input, output);
+    }
 }

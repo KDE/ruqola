@@ -31,6 +31,7 @@ public:
     ~MessageUrlTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldSerializeData();
 };
 
 #endif // MESSAGEURLTEST_H
