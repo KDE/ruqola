@@ -38,6 +38,10 @@
 
 #include <QJsonDocument>
 
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+#include <KIconTheme>
+#endif
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -47,6 +51,11 @@ int main(int argc, char *argv[])
     app.setWindowIcon(QIcon(QStringLiteral(":/icons/systray.png")));
 
     KCrash::initialize();
+
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+    // call KIconTheme to make sure KIconTheme is linked
+    KIconTheme::list();
+#endif
 
     KLocalizedString::setApplicationDomain("ruqola");
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
