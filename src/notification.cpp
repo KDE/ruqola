@@ -28,6 +28,8 @@
 #include <QMenu>
 #include <QMessageBox>
 
+//REplace by plasma notification
+
 Notification::Notification(QObject *parent)
     : QSystemTrayIcon(parent)
     , m_quitAction(nullptr)
