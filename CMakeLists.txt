@@ -41,6 +41,11 @@ find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
     Crash
 )
 
+if (WIN32 OR APPLE)
+    find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
+        IconThemes
+    )
+endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 

@@ -63,6 +63,10 @@ target_link_libraries(libruqolacore
     KF5::Crash
 )
 
+if (WIN32 OR APPLE)
+    target_link_libraries(libruqolacore KF5::IconThemes)
+endif()
+
 set_target_properties(libruqolacore
     PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
     )
