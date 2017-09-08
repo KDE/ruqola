@@ -205,7 +205,7 @@ Rectangle {
             
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
             
-            color: i_avatar !== "" ? Qt.transparent : stringToColour(i_username)
+            color: i_avatar !== "" ? "transparent" : stringToColour(i_username)
             
             anchors.top: parent.top
             Image {
