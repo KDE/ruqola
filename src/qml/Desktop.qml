@@ -67,7 +67,7 @@ Kirigami.ApplicationWindow {
         
         topContent: [
             Text {
-                text: i18n("Hello, %1", Ruqola.userName)
+                text: Ruqola.userName == "" ? "" : i18n("Hello, %1", Ruqola.userName)
             }
         ]
         
