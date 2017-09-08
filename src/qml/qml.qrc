@@ -17,10 +17,6 @@
         <file alias="AttachmentMessageImage.qml">messages/AttachmentMessageImage.qml</file>
         <file alias="AttachmentMessageVideo.qml">messages/AttachmentMessageVideo.qml</file>
     </qresource>
-    <qresource prefix="/js">
-        <file alias="jsonpath.js">js/jsonpath.js</file>
-        <file alias="marked.js">js/marked.js</file>
-    </qresource>
     <qresource prefix="/icons">
         <file alias="systray.png">icons/systray.png</file>
         <file alias="attach-button.jpg">icons/attach-button.jpg</file>
