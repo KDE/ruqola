@@ -45,10 +45,6 @@ void Message::parseMessage(const QJsonObject &o)
     mEditedAt = o.value(QStringLiteral("editedAt")).toObject().value(QStringLiteral("$date")).toDouble();
     mEditedByUsername = o.value(QStringLiteral("editedBy")).toObject().value(QStringLiteral("username")).toString();
     mEditedByUserId = o.value(QStringLiteral("editedBy")).toObject().value(QStringLiteral("userID")).toString();
-    mUrl = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("url")).toString();
-    mMeta = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("meta")).toString();
-    mHeaders = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("headers")).toString();
-    mParsedUrl = o.value(QStringLiteral("urls")).toObject().value(QStringLiteral("parsedUrl")).toString();
     mAlias = o.value(QStringLiteral("alias")).toString();
     mAvatar = o.value(QStringLiteral("avatar")).toString();
     mGroupable = o.value(QStringLiteral("groupable")).toBool();
@@ -62,8 +58,18 @@ void Message::parseMessage(const QJsonObject &o)
     parseAttachment(o.value(QStringLiteral("attachments")).toArray());
 }
 
+void Message::parseUrls(const QJsonArray &urls)
+{
+    mUrls.clear();
+    if (!urls.isEmpty()) {
+        qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<urls;
+    }
+    //TODO
+}
+
 void Message::parseAttachment(const QJsonArray &attachments)
 {
+    mAttachements.clear();
     if (!attachments.isEmpty()) {
         qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
     }
@@ -153,6 +159,16 @@ void Message::setAttachements(const QVector<MessageAttachment> &attachements)
     mAttachements = attachements;
 }
 
+QVector<MessageUrl> Message::urls() const
+{
+    return mUrls;
+}
+
+void Message::setUrls(const QVector<MessageUrl> &urls)
+{
+    mUrls = urls;
+}
+
 QString Message::alias() const
 {
     return mAlias;
@@ -161,46 +177,6 @@ QString Message::alias() const
 void Message::setAlias(const QString &alias)
 {
     mAlias = alias;
-}
-
-QString Message::parsedUrl() const
-{
-    return mParsedUrl;
-}
-
-void Message::setParsedUrl(const QString &parsedUrl)
-{
-    mParsedUrl = parsedUrl;
-}
-
-QString Message::headers() const
-{
-    return mHeaders;
-}
-
-void Message::setHeaders(const QString &headers)
-{
-    mHeaders = headers;
-}
-
-QString Message::meta() const
-{
-    return mMeta;
-}
-
-void Message::setMeta(const QString &meta)
-{
-    mMeta = meta;
-}
-
-QString Message::url() const
-{
-    return mUrl;
-}
-
-void Message::setUrl(const QString &url)
-{
-    mUrl = url;
 }
 
 QString Message::editedByUserId() const
@@ -347,10 +323,6 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mEditedAt = (qint64)o[QStringLiteral("editedAt")].toDouble();
     message.mEditedByUsername = o[QStringLiteral("editedByUsername")].toString();
     message.mEditedByUserId = o[QStringLiteral("editedByUserID")].toString();
-    message.mUrl = o[QStringLiteral("url")].toString();
-    message.mMeta = o[QStringLiteral("meta")].toString();
-    message.mHeaders = o[QStringLiteral("headers")].toString();
-    message.mParsedUrl = o[QStringLiteral("parsedUrl")].toString();
     message.mAlias = o[QStringLiteral("alias")].toString();
     message.mAvatar = o[QStringLiteral("avatar")].toString();
     message.mGroupable = o[QStringLiteral("groupable")].toBool();
@@ -384,10 +356,6 @@ QByteArray Message::serialize(const Message &message)
     o[QStringLiteral("editedAt")] = message.mEditedAt;
     o[QStringLiteral("editedByUsername")] = message.mEditedByUsername;
     o[QStringLiteral("editedByUserID")] = message.mEditedByUserId;
-    o[QStringLiteral("url")] = message.mUrl;
-    o[QStringLiteral("meta")] = message.mMeta;
-    o[QStringLiteral("headers")] = message.mHeaders;
-    o[QStringLiteral("parsedUrl")] = message.mParsedUrl;
     o[QStringLiteral("alias")] = message.mAlias;
     o[QStringLiteral("avatar")] = message.mAvatar;
     o[QStringLiteral("groupable")] = message.mGroupable;
@@ -419,10 +387,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mEditedAt: " << t.editedAt();
     d << "mEditedByUsername: " << t.editedByUsername();
     d << "mEditedByUserId: " << t.editedByUserId();
-    d << "mUrl: " << t.url();
-    d << "mMeta: " << t.meta();
-    d << "mHeaders: " << t.headers();
-    d << "mParsedUrl: " << t.parsedUrl();
     d << "mAlias: " << t.alias();
     d << "mSystemMessageType: " << t.systemMessageType();
     d << "mRoomId: " << t.roomId();
@@ -430,7 +394,10 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mGroupable: " << t.groupable();
     d << "mParseUrls: " << t.parseUrls();
     for (int i = 0; i < t.attachements().count(); ++i) {
-        d << "Attachment " << t.attachements().at(i);
+        d << "Attachment :" << t.attachements().at(i);
+    }
+    for (int i = 0; i < t.urls().count(); ++i) {
+        d << "Urls :" << t.urls().at(i);
     }
     d << "mMessageType: " << t.messageType();
     return d;
@@ -449,14 +416,11 @@ bool Message::isEqual(const Message &other) const
             && (mEditedAt == other.editedAt())
             && (mEditedByUsername == other.editedByUsername())
             && (mEditedByUserId == other.editedByUserId())
-            && (mUrl == other.url())
-            && (mMeta == other.meta())
-            && (mHeaders == other.headers())
-            && (mParsedUrl == other.parsedUrl())
             && (mAlias == other.alias())
             && (mAvatar == other.avatar())
             && (mSystemMessageType == other.systemMessageType())
             && (mGroupable == other.groupable())
             && (mParseUrls == other.parseUrls())
+            && (mUrls == other.urls())
             && (mAttachements == other.attachements());
 }

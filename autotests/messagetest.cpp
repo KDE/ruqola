@@ -68,10 +68,6 @@ void MessageTest::shouldSerializeData()
     input.setEditedAt(89);
     input.setEditedByUsername(QStringLiteral("editeduser1"));
     input.setEditedByUserId(QStringLiteral("editedbyid1"));
-    input.setUrl(QStringLiteral("url1"));
-    input.setMeta(QStringLiteral("meta1"));
-    input.setHeaders(QStringLiteral("headers111"));
-    input.setParsedUrl(QStringLiteral("parseurl1"));
     input.setAlias(QStringLiteral("ali"));
     input.setAvatar(QStringLiteral("avatar1"));
     input.setSystemMessageType(QStringLiteral("type"));

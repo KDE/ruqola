@@ -23,6 +23,7 @@
 
 #include "libruqola_private_export.h"
 #include "messageattachment.h"
+#include "messageurl.h"
 #include <QJsonObject>
 #include <QString>
 #include <QVector>
@@ -35,7 +36,6 @@ public:
     Message();
 
     enum MessageType {
-        //TODO add system message ?
         System,
         NormalText,
         File,
@@ -78,7 +78,6 @@ public:
     static QByteArray serialize(const Message &message);
 
     void parseMessage(const QJsonObject &o);
-    void parseAttachment(const QJsonArray &attachments);
 
     // To be used in ID find: message ID
     bool operator==(const Message &other) const;
@@ -116,18 +115,6 @@ public:
     QString editedByUserId() const;
     void setEditedByUserId(const QString &editedByUserId);
 
-    QString url() const;
-    void setUrl(const QString &url);
-
-    QString meta() const;
-    void setMeta(const QString &meta);
-
-    QString headers() const;
-    void setHeaders(const QString &headers);
-
-    QString parsedUrl() const;
-    void setParsedUrl(const QString &parsedUrl);
-
     QString imageUrl() const;
     void setImageUrl(const QString &imageUrl);
 
@@ -143,9 +130,17 @@ public:
     QVector<MessageAttachment> attachements() const;
     void setAttachements(const QVector<MessageAttachment> &attachements);
 
+    QVector<MessageUrl> urls() const;
+    void setUrls(const QVector<MessageUrl> &urls);
+
 private:
+    void parseAttachment(const QJsonArray &attachments);
+    void parseUrls(const QJsonArray &urls);
     //Message Object Fields
     QVector<MessageAttachment> mAttachements;
+
+    //Message urls object
+    QVector<MessageUrl> mUrls;
 
     // _id
     QString mMessageId;
@@ -163,12 +158,6 @@ private:
     // editedBy
     QString mEditedByUsername;
     QString mEditedByUserId;
-
-    // urls
-    QString mUrl;
-    QString mMeta;
-    QString mHeaders;
-    QString mParsedUrl;
 
     // alias
     QString mAlias;

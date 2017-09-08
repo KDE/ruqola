@@ -31,6 +31,7 @@ set (Ruqola_core_srcs
     abstractwebsocket.cpp
     ruqolawebsocket.cpp
     messageattachment.cpp
+    messageurl.cpp
     rocketchataccount.cpp
     rocketchataccountsettings.cpp
     usersforroommodel.cpp

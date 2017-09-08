@@ -91,14 +91,9 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[EditedAt] = "editedAt";
     roles[EditedByUserName] = "editedByUsername";
     roles[EditedByUserID] = "editedByUserID";
-    roles[Url] = "URL";
-    roles[Meta] = "meta";
-    roles[Headers] = "headers";
-    roles[ParsedUrl] = "parsedUrl";
     roles[Alias] = "alias";
     roles[Avatar] = "avatar";
     roles[Groupable] = "groupable";
-    roles[ParseUrls] = "parseUrls";
     roles[MessageType] = "messagetype";
 
     return roles;
@@ -178,8 +173,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mAllMessages.at(idx).messageType();
     case MessageModel::Avatar:
         return mAllMessages.at(idx).avatar();
-    case MessageModel::ParseUrls:
-        return mAllMessages.at(idx).parsedUrl();
     case MessageModel::EditedAt:
         return mAllMessages.at(idx).editedAt();
     case MessageModel::EditedByUserName:
