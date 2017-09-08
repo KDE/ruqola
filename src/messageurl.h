@@ -40,10 +40,14 @@ public:
 
     bool isEmpty() const;
 
+    QString description() const;
+    void setDescription(const QString &description);
+
 private:
     //TODO add more
     QString mUrl;
     QString mPageTitle;
+    QString mDescription;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_MOVABLE_TYPE);

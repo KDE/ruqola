@@ -32,6 +32,7 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
     QJsonObject obj;
     obj[QStringLiteral("pagetitle")]  = url.pageTitle();
     obj[QStringLiteral("url")]  = url.url();
+    obj[QStringLiteral("description")] = url.description();
     return obj;
 }
 
@@ -40,6 +41,7 @@ MessageUrl MessageUrl::fromJSon(const QJsonObject &o)
     MessageUrl url;
     url.setPageTitle(o.value(QStringLiteral("pagetitle")).toString());
     url.setUrl(o.value(QStringLiteral("url")).toString());
+    url.setDescription(o.value(QStringLiteral("description")).toString());
     return url;
 }
 
@@ -68,15 +70,27 @@ bool MessageUrl::isEmpty() const
     return mUrl.isEmpty();
 }
 
+QString MessageUrl::description() const
+{
+    return mDescription;
+}
+
+void MessageUrl::setDescription(const QString &description)
+{
+    mDescription = description;
+}
+
 bool MessageUrl::operator==(const MessageUrl &other) const
 {
     return (mUrl == other.url())
-            && (mPageTitle == other.pageTitle());
+            && (mPageTitle == other.pageTitle())
+            && (mDescription == other.description());
 }
 
 QDebug operator <<(QDebug d, const MessageUrl &t)
 {
     d << "Url: " << t.url();
     d << "Page Title: " << t.pageTitle();
+    d << "Description: " << t.description();
     return d;
 }
