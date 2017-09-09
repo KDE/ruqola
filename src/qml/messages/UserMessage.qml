@@ -29,7 +29,7 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.RuqolaUtils 1.0
-
+import "../js/message.js" as MessageScript;
 
 Rectangle {
     /*
@@ -126,24 +126,6 @@ Rectangle {
         return result;
     }
     
-    function stringToColour(str) {
-        var hash = 0;
-        for (var i = 0; i < str.length; i++) {
-            hash = str.charCodeAt(i) + ((hash << 5) - hash);
-        }
-        var colour = '#';
-        for (var j = 0; j < 3; j++) {
-            var value = (hash >> (j * 8)) & 0xFF;
-            colour += ('00' + value.toString(16)).substr(-2);
-        }
-        return colour;
-    }
-
-    function displayDateTime(timestamp)
-    {
-        return Qt.formatDate(new Date(timestamp), i18n("yyyy-MM-dd")) + "\n" + Qt.formatTime(new Date(timestamp), i18n("hh:mm"));
-    }
-
     property string i_messageText
     property string i_messageID
     property string i_username
@@ -204,7 +186,7 @@ Rectangle {
             
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
             
-            color: i_avatar !== "" ? "transparent" : stringToColour(i_username)
+            color: i_avatar !== "" ? "transparent" : MessageScript.stringToColour(i_username)
             
             anchors.top: parent.top
             Image {
@@ -303,7 +285,7 @@ Rectangle {
         Kirigami.Label {
             id: timestampText
 
-            text: displayDateTime(i_timestamp)
+            text: MessageScript.displayDateTime(i_timestamp)
             opacity: .5
 
             anchors.top: parent.top

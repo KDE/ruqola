@@ -21,4 +21,7 @@
         <file alias="systray.png">icons/systray.png</file>
         <file alias="attach-button.jpg">icons/attach-button.jpg</file>
     </qresource>
+    <qresource prefix="/js">
+        <file alias="message.js">js/message.js</file>
+    </qresource>
 </RCC>
