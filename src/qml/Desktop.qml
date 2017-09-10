@@ -72,6 +72,7 @@ Kirigami.ApplicationWindow {
         ]
         
         actions: [
+            /*
             Kirigami.Action {
                 text: i18n("Preferences")
                 iconName: "user-available"
@@ -80,6 +81,7 @@ Kirigami.ApplicationWindow {
                     iconName: "preferences-desktop-theme"
                 }
             },
+            */
             Kirigami.Action {
                 text: i18n("Log out")
                 iconName: "system-log-out"
