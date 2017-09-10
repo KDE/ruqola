@@ -64,7 +64,7 @@ Rectangle {
 
         width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
 
-        text: i_username + i18n(" Video Message ")
+        text: i18n(" Video Message ")
 
         wrapMode: Label.Wrap
 
