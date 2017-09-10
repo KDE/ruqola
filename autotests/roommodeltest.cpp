@@ -32,25 +32,3 @@ RoomModelTest::RoomModelTest(QObject *parent)
 {
 }
 
-void RoomModelTest::shouldSerialized()
-{
-    Room input;
-    input.setId(QStringLiteral("foo"));
-    input.setChannelType(QStringLiteral("p"));
-    input.setName(QStringLiteral("d"));
-    input.setAnnouncement(QStringLiteral("AA"));
-    input.setUserName(QStringLiteral("pp"));
-    input.setUserId(QStringLiteral("sdfsdfs"));
-    input.setTopic(QStringLiteral("topic"));
-    input.setMutedUsers(QStringLiteral("mutedUsers"));
-    input.setJitsiTimeout(55);
-    input.setReadOnly(true);
-    input.setUnread(66);
-    input.setSelected(true);
-    input.setFavorite(true);
-    input.setAlert(true);
-    input.setOpen(true);
-    const QByteArray ba = Room::serialize(&input);
-    Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
-    QVERIFY(input.isEqual(*output));
-}
