@@ -217,12 +217,10 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     const QJsonObject roomData = array[1].toObject();
     if (actionName == QStringLiteral("removed")) {
         qDebug() << "REMOVE ROOM name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
-        Room *room = new Room;
-        room->setId(roomData.value(QStringLiteral("rid")).toString());
-        room->setName(roomData.value(QStringLiteral("name")).toString());
+        const QString id = roomData.value(QStringLiteral("rid")).toString();
         const int roomCount{mRoomsList.count()};
         for (int i = 0; i < roomCount; ++i) {
-            if (mRoomsList.at(i)->id() == room->id()) {
+            if (mRoomsList.at(i)->id() == id) {
                 beginRemoveRows(QModelIndex(), i, i);
                 mRoomsList.remove(i);
                 endRemoveRows();
