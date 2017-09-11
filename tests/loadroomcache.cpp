@@ -25,6 +25,8 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <KUrlRequester>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 LoadRoomCache::LoadRoomCache(QWidget *parent)
     : QWidget(parent)
@@ -53,6 +55,20 @@ LoadRoomCache::LoadRoomCache(QWidget *parent)
 void LoadRoomCache::slotOpenFile()
 {
     mCacheTextEdit->clear();
+    if (mRequester->url().isValid() && mRequester->url().isLocalFile()) {
+        QFile f;
+        f.setFileName(mRequester->url().path());
+        if (f.open(QIODevice::ReadOnly)) {
+            QDataStream in(&f);
+            while (!f.atEnd()) {
+                char *byteArray;
+                quint32 length;
+                in.readBytes(byteArray, length);
+                QByteArray arr = QByteArray::fromRawData(byteArray, length);
+                //Room m = RoomModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
+            }
+        }
+    }
     //TODO
 }
 
