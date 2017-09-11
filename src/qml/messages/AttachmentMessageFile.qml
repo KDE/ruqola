@@ -144,6 +144,12 @@ Rectangle {
             }
             Repeater {
                 model: i_urls
+                Row {
+                     Text {
+                         text: model.modelData.pageTitle
+                         width: 120
+                     }
+                }
             }
         }
         Kirigami.Label {
