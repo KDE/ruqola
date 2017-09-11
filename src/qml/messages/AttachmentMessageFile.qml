@@ -146,7 +146,7 @@ Rectangle {
                 model: i_urls
                 Row {
                      Text {
-                         text: model.modelData.pageTitle
+                         text: model.modelData.url
                          width: 120
                      }
                 }

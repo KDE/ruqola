@@ -39,6 +39,7 @@ Rectangle {
     property string i_aliasname
     property string i_avatar
     property var i_timestamp
+    property var i_urls
 
     
     signal linkActivated(string link)
@@ -46,7 +47,8 @@ Rectangle {
     
     id: messageMain
     color: "#eeeeee"
-    implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight, avatarRect.implicitHeight)
+    //TODO fixme url heigh
+    implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight + 10, avatarRect.implicitHeight)
 
     anchors.bottomMargin: 200
     
@@ -186,6 +188,23 @@ Rectangle {
                     wrapMode: Label.Wrap
                     
                     onLinkActivated: messageMain.linkActivated(link)
+                }
+                Repeater {
+                    id: repeaterUrl
+                    model: i_urls
+                    property int implicitTextHeight
+                    Text {
+                        text: MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.url))
+                        color: "white"
+                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                        anchors.right: parent.right
+                        anchors.left: parent.left
+                        renderType: Text.NativeRendering
+                        textFormat: Text.RichText
+
+                        onLinkActivated: messageMain.linkActivated(link)
+                    }
                 }
             }
         }

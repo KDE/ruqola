@@ -77,7 +77,8 @@ Rectangle {
                               i_aliasname: i_aliasname,
                               i_timestamp: i_timestamp,
                               i_messageID: i_messageID,
-                              i_avatar: i_avatar
+                              i_avatar: i_avatar,
+                              i_urls: i_urls
                           }
                           )
             } else if (i_messageType === Message.File) {
