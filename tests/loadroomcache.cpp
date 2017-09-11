@@ -64,12 +64,12 @@ void LoadRoomCache::slotOpenFile()
                 char *byteArray;
                 quint32 length;
                 in.readBytes(byteArray, length);
-                QByteArray arr = QByteArray::fromRawData(byteArray, length);
-                //Room m = RoomModel::fromJSon(QJsonDocument::fromBinaryData(arr).object());
+                const QByteArray arr = QByteArray::fromRawData(byteArray, length);
+                const QByteArray expandJSon = QJsonDocument::fromBinaryData(arr).toJson();
+                mCacheTextEdit->append(QString::fromUtf8(expandJSon));
             }
         }
     }
-    //TODO
 }
 
 int main(int argc, char *argv[])
