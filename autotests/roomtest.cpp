@@ -52,4 +52,5 @@ void RoomTest::shouldSerialized()
     const QByteArray ba = Room::serialize(&input);
     Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(*output));
+    delete output;
 }
