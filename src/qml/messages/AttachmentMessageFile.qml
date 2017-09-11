@@ -23,6 +23,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
+import KDE.Ruqola.RuqolaUtils 1.0
 import "../js/message.js" as MessageScript;
 
 Rectangle {
@@ -34,6 +35,7 @@ Rectangle {
     property string i_aliasname
     property string i_avatar
     property var i_timestamp
+    property var i_urls
 
     color: "#eeeeee"
     implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight, avatarRect.implicitHeight)
@@ -134,11 +136,14 @@ Rectangle {
                     textFormat: Text.RichText
 
 
-                    text: markdownme(RuqolaUtils.markdownToRichText(i_messageText))
+                    text: MessageScript.markdownme(RuqolaUtils.markdownToRichText(i_messageText))
                     wrapMode: Label.Wrap
 
                     onLinkActivated: attachmentFile.linkActivated(link)
                 }
+            }
+            Repeater {
+                model: i_urls
             }
         }
         Kirigami.Label {

@@ -42,6 +42,7 @@ Rectangle {
     property string i_aliasname
     property var i_timestamp
     property var i_messageType
+    property var i_urls
 
     id: messageMain
     color: "#eeeeee"
@@ -87,7 +88,8 @@ Rectangle {
                               i_aliasname: i_aliasname,
                               i_timestamp: i_timestamp,
                               i_messageID: i_messageID,
-                              i_avatar: i_avatar
+                              i_avatar: i_avatar,
+                              i_urls: i_urls
                           })
             } else if (i_messageType === Message.Audio) {
                 setSource("messages/AttachmentMessageAudio.qml")
