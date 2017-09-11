@@ -21,11 +21,32 @@
 #include "simulator.h"
 
 #include <QApplication>
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QTextEdit>
 
 Simulator::Simulator(QWidget *parent)
     : QWidget(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mJsonTextEditor = new QTextEdit(this);
+    mJsonTextEditor->setAcceptRichText(false);
+    mainLayout->addWidget(mJsonTextEditor);
 
+    QHBoxLayout *buttonLayout = new QHBoxLayout;
+    mainLayout->addLayout(buttonLayout);
+    QPushButton *sendButton = new QPushButton(QStringLiteral("Send"), this);
+    buttonLayout->addWidget(sendButton);
+    connect(sendButton, &QPushButton::clicked, this, &Simulator::slotSend);
+}
+
+void Simulator::slotSend()
+{
+    const QString str = mJsonTextEditor->toPlainText();
+    if (str.trimmed().isEmpty()) {
+        return;
+    }
+    //TODO
 }
 
 int main(int argc, char *argv[])

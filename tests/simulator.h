@@ -22,13 +22,16 @@
 #define SIMULATOR_H
 
 #include <QWidget>
-
+class QTextEdit;
 class Simulator : public QWidget
 {
     Q_OBJECT
 public:
     explicit Simulator(QWidget *parent = nullptr);
     ~Simulator() = default;
+private:
+    void slotSend();
+    QTextEdit *mJsonTextEditor;
 };
 
 #endif // SIMULATOR_H
