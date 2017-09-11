@@ -40,6 +40,7 @@ Rectangle {
     property string i_avatar
     property var i_timestamp
     property var i_urls
+    property var i_attachments
 
     
     signal linkActivated(string link)
@@ -204,6 +205,15 @@ Rectangle {
                         textFormat: Text.RichText
 
                         onLinkActivated: messageMain.linkActivated(link)
+                    }
+                }
+                Repeater {
+                    model: i_attachments
+                    Row {
+                         Text {
+                             text: model.modelData.title
+                             width: 120
+                         }
                     }
                 }
             }

@@ -43,6 +43,7 @@ Rectangle {
     property var i_timestamp
     property var i_messageType
     property var i_urls
+    property var i_attachments
 
     id: messageMain
     color: "#eeeeee"
@@ -78,7 +79,8 @@ Rectangle {
                               i_timestamp: i_timestamp,
                               i_messageID: i_messageID,
                               i_avatar: i_avatar,
-                              i_urls: i_urls
+                              i_urls: i_urls,
+                              i_attachments: i_attachments
                           }
                           )
             } else if (i_messageType === Message.File) {
@@ -90,7 +92,8 @@ Rectangle {
                               i_timestamp: i_timestamp,
                               i_messageID: i_messageID,
                               i_avatar: i_avatar,
-                              i_urls: i_urls
+                              i_urls: i_urls,
+                              i_attachments: i_attachments
                           })
             } else if (i_messageType === Message.Audio) {
                 setSource("messages/AttachmentMessageAudio.qml")

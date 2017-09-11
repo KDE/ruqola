@@ -270,6 +270,7 @@ Kirigami.ApplicationWindow {
                     i_messageType: messagetype
                     i_avatar: avatar
                     i_urls: urls
+                    i_attachments: attachments
                 }
             }
             footer: UserInput {

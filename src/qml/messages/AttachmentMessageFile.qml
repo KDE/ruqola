@@ -36,6 +36,7 @@ Rectangle {
     property string i_avatar
     property var i_timestamp
     property var i_urls
+    property var i_attachments
 
     color: "#eeeeee"
     implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight, avatarRect.implicitHeight)
@@ -147,6 +148,15 @@ Rectangle {
                 Row {
                      Text {
                          text: model.modelData.url
+                         width: 120
+                     }
+                }
+            }
+            Repeater {
+                model: i_attachments
+                Row {
+                     Text {
+                         text: model.modelData.title
                          width: 120
                      }
                 }
