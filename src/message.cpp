@@ -56,13 +56,27 @@ void Message::parseMessage(const QJsonObject &o)
         mMessageType = System;
     }
     parseAttachment(o.value(QStringLiteral("attachments")).toArray());
+    parseUrls(o.value(QStringLiteral("urls")).toArray());
 }
 
 void Message::parseUrls(const QJsonArray &urls)
 {
     mUrls.clear();
     if (!urls.isEmpty()) {
-        qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<urls;
+        qDebug() << " void Message::urls(const QJsonObject &attachements)"<<urls;
+    }
+    for (int i = 0; i < urls.size(); i++) {
+        const QJsonObject url = urls.at(i).toObject();
+        MessageUrl messageUrl;
+        const QJsonValue urlStr = url.value(QStringLiteral("url"));
+        if (!urlStr.isUndefined()) {
+            messageUrl.setUrl(urlStr.toString());
+        }
+        //TODO add more
+
+        if (!messageUrl.isEmpty()) {
+            mUrls.append(messageUrl);
+        }
     }
     //TODO
 }
