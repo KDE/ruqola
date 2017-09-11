@@ -16,3 +16,13 @@ target_link_libraries(loadroomcachetest
     Qt5::Widgets
     KF5::KIOWidgets
     )
+
+####
+set(simulatortest_SRCS simulator.cpp)
+
+add_executable(simulatortest ${simulatortest_SRCS})
+
+target_link_libraries(simulatortest
+    Qt5::Widgets
+    KF5::KIOWidgets
+    )
