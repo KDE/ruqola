@@ -132,7 +132,7 @@ private:
     void sendNotification(const QString &title, const QString &message);
     void slotInformTypingStatus(const QString &room, bool typing);
     explicit Ruqola(QObject *parent = nullptr);
-    RocketChatAccount *mRocketChatAccount;
+    RocketChatAccount *mRocketChatAccount = nullptr;
     Notification *mNotification = nullptr;
 };
 

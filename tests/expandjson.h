@@ -33,9 +33,9 @@ public:
     ~ExpandJson() = default;
 private:
     void slotExpandJson();
-    QTextEdit *mInput;
-    QTextEdit *mOutput;
-    QPushButton *mExpandButton;
+    QTextEdit *mInput = nullptr;
+    QTextEdit *mOutput = nullptr;
+    QPushButton *mExpandButton = nullptr;
 };
 
 #endif // EXPANDJSON_H
