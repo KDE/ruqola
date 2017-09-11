@@ -16,8 +16,6 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMAddTests)
 include(GenerateExportHeader)
 include(FeatureSummary)
-# Use i18n ?
-include(ECMPoQmTools)
 
 set(KF5_VERSION "5.37.0")
 option(RUN_UNINSTALL "test run uninstalled apps (experimental)" FALSE)
@@ -39,6 +37,7 @@ find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     Crash
+    KIO
 )
 
 if (WIN32 OR APPLE)

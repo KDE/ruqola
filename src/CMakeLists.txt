@@ -1,4 +1,4 @@
-ecm_create_qm_loader(ruqola_QM_LOADER ruqola_qt)
+
 
 set (Ruqola_restapi_SRCS
     restapi/restapirequest.cpp
