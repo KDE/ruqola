@@ -25,6 +25,8 @@
 #include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
 {
+    Q_GADGET
+    //TODO add properties
 public:
     MessageAttachment();
     bool isEmpty() const;

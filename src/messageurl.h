@@ -26,6 +26,10 @@
 #include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT MessageUrl
 {
+    Q_GADGET
+    Q_PROPERTY(QString url READ url WRITE setUrl FINAL)
+    Q_PROPERTY(QString pageTitle READ pageTitle WRITE setPageTitle FINAL)
+    Q_PROPERTY(QString description READ description WRITE setDescription FINAL)
 public:
     MessageUrl();
     bool operator==(const MessageUrl &other) const;
@@ -42,6 +46,7 @@ public:
 
     QString description() const;
     void setDescription(const QString &description);
+
 
 private:
     //TODO add more
