@@ -26,6 +26,12 @@
 class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
 {
     Q_GADGET
+    Q_PROPERTY(QString description READ description WRITE setDescription)
+    Q_PROPERTY(QString color READ color WRITE setColor)
+    Q_PROPERTY(QString title READ title WRITE setTitle)
+    Q_PROPERTY(QString link READ link WRITE setLink)
+    Q_PROPERTY(int imageHeight READ imageHeight WRITE setImageHeight)
+    Q_PROPERTY(int imageWidth READ imageWidth WRITE setImageWidth)
     //TODO add properties
 public:
     MessageAttachment();
