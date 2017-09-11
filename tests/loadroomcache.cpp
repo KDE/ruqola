@@ -21,12 +21,39 @@
 #include "loadroomcache.h"
 
 #include <QApplication>
+#include <QTextEdit>
 #include <QVBoxLayout>
+#include <QLabel>
+#include <KUrlRequester>
 
 LoadRoomCache::LoadRoomCache(QWidget *parent)
     : QWidget(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mCacheTextEdit = new QTextEdit(this);
+    mCacheTextEdit->setReadOnly(true);
+    mainLayout->addWidget(mCacheTextEdit);
 
+    QHBoxLayout *hbox = new QHBoxLayout;
+    mainLayout->addLayout(hbox);
+    hbox->setMargin(0);
+
+    QLabel *lab = new QLabel(QStringLiteral("Select cache file:"), this);
+    hbox->addWidget(lab);
+
+    mRequester = new KUrlRequester(this);
+    hbox->addWidget(mRequester);
+    mRequester->setMode(KFile::File);
+
+    QPushButton *openButton = new QPushButton(QStringLiteral("Open"));
+    hbox->addWidget(openButton);
+    connect(openButton, &QPushButton::clicked, this, &LoadRoomCache::slotOpenFile);
+}
+
+void LoadRoomCache::slotOpenFile()
+{
+    mCacheTextEdit->clear();
+    //TODO
 }
 
 int main(int argc, char *argv[])
