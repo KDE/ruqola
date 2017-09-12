@@ -38,9 +38,9 @@ set (Ruqola_core_srcs
     fakewebsocket.cpp
     avatarfilecache.cpp
     ruqolalogger.cpp
+    ruqolaregisterengine.cpp
     ${Ruqola_ddpapi_SRCS}
     ${Ruqola_restapi_SRCS}
-    ${ruqola_QM_LOADER}
 )
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
