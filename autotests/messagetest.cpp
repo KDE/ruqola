@@ -41,6 +41,9 @@ void MessageTest::shouldParseMessage_data()
     firstMessageRef.setUsername(QStringLiteral("foo.ff"));
     firstMessageRef.setUserId(QStringLiteral("qt9uNY9FxyL5QT5no"));
     firstMessageRef.setMessageType(Message::File);
+    firstMessageRef.setUpdatedAt(1504509615063);
+    firstMessageRef.setEditedAt(0);
+    firstMessageRef.setRoomId(QStringLiteral("qt9uNY9FxyL5QT5nouKK39zoewTkdacidH"));
     MessageAttachment att;
     att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
     att.setTitle(QStringLiteral("dd.pdf"));
@@ -62,9 +65,12 @@ void MessageTest::shouldParseMessage()
     QJsonObject obj = doc.object();
     Message originalMessage;
     originalMessage.parseMessage(obj);
-    qDebug() << "originalMessage "<<originalMessage;
-    qDebug() << "ExpectedMessage "<<expectedMessage;
-    QVERIFY(originalMessage.isEqual(expectedMessage));
+    bool messageIsEqual = originalMessage.isEqual(expectedMessage);
+    if (!messageIsEqual) {
+        qDebug() << "originalMessage "<<originalMessage;
+        qDebug() << "ExpectedMessage "<<expectedMessage;
+    }
+    QVERIFY(messageIsEqual);
 }
 
 
