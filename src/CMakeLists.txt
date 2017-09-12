@@ -80,3 +80,5 @@ target_link_libraries(ruqola libruqolacore)
 
 install(TARGETS ruqola ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+
+install(PROGRAMS data/org.kde.ruqola.desktop DESTINATION ${KDE_INSTALL_APPDIR})
