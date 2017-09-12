@@ -41,7 +41,7 @@ Rectangle {
     property var i_timestamp
     property var i_urls
     property var i_attachments
-
+    property var i_date
     
     signal linkActivated(string link)
 
@@ -76,7 +76,20 @@ Rectangle {
         }
     }
 
+
+
     RowLayout {
+        /*
+        Rectangle {
+            id: newDateRect
+            visible: i_date !== ""
+            implicitWidth: textLabel.font.pixelSize * 3
+            implicitHeight: textLabel.font.pixelSize * 3
+            anchors.rightMargin: 2*Kirigami.Units.smallSpacing
+
+            color: "red"
+        }
+        */
         
         anchors.topMargin: Kirigami.Units.smallSpacing
         anchors.fill: parent
@@ -85,6 +98,7 @@ Rectangle {
 
         spacing: Kirigami.Units.smallSpacing
         
+
         Rectangle {
             id: avatarRect
 

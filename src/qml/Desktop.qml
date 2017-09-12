@@ -271,6 +271,7 @@ Kirigami.ApplicationWindow {
                     i_avatar: avatar
                     i_urls: urls
                     i_attachments: attachments
+                    i_date: date
                 }
             }
             footer: UserInput {

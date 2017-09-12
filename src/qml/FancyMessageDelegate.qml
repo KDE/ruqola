@@ -44,6 +44,7 @@ Rectangle {
     property var i_messageType
     property var i_urls
     property var i_attachments
+    property var i_date
 
     id: messageMain
     color: "#eeeeee"
@@ -80,7 +81,8 @@ Rectangle {
                               i_messageID: i_messageID,
                               i_avatar: i_avatar,
                               i_urls: i_urls,
-                              i_attachments: i_attachments
+                              i_attachments: i_attachments,
+                              i_date: i_date
                           }
                           )
             } else if (i_messageType === Message.File) {

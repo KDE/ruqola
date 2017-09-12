@@ -101,6 +101,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[MessageType] = "messagetype";
     roles[Attachments] = "attachments";
     roles[Urls] = "urls";
+    roles[Date] = "date";
 
     return roles;
 }
@@ -199,6 +200,18 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             lst.append(QVariant::fromValue(url));
         }
         return lst;
+    }
+    case MessageModel::Date: {
+        if (idx > 0) {
+            QDateTime previewDate;
+            previewDate.setMSecsSinceEpoch(mAllMessages.at(idx - 1).timeStamp());
+            QDateTime currentDate;
+            currentDate.setMSecsSinceEpoch(mAllMessages.at(idx).timeStamp());
+            if (previewDate.date() != currentDate.date()) {
+                return currentDate.toString();
+            }
+        }
+        return QString();
     }
     default:
         return QString();
