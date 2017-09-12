@@ -33,7 +33,20 @@ void MessageTest::shouldParseMessage_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<Message>("expectedMessage");
-    QTest::addRow("first") << QStringLiteral("first") << Message();
+    Message firstMessageRef;
+    firstMessageRef.setMessageId(QStringLiteral("blaid"));
+    firstMessageRef.setAlias(QStringLiteral("aliasname"));
+    firstMessageRef.setGroupable(false);
+    firstMessageRef.setTimeStamp(1504509615057);
+    firstMessageRef.setUsername(QStringLiteral("foo.ff"));
+    firstMessageRef.setUserId(QStringLiteral("qt9uNY9FxyL5QT5no"));
+    firstMessageRef.setMessageType(Message::File);
+    MessageAttachment att;
+    att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
+    att.setTitle(QStringLiteral("dd.pdf"));
+    firstMessageRef.setAttachements({att});
+    qDebug() << "before  "<<firstMessageRef;
+    QTest::addRow("first") << QStringLiteral("first") << firstMessageRef;
 }
 
 void MessageTest::shouldParseMessage()
@@ -49,8 +62,9 @@ void MessageTest::shouldParseMessage()
     QJsonObject obj = doc.object();
     Message originalMessage;
     originalMessage.parseMessage(obj);
-    qDebug() << " originalMessage"<<originalMessage;
-    QCOMPARE(originalMessage, expectedMessage);
+    qDebug() << "originalMessage "<<originalMessage;
+    qDebug() << "ExpectedMessage "<<expectedMessage;
+    QVERIFY(originalMessage.isEqual(expectedMessage));
 }
 
 
