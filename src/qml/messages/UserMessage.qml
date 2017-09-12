@@ -88,6 +88,9 @@ Rectangle {
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
 
             color: "red"
+            Text {
+                text: i_date
+            }
         }
         */
         
