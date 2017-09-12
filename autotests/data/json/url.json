@@ -1,0 +1,62 @@
+            {
+                "_id": "9kHnbbjbHKHjXXQp7",
+                "_updatedAt": {
+                    "$date": 1504596901803
+                },
+                "alias": "alias",
+                "channels": [
+                ],
+                "mentions": [
+                ],
+                "msg": "https://foo.com/event/whoa",
+                "rid": "dBWXYy4nyBHn8Q7dv",
+                "ts": {
+                    "$date": 1504596899771
+                },
+                "u": {
+                    "_id": "bjBueJtHsHQECdkmH",
+                    "name": "name",
+                    "username": "username"
+                },
+                "urls": [
+                    {
+                        "headers": {
+                            "contentLength": "14386",
+                            "contentType": "text/html; charset=UTF-8"
+                        },
+                        "meta": {
+                            "description": "Description",
+                            "fbAppId": "316098478409368",
+                            "ogDescription": "View more about this event at CppCon 2017",
+                            "ogImage": "http://foo.com/img/app-icon.png?1504596901",
+                            "ogImageHeight": "200",
+                            "ogImageSecureUrl": "https://foo.com/img/app-icon.png?1504596901",
+                            "ogImageType": "image/png",
+                            "ogImageUrl": "http://foo.com/img/app-icon.png?1504596901",
+                            "ogImageWidth": "200",
+                            "ogTitle": "Trainers Panel I",
+                            "ogType": "article",
+                            "ogUrl": "https://foo.com/event/C8CT",
+                            "pageTitle": " Trainers Panel I",
+                            "title": "CppCon 2017: Trainers Panel I",
+                            "twitterCard": "summary",
+                            "twitterImage": "http://foo.com/img/app-icon.png?1504596901",
+                            "twitterSite": "@sched",
+                            "twitterTitle": "Trainers Panel I",
+                            "twitterUrl": "https://foo.com/event/C8CT"
+                        },
+                        "parsedUrl": {
+                            "hash": null,
+                            "host": "foo.com",
+                            "hostname": "foo.com",
+                            "pathname": "/event/C8CT",
+                            "port": null,
+                            "protocol": "https:",
+                            "query": null,
+                            "search": null
+                        },
+                        "url": "https://foo.com/event/C8CT"
+                    }
+                ]
+            }
+

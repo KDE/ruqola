@@ -48,8 +48,8 @@ void MessageTest::shouldParseMessage_data()
     att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
     att.setTitle(QStringLiteral("dd.pdf"));
     firstMessageRef.setAttachements({att});
-    qDebug() << "before  "<<firstMessageRef;
     QTest::addRow("first") << QStringLiteral("first") << firstMessageRef;
+    QTest::addRow("url") << QStringLiteral("url") << firstMessageRef;
 }
 
 void MessageTest::shouldParseMessage()
