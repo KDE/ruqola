@@ -230,7 +230,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
         const QString eventname = fields.value(QStringLiteral("eventName")).toString();
         const QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
-        qDebug() << " EVENT " << eventname << " contents " << contents << fields.value(QStringLiteral("args")).toArray().toVariantList();
+        qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QStringLiteral("args")).toArray().toVariantList();
 
         if (eventname.endsWith(QStringLiteral("/subscriptions-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();

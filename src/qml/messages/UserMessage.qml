@@ -48,7 +48,7 @@ Rectangle {
     
     id: messageMain
     color: "#eeeeee"
-    //TODO fixme url heigh
+    //TODO fixme url height
     implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight + 10, avatarRect.implicitHeight)
 
     anchors.bottomMargin: 200
@@ -78,13 +78,26 @@ Rectangle {
 
 
 
-    RowLayout {
+    GridLayout {
+        anchors.topMargin: Kirigami.Units.smallSpacing
+        anchors.fill: parent
+        anchors.rightMargin: Kirigami.Units.largeSpacing
+        anchors.leftMargin: Kirigami.Units.largeSpacing
+
+        columns: 3
+        
+        //spacing: Kirigami.Units.smallSpacing
+        
+
         /*
         Rectangle {
+            Layout.columnSpan: 3
             id: newDateRect
-            visible: i_date !== ""
-            implicitWidth: textLabel.font.pixelSize * 3
-            implicitHeight: textLabel.font.pixelSize * 3
+            anchors.fill: parent
+            Layout.fillWidth: true
+            //visible: i_date !== ""
+            implicitWidth: i_date.font.pixelSize * 3
+            implicitHeight: i_date.font.pixelSize * 3
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
 
             color: "red"
@@ -93,15 +106,6 @@ Rectangle {
             }
         }
         */
-        
-        anchors.topMargin: Kirigami.Units.smallSpacing
-        anchors.fill: parent
-        anchors.rightMargin: Kirigami.Units.largeSpacing
-        anchors.leftMargin: Kirigami.Units.largeSpacing
-
-        spacing: Kirigami.Units.smallSpacing
-        
-
         Rectangle {
             id: avatarRect
 
@@ -114,8 +118,8 @@ Rectangle {
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
             
             color: i_avatar !== "" ? "transparent" : MessageScript.stringToColour(i_username)
-            
             anchors.top: parent.top
+            //anchors.top: newDateRect.bottom
             Image {
                 anchors.fill: parent
                 visible: i_avatar !== ""
@@ -139,7 +143,7 @@ Rectangle {
 
                 text: {
                     //TODO verify if it works with non latin char.
-                    var match = i_username.match(/([a-zA-Z])([a-zA-Z])/);
+                    var match = i_aliasname.match(/([a-zA-Z])([a-zA-Z])/);
                     var abbrev = match[1].toUpperCase();
                     if (match.length > 2) {
                         abbrev += match[2].toLowerCase();
@@ -155,6 +159,7 @@ Rectangle {
             Layout.fillWidth: true
             radius: 3
             anchors.top: parent.top
+            //anchors.top: newDateRect.bottom
             anchors.bottom: parent.bottom
             anchors.bottomMargin: Kirigami.Units.smallSpacing
             anchors.leftMargin: Kirigami.Units.smallSpacing

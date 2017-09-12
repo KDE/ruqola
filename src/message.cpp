@@ -126,6 +126,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
 
             messageAttachement.setImageHeight(imageDimensionsParams.value(QStringLiteral("height")).toInt());
             messageAttachement.setImageWidth(imageDimensionsParams.value(QStringLiteral("width")).toInt());
+            //TODO validate image size
         }
 
         //Color
