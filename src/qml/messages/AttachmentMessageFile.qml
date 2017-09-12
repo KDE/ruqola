@@ -137,7 +137,7 @@ Rectangle {
                     textFormat: Text.RichText
 
 
-                    text: MessageScript.markdownme(RuqolaUtils.markdownToRichText(i_messageText))
+                    text: "Message File " + MessageScript.markdownme(RuqolaUtils.markdownToRichText(i_messageText))
                     wrapMode: Label.Wrap
 
                     onLinkActivated: attachmentFile.linkActivated(link)

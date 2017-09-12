@@ -183,11 +183,13 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mAllMessages.at(idx).editedAt();
     case MessageModel::EditedByUserName:
         return mAllMessages.at(idx).editedByUsername();
-        //TODO add missing roles.
     case MessageModel::Attachments: {
         QVariantList lst;
         for (const MessageAttachment &att : mAllMessages.at(idx).attachements()) {
             lst.append(QVariant::fromValue(att));
+        }
+        if (!lst.isEmpty()) {
+            qDebug() << " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa"<<lst;
         }
         return lst;
     }
@@ -201,5 +203,4 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     default:
         return QString();
     }    
-
 }

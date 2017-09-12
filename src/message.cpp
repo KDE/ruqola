@@ -72,6 +72,13 @@ void Message::parseUrls(const QJsonArray &urls)
         if (!urlStr.isUndefined()) {
             messageUrl.setUrl(urlStr.toString());
         }
+        const QJsonObject meta = url.value(QStringLiteral("meta")).toObject();
+        if (!meta.isEmpty()) {
+            const QJsonValue pageTitleStr = meta.value(QStringLiteral("pageTitle"));
+            if (!pageTitleStr.isUndefined()) {
+                messageUrl.setPageTitle(pageTitleStr.toString());
+            }
+        }
         //TODO add more
 
         if (!messageUrl.isEmpty()) {
