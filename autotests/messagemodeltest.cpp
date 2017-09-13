@@ -66,5 +66,6 @@ void MessageModelTest::shouldAddMessage()
     input.setMessageId(QStringLiteral("ff2"));
     w.addMessage(input);
     QCOMPARE(w.rowCount(), 2);
-
 }
+
+//TODO add remove message test

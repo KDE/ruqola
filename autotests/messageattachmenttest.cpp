@@ -66,6 +66,7 @@ void MessageAttachmentTest::shouldSerializeData()
         const MessageAttachment output = MessageAttachment::fromJSon(ba);
         QCOMPARE(input, output);
     }
+
     {
         MessageAttachment input;
         input.setColor(QStringLiteral("foo1"));

@@ -33,6 +33,11 @@
 #include <QJsonObject>
 #include <QJsonArray>
 
+namespace RuqolaTestWebSocket {
+RuqolaWebSocket *_k_ruqola_webSocket = nullptr;
+}
+
+
 void empty_callback(const QJsonDocument &doc, RocketChatAccount *)
 {
     Q_UNUSED(doc);
@@ -80,9 +85,13 @@ void DDPClient::initializeWebSocket()
 }
 
 void DDPClient::start()
-{
+{    
     if (!mWebSocket) {
-        mWebSocket = new RuqolaWebSocket(this);
+        if (!RuqolaTestWebSocket::_k_ruqola_webSocket) {
+            mWebSocket = new RuqolaWebSocket(this);
+        } else {
+            mWebSocket = RuqolaTestWebSocket::_k_ruqola_webSocket;
+        }
         initializeWebSocket();
     }
     connect(mRocketChatAccount, &RocketChatAccount::serverURLChanged, this, &DDPClient::onServerURLChange);
