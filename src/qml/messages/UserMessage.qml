@@ -44,9 +44,9 @@ Rectangle {
     property var i_date
     
     signal linkActivated(string link)
-
     
     id: messageMain
+
     color: "#eeeeee"
     //TODO fixme url height
     implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight + 10, avatarRect.implicitHeight)
@@ -121,11 +121,15 @@ Rectangle {
             anchors.top: parent.top
             //anchors.top: newDateRect.bottom
             Image {
+                id: avatarImage
+
                 anchors.fill: parent
                 visible: i_avatar !== ""
                 source: i_avatar
             }
             Text {
+                id: avatarText
+
                 visible: i_avatar == ""
                 anchors.fill: parent
                 anchors.margins: Kirigami.Units.smallSpacing
@@ -198,6 +202,7 @@ Rectangle {
                 }
                 Text {
                     id: textLabel
+
                     anchors.right: parent.right
                     anchors.left: parent.left
                     
@@ -214,6 +219,7 @@ Rectangle {
                 }
                 Repeater {
                     id: repeaterUrl
+
                     model: i_urls
                     property int implicitTextHeight
                     Text {
@@ -230,6 +236,8 @@ Rectangle {
                     }
                 }
                 Repeater {
+                    id: repearterAttachments
+
                     model: i_attachments
                     Row {
                          Text {

@@ -87,9 +87,9 @@ Rectangle {
         
     }
     
-    
     Kirigami.Label {
         id: textLabel
+
         color: Kirigami.Theme.textColor
         opacity: 1
         
@@ -107,5 +107,4 @@ Rectangle {
         
         onLinkActivated: messageMain.linkActivated(link)
     }
-
 }

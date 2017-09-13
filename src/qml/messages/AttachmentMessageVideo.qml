@@ -52,9 +52,9 @@ Rectangle {
 
     }
 
-
     Kirigami.Label {
         id: textLabel
+
         color: Kirigami.Theme.textColor
         opacity: 1
 
@@ -72,5 +72,4 @@ Rectangle {
 
         onLinkActivated: attachmentVideo.linkActivated(link)
     }
-
 }
