@@ -85,7 +85,6 @@ void Message::parseUrls(const QJsonArray &urls)
             mUrls.append(messageUrl);
         }
     }
-    //TODO
 }
 
 void Message::parseAttachment(const QJsonArray &attachments)

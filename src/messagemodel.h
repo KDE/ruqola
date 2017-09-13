@@ -86,8 +86,6 @@ public:
     */
     qint64 lastTimestamp() const;
 
-
-
 protected:
     QHash<int, QByteArray> roleNames() const override;
 
