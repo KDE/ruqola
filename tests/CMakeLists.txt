@@ -18,11 +18,13 @@ target_link_libraries(loadroomcachetest
     )
 
 ####
-set(simulatortest_SRCS simulator.cpp)
+set(simulatortest_SRCS simulator.cpp fakewebsocket.cpp)
 
 add_executable(simulatortest ${simulatortest_SRCS})
 
 target_link_libraries(simulatortest
     Qt5::Widgets
     KF5::KIOWidgets
+    Qt5::WebSockets
+    libruqolacore
     )

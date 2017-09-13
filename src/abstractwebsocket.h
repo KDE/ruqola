@@ -24,7 +24,8 @@
 #include <QObject>
 #include <QAbstractSocket>
 #include <QWebSocketProtocol>
-class AbstractWebSocket : public QObject
+#include "libruqola_private_export.h"
+class LIBRUQOLACORE_TESTS_EXPORT AbstractWebSocket : public QObject
 {
     Q_OBJECT
 public:

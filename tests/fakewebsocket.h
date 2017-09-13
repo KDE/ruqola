@@ -21,7 +21,7 @@
 #ifndef FAKEWEBSOCKET_H
 #define FAKEWEBSOCKET_H
 
-#include "abstractwebsocket.h"
+#include "../src/abstractwebsocket.h"
 
 #include <QAbstractSocket>
 #include <QUrl>
