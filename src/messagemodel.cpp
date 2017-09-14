@@ -135,10 +135,7 @@ void MessageModel::addMessage(const Message &message)
     int pos = i-mAllMessages.begin();
     bool messageChanged = false;
 
-//     if (qFind(m_allMessages.begin(), m_allMessages.end(), message) != m_allMessages.end()) {
     if (present) {
-//     if (pos != m_allMessages.size()) { // we're at the end
-//         qCDebug(RUQOLA_LOG) << "detecting a message change";
         messageChanged = true;
         //Figure out a better way to update just the really changed message
     } else {
