@@ -19,25 +19,31 @@
 */
 
 #include "simulator.h"
+#include "ruqolaregisterengine.h"
 
 #include <QApplication>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QTextEdit>
+#include <QStandardPaths>
 
 Simulator::Simulator(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mJsonTextEditor = new QTextEdit(this);
-    mJsonTextEditor->setAcceptRichText(false);
-    mainLayout->addWidget(mJsonTextEditor);
+    RuqolaRegisterEngine *engine = new RuqolaRegisterEngine;
+    if (engine->initialize()) {
 
-    QHBoxLayout *buttonLayout = new QHBoxLayout;
-    mainLayout->addLayout(buttonLayout);
-    QPushButton *sendButton = new QPushButton(QStringLiteral("Send"), this);
-    buttonLayout->addWidget(sendButton);
-    connect(sendButton, &QPushButton::clicked, this, &Simulator::slotSend);
+        QVBoxLayout *mainLayout = new QVBoxLayout(this);
+        mJsonTextEditor = new QTextEdit(this);
+        mJsonTextEditor->setAcceptRichText(false);
+        mainLayout->addWidget(mJsonTextEditor);
+
+        QHBoxLayout *buttonLayout = new QHBoxLayout;
+        mainLayout->addLayout(buttonLayout);
+        QPushButton *sendButton = new QPushButton(QStringLiteral("Send"), this);
+        buttonLayout->addWidget(sendButton);
+        connect(sendButton, &QPushButton::clicked, this, &Simulator::slotSend);
+    }
 }
 
 void Simulator::slotSend()
@@ -52,6 +58,7 @@ void Simulator::slotSend()
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    QStandardPaths::setTestModeEnabled(true);
     Simulator w;
     w.show();
     return app.exec();

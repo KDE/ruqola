@@ -19,8 +19,9 @@ target_link_libraries(loadroomcachetest
 
 ####
 set(simulatortest_SRCS simulator.cpp fakewebsocket.cpp)
+qt5_add_resources(simulatortestresources ../src/qml/qml.qrc ../src/ruqola.qrc)
 
-add_executable(simulatortest ${simulatortest_SRCS})
+add_executable(simulatortest ${simulatortest_SRCS} ${simulatortestresources})
 
 target_link_libraries(simulatortest
     Qt5::Widgets
