@@ -168,15 +168,6 @@ void Ruqola::sendMessage(const QString &roomID, const QString &message, const QS
     mRocketChatAccount->sendMessage(roomID, message, type);
 }
 
-void Ruqola::leaveRoom(const QString &roomID)
-{
-    mRocketChatAccount->leaveRoom(roomID);
-}
-
-void Ruqola::hideRoom(const QString &roomID)
-{
-    mRocketChatAccount->hideRoom(roomID);
-}
 
 MessageModel *Ruqola::getMessageModelForRoom(const QString &roomID)
 {

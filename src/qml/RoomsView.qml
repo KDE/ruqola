@@ -69,10 +69,10 @@ ListView {
             applicationWindow().pageStack.currentIndex = 1;
         }
         onHideRoom: {
-            Ruqola.hideRoom(d_roomID)
+            Ruqola.rocketChatAccount().hideRoom(d_roomID)
         }
         onLeaveRoom: {
-            Ruqola.leaveRoom(d_roomID)
+            Ruqola.rocketChatAccount().leaveRoom(d_roomID)
         }
     }
 }

@@ -85,9 +85,6 @@ public:
     */
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message, const QString &type);
 
-    Q_INVOKABLE void leaveRoom(const QString &roomID);
-    Q_INVOKABLE void hideRoom(const QString &roomID);
-
     /**
     * @brief Returns a model for room with ID @param roomID
     *
