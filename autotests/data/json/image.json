@@ -1,0 +1,39 @@
+Received: Message:{
+    "_id": "CD2LsyS4dNbj6TTjQ",
+    "_updatedAt": {
+        "$date": 1505399177846
+    },
+    "alias": "aliasname",
+    "attachments": [
+        {
+            "description": "",
+            "image_size": 1829038,
+            "image_type": "image/png",
+            "image_url": "/file-upload/Kt7DBWPe7pnadXDQH/test file",
+            "title": "Clipboard",
+            "title_link": "/file-upload/Kt7DBWPe7pnadXDQH/test file",
+            "title_link_download": true,
+            "type": "file"
+        }
+    ],
+    "channels": [
+    ],
+    "file": {
+        "_id": "Kt7DBWPe7pnadXDQH",
+        "name": "test file",
+        "type": "image/png"
+    },
+    "groupable": false,
+    "mentions": [
+    ],
+    "msg": "",
+    "rid": "dBWXYy4nyBHn8Q7dv",
+    "ts": {
+        "$date": 1505399177844
+    },
+    "u": {
+        "_id": "FwHz8w8PWWQRqrJjM",
+        "name": "name",
+        "username": "username"
+    }
+}

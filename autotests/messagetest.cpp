@@ -67,6 +67,22 @@ void MessageTest::shouldParseMessage_data()
     url.setPageTitle(QStringLiteral(" Trainers Panel I"));
     urlMessageRef.setUrls({url});
     QTest::addRow("url") << QStringLiteral("url") << urlMessageRef;
+
+    //Image
+    Message imageMessageRef;
+    imageMessageRef.setMessageId(QStringLiteral("9kHnbbjbHKHjXXQp7"));
+    imageMessageRef.setAlias(QStringLiteral("alias"));
+    imageMessageRef.setGroupable(false);
+    imageMessageRef.setTimeStamp(1504596899771);
+    imageMessageRef.setUsername(QStringLiteral("username"));
+    imageMessageRef.setUserId(QStringLiteral("bjBueJtHsHQECdkmH"));
+    imageMessageRef.setMessageType(Message::NormalText);
+    imageMessageRef.setUpdatedAt(1504596901803);
+    imageMessageRef.setEditedAt(0);
+    imageMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
+    imageMessageRef.setText(QStringLiteral("https://foo.com/event/whoa"));
+    QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
+
 }
 
 void MessageTest::shouldParseMessage()
