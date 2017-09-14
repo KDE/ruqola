@@ -221,7 +221,6 @@ Rectangle {
                     id: repeaterUrl
 
                     model: i_urls
-                    property int implicitTextHeight
                     Text {
                         text: MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.url))
                         color: "white"
