@@ -49,7 +49,24 @@ void MessageTest::shouldParseMessage_data()
     att.setTitle(QStringLiteral("dd.pdf"));
     firstMessageRef.setAttachements({att});
     QTest::addRow("first") << QStringLiteral("first") << firstMessageRef;
-    QTest::addRow("url") << QStringLiteral("url") << firstMessageRef;
+
+    Message urlMessageRef;
+    urlMessageRef.setMessageId(QStringLiteral("9kHnbbjbHKHjXXQp7"));
+    urlMessageRef.setAlias(QStringLiteral("alias"));
+    urlMessageRef.setGroupable(false);
+    urlMessageRef.setTimeStamp(1504596899771);
+    urlMessageRef.setUsername(QStringLiteral("username"));
+    urlMessageRef.setUserId(QStringLiteral("bjBueJtHsHQECdkmH"));
+    urlMessageRef.setMessageType(Message::NormalText);
+    urlMessageRef.setUpdatedAt(1504596901803);
+    urlMessageRef.setEditedAt(0);
+    urlMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
+    urlMessageRef.setText(QStringLiteral("https://foo.com/event/whoa"));
+    MessageUrl url;
+    url.setUrl(QStringLiteral("https://foo.com/event/C8CT"));
+    url.setPageTitle(QStringLiteral(" Trainers Panel I"));
+    urlMessageRef.setUrls({url});
+    QTest::addRow("url") << QStringLiteral("url") << urlMessageRef;
 }
 
 void MessageTest::shouldParseMessage()

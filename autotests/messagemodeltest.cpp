@@ -60,6 +60,7 @@ void MessageModelTest::shouldAddMessage()
     w.addMessage(input);
 
     QCOMPARE(w.rowCount(), 1);
+    //Don't create more element
     w.addMessage(input);
     QCOMPARE(w.rowCount(), 1);
 
