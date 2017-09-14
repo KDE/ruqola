@@ -163,8 +163,8 @@ void RocketChatBackend::onLoginStatusChanged()
                                                                                         };
 
         mRocketChatAccount->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
-        mRocketChatAccount->restapi()->setAuthToken(mRocketChatAccount->settings()->authToken());
-        mRocketChatAccount->restapi()->setUserId(mRocketChatAccount->settings()->userId());
+        mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->settings()->authToken());
+        mRocketChatAccount->restApi()->setUserId(mRocketChatAccount->settings()->userId());
         mRocketChatAccount->restApi()->channelList();
     }
 }
@@ -181,9 +181,9 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
         if (username == mRocketChatAccount->settings()->userName()) {
             mRocketChatAccount->settings()->setUserId(object[QStringLiteral("id")].toString());
             qCDebug(RUQOLA_LOG) << "User id set to " << mRocketChatAccount->settings()->userId();
-            mRocketChatAccount->restapi()->setUserName(mRocketChatAccount->settings()->userName());
-            mRocketChatAccount->restapi()->setPassword(mRocketChatAccount->settings()->password());
-            mRocketChatAccount->restapi()->login();
+            mRocketChatAccount->restApi()->setUserName(mRocketChatAccount->settings()->userName());
+            mRocketChatAccount->restApi()->setPassword(mRocketChatAccount->settings()->password());
+            mRocketChatAccount->restApi()->login();
         } else {
             //TODO add current user ? me ?
             User *user = new User;

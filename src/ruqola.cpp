@@ -116,7 +116,7 @@ RoomFilterProxyModel *Ruqola::roomFilterProxyModel() const
 
 RestApiRequest *Ruqola::restapi() const
 {
-    return mRocketChatAccount->restapi();
+    return mRocketChatAccount->restApi();
 }
 
 UsersForRoomModel *Ruqola::getUsersForRoomModel(const QString &roomId)

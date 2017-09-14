@@ -210,12 +210,7 @@ void RocketChatAccount::sendMessage(const QString &roomID, const QString &messag
     ddp()->method(QStringLiteral("sendMessage"), QJsonDocument(json), DDPClient::Persistent);
 }
 
-RestApiRequest *RocketChatAccount::restApi() const
-{
-    return mRestApi;
-}
-
-RestApiRequest *RocketChatAccount::restapi()
+RestApiRequest *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
         mRestApi = new RestApiRequest(this);

@@ -76,8 +76,7 @@ public:
     DDPClient *ddp();
 
     DDPClient::LoginStatus loginStatus();
-    RestApiRequest *restApi() const;
-    RestApiRequest *restapi();
+    RestApiRequest *restApi();
 
     //Make it private in future
     void slotInformTypingStatus(const QString &room, bool typing);
