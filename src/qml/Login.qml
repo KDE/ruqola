@@ -48,6 +48,7 @@ Kirigami.Page {
         spacing: 3
         Text {
             id: loginLabel
+
             text: i18n("Ruqola Log in")
             color: "#555"
             font.pixelSize: 40
@@ -57,6 +58,7 @@ Kirigami.Page {
         
         Item {
             id: spacer
+
             width: 30
             height: 30
         }
@@ -65,8 +67,10 @@ Kirigami.Page {
             width: parent.width
             text: i18n("Rocket Chat Server")    
         }
+
         TextField {
             id: urlField
+
             width: parent.width
             placeholderText: i18n("Enter address of the server")
         }
@@ -77,6 +81,7 @@ Kirigami.Page {
             width: parent.width
             text: i18n("Enter your username")
         }
+
         TextField {
             width: parent.width
             id: usernameField
@@ -119,6 +124,7 @@ Kirigami.Page {
 
         Item {
             id: spacer3
+
             width: 30
             height: 30
         }
