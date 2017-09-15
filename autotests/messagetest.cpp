@@ -70,17 +70,23 @@ void MessageTest::shouldParseMessage_data()
 
     //Image
     Message imageMessageRef;
-    imageMessageRef.setMessageId(QStringLiteral("9kHnbbjbHKHjXXQp7"));
-    imageMessageRef.setAlias(QStringLiteral("alias"));
+    imageMessageRef.setMessageId(QStringLiteral("CD2LsyS4dNbj6TTjQ"));
+    imageMessageRef.setAlias(QStringLiteral("aliasname"));
     imageMessageRef.setGroupable(false);
-    imageMessageRef.setTimeStamp(1504596899771);
+    imageMessageRef.setTimeStamp(1505399177844);
     imageMessageRef.setUsername(QStringLiteral("username"));
     imageMessageRef.setUserId(QStringLiteral("bjBueJtHsHQECdkmH"));
     imageMessageRef.setMessageType(Message::NormalText);
-    imageMessageRef.setUpdatedAt(1504596901803);
+    imageMessageRef.setUpdatedAt(1505399177846);
     imageMessageRef.setEditedAt(0);
     imageMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
     imageMessageRef.setText(QStringLiteral("https://foo.com/event/whoa"));
+
+    MessageAttachment attImage;
+    attImage.setTitle(QStringLiteral("Clipboard"));
+    attImage.setLink(QStringLiteral("/file-upload/Kt7DBWPe7pnadXDQH/test file"));
+    imageMessageRef.setAttachements({attImage});
+
     QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
 
 }

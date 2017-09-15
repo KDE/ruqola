@@ -105,18 +105,18 @@ void Message::parseAttachment(const QJsonArray &attachments)
             messageAttachement.setTitle(title.toString());
         }
 
-        if (attachment.contains(QStringLiteral("title_link"))) {
-            messageAttachement.setLink(attachment.value(QStringLiteral("title_link")).toString());
-            mMessageType = Message::MessageType::File;
+        if (attachment.contains(QStringLiteral("audio_url"))) {
+            messageAttachement.setLink(attachment.value(QStringLiteral("audio_url")).toString());
+            mMessageType = Message::MessageType::Audio;
         } else if (attachment.contains(QStringLiteral("video_url"))) {
             messageAttachement.setLink(attachment.value(QStringLiteral("video_url")).toString());
             mMessageType = Message::MessageType::Video;
         } else if (attachment.contains(QStringLiteral("image_url"))) {
             messageAttachement.setLink(attachment.value(QStringLiteral("image_url")).toString());
             mMessageType = Message::MessageType::Image;
-        } else if (attachment.contains(QStringLiteral("audio_url"))) {
-            messageAttachement.setLink(attachment.value(QStringLiteral("audio_url")).toString());
-            mMessageType = Message::MessageType::Audio;
+        } else if (attachment.contains(QStringLiteral("title_link"))) { //Last as an image_url can have a title_link
+            messageAttachement.setLink(attachment.value(QStringLiteral("title_link")).toString());
+            mMessageType = Message::MessageType::File;
         }
         //Add image dimension
         const QJsonValue imageDimensions = attachment.value(QStringLiteral("image_dimensions"));
