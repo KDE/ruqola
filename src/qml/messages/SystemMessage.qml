@@ -27,6 +27,7 @@ import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 
 import QtQuick.Layouts 1.1
+import "../ExtraColors.qml"
 
 Rectangle {
 
@@ -65,7 +66,7 @@ Rectangle {
     signal linkActivated(string link)
     
     id: messageMain
-    color: "#eeeeee"
+    color: MyColors.backgroundColor//"#eeeeee"
     implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight
     
     implicitWidth: 150
