@@ -27,7 +27,7 @@ import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 
 import QtQuick.Layouts 1.1
-import "../ExtraColors.qml"
+import KDE.Ruqola.ExtraColors 1.0 as MyColors
 
 Rectangle {
 
