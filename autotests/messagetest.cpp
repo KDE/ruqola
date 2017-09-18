@@ -75,12 +75,11 @@ void MessageTest::shouldParseMessage_data()
     imageMessageRef.setGroupable(false);
     imageMessageRef.setTimeStamp(1505399177844);
     imageMessageRef.setUsername(QStringLiteral("username"));
-    imageMessageRef.setUserId(QStringLiteral("bjBueJtHsHQECdkmH"));
+    imageMessageRef.setUserId(QStringLiteral("FwHz8w8PWWQRqrJjM"));
     imageMessageRef.setMessageType(Message::NormalText);
     imageMessageRef.setUpdatedAt(1505399177846);
     imageMessageRef.setEditedAt(0);
     imageMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
-    imageMessageRef.setText(QStringLiteral("https://foo.com/event/whoa"));
 
     MessageAttachment attImage;
     attImage.setTitle(QStringLiteral("Clipboard"));
