@@ -55,7 +55,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
-    qmlRegisterSingletonType(QUrl(QStringLiteral(":/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "Registring Extra Colors");
+    qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "Registring Extra Colors");
     (void)Ruqola::self();
     mEngine = new QQmlApplicationEngine;
 
