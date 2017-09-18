@@ -34,7 +34,7 @@
 #include <QJsonArray>
 
 namespace RuqolaTestWebSocket {
-RuqolaWebSocket *_k_ruqola_webSocket = nullptr;
+LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
 
@@ -60,20 +60,17 @@ DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
 DDPClient::~DDPClient()
 {
     mWebSocket->close();
-    delete mWebSocket;
+    if (!RuqolaTestWebSocket::_k_ruqola_webSocket) {
+        delete mWebSocket;
+        mWebSocket = nullptr;
+    }
     delete mRocketChatMessage;
+    mRocketChatMessage = nullptr;
 }
 
 void DDPClient::setServerUrl(const QString &url)
 {
     m_url = url;
-}
-
-void DDPClient::setWebSocket(AbstractWebSocket *socket)
-{
-    delete mWebSocket;
-    mWebSocket = socket;
-    initializeWebSocket();
 }
 
 void DDPClient::initializeWebSocket()

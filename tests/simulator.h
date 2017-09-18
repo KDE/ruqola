@@ -23,6 +23,7 @@
 
 #include <QWidget>
 class QTextEdit;
+class QPushButton;
 class Simulator : public QWidget
 {
     Q_OBJECT
@@ -31,7 +32,9 @@ public:
     ~Simulator() = default;
 private:
     void slotSend();
-    QTextEdit *mJsonTextEditor;
+    void slotUpdateButton();
+    QTextEdit *mJsonTextEditor = nullptr;
+    QPushButton *mSendButton = nullptr;
 };
 
 #endif // SIMULATOR_H

@@ -144,7 +144,6 @@ public:
     void setServerUrl(const QString &url);
     void start();
 
-    void setWebSocket(AbstractWebSocket *socket);
     LoginStatus loginStatus() const;
 
     quint64 toggleFavorite(const QString &roomID, bool favorite);

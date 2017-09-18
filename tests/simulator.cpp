@@ -20,16 +20,24 @@
 
 #include "simulator.h"
 #include "ruqolaregisterengine.h"
+#include "fakewebsocket.h"
 
 #include <QApplication>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QTextEdit>
 #include <QStandardPaths>
+#include <ruqolawebsocket.h>
+
+namespace RuqolaTestWebSocket {
+extern AbstractWebSocket *_k_ruqola_webSocket;
+}
+
 
 Simulator::Simulator(QWidget *parent)
     : QWidget(parent)
 {
+    RuqolaTestWebSocket::_k_ruqola_webSocket = new FakeWebSocket;
     RuqolaRegisterEngine *engine = new RuqolaRegisterEngine;
     if (engine->initialize()) {
 
@@ -37,13 +45,20 @@ Simulator::Simulator(QWidget *parent)
         mJsonTextEditor = new QTextEdit(this);
         mJsonTextEditor->setAcceptRichText(false);
         mainLayout->addWidget(mJsonTextEditor);
+        connect(mJsonTextEditor, &QTextEdit::textChanged, this, &Simulator::slotUpdateButton);
 
         QHBoxLayout *buttonLayout = new QHBoxLayout;
         mainLayout->addLayout(buttonLayout);
-        QPushButton *sendButton = new QPushButton(QStringLiteral("Send"), this);
-        buttonLayout->addWidget(sendButton);
-        connect(sendButton, &QPushButton::clicked, this, &Simulator::slotSend);
+        mSendButton = new QPushButton(QStringLiteral("Send"), this);
+        buttonLayout->addWidget(mSendButton);
+        mSendButton->setEnabled(false);
+        connect(mSendButton, &QPushButton::clicked, this, &Simulator::slotSend);
     }
+}
+
+void Simulator::slotUpdateButton()
+{
+    mSendButton->setEnabled(!mJsonTextEditor->toPlainText().isEmpty());
 }
 
 void Simulator::slotSend()

@@ -19,10 +19,12 @@
 */
 
 #include "fakewebsocket.h"
+#include <QDebug>
 
 FakeWebSocket::FakeWebSocket(QObject *parent)
     : AbstractWebSocket(parent)
 {
+    qDebug() <<"FakeWebSocket::FakeWebSocket(QObject *parent) "<<this;
 }
 
 void FakeWebSocket::forceSendTextMessage(const QString &message)
@@ -84,4 +86,5 @@ qint64 FakeWebSocket::sendBinaryMessage(const QByteArray &data)
 
 void FakeWebSocket::ignoreSslErrors()
 {
+    qDebug() << " void FakeWebSocket::ignoreSslErrors()";
 }
