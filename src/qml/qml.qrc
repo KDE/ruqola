@@ -8,6 +8,7 @@
         <file>Login.qml</file>
         <file>UserInput.qml</file>
         <file>LoginPage.qml</file>
+        <file>ExtraColors.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
