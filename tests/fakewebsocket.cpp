@@ -27,6 +27,11 @@ FakeWebSocket::FakeWebSocket(QObject *parent)
     qDebug() <<"FakeWebSocket::FakeWebSocket(QObject *parent) "<<this;
 }
 
+FakeWebSocket::~FakeWebSocket()
+{
+    qDebug() << "FakeWebSocket::~FakeWebSocket() " << this;
+}
+
 void FakeWebSocket::forceSendTextMessage(const QString &message)
 {
     sendTextMessage(message);
@@ -51,19 +56,23 @@ qint64 FakeWebSocket::sendTextMessage(const QString &message)
 
 bool FakeWebSocket::isValid() const
 {
+    qDebug() << "bool FakeWebSocket::isValid() const ";
     return true;
 }
 
 void FakeWebSocket::flush()
 {
+    qDebug() << " void FakeWebSocket::flush()";
 }
 
 void FakeWebSocket::close()
 {
+    qDebug() << " void FakeWebSocket::close()";
 }
 
 QAbstractSocket::SocketError FakeWebSocket::error() const
 {
+    qDebug() << " QAbstractSocket::SocketError FakeWebSocket::error() const";
     return {};
 }
 
@@ -75,11 +84,13 @@ QUrl FakeWebSocket::requestUrl() const
 
 QWebSocketProtocol::CloseCode FakeWebSocket::closeCode() const
 {
+    qDebug() << "QWebSocketProtocol::CloseCode FakeWebSocket::closeCode() const ";
     return {};
 }
 
 QString FakeWebSocket::closeReason() const
 {
+    qDebug() << "QString FakeWebSocket::closeReason() const ";
     return {};
 }
 

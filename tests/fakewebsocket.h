@@ -31,7 +31,7 @@ class FakeWebSocket : public AbstractWebSocket
     Q_OBJECT
 public:
     explicit FakeWebSocket(QObject *parent = nullptr);
-    ~FakeWebSocket() = default;
+    ~FakeWebSocket();
 
     void forceSendTextMessage(const QString &message);
     void forceSendBinaryMessage(const QByteArray &message);
