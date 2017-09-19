@@ -44,6 +44,7 @@ void RuqolaWebSocket::openUrl(const QUrl &url)
 
 qint64 RuqolaWebSocket::sendTextMessage(const QString &message)
 {
+    qDebug() << " qint64 RuqolaWebSocket::sendTextMessage(const QString &message)"<<message;
     return mWebSocket->sendTextMessage(message);
 }
 
