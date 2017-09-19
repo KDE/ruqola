@@ -134,7 +134,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomType(const 
     case RocketChatMessage::MultiUserChat:
         return saveRoomSettings(roomId, "roomType"_l1, "c"_l1);
     }
-    return {this, RocketChatMessage{"error-invalid-room-type"_l1, tr("Unsupported room type")}.toMessage()};
+    return {this, RocketChatMessage{"error-invalid-room-type"_l1, i18n("Unsupported room type")}.toMessage()};
 }
 */
 
