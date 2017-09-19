@@ -39,10 +39,13 @@ void FakeWebSocket::forceSendBinaryMessage(const QByteArray &message)
 
 void FakeWebSocket::openUrl(const QUrl &url)
 {
+    qDebug() << " void FakeWebSocket::openUrl(const QUrl &url)"<<url;
+    Q_EMIT connected();
 }
 
 qint64 FakeWebSocket::sendTextMessage(const QString &message)
 {
+    qDebug() << " FakeWebSocket::sendTextMessage(const QString &message)"<<message;
     return {};
 }
 
@@ -66,6 +69,7 @@ QAbstractSocket::SocketError FakeWebSocket::error() const
 
 QUrl FakeWebSocket::requestUrl() const
 {
+    qDebug() << " QUrl FakeWebSocket::requestUrl() const";
     return {};
 }
 
@@ -81,6 +85,7 @@ QString FakeWebSocket::closeReason() const
 
 qint64 FakeWebSocket::sendBinaryMessage(const QByteArray &data)
 {
+    qDebug() << " qint64 FakeWebSocket::sendBinaryMessage(const QByteArray &data)"<<data;
     return {};
 }
 
