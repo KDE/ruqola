@@ -124,10 +124,12 @@ int MessageModel::rowCount(const QModelIndex &parent) const
 
 void MessageModel::addMessage(const Message &message)
 {
+#if 0
     // Don't add empty messages
     if (message.text().isEmpty()) {
         return;
     }
+#endif
 
     auto existingMessage = std::find(mAllMessages.begin(), mAllMessages.end(), message);
     bool present = (existingMessage != mAllMessages.end());
