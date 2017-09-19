@@ -22,7 +22,7 @@
 #define CHANGETEMPORARYSTATUS_H
 
 #include <QObject>
-
+class QTimer;
 class ChangeTemporaryStatus : public QObject
 {
     Q_OBJECT
@@ -32,6 +32,9 @@ public:
 
 Q_SIGNALS:
     void changeStatusAway(bool away);
+
+private:
+    QTimer *mTimer = nullptr;
 };
 
 #endif // CHANGETEMPORARYSTATUS_H
