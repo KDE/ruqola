@@ -60,6 +60,7 @@ DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
 DDPClient::~DDPClient()
 {
     mWebSocket->close();
+    //Don't delete socket when we use specific socket.
     if (!RuqolaTestWebSocket::_k_ruqola_webSocket) {
         delete mWebSocket;
         mWebSocket = nullptr;
@@ -70,7 +71,7 @@ DDPClient::~DDPClient()
 
 void DDPClient::setServerUrl(const QString &url)
 {
-    m_url = url;
+    mUrl = url;
 }
 
 void DDPClient::initializeWebSocket()
@@ -93,8 +94,8 @@ void DDPClient::start()
     }
     connect(mRocketChatAccount, &RocketChatAccount::serverURLChanged, this, &DDPClient::onServerURLChange);
 
-    if (!m_url.isEmpty()) {
-        const QUrl serverUrl = adaptUrl(m_url);
+    if (!mUrl.isEmpty()) {
+        const QUrl serverUrl = adaptUrl(mUrl);
         mWebSocket->openUrl(serverUrl);
         qCDebug(RUQOLA_LOG) << "Trying to connect to URL" << serverUrl;
     } else {
@@ -109,15 +110,15 @@ QUrl DDPClient::adaptUrl(const QString &url)
 
 void DDPClient::onServerURLChange()
 {
-    if (mRocketChatAccount->settings()->serverUrl() != m_url || !mWebSocket->isValid()) {
+    if (mRocketChatAccount->settings()->serverUrl() != mUrl || !mWebSocket->isValid()) {
         if (mWebSocket->isValid()) {
             mWebSocket->flush();
             mWebSocket->close();
         }
-        m_url = mRocketChatAccount->settings()->serverUrl();
-        mWebSocket->openUrl(adaptUrl(m_url));
+        mUrl = mRocketChatAccount->settings()->serverUrl();
+        mWebSocket->openUrl(adaptUrl(mUrl));
         connect(mWebSocket, &AbstractWebSocket::connected, this, &DDPClient::onWSConnected);
-        qCDebug(RUQOLA_LOG) << "Reconnecting" << m_url;
+        qCDebug(RUQOLA_LOG) << "Reconnecting" << mUrl;
     }
 }
 
@@ -361,7 +362,7 @@ void DDPClient::login()
 
 void DDPClient::onWSConnected()
 {
-    qCDebug(RUQOLA_LOG) << "Websocket connected at URL" << m_url;
+    qCDebug(RUQOLA_LOG) << "Websocket connected at URL" << mUrl;
 
     QJsonArray supportedVersions;
     supportedVersions.append(QStringLiteral("1"));

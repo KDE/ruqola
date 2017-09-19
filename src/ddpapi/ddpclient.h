@@ -178,7 +178,7 @@ private:
     LoginType loginType() const;
     Q_INVOKABLE void setLoginType(LoginType t);
 
-    QString m_url;
+    QString mUrl;
     AbstractWebSocket *mWebSocket = nullptr;
 
     /**
