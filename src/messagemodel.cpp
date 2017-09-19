@@ -188,9 +188,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         for (const MessageAttachment &att : mAllMessages.at(idx).attachements()) {
             lst.append(QVariant::fromValue(att));
         }
-        if (!lst.isEmpty()) {
-            qDebug() << " AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa"<<lst;
-        }
         return lst;
     }
     case MessageModel::Urls: {
