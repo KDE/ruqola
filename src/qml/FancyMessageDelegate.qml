@@ -102,7 +102,18 @@ Rectangle {
             } else if (i_messageType === Message.Video) {
                 setSource("messages/AttachmentMessageVideo.qml")
             } else if (i_messageType === Message.Image) {
-                setSource("messages/AttachmentMessageImage.qml")
+                setSource("messages/AttachmentMessageImage.qml",
+                          {
+                              i_messageText: i_messageText,
+                              i_username: i_username,
+                              i_aliasname: i_aliasname,
+                              i_timestamp: i_timestamp,
+                              i_messageID: i_messageID,
+                              i_avatar: i_avatar,
+                              i_urls: i_urls,
+                              i_attachments: i_attachments
+                          })
+
             } else {
                 console.log("Unknown message type: " + i_messageType)
             }
