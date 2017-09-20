@@ -27,7 +27,7 @@ import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 
 import QtQuick.Layouts 1.1
-import KDE.Ruqola.ExtraColors 1.0 as MyColors
+import KDE.Ruqola.ExtraColors 1.0
 
 Rectangle {
 
@@ -66,7 +66,7 @@ Rectangle {
     signal linkActivated(string link)
     
     id: messageMain
-    color: MyColors.backgroundColor//"#eeeeee"
+    color: RuqolaSingleton.backgroundColor;
     implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight
     
     implicitWidth: 150

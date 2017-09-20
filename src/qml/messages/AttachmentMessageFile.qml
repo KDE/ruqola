@@ -24,6 +24,7 @@ import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.RuqolaUtils 1.0
+import KDE.Ruqola.ExtraColors 1.0
 import "../js/message.js" as MessageScript;
 
 Rectangle {
@@ -38,7 +39,7 @@ Rectangle {
     property var i_urls
     property var i_attachments
 
-    color: "#eeeeee"
+    color: RuqolaSingleton.backgroundColor;
     implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight, avatarRect.implicitHeight)
 
     anchors.bottomMargin: 200
