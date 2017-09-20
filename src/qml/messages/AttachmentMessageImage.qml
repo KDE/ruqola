@@ -237,7 +237,16 @@ Rectangle {
                     model: i_attachments
                     Row {
                          Text {
+                             id: titleAttachment
                              text: model.modelData.title
+                             visible: model.modelData.title !== ""
+                             width: 120
+                         }
+                         Text {
+                             id: descriptionAttachment
+
+                             visible: model.modelData.description !== ""
+                             text: model.modelData.description
                              width: 120
                          }
                     }
