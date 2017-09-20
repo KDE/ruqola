@@ -242,12 +242,21 @@ Rectangle {
                              visible: model.modelData.title !== ""
                              width: 120
                          }
+                         //TEST
+                         Text {
+                             width: 120
+                             text: model.modelData.link
+                         }
+
                          Text {
                              id: descriptionAttachment
 
                              visible: model.modelData.description !== ""
                              text: model.modelData.description
                              width: 120
+                         }
+                         Image {
+                             source: model.modelData.link
                          }
                     }
                 }
