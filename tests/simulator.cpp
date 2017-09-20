@@ -19,6 +19,7 @@
 */
 
 #include "simulator.h"
+#include "libruqolacore_export.h"
 #include "ruqolaregisterengine.h"
 #include "fakewebsocket.h"
 
@@ -30,7 +31,7 @@
 #include <ruqolawebsocket.h>
 
 namespace RuqolaTestWebSocket {
-extern AbstractWebSocket *_k_ruqola_webSocket;
+extern LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket;
 }
 
 
