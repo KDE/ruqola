@@ -78,7 +78,6 @@ public:
     Notification *notification();
 
     Q_INVOKABLE RoomModel *roomModel() const;
-    Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
 
     /**
     * @brief Constructs a Json with @param roomID and @param message and @param type, then calls DDPClient's method to send text message over the network
@@ -97,12 +96,6 @@ public:
     */
     Q_INVOKABLE void tryLogin();
 
-    /**
-    * @brief Finds room with @param roomID
-    *
-    * @return RoomWrapper Pointer, The room model for @param roomID
-    */
-    Q_INVOKABLE RoomWrapper *getRoom(const QString &roomID);
 
     RestApiRequest *restapi() const;
     Q_INVOKABLE UsersModel *usersModel() const;

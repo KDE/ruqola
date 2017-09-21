@@ -145,7 +145,7 @@ Kirigami.ApplicationWindow {
                 id: roomsList
                 implicitWidth: Kirigami.Units.gridUnit * 10
                 anchors.fill: parent
-                model: Ruqola.roomFilterProxyModel()
+                model: Ruqola.rocketChatAccount().roomFilterProxyModel()
                 selectedRoomID: appid.selectedRoomID;
                 onRoomSelected: {
                     if (roomID == selectedRoomID) {

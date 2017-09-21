@@ -109,11 +109,6 @@ RoomModel *Ruqola::roomModel() const
     return mRocketChatAccount->roomModel();
 }
 
-RoomFilterProxyModel *Ruqola::roomFilterProxyModel() const
-{
-    return mRocketChatAccount->roomFilterProxyModel();
-}
-
 RestApiRequest *Ruqola::restapi() const
 {
     return mRocketChatAccount->restApi();
@@ -172,11 +167,6 @@ DDPClient::LoginStatus Ruqola::loginStatus()
 void Ruqola::tryLogin()
 {
     mRocketChatAccount->tryLogin();
-}
-
-RoomWrapper *Ruqola::getRoom(const QString &roomID)
-{
-    return mRocketChatAccount->getRoom(roomID);
 }
 
 void Ruqola::slotInformTypingStatus(const QString &room, bool typing)
