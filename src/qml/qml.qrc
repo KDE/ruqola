@@ -9,6 +9,7 @@
         <file>UserInput.qml</file>
         <file>LoginPage.qml</file>
         <file alias="ExtraColors.qml">ExtraColors.qml</file>
+        <file>ActiveChat.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

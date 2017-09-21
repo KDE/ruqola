@@ -248,31 +248,8 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            ListView {
+            ActiveChat {
                 id: activeChat
-                model: appid.model
-
-                onCountChanged: {
-                    positionViewAtIndex(count - 1, ListView.Beginning)
-                }
-                
-                Component.onCompleted: positionViewAtIndex(count - 1, ListView.End)
-                visible : count > 0
-
-                delegate: FancyMessageDelegate {
-                    width: parent.width
-                    i_messageText: messageText
-                    i_username: username
-                    i_aliasname: alias
-                    i_systemMessageType: type
-                    i_timestamp: timestamp
-                    i_messageID: messageID
-                    i_messageType: messagetype
-                    i_avatar: avatar
-                    i_urls: urls
-                    i_attachments: attachments
-                    i_date: date
-                }
             }
             footer: UserInput {
                 id: userInputMessage
