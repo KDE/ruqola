@@ -86,7 +86,7 @@ Kirigami.ApplicationWindow {
                 text: i18n("Log out")
                 iconName: "system-log-out"
                 onTriggered: {
-                    Ruqola.logOut();
+                    Ruqola.rocketChatAccount().logOut();
                     appid.globalDrawer.drawerOpen = false;
                 }
             },
@@ -151,7 +151,7 @@ Kirigami.ApplicationWindow {
                     if (roomID == selectedRoomID) {
                         return;
                     }
-                    Ruqola.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
+                    Ruqola.rocketChatAccount().setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
                     console.log("Choosing room", roomID);
                     appid.selectedRoomID = roomID;
                     appid.model = Ruqola.rocketChatAccount().getMessageModelForRoom(roomID)
@@ -276,7 +276,7 @@ Kirigami.ApplicationWindow {
             }
             footer: UserInput {
                 id: userInputMessage
-                messageLineText: Ruqola.getUserCurrentMessage(appid.selectedRoomID)
+                messageLineText: Ruqola.rocketChatAccount().getUserCurrentMessage(appid.selectedRoomID)
                 onTextEditing: {
                     Ruqola.textEditing(appid.selectedRoomID, str)
                     appid.userInputMessageText = str;

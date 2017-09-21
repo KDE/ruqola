@@ -148,16 +148,6 @@ Notification *Ruqola::notification()
     return mNotification;
 }
 
-QString Ruqola::getUserCurrentMessage(const QString &roomId)
-{
-    return mRocketChatAccount->getUserCurrentMessage(roomId);
-}
-
-void Ruqola::setUserCurrentMessage(const QString &message, const QString &roomId)
-{
-    mRocketChatAccount->setUserCurrentMessage(message, roomId);
-}
-
 void Ruqola::textEditing(const QString &roomId, const QString &str)
 {
     mRocketChatAccount->textEditing(roomId, str);
@@ -192,11 +182,6 @@ DDPClient::LoginStatus Ruqola::loginStatus()
 void Ruqola::tryLogin()
 {
     mRocketChatAccount->tryLogin();
-}
-
-void Ruqola::logOut()
-{
-    mRocketChatAccount->logOut();
 }
 
 RoomWrapper *Ruqola::getRoom(const QString &roomID)

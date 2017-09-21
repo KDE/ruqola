@@ -19,9 +19,15 @@
 */
 
 #include "changetemporarystatus.h"
-
+#include <QTimer>
 //TODO use QTimer to change status
 ChangeTemporaryStatus::ChangeTemporaryStatus(QObject *parent)
     : QObject(parent)
 {
+    initialize();
+}
+
+void ChangeTemporaryStatus::initialize()
+{
+    mTimer = new QTimer(this);
 }

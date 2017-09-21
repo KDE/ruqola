@@ -34,6 +34,7 @@ Q_SIGNALS:
     void changeStatusAway(bool away);
 
 private:
+    void initialize();
     QTimer *mTimer = nullptr;
 };
 
