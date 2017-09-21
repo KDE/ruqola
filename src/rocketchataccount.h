@@ -89,6 +89,7 @@ public:
 
     RuqolaLogger *ruqolaLogger() const;
 
+    Q_INVOKABLE QString serverUrl() const;
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();

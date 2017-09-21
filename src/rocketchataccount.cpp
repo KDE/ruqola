@@ -304,3 +304,8 @@ void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 {
     ddp()->toggleFavorite(roomId, checked);
 }
+
+QString RocketChatAccount::serverUrl() const
+{
+    return mSettings->serverUrl();
+}
