@@ -255,7 +255,7 @@ Kirigami.ApplicationWindow {
                 id: userInputMessage
                 messageLineText: Ruqola.rocketChatAccount().getUserCurrentMessage(appid.selectedRoomID)
                 onTextEditing: {
-                    Ruqola.textEditing(appid.selectedRoomID, str)
+                    Ruqola.rocketChatAccount().textEditing(appid.selectedRoomID, str)
                     appid.userInputMessageText = str;
                 }
                 onClearUnreadMessages: {

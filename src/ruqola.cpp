@@ -119,11 +119,6 @@ RestApiRequest *Ruqola::restapi() const
     return mRocketChatAccount->restApi();
 }
 
-UsersForRoomModel *Ruqola::getUsersForRoomModel(const QString &roomId)
-{
-    return mRocketChatAccount->getUsersForRoomModel(roomId);
-}
-
 UsersModel *Ruqola::usersModel() const
 {
     return mRocketChatAccount->usersModel();
@@ -146,11 +141,6 @@ Notification *Ruqola::notification()
         mNotification->show();
     }
     return mNotification;
-}
-
-void Ruqola::textEditing(const QString &roomId, const QString &str)
-{
-    mRocketChatAccount->textEditing(roomId, str);
 }
 
 void Ruqola::sendMessage(const QString &roomID, const QString &message, const QString &type)
