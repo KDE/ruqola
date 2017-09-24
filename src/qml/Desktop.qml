@@ -72,16 +72,6 @@ Kirigami.ApplicationWindow {
         ]
         
         actions: [
-            /*
-            Kirigami.Action {
-                text: i18n("Preferences")
-                iconName: "user-available"
-                Kirigami.Action {
-                    text: i18n("Change theme")
-                    iconName: "preferences-desktop-theme"
-                }
-            },
-            */
             Kirigami.Action {
                 text: i18n("Log out")
                 iconName: "system-log-out"
@@ -247,7 +237,6 @@ Kirigami.ApplicationWindow {
                     visible: appid.selectedRoom
                 }
             }
-
             ActiveChat {
                 id: activeChat
             }
