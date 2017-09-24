@@ -21,7 +21,6 @@
  */
 
 #include "ruqola.h"
-#include "roommodel.h"
 #include "typingnotification.h"
 #include "ddpapi/ddpclient.h"
 #include "notification.h"
@@ -102,11 +101,6 @@ void Ruqola::setUserName(const QString &username)
 void Ruqola::setUserID(const QString &userID)
 {
     mRocketChatAccount->settings()->setUserId(userID);
-}
-
-RoomModel *Ruqola::roomModel() const
-{
-    return mRocketChatAccount->roomModel();
 }
 
 RestApiRequest *Ruqola::restapi() const

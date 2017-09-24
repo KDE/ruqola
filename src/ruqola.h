@@ -76,9 +76,6 @@ public:
 
     DDPClient *ddp() const;
     Notification *notification();
-
-    Q_INVOKABLE RoomModel *roomModel() const;
-
     /**
     * @brief Constructs a Json with @param roomID and @param message and @param type, then calls DDPClient's method to send text message over the network
     */
