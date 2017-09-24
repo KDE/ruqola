@@ -33,18 +33,33 @@ import KDE.Ruqola.DDPClient 1.0
 import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
+/*
+    anchors.fill: parent
+    TextField {
+        id: edit
 
+        placeholderText: i18n("Search...")
+
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+
+        anchors.margins: 10
+
+        onTextChanged: appid.model.setFilterFixedString(text)
+    }
+    */
 ListView {
     id: activeChat
     model: appid.model
-    
+
     onCountChanged: {
         positionViewAtIndex(count - 1, ListView.Beginning)
     }
-    
+
     Component.onCompleted: positionViewAtIndex(count - 1, ListView.End)
     visible : count > 0
-    
+
     delegate: FancyMessageDelegate {
         width: parent.width
         i_messageText: messageText
