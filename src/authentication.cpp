@@ -24,6 +24,7 @@
 #include "authentication.h"
 #include "ddpapi/ddpclient.h"
 #include "ruqola_debug.h"
+#include "rocketchataccount.h"
 
 #include <QOAuth2AuthorizationCodeFlow>
 #include <QFile>
@@ -85,7 +86,7 @@ void Authentication::OAuthLogin()
     qCDebug(RUQOLA_LOG) << "-------------------------";
     qCDebug(RUQOLA_LOG) << "-------------------------";
     qCDebug(RUQOLA_LOG) << "OAuth Json" << auth;
-    Ruqola::self()->ddp()->method(QStringLiteral("login"), QJsonDocument(auth));
+    Ruqola::self()->rocketChatAccount()->ddp()->method(QStringLiteral("login"), QJsonDocument(auth));
 
     QJsonArray requestPermissions;
     requestPermissions.append(QStringLiteral("email"));

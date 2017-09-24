@@ -73,10 +73,8 @@ public:
     QString serverURL() const;
     void setServerURL(const QString &serverURL);
 
-    DDPClient *ddp() const;
     Notification *notification();
 
-    RestApiRequest *restapi() const;
     Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
 
 Q_SIGNALS:

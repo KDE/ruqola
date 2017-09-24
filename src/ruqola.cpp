@@ -103,19 +103,9 @@ void Ruqola::setUserID(const QString &userID)
     mRocketChatAccount->settings()->setUserId(userID);
 }
 
-RestApiRequest *Ruqola::restapi() const
-{
-    return mRocketChatAccount->restApi();
-}
-
 void Ruqola::sendNotification(const QString &title, const QString &message)
 {
     notification()->showMessage(title, message, QSystemTrayIcon::Information, 5000);
-}
-
-DDPClient *Ruqola::ddp() const
-{
-    return mRocketChatAccount->ddp();
 }
 
 Notification *Ruqola::notification()
