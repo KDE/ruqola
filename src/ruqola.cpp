@@ -108,11 +108,6 @@ RestApiRequest *Ruqola::restapi() const
     return mRocketChatAccount->restApi();
 }
 
-UsersModel *Ruqola::usersModel() const
-{
-    return mRocketChatAccount->usersModel();
-}
-
 void Ruqola::sendNotification(const QString &title, const QString &message)
 {
     notification()->showMessage(title, message, QSystemTrayIcon::Information, 5000);
@@ -145,11 +140,6 @@ void Ruqola::setServerURL(const QString &serverURL)
 DDPClient::LoginStatus Ruqola::loginStatus()
 {
     return mRocketChatAccount->loginStatus();
-}
-
-void Ruqola::tryLogin()
-{
-    mRocketChatAccount->tryLogin();
 }
 
 void Ruqola::slotInformTypingStatus(const QString &room, bool typing)

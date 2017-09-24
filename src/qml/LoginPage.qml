@@ -36,6 +36,6 @@ Login {
         Ruqola.password = loginTab.password;
         Ruqola.userName = loginTab.username;
         Ruqola.serverURL = loginTab.serverURL;
-        Ruqola.tryLogin();
+        Ruqola.rocketChatAccount().tryLogin();
     }
 }

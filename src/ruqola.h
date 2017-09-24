@@ -33,7 +33,6 @@
 #include "notification.h"
 
 class TypingNotification;
-class UsersModel;
 class RestApiRequest;
 class RocketChatAccount;
 class UsersForRoomModel;
@@ -77,16 +76,7 @@ public:
     DDPClient *ddp() const;
     Notification *notification();
 
-
-    /**
-    * @brief Reset models, load cache and call DDPClient's object to automatically try to connect and log in via username and password
-    */
-    Q_INVOKABLE void tryLogin();
-
-
     RestApiRequest *restapi() const;
-    Q_INVOKABLE UsersModel *usersModel() const;
-
     Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
 
 Q_SIGNALS:
