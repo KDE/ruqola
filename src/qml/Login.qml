@@ -135,7 +135,7 @@ Kirigami.Page {
             width: parent.width
             color: "#FF0000"
             font.bold: true
-            visible: Ruqola.loginStatus == DDPClient.LoginFailed
+            visible: Ruqola.rocketChatAccount().loginStatus === DDPClient.LoginFailed
         }
     }
 }

@@ -58,7 +58,7 @@ Kirigami.ApplicationWindow {
     //header: Kirigami.ApplicationHeader {}
 
     pageStack.initialPage: [roomsComponent, mainComponent]
-    pageStack.visible: Ruqola.loginStatus == DDPClient.LoggedIn
+    pageStack.visible: Ruqola.rocketChatAccount().loginStatus === DDPClient.LoggedIn
 
     globalDrawer: Kirigami.GlobalDrawer {
         drawerOpen: false
@@ -99,7 +99,7 @@ Kirigami.ApplicationWindow {
     BusyIndicator {
         id: busy
         anchors.centerIn: parent
-        visible: Ruqola.loginStatus == DDPClient.LoggingIn
+        visible: Ruqola.rocketChatAccount().loginStatus === DDPClient.LoggingIn
     }
 
     Component {

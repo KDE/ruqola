@@ -45,7 +45,6 @@ class LIBRUQOLACORE_EXPORT Ruqola : public QObject
     Q_PROPERTY(QString userID READ userID WRITE setUserID NOTIFY userIDChanged)
     Q_PROPERTY(QString serverURL READ serverURL WRITE setServerURL NOTIFY serverURLChanged)
     Q_PROPERTY(QString password WRITE setPassword)
-    Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
 
 public:
 
@@ -68,8 +67,6 @@ public:
     void setAuthToken(const QString &token);
     QString authToken() const;
 
-    DDPClient::LoginStatus loginStatus();
-
     QString serverURL() const;
     void setServerURL(const QString &serverURL);
 
@@ -81,7 +78,6 @@ Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
     void serverURLChanged();
-    void loginStatusChanged();
 
 private:
     void sendNotification(const QString &title, const QString &message);

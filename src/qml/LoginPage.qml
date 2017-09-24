@@ -29,7 +29,7 @@ import KDE.Ruqola.DDPClient 1.0
 Login {
     id: loginTab
     anchors.fill: parent
-    visible: Ruqola.loginStatus != DDPClient.LoggedIn
+    visible: Ruqola.rocketChatAccount().loginStatus !== DDPClient.LoggedIn
     serverURL: Ruqola.serverURL
     username: Ruqola.userName
     onAccepted: {
