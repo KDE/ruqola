@@ -76,17 +76,7 @@ public:
 
     DDPClient *ddp() const;
     Notification *notification();
-    /**
-    * @brief Constructs a Json with @param roomID and @param message and @param type, then calls DDPClient's method to send text message over the network
-    */
-    Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message, const QString &type);
 
-    /**
-    * @brief Returns a model for room with ID @param roomID
-    *
-    * @return MessageModel Pointer, model for room
-    */
-    Q_INVOKABLE MessageModel *getMessageModelForRoom(const QString &roomID);
 
     /**
     * @brief Reset models, load cache and call DDPClient's object to automatically try to connect and log in via username and password

@@ -132,17 +132,6 @@ Notification *Ruqola::notification()
     return mNotification;
 }
 
-void Ruqola::sendMessage(const QString &roomID, const QString &message, const QString &type)
-{
-    mRocketChatAccount->sendMessage(roomID, message, type);
-}
-
-
-MessageModel *Ruqola::getMessageModelForRoom(const QString &roomID)
-{
-    return mRocketChatAccount->getMessageModelForRoom(roomID);
-}
-
 QString Ruqola::serverURL() const
 {
     return mRocketChatAccount->settings()->serverUrl();
