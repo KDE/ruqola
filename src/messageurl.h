@@ -47,9 +47,7 @@ public:
     QString description() const;
     void setDescription(const QString &description);
 
-
 private:
-    //TODO add more
     QString mUrl;
     QString mPageTitle;
     QString mDescription;

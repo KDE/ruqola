@@ -43,7 +43,7 @@ public:
         UserId,
         SystemMessageType,
         MessageId,
-        RoomID,
+        RoomId,
         UpdatedAt,
         EditedAt,
         EditedByUserName,

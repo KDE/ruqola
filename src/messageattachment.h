@@ -32,7 +32,6 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
     Q_PROPERTY(QString link READ link WRITE setLink)
     Q_PROPERTY(int imageHeight READ imageHeight WRITE setImageHeight)
     Q_PROPERTY(int imageWidth READ imageWidth WRITE setImageWidth)
-    //TODO add properties
 public:
     MessageAttachment();
     bool isEmpty() const;

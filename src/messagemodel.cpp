@@ -90,7 +90,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[UserId] = "userID";
     roles[SystemMessageType] = "type";
     roles[MessageId] = "messageID";
-    roles[RoomID] = "roomID";
+    roles[RoomId] = "roomID";
     roles[UpdatedAt] = "updatedAt";
     roles[EditedAt] = "editedAt";
     roles[EditedByUserName] = "editedByUsername";
