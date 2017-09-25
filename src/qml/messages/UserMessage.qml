@@ -29,6 +29,7 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.RuqolaUtils 1.0
+import KDE.Ruqola.ExtraColors 1.0
 import "../js/message.js" as MessageScript;
 
 Rectangle {
@@ -47,7 +48,7 @@ Rectangle {
     
     id: messageMain
 
-    color: "#eeeeee"
+    color: RuqolaSingleton.backgroundColor;
     //TODO fixme url height
     implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight + 10, avatarRect.implicitHeight)
 

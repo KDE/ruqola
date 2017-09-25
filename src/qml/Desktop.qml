@@ -259,7 +259,6 @@ Kirigami.ApplicationWindow {
         hide();
     }
 
-
     function toggleShow() {
         if (visible) {
             hide();
