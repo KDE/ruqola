@@ -85,9 +85,6 @@ public:
     */
     RoomWrapper *findRoom(const QString &roomID) const;
 
-
-    //void setActiveRoom(const QString &activeRoom);
-
     //Clear data and refill it with data in the cache, if there is
     void reset();
     void clear();
