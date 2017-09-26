@@ -239,6 +239,7 @@ Kirigami.ApplicationWindow {
             }
             ActiveChat {
                 id: activeChat
+                roomModel: appid.model
             }
             footer: UserInput {
                 id: userInputMessage
