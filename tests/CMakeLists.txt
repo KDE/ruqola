@@ -29,3 +29,16 @@ target_link_libraries(simulatortest
     Qt5::WebSockets
     libruqolacore
     )
+
+####
+set(messagemodelguitest_SRCS messagemodelgui.cpp)
+qt5_add_resources(messagemodelguitestresources ../src/qml/qml.qrc ../src/ruqola.qrc)
+
+add_executable(messagemodelguitest ${messagemodelguitest_SRCS} ${messagemodelguitestresources})
+
+target_link_libraries(messagemodelguitest
+    Qt5::Widgets
+    KF5::KIOWidgets
+    Qt5::WebSockets
+    libruqolacore
+    )
