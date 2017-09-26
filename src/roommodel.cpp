@@ -254,7 +254,7 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
                 Room *room = mRoomsList.at(i);
                 room->parseUpdateRoom(roomData);
-                Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
+                Q_EMIT dataChanged(createIndex(i, 1), createIndex(i, 1));
 
                 mRocketChatAccount->getMessageModelForRoom(room->id());
                 break;
@@ -275,7 +275,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomID, const QSt
             foundRoom->setTopic(topic);
             foundRoom->setAnnouncement(announcement);
             foundRoom->setName(name);
-            Q_EMIT dataChanged(createIndex(1, 1), createIndex(i, 1));
+            Q_EMIT dataChanged(createIndex(i, 1), createIndex(i, 1));
 
             mRocketChatAccount->getMessageModelForRoom(roomID);
             return;
