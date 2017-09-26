@@ -124,7 +124,27 @@ Kirigami.ApplicationWindow {
                     // do stuff
                 }
             }
-            
+/*
+            header: Item {
+                RowLayout {
+                    anchors {
+                        fill: parent
+                        margins: Kirigami.Units.smallSpacing
+                    }
+                    TextField {
+                        id: searchField
+                        focus: true
+                        Layout.minimumHeight: Layout.maximumHeight
+                        Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
+                        Layout.fillWidth: true
+                        placeholderText: i18n("Search...")
+                        onTextChanged: {
+                            //TODO
+                        }
+                    }
+                }
+            }
+*/
             background: Rectangle {
                 color: Kirigami.Theme.viewBackgroundColor
             }

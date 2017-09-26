@@ -57,16 +57,14 @@ Kirigami.BasicListItem {
     onClicked: {
         root.roomSelected(d_roomID);
     }
-    
-    Row {
-
-        
+    RowLayout {
         id: editingActions
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        width: 50
-        spacing: Kirigami.Units.smallSpacing
+        //anchors.top: parent.top
+        //anchors.bottom: parent.bottom
+        //anchors.right: parent.right
+        //anchors.rightMargin: Kirigami.Units.smallSpacing
+        //width: 50
+        //spacing: Kirigami.Units.smallSpacing
         Kirigami.Label {
             id: unreadMessage
 
@@ -80,7 +78,7 @@ Kirigami.BasicListItem {
         Kirigami.Icon {
             id: hideAction
 
-            visible: editingMode // && root.hover ?
+            visible: editingMode
             source: "hide_table_row"
             height: parent.height
             width: height

@@ -23,36 +23,38 @@
 import QtQuick 2.0
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.Ruqola 1.0
+import QtQuick.Layouts 1.1
 
 ListView {
     id: roomsList
 
+    anchors.fill: parent
     property string selectedRoomID;
     property bool editingMode: false;
     
     signal roomSelected(string roomID)
 
-    //Need to customize it
-    section.property: "sectionname"
-    section.criteria: ViewSection.FullString
-    section.delegate: sectionHeading
-
-    Component {
-        id: sectionHeading
-        Rectangle {
-            width: parent.width
-            height: childrenRect.height
-            color: "lightsteelblue"
-
-            Text {
-                anchors.leftMargin: 2*Kirigami.Units.smallSpacing
-                text: section
-                font.bold: true
-                color: "grey"
-                font.pixelSize: 18
-            }
-        }
-    }
+    section {
+         property: "sectionname"
+         delegate: Kirigami.AbstractListItem {
+             enabled: false
+             RowLayout {
+                 anchors {
+                     left: parent.left
+                     right: parent.right
+                     leftMargin: Kirigami.Units.smallSpacing
+                 }
+                 Kirigami.Label {
+                     id: sectionLabel
+                     text: section
+                     Layout.minimumHeight: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)
+                     elide: Text.ElideRight
+                     Layout.alignment: Qt.AlignHCenter
+                     Component.onCompleted: font.bold = true
+                 }
+             }
+         }
+     }
 
     delegate: RoomDelegate {
         d_name: name
