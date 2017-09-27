@@ -71,7 +71,7 @@ RowLayout {
 
         property string type: "text"
         onAccepted: {
-            if (text != "" && Ruqola.rocketChatAccount().loginStatus === DDPClient.rocketChatAccount().LoggedIn && !(selectedRoomID == "")) {
+            if (text != "" && Ruqola.rocketChatAccount().loginStatus === DDPClient.LoggedIn && !(selectedRoomID == "")) {
                 Ruqola.rocketChatAccount().sendMessage(selectedRoomID, text, type);
                 text = "";
             }
