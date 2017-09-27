@@ -51,7 +51,8 @@ Rectangle {
     color: RuqolaSingleton.backgroundColor;
     //TODO fixme url height
     implicitHeight: 4*Kirigami.Units.smallSpacing
-                    + Math.max((i_date !== "" ? textLabel.font.pixelSize * 2 : 0 ) + textLabel.implicitHeight+usernameLabel.implicitHeight + 10, avatarRect.implicitHeight)
+                    + Math.max((i_date !== "" ? textLabel.font.pixelSize * 2 : 0 )
+                               + textLabel.implicitHeight+usernameLabel.implicitHeight + 10, avatarRect.implicitHeight)
 
     anchors.bottomMargin: 200
     
@@ -102,7 +103,7 @@ Rectangle {
             color: RuqolaSingleton.backgroundColor;
             Text {
                 text: i_date
-                Layout.alignment: Qt.AlignHCenter
+                Layout.alignment: Qt.AlignRight
             }
         }
 
@@ -162,7 +163,6 @@ Rectangle {
             
             Layout.fillWidth: true
             radius: 3
-            //anchors.top: parent.top
             anchors.top: newDateRect.bottom
             anchors.bottom: parent.bottom
             anchors.bottomMargin: Kirigami.Units.smallSpacing
@@ -253,7 +253,6 @@ Rectangle {
             text: MessageScript.displayDateTime(i_timestamp)
             opacity: .5
 
-            //anchors.top: parent.top
             anchors.top: newDateRect.bottom
             anchors.right: parent.right
             anchors.leftMargin: Kirigami.Units.smallSpacing
