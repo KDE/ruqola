@@ -59,7 +59,7 @@ ListView {
     }
 
     Component.onCompleted: positionViewAtIndex(count - 1, ListView.End)
-    visible : count > 0
+    visible: count > 0
 
     delegate: FancyMessageDelegate {
         width: parent.width
