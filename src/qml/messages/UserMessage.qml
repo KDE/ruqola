@@ -92,13 +92,16 @@ Rectangle {
 
         /*
         Rectangle {
-            Layout.columnSpan: 3
             id: newDateRect
+
+            visible: i_date !== ""
+
+            Layout.columnSpan: 3
             anchors.fill: parent
             Layout.fillWidth: true
-            //visible: i_date !== ""
-            implicitWidth: i_date.font.pixelSize * 3
-            implicitHeight: i_date.font.pixelSize * 3
+
+            //implicitWidth: i_date.font.pixelSize * 3
+            implicitHeight: i_date.font.pixelSize * 2
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
 
             color: "red"
