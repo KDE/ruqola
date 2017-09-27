@@ -14,7 +14,6 @@
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
         <file alias="UserMessage.qml">messages/UserMessage.qml</file>
-        <file alias="AttachmentMessageFile.qml">messages/AttachmentMessageFile.qml</file>
         <file alias="AttachmentMessageAudio.qml">messages/AttachmentMessageAudio.qml</file>
         <file alias="AttachmentMessageImage.qml">messages/AttachmentMessageImage.qml</file>
         <file alias="AttachmentMessageVideo.qml">messages/AttachmentMessageVideo.qml</file>
