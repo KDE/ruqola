@@ -239,7 +239,7 @@ Rectangle {
                     id: repearterAttachments
 
                     model: i_attachments
-                    Row {
+                    Column {
                          Text {
                              text: model.modelData.title
                              width: 120
