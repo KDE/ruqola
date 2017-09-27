@@ -89,6 +89,7 @@ Rectangle {
 
         columns: 3
 
+
         Rectangle {
             id: newDateRect
 
@@ -101,9 +102,11 @@ Rectangle {
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
 
             color: RuqolaSingleton.backgroundColor;
-            Text {
-                text: i_date
-                horizontalAlignment: Text.AlignRight
+            Column {
+                Kirigami.Label {
+                    text: i_date
+                    horizontalAlignment: Text.AlignHCenter
+                }
             }
         }
 
@@ -119,7 +122,6 @@ Rectangle {
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
             
             color: i_avatar !== "" ? "transparent" : MessageScript.stringToColour(i_username)
-            //anchors.top: parent.top
             anchors.top: newDateRect.bottom
             Image {
                 id: avatarImage

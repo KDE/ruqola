@@ -62,6 +62,7 @@ Rectangle {
     property string i_aliasname
     property string i_systemMessageType
     property var i_timestamp
+    property string i_date
 
     signal linkActivated(string link)
     

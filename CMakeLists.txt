@@ -1,5 +1,5 @@
 # TODO customize it.
-set(RUQOLA_VERSION "0.3.8")
+set(RUQOLA_VERSION "0.3.9")
 cmake_minimum_required(VERSION 3.0)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 

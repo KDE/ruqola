@@ -55,9 +55,6 @@ public:
     bool parseUrls() const;
     void setParseUrls(bool parseUrls);
 
-    bool systemMessage() const;
-    void setSystemMessage(bool systemMessage);
-
     QString avatar() const;
     void setAvatar(const QString &avatar);
 

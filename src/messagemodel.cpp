@@ -186,7 +186,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::Attachments: {
         QVariantList lst;
         for (const MessageAttachment &att : mAllMessages.at(idx).attachements()) {
-            qDebug() << " ATTACHMEN?T "<<att;
+            qDebug() << " ATTACHMENT "<<att;
             lst.append(QVariant::fromValue(att));
         }
         return lst;
@@ -205,7 +205,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             QDateTime currentDate;
             currentDate.setMSecsSinceEpoch(mAllMessages.at(idx).timeStamp());
             if (previewDate.date() != currentDate.date()) {
-                return currentDate.toString();
+                return currentDate.date().toString();
             }
         }
         return QString();

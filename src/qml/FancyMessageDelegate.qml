@@ -68,10 +68,11 @@ Rectangle {
                               i_aliasname: i_aliasname,
                               i_timestamp: i_timestamp,
                               i_systemMessageType: i_systemMessageType,
-                              i_messageID: i_messageID
+                              i_messageID: i_messageID,
+                              i_date: i_date
                           }
                           )
-            } else if (i_messageType === Message.NormalText) {
+            } else if (i_messageType === Message.NormalText || i_messageType === Message.File) {
                 setSource("messages/UserMessage.qml",
                           {
                               i_messageText: i_messageText,
@@ -85,18 +86,6 @@ Rectangle {
                               i_date: i_date
                           }
                           )
-            } else if (i_messageType === Message.File) {
-                setSource("messages/AttachmentMessageFile.qml",
-                          {
-                              i_messageText: i_messageText,
-                              i_username: i_username,
-                              i_aliasname: i_aliasname,
-                              i_timestamp: i_timestamp,
-                              i_messageID: i_messageID,
-                              i_avatar: i_avatar,
-                              i_urls: i_urls,
-                              i_attachments: i_attachments
-                          })
             } else if (i_messageType === Message.Audio) {
                 setSource("messages/AttachmentMessageAudio.qml")
             } else if (i_messageType === Message.Video) {

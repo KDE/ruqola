@@ -59,12 +59,6 @@ Kirigami.BasicListItem {
     }
     RowLayout {
         id: editingActions
-        //anchors.top: parent.top
-        //anchors.bottom: parent.bottom
-        //anchors.right: parent.right
-        //anchors.rightMargin: Kirigami.Units.smallSpacing
-        //width: 50
-        //spacing: Kirigami.Units.smallSpacing
         Kirigami.Label {
             id: unreadMessage
 
