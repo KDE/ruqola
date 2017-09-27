@@ -103,7 +103,7 @@ Rectangle {
             color: RuqolaSingleton.backgroundColor;
             Text {
                 text: i_date
-                Layout.alignment: Qt.AlignRight
+                horizontalAlignment: Text.AlignRight
             }
         }
 
