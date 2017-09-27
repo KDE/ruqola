@@ -32,7 +32,7 @@ target_link_libraries(simulatortest
 
 ####
 set(messagemodelguitest_SRCS messagemodelgui.cpp)
-qt5_add_resources(messagemodelguitestresources ../src/qml/qml.qrc ../src/ruqola.qrc)
+qt5_add_resources(messagemodelguitestresources ../src/qml/qml.qrc ../src/ruqola.qrc  messagemodelgui.qrc)
 
 add_executable(messagemodelguitest ${messagemodelguitest_SRCS} ${messagemodelguitestresources})
 

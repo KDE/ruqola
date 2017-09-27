@@ -47,7 +47,7 @@ MessageModelGui::MessageModelGui(QWidget *parent)
     //Add model
 
     //Customize it.
-    mEngine->load(QUrl(QStringLiteral("qrc:/Desktop.qml")));
+    mEngine->load(QUrl(QStringLiteral("qrc:/messagemodelgui.qml")));
 
     if (mEngine->rootObjects().isEmpty()) {
         //TODO create widget
@@ -64,6 +64,13 @@ void MessageModelGui::fillModel()
     m1.setTimeStamp(1);
 
     mModel->addMessage(m1);
+    Message m2;
+    m2.setMessageType(Message::MessageType::NormalText);
+    m2.setMessageId(QStringLiteral("3"));
+    m2.setText(QStringLiteral("foo"));
+    m2.setTimeStamp(2);
+    mModel->addMessage(m2);
+    //ADD more
 }
 
 int main(int argc, char *argv[])
