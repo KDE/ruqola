@@ -86,10 +86,6 @@ Rectangle {
         anchors.leftMargin: Kirigami.Units.largeSpacing
 
         columns: 3
-        
-        //spacing: Kirigami.Units.smallSpacing
-        
-
         /*
         Rectangle {
             id: newDateRect
@@ -97,19 +93,19 @@ Rectangle {
             visible: i_date !== ""
 
             Layout.columnSpan: 3
-            anchors.fill: parent
             Layout.fillWidth: true
 
-            //implicitWidth: i_date.font.pixelSize * 3
-            implicitHeight: i_date.font.pixelSize * 2
+            implicitHeight: textLabel.font.pixelSize * 2
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
 
             color: "red"
             Text {
                 text: i_date
+                Layout.alignment: Qt.AlignHCenter
             }
         }
         */
+
         Rectangle {
             id: avatarRect
 
