@@ -6,5 +6,5 @@ import KDE.Ruqola.RoomFilterProxyModel 1.0
 
 
 Rectangle {
-
+    color: "#eeeeee"
 }

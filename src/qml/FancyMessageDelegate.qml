@@ -28,7 +28,7 @@ import KDE.Ruqola.Message 1.0
 
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
-
+import KDE.Ruqola.ExtraColors 1.0
 import QtQuick.Layouts 1.1
 
 Rectangle {
@@ -47,7 +47,7 @@ Rectangle {
     property var i_date
 
     id: messageMain
-    color: "#eeeeee"
+    color: RuqolaSingleton.backgroundColor
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.implicitHeight
     
     implicitWidth: 150
