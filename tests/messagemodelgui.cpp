@@ -31,11 +31,15 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QHBoxLayout>
+#include <ruqolautils.h>
 
 MessageModelGui::MessageModelGui(QWidget *parent)
     : QWidget(parent)
 {
     fillModel();
+    qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "RuqolaSingleton");
+    qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
+
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));

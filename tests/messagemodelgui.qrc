@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file alias="messagemodelgui.qml">qml/messagemodelgui.qml</file>
+        <file alias="ActiveChat.qml">qml/ActiveChat.qml</file>
     </qresource>
 </RCC>

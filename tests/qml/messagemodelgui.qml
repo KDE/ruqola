@@ -35,6 +35,10 @@ Kirigami.ApplicationWindow {
                     width: 30
                     height: 30
                 }
+
+                ActiveChat {
+
+                }
             }
         }
     }
