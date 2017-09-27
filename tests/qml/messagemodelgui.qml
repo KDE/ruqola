@@ -4,33 +4,38 @@ import QtQuick.Layouts 1.1
 
 import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
-
 Kirigami.ApplicationWindow {
+    visible: true
+    title: "Hello World"
 
-    Kirigami.Page {
-        Column {
-            id: form
+    pageStack.initialPage: [roomsComponent]
 
-            anchors.centerIn: parent
-            width: 0.8*parent.width
-            spacing: 3
-            Text {
-                id: loginLabel
+    Component {
+        id: roomsComponent
+        Kirigami.ScrollablePage {
+            Column {
+                id: form
 
-                text: i18n("Ruqola Log in")
-                color: "#555"
-                font.pixelSize: 40
-                horizontalAlignment: Text.AlignHCenter
-                width: parent.width
-            }
+                anchors.centerIn: parent
+                width: 0.8*parent.width
+                spacing: 3
+                Text {
+                    id: loginLabel
 
-            Item {
-                id: spacer
+                    text: i18n("Ruqola Log in")
+                    color: "#555"
+                    font.pixelSize: 40
+                    horizontalAlignment: Text.AlignHCenter
+                    width: parent.width
+                }
 
-                width: 30
-                height: 30
+                Item {
+                    id: spacer
+
+                    width: 30
+                    height: 30
+                }
             }
         }
     }
 }
-
