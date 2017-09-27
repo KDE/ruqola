@@ -32,6 +32,7 @@
 #include <QQmlContext>
 #include <QHBoxLayout>
 #include <ruqolautils.h>
+#include <ruqola.h>
 
 MessageModelGui::MessageModelGui(QWidget *parent)
     : QWidget(parent)
@@ -39,7 +40,7 @@ MessageModelGui::MessageModelGui(QWidget *parent)
     fillModel();
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "RuqolaSingleton");
     qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
-
+    qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
@@ -47,13 +48,14 @@ MessageModelGui::MessageModelGui(QWidget *parent)
 
     QQmlContext *ctxt = mEngine->rootContext();
     ctxt->setContextObject(new KLocalizedContext(mEngine));
+    ctxt->setContextProperty(QStringLiteral("messageModel"), mModel);
 
     //Add model
 
     //Customize it.
     mEngine->load(QUrl(QStringLiteral("qrc:/messagemodelgui.qml")));
 
-    if (mEngine->rootObjects().isEmpty()) {
+    if (!mEngine->rootObjects().isEmpty()) {
         //TODO create widget
     }
 }
@@ -65,15 +67,28 @@ void MessageModelGui::fillModel()
     m1.setMessageType(Message::MessageType::NormalText);
     m1.setMessageId(QStringLiteral("1"));
     m1.setText(QStringLiteral("foo"));
-    m1.setTimeStamp(1);
+    m1.setUsername(QStringLiteral("blabla"));
+    m1.setTimeStamp(QDateTime(QDate(2017, 03, 03), QTime(11, 30, 00)).toMSecsSinceEpoch());
+    m1.setAlias(QStringLiteral("bla"));
 
     mModel->addMessage(m1);
     Message m2;
     m2.setMessageType(Message::MessageType::NormalText);
     m2.setMessageId(QStringLiteral("3"));
-    m2.setText(QStringLiteral("foo"));
-    m2.setTimeStamp(2);
+    m2.setText(QStringLiteral("bla bla bla bla bla bla"));
+    m2.setTimeStamp(QDateTime(QDate(2017, 03, 03), QTime(11, 31, 00)).toMSecsSinceEpoch());
+    m2.setUsername(QStringLiteral("blo"));
+    m2.setAlias(QStringLiteral("bla"));
     mModel->addMessage(m2);
+
+    Message m3;
+    m3.setMessageType(Message::MessageType::NormalText);
+    m3.setMessageId(QStringLiteral("4"));
+    m3.setText(QStringLiteral("next day"));
+    m3.setTimeStamp(QDateTime(QDate(2017, 03, 04), QTime(11, 31, 00)).toMSecsSinceEpoch());
+    m3.setUsername(QStringLiteral("blo"));
+    m3.setAlias(QStringLiteral("bla"));
+    mModel->addMessage(m3);
     //ADD more
 }
 
