@@ -50,7 +50,8 @@ Rectangle {
 
     color: RuqolaSingleton.backgroundColor;
     //TODO fixme url height
-    implicitHeight: 4*Kirigami.Units.smallSpacing + Math.max(textLabel.implicitHeight+usernameLabel.implicitHeight + 10, avatarRect.implicitHeight)
+    implicitHeight: 4*Kirigami.Units.smallSpacing
+                    + Math.max((i_date !== "" ? textLabel.font.pixelSize * 2 : 0 ) + textLabel.implicitHeight+usernameLabel.implicitHeight + 10, avatarRect.implicitHeight)
 
     anchors.bottomMargin: 200
     
@@ -86,7 +87,7 @@ Rectangle {
         anchors.leftMargin: Kirigami.Units.largeSpacing
 
         columns: 3
-        /*
+
         Rectangle {
             id: newDateRect
 
@@ -95,16 +96,15 @@ Rectangle {
             Layout.columnSpan: 3
             Layout.fillWidth: true
 
-            implicitHeight: textLabel.font.pixelSize * 2
+            implicitHeight: i_date !== "" ? textLabel.font.pixelSize * 2 : 0
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
 
-            color: "red"
+            color: RuqolaSingleton.backgroundColor;
             Text {
                 text: i_date
                 Layout.alignment: Qt.AlignHCenter
             }
         }
-        */
 
         Rectangle {
             id: avatarRect
@@ -118,8 +118,8 @@ Rectangle {
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
             
             color: i_avatar !== "" ? "transparent" : MessageScript.stringToColour(i_username)
-            anchors.top: parent.top
-            //anchors.top: newDateRect.bottom
+            //anchors.top: parent.top
+            anchors.top: newDateRect.bottom
             Image {
                 id: avatarImage
 
@@ -162,8 +162,8 @@ Rectangle {
             
             Layout.fillWidth: true
             radius: 3
-            anchors.top: parent.top
-            //anchors.top: newDateRect.bottom
+            //anchors.top: parent.top
+            anchors.top: newDateRect.bottom
             anchors.bottom: parent.bottom
             anchors.bottomMargin: Kirigami.Units.smallSpacing
             anchors.leftMargin: Kirigami.Units.smallSpacing
@@ -253,7 +253,8 @@ Rectangle {
             text: MessageScript.displayDateTime(i_timestamp)
             opacity: .5
 
-            anchors.top: parent.top
+            //anchors.top: parent.top
+            anchors.top: newDateRect.bottom
             anchors.right: parent.right
             anchors.leftMargin: Kirigami.Units.smallSpacing
 
