@@ -38,17 +38,17 @@ Rectangle {
         } else if (type === "ul") {
             return i18n("has left the channel");
         } else if (type === "room_changed_topic") {
-            return i18n("changed topic to: <i>%1</i>").arg(i_messageText)
+            return i18n("changed topic to: <i>%1</i>", i_messageText)
         } else if (type === "au") {
-            return i18n("added %1 to the conversation").arg(i_messageText)
+            return i18n("added %1 to the conversation", i_messageText)
         } else if (type === "r") {
-            return i18n("changed room name to <a href=\"ruqola:/room/%1\">#%1</a>").arg(i_messageText)
+            return i18n("changed room name to <a href=\"ruqola:/room/%1\">#%1</a>", i_messageText)
         } else if (type === "ru") {
-            return i18n("removed user %1").arg(i_messageText)
+            return i18n("removed user %1", i_messageText)
         } else if (type === "room_changed_description") {
-            return i18n("changed room description to %1").arg(i_messageText)
+            return i18n("changed room description to %1", i_messageText)
         }  else if (type === "room_changed_privacy") {
-            return i18n("changed room privacy to %1").arg(i_messageText)
+            return i18n("changed room privacy to %1", i_messageText)
         } else {
             console.log("Unkown type for message");
             console.log(type);
