@@ -91,15 +91,94 @@ void MessageModelGui::fillModel()
     mModel->addMessage(m3);
 
     //System message
-    Message m4;
-    m4.setMessageType(Message::MessageType::System);
-    m4.setMessageId(QStringLiteral("5"));
-    m4.setText(QStringLiteral("uj"));
-    m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
-    m4.setUsername(QStringLiteral("blo"));
-    m4.setAlias(QStringLiteral("bla"));
-    m4.setSystemMessageType(QStringLiteral("uj"));
-    mModel->addMessage(m4);
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QStringLiteral("5"));
+        m4.setText(QStringLiteral("uj"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setSystemMessageType(QStringLiteral("uj"));
+        mModel->addMessage(m4);
+    }
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QStringLiteral("6"));
+        m4.setText(QStringLiteral("ul"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setSystemMessageType(QStringLiteral("ul"));
+        mModel->addMessage(m4);
+    }
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QStringLiteral("7"));
+        m4.setText(QStringLiteral("room_changed_topic"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setSystemMessageType(QStringLiteral("room_changed_topic"));
+        mModel->addMessage(m4);
+    }
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QStringLiteral("8"));
+        m4.setText(QStringLiteral("room_changed_topic"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setSystemMessageType(QStringLiteral("au"));
+        mModel->addMessage(m4);
+    }
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QStringLiteral("9"));
+        m4.setText(QStringLiteral("room_changed_topic"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setSystemMessageType(QStringLiteral("r"));
+        mModel->addMessage(m4);
+    }
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QStringLiteral("10"));
+        m4.setText(QStringLiteral("room_changed_topic"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setSystemMessageType(QStringLiteral("room_changed_description"));
+        mModel->addMessage(m4);
+    }
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QStringLiteral("11"));
+        m4.setText(QStringLiteral("room_changed_topic"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setSystemMessageType(QStringLiteral("room_changed_privacy"));
+        mModel->addMessage(m4);
+    }
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QStringLiteral("11"));
+        m4.setText(QStringLiteral("room_changed_topic"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setSystemMessageType(QStringLiteral("sss"));
+        mModel->addMessage(m4);
+    }
 
     //ADD more
 }
