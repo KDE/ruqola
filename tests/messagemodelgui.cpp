@@ -179,6 +179,17 @@ void MessageModelGui::fillModel()
         m4.setSystemMessageType(QStringLiteral("sss"));
         mModel->addMessage(m4);
     }
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QStringLiteral("12"));
+        m4.setText(QStringLiteral("room_changed_topic"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setSystemMessageType(QStringLiteral("ru"));
+        mModel->addMessage(m4);
+    }
 
     //ADD more
 }
