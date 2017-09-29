@@ -52,26 +52,25 @@ Rectangle {
         color: Kirigami.Theme.disabledTextColor
         radius: 4*Kirigami.Units.smallSpacing
 
-    }
+        Kirigami.Label {
+            id: textLabel
 
-    Kirigami.Label {
-        id: textLabel
+            color: Kirigami.Theme.textColor
+            opacity: 1
 
-        color: Kirigami.Theme.textColor
-        opacity: 1
+            anchors.centerIn: parent
+            anchors.leftMargin: Kirigami.Units.smallSpacing
+            anchors.rightMargin: Kirigami.Units.smallSpacing
 
-        anchors.centerIn: parent
-        anchors.leftMargin: Kirigami.Units.smallSpacing
-        anchors.rightMargin: Kirigami.Units.smallSpacing
+            width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
 
-        width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
+            text: i18n(" Video Message ")
 
-        text: i18n(" Video Message ")
+            wrapMode: Label.Wrap
 
-        wrapMode: Label.Wrap
+            renderType: Text.NativeRendering
 
-        renderType: Text.NativeRendering
-
-        onLinkActivated: attachmentVideo.linkActivated(link)
+            onLinkActivated: attachmentVideo.linkActivated(link)
+        }
     }
 }

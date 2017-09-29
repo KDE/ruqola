@@ -309,3 +309,13 @@ QString RocketChatAccount::serverUrl() const
 {
     return mSettings->serverUrl();
 }
+
+void RocketChatAccount::openDirectChat(const QString &url)
+{
+    //TODO
+}
+
+void RocketChatAccount::openChannel(const QString &url)
+{
+    //TODO
+}

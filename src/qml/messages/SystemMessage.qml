@@ -73,7 +73,7 @@ Rectangle {
     implicitWidth: 150
     
     anchors.bottomMargin: 200
-    
+
     Rectangle {
         
         anchors.rightMargin: 2*Kirigami.Units.largeSpacing
@@ -87,26 +87,25 @@ Rectangle {
         color: Kirigami.Theme.disabledTextColor
         radius: 4*Kirigami.Units.smallSpacing
         
-    }
-    
-    Kirigami.Label {
-        id: textLabel
+        Kirigami.Label {
+            id: textLabel
 
-        color: Kirigami.Theme.textColor
-        opacity: 1
-        
-        anchors.centerIn: parent
-        anchors.leftMargin: Kirigami.Units.smallSpacing
-        anchors.rightMargin: Kirigami.Units.smallSpacing
-        
-        width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
-        
-        text: i_username + " " + getTextFor(i_systemMessageType)
+            color: Kirigami.Theme.textColor
+            opacity: 1
+
+            anchors.centerIn: parent
+            anchors.leftMargin: Kirigami.Units.smallSpacing
+            anchors.rightMargin: Kirigami.Units.smallSpacing
+
+            width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
+
+            text: i_username + " " + getTextFor(i_systemMessageType)
             
-        wrapMode: Label.Wrap
-        
-        renderType: Text.NativeRendering
-        
-        onLinkActivated: messageMain.linkActivated(link)
+            wrapMode: Label.Wrap
+
+            renderType: Text.NativeRendering
+
+            onLinkActivated: messageMain.linkActivated(link)
+        }
     }
 }

@@ -90,6 +90,8 @@ public:
     RuqolaLogger *ruqolaLogger() const;
 
     Q_INVOKABLE QString serverUrl() const;
+    Q_INVOKABLE void openDirectChat(const QString &url);
+    Q_INVOKABLE void openChannel(const QString &url);
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
