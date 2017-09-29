@@ -33,6 +33,7 @@ private:
     void fillModel();
     QQmlApplicationEngine *mEngine = nullptr;
     MessageModel *mModel = nullptr;
+    int mIndexMessage = 1;
 };
 
 #endif // MESSAGEMODELGUI_H

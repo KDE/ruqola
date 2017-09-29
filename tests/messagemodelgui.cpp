@@ -37,6 +37,10 @@
 MessageModelGui::MessageModelGui(QWidget *parent)
     : QWidget(parent)
 {
+    QGridLayout *grid = new QGridLayout(this);
+
+
+
     fillModel();
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "RuqolaSingleton");
     qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
@@ -50,9 +54,6 @@ MessageModelGui::MessageModelGui(QWidget *parent)
     ctxt->setContextObject(new KLocalizedContext(mEngine));
     ctxt->setContextProperty(QStringLiteral("messageModel"), mModel);
 
-    //Add model
-
-    //Customize it.
     mEngine->load(QUrl(QStringLiteral("qrc:/messagemodelgui.qml")));
 
     if (!mEngine->rootObjects().isEmpty()) {
@@ -62,10 +63,11 @@ MessageModelGui::MessageModelGui(QWidget *parent)
 
 void MessageModelGui::fillModel()
 {
+    mIndexMessage = 1;
     mModel = new MessageModel();
     Message m1;
     m1.setMessageType(Message::MessageType::NormalText);
-    m1.setMessageId(QStringLiteral("1"));
+    m1.setMessageId(QString::number(mIndexMessage++));
     m1.setText(QStringLiteral("foo"));
     m1.setUsername(QStringLiteral("blabla"));
     m1.setTimeStamp(QDateTime(QDate(2017, 03, 03), QTime(11, 30, 00)).toMSecsSinceEpoch());
@@ -74,7 +76,7 @@ void MessageModelGui::fillModel()
     mModel->addMessage(m1);
     Message m2;
     m2.setMessageType(Message::MessageType::NormalText);
-    m2.setMessageId(QStringLiteral("3"));
+    m2.setMessageId(QString::number(mIndexMessage++));
     m2.setText(QStringLiteral("bla bla bla bla bla bla"));
     m2.setTimeStamp(QDateTime(QDate(2017, 03, 03), QTime(11, 31, 00)).toMSecsSinceEpoch());
     m2.setUsername(QStringLiteral("blo"));
@@ -83,7 +85,7 @@ void MessageModelGui::fillModel()
 
     Message m3;
     m3.setMessageType(Message::MessageType::NormalText);
-    m3.setMessageId(QStringLiteral("4"));
+    m3.setMessageId(QString::number(mIndexMessage++));
     m3.setText(QStringLiteral("next day"));
     m3.setTimeStamp(QDateTime(QDate(2017, 03, 04), QTime(11, 31, 00)).toMSecsSinceEpoch());
     m3.setUsername(QStringLiteral("blo"));
@@ -94,7 +96,7 @@ void MessageModelGui::fillModel()
     {
         Message m4;
         m4.setMessageType(Message::MessageType::System);
-        m4.setMessageId(QStringLiteral("5"));
+        m4.setMessageId(QString::number(mIndexMessage++));
         m4.setText(QStringLiteral("uj"));
         m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
         m4.setUsername(QStringLiteral("blo"));
@@ -105,7 +107,7 @@ void MessageModelGui::fillModel()
     {
         Message m4;
         m4.setMessageType(Message::MessageType::System);
-        m4.setMessageId(QStringLiteral("6"));
+        m4.setMessageId(QString::number(mIndexMessage++));
         m4.setText(QStringLiteral("ul"));
         m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
         m4.setUsername(QStringLiteral("blo"));
@@ -116,7 +118,7 @@ void MessageModelGui::fillModel()
     {
         Message m4;
         m4.setMessageType(Message::MessageType::System);
-        m4.setMessageId(QStringLiteral("7"));
+        m4.setMessageId(QString::number(mIndexMessage++));
         m4.setText(QStringLiteral("room_changed_topic"));
         m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
         m4.setUsername(QStringLiteral("blo"));
@@ -127,7 +129,7 @@ void MessageModelGui::fillModel()
     {
         Message m4;
         m4.setMessageType(Message::MessageType::System);
-        m4.setMessageId(QStringLiteral("8"));
+        m4.setMessageId(QString::number(mIndexMessage++));
         m4.setText(QStringLiteral("room_changed_topic"));
         m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
         m4.setUsername(QStringLiteral("blo"));
@@ -138,7 +140,7 @@ void MessageModelGui::fillModel()
     {
         Message m4;
         m4.setMessageType(Message::MessageType::System);
-        m4.setMessageId(QStringLiteral("9"));
+        m4.setMessageId(QString::number(mIndexMessage++));
         m4.setText(QStringLiteral("room_changed_topic"));
         m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
         m4.setUsername(QStringLiteral("blo"));
@@ -149,7 +151,7 @@ void MessageModelGui::fillModel()
     {
         Message m4;
         m4.setMessageType(Message::MessageType::System);
-        m4.setMessageId(QStringLiteral("10"));
+        m4.setMessageId(QString::number(mIndexMessage++));
         m4.setText(QStringLiteral("room_changed_topic"));
         m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
         m4.setUsername(QStringLiteral("blo"));
@@ -160,7 +162,7 @@ void MessageModelGui::fillModel()
     {
         Message m4;
         m4.setMessageType(Message::MessageType::System);
-        m4.setMessageId(QStringLiteral("11"));
+        m4.setMessageId(QString::number(mIndexMessage++));
         m4.setText(QStringLiteral("room_changed_topic"));
         m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
         m4.setUsername(QStringLiteral("blo"));
@@ -171,7 +173,7 @@ void MessageModelGui::fillModel()
     {
         Message m4;
         m4.setMessageType(Message::MessageType::System);
-        m4.setMessageId(QStringLiteral("11"));
+        m4.setMessageId(QString::number(mIndexMessage++));
         m4.setText(QStringLiteral("room_changed_topic"));
         m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
         m4.setUsername(QStringLiteral("blo"));
@@ -182,7 +184,7 @@ void MessageModelGui::fillModel()
     {
         Message m4;
         m4.setMessageType(Message::MessageType::System);
-        m4.setMessageId(QStringLiteral("12"));
+        m4.setMessageId(QString::number(mIndexMessage++));
         m4.setText(QStringLiteral("room_changed_topic"));
         m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
         m4.setUsername(QStringLiteral("blo"));
@@ -191,16 +193,37 @@ void MessageModelGui::fillModel()
         mModel->addMessage(m4);
     }
 
+    //Video
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::Video);
+        m4.setMessageId(QString::number(mIndexMessage++));
+        m4.setText(QStringLiteral("room_changed_topic"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        mModel->addMessage(m4);
+    }
+
+    //Audio
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::Audio);
+        m4.setMessageId(QString::number(mIndexMessage++));
+        m4.setText(QStringLiteral("room_changed_topic"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 03, 05), QTime(11, 31, 00)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        mModel->addMessage(m4);
+    }
+
     //ADD more
 }
 
 int main(int argc, char *argv[])
 {
-
     QApplication app(argc, argv);
     QStandardPaths::setTestModeEnabled(true);
-
-
 
     MessageModelGui w;
     w.show();
