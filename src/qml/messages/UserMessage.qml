@@ -102,11 +102,9 @@ Rectangle {
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
 
             color: RuqolaSingleton.backgroundColor;
-            Column {
-                Kirigami.Label {
-                    text: i_date
-                    horizontalAlignment: Text.AlignHCenter
-                }
+            Kirigami.Label {
+                text: i_date
+                anchors.centerIn: parent
             }
         }
 
@@ -181,7 +179,6 @@ Rectangle {
                         menu.y = mouse.y
                         menu.open();
                         console.log("Menu opened", mouse.x);
-                        
                     }
                 }
             }
