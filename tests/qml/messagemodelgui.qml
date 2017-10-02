@@ -18,7 +18,7 @@ Kirigami.ApplicationWindow {
             bottomPadding: Kirigami.Units.smallSpacing
             ActiveChat {
                 id: activeChat
-                roomModel: messageModel
+                model: messageModel
             }
         }
     }

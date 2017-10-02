@@ -33,6 +33,7 @@
 RoomModelGui::RoomModelGui(QWidget *parent)
     : QWidget(parent)
 {
+    fillModels();
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "RuqolaSingleton");
     qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
     qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
@@ -44,7 +45,7 @@ RoomModelGui::RoomModelGui(QWidget *parent)
 
     QQmlContext *ctxt = mEngine->rootContext();
     ctxt->setContextObject(new KLocalizedContext(mEngine));
-    ctxt->setContextProperty(QStringLiteral("messageModel"), mModel);
+    ctxt->setContextProperty(QStringLiteral("roomModel"), mModel);
 
     mEngine->load(QUrl(QStringLiteral("qrc:/messagemodelgui.qml")));
 
@@ -57,6 +58,11 @@ RoomModelGui::RoomModelGui(QWidget *parent)
 RoomModelGui::~RoomModelGui()
 {
 
+}
+
+void RoomModelGui::fillModels()
+{
+    //TODO
 }
 
 int main(int argc, char *argv[])

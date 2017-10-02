@@ -31,7 +31,11 @@ class RoomModelGui : public QWidget
 public:
     explicit RoomModelGui(QWidget *parent = nullptr);
     ~RoomModelGui();
+
+private:
+    void fillModels();
     QQmlApplicationEngine *mEngine = nullptr;
+    //TODO roomModel
     MessageModel *mModel = nullptr;
     int mIndexMessage = 1;
 };
