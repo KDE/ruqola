@@ -44,10 +44,6 @@ import org.kde.kirigami 2.1 as Kirigami
 ListView {
     id: activeChat
 
-    property QtObject roomModel
-
-    model: roomModel
-
     onCountChanged: {
         positionViewAtIndex(count - 1, ListView.Beginning)
     }
