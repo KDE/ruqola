@@ -23,13 +23,17 @@
 #define ROOMMODELGUI_H
 
 #include <QWidget>
-
+class QQmlApplicationEngine;
+class MessageModel;
 class RoomModelGui : public QWidget
 {
     Q_OBJECT
 public:
     explicit RoomModelGui(QWidget *parent = nullptr);
     ~RoomModelGui();
+    QQmlApplicationEngine *mEngine = nullptr;
+    MessageModel *mModel = nullptr;
+    int mIndexMessage = 1;
 };
 
 #endif // ROOMMODELGUI_H

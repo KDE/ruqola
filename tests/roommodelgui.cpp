@@ -21,10 +21,36 @@
 #include "roommodelgui.h"
 #include <QApplication>
 #include <QStandardPaths>
+#include <QHBoxLayout>
+#include <QQmlContext>
+#include <qqmlapplicationengine.h>
+#include <ruqolautils.h>
+#include <ruqola.h>
+#include <rocketchataccount.h>
+#include <roomfilterproxymodel.h>
+#include <KLocalizedContext>
 
 RoomModelGui::RoomModelGui(QWidget *parent)
     : QWidget(parent)
 {
+    qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "RuqolaSingleton");
+    qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
+    qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
+    qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
+    qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
+    qRegisterMetaType<Message::MessageType>();
+    qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
+    mEngine = new QQmlApplicationEngine;
+
+    QQmlContext *ctxt = mEngine->rootContext();
+    ctxt->setContextObject(new KLocalizedContext(mEngine));
+    ctxt->setContextProperty(QStringLiteral("messageModel"), mModel);
+
+    mEngine->load(QUrl(QStringLiteral("qrc:/messagemodelgui.qml")));
+
+    if (!mEngine->rootObjects().isEmpty()) {
+        //TODO create widget
+    }
 
 }
 
