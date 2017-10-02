@@ -30,6 +30,7 @@ import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.ExtraColors 1.0
 import QtQuick.Layouts 1.1
+import KDE.Ruqola.Ruqola 1.0
 
 Rectangle {
 
@@ -110,7 +111,17 @@ Rectangle {
     }
     Connections {
         target: loaded.item
-        onLinkActivated: RuqolaUtils.openUrl(link)
+        onLinkActivated: {
+            if (link.startsWith("ruqola:/room/")) {
+                Ruqola.rocketChatAccount().openChannel(link);
+                console.log("RUQOLA room: " + link);
+            } else if (link.startsWith("ruqola:/user/")) {
+                console.log("RUQOKA user: " + link);
+                Ruqola.rocketChatAccount().openDirectChat(link);
+            } else {
+                RuqolaUtils.openUrl(link);
+            }
+        }
     }
 
 }
