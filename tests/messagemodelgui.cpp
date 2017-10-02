@@ -33,6 +33,7 @@
 #include <QHBoxLayout>
 #include <ruqolautils.h>
 #include <ruqola.h>
+#include <rocketchataccount.h>
 
 MessageModelGui::MessageModelGui(QWidget *parent)
     : QWidget(parent)
@@ -46,6 +47,7 @@ MessageModelGui::MessageModelGui(QWidget *parent)
     qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
     qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
+    qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
     mEngine = new QQmlApplicationEngine;
