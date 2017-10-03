@@ -36,19 +36,21 @@ RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
 
 RoomModel::~RoomModel()
 {
-    QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath());
-    if (!cacheDir.exists(cacheDir.path())) {
-        cacheDir.mkpath(cacheDir.path());
-    }
+    if (mRocketChatAccount) {
+        QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath());
+        if (!cacheDir.exists(cacheDir.path())) {
+            cacheDir.mkpath(cacheDir.path());
+        }
 
-    QFile f(cacheDir.absoluteFilePath(QStringLiteral("rooms")));
+        QFile f(cacheDir.absoluteFilePath(QStringLiteral("rooms")));
 
-    if (f.open(QIODevice::WriteOnly)) {
-        QDataStream out(&f);
-        for (Room *m : qAsConst(mRoomsList)) {
-            qCDebug(RUQOLA_LOG) << " save cache for room " << m->name();
-            const QByteArray ms = Room::serialize(m);
-            out.writeBytes(ms, ms.size());
+        if (f.open(QIODevice::WriteOnly)) {
+            QDataStream out(&f);
+            for (Room *m : qAsConst(mRoomsList)) {
+                qCDebug(RUQOLA_LOG) << " save cache for room " << m->name();
+                const QByteArray ms = Room::serialize(m);
+                out.writeBytes(ms, ms.size());
+            }
         }
     }
     qDeleteAll(mRoomsList);
@@ -79,6 +81,9 @@ RoomWrapper *RoomModel::findRoom(const QString &roomID) const
 // Clear data and refill it with data in the cache, if there is
 void RoomModel::reset()
 {
+    if (!mRocketChatAccount) {
+        return;
+    }
     if (mRocketChatAccount->settings()->cacheBasePath().isEmpty()) {
         return;
     }
@@ -208,7 +213,9 @@ void RoomModel::addRoom(Room *room)
     qCDebug(RUQOLA_LOG) << "Inserting room at position" <<roomCount;
     mRoomsList.append(room);
     endInsertRows();
-    mRocketChatAccount->getMessageModelForRoom(room->id());
+    if (mRocketChatAccount) {
+        mRocketChatAccount->getMessageModelForRoom(room->id());
+    }
 }
 
 void RoomModel::updateSubscription(const QJsonArray &array)
@@ -256,7 +263,9 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
                 room->parseUpdateRoom(roomData);
                 Q_EMIT dataChanged(createIndex(i, 1), createIndex(i, 1));
 
-                mRocketChatAccount->getMessageModelForRoom(room->id());
+                if (mRocketChatAccount) {
+                    mRocketChatAccount->getMessageModelForRoom(room->id());
+                }
                 break;
             }
         }
@@ -265,23 +274,25 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     }
 }
 
-void RoomModel::updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement)
+void RoomModel::updateRoom(const QString &name, const QString &roomId, const QString &topic, const QString &announcement)
 {
     const int roomCount{mRoomsList.count()};
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->id() == roomID) {
-            qCDebug(RUQOLA_LOG) << "Room changed!" << roomID;
+        if (mRoomsList.at(i)->id() == roomId) {
+            qCDebug(RUQOLA_LOG) << "Room changed!" << roomId;
             Room *foundRoom = mRoomsList.value(i);
             foundRoom->setTopic(topic);
             foundRoom->setAnnouncement(announcement);
             foundRoom->setName(name);
             Q_EMIT dataChanged(createIndex(i, 1), createIndex(i, 1));
 
-            mRocketChatAccount->getMessageModelForRoom(roomID);
+            if (mRocketChatAccount) {
+                mRocketChatAccount->getMessageModelForRoom(roomId);
+            }
             return;
         }
     }
-    qCWarning(RUQOLA_LOG) << " ROOM DOESNT EXIST " << roomID;
+    qCWarning(RUQOLA_LOG) << " ROOM DOESNT EXIST " << roomId;
 }
 
 QString RoomModel::sectionName(Room *r) const
