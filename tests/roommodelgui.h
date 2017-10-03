@@ -24,7 +24,7 @@
 
 #include <QWidget>
 class QQmlApplicationEngine;
-class MessageModel;
+class RoomModel;
 class RoomModelGui : public QWidget
 {
     Q_OBJECT
@@ -35,8 +35,7 @@ public:
 private:
     void fillModels();
     QQmlApplicationEngine *mEngine = nullptr;
-    //TODO roomModel
-    MessageModel *mModel = nullptr;
+    RoomModel *mModel = nullptr;
     int mIndexMessage = 1;
 };
 

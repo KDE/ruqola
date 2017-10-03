@@ -33,6 +33,8 @@
 RoomModelGui::RoomModelGui(QWidget *parent)
     : QWidget(parent)
 {
+    RocketChatAccount *account = new RocketChatAccount(this);
+    mModel = new RoomModel(account, this);
     fillModels();
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "RuqolaSingleton");
     qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
@@ -41,18 +43,13 @@ RoomModelGui::RoomModelGui(QWidget *parent)
     qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
-    mEngine = new QQmlApplicationEngine;
+    mEngine = new QQmlApplicationEngine(this);
 
     QQmlContext *ctxt = mEngine->rootContext();
     ctxt->setContextObject(new KLocalizedContext(mEngine));
     ctxt->setContextProperty(QStringLiteral("roomModel"), mModel);
 
     mEngine->load(QUrl(QStringLiteral("qrc:/messagemodelgui.qml")));
-
-    if (!mEngine->rootObjects().isEmpty()) {
-        //TODO create widget
-    }
-
 }
 
 RoomModelGui::~RoomModelGui()

@@ -34,13 +34,19 @@
 #include <ruqolautils.h>
 #include <ruqola.h>
 #include <rocketchataccount.h>
+#include <QTextEdit>
+#include <QPushButton>
 
 MessageModelGui::MessageModelGui(QWidget *parent)
     : QWidget(parent)
 {
-    QGridLayout *grid = new QGridLayout(this);
-
-
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    mTextEdit = new QTextEdit(this);
+    mTextEdit->setAcceptRichText(false);
+    layout->addWidget(mTextEdit);
+    QPushButton *button = new QPushButton(QStringLiteral("Send Message"), this);
+    layout->addWidget(button);
+    connect(button, &QPushButton::clicked, this, &MessageModelGui::sendMessage);
 
     fillModel();
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "RuqolaSingleton");
@@ -50,17 +56,29 @@ MessageModelGui::MessageModelGui(QWidget *parent)
     qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
-    mEngine = new QQmlApplicationEngine;
+    mEngine = new QQmlApplicationEngine(this);
 
     QQmlContext *ctxt = mEngine->rootContext();
     ctxt->setContextObject(new KLocalizedContext(mEngine));
     ctxt->setContextProperty(QStringLiteral("messageModel"), mModel);
 
     mEngine->load(QUrl(QStringLiteral("qrc:/messagemodelgui.qml")));
+}
 
-    if (!mEngine->rootObjects().isEmpty()) {
-        //TODO create widget
+void MessageModelGui::sendMessage()
+{
+    QString str = mTextEdit->toPlainText();
+    if (str.isEmpty()) {
+        return;
     }
+    Message m1;
+    m1.setMessageType(Message::MessageType::NormalText);
+    m1.setMessageId(QString::number(mIndexMessage++));
+    m1.setText(str);
+    m1.setUsername(QStringLiteral("blabla"));
+    m1.setTimeStamp(QDateTime::currentDateTime().toMSecsSinceEpoch());
+    m1.setAlias(QStringLiteral("bla"));
+    mModel->addMessage(m1);
 }
 
 void MessageModelGui::fillModel()

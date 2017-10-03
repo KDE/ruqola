@@ -23,6 +23,7 @@
 #include <QWidget>
 class QQmlApplicationEngine;
 class MessageModel;
+class QTextEdit;
 class MessageModelGui : public QWidget
 {
     Q_OBJECT
@@ -30,10 +31,12 @@ public:
     explicit MessageModelGui(QWidget *parent = nullptr);
     ~MessageModelGui() = default;
 private:
+    void sendMessage();
     void fillModel();
+    int mIndexMessage = 1;
     QQmlApplicationEngine *mEngine = nullptr;
     MessageModel *mModel = nullptr;
-    int mIndexMessage = 1;
+    QTextEdit *mTextEdit = nullptr;
 };
 
 #endif // MESSAGEMODELGUI_H
