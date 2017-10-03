@@ -67,6 +67,7 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
 
 RocketChatAccount::~RocketChatAccount()
 {
+    delete mRuqolaLogger;
 }
 
 void RocketChatAccount::clearModels()
