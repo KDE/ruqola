@@ -185,14 +185,15 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mAllMessages.at(idx).editedByUsername();
     case MessageModel::Attachments: {
         QVariantList lst;
+        lst.reserve(mAllMessages.at(idx).attachements().count());
         for (const MessageAttachment &att : mAllMessages.at(idx).attachements()) {
-            qDebug() << " ATTACHMENT "<<att;
             lst.append(QVariant::fromValue(att));
         }
         return lst;
     }
     case MessageModel::Urls: {
         QVariantList lst;
+        lst.reserve(mAllMessages.at(idx).urls().count());
         for (const MessageUrl &url : mAllMessages.at(idx).urls()) {
             lst.append(QVariant::fromValue(url));
         }

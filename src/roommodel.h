@@ -44,7 +44,7 @@ public:
         RoomTopic,
         RoomMutedUsers,
         RoomJitsiTimeout,
-        RoomRO,
+        RoomRo,
         RoomAnnoucement,
         RoomOpen,
         RoomAlert,
