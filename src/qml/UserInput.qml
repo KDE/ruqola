@@ -38,7 +38,7 @@ RowLayout {
     signal textEditing(string str)
     signal clearUnreadMessages()
     
-    height: 3*Kirigami.Units.largeSpacing
+    height: 2*Kirigami.Units.largeSpacing
     
     Kirigami.Icon {
         id: attachment
