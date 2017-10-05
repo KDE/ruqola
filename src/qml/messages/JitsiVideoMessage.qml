@@ -31,34 +31,6 @@ import KDE.Ruqola.ExtraColors 1.0
 
 Rectangle {
 
-    function getTextFor(type) {
-        
-        if (type === "uj") {
-            return i18n("%1 has joined the channel", i_username);
-        } else if (type === "ul") {
-            return i18n("%1 has left the channel", i_username);
-        } else if (type === "room_changed_topic") {
-            return i18n("%2 changed topic to: <i>%1</i>", i_messageText, i_username)
-        } else if (type === "au") {
-            return i18n("%2 added %1 to the conversation", i_messageText, i_username)
-        } else if (type === "r") {
-            return i18n("%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>", i_messageText, i_username)
-        } else if (type === "ru") {
-            return i18n("%2 removed user %1", i_messageText, i_username)
-        } else if (type === "room_changed_description") {
-            return i18n("%2 changed room description to %1", i_messageText, i_username)
-        } else if (type === "room_changed_privacy") {
-            return i18n("%2 changed room privacy to %1", i_messageText, i_username)
-        } else if (type === "jitsi_call_started") {
-            return i18n("Click to join to video")
-        } else {
-            console.log("Unkown type for message");
-            console.log(type);
-            console.log(i_messageText)
-            return i18n("Unknown action!");
-        }
-    }
-
     property string i_messageText
     property string i_username
     property string i_aliasname
@@ -118,7 +90,7 @@ Rectangle {
 
             width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
 
-            text: i_username + " " + getTextFor(i_systemMessageType)
+            text: i18n("Click for video")
             
             wrapMode: Label.Wrap
 

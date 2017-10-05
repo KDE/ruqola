@@ -62,17 +62,31 @@ Rectangle {
         
         Component.onCompleted: {
             if (i_messageType === Message.System) {
-                setSource("messages/SystemMessage.qml",
-                          {
-                              i_messageText: i_messageText,
-                              i_username: i_username,
-                              i_aliasname: i_aliasname,
-                              i_timestamp: i_timestamp,
-                              i_systemMessageType: i_systemMessageType,
-                              i_messageID: i_messageID,
-                              i_date: i_date
-                          }
-                          )
+                if (i_systemMessageType === "jitsi_call_started") {
+                    setSource("messages/JitsiVideoMessage.qml",
+                              {
+                                  i_messageText: i_messageText,
+                                  i_username: i_username,
+                                  i_aliasname: i_aliasname,
+                                  i_timestamp: i_timestamp,
+                                  i_systemMessageType: i_systemMessageType,
+                                  i_messageID: i_messageID,
+                                  i_date: i_date
+                              }
+                              )
+                } else {
+                    setSource("messages/SystemMessage.qml",
+                              {
+                                  i_messageText: i_messageText,
+                                  i_username: i_username,
+                                  i_aliasname: i_aliasname,
+                                  i_timestamp: i_timestamp,
+                                  i_systemMessageType: i_systemMessageType,
+                                  i_messageID: i_messageID,
+                                  i_date: i_date
+                              }
+                              )
+                }
             } else if (i_messageType === Message.NormalText || i_messageType === Message.File) {
                 setSource("messages/UserMessage.qml",
                           {

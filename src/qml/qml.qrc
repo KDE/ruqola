@@ -17,6 +17,7 @@
         <file alias="AttachmentMessageAudio.qml">messages/AttachmentMessageAudio.qml</file>
         <file alias="AttachmentMessageImage.qml">messages/AttachmentMessageImage.qml</file>
         <file alias="AttachmentMessageVideo.qml">messages/AttachmentMessageVideo.qml</file>
+        <file alias="JitsiVideoMessage.qml">messages/JitsiVideoMessage.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="systray.png">icons/systray.png</file>
