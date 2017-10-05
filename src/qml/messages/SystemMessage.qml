@@ -47,8 +47,10 @@ Rectangle {
             return i18n("removed user %1", i_messageText)
         } else if (type === "room_changed_description") {
             return i18n("changed room description to %1", i_messageText)
-        }  else if (type === "room_changed_privacy") {
+        } else if (type === "room_changed_privacy") {
             return i18n("changed room privacy to %1", i_messageText)
+        } else if (type === "jitsi_call_started") {
+            return i18n("Click to join to video")
         } else {
             console.log("Unkown type for message");
             console.log(type);
@@ -87,6 +89,23 @@ Rectangle {
         color: Kirigami.Theme.disabledTextColor
         radius: 4*Kirigami.Units.smallSpacing
         
+        Rectangle {
+            id: newDateRect
+
+            visible: i_date !== ""
+
+            Layout.columnSpan: 3
+            Layout.fillWidth: true
+
+            implicitHeight: i_date !== "" ? textLabel.font.pixelSize * 2 : 0
+            anchors.rightMargin: 2*Kirigami.Units.smallSpacing
+
+            color: RuqolaSingleton.backgroundColor;
+            Kirigami.Label {
+                text: i_date
+                anchors.centerIn: parent
+            }
+        }
         Kirigami.Label {
             id: textLabel
 

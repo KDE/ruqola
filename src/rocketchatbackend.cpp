@@ -32,6 +32,13 @@
 
 #include <QJsonObject>
 
+void process_publicsettings(const QJsonDocument &messages, RocketChatAccount *account)
+{
+    qCDebug(RUQOLA_LOG) << "process_publicsettings *************************************************************** " << messages;
+    //account->rocketChatBackend()->processIncomingMessages(messages.object().value(QStringLiteral("messages")).toArray());
+
+}
+
 void process_backlog(const QJsonDocument &messages, RocketChatAccount *account)
 {
     qCDebug(RUQOLA_LOG) << messages.object().value(QStringLiteral("messages")).toArray().size();
@@ -117,6 +124,7 @@ void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *accoun
     QJsonObject params;
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
     account->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
+    account->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(params), rooms_parsing);
 }
 
 RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent)
@@ -298,5 +306,6 @@ void RocketChatBackend::onUserIDChanged()
         params.append(QJsonValue(params));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("activeUsers"), params);
     }
+
     //TODO stream-notify-all ?
 }
