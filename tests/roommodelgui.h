@@ -25,6 +25,7 @@
 #include <QWidget>
 class QQmlApplicationEngine;
 class RoomModel;
+class RoomFilterProxyModel;
 class RoomModelGui : public QWidget
 {
     Q_OBJECT
@@ -36,6 +37,7 @@ private:
     void fillModels();
     QQmlApplicationEngine *mEngine = nullptr;
     RoomModel *mModel = nullptr;
+    RoomFilterProxyModel *mRoomFilterProxyModel = nullptr;
     int mIndexMessage = 1;
 };
 

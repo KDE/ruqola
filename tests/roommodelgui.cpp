@@ -35,6 +35,8 @@ RoomModelGui::RoomModelGui(QWidget *parent)
 {
     RocketChatAccount *account = new RocketChatAccount(this);
     mModel = new RoomModel(account, this);
+    mRoomFilterProxyModel = new RoomFilterProxyModel(this);
+    mRoomFilterProxyModel->setSourceModel(mModel);
     fillModels();
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "RuqolaSingleton");
     qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
@@ -47,7 +49,7 @@ RoomModelGui::RoomModelGui(QWidget *parent)
 
     QQmlContext *ctxt = mEngine->rootContext();
     ctxt->setContextObject(new KLocalizedContext(mEngine));
-    ctxt->setContextProperty(QStringLiteral("roomModel"), mModel);
+    ctxt->setContextProperty(QStringLiteral("roomModel"), mRoomFilterProxyModel);
 
     mEngine->load(QUrl(QStringLiteral("qrc:/messagemodelgui.qml")));
 }
