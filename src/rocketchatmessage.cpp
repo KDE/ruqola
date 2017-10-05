@@ -272,12 +272,14 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::generateMethod(con
     json[QStringLiteral("method")] = method;
     json[QStringLiteral("id")] = QString::number(id);
 
-    if (params.isArray()) {
-        json[QStringLiteral("params")] = params.array();
-    } else if (params.isObject()) {
-        QJsonArray arr;
-        arr.append(params.object());
-        json[QStringLiteral("params")] = arr;
+    if (!params.isEmpty()) {
+        if (params.isArray()) {
+            json[QStringLiteral("params")] = params.array();
+        } else if (params.isObject()) {
+            QJsonArray arr;
+            arr.append(params.object());
+            json[QStringLiteral("params")] = arr;
+        }
     }
     const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
     RocketChatMessageResult result;

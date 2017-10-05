@@ -286,7 +286,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
         QString messageType = root.value(QStringLiteral("msg")).toString();
 
         if (messageType == QLatin1String("updated")) {
-            qDebug() << " message updated ! not implemented yet" << root;
+            qDebug() << " message updated ! not implemented yet" << response;
         } else if (messageType == QLatin1String("result")) {
             unsigned id = root.value(QStringLiteral("id")).toString().toInt();
 
