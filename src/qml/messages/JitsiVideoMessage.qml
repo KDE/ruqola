@@ -1,5 +1,5 @@
 /*
- 
+
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -29,7 +29,8 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.ExtraColors 1.0
 
-Rectangle {
+ColumnLayout {
+    id: messageMain
 
     property string i_messageText
     property string i_username
@@ -39,47 +40,29 @@ Rectangle {
     property string i_date
 
     signal linkActivated(string link)
-    
-    id: messageMain
-    color: RuqolaSingleton.backgroundColor;
-    implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight + newDateRect.implicitHeight
-    
-    implicitWidth: 150
-    
-    anchors.bottomMargin: 200
-
     Rectangle {
         id: newDateRect
 
+        Layout.alignment: Qt.AlignCenter
         visible: i_date !== ""
 
-        anchors.centerIn: parent
-        Layout.fillWidth: true
-
-        implicitHeight: i_date !== "" ? textLabel.font.pixelSize * 2 : 0
-        anchors.rightMargin: 2*Kirigami.Units.smallSpacing
+        implicitHeight: i_date !== "" ? textLabel.font.pixelSize : 0
 
         color: RuqolaSingleton.backgroundColor;
         Kirigami.Label {
-            text: "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS" +i_date
+            text: i_date
             anchors.centerIn: parent
         }
     }
 
     Rectangle {
-        
-        anchors.rightMargin: 2*Kirigami.Units.largeSpacing
-        anchors.leftMargin: 2*Kirigami.Units.largeSpacing
-        anchors.top: newDateRect.bottom
-        
-        anchors.centerIn: parent
-        
+        Layout.alignment: Qt.AlignCenter
         width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
         height: textLabel.height
-        
+
         color: Kirigami.Theme.disabledTextColor
         radius: 4*Kirigami.Units.smallSpacing
-        
+
         Kirigami.Label {
             id: textLabel
 
@@ -93,7 +76,7 @@ Rectangle {
             width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
 
             text: i18n("Click for video")
-            
+
             wrapMode: Label.Wrap
 
             renderType: Text.NativeRendering
