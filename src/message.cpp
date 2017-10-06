@@ -78,6 +78,10 @@ void Message::parseUrls(const QJsonArray &urls)
             if (!pageTitleStr.isUndefined()) {
                 messageUrl.setPageTitle(pageTitleStr.toString());
             }
+            const QJsonValue descriptionStr = meta.value(QStringLiteral("description"));
+            if (!descriptionStr.isUndefined()) {
+                messageUrl.setDescription(descriptionStr.toString());
+            }
         }
         //TODO add more
 
