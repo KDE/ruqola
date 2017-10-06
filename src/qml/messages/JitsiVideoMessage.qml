@@ -39,19 +39,10 @@ ColumnLayout {
     property string i_date
 
     signal linkActivated(string link)
-    Rectangle {
+
+    NewDateLabel {
         id: newDateRect
-
-        Layout.alignment: Qt.AlignCenter
-        visible: i_date !== ""
-
-        implicitHeight: i_date !== "" ? textLabel.font.pixelSize : 0
-
-        color: RuqolaSingleton.backgroundColor;
-        Kirigami.Label {
-            text: i_date
-            anchors.centerIn: parent
-        }
+        date: i_date
     }
 
     Rectangle {
