@@ -73,6 +73,7 @@ RoomWrapper *RoomModel::findRoom(const QString &roomID) const
             return new RoomWrapper(r);
         }
     }
+    return nullptr;
     //Leak!
     Room *r = new Room;
     return new RoomWrapper(r);
