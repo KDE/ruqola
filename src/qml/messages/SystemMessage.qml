@@ -32,6 +32,15 @@ import KDE.Ruqola.ExtraColors 1.0
 ColumnLayout {
     id: messageMain
 
+    property string i_messageText
+    property string i_username
+    property string i_aliasname
+    property string i_systemMessageType
+    property var i_timestamp
+    property string i_date
+
+    signal linkActivated(string link)
+
     function getTextFor(type) {
 
         if (type === "uj") {
@@ -60,15 +69,6 @@ ColumnLayout {
         }
     }
 
-
-    property string i_messageText
-    property string i_username
-    property string i_aliasname
-    property string i_systemMessageType
-    property var i_timestamp
-    property string i_date
-
-    signal linkActivated(string link)
     NewDateLabel {
         id: newDateRect
         date: i_date

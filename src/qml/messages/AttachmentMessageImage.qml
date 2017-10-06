@@ -84,26 +84,6 @@ Rectangle {
 
         columns: 3
 
-        //spacing: Kirigami.Units.smallSpacing
-
-
-        /*
-        Rectangle {
-            Layout.columnSpan: 3
-            id: newDateRect
-            anchors.fill: parent
-            Layout.fillWidth: true
-            //visible: i_date !== ""
-            implicitWidth: i_date.font.pixelSize * 3
-            implicitHeight: i_date.font.pixelSize * 3
-            anchors.rightMargin: 2*Kirigami.Units.smallSpacing
-
-            color: "red"
-            Text {
-                text: i_date
-            }
-        }
-        */
         Rectangle {
             id: avatarRect
 
