@@ -28,7 +28,7 @@ endif()
 
 find_package(ECM ${ECM_VERSION} CONFIG REQUIRED)
 
-set(REQUIRED_QT_VERSION "5.7.0")
+set(REQUIRED_QT_VERSION "5.8.0")
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth Test)
 
