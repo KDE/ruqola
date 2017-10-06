@@ -89,7 +89,6 @@ Rectangle {
 
         columns: 3
 
-
         Rectangle {
             id: newDateRect
 
