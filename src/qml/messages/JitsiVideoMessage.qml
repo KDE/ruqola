@@ -42,16 +42,35 @@ Rectangle {
     
     id: messageMain
     color: RuqolaSingleton.backgroundColor;
-    implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight
+    implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight + newDateRect.implicitHeight
     
     implicitWidth: 150
     
     anchors.bottomMargin: 200
 
     Rectangle {
+        id: newDateRect
+
+        visible: i_date !== ""
+
+        anchors.centerIn: parent
+        Layout.fillWidth: true
+
+        implicitHeight: i_date !== "" ? textLabel.font.pixelSize * 2 : 0
+        anchors.rightMargin: 2*Kirigami.Units.smallSpacing
+
+        color: RuqolaSingleton.backgroundColor;
+        Kirigami.Label {
+            text: "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS" +i_date
+            anchors.centerIn: parent
+        }
+    }
+
+    Rectangle {
         
         anchors.rightMargin: 2*Kirigami.Units.largeSpacing
         anchors.leftMargin: 2*Kirigami.Units.largeSpacing
+        anchors.top: newDateRect.bottom
         
         anchors.centerIn: parent
         
@@ -61,23 +80,6 @@ Rectangle {
         color: Kirigami.Theme.disabledTextColor
         radius: 4*Kirigami.Units.smallSpacing
         
-        Rectangle {
-            id: newDateRect
-
-            visible: i_date !== ""
-
-            Layout.columnSpan: 3
-            Layout.fillWidth: true
-
-            implicitHeight: i_date !== "" ? textLabel.font.pixelSize * 2 : 0
-            anchors.rightMargin: 2*Kirigami.Units.smallSpacing
-
-            color: RuqolaSingleton.backgroundColor;
-            Kirigami.Label {
-                text: i_date
-                anchors.centerIn: parent
-            }
-        }
         Kirigami.Label {
             id: textLabel
 
