@@ -220,8 +220,10 @@ Rectangle {
 
                     model: i_urls
                     Text {
-                        text: MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.url))
-                        color: "white"
+                        text: model.modelData.description === ""  ?
+                                  MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.url)) :
+                                  MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.description))
+                        wrapMode: Label.Wrap
                         anchors.leftMargin: Kirigami.Units.smallSpacing
                         anchors.rightMargin: Kirigami.Units.smallSpacing
                         anchors.right: parent.right
