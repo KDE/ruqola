@@ -257,7 +257,7 @@ Rectangle {
                              width: 120
                          }
                          Image {
-                             source: Ruqola.rocketChatAccount().serverUrl() + model.modelData.link + ".png"
+                             source: Ruqola.rocketChatAccount().serverUrl() + model.modelData.link
                          }
                     }
                 }
