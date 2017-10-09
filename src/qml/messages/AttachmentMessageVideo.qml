@@ -33,19 +33,14 @@ Rectangle {
     signal linkActivated(string link)
 
     color: RuqolaSingleton.backgroundColor;
-    implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight
 
-    implicitWidth: 150
-
-    anchors.bottomMargin: 200
+    NewDateLabel {
+        id: newDateRect
+        date: i_date
+    }
 
     Rectangle {
-
-        anchors.rightMargin: 2*Kirigami.Units.largeSpacing
-        anchors.leftMargin: 2*Kirigami.Units.largeSpacing
-
-        anchors.centerIn: parent
-
+        Layout.alignment: Qt.AlignCenter
         width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
         height: textLabel.height
 
@@ -64,13 +59,13 @@ Rectangle {
 
             width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
 
-            text: i18n(" Video Message ")
+            text: i_username + i18n(" Video Message ");
 
             wrapMode: Label.Wrap
 
             renderType: Text.NativeRendering
 
-            onLinkActivated: attachmentVideo.linkActivated(link)
+            onLinkActivated: messageMain.linkActivated(link)
         }
     }
 }
