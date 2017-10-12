@@ -58,9 +58,14 @@ void rooms_parsing(const QJsonDocument &doc, RocketChatAccount *account)
 
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject roomJson = updated.at(i).toObject();
-
         const QString roomType = roomJson.value(QStringLiteral("t")).toString();
+#if 0
 
+        QJsonDocument d;
+        d.setObject(roomJson);
+
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Rooms:") + d.toJson());
+#endif
         if (roomType == QLatin1String("c") //Chat
             || roomType == QLatin1String("p") /*Private chat*/) {
             // let's be extra safe around crashes
@@ -68,7 +73,7 @@ void rooms_parsing(const QJsonDocument &doc, RocketChatAccount *account)
                 Room r;
                 r.parseRoom(roomJson);
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.id() << r.topic() << r.announcement();
-                model->updateRoom(r.name(), r.id(), r.topic(), r.announcement());
+                model->updateRoom(r.name(), r.id(), r.topic(), r.announcement(), r.readOnly());
             }
         }
     }
@@ -89,7 +94,12 @@ void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *accoun
         QJsonObject room = updated.at(i).toObject();
 
         const QString roomType = room.value(QStringLiteral("t")).toString();
+#if 0
+        QJsonDocument d;
+        d.setObject(room);
 
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Rooms subscriptions:") + d.toJson());
+#endif
         if (roomType == QLatin1String("c") //Chat
             || roomType == QLatin1String("p")     /*Private chat*/
             || roomType == QLatin1String("d")) {    //Direct chat) {

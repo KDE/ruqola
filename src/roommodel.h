@@ -75,7 +75,7 @@ public:
     */
     void addRoom(Room *room);
 
-    void updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement);
+    void updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement, bool readOnly);
 
     /**
     * @brief Finds a room with @param roomID in m_roomsList

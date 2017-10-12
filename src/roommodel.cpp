@@ -275,7 +275,7 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     }
 }
 
-void RoomModel::updateRoom(const QString &name, const QString &roomId, const QString &topic, const QString &announcement)
+void RoomModel::updateRoom(const QString &name, const QString &roomId, const QString &topic, const QString &announcement, bool readOnly)
 {
     const int roomCount{mRoomsList.count()};
     for (int i = 0; i < roomCount; ++i) {
@@ -285,6 +285,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomId, const QSt
             foundRoom->setTopic(topic);
             foundRoom->setAnnouncement(announcement);
             foundRoom->setName(name);
+            foundRoom->setReadOnly(readOnly);
             Q_EMIT dataChanged(createIndex(i, 1), createIndex(i, 1));
 
             if (mRocketChatAccount) {

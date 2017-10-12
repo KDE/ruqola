@@ -259,6 +259,8 @@ Kirigami.ApplicationWindow {
             }
             footer: UserInput {
                 id: userInputMessage
+                visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false)
+
                 messageLineText: Ruqola.rocketChatAccount().getUserCurrentMessage(appid.selectedRoomID)
                 onTextEditing: {
                     Ruqola.rocketChatAccount().textEditing(appid.selectedRoomID, str)

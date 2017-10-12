@@ -37,6 +37,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::topicChanged, this, &RoomWrapper::topicChanged);
     connect(mRoom, &Room::announcementChanged, this, &RoomWrapper::announcementChanged);
     connect(mRoom, &Room::nameChanged, this, &RoomWrapper::nameChanged);
+    connect(mRoom, &Room::readOnlyChanged, this, &RoomWrapper::readOnlyChanged);
 }
 
 RoomWrapper::~RoomWrapper()
@@ -61,4 +62,9 @@ QString RoomWrapper::announcement() const
 bool RoomWrapper::favorite() const
 {
     return mRoom->favorite();
+}
+
+bool RoomWrapper::readOnly() const
+{
+    return mRoom->readOnly();
 }

@@ -292,6 +292,7 @@ void Room::parseRoom(const QJsonObject &json)
     setName(json[QStringLiteral("name")].toString());
     setTopic(json[QStringLiteral("topic")].toString());
     setAnnouncement(json[QStringLiteral("announcement")].toString());
+    setReadOnly(json[QStringLiteral("ro")].toBool());
 }
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
@@ -309,8 +310,9 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     }
     //Only private room has this settings.
     if (roomType == QLatin1String("p")) {
-        setReadOnly(json[QStringLiteral("ro")].toString() == QLatin1String("true"));
+        setReadOnly(json[QStringLiteral("ro")].toBool());
     }
+
     setUnread(json[QStringLiteral("unread")].toInt());
     setOpen(json[QStringLiteral("open")].toBool());
     setAlert(json[QStringLiteral("alert")].toBool());
