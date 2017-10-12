@@ -29,7 +29,7 @@ import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.ExtraColors 1.0
 import "../js/message.js" as MessageScript;
 
-Rectangle {
+ColumnLayout {
 
     property string i_messageText
     property string i_messageID
@@ -45,7 +45,7 @@ Rectangle {
 
     id: messageMain
 
-    color: RuqolaSingleton.backgroundColor;
+    //color: RuqolaSingleton.backgroundColor;
 
     NewDateLabel {
         id: newDateRect

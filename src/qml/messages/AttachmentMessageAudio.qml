@@ -25,29 +25,26 @@ import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.ExtraColors 1.0
 
 import QtQuick.Layouts 1.1
-Rectangle {
+ColumnLayout {
     id: attachmentAudio
 
+
     signal linkActivated(string link)
-    color: RuqolaSingleton.backgroundColor;
-    implicitHeight: 2*Kirigami.Units.smallSpacing + textLabel.implicitHeight
+    //color: RuqolaSingleton.backgroundColor;
 
-    implicitWidth: 150
-
-    anchors.bottomMargin: 200
+    NewDateLabel {
+        id: newDateRect
+        date: i_date
+    }
 
     Rectangle {
-
-        anchors.rightMargin: 2*Kirigami.Units.largeSpacing
-        anchors.leftMargin: 2*Kirigami.Units.largeSpacing
-
-        anchors.centerIn: parent
-
+        Layout.alignment: Qt.AlignCenter
         width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
         height: textLabel.height
 
         color: Kirigami.Theme.disabledTextColor
         radius: 4*Kirigami.Units.smallSpacing
+
         Kirigami.Label {
             id: textLabel
 
@@ -60,13 +57,13 @@ Rectangle {
 
             width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
 
-            text: i_username + i18n(" Audio Message ")
+            text: i_username + i18n(" Audio Message ");
 
             wrapMode: Label.Wrap
 
             renderType: Text.NativeRendering
 
-            onLinkActivated: attachmentAudio.linkActivated(link)
+            onLinkActivated: messageMain.linkActivated(link)
         }
     }
 }

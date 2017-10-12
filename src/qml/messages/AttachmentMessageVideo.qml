@@ -27,12 +27,12 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.ExtraColors 1.0
 
-Rectangle {
+ColumnLayout {
     id: attachmentVideo
 
     signal linkActivated(string link)
 
-    color: RuqolaSingleton.backgroundColor;
+    //color: RuqolaSingleton.backgroundColor;
 
     NewDateLabel {
         id: newDateRect
