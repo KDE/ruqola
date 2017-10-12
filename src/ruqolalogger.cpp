@@ -21,6 +21,7 @@
 #include "ruqolalogger.h"
 #include "ruqola_debug.h"
 #include <QCoreApplication>
+#include <QFileInfo>
 
 RuqolaLogger::RuqolaLogger()
 {
@@ -35,6 +36,7 @@ RuqolaLogger::RuqolaLogger()
     if (!mFile.open(QFile::WriteOnly)) {
         qCWarning(RUQOLA_LOG) << "Could not open log file for writing:" << mFile.fileName();
     }
+    qWarning() << " Log in file " << QFileInfo(mFile.fileName()).absoluteFilePath();
 }
 
 RuqolaLogger::~RuqolaLogger()
