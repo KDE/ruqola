@@ -57,6 +57,8 @@ RowLayout {
     TextField {
         id: messageLine
 
+        //FIXME add multiline !!!
+        inputMethodHints: Qt.ImhMultiLine
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         
