@@ -28,9 +28,7 @@ import QtQuick.Layouts 1.1
 ColumnLayout {
     id: attachmentAudio
 
-
     signal linkActivated(string link)
-    //color: RuqolaSingleton.backgroundColor;
 
     NewDateLabel {
         id: newDateRect

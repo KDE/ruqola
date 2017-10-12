@@ -32,8 +32,6 @@ ColumnLayout {
 
     signal linkActivated(string link)
 
-    //color: RuqolaSingleton.backgroundColor;
-
     NewDateLabel {
         id: newDateRect
         date: i_date

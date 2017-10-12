@@ -45,8 +45,6 @@ ColumnLayout {
 
     id: messageMain
 
-    //color: RuqolaSingleton.backgroundColor;
-
     NewDateLabel {
         id: newDateRect
         date: i_date
