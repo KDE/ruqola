@@ -36,7 +36,9 @@ void process_publicsettings(const QJsonDocument &messages, RocketChatAccount *ac
 {
     qCDebug(RUQOLA_LOG) << "process_publicsettings *************************************************************** " << messages;
     //account->rocketChatBackend()->processIncomingMessages(messages.object().value(QStringLiteral("messages")).toArray());
-
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Public Settings:") + messages.toJson());
+    }
 }
 
 void process_backlog(const QJsonDocument &messages, RocketChatAccount *account)
