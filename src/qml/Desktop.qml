@@ -25,6 +25,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.2 as QQC2
 
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.DDPClient 1.0
@@ -226,7 +227,7 @@ Kirigami.ApplicationWindow {
                     */
                 }
 
-                Kirigami.Label {
+                QQC2.Label {
                     visible: appid.selectedRoom && (appid.selectedRoom.topic !== "")
                     text: appid.selectedRoom ? appid.selectedRoom.topic : ""
                     font.italic: true
@@ -235,7 +236,7 @@ Kirigami.ApplicationWindow {
                     anchors.margins: 2*Kirigami.Units.smallSpacing
                     wrapMode: Label.Wrap
                 }
-                Kirigami.Label {
+                QQC2.Label {
                     visible: appid.selectedRoom && (appid.selectedRoom.announcement !== "")
                     text: appid.selectedRoom ? appid.selectedRoom.announcement : ""
                     anchors.right: parent.right

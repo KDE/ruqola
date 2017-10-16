@@ -27,6 +27,7 @@ import QtQuick.Layouts 1.1
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.UsersModel 1.0
 import KDE.Ruqola.User 1.0
+import QtQuick.Controls 2.2 as QQC2
 
 Kirigami.BasicListItem {
     id: root
@@ -59,7 +60,7 @@ Kirigami.BasicListItem {
     }
     RowLayout {
         id: editingActions
-        Kirigami.Label {
+        QQC2.Label {
             id: unreadMessage
 
             visible: !editingMode && d_unread > 0

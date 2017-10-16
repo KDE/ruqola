@@ -24,6 +24,7 @@ import QtQuick 2.0
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.Ruqola 1.0
 import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.2 as QQC2
 
 ListView {
     id: roomsList
@@ -44,7 +45,7 @@ ListView {
                      right: parent.right
                      leftMargin: Kirigami.Units.smallSpacing
                  }
-                 Kirigami.Label {
+                 QQC2.Label {
                      id: sectionLabel
                      text: section
                      Layout.minimumHeight: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)

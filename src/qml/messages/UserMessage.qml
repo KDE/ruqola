@@ -25,7 +25,7 @@ import QtQuick 2.0
 
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
-
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.RuqolaUtils 1.0
@@ -61,7 +61,7 @@ Rectangle {
 
         MenuItem {
             enabled: i_username == Ruqola.userName
-            contentItem: Kirigami.Label {
+            contentItem: QQC2.Label {
                 text: i18n("Edit")
             }
             onTriggered: {
@@ -70,7 +70,7 @@ Rectangle {
             }
         }
         MenuItem {
-            contentItem: Kirigami.Label {
+            contentItem: QQC2.Label {
                 text: i18n("Reply")
             }
             onTriggered: {
@@ -101,7 +101,7 @@ Rectangle {
             anchors.rightMargin: 2*Kirigami.Units.smallSpacing
 
             color: RuqolaSingleton.backgroundColor;
-            Kirigami.Label {
+            QQC2.Label {
                 text: i_date
                 anchors.centerIn: parent
             }
@@ -246,7 +246,7 @@ Rectangle {
                 }
             }
         }
-        Kirigami.Label {
+        QQC2.Label {
             id: timestampText
 
             text: MessageScript.displayDateTime(i_timestamp)
