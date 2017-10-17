@@ -69,6 +69,13 @@ Kirigami.ApplicationWindow {
         ]
         
         actions: [
+//            Kirigami.Action {
+//                text: i18n("About")
+//                //iconName: "system-log-out"
+//                onTriggered: {
+//                    aboutData.open()
+//                }
+//            },
             Kirigami.Action {
                 text: i18n("Log out")
                 iconName: "system-log-out"
@@ -92,6 +99,9 @@ Kirigami.ApplicationWindow {
         id: loginTab
     }
 
+//    AboutDialog {
+//        id: aboutData
+//    }
 
     BusyIndicator {
         id: busy
