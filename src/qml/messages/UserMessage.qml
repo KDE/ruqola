@@ -183,8 +183,6 @@ ColumnLayout {
                     wrapMode: Label.Wrap
                     anchors.leftMargin: Kirigami.Units.smallSpacing
                     anchors.rightMargin: Kirigami.Units.smallSpacing
-                    //anchors.right: parent.right
-                    //anchors.left: parent.left
                     renderType: Text.NativeRendering
                     textFormat: Text.RichText
 
@@ -198,7 +196,8 @@ ColumnLayout {
                 Column {
                     Text {
                         text: model.modelData.title
-                        width: 120
+                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                        anchors.rightMargin: Kirigami.Units.smallSpacing
                     }
                 }
             }
