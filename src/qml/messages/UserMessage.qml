@@ -130,6 +130,8 @@ ColumnLayout {
             }
         }
         ColumnLayout {
+            Layout.fillHeight: true
+            Layout.fillWidth: true
             Kirigami.Heading {
                 id: usernameLabel
 
@@ -157,6 +159,7 @@ ColumnLayout {
             }
             Text {
                 Layout.fillWidth: true
+                Layout.fillHeight: true
                 id: textLabel
 
                 anchors.leftMargin: Kirigami.Units.smallSpacing
