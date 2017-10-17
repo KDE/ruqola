@@ -67,7 +67,7 @@ ColumnLayout {
 
             text: i18n("Click for video")
 
-            wrapMode: Label.Wrap
+            wrapMode: QQC2.Label.Wrap
 
             renderType: Text.NativeRendering
 

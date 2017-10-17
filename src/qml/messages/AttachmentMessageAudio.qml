@@ -57,7 +57,7 @@ ColumnLayout {
 
             text: i_username + i18n(" Audio Message ");
 
-            wrapMode: Label.Wrap
+            wrapMode: QQC2.Label.Wrap
 
             renderType: Text.NativeRendering
 

@@ -59,7 +59,7 @@ ColumnLayout {
 
             text: i_username + i18n(" Video Message ");
 
-            wrapMode: Label.Wrap
+            wrapMode: QQC2.Label.Wrap
 
             renderType: Text.NativeRendering
 
