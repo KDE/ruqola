@@ -159,7 +159,6 @@ ColumnLayout {
             }
             Text {
                 Layout.fillWidth: true
-                Layout.fillHeight: true
                 id: textLabel
 
                 anchors.leftMargin: Kirigami.Units.smallSpacing
@@ -173,6 +172,7 @@ ColumnLayout {
 
                 onLinkActivated: messageMain.linkActivated(link)
             }
+            /*
             Repeater {
                 id: repeaterUrl
 
@@ -202,7 +202,7 @@ ColumnLayout {
                         width: 120
                     }
                 }
-            }
+            }*/
         }
 
         QQC2.Label {
