@@ -172,7 +172,6 @@ ColumnLayout {
 
                 onLinkActivated: messageMain.linkActivated(link)
             }
-            /*
             Repeater {
                 id: repeaterUrl
 
@@ -184,8 +183,8 @@ ColumnLayout {
                     wrapMode: Label.Wrap
                     anchors.leftMargin: Kirigami.Units.smallSpacing
                     anchors.rightMargin: Kirigami.Units.smallSpacing
-                    anchors.right: parent.right
-                    anchors.left: parent.left
+                    //anchors.right: parent.right
+                    //anchors.left: parent.left
                     renderType: Text.NativeRendering
                     textFormat: Text.RichText
 
@@ -202,7 +201,7 @@ ColumnLayout {
                         width: 120
                     }
                 }
-            }*/
+            }
         }
 
         QQC2.Label {
