@@ -84,6 +84,7 @@ ColumnLayout {
         Rectangle {
             id: avatarRect
 
+            Layout.alignment: Qt.AlignTop
             Layout.fillHeight: false
             implicitWidth: textLabel.font.pixelSize * 3
             implicitHeight: textLabel.font.pixelSize * 3
@@ -204,6 +205,7 @@ ColumnLayout {
         QQC2.Label {
             id: timestampText
 
+            Layout.alignment: Qt.AlignTop
             text: MessageScript.displayDateTime(i_timestamp)
             opacity: .5
 
