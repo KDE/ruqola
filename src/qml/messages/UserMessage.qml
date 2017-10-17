@@ -32,6 +32,192 @@ import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.ExtraColors 1.0
 import "../js/message.js" as MessageScript;
 
+ColumnLayout {
+
+    property string i_messageText
+    property string i_messageID
+    property string i_username
+    property string i_aliasname
+    property string i_avatar
+    property var i_timestamp
+    property var i_urls
+    property var i_attachments
+    property var i_date
+
+    signal linkActivated(string link)
+
+    id: messageMain
+    anchors.fill: parent
+    anchors.rightMargin: Kirigami.Units.largeSpacing
+    anchors.leftMargin: Kirigami.Units.largeSpacing
+    Layout.alignment: Qt.AlignTop
+    Menu {
+        id: menu
+
+        MenuItem {
+            enabled: i_username == Ruqola.userName
+            contentItem: QQC2.Label {
+                text: i18n("Edit")
+            }
+            onTriggered: {
+                console.log("Edit", i_messageID, i_messageText);
+                console.log("User", Ruqola.userName, i_username);
+            }
+        }
+        MenuItem {
+            contentItem: QQC2.Label {
+                text: i18n("Reply")
+            }
+            onTriggered: {
+                console.log("Reply to", i_messageID);
+            }
+        }
+    }
+
+
+    NewDateLabel {
+        id: newDateRect
+        date: i_date
+    }
+
+    RowLayout {
+        Rectangle {
+            id: avatarRect
+
+            Layout.fillHeight: false
+            implicitWidth: textLabel.font.pixelSize * 3
+            implicitHeight: textLabel.font.pixelSize * 3
+
+            radius: 3
+
+            anchors.rightMargin: 2*Kirigami.Units.smallSpacing
+
+            color: i_avatar !== "" ? "transparent" : MessageScript.stringToColour(i_username)
+            Image {
+                id: avatarImage
+
+                anchors.fill: parent
+                visible: i_avatar !== ""
+                source: i_avatar
+            }
+            Text {
+                id: avatarText
+
+                visible: i_avatar == ""
+                anchors.fill: parent
+                anchors.margins: Kirigami.Units.smallSpacing
+
+                renderType: Text.QtRendering
+                color: "white"
+
+                font.weight: Font.Bold
+                font.pointSize: 100
+                fontSizeMode: Text.Fit
+
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+
+                text: {
+                    //TODO verify if it works with non latin char.
+                    var match = i_aliasname.match(/([a-zA-Z])([a-zA-Z])/);
+                    var abbrev = match[1].toUpperCase();
+                    if (match.length > 2) {
+                        abbrev += match[2].toLowerCase();
+                    }
+                    return abbrev;
+                }
+            }
+        }
+        ColumnLayout {
+            Kirigami.Heading {
+                id: usernameLabel
+
+                level: 5
+                font.bold: true
+                text: i_aliasname + ' @' + i_username
+
+                anchors.right: parent.right
+                anchors.left: parent.left
+                height: avatarRect.height
+                MouseArea {
+                    anchors.fill: parent
+                    acceptedButtons: Qt.RightButton
+
+                    onClicked: {
+                        console.log("clicked");
+                        if (mouse.button == Qt.RightButton) {
+                            menu.x = mouse.x
+                            menu.y = mouse.y
+                            menu.open();
+                            console.log("Menu opened", mouse.x);
+                        }
+                    }
+                }
+            }
+            Text {
+                Layout.fillWidth: true
+                id: textLabel
+
+                anchors.leftMargin: Kirigami.Units.smallSpacing
+                anchors.rightMargin: Kirigami.Units.smallSpacing
+                renderType: Text.NativeRendering
+                textFormat: Text.RichText
+
+
+                text: MessageScript.markdownme(RuqolaUtils.markdownToRichText(i_messageText))
+                wrapMode: Label.Wrap
+
+                onLinkActivated: messageMain.linkActivated(link)
+            }
+            Repeater {
+                id: repeaterUrl
+
+                model: i_urls
+                Text {
+                    text: model.modelData.description === ""  ?
+                              MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.url)) :
+                              MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.description))
+                    wrapMode: Label.Wrap
+                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                    anchors.right: parent.right
+                    anchors.left: parent.left
+                    renderType: Text.NativeRendering
+                    textFormat: Text.RichText
+
+                    onLinkActivated: messageMain.linkActivated(link)
+                }
+            }
+            Repeater {
+                id: repearterAttachments
+
+                model: i_attachments
+                Column {
+                    Text {
+                        text: model.modelData.title
+                        width: 120
+                    }
+                }
+            }
+        }
+
+        QQC2.Label {
+            id: timestampText
+
+            text: MessageScript.displayDateTime(i_timestamp)
+            opacity: .5
+
+            //anchors.top: newDateRect.bottom
+            //anchors.right: parent.right
+            anchors.leftMargin: Kirigami.Units.smallSpacing
+
+            z: 10
+        }
+    }
+}
+
+
+/**
 Rectangle {
 
     property string i_messageText
@@ -260,3 +446,4 @@ Rectangle {
         }
     }
 }
+*/
