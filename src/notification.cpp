@@ -28,16 +28,16 @@
 #include <QMenu>
 #include <QMessageBox>
 
-//REplace by plasma notification
 
 Notification::Notification(QObject *parent)
-    : QSystemTrayIcon(parent)
+    : KStatusNotifierItem(parent)
     , m_quitAction(nullptr)
     , m_trayIconMenu(nullptr)
 {
-    if (createTrayIcon()) {
-        createActions();
-    }
+    createTrayIcon();
+//    if (createTrayIcon()) {
+//        createActions();
+//    }
 }
 
 //create actions in Menu
@@ -53,15 +53,9 @@ void Notification::createActions()
 }
 
 //create systrayIcon
-bool Notification::createTrayIcon()
+void Notification::createTrayIcon()
 {
-    if (!QSystemTrayIcon::isSystemTrayAvailable()) {
-        QMessageBox::critical(nullptr, i18n("Systray"), i18n("Cannot detect SystemTray on this system."));
-        return false;
-    }
-
-    setToolTip(QStringLiteral("Ruqola"));
-    setIcon(QIcon(QStringLiteral(":/icons/systray.png")));
-    setVisible(true);
-    return true;
+    setToolTipTitle(QStringLiteral("Ruqola"));
+    setIconByName(QStringLiteral(":/icons/systray.png"));
+    //setVisible(true);
 }

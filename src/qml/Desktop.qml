@@ -300,7 +300,6 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        systrayIcon.activated.connect(toggleShow);
-        systrayIcon.messageClicked.connect(toggleShow);
+        systrayIcon.activateRequested.connect(toggleShow);
     }
 }

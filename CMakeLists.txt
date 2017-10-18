@@ -1,5 +1,5 @@
 # TODO customize it.
-set(RUQOLA_VERSION "0.4.0")
+set(RUQOLA_VERSION "0.4.1")
 cmake_minimum_required(VERSION 3.0)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 
@@ -38,6 +38,7 @@ find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
     I18n
     Crash
     KIO
+    Notifications
 )
 
 if (WIN32 OR APPLE)

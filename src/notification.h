@@ -24,11 +24,11 @@
 #define NOTIFICATION_H
 
 #include "libruqolacore_export.h"
-#include <QSystemTrayIcon>
+#include <KStatusNotifierItem>
 #include <QAction>
 #include <QMenu>
 
-class LIBRUQOLACORE_EXPORT Notification : public QSystemTrayIcon
+class LIBRUQOLACORE_EXPORT Notification : public KStatusNotifierItem
 {
     Q_OBJECT
 
@@ -45,7 +45,7 @@ private:
     /**
     * @brief Creates tray icon consisting of actions
     */
-    bool createTrayIcon();
+    void createTrayIcon();
 
     QAction *m_quitAction = nullptr;
     QMenu *m_trayIconMenu = nullptr;

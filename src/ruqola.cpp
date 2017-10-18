@@ -28,6 +28,7 @@
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"
 #include "restapi/restapirequest.h"
+#include <KNotification>
 #include <QFileDialog>
 #include <QTcpSocket>
 #include <QDataStream>
@@ -104,14 +105,16 @@ void Ruqola::setUserID(const QString &userID)
 
 void Ruqola::sendNotification(const QString &title, const QString &message)
 {
-    notification()->showMessage(title, message, QSystemTrayIcon::Information, 5000);
+    KNotification::event(KNotification::Notification, title,
+                         message,
+                         nullptr,
+                         KNotification::Persistent | KNotification::SkipGrouping);
 }
 
 Notification *Ruqola::notification()
 {
     if (!mNotification) {
         mNotification = new Notification();
-        mNotification->show();
     }
     return mNotification;
 }
