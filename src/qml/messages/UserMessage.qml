@@ -100,6 +100,7 @@ ColumnLayout {
                 anchors.fill: parent
                 visible: i_avatar !== ""
                 source: i_avatar
+                fillMode: Image.PreserveAspectFit
             }
             Text {
                 id: avatarText
