@@ -29,6 +29,7 @@
 #include "config-ruqola.h"
 #include <QIcon>
 
+#include <KAboutData>
 #include <QJsonDocument>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
@@ -55,13 +56,26 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QCoreApplication::setApplicationName(QStringLiteral("Ruqola"));
     QCoreApplication::setApplicationVersion(QStringLiteral(RUQOLA_VERSION));
-    QCommandLineParser parser;
 
-    //TODO improve it.
-    parser.setApplicationDescription(i18n("Qt Rocket Chat"));
-    parser.addHelpOption();
-    parser.addVersionOption();
+    KAboutData aboutData(QStringLiteral("ruqola"),
+                         i18n("Ruqola"),
+                         QStringLiteral(RUQOLA_VERSION),
+                         i18n("Rocket Chat Client"),
+                         KAboutLicense::GPL_V2,
+                         i18n("Copyright © 2017 Ruqola authors"));
+
+    aboutData.addAuthor(i18n("Laurent Montel"), i18n("Maintainer"), QStringLiteral("montel@kde.org"));
+    aboutData.addAuthor(i18n("Riccardo Iaconelli"), i18n("Original author"), QStringLiteral("riccardo@kde.org"));
+    aboutData.addAuthor(i18n("Vasudha Mathur"), i18n("Former core developer"), QStringLiteral("vasudhamathur96@gmail.com"));
+
+    aboutData.setOrganizationDomain(QByteArrayLiteral("kde.org"));
+    aboutData.setProductName(QByteArrayLiteral("ruqola"));
+    KAboutData::setApplicationData(aboutData);
+
+    QCommandLineParser parser;
+    aboutData.setupCommandLine(&parser);
     parser.process(app);
+    aboutData.processCommandLine(&parser);
 
     RuqolaRegisterEngine ruqolaEngine;
 
