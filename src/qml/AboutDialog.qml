@@ -39,6 +39,7 @@ Dialog {
     TabBar {
         id: bar
         width: parent.width
+
         TabButton {
             text: i18n("About")
         }
@@ -54,7 +55,7 @@ Dialog {
     }
 
     StackLayout {
-        anchors.fill: parent
+        anchors.top: bar.bottom
         width: parent.width
         currentIndex: bar.currentIndex
         Item {
