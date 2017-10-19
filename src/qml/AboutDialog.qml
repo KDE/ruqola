@@ -20,6 +20,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
+import KDE.Ruqola.Ruqola 1.0
 Dialog {
     id: aboutDialog
 
@@ -35,7 +36,7 @@ Dialog {
     modal: false
 
     Text {
-        text: i18n("...")
+        text: Ruqola.applicationData().title
         wrapMode: Text.WordWrap
         textFormat: Qt.RichText
     }

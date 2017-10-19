@@ -27,22 +27,30 @@
 #include "messagequeue.h"
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"
+#include "ruqolaaboutdata.h"
 #include "restapi/restapirequest.h"
 #include <KNotification>
 #include <QFileDialog>
 #include <QTcpSocket>
 #include <QDataStream>
 #include <QDebug>
+#include <KAboutData>
 
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
 {
     //Todo load all account
     mRocketChatAccount = new RocketChatAccount(this);
+    mRuqolaAboutData = new RuqolaAboutData(this);
     connect(mRocketChatAccount, &RocketChatAccount::serverURLChanged, this, &Ruqola::serverURLChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &Ruqola::userIDChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userNameChanged, this, &Ruqola::userNameChanged);
     connect(mRocketChatAccount, &RocketChatAccount::notification, this, &Ruqola::sendNotification);
+}
+
+RuqolaAboutData *Ruqola::applicationData() const
+{
+    return mRuqolaAboutData;
 }
 
 RocketChatAccount *Ruqola::rocketChatAccount() const

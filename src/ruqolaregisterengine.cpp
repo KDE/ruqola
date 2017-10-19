@@ -23,6 +23,7 @@
 #include "roomfilterproxymodel.h"
 #include "roomwrapper.h"
 #include "ruqola.h"
+#include "ruqolaaboutdata.h"
 #include "ruqolaregisterengine.h"
 #include "ruqolautils.h"
 #include "usersforroommodel.h"
@@ -54,6 +55,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<UsersModel>("KDE.Ruqola.UsersModel", 1, 0, "UsersModel");
     qmlRegisterType<User>("KDE.Ruqola.User", 1, 0, "User");
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
+    qmlRegisterType<RuqolaAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
     (void)Ruqola::self();
