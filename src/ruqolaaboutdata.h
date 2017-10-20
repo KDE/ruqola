@@ -29,12 +29,14 @@ class LIBRUQOLACORE_EXPORT RuqolaAboutData : public QObject
     Q_OBJECT
     Q_PROPERTY(QString version READ version CONSTANT)
     Q_PROPERTY(QString title READ title CONSTANT)
+    Q_PROPERTY(QString licenses READ licenses CONSTANT)
 public:
     explicit RuqolaAboutData(QObject *parent = nullptr);
     ~RuqolaAboutData();
 
     QString version() const;
     QString title() const;
+    QString licenses() const;
 };
 
 #endif // RUQOLAABOUTDATA_H

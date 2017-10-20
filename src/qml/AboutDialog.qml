@@ -32,8 +32,8 @@ Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    width: 300
-    height: 400
+    width: 400
+    height: 600
     modal: false
 
     TabBar {
@@ -62,6 +62,11 @@ Dialog {
             id: aboutTab
             Text {
                 text: Ruqola.applicationData().title
+                wrapMode: Text.WordWrap
+                textFormat: Qt.RichText
+            }
+            Text {
+                text: Ruqola.applicationData().licenses
                 wrapMode: Text.WordWrap
                 textFormat: Qt.RichText
             }

@@ -22,6 +22,7 @@
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <QDebug>
 
 RuqolaAboutData::RuqolaAboutData(QObject *parent)
     : QObject(parent)
@@ -42,4 +43,16 @@ QString RuqolaAboutData::version() const
 QString RuqolaAboutData::title() const
 {
     return i18n("<html><font size=\"5\">%1</font><br />Version %2</html>", KAboutData::applicationData().displayName(), KAboutData::applicationData().version());
+}
+
+QString RuqolaAboutData::licenses() const
+{
+    QString licensesStr;
+    const int licenseCount = KAboutData::applicationData().licenses().count();
+    for (int i = 0; i < licenseCount; ++i) {
+        const KAboutLicense license = KAboutData::applicationData().licenses().at(i);
+        licensesStr = QStringLiteral("<a href=\"%1\">%2</a>").arg(QString::number(i),
+                                  i18n("License: %1", license.name(KAboutLicense::FullName)));
+    }
+    return licensesStr;
 }
