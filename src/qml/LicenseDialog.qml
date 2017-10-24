@@ -26,8 +26,26 @@ import QtQuick 2.0
 Dialog {
     id: licenseDialog
 
+    property string licenseText
+
     title: i18n("License")
 
+    width: 400
+    height: 600
+
+    x: parent.width / 2 - width / 2
+    y: parent.height / 2 - height / 2
+
+    modal: true
+
+
     standardButtons: Dialog.Close
-    //TODO
+
+    contentItem :ScrollView {
+        id: view
+        TextArea {
+            text: licenseText
+            readOnly: true
+        }
+    }
 }

@@ -39,6 +39,7 @@ public:
     QString title() const;
     QString licenses() const;
     QString about() const;
+    Q_INVOKABLE QString licenseText(const QString &val);
 };
 
 #endif // RUQOLAABOUTDATA_H

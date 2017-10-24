@@ -65,6 +65,15 @@ QString RuqolaAboutData::about() const
     return aboutPageText;
 }
 
+QString RuqolaAboutData::licenseText(const QString &val)
+{
+    int license = val.toInt();
+    if (license >= 0) {
+        return KAboutData::applicationData().licenses().at(license).text();
+    }
+    return {};
+}
+
 QString RuqolaAboutData::licenses() const
 {
     QString licensesStr;
