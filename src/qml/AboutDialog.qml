@@ -56,19 +56,26 @@ Dialog {
 
     StackLayout {
         anchors.top: bar.bottom
+        anchors.bottom: parent.bottom
         width: parent.width
         currentIndex: bar.currentIndex
-        Item {
+
+        Rectangle {
             id: aboutTab
-            Text {
-                text: Ruqola.applicationData().title
-                wrapMode: Text.WordWrap
-                textFormat: Qt.RichText
-            }
-            Text {
-                text: Ruqola.applicationData().licenses
-                wrapMode: Text.WordWrap
-                textFormat: Qt.RichText
+            ColumnLayout {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+
+                Text {
+                    text: Ruqola.applicationData().title
+                    wrapMode: Text.WordWrap
+                    textFormat: Qt.RichText
+                }
+                Text {
+                    text: Ruqola.applicationData().licenses
+                    wrapMode: Text.WordWrap
+                    textFormat: Qt.RichText
+                }
             }
         }
         Item {
