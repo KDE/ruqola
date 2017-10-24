@@ -35,7 +35,7 @@ Dialog {
 
     width: 400
     height: 600
-    modal: false
+    modal: true
 
     TabBar {
         id: bar
@@ -83,6 +83,8 @@ Dialog {
                     textFormat: Qt.RichText
                     onLinkActivated: {
                         console.log("LICENSE : " + link);
+                        licenseDialog.licenseText = Ruqola.applicationData().licenseText(link);
+                        licenseDialog.open();
                         //RuqolaUtils.openUrl(link);
                     }
                 }
@@ -94,6 +96,10 @@ Dialog {
         Item {
             id: thanksToTab
         }
+    }
+
+    LicenseDialog {
+        id: licenseDialog
     }
 
 }

@@ -51,8 +51,6 @@ Kirigami.ApplicationWindow {
     height: Kirigami.Units.gridUnit * 40
 
     title: i18n("Ruqola")
-    
-    //header: Kirigami.ApplicationHeader {}
 
     pageStack.initialPage: [roomsComponent, mainComponent]
     pageStack.visible: Ruqola.rocketChatAccount().loginStatus === DDPClient.LoggedIn
@@ -71,9 +69,9 @@ Kirigami.ApplicationWindow {
         actions: [
             Kirigami.Action {
                 text: i18n("About")
-                //iconName: "system-log-out"
+                iconName: ":/icons/systray.png"
                 onTriggered: {
-                    aboutData.open()
+                    aboutDataDialog.open()
                 }
             },
             Kirigami.Action {
@@ -100,7 +98,7 @@ Kirigami.ApplicationWindow {
     }
 
     AboutDialog {
-        id: aboutData
+        id: aboutDataDialog
     }
 
     BusyIndicator {

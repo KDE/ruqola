@@ -24,5 +24,17 @@ import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 
 Dialog {
+    id: aboutDialog
+
+    title: i18n("Create Channel")
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
+
+    x: parent.width / 2 - width / 2
+    y: parent.height / 2 - height / 2
+
+    width: 400
+    height: 600
+    modal: true
 
 }
