@@ -22,6 +22,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import KDE.Ruqola.Ruqola 1.0
+import KDE.Ruqola.RuqolaUtils 1.0
 Dialog {
     id: aboutDialog
 
@@ -72,9 +73,18 @@ Dialog {
                     textFormat: Qt.RichText
                 }
                 Text {
+                    text: Ruqola.applicationData().about
+                    wrapMode: Text.WordWrap
+                    textFormat: Qt.RichText
+                }
+                Text {
                     text: Ruqola.applicationData().licenses
                     wrapMode: Text.WordWrap
                     textFormat: Qt.RichText
+                    onLinkActivated: {
+                        //console.log("LIB " + link);
+                        //RuqolaUtils.openUrl(link);
+                    }
                 }
             }
         }

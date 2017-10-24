@@ -45,6 +45,26 @@ QString RuqolaAboutData::title() const
     return i18n("<html><font size=\"5\">%1</font><br />Version %2</html>", KAboutData::applicationData().displayName(), KAboutData::applicationData().version());
 }
 
+QString RuqolaAboutData::about() const
+{
+    //Set up the first page...
+    QString aboutPageText = KAboutData::applicationData().shortDescription() + QLatin1Char('\n');
+
+    if (!KAboutData::applicationData().otherText().isEmpty()) {
+        aboutPageText += QLatin1Char('\n') + KAboutData::applicationData().otherText() + QLatin1Char('\n');
+    }
+
+    if (!KAboutData::applicationData().copyrightStatement().isEmpty()) {
+        aboutPageText += QLatin1Char('\n') + KAboutData::applicationData().copyrightStatement() + QLatin1Char('\n');
+    }
+
+    if (!KAboutData::applicationData().homepage().isEmpty()) {
+        aboutPageText += QLatin1Char('\n') + QStringLiteral("<a href=\"%1\">%1</a>").arg(KAboutData::applicationData().homepage()) + QLatin1Char('\n');
+    }
+    aboutPageText = aboutPageText.trimmed();
+    return aboutPageText;
+}
+
 QString RuqolaAboutData::licenses() const
 {
     QString licensesStr;
