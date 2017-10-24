@@ -82,7 +82,7 @@ Dialog {
                     wrapMode: Text.WordWrap
                     textFormat: Qt.RichText
                     onLinkActivated: {
-                        //console.log("LIB " + link);
+                        console.log("LICENSE : " + link);
                         //RuqolaUtils.openUrl(link);
                     }
                 }
