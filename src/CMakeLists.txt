@@ -38,7 +38,7 @@ set (Ruqola_core_srcs
     avatarfilecache.cpp
     ruqolalogger.cpp
     ruqolaregisterengine.cpp
-    ruqolaaboutdata.cpp
+    aboutdata/ruqolaaboutdata.cpp
     ${Ruqola_ddpapi_SRCS}
     ${Ruqola_restapi_SRCS}
 )

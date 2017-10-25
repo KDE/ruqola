@@ -27,7 +27,7 @@
 #include "messagequeue.h"
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"
-#include "ruqolaaboutdata.h"
+#include "aboutdata/ruqolaaboutdata.h"
 #include "restapi/restapirequest.h"
 #include <KNotification>
 #include <QFileDialog>

@@ -23,7 +23,7 @@
 #include "roomfilterproxymodel.h"
 #include "roomwrapper.h"
 #include "ruqola.h"
-#include "ruqolaaboutdata.h"
+#include "aboutdata/ruqolaaboutdata.h"
 #include "ruqolaregisterengine.h"
 #include "ruqolautils.h"
 #include "usersforroommodel.h"
