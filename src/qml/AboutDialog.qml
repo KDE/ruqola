@@ -23,6 +23,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.RuqolaUtils 1.0
+import org.kde.kirigami 2.1 as Kirigami
 Dialog {
     id: aboutDialog
 
@@ -95,6 +96,7 @@ Dialog {
             ColumnLayout {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                Layout.topMargin: Kirigami.Units.smallSpacing
 
                 Text {
                     text: Ruqola.applicationData().libraries
