@@ -39,6 +39,7 @@ set (Ruqola_core_srcs
     ruqolalogger.cpp
     ruqolaregisterengine.cpp
     aboutdata/ruqolaaboutdata.cpp
+    aboutdata/ruqolaaboutdataauthormodel.cpp
     ${Ruqola_ddpapi_SRCS}
     ${Ruqola_restapi_SRCS}
 )
