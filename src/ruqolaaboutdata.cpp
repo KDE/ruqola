@@ -29,8 +29,8 @@
 
 RuqolaAboutData::RuqolaAboutData(QObject *parent)
     : QObject(parent)
-{
-
+    , mAboutData(KAboutData::applicationData())
+{    
 }
 
 RuqolaAboutData::~RuqolaAboutData()
@@ -40,29 +40,29 @@ RuqolaAboutData::~RuqolaAboutData()
 
 QString RuqolaAboutData::version() const
 {
-    return KAboutData::applicationData().version();
+    return mAboutData.version();
 }
 
 QString RuqolaAboutData::title() const
 {
-    return i18n("<html><font size=\"5\">%1</font><br />Version %2</html>", KAboutData::applicationData().displayName(), KAboutData::applicationData().version());
+    return i18n("<html><font size=\"5\">%1</font><br />Version %2</html>", mAboutData.displayName(), mAboutData.version());
 }
 
 QString RuqolaAboutData::about() const
 {
     //Set up the first page...
-    QString aboutPageText = KAboutData::applicationData().shortDescription() + QLatin1Char('\n');
+    QString aboutPageText = mAboutData.shortDescription() + QLatin1Char('\n');
 
-    if (!KAboutData::applicationData().otherText().isEmpty()) {
-        aboutPageText += QLatin1Char('\n') + KAboutData::applicationData().otherText() + QLatin1Char('\n');
+    if (!mAboutData.otherText().isEmpty()) {
+        aboutPageText += QLatin1Char('\n') + mAboutData.otherText() + QLatin1Char('\n');
     }
 
-    if (!KAboutData::applicationData().copyrightStatement().isEmpty()) {
-        aboutPageText += QLatin1Char('\n') + KAboutData::applicationData().copyrightStatement() + QLatin1Char('\n');
+    if (!mAboutData.copyrightStatement().isEmpty()) {
+        aboutPageText += QLatin1Char('\n') + mAboutData.copyrightStatement() + QLatin1Char('\n');
     }
 
-    if (!KAboutData::applicationData().homepage().isEmpty()) {
-        aboutPageText += QLatin1Char('\n') + QStringLiteral("<a href=\"%1\">%1</a>").arg(KAboutData::applicationData().homepage()) + QLatin1Char('\n');
+    if (!mAboutData.homepage().isEmpty()) {
+        aboutPageText += QLatin1Char('\n') + QStringLiteral("<a href=\"%1\">%1</a>").arg(mAboutData.homepage()) + QLatin1Char('\n');
     }
     aboutPageText = aboutPageText.trimmed();
     return aboutPageText;
@@ -72,7 +72,7 @@ QString RuqolaAboutData::licenseText(const QString &val)
 {
     int license = val.toInt();
     if (license >= 0) {
-        return KAboutData::applicationData().licenses().at(license).text();
+        return mAboutData.licenses().at(license).text();
     }
     return {};
 }
@@ -80,9 +80,9 @@ QString RuqolaAboutData::licenseText(const QString &val)
 QString RuqolaAboutData::licenses() const
 {
     QString licensesStr;
-    const int licenseCount = KAboutData::applicationData().licenses().count();
+    const int licenseCount = mAboutData.licenses().count();
     for (int i = 0; i < licenseCount; ++i) {
-        const KAboutLicense license = KAboutData::applicationData().licenses().at(i);
+        const KAboutLicense license = mAboutData.licenses().at(i);
         licensesStr = QStringLiteral("<a href=\"%1\">%2</a>").arg(QString::number(i),
                                   i18n("License: %1", license.name(KAboutLicense::FullName)));
     }
@@ -100,9 +100,9 @@ QString RuqolaAboutData::libraries() const
 
 QString RuqolaAboutData::reportBugs() const
 {
-    if (!KAboutData::applicationData().customAuthorTextEnabled() || !KAboutData::applicationData().customAuthorRichText().isEmpty()) {
-        if (!KAboutData::applicationData().customAuthorTextEnabled()) {
-            const QString bugAddress = KAboutData::applicationData().bugAddress();
+    if (!mAboutData.customAuthorTextEnabled() || !mAboutData.customAuthorRichText().isEmpty()) {
+        if (!mAboutData.customAuthorTextEnabled()) {
+            const QString bugAddress = mAboutData.bugAddress();
             if (bugAddress.isEmpty() || bugAddress == QLatin1String("submit@bugs.kde.org")) {
                 return i18n("Please use <a href=\"https://bugs.kde.org\">https://bugs.kde.org</a> to report bugs.\n");
             } else {
@@ -114,7 +114,7 @@ QString RuqolaAboutData::reportBugs() const
                                         bugUrl.toString(), bugAddress);
             }
         } else {
-            return KAboutData::applicationData().customAuthorRichText();
+            return mAboutData.customAuthorRichText();
         }
     }
     return {};

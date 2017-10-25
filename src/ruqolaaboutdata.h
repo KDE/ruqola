@@ -21,6 +21,7 @@
 #ifndef RUQOLAABOUTDATA_H
 #define RUQOLAABOUTDATA_H
 
+#include <KAboutData>
 #include <QObject>
 #include "libruqolacore_export.h"
 
@@ -46,6 +47,8 @@ public:
 
 
     Q_INVOKABLE QString licenseText(const QString &val);
+private:
+    KAboutData mAboutData;
 };
 
 #endif // RUQOLAABOUTDATA_H
