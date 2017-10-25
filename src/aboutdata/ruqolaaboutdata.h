@@ -24,7 +24,7 @@
 #include <KAboutData>
 #include <QObject>
 #include "libruqolacore_export.h"
-
+class RuqolaAboutDataAuthorModel;
 class LIBRUQOLACORE_EXPORT RuqolaAboutData : public QObject
 {
     Q_OBJECT
@@ -34,6 +34,7 @@ class LIBRUQOLACORE_EXPORT RuqolaAboutData : public QObject
     Q_PROPERTY(QString about READ about CONSTANT)
     Q_PROPERTY(QString libraries READ libraries CONSTANT)
     Q_PROPERTY(QString reportBugs READ reportBugs CONSTANT)
+
 public:
     explicit RuqolaAboutData(QObject *parent = nullptr);
     ~RuqolaAboutData();
@@ -47,7 +48,10 @@ public:
 
 
     Q_INVOKABLE QString licenseText(const QString &val);
+
+    Q_INVOKABLE RuqolaAboutDataAuthorModel *authorModel() const;
 private:
+    RuqolaAboutDataAuthorModel *mAuthorModel = nullptr;
     KAboutData mAboutData;
 };
 

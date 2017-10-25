@@ -21,11 +21,17 @@
 #ifndef RUQOLAABOUTDATAAUTHORMODEL_H
 #define RUQOLAABOUTDATAAUTHORMODEL_H
 
+#include <QAbstractListModel>
 
-class RuqolaAboutDataAuthorModel
+class RuqolaAboutDataAuthorModel : public QAbstractListModel
 {
+    Q_OBJECT
 public:
-    RuqolaAboutDataAuthorModel();
+    explicit RuqolaAboutDataAuthorModel(QObject *parent = nullptr);
+    ~RuqolaAboutDataAuthorModel() = default;
+
+    int rowCount(const QModelIndex &parent) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
 };
 
 #endif // RUQOLAABOUTDATAAUTHORMODEL_H

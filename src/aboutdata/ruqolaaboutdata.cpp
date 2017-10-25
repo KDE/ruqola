@@ -20,6 +20,7 @@
 
 #include "ruqolaaboutdata.h"
 #include "kcoreaddons_version.h"
+#include "ruqolaaboutdataauthormodel.h"
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -31,6 +32,7 @@ RuqolaAboutData::RuqolaAboutData(QObject *parent)
     : QObject(parent)
     , mAboutData(KAboutData::applicationData())
 {    
+    mAuthorModel = new RuqolaAboutDataAuthorModel(this);
 }
 
 RuqolaAboutData::~RuqolaAboutData()
@@ -118,4 +120,9 @@ QString RuqolaAboutData::reportBugs() const
         }
     }
     return {};
+}
+
+RuqolaAboutDataAuthorModel *RuqolaAboutData::authorModel() const
+{
+    return mAuthorModel;
 }

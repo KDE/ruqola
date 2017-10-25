@@ -20,7 +20,20 @@
 
 #include "ruqolaaboutdataauthormodel.h"
 
-RuqolaAboutDataAuthorModel::RuqolaAboutDataAuthorModel()
+RuqolaAboutDataAuthorModel::RuqolaAboutDataAuthorModel(QObject *parent)
+    : QAbstractListModel(parent)
 {
 
+}
+
+int RuqolaAboutDataAuthorModel::rowCount(const QModelIndex &parent) const
+{
+    //TODO
+    return 0;
+}
+
+QVariant RuqolaAboutDataAuthorModel::data(const QModelIndex &index, int role) const
+{
+    //TODO
+    return {};
 }
