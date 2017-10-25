@@ -91,6 +91,19 @@ Dialog {
             }
         }
         Item {
+            id: librariesTab
+            ColumnLayout {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+
+                Text {
+                    text: Ruqola.applicationData().libraries
+                    wrapMode: Text.WordWrap
+                    textFormat: Qt.RichText
+                }
+            }
+        }
+        Item {
             id: authorTab
         }
         Item {

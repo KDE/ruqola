@@ -19,9 +19,11 @@
 */
 
 #include "ruqolaaboutdata.h"
+#include "kcoreaddons_version.h"
 
 #include <KAboutData>
 #include <KLocalizedString>
+#include <QGuiApplication>
 #include <QDebug>
 
 RuqolaAboutData::RuqolaAboutData(QObject *parent)
@@ -84,4 +86,13 @@ QString RuqolaAboutData::licenses() const
                                   i18n("License: %1", license.name(KAboutLicense::FullName)));
     }
     return licensesStr;
+}
+
+QString RuqolaAboutData::libraries() const
+{
+    return i18n("<ul><li>KDE Frameworks %1</li><li>Qt %2 (built against %3)</li><li>The <em>%4</em> windowing system</li></ul>",
+                QStringLiteral(KCOREADDONS_VERSION_STRING),
+                QString::fromLocal8Bit(qVersion()),
+                QStringLiteral(QT_VERSION_STR),
+                QGuiApplication::platformName());
 }
