@@ -25,6 +25,7 @@
 #include <KLocalizedString>
 #include <QGuiApplication>
 #include <QDebug>
+#include <QUrl>
 
 RuqolaAboutData::RuqolaAboutData(QObject *parent)
     : QObject(parent)
@@ -95,4 +96,26 @@ QString RuqolaAboutData::libraries() const
                 QString::fromLocal8Bit(qVersion()),
                 QStringLiteral(QT_VERSION_STR),
                 QGuiApplication::platformName());
+}
+
+QString RuqolaAboutData::reportBugs() const
+{
+    if (!KAboutData::applicationData().customAuthorTextEnabled() || !KAboutData::applicationData().customAuthorRichText().isEmpty()) {
+        if (!KAboutData::applicationData().customAuthorTextEnabled()) {
+            const QString bugAddress = KAboutData::applicationData().bugAddress();
+            if (bugAddress.isEmpty() || bugAddress == QLatin1String("submit@bugs.kde.org")) {
+                return i18n("Please use <a href=\"https://bugs.kde.org\">https://bugs.kde.org</a> to report bugs.\n");
+            } else {
+                QUrl bugUrl(bugAddress);
+                if (bugUrl.scheme().isEmpty()) {
+                    bugUrl.setScheme(QLatin1String("mailto"));
+                }
+                return i18n("Please report bugs to <a href=\"%1\">%2</a>.\n",
+                                        bugUrl.toString(), bugAddress);
+            }
+        } else {
+            return KAboutData::applicationData().customAuthorRichText();
+        }
+    }
+    return {};
 }

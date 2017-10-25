@@ -107,6 +107,22 @@ Dialog {
         }
         Item {
             id: authorTab
+            ColumnLayout {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.topMargin: Kirigami.Units.smallSpacing
+
+                Text {
+                    visible: Ruqola.applicationData().reportBugs !== ""
+                    text: Ruqola.applicationData().reportBugs
+                    wrapMode: Text.WordWrap
+                    textFormat: Qt.RichText
+                    onLinkActivated: {
+                        console.log("Click on url");
+                        RuqolaUtils.openUrl(link);
+                    }
+                }
+            }
         }
         Item {
             id: thanksToTab

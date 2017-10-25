@@ -32,6 +32,7 @@ class LIBRUQOLACORE_EXPORT RuqolaAboutData : public QObject
     Q_PROPERTY(QString licenses READ licenses CONSTANT)
     Q_PROPERTY(QString about READ about CONSTANT)
     Q_PROPERTY(QString libraries READ libraries CONSTANT)
+    Q_PROPERTY(QString reportBugs READ reportBugs CONSTANT)
 public:
     explicit RuqolaAboutData(QObject *parent = nullptr);
     ~RuqolaAboutData();
@@ -41,6 +42,7 @@ public:
     QString licenses() const;
     QString about() const;
     QString libraries() const;
+    QString reportBugs() const;
 
 
     Q_INVOKABLE QString licenseText(const QString &val);
