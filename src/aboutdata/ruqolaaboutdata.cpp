@@ -33,6 +33,7 @@ RuqolaAboutData::RuqolaAboutData(QObject *parent)
     , mAboutData(KAboutData::applicationData())
 {    
     mAuthorModel = new RuqolaAboutDataAuthorModel(this);
+    mAuthorModel->setAboutPerson(mAboutData.authors());
 }
 
 RuqolaAboutData::~RuqolaAboutData()

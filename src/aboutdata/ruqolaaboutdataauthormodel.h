@@ -28,10 +28,17 @@ class RuqolaAboutDataAuthorModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum AuthorRoles {
+        UsernameRoles = Qt::UserRole + 1,
+        TaskRoles,
+        EmailRoles
+    };
+    Q_ENUM(AuthorRoles)
+
     explicit RuqolaAboutDataAuthorModel(QObject *parent = nullptr);
     ~RuqolaAboutDataAuthorModel() = default;
 
-    int rowCount(const QModelIndex &parent) const override;
+    int rowCount(const QModelIndex &parent = {}) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
     void setAboutPerson(const QList<KAboutPerson> &aboutPerson);

@@ -23,6 +23,9 @@ import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.RuqolaUtils 1.0
+import KDE.Ruqola.RuqolaAboutDataAuthorModel 1.0
+import KDE.Ruqola.RuqolaAboutData 1.0
+
 import org.kde.kirigami 2.1 as Kirigami
 Dialog {
     id: aboutDialog
@@ -122,6 +125,24 @@ Dialog {
                         RuqolaUtils.openUrl(link);
                     }
                 }
+                //ScrollView {
+                    //id: view
+                    Repeater {
+                        id: authorList
+
+                        model: Ruqola.applicationData().authorModel
+                        Text {
+                            text: username
+                            wrapMode: Label.Wrap
+                            anchors.leftMargin: Kirigami.Units.smallSpacing
+                            anchors.rightMargin: Kirigami.Units.smallSpacing
+                            renderType: Text.NativeRendering
+                            textFormat: Text.RichText
+
+                            onLinkActivated: messageMain.linkActivated(link)
+                        }
+                    }
+                //}
             }
         }
         Item {

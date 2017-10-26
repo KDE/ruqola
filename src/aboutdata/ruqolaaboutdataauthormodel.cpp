@@ -19,6 +19,7 @@
 */
 
 #include "ruqolaaboutdataauthormodel.h"
+#include "ruqola_debug.h"
 
 RuqolaAboutDataAuthorModel::RuqolaAboutDataAuthorModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -34,14 +35,32 @@ int RuqolaAboutDataAuthorModel::rowCount(const QModelIndex &parent) const
 
 QVariant RuqolaAboutDataAuthorModel::data(const QModelIndex &index, int role) const
 {
-    //TODO
+    if (!index.isValid()) {
+        qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
+        return QVariant();
+    }
+    const int indexRow = index.row();
+    if (indexRow >= rowCount()) {
+        qCWarning(RUQOLA_LOG) << "ERROR: index out of bounds";
+        return QVariant();
+    }
+    if (role == UsernameRoles) {
+        return mAboutPerson.at(indexRow).name();
+    } else if (role == TaskRoles) {
+        return mAboutPerson.at(indexRow).task();
+    } else if (role == EmailRoles) {
+        return mAboutPerson.at(indexRow).emailAddress();
+    }
     return {};
 }
 
 QHash<int, QByteArray> RuqolaAboutDataAuthorModel::roleNames() const
 {
-    //TODO
-    return QHash<int, QByteArray>();
+    QHash<int, QByteArray> roles;
+    roles[UsernameRoles] = "username";
+    roles[TaskRoles] = "task";
+    roles[EmailRoles] = "email";
+    return roles;
 }
 
 void RuqolaAboutDataAuthorModel::setAboutPerson(const QList<KAboutPerson> &aboutPerson)
