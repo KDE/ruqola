@@ -49,7 +49,8 @@ QVariant RuqolaAboutDataAuthorModel::data(const QModelIndex &index, int role) co
     } else if (role == TaskRoles) {
         return mAboutPerson.at(indexRow).task();
     } else if (role == EmailRoles) {
-        return mAboutPerson.at(indexRow).emailAddress();
+        //TODO fix mailto
+        return QStringLiteral("mailto:%1").arg(mAboutPerson.at(indexRow).emailAddress());
     }
     return {};
 }

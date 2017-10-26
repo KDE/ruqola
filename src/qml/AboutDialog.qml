@@ -56,6 +56,11 @@ Dialog {
         }
         TabButton {
             text: i18n("Thanks To")
+            visible: Ruqola.applicationData().creditsModel.count > 0
+        }
+        TabButton {
+            text: i18n("Translation")
+            visible: Ruqola.applicationData().translatorModel.count > 0
         }
     }
 
@@ -125,21 +130,41 @@ Dialog {
                         RuqolaUtils.openUrl(link);
                     }
                 }
-                //ScrollView {
-                    //id: view
+//                ScrollView {
+//                    id: view
+//                    width: authorTab.width
+//                    height: authorTab.height
+
                     Repeater {
                         id: authorList
 
                         model: Ruqola.applicationData().authorModel
-                        Text {
-                            text: username
-                            wrapMode: Label.Wrap
-                            anchors.leftMargin: Kirigami.Units.smallSpacing
-                            anchors.rightMargin: Kirigami.Units.smallSpacing
-                            renderType: Text.NativeRendering
-                            textFormat: Text.RichText
-
-                            onLinkActivated: messageMain.linkActivated(link)
+                        Column {
+                            Text {
+                                text: username
+                                wrapMode: Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                                renderType: Text.NativeRendering
+                                textFormat: Text.RichText
+                                font.bold: true
+                            }
+                            Text {
+                                text: task
+                                wrapMode: Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                                renderType: Text.NativeRendering
+                                textFormat: Text.RichText
+                            }
+                            Text {
+                                text: email
+                                wrapMode: Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                                renderType: Text.NativeRendering
+                                textFormat: Text.RichText
+                            }
                         }
                     }
                 //}
@@ -147,6 +172,97 @@ Dialog {
         }
         Item {
             id: thanksToTab
+            ColumnLayout {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.topMargin: Kirigami.Units.smallSpacing
+
+//                ScrollView {
+//                    id: view
+//                    width: authorTab.width
+//                    height: authorTab.height
+
+                    Repeater {
+                        id: creditList
+
+                        model: Ruqola.applicationData().creditModel
+                        Column {
+                            Text {
+                                text: username
+                                wrapMode: Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                                renderType: Text.NativeRendering
+                                textFormat: Text.RichText
+                                font.bold: true
+                            }
+                            Text {
+                                text: task
+                                wrapMode: Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                                renderType: Text.NativeRendering
+                                textFormat: Text.RichText
+                            }
+                            Text {
+                                text: email
+                                wrapMode: Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                                renderType: Text.NativeRendering
+                                textFormat: Text.RichText
+                            }
+                        }
+                    }
+                //}
+            }
+        }
+        Item {
+            id: translatorToTab
+            ColumnLayout {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                Layout.topMargin: Kirigami.Units.smallSpacing
+
+//                ScrollView {
+//                    id: view
+//                    width: authorTab.width
+//                    height: authorTab.height
+
+                    Repeater {
+                        id: translatorList
+
+                        model: Ruqola.applicationData().translatorModel
+                        Column {
+                            Text {
+                                text: username
+                                wrapMode: Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                                renderType: Text.NativeRendering
+                                textFormat: Text.RichText
+                                font.bold: true
+                            }
+                            Text {
+                                text: task
+                                wrapMode: Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                                renderType: Text.NativeRendering
+                                textFormat: Text.RichText
+                            }
+                            Text {
+                                text: email
+                                wrapMode: Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                                renderType: Text.NativeRendering
+                                textFormat: Text.RichText
+                            }
+                        }
+                    }
+                //}
+            }
         }
     }
 

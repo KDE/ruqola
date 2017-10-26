@@ -34,6 +34,12 @@ RuqolaAboutData::RuqolaAboutData(QObject *parent)
 {    
     mAuthorModel = new RuqolaAboutDataAuthorModel(this);
     mAuthorModel->setAboutPerson(mAboutData.authors());
+
+    mTranslatorModel = new RuqolaAboutDataAuthorModel(this);
+    mTranslatorModel->setAboutPerson(mAboutData.translators());
+
+    mCreditsModel = new RuqolaAboutDataAuthorModel(this);
+    mCreditsModel->setAboutPerson(mAboutData.credits());
 }
 
 RuqolaAboutData::~RuqolaAboutData()
@@ -126,4 +132,14 @@ QString RuqolaAboutData::reportBugs() const
 RuqolaAboutDataAuthorModel *RuqolaAboutData::authorModel() const
 {
     return mAuthorModel;
+}
+
+RuqolaAboutDataAuthorModel *RuqolaAboutData::creditsModel() const
+{
+    return mCreditsModel;
+}
+
+RuqolaAboutDataAuthorModel *RuqolaAboutData::translatorModel() const
+{
+    return mTranslatorModel;
 }
