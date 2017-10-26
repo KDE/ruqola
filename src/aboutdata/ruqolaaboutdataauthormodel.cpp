@@ -28,12 +28,25 @@ RuqolaAboutDataAuthorModel::RuqolaAboutDataAuthorModel(QObject *parent)
 
 int RuqolaAboutDataAuthorModel::rowCount(const QModelIndex &parent) const
 {
-    //TODO
-    return 0;
+    Q_UNUSED(parent);
+    return mAboutPerson.size();
 }
 
 QVariant RuqolaAboutDataAuthorModel::data(const QModelIndex &index, int role) const
 {
     //TODO
     return {};
+}
+
+QHash<int, QByteArray> RuqolaAboutDataAuthorModel::roleNames() const
+{
+    //TODO
+    return QHash<int, QByteArray>();
+}
+
+void RuqolaAboutDataAuthorModel::setAboutPerson(const QList<KAboutPerson> &aboutPerson)
+{
+    beginInsertRows(QModelIndex(), 0, aboutPerson.size() - 1);
+    mAboutPerson = aboutPerson;
+    endInsertRows();
 }

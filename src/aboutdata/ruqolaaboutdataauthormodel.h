@@ -21,6 +21,7 @@
 #ifndef RUQOLAABOUTDATAAUTHORMODEL_H
 #define RUQOLAABOUTDATAAUTHORMODEL_H
 
+#include <KAboutData>
 #include <QAbstractListModel>
 
 class RuqolaAboutDataAuthorModel : public QAbstractListModel
@@ -32,6 +33,13 @@ public:
 
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
+
+    void setAboutPerson(const QList<KAboutPerson> &aboutPerson);
+
+protected:
+    QHash<int, QByteArray> roleNames() const override;
+private:
+    QList<KAboutPerson> mAboutPerson;
 };
 
 #endif // RUQOLAABOUTDATAAUTHORMODEL_H
