@@ -31,31 +31,12 @@
 
 Notification::Notification(QObject *parent)
     : KStatusNotifierItem(parent)
-    , m_quitAction(nullptr)
-    , m_trayIconMenu(nullptr)
 {
     createTrayIcon();
-//    if (createTrayIcon()) {
-//        createActions();
-//    }
 }
 
-//create actions in Menu
-void Notification::createActions()
-{
-    m_quitAction = new QAction(i18n("&Quit"), this);
-    connect(m_quitAction, &QAction::triggered, qApp, &QCoreApplication::quit);
-    m_trayIconMenu = new QMenu();
-    m_trayIconMenu->addAction(m_quitAction);
-    m_trayIconMenu->addSeparator();
-
-    setContextMenu(m_trayIconMenu);
-}
-
-//create systrayIcon
 void Notification::createTrayIcon()
 {
     setToolTipTitle(QStringLiteral("Ruqola"));
     setIconByName(QStringLiteral(":/icons/systray.png"));
-    //setVisible(true);
 }
