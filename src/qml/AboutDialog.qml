@@ -138,6 +138,7 @@ Dialog {
 
                         model: Ruqola.applicationData().authorModel
                         Column {
+                            spacing: 5
                             Text {
                                 text: username
                                 wrapMode: Label.Wrap
