@@ -39,6 +39,7 @@ LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 
 void join_room(const QJsonDocument &doc, RocketChatAccount *)
 {
+    //Move to RocketChatAccount for debug
     qDebug() << " join room " << doc;
 }
 
@@ -49,6 +50,7 @@ void empty_callback(const QJsonDocument &doc, RocketChatAccount *)
 
 void create_channel(const QJsonDocument &doc, RocketChatAccount *account)
 {
+    //Move to RocketChatAccount
     if (!doc.isNull() && doc.isObject()) {
         const QJsonObject root = doc.object();
         QString rid = root.value(QStringLiteral("rid")).toString();
