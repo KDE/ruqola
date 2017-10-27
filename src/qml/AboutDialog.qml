@@ -91,7 +91,6 @@ Dialog {
                     wrapMode: Text.WordWrap
                     textFormat: Qt.RichText
                     onLinkActivated: {
-                        console.log("LICENSE : " + link);
                         licenseDialog.licenseText = Ruqola.applicationData().licenseText(link);
                         licenseDialog.open();
                         //RuqolaUtils.openUrl(link);
@@ -126,7 +125,6 @@ Dialog {
                     wrapMode: Text.WordWrap
                     textFormat: Qt.RichText
                     onLinkActivated: {
-                        console.log("Click on url");
                         RuqolaUtils.openUrl(link);
                     }
                 }
@@ -165,7 +163,6 @@ Dialog {
                                 renderType: Text.NativeRendering
                                 textFormat: Text.RichText
                                 onLinkActivated: {
-                                    console.log("Email : " + link);
                                     RuqolaUtils.openUrl(link);
                                 }
 
@@ -217,7 +214,6 @@ Dialog {
                                 renderType: Text.NativeRendering
                                 textFormat: Text.RichText
                                 onLinkActivated: {
-                                    console.log("Email : " + link);
                                     RuqolaUtils.openUrl(link);
                                 }
 
@@ -269,7 +265,6 @@ Dialog {
                                 renderType: Text.NativeRendering
                                 textFormat: Text.RichText
                                 onLinkActivated: {
-                                    console.log("Email : " + link);
                                     RuqolaUtils.openUrl(link);
                                 }
                             }
