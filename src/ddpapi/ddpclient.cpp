@@ -37,10 +37,25 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void join_room(const QJsonDocument &doc, RocketChatAccount *)
+{
+    qDebug() << " join room " << doc;
+}
 
 void empty_callback(const QJsonDocument &doc, RocketChatAccount *)
 {
     Q_UNUSED(doc);
+}
+
+void create_channel(const QJsonDocument &doc, RocketChatAccount *account)
+{
+    if (!doc.isNull() && doc.isObject()) {
+        const QJsonObject root = doc.object();
+        QString rid = root.value(QStringLiteral("rid")).toString();
+        if (!rid.isEmpty()) {
+            account->joinRoom(rid);
+        }
+    }
 }
 
 DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
@@ -197,7 +212,7 @@ quint64 DDPClient::createChannel(const QString &name, bool readOnly)
 {
     //TODO userList
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createChannel(name, QStringList(), readOnly, m_uid);
-    return method(result, empty_callback, DDPClient::Persistent);
+    return method(result, create_channel, DDPClient::Persistent);
 }
 
 quint64 DDPClient::createPrivateGroup(const QString &name)
@@ -205,6 +220,12 @@ quint64 DDPClient::createPrivateGroup(const QString &name)
     //TODO userList
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createPrivateGroup(name, QStringList(), m_uid);
     return method(result, empty_callback, DDPClient::Persistent);
+}
+
+quint64 DDPClient::joinRoom(const QString &roomId, const QString &joinCode)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->joinRoom(roomId, joinCode, m_uid);
+    return method(result, join_room, DDPClient::Persistent);
 }
 
 quint64 DDPClient::clearUnreadMessages(const QString &roomID)

@@ -149,6 +149,7 @@ public:
     quint64 toggleFavorite(const QString &roomID, bool favorite);
     quint64 createChannel(const QString &name, bool readOnly);
     quint64 createPrivateGroup(const QString &name);
+    quint64 joinRoom(const QString &roomId, const QString &joinCode);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
@@ -195,14 +196,14 @@ private:
      */
     QHash <unsigned, std::function<void(QJsonDocument, RocketChatAccount *)> > m_callbackHash;
 
-    unsigned m_loginJob;
+    unsigned m_loginJob = 0;
     LoginStatus m_loginStatus;
     LoginType m_loginType;
 
-    bool m_connected;
+    bool m_connected = false;
 
-    bool m_attemptedPasswordLogin;
-    bool m_attemptedTokenLogin;
+    bool m_attemptedPasswordLogin = false;
+    bool m_attemptedTokenLogin = false;
 
     /**
     * @brief Abstract queue for all requests regarding network management

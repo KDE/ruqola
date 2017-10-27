@@ -334,3 +334,9 @@ void RocketChatAccount::createNewChannel(const QString &name)
     //TODO define readonly or not ?
     ddp()->createChannel(name, false);
 }
+
+void RocketChatAccount::joinRoom(const QString &roomId)
+{
+    //TODO define joinCode
+    ddp()->joinRoom(roomId, QString());
+}
