@@ -101,6 +101,10 @@ Kirigami.ApplicationWindow {
         id: aboutDataDialog
     }
 
+    CreateNewChannelDialog {
+        id: createNewChannelDialog
+    }
+
     BusyIndicator {
         id: busy
         anchors.centerIn: parent
@@ -232,7 +236,7 @@ Kirigami.ApplicationWindow {
                             QQC2.MenuItem {
                                 text: i18n("Create New Channel")
                                 onTriggered: {
-
+                                    createNewChannelDialog.open()
                                 }
                             }
                         }
