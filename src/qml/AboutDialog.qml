@@ -164,6 +164,11 @@ Dialog {
                                 anchors.rightMargin: Kirigami.Units.smallSpacing
                                 renderType: Text.NativeRendering
                                 textFormat: Text.RichText
+                                onLinkActivated: {
+                                    console.log("Email : " + link);
+                                    RuqolaUtils.openUrl(link);
+                                }
+
                             }
                         }
                     }
@@ -211,6 +216,11 @@ Dialog {
                                 anchors.rightMargin: Kirigami.Units.smallSpacing
                                 renderType: Text.NativeRendering
                                 textFormat: Text.RichText
+                                onLinkActivated: {
+                                    console.log("Email : " + link);
+                                    RuqolaUtils.openUrl(link);
+                                }
+
                             }
                         }
                     }
@@ -258,6 +268,10 @@ Dialog {
                                 anchors.rightMargin: Kirigami.Units.smallSpacing
                                 renderType: Text.NativeRendering
                                 textFormat: Text.RichText
+                                onLinkActivated: {
+                                    console.log("Email : " + link);
+                                    RuqolaUtils.openUrl(link);
+                                }
                             }
                         }
                     }
