@@ -104,6 +104,7 @@ Kirigami.ApplicationWindow {
     CreateNewChannelDialog {
         id: createNewChannelDialog
         onCreateNewChannel: {
+            Ruqola.rocketChatAccount().createNewChannel(name);
             console.log("create new channel" + name)
         }
     }

@@ -147,6 +147,7 @@ public:
     LoginStatus loginStatus() const;
 
     quint64 toggleFavorite(const QString &roomID, bool favorite);
+    quint64 createChannel(const QString &name, bool readOnly);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

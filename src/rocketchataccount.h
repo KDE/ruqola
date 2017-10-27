@@ -93,6 +93,7 @@ public:
     Q_INVOKABLE void openDirectChat(const QString &url);
     Q_INVOKABLE void openChannel(const QString &url);
     Q_INVOKABLE void joinJitsiConfCall();
+    Q_INVOKABLE void createNewChannel(const QString &name);
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();

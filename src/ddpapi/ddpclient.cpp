@@ -193,6 +193,12 @@ quint64 DDPClient::toggleFavorite(const QString &roomID, bool favorite)
     return method(result, empty_callback, DDPClient::Persistent);
 }
 
+quint64 DDPClient::createChannel(const QString &name, bool readOnly)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createChannel(name, readOnly, m_uid);
+    return method(result, empty_callback, DDPClient::Persistent);
+}
+
 quint64 DDPClient::clearUnreadMessages(const QString &roomID)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->readMessages(roomID, m_uid);

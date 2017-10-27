@@ -44,6 +44,18 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomRoles(const
     return generateMethod(QStringLiteral("getRoomRoles"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::createChannel(const QString &roomName, bool readOnly, quint64 id)
+{
+    const QJsonArray params{{
+                                roomName
+                            }, { QJsonArray()
+                            }, {
+                                readOnly
+                            }};
+
+    return generateMethod(QStringLiteral("createChannel"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::eraseRoom(const QString &roomID, quint64 id)
 {
     const QJsonArray params{

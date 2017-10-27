@@ -70,6 +70,7 @@ public:
     RocketChatMessage::RocketChatMessageResult setTemporaryStatus(User::PresenceStatus status, quint64 id);
     RocketChatMessage::RocketChatMessageResult getUsersOfRoom(const QString &roomId, bool showAll, quint64 id);
     RocketChatMessage::RocketChatMessageResult logout(const QString &name, quint64 id);
+    RocketChatMessage::RocketChatMessageResult createChannel(const QString &roomName, bool readOnly, quint64 id);
 private:
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);

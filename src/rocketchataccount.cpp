@@ -328,3 +328,9 @@ void RocketChatAccount::joinJitsiConfCall()
 {
     //TODO
 }
+
+void RocketChatAccount::createNewChannel(const QString &name)
+{
+    //TODO define readonly or not ?
+    ddp()->createChannel(name, false);
+}
