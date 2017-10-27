@@ -37,11 +37,13 @@ Dialog {
     height: 600
     modal: true
 
-    ColumnLayout {
+    RowLayout {
         Label {
            text: i18n("Name:");
         }
-
+        TextField {
+            placeholderText: i18n("Channel Name")
+        }
     }
 
 }
