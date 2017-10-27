@@ -1,5 +1,5 @@
 # TODO customize it.
-set(RUQOLA_VERSION "0.4.1")
+set(RUQOLA_VERSION "0.4.2")
 cmake_minimum_required(VERSION 3.0)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 
@@ -17,18 +17,11 @@ include(ECMAddTests)
 include(GenerateExportHeader)
 include(FeatureSummary)
 
-set(KF5_VERSION "5.37.0")
-option(RUN_UNINSTALL "test run uninstalled apps (experimental)" FALSE)
+set(KF5_VERSION "5.38.0")
 
-set(ECM_VERSION ${KF5_VERSION})
-# ECM setup
-if (RUN_UNINSTALL)
-   set(ECM_VERSION "5.38.0")
-endif()
+find_package(ECM ${KF5_VERSION} CONFIG REQUIRED)
 
-find_package(ECM ${ECM_VERSION} CONFIG REQUIRED)
-
-set(REQUIRED_QT_VERSION "5.8.0")
+set(REQUIRED_QT_VERSION "5.9.0")
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth Test)
 
