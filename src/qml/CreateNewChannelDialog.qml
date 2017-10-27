@@ -24,7 +24,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 
 Dialog {
-    id: aboutDialog
+    id: createNewChannelDialog
 
     title: i18n("Create Channel")
 
@@ -36,5 +36,12 @@ Dialog {
     width: 400
     height: 600
     modal: true
+
+    ColumnLayout {
+        Label {
+           text: i18n("Name:");
+        }
+
+    }
 
 }

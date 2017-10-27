@@ -222,17 +222,21 @@ Kirigami.ApplicationWindow {
                     Item {
                         Layout.fillWidth: true
                     }
-                    /*
-                      //Add menu
                     ToolButton {
-                        iconName: "favorite"
-                        checkable: true
-                        checked: appid.selectedRoom && appid.selectedRoom.favorite
-                        onCheckedChanged: {
-                            console.log("checked favorite" + checked)
+                        iconName: "settings-configure"
+                        onClicked: menu.open();
+                        QQC2.Menu {
+                            id: menu
+                            y: parent.height
+
+                            QQC2.MenuItem {
+                                text: i18n("Create New Channel")
+                                onTriggered: {
+
+                                }
+                            }
                         }
                     }
-                    */
                 }
 
                 QQC2.Label {
