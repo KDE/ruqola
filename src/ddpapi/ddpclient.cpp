@@ -195,7 +195,15 @@ quint64 DDPClient::toggleFavorite(const QString &roomID, bool favorite)
 
 quint64 DDPClient::createChannel(const QString &name, bool readOnly)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createChannel(name, readOnly, m_uid);
+    //TODO userList
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createChannel(name, QStringList(), readOnly, m_uid);
+    return method(result, empty_callback, DDPClient::Persistent);
+}
+
+quint64 DDPClient::createPrivateGroup(const QString &name)
+{
+    //TODO userList
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createPrivateGroup(name, QStringList(), m_uid);
     return method(result, empty_callback, DDPClient::Persistent);
 }
 

@@ -148,6 +148,7 @@ public:
 
     quint64 toggleFavorite(const QString &roomID, bool favorite);
     quint64 createChannel(const QString &name, bool readOnly);
+    quint64 createPrivateGroup(const QString &name);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

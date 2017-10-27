@@ -44,8 +44,9 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomRoles(const
     return generateMethod(QStringLiteral("getRoomRoles"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::createChannel(const QString &roomName, bool readOnly, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::createChannel(const QString &roomName, const QStringList &userList, bool readOnly, quint64 id)
 {
+    //TODO create userList
     const QJsonArray params{{
                                 roomName
                             }, { QJsonArray()
@@ -54,6 +55,17 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::createChannel(cons
                             }};
 
     return generateMethod(QStringLiteral("createChannel"), QJsonDocument(params), id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::createPrivateGroup(const QString &roomName, const QStringList &userList, quint64 id)
+{
+    //TODO use userList
+    const QJsonArray params{{
+                                roomName
+                            }, { QJsonArray()
+                            }};
+
+    return generateMethod(QStringLiteral("createPrivateGroup"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::eraseRoom(const QString &roomID, quint64 id)
