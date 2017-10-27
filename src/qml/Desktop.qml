@@ -103,6 +103,9 @@ Kirigami.ApplicationWindow {
 
     CreateNewChannelDialog {
         id: createNewChannelDialog
+        onCreateNewChannel: {
+            console.log("create new channel" + name)
+        }
     }
 
     BusyIndicator {

@@ -35,8 +35,8 @@ Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    width: 400
-    height: 600
+    width: 300
+    height: 400
     modal: true
 
 }

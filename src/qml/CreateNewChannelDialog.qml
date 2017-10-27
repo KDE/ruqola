@@ -26,6 +26,8 @@ import QtQuick.Window 2.0
 Dialog {
     id: createNewChannelDialog
 
+    signal createNewChannel(string name)
+
     title: i18n("Create Channel")
 
     standardButtons: Dialog.Ok | Dialog.Cancel
@@ -33,8 +35,8 @@ Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    width: 400
-    height: 600
+    width: 300
+    height: 400
     modal: true
 
     RowLayout {
@@ -42,8 +44,13 @@ Dialog {
            text: i18n("Name:");
         }
         TextField {
+            id: channelName
             placeholderText: i18n("Channel Name")
         }
+    }
+
+    onAccepted: {
+        createNewChannelDialog.createNewChannel(channelName.text)
     }
 
 }
