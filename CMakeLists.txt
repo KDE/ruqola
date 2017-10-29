@@ -1,7 +1,8 @@
 # TODO customize it.
 set(RUQOLA_VERSION "0.4.2")
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.1)
 project(Ruqola VERSION ${RUQOLA_VERSION})
+set (CMAKE_CXX_STANDARD 11)
 
 find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
