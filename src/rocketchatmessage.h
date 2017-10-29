@@ -72,6 +72,7 @@ public:
     RocketChatMessage::RocketChatMessageResult logout(const QString &name, quint64 id);
     RocketChatMessage::RocketChatMessageResult createChannel(const QString &roomName, const QStringList &userList, bool readOnly, quint64 id);
     RocketChatMessage::RocketChatMessageResult createPrivateGroup(const QString &roomName, const QStringList &userList, quint64 id);
+    RocketChatMessage::RocketChatMessageResult deleteMessage(const QString &messageId, quint64 id);
 private:
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);

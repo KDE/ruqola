@@ -204,6 +204,18 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QSt
     return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
 }
 
+//TODO verify
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteMessage(const QString &messageId, quint64 id)
+{
+    QJsonObject obj{{
+                           QStringLiteral("_id"), messageId
+                       }};
+    const QJsonArray params{{
+                                obj
+                            }};
+    return generateMethod(QStringLiteral("deleteMessage"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id)
 {
     const QString eventName = roomId + QStringLiteral("/typing");
