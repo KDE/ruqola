@@ -93,7 +93,6 @@ Dialog {
                     onLinkActivated: {
                         licenseDialog.licenseText = Ruqola.applicationData().licenseText(link);
                         licenseDialog.open();
-                        //RuqolaUtils.openUrl(link);
                     }
                 }
             }
