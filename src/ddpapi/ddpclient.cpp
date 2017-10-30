@@ -28,6 +28,7 @@
 #include "ruqolawebsocket.h"
 #include "rocketchataccount.h"
 #include "messagequeue.h"
+#include "ruqolalogger.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -37,10 +38,13 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
-void join_room(const QJsonDocument &doc, RocketChatAccount *)
+void join_room(const QJsonDocument &doc, RocketChatAccount *account)
 {
     //Move to RocketChatAccount for debug
     qDebug() << " join room " << doc;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Join Room :") + doc.toJson());
+    }
 }
 
 void empty_callback(const QJsonDocument &doc, RocketChatAccount *)
@@ -50,12 +54,14 @@ void empty_callback(const QJsonDocument &doc, RocketChatAccount *)
 
 void create_channel(const QJsonDocument &doc, RocketChatAccount *account)
 {
-    //Move to RocketChatAccount
     if (!doc.isNull() && doc.isObject()) {
         const QJsonObject root = doc.object();
         QString rid = root.value(QStringLiteral("rid")).toString();
         if (!rid.isEmpty()) {
             account->joinRoom(rid);
+        }
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("create Channel :") + doc.toJson());
         }
     }
 }
