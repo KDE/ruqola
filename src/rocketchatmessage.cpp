@@ -44,24 +44,42 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomRoles(const
     return generateMethod(QStringLiteral("getRoomRoles"), QJsonDocument(params), id);
 }
 
+//TODO verify
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setReaction(const QString &emoji, const QString &messageId, quint64 id)
+{
+    const QJsonArray params{
+        QJsonValue(emoji),
+                QJsonValue(messageId)
+
+    };
+    return generateMethod(QStringLiteral("setReaction"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::createChannel(const QString &roomName, const QStringList &userList, bool readOnly, quint64 id)
 {
-    const QJsonArray params{{
-                                roomName
-                            }, { QJsonArray::fromStringList(userList)
-                            }, {
-                                readOnly
-                            }};
+    const QJsonArray params{
+        {
+            roomName
+        }, {
+            QJsonArray::fromStringList(userList)
+        }, {
+            readOnly
+        }
+    };
 
     return generateMethod(QStringLiteral("createChannel"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::createPrivateGroup(const QString &roomName, const QStringList &userList, quint64 id)
 {
-    const QJsonArray params{{
-                                roomName
-                            }, { QJsonArray::fromStringList(userList)
-                            }};
+    const QJsonArray params{
+        {
+            roomName
+        },
+        {
+            QJsonArray::fromStringList(userList)
+        }
+    };
 
     return generateMethod(QStringLiteral("createPrivateGroup"), QJsonDocument(params), id);
 }
@@ -212,6 +230,26 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteMessage(cons
                                 obj
                             }};
     return generateMethod(QStringLiteral("deleteMessage"), QJsonDocument(params), id);
+}
+
+//TODO verify
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::starMessage(const QString &_id, const QString &rid, bool starred, quint64 id)
+{
+    QJsonObject obj{
+        {
+            QStringLiteral("_id"), _id
+        },
+        {
+            QStringLiteral("rid"), rid
+        },
+        {
+            QStringLiteral("starred"), starred
+        }
+    };
+    const QJsonArray params{{
+                                obj
+                            }};
+    return generateMethod(QStringLiteral("starMessage"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id)

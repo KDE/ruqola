@@ -24,6 +24,7 @@
 #include <QStandardPaths>
 #include <KAboutData>
 #include <QCommandLineParser>
+#include <QQmlApplicationEngine>
 
 AboutDataTest::AboutDataTest(QWidget *parent)
     : QWidget(parent)
@@ -33,7 +34,7 @@ AboutDataTest::AboutDataTest(QWidget *parent)
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
     QStandardPaths::setTestModeEnabled(true);
 
     KAboutData aboutData(QStringLiteral("ruqola"),
@@ -55,6 +56,10 @@ int main(int argc, char *argv[])
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
+
+    QQmlApplicationEngine engine;
+    engine.load(QUrl(QStringLiteral("qrc:/contactlist.qml")));
+
 
     AboutDataTest w;
     w.show();
