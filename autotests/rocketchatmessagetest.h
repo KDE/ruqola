@@ -52,6 +52,9 @@ private Q_SLOTS:
     void shouldCreateRoom();
     void shouldCreateRoom_data();
 
+    void shouldCreatePrivateGroup();
+    void shouldCreatePrivateGroup_data();
+
 #if 0
     RocketChatMessage::RocketChatMessageResult RocketChatMessage::getUsersOfRoom(const QString &roomId, bool showAll, quint64 id)
     RocketChatMessage::RocketChatMessageResult setRoomHasSystemMessages(const QString &roomId, bool systemMessages, quint64 id);

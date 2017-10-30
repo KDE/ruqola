@@ -257,3 +257,26 @@ void RocketChatMessageTest::shouldCreateRoom()
     RocketChatMessage::RocketChatMessageResult r = m.createChannel(channelname, userlst, readonly, 43);
     compareFile(r.result, filename);
 }
+
+void RocketChatMessageTest::shouldCreatePrivateGroup_data()
+{
+    QTest::addColumn<QString>("channelname");
+    QTest::addColumn<QStringList>("userlst");
+    QTest::addColumn<QString>("filename");
+
+    QTest::newRow("emptyfalse") << QStringLiteral("foo") << QStringList() << QStringLiteral("createprivategroupemptyuser");
+    const QStringList users {QStringLiteral("bla"), QStringLiteral("bla2")};
+    QTest::newRow("emptytrue") << QStringLiteral("foo") << users << QStringLiteral("createprivategrouplistuser");
+}
+
+void RocketChatMessageTest::shouldCreatePrivateGroup()
+{
+    QFETCH(QString, channelname);
+    QFETCH(QStringList, userlst);
+    QFETCH(QString, filename);
+
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.createPrivateGroup(channelname, userlst, 43);
+    compareFile(r.result, filename);
+}

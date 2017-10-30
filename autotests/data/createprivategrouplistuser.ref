@@ -1,0 +1,12 @@
+{
+    "id": "43",
+    "method": "createPrivateGroup",
+    "msg": "method",
+    "params": [
+        "foo",
+        [
+            "bla",
+            "bla2"
+        ]
+    ]
+}
