@@ -46,10 +46,9 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomRoles(const
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::createChannel(const QString &roomName, const QStringList &userList, bool readOnly, quint64 id)
 {
-    //TODO create userList
     const QJsonArray params{{
                                 roomName
-                            }, { QJsonArray()
+                            }, { QJsonArray::fromStringList(userList)
                             }, {
                                 readOnly
                             }};
