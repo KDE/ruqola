@@ -55,3 +55,14 @@ target_link_libraries(roommodelguitest
     Qt5::WebSockets
     libruqolacore
     )
+
+####
+set(aboutdatatest_SRCS aboutdatatest.cpp)
+add_executable(aboutdatatest ${aboutdatatest_SRCS})
+
+target_link_libraries(aboutdatatest
+    Qt5::Widgets
+    KF5::KIOWidgets
+    Qt5::WebSockets
+    libruqolacore
+    )
