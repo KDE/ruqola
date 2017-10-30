@@ -1,0 +1,11 @@
+{
+    "id": "43",
+    "method": "createChannel",
+    "msg": "method",
+    "params": [
+        "foo",
+        [
+        ],
+        false
+    ]
+}

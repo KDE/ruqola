@@ -231,3 +231,12 @@ void RocketChatMessageTest::shouldInformTypingStatus()
     r = m.informTypingStatus(QStringLiteral("roomId2"), QStringLiteral("user2"), true, 43);
     compareFile(r.result, QStringLiteral("informtypingstatustrue"));
 }
+
+void RocketChatMessageTest::shouldCreateRoom()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.createChannel(QStringLiteral("foo"), QStringList(), false, 43);
+    compareFile(r.result, QStringLiteral("createroomemptyuserfalse"));
+
+}
