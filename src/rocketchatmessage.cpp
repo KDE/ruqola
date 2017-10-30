@@ -58,10 +58,9 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::createChannel(cons
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::createPrivateGroup(const QString &roomName, const QStringList &userList, quint64 id)
 {
-    //TODO use userList
     const QJsonArray params{{
                                 roomName
-                            }, { QJsonArray()
+                            }, { QJsonArray::fromStringList(userList)
                             }};
 
     return generateMethod(QStringLiteral("createPrivateGroup"), QJsonDocument(params), id);
