@@ -232,11 +232,25 @@ void RocketChatMessageTest::shouldInformTypingStatus()
     compareFile(r.result, QStringLiteral("informtypingstatustrue"));
 }
 
+void RocketChatMessageTest::shouldCreateRoom_data()
+{
+    QTest::addColumn<QString>("channelname");
+    QTest::addColumn<QStringList>("userlst");
+    QTest::addColumn<bool>("readonly");
+    QTest::addColumn<QString>("filename");
+
+    QTest::newRow("emptyfalse") << QStringLiteral("foo") << QStringList() << false << QStringLiteral("createroomemptyuserfalse");
+}
+
 void RocketChatMessageTest::shouldCreateRoom()
 {
+    QFETCH(QString, channelname);
+    QFETCH(QStringList, userlst);
+    QFETCH(bool, readonly);
+    QFETCH(QString, filename);
+
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.createChannel(QStringLiteral("foo"), QStringList(), false, 43);
-    compareFile(r.result, QStringLiteral("createroomemptyuserfalse"));
-
+    RocketChatMessage::RocketChatMessageResult r = m.createChannel(channelname, userlst, readonly, 43);
+    compareFile(r.result, filename);
 }

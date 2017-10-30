@@ -50,6 +50,7 @@ private Q_SLOTS:
     void shouldInformTypingStatus();
 
     void shouldCreateRoom();
+    void shouldCreateRoom_data();
 
 #if 0
     RocketChatMessage::RocketChatMessageResult RocketChatMessage::getUsersOfRoom(const QString &roomId, bool showAll, quint64 id)
