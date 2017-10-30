@@ -38,14 +38,15 @@ Dialog {
     width: 300
     height: 400
     modal: true
-
-    RowLayout {
-        Label {
-           text: i18n("Name:");
-        }
-        TextField {
-            id: channelName
-            placeholderText: i18n("Channel Name")
+    Column {
+        RowLayout {
+            Label {
+                text: i18n("Name:");
+            }
+            TextField {
+                id: channelName
+                placeholderText: i18n("Channel Name")
+            }
         }
     }
 
