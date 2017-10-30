@@ -38,5 +38,5 @@ Notification::Notification(QObject *parent)
 void Notification::createTrayIcon()
 {
     setToolTipTitle(QStringLiteral("Ruqola"));
-    setIconByName(QStringLiteral(":/icons/systray.png"));
+    setIconByPixmap(QIcon(QStringLiteral(":/icons/systray.png")));
 }
