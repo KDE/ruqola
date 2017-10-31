@@ -22,7 +22,6 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import KDE.Ruqola.Ruqola 1.0
-import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.RuqolaAboutDataAuthorModel 1.0
 import KDE.Ruqola.RuqolaAboutData 1.0
 
@@ -33,6 +32,8 @@ Dialog {
     title: i18n("About Ruqola")
 
     standardButtons: Dialog.Close
+
+    signal openurl(string link)
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
@@ -124,7 +125,7 @@ Dialog {
                     wrapMode: Text.WordWrap
                     textFormat: Qt.RichText
                     onLinkActivated: {
-                        RuqolaUtils.openUrl(link);
+                        aboutDialog.openurl(link);
                     }
                 }
 //                ScrollView {
@@ -163,7 +164,7 @@ Dialog {
                                 renderType: Text.NativeRendering
                                 textFormat: Text.RichText
                                 onLinkActivated: {
-                                    RuqolaUtils.openUrl(link);
+                                    aboutDialog.openurl(link);
                                 }
 
                             }
@@ -214,7 +215,7 @@ Dialog {
                                 renderType: Text.NativeRendering
                                 textFormat: Text.RichText
                                 onLinkActivated: {
-                                    RuqolaUtils.openUrl(link);
+                                    aboutDialog.openurl(link);
                                 }
 
                             }
@@ -265,7 +266,7 @@ Dialog {
                                 renderType: Text.NativeRendering
                                 textFormat: Text.RichText
                                 onLinkActivated: {
-                                    RuqolaUtils.openUrl(link);
+                                    aboutDialog.openurl(link);
                                 }
                             }
                         }
