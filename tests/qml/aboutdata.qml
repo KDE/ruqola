@@ -6,7 +6,6 @@ import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.2 as QQC2
 
-//import KDE.Ruqola.Ruqola 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
 ApplicationWindow {
@@ -33,6 +32,10 @@ ApplicationWindow {
 
     AboutDialog {
         id: aboutDataDialog
+        applicationData: ruqolaAboutData
+        onOpenurl: {
+            console.log("url clicked : " + link);
+        }
     }
 
     QQC2.Menu {

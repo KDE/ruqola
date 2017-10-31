@@ -280,5 +280,4 @@ Dialog {
     LicenseDialog {
         id: licenseDialog
     }
-
 }

@@ -25,6 +25,7 @@
 #include <KAboutData>
 #include <QCommandLineParser>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include <ruqola.h>
 #include <ruqolautils.h>
 
@@ -61,7 +62,11 @@ int main(int argc, char *argv[])
     qmlRegisterType<RuqolaAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
     qmlRegisterType<RuqolaAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");
 
+    RuqolaAboutData ruqolaAboutData;
+
     QQmlApplicationEngine engine;
+    engine.rootContext()->setContextProperty(QStringLiteral("ruqolaAboutData"), &ruqolaAboutData);
+
     engine.load(QUrl(QStringLiteral("qrc:/aboutdata.qml")));
     return app.exec();
 }
