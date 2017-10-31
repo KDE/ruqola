@@ -25,6 +25,12 @@
 #include <KAboutData>
 #include <QCommandLineParser>
 #include <QQmlApplicationEngine>
+#include <ruqola.h>
+#include <ruqolautils.h>
+#include <rocketchataccount.h>
+
+#include <aboutdata/ruqolaaboutdata.h>
+#include <aboutdata/ruqolaaboutdataauthormodel.h>
 
 AboutDataTest::AboutDataTest(QWidget *parent)
     : QWidget(parent)
@@ -34,7 +40,7 @@ AboutDataTest::AboutDataTest(QWidget *parent)
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
     QStandardPaths::setTestModeEnabled(true);
 
     KAboutData aboutData(QStringLiteral("ruqola"),
@@ -57,11 +63,15 @@ int main(int argc, char *argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
+    qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "RuqolaSingleton");
+    qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
+    qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
+    qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
+    qmlRegisterType<RuqolaAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
+    qmlRegisterType<RuqolaAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");
+    qRegisterMetaType<Message::MessageType>();
+
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/contactlist.qml")));
-
-
-    AboutDataTest w;
-    w.show();
+    engine.load(QUrl(QStringLiteral("qrc:/aboutdata.qml")));
     return app.exec();
 }

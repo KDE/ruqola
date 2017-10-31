@@ -58,7 +58,9 @@ target_link_libraries(roommodelguitest
 
 ####
 set(aboutdatatest_SRCS aboutdatatest.cpp)
-add_executable(aboutdatatest ${aboutdatatest_SRCS})
+qt5_add_resources(aboutdatatestresources  aboutdatatest.qrc ../src/qml/qml.qrc ../src/ruqola.qrc)
+
+add_executable(aboutdatatest ${aboutdatatest_SRCS} ${aboutdatatestresources})
 
 target_link_libraries(aboutdatatest
     Qt5::Widgets

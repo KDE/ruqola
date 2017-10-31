@@ -23,8 +23,9 @@
 
 #include <KAboutData>
 #include <QAbstractListModel>
+#include "libruqola_private_export.h"
 
-class RuqolaAboutDataAuthorModel : public QAbstractListModel
+class LIBRUQOLACORE_TESTS_EXPORT RuqolaAboutDataAuthorModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
