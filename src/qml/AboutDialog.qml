@@ -21,7 +21,6 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
-import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.RuqolaAboutDataAuthorModel 1.0
 import KDE.Ruqola.RuqolaAboutData 1.0
 
@@ -34,6 +33,8 @@ Dialog {
     standardButtons: Dialog.Close
 
     signal openurl(string link)
+
+    property QtObject applicationData
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
@@ -57,11 +58,11 @@ Dialog {
         }
         TabButton {
             text: i18n("Thanks To")
-            visible: Ruqola.applicationData().creditsModel.count > 0
+            visible: applicationData.creditsModel.count > 0
         }
         TabButton {
             text: i18n("Translation")
-            visible: Ruqola.applicationData().translatorModel.count > 0
+            visible: applicationData.translatorModel.count > 0
         }
     }
 
@@ -78,21 +79,21 @@ Dialog {
                 Layout.fillWidth: true
 
                 Text {
-                    text: Ruqola.applicationData().title
+                    text: applicationData.title
                     wrapMode: Text.WordWrap
                     textFormat: Qt.RichText
                 }
                 Text {
-                    text: Ruqola.applicationData().about
+                    text: applicationData.about
                     wrapMode: Text.WordWrap
                     textFormat: Qt.RichText
                 }
                 Text {
-                    text: Ruqola.applicationData().licenses
+                    text: applicationData.licenses
                     wrapMode: Text.WordWrap
                     textFormat: Qt.RichText
                     onLinkActivated: {
-                        licenseDialog.licenseText = Ruqola.applicationData().licenseText(link);
+                        licenseDialog.licenseText = applicationData.licenseText(link);
                         licenseDialog.open();
                     }
                 }
@@ -106,7 +107,7 @@ Dialog {
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
                 Text {
-                    text: Ruqola.applicationData().libraries
+                    text: applicationData.libraries
                     wrapMode: Text.WordWrap
                     textFormat: Qt.RichText
                 }
@@ -120,8 +121,8 @@ Dialog {
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
                 Text {
-                    visible: Ruqola.applicationData().reportBugs !== ""
-                    text: Ruqola.applicationData().reportBugs
+                    visible: applicationData.reportBugs !== ""
+                    text: applicationData.reportBugs
                     wrapMode: Text.WordWrap
                     textFormat: Qt.RichText
                     onLinkActivated: {
@@ -136,7 +137,7 @@ Dialog {
                     Repeater {
                         id: authorList
 
-                        model: Ruqola.applicationData().authorModel
+                        model: applicationData.authorModel
                         Column {
                             spacing: 5
                             Text {
@@ -188,7 +189,7 @@ Dialog {
                     Repeater {
                         id: creditList
 
-                        model: Ruqola.applicationData().creditModel
+                        model: applicationData.creditModel
                         Column {
                             Text {
                                 text: username
@@ -239,7 +240,7 @@ Dialog {
                     Repeater {
                         id: translatorList
 
-                        model: Ruqola.applicationData().translatorModel
+                        model: applicationData.translatorModel
                         Column {
                             Text {
                                 text: username

@@ -100,6 +100,7 @@ Kirigami.ApplicationWindow {
 
     AboutDialog {
         id: aboutDataDialog
+        applicationData: Ruqola.applicationData()
         onOpenurl: {
             RuqolaUtils.openUrl(link);
         }
