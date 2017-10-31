@@ -20,6 +20,8 @@ ApplicationWindow {
     Label {
         text: "click for show aboutdata"
         anchors.fill: parent
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
         MouseArea {
             anchors.fill: parent
             onClicked: {
