@@ -26,7 +26,7 @@ import QtQuick.Window 2.0
 Dialog {
     id: createNewChannelDialog
 
-    signal createNewChannel(string name)
+    signal createNewChannel(string name, bool readOnly, bool privateRoom)
 
     title: i18n("Create Channel")
 
@@ -36,8 +36,10 @@ Dialog {
     y: parent.height / 2 - height / 2
 
     width: 300
-    height: 400
+    height: 200
     modal: true
+    //TODO convert to GridLayout
+
     Column {
         RowLayout {
             Label {
@@ -48,10 +50,28 @@ Dialog {
                 placeholderText: i18n("Channel Name")
             }
         }
+        RowLayout {
+            Label {
+                text: i18n("Read-Only:");
+            }
+            Switch {
+                id: readOnlyRoom
+                checked: false
+            }
+        }
+        RowLayout {
+            Label {
+                text: i18n("Private:");
+            }
+            Switch {
+                id: privateRoom
+                checked: false
+            }
+        }
     }
 
     onAccepted: {
-        createNewChannelDialog.createNewChannel(channelName.text)
+        createNewChannelDialog.createNewChannel(channelName.text, readOnlyRoom.checked, privateRoom.checked)
     }
 
 }

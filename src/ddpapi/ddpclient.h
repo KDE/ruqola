@@ -147,8 +147,8 @@ public:
     LoginStatus loginStatus() const;
 
     quint64 toggleFavorite(const QString &roomID, bool favorite);
-    quint64 createChannel(const QString &name, bool readOnly);
-    quint64 createPrivateGroup(const QString &name);
+    quint64 createChannel(const QString &name, const QStringList &userList, bool readOnly);
+    quint64 createPrivateGroup(const QString &name, const QStringList &userList);
     quint64 joinRoom(const QString &roomId, const QString &joinCode);
 Q_SIGNALS:
     void connectedChanged();
@@ -187,7 +187,7 @@ private:
     /**
      * @brief Unique message ID for each message sent over network
      */
-    quint64 m_uid;
+    quint64 m_uid = 0;
 
     /**
      * @brief Stores callback function associated with each message

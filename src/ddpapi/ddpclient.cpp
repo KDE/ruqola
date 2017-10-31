@@ -211,22 +211,19 @@ quint64 DDPClient::hideRoom(const QString &roomID)
 
 quint64 DDPClient::toggleFavorite(const QString &roomID, bool favorite)
 {
-    qDebug() << " quint64 DDPClient::toggleFavorite(const QString &roomID, bool favorite)"<<roomID << favorite;
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->toggleFavorite(roomID, favorite, m_uid);
     return method(result, empty_callback, DDPClient::Persistent);
 }
 
-quint64 DDPClient::createChannel(const QString &name, bool readOnly)
+quint64 DDPClient::createChannel(const QString &name, const QStringList &userList, bool readOnly)
 {
-    //TODO userList
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createChannel(name, QStringList(), readOnly, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createChannel(name, userList, readOnly, m_uid);
     return method(result, create_channel, DDPClient::Persistent);
 }
 
-quint64 DDPClient::createPrivateGroup(const QString &name)
+quint64 DDPClient::createPrivateGroup(const QString &name, const QStringList &userList)
 {
-    //TODO userList
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createPrivateGroup(name, QStringList(), m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createPrivateGroup(name, userList, m_uid);
     return method(result, empty_callback, DDPClient::Persistent);
 }
 

@@ -58,11 +58,11 @@ Dialog {
         }
         TabButton {
             text: i18n("Thanks To")
-            visible: applicationData.creditsModel.count > 0
+            //FIXME visible: applicationData.creditsModel.count > 0
         }
         TabButton {
             text: i18n("Translation")
-            visible: applicationData.translatorModel.count > 0
+            //FIXME visible: applicationData.translatorModel.count > 0
         }
     }
 
@@ -189,7 +189,7 @@ Dialog {
                     Repeater {
                         id: creditList
 
-                        model: applicationData.creditModel
+                        model: applicationData.creditsModel
                         Column {
                             Text {
                                 text: username

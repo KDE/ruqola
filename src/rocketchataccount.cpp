@@ -329,10 +329,13 @@ void RocketChatAccount::joinJitsiConfCall()
     //TODO
 }
 
-void RocketChatAccount::createNewChannel(const QString &name)
+void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom)
 {
-    //TODO define readonly or not ?
-    ddp()->createChannel(name, false);
+    if (privateRoom) {
+        ddp()->createPrivateGroup(name, QStringList());
+    } else {
+        ddp()->createChannel(name, QStringList(), readOnly);
+    }
 }
 
 void RocketChatAccount::joinRoom(const QString &roomId)
