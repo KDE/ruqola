@@ -31,12 +31,6 @@
 #include <aboutdata/ruqolaaboutdata.h>
 #include <aboutdata/ruqolaaboutdataauthormodel.h>
 
-AboutDataTest::AboutDataTest(QWidget *parent)
-    : QWidget(parent)
-{
-
-}
-
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);

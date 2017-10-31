@@ -21,14 +21,4 @@
 #ifndef ABOUTDATATEST_H
 #define ABOUTDATATEST_H
 
-#include <QWidget>
-
-class AboutDataTest : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit AboutDataTest(QWidget *parent = nullptr);
-    ~AboutDataTest() = default;
-};
-
 #endif // ABOUTDATATEST_H
