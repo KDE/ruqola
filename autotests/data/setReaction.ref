@@ -1,0 +1,9 @@
+{
+    "id": "43",
+    "method": "setReaction",
+    "msg": "method",
+    "params": [
+        ":emoji:",
+        "messid"
+    ]
+}

@@ -44,7 +44,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::getRoomRoles(const
     return generateMethod(QStringLiteral("getRoomRoles"), QJsonDocument(params), id);
 }
 
-//TODO verify
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setReaction(const QString &emoji, const QString &messageId, quint64 id)
 {
     const QJsonArray params{
@@ -219,8 +218,18 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QSt
                             }};
     return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
 }
+#if 0 //TODO
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateMessage(const QString &roomId, const QString &accessCode, quint64 id)
+{
+    const QJsonArray params{{
+                                roomId
+                            }, {
+                                accessCode
+                            }};
+    return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
+}
+#endif
 
-//TODO verify
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteMessage(const QString &messageId, quint64 id)
 {
     QJsonObject obj{{

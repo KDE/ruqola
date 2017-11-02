@@ -269,6 +269,22 @@ void RocketChatMessageTest::shouldCreatePrivateGroup_data()
     QTest::newRow("emptytrue") << QStringLiteral("foo") << users << QStringLiteral("createprivategrouplistuser");
 }
 
+void RocketChatMessageTest::shouldSetReaction()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.setReaction(QStringLiteral(":emoji:"), QStringLiteral("messid"), 43);
+    compareFile(r.result, QStringLiteral("setReaction"));
+}
+
+void RocketChatMessageTest::shouldDeleteMessage()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.deleteMessage(QStringLiteral("messid"), 43);
+    compareFile(r.result, QStringLiteral("deleteMessage"));
+}
+
 void RocketChatMessageTest::shouldCreatePrivateGroup()
 {
     QFETCH(QString, channelname);
