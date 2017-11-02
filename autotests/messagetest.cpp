@@ -87,6 +87,7 @@ void MessageTest::shouldParseMessage_data()
     imageMessageRef.setAttachements({attImage});
 
     QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
+    //TODO add Mentions
 
 }
 
@@ -160,4 +161,5 @@ void MessageTest::shouldSerializeData()
     const QByteArray ba = Message::serialize(input);
     Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(output));
+    //TODO add Mentions
 }

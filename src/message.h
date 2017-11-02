@@ -130,7 +130,11 @@ public:
     QVector<MessageUrl> urls() const;
     void setUrls(const QVector<MessageUrl> &urls);
 
+    QMap<QString, QString> mentions() const;
+    void setMentions(const QMap<QString, QString> &mentions);
+
 private:
+    void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
     void parseUrls(const QJsonArray &urls);
     //Message Object Fields
@@ -138,6 +142,9 @@ private:
 
     //Message urls object
     QVector<MessageUrl> mUrls;
+
+    //Mentions
+    QMap<QString, QString> mMentions;
 
     // _id
     QString mMessageId;

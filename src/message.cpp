@@ -55,8 +55,19 @@ void Message::parseMessage(const QJsonObject &o)
         mSystemMessageType = type;
         mMessageType = System;
     }
+    parseMentions(o.value(QStringLiteral("mentions")).toArray());
+
     parseAttachment(o.value(QStringLiteral("attachments")).toArray());
     parseUrls(o.value(QStringLiteral("urls")).toArray());
+}
+
+void Message::parseMentions(const QJsonArray &mentions)
+{
+    mMentions.clear();
+    for (int i = 0; i < mentions.size(); i++) {
+        const QJsonObject mention = mentions.at(i).toObject();
+        mMentions.insert(mention.value(QStringLiteral("username")).toString(), mention.value(QStringLiteral("_id")).toString());
+    }
 }
 
 void Message::parseUrls(const QJsonArray &urls)
@@ -89,6 +100,16 @@ void Message::parseUrls(const QJsonArray &urls)
             mUrls.append(messageUrl);
         }
     }
+}
+
+QMap<QString, QString> Message::mentions() const
+{
+    return mMentions;
+}
+
+void Message::setMentions(const QMap<QString, QString> &mentions)
+{
+    mMentions = mentions;
 }
 
 void Message::parseAttachment(const QJsonArray &attachments)
@@ -371,6 +392,16 @@ Message Message::fromJSon(const QJsonObject &o)
             message.mUrls.append(url);
         }
     }
+    const QJsonArray mentionsArray = o.value(QStringLiteral("mentions")).toArray();
+    for (int i = 0; i < mentionsArray.count(); ++i) {
+        const QJsonObject mention = mentionsArray.at(i).toObject();
+        qDebug() << " mention"<<mention;
+//        const MessageAttachment att = MessageAttachment::fromJSon(attachment);
+//        if (!att.isEmpty()) {
+//            message.mAttachements.append(att);
+//        }
+    }
+
     return message;
 }
 
@@ -443,6 +474,7 @@ QDebug operator <<(QDebug d, const Message &t)
     for (int i = 0; i < t.urls().count(); ++i) {
         d << "Urls :" << t.urls().at(i);
     }
+    d << "Mentions :" << t.mentions();
     d << "mMessageType: " << t.messageType();
     return d;
 }
@@ -466,5 +498,6 @@ bool Message::isEqual(const Message &other) const
             && (mGroupable == other.groupable())
             && (mParseUrls == other.parseUrls())
             && (mUrls == other.urls())
-            && (mAttachements == other.attachements());
+            && (mAttachements == other.attachements())
+            && (mMentions == other.mentions());
 }

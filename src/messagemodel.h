@@ -55,7 +55,8 @@ public:
         MessageType,
         Attachments,
         Urls,
-        Date
+        Date,
+        Mentions,
     };
     Q_ENUM(MessageRoles)
 
