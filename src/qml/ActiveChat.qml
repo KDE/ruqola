@@ -44,6 +44,8 @@ import org.kde.kirigami 2.1 as Kirigami
 ListView {
     id: activeChat
 
+    signal openDirectChannel(string userName)
+
     onCountChanged: {
         positionViewAtIndex(count - 1, ListView.Beginning)
     }
@@ -64,5 +66,8 @@ ListView {
         i_urls: urls
         i_attachments: attachments
         i_date: date
+        onOpenDirectChannel: {
+            activeChat.openDirectChannel(userName)
+        }
     }
 }

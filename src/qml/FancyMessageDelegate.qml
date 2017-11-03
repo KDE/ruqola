@@ -55,6 +55,8 @@ Rectangle {
     
     anchors.bottomMargin: 200
     
+    signal openDirectChannel(string userName)
+
     Loader {
         id: loaded
         anchors.topMargin: Kirigami.Units.smallSpacing
@@ -133,6 +135,7 @@ Rectangle {
             } else if (link.startsWith("ruqola:/user/")) {
                 console.log("RUQOKA user: " + link);
                 Ruqola.rocketChatAccount().openDirectChat(link);
+                messageMain.openDirectChannel(link)
             } else {
                 RuqolaUtils.openUrl(link);
             }

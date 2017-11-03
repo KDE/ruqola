@@ -288,6 +288,9 @@ Kirigami.ApplicationWindow {
             ActiveChat {
                 id: activeChat
                 model: appid.model
+                onOpenDirectChannel: {
+                    console.log("Open direct channel !!! " + userName)
+                }
             }
             footer: UserInput {
                 id: userInputMessage
