@@ -21,6 +21,7 @@
 #include "utils.h"
 #include "ruqola_debug.h"
 #include <KTextToHTML>
+#include <qregularexpression.h>
 
 QUrl Utils::generateServerUrl(const QString &url)
 {
@@ -48,6 +49,34 @@ QString Utils::markdownToRichText(const QString &markDown)
     str.remove(QStringLiteral("<br />"));
     //qCDebug(RUQOLA_LOG) << "markdownToRichText "<<str;
     return str;
+}
+
+QString Utils::generateRichText(const QString &str,  const QMap<QString, QString> &mentions)
+{
+    QString newStr = Utils::markdownToRichText(str);
+
+    static const QRegularExpression regularExpressionUser(QStringLiteral("@(\\w+(?:\\.\\w+)?)"));
+    QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
+    while (userIterator.hasNext()) {
+        const QRegularExpressionMatch match = userIterator.next();
+        const QString word = match.captured(1);
+        const QString value = mentions.value(word);
+        if (!value.isEmpty()) {
+            newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%2</a>").arg(value).arg(word));
+        }
+    }
+
+    static const QRegularExpression regularExpressionRoom(QStringLiteral("#(\\w+(?:\\.\\w+)?)"));
+    QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
+    while (roomIterator.hasNext()) {
+        const QRegularExpressionMatch match = roomIterator.next();
+        const QString word = match.captured(1);
+        const QString value = mentions.value(word);
+        if (!value.isEmpty()) {
+            newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%2</a>").arg(value).arg(word));
+        }
+    }
+    return newStr;
 }
 
 QString Utils::presenceStatusToString(User::PresenceStatus status)

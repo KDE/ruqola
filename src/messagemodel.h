@@ -90,6 +90,7 @@ protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
+    QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const;
     const QString m_roomID;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;

@@ -168,7 +168,7 @@ ColumnLayout {
                 textFormat: Text.RichText
 
 
-                text: MessageScript.markdownme(RuqolaUtils.markdownToRichText(i_messageText))
+                text: MessageScript.markdownme(i_messageText)
                 wrapMode: Label.Wrap
 
                 onLinkActivated: messageMain.linkActivated(link)

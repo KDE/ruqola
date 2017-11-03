@@ -31,6 +31,7 @@
 #include "messagemodel.h"
 #include "message.h"
 #include "ruqola_debug.h"
+#include "utils.h"
 #include "rocketchataccount.h"
 
 MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QObject *parent)
@@ -168,7 +169,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::Username:
         return mAllMessages.at(idx).username();
     case MessageModel::MessageText:
-        return mAllMessages.at(idx).text();
+        return convertMessageText(mAllMessages.at(idx).text(), mAllMessages.at(idx).mentions());
     case MessageModel::Timestamp:
         return mAllMessages.at(idx).timeStamp();
     case MessageModel::UserId:
@@ -218,4 +219,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     default:
         return QString();
     }    
+}
+
+QString MessageModel::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const
+{
+    return Utils::generateRichText(str, mentions);
 }
