@@ -54,6 +54,15 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setReaction(const 
     return generateMethod(QStringLiteral("setReaction"), QJsonDocument(params), id);
 }
 
+//TODO verify
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::createDirectMessage(const QString &username, quint64 id)
+{
+    const QJsonArray params{
+        QJsonValue(username)
+    };
+    return generateMethod(QStringLiteral("createDirectMessage"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::createChannel(const QString &roomName, const QStringList &userList, bool readOnly, quint64 id)
 {
     const QJsonArray params{

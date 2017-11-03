@@ -75,6 +75,7 @@ public:
     RocketChatMessage::RocketChatMessageResult deleteMessage(const QString &messageId, quint64 id);
     RocketChatMessage::RocketChatMessageResult starMessage(const QString &_id, const QString &rid, bool starred, quint64 id);
     RocketChatMessage::RocketChatMessageResult setReaction(const QString &emoji, const QString &messageId, quint64 id);
+    RocketChatMessage::RocketChatMessageResult createDirectMessage(const QString &username, quint64 id);
 private:
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
