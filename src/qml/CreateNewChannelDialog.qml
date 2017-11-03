@@ -22,7 +22,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
-
+import org.kde.kirigami 2.1 as Kirigami
 Dialog {
     id: createNewChannelDialog
 
@@ -35,38 +35,33 @@ Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
+    margins: Kirigami.Units.smallSpacing
     width: 300
     height: 200
     modal: true
-    //TODO convert to GridLayout
 
-    Column {
-        RowLayout {
-            Label {
-                text: i18n("Name:");
-            }
-            TextField {
-                id: channelName
-                placeholderText: i18n("Channel Name")
-            }
+    GridLayout {
+        columns: 2
+        Label {
+            text: i18n("Name:");
         }
-        RowLayout {
-            Label {
-                text: i18n("Read-Only:");
-            }
-            Switch {
-                id: readOnlyRoom
-                checked: false
-            }
+        TextField {
+            id: channelName
+            placeholderText: i18n("Channel Name")
         }
-        RowLayout {
-            Label {
-                text: i18n("Private:");
-            }
-            Switch {
-                id: privateRoom
-                checked: false
-            }
+        Label {
+            text: i18n("Read-Only:");
+        }
+        Switch {
+            id: readOnlyRoom
+            checked: false
+        }
+        Label {
+            text: i18n("Private:");
+        }
+        Switch {
+            id: privateRoom
+            checked: false
         }
     }
 
