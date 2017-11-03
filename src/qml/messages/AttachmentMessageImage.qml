@@ -27,7 +27,6 @@ import QtQuick.Layouts 1.1
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.ExtraColors 1.0
-import "../js/message.js" as MessageScript;
 
 ColumnLayout {
 
@@ -72,7 +71,7 @@ ColumnLayout {
 
             text: i_username + i18n(" Image ")
 
-            wrapMode: Label.Wrap
+            wrapMode: QQC2.Label.Wrap
 
             renderType: Text.NativeRendering
 
