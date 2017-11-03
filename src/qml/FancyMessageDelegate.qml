@@ -115,7 +115,8 @@ Rectangle {
                               i_messageID: i_messageID,
                               i_avatar: i_avatar,
                               i_urls: i_urls,
-                              i_attachments: i_attachments
+                              i_attachments: i_attachments,
+                              i_date: i_date
                           })
 
             } else {
