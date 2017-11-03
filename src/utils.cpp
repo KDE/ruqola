@@ -60,10 +60,7 @@ QString Utils::generateRichText(const QString &str,  const QMap<QString, QString
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
         const QString word = match.captured(1);
-        const QString value = mentions.value(word);
-        if (!value.isEmpty()) {
-            newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%2</a>").arg(value).arg(word));
-        }
+        newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
     }
 
     static const QRegularExpression regularExpressionRoom(QStringLiteral("#(\\w+(?:\\.\\w+)?)"));
@@ -71,10 +68,7 @@ QString Utils::generateRichText(const QString &str,  const QMap<QString, QString
     while (roomIterator.hasNext()) {
         const QRegularExpressionMatch match = roomIterator.next();
         const QString word = match.captured(1);
-        const QString value = mentions.value(word);
-        if (!value.isEmpty()) {
-            newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%2</a>").arg(value).arg(word));
-        }
+        newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%1</a>").arg(word));
     }
     return newStr;
 }

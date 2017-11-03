@@ -23,12 +23,15 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import org.kde.kirigami 2.1 as Kirigami
+
 Dialog {
-    id: createNewChannelDialog
+    id: openDirectChannelDialog
 
-    signal createNewChannel(string name, bool readOnly, bool privateRoom)
+    signal openDirectChannel(string userId)
+    property string username
+    property string userId
 
-    title: i18n("Create Channel")
+    title: i18n("Open Conversation with %1", username)
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
@@ -39,32 +42,7 @@ Dialog {
     height: 200
     modal: true
 
-    GridLayout {
-        columns: 2
-        Label {
-            text: i18n("Name:");
-        }
-        TextField {
-            id: channelName
-            placeholderText: i18n("Channel Name")
-        }
-        Label {
-            text: i18n("Read-Only:");
-        }
-        Switch {
-            id: readOnlyRoom
-            checked: false
-        }
-        Label {
-            text: i18n("Private:");
-        }
-        Switch {
-            id: privateRoom
-            checked: false
-        }
-    }
-
     onAccepted: {
-        createNewChannelDialog.createNewChannel(channelName.text, readOnlyRoom.checked, privateRoom.checked)
+        createNewChannelDialog.openDirectChannel(userId)
     }
 }

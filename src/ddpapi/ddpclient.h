@@ -150,6 +150,7 @@ public:
     quint64 createChannel(const QString &name, const QStringList &userList, bool readOnly);
     quint64 createPrivateGroup(const QString &name, const QStringList &userList);
     quint64 joinRoom(const QString &roomId, const QString &joinCode);
+    quint64 openDirectChannel(const QString &userId);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

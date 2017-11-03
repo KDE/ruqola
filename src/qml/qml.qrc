@@ -14,6 +14,7 @@
         <file>LicenseDialog.qml</file>
         <file>CreateNewChannelDialog.qml</file>
         <file>ChannelConfigDialog.qml</file>
+        <file>OpenDirectChannelDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

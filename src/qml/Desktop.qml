@@ -113,6 +113,13 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    OpenDirectChannelDialog {
+        id: openDirectChannelDialog
+        onOpenDirectChannel: {
+            Ruqola.rocketChatAccount().openDirectChannel(userId);
+        }
+    }
+
     BusyIndicator {
         id: busy
         anchors.centerIn: parent

@@ -313,8 +313,9 @@ QString RocketChatAccount::serverUrl() const
 
 void RocketChatAccount::openDirectChat(const QString &url)
 {
-    qDebug() << " void RocketChatAccount::openDirectChat(const QString &url)"<<url;
-    //TODO
+    QString newUrl = url;
+    newUrl.remove(QStringLiteral("ruqola:/user/"));
+    openDirectChannel(newUrl);
 }
 
 void RocketChatAccount::openChannel(const QString &url)
@@ -327,6 +328,11 @@ void RocketChatAccount::openChannel(const QString &url)
 void RocketChatAccount::joinJitsiConfCall()
 {
     //TODO
+}
+
+void RocketChatAccount::openDirectChannel(const QString &username)
+{
+    ddp()->openDirectChannel(username);
 }
 
 void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom)

@@ -38,9 +38,16 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void open_direct_channel(const QJsonDocument &doc, RocketChatAccount *account)
+{
+    qDebug() << " open direct channel " << doc;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + doc.toJson());
+    }
+}
+
 void join_room(const QJsonDocument &doc, RocketChatAccount *account)
 {
-    //Move to RocketChatAccount for debug
     qDebug() << " join room " << doc;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Join Room :") + doc.toJson());
@@ -220,6 +227,13 @@ quint64 DDPClient::createChannel(const QString &name, const QStringList &userLis
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createChannel(name, userList, readOnly, m_uid);
     return method(result, create_channel, DDPClient::Persistent);
 }
+
+quint64 DDPClient::openDirectChannel(const QString &userId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createDirectMessage(userId, m_uid);
+    return method(result, open_direct_channel, DDPClient::Persistent);
+}
+
 
 quint64 DDPClient::createPrivateGroup(const QString &name, const QStringList &userList)
 {
