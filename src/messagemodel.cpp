@@ -215,10 +215,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return QString();
     }
-    case MessageModel::Mentions: {
-        //return mAllMessages.at(idx).mentions();
-        return {};
-    }
     default:
         return QString();
     }    
