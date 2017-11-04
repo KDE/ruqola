@@ -116,7 +116,8 @@ Kirigami.ApplicationWindow {
     OpenDirectChannelDialog {
         id: openDirectChannelDialog
         onOpenDirectChannel: {
-            Ruqola.rocketChatAccount().openDirectChannel(userId);
+            username:
+            Ruqola.rocketChatAccount().openDirectChannel(userName);
         }
     }
 
@@ -289,6 +290,8 @@ Kirigami.ApplicationWindow {
                 id: activeChat
                 model: appid.model
                 onOpenDirectChannel: {
+                    openDirectChannelDialog.username = userName;
+                    openDirectChannelDialog.open()
                     console.log("Open direct channel !!! " + userName)
                 }
             }

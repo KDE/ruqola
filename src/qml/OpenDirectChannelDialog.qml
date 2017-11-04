@@ -27,11 +27,10 @@ import org.kde.kirigami 2.1 as Kirigami
 Dialog {
     id: openDirectChannelDialog
 
-    signal openDirectChannel(string userId)
-    property string username
-    property string userId
+    signal openDirectChannel(string userName)
+    property string username: "username"
 
-    title: i18n("Open Conversation with %1", username)
+    title: i18n("Open Conversation with %1?", username)
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
@@ -43,6 +42,6 @@ Dialog {
     modal: true
 
     onAccepted: {
-        createNewChannelDialog.openDirectChannel(userId)
+        createNewChannelDialog.openDirectChannel(username)
     }
 }
