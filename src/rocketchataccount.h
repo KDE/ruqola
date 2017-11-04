@@ -89,7 +89,6 @@ public:
     RuqolaLogger *ruqolaLogger() const;
 
     Q_INVOKABLE QString serverUrl() const;
-    Q_INVOKABLE void openDirectChat(const QString &url);
     Q_INVOKABLE void openChannel(const QString &url);
     Q_INVOKABLE void joinJitsiConfCall();
     Q_INVOKABLE void createNewChannel(const QString &name, bool readOnly, bool privateRoom);

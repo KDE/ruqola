@@ -311,13 +311,6 @@ QString RocketChatAccount::serverUrl() const
     return mSettings->serverUrl();
 }
 
-void RocketChatAccount::openDirectChat(const QString &url)
-{
-    QString newUrl = url;
-    newUrl.remove(QStringLiteral("ruqola:/user/"));
-    openDirectChannel(newUrl);
-}
-
 void RocketChatAccount::openChannel(const QString &url)
 {
     qDebug() << " void RocketChatAccount::openChannel(const QString &url)"<<url;
