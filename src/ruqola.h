@@ -23,7 +23,6 @@
 #ifndef USERDATA_H
 #define USERDATA_H
 
-
 #include <QObject>
 #include "libruqolacore_export.h"
 #include <QQmlEngine>

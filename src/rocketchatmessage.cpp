@@ -48,8 +48,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setReaction(const 
 {
     const QJsonArray params{
         QJsonValue(emoji),
-                QJsonValue(messageId)
-
+        QJsonValue(messageId)
     };
     return generateMethod(QStringLiteral("setReaction"), QJsonDocument(params), id);
 }
@@ -227,6 +226,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QSt
                             }};
     return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
 }
+
 #if 0 //TODO
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateMessage(const QString &roomId, const QString &accessCode, quint64 id)
 {
@@ -237,13 +237,14 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateMessage(cons
                             }};
     return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
 }
+
 #endif
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteMessage(const QString &messageId, quint64 id)
 {
     QJsonObject obj{{
-                           QStringLiteral("_id"), messageId
-                       }};
+                        QStringLiteral("_id"), messageId
+                    }};
     const QJsonArray params{{
                                 obj
                             }};

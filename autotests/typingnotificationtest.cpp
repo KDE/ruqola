@@ -84,7 +84,6 @@ void TypingNotificationTest::shouldDontEmitSignalWhenTypingSeveralTextBeforeTime
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
 
-
     QTest::qWait(150); // 150 ms
     QCOMPARE(signal.count(), 2);
 }

@@ -121,7 +121,7 @@ void DDPClient::initializeWebSocket()
 }
 
 void DDPClient::start()
-{    
+{
     if (!mWebSocket) {
         if (!RuqolaTestWebSocket::_k_ruqola_webSocket) {
             mWebSocket = new RuqolaWebSocket(this);
@@ -241,7 +241,6 @@ quint64 DDPClient::openDirectChannel(const QString &userId)
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createDirectMessage(userId, m_uid);
     return method(result, open_direct_channel, DDPClient::Persistent);
 }
-
 
 quint64 DDPClient::createPrivateGroup(const QString &name, const QStringList &userList)
 {

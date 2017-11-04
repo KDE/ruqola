@@ -31,4 +31,3 @@ RoomModelTest::RoomModelTest(QObject *parent)
     : QObject(parent)
 {
 }
-

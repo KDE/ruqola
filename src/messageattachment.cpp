@@ -29,9 +29,9 @@ MessageAttachment::MessageAttachment()
 QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
 {
     QJsonObject obj;
-    obj[QStringLiteral("description")]  = message.description();
-    obj[QStringLiteral("title")]  = message.title();
-    obj[QStringLiteral("url")]  = message.link();
+    obj[QStringLiteral("description")] = message.description();
+    obj[QStringLiteral("title")] = message.title();
+    obj[QStringLiteral("url")] = message.link();
     if ((message.imageHeight() != -1) && (message.imageWidth() != -1)) {
         obj[QStringLiteral("image_height")] = message.imageHeight();
         obj[QStringLiteral("image_width")] = message.imageWidth();
@@ -127,12 +127,12 @@ void MessageAttachment::setLink(const QString &link)
 
 bool MessageAttachment::operator==(const MessageAttachment &other) const
 {
-    return (mDescription == other.description()) &&
-            (mTitle == other.title()) &&
-            (mLink == other.link()) &&
-            (mColor == other.color()) &&
-            (mImageHeight == other.imageHeight()) &&
-            (mImageWidth == other.imageWidth());
+    return (mDescription == other.description())
+           && (mTitle == other.title())
+           && (mLink == other.link())
+           && (mColor == other.color())
+           && (mImageHeight == other.imageHeight())
+           && (mImageWidth == other.imageWidth());
 }
 
 QDebug operator <<(QDebug d, const MessageAttachment &t)

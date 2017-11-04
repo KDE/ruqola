@@ -188,7 +188,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mAllMessages.at(idx).editedAt();
     case MessageModel::EditedByUserName:
         return mAllMessages.at(idx).editedByUsername();
-    case MessageModel::Attachments: {
+    case MessageModel::Attachments:
+    {
         QVariantList lst;
         lst.reserve(mAllMessages.at(idx).attachements().count());
         for (const MessageAttachment &att : mAllMessages.at(idx).attachements()) {
@@ -196,7 +197,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return lst;
     }
-    case MessageModel::Urls: {
+    case MessageModel::Urls:
+    {
         QVariantList lst;
         lst.reserve(mAllMessages.at(idx).urls().count());
         for (const MessageUrl &url : mAllMessages.at(idx).urls()) {
@@ -204,7 +206,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return lst;
     }
-    case MessageModel::Date: {
+    case MessageModel::Date:
         if (idx > 0) {
             QDateTime previewDate;
             previewDate.setMSecsSinceEpoch(mAllMessages.at(idx - 1).timeStamp());
@@ -215,10 +217,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             }
         }
         return QString();
-    }
     default:
         return QString();
-    }    
+    }
 }
 
 QString MessageModel::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const

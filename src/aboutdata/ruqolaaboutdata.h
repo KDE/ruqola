@@ -48,7 +48,6 @@ public:
     QString libraries() const;
     QString reportBugs() const;
 
-
     Q_INVOKABLE QString licenseText(const QString &val);
 
     RuqolaAboutDataAuthorModel *authorModel() const;

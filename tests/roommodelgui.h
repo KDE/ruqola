@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef ROOMMODELGUI_H
 #define ROOMMODELGUI_H
 

@@ -63,7 +63,9 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
 
 User *UsersModel::user(const QString &userId)
 {
-    const int userCount{mUsers.count()};
+    const int userCount{
+        mUsers.count()
+    };
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i)->userId() == userId) {
             return mUsers.at(i);
@@ -75,7 +77,9 @@ User *UsersModel::user(const QString &userId)
 void UsersModel::removeUser(const QString &userId)
 {
     qCDebug(RUQOLA_LOG) << " User removed " << userId;
-    const int userCount{mUsers.count()};
+    const int userCount{
+        mUsers.count()
+    };
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i)->userId() == userId) {
             qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i)->name();
@@ -100,7 +104,9 @@ void UsersModel::addUser(User *user)
 void UsersModel::updateUser(const QJsonObject &array)
 {
     const QString id = array.value(QStringLiteral("id")).toString();
-    const int userCount{mUsers.count()};
+    const int userCount{
+        mUsers.count()
+    };
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i)->userId() == id) {
             User *user = mUsers.at(i);

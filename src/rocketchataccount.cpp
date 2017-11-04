@@ -324,7 +324,6 @@ void RocketChatAccount::openChannel(const QString &url)
     //TODO
 }
 
-
 void RocketChatAccount::joinJitsiConfCall()
 {
     //TODO

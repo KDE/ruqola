@@ -261,7 +261,6 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             } else {
                 qCDebug(RUQOLA_LOG) << "stream-notify-user: subscriptions-changed " << object;
             }
-
         } else if (eventname.endsWith(QStringLiteral("/rooms-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();
             model->updateRoom(fields);
@@ -286,7 +285,9 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
 
 void RocketChatBackend::onUserIDChanged()
 {
-    const QString userId{mRocketChatAccount->settings()->userId()};
+    const QString userId{
+        mRocketChatAccount->settings()->userId()
+    };
     {
         //Subscribe notification.
         QJsonArray params;

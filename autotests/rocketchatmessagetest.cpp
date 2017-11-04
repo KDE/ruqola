@@ -241,7 +241,9 @@ void RocketChatMessageTest::shouldCreateRoom_data()
 
     QTest::newRow("emptyfalse") << QStringLiteral("foo") << QStringList() << false << QStringLiteral("createroomemptyuserfalse");
     QTest::newRow("emptytrue") << QStringLiteral("foo") << QStringList() << true << QStringLiteral("createroomemptyusertrue");
-    const QStringList users {QStringLiteral("bla"), QStringLiteral("bla2")};
+    const QStringList users {
+        QStringLiteral("bla"), QStringLiteral("bla2")
+    };
     QTest::newRow("emptytrue") << QStringLiteral("foo") << users << true << QStringLiteral("createroomlistusertrue");
 }
 
@@ -265,7 +267,9 @@ void RocketChatMessageTest::shouldCreatePrivateGroup_data()
     QTest::addColumn<QString>("filename");
 
     QTest::newRow("emptyfalse") << QStringLiteral("foo") << QStringList() << QStringLiteral("createprivategroupemptyuser");
-    const QStringList users {QStringLiteral("bla"), QStringLiteral("bla2")};
+    const QStringList users {
+        QStringLiteral("bla"), QStringLiteral("bla2")
+    };
     QTest::newRow("emptytrue") << QStringLiteral("foo") << users << QStringLiteral("createprivategrouplistuser");
 }
 

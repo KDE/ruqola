@@ -28,7 +28,6 @@ QTEST_MAIN(RoomTest)
 RoomTest::RoomTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RoomTest::shouldSerialized()

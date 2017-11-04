@@ -28,7 +28,6 @@
 #include <QMenu>
 #include <QMessageBox>
 
-
 Notification::Notification(QObject *parent)
     : KStatusNotifierItem(parent)
 {

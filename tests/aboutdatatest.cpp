@@ -52,8 +52,6 @@ int main(int argc, char *argv[])
 
     aboutData.setTranslator(QStringLiteral("Laurent Montel"), QStringLiteral("montel@kde.org"));
 
-
-
     aboutData.setOrganizationDomain(QByteArrayLiteral("kde.org"));
     aboutData.setProductName(QByteArrayLiteral("ruqola"));
     KAboutData::setApplicationData(aboutData);

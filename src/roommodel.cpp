@@ -203,7 +203,9 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
 void RoomModel::addRoom(Room *room)
 {
     qDebug() << " void RoomModel::addRoom(const Room &room)"<<room->name();
-    const int roomCount{mRoomsList.count()};
+    const int roomCount{
+        mRoomsList.count()
+    };
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->id() == room->id()) {
             delete mRoomsList.takeAt(i);
@@ -226,7 +228,9 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     if (actionName == QStringLiteral("removed")) {
         qDebug() << "REMOVE ROOM name " << roomData.value(QStringLiteral("name")) << " rid " << roomData.value(QStringLiteral("rid"));
         const QString id = roomData.value(QStringLiteral("rid")).toString();
-        const int roomCount{mRoomsList.count()};
+        const int roomCount{
+            mRoomsList.count()
+        };
         for (int i = 0; i < roomCount; ++i) {
             if (mRoomsList.at(i)->id() == id) {
                 beginRemoveRows(QModelIndex(), i, i);
@@ -255,7 +259,9 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
 {
     const QString roomName = roomData.value(QStringLiteral("name")).toString();
     if (!roomName.isEmpty()) {
-        const int roomCount{mRoomsList.size()};
+        const int roomCount{
+            mRoomsList.size()
+        };
         for (int i = 0; i < roomCount; ++i) {
             if (mRoomsList.at(i)->name() == roomName) {
                 //TODO change with rid and not roomname as it can be changed!
@@ -277,7 +283,9 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
 
 void RoomModel::updateRoom(const QString &name, const QString &roomId, const QString &topic, const QString &announcement, bool readOnly)
 {
-    const int roomCount{mRoomsList.count()};
+    const int roomCount{
+        mRoomsList.count()
+    };
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->id() == roomId) {
             qCDebug(RUQOLA_LOG) << "Room changed!" << roomId;
@@ -319,9 +327,11 @@ int RoomModel::order(Room *r) const
     int order = 0;
     //First item are favorites channels
     if (!r->favorite()) {
-        order +=3;
+        order += 3;
     }
-    const QString channelTypeStr{r->channelType()};
+    const QString channelTypeStr{
+        r->channelType()
+    };
     if (channelTypeStr == QLatin1String("c")) {
         order += 1;
     } else if (channelTypeStr == QLatin1String("d")) {

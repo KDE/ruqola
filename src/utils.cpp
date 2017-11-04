@@ -51,7 +51,7 @@ QString Utils::markdownToRichText(const QString &markDown)
     return str;
 }
 
-QString Utils::generateRichText(const QString &str,  const QMap<QString, QString> &mentions)
+QString Utils::generateRichText(const QString &str, const QMap<QString, QString> &mentions)
 {
     QString newStr = Utils::markdownToRichText(str);
 

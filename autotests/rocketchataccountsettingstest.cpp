@@ -25,5 +25,4 @@ QTEST_MAIN(RocketChatAccountSettingsTest)
 RocketChatAccountSettingsTest::RocketChatAccountSettingsTest(QObject *parent)
     : QObject(parent)
 {
-
 }

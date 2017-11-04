@@ -56,7 +56,6 @@ RoomModelGui::RoomModelGui(QWidget *parent)
 
 RoomModelGui::~RoomModelGui()
 {
-
 }
 
 void RoomModelGui::fillModels()

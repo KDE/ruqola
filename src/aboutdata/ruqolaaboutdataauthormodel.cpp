@@ -24,7 +24,6 @@
 RuqolaAboutDataAuthorModel::RuqolaAboutDataAuthorModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 int RuqolaAboutDataAuthorModel::rowCount(const QModelIndex &parent) const

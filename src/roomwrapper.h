@@ -41,10 +41,9 @@ public:
     RoomWrapper(Room *r, QObject *parent = nullptr);
     ~RoomWrapper();
 
-
     QString name() const;
     QString topic() const;
-    QString announcement() const;    
+    QString announcement() const;
     bool favorite() const;
     bool readOnly() const;
 

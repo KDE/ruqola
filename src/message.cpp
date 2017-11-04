@@ -426,11 +426,13 @@ QByteArray Message::serialize(const Message &message)
     o[QStringLiteral("parseUrls")] = message.mParseUrls;
 
     o[QStringLiteral("type")] = message.mSystemMessageType;
-    o[QStringLiteral("messageType")]  = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
+    o[QStringLiteral("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
     //Attachments
     if (!message.mAttachements.isEmpty()) {
         QJsonArray array;
-        const int nbAttachment{message.mAttachements.count()};
+        const int nbAttachment{
+            message.mAttachements.count()
+        };
         for (int i = 0; i < nbAttachment; ++i) {
             array.append(MessageAttachment::serialize(message.mAttachements.at(i)));
         }
@@ -439,7 +441,9 @@ QByteArray Message::serialize(const Message &message)
     //Urls
     if (!message.mUrls.isEmpty()) {
         QJsonArray array;
-        const int nbUrls{message.mUrls.count()};
+        const int nbUrls{
+            message.mUrls.count()
+        };
         for (int i = 0; i < nbUrls; ++i) {
             array.append(MessageUrl::serialize(message.mUrls.at(i)));
         }
@@ -479,25 +483,24 @@ QDebug operator <<(QDebug d, const Message &t)
     return d;
 }
 
-
 bool Message::isEqual(const Message &other) const
 {
     return (mMessageId == other.messageId())
-            && (mRoomId == other.roomId())
-            && (mText == other.text())
-            && (mTimeStamp == other.timeStamp())
-            && (mUsername == other.username())
-            && (mUserId == other.userId())
-            && (mUpdatedAt == other.updatedAt())
-            && (mEditedAt == other.editedAt())
-            && (mEditedByUsername == other.editedByUsername())
-            && (mEditedByUserId == other.editedByUserId())
-            && (mAlias == other.alias())
-            && (mAvatar == other.avatar())
-            && (mSystemMessageType == other.systemMessageType())
-            && (mGroupable == other.groupable())
-            && (mParseUrls == other.parseUrls())
-            && (mUrls == other.urls())
-            && (mAttachements == other.attachements())
-            && (mMentions == other.mentions());
+           && (mRoomId == other.roomId())
+           && (mText == other.text())
+           && (mTimeStamp == other.timeStamp())
+           && (mUsername == other.username())
+           && (mUserId == other.userId())
+           && (mUpdatedAt == other.updatedAt())
+           && (mEditedAt == other.editedAt())
+           && (mEditedByUsername == other.editedByUsername())
+           && (mEditedByUserId == other.editedByUserId())
+           && (mAlias == other.alias())
+           && (mAvatar == other.avatar())
+           && (mSystemMessageType == other.systemMessageType())
+           && (mGroupable == other.groupable())
+           && (mParseUrls == other.parseUrls())
+           && (mUrls == other.urls())
+           && (mAttachements == other.attachements())
+           && (mMentions == other.mentions());
 }

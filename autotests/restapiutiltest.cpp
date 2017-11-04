@@ -27,7 +27,6 @@ QTEST_MAIN(RestApiUtilTest)
 RestApiUtilTest::RestApiUtilTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RestApiUtilTest::shouldAdaptUrl_data()

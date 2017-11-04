@@ -50,4 +50,3 @@ void RuqolaUtils::openUrl(const QString &url)
     const QUrl clickedUrl = QUrl::fromUserInput(url);
     QDesktopServices::openUrl(clickedUrl);
 }
-

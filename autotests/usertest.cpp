@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "usertest.h"
 #include "user.h"
 #include <QTest>
@@ -27,7 +26,6 @@ QTEST_MAIN(UserTest)
 UserTest::UserTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void UserTest::shouldHaveDefaultValue()

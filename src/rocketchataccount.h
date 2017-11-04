@@ -86,7 +86,6 @@ public:
 
     RocketChatBackend *rocketChatBackend() const;
 
-
     RuqolaLogger *ruqolaLogger() const;
 
     Q_INVOKABLE QString serverUrl() const;

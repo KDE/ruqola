@@ -26,7 +26,6 @@ QTEST_MAIN(MessageTest)
 MessageTest::MessageTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MessageTest::shouldParseMessage_data()
@@ -88,7 +87,6 @@ void MessageTest::shouldParseMessage_data()
 
     QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
     //TODO add Mentions
-
 }
 
 void MessageTest::shouldParseMessage()
@@ -111,7 +109,6 @@ void MessageTest::shouldParseMessage()
     }
     QVERIFY(messageIsEqual);
 }
-
 
 void MessageTest::shouldSerializeData()
 {

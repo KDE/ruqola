@@ -29,10 +29,10 @@ RuqolaLogger::RuqolaLogger()
     mIdentifier = ++nextIdentifier;
 
     mFile.setFileName(QLatin1String(qgetenv("RUQOLA_LOGFILE"))
-                       + QLatin1Char('.')
-                       + QString::number(QCoreApplication::applicationPid())
-                       + QLatin1Char('.')
-                       + QString::number(mIdentifier));
+                      + QLatin1Char('.')
+                      + QString::number(QCoreApplication::applicationPid())
+                      + QLatin1Char('.')
+                      + QString::number(mIdentifier));
     if (!mFile.open(QFile::WriteOnly)) {
         qCWarning(RUQOLA_LOG) << "Could not open log file for writing:" << mFile.fileName();
     }

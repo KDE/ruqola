@@ -31,7 +31,7 @@
 RuqolaAboutData::RuqolaAboutData(QObject *parent)
     : QObject(parent)
     , mAboutData(KAboutData::applicationData())
-{    
+{
     mAuthorModel = new RuqolaAboutDataAuthorModel(this);
     mAuthorModel->setAboutPerson(mAboutData.authors());
 
@@ -44,7 +44,6 @@ RuqolaAboutData::RuqolaAboutData(QObject *parent)
 
 RuqolaAboutData::~RuqolaAboutData()
 {
-
 }
 
 QString RuqolaAboutData::version() const
@@ -93,7 +92,7 @@ QString RuqolaAboutData::licenses() const
     for (int i = 0; i < licenseCount; ++i) {
         const KAboutLicense license = mAboutData.licenses().at(i);
         licensesStr = QStringLiteral("<a href=\"%1\">%2</a>").arg(QString::number(i),
-                                  i18n("License: %1", license.name(KAboutLicense::FullName)));
+                                                                  i18n("License: %1", license.name(KAboutLicense::FullName)));
     }
     return licensesStr;
 }
@@ -120,7 +119,7 @@ QString RuqolaAboutData::reportBugs() const
                     bugUrl.setScheme(QLatin1String("mailto"));
                 }
                 return i18n("Please report bugs to <a href=\"%1\">%2</a>.\n",
-                                        bugUrl.toString(), bugAddress);
+                            bugUrl.toString(), bugAddress);
             }
         } else {
             return mAboutData.customAuthorRichText();

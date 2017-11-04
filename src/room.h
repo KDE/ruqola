@@ -100,7 +100,6 @@ public:
     void parseRoom(const QJsonObject &json);
     void parseUpdateRoom(const QJsonObject &json);
 
-
     /**
     * @brief Constructs Room object from QJsonObject (cache)
     *

@@ -34,14 +34,12 @@ namespace RuqolaTestWebSocket {
 extern LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket;
 }
 
-
 Simulator::Simulator(QWidget *parent)
     : QWidget(parent)
 {
     RuqolaTestWebSocket::_k_ruqola_webSocket = new FakeWebSocket;
     RuqolaRegisterEngine *engine = new RuqolaRegisterEngine;
     if (engine->initialize()) {
-
         QVBoxLayout *mainLayout = new QVBoxLayout(this);
         mJsonTextEditor = new QTextEdit(this);
         mJsonTextEditor->setAcceptRichText(false);

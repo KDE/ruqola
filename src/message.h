@@ -149,15 +149,12 @@ private:
     // _id
     QString mMessageId;
 
-
     // msg
     QString mText;
-
 
     // u
     QString mUsername;
     QString mUserId;
-
 
     // editedBy
     QString mEditedByUsername;

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "utilstest.h"
 #include "utils.h"
 #include <QTest>
@@ -27,7 +26,6 @@ QTEST_MAIN(UtilsTest)
 UtilsTest::UtilsTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void UtilsTest::shouldGenerateServerUrl_data()
@@ -56,13 +54,13 @@ void UtilsTest::shouldMarkdownToRichText_data()
     QTest::newRow("testurl") << QStringLiteral("http://www.kde.org http://www.kde.org")
                              << QStringLiteral("<a href=\"http://www.kde.org\">http://www.kde.org</a> <a href=\"http://www.kde.org\">http://www.kde.org</a>");
     QTest::newRow("bold") << QStringLiteral("*bla*")
-                             << QStringLiteral("<b>bla</b>");
+                          << QStringLiteral("<b>bla</b>");
     QTest::newRow("multi star") << QStringLiteral("**bla**")
-                             << QStringLiteral("<b>bla</b>");
+                                << QStringLiteral("<b>bla</b>");
     QTest::newRow("multi star2") << QStringLiteral("***bla***")
-                             << QStringLiteral("***bla***");
+                                 << QStringLiteral("***bla***");
     QTest::newRow("multi star3") << QStringLiteral("***bla ******")
-                             << QStringLiteral("***bla ******");
+                                 << QStringLiteral("***bla ******");
     QTest::newRow("Remove <br/>") << QStringLiteral("foo<br />") << QStringLiteral("foo");
 }
 

@@ -27,7 +27,6 @@ QTEST_MAIN(MessageAttachmentTest)
 MessageAttachmentTest::MessageAttachmentTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MessageAttachmentTest::shouldHaveDefaultValue()

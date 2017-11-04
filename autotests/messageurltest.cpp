@@ -27,7 +27,6 @@ QTEST_MAIN(MessageUrlTest)
 MessageUrlTest::MessageUrlTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MessageUrlTest::shouldHaveDefaultValue()
