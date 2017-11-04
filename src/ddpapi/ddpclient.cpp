@@ -45,8 +45,8 @@ void open_direct_channel(const QJsonDocument &doc, RocketChatAccount *account)
         const QJsonObject root = doc.object();
         const QString rid = root.value(QStringLiteral("rid")).toString();
         if (!rid.isEmpty()) {
-            //account->joinRoom(rid);
-            //TODO
+            qDebug() << " Join ?????" << rid;
+            account->joinRoom(rid);
         }
         if (account->ruqolaLogger()) {
             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + doc.toJson());

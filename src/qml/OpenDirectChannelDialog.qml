@@ -24,9 +24,9 @@ import QtQuick.Window 2.0
 
 Dialog {
     id: openDirectChannelDialog
+    property string username: "username"
 
     signal openDirectChannel(string userName)
-    property string username: "username"
 
     title: i18n("Open Conversation with %1?", username)
 
@@ -40,6 +40,6 @@ Dialog {
     modal: true
 
     onAccepted: {
-        createNewChannelDialog.openDirectChannel(username)
+        openDirectChannelDialog.openDirectChannel(username)
     }
 }
