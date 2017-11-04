@@ -41,8 +41,16 @@ LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 void open_direct_channel(const QJsonDocument &doc, RocketChatAccount *account)
 {
     qDebug() << " open direct channel " << doc;
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + doc.toJson());
+    if (!doc.isNull() && doc.isObject()) {
+        const QJsonObject root = doc.object();
+        const QString rid = root.value(QStringLiteral("rid")).toString();
+        if (!rid.isEmpty()) {
+            //account->joinRoom(rid);
+            //TODO
+        }
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + doc.toJson());
+        }
     }
 }
 
@@ -63,7 +71,7 @@ void create_channel(const QJsonDocument &doc, RocketChatAccount *account)
 {
     if (!doc.isNull() && doc.isObject()) {
         const QJsonObject root = doc.object();
-        QString rid = root.value(QStringLiteral("rid")).toString();
+        const QString rid = root.value(QStringLiteral("rid")).toString();
         if (!rid.isEmpty()) {
             account->joinRoom(rid);
         }
