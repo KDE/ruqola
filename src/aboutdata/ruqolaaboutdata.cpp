@@ -78,7 +78,7 @@ QString RuqolaAboutData::about() const
 
 QString RuqolaAboutData::licenseText(const QString &val)
 {
-    int license = val.toInt();
+    const int license = val.toInt();
     if (license >= 0) {
         return mAboutData.licenses().at(license).text();
     }
