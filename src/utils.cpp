@@ -39,6 +39,13 @@ QUrl Utils::generateServerUrl(const QString &url)
     return QUrl(serverUrl + QStringLiteral("/websocket"));
 }
 
+QString Utils::extractRoomUserFromUrl(QString url)
+{
+    url.remove(QStringLiteral("ruqola:/user/"));
+    url.remove(QStringLiteral("ruqola:/room/"));
+    return url;
+}
+
 QString Utils::markdownToRichText(const QString &markDown)
 {
     //qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;

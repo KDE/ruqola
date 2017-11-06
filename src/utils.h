@@ -30,6 +30,7 @@ LIBRUQOLACORE_TESTS_EXPORT QString markdownToRichText(const QString &markDown);
 LIBRUQOLACORE_TESTS_EXPORT QString presenceStatusToString(User::PresenceStatus status);
 LIBRUQOLACORE_TESTS_EXPORT User::PresenceStatus presenceStatusFromString(const QString &status);
 LIBRUQOLACORE_TESTS_EXPORT QString generateRichText(const QString &markDown, const QMap<QString, QString> &mentions);
+LIBRUQOLACORE_TESTS_EXPORT QString extractRoomUserFromUrl(QString url);
 }
 
 #endif // UTILS_H

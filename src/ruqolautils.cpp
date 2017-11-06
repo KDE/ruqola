@@ -40,6 +40,11 @@ RuqolaUtils *RuqolaUtils::self()
     return s_self;
 }
 
+QString RuqolaUtils::extractRoomUserFromUrl(QString url)
+{
+    return Utils::extractRoomUserFromUrl(url);
+}
+
 QString RuqolaUtils::markdownToRichText(const QString &markDown)
 {
     return Utils::markdownToRichText(markDown);
