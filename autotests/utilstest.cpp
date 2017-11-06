@@ -70,3 +70,21 @@ void UtilsTest::shouldMarkdownToRichText()
     QFETCH(QString, output);
     QCOMPARE(Utils::markdownToRichText(input), output);
 }
+
+void UtilsTest::shouldExtractRoomUserFromUrl_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("output");
+    QTest::newRow("empty") << QString() << QString();
+
+    QTest::newRow("extractuser") << QStringLiteral("ruqola:/user/foo") << QStringLiteral("foo");
+    QTest::newRow("extractroom") << QStringLiteral("ruqola:/room/foo") << QStringLiteral("foo");
+    QTest::newRow("extractuser") << QStringLiteral("ruqola:/user2/foo") << QStringLiteral("ruqola:/user2/foo");
+}
+
+void UtilsTest::shouldExtractRoomUserFromUrl()
+{
+    QFETCH(QString, input);
+    QFETCH(QString, output);
+    QCOMPARE(Utils::extractRoomUserFromUrl(input), output);
+}

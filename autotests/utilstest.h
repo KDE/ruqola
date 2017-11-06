@@ -35,6 +35,9 @@ private Q_SLOTS:
 
     void shouldMarkdownToRichText_data();
     void shouldMarkdownToRichText();
+
+    void shouldExtractRoomUserFromUrl_data();
+    void shouldExtractRoomUserFromUrl();
 };
 
 #endif // UTILSTEST_H
