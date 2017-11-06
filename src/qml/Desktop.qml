@@ -116,7 +116,6 @@ Kirigami.ApplicationWindow {
     OpenDirectChannelDialog {
         id: openDirectChannelDialog
         onOpenDirectChannel: {
-            username:
             Ruqola.rocketChatAccount().openDirectChannel(userName);
         }
     }
