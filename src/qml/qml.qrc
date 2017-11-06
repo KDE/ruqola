@@ -15,6 +15,7 @@
         <file>CreateNewChannelDialog.qml</file>
         <file>ChannelConfigDialog.qml</file>
         <file>OpenDirectChannelDialog.qml</file>
+        <file>ChannelInfoDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
