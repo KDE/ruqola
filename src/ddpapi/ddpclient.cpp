@@ -45,8 +45,7 @@ void open_direct_channel(const QJsonDocument &doc, RocketChatAccount *account)
         const QJsonObject root = doc.object();
         const QString rid = root.value(QStringLiteral("rid")).toString();
         if (!rid.isEmpty()) {
-            qDebug() << " Join ?????" << rid;
-            account->joinRoom(rid);
+            account->ddp()->subscribeRoomMessage(rid);
         }
         if (account->ruqolaLogger()) {
             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + doc.toJson());
@@ -234,6 +233,13 @@ quint64 DDPClient::createChannel(const QString &name, const QStringList &userLis
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createChannel(name, userList, readOnly, m_uid);
     return method(result, create_channel, DDPClient::Persistent);
+}
+
+void DDPClient::subscribeRoomMessage(const QString &roomId)
+{
+    QJsonArray params;
+    params.append(QJsonValue(roomId));
+    subscribe(QStringLiteral("stream-room-messages"), params);
 }
 
 quint64 DDPClient::openDirectChannel(const QString &userId)

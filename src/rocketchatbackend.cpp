@@ -118,7 +118,7 @@ void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *accoun
 
             QJsonArray params;
             params.append(QJsonValue(roomID));
-            account->ddp()->subscribe(QStringLiteral("stream-room-messages"), params);
+            account->ddp()->subscribeRoomMessage(roomID);
 
             // Load history
             params.append(QJsonValue(QJsonValue::Null));
