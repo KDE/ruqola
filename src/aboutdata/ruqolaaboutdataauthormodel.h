@@ -30,9 +30,9 @@ class LIBRUQOLACORE_TESTS_EXPORT RuqolaAboutDataAuthorModel : public QAbstractLi
     Q_OBJECT
 public:
     enum AuthorRoles {
-        UsernameRoles = Qt::UserRole + 1,
-        TaskRoles,
-        EmailRoles
+        UsernameRole = Qt::UserRole + 1,
+        TaskRole,
+        EmailRole
     };
     Q_ENUM(AuthorRoles)
 

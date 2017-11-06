@@ -43,11 +43,11 @@ QVariant RuqolaAboutDataAuthorModel::data(const QModelIndex &index, int role) co
         qCWarning(RUQOLA_LOG) << "ERROR: index out of bounds";
         return QVariant();
     }
-    if (role == UsernameRoles) {
+    if (role == UsernameRole) {
         return mAboutPerson.at(indexRow).name();
-    } else if (role == TaskRoles) {
+    } else if (role == TaskRole) {
         return mAboutPerson.at(indexRow).task();
-    } else if (role == EmailRoles) {
+    } else if (role == EmailRole) {
         return QStringLiteral("<a href=\"mailto:%1\">%1</a>").arg(mAboutPerson.at(indexRow).emailAddress());
     }
     return {};
@@ -56,9 +56,9 @@ QVariant RuqolaAboutDataAuthorModel::data(const QModelIndex &index, int role) co
 QHash<int, QByteArray> RuqolaAboutDataAuthorModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[UsernameRoles] = "username";
-    roles[TaskRoles] = "task";
-    roles[EmailRoles] = "email";
+    roles[UsernameRole] = "username";
+    roles[TaskRole] = "task";
+    roles[EmailRole] = "email";
     return roles;
 }
 
