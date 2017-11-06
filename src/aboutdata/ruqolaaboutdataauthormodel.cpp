@@ -49,6 +49,8 @@ QVariant RuqolaAboutDataAuthorModel::data(const QModelIndex &index, int role) co
         return mAboutPerson.at(indexRow).task();
     } else if (role == EmailRole) {
         return QStringLiteral("<a href=\"mailto:%1\">%1</a>").arg(mAboutPerson.at(indexRow).emailAddress());
+    } else if (role == EmailRole) {
+        return QStringLiteral("<a href=\"%1\">%1</a>").arg(mAboutPerson.at(indexRow).webAddress());
     }
     return {};
 }
@@ -59,6 +61,7 @@ QHash<int, QByteArray> RuqolaAboutDataAuthorModel::roleNames() const
     roles[UsernameRole] = "username";
     roles[TaskRole] = "task";
     roles[EmailRole] = "email";
+    roles[WebSiteRoles] = "website";
     return roles;
 }
 

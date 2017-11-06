@@ -32,7 +32,8 @@ public:
     enum AuthorRoles {
         UsernameRole = Qt::UserRole + 1,
         TaskRole,
-        EmailRole
+        EmailRole,
+        WebSiteRoles
     };
     Q_ENUM(AuthorRoles)
 
