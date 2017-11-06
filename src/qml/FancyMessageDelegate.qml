@@ -131,9 +131,7 @@ Rectangle {
         onLinkActivated: {
             if (link.startsWith("ruqola:/room/")) {
                 Ruqola.rocketChatAccount().openChannel(RuqolaUtils.extractRoomUserFromUrl(link));
-                console.log("RUQOLA room: " + link);
             } else if (link.startsWith("ruqola:/user/")) {
-                console.log("RUQOKA user: " + link);
                 messageMain.openDirectChannel(RuqolaUtils.extractRoomUserFromUrl(link))
             } else {
                 RuqolaUtils.openUrl(link);
