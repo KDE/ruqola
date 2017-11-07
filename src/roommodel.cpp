@@ -252,7 +252,6 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     } else {
         qDebug() << " Undefined type" << actionName;
     }
-    //qDebug() << " V " << array;
 }
 
 void RoomModel::updateRoom(const QJsonObject &roomData)
