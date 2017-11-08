@@ -450,7 +450,6 @@ QByteArray Message::serialize(const Message &message)
         o[QStringLiteral("urls")] = array;
     }
 
-    qDebug() << "QByteArray Message::serialize(const Message &message) "<<o;
     d.setObject(o);
     return d.toBinaryData();
 }
