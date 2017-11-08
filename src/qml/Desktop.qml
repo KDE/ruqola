@@ -181,6 +181,7 @@ Kirigami.ApplicationWindow {
                     Layout.minimumHeight: Layout.maximumHeight
                     Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                     Layout.fillWidth: true
+                    width: parent.width
                     placeholderText: i18n("Search...")
                     onTextChanged: {
                         //TODO
