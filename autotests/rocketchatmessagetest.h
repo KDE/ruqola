@@ -59,6 +59,7 @@ private Q_SLOTS:
 
     void shouldDeleteMessage();
 
+    void shouldSearchMessage();
 #if 0
     RocketChatMessage::RocketChatMessageResult RocketChatMessage::getUsersOfRoom(const QString &roomId, bool showAll, quint64 id)
     RocketChatMessage::RocketChatMessageResult setRoomHasSystemMessages(const QString &roomId, bool systemMessages, quint64 id);

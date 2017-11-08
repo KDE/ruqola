@@ -1,0 +1,9 @@
+{
+    "id": "43",
+    "method": "messageSearch",
+    "msg": "method",
+    "params": [
+        "foo",
+        "roomId"
+    ]
+}

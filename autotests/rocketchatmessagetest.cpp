@@ -300,3 +300,11 @@ void RocketChatMessageTest::shouldCreatePrivateGroup()
     RocketChatMessage::RocketChatMessageResult r = m.createPrivateGroup(channelname, userlst, 43);
     compareFile(r.result, filename);
 }
+
+void RocketChatMessageTest::shouldSearchMessage()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.messageSearch(QStringLiteral("roomId"), QStringLiteral("foo"), 43);
+    compareFile(r.result, QStringLiteral("searchMessage"));
+}
