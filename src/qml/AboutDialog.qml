@@ -129,11 +129,12 @@ Dialog {
                         aboutDialog.openurl(link);
                     }
                 }
-//                ScrollView {
-//                    id: view
-//                    width: authorTab.width
-//                    height: authorTab.height
+                ScrollView {
+                    id: view
+                    width: authorTab.width
+                    height: authorTab.height
 
+                    Column {
                     Repeater {
                         id: authorList
 
@@ -171,7 +172,8 @@ Dialog {
                             }
                         }
                     }
-                //}
+                }
+                }
             }
         }
         Item {
