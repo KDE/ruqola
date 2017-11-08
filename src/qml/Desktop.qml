@@ -1,5 +1,5 @@
 /*
- 
+
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
  *
  * This program is free software; you can redistribute it and/or
@@ -175,6 +175,17 @@ Kirigami.ApplicationWindow {
 
             mainItem:
                 RoomsView {
+                header: TextField {
+                    id: searchField
+                    focus: true
+                    Layout.minimumHeight: Layout.maximumHeight
+                    Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
+                    Layout.fillWidth: true
+                    placeholderText: i18n("Search...")
+                    onTextChanged: {
+                        //TODO
+                    }
+                }
 
                 id: roomsList
                 implicitWidth: Kirigami.Units.gridUnit * 10
@@ -192,7 +203,7 @@ Kirigami.ApplicationWindow {
                     appid.selectedRoom = Ruqola.rocketChatAccount().getRoom(roomID)
                     appid.userModel = Ruqola.rocketChatAccount().getUsersForRoomModel(roomID)
                 }
-                
+
             } //RoomsView
             Kirigami.OverlaySheet {
                 id: channelsList
@@ -205,8 +216,8 @@ Kirigami.ApplicationWindow {
 
     Component {
         id: mainComponent
-        
-        
+
+
         Kirigami.ScrollablePage {
 
             id: mainWidget
@@ -232,7 +243,7 @@ Kirigami.ApplicationWindow {
                         onCheckedChanged: {
                             Ruqola.rocketChatAccount().changeFavorite(appid.selectedRoomID, checked)
                         }
-                    }                    
+                    }
                     Kirigami.Heading {
                         text: "#" + (appid.selectedRoom ? appid.selectedRoom.name : "")
                         level: 3
