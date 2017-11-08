@@ -40,7 +40,7 @@ void RoomTest::shouldSerialized()
     input.setUserName(QStringLiteral("pp"));
     input.setUserId(QStringLiteral("sdfsdfs"));
     input.setTopic(QStringLiteral("topic"));
-    input.setMutedUsers(QStringLiteral("mutedUsers"));
+    input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
     input.setJitsiTimeout(55);
     input.setReadOnly(true);
     input.setUnread(66);

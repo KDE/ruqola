@@ -22,6 +22,7 @@
 
 #include "room.h"
 #include <QDebug>
+#include <QJsonArray>
 #include <QJsonDocument>
 
 Room::Room(QObject *parent)
@@ -140,12 +141,12 @@ void Room::setJitsiTimeout(const qint64 &jitsiTimeout)
     }
 }
 
-QString Room::mutedUsers() const
+QStringList Room::mutedUsers() const
 {
     return mMutedUsers;
 }
 
-void Room::setMutedUsers(const QString &mutedUsers)
+void Room::setMutedUsers(const QStringList &mutedUsers)
 {
     if (mMutedUsers != mutedUsers) {
         mMutedUsers = mutedUsers;
@@ -316,6 +317,15 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setUnread(json[QStringLiteral("unread")].toInt());
     setOpen(json[QStringLiteral("open")].toBool());
     setAlert(json[QStringLiteral("alert")].toBool());
+
+    const QJsonArray mutedArray = json.value(QStringLiteral("muted")).toArray();
+    QStringList lst;
+    for (int i = 0; i < mutedArray.count(); ++i) {
+        lst << mutedArray.at(i).toString();
+    }
+
+    setMutedUsers(lst);
+    //TODO add muted
 }
 
 Room *Room::fromJSon(const QJsonObject &o)
@@ -328,7 +338,6 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setUserName(o[QStringLiteral("userName")].toString());
     r->setUserId(o[QStringLiteral("userID")].toString());
     r->setTopic(o[QStringLiteral("topic")].toString());
-    r->setMutedUsers(o[QStringLiteral("mutedUsers")].toString());
     r->setJitsiTimeout(o[QStringLiteral("jitsiTimeout")].toDouble());
     r->setReadOnly(o[QStringLiteral("ro")].toBool());
     r->setUnread(o[QStringLiteral("unread")].toInt(0));
@@ -337,6 +346,12 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setFavorite(o[QStringLiteral("favorite")].toBool());
     r->setAlert(o[QStringLiteral("alert")].toBool());
     r->setOpen(o[QStringLiteral("open")].toBool());
+    const QJsonArray mutedArray = o.value(QStringLiteral("mutedUsers")).toArray();
+    QStringList lst;
+    for (int i = 0; i < mutedArray.count(); ++i) {
+        lst <<mutedArray.at(i).toString();
+    }
+    r->setMutedUsers(lst);
 
     return r;
 }
@@ -352,7 +367,6 @@ QByteArray Room::serialize(Room *r)
     o[QStringLiteral("userName")] = r->userName();
     o[QStringLiteral("userID")] = r->userId();
     o[QStringLiteral("topic")] = r->topic();
-    o[QStringLiteral("mutedUsers")] = r->mutedUsers();
     o[QStringLiteral("jitsiTimeout")] = r->jitsiTimeout();
     o[QStringLiteral("ro")] = r->readOnly();
     o[QStringLiteral("unread")] = r->unread();
@@ -361,6 +375,19 @@ QByteArray Room::serialize(Room *r)
     o[QStringLiteral("favorite")] = r->favorite();
     o[QStringLiteral("alert")] = r->alert();
     o[QStringLiteral("open")] = r->open();
+
+    //Urls
+    if (!r->mutedUsers().isEmpty()) {
+        QJsonArray array;
+        const int nbMuted{
+            r->mutedUsers().count()
+        };
+        for (int i = 0; i < nbMuted; ++i) {
+            array.append(r->mutedUsers().at(i));
+        }
+        o[QStringLiteral("mutedUsers")] = array;
+    }
+
 
     d.setObject(o);
     return d.toBinaryData();

@@ -52,8 +52,8 @@ public:
     QString userId() const;
     void setUserId(const QString &userId);
 
-    QString mutedUsers() const;
-    void setMutedUsers(const QString &mutedUsers);
+    QStringList mutedUsers() const;
+    void setMutedUsers(const QStringList &mutedUsers);
 
     qint64 jitsiTimeout() const;
     void setJitsiTimeout(const qint64 &jitsiTimeout);
@@ -148,7 +148,7 @@ private:
     QString mTopic;
 
     // muted - collection of muted users by its usernames
-    QString mMutedUsers; // --> TODO: this really is a list - it requires some more work
+    QStringList mMutedUsers;
 
     // jitsiTimeout
     qint64 mJitsiTimeout = -1;
