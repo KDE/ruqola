@@ -58,11 +58,11 @@ Dialog {
         }
         TabButton {
             text: i18n("Thanks To")
-            //FIXME visible: applicationData.creditsModel.count > 0
+            visible: applicationData.creditsModel.lenght > 0
         }
         TabButton {
             text: i18n("Translation")
-            //FIXME visible: applicationData.translatorModel.count > 0
+            visible: applicationData.translatorModel.lenght > 0
         }
     }
 
