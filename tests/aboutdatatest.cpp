@@ -26,8 +26,10 @@
 #include <QCommandLineParser>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QQmlEngine>
 #include <ruqola.h>
 #include <ruqolautils.h>
+#include <KLocalizedContext>
 
 #include <aboutdata/ruqolaaboutdata.h>
 #include <aboutdata/ruqolaaboutdataauthormodel.h>
@@ -69,7 +71,9 @@ int main(int argc, char *argv[])
     RuqolaAboutData ruqolaAboutData;
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty(QStringLiteral("ruqolaAboutData"), &ruqolaAboutData);
+    QQmlContext *ctxt = engine.rootContext();
+    ctxt->setContextObject(new KLocalizedContext(&engine));
+    ctxt->setContextProperty(QStringLiteral("ruqolaAboutData"), &ruqolaAboutData);
 
     engine.load(QUrl(QStringLiteral("qrc:/aboutdata.qml")));
     return app.exec();
