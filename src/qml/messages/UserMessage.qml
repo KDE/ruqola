@@ -156,75 +156,54 @@ ColumnLayout {
                 }
             }
             Column {
-                onWidthChanged: {
-                    forceLayout()
-                }
+                id: fullTextColumn
 
-//                    onHeightChanged: {
-//                        parent.height = height
-//                        console.log("Height " + height + "idx " + model.index + " parent.heuight" + parent.height)
-
-//                    }
-                    id: fullTextColumn
-
-                    //width: parent.width
-                    Layout.fillWidth: true
-                    Text {
-                        //Layout.fillWidth: true
-                        width: parent.width
-                        id: textLabel
-
-                        renderType: Text.NativeRendering
-                        textFormat: Text.RichText
-
-
-                        text: MessageScript.markdownme(i_messageText)
-                        wrapMode: Label.Wrap
-
-                        onLinkActivated: messageMain.linkActivated(link)
-                    }
-                    Column {
-                        id: urlColumn
-                        //Layout.fillWidth: true
-                        width: parent.width
-                        Repeater {
-                            id: repeaterUrl
-
-                            model: i_urls
-                            Text {
-                                width: urlColumn.width
-                                text: model.modelData.description === ""  ?
-                                          MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.url)) :
-                                          MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.description))
-                                wrapMode: Label.Wrap
-                                renderType: Text.NativeRendering
-                                textFormat: Text.RichText
-
-                                onLinkActivated: messageMain.linkActivated(link)
-                            }
-                        }
-                        Repeater {
-                            id: repearterAttachments
-
-                            model: i_attachments
-                            Text {
-                                width: urlColumn.width
-                                text: model.modelData.title
-                                wrapMode: Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                            }
-                        }
-                    //}
-                }
-
-            }
-            Rectangle {
-                color: "red"
-                height: Math.max(1, fullTextColumn.height)
                 Layout.fillWidth: true
+                Text {
+                    width: parent.width
+                    id: textLabel
 
-                //Layout.fillHeight: true
+                    renderType: Text.NativeRendering
+                    textFormat: Text.RichText
+
+
+                    text: MessageScript.markdownme(i_messageText)
+                    wrapMode: Label.Wrap
+
+                    onLinkActivated: messageMain.linkActivated(link)
+                }
+                Column {
+                    id: urlColumn
+                    width: parent.width
+                    Repeater {
+                        id: repeaterUrl
+
+                        model: i_urls
+                        Text {
+                            width: urlColumn.width
+                            text: model.modelData.description === ""  ?
+                                      MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.url)) :
+                                      MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.description))
+                            wrapMode: Label.Wrap
+                            renderType: Text.NativeRendering
+                            textFormat: Text.RichText
+
+                            onLinkActivated: messageMain.linkActivated(link)
+                        }
+                    }
+                    Repeater {
+                        id: repearterAttachments
+
+                        model: i_attachments
+                        Text {
+                            width: urlColumn.width
+                            text: model.modelData.title
+                            wrapMode: Label.Wrap
+                            anchors.leftMargin: Kirigami.Units.smallSpacing
+                            anchors.rightMargin: Kirigami.Units.smallSpacing
+                        }
+                    }
+                }
             }
         }
 
