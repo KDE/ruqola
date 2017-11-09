@@ -46,6 +46,7 @@ ListView {
 
     signal openDirectChannel(string userName)
 
+    spacing: Kirigami.Units.smallSpacing
     onCountChanged: {
         positionViewAtIndex(count - 1, ListView.Beginning)
     }
@@ -54,7 +55,11 @@ ListView {
     visible: count > 0
 
     delegate: FancyMessageDelegate {
-        width: parent.width
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.rightMargin: Kirigami.Units.largeSpacing
+        anchors.leftMargin: Kirigami.Units.largeSpacing
+
         i_messageText: messageText
         i_username: username
         i_aliasname: alias

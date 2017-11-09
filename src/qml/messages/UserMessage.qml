@@ -21,7 +21,7 @@
  */
 
 
-import QtQuick 2.0
+import QtQuick 2.9
 
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
@@ -47,9 +47,6 @@ ColumnLayout {
     signal linkActivated(string link)
 
     id: messageMain
-    anchors.fill: parent
-    anchors.rightMargin: Kirigami.Units.largeSpacing
-    anchors.leftMargin: Kirigami.Units.largeSpacing
     Layout.alignment: Qt.AlignTop
     Menu {
         id: menu
@@ -132,7 +129,7 @@ ColumnLayout {
         }
         ColumnLayout {
             Layout.fillHeight: true
-            Layout.fillWidth: true
+            //Layout.fillWidth: true
             Kirigami.Heading {
                 id: usernameLabel
 
@@ -158,62 +155,85 @@ ColumnLayout {
                     }
                 }
             }
-            Text {
-                Layout.fillWidth: true
-                id: textLabel
-
-                anchors.leftMargin: Kirigami.Units.smallSpacing
-                anchors.rightMargin: Kirigami.Units.smallSpacing
-                renderType: Text.NativeRendering
-                textFormat: Text.RichText
-
-
-                text: MessageScript.markdownme(i_messageText)
-                wrapMode: Label.Wrap
-
-                onLinkActivated: messageMain.linkActivated(link)
-            }
-            Repeater {
-                id: repeaterUrl
-
-                model: i_urls
-                Text {
-                    text: model.modelData.description === ""  ?
-                              MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.url)) :
-                              MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.description))
-                    wrapMode: Label.Wrap
-                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                    renderType: Text.NativeRendering
-                    textFormat: Text.RichText
-
-                    onLinkActivated: messageMain.linkActivated(link)
+            Column {
+                onWidthChanged: {
+                    forceLayout()
                 }
-            }
-            Repeater {
-                id: repearterAttachments
 
-                model: i_attachments
-                Column {
+//                    onHeightChanged: {
+//                        parent.height = height
+//                        console.log("Height " + height + "idx " + model.index + " parent.heuight" + parent.height)
+
+//                    }
+                    id: fullTextColumn
+
+                    //width: parent.width
+                    Layout.fillWidth: true
                     Text {
-                        text: model.modelData.title
-                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                        //Layout.fillWidth: true
+                        width: parent.width
+                        id: textLabel
+
+                        renderType: Text.NativeRendering
+                        textFormat: Text.RichText
+
+
+                        text: MessageScript.markdownme(i_messageText)
+                        wrapMode: Label.Wrap
+
+                        onLinkActivated: messageMain.linkActivated(link)
                     }
+                    Column {
+                        id: urlColumn
+                        //Layout.fillWidth: true
+                        width: parent.width
+                        Repeater {
+                            id: repeaterUrl
+
+                            model: i_urls
+                            Text {
+                                width: urlColumn.width
+                                text: model.modelData.description === ""  ?
+                                          MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.url)) :
+                                          MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.description))
+                                wrapMode: Label.Wrap
+                                renderType: Text.NativeRendering
+                                textFormat: Text.RichText
+
+                                onLinkActivated: messageMain.linkActivated(link)
+                            }
+                        }
+                        Repeater {
+                            id: repearterAttachments
+
+                            model: i_attachments
+                            Text {
+                                width: urlColumn.width
+                                text: model.modelData.title
+                                wrapMode: Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                            }
+                        }
+                    //}
                 }
+
+            }
+            Rectangle {
+                color: "red"
+                height: Math.max(1, fullTextColumn.height)
+                Layout.fillWidth: true
+
+                //Layout.fillHeight: true
             }
         }
 
         QQC2.Label {
             id: timestampText
 
-            Layout.alignment: Qt.AlignTop
+            Layout.alignment: Qt.AlignTop | Qt.AlignRight
             text: MessageScript.displayDateTime(i_timestamp)
             opacity: .5
-
-            //anchors.top: newDateRect.bottom
-            //anchors.right: parent.right
-            anchors.leftMargin: Kirigami.Units.smallSpacing
 
             z: 10
         }

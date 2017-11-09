@@ -49,19 +49,16 @@ Rectangle {
 
     id: messageMain
     color: RuqolaSingleton.backgroundColor
-    implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.implicitHeight
+    implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
     
     implicitWidth: 150
-    
-    anchors.bottomMargin: 200
     
     signal openDirectChannel(string userName)
 
     Loader {
         id: loaded
-        anchors.topMargin: Kirigami.Units.smallSpacing
         anchors.fill: parent
-        
+
         Component.onCompleted: {
             if (i_messageType === Message.System) {
                 if (i_systemMessageType === "jitsi_call_started") {
