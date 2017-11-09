@@ -40,7 +40,7 @@ public:
     explicit RuqolaAboutDataAuthorModel(QObject *parent = nullptr);
     ~RuqolaAboutDataAuthorModel() = default;
 
-    int rowCount(const QModelIndex &parent = {}) const override;
+    Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
     void setAboutPerson(const QList<KAboutPerson> &aboutPerson);

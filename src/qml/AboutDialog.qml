@@ -42,7 +42,6 @@ Dialog {
     width: 400
     height: 600
     modal: true
-
     TabBar {
         id: bar
         width: parent.width
@@ -58,11 +57,11 @@ Dialog {
         }
         TabButton {
             text: i18n("Thanks To")
-            visible: applicationData.creditsModel.lenght > 0
+            visible: applicationData.creditsModel.rowCount() > 0
         }
         TabButton {
             text: i18n("Translation")
-            visible: applicationData.translatorModel.lenght > 0
+            visible: applicationData.translatorModel.rowCount() > 0
         }
     }
 
