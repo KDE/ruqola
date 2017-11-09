@@ -70,6 +70,8 @@ int main(int argc, char *argv[])
 
     aboutData.setOrganizationDomain(QByteArrayLiteral("kde.org"));
     aboutData.setProductName(QByteArrayLiteral("ruqola"));
+    aboutData.addCredit(i18n("Paul Lemire"), i18n("Help for debugging QML"), QStringLiteral("paul.lemire@kdab.com"));
+
     KAboutData::setApplicationData(aboutData);
 
     QCommandLineParser parser;
