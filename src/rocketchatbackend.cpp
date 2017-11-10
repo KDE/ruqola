@@ -135,7 +135,7 @@ void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *accoun
     QJsonObject params;
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
     account->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
-    account->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
+    account->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(QJsonObject()), process_publicsettings);
 }
 
 RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent)
