@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     aboutData.addAuthor(QStringLiteral("Riccardo Iaconelli"), QStringLiteral("Original author"), QStringLiteral("riccardo@kde.org"));
     aboutData.addAuthor(QStringLiteral("Vasudha Mathur"), QStringLiteral("Former core developer"), QStringLiteral("vasudhamathur96@gmail.com"));
     //Add credit
-    aboutData.addCredit(QStringLiteral("Laurent Montel"), QStringLiteral("Maintainer"), QStringLiteral("montel@kde.org"));
+    //aboutData.addCredit(QStringLiteral("Laurent Montel"), QStringLiteral("Maintainer"), QStringLiteral("montel@kde.org"));
 
     aboutData.setTranslator(QStringLiteral("Laurent Montel"), QStringLiteral("montel@kde.org"));
 
