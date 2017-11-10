@@ -134,44 +134,44 @@ Dialog {
                     height: authorTab.height
 
                     Column {
-                    Repeater {
-                        id: authorList
+                        Repeater {
+                            id: authorList
 
-                        model: applicationData.authorModel
-                        Column {
-                            spacing: 5
-                            Text {
-                                text: username
-                                wrapMode: Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                                renderType: Text.NativeRendering
-                                textFormat: Text.RichText
-                                font.bold: true
-                            }
-                            Text {
-                                text: task
-                                wrapMode: Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                                renderType: Text.NativeRendering
-                                textFormat: Text.RichText
-                            }
-                            Text {
-                                text: email
-                                wrapMode: Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                                renderType: Text.NativeRendering
-                                textFormat: Text.RichText
-                                onLinkActivated: {
-                                    aboutDialog.openurl(link);
+                            model: applicationData.authorModel
+                            Column {
+                                spacing: 5
+                                Text {
+                                    text: username
+                                    wrapMode: Label.Wrap
+                                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                                    renderType: Text.NativeRendering
+                                    textFormat: Text.RichText
+                                    font.bold: true
                                 }
+                                Text {
+                                    text: task
+                                    wrapMode: Label.Wrap
+                                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                                    renderType: Text.NativeRendering
+                                    textFormat: Text.RichText
+                                }
+                                Text {
+                                    text: email
+                                    wrapMode: Label.Wrap
+                                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                                    renderType: Text.NativeRendering
+                                    textFormat: Text.RichText
+                                    onLinkActivated: {
+                                        aboutDialog.openurl(link);
+                                    }
 
+                                }
                             }
                         }
                     }
-                }
                 }
             }
         }
@@ -182,48 +182,50 @@ Dialog {
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
-//                ScrollView {
-//                    id: view
-//                    width: authorTab.width
-//                    height: authorTab.height
+                ScrollView {
+                    id: tahnksToTabview
+                    width: thanksToTab.width
+                    height: thanksToTab.height
 
-                    Repeater {
-                        id: creditList
+                    Column {
+                        Repeater {
+                            id: creditList
 
-                        model: applicationData.creditsModel
-                        Column {
-                            Text {
-                                text: username
-                                wrapMode: Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                                renderType: Text.NativeRendering
-                                textFormat: Text.RichText
-                                font.bold: true
-                            }
-                            Text {
-                                text: task
-                                wrapMode: Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                                renderType: Text.NativeRendering
-                                textFormat: Text.RichText
-                            }
-                            Text {
-                                text: email
-                                wrapMode: Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                                renderType: Text.NativeRendering
-                                textFormat: Text.RichText
-                                onLinkActivated: {
-                                    aboutDialog.openurl(link);
+                            model: applicationData.creditsModel
+                            Column {
+                                Text {
+                                    text: username
+                                    wrapMode: Label.Wrap
+                                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                                    renderType: Text.NativeRendering
+                                    textFormat: Text.RichText
+                                    font.bold: true
                                 }
+                                Text {
+                                    text: task
+                                    wrapMode: Label.Wrap
+                                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                                    renderType: Text.NativeRendering
+                                    textFormat: Text.RichText
+                                }
+                                Text {
+                                    text: email
+                                    wrapMode: Label.Wrap
+                                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                                    renderType: Text.NativeRendering
+                                    textFormat: Text.RichText
+                                    onLinkActivated: {
+                                        aboutDialog.openurl(link);
+                                    }
 
+                                }
                             }
                         }
                     }
-                //}
+                }
             }
         }
         Item {
@@ -233,47 +235,49 @@ Dialog {
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
-//                ScrollView {
-//                    id: view
-//                    width: authorTab.width
-//                    height: authorTab.height
+                ScrollView {
+                    id: translatorToTabView
+                    width: translatorToTab.width
+                    height: translatorToTab.height
 
-                    Repeater {
-                        id: translatorList
+                    Column {
+                        Repeater {
+                            id: translatorList
 
-                        model: applicationData.translatorModel
-                        Column {
-                            Text {
-                                text: username
-                                wrapMode: Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                                renderType: Text.NativeRendering
-                                textFormat: Text.RichText
-                                font.bold: true
-                            }
-                            Text {
-                                text: task
-                                wrapMode: Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                                renderType: Text.NativeRendering
-                                textFormat: Text.RichText
-                            }
-                            Text {
-                                text: email
-                                wrapMode: Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                                renderType: Text.NativeRendering
-                                textFormat: Text.RichText
-                                onLinkActivated: {
-                                    aboutDialog.openurl(link);
+                            model: applicationData.translatorModel
+                            Column {
+                                Text {
+                                    text: username
+                                    wrapMode: Label.Wrap
+                                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                                    renderType: Text.NativeRendering
+                                    textFormat: Text.RichText
+                                    font.bold: true
+                                }
+                                Text {
+                                    text: task
+                                    wrapMode: Label.Wrap
+                                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                                    renderType: Text.NativeRendering
+                                    textFormat: Text.RichText
+                                }
+                                Text {
+                                    text: email
+                                    wrapMode: Label.Wrap
+                                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                                    renderType: Text.NativeRendering
+                                    textFormat: Text.RichText
+                                    onLinkActivated: {
+                                        aboutDialog.openurl(link);
+                                    }
                                 }
                             }
                         }
                     }
-                //}
+                }
             }
         }
     }
