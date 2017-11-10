@@ -31,22 +31,6 @@ import QtGraphicalEffects 1.0
 import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
-/*
-    anchors.fill: parent
-    TextField {
-        id: edit
-
-        placeholderText: i18n("Search...")
-
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-
-        anchors.margins: 10
-
-        onTextChanged: appid.model.setFilterFixedString(text)
-    }
-    */
 ListView {
     id: activeChat
 
