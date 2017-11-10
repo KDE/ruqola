@@ -20,7 +20,7 @@
  *
  */
 
-import QtQuick 2.7
+import QtQuick 2.9
 
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.DDPClient 1.0
