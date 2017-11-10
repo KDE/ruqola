@@ -35,8 +35,6 @@ Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    width: 300
-    height: 200
     modal: true
 
     onAccepted: {
