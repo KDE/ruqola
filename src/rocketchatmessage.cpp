@@ -167,6 +167,13 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::toggleFavorite(con
     return generateMethod(QStringLiteral("toggleFavorite"), QJsonDocument(params), id);
 }
 
+//TODO verify
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::listEmojiCustom(quint64 id)
+{
+    const QJsonArray params{{}};
+    return generateMethod(QStringLiteral("listEmojiCustom"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomName(const QString &roomId, const QString &name, quint64 id)
 {
     return saveRoomSettings(QStringLiteral("roomName"), roomId, name, id);
