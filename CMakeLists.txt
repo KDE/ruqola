@@ -18,7 +18,7 @@ include(ECMAddTests)
 include(GenerateExportHeader)
 include(FeatureSummary)
 
-set(KF5_VERSION "5.38.0")
+set(KF5_VERSION "5.39.0")
 
 find_package(ECM ${KF5_VERSION} CONFIG REQUIRED)
 
