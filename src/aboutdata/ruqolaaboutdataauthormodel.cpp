@@ -67,7 +67,9 @@ QHash<int, QByteArray> RuqolaAboutDataAuthorModel::roleNames() const
 
 void RuqolaAboutDataAuthorModel::setAboutPerson(const QList<KAboutPerson> &aboutPerson)
 {
-    beginInsertRows(QModelIndex(), 0, aboutPerson.size() - 1);
-    mAboutPerson = aboutPerson;
-    endInsertRows();
+    if (!aboutPerson.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, aboutPerson.size() - 1);
+        mAboutPerson = aboutPerson;
+        endInsertRows();
+    }
 }
