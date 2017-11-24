@@ -61,16 +61,19 @@ QString RuqolaAboutData::about() const
     //Set up the first page...
     QString aboutPageText = mAboutData.shortDescription() + QLatin1Char('\n');
 
-    if (!mAboutData.otherText().isEmpty()) {
-        aboutPageText += QLatin1Char('\n') + mAboutData.otherText() + QLatin1Char('\n');
+    const QString other = mAboutData.otherText();
+    if (!other.isEmpty()) {
+        aboutPageText += QLatin1Char('\n') + other + QLatin1Char('\n');
     }
 
-    if (!mAboutData.copyrightStatement().isEmpty()) {
-        aboutPageText += QLatin1Char('\n') + mAboutData.copyrightStatement() + QLatin1Char('\n');
+    const QString copyrightStatement = mAboutData.copyrightStatement();
+    if (!copyrightStatement.isEmpty()) {
+        aboutPageText += QLatin1Char('\n') + copyrightStatement + QLatin1Char('\n');
     }
 
-    if (!mAboutData.homepage().isEmpty()) {
-        aboutPageText += QLatin1Char('\n') + QStringLiteral("<a href=\"%1\">%1</a>").arg(mAboutData.homepage()) + QLatin1Char('\n');
+    const QString homepage = mAboutData.homepage();
+    if (!homepage.isEmpty()) {
+        aboutPageText += QLatin1Char('\n') + QStringLiteral("<a href=\"%1\">%1</a>").arg(homepage) + QLatin1Char('\n');
     }
     aboutPageText = aboutPageText.trimmed();
     return aboutPageText;
