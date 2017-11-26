@@ -58,10 +58,10 @@ QVariant RuqolaAboutDataAuthorModel::data(const QModelIndex &index, int role) co
 QHash<int, QByteArray> RuqolaAboutDataAuthorModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[UsernameRole] = "username";
-    roles[TaskRole] = "task";
-    roles[EmailRole] = "email";
-    roles[WebSiteRoles] = "website";
+    roles[UsernameRole] = QByteArrayLiteral("username");
+    roles[TaskRole] = QByteArrayLiteral("task");
+    roles[EmailRole] = QByteArrayLiteral("email");
+    roles[WebSiteRoles] = QByteArrayLiteral("website");
     return roles;
 }
 
