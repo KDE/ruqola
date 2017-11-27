@@ -18,9 +18,9 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "ruqolaaboutdata.h"
+#include "qmlaboutdata.h"
 #include "kcoreaddons_version.h"
-#include "ruqolaaboutdataauthormodel.h"
+#include "qmlaboutdataauthormodel.h"
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -28,35 +28,35 @@
 #include <QDebug>
 #include <QUrl>
 
-RuqolaAboutData::RuqolaAboutData(QObject *parent)
+QmlAboutData::QmlAboutData(QObject *parent)
     : QObject(parent)
     , mAboutData(KAboutData::applicationData())
 {
-    mAuthorModel = new RuqolaAboutDataAuthorModel(this);
+    mAuthorModel = new QmlAboutDataAuthorModel(this);
     mAuthorModel->setAboutPerson(mAboutData.authors());
 
-    mTranslatorModel = new RuqolaAboutDataAuthorModel(this);
+    mTranslatorModel = new QmlAboutDataAuthorModel(this);
     mTranslatorModel->setAboutPerson(mAboutData.translators());
 
-    mCreditsModel = new RuqolaAboutDataAuthorModel(this);
+    mCreditsModel = new QmlAboutDataAuthorModel(this);
     mCreditsModel->setAboutPerson(mAboutData.credits());
 }
 
-RuqolaAboutData::~RuqolaAboutData()
+QmlAboutData::~QmlAboutData()
 {
 }
 
-QString RuqolaAboutData::version() const
+QString QmlAboutData::version() const
 {
     return mAboutData.version();
 }
 
-QString RuqolaAboutData::title() const
+QString QmlAboutData::title() const
 {
     return i18n("<html><font size=\"5\">%1</font><br />Version %2</html>", mAboutData.displayName(), mAboutData.version());
 }
 
-QString RuqolaAboutData::about() const
+QString QmlAboutData::about() const
 {
     //Set up the first page...
     QString aboutPageText = mAboutData.shortDescription() + QLatin1Char('\n');
@@ -79,7 +79,7 @@ QString RuqolaAboutData::about() const
     return aboutPageText;
 }
 
-QString RuqolaAboutData::licenseText(const QString &val)
+QString QmlAboutData::licenseText(const QString &val)
 {
     const int license = val.toInt();
     if (license >= 0) {
@@ -88,7 +88,7 @@ QString RuqolaAboutData::licenseText(const QString &val)
     return {};
 }
 
-QString RuqolaAboutData::licenses() const
+QString QmlAboutData::licenses() const
 {
     QString licensesStr;
     const int licenseCount = mAboutData.licenses().count();
@@ -100,7 +100,7 @@ QString RuqolaAboutData::licenses() const
     return licensesStr;
 }
 
-QString RuqolaAboutData::libraries() const
+QString QmlAboutData::libraries() const
 {
     return i18n("<ul><li>KDE Frameworks %1</li><li>Qt %2 (built against %3)</li><li>The <em>%4</em> windowing system</li></ul>",
                 QStringLiteral(KCOREADDONS_VERSION_STRING),
@@ -109,7 +109,7 @@ QString RuqolaAboutData::libraries() const
                 QGuiApplication::platformName());
 }
 
-QString RuqolaAboutData::reportBugs() const
+QString QmlAboutData::reportBugs() const
 {
     if (!mAboutData.customAuthorTextEnabled() || !mAboutData.customAuthorRichText().isEmpty()) {
         if (!mAboutData.customAuthorTextEnabled()) {
@@ -131,17 +131,17 @@ QString RuqolaAboutData::reportBugs() const
     return {};
 }
 
-RuqolaAboutDataAuthorModel *RuqolaAboutData::authorModel() const
+QmlAboutDataAuthorModel *QmlAboutData::authorModel() const
 {
     return mAuthorModel;
 }
 
-RuqolaAboutDataAuthorModel *RuqolaAboutData::creditsModel() const
+QmlAboutDataAuthorModel *QmlAboutData::creditsModel() const
 {
     return mCreditsModel;
 }
 
-RuqolaAboutDataAuthorModel *RuqolaAboutData::translatorModel() const
+QmlAboutDataAuthorModel *QmlAboutData::translatorModel() const
 {
     return mTranslatorModel;
 }

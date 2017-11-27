@@ -18,21 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "ruqolaaboutdataauthormodel.h"
+#include "qmlaboutdataauthormodel.h"
 #include "ruqola_debug.h"
 
-RuqolaAboutDataAuthorModel::RuqolaAboutDataAuthorModel(QObject *parent)
+QmlAboutDataAuthorModel::QmlAboutDataAuthorModel(QObject *parent)
     : QAbstractListModel(parent)
 {
 }
 
-int RuqolaAboutDataAuthorModel::rowCount(const QModelIndex &parent) const
+int QmlAboutDataAuthorModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return mAboutPerson.size();
 }
 
-QVariant RuqolaAboutDataAuthorModel::data(const QModelIndex &index, int role) const
+QVariant QmlAboutDataAuthorModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid()) {
         qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
@@ -55,7 +55,7 @@ QVariant RuqolaAboutDataAuthorModel::data(const QModelIndex &index, int role) co
     return {};
 }
 
-QHash<int, QByteArray> RuqolaAboutDataAuthorModel::roleNames() const
+QHash<int, QByteArray> QmlAboutDataAuthorModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[UsernameRole] = QByteArrayLiteral("username");
@@ -65,7 +65,7 @@ QHash<int, QByteArray> RuqolaAboutDataAuthorModel::roleNames() const
     return roles;
 }
 
-void RuqolaAboutDataAuthorModel::setAboutPerson(const QList<KAboutPerson> &aboutPerson)
+void QmlAboutDataAuthorModel::setAboutPerson(const QList<KAboutPerson> &aboutPerson)
 {
     if (!aboutPerson.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, aboutPerson.size() - 1);

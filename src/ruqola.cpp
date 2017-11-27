@@ -27,7 +27,7 @@
 #include "messagequeue.h"
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"
-#include "aboutdata/ruqolaaboutdata.h"
+#include "aboutdata/qmlaboutdata.h"
 #include "restapi/restapirequest.h"
 #include <KNotification>
 #include <QFileDialog>
@@ -41,14 +41,14 @@ Ruqola::Ruqola(QObject *parent)
 {
     //Todo load all account
     mRocketChatAccount = new RocketChatAccount(this);
-    mRuqolaAboutData = new RuqolaAboutData(this);
+    mRuqolaAboutData = new QmlAboutData(this);
     connect(mRocketChatAccount, &RocketChatAccount::serverURLChanged, this, &Ruqola::serverURLChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &Ruqola::userIDChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userNameChanged, this, &Ruqola::userNameChanged);
     connect(mRocketChatAccount, &RocketChatAccount::notification, this, &Ruqola::sendNotification);
 }
 
-RuqolaAboutData *Ruqola::applicationData() const
+QmlAboutData *Ruqola::applicationData() const
 {
     return mRuqolaAboutData;
 }

@@ -32,7 +32,7 @@
 #include "messagemodel.h"
 #include "notification.h"
 
-class RuqolaAboutData;
+class QmlAboutData;
 
 class TypingNotification;
 class RestApiRequest;
@@ -76,7 +76,7 @@ public:
 
     Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
 
-    Q_INVOKABLE RuqolaAboutData *applicationData() const;
+    Q_INVOKABLE QmlAboutData *applicationData() const;
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
@@ -88,7 +88,7 @@ private:
     explicit Ruqola(QObject *parent = nullptr);
     RocketChatAccount *mRocketChatAccount = nullptr;
     Notification *mNotification = nullptr;
-    RuqolaAboutData *mRuqolaAboutData = nullptr;
+    QmlAboutData *mRuqolaAboutData = nullptr;
 };
 
 inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

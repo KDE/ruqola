@@ -31,8 +31,8 @@
 #include <ruqolautils.h>
 #include <KLocalizedContext>
 
-#include <aboutdata/ruqolaaboutdata.h>
-#include <aboutdata/ruqolaaboutdataauthormodel.h>
+#include <aboutdata/qmlaboutdata.h>
+#include <aboutdata/qmlaboutdataauthormodel.h>
 
 int main(int argc, char *argv[])
 {
@@ -65,10 +65,10 @@ int main(int argc, char *argv[])
 
     qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
     qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
-    qmlRegisterType<RuqolaAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
-    qmlRegisterType<RuqolaAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");
+    qmlRegisterType<QmlAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
+    qmlRegisterType<QmlAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");
 
-    RuqolaAboutData ruqolaAboutData;
+    QmlAboutData ruqolaAboutData;
 
     QQmlApplicationEngine engine;
     QQmlContext *ctxt = engine.rootContext();

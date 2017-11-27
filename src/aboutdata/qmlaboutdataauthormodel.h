@@ -25,7 +25,7 @@
 #include <QAbstractListModel>
 #include "libruqola_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT RuqolaAboutDataAuthorModel : public QAbstractListModel
+class LIBRUQOLACORE_TESTS_EXPORT QmlAboutDataAuthorModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
@@ -37,8 +37,8 @@ public:
     };
     Q_ENUM(AuthorRoles)
 
-    explicit RuqolaAboutDataAuthorModel(QObject *parent = nullptr);
-    ~RuqolaAboutDataAuthorModel() = default;
+    explicit QmlAboutDataAuthorModel(QObject *parent = nullptr);
+    ~QmlAboutDataAuthorModel() = default;
 
     Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
     QVariant data(const QModelIndex &index, int role) const override;

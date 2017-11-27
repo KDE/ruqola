@@ -24,8 +24,8 @@
 #include <KAboutData>
 #include <QObject>
 #include "libruqolacore_export.h"
-class RuqolaAboutDataAuthorModel;
-class LIBRUQOLACORE_EXPORT RuqolaAboutData : public QObject
+class QmlAboutDataAuthorModel;
+class LIBRUQOLACORE_EXPORT QmlAboutData : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString version READ version CONSTANT)
@@ -34,12 +34,12 @@ class LIBRUQOLACORE_EXPORT RuqolaAboutData : public QObject
     Q_PROPERTY(QString about READ about CONSTANT)
     Q_PROPERTY(QString libraries READ libraries CONSTANT)
     Q_PROPERTY(QString reportBugs READ reportBugs CONSTANT)
-    Q_PROPERTY(RuqolaAboutDataAuthorModel *authorModel READ authorModel CONSTANT)
-    Q_PROPERTY(RuqolaAboutDataAuthorModel *creditsModel READ creditsModel CONSTANT)
-    Q_PROPERTY(RuqolaAboutDataAuthorModel *translatorModel READ translatorModel CONSTANT)
+    Q_PROPERTY(QmlAboutDataAuthorModel *authorModel READ authorModel CONSTANT)
+    Q_PROPERTY(QmlAboutDataAuthorModel *creditsModel READ creditsModel CONSTANT)
+    Q_PROPERTY(QmlAboutDataAuthorModel *translatorModel READ translatorModel CONSTANT)
 public:
-    explicit RuqolaAboutData(QObject *parent = nullptr);
-    ~RuqolaAboutData();
+    explicit QmlAboutData(QObject *parent = nullptr);
+    ~QmlAboutData();
 
     QString version() const;
     QString title() const;
@@ -50,13 +50,13 @@ public:
 
     Q_INVOKABLE QString licenseText(const QString &val);
 
-    RuqolaAboutDataAuthorModel *authorModel() const;
-    RuqolaAboutDataAuthorModel *creditsModel() const;
-    RuqolaAboutDataAuthorModel *translatorModel() const;
+    QmlAboutDataAuthorModel *authorModel() const;
+    QmlAboutDataAuthorModel *creditsModel() const;
+    QmlAboutDataAuthorModel *translatorModel() const;
 private:
-    RuqolaAboutDataAuthorModel *mAuthorModel = nullptr;
-    RuqolaAboutDataAuthorModel *mCreditsModel = nullptr;
-    RuqolaAboutDataAuthorModel *mTranslatorModel = nullptr;
+    QmlAboutDataAuthorModel *mAuthorModel = nullptr;
+    QmlAboutDataAuthorModel *mCreditsModel = nullptr;
+    QmlAboutDataAuthorModel *mTranslatorModel = nullptr;
     KAboutData mAboutData;
 };
 
