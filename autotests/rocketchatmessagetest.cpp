@@ -308,3 +308,11 @@ void RocketChatMessageTest::shouldSearchMessage()
     RocketChatMessage::RocketChatMessageResult r = m.messageSearch(QStringLiteral("roomId"), QStringLiteral("foo"), 43);
     compareFile(r.result, QStringLiteral("searchMessage"));
 }
+
+void RocketChatMessageTest::shouldListEmojiCustom()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.listEmojiCustom(43);
+    compareFile(r.result, QStringLiteral("listEmojiCustom"));
+}
