@@ -28,7 +28,7 @@ Dialog {
 
     signal openDirectChannel(string userName)
 
-    title: i18n("Open Conversation with %1?", username)
+    title: i18n("Open Conversation with \"%1\"?", username)
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
