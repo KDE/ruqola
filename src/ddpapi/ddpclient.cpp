@@ -61,6 +61,14 @@ void join_room(const QJsonDocument &doc, RocketChatAccount *account)
     }
 }
 
+void list_emoji_custom(const QJsonDocument &doc, RocketChatAccount *account)
+{
+    qDebug() << " list emoji custom " << doc;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Load Emoji Custom :") + doc.toJson());
+    }
+}
+
 void empty_callback(const QJsonDocument &doc, RocketChatAccount *)
 {
     Q_UNUSED(doc);
@@ -258,6 +266,12 @@ quint64 DDPClient::joinRoom(const QString &roomId, const QString &joinCode)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->joinRoom(roomId, joinCode, m_uid);
     return method(result, join_room, DDPClient::Persistent);
+}
+
+quint64 DDPClient::listEmojiCustom()
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->listEmojiCustom(m_uid);
+    return method(result, list_emoji_custom, DDPClient::Persistent);
 }
 
 quint64 DDPClient::clearUnreadMessages(const QString &roomID)

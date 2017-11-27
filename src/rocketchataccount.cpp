@@ -342,3 +342,8 @@ void RocketChatAccount::joinRoom(const QString &roomId)
     ddp()->joinRoom(roomId, QString());
     ddp()->subscribeRoomMessage(roomId);
 }
+
+void RocketChatAccount::listEmojiCustom()
+{
+    ddp()->listEmojiCustom();
+}

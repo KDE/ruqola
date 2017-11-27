@@ -152,6 +152,7 @@ public:
     quint64 joinRoom(const QString &roomId, const QString &joinCode);
     quint64 openDirectChannel(const QString &userId);
     void subscribeRoomMessage(const QString &roomId);
+    quint64 listEmojiCustom();
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
