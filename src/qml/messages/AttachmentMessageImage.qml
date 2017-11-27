@@ -25,10 +25,10 @@ import org.kde.kirigami 2.1 as Kirigami
 
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.Ruqola 1.0
-import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.ExtraColors 1.0
+import "../js/message.js" as MessageScript;
 
-ColumnLayout {
+RowLayout {
 
     property string i_messageText
     property string i_messageID
@@ -77,5 +77,14 @@ ColumnLayout {
 
             onLinkActivated: messageMain.linkActivated(link)
         }
+//        QQC2.Label {
+//            id: timestampText
+
+//            Layout.alignment: Qt.AlignTop | Qt.AlignRight
+//            text: MessageScript.displayDateTime(i_timestamp)
+//            opacity: .5
+
+//            z: 10
+//        }
     }
 }
