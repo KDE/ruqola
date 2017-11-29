@@ -327,12 +327,13 @@ void RocketChatAccount::openDirectChannel(const QString &username)
     ddp()->openDirectChannel(username);
 }
 
-void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom)
+void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames)
 {
+    const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
     if (privateRoom) {
-        ddp()->createPrivateGroup(name, QStringList());
+        ddp()->createPrivateGroup(name, lstUsers);
     } else {
-        ddp()->createChannel(name, QStringList(), readOnly);
+        ddp()->createChannel(name, lstUsers, readOnly);
     }
 }
 

@@ -47,8 +47,21 @@ Kirigami.BasicListItem {
     signal leaveRoom(string roomID)
     signal hideRoom(string roomID)
     
+    function iconFromType(type)
+    {
+        if (type === "c") {
+            return "irc-channel-active"
+        } else if (type === "p") {
+            return "" // TODO add icon
+        } else if (type === "d") {
+            return "user-avaliable"
+        }
+
+        return "";
+    }
+
     //icon: Ruqola.usersModel().user(d_name) ?  ((Ruqola.usersModel().user(d_name).iconFromStatus() !== "") ? Ruqola.usersModel().user(d_name).iconFromStatus() : (d_type == "c" ? "irc-channel-active" : "user-avaliable")) : "user-avaliable"
-    icon: d_type == "c" ? "irc-channel-active" : "user-avaliable"
+    icon: iconFromType(d_type)
     
     visible: !d_name.empty && d_open
 

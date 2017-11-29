@@ -26,7 +26,7 @@ import org.kde.kirigami 2.1 as Kirigami
 Dialog {
     id: createNewChannelDialog
 
-    signal createNewChannel(string name, bool readOnly, bool privateRoom)
+    signal createNewChannel(string name, bool readOnly, bool privateRoom, string usernames)
 
     title: i18n("Create Channel")
 
@@ -46,6 +46,15 @@ Dialog {
             id: channelName
             placeholderText: i18n("Channel Name")
         }
+
+        Label {
+            text: i18n("Users:");
+        }
+        TextField {
+            id: userList
+            placeholderText: i18n("User separate with ','")
+        }
+
         Label {
             text: i18n("Read-Only:");
         }
@@ -63,6 +72,6 @@ Dialog {
     }
 
     onAccepted: {
-        createNewChannelDialog.createNewChannel(channelName.text, readOnlyRoom.checked, privateRoom.checked)
+        createNewChannelDialog.createNewChannel(channelName.text, readOnlyRoom.checked, privateRoom.checked, userList.text)
     }
 }
