@@ -21,6 +21,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
+import QtQuick.Layouts 1.3
 
 Dialog {
     id: openDirectChannelDialog
@@ -28,16 +29,21 @@ Dialog {
 
     signal openDirectChannel(string userName)
 
-    title: i18n("Open Conversation with \"%1\"?", username)
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
-    width: 300
-    height: 200
 
     modal: true
+
+    Row {
+        Label {
+            text: i18n("Open Conversation with \"%1\"?", username)
+            font.bold: true
+            font.pointSize: 15
+        }
+    }
 
     onAccepted: {
         openDirectChannelDialog.openDirectChannel(username)
