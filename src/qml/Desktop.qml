@@ -250,6 +250,14 @@ Kirigami.ApplicationWindow {
                                     createNewChannelDialog.open()
                                 }
                             }
+                            QQC2.MenuSeparator {
+                                padding: 0
+                                contentItem: Rectangle {
+                                    implicitWidth: 200
+                                    implicitHeight: 1
+                                    color: "#1E000000"
+                                }
+                            }
                             QQC2.MenuItem {
                                 text: i18n("Channel Info")
                                 onTriggered: {
