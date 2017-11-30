@@ -106,6 +106,11 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    ChannelInfoDialog {
+        id: channelInfoDialog
+        channelName: appid.selectedRoomID
+    }
+
     CreateNewChannelDialog {
         id: createNewChannelDialog
         onCreateNewChannel: {
@@ -243,6 +248,12 @@ Kirigami.ApplicationWindow {
                                 text: i18n("Create New Channel")
                                 onTriggered: {
                                     createNewChannelDialog.open()
+                                }
+                            }
+                            QQC2.MenuItem {
+                                text: i18n("Channel Info")
+                                onTriggered: {
+                                    channelInfoDialog.open()
                                 }
                             }
                         }

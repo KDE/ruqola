@@ -28,7 +28,7 @@ Dialog {
 
     property string channelName: ""
 
-    title: i18n("Channel Info", channelName)
+    title: i18n("Channel Info about '%1'", channelName)
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
