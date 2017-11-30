@@ -13,7 +13,6 @@
         <file>AboutDialog.qml</file>
         <file>LicenseDialog.qml</file>
         <file>CreateNewChannelDialog.qml</file>
-        <file>ChannelConfigDialog.qml</file>
         <file>OpenDirectChannelDialog.qml</file>
         <file>ChannelInfoDialog.qml</file>
     </qresource>
