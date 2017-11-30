@@ -52,7 +52,7 @@ Kirigami.BasicListItem {
         if (type === "c") {
             return "irc-channel-active"
         } else if (type === "p") {
-            return "" // TODO add icon
+            return "lock"
         } else if (type === "d") {
             return "user-avaliable"
         }
