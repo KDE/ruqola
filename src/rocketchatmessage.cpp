@@ -346,6 +346,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::getUsersOfRoom(con
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::logout(const QString &name, quint64 id)
 {
+    Q_UNUSED(name);
     //TODO add name
     const QJsonArray params{{}};
     return generateMethod(QStringLiteral("logout"), QJsonDocument(params), id);

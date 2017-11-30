@@ -57,6 +57,8 @@ ColumnLayout {
             return i18n("%2 removed user %1", i_messageText, i_username)
         } else if (type === "room_changed_description") {
             return i18n("%2 changed room description to %1", i_messageText, i_username)
+        } else if (type === "room_changed_announcement") {
+            return i18n("%2 changed room announcement to %1", i_messageText, i_username)
         } else if (type === "room_changed_privacy") {
             return i18n("%2 changed room privacy to %1", i_messageText, i_username)
         } else if (type === "jitsi_call_started") {
@@ -94,7 +96,7 @@ ColumnLayout {
 
             width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
 
-            text: i_username + " " + getTextFor(i_systemMessageType)
+            text: getTextFor(i_systemMessageType)
 
             wrapMode: Label.Wrap
 

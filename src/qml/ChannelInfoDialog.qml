@@ -35,7 +35,17 @@ Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    width: 300
-    height: 400
+    //TODO
+    GridLayout {
+        columns: 2
+        Label {
+            text: i18n("Comment:");
+        }
+        TextField {
+            id: channelName
+            //placeholderText: i18n("Channel Name")
+            //TODO
+        }
+    }
     modal: true
 }

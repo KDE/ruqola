@@ -49,6 +49,7 @@ Kirigami.BasicListItem {
     
     function iconFromType(type)
     {
+        //TODO add info about user status
         if (type === "c") {
             return "irc-channel-active"
         } else if (type === "p") {
@@ -60,7 +61,6 @@ Kirigami.BasicListItem {
         return "";
     }
 
-    //icon: Ruqola.usersModel().user(d_name) ?  ((Ruqola.usersModel().user(d_name).iconFromStatus() !== "") ? Ruqola.usersModel().user(d_name).iconFromStatus() : (d_type == "c" ? "irc-channel-active" : "user-avaliable")) : "user-avaliable"
     icon: iconFromType(d_type)
     
     visible: !d_name.empty && d_open
@@ -124,4 +124,4 @@ Kirigami.BasicListItem {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
         }
     }
-} // Item closed
+}
