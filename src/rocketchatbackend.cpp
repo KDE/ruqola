@@ -34,7 +34,7 @@
 
 void process_publicsettings(const QJsonDocument &messages, RocketChatAccount *account)
 {
-    qCDebug(RUQOLA_LOG) << "process_publicsettings *************************************************************** " << messages;
+    qDebug() << "process_publicsettings *************************************************************** " << messages;
     //account->rocketChatBackend()->processIncomingMessages(messages.object().value(QStringLiteral("messages")).toArray());
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Public Settings:") + messages.toJson());
@@ -135,7 +135,7 @@ void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *accoun
     QJsonObject params;
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
     account->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
-    account->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(QJsonObject()), process_publicsettings);
+    account->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(QJsonArray()), process_publicsettings);
     //TODO ?
     account->ddp()->listEmojiCustom();
 }

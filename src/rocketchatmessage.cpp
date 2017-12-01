@@ -170,7 +170,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::toggleFavorite(con
 //TODO verify
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::listEmojiCustom(quint64 id)
 {
-    const QJsonArray params{{}};
+    const QJsonArray params;
     return generateMethod(QStringLiteral("listEmojiCustom"), QJsonDocument(params), id);
 }
 
