@@ -388,8 +388,10 @@ void DDPClient::onTextMessageReceived(const QString &message)
             if (m_callbackHash.contains(id)) {
                 std::function<void(QJsonDocument, RocketChatAccount *)> callback = m_callbackHash.take(id);
 
+               //qDebug() << " root " << root << root.value(QStringLiteral("result")).toObject().isEmpty();
                 //We mustn't extract result directly here.
-                callback(QJsonDocument(root.value(QStringLiteral("result")).toObject()), mRocketChatAccount);
+               const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
+               callback(QJsonDocument(obj.isEmpty() ? root : obj), mRocketChatAccount);
             }
             Q_EMIT result(id, QJsonDocument(root.value(QStringLiteral("result")).toObject()));
 
