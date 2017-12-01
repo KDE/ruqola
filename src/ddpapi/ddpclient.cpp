@@ -61,6 +61,14 @@ void join_room(const QJsonDocument &doc, RocketChatAccount *account)
     }
 }
 
+void change_default_status(const QJsonDocument &doc, RocketChatAccount *account)
+{
+    qDebug() << " change default status " << doc;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Change Default Status :") + doc.toJson());
+    }
+}
+
 void list_emoji_custom(const QJsonDocument &doc, RocketChatAccount *account)
 {
     qDebug() << " list emoji custom " << doc;
@@ -266,6 +274,12 @@ quint64 DDPClient::joinRoom(const QString &roomId, const QString &joinCode)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->joinRoom(roomId, joinCode, m_uid);
     return method(result, join_room, DDPClient::Persistent);
+}
+
+quint64 DDPClient::setDefaultStatus(User::PresenceStatus status)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setDefaultStatus(status, m_uid);
+    return method(result, change_default_status, DDPClient::Persistent);
 }
 
 quint64 DDPClient::listEmojiCustom()

@@ -29,6 +29,7 @@
 #include "usersmodel.h"
 #include "ruqolalogger.h"
 #include "messagemodel.h"
+#include "user.h"
 
 #include <QJsonObject>
 
@@ -138,6 +139,7 @@ void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *accoun
     account->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(QJsonArray()), process_publicsettings);
     //TODO ?
     account->ddp()->listEmojiCustom();
+    account->ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
 }
 
 RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent)

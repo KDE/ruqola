@@ -95,6 +95,7 @@ public:
     Q_INVOKABLE void joinRoom(const QString &roomId);
     Q_INVOKABLE void openDirectChannel(const QString &username);
     Q_INVOKABLE void listEmojiCustom();
+    Q_INVOKABLE void setDefaultStatus(User::PresenceStatus status);
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();

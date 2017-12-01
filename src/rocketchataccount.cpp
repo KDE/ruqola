@@ -348,3 +348,8 @@ void RocketChatAccount::listEmojiCustom()
 {
     ddp()->listEmojiCustom();
 }
+
+void RocketChatAccount::setDefaultStatus(User::PresenceStatus status)
+{
+    ddp()->setDefaultStatus(status);
+}
