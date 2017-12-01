@@ -38,8 +38,9 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
-void open_direct_channel(const QJsonObject &obj, RocketChatAccount *account)
+void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
 {
+    const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
     qDebug() << " open direct channel " << obj;
     if (!obj.isEmpty()) {
         const QString rid = obj.value(QStringLiteral("rid")).toString();
@@ -47,7 +48,7 @@ void open_direct_channel(const QJsonObject &obj, RocketChatAccount *account)
             account->ddp()->subscribeRoomMessage(rid);
         }
         if (account->ruqolaLogger()) {
-            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + QJsonDocument(obj).toJson());
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + QJsonDocument(root).toJson());
         }
     }
 }
@@ -81,15 +82,16 @@ void empty_callback(const QJsonObject &obj, RocketChatAccount *)
     Q_UNUSED(obj);
 }
 
-void create_channel(const QJsonObject &obj, RocketChatAccount *account)
+void create_channel(const QJsonObject &root, RocketChatAccount *account)
 {
+    const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
     if (!obj.isEmpty()) {
         const QString rid = obj.value(QStringLiteral("rid")).toString();
         if (!rid.isEmpty()) {
             account->joinRoom(rid);
         }
         if (account->ruqolaLogger()) {
-            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("create Channel :") + QJsonDocument(obj).toJson());
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("create Channel :") + QJsonDocument(root).toJson());
         }
     }
 }
@@ -387,10 +389,10 @@ void DDPClient::onTextMessageReceived(const QString &message)
                 std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
 
                //qDebug() << " root " << root << root.value(QStringLiteral("result")).toObject().isEmpty();
-                const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
+                //const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
 
                 //We mustn't extract result directly here.
-               callback(obj, mRocketChatAccount);
+               callback(root, mRocketChatAccount);
             }
             Q_EMIT result(id, QJsonDocument(root.value(QStringLiteral("result")).toObject()));
 

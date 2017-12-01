@@ -33,26 +33,28 @@
 
 #include <QJsonObject>
 
-void process_publicsettings(const QJsonObject &messages, RocketChatAccount *account)
+void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
 {
-    qDebug() << "process_publicsettings *************************************************************** " << messages;
+    qDebug() << "process_publicsettings *************************************************************** " << obj;
     //account->rocketChatBackend()->processIncomingMessages(messages.object().value(QStringLiteral("messages")).toArray());
 
-    QJsonArray configs = messages.value(QStringLiteral("result")).toArray();
+    QJsonArray configs = obj.value(QStringLiteral("result")).toArray();
     qDebug() << " configs"<<configs;
     if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Public Settings:") + QJsonDocument(messages).toJson());
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Public Settings:") + QJsonDocument(obj).toJson());
     }
 }
 
-void process_backlog(const QJsonObject &messages, RocketChatAccount *account)
+void process_backlog(const QJsonObject &root, RocketChatAccount *account)
 {
-    qCDebug(RUQOLA_LOG) << messages.value(QStringLiteral("messages")).toArray().size();
-    account->rocketChatBackend()->processIncomingMessages(messages.value(QStringLiteral("messages")).toArray());
+    const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
+    qCDebug(RUQOLA_LOG) << obj.value(QStringLiteral("messages")).toArray().size();
+    account->rocketChatBackend()->processIncomingMessages(obj.value(QStringLiteral("messages")).toArray());
 }
 
-void rooms_parsing(const QJsonObject &obj, RocketChatAccount *account)
+void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
 {
+    const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
     RoomModel *model = account->roomModel();
 
     //qDebug() << " doc " << doc;
@@ -84,8 +86,9 @@ void rooms_parsing(const QJsonObject &obj, RocketChatAccount *account)
     }
 }
 
-void getsubscription_parsing(const QJsonObject &obj, RocketChatAccount *account)
+void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account)
 {
+    const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
     RoomModel *model = account->roomModel();
 
     //qDebug() << " doc " << doc;
@@ -184,8 +187,8 @@ void RocketChatBackend::onLoginStatusChanged()
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
-        std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &doc, RocketChatAccount *account) {
-                                                                                            getsubscription_parsing(doc, account);
+        std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &obj, RocketChatAccount *account) {
+                                                                                            getsubscription_parsing(obj, account);
                                                                                         };
 
         mRocketChatAccount->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
