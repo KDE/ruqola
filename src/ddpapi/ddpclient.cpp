@@ -38,47 +38,47 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
-void open_direct_channel(const QJsonObject &doc, RocketChatAccount *account)
+void open_direct_channel(const QJsonObject &obj, RocketChatAccount *account)
 {
-    qDebug() << " open direct channel " << doc;
-    if (!doc.isEmpty()) {
-        const QString rid = doc.value(QStringLiteral("rid")).toString();
+    qDebug() << " open direct channel " << obj;
+    if (!obj.isEmpty()) {
+        const QString rid = obj.value(QStringLiteral("rid")).toString();
         if (!rid.isEmpty()) {
             account->ddp()->subscribeRoomMessage(rid);
         }
         if (account->ruqolaLogger()) {
-            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + QJsonDocument(doc).toJson());
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + QJsonDocument(obj).toJson());
         }
     }
 }
 
-void join_room(const QJsonObject &doc, RocketChatAccount *account)
+void join_room(const QJsonObject &obj, RocketChatAccount *account)
 {
-    qDebug() << " join room " << doc;
+    qDebug() << " join room " << obj;
     if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Join Room :") + QJsonDocument(doc).toJson());
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Join Room :") + QJsonDocument(obj).toJson());
     }
 }
 
-void change_default_status(const QJsonObject &doc, RocketChatAccount *account)
+void change_default_status(const QJsonObject &obj, RocketChatAccount *account)
 {
-    qDebug() << " change default status " << doc;
+    qDebug() << " change default status " << obj;
     if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Change Default Status :") + QJsonDocument(doc).toJson());
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Change Default Status :") + QJsonDocument(obj).toJson());
     }
 }
 
-void list_emoji_custom(const QJsonObject &doc, RocketChatAccount *account)
+void list_emoji_custom(const QJsonObject &obj, RocketChatAccount *account)
 {
-    qDebug() << " list emoji custom " << doc;
+    qDebug() << " list emoji custom " << obj;
     if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Load Emoji Custom :") + QJsonDocument(doc).toJson());
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Load Emoji Custom :") + QJsonDocument(obj).toJson());
     }
 }
 
-void empty_callback(const QJsonObject &doc, RocketChatAccount *)
+void empty_callback(const QJsonObject &obj, RocketChatAccount *)
 {
-    Q_UNUSED(doc);
+    Q_UNUSED(obj);
 }
 
 void create_channel(const QJsonObject &obj, RocketChatAccount *account)
