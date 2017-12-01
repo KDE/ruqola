@@ -71,7 +71,7 @@ void change_default_status(const QJsonObject &obj, RocketChatAccount *account)
 
 void list_emoji_custom(const QJsonObject &obj, RocketChatAccount *account)
 {
-    qDebug() << " list emoji custom " << obj;
+    qDebug() << " list emoji custom " << obj[QLatin1String("result")].toArray();
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Load Emoji Custom :") + QJsonDocument(obj).toJson());
     }
@@ -388,11 +388,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             if (m_callbackHash.contains(id)) {
                 std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
 
-               //qDebug() << " root " << root << root.value(QStringLiteral("result")).toObject().isEmpty();
-                //const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
-
-                //We mustn't extract result directly here.
-               callback(root, mRocketChatAccount);
+                callback(root, mRocketChatAccount);
             }
             Q_EMIT result(id, QJsonDocument(root.value(QStringLiteral("result")).toObject()));
 
