@@ -38,60 +38,58 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
-void open_direct_channel(const QJsonDocument &doc, RocketChatAccount *account)
+void open_direct_channel(const QJsonObject &doc, RocketChatAccount *account)
 {
     qDebug() << " open direct channel " << doc;
-    if (!doc.isNull() && doc.isObject()) {
-        const QJsonObject root = doc.object();
-        const QString rid = root.value(QStringLiteral("rid")).toString();
+    if (!doc.isEmpty()) {
+        const QString rid = doc.value(QStringLiteral("rid")).toString();
         if (!rid.isEmpty()) {
             account->ddp()->subscribeRoomMessage(rid);
         }
         if (account->ruqolaLogger()) {
-            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + doc.toJson());
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + QJsonDocument(doc).toJson());
         }
     }
 }
 
-void join_room(const QJsonDocument &doc, RocketChatAccount *account)
+void join_room(const QJsonObject &doc, RocketChatAccount *account)
 {
     qDebug() << " join room " << doc;
     if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Join Room :") + doc.toJson());
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Join Room :") + QJsonDocument(doc).toJson());
     }
 }
 
-void change_default_status(const QJsonDocument &doc, RocketChatAccount *account)
+void change_default_status(const QJsonObject &doc, RocketChatAccount *account)
 {
     qDebug() << " change default status " << doc;
     if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Change Default Status :") + doc.toJson());
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Change Default Status :") + QJsonDocument(doc).toJson());
     }
 }
 
-void list_emoji_custom(const QJsonDocument &doc, RocketChatAccount *account)
+void list_emoji_custom(const QJsonObject &doc, RocketChatAccount *account)
 {
     qDebug() << " list emoji custom " << doc;
     if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Load Emoji Custom :") + doc.toJson());
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Load Emoji Custom :") + QJsonDocument(doc).toJson());
     }
 }
 
-void empty_callback(const QJsonDocument &doc, RocketChatAccount *)
+void empty_callback(const QJsonObject &doc, RocketChatAccount *)
 {
     Q_UNUSED(doc);
 }
 
-void create_channel(const QJsonDocument &doc, RocketChatAccount *account)
+void create_channel(const QJsonObject &obj, RocketChatAccount *account)
 {
-    if (!doc.isNull() && doc.isObject()) {
-        const QJsonObject root = doc.object();
-        const QString rid = root.value(QStringLiteral("rid")).toString();
+    if (!obj.isEmpty()) {
+        const QString rid = obj.value(QStringLiteral("rid")).toString();
         if (!rid.isEmpty()) {
             account->joinRoom(rid);
         }
         if (account->ruqolaLogger()) {
-            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("create Channel :") + doc.toJson());
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("create Channel :") + QJsonDocument(obj).toJson());
         }
     }
 }
@@ -306,7 +304,7 @@ quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const 
     return value;
 }
 
-quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonDocument, RocketChatAccount *)> callback, DDPClient::MessageType messageType)
+quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonObject, RocketChatAccount *)> callback, DDPClient::MessageType messageType)
 {
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
@@ -333,7 +331,7 @@ quint64 DDPClient::method(const QString &m, const QJsonDocument &params, DDPClie
     return method(m, params, empty_callback, messageType);
 }
 
-quint64 DDPClient::method(const QString &method, const QJsonDocument &params, std::function<void(QJsonDocument, RocketChatAccount *)> callback, DDPClient::MessageType messageType)
+quint64 DDPClient::method(const QString &method, const QJsonDocument &params, std::function<void(QJsonObject, RocketChatAccount *)> callback, DDPClient::MessageType messageType)
 {
     qDebug() << " params" << params.toJson(QJsonDocument::Indented);
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, m_uid);
@@ -386,12 +384,13 @@ void DDPClient::onTextMessageReceived(const QString &message)
             unsigned id = root.value(QStringLiteral("id")).toString().toInt();
 
             if (m_callbackHash.contains(id)) {
-                std::function<void(QJsonDocument, RocketChatAccount *)> callback = m_callbackHash.take(id);
+                std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
 
                //qDebug() << " root " << root << root.value(QStringLiteral("result")).toObject().isEmpty();
+                const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
+
                 //We mustn't extract result directly here.
-               const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
-               callback(QJsonDocument(obj.isEmpty() ? root : obj), mRocketChatAccount);
+               callback(obj, mRocketChatAccount);
             }
             Q_EMIT result(id, QJsonDocument(root.value(QStringLiteral("result")).toObject()));
 

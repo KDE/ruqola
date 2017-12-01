@@ -33,33 +33,33 @@
 
 #include <QJsonObject>
 
-void process_publicsettings(const QJsonDocument &messages, RocketChatAccount *account)
+void process_publicsettings(const QJsonObject &messages, RocketChatAccount *account)
 {
     qDebug() << "process_publicsettings *************************************************************** " << messages;
     //account->rocketChatBackend()->processIncomingMessages(messages.object().value(QStringLiteral("messages")).toArray());
 
-    QJsonArray configs = messages.object().value(QStringLiteral("result")).toArray();
+    QJsonArray configs = messages.value(QStringLiteral("result")).toArray();
     qDebug() << " configs"<<configs;
     if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Public Settings:") + messages.toJson());
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Public Settings:") + QJsonDocument(messages).toJson());
     }
 }
 
-void process_backlog(const QJsonDocument &messages, RocketChatAccount *account)
+void process_backlog(const QJsonObject &messages, RocketChatAccount *account)
 {
-    qCDebug(RUQOLA_LOG) << messages.object().value(QStringLiteral("messages")).toArray().size();
-    account->rocketChatBackend()->processIncomingMessages(messages.object().value(QStringLiteral("messages")).toArray());
+    qCDebug(RUQOLA_LOG) << messages.value(QStringLiteral("messages")).toArray().size();
+    account->rocketChatBackend()->processIncomingMessages(messages.value(QStringLiteral("messages")).toArray());
 }
 
-void rooms_parsing(const QJsonDocument &doc, RocketChatAccount *account)
+void rooms_parsing(const QJsonObject &obj, RocketChatAccount *account)
 {
     RoomModel *model = account->roomModel();
 
     //qDebug() << " doc " << doc;
 
-    QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
+    QJsonArray removed = obj.value(QStringLiteral("remove")).toArray();
     //qDebug() << " rooms_parsing: room removed *************************************************" << removed;
-    const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
+    const QJsonArray updated = obj.value(QStringLiteral("update")).toArray();
     //qDebug() << " rooms_parsing: updated  *******************************************************: "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
@@ -84,15 +84,15 @@ void rooms_parsing(const QJsonDocument &doc, RocketChatAccount *account)
     }
 }
 
-void getsubscription_parsing(const QJsonDocument &doc, RocketChatAccount *account)
+void getsubscription_parsing(const QJsonObject &obj, RocketChatAccount *account)
 {
     RoomModel *model = account->roomModel();
 
     //qDebug() << " doc " << doc;
 
-    QJsonArray removed = doc.object().value(QStringLiteral("remove")).toArray();
+    QJsonArray removed = obj.value(QStringLiteral("remove")).toArray();
     //qDebug() << " room removed " << removed;
-    const QJsonArray updated = doc.object().value(QStringLiteral("update")).toArray();
+    const QJsonArray updated = obj.value(QStringLiteral("update")).toArray();
     //qDebug() << " updated : "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
@@ -184,7 +184,7 @@ void RocketChatBackend::onLoginStatusChanged()
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
-        std::function<void(QJsonDocument, RocketChatAccount *)> subscription_callback = [=](const QJsonDocument &doc, RocketChatAccount *account) {
+        std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &doc, RocketChatAccount *account) {
                                                                                             getsubscription_parsing(doc, account);
                                                                                         };
 
