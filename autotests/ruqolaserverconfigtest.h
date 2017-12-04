@@ -31,6 +31,7 @@ public:
     ~RuqolaServerConfigTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldAssignValues();
 };
 
 #endif // RUQOLASERVERCONFIGTEST_H

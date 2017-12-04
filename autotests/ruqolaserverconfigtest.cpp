@@ -38,3 +38,19 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.jitsiMeetUrl().isEmpty());
     QVERIFY(config.uniqueId().isEmpty());
 }
+
+
+void RuqolaServerConfigTest::shouldAssignValues()
+{
+    QString jitsimeetprefix = QStringLiteral("test 1");
+    QString jitsimeeturl = QStringLiteral("test 2");
+    QString uniqueId = QStringLiteral("test 3");
+    RuqolaServerConfig config;
+    config.setJitsiMeetPrefix(jitsimeetprefix);
+    config.setJitsiMeetUrl(jitsimeeturl);
+    config.setUniqueId(uniqueId);
+
+    QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
+    QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
+    QCOMPARE(config.uniqueId(), uniqueId);
+}
