@@ -24,6 +24,7 @@
         <file alias="AttachmentMessageVideo.qml">messages/AttachmentMessageVideo.qml</file>
         <file alias="JitsiVideoMessage.qml">messages/JitsiVideoMessage.qml</file>
         <file alias="NewDateLabel.qml">messages/NewDateLabel.qml</file>
+        <file alias="AvatarImage.qml">messages/AvatarImage.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="systray.png">icons/systray.png</file>
