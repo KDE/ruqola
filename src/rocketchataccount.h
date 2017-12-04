@@ -97,6 +97,8 @@ public:
     Q_INVOKABLE void openDirectChannel(const QString &username);
     Q_INVOKABLE void listEmojiCustom();
     Q_INVOKABLE void setDefaultStatus(User::PresenceStatus status);
+
+    void loadEmoji();
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();

@@ -353,3 +353,9 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status)
 {
     ddp()->setDefaultStatus(status);
 }
+
+void RocketChatAccount::loadEmoji()
+{
+    mEmojiList.clear();
+    //TODO
+}

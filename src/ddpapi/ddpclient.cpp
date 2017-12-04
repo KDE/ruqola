@@ -68,6 +68,7 @@ void change_default_status(const QJsonObject &obj, RocketChatAccount *account)
 
 void list_emoji_custom(const QJsonObject &obj, RocketChatAccount *account)
 {
+    account->loadEmoji();
     //qDebug() << " list emoji custom " << obj[QLatin1String("result")].toArray();
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Load Emoji Custom :") + QJsonDocument(obj).toJson());
