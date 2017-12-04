@@ -24,7 +24,6 @@
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
-#include <QDebug>
 #include <QUrl>
 #include <QUrlQuery>
 #include <QJsonDocument>
@@ -75,7 +74,7 @@ void RestApiRequest::parseLogout(const QByteArray &data)
         qWarning() <<" Problem when we try to logout";
     }
 
-    qDebug() << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
+    qCDebug(RUQOLA_LOG) << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
 }
 
 void RestApiRequest::parseChannelList(const QByteArray &data)
@@ -104,7 +103,7 @@ void RestApiRequest::setUserId(const QString &userId)
 
 void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userId)
 {
-    qDebug() << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
+    qCDebug(RUQOLA_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
 }
 
 void RestApiRequest::slotResult(QNetworkReply *reply)
@@ -130,7 +129,7 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             break;
         }
     } else {
-        qDebug() << " reply - "<<reply->errorString();
+        qCDebug(RUQOLA_LOG) << " reply - "<<reply->errorString();
     }
     reply->deleteLater();
 }

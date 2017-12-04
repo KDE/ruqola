@@ -188,7 +188,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
 void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool selected)
 {
     if (roomID.isEmpty() || roomName.isEmpty()) {
-        qDebug() << " Impossible to add a room";
+        qCDebug(RUQOLA_LOG) << " Impossible to add a room";
         return;
     }
     qCDebug(RUQOLA_LOG) << "Adding room : roomId: " << roomID << " room Name " << roomName << " isSelected : " << selected;
@@ -202,7 +202,7 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
 
 void RoomModel::addRoom(Room *room)
 {
-    qDebug() << " void RoomModel::addRoom(const Room &room)"<<room->name();
+    qCDebug(RUQOLA_LOG) << " void RoomModel::addRoom(const Room &room)"<<room->name();
     const int roomCount{
         mRoomsList.count()
     };
@@ -250,7 +250,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         //qDebug() << " Not implementer changed room yet";
         updateRoom(roomData);
     } else {
-        qDebug() << " Undefined type" << actionName;
+        qCDebug(RUQOLA_LOG) << " Undefined type" << actionName;
     }
 }
 

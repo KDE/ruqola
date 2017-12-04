@@ -19,6 +19,7 @@
 */
 
 #include "message.h"
+#include "ruqola_debug.h"
 #include <QDebug>
 
 #include <QJsonArray>
@@ -74,7 +75,7 @@ void Message::parseUrls(const QJsonArray &urls)
 {
     mUrls.clear();
     if (!urls.isEmpty()) {
-        qDebug() << " void Message::urls(const QJsonObject &attachements)"<<urls;
+        qCDebug(RUQOLA_LOG) << " void Message::urls(const QJsonObject &attachements)"<<urls;
     }
     for (int i = 0; i < urls.size(); i++) {
         const QJsonObject url = urls.at(i).toObject();
@@ -116,7 +117,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
 {
     mAttachements.clear();
     if (!attachments.isEmpty()) {
-        qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
+        qCDebug(RUQOLA_LOG) << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
     }
     for (int i = 0; i < attachments.size(); i++) {
         const QJsonObject attachment = attachments.at(i).toObject();
@@ -395,7 +396,7 @@ Message Message::fromJSon(const QJsonObject &o)
     const QJsonArray mentionsArray = o.value(QStringLiteral("mentions")).toArray();
     for (int i = 0; i < mentionsArray.count(); ++i) {
         const QJsonObject mention = mentionsArray.at(i).toObject();
-        qDebug() << " mention"<<mention;
+        qCDebug(RUQOLA_LOG) << " mention"<<mention;
 //        const MessageAttachment att = MessageAttachment::fromJSon(attachment);
 //        if (!att.isEmpty()) {
 //            message.mAttachements.append(att);

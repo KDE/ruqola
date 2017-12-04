@@ -22,7 +22,6 @@
 
 #include "roomwrapper.h"
 #include "room.h"
-#include <QDebug>
 
 RoomWrapper::RoomWrapper(QObject *parent)
     : QObject(parent)

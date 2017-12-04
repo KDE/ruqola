@@ -19,6 +19,7 @@
 */
 
 #include "ruqolawebsocket.h"
+#include "ruqola_debug.h"
 
 #include <QWebSocket>
 
@@ -44,7 +45,7 @@ void RuqolaWebSocket::openUrl(const QUrl &url)
 
 qint64 RuqolaWebSocket::sendTextMessage(const QString &message)
 {
-    qDebug() << " qint64 RuqolaWebSocket::sendTextMessage(const QString &message)"<<message;
+    qCDebug(RUQOLA_LOG) << " qint64 RuqolaWebSocket::sendTextMessage(const QString &message)"<<message;
     return mWebSocket->sendTextMessage(message);
 }
 

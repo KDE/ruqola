@@ -25,7 +25,6 @@
 #include <KAboutData>
 #include <KLocalizedString>
 #include <QGuiApplication>
-#include <QDebug>
 #include <QUrl>
 
 QmlAboutData::QmlAboutData(QObject *parent)

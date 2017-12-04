@@ -35,11 +35,11 @@
 
 void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
 {
-    qDebug() << "process_publicsettings *************************************************************** " << obj;
+    qCDebug(RUQOLA_LOG) << "process_publicsettings *************************************************************** " << obj;
     //account->rocketChatBackend()->processIncomingMessages(messages.object().value(QStringLiteral("messages")).toArray());
 
     QJsonArray configs = obj.value(QStringLiteral("result")).toArray();
-    qDebug() << " configs"<<configs;
+    qCDebug(RUQOLA_LOG) << " configs"<<configs;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Public Settings:") + QJsonDocument(obj).toJson());
     }

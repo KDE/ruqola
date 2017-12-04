@@ -33,7 +33,6 @@
 #include <QFileDialog>
 #include <QTcpSocket>
 #include <QDataStream>
-#include <QDebug>
 #include <KAboutData>
 
 Ruqola::Ruqola(QObject *parent)

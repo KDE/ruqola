@@ -313,7 +313,7 @@ QString RocketChatAccount::serverUrl() const
 
 void RocketChatAccount::openChannel(const QString &url)
 {
-    qDebug() << " void RocketChatAccount::openChannel(const QString &url)"<<url;
+    qCDebug(RUQOLA_LOG) << " void RocketChatAccount::openChannel(const QString &url)"<<url;
     //TODO
 }
 

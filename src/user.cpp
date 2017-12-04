@@ -20,6 +20,7 @@
 
 #include "user.h"
 #include "utils.h"
+#include "ruqola_debug.h"
 
 #include <QJsonObject>
 
@@ -104,7 +105,7 @@ void User::parseUser(const QJsonObject &object)
 
 QString User::iconFromStatus() const
 {
-    qDebug() << " QString User::iconFromStatus() const" << name() << " mStatus" << mStatus;
+    qCDebug(RUQOLA_LOG) << " QString User::iconFromStatus() const" << name() << " mStatus" << mStatus;
     //TODO optimization ?
     const PresenceStatus status = Utils::presenceStatusFromString(mStatus);
     switch (status) {

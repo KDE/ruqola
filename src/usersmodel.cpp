@@ -29,7 +29,7 @@ UsersModel::UsersModel(QObject *parent)
 
 UsersModel::~UsersModel()
 {
-    qDebug() << "UsersModel::~UsersModel() "<< mUsers.count();
+    qCDebug(RUQOLA_LOG) << "UsersModel::~UsersModel() "<< mUsers.count();
     qDeleteAll(mUsers);
 }
 

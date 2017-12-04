@@ -41,7 +41,6 @@ LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
 {
     const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
-    qDebug() << " open direct channel " << obj;
     if (!obj.isEmpty()) {
         const QString rid = obj.value(QStringLiteral("rid")).toString();
         if (!rid.isEmpty()) {
@@ -55,7 +54,6 @@ void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
 
 void join_room(const QJsonObject &obj, RocketChatAccount *account)
 {
-    qDebug() << " join room " << obj;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Join Room :") + QJsonDocument(obj).toJson());
     }
@@ -63,7 +61,6 @@ void join_room(const QJsonObject &obj, RocketChatAccount *account)
 
 void change_default_status(const QJsonObject &obj, RocketChatAccount *account)
 {
-    qDebug() << " change default status " << obj;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Change Default Status :") + QJsonDocument(obj).toJson());
     }
@@ -71,7 +68,7 @@ void change_default_status(const QJsonObject &obj, RocketChatAccount *account)
 
 void list_emoji_custom(const QJsonObject &obj, RocketChatAccount *account)
 {
-    qDebug() << " list emoji custom " << obj[QLatin1String("result")].toArray();
+    //qDebug() << " list emoji custom " << obj[QLatin1String("result")].toArray();
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Load Emoji Custom :") + QJsonDocument(obj).toJson());
     }
@@ -335,7 +332,6 @@ quint64 DDPClient::method(const QString &m, const QJsonDocument &params, DDPClie
 
 quint64 DDPClient::method(const QString &method, const QJsonDocument &params, std::function<void(QJsonObject, RocketChatAccount *)> callback, DDPClient::MessageType messageType)
 {
-    qDebug() << " params" << params.toJson(QJsonDocument::Indented);
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, m_uid);
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
