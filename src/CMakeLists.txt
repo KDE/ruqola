@@ -39,6 +39,7 @@ set (Ruqola_core_srcs
     avatarfilecache.cpp
     ruqolalogger.cpp
     ruqolaregisterengine.cpp
+    ruqolaserverconfig.cpp
     aboutdata/qmlaboutdata.cpp
     aboutdata/qmlaboutdataauthormodel.cpp
     ${Ruqola_ddpapi_SRCS}

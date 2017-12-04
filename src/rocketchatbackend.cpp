@@ -35,21 +35,7 @@
 
 void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
 {
-    QJsonArray configs = obj.value(QStringLiteral("result")).toArray();
-
-    for ( const QJsonValueRef &currentConfig : configs ) {
-        QJsonObject currentConfObject = currentConfig.toObject();
-        const QString id    = currentConfObject[QStringLiteral("_id")].toString();
-        const QString value = currentConfObject[QStringLiteral("value")].toString();
-
-        if ( id  == QLatin1String("uniqueID") ) {
-            qDebug() << " uniqueID " << value;
-        } else if ( id == QLatin1String("Jitsi_Domain") ) {
-            qDebug() << " Jitsi_Domain " << value;
-        } else if ( id == QLatin1String("Jitsi_URL_Room_Prefix") ) {
-            qDebug() << " Jitsi_URL_Room_Prefix " << value;
-        }
-    }
+    account->parsePublicSettings(obj);
 
     //qCDebug(RUQOLA_LOG) << " configs"<<configs;
     if (account->ruqolaLogger()) {

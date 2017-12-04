@@ -31,6 +31,7 @@
 #include "usersforroommodel.h"
 #include "roomfilterproxymodel.h"
 #include "ruqolalogger.h"
+#include "ruqolaserverconfig.h"
 
 #include <KLocalizedString>
 #include <QFile>
@@ -46,6 +47,7 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
     if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
         mRuqolaLogger = new RuqolaLogger;
     }
+    mRuqolaServerConfig = new RuqolaServerConfig;
     mSettings = new RocketChatAccountSettings(this);
     connect(mSettings, &RocketChatAccountSettings::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
     connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverURLChanged);
@@ -67,6 +69,7 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
 
 RocketChatAccount::~RocketChatAccount()
 {
+    delete mRuqolaServerConfig;
     delete mRuqolaLogger;
 }
 
@@ -78,6 +81,11 @@ void RocketChatAccount::clearModels()
     mMessageQueue->loadCache();
     //Try to send queue message
     mMessageQueue->processQueue();
+}
+
+RuqolaServerConfig *RocketChatAccount::getRuqolaServerConfig() const
+{
+    return mRuqolaServerConfig;
 }
 
 RuqolaLogger *RocketChatAccount::ruqolaLogger() const
@@ -358,4 +366,25 @@ void RocketChatAccount::loadEmoji()
 {
     mEmojiList.clear();
     //TODO
+}
+
+void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
+{
+    QJsonArray configs = obj.value(QStringLiteral("result")).toArray();
+
+    for ( const QJsonValueRef &currentConfig : configs ) {
+        QJsonObject currentConfObject = currentConfig.toObject();
+        const QString id    = currentConfObject[QStringLiteral("_id")].toString();
+        const QString value = currentConfObject[QStringLiteral("value")].toString();
+
+        if ( id  == QLatin1String("uniqueID") ) {
+            mRuqolaServerConfig->setUniqueId(value);
+        } else if ( id == QLatin1String("Jitsi_Domain") ) {
+            mRuqolaServerConfig->setJitsiMeetPrefix(value);
+        } else if ( id == QLatin1String("Jitsi_URL_Room_Prefix") ) {
+            mRuqolaServerConfig->setJitsiMeetUrl(value);
+        } else {
+            qDebug() << " public settings id " << id;
+        }
+    }
 }

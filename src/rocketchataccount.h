@@ -38,6 +38,8 @@ class RocketChatBackend;
 class UsersForRoomModel;
 class RoomFilterProxyModel;
 class RuqolaLogger;
+class RuqolaServerConfig;
+
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
@@ -99,6 +101,10 @@ public:
     Q_INVOKABLE void setDefaultStatus(User::PresenceStatus status);
 
     void loadEmoji();
+    void parsePublicSettings(const QJsonObject &obj);
+
+    RuqolaServerConfig *getRuqolaServerConfig() const;
+
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
@@ -127,6 +133,7 @@ private:
     MessageQueue *mMessageQueue = nullptr;
     RocketChatBackend *mRocketChatBackend = nullptr;
     RuqolaLogger *mRuqolaLogger = nullptr;
+    RuqolaServerConfig *mRuqolaServerConfig = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H
