@@ -19,10 +19,16 @@
 */
 
 #include "rocketchataccountsettingstest.h"
+#include "rocketchataccountsettings.h"
 #include <QTest>
 QTEST_MAIN(RocketChatAccountSettingsTest)
 
 RocketChatAccountSettingsTest::RocketChatAccountSettingsTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
+{
+    //TODO
 }
