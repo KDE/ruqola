@@ -325,8 +325,9 @@ void RocketChatAccount::openChannel(const QString &url)
     //TODO
 }
 
-void RocketChatAccount::joinJitsiConfCall()
+void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
 {
+    qCDebug(RUQOLA_LOG) << " void RocketChatAccount::joinJitsiConfCall(const QString &roomId)"<<roomId;
     //TODO
 }
 
@@ -384,7 +385,7 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
         } else if ( id == QLatin1String("Jitsi_URL_Room_Prefix") ) {
             mRuqolaServerConfig->setJitsiMeetUrl(value);
         } else {
-            qDebug() << " public settings id " << id;
+            qCDebug(RUQOLA_LOG) << "Other public settings id " << id;
         }
     }
 }

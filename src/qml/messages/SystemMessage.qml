@@ -42,7 +42,6 @@ ColumnLayout {
     signal linkActivated(string link)
 
     function getTextFor(type) {
-
         if (type === "uj") {
             return i18n("%1 has joined the channel", i_username);
         } else if (type === "ul") {
@@ -101,8 +100,6 @@ ColumnLayout {
             wrapMode: Label.Wrap
 
             renderType: Text.NativeRendering
-
-            onLinkActivated: messageMain.linkActivated(link)
         }
     }
 }

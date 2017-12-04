@@ -71,7 +71,13 @@ ColumnLayout {
 
             renderType: Text.NativeRendering
 
-            onLinkActivated: messageMain.linkActivated(link)
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    //TODO room id ?
+                    console.log("CLICKED !!!!")
+                }
+            }
         }
     }
 }
