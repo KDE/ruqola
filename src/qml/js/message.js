@@ -90,7 +90,7 @@ function markdownme(s) {
     var sd = new slimdown();
     var result= sd.render(s);
 
-    console.log(result)
+    //console.log(result)
 
     return result;
 }
