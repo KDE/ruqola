@@ -99,6 +99,7 @@ public:
     Q_INVOKABLE void openDirectChannel(const QString &username);
     Q_INVOKABLE void listEmojiCustom();
     Q_INVOKABLE void setDefaultStatus(User::PresenceStatus status);
+    Q_INVOKABLE void createJitsiConfCall(const QString &roomId);
 
     void loadEmoji();
     void parsePublicSettings(const QJsonObject &obj);

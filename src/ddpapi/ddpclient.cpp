@@ -38,6 +38,13 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void create_jitsi_conf_call(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Create Jitsi Conf Call:") + QJsonDocument(root).toJson());
+    }
+}
+
 void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
 {
     const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
@@ -46,9 +53,9 @@ void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
         if (!rid.isEmpty()) {
             account->ddp()->subscribeRoomMessage(rid);
         }
-        if (account->ruqolaLogger()) {
-            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + QJsonDocument(root).toJson());
-        }
+    }
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Direct channel:") + QJsonDocument(root).toJson());
     }
 }
 
@@ -284,6 +291,12 @@ quint64 DDPClient::listEmojiCustom()
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->listEmojiCustom(m_uid);
     return method(result, list_emoji_custom, DDPClient::Persistent);
+}
+
+quint64 DDPClient::createJitsiConfCall(const QString &roomId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createJitsiConfCall(roomId, m_uid);
+    return method(result, create_jitsi_conf_call, DDPClient::Persistent);
 }
 
 quint64 DDPClient::clearUnreadMessages(const QString &roomID)

@@ -344,6 +344,15 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::getUsersOfRoom(con
     return generateMethod(QStringLiteral("getUsersOfRoom"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::createJitsiConfCall(const QString &roomId, quint64 id)
+{
+    const QJsonArray params{{
+                                QJsonValue(roomId)
+                            }};
+    return generateMethod(QStringLiteral("jitsi:updateTimeout"), QJsonDocument(params), id);
+
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::logout(const QString &name, quint64 id)
 {
     Q_UNUSED(name);

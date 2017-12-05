@@ -379,6 +379,11 @@ void RocketChatAccount::loadEmoji()
     //TODO
 }
 
+void RocketChatAccount::createJitsiConfCall(const QString &roomId)
+{
+    ddp()->createJitsiConfCall(roomId);
+}
+
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
     QJsonArray configs = obj.value(QStringLiteral("result")).toArray();

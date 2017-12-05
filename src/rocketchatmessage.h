@@ -78,6 +78,7 @@ public:
     RocketChatMessage::RocketChatMessageResult createDirectMessage(const QString &username, quint64 id);
     RocketChatMessage::RocketChatMessageResult messageSearch(const QString &roomId, const QString &pattern, quint64 id);
     RocketChatMessage::RocketChatMessageResult listEmojiCustom(quint64 id);
+    RocketChatMessage::RocketChatMessageResult createJitsiConfCall(const QString &roomId, quint64 id);
 private:
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);

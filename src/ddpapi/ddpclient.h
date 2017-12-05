@@ -154,6 +154,7 @@ public:
     void subscribeRoomMessage(const QString &roomId);
     quint64 setDefaultStatus(User::PresenceStatus status);
     quint64 listEmojiCustom();
+    quint64 createJitsiConfCall(const QString &roomId);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
