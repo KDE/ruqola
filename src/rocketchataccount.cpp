@@ -388,12 +388,12 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
         const QString id    = currentConfObject[QStringLiteral("_id")].toString();
         const QString value = currentConfObject[QStringLiteral("value")].toString();
 
-        if ( id  == QLatin1String("uniqueID") ) {
+        if ( id == QLatin1String("uniqueID") ) {
             mRuqolaServerConfig->setUniqueId(value);
         } else if ( id == QLatin1String("Jitsi_Domain") ) {
-            mRuqolaServerConfig->setJitsiMeetPrefix(value);
-        } else if ( id == QLatin1String("Jitsi_URL_Room_Prefix") ) {
             mRuqolaServerConfig->setJitsiMeetUrl(value);
+        } else if ( id == QLatin1String("Jitsi_URL_Room_Prefix") ) {
+            mRuqolaServerConfig->setJitsiMeetPrefix(value);
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id;
         }
