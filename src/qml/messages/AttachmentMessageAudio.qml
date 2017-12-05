@@ -23,6 +23,8 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2 as QQC2
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.ExtraColors 1.0
+//We need QtMultimedia module for playing audio file
+import QtMultimedia 5.8
 
 import QtQuick.Layouts 1.1
 ColumnLayout {
