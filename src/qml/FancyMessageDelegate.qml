@@ -54,6 +54,7 @@ Rectangle {
     implicitWidth: 150
     
     signal openDirectChannel(string userName)
+    signal jitsiCallConfActivated()
 
     Loader {
         id: loaded
@@ -133,6 +134,9 @@ Rectangle {
             } else {
                 RuqolaUtils.openUrl(link);
             }
+        }
+        onJitsiCallConfActivated: {
+            messageMain.jitsiCallConfActivated()
         }
     }
 }

@@ -303,6 +303,11 @@ Kirigami.ApplicationWindow {
                     openDirectChannelDialog.open()
                     console.log("Open direct channel !!! " + userName)
                 }
+                onJitsiCallConfActivated: {
+                    //TODO room id ?
+                    Ruqola.rocketChatAccount().joinJitsiConfCall(appid.selectedRoomID)
+                    console.log("CLICKED jitsi conf call" + appid.selectedRoomID)
+                }
             }
             footer: UserInput {
                 id: userInputMessage

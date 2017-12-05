@@ -41,6 +41,7 @@ RowLayout {
     property var i_date
 
     signal linkActivated(string link)
+    signal jitsiCallConfActivated()
 
     id: messageMain
 

@@ -39,6 +39,7 @@ ColumnLayout {
     property string i_date
 
     signal linkActivated(string link)
+    signal jitsiCallConfActivated()
 
     NewDateLabel {
         id: newDateRect
@@ -74,8 +75,7 @@ ColumnLayout {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    //TODO room id ?
-                    console.log("CLICKED !!!!")
+                    messageMain.jitsiCallConfActivated()
                 }
             }
         }

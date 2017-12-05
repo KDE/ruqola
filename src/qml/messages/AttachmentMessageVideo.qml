@@ -31,6 +31,7 @@ ColumnLayout {
     id: attachmentVideo
 
     signal linkActivated(string link)
+    signal jitsiCallConfActivated()
 
     NewDateLabel {
         id: newDateRect

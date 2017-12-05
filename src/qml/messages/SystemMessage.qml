@@ -40,6 +40,7 @@ ColumnLayout {
     property string i_date
 
     signal linkActivated(string link)
+    signal jitsiCallConfActivated()
 
     function getTextFor(type) {
         if (type === "uj") {

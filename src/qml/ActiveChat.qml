@@ -29,6 +29,7 @@ ListView {
     id: activeChat
 
     signal openDirectChannel(string userName)
+    signal jitsiCallConfActivated()
 
     spacing: Kirigami.Units.smallSpacing
     onCountChanged: {
@@ -57,6 +58,9 @@ ListView {
         i_date: date
         onOpenDirectChannel: {
             activeChat.openDirectChannel(userName)
+        }
+        onJitsiCallConfActivated: {
+            activeChat.jitsiCallConfActivated()
         }
     }
 }

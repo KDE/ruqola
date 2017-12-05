@@ -29,6 +29,7 @@ ColumnLayout {
     id: attachmentAudio
 
     signal linkActivated(string link)
+    signal jitsiCallConfActivated()
 
     NewDateLabel {
         id: newDateRect
