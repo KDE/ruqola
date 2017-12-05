@@ -264,6 +264,22 @@ Kirigami.ApplicationWindow {
                                     channelInfoDialog.open()
                                 }
                             }
+                            QQC2.MenuSeparator {
+                                padding: 0
+                                contentItem: Rectangle {
+                                    implicitWidth: 200
+                                    implicitHeight: 1
+                                    color: "#1E000000"
+                                }
+                            }
+                            QQC2.MenuItem {
+                                text: i18n("Video Chat")
+                                onTriggered: {
+                                    if (appid.selectedRoom) {
+                                        Ruqola.rocketChatAccount().createJitsiConfCall(appid.selectedRoom);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -304,9 +320,7 @@ Kirigami.ApplicationWindow {
                     console.log("Open direct channel !!! " + userName)
                 }
                 onJitsiCallConfActivated: {
-                    //TODO room id ?
                     Ruqola.rocketChatAccount().joinJitsiConfCall(appid.selectedRoomID)
-                    console.log("CLICKED jitsi conf call" + appid.selectedRoomID)
                 }
             }
             footer: UserInput {

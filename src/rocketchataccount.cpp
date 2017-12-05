@@ -382,6 +382,7 @@ void RocketChatAccount::loadEmoji()
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 {
     ddp()->createJitsiConfCall(roomId);
+    joinJitsiConfCall(roomId);
 }
 
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)

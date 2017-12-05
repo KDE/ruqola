@@ -66,12 +66,15 @@ Rectangle {
         
         text: {
             //TODO verify if it works with non latin char.
-            var match = i_aliasname.match(/([a-zA-Z])([a-zA-Z])/);
-            var abbrev = match[1].toUpperCase();
-            if (match.length > 2) {
-                abbrev += match[2].toLowerCase();
+            if (i_aliasname.length > 0) {
+                var match = i_aliasname.match(/([a-zA-Z])([a-zA-Z])/);
+                var abbrev = match[1].toUpperCase();
+                if (match.length > 2) {
+                    abbrev += match[2].toLowerCase();
+                }
+                return abbrev;
             }
-            return abbrev;
+            return "";
         }
     }
 }
