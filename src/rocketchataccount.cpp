@@ -34,6 +34,7 @@
 #include "ruqolaserverconfig.h"
 
 #include <KLocalizedString>
+#include <QDesktopServices>
 #include <QFile>
 #include <QFileDialog>
 
@@ -328,7 +329,16 @@ void RocketChatAccount::openChannel(const QString &url)
 void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::joinJitsiConfCall(const QString &roomId)"<<roomId;
-    //TODO
+    const QString hash = QString::fromLatin1(QCryptographicHash::hash( ( mRuqolaServerConfig->uniqueId() + roomId ).toUtf8(), QCryptographicHash::Md5 ).toHex());
+#if defined(Q_OS_IOS) || defined(Q_OS_ANDROID)
+    const QString scheme = "org.jitsi.meet://";
+#else
+    const QString scheme = QStringLiteral("https://");
+#endif
+    const QString url = scheme + mRuqolaServerConfig->jitsiMeetUrl() + QLatin1Char('/') + mRuqolaServerConfig->jitsiMeetPrefix() + hash;
+    qDebug() << url;
+    const QUrl clickedUrl = QUrl::fromUserInput(url);
+    QDesktopServices::openUrl(clickedUrl);
 }
 
 void RocketChatAccount::openDirectChannel(const QString &username)
