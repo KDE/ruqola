@@ -38,6 +38,13 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void user_auto_complete(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User AutoComplete:") + QJsonDocument(root).toJson());
+    }
+}
+
 void create_jitsi_conf_call(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -291,6 +298,12 @@ quint64 DDPClient::listEmojiCustom()
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->listEmojiCustom(m_uid);
     return method(result, list_emoji_custom, DDPClient::Persistent);
+}
+
+quint64 DDPClient::userAutocomplete(const QString &searchText)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(searchText, m_uid);
+    return method(result, user_auto_complete, DDPClient::Persistent);
 }
 
 quint64 DDPClient::createJitsiConfCall(const QString &roomId)

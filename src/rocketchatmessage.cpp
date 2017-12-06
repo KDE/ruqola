@@ -361,6 +361,14 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::logout(const QStri
     return generateMethod(QStringLiteral("logout"), QJsonDocument(params), id);
 }
 
+//Verify it.
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(const QString &searchText, quint64 id)
+{
+    //TODO
+    const QJsonArray params{{}};
+    return generateMethod(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
+}
+
 //We need to be able to send file for audio/video
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::sendFileMessage(quint64 id)
 {
