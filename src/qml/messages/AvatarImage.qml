@@ -38,6 +38,8 @@ Rectangle {
     
     anchors.rightMargin: 2*Kirigami.Units.smallSpacing
     
+     // Avatar is defined as "/avatar/" + name + ".jpg" we need to get it from server. We need a cache too
+
     color: i_avatar !== "" ? "transparent" : MessageScript.stringToColour(i_username)
     Image {
         id: avatarImage
