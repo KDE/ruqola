@@ -88,5 +88,11 @@ RowLayout {
         anchors.bottom: parent.bottom
         anchors.top: parent.top
         width: height
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                messageLine.accepted()
+            }
+        }
     }
 }
