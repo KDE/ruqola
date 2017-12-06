@@ -428,7 +428,7 @@ QString RocketChatAccount::password() const
 
 void RocketChatAccount::setAuthToken(const QString &token)
 {
-    settings()->setAccountName(token);
+    settings()->setAuthToken(token);
 }
 
 void RocketChatAccount::setPassword(const QString &password)
