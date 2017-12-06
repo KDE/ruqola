@@ -405,3 +405,43 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
         }
     }
 }
+
+QString RocketChatAccount::authToken() const
+{
+    return settings()->authToken();
+}
+
+QString RocketChatAccount::userName() const
+{
+    return settings()->userName();
+}
+
+QString RocketChatAccount::userID() const
+{
+    return settings()->userId();
+}
+
+QString RocketChatAccount::password() const
+{
+    return settings()->password();
+}
+
+void RocketChatAccount::setAuthToken(const QString &token)
+{
+    settings()->setAccountName(token);
+}
+
+void RocketChatAccount::setPassword(const QString &password)
+{
+    settings()->setPassword(password);
+}
+
+void RocketChatAccount::setUserName(const QString &username)
+{
+    settings()->setUserName(username);
+}
+
+void RocketChatAccount::setUserID(const QString &userID)
+{
+    settings()->setUserId(userID);
+}

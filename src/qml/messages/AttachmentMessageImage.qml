@@ -61,6 +61,7 @@ RowLayout {
         QQC2.Label {
             id: textLabel
 
+            Layout.fillWidth: true
             color: Kirigami.Theme.textColor
             opacity: 1
 

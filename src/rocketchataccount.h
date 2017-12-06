@@ -106,6 +106,23 @@ public:
 
     RuqolaServerConfig *getRuqolaServerConfig() const;
 
+    void setUserName(const QString &username);
+    QString userName() const;
+
+    void setUserID(const QString &userID);
+    QString userID() const;
+
+    void setPassword(const QString &password);
+    QString password() const;
+
+    void setAuthToken(const QString &token);
+    QString authToken() const;
+
+    QString serverURL() const;
+    void setServerURL(const QString &serverURL);
+
+
+
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();

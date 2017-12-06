@@ -72,42 +72,42 @@ Ruqola *Ruqola::self()
 
 QString Ruqola::authToken() const
 {
-    return mRocketChatAccount->settings()->authToken();
+    return mRocketChatAccount->authToken();
 }
 
 QString Ruqola::userName() const
 {
-    return mRocketChatAccount->settings()->userName();
+    return mRocketChatAccount->userName();
 }
 
 QString Ruqola::userID() const
 {
-    return mRocketChatAccount->settings()->userId();
+    return mRocketChatAccount->userID();
 }
 
 QString Ruqola::password() const
 {
-    return mRocketChatAccount->settings()->password();
+    return mRocketChatAccount->password();
 }
 
 void Ruqola::setAuthToken(const QString &token)
 {
-    mRocketChatAccount->settings()->setAccountName(token);
+    mRocketChatAccount->setAuthToken(token);
 }
 
 void Ruqola::setPassword(const QString &password)
 {
-    mRocketChatAccount->settings()->setPassword(password);
+    mRocketChatAccount->setPassword(password);
 }
 
 void Ruqola::setUserName(const QString &username)
 {
-    mRocketChatAccount->settings()->setUserName(username);
+    mRocketChatAccount->setUserName(username);
 }
 
 void Ruqola::setUserID(const QString &userID)
 {
-    mRocketChatAccount->settings()->setUserId(userID);
+    mRocketChatAccount->setUserID(userID);
 }
 
 void Ruqola::sendNotification(const QString &title, const QString &message)
