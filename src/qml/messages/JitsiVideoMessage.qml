@@ -68,7 +68,7 @@ ColumnLayout {
 
             width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
 
-            text: i18n("Click for video")
+            text: i18n("Click To Join")
 
             wrapMode: QQC2.Label.Wrap
 
