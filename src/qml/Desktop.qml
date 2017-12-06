@@ -63,7 +63,7 @@ Kirigami.ApplicationWindow {
         
         topContent: [
             Text {
-                text: Ruqola.userName == "" ? "" : i18n("Hello, %1", Ruqola.userName)
+                text: Ruqola.rocketChatAccount().userName === "" ? "" : i18n("Hello, %1", Ruqola.rocketChatAccount().userName)
             }
         ]
         
