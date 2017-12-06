@@ -30,7 +30,7 @@ Kirigami.Page {
     
     property alias username: usernameField.text;
     property alias password: passField.text;
-    property alias serverURL: urlField.text;
+    property alias serverUrl: urlField.text;
 
     signal accepted()
 

@@ -445,3 +445,13 @@ void RocketChatAccount::setUserID(const QString &userID)
 {
     settings()->setUserId(userID);
 }
+
+QString RocketChatAccount::serverURL() const
+{
+    return settings()->serverUrl();
+}
+
+void RocketChatAccount::setServerURL(const QString &serverURL)
+{
+    settings()->setServerUrl(serverURL);
+}

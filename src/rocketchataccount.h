@@ -43,10 +43,10 @@ class RuqolaServerConfig;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
-    //Q_PROPERTY(QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
-    //Q_PROPERTY(QString userID READ userID WRITE setUserID NOTIFY userIDChanged)
-    //Q_PROPERTY(QString serverURL READ serverURL WRITE setServerURL NOTIFY serverURLChanged)
-    //Q_PROPERTY(QString password WRITE setPassword)
+    Q_PROPERTY(QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
+    Q_PROPERTY(QString userID READ userID WRITE setUserID NOTIFY userIDChanged)
+    Q_PROPERTY(QString serverURL READ serverURL WRITE setServerURL NOTIFY serverURLChanged)
+    Q_PROPERTY(QString password WRITE setPassword)
     Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
 public:
     explicit RocketChatAccount(QObject *parent = nullptr);
@@ -120,8 +120,6 @@ public:
 
     QString serverURL() const;
     void setServerURL(const QString &serverURL);
-
-
 
 Q_SIGNALS:
     void userNameChanged();

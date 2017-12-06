@@ -41,7 +41,7 @@ Ruqola::Ruqola(QObject *parent)
     //Todo load all account
     mRocketChatAccount = new RocketChatAccount(this);
     mRuqolaAboutData = new QmlAboutData(this);
-    connect(mRocketChatAccount, &RocketChatAccount::serverURLChanged, this, &Ruqola::serverURLChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::serverURLChanged, this, &Ruqola::serverUrlChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &Ruqola::userIDChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userNameChanged, this, &Ruqola::userNameChanged);
     connect(mRocketChatAccount, &RocketChatAccount::notification, this, &Ruqola::sendNotification);
@@ -126,14 +126,14 @@ Notification *Ruqola::notification()
     return mNotification;
 }
 
-QString Ruqola::serverURL() const
+QString Ruqola::serverUrl() const
 {
-    return mRocketChatAccount->settings()->serverUrl();
+    return mRocketChatAccount->serverUrl();
 }
 
-void Ruqola::setServerURL(const QString &serverURL)
+void Ruqola::setServerUrl(const QString &serverURL)
 {
-    mRocketChatAccount->settings()->setServerUrl(serverURL);
+    mRocketChatAccount->setServerURL(serverURL);
 }
 
 void Ruqola::slotInformTypingStatus(const QString &room, bool typing)
