@@ -51,7 +51,7 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
     mRuqolaServerConfig = new RuqolaServerConfig;
     mSettings = new RocketChatAccountSettings(this);
     connect(mSettings, &RocketChatAccountSettings::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
-    connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverURLChanged);
+    connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverUrlChanged);
     connect(mSettings, &RocketChatAccountSettings::userIDChanged, this, &RocketChatAccount::userIDChanged);
     connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
 
@@ -315,11 +315,6 @@ void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
     ddp()->toggleFavorite(roomId, checked);
 }
 
-QString RocketChatAccount::serverUrl() const
-{
-    return mSettings->serverUrl();
-}
-
 void RocketChatAccount::openChannel(const QString &url)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::openChannel(const QString &url)"<<url;
@@ -446,12 +441,12 @@ void RocketChatAccount::setUserID(const QString &userID)
     settings()->setUserId(userID);
 }
 
-QString RocketChatAccount::serverURL() const
+QString RocketChatAccount::serverUrl() const
 {
     return settings()->serverUrl();
 }
 
-void RocketChatAccount::setServerURL(const QString &serverURL)
+void RocketChatAccount::setServerUrl(const QString &serverURL)
 {
     settings()->setServerUrl(serverURL);
 }

@@ -45,7 +45,7 @@ class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
     Q_OBJECT
     Q_PROPERTY(QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
     Q_PROPERTY(QString userID READ userID WRITE setUserID NOTIFY userIDChanged)
-    Q_PROPERTY(QString serverURL READ serverURL WRITE setServerURL NOTIFY serverURLChanged)
+    Q_PROPERTY(QString serverUrl READ serverUrl WRITE setServerUrl NOTIFY serverUrlChanged)
     Q_PROPERTY(QString password WRITE setPassword)
     Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
 public:
@@ -91,7 +91,6 @@ public:
 
     RuqolaLogger *ruqolaLogger() const;
 
-    Q_INVOKABLE QString serverUrl() const;
     Q_INVOKABLE void openChannel(const QString &url);
     Q_INVOKABLE void joinJitsiConfCall(const QString &roomId);
     Q_INVOKABLE void createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames);
@@ -118,13 +117,13 @@ public:
     void setAuthToken(const QString &token);
     QString authToken() const;
 
-    QString serverURL() const;
-    void setServerURL(const QString &serverURL);
+    Q_INVOKABLE QString serverUrl() const;
+    void setServerUrl(const QString &serverUrl);
 
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
-    void serverURLChanged();
+    void serverUrlChanged();
     void loginStatusChanged();
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);

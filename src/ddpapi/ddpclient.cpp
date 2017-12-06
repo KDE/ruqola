@@ -150,7 +150,7 @@ void DDPClient::start()
         }
         initializeWebSocket();
     }
-    connect(mRocketChatAccount, &RocketChatAccount::serverURLChanged, this, &DDPClient::onServerURLChange);
+    connect(mRocketChatAccount, &RocketChatAccount::serverUrlChanged, this, &DDPClient::onServerURLChange);
 
     if (!mUrl.isEmpty()) {
         const QUrl serverUrl = adaptUrl(mUrl);

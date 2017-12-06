@@ -30,12 +30,12 @@ Login {
     id: loginTab
     anchors.fill: parent
     visible: Ruqola.rocketChatAccount().loginStatus !== DDPClient.LoggedIn
-    serverUrl: Ruqola.serverUrl
-    username: Ruqola.userName
+    serverUrl: Ruqola.rocketChatAccount().serverUrl
+    username: Ruqola.rocketChatAccount().userName
     onAccepted: {
-        Ruqola.password = loginTab.password;
-        Ruqola.userName = loginTab.username;
-        Ruqola.serverUrl = loginTab.serverUrl;
+        Ruqola.rocketChatAccount().password = loginTab.password;
+        Ruqola.rocketChatAccount().userName = loginTab.username;
+        Ruqola.rocketChatAccount().serverUrl = loginTab.serverUrl;
         Ruqola.rocketChatAccount().tryLogin();
     }
 }
