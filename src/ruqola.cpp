@@ -105,7 +105,7 @@ void Ruqola::setUserName(const QString &username)
     mRocketChatAccount->setUserName(username);
 }
 
-void Ruqola::setUserID(const QString &userID)
+void Ruqola::setUserId(const QString &userID)
 {
     mRocketChatAccount->setUserID(userID);
 }
