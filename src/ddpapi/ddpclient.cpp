@@ -311,6 +311,7 @@ quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const 
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCDebug(RUQOLA_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
     }
     const int value = m_uid;
     m_uid++;
@@ -378,6 +379,7 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
         qCDebug(RUQOLA_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCDebug(RUQOLA_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
     }
     m_uid++;
 }
@@ -479,6 +481,7 @@ void DDPClient::onWSConnected()
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialize));
     if (bytes < serialize.length()) {
         qCDebug(RUQOLA_LOG) << "onWSConnected: ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCDebug(RUQOLA_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
     } else {
         qCDebug(RUQOLA_LOG) << "Successfully sent " << serialize;
     }
