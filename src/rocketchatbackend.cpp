@@ -327,4 +327,16 @@ void RocketChatBackend::onUserIDChanged()
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("activeUsers"), params);
     }
     //TODO stream-notify-all ?
+    {
+        QJsonArray params;
+        //TODO
+        /*
+        "params":[
+              "updateAvatar",
+              false
+          ]
+        */
+        params.append(QJsonValue(params));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
 }
