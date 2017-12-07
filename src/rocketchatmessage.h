@@ -80,7 +80,7 @@ public:
     RocketChatMessage::RocketChatMessageResult listEmojiCustom(quint64 id);
     RocketChatMessage::RocketChatMessageResult createJitsiConfCall(const QString &roomId, quint64 id);
     RocketChatMessage::RocketChatMessageResult sendFileMessage(quint64 id);
-    RocketChatMessage::RocketChatMessageResult userAutocomplete(const QString &searchText, quint64 id);
+    RocketChatMessage::RocketChatMessageResult userAutocomplete(const QString &searchText, const QString &exception, quint64 id);
     RocketChatMessage::RocketChatMessageResult updateMessage(quint64 id);
 private:
     QJsonValue toJsonDateTime(const QDateTime &dateTime);

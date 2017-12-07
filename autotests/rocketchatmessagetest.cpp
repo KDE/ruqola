@@ -322,7 +322,7 @@ void RocketChatMessageTest::shouldUserAutoComplete()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.userAutocomplete(QStringLiteral("foo"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.userAutocomplete(QStringLiteral("foo"), QStringLiteral("exception"), 43);
     compareFile(r.result, QStringLiteral("userAutocomplete"));
 }
 

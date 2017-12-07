@@ -300,9 +300,9 @@ quint64 DDPClient::listEmojiCustom()
     return method(result, list_emoji_custom, DDPClient::Persistent);
 }
 
-quint64 DDPClient::userAutocomplete(const QString &searchText)
+quint64 DDPClient::userAutocomplete(const QString &searchText, const QString &exception)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(searchText, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(searchText, exception, m_uid);
     return method(result, user_auto_complete, DDPClient::Persistent);
 }
 

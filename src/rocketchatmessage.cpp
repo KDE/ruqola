@@ -356,10 +356,21 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::logout(const QStri
 }
 
 //Verify it.
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(const QString &searchText, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(const QString &searchText, const QString &exception, quint64 id)
 {
-    //TODO
-    const QJsonArray params{{}};
+    QJsonArray params;
+
+    QJsonObject firstParam;
+
+    const QStringList users = exception.split(QLatin1Char(','));
+    QJsonArray exceptionEntries;
+    for (const QString &entry: users){
+        exceptionEntries.append(entry);
+    }
+    //exceptionEntries.append( mUsername );
+    firstParam[QStringLiteral("exceptions")] = exceptionEntries;
+    firstParam[QStringLiteral("term")] = searchText;
+    params.append(firstParam);
     return generateMethod(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
 }
 
