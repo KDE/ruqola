@@ -54,7 +54,7 @@ QString Utils::markdownToRichText(const QString &markDown)
 
     //qrc:/messages/UserMessage.qml:161:17: QML QQuickText: Cannot open: qrc:/opt/kde5-qt5.9.1/share/emoticons/Konqi/face-wink.png
 
-    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText /*| KTextToHTML::ReplaceSmileys*/;
+    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys;
     str = KTextToHTML::convertToHtml(str, convertFlags);
     str.remove(QStringLiteral("<br />"));
     //qCDebug(RUQOLA_LOG) << "markdownToRichText "<<str;
