@@ -3,6 +3,5 @@
     "method": "listEmojiCustom",
     "msg": "method",
     "params": [
-        null
     ]
 }
