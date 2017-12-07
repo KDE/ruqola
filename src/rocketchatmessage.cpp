@@ -244,18 +244,12 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::joinRoom(const QSt
     return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
 }
 
-#if 0 //TODO
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateMessage(const QString &roomId, const QString &accessCode, quint64 id)
+//Verify
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateMessage(quint64 id)
 {
-    const QJsonArray params{{
-                                roomId
-                            }, {
-                                accessCode
-                            }};
-    return generateMethod(QStringLiteral("joinRoom"), QJsonDocument(params), id);
+    const QJsonArray params;
+    return generateMethod(QStringLiteral("updateMessage"), QJsonDocument(params), id);
 }
-
-#endif
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteMessage(const QString &messageId, quint64 id)
 {
