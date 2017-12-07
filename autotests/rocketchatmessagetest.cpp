@@ -317,10 +317,20 @@ void RocketChatMessageTest::shouldListEmojiCustom()
     compareFile(r.result, QStringLiteral("listEmojiCustom"));
 }
 
+//TODO fix me
 void RocketChatMessageTest::shouldUserAutoComplete()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
     RocketChatMessage::RocketChatMessageResult r = m.userAutocomplete(QStringLiteral("foo"), 43);
     compareFile(r.result, QStringLiteral("userAutocomplete"));
+}
+
+//TODO fix me
+void RocketChatMessageTest::shouldSendFileMessage()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.sendFileMessage(43);
+    compareFile(r.result, QStringLiteral("sendFileMessage"));
 }

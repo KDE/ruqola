@@ -64,9 +64,7 @@ private Q_SLOTS:
     void shouldListEmojiCustom();
 
     void shouldUserAutoComplete();
-
-    //RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(const QString &searchText, quint64 id)
-
+    void shouldSendFileMessage();
 
 #if 0
     RocketChatMessage::RocketChatMessageResult RocketChatMessage::getUsersOfRoom(const QString &roomId, bool showAll, quint64 id)
