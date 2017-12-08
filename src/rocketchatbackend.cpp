@@ -321,6 +321,18 @@ void RocketChatBackend::onUserIDChanged()
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
+        //Subscribe message
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("otr"))));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    }
+    {
+        //Subscribe message
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("webrtc"))));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    }
+    {
         //Subscribe activeUsers
         QJsonArray params;
         params.append(QJsonValue(params));
