@@ -38,9 +38,6 @@ Kirigami.ApplicationWindow {
     id: appid
     property int margin: 11
 
-    property string lightGreen: "#6ab141";
-    property string darkGreen: "#00613a";
-
     property string selectedRoomID: "";
     property QtObject selectedRoom
 
