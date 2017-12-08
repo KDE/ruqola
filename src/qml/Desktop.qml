@@ -125,6 +125,13 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    DeleteMessageDialog {
+        id: deleteMessageDialog
+        onDeleteMessage: {
+            Ruqola.rocketChatAccount().deleteMessage(messageId)
+        }
+    }
+
     BusyIndicator {
         id: busy
         anchors.centerIn: parent
@@ -322,6 +329,8 @@ Kirigami.ApplicationWindow {
                     Ruqola.rocketChatAccount().joinJitsiConfCall(appid.selectedRoomID)
                 }
                 onDeleteMessage: {
+                    deleteMessageDialog.msgId = messageId
+                    deleteMessageDialog.open()
                     console.log("Delete Message !!! " + messageId)
                 }
             }

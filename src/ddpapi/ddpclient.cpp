@@ -40,6 +40,7 @@ LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 
 void delete_message(const QJsonObject &root, RocketChatAccount *account)
 {
+    qDebug() << " void delete_message(const QJsonObject &root, RocketChatAccount *account)"<<root;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Message:") + QJsonDocument(root).toJson());
     }
