@@ -317,10 +317,12 @@ Kirigami.ApplicationWindow {
                 onOpenDirectChannel: {
                     openDirectChannelDialog.username = userName;
                     openDirectChannelDialog.open()
-                    console.log("Open direct channel !!! " + userName)
                 }
                 onJitsiCallConfActivated: {
                     Ruqola.rocketChatAccount().joinJitsiConfCall(appid.selectedRoomID)
+                }
+                onDeleteMessage: {
+                    console.log("Delete Message !!! " + messageId)
                 }
             }
             footer: UserInput {

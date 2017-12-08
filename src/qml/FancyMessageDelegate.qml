@@ -55,6 +55,7 @@ Rectangle {
     
     signal openDirectChannel(string userName)
     signal jitsiCallConfActivated()
+    signal deleteMessage(string messageId)
 
     Loader {
         id: loaded
@@ -137,6 +138,9 @@ Rectangle {
         }
         onJitsiCallConfActivated: {
             messageMain.jitsiCallConfActivated()
+        }
+        onDeleteMessage: {
+            messageMain.deleteMessage(messageId)
         }
     }
 }

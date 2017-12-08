@@ -41,6 +41,7 @@ ColumnLayout {
 
     signal linkActivated(string link)
     signal jitsiCallConfActivated()
+    signal deleteMessage(string messageId)
 
     function getTextFor(type) {
         if (type === "uj") {

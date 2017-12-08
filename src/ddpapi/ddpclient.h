@@ -156,6 +156,7 @@ public:
     quint64 listEmojiCustom();
     quint64 createJitsiConfCall(const QString &roomId);
     quint64 userAutocomplete(const QString &roomId, const QString &exception);
+    quint64 deleteMessage(const QString &messageId);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

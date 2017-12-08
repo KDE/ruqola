@@ -29,6 +29,8 @@ ListView {
 
     signal openDirectChannel(string userName)
     signal jitsiCallConfActivated()
+    signal deleteMessage(string messageId)
+
 
     spacing: Kirigami.Units.smallSpacing
     onCountChanged: {
@@ -60,6 +62,9 @@ ListView {
         }
         onJitsiCallConfActivated: {
             activeChat.jitsiCallConfActivated()
+        }
+        onDeleteMessage: {
+            activeChat.deleteMessage(messageId)
         }
     }
 }

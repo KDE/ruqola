@@ -374,6 +374,11 @@ void RocketChatAccount::loadEmoji()
     //TODO
 }
 
+void RocketChatAccount::deleteMessage(const QString &messageId)
+{
+    ddp()->deleteMessage(messageId);
+}
+
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 {
     ddp()->createJitsiConfCall(roomId);

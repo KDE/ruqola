@@ -46,6 +46,7 @@ ColumnLayout {
 
     signal linkActivated(string link)
     signal jitsiCallConfActivated()
+    signal deleteMessage(string messageId)
 
     id: messageMain
     Layout.alignment: Qt.AlignTop
@@ -53,13 +54,13 @@ ColumnLayout {
         id: menu
 
         MenuItem {
-            enabled: i_username == Ruqola.userName
+            enabled: i_username === Ruqola.rocketChatAccount().userName
             contentItem: QQC2.Label {
                 text: i18n("Edit")
             }
             onTriggered: {
                 console.log("Edit", i_messageID, i_messageText);
-                console.log("User", Ruqola.userName, i_username);
+                console.log("User", Ruqola.rocketChatAccount().userName, i_username);
             }
         }
         MenuItem {
@@ -68,6 +69,15 @@ ColumnLayout {
             }
             onTriggered: {
                 console.log("Reply to", i_messageID);
+            }
+        }
+        MenuItem {
+            enabled: i_username === Ruqola.rocketChatAccount().userName
+            contentItem: QQC2.Label {
+                text: i18n("Delete")
+            }
+            onTriggered: {
+                messageMain.deleteMessage(i_messageID);
             }
         }
     }

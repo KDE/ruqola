@@ -31,6 +31,7 @@ ColumnLayout {
 
     signal linkActivated(string link)
     signal jitsiCallConfActivated()
+    signal deleteMessage(string messageId)
 
     NewDateLabel {
         id: newDateRect
