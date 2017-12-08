@@ -64,6 +64,8 @@ ColumnLayout {
             return i18n("%2 changed room privacy to %1", i_messageText, i_username)
         } else if (type === "jitsi_call_started") {
             return i18n("Click to join to video")
+        } else if (type === "rm") {
+            return i18n("Message Deleted")
         } else {
             console.log("Unkown type for message");
             console.log(type);

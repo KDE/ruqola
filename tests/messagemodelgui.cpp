@@ -235,6 +235,18 @@ void MessageModelGui::fillModel()
         mModel->addMessage(m4);
     }
 
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QString::number(mIndexMessage++));
+        m4.setText(QStringLiteral("rm"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 3, 9), QTime(11, 31, 0)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setSystemMessageType(QStringLiteral("rm"));
+        mModel->addMessage(m4);
+    }
+
     //Video
     {
         Message m4;
