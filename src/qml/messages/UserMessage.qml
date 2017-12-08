@@ -32,7 +32,7 @@ import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.ExtraColors 1.0
 import "../js/message.js" as MessageScript;
 
-ColumnLayout {
+MessageBase {
 
     property string i_messageText
     property string i_messageID
@@ -43,10 +43,6 @@ ColumnLayout {
     property var i_urls
     property var i_attachments
     property var i_date
-
-    signal linkActivated(string link)
-    signal jitsiCallConfActivated()
-    signal deleteMessage(string messageId)
 
     id: messageMain
     Layout.alignment: Qt.AlignTop

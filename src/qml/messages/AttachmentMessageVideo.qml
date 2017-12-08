@@ -26,12 +26,8 @@ import org.kde.kirigami 2.1 as Kirigami
 
 import QtQuick.Layouts 1.1
 
-ColumnLayout {
+MessageBase {
     id: attachmentVideo
-
-    signal linkActivated(string link)
-    signal jitsiCallConfActivated()
-    signal deleteMessage(string messageId)
 
     NewDateLabel {
         id: newDateRect

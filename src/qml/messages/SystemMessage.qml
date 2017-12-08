@@ -29,7 +29,7 @@ import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.ExtraColors 1.0
 
-ColumnLayout {
+MessageBase {
     id: messageMain
 
     property string i_messageText
@@ -38,10 +38,6 @@ ColumnLayout {
     property string i_systemMessageType
     property var i_timestamp
     property string i_date
-
-    signal linkActivated(string link)
-    signal jitsiCallConfActivated()
-    signal deleteMessage(string messageId)
 
     function getTextFor(type) {
         if (type === "uj") {

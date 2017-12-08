@@ -26,7 +26,7 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 import "../js/message.js" as MessageScript;
 
-RowLayout {
+MessageBase {
 
     property string i_messageText
     property string i_messageID
@@ -37,10 +37,6 @@ RowLayout {
     property var i_urls
     property var i_attachments
     property var i_date
-
-    signal linkActivated(string link)
-    signal jitsiCallConfActivated()
-    signal deleteMessage(string messageId)
 
     id: messageMain
 
