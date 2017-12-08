@@ -286,7 +286,7 @@ void DDPClient::subscribeRoomMessage(const QString &roomId)
 
 quint64 DDPClient::openDirectChannel(const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createDirectMessage(userId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openDirectChannel(userId, m_uid);
     return method(result, open_direct_channel, DDPClient::Persistent);
 }
 

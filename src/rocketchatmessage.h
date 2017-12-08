@@ -75,7 +75,7 @@ public:
     RocketChatMessage::RocketChatMessageResult deleteMessage(const QString &messageId, quint64 id);
     RocketChatMessage::RocketChatMessageResult starMessage(const QString &_id, const QString &rid, bool starred, quint64 id);
     RocketChatMessage::RocketChatMessageResult setReaction(const QString &emoji, const QString &messageId, quint64 id);
-    RocketChatMessage::RocketChatMessageResult createDirectMessage(const QString &username, quint64 id);
+    RocketChatMessage::RocketChatMessageResult openDirectChannel(const QString &username, quint64 id);
     RocketChatMessage::RocketChatMessageResult messageSearch(const QString &roomId, const QString &pattern, quint64 id);
     RocketChatMessage::RocketChatMessageResult listEmojiCustom(quint64 id);
     RocketChatMessage::RocketChatMessageResult createJitsiConfCall(const QString &roomId, quint64 id);

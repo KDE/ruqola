@@ -63,8 +63,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::messageSearch(cons
     return generateMethod(QStringLiteral("messageSearch"), QJsonDocument(params), id);
 }
 
-//TODO verify
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::createDirectMessage(const QString &username, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::openDirectChannel(const QString &username, quint64 id)
 {
     const QJsonArray params{
         QJsonValue(username)
