@@ -26,4 +26,10 @@ ColumnLayout {
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
 
+    property string i_date
+
+    NewDateLabel {
+        id: newDateRect
+        date: i_date
+    }
 }

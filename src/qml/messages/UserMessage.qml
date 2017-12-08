@@ -42,7 +42,6 @@ MessageBase {
     property var i_timestamp
     property var i_urls
     property var i_attachments
-    property var i_date
 
     id: messageMain
     Layout.alignment: Qt.AlignTop
@@ -76,12 +75,6 @@ MessageBase {
                 messageMain.deleteMessage(i_messageID);
             }
         }
-    }
-
-
-    NewDateLabel {
-        id: newDateRect
-        date: i_date
     }
 
     RowLayout {

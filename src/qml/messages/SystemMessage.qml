@@ -37,7 +37,6 @@ MessageBase {
     property string i_aliasname
     property string i_systemMessageType
     property var i_timestamp
-    property string i_date
 
     function getTextFor(type) {
         if (type === "uj") {
@@ -68,11 +67,6 @@ MessageBase {
             console.log(i_messageText)
             return i18n("Unknown action!");
         }
-    }
-
-    NewDateLabel {
-        id: newDateRect
-        date: i_date
     }
 
     Rectangle {

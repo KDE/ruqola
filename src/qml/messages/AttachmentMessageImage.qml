@@ -36,14 +36,8 @@ MessageBase {
     property var i_timestamp
     property var i_urls
     property var i_attachments
-    property var i_date
 
     id: messageMain
-
-    NewDateLabel {
-        id: newDateRect
-        date: i_date
-    }
 
     Rectangle {
         Layout.alignment: Qt.AlignCenter

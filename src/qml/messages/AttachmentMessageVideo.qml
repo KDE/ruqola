@@ -29,11 +29,6 @@ import QtQuick.Layouts 1.1
 MessageBase {
     id: attachmentVideo
 
-    NewDateLabel {
-        id: newDateRect
-        date: i_date
-    }
-
     Rectangle {
         Layout.alignment: Qt.AlignCenter
         width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing

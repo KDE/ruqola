@@ -38,12 +38,6 @@ MessageBase {
     property string i_aliasname
     property string i_systemMessageType
     property var i_timestamp
-    property string i_date
-
-    NewDateLabel {
-        id: newDateRect
-        date: i_date
-    }
 
     Rectangle {
         Layout.alignment: Qt.AlignCenter
