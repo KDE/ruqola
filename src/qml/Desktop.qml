@@ -331,7 +331,6 @@ Kirigami.ApplicationWindow {
                 onDeleteMessage: {
                     deleteMessageDialog.msgId = messageId
                     deleteMessageDialog.open()
-                    console.log("Delete Message !!! " + messageId)
                 }
             }
             footer: UserInput {
