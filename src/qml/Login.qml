@@ -102,7 +102,9 @@ Kirigami.Page {
             inputMethodHints: Qt.ImhHiddenText
             placeholderText: i18n("Enter password")
             onAccepted: {
-                acceptingButton.clicked();
+                if (acceptingButton.enabled) {
+                    acceptingButton.clicked();
+                }
             }
         }
 
