@@ -23,8 +23,14 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 
+import KDE.Ruqola.Ruqola 1.0
+import KDE.Ruqola.UserCompleterModel 1.0
+
 Dialog {
     id: addUserDialog
+
+    signal searchUserName(string pattern)
+
     title: i18n("Add Users")
     standardButtons: Dialog.Ok | Dialog.Cancel
 
@@ -32,4 +38,21 @@ Dialog {
     y: parent.height / 2 - height / 2
 
     modal: true
+
+    Column {
+        TextField {
+            id: username
+            placeholderText: i18n("Search Name")
+            onTextChanged: {
+                addUserDialog.searchUserName(username.text)
+            }
+        }
+        ListView {
+            model: Ruqola.rocketChatAccount().userCompleterModel()
+        }
+    }
+    onAccepted: {
+
+        //addUserDialog.addUsers(msgId)
+    }
 }

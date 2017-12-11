@@ -115,6 +115,14 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    AddUserDialog {
+        id: addUserDialog
+        onSearchUserName: {
+            console.log("Search username" + pattern);
+            Ruqola.rocketChatAccount().userAutocomplete(pattern, "");
+        }
+    }
+
     OpenDirectChannelDialog {
         id: openDirectChannelDialog
         onOpenDirectChannel: {
@@ -282,6 +290,20 @@ Kirigami.ApplicationWindow {
                                     if (appid.selectedRoom) {
                                         Ruqola.rocketChatAccount().createJitsiConfCall(appid.selectedRoom);
                                     }
+                                }
+                            }
+                            QQC2.MenuSeparator {
+                                padding: 0
+                                contentItem: Rectangle {
+                                    implicitWidth: 200
+                                    implicitHeight: 1
+                                    color: "#1E000000"
+                                }
+                            }
+                            QQC2.MenuItem {
+                                text: i18n("Test add user !")
+                                onTriggered: {
+                                    addUserDialog.open()
                                 }
                             }
                         }

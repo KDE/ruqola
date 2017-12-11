@@ -48,6 +48,7 @@ void delete_message(const QJsonObject &root, RocketChatAccount *account)
 
 void user_auto_complete(const QJsonObject &root, RocketChatAccount *account)
 {
+    qDebug() << " void user_auto_complete(const QJsonObject &root, RocketChatAccount *account)"<<root;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User AutoComplete:") + QJsonDocument(root).toJson());
     }
@@ -320,9 +321,9 @@ quint64 DDPClient::listEmojiCustom()
     return method(result, list_emoji_custom, DDPClient::Persistent);
 }
 
-quint64 DDPClient::userAutocomplete(const QString &searchText, const QString &exception)
+quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &exception)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(searchText, exception, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(pattern, exception, m_uid);
     return method(result, user_auto_complete, DDPClient::Persistent);
 }
 

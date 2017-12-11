@@ -370,7 +370,8 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
     firstParam[QStringLiteral("exceptions")] = exceptionEntries;
     firstParam[QStringLiteral("term")] = searchText;
     params.append(firstParam);
-    return generateMethod(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
+    qDebug() << " params " << params;
+    return subscribe(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
 }
 
 //We need to be able to send file for audio/video
@@ -400,6 +401,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QS
     result.jsonDocument = params;
     result.method = name;
     result.result = generatedJsonDoc;
+    qDebug() << " json " << json;
     return result;
 }
 

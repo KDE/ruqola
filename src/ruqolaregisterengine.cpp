@@ -21,6 +21,7 @@
 #include "message.h"
 #include "rocketchataccount.h"
 #include "roomfilterproxymodel.h"
+#include "usercompletermodel.h"
 #include "roomwrapper.h"
 #include "ruqola.h"
 #include "aboutdata/qmlaboutdata.h"
@@ -58,6 +59,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
     qmlRegisterType<QmlAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
     qmlRegisterType<QmlAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");
+    qmlRegisterType<UserCompleterModel>("KDE.Ruqola.UserCompleterModel", 1, 0, "UserCompleterModel");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
     (void)Ruqola::self();

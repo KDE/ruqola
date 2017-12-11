@@ -39,6 +39,7 @@ class UsersForRoomModel;
 class RoomFilterProxyModel;
 class RuqolaLogger;
 class RuqolaServerConfig;
+class UserCompleterModel;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -100,6 +101,7 @@ public:
     Q_INVOKABLE void setDefaultStatus(User::PresenceStatus status);
     Q_INVOKABLE void createJitsiConfCall(const QString &roomId);
     Q_INVOKABLE void deleteMessage(const QString &messageId);
+    Q_INVOKABLE void userAutocomplete(const QString &searchText, const QString &exception);
 
     void loadEmoji();
     void parsePublicSettings(const QJsonObject &obj);
@@ -120,6 +122,8 @@ public:
 
     Q_INVOKABLE QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
+
+    UserCompleterModel *userCompleterModel() const;
 
 Q_SIGNALS:
     void userNameChanged();
@@ -150,6 +154,7 @@ private:
     RocketChatBackend *mRocketChatBackend = nullptr;
     RuqolaLogger *mRuqolaLogger = nullptr;
     RuqolaServerConfig *mRuqolaServerConfig = nullptr;
+    UserCompleterModel *mUserCompleterModel = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H

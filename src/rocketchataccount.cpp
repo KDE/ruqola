@@ -32,6 +32,7 @@
 #include "roomfilterproxymodel.h"
 #include "ruqolalogger.h"
 #include "ruqolaserverconfig.h"
+#include "usercompletermodel.h"
 
 #include <KLocalizedString>
 #include <QDesktopServices>
@@ -58,6 +59,7 @@ RocketChatAccount::RocketChatAccount(QObject *parent)
     mRocketChatBackend = new RocketChatBackend(this, this);
     connect(mRocketChatBackend, &RocketChatBackend::notification, this, &RocketChatAccount::notification);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
+    mUserCompleterModel = new UserCompleterModel(this);
     mRoomModel = new RoomModel(this, this);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
@@ -82,6 +84,11 @@ void RocketChatAccount::clearModels()
     mMessageQueue->loadCache();
     //Try to send queue message
     mMessageQueue->processQueue();
+}
+
+UserCompleterModel *RocketChatAccount::userCompleterModel() const
+{
+    return mUserCompleterModel;
 }
 
 RuqolaServerConfig *RocketChatAccount::getRuqolaServerConfig() const
@@ -377,6 +384,11 @@ void RocketChatAccount::loadEmoji()
 void RocketChatAccount::deleteMessage(const QString &messageId)
 {
     ddp()->deleteMessage(messageId);
+}
+
+void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
+{
+    ddp()->userAutocomplete(searchText, exception);
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
