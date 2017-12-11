@@ -21,7 +21,7 @@
 #include "usercompletermodel.h"
 
 UserCompleterModel::UserCompleterModel(QObject *parent)
-    : QAbstractListModel(parent)
+    : QStringListModel(parent)
 {
 
 }

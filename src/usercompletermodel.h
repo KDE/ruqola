@@ -21,9 +21,9 @@
 #ifndef USERCOMPLETERMODEL_H
 #define USERCOMPLETERMODEL_H
 
-#include <QAbstractListModel>
+#include <QStringListModel>
 
-class UserCompleterModel : public QAbstractListModel
+class UserCompleterModel : public QStringListModel
 {
     Q_OBJECT
 public:
