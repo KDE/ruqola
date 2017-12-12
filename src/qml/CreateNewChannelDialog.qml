@@ -37,6 +37,15 @@ Dialog {
 
     modal: true
 
+    function initializeAndOpen()
+    {
+        channelName.text = "";
+        userList.text = "";
+        readOnlyRoom.checked = false
+        privateRoom.checked = false
+        open()
+    }
+
     GridLayout {
         columns: 2
         Label {

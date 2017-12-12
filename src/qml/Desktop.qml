@@ -259,7 +259,7 @@ Kirigami.ApplicationWindow {
                             QQC2.MenuItem {
                                 text: i18n("Create New Channel")
                                 onTriggered: {
-                                    createNewChannelDialog.open()
+                                    createNewChannelDialog.initializeAndOpen()
                                 }
                             }
                             QQC2.MenuSeparator {
