@@ -61,6 +61,8 @@ MessageBase {
             return i18n("Click to join to video")
         } else if (type === "rm") {
             return i18n("Message Deleted")
+        } else if (type === "message_pinned") {
+            return i18n("Message Pinned")
         } else {
             console.log("Unkown type for message");
             console.log(type);
