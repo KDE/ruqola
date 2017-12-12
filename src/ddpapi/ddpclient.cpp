@@ -464,12 +464,14 @@ void DDPClient::onTextMessageReceived(const QString &message)
             pong[QStringLiteral("msg")] = QStringLiteral("pong");
             mWebSocket->sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
         } else if (messageType == QLatin1String("added")) {
-            qCDebug(RUQOLA_LOG) << "ADDING" <<root;
+            qCDebug(RUQOLA_LOG) << "ADDING element" <<response;
             Q_EMIT added(root);
         } else if (messageType == QLatin1String("changed")) {
             Q_EMIT changed(root);
         } else if (messageType == QLatin1String("ready")) {
             // do nothing
+        } else if (messageType == QLatin1String("removed")) {
+            qCDebug(RUQOLA_LOG) << "REMOVED element" <<response;
         } else {
             qCDebug(RUQOLA_LOG) << "received something unhandled:" << message;
         }
