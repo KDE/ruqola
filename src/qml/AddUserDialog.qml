@@ -48,7 +48,7 @@ Dialog {
             }
         }
         ListView {
-            model: Ruqola.rocketChatAccount().userCompleterModel()
+            model: Ruqola.rocketChatAccount().userCompleterModel
         }
     }
     onAccepted: {
