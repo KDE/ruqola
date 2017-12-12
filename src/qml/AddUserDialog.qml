@@ -39,6 +39,12 @@ Dialog {
 
     modal: true
 
+    function initializeAndOpen()
+    {
+        username.text = "";
+        //TODO clear listview too
+    }
+
     Column {
         TextField {
             id: username

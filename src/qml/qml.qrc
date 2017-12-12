@@ -17,6 +17,7 @@
         <file>ChannelInfoDialog.qml</file>
         <file>DeleteMessageDialog.qml</file>
         <file>AddUserDialog.qml</file>
+        <file>DeleteRoomDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

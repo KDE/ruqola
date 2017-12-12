@@ -35,7 +35,7 @@ Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    //TODO
+    //TODO fill values.
     GridLayout {
         columns: 2
         Label {
@@ -46,6 +46,36 @@ Dialog {
             //placeholderText: i18n("Channel Name")
             //TODO
         }
+        Label {
+            text: i18n("Annoucement:");
+        }
+        TextField {
+            id: annoucement
+            //placeholderText: i18n("Channel Name")
+            //TODO
+        }
+        Label {
+            text: i18n("Description:");
+        }
+        TextField {
+            id: decription
+            //placeholderText: i18n("Channel Name")
+            //TODO
+            onAccepted: {
+                //TODO ?
+            }
+        }
     }
     modal: true
+    onAccepted: {
+        //TODO emit changes.
+    }
+
+    DeleteRoomDialog {
+        id: deleteRoomDialog
+        //TODO add identifier
+        onDeleteRoom: {
+            //TODO
+        }
+    }
 }

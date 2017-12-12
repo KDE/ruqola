@@ -343,6 +343,11 @@ void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
     QDesktopServices::openUrl(clickedUrl);
 }
 
+void RocketChatAccount::eraseRoom(const QString &roomId)
+{
+    ddp()->eraseRoom(roomId);
+}
+
 void RocketChatAccount::openDirectChannel(const QString &username)
 {
     ddp()->openDirectChannel(username);

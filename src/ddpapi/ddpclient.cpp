@@ -38,9 +38,15 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void erase_room(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Room:") + QJsonDocument(root).toJson());
+    }
+}
+
 void delete_message(const QJsonObject &root, RocketChatAccount *account)
 {
-    qDebug() << " void delete_message(const QJsonObject &root, RocketChatAccount *account)"<<root;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Message:") + QJsonDocument(root).toJson());
     }
@@ -283,6 +289,12 @@ void DDPClient::subscribeRoomMessage(const QString &roomId)
         true
     };
     subscribe(QStringLiteral("stream-notify-room"), params2);
+}
+
+quint64 DDPClient::eraseRoom(const QString &roomID)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->eraseRoom(roomID, m_uid);
+    return method(result, erase_room, DDPClient::Persistent);
 }
 
 quint64 DDPClient::openDirectChannel(const QString &userId)

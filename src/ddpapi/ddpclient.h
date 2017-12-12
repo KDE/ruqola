@@ -157,6 +157,7 @@ public:
     quint64 createJitsiConfCall(const QString &roomId);
     quint64 userAutocomplete(const QString &pattern, const QString &exception);
     quint64 deleteMessage(const QString &messageId);
+    quint64 eraseRoom(const QString &roomID);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
