@@ -26,9 +26,9 @@ import QtQuick.Window 2.0
 Dialog {
     id: channelConfigDialog
 
-    property string channelName: ""
+    property string channelName: "channelname"
 
-    title: i18n("Channel Info about '%1'", channelName)
+    title: channelName === "" ? "" : i18n("Channel Info about '%1'", channelName)
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
@@ -44,7 +44,7 @@ Dialog {
             text: i18n("Comment:");
         }
         TextField {
-            id: channelName
+            id: channelNameField
             //placeholderText: i18n("Channel Name")
             //TODO
         }

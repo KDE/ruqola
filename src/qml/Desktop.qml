@@ -105,7 +105,7 @@ Kirigami.ApplicationWindow {
 
     ChannelInfoDialog {
         id: channelInfoDialog
-        channelName: appid.selectedRoomID
+        channelName: (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""
         onDeleteRoom: {
             Ruqola.rocketChatAccount().eraseRoom(roomId)
         }
