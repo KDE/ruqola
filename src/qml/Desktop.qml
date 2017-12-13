@@ -306,7 +306,7 @@ Kirigami.ApplicationWindow {
                             QQC2.MenuItem {
                                 text: i18n("Test add user !")
                                 onTriggered: {
-                                    addUserDialog.open()
+                                    addUserDialog.initializeAndOpen()
                                 }
                             }
                             QQC2.MenuSeparator {

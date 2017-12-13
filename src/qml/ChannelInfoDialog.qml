@@ -24,67 +24,93 @@ import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 
 Dialog {
-    id: channelConfigDialog
+    id: channelInfoDialog
 
     property string channelName: ""
 
     title: i18n("Info about this channel")
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
+    standardButtons: Dialog.Close
 
     signal deleteRoom(string roomId)
 
+    modal: true
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
+
+    function initializeAndOpen()
+    {
+        //TODO clear all and check values
+        open();
+    }
 
     GridLayout {
         columns: 2
         Label {
             text: i18n("name:");
         }
-        TextField {
+        TextInput {
             id: channelNameField
             //placeholderText: i18n("Channel Name")
             //TODO
+            onAccepted: {
+                if (enabled) {
+
+                }
+
+                //TODO ? use unique signal + enum ?
+            }
         }
         Label {
             text: i18n("Comment:");
         }
-        TextField {
+        TextInput {
             id: channelCommentField
             //placeholderText: i18n("Channel Name")
             //TODO
+            onAccepted: {
+                if (enabled) {
+
+                }
+
+                //TODO ?
+            }
         }
         Label {
             text: i18n("Annoucement:");
         }
-        TextField {
+        TextInput {
             id: channelAnnoucementField
             //placeholderText: i18n("Channel Name")
             //TODO
+            onAccepted: {
+                if (enabled) {
+
+                }
+                //TODO ?
+            }
         }
         Label {
             text: i18n("Description:");
         }
-        TextField {
+        TextInput {
             id: channelDecriptionField
             //placeholderText: i18n("Channel Name")
             //TODO
             onAccepted: {
+                if (enabled) {
+
+                }
                 //TODO ?
             }
         }
-    }
-    modal: true
-    onAccepted: {
-        //TODO emit changes.
     }
 
     DeleteRoomDialog {
         id: deleteRoomDialog
         rId: channelName
         onDeleteRoom: {
-            channelConfigDialog.deleteRoom(roomId)
+            channelInfoDialog.deleteRoom(roomId)
         }
     }
 }

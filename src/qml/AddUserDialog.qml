@@ -42,6 +42,7 @@ Dialog {
     function initializeAndOpen()
     {
         username.text = "";
+        open();
         //TODO clear listview too
     }
 
