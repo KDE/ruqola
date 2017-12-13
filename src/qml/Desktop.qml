@@ -106,6 +106,9 @@ Kirigami.ApplicationWindow {
     ChannelInfoDialog {
         id: channelInfoDialog
         channelName: appid.selectedRoomID
+        onDeleteRoom: {
+            Ruqola.rocketChatAccount().eraseRoom(roomId)
+        }
     }
 
     CreateNewChannelDialog {

@@ -32,6 +32,8 @@ Dialog {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
+    signal deleteRoom(string roomId)
+
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
@@ -75,7 +77,7 @@ Dialog {
         id: deleteRoomDialog
         //TODO add identifier
         onDeleteRoom: {
-            //TODO
+            channelConfigDialog.deleteRoom(roomId)
         }
     }
 }
