@@ -26,9 +26,9 @@ import QtQuick.Window 2.0
 Dialog {
     id: channelConfigDialog
 
-    property string channelName: "channelname"
+    property string channelName: ""
 
-    title: channelName === "" ? "" : i18n("Channel Info about '%1'", channelName)
+    title: i18n("Info about this channel")
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
@@ -37,11 +37,10 @@ Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    //TODO fill values.
     GridLayout {
         columns: 2
         Label {
-            text: i18n("Comment:");
+            text: i18n("name:");
         }
         TextField {
             id: channelNameField
@@ -49,10 +48,18 @@ Dialog {
             //TODO
         }
         Label {
+            text: i18n("Comment:");
+        }
+        TextField {
+            id: channelCommentField
+            //placeholderText: i18n("Channel Name")
+            //TODO
+        }
+        Label {
             text: i18n("Annoucement:");
         }
         TextField {
-            id: annoucement
+            id: channelAnnoucementField
             //placeholderText: i18n("Channel Name")
             //TODO
         }
@@ -60,7 +67,7 @@ Dialog {
             text: i18n("Description:");
         }
         TextField {
-            id: decription
+            id: channelDecriptionField
             //placeholderText: i18n("Channel Name")
             //TODO
             onAccepted: {
@@ -75,7 +82,7 @@ Dialog {
 
     DeleteRoomDialog {
         id: deleteRoomDialog
-        //TODO add identifier
+        rId: channelName
         onDeleteRoom: {
             channelConfigDialog.deleteRoom(roomId)
         }
