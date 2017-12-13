@@ -1,4 +1,4 @@
-set(RUQOLA_VERSION "0.4.8")
+set(RUQOLA_VERSION "0.4.9")
 cmake_minimum_required(VERSION 3.1)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set (CMAKE_CXX_STANDARD 11)
