@@ -140,6 +140,10 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    TakeVideoMessageDialog {
+        id: takeVideoMessage
+    }
+
     BusyIndicator {
         id: busy
         anchors.centerIn: parent
@@ -319,7 +323,9 @@ Kirigami.ApplicationWindow {
                             }
                             QQC2.MenuItem {
                                 text: i18n("Take a Video Message")
-                                //TODO
+                                onTriggered: {
+                                    takeVideoMessage.open();
+                                }
                             }
                         }
                     }
