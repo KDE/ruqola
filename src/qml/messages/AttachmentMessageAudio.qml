@@ -48,17 +48,15 @@ MessageBase {
     }
 
     RowLayout {
-        Item {
-            Layout.fillWidth: true
-        }
         Image {
             id: playerButton
             source: "qrc:/icons/media-playback-start.svg"
-            width: 50
-            height: 50
+            width: 100
+            height: 100
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
+                    console.log("Click !");
                     //TODO verify if source is not null
                     if (audioPlayer.playbackState == MediaPlayer.PlayingState) {
                         audioPlayer.pause()
@@ -67,6 +65,9 @@ MessageBase {
                     }
                 }
             }
+        }
+        Item {
+            Layout.fillWidth: true
         }
 
         Rectangle {
