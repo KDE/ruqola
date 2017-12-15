@@ -31,9 +31,42 @@ import "../js/message.js" as MessageScript;
 MessageBase {
     id: attachmentAudio
 
+    MediaPlayer {
+        id: audioPlayer
+        autoPlay: false
+        onPaused: {
+            playerButton.source = "media-playback-start.svg"
+        }
+        onPlaying: {
+            playerButton.source = "media-playback-pause.svg"
+        }
+        onStopped: {
+            playerButton.source = "media-playback-start.svg"
+        }
+        onPositionChanged: {
+        }
+    }
+
     RowLayout {
         Item {
             Layout.fillWidth: true
+        }
+        Image {
+            id: playerButton
+            source: "media-playback-start.svg"
+            width: 50
+            height: 50
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    //TODO verify if source is not null
+                    if (audioPlayer.playbackState == MediaPlayer.PlayingState) {
+                        audioPlayer.pause()
+                    } else {
+                        audioPlayer.play()
+                    }
+                }
+            }
         }
 
         Rectangle {
