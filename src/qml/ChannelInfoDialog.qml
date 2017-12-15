@@ -50,17 +50,8 @@ Dialog {
         Label {
             text: i18n("name:");
         }
-        TextField {
+        TextFieldEditor {
             id: channelNameField
-            //placeholderText: i18n("Channel Name")
-            //TODO
-            onAccepted: {
-                if (enabled) {
-
-                }
-
-                //TODO ? use unique signal + enum ?
-            }
         }
         Label {
             text: i18n("Comment:");
