@@ -24,43 +24,56 @@ import QtQuick.Controls 2.2 as QQC2
 import org.kde.kirigami 2.1 as Kirigami
 //We need QtMultimedia module for playing audio file
 import QtMultimedia 5.8
-
 import QtQuick.Layouts 1.1
+
+import "../js/message.js" as MessageScript;
+
 MessageBase {
     id: attachmentAudio
 
-    NewDateLabel {
-        id: newDateRect
-        date: i_date
-    }
+    RowLayout {
+        Item {
+            Layout.fillWidth: true
+        }
 
-    Rectangle {
-        Layout.alignment: Qt.AlignCenter
-        width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
-        height: textLabel.height
+        Rectangle {
+            Layout.alignment: Qt.AlignCenter
+            width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
+            height: textLabel.height
 
-        color: Kirigami.Theme.disabledTextColor
-        radius: 4*Kirigami.Units.smallSpacing
+            color: Kirigami.Theme.disabledTextColor
+            radius: 4*Kirigami.Units.smallSpacing
 
+            QQC2.Label {
+                id: textLabel
+
+                color: Kirigami.Theme.textColor
+                opacity: 1
+
+                anchors.centerIn: parent
+                anchors.leftMargin: Kirigami.Units.smallSpacing
+                anchors.rightMargin: Kirigami.Units.smallSpacing
+
+                width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
+
+                text: i_username + i18n(" Audio Message ");
+
+                wrapMode: QQC2.Label.Wrap
+
+                renderType: Text.NativeRendering
+            }
+        }
+        Item {
+            Layout.fillWidth: true
+        }
         QQC2.Label {
-            id: textLabel
+            id: timestampText
 
-            color: Kirigami.Theme.textColor
-            opacity: 1
+            Layout.alignment: Qt.AlignTop | Qt.AlignRight
+            text: MessageScript.displayDateTime(i_timestamp)
+            opacity: .5
 
-            anchors.centerIn: parent
-            anchors.leftMargin: Kirigami.Units.smallSpacing
-            anchors.rightMargin: Kirigami.Units.smallSpacing
-
-            width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
-
-            text: i_username + i18n(" Audio Message ");
-
-            wrapMode: QQC2.Label.Wrap
-
-            renderType: Text.NativeRendering
-
-            onLinkActivated: messageMain.linkActivated(link)
+            z: 10
         }
     }
 }

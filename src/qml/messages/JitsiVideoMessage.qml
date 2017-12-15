@@ -29,6 +29,7 @@ import QtMultimedia 5.8
 import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.ExtraColors 1.0
+import "../js/message.js" as MessageScript;
 
 MessageBase {
     id: messageMain
@@ -39,38 +40,55 @@ MessageBase {
     property string i_systemMessageType
     property var i_timestamp
 
-    Rectangle {
-        Layout.alignment: Qt.AlignCenter
-        width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
-        height: textLabel.height
+    RowLayout {
+        Item {
+            Layout.fillWidth: true
+        }
 
-        color: Kirigami.Theme.disabledTextColor
-        radius: 4*Kirigami.Units.smallSpacing
+        Rectangle {
+            Layout.alignment: Qt.AlignCenter
+            width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
+            height: textLabel.height
 
-        QQC2.Label {
-            id: textLabel
+            color: Kirigami.Theme.disabledTextColor
+            radius: 4*Kirigami.Units.smallSpacing
 
-            color: Kirigami.Theme.textColor
-            opacity: 1
+            QQC2.Label {
+                id: textLabel
 
-            anchors.centerIn: parent
-            anchors.leftMargin: Kirigami.Units.smallSpacing
-            anchors.rightMargin: Kirigami.Units.smallSpacing
+                color: Kirigami.Theme.textColor
+                opacity: 1
 
-            width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
+                anchors.centerIn: parent
+                anchors.leftMargin: Kirigami.Units.smallSpacing
+                anchors.rightMargin: Kirigami.Units.smallSpacing
 
-            text: i18n("Click To Join")
+                width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
 
-            wrapMode: QQC2.Label.Wrap
+                text: i18n("Click To Join")
 
-            renderType: Text.NativeRendering
+                wrapMode: QQC2.Label.Wrap
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    messageMain.jitsiCallConfActivated()
+                renderType: Text.NativeRendering
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        messageMain.jitsiCallConfActivated()
+                    }
                 }
             }
+        }
+        Item {
+            Layout.fillWidth: true
+        }
+        QQC2.Label {
+            id: timestampText
+
+            Layout.alignment: Qt.AlignTop | Qt.AlignRight
+            text: MessageScript.displayDateTime(i_timestamp)
+            opacity: .5
+
+            z: 10
         }
     }
 }
