@@ -21,18 +21,30 @@
 
 import QtQuick 2.9
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 
-TextField {
-    id: channelNameField
-    //placeholderText: i18n("Channel Name")
-    //TODO
-    onAccepted: {
-        if (enabled) {
-            
+RowLayout {
+    Image {
+        source: "" //TODO add it
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                //TODO change edit mode
+            }
         }
-        
-        //TODO ? use unique signal + enum ?
+    }
+
+    QQC2.TextField {
+        id: channelNameField
+        //placeholderText: i18n("Channel Name")
+        //TODO
+        onAccepted: {
+            if (enabled) {
+
+            }
+
+            //TODO ? use unique signal + enum ?
+        }
     }
 }
