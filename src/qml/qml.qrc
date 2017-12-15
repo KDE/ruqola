@@ -19,6 +19,7 @@
         <file>AddUserDialog.qml</file>
         <file>DeleteRoomDialog.qml</file>
         <file>TakeVideoMessageDialog.qml</file>
+        <file>TextFieldEditor.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
