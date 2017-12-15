@@ -35,13 +35,13 @@ MessageBase {
         id: audioPlayer
         autoPlay: false
         onPaused: {
-            playerButton.source = "media-playback-start.svg"
+            playerButton.source = "qrc:/icons/media-playback-start.svg"
         }
         onPlaying: {
-            playerButton.source = "media-playback-pause.svg"
+            playerButton.source = "qrc:/icons/media-playback-pause.svg"
         }
         onStopped: {
-            playerButton.source = "media-playback-start.svg"
+            playerButton.source = "qrc:/icons/media-playback-start.svg"
         }
         onPositionChanged: {
         }
@@ -53,7 +53,7 @@ MessageBase {
         }
         Image {
             id: playerButton
-            source: "media-playback-start.svg"
+            source: "qrc:/icons/media-playback-start.svg"
             width: 50
             height: 50
             MouseArea {
