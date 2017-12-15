@@ -52,8 +52,21 @@ Dialog {
         focus: visible
         visible: camera.cameraStatus === Camera.ActiveStatus
     }
-    //TODO add info when we can't have camera ok
-    onAccepted: {
+    Button {
+        text: i18n("Video");
+        onPressed: {
+            if (camera.cameraStatus == camera.StartingStatus)
+                camera.stop()
+            else
+                camera.start()
+        }
+    }
 
+    Component.onCompleted: {
+        camera.stop()
+    }
+    //TODO add info when we can't have camera ok
+    onClosed: {
+        camera.stop()
     }
 }
