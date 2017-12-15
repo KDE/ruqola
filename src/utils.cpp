@@ -52,8 +52,6 @@ QString Utils::markdownToRichText(const QString &markDown)
     //Problem with smileys as qml load image as qrc:/.... so perhaps we need to change contextProperty("baseUrl"...)
     QString str = markDown;
 
-    //qrc:/messages/UserMessage.qml:161:17: QML QQuickText: Cannot open: qrc:/opt/kde5-qt5.9.1/share/emoticons/Konqi/face-wink.png
-
     const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys;
     str = KTextToHTML::convertToHtml(str, convertFlags);
     str.remove(QStringLiteral("<br />"));
