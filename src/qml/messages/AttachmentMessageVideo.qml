@@ -23,18 +23,62 @@ import QtQuick 2.9
 
 import QtQuick.Controls 2.2 as QQC2
 import org.kde.kirigami 2.1 as Kirigami
-
+import QtMultimedia 5.8
 import QtQuick.Layouts 1.1
 import "../js/message.js" as MessageScript;
 
 MessageBase {
     id: attachmentVideo
 
-    RowLayout {
-        Item {
-            Layout.fillWidth: true
+    MediaPlayer {
+        id: audioPlayer
+        autoPlay: false
+        onPaused: {
+            playerButton.source = "qrc:/icons/media-playback-start.svg"
         }
+        onPlaying: {
+            playerButton.source = "qrc:/icons/media-playback-pause.svg"
+        }
+        onStopped: {
+            playerButton.source = "qrc:/icons/media-playback-start.svg"
+            playerSlider.value=0
+        }
+        onPositionChanged: {
+            playerSlider.value = audioPlayer.position / audioPlayer.duration
+        }
+    }
 
+
+    RowLayout {
+        //Add video media
+        Image {
+            id: playerButton
+            source: "qrc:/icons/media-playback-start.svg"
+            width: 100
+            height: 100
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    console.log("Click !");
+                    if (audioPlayer.source != "") {
+                        if (audioPlayer.playbackState == MediaPlayer.PlayingState) {
+                            audioPlayer.pause()
+                        } else {
+                            audioPlayer.play()
+                        }
+                    } else {
+                        console.log("Video file no found");
+                    }
+                }
+            }
+        }
+        QQC2.Slider {
+            id: playerSlider
+            Layout.fillWidth: true
+
+            onValueChanged: {
+            }
+        }
         Rectangle {
             Layout.alignment: Qt.AlignCenter
             width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
