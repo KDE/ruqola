@@ -77,7 +77,6 @@ MessageBase {
         }
 
         Rectangle {
-            //Layout.fillWidth: true
             Layout.alignment: Qt.AlignCenter
             width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
             height: textLabel.height
