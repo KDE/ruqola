@@ -35,9 +35,8 @@ Rectangle {
     
     implicitHeight: date !== "" ? dateLabel.font.pixelSize : 0
     
-    color: "#808080"
     //TODO fix color
-    //color: RuqolaSingleton.backgroundColor;
+    color: RuqolaSingleton.backgroundColor;
     QQC2.Label {
         id: dateLabel
         text: date
