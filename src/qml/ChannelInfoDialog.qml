@@ -38,7 +38,6 @@ Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    width: 300
 
     function initializeAndOpen()
     {
@@ -51,7 +50,7 @@ Dialog {
         Label {
             text: i18n("name:");
         }
-        TextInput {
+        TextField {
             id: channelNameField
             //placeholderText: i18n("Channel Name")
             //TODO
@@ -66,7 +65,7 @@ Dialog {
         Label {
             text: i18n("Comment:");
         }
-        TextInput {
+        TextField {
             id: channelCommentField
             //placeholderText: i18n("Channel Name")
             //TODO
@@ -81,7 +80,7 @@ Dialog {
         Label {
             text: i18n("Annoucement:");
         }
-        TextInput {
+        TextField {
             id: channelAnnoucementField
             //placeholderText: i18n("Channel Name")
             //TODO
@@ -95,7 +94,7 @@ Dialog {
         Label {
             text: i18n("Description:");
         }
-        TextInput {
+        TextField {
             id: channelDecriptionField
             //placeholderText: i18n("Channel Name")
             //TODO

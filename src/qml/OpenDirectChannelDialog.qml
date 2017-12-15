@@ -29,7 +29,6 @@ Dialog {
 
     signal openDirectChannel(string userName)
 
-
     standardButtons: Dialog.Ok | Dialog.Cancel
 
     x: parent.width / 2 - width / 2
