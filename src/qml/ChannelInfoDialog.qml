@@ -41,7 +41,10 @@ Dialog {
 
     function initializeAndOpen()
     {
-        //TODO clear all and check values
+        channelNameField.clear();
+        channelCommentField.clear();
+        channelAnnoucementField.clear();
+        channelDescriptionField.clear();
         open();
     }
 
@@ -69,6 +72,7 @@ Dialog {
             text: i18n("Description:");
         }
         TextFieldEditor {
+            id: channelDescriptionField
         }
     }
 

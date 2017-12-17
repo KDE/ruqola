@@ -25,6 +25,14 @@ import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 
 RowLayout {
+
+    signal updateValue(string newVal)
+
+    function clear()
+    {
+        channelNameField.clear()
+    }
+
     Image {
         source: "" //TODO add it
         MouseArea {
