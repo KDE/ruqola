@@ -56,45 +56,19 @@ Dialog {
         Label {
             text: i18n("Comment:");
         }
-        TextField {
+        TextFieldEditor {
             id: channelCommentField
-            //placeholderText: i18n("Channel Name")
-            //TODO
-            onAccepted: {
-                if (enabled) {
-
-                }
-
-                //TODO ?
-            }
         }
         Label {
             text: i18n("Annoucement:");
         }
-        TextField {
+        TextFieldEditor {
             id: channelAnnoucementField
-            //placeholderText: i18n("Channel Name")
-            //TODO
-            onAccepted: {
-                if (enabled) {
-
-                }
-                //TODO ?
-            }
         }
         Label {
             text: i18n("Description:");
         }
-        TextField {
-            id: channelDecriptionField
-            //placeholderText: i18n("Channel Name")
-            //TODO
-            onAccepted: {
-                if (enabled) {
-
-                }
-                //TODO ?
-            }
+        TextFieldEditor {
         }
     }
 
