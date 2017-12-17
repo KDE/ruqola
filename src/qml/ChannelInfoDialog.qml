@@ -55,24 +55,36 @@ Dialog {
         }
         TextFieldEditor {
             id: channelNameField
+            onUpdateValue: {
+                //TODO
+            }
         }
         Label {
             text: i18n("Comment:");
         }
         TextFieldEditor {
             id: channelCommentField
+            onUpdateValue: {
+                //TODO
+            }
         }
         Label {
             text: i18n("Annoucement:");
         }
         TextFieldEditor {
             id: channelAnnoucementField
+            onUpdateValue: {
+                //TODO
+            }
         }
         Label {
             text: i18n("Description:");
         }
         TextFieldEditor {
             id: channelDescriptionField
+            onUpdateValue: {
+                //TODO
+            }
         }
     }
 
