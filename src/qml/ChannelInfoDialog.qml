@@ -28,6 +28,8 @@ Dialog {
 
     property string channelName: ""
 
+    signal modifyChannelSetting(int type, string newVal)
+
     title: i18n("Info about this channel")
 
     standardButtons: Dialog.Close
