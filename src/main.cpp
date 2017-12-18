@@ -54,8 +54,6 @@ int main(int argc, char *argv[])
     KLocalizedString::setApplicationDomain("ruqola");
     QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
-    QCoreApplication::setApplicationName(QStringLiteral("Ruqola"));
-    QCoreApplication::setApplicationVersion(QStringLiteral(RUQOLA_VERSION));
 
     KAboutData aboutData(QStringLiteral("ruqola"),
                          i18n("Ruqola"),
