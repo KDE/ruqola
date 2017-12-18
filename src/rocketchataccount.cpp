@@ -402,23 +402,23 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
     joinJitsiConfCall(roomId);
 }
 
-void RocketChatAccount::changeChannelSettings(RocketChatAccount::RoomInfoType infoType, const QString &newValue)
+void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QString &newValue)
 {
     switch (infoType) {
     case Announcement:
-        ddp()->setRoomAnnouncement(QString(), newValue);
+        ddp()->setRoomAnnouncement(roomId, newValue);
         break;
     case Description:
-        ddp()->setRoomDescription(QString(), newValue);
+        ddp()->setRoomDescription(roomId, newValue);
         break;
     case Name:
-        ddp()->setRoomName(QString(), newValue);
+        ddp()->setRoomName(roomId, newValue);
         break;
     case Topic:
-        ddp()->setRoomTopic(QString(), newValue);
+        ddp()->setRoomTopic(roomId, newValue);
         break;
     }
-    qDebug() << " void RocketChatAccount::changeChannelSettings(RocketChatAccount::RoomInfoType infoType, const QString &newValue) " << infoType << newValue;
+    qDebug() << " void RocketChatAccount::changeChannelSettings(RocketChatAccount::RoomInfoType infoType, const QString &newValue) " << infoType << newValue << roomId;
 }
 
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)

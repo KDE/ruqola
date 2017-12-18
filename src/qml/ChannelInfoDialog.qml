@@ -30,7 +30,7 @@ Dialog {
 
     property string channelName: ""
 
-    signal modifyChannelSetting(int type, string newVal)
+    signal modifyChannelSetting(string roomId, int type, string newVal)
 
     title: i18n("Info about this channel")
 
@@ -60,7 +60,7 @@ Dialog {
         TextFieldEditor {
             id: channelNameField
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(RocketChatAccount.Name, channelNameField.textInfo)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, channelNameField.textInfo)
             }
         }
         Label {
@@ -69,7 +69,7 @@ Dialog {
         TextFieldEditor {
             id: channelCommentField
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(RocketChatAccount.Topic, channelNameField.textInfo)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, channelNameField.textInfo)
             }
         }
         Label {
@@ -78,7 +78,7 @@ Dialog {
         TextFieldEditor {
             id: channelAnnoucementField
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(RocketChatAccount.Annoucement, channelNameField.textInfo)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Annoucement, channelNameField.textInfo)
             }
         }
         Label {
@@ -87,7 +87,7 @@ Dialog {
         TextFieldEditor {
             id: channelDescriptionField
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(RocketChatAccount.Description, channelNameField.textInfo)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, channelNameField.textInfo)
             }
         }
     }

@@ -110,7 +110,7 @@ Kirigami.ApplicationWindow {
             Ruqola.rocketChatAccount().eraseRoom(roomId)
         }
         onModifyChannelSetting: {
-            Ruqola.rocketChatAccount().changeChannelSettings(type, newVal)
+            Ruqola.rocketChatAccount().changeChannelSettings(roomId, type, newVal)
         }
     }
 
