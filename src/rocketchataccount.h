@@ -53,6 +53,14 @@ public:
     explicit RocketChatAccount(QObject *parent = nullptr);
     ~RocketChatAccount();
 
+    enum RoomInfoType {
+        Announcement,
+        Description,
+        Name,
+        Comment,
+    };
+    Q_ENUM(RoomInfoType)
+
     RocketChatAccountSettings *settings() const;
 
     Q_INVOKABLE UsersModel *usersModel() const;

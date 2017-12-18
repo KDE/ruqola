@@ -23,6 +23,8 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 
+import KDE.Ruqola.RocketChatAccount 1.0
+
 Dialog {
     id: channelInfoDialog
 
@@ -58,7 +60,7 @@ Dialog {
         TextFieldEditor {
             id: channelNameField
             onUpdateValue: {
-                //TODO
+                channelInfoDialog.modifyChannelSetting(RocketChatAccount.Name, channelNameField.textInfo)
             }
         }
         Label {
@@ -67,7 +69,7 @@ Dialog {
         TextFieldEditor {
             id: channelCommentField
             onUpdateValue: {
-                //TODO
+                channelInfoDialog.modifyChannelSetting(RocketChatAccount.Comment, channelNameField.textInfo)
             }
         }
         Label {
@@ -76,7 +78,7 @@ Dialog {
         TextFieldEditor {
             id: channelAnnoucementField
             onUpdateValue: {
-                //TODO
+                channelInfoDialog.modifyChannelSetting(RocketChatAccount.Annoucement, channelNameField.textInfo)
             }
         }
         Label {
@@ -85,7 +87,7 @@ Dialog {
         TextFieldEditor {
             id: channelDescriptionField
             onUpdateValue: {
-                //TODO
+                channelInfoDialog.modifyChannelSetting(RocketChatAccount.Description, channelNameField.textInfo)
             }
         }
     }

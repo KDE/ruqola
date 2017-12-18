@@ -62,6 +62,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<UserCompleterModel>("KDE.Ruqola.UserCompleterModel", 1, 0, "UserCompleterModel");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
+    qRegisterMetaType<RocketChatAccount::RoomInfoType>();
     (void)Ruqola::self();
     mEngine = new QQmlApplicationEngine;
 

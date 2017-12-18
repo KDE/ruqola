@@ -28,6 +28,8 @@ RowLayout {
 
     signal updateValue(string newVal)
 
+    property alias textInfo: channelNameField.text
+
     function clear()
     {
         channelNameField.clear()
