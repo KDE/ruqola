@@ -44,7 +44,11 @@ MessageBase {
         } else if (type === "ul") {
             return i18n("%1 has left the channel", i_username);
         } else if (type === "room_changed_topic") {
-            return i18n("%2 changed topic to: <i>%1</i>", i_messageText, i_username)
+            if (i_messageText == "") {
+                return i18n("Topic was cleared by: %1", i_username)
+            } else {
+                return i18n("%2 changed topic to: <i>%1</i>", i_messageText, i_username)
+            }
         } else if (type === "au") {
             return i18n("%2 added %1 to the conversation", i_messageText, i_username)
         } else if (type === "r") {
@@ -52,9 +56,17 @@ MessageBase {
         } else if (type === "ru") {
             return i18n("%2 removed user %1", i_messageText, i_username)
         } else if (type === "room_changed_description") {
-            return i18n("%2 changed room description to %1", i_messageText, i_username)
+            if (i_messageText == "") {
+                return i18n("Description was cleared by %1", i_username)
+            } else {
+                return i18n("%2 changed room description to %1", i_messageText, i_username)
+            }
         } else if (type === "room_changed_announcement") {
-            return i18n("%2 changed room announcement to %1", i_messageText, i_username)
+            if (i_messageText == "") {
+                return i18n("Announcement was cleared by %1", i_username)
+            } else {
+                return i18n("%2 changed room announcement to %1", i_messageText, i_username)
+            }
         } else if (type === "room_changed_privacy") {
             return i18n("%2 changed room privacy to %1", i_messageText, i_username)
         } else if (type === "jitsi_call_started") {
