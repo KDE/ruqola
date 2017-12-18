@@ -57,7 +57,7 @@ public:
         Announcement,
         Description,
         Name,
-        Comment,
+        Topic,
     };
     Q_ENUM(RoomInfoType)
 

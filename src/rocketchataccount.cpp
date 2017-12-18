@@ -406,12 +406,16 @@ void RocketChatAccount::changeChannelSettings(RocketChatAccount::RoomInfoType in
 {
     switch (infoType) {
     case Announcement:
+        ddp()->setRoomAnnouncement(QString(), newValue);
         break;
     case Description:
+        ddp()->setRoomDescription(QString(), newValue);
         break;
     case Name:
+        ddp()->setRoomName(QString(), newValue);
         break;
-    case Comment:
+    case Topic:
+        ddp()->setRoomTopic(QString(), newValue);
         break;
     }
     qDebug() << " void RocketChatAccount::changeChannelSettings(RocketChatAccount::RoomInfoType infoType, const QString &newValue) " << infoType << newValue;

@@ -158,6 +158,10 @@ public:
     quint64 userAutocomplete(const QString &pattern, const QString &exception);
     quint64 deleteMessage(const QString &messageId);
     quint64 eraseRoom(const QString &roomID);
+    quint64 setRoomName(const QString &roomId, const QString &name);
+    quint64 setRoomTopic(const QString &roomId, const QString &topic);
+    quint64 setRoomDescription(const QString &roomId, const QString &description);
+    quint64 setRoomAnnouncement(const QString &roomId, const QString &announcement);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

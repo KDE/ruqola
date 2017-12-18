@@ -69,7 +69,7 @@ Dialog {
         TextFieldEditor {
             id: channelCommentField
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(RocketChatAccount.Comment, channelNameField.textInfo)
+                channelInfoDialog.modifyChannelSetting(RocketChatAccount.Topic, channelNameField.textInfo)
             }
         }
         Label {

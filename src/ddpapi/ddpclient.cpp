@@ -38,6 +38,13 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void change_room_settings(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Change Room Settings:") + QJsonDocument(root).toJson());
+    }
+}
+
 void erase_room(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -276,6 +283,30 @@ quint64 DDPClient::createChannel(const QString &name, const QStringList &userLis
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createChannel(name, userList, readOnly, m_uid);
     return method(result, create_channel, DDPClient::Persistent);
+}
+
+quint64 DDPClient::setRoomName(const QString &roomId, const QString &name)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setRoomName(roomId, name, m_uid);
+    return method(result, change_room_settings, DDPClient::Persistent);
+}
+
+quint64 DDPClient::setRoomTopic(const QString &roomId, const QString &topic)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setRoomTopic(roomId, topic, m_uid);
+    return method(result, change_room_settings, DDPClient::Persistent);
+}
+
+quint64 DDPClient::setRoomDescription(const QString &roomId, const QString &description)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setRoomDescription(roomId, description, m_uid);
+    return method(result, change_room_settings, DDPClient::Persistent);
+}
+
+quint64 DDPClient::setRoomAnnouncement(const QString &roomId, const QString &announcement)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setRoomAnnouncement(roomId, announcement, m_uid);
+    return method(result, change_room_settings, DDPClient::Persistent);
 }
 
 void DDPClient::subscribeRoomMessage(const QString &roomId)
