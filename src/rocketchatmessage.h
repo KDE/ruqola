@@ -83,6 +83,7 @@ public:
     RocketChatMessage::RocketChatMessageResult userAutocomplete(const QString &searchText, const QString &exception, quint64 id);
     RocketChatMessage::RocketChatMessageResult updateMessage(quint64 id);
     RocketChatMessage::RocketChatMessageResult unsubscribe(const QString &reqId, quint64 id);
+    RocketChatMessage::RocketChatMessageResult setRoomAnnouncement(const QString &roomId, const QString &announcement, quint64 id);
 private:
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);

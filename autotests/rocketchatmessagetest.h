@@ -73,6 +73,7 @@ private Q_SLOTS:
     RocketChatMessage::RocketChatMessageResult getSubscriptions(const QDateTime &lastUpdate, quint64 id);
 #endif
 
+    void shouldSetRoomAnnouncement();
 private:
     void compareFile(const QString &data, const QString &name);
 };

@@ -404,6 +404,16 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 
 void RocketChatAccount::changeChannelSettings(RocketChatAccount::RoomInfoType infoType, const QString &newValue)
 {
+    switch (infoType) {
+    case Announcement:
+        break;
+    case Description:
+        break;
+    case Name:
+        break;
+    case Comment:
+        break;
+    }
     qDebug() << " void RocketChatAccount::changeChannelSettings(RocketChatAccount::RoomInfoType infoType, const QString &newValue) " << infoType << newValue;
 }
 

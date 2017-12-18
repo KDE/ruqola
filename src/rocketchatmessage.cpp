@@ -188,6 +188,11 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomDescription
     return saveRoomSettings(QStringLiteral("roomDescription"), roomId, description, id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomAnnouncement(const QString &roomId, const QString &announcement, quint64 id)
+{
+    return saveRoomSettings(QStringLiteral("roomAnnouncement"), roomId, announcement, id);
+}
+
 /*
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomType(const QString &roomId, QRocketChatRoom::Type type)
 {

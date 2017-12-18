@@ -172,6 +172,15 @@ void RocketChatMessageTest::shouldSetRoomDescription()
     compareFile(r.result, QStringLiteral("roomdescription"));
 }
 
+void RocketChatMessageTest::shouldSetRoomAnnouncement()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.setRoomAnnouncement(QStringLiteral("foo"), QStringLiteral("announcement"), 43);
+
+    compareFile(r.result, QStringLiteral("roomannouncement"));
+}
+
 void RocketChatMessageTest::shouldSetRoomIsReadOnly()
 {
     RocketChatMessage m;
