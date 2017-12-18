@@ -402,6 +402,11 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
     joinJitsiConfCall(roomId);
 }
 
+void RocketChatAccount::changeChannelSettings(RocketChatAccount::RoomInfoType infoType, const QString &newValue)
+{
+    qDebug() << " void RocketChatAccount::changeChannelSettings(RocketChatAccount::RoomInfoType infoType, const QString &newValue) " << infoType << newValue;
+}
+
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
     QJsonArray configs = obj.value(QStringLiteral("result")).toArray();

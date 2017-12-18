@@ -25,7 +25,7 @@ import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 
 RowLayout {
-
+    id: textFieldEditor
     signal updateValue(string newVal)
 
     property alias textInfo: channelNameField.text
@@ -51,10 +51,9 @@ RowLayout {
         //TODO
         onAccepted: {
             if (enabled) {
-
+                textFieldEditor.updateValue(text)
+                //TODO disable it.
             }
-
-            //TODO ? use unique signal + enum ?
         }
     }
 }
