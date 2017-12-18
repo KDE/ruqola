@@ -22,26 +22,34 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
-
+import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
 
 Dialog {
     id: channelInfoDialog
 
-    property string channelName: ""
-
-    signal modifyChannelSetting(string roomId, int type, string newVal)
-
     title: i18n("Info about this channel")
-
     standardButtons: Dialog.Close
-
-    signal deleteRoom(string roomId)
 
     modal: true
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
+    property string channelName: ""
+
+    signal modifyChannelSetting(string roomId, int type, string newVal)
+    signal deleteRoom(string roomId)
+    signal readOnly(bool roomIsReadOnly)
+    signal archive(bool roomIsArchived)
+
+
+
+    /*
+    LoggingCategory {
+        id: category
+        name: "org.kde.ruqola.qml"
+    }
+    */
 
     function initializeAndOpen()
     {
@@ -60,7 +68,13 @@ Dialog {
         TextFieldEditor {
             id: channelNameField
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, channelNameField.textInfo)
+                if (newVal != "") {
+                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal)
+                } else {
+                    //TODO verify it. https://doc.qt.io/qt-5/qml-qtqml-loggingcategory.html
+                    console.log(RuqolaDebugCategorySingleton.category, "New value is empty")
+                    //console.log(category, "New value is empty")
+                }
             }
         }
         Label {
@@ -69,7 +83,7 @@ Dialog {
         TextFieldEditor {
             id: channelCommentField
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, channelNameField.textInfo)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, newVal)
             }
         }
         Label {
@@ -78,7 +92,7 @@ Dialog {
         TextFieldEditor {
             id: channelAnnoucementField
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Annoucement, channelNameField.textInfo)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Annoucement, newVal)
             }
         }
         Label {
@@ -87,7 +101,7 @@ Dialog {
         TextFieldEditor {
             id: channelDescriptionField
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, channelNameField.textInfo)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal)
             }
         }
     }

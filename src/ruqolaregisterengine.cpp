@@ -47,6 +47,7 @@ RuqolaRegisterEngine::~RuqolaRegisterEngine()
 bool RuqolaRegisterEngine::initialize()
 {
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "RuqolaSingleton");
+    qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/DebugCategory.qml")), "KDE.Ruqola.DebugCategory", 1, 0, "RuqolaDebugCategorySingleton");
     qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
     qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
     qmlRegisterType<MessageModel>("KDE.Ruqola.MessageModel", 1, 0, "MessageModel");

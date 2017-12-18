@@ -18,40 +18,15 @@
    Boston, MA 02110-1301, USA.
 */
 
+pragma Singleton
 
-import QtQuick 2.9
-import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2 as QQC2
-import QtQuick.Window 2.0
+import QtQml 2.8
+import QtQuick 2.8
 
-RowLayout {
-    id: textFieldEditor
-    signal updateValue(string newVal)
-
-    function clear()
-    {
-        channelNameField.clear()
-    }
-
-    Image {
-        source: "" //TODO add it
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                //TODO change edit mode
-            }
-        }
-    }
-
-    QQC2.TextField {
-        id: channelNameField
-        //placeholderText: i18n("Channel Name")
-        //TODO
-        onAccepted: {
-            if (enabled) {
-                textFieldEditor.updateValue(text)
-                //TODO disable it.
-            }
-        }
+Item {
+    id: categoryItem
+    LoggingCategory {
+        id: category
+        name: "org.kde.ruqola.qml"
     }
 }
