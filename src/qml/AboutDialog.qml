@@ -183,7 +183,7 @@ Dialog {
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
                 ScrollView {
-                    id: tahnksToTabview
+                    id: thanksToTabview
                     width: thanksToTab.width
                     height: thanksToTab.height
 
