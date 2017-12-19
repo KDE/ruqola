@@ -39,6 +39,9 @@ RowLayout {
             anchors.fill: parent
             onClicked: {
                 //TODO change edit mode
+                //TODO change icon
+                //TODO change setEnable
+                //Add escape for cancel it.
             }
         }
     }
