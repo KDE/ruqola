@@ -55,7 +55,7 @@ Dialog {
     Button {
         text: i18n("Video");
         onPressed: {
-            if (camera.cameraStatus == camera.StartingStatus)
+            if (camera.cameraStatus === camera.StartingStatus)
                 camera.stop()
             else
                 camera.start()
