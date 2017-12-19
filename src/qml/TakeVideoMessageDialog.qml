@@ -36,6 +36,8 @@ Dialog {
     height: 500
 
     modal: true
+    // TODO property bool isCameraAvailable: QtMultimedia.availableCameras.length > 0
+
     Camera {
         id: camera
         videoRecorder.audioEncodingMode: CameraRecorder.ConstantBitrateEncoding;
