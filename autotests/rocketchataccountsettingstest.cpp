@@ -22,87 +22,93 @@
 #include "rocketchataccountsettings.h"
 #include <QTest>
 #include <QSignalSpy>
+#include <QStandardPaths>
 
 QTEST_MAIN(RocketChatAccountSettingsTest)
 
 RocketChatAccountSettingsTest::RocketChatAccountSettingsTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RocketChatAccountSettingsTest::shouldNotEmitSignalWhenNewServerUrlIsSameAsOld()
 {
-    RocketChatAccountSettings *SampleChatAccount = new RocketChatAccountSettings;
+    RocketChatAccountSettings SampleChatAccount;
 
-    QString url = QStringLiteral("some.url.com");
-    SampleChatAccount->setServerUrl(url);
+    const QString url = QStringLiteral("some.url.com");
+    SampleChatAccount.setServerUrl(url);
 
-    QSignalSpy SpyURL(SampleChatAccount, &RocketChatAccountSettings::serverURLChanged);
-    SampleChatAccount->setServerUrl(url);
+    QSignalSpy SpyURL(&SampleChatAccount, &RocketChatAccountSettings::serverURLChanged);
+    SampleChatAccount.setServerUrl(url);
     QCOMPARE(SpyURL.count(), 0);
-
-    delete SampleChatAccount;
 }
 
 void RocketChatAccountSettingsTest::shouldEmitSignalWhenSetServerURLChanged()
 {
-    RocketChatAccountSettings *SampleChatAccount = new RocketChatAccountSettings;
+    RocketChatAccountSettings SampleChatAccount;
 
-    QSignalSpy SpyURL(SampleChatAccount, &RocketChatAccountSettings::serverURLChanged);
-    SampleChatAccount->setServerUrl(QStringLiteral("bla bla"));
+    QSignalSpy SpyURL(&SampleChatAccount, &RocketChatAccountSettings::serverURLChanged);
+    const QString serverUrlDefault = QStringLiteral("bla bla");
+    SampleChatAccount.setServerUrl(serverUrlDefault);
     QCOMPARE(SpyURL.count(), 1);
 
+    //Test same url
+    SampleChatAccount.setServerUrl(serverUrlDefault);
+    QCOMPARE(SpyURL.count(), 1);
+
+    //Test Empty url
     QString emptyString;
-    SampleChatAccount->setServerUrl(emptyString);
+    SampleChatAccount.setServerUrl(emptyString);
     QCOMPARE(SpyURL.count(), 2);
 
-    SampleChatAccount->setServerUrl(emptyString);
+    SampleChatAccount.setServerUrl(emptyString);
     QCOMPARE(SpyURL.count(), 2);
-
-    delete SampleChatAccount;
 }
 
 void RocketChatAccountSettingsTest::shouldNotEmitSignalWhenNewUsernameIsSameAsOld()
 {
-    RocketChatAccountSettings *SampleChat = new RocketChatAccountSettings;
+    RocketChatAccountSettings SampleChat;
 
-    QString username = QStringLiteral("dummyUsername");
-    SampleChat->setUserName(username);
+    const QString username = QStringLiteral("dummyUsername");
+    SampleChat.setUserName(username);
 
-    QSignalSpy SpyName(SampleChat, &RocketChatAccountSettings::userNameChanged);
-    SampleChat->setUserName(username);
+    QSignalSpy SpyName(&SampleChat, &RocketChatAccountSettings::userNameChanged);
+    SampleChat.setUserName(username);
     QCOMPARE(SpyName.count(), 0);
-
-    delete SampleChat;
 }
 
 void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserNameChanged()
 {
-    RocketChatAccountSettings *SampleChat = new RocketChatAccountSettings;
+    RocketChatAccountSettings SampleChat;
 
-    QSignalSpy SpyName(SampleChat, &RocketChatAccountSettings::userNameChanged);
-    SampleChat->setUserName(QStringLiteral("Donald Knuth"));
+    QSignalSpy SpyName(&SampleChat, &RocketChatAccountSettings::userNameChanged);
+    const QString userNameDefault = QStringLiteral("Donald Knuth");
+    SampleChat.setUserName(userNameDefault);
     QCOMPARE(SpyName.count(), 1);
 
+    //Test same name
+    SampleChat.setUserName(userNameDefault);
+    QCOMPARE(SpyName.count(), 1);
+
+    //Test empty string
     QString emptyString;
-    SampleChat->setUserName(emptyString);
+    SampleChat.setUserName(emptyString);
     QCOMPARE(SpyName.count(), 2);
 
-    SampleChat->setUserName(emptyString);
+    SampleChat.setUserName(emptyString);
     QCOMPARE(SpyName.count(), 2);
-
-    delete SampleChat;
 }
 
 void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserIDChanged()
 {
-    RocketChatAccountSettings *SampleChat1 = new RocketChatAccountSettings;
+    RocketChatAccountSettings SampleChat1;
 
-    QSignalSpy SpyID(SampleChat1, &RocketChatAccountSettings::userIDChanged);
-    SampleChat1->setUserId(QStringLiteral("RA15"));
+    QSignalSpy SpyID(&SampleChat1, &RocketChatAccountSettings::userIDChanged);
+    const QString userId = QStringLiteral("RA15");
+    QVERIFY(userId != SampleChat1.userId());
+    SampleChat1.setUserId(QStringLiteral("RA15"));
     QCOMPARE(SpyID.count(), 1);
-
-    delete SampleChat1;
 }
 
 void RocketChatAccountSettingsTest::shouldEmitSignalWhenLoginStatusChanged()
@@ -112,88 +118,80 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenLoginStatusChanged()
 
 void RocketChatAccountSettingsTest::shouldLogout()
 {
-    RocketChatAccountSettings *SampleChat = new RocketChatAccountSettings;
+    RocketChatAccountSettings SampleChat;
 
-    SampleChat->setAuthToken(QStringLiteral("Token305"));
-    SampleChat->setUserId(QStringLiteral("ECE305"));
-    SampleChat->setPassword(QStringLiteral("masterPassword"));
+    SampleChat.setAuthToken(QStringLiteral("Token305"));
+    SampleChat.setUserId(QStringLiteral("ECE305"));
+    SampleChat.setPassword(QStringLiteral("masterPassword"));
+    //Make sure that values are not null
+    QVERIFY(!SampleChat.authToken().isEmpty());
+    QVERIFY(!SampleChat.userId().isEmpty());
+    QVERIFY(!SampleChat.password().isEmpty());
 
-    SampleChat->logout();
-    QVERIFY(SampleChat->authToken().isEmpty());
-    QVERIFY(SampleChat->userId().isEmpty());
-    QVERIFY(SampleChat->password().isEmpty());
+    SampleChat.logout();
+    QVERIFY(SampleChat.authToken().isEmpty());
+    QVERIFY(SampleChat.userId().isEmpty());
+    QVERIFY(SampleChat.password().isEmpty());
 }
 
 void RocketChatAccountSettingsTest::shouldSetAccountName()
 {
-    RocketChatAccountSettings *sampleChat = new RocketChatAccountSettings;
+    RocketChatAccountSettings sampleChat;
 
     QString val = QStringLiteral("myAccount#$^56");
-    sampleChat->setAccountName(val);
+    sampleChat.setAccountName(val);
 
-    QCOMPARE(val, sampleChat->accountName());
-
-    delete sampleChat;
+    QCOMPARE(val, sampleChat.accountName());
 }
 
 void RocketChatAccountSettingsTest::shouldsetAuthToken()
 {
-    RocketChatAccountSettings *sampleChat = new RocketChatAccountSettings;
+    RocketChatAccountSettings sampleChat;
 
     QString val = QStringLiteral("myAuthToken#$^56");
-    sampleChat->setAuthToken(val);
+    sampleChat.setAuthToken(val);
 
-    QCOMPARE(val, sampleChat->authToken());
-
-    delete sampleChat;
+    QCOMPARE(val, sampleChat.authToken());
 }
 
 void RocketChatAccountSettingsTest::shouldSetPassword()
 {
-    RocketChatAccountSettings *sampleChat = new RocketChatAccountSettings;
+    RocketChatAccountSettings sampleChat;
 
     QString val = QStringLiteral("myPass#$^56");
-    sampleChat->setPassword(val);
+    sampleChat.setPassword(val);
 
-    QCOMPARE(val, sampleChat->password());
-
-    delete sampleChat;
+    QCOMPARE(val, sampleChat.password());
 }
 
 void RocketChatAccountSettingsTest::shouldSetServerUrl()
 {
-    RocketChatAccountSettings *sampleChat = new RocketChatAccountSettings;
+    RocketChatAccountSettings sampleChat;
 
     QString val = QStringLiteral("my.fancy.url");
-    sampleChat->setServerUrl(val);
+    sampleChat.setServerUrl(val);
 
-    QCOMPARE(val, sampleChat->serverUrl());
-
-    delete sampleChat;
+    QCOMPARE(val, sampleChat.serverUrl());
 }
 
 void RocketChatAccountSettingsTest::shouldSetUserID()
 {
-    RocketChatAccountSettings *sampleChat = new RocketChatAccountSettings;
+    RocketChatAccountSettings sampleChat;
 
     QString val = QStringLiteral("ECE305");
-    sampleChat->setUserId(val);
+    sampleChat.setUserId(val);
 
-    QCOMPARE(val, sampleChat->userId());
-
-    delete sampleChat;
+    QCOMPARE(val, sampleChat.userId());
 }
 
 void RocketChatAccountSettingsTest::shouldSetUserName()
 {
-    RocketChatAccountSettings *sampleChat = new RocketChatAccountSettings;
+    RocketChatAccountSettings sampleChat;
 
     QString val = QStringLiteral("Eric Roberts");
-    sampleChat->setUserName(val);
+    sampleChat.setUserName(val);
 
-    QCOMPARE(val, sampleChat->userName());
-
-    delete sampleChat;
+    QCOMPARE(val, sampleChat.userName());
 }
 
 void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
