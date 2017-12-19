@@ -71,7 +71,7 @@ Dialog {
                 if (newVal != "") {
                     channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal)
                 } else {
-                    //TODO verify it. https://doc.qt.io/qt-5/qml-qtqml-loggingcategory.html
+                    //see https://doc.qt.io/qt-5/qml-qtqml-loggingcategory.html
                     console.log(RuqolaDebugCategorySingleton.category, "New value is empty")
                 }
             }
