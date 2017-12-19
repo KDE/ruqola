@@ -21,6 +21,7 @@
         <file>TakeVideoMessageDialog.qml</file>
         <file>TextFieldEditor.qml</file>
         <file alias="DebugCategory.qml">DebugCategory.qml</file>
+        <file>ConfigureServerList.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
