@@ -27,6 +27,8 @@ import QtMultimedia 5.8
 import QtQuick.Layouts 1.1
 import "../js/message.js" as MessageScript;
 
+import KDE.Ruqola.DebugCategory 1.0
+
 MessageBase {
     id: attachmentVideo
 
@@ -60,14 +62,14 @@ MessageBase {
                 anchors.fill: parent
                 onClicked: {
                     console.log("Click !");
-                    if (audioPlayer.source != "") {
-                        if (audioPlayer.playbackState == MediaPlayer.PlayingState) {
+                    if (audioPlayer.source !== "") {
+                        if (audioPlayer.playbackState === MediaPlayer.PlayingState) {
                             audioPlayer.pause()
                         } else {
                             audioPlayer.play()
                         }
                     } else {
-                        console.log("Video file no found");
+                        console.log(RuqolaDebugCategorySingleton.category, "Video file no found");
                     }
                 }
             }

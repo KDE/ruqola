@@ -26,6 +26,8 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtMultimedia 5.8
 import QtQuick.Layouts 1.1
 
+import KDE.Ruqola.DebugCategory 1.0
+
 import "../js/message.js" as MessageScript;
 
 MessageBase {
@@ -59,14 +61,14 @@ MessageBase {
                 anchors.fill: parent
                 onClicked: {
                     console.log("Click !");
-                    if (audioPlayer.source != "") {
-                        if (audioPlayer.playbackState == MediaPlayer.PlayingState) {
+                    if (audioPlayer.source !== "") {
+                        if (audioPlayer.playbackState === MediaPlayer.PlayingState) {
                             audioPlayer.pause()
                         } else {
                             audioPlayer.play()
                         }
                     } else {
-                        console.log("Audio file no found");
+                        console.log(RuqolaDebugCategorySingleton.category, "Audio file no found");
                     }
                 }
             }
