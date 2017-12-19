@@ -42,15 +42,6 @@ Dialog {
     signal readOnly(bool roomIsReadOnly)
     signal archive(bool roomIsArchived)
 
-
-
-    /*
-    LoggingCategory {
-        id: category
-        name: "org.kde.ruqola.qml"
-    }
-    */
-
     function initializeAndOpen()
     {
         channelNameField.clear();
@@ -101,6 +92,13 @@ Dialog {
             id: channelDescriptionField
             onUpdateValue: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal)
+            }
+        }
+        //TODO improve it
+        ToolButton {
+            text: i18n("Delete")
+            onClicked: {
+                deleteRoomDialog.open();
             }
         }
     }
