@@ -31,6 +31,21 @@ public:
     ~RocketChatAccountSettingsTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldEmitSignalWhenSetServerURLChanged();
+    void shouldEmitSignalWhenUserNameChanged();
+    void shouldEmitSignalWhenUserIDChanged();
+    void shouldEmitSignalWhenLoginStatusChanged();
+    void shouldSetAccountName();
+    void shouldSetUserID();
+    void shouldsetAuthToken();
+    void shouldSetServerUrl();
+    void shouldSetUserName();
+    void shouldSetPassword();
+    void shouldLogout();
+    void shouldNotEmitSignalWhenNewUsernameIsSameAsOld();
+    void shouldNotEmitSignalWhenNewServerUrlIsSameAsOld();
 };
 
 #endif // ROCKETCHATACCOUNTSETTINGSTEST_H
+
+
