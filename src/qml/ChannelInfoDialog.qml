@@ -94,6 +94,23 @@ Dialog {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal)
             }
         }
+
+        Label {
+            text: i18n("Read-Only:");
+        }
+        Switch {
+            id: readOnlyRoom
+            checked: false
+        }
+
+        Label {
+            text: i18n("Archive:");
+        }
+        Switch {
+            id: archiveRoom
+            checked: false
+        }
+
         //TODO improve it
         ToolButton {
             text: i18n("Delete")
