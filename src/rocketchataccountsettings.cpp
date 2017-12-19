@@ -70,7 +70,6 @@ void RocketChatAccountSettings::logout()
 void RocketChatAccountSettings::loadSettings()
 {
     QSettings s;
-    //TODO add specific group name.
     mServerUrl = s.value(QStringLiteral("serverURL"), QStringLiteral("demo.rocket.chat")).toString();
     mUserName = s.value(QStringLiteral("username")).toString();
     mUserId = s.value(QStringLiteral("userID")).toString();
