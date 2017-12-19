@@ -73,7 +73,6 @@ Dialog {
                 } else {
                     //TODO verify it. https://doc.qt.io/qt-5/qml-qtqml-loggingcategory.html
                     console.log(RuqolaDebugCategorySingleton.category, "New value is empty")
-                    //console.log(category, "New value is empty")
                 }
             }
         }
