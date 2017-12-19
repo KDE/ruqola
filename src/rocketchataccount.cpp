@@ -452,6 +452,16 @@ QString RocketChatAccount::userName() const
     return settings()->userName();
 }
 
+void RocketChatAccount::setAccountName(const QString &servername)
+{
+    settings()->setAccountName(servername);
+}
+
+QString RocketChatAccount::accountName() const
+{
+    return settings()->accountName();
+}
+
 QString RocketChatAccount::userID() const
 {
     return settings()->userId();

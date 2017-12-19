@@ -75,6 +75,7 @@ void RocketChatAccountSettings::loadSettings()
     mUserName = s.value(QStringLiteral("username")).toString();
     mUserId = s.value(QStringLiteral("userID")).toString();
     mAuthToken = s.value(QStringLiteral("authToken")).toString();
+    mAccountName = s.value(QStringLiteral("accountName")).toString();
 }
 
 QString RocketChatAccountSettings::password() const
@@ -109,7 +110,14 @@ QString RocketChatAccountSettings::accountName() const
 
 void RocketChatAccountSettings::setAccountName(const QString &accountName)
 {
+    if (mAccountName == accountName) {
+        return;
+    }
+
+    QSettings s;
+    s.setValue(QStringLiteral("accountName"), accountName);
     mAccountName = accountName;
+    Q_EMIT accountNameChanged();
 }
 
 QString RocketChatAccountSettings::serverUrl() const

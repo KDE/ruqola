@@ -59,6 +59,7 @@ Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
     void loginStatusChanged();
+    void accountNameChanged();
 
 private:
     QString mUserId;

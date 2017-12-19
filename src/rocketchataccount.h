@@ -47,6 +47,7 @@ class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
     Q_PROPERTY(QString userID READ userID WRITE setUserID NOTIFY userIDChanged)
     Q_PROPERTY(QString serverUrl READ serverUrl WRITE setServerUrl NOTIFY serverUrlChanged)
+    Q_PROPERTY(QString accountName READ accountName WRITE setAccountName NOTIFY accountNameChanged)
     Q_PROPERTY(QString password WRITE setPassword)
     Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
 public:
@@ -121,6 +122,9 @@ public:
     void setUserName(const QString &username);
     QString userName() const;
 
+    void setAccountName(const QString &servername);
+    QString accountName() const;
+
     void setUserID(const QString &userID);
     QString userID() const;
 
@@ -136,6 +140,7 @@ public:
     UserCompleterModel *userCompleterModel() const;
 
 Q_SIGNALS:
+    void accountNameChanged();
     void userNameChanged();
     void userIDChanged();
     void serverUrlChanged();

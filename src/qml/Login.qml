@@ -31,6 +31,7 @@ Kirigami.Page {
     property alias username: usernameField.text;
     property alias password: passField.text;
     property alias serverUrl: urlField.text;
+    property alias accountName: nameField.text;
 
     signal accepted()
 
@@ -62,7 +63,19 @@ Kirigami.Page {
             width: 30
             height: 30
         }
-        
+
+        Text {
+            width: parent.width
+            text: i18n("Account Name")
+        }
+
+        TextField {
+            id: nameField
+
+            width: parent.width
+            placeholderText: i18n("Enter Account Name")
+        }
+
         Text {
             width: parent.width
             text: i18n("Rocket Chat Server")    
@@ -85,7 +98,7 @@ Kirigami.Page {
         TextField {
             width: parent.width
             id: usernameField
-            placeholderText: i18n("Enter username")
+            placeholderText: i18n("Enter Username")
         }
         
         Text {
