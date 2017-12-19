@@ -23,6 +23,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import org.kde.kirigami 2.1 as Kirigami
+import KDE.Ruqola.DebugCategory 1.0
 Dialog {
     id: createNewChannelDialog
 
@@ -81,6 +82,10 @@ Dialog {
     }
 
     onAccepted: {
-        createNewChannelDialog.createNewChannel(channelName.text, readOnlyRoom.checked, privateRoom.checked, userList.text)
+        if (channelName !== "") {
+            createNewChannelDialog.createNewChannel(channelName.text, readOnlyRoom.checked, privateRoom.checked, userList.text)
+        } else {
+            console.log(RuqolaDebugCategorySingleton.category, "Channel name is empty!")
+        }
     }
 }
