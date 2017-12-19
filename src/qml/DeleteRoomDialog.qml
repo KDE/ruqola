@@ -48,6 +48,6 @@ Dialog {
     }
 
     onAccepted: {
-        deleteMessageDialog.deleteMessage(rId)
+        deleteRoomDialog.deleteRoom(rId)
     }
 }
