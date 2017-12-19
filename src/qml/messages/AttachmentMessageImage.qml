@@ -71,6 +71,9 @@ MessageBase {
                 renderType: Text.NativeRendering
             }
         }
+        DownloadButton {
+            id: download
+        }
         Item {
             Layout.fillWidth: true
         }
