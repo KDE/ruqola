@@ -81,6 +81,11 @@ MessageBase {
             }
         }
 
+        DownloadButton {
+            id: download
+        }
+
+
         QQC2.Label {
             id: timestampText
 

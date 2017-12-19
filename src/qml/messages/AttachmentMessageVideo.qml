@@ -81,6 +81,11 @@ MessageBase {
             onValueChanged: {
             }
         }
+        DownloadButton {
+            id: download
+        }
+
+//TODO remove this one when all is ported
         Rectangle {
             Layout.alignment: Qt.AlignCenter
             width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing

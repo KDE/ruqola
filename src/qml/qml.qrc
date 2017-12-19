@@ -32,6 +32,7 @@
         <file alias="NewDateLabel.qml">messages/NewDateLabel.qml</file>
         <file alias="AvatarImage.qml">messages/AvatarImage.qml</file>
         <file alias="MessageBase.qml">messages/MessageBase.qml</file>
+        <file alias="DownloadButton.qml">messages/DownloadButton.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="systray.png">icons/systray.png</file>
@@ -39,6 +40,7 @@
         <file alias="media-playback-pause.svg">icons/media-playback-pause.svg</file>
         <file alias="media-playback-start.svg">icons/media-playback-start.svg</file>
         <file alias="media-playback-stop.svg">icons/media-playback-stop.svg</file>
+        <file alias="cloud-download.svg">icons/cloud-download.svg</file>
     </qresource>
     <qresource prefix="/js">
         <file alias="message.js">js/message.js</file>
