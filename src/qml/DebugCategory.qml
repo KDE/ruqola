@@ -23,7 +23,7 @@ pragma Singleton
 import QtQml 2.8
 import QtQuick 2.8
 
-Item {
+QtObject {
     readonly property LoggingCategory category : LoggingCategory {
         id: category
         name: "org.kde.ruqola.qml"
