@@ -113,6 +113,7 @@ public:
     Q_INVOKABLE void userAutocomplete(const QString &searchText, const QString &exception);
     Q_INVOKABLE void eraseRoom(const QString &roomId);
     Q_INVOKABLE void changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QString &newValue);
+    Q_INVOKABLE QString recordingVideoPath() const;
 
     void loadEmoji();
     void parsePublicSettings(const QJsonObject &obj);
