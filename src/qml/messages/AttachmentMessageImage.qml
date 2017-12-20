@@ -29,7 +29,6 @@ import "../js/message.js" as MessageScript;
 MessageBase {
 
     property string i_messageText
-    property string i_messageID
     property string i_username
     property string i_aliasname
     property string i_avatar
@@ -69,6 +68,18 @@ MessageBase {
                 wrapMode: QQC2.Label.Wrap
 
                 renderType: Text.NativeRendering
+            }
+        }
+        Repeater {
+            id: repearterAttachments
+
+            model: i_attachments
+            Text {
+                //width: urlColumn.width
+                text: model.modelData.title
+                wrapMode: QQC2.Label.Wrap
+                anchors.leftMargin: Kirigami.Units.smallSpacing
+                anchors.rightMargin: Kirigami.Units.smallSpacing
             }
         }
         DownloadButton {
