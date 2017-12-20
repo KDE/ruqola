@@ -137,11 +137,13 @@ void RocketChatAccountSettingsTest::shouldLogout()
 void RocketChatAccountSettingsTest::shouldSetAccountName()
 {
     RocketChatAccountSettings sampleChat;
+    QSignalSpy spy(&sampleChat, &RocketChatAccountSettings::accountNameChanged);
 
     QString val = QStringLiteral("myAccount#$^56");
     sampleChat.setAccountName(val);
 
     QCOMPARE(val, sampleChat.accountName());
+    QCOMPARE(spy.count(), 1);
 }
 
 void RocketChatAccountSettingsTest::shouldsetAuthToken()
