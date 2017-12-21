@@ -113,7 +113,6 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserIDChanged()
 
 void RocketChatAccountSettingsTest::shouldEmitSignalWhenLoginStatusChanged()
 {
-
 }
 
 void RocketChatAccountSettingsTest::shouldLogout()
@@ -213,5 +212,4 @@ void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
     QVERIFY(chat.userName().isEmpty());
     QVERIFY(chat.authToken().isEmpty());
     QCOMPARE(chat.serverUrl(), QStringLiteral("demo.rocket.chat"));
-
 }

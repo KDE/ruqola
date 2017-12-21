@@ -28,7 +28,6 @@ QTEST_MAIN(RuqolaServerConfigTest)
 RuqolaServerConfigTest::RuqolaServerConfigTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RuqolaServerConfigTest::shouldHaveDefaultValues()
@@ -38,7 +37,6 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.jitsiMeetUrl().isEmpty());
     QVERIFY(config.uniqueId().isEmpty());
 }
-
 
 void RuqolaServerConfigTest::shouldAssignValues()
 {

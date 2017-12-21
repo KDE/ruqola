@@ -388,7 +388,6 @@ QByteArray Room::serialize(Room *r)
         o[QStringLiteral("mutedUsers")] = array;
     }
 
-
     d.setObject(o);
     return d.toBinaryData();
 }

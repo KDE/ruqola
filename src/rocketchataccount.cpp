@@ -331,7 +331,7 @@ void RocketChatAccount::openChannel(const QString &url)
 void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::joinJitsiConfCall(const QString &roomId)"<<roomId;
-    const QString hash = QString::fromLatin1(QCryptographicHash::hash( ( mRuqolaServerConfig->uniqueId() + roomId ).toUtf8(), QCryptographicHash::Md5 ).toHex());
+    const QString hash = QString::fromLatin1(QCryptographicHash::hash((mRuqolaServerConfig->uniqueId() + roomId).toUtf8(), QCryptographicHash::Md5).toHex());
 #if defined(Q_OS_IOS) || defined(Q_OS_ANDROID)
     const QString scheme = "org.jitsi.meet://";
 #else
@@ -425,16 +425,16 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
     QJsonArray configs = obj.value(QStringLiteral("result")).toArray();
 
-    for ( const QJsonValueRef &currentConfig : configs ) {
+    for (const QJsonValueRef &currentConfig : configs) {
         QJsonObject currentConfObject = currentConfig.toObject();
-        const QString id    = currentConfObject[QStringLiteral("_id")].toString();
+        const QString id = currentConfObject[QStringLiteral("_id")].toString();
         const QString value = currentConfObject[QStringLiteral("value")].toString();
 
-        if ( id == QLatin1String("uniqueID") ) {
+        if (id == QLatin1String("uniqueID")) {
             mRuqolaServerConfig->setUniqueId(value);
-        } else if ( id == QLatin1String("Jitsi_Domain") ) {
+        } else if (id == QLatin1String("Jitsi_Domain")) {
             mRuqolaServerConfig->setJitsiMeetUrl(value);
-        } else if ( id == QLatin1String("Jitsi_URL_Room_Prefix") ) {
+        } else if (id == QLatin1String("Jitsi_URL_Room_Prefix")) {
             mRuqolaServerConfig->setJitsiMeetPrefix(value);
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id;

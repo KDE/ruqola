@@ -348,7 +348,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::createJitsiConfCal
                                 QJsonValue(roomId)
                             }};
     return generateMethod(QStringLiteral("jitsi:updateTimeout"), QJsonDocument(params), id);
-
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::logout(const QString &name, quint64 id)
@@ -368,7 +367,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
 
     const QStringList users = exception.split(QLatin1Char(','));
     QJsonArray exceptionEntries;
-    for (const QString &entry: users){
+    for (const QString &entry: users) {
         exceptionEntries.append(entry);
     }
     //exceptionEntries.append( mUsername );

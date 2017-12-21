@@ -23,10 +23,8 @@
 UserCompleterModel::UserCompleterModel(QObject *parent)
     : QStringListModel(parent)
 {
-
 }
 
 UserCompleterModel::~UserCompleterModel()
 {
-
 }

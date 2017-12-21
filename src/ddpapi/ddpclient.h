@@ -81,8 +81,7 @@ public:
     */
     quint64 method(const QString &method, const QJsonDocument &params, std::function<void(QJsonObject, RocketChatAccount *)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
 
-    quint64 method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonObject, RocketChatAccount *)> callback,
-                   DDPClient::MessageType messageType = DDPClient::Ephemeral);
+    quint64 method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonObject, RocketChatAccount *)> callback, DDPClient::MessageType messageType = DDPClient::Ephemeral);
 
     /**
     * @brief Subscribes to a collection with name @param collection and parameters @param params

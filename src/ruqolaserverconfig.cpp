@@ -22,7 +22,6 @@
 
 RuqolaServerConfig::RuqolaServerConfig()
 {
-
 }
 
 QString RuqolaServerConfig::uniqueId() const

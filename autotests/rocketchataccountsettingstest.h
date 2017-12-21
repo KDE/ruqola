@@ -47,5 +47,3 @@ private Q_SLOTS:
 };
 
 #endif // ROCKETCHATACCOUNTSETTINGSTEST_H
-
-

@@ -22,5 +22,4 @@
 
 Emoji::Emoji()
 {
-
 }
