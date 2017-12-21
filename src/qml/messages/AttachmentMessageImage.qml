@@ -81,12 +81,12 @@ MessageBase {
                 anchors.leftMargin: Kirigami.Units.smallSpacing
                 anchors.rightMargin: Kirigami.Units.smallSpacing
             }
-        }
-        //Move button in repeater
-        DownloadButton {
-            id: download
-            onDownloadButtonClicked: {
-
+            //Move button in repeater
+            DownloadButton {
+                id: download
+                onDownloadButtonClicked: {
+                    messageMain.downloadAttachment(model.modelData.link)
+                }
             }
         }
         Item {

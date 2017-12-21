@@ -142,5 +142,8 @@ Rectangle {
         onDeleteMessage: {
             messageMain.deleteMessage(messageId)
         }
+        onDownloadAttachment: {
+            console.log("Download file :" + url)
+        }
     }
 }
