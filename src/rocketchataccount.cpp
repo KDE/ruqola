@@ -504,10 +504,9 @@ void RocketChatAccount::setServerUrl(const QString &serverURL)
 
 QString RocketChatAccount::recordingVideoPath() const
 {
-    //ADD support for servername ?
-    const QString path = QStandardPaths::writableLocation( QStandardPaths::MoviesLocation ) + QStringLiteral("/recordings");
+    const QString path = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation) + accountName() + QStringLiteral("/recordings");
     QDir directory(path);
-    if ( !directory.mkpath( path ) ) {
+    if (!directory.mkpath(path)) {
         qCWarning(RUQOLA_LOG) << "Unable to create folder: " << path;
         return QString();
     }
