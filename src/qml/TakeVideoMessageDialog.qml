@@ -23,6 +23,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import QtMultimedia 5.8
+import KDE.Ruqola.Ruqola 1.0
 
 Dialog {
     id: takeVideoMessageDialog
@@ -43,7 +44,7 @@ Dialog {
         videoRecorder.audioEncodingMode: CameraRecorder.ConstantBitrateEncoding;
         videoRecorder.audioBitRate: 128000
         videoRecorder.mediaContainer: "mp4"
-        //TODO save path
+        videoRecorder.outputLocation: Ruqola.rocketChatAccount().recordingVideoPath()
     }
 
     VideoOutput {
