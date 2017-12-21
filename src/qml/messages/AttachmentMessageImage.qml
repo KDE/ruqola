@@ -82,8 +82,12 @@ MessageBase {
                 anchors.rightMargin: Kirigami.Units.smallSpacing
             }
         }
+        //Move button in repeater
         DownloadButton {
             id: download
+            onDownloadButtonClicked: {
+
+            }
         }
         Item {
             Layout.fillWidth: true

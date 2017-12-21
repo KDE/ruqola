@@ -13,13 +13,14 @@ import "../js/message.js" as MessageScript;
 Image {
     id: download
     source: "qrc:/icons/cloud-download.svg"
+    signal downloadButtonClicked()
     //TODO customize size
     width: 100
     height: 100
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            //TODO
+            download.downloadButtonClicked();
         }
     }
 }

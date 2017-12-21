@@ -25,6 +25,7 @@ ColumnLayout {
     signal linkActivated(string link)
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
+    signal downloadAttachment(string link)
 
     property string i_date
 
