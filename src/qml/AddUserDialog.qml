@@ -23,7 +23,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 
-import KDE.Ruqola.Ruqola 1.0
+import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.UserCompleterModel 1.0
 
 Dialog {
@@ -55,7 +55,7 @@ Dialog {
             }
         }
         ListView {
-            model: Ruqola.rocketChatAccount().userCompleterModel
+            model: appid.rocketChatAccount.userCompleterModel
         }
     }
     onAccepted: {

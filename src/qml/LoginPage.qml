@@ -22,22 +22,22 @@
 
 import QtQuick 2.9
 
-import KDE.Ruqola.Ruqola 1.0
+import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.DDPClient 1.0
 
 
 Login {
     id: loginTab
     anchors.fill: parent
-    visible: Ruqola.rocketChatAccount().loginStatus !== DDPClient.LoggedIn
-    serverUrl: Ruqola.rocketChatAccount().serverUrl
-    username: Ruqola.rocketChatAccount().userName
-    accountName: Ruqola.rocketChatAccount().accountName
+    visible: appid.rocketChatAccount.loginStatus !== DDPClient.LoggedIn
+    serverUrl: appid.rocketChatAccount.serverUrl
+    username: appid.rocketChatAccount.userName
+    accountName: appid.rocketChatAccount.accountName
     onAccepted: {
-        Ruqola.rocketChatAccount().password = loginTab.password;
-        Ruqola.rocketChatAccount().userName = loginTab.username;
-        Ruqola.rocketChatAccount().serverUrl = loginTab.serverUrl;
-        Ruqola.rocketChatAccount().accountName = loginTab.accountName;
-        Ruqola.rocketChatAccount().tryLogin();
+        appid.rocketChatAccount.password = loginTab.password;
+        appid.rocketChatAccount.userName = loginTab.username;
+        appid.rocketChatAccount.serverUrl = loginTab.serverUrl;
+        appid.rocketChatAccount.accountName = loginTab.accountName;
+        appid.rocketChatAccount.tryLogin();
     }
 }

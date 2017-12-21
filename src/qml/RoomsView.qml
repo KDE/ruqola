@@ -22,9 +22,9 @@
 
 import QtQuick 2.9
 import org.kde.kirigami 2.1 as Kirigami
-import KDE.Ruqola.Ruqola 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.2 as QQC2
+import KDE.Ruqola.RocketChatAccount 1.0
 
 ListView {
     id: roomsList
@@ -72,10 +72,10 @@ ListView {
             applicationWindow().pageStack.currentIndex = 1;
         }
         onHideRoom: {
-            Ruqola.rocketChatAccount().hideRoom(d_roomID)
+            appid.rocketChatAccount.hideRoom(d_roomID)
         }
         onLeaveRoom: {
-            Ruqola.rocketChatAccount().leaveRoom(d_roomID)
+            appid.rocketChatAccount.leaveRoom(d_roomID)
         }
     }
 }

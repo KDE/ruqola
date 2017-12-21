@@ -24,7 +24,7 @@ import QtQuick 2.9
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 
-import KDE.Ruqola.Ruqola 1.0
+import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.DDPClient 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
@@ -51,7 +51,7 @@ RowLayout {
         height: messageLine.height/2
         MouseArea {
             anchors.fill: parent
-            onClicked: Ruqola.rocketChatAccount().attachmentButtonClicked(selectedRoomID);
+            onClicked: appid.rocketChatAccount.attachmentButtonClicked(selectedRoomID);
         }
     }
     TextField {
@@ -67,8 +67,8 @@ RowLayout {
 
         property string type: "text"
         onAccepted: {
-            if (text != "" && Ruqola.rocketChatAccount().loginStatus === DDPClient.LoggedIn && !(selectedRoomID == "")) {
-                Ruqola.rocketChatAccount().sendMessage(selectedRoomID, text, type);
+            if (text != "" && appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn && !(selectedRoomID == "")) {
+                appid.rocketChatAccount.sendMessage(selectedRoomID, text, type);
                 text = "";
             }
         }

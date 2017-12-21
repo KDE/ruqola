@@ -25,8 +25,9 @@ import QtQuick 2.9
 import QtQuick.Controls 1.3
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.DDPClient 1.0
-import KDE.Ruqola.Ruqola 1.0
+import KDE.Ruqola.RocketChatAccount 1.0
 Kirigami.Page {
+    id: loginForm
     
     property alias username: usernameField.text;
     property alias password: passField.text;
@@ -36,7 +37,6 @@ Kirigami.Page {
     signal accepted()
 
     
-    id: loginForm
 
     implicitHeight: 400
     implicitWidth: 300
@@ -150,7 +150,7 @@ Kirigami.Page {
             width: parent.width
             color: "#FF0000"
             font.bold: true
-            visible: Ruqola.rocketChatAccount().loginStatus === DDPClient.LoginFailed
+            visible: appid.rocketChatAccount.loginStatus === DDPClient.LoginFailed
         }
     }
 }

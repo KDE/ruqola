@@ -43,6 +43,7 @@ Kirigami.ApplicationWindow {
 
     property QtObject model
     property QtObject userModel
+    property QtObject rocketChatAccount: Ruqola.rocketChatAccount()
     property string userInputMessageText: "";
 
     width: Kirigami.Units.gridUnit * 55
@@ -51,7 +52,7 @@ Kirigami.ApplicationWindow {
     title: i18n("Ruqola")
 
     pageStack.initialPage: [roomsComponent, mainComponent]
-    pageStack.visible: Ruqola.rocketChatAccount().loginStatus === DDPClient.LoggedIn
+    pageStack.visible: appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn
 
     globalDrawer: Kirigami.GlobalDrawer {
         drawerOpen: false
@@ -60,7 +61,7 @@ Kirigami.ApplicationWindow {
         
         topContent: [
             Text {
-                text: Ruqola.rocketChatAccount().userName === "" ? "" : i18n("Hello, %1", Ruqola.rocketChatAccount().userName)
+                text: appid.rocketChatAccount.userName === "" ? "" : i18n("Hello, %1", appid.rocketChatAccount.userName)
             }
         ]
         
@@ -76,7 +77,7 @@ Kirigami.ApplicationWindow {
                 text: i18n("Log out")
                 iconName: "system-log-out"
                 onTriggered: {
-                    Ruqola.rocketChatAccount().logOut();
+                    appid.rocketChatAccount.logOut();
                     appid.globalDrawer.drawerOpen = false;
                 }
             },
@@ -107,17 +108,17 @@ Kirigami.ApplicationWindow {
         id: channelInfoDialog
         channelName: (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""
         onDeleteRoom: {
-            Ruqola.rocketChatAccount().eraseRoom(roomId)
+            appid.rocketChatAccount.eraseRoom(roomId)
         }
         onModifyChannelSetting: {
-            Ruqola.rocketChatAccount().changeChannelSettings(roomId, type, newVal)
+            appid.rocketChatAccount.changeChannelSettings(roomId, type, newVal)
         }
     }
 
     CreateNewChannelDialog {
         id: createNewChannelDialog
         onCreateNewChannel: {
-            Ruqola.rocketChatAccount().createNewChannel(name, readOnly, privateRoom, usernames);
+            appid.rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames);
         }
     }
 
@@ -125,21 +126,21 @@ Kirigami.ApplicationWindow {
         id: addUserDialog
         onSearchUserName: {
             console.log("Search username" + pattern);
-            Ruqola.rocketChatAccount().userAutocomplete(pattern, "");
+            appid.rocketChatAccount.userAutocomplete(pattern, "");
         }
     }
 
     OpenDirectChannelDialog {
         id: openDirectChannelDialog
         onOpenDirectChannel: {
-            Ruqola.rocketChatAccount().openDirectChannel(userName);
+            appid.rocketChatAccount.openDirectChannel(userName);
         }
     }
 
     DeleteMessageDialog {
         id: deleteMessageDialog
         onDeleteMessage: {
-            Ruqola.rocketChatAccount().deleteMessage(messageId)
+            appid.rocketChatAccount.deleteMessage(messageId)
         }
     }
 
@@ -150,7 +151,7 @@ Kirigami.ApplicationWindow {
     BusyIndicator {
         id: busy
         anchors.centerIn: parent
-        visible: Ruqola.rocketChatAccount().loginStatus === DDPClient.LoggingIn
+        visible: appid.rocketChatAccount.loginStatus === DDPClient.LoggingIn
     }
 
     Component {
@@ -197,18 +198,18 @@ Kirigami.ApplicationWindow {
                 id: roomsList
                 implicitWidth: Kirigami.Units.gridUnit * 10
                 anchors.fill: parent
-                model: Ruqola.rocketChatAccount().roomFilterProxyModel()
+                model: appid.rocketChatAccount.roomFilterProxyModel()
                 selectedRoomID: appid.selectedRoomID;
                 onRoomSelected: {
                     if (roomID == selectedRoomID) {
                         return;
                     }
-                    Ruqola.rocketChatAccount().setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
+                    appid.rocketChatAccount.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
                     //console.log("Choosing room", roomID);
                     appid.selectedRoomID = roomID;
-                    appid.model = Ruqola.rocketChatAccount().getMessageModelForRoom(roomID)
-                    appid.selectedRoom = Ruqola.rocketChatAccount().getRoom(roomID)
-                    appid.userModel = Ruqola.rocketChatAccount().getUsersForRoomModel(roomID)
+                    appid.model = appid.rocketChatAccount.getMessageModelForRoom(roomID)
+                    appid.selectedRoom = appid.rocketChatAccount.getRoom(roomID)
+                    appid.userModel = appid.rocketChatAccount.getUsersForRoomModel(roomID)
                 }
 
             } //RoomsView
@@ -248,7 +249,7 @@ Kirigami.ApplicationWindow {
                             value: appid.selectedRoom && appid.selectedRoom.favorite
                         }
                         onCheckedChanged: {
-                            Ruqola.rocketChatAccount().changeFavorite(appid.selectedRoomID, checked)
+                            appid.rocketChatAccount.changeFavorite(appid.selectedRoomID, checked)
                         }
                     }
                     Kirigami.Heading {
@@ -298,7 +299,7 @@ Kirigami.ApplicationWindow {
                                 text: i18n("Video Chat")
                                 onTriggered: {
                                     if (appid.selectedRoom) {
-                                        Ruqola.rocketChatAccount().createJitsiConfCall(appid.selectedRoom);
+                                        appid.rocketChatAccount.createJitsiConfCall(appid.selectedRoom);
                                     }
                                 }
                             }
@@ -369,7 +370,7 @@ Kirigami.ApplicationWindow {
                     openDirectChannelDialog.open()
                 }
                 onJitsiCallConfActivated: {
-                    Ruqola.rocketChatAccount().joinJitsiConfCall(appid.selectedRoomID)
+                    appid.rocketChatAccount.joinJitsiConfCall(appid.selectedRoomID)
                 }
                 onDeleteMessage: {
                     deleteMessageDialog.msgId = messageId
@@ -380,13 +381,13 @@ Kirigami.ApplicationWindow {
                 id: userInputMessage
                 visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false)
 
-                messageLineText: Ruqola.rocketChatAccount().getUserCurrentMessage(appid.selectedRoomID)
+                messageLineText: appid.rocketChatAccount.getUserCurrentMessage(appid.selectedRoomID)
                 onTextEditing: {
-                    Ruqola.rocketChatAccount().textEditing(appid.selectedRoomID, str)
+                    appid.rocketChatAccount.textEditing(appid.selectedRoomID, str)
                     appid.userInputMessageText = str;
                 }
                 onClearUnreadMessages: {
-                    Ruqola.rocketChatAccount().clearUnreadMessages(appid.selectedRoomID)
+                    appid.rocketChatAccount.clearUnreadMessages(appid.selectedRoomID)
                 }
             }
         }// mainWidget Item

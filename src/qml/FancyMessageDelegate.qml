@@ -30,7 +30,7 @@ import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.ExtraColors 1.0
 import QtQuick.Layouts 1.1
-import KDE.Ruqola.Ruqola 1.0
+import KDE.Ruqola.RocketChatAccount 1.0
 
 Rectangle {
 
@@ -129,7 +129,7 @@ Rectangle {
         target: loaded.item
         onLinkActivated: {
             if (link.startsWith("ruqola:/room/")) {
-                Ruqola.rocketChatAccount().openChannel(RuqolaUtils.extractRoomUserFromUrl(link));
+                appid.rocketChatAccount.openChannel(RuqolaUtils.extractRoomUserFromUrl(link));
             } else if (link.startsWith("ruqola:/user/")) {
                 messageMain.openDirectChannel(RuqolaUtils.extractRoomUserFromUrl(link))
             } else {
