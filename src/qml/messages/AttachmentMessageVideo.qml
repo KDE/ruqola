@@ -56,12 +56,10 @@ MessageBase {
         Image {
             id: playerButton
             source: "qrc:/icons/media-playback-start.svg"
-            width: 100
-            height: 100
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    console.log("Click !");
+                    console.log("Click on video file!");
                     if (audioPlayer.source !== "") {
                         if (audioPlayer.playbackState === MediaPlayer.PlayingState) {
                             audioPlayer.pause()
@@ -83,6 +81,10 @@ MessageBase {
         }
         DownloadButton {
             id: download
+            onDownloadButtonClicked: {
+                //TODO messageMain.downloadAttachment(model.modelData.link)
+            }
+
         }
 
 //TODO remove this one when all is ported

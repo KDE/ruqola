@@ -74,18 +74,19 @@ MessageBase {
             id: repearterAttachments
 
             model: i_attachments
-            Text {
-                //width: urlColumn.width
-                text: model.modelData.title
-                wrapMode: QQC2.Label.Wrap
-                anchors.leftMargin: Kirigami.Units.smallSpacing
-                anchors.rightMargin: Kirigami.Units.smallSpacing
-            }
-            //Move button in repeater
-            DownloadButton {
-                id: download
-                onDownloadButtonClicked: {
-                    messageMain.downloadAttachment(model.modelData.link)
+            Row {
+                Text {
+                    //width: urlColumn.width
+                    text: model.modelData.title
+                    wrapMode: QQC2.Label.Wrap
+                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                }
+                DownloadButton {
+                    id: download
+                    onDownloadButtonClicked: {
+                        messageMain.downloadAttachment(model.modelData.link)
+                    }
                 }
             }
         }

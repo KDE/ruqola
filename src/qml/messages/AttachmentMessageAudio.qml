@@ -60,7 +60,7 @@ MessageBase {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    console.log("Click !");
+                    console.log(RuqolaDebugCategorySingleton.category, "Click on download audio file");
                     if (audioPlayer.source !== "") {
                         if (audioPlayer.playbackState === MediaPlayer.PlayingState) {
                             audioPlayer.pause()
@@ -83,6 +83,9 @@ MessageBase {
 
         DownloadButton {
             id: download
+            onDownloadButtonClicked: {
+                //TODO messageMain.downloadAttachment(model.modelData.link)
+            }
         }
 
 

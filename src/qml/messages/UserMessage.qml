@@ -67,6 +67,14 @@ MessageBase {
             }
         }
         MenuItem {
+            contentItem: QQC2.Label {
+                text: i18n("Set as Favorite")
+            }
+            onTriggered: {
+                console.log("Set as favorite", i_messageID);
+            }
+        }
+        MenuItem {
             enabled: i_username === Ruqola.rocketChatAccount().userName
             contentItem: QQC2.Label {
                 text: i18n("Delete")
