@@ -56,6 +56,7 @@ Rectangle {
     signal openDirectChannel(string userName)
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
+    signal downloadAttachment(string url)
 
     Loader {
         id: loaded
@@ -144,6 +145,7 @@ Rectangle {
         }
         onDownloadAttachment: {
             console.log("Download file :" + url)
+            messageMain.downloadAttachment(url)
         }
     }
 }

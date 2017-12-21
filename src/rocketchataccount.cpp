@@ -338,7 +338,6 @@ void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
     const QString scheme = QStringLiteral("https://");
 #endif
     const QString url = scheme + mRuqolaServerConfig->jitsiMeetUrl() + QLatin1Char('/') + mRuqolaServerConfig->jitsiMeetPrefix() + hash;
-    qDebug() << url;
     const QUrl clickedUrl = QUrl::fromUserInput(url);
     QDesktopServices::openUrl(clickedUrl);
 }
@@ -524,4 +523,12 @@ QString RocketChatAccount::recordingImagePath() const
     }
     const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + QStringLiteral(".jpg");
     return filePath;
+}
+
+void RocketChatAccount::downloadFile(const QString &url)
+{
+    //TODO download it.
+    qDebug() << " void RocketChatAccount::downloadFile(const QString &url)" << settings()->serverUrl() + url;
+    const QUrl clickedUrl = QUrl::fromUserInput(settings()->serverUrl() + url);
+    QDesktopServices::openUrl(clickedUrl);
 }

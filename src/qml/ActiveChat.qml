@@ -30,7 +30,7 @@ ListView {
     signal openDirectChannel(string userName)
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
-
+    signal downloadAttachment(string url)
 
     spacing: Kirigami.Units.smallSpacing
     onCountChanged: {
@@ -65,6 +65,9 @@ ListView {
         }
         onDeleteMessage: {
             activeChat.deleteMessage(messageId)
+        }
+        onDownloadAttachment: {
+            activeChat.downloadAttachment(url)
         }
     }
 }

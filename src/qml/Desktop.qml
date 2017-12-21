@@ -376,6 +376,9 @@ Kirigami.ApplicationWindow {
                     deleteMessageDialog.msgId = messageId
                     deleteMessageDialog.open()
                 }
+                onDownloadAttachment: {
+                    appid.rocketChatAccount.downloadFile(url)
+                }
             }
             footer: UserInput {
                 id: userInputMessage
