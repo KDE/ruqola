@@ -31,8 +31,8 @@ Rectangle {
     
     Layout.alignment: Qt.AlignTop
     Layout.fillHeight: false
-    implicitWidth: textLabel.font.pixelSize * 3
-    implicitHeight: textLabel.font.pixelSize * 3
+    implicitWidth: /*textLabel.font.pixelSize * 3*/ 12 * 3
+    implicitHeight: /*textLabel.font.pixelSize * 3*/ 12 * 3
     
     radius: 3
     

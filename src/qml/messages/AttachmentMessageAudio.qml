@@ -56,6 +56,10 @@ MessageBase {
     }
 
     RowLayout {
+        AvatarImage {
+            id: avatarRect
+        }
+
         Image {
             id: playerButton
             source: "qrc:/icons/media-playback-start.svg"

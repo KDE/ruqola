@@ -53,6 +53,9 @@ MessageBase {
 
 
     RowLayout {
+        AvatarImage {
+            id: avatarRect
+        }
         //Add video media
         Image {
             id: playerButton
