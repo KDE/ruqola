@@ -85,40 +85,8 @@ MessageBase {
             onDownloadButtonClicked: {
                 //TODO messageMain.downloadAttachment(model.modelData.link)
             }
-
         }
 
-//TODO remove this one when all is ported
-        Rectangle {
-            Layout.alignment: Qt.AlignCenter
-            width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
-            height: textLabel.height
-
-            color: Kirigami.Theme.disabledTextColor
-            radius: 4*Kirigami.Units.smallSpacing
-
-            QQC2.Label {
-                id: textLabel
-
-                color: Kirigami.Theme.textColor
-                opacity: 1
-
-                anchors.centerIn: parent
-                anchors.leftMargin: Kirigami.Units.smallSpacing
-                anchors.rightMargin: Kirigami.Units.smallSpacing
-
-                width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
-
-                text: i_username + i18n(" Video Message ");
-
-                wrapMode: QQC2.Label.Wrap
-
-                renderType: Text.NativeRendering
-            }
-        }
-        Item {
-            Layout.fillWidth: true
-        }
         QQC2.Label {
             id: timestampText
 
