@@ -29,6 +29,7 @@ import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.ExtraColors 1.0
+import KDE.Ruqola.DebugCategory 1.0
 import "../js/message.js" as MessageScript;
 MessageBase {
 
@@ -53,8 +54,9 @@ MessageBase {
                 text: i18n("Edit")
             }
             onTriggered: {
-                console.log("Edit", i_messageID, i_messageText);
-                console.log("User", i_own_username, i_username);
+                messageMain.editMessage(i_messageID);
+                console.log(RuqolaDebugCategorySingleton.category, "Edit", i_messageID, i_messageText);
+                console.log(RuqolaDebugCategorySingleton.category, "User", i_own_username, i_username);
             }
         }
         MenuItem {
@@ -62,7 +64,8 @@ MessageBase {
                 text: i18n("Reply")
             }
             onTriggered: {
-                console.log("Reply to", i_messageID);
+                console.log(RuqolaDebugCategorySingleton.category, "Reply to", i_messageID);
+                messageMain.replyMessage(i_messageID);
             }
         }
         MenuItem {
@@ -70,7 +73,8 @@ MessageBase {
                 text: i18n("Set as Favorite")
             }
             onTriggered: {
-                console.log("Set as favorite", i_messageID);
+                console.log(RuqolaDebugCategorySingleton.category, "Set as favorite", i_messageID);
+                messageMain.setFavoriteMessage(i_messageID);
             }
         }
         MenuItem {
@@ -105,12 +109,12 @@ MessageBase {
                     acceptedButtons: Qt.RightButton
 
                     onClicked: {
-                        console.log("clicked");
+                        console.log(RuqolaDebugCategorySingleton.category, "clicked");
                         if (mouse.button === Qt.RightButton) {
                             menu.x = mouse.x
                             menu.y = mouse.y
                             menu.open();
-                            console.log("Menu opened", mouse.x);
+                            console.log(RuqolaDebugCategorySingleton.category, "Menu opened", mouse.x);
                         }
                     }
                 }
