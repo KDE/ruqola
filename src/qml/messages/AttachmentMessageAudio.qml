@@ -51,7 +51,7 @@ MessageBase {
             playerSlider.sync = true
             playerSlider.value = audioPlayer.position / audioPlayer.duration
             playerSlider.sync = false
-            timeLabel.text = ConvertScript.convertTimeString(audioPlayer.position)
+            timeLabel.text = ConvertScript.convertTimeString(audioPlayer.position) + "/" + ConvertScript.convertTimeString(audioPlayer.duration)
         }
     }
 
@@ -92,7 +92,7 @@ MessageBase {
 
         QQC2.Label {
             id: timeLabel
-            text: "00:00"
+            text: "00:00/00:00"
         }
 
         DownloadButton {
