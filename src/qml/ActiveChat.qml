@@ -31,6 +31,9 @@ ListView {
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
     signal downloadAttachment(string url)
+    signal editMessage(string messageId)
+    signal replyMessage(string messageId)
+    signal setFavoriteMessage(string messageId)
 
     spacing: Kirigami.Units.smallSpacing
     onCountChanged: {
@@ -69,6 +72,15 @@ ListView {
         }
         onDownloadAttachment: {
             activeChat.downloadAttachment(url)
+        }
+        onEditMessage: {
+            activeChat.editMessage(messageId)
+        }
+        onReplyMessage: {
+            activeChat.replyMessage(messageId)
+        }
+        onSetFavoriteMessage: {
+            activeChat.setFavoriteMessage(messageId)
         }
     }
 }

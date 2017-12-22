@@ -58,6 +58,9 @@ Rectangle {
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
     signal downloadAttachment(string url)
+    signal editMessage(string messageId)
+    signal replyMessage(string messageId)
+    signal setFavoriteMessage(string messageId)
 
     Loader {
         id: loaded
@@ -148,6 +151,15 @@ Rectangle {
         onDownloadAttachment: {
             console.log("Download file :" + url)
             messageMain.downloadAttachment(url)
+        }
+        onEditMessage: {
+            messageMain.editMessage(messageId)
+        }
+        onReplyMessage: {
+            messageMain.replyMessage(messageId)
+        }
+        onSetFavoriteMessage: {
+            messageMain.setFavoriteMessage(messageId)
         }
     }
 }

@@ -32,7 +32,7 @@ import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.DDPClient 1.0
 import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
-
+import KDE.Ruqola.DebugCategory 1.0
 
 Kirigami.ApplicationWindow {
     id: appid
@@ -380,6 +380,18 @@ Kirigami.ApplicationWindow {
                 onDownloadAttachment: {
                     appid.rocketChatAccount.downloadFile(url)
                 }
+
+                onEditMessage: {
+                    console.log(RuqolaDebugCategorySingleton.category, "edit message : " + messageId)
+                }
+                onReplyMessage: {
+                    console.log(RuqolaDebugCategorySingleton.category, "reply message : " + messageId)
+                }
+                onSetFavoriteMessage: {
+                    console.log(RuqolaDebugCategorySingleton.category, "set Favorite message : " + messageId)
+                }
+
+
             }
             footer: UserInput {
                 id: userInputMessage
