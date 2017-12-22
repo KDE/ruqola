@@ -51,7 +51,7 @@ class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(QString password WRITE setPassword)
     Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
 public:
-    explicit RocketChatAccount(QObject *parent = nullptr);
+    explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
     ~RocketChatAccount();
 
     enum RoomInfoType {

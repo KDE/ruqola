@@ -29,7 +29,7 @@ class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccountSettings : public QObject
 {
     Q_OBJECT
 public:
-    explicit RocketChatAccountSettings(QObject *parent = nullptr);
+    explicit RocketChatAccountSettings(const QString &accountName = QString(), QObject *parent = nullptr);
 
     QString userId() const;
     void setUserId(const QString &userId);

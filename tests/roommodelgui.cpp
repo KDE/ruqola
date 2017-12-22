@@ -33,7 +33,7 @@
 RoomModelGui::RoomModelGui(QWidget *parent)
     : QWidget(parent)
 {
-    RocketChatAccount *account = new RocketChatAccount(this);
+    RocketChatAccount *account = new RocketChatAccount(QString(), this);
     mModel = new RoomModel(account, this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mRoomFilterProxyModel->setSourceModel(mModel);

@@ -24,9 +24,10 @@
 #include <QSettings>
 #include <QStandardPaths>
 
-RocketChatAccountSettings::RocketChatAccountSettings(QObject *parent)
+RocketChatAccountSettings::RocketChatAccountSettings(const QString &accountName, QObject *parent)
     : QObject(parent)
 {
+    //TODO use accountname for settings
 }
 
 QString RocketChatAccountSettings::userId() const

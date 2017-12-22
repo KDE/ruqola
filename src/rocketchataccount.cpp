@@ -43,14 +43,16 @@
 
 #include <restapi/restapirequest.h>
 
-RocketChatAccount::RocketChatAccount(QObject *parent)
+RocketChatAccount::RocketChatAccount(const QString &accountName, QObject *parent)
     : QObject(parent)
 {
+    //create an uniq file for each account
     if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
         mRuqolaLogger = new RuqolaLogger;
     }
     mRuqolaServerConfig = new RuqolaServerConfig;
-    mSettings = new RocketChatAccountSettings(this);
+    //TODO add account name.
+    mSettings = new RocketChatAccountSettings(accountName, this);
     connect(mSettings, &RocketChatAccountSettings::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
     connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverUrlChanged);
     connect(mSettings, &RocketChatAccountSettings::userIDChanged, this, &RocketChatAccount::userIDChanged);
