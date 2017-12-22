@@ -388,6 +388,7 @@ Kirigami.ApplicationWindow {
                     console.log(RuqolaDebugCategorySingleton.category, "reply message : " + messageId)
                 }
                 onSetFavoriteMessage: {
+                    appid.rocketChatAccount.starMessage(messageId, appid.selectedRoomID, true)
                     console.log(RuqolaDebugCategorySingleton.category, "set Favorite message : " + messageId)
                 }
 
