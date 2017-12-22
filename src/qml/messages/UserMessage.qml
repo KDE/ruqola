@@ -45,47 +45,8 @@ MessageBase {
 
     id: messageMain
     Layout.alignment: Qt.AlignTop
-    Menu {
+    MessageMenu {
         id: menu
-
-        MenuItem {
-            enabled: i_username === i_own_username
-            contentItem: QQC2.Label {
-                text: i18n("Edit")
-            }
-            onTriggered: {
-                messageMain.editMessage(i_messageID);
-                console.log(RuqolaDebugCategorySingleton.category, "Edit", i_messageID, i_messageText);
-                console.log(RuqolaDebugCategorySingleton.category, "User", i_own_username, i_username);
-            }
-        }
-        MenuItem {
-            contentItem: QQC2.Label {
-                text: i18n("Reply")
-            }
-            onTriggered: {
-                console.log(RuqolaDebugCategorySingleton.category, "Reply to", i_messageID);
-                messageMain.replyMessage(i_messageID);
-            }
-        }
-        MenuItem {
-            contentItem: QQC2.Label {
-                text: i18n("Set as Favorite")
-            }
-            onTriggered: {
-                console.log(RuqolaDebugCategorySingleton.category, "Set as favorite", i_messageID);
-                messageMain.setFavoriteMessage(i_messageID);
-            }
-        }
-        MenuItem {
-            enabled: i_username === i_own_username
-            contentItem: QQC2.Label {
-                text: i18n("Delete")
-            }
-            onTriggered: {
-                messageMain.deleteMessage(i_messageID);
-            }
-        }
     }
 
     RowLayout {

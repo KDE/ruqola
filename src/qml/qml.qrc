@@ -36,6 +36,7 @@
         <file alias="AvatarImage.qml">messages/AvatarImage.qml</file>
         <file alias="MessageBase.qml">messages/MessageBase.qml</file>
         <file alias="DownloadButton.qml">messages/DownloadButton.qml</file>
+        <file alias="MessageMenu.qml">messages/MessageMenu.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="systray.png">icons/systray.png</file>
