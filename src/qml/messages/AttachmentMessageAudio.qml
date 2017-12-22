@@ -48,7 +48,9 @@ MessageBase {
             playerSlider.value=0
         }
         onPositionChanged: {
+            playerSlider.sync = true
             playerSlider.value = audioPlayer.position / audioPlayer.duration
+            playerSlider.sync = false
             timeLabel.text = ConvertScript.convertTimeString(audioPlayer.position)
         }
     }
@@ -79,8 +81,12 @@ MessageBase {
             id: playerSlider
             Layout.fillWidth: true
 
+            property bool sync: false
+
             onValueChanged: {
-                audioPlayer.seek(value * audioPlayer.duration)
+                if (!sync) {
+                    audioPlayer.seek(value * audioPlayer.duration)
+                }
             }
         }
 
