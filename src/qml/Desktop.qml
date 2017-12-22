@@ -365,6 +365,7 @@ Kirigami.ApplicationWindow {
             ActiveChat {
                 id: activeChat
                 model: appid.model
+
                 onOpenDirectChannel: {
                     openDirectChannelDialog.username = userName;
                     openDirectChannelDialog.open()

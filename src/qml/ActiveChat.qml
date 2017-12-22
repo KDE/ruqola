@@ -57,6 +57,7 @@ ListView {
         i_urls: urls
         i_attachments: attachments
         i_date: date
+        i_own_username: appid.rocketChatAccount.userName
         onOpenDirectChannel: {
             activeChat.openDirectChannel(userName)
         }

@@ -46,6 +46,7 @@ Rectangle {
     property var i_urls
     property var i_attachments
     property var i_date
+    property string i_own_username;
 
     id: messageMain
     color: RuqolaSingleton.backgroundColor
@@ -100,7 +101,8 @@ Rectangle {
                               i_avatar: i_avatar,
                               i_urls: i_urls,
                               i_attachments: i_attachments,
-                              i_date: i_date
+                              i_date: i_date,
+                              i_own_username: i_own_username
                           }
                           )
             } else if (i_messageType === Message.Audio) {

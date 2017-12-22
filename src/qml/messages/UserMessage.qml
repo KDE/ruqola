@@ -27,11 +27,9 @@ import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Layouts 1.1
-import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.ExtraColors 1.0
 import "../js/message.js" as MessageScript;
-
 MessageBase {
 
     property string i_messageText
@@ -42,6 +40,7 @@ MessageBase {
     property var i_timestamp
     property var i_urls
     property var i_attachments
+    property string i_own_username
 
     id: messageMain
     Layout.alignment: Qt.AlignTop
@@ -49,13 +48,13 @@ MessageBase {
         id: menu
 
         MenuItem {
-            enabled: i_username === Ruqola.rocketChatAccount().userName
+            enabled: i_username === i_own_username
             contentItem: QQC2.Label {
                 text: i18n("Edit")
             }
             onTriggered: {
                 console.log("Edit", i_messageID, i_messageText);
-                console.log("User", Ruqola.rocketChatAccount().userName, i_username);
+                console.log("User", i_own_username, i_username);
             }
         }
         MenuItem {
@@ -75,7 +74,7 @@ MessageBase {
             }
         }
         MenuItem {
-            enabled: i_username === Ruqola.rocketChatAccount().userName
+            enabled: i_username === i_own_username
             contentItem: QQC2.Label {
                 text: i18n("Delete")
             }
