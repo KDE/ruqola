@@ -45,5 +45,6 @@
     </qresource>
     <qresource prefix="/js">
         <file alias="message.js">js/message.js</file>
+        <file alias="convert.js">js/convert.js</file>
     </qresource>
 </RCC>

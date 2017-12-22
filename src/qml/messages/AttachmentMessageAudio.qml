@@ -29,6 +29,7 @@ import QtQuick.Layouts 1.1
 import KDE.Ruqola.DebugCategory 1.0
 
 import "../js/message.js" as MessageScript;
+import "../js/convert.js" as ConvertScript;
 
 MessageBase {
     id: attachmentAudio
@@ -48,6 +49,7 @@ MessageBase {
         }
         onPositionChanged: {
             playerSlider.value = audioPlayer.position / audioPlayer.duration
+            timeLabel.text = ConvertScript.convertTimeString(audioPlayer.position)
         }
     }
 
@@ -78,7 +80,13 @@ MessageBase {
             Layout.fillWidth: true
 
             onValueChanged: {
+                audioPlayer.seek(value * audioPlayer.duration)
             }
+        }
+
+        QQC2.Label {
+            id: timeLabel
+            text: "00:00"
         }
 
         DownloadButton {
