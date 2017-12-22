@@ -116,6 +116,7 @@ public:
     Q_INVOKABLE QString recordingVideoPath() const;
     Q_INVOKABLE QString recordingImagePath() const;
     Q_INVOKABLE void downloadFile(const QString &url);
+    Q_INVOKABLE void starMessage(const QString &messageId, const QString &rid, bool starred);
 
     void loadEmoji();
     void parsePublicSettings(const QJsonObject &obj);

@@ -161,6 +161,7 @@ public:
     quint64 setRoomTopic(const QString &roomId, const QString &topic);
     quint64 setRoomDescription(const QString &roomId, const QString &description);
     quint64 setRoomAnnouncement(const QString &roomId, const QString &announcement);
+    quint64 starMessage(const QString &messageId, const QString &rid, bool starred);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

@@ -38,6 +38,13 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void star_message(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Star message:") + QJsonDocument(root).toJson());
+    }
+}
+
 void change_room_settings(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -380,6 +387,12 @@ quint64 DDPClient::clearUnreadMessages(const QString &roomID)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->readMessages(roomID, m_uid);
     return method(result, empty_callback, DDPClient::Persistent);
+}
+
+quint64 DDPClient::starMessage(const QString &messageId, const QString &rid, bool starred)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->starMessage(messageId, rid, starred, m_uid);
+    return method(result, star_message, DDPClient::Persistent);
 }
 
 quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)

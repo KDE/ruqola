@@ -401,6 +401,11 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
     joinJitsiConfCall(roomId);
 }
 
+void RocketChatAccount::starMessage(const QString &messageId, const QString &rid, bool starred)
+{
+    ddp()->starMessage(messageId, rid, starred);
+}
+
 void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QString &newValue)
 {
     switch (infoType) {
