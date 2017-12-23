@@ -46,6 +46,7 @@ Dialog {
         videoRecorder.outputLocation: appid.rocketChatAccount.recordingVideoPath()
     }
 
+    //TODO align vertical center
     Label {
         visible: isCameraAvailable == false
         text: i18n("No camera found.");

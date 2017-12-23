@@ -48,8 +48,6 @@ RowLayout {
 
     QQC2.TextField {
         id: channelNameField
-        //placeholderText: i18n("Channel Name")
-        //TODO
         onAccepted: {
             if (enabled) {
                 textFieldEditor.updateValue(text)
