@@ -36,7 +36,7 @@ Dialog {
     height: 500
 
     modal: true
-    // TODO property bool isCameraAvailable: QtMultimedia.availableCameras.length > 0
+    property bool isCameraAvailable: QtMultimedia.availableCameras.length > 0
 
     Camera {
         id: camera
@@ -46,16 +46,22 @@ Dialog {
         videoRecorder.outputLocation: appid.rocketChatAccount.recordingVideoPath()
     }
 
+    Label {
+        visible: isCameraAvailable == false
+        text: i18n("No camera found.");
+    }
+
     VideoOutput {
         id: camareLiveOutput
         source: camera
         anchors.fill: parent
         autoOrientation: true
         focus: visible
-        visible: camera.cameraStatus === Camera.ActiveStatus
+        visible: isCameraAvailable && (camera.cameraStatus === Camera.ActiveStatus)
     }
     Button {
         text: i18n("Video");
+        visible: isCameraAvailable
         onPressed: {
             if (camera.cameraStatus === camera.StartingStatus)
                 camera.stop()
