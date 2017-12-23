@@ -149,7 +149,6 @@ Rectangle {
             messageMain.deleteMessage(messageId)
         }
         onDownloadAttachment: {
-            console.log("Download file :" + url)
             messageMain.downloadAttachment(url)
         }
         onEditMessage: {
