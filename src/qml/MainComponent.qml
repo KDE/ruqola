@@ -97,7 +97,7 @@ Component {
                         QQC2.MenuItem {
                             text: i18n("Channel Info")
                             onTriggered: {
-                                channelInfoDialog.open()
+                                channelInfoDialog.initializeAndOpen()
                             }
                         }
                         QQC2.MenuSeparator {
