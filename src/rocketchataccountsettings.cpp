@@ -24,8 +24,9 @@
 #include <QSettings>
 #include <QStandardPaths>
 
-RocketChatAccountSettings::RocketChatAccountSettings(const QString &accountName, QObject *parent)
+RocketChatAccountSettings::RocketChatAccountSettings(const QString &accountFileName, QObject *parent)
     : QObject(parent)
+    , mAccountFileName(accountFileName)
 {
     //TODO use accountname for settings
 }

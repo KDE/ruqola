@@ -43,7 +43,7 @@
 
 #include <restapi/restapirequest.h>
 
-RocketChatAccount::RocketChatAccount(const QString &accountName, QObject *parent)
+RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
 {
     //create an uniq file for each account
@@ -52,7 +52,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountName, QObject *parent
     }
     mRuqolaServerConfig = new RuqolaServerConfig;
     //TODO add account name.
-    mSettings = new RocketChatAccountSettings(accountName, this);
+    mSettings = new RocketChatAccountSettings(accountFileName, this);
     connect(mSettings, &RocketChatAccountSettings::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
     connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverUrlChanged);
     connect(mSettings, &RocketChatAccountSettings::userIDChanged, this, &RocketChatAccount::userIDChanged);

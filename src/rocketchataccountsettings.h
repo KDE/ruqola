@@ -29,7 +29,7 @@ class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccountSettings : public QObject
 {
     Q_OBJECT
 public:
-    explicit RocketChatAccountSettings(const QString &accountName = QString(), QObject *parent = nullptr);
+    explicit RocketChatAccountSettings(const QString &accountFileName = QString(), QObject *parent = nullptr);
 
     QString userId() const;
     void setUserId(const QString &userId);
@@ -69,6 +69,7 @@ private:
     QString mCachePath;
     QString mUserName;
     QString mPassword;
+    QString mAccountFileName;
 };
 
 #endif // ROCKETCHATACCOUNTSETTINGS_H
