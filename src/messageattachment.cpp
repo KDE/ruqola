@@ -36,8 +36,9 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
         obj[QStringLiteral("image_height")] = message.imageHeight();
         obj[QStringLiteral("image_width")] = message.imageWidth();
     }
-    if (!message.color().isEmpty()) {
-        obj[QStringLiteral("color")] = message.color();
+    const QString color = message.color();
+    if (!color.isEmpty()) {
+        obj[QStringLiteral("color")] = color;
     }
     return obj;
 }
