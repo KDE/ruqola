@@ -47,7 +47,10 @@ MessageBase {
             playerSlider.value=0
         }
         onPositionChanged: {
+            playerSlider.sync = true
             playerSlider.value = audioPlayer.position / audioPlayer.duration
+            playerSlider.sync = false
+            timeLabel.text = ConvertScript.convertTimeString(audioPlayer.position) + "/" + ConvertScript.convertTimeString(audioPlayer.duration)
         }
     }
 
@@ -80,9 +83,19 @@ MessageBase {
             id: playerSlider
             Layout.fillWidth: true
 
+            property bool sync: false
+
             onValueChanged: {
+                if (!sync) {
+                    audioPlayer.seek(value * audioPlayer.duration)
+                }
             }
         }
+        QQC2.Label {
+            id: timeLabel
+            text: "00:00/00:00"
+        }
+
         DownloadButton {
             id: download
             onDownloadButtonClicked: {

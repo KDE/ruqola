@@ -46,6 +46,7 @@ MessageBase {
         Item {
             Layout.fillWidth: true
         }
+        //TODO remove it when we will able to display image
 
         Rectangle {
             Layout.alignment: Qt.AlignCenter
