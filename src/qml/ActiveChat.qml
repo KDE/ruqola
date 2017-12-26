@@ -35,6 +35,8 @@ ListView {
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId)
 
+    property QtObject rocketChatAccount
+
     spacing: Kirigami.Units.smallSpacing
     onCountChanged: {
         positionViewAtIndex(count - 1, ListView.Beginning)
@@ -60,7 +62,7 @@ ListView {
         i_urls: urls
         i_attachments: attachments
         i_date: date
-        i_own_username: appid.rocketChatAccount.userName
+        i_own_username: rocketChatAccount.userName
         onOpenDirectChannel: {
             activeChat.openDirectChannel(userName)
         }

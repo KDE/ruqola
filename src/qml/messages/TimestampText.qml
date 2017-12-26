@@ -27,7 +27,7 @@ import "../js/message.js" as MessageScript;
 
 QQC2.Label {
     id: timestampText
-    
+    property var timestamp
     Layout.alignment: Qt.AlignTop | Qt.AlignRight
     text: MessageScript.displayDateTime(i_timestamp)
     opacity: .5

@@ -58,6 +58,9 @@ MessageBase {
     RowLayout {
         AvatarImage {
             id: avatarRect
+            avatarurl: i_avatar
+            aliasname: i_aliasname
+            username: i_username
         }
         //Add video media
         Image {
@@ -104,6 +107,7 @@ MessageBase {
         }
         TimestampText {
             id: timestampText
+            timestamp: i_timestamp
         }
     }
 }

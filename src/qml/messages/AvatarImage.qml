@@ -29,6 +29,10 @@ import "../js/message.js" as MessageScript;
 Rectangle {
     id: avatarRect
     
+    property string avatarurl
+    property string aliasname
+    property string username
+
     Layout.alignment: Qt.AlignTop
     Layout.fillHeight: false
     implicitWidth: /*textLabel.font.pixelSize * 3*/ 12 * 3
@@ -40,19 +44,19 @@ Rectangle {
     
      // Avatar is defined as "/avatar/" + name + ".jpg" we need to get it from server. We need a cache too
 
-    color: i_avatar !== "" ? "transparent" : MessageScript.stringToColour(i_username)
+    color: avatarurl !== "" ? "transparent" : MessageScript.stringToColour(username)
     Image {
         id: avatarImage
         
         anchors.fill: parent
-        visible: i_avatar !== ""
-        source: i_avatar
+        visible: avatarurl !== ""
+        source: avatarurl
         fillMode: Image.PreserveAspectFit
     }
     Text {
         id: avatarText
         
-        visible: i_avatar == ""
+        visible: avatarurl == ""
         anchors.fill: parent
         anchors.margins: Kirigami.Units.smallSpacing
         
@@ -68,8 +72,8 @@ Rectangle {
         
         text: {
             //TODO verify if it works with non latin char.
-            if (i_aliasname.length > 0) {
-                var match = i_aliasname.match(/([a-zA-Z])([a-zA-Z])/);
+            if (aliasname.length > 0) {
+                var match = aliasname.match(/([a-zA-Z])([a-zA-Z])/);
                 var abbrev = match[1].toUpperCase();
                 if (match.length > 2) {
                     abbrev += match[2].toLowerCase();

@@ -31,6 +31,9 @@ ColumnLayout {
     signal downloadAttachment(string url)
 
     property string i_date
+    property string i_username
+    property string i_aliasname
+    property string i_avatar
 
     NewDateLabel {
         id: newDateRect

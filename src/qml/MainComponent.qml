@@ -178,6 +178,7 @@ Component {
         ActiveChat {
             id: activeChat
             model: appid.model
+            rocketChatAccount: appid.rocketChatAccount
             
             onOpenDirectChannel: {
                 openDirectChannelDialog.username = userName;

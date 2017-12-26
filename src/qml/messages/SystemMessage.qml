@@ -118,14 +118,9 @@ MessageBase {
         Item {
             Layout.fillWidth: true
         }
-        QQC2.Label {
+        TimestampText {
             id: timestampText
-
-            Layout.alignment: Qt.AlignTop | Qt.AlignRight
-            text: MessageScript.displayDateTime(i_timestamp)
-            opacity: .5
-
-            z: 10
+            timestamp: i_timestamp
         }
     }
 }

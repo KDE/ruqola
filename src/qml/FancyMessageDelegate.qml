@@ -34,6 +34,8 @@ import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.DebugCategory 1.0
 Rectangle {
 
+    id: messageMain
+
     property string i_messageID
     property string i_messageText
     property string i_username
@@ -48,7 +50,6 @@ Rectangle {
     property var i_date
     property string i_own_username;
 
-    id: messageMain
     color: RuqolaSingleton.backgroundColor
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
     

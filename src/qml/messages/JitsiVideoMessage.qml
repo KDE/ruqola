@@ -83,6 +83,7 @@ MessageBase {
         }
         TimestampText {
             id: timestampText
+            timestamp: i_timestamp
         }
     }
 }

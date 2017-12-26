@@ -52,6 +52,9 @@ MessageBase {
     RowLayout {
         AvatarImage {
             id: avatarRect
+            avatarurl: i_avatar
+            aliasname: i_aliasname
+            username: i_username
         }
         ColumnLayout {
             Layout.fillHeight: true
@@ -133,6 +136,7 @@ MessageBase {
         }
         TimestampText {
             id: timestampText
+            timestamp: i_timestamp
         }
     }
 }

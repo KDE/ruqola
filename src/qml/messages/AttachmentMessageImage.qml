@@ -29,9 +29,6 @@ import "../js/message.js" as MessageScript;
 MessageBase {
 
     property string i_messageText
-    property string i_username
-    property string i_aliasname
-    property string i_avatar
     property var i_timestamp
     property var i_urls
     property var i_attachments
@@ -41,6 +38,9 @@ MessageBase {
     RowLayout {
         AvatarImage {
             id: avatarRect
+            avatarurl: i_avatar
+            aliasname: i_aliasname
+            username: i_username
         }
 
         Item {
@@ -100,6 +100,7 @@ MessageBase {
         }
         TimestampText {
             id: timestampText
+            timestamp: i_timestamp
         }
     }
 }
