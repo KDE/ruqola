@@ -18,13 +18,35 @@
    Boston, MA 02110-1301, USA.
 */
 
-pragma Singleton
 
-import QtQml 2.8
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.2
+import QtQuick.Window 2.0
+import QtQuick 2.9
 
-QtObject {
-    readonly property LoggingCategory category : LoggingCategory {
-        id: category
-        name: "org.kde.ruqola.qml"
+Dialog {
+    id: archiveRoomDialog
+
+    title: i18n("Archive Room")
+
+    signal archiveRoom()
+
+    x: parent.width / 2 - width / 2
+    y: parent.height / 2 - height / 2
+
+    modal: true
+
+    standardButtons: Dialog.Ok | Dialog.Cancel
+
+    Row {
+        Label {
+            text: i18n("Do you want to archive this room?")
+            font.bold: true
+            font.pointSize: 15
+        }
+    }
+
+    onAccepted: {
+        archiveRoomDialog.archiveRoom()
     }
 }

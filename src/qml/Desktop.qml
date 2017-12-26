@@ -52,7 +52,7 @@ Kirigami.ApplicationWindow {
     title: i18n("Ruqola")
 
     pageStack.initialPage: [roomsComponent, mainComponent]
-    pageStack.visible: appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn
+    pageStack.visible: rocketChatAccount.loginStatus === DDPClient.LoggedIn
 
     globalDrawer: Kirigami.GlobalDrawer {
         drawerOpen: false
@@ -61,7 +61,7 @@ Kirigami.ApplicationWindow {
         
         topContent: [
             Text {
-                text: appid.rocketChatAccount.userName === "" ? "" : i18n("Hello, %1", appid.rocketChatAccount.userName)
+                text: rocketChatAccount.userName === "" ? "" : i18n("Hello, %1", rocketChatAccount.userName)
             }
         ]
         
@@ -77,7 +77,7 @@ Kirigami.ApplicationWindow {
                 text: i18n("Log out")
                 iconName: "system-log-out"
                 onTriggered: {
-                    appid.rocketChatAccount.logOut();
+                    rocketChatAccount.logOut();
                     appid.globalDrawer.drawerOpen = false;
                 }
             },
@@ -94,6 +94,7 @@ Kirigami.ApplicationWindow {
     
     LoginPage {
         id: loginTab
+        rcAccount: rocketChatAccount
     }
 
     AboutDialog {
@@ -108,17 +109,17 @@ Kirigami.ApplicationWindow {
         id: channelInfoDialog
         channelName: (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""
         onDeleteRoom: {
-            appid.rocketChatAccount.eraseRoom(roomId)
+            rocketChatAccount.eraseRoom(roomId)
         }
         onModifyChannelSetting: {
-            appid.rocketChatAccount.changeChannelSettings(roomId, type, newVal)
+            rocketChatAccount.changeChannelSettings(roomId, type, newVal)
         }
     }
 
     CreateNewChannelDialog {
         id: createNewChannelDialog
         onCreateNewChannel: {
-            appid.rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames);
+            rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames);
         }
     }
 
@@ -126,33 +127,33 @@ Kirigami.ApplicationWindow {
         id: addUserDialog
         onSearchUserName: {
             console.log("Search username" + pattern);
-            appid.rocketChatAccount.userAutocomplete(pattern, "");
+            rocketChatAccount.userAutocomplete(pattern, "");
         }
     }
 
     OpenDirectChannelDialog {
         id: openDirectChannelDialog
         onOpenDirectChannel: {
-            appid.rocketChatAccount.openDirectChannel(userName);
+            rocketChatAccount.openDirectChannel(userName);
         }
     }
 
     DeleteMessageDialog {
         id: deleteMessageDialog
         onDeleteMessage: {
-            appid.rocketChatAccount.deleteMessage(messageId)
+            rocketChatAccount.deleteMessage(messageId)
         }
     }
 
     TakeVideoMessageDialog {
         id: takeVideoMessage
-        rocketChatAccount: appid.rocketChatAccount
+        rocketChatAccount: rocketChatAccount
     }
 
     BusyIndicator {
         id: busy
         anchors.centerIn: parent
-        visible: appid.rocketChatAccount.loginStatus === DDPClient.LoggingIn
+        visible: rocketChatAccount.loginStatus === DDPClient.LoggingIn
     }
 
     RoomsComponent {

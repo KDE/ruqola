@@ -37,7 +37,7 @@ Dialog {
 
     property string channelName: ""
 
-    signal modifyChannelSetting(string roomId, int type, string newVal)
+    signal modifyChannelSetting(string roomId, int type, var newVal)
     signal deleteRoom(string roomId)
     signal readOnly(bool roomIsReadOnly)
     signal archive(bool roomIsArchived)
@@ -48,6 +48,8 @@ Dialog {
         channelCommentField.clear();
         channelAnnoucementField.clear();
         channelDescriptionField.clear();
+        archiveRoom.checked = false;
+        readOnlyRoom.checked = false;
         open();
     }
 
@@ -101,6 +103,9 @@ Dialog {
         Switch {
             id: readOnlyRoom
             checked: false
+            onClicked: {
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.ReadOnly, checked)
+            }
         }
 
         Label {
@@ -109,14 +114,24 @@ Dialog {
         Switch {
             id: archiveRoom
             checked: false
+            onClicked: {
+                archiveRoomDialog.open()
+            }
         }
 
-        //TODO improve it
+        //TODO improve it add icon
         ToolButton {
             text: i18n("Delete")
             onClicked: {
                 deleteRoomDialog.open();
             }
+        }
+    }
+
+    ArchiveRoomDialog {
+        id: archiveRoomDialog
+        onArchiveRoom: {
+            channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Archive, true)
         }
     }
 

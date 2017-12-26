@@ -162,6 +162,8 @@ public:
     quint64 setRoomDescription(const QString &roomId, const QString &description);
     quint64 setRoomAnnouncement(const QString &roomId, const QString &announcement);
     quint64 starMessage(const QString &messageId, const QString &rid, bool starred);
+    quint64 setRoomIsReadOnly(const QString &roomId, bool readOnly);
+    quint64 archiveRoom(const QString &roomId, bool readOnly);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

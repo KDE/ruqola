@@ -28,16 +28,19 @@ import KDE.Ruqola.DDPClient 1.0
 
 Login {
     id: loginTab
+
+    property QtObject rcAccount
+
     anchors.fill: parent
-    visible: appid.rocketChatAccount.loginStatus !== DDPClient.LoggedIn
-    serverUrl: appid.rocketChatAccount.serverUrl
-    username: appid.rocketChatAccount.userName
-    accountName: appid.rocketChatAccount.accountName
+    visible: rcAccount.loginStatus !== DDPClient.LoggedIn
+    serverUrl: rcAccount.serverUrl
+    username: rcAccount.userName
+    accountName: rcAccount.accountName
     onAccepted: {
-        appid.rocketChatAccount.password = loginTab.password;
-        appid.rocketChatAccount.userName = loginTab.username;
-        appid.rocketChatAccount.serverUrl = loginTab.serverUrl;
-        appid.rocketChatAccount.accountName = loginTab.accountName;
-        appid.rocketChatAccount.tryLogin();
+        rcAccount.password = loginTab.password;
+        rcAccount.userName = loginTab.username;
+        rcAccount.serverUrl = loginTab.serverUrl;
+        rcAccount.accountName = loginTab.accountName;
+        rcAccount.tryLogin();
     }
 }

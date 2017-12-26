@@ -408,20 +408,26 @@ void RocketChatAccount::starMessage(const QString &messageId, const QString &rid
     ddp()->starMessage(messageId, rid, starred);
 }
 
-void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QString &newValue)
+void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue)
 {
     switch (infoType) {
     case Announcement:
-        ddp()->setRoomAnnouncement(roomId, newValue);
+        ddp()->setRoomAnnouncement(roomId, newValue.toString());
         break;
     case Description:
-        ddp()->setRoomDescription(roomId, newValue);
+        ddp()->setRoomDescription(roomId, newValue.toString());
         break;
     case Name:
-        ddp()->setRoomName(roomId, newValue);
+        ddp()->setRoomName(roomId, newValue.toString());
         break;
     case Topic:
-        ddp()->setRoomTopic(roomId, newValue);
+        ddp()->setRoomTopic(roomId, newValue.toString());
+        break;
+    case ReadOnly:
+        ddp()->setRoomIsReadOnly(roomId, newValue.toBool());
+        break;
+    case Archive:
+        ddp()->archiveRoom(roomId, newValue.toBool());
         break;
     }
     qDebug() << " void RocketChatAccount::changeChannelSettings(RocketChatAccount::RoomInfoType infoType, const QString &newValue) " << infoType << newValue << roomId;
