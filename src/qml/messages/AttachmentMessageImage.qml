@@ -39,6 +39,10 @@ MessageBase {
     id: messageMain
 
     RowLayout {
+        AvatarImage {
+            id: avatarRect
+        }
+
         Item {
             Layout.fillWidth: true
         }
