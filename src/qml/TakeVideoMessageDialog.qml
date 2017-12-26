@@ -29,6 +29,8 @@ Dialog {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
+    property QtObject rocketChatAccount
+
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
@@ -43,7 +45,7 @@ Dialog {
         videoRecorder.audioEncodingMode: CameraRecorder.ConstantBitrateEncoding;
         videoRecorder.audioBitRate: 128000
         videoRecorder.mediaContainer: "mp4"
-        videoRecorder.outputLocation: appid.rocketChatAccount.recordingVideoPath()
+        videoRecorder.outputLocation: rocketChatAccount.recordingVideoPath()
     }
 
     //TODO align vertical center
