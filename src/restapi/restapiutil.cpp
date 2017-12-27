@@ -45,5 +45,34 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::Me:
         return QStringLiteral("me");
     }
+#if 0
+    //Channel
+    return QStringLiteral("channels.addAll");
+    return QStringLiteral("channels.addModerator");
+    return QStringLiteral("channels.addOwner");
+    return QStringLiteral("channels.archive");
+    return QStringLiteral("channels.cleanHistory");
+    return QStringLiteral("channels.close");
+    return QStringLiteral("channels.create");
+    return QStringLiteral("channels.getIntegrations");
+    return QStringLiteral("channels.history");
+    return QStringLiteral("channels.info");
+    return QStringLiteral("channels.invite");
+    return QStringLiteral("channels.kick");
+    return QStringLiteral("channels.leave");
+    return QStringLiteral("channels.list");
+    return QStringLiteral("channels.list.joined");
+    return QStringLiteral("channels.open");
+    return QStringLiteral("channels.removeModerator");
+    return QStringLiteral("channels.removeOwner");
+    return QStringLiteral("channels.rename");
+    return QStringLiteral("channels.setDescription");
+    return QStringLiteral("channels.setJoinCode");
+    return QStringLiteral("channels.setPurpose");
+    return QStringLiteral("channels.setReadOnly");
+    return QStringLiteral("channels.setTopic");
+    return QStringLiteral("channels.setType");
+    return QStringLiteral("channels.unarchive");
+#endif
     return {};
 }
