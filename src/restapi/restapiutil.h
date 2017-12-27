@@ -25,7 +25,14 @@
 #include "libruqola_private_export.h"
 
 namespace RestApiUtil {
+enum class RestApiUrlType {
+    Login,
+    Logout,
+    Me,
+
+};
 LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);
+LIBRUQOLACORE_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
 }
 
 #endif // RESTAPIUTIL_H

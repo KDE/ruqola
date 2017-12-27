@@ -33,3 +33,17 @@ QString RestApiUtil::adaptUrl(const QString &url)
         return QStringLiteral("https://") + url;
     }
 }
+
+
+QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
+{
+    switch (type) {
+    case RestApiUtil::RestApiUrlType::Login:
+        return QStringLiteral("login");
+    case RestApiUtil::RestApiUrlType::Logout:
+        return QStringLiteral("logout");
+    case RestApiUtil::RestApiUrlType::Me:
+        return QStringLiteral("me");
+    }
+    return {};
+}
