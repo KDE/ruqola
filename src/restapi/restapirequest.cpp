@@ -67,11 +67,11 @@ void RestApiRequest::parseLogout(const QByteArray &data)
     const QJsonObject replyObject = replyJson.object();
 
     if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success")) {
-        qDebug() << " Logout";
+        qCDebug(RUQOLA_RESTAPI_LOG) << " Logout";
         mUserId.clear();
         mAuthToken.clear();
     } else {
-        qWarning() <<" Problem when we try to logout";
+        qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we try to logout";
     }
 
     qCDebug(RUQOLA_RESTAPI_LOG) << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
