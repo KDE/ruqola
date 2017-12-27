@@ -49,6 +49,7 @@ set (Ruqola_core_srcs
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_ddpapi_debug.h IDENTIFIER RUQOLA_DDPAPI_LOG CATEGORY_NAME org.kde.ruqola.ddpapi)
+ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_restapi_debug.h IDENTIFIER RUQOLA_RESTAPI_LOG CATEGORY_NAME org.kde.ruqola.restapi)
 
 add_library(libruqolacore ${Ruqola_core_srcs})
 

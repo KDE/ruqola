@@ -19,7 +19,7 @@
 */
 
 #include "restapirequest.h"
-#include "ruqola_debug.h"
+#include "ruqola_restapi_debug.h"
 #include "restapiutil.h"
 
 #include <QNetworkAccessManager>
@@ -57,7 +57,7 @@ void RestApiRequest::parseLogin(const QByteArray &data)
             mUserId = data[QStringLiteral("userId")].toString();
         }
     } else {
-        qCWarning(RUQOLA_LOG) << "Error during login" << data;
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Error during login" << data;
     }
 }
 
@@ -74,7 +74,7 @@ void RestApiRequest::parseLogout(const QByteArray &data)
         qWarning() <<" Problem when we try to logout";
     }
 
-    qCDebug(RUQOLA_LOG) << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
+    qCDebug(RUQOLA_RESTAPI_LOG) << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
 }
 
 void RestApiRequest::parseChannelList(const QByteArray &data)
@@ -103,7 +103,7 @@ void RestApiRequest::setUserId(const QString &userId)
 
 void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userId)
 {
-    qCDebug(RUQOLA_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
+    qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
 }
 
 void RestApiRequest::slotResult(QNetworkReply *reply)
@@ -125,18 +125,18 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             parseGetAvatar(data, reply->property("userId").toString());
             break;
         case Unknown:
-            qCWarning(RUQOLA_LOG) << " Unknown restapi method" << data;
+            qCWarning(RUQOLA_RESTAPI_LOG) << " Unknown restapi method" << data;
             break;
         }
     } else {
-        qCDebug(RUQOLA_LOG) << " reply - "<<reply->errorString();
+        qCDebug(RUQOLA_RESTAPI_LOG) << " reply - "<<reply->errorString();
     }
     reply->deleteLater();
 }
 
 void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)
 {
-    qCDebug(RUQOLA_LOG) << " void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)" << error.count();
+    qCDebug(RUQOLA_RESTAPI_LOG) << " void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)" << error.count();
     reply->ignoreSslErrors(error);
 }
 
@@ -186,7 +186,7 @@ void RestApiRequest::login()
         reply->setProperty("method", QVariant::fromValue(RestMethod::Login));
         //connect(reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &CreatePhishingUrlDataBaseJob::slotError);
     } else {
-        qCWarning(RUQOLA_LOG) << "Password or user or url is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Password or user or url is empty";
     }
 }
 
@@ -203,7 +203,7 @@ void RestApiRequest::logout()
 void RestApiRequest::channelList()
 {
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
-        qCWarning(RUQOLA_LOG) << "RestApiRequest::channelList problem with mUserId or mAuthToken";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::channelList problem with mUserId or mAuthToken";
     } else {
         const QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/channels.list"));
         QNetworkRequest request(url);
@@ -217,7 +217,7 @@ void RestApiRequest::channelList()
 void RestApiRequest::getAvatar(const QString &userId)
 {
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
-        qCWarning(RUQOLA_LOG) << "RestApiRequest::getAvatar problem with mUserId or mAuthToken";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getAvatar problem with mUserId or mAuthToken";
     } else {
         QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/users.getAvatar"));
         QUrlQuery queryUrl;
