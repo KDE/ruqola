@@ -34,6 +34,10 @@ QString RestApiUtil::adaptUrl(const QString &url)
     }
 }
 
+QString RestApiUtil::apiUri()
+{
+    return QStringLiteral("/api/v1");
+}
 
 QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
 {
@@ -44,6 +48,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("logout");
     case RestApiUtil::RestApiUrlType::Me:
         return QStringLiteral("me");
+    case RestApiUtil::RestApiUrlType::GetAvatar:
+        return QStringLiteral("users.getAvatar");
     }
 #if 0
     //Channel
@@ -73,6 +79,51 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     return QStringLiteral("channels.setTopic");
     return QStringLiteral("channels.setType");
     return QStringLiteral("channels.unarchive");
+    //Chat
+    return QStringLiteral("chat.delete");
+    return QStringLiteral("chat.getMessage");
+    return QStringLiteral("chat.pinMessage");
+    return QStringLiteral("chat.postMessage");
+    return QStringLiteral("chat.react");
+    return QStringLiteral("chat.starMessage");
+    return QStringLiteral("chat.unPinMessage");
+    return QStringLiteral("chat.unStarMessage");
+    return QStringLiteral("chat.update");
+    //Group
+    return QStringLiteral("groups.addAll");
+    return QStringLiteral("groups.addModerator");
+    return QStringLiteral("groups.addOwner");
+    return QStringLiteral("groups.archive");
+    return QStringLiteral("groups.close");
+    return QStringLiteral("groups.create");
+    return QStringLiteral("groups.getIntegrations");
+    return QStringLiteral("groups.history");
+    return QStringLiteral("groups.info");
+    return QStringLiteral("groups.invite");
+    return QStringLiteral("groups.kick");
+    return QStringLiteral("groups.leave");
+    return QStringLiteral("groups.list");
+    return QStringLiteral("groups.open");
+    return QStringLiteral("groups.removeModerator");
+    return QStringLiteral("groups.removeOwner");
+    return QStringLiteral("groups.rename");
+    return QStringLiteral("groups.setDescription");
+    return QStringLiteral("groups.setPurpose");
+    return QStringLiteral("groups.setReadOnly");
+    return QStringLiteral("groups.setTopic");
+    return QStringLiteral("groups.setType");
+    return QStringLiteral("groups.unarchive");
+    //Users
+    return QStringLiteral("users.create");
+    return QStringLiteral("users.createToken");
+
+    return QStringLiteral("users.getPresence");
+    return QStringLiteral("users.info");
+    return QStringLiteral("users.list");
+    return QStringLiteral("users.register");
+    return QStringLiteral("users.resetAvatar");
+    return QStringLiteral("users.setAvatar");
+    return QStringLiteral("users.update");
 #endif
     return {};
 }

@@ -29,10 +29,12 @@ enum class RestApiUrlType {
     Login,
     Logout,
     Me,
+    GetAvatar,
 
 };
 LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBRUQOLACORE_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
+LIBRUQOLACORE_TESTS_EXPORT QString apiUri();
 }
 
 #endif // RESTAPIUTIL_H

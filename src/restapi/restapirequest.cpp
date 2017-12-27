@@ -173,7 +173,7 @@ QString RestApiRequest::userId() const
 void RestApiRequest::login()
 {
     if (!mUserName.isEmpty() && !mPassword.isEmpty() && !mServerUrl.isEmpty()) {
-        QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/login"));
+        QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(RestApiUtil::RestApiUrlType::Login));
         QNetworkRequest request(url);
         request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
 
@@ -192,7 +192,7 @@ void RestApiRequest::login()
 
 void RestApiRequest::logout()
 {
-    const QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/logout"));
+    const QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(RestApiUtil::RestApiUrlType::Logout));
     QNetworkRequest request(url);
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
@@ -219,7 +219,7 @@ void RestApiRequest::getAvatar(const QString &userId)
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getAvatar problem with mUserId or mAuthToken";
     } else {
-        QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/users.getAvatar"));
+        QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(RestApiUtil::RestApiUrlType::GetAvatar));
         QUrlQuery queryUrl;
         queryUrl.addQueryItem(QStringLiteral("userId"), userId);
         url.setQuery(queryUrl);
