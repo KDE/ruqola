@@ -427,10 +427,10 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         ddp()->setRoomIsReadOnly(roomId, newValue.toBool());
         break;
     case Archive:
-        ddp()->archiveRoom(roomId, newValue.toBool());
+        //No argument here.
+        ddp()->archiveRoom(roomId);
         break;
     }
-    qDebug() << " void RocketChatAccount::changeChannelSettings(RocketChatAccount::RoomInfoType infoType, const QString &newValue) " << infoType << newValue << roomId;
 }
 
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)

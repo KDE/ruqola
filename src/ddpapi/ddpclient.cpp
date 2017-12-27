@@ -310,10 +310,9 @@ quint64 DDPClient::setRoomDescription(const QString &roomId, const QString &desc
     return method(result, change_room_settings, DDPClient::Persistent);
 }
 
-quint64 DDPClient::archiveRoom(const QString &roomId, bool readOnly)
+quint64 DDPClient::archiveRoom(const QString &roomId)
 {
-    //TODO using readonly ???
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->archiveRoom(roomId/*, readOnly*/, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->archiveRoom(roomId, m_uid);
     return method(result, change_room_settings, DDPClient::Persistent);
 }
 
