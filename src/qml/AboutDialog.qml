@@ -167,7 +167,6 @@ Dialog {
                                     onLinkActivated: {
                                         aboutDialog.openurl(link);
                                     }
-
                                 }
                             }
                         }

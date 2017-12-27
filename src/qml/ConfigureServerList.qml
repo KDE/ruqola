@@ -18,8 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.0
+import QtQuick 2.9
+import QtQuick.Controls 1.3
+import org.kde.kirigami 2.1 as Kirigami
+import KDE.Ruqola.DDPClient 1.0
+import KDE.Ruqola.RocketChatAccount 1.0
 
-Item {
+Kirigami.Page {
+    id: configureServer
 
+    implicitHeight: 400
+    implicitWidth: 300
+
+    //TODO
 }

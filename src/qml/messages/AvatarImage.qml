@@ -35,6 +35,7 @@ Rectangle {
 
     Layout.alignment: Qt.AlignTop
     Layout.fillHeight: false
+    //Customize it.
     implicitWidth: /*textLabel.font.pixelSize * 3*/ 12 * 3
     implicitHeight: /*textLabel.font.pixelSize * 3*/ 12 * 3
     

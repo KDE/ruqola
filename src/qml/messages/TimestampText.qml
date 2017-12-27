@@ -29,7 +29,7 @@ QQC2.Label {
     id: timestampText
     property var timestamp
     Layout.alignment: Qt.AlignTop | Qt.AlignRight
-    text: MessageScript.displayDateTime(i_timestamp)
+    text: MessageScript.displayDateTime(timestamp)
     opacity: .5
     
     z: 10

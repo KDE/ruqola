@@ -37,7 +37,6 @@ MessageBase {
     property string i_messageText
     property string i_username
     property string i_aliasname
-    property string i_systemMessageType
     property var i_timestamp
 
     RowLayout {

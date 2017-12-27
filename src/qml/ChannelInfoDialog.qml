@@ -65,7 +65,7 @@ Dialog {
                     channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal)
                 } else {
                     //see https://doc.qt.io/qt-5/qml-qtqml-loggingcategory.html
-                    console.log(RuqolaDebugCategorySingleton.category, "New value is empty")
+                    console.log(RuqolaDebugCategorySingleton.category, "New name is empty. We can't rename room name to empty name.")
                 }
             }
         }

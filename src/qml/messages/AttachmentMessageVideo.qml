@@ -34,7 +34,8 @@ MessageBase {
     id: attachmentVideo
 
     MediaPlayer {
-        id: audioPlayer
+        id: videoPlayer
+
         autoPlay: false
         onPaused: {
             playerButton.source = "qrc:/icons/media-playback-start.svg"
@@ -48,9 +49,9 @@ MessageBase {
         }
         onPositionChanged: {
             playerSlider.sync = true
-            playerSlider.value = audioPlayer.position / audioPlayer.duration
+            playerSlider.value = videoPlayer.position / videoPlayer.duration
             playerSlider.sync = false
-            timeLabel.text = ConvertScript.convertTimeString(audioPlayer.position) + "/" + ConvertScript.convertTimeString(audioPlayer.duration)
+            timeLabel.text = ConvertScript.convertTimeString(videoPlayer.position) + "/" + ConvertScript.convertTimeString(videoPlayer.duration)
         }
     }
 
@@ -65,16 +66,17 @@ MessageBase {
         //Add video media
         Image {
             id: playerButton
+
             source: "qrc:/icons/media-playback-start.svg"
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    console.log("Click on video file!");
-                    if (audioPlayer.source !== "") {
-                        if (audioPlayer.playbackState === MediaPlayer.PlayingState) {
-                            audioPlayer.pause()
+                    console.log(RuqolaDebugCategorySingleton.category, "Click on video file!");
+                    if (videoPlayer.source !== "") {
+                        if (videoPlayer.playbackState === MediaPlayer.PlayingState) {
+                            videoPlayer.pause()
                         } else {
-                            audioPlayer.play()
+                            videoPlayer.play()
                         }
                     } else {
                         console.log(RuqolaDebugCategorySingleton.category, "Video file no found");
@@ -82,15 +84,25 @@ MessageBase {
                 }
             }
         }
+        //Verify position.
+        //Perhaps hidding it by default.
+        VideoOutput {
+            id: videoOutput
+
+            Layout.fillWidth: true
+            source: videoPlayer
+        }
+
         QQC2.Slider {
             id: playerSlider
+
             Layout.fillWidth: true
 
             property bool sync: false
 
             onValueChanged: {
                 if (!sync) {
-                    audioPlayer.seek(value * audioPlayer.duration)
+                    videoPlayer.seek(value * videoPlayer.duration)
                 }
             }
         }
