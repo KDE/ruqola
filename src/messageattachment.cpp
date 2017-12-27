@@ -46,18 +46,18 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
 MessageAttachment MessageAttachment::fromJSon(const QJsonObject &o)
 {
     MessageAttachment att;
-    att.setDescription(o.value(QStringLiteral("description")).toString());
-    att.setTitle(o.value(QStringLiteral("title")).toString());
-    att.setLink(o.value(QStringLiteral("url")).toString());
-    const QJsonValue valHeight = o.value(QStringLiteral("image_height"));
+    att.setDescription(o.value(QLatin1String("description")).toString());
+    att.setTitle(o.value(QLatin1String("title")).toString());
+    att.setLink(o.value(QLatin1String("url")).toString());
+    const QJsonValue valHeight = o.value(QLatin1String("image_height"));
     if (!valHeight.isUndefined()) {
         att.setImageHeight(valHeight.toInt());
     }
-    const QJsonValue valWidth = o.value(QStringLiteral("image_width"));
+    const QJsonValue valWidth = o.value(QLatin1String("image_width"));
     if (!valWidth.isUndefined()) {
         att.setImageWidth(valWidth.toInt());
     }
-    att.setColor(o.value(QStringLiteral("color")).toString());
+    att.setColor(o.value(QLatin1String("color")).toString());
     return att;
 }
 

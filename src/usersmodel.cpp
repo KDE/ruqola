@@ -103,15 +103,15 @@ void UsersModel::addUser(User *user)
 
 void UsersModel::updateUser(const QJsonObject &array)
 {
-    const QString id = array.value(QStringLiteral("id")).toString();
+    const QString id = array.value(QLatin1String("id")).toString();
     const int userCount{
         mUsers.count()
     };
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i)->userId() == id) {
             User *user = mUsers.at(i);
-            const QJsonObject fields = array.value(QStringLiteral("fields")).toObject();
-            const QString newStatus = fields.value(QStringLiteral("status")).toString();
+            const QJsonObject fields = array.value(QLatin1String("fields")).toObject();
+            const QString newStatus = fields.value(QLatin1String("status")).toString();
             user->setStatus(newStatus);
             //TODO name ?
             Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));

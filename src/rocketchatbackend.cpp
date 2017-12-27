@@ -45,26 +45,26 @@ void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
 
 void process_backlog(const QJsonObject &root, RocketChatAccount *account)
 {
-    const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
-    qCDebug(RUQOLA_LOG) << obj.value(QStringLiteral("messages")).toArray().size();
-    account->rocketChatBackend()->processIncomingMessages(obj.value(QStringLiteral("messages")).toArray());
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    qCDebug(RUQOLA_LOG) << obj.value(QLatin1String("messages")).toArray().size();
+    account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray());
 }
 
 void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
 {
-    const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
     RoomModel *model = account->roomModel();
 
     //qDebug() << " doc " << doc;
 
-    QJsonArray removed = obj.value(QStringLiteral("remove")).toArray();
+    QJsonArray removed = obj.value(QLatin1String("remove")).toArray();
     //qDebug() << " rooms_parsing: room removed *************************************************" << removed;
-    const QJsonArray updated = obj.value(QStringLiteral("update")).toArray();
+    const QJsonArray updated = obj.value(QLatin1String("update")).toArray();
     //qDebug() << " rooms_parsing: updated  *******************************************************: "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject roomJson = updated.at(i).toObject();
-        const QString roomType = roomJson.value(QStringLiteral("t")).toString();
+        const QString roomType = roomJson.value(QLatin1String("t")).toString();
         if (account->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(roomJson);
@@ -86,20 +86,20 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
 
 void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account)
 {
-    const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
     RoomModel *model = account->roomModel();
 
     //qDebug() << " doc " << doc;
 
-    QJsonArray removed = obj.value(QStringLiteral("remove")).toArray();
+    QJsonArray removed = obj.value(QLatin1String("remove")).toArray();
     //qDebug() << " room removed " << removed;
-    const QJsonArray updated = obj.value(QStringLiteral("update")).toArray();
+    const QJsonArray updated = obj.value(QLatin1String("update")).toArray();
     //qDebug() << " updated : "<< updated;
 
     for (int i = 0; i < updated.size(); i++) {
         QJsonObject room = updated.at(i).toObject();
 
-        const QString roomType = room.value(QStringLiteral("t")).toString();
+        const QString roomType = room.value(QLatin1String("t")).toString();
         if (account->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(room);
@@ -109,7 +109,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
         if (roomType == QLatin1String("c") //Chat
             || roomType == QLatin1String("p")     /*Private chat*/
             || roomType == QLatin1String("d")) {    //Direct chat) {
-            const QString roomID = room.value(QStringLiteral("rid")).toString();
+            const QString roomID = room.value(QLatin1String("rid")).toString();
             MessageModel *roomModel = account->getMessageModelForRoom(roomID);
 
             // let's be extra safe around crashes
@@ -198,13 +198,13 @@ void RocketChatBackend::onLoginStatusChanged()
 
 void RocketChatBackend::onAdded(const QJsonObject &object)
 {
-    QString collection = object.value(QStringLiteral("collection")).toString();
+    QString collection = object.value(QLatin1String("collection")).toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
         qCDebug(RUQOLA_LOG) << "stream-room-messages : " << object;
     } else if (collection == QLatin1String("users")) {
-        const QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
-        const QString username = fields.value(QStringLiteral("username")).toString();
+        const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
+        const QString username = fields.value(QLatin1String("username")).toString();
         if (username == mRocketChatAccount->settings()->userName()) {
             mRocketChatAccount->settings()->setUserId(object[QStringLiteral("id")].toString());
             qCDebug(RUQOLA_LOG) << "User id set to " << mRocketChatAccount->settings()->userId();
@@ -232,8 +232,8 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
     const QString collection = object[QStringLiteral("collection")].toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
-        const QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
-        const QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
+        const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
+        const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
         processIncomingMessages(contents);
     } else if (collection == QLatin1String("users")) {
         UsersModel *model = mRocketChatAccount->usersModel();
@@ -254,10 +254,10 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
         }
     } else if (collection == QLatin1String("stream-notify-user")) {
-        QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
-        const QString eventname = fields.value(QStringLiteral("eventName")).toString();
-        const QJsonArray contents = fields.value(QStringLiteral("args")).toArray();
-        qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QStringLiteral("args")).toArray().toVariantList();
+        QJsonObject fields = object.value(QLatin1String("fields")).toObject();
+        const QString eventname = fields.value(QLatin1String("eventName")).toString();
+        const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
+        qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1String("args")).toArray().toVariantList();
 
         if (eventname.endsWith(QStringLiteral("/subscriptions-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();

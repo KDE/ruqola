@@ -82,7 +82,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 {
     //QJsonArray(["updated",{"_id":"7jHqcrZ8FYXJBwgRB","_updatedAt":{"$date":1503902695955},"alert":false,"f":true,"groupMentions":0,"ls":{"$date":1503902695955},"name":"dev","open":true,"rid":"dBWXYy4nyBHn8Q7dv","t":"c","ts":{"$date":1493034182680},"u":{"_id":"uKK39zoewTkdacidH","username":"laurent"},"unread":0,"userMentions":0}])
     if (json.contains(QStringLiteral("rid"))) {
-        setId(json.value(QStringLiteral("rid")).toString());
+        setId(json.value(QLatin1String("rid")).toString());
     }
     if (json.contains(QStringLiteral("alert"))) {
         setAlert(json[QStringLiteral("alert")].toBool());
@@ -289,7 +289,7 @@ void Room::setName(const QString &name)
 
 void Room::parseRoom(const QJsonObject &json)
 {
-    setId(json.value(QStringLiteral("_id")).toString());
+    setId(json.value(QLatin1String("_id")).toString());
     setName(json[QStringLiteral("name")].toString());
     setTopic(json[QStringLiteral("topic")].toString());
     setAnnouncement(json[QStringLiteral("announcement")].toString());
@@ -298,14 +298,14 @@ void Room::parseRoom(const QJsonObject &json)
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
-    const QString roomID = json.value(QStringLiteral("rid")).toString();
+    const QString roomID = json.value(QLatin1String("rid")).toString();
     setId(roomID);
     setName(json[QStringLiteral("name")].toString());
     setTopic(json[QStringLiteral("topic")].toString());
     setAnnouncement(json[QStringLiteral("announcement")].toString());
-    const QString roomType = json.value(QStringLiteral("t")).toString();
+    const QString roomType = json.value(QLatin1String("t")).toString();
     setChannelType(roomType);
-    QJsonValue favoriteValue = json.value(QStringLiteral("f"));
+    QJsonValue favoriteValue = json.value(QLatin1String("f"));
     if (!favoriteValue.isUndefined()) {
         setFavorite(favoriteValue.toBool());
     }
@@ -318,7 +318,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setOpen(json[QStringLiteral("open")].toBool());
     setAlert(json[QStringLiteral("alert")].toBool());
 
-    const QJsonArray mutedArray = json.value(QStringLiteral("muted")).toArray();
+    const QJsonArray mutedArray = json.value(QLatin1String("muted")).toArray();
     QStringList lst;
     for (int i = 0; i < mutedArray.count(); ++i) {
         lst << mutedArray.at(i).toString();
@@ -346,7 +346,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setFavorite(o[QStringLiteral("favorite")].toBool());
     r->setAlert(o[QStringLiteral("alert")].toBool());
     r->setOpen(o[QStringLiteral("open")].toBool());
-    const QJsonArray mutedArray = o.value(QStringLiteral("mutedUsers")).toArray();
+    const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
     QStringList lst;
     for (int i = 0; i < mutedArray.count(); ++i) {
         lst <<mutedArray.at(i).toString();

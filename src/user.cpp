@@ -97,10 +97,10 @@ QDebug operator <<(QDebug d, const User &t)
 
 void User::parseUser(const QJsonObject &object)
 {
-    const QJsonObject fields = object.value(QStringLiteral("fields")).toObject();
-    setName(fields.value(QStringLiteral("name")).toString());
-    setUserId(object.value(QStringLiteral("id")).toString());
-    setStatus(fields.value(QStringLiteral("status")).toString());
+    const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
+    setName(fields.value(QLatin1String("name")).toString());
+    setUserId(object.value(QLatin1String("id")).toString());
+    setStatus(fields.value(QLatin1String("status")).toString());
 }
 
 QString User::iconFromStatus() const

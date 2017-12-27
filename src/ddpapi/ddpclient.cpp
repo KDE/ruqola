@@ -83,9 +83,9 @@ void create_jitsi_conf_call(const QJsonObject &root, RocketChatAccount *account)
 
 void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
 {
-    const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
     if (!obj.isEmpty()) {
-        const QString rid = obj.value(QStringLiteral("rid")).toString();
+        const QString rid = obj.value(QLatin1String("rid")).toString();
         if (!rid.isEmpty()) {
             account->ddp()->subscribeRoomMessage(rid);
         }
@@ -125,9 +125,9 @@ void empty_callback(const QJsonObject &obj, RocketChatAccount *)
 
 void create_channel(const QJsonObject &root, RocketChatAccount *account)
 {
-    const QJsonObject obj = root.value(QStringLiteral("result")).toObject();
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
     if (!obj.isEmpty()) {
-        const QString rid = obj.value(QStringLiteral("rid")).toString();
+        const QString rid = obj.value(QLatin1String("rid")).toString();
         if (!rid.isEmpty()) {
             account->joinRoom(rid);
         }
@@ -492,27 +492,27 @@ void DDPClient::onTextMessageReceived(const QString &message)
     if (!response.isNull() && response.isObject()) {
         QJsonObject root = response.object();
 
-        QString messageType = root.value(QStringLiteral("msg")).toString();
+        QString messageType = root.value(QLatin1String("msg")).toString();
 
         if (messageType == QLatin1String("updated")) {
             qDebug() << " message updated ! not implemented yet" << response;
         } else if (messageType == QLatin1String("result")) {
-            unsigned id = root.value(QStringLiteral("id")).toString().toInt();
+            unsigned id = root.value(QLatin1String("id")).toString().toInt();
 
             if (m_callbackHash.contains(id)) {
                 std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
 
                 callback(root, mRocketChatAccount);
             }
-            Q_EMIT result(id, QJsonDocument(root.value(QStringLiteral("result")).toObject()));
+            Q_EMIT result(id, QJsonDocument(root.value(QLatin1String("result")).toObject()));
 
             if (id == m_loginJob) {
-                if (root.value(QStringLiteral("error")).toObject().value(QStringLiteral("error")).toInt() == 403) {
+                if (root.value(QLatin1String("error")).toObject().value(QLatin1String("error")).toInt() == 403) {
                     qCDebug(RUQOLA_LOG) << "Wrong password or token expired";
 
                     login(); // Let's keep trying to log in
                 } else {
-                    mRocketChatAccount->settings()->setAuthToken(root.value(QStringLiteral("result")).toObject().value(QStringLiteral("token")).toString());
+                    mRocketChatAccount->settings()->setAuthToken(root.value(QLatin1String("result")).toObject().value(QLatin1String("token")).toString());
                     setLoginStatus(DDPClient::LoggedIn);
                 }
             }

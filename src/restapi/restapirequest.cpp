@@ -83,7 +83,7 @@ void RestApiRequest::parseChannelList(const QByteArray &data)
     const QJsonDocument replyJson = QJsonDocument::fromJson(data);
     const QJsonObject replyObject = replyJson.object();
     //qDebug() << " replyObject"<<replyObject;
-    const QVariantList lst = replyObject.value(QStringLiteral("channels")).toArray().toVariantList();
+    const QVariantList lst = replyObject.value(QLatin1String("channels")).toArray().toVariantList();
     for (const QVariant &item : lst) {
         //qDebug() << " item " << item;
         //qDebug() << " map  ? : "<<item.toMap();

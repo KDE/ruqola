@@ -38,9 +38,9 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
 MessageUrl MessageUrl::fromJSon(const QJsonObject &o)
 {
     MessageUrl url;
-    url.setPageTitle(o.value(QStringLiteral("pagetitle")).toString());
-    url.setUrl(o.value(QStringLiteral("url")).toString());
-    url.setDescription(o.value(QStringLiteral("description")).toString());
+    url.setPageTitle(o.value(QLatin1String("pagetitle")).toString());
+    url.setUrl(o.value(QLatin1String("url")).toString());
+    url.setDescription(o.value(QLatin1String("description")).toString());
     return url;
 }
 

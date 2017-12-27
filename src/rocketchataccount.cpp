@@ -435,7 +435,7 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
 
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
-    QJsonArray configs = obj.value(QStringLiteral("result")).toArray();
+    QJsonArray configs = obj.value(QLatin1String("result")).toArray();
 
     for (const QJsonValueRef &currentConfig : configs) {
         QJsonObject currentConfObject = currentConfig.toObject();
