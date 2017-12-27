@@ -29,7 +29,7 @@ Dialog {
 
     standardButtons: Dialog.Ok | Dialog.Cancel
 
-    property QtObject rocketChatAccount
+    property QtObject rcAccount
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
@@ -45,13 +45,18 @@ Dialog {
         videoRecorder.audioEncodingMode: CameraRecorder.ConstantBitrateEncoding;
         videoRecorder.audioBitRate: 128000
         videoRecorder.mediaContainer: "mp4"
-        videoRecorder.outputLocation: rocketChatAccount.recordingVideoPath()
+        videoRecorder.outputLocation: rcAccount.recordingVideoPath()
     }
 
     //TODO align vertical center
     Label {
         visible: isCameraAvailable == false
         text: i18n("No camera found.");
+        font.bold: true
+        font.pointSize: 20
+        anchors.fill: parent
+        anchors.centerIn: parent
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 
     VideoOutput {

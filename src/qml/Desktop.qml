@@ -147,7 +147,7 @@ Kirigami.ApplicationWindow {
 
     TakeVideoMessageDialog {
         id: takeVideoMessage
-        rocketChatAccount: rocketChatAccount
+        rcAccount: rocketChatAccount
     }
 
     BusyIndicator {
