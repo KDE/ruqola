@@ -34,14 +34,15 @@
 #include "ruqolaserverconfig.h"
 #include "usercompletermodel.h"
 
+#include "ddpapi/ddpclient.h"
+#include "restapi/restapirequest.h"
+
 #include <KLocalizedString>
 #include <QDesktopServices>
 #include <QFile>
 #include <QFileDialog>
 
-#include <ddpapi/ddpclient.h>
 
-#include <restapi/restapirequest.h>
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
@@ -543,5 +544,5 @@ void RocketChatAccount::downloadFile(const QString &url)
     //TODO download it.
     qDebug() << " void RocketChatAccount::downloadFile(const QString &url)" << settings()->serverUrl() + url;
     const QUrl clickedUrl = QUrl::fromUserInput(settings()->serverUrl() + url);
-    QDesktopServices::openUrl(clickedUrl);
+    //QDesktopServices::openUrl(clickedUrl);
 }

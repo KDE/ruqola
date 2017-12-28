@@ -22,6 +22,7 @@
  */
 
 #include "ddpclient.h"
+#include "restapi/restapirequest.h"
 #include "utils.h"
 #include "ruqola_ddpapi_debug.h"
 #include "rocketchatmessage.h"
@@ -353,6 +354,12 @@ quint64 DDPClient::openDirectChannel(const QString &userId)
     return method(result, open_direct_channel, DDPClient::Persistent);
 }
 
+quint64 DDPClient::setReaction(const QString &emoji, const QString &messageId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setReaction(emoji, messageId, m_uid);
+    return method(result, empty_callback, DDPClient::Persistent);
+}
+
 quint64 DDPClient::createPrivateGroup(const QString &name, const QStringList &userList)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createPrivateGroup(name, userList, m_uid);
@@ -512,7 +519,11 @@ void DDPClient::onTextMessageReceived(const QString &message)
 
                     login(); // Let's keep trying to log in
                 } else {
-                    mRocketChatAccount->settings()->setAuthToken(root.value(QLatin1String("result")).toObject().value(QLatin1String("token")).toString());
+                    const QString token = root.value(QLatin1String("result")).toObject().value(QLatin1String("token")).toString();
+                    mRocketChatAccount->settings()->setAuthToken(token);
+                    mRocketChatAccount->restApi()->setAuthToken(token);
+                    mRocketChatAccount->restApi()->setUserId(root.value(QLatin1String("id")).toString());
+                    //mRocketChatAccount->restApi()->channelList();
                     setLoginStatus(DDPClient::LoggedIn);
                 }
             }

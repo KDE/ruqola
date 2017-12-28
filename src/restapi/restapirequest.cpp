@@ -205,8 +205,9 @@ void RestApiRequest::channelList()
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::channelList problem with mUserId or mAuthToken";
     } else {
-        const QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + QStringLiteral("/api/v1/channels.list"));
+        const QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(RestApiUtil::RestApiUrlType::ChannelsList));
         QNetworkRequest request(url);
+        qDebug() << " url "<< url;
         request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
         request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
         QNetworkReply *reply = mNetworkAccessManager->get(request);

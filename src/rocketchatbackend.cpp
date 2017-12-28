@@ -208,9 +208,6 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
         if (username == mRocketChatAccount->settings()->userName()) {
             mRocketChatAccount->settings()->setUserId(object[QStringLiteral("id")].toString());
             qCDebug(RUQOLA_LOG) << "User id set to " << mRocketChatAccount->settings()->userId();
-            mRocketChatAccount->restApi()->setUserName(mRocketChatAccount->settings()->userName());
-            mRocketChatAccount->restApi()->setPassword(mRocketChatAccount->settings()->password());
-            mRocketChatAccount->restApi()->login();
         } else {
             //TODO add current user ? me ?
             User *user = new User;

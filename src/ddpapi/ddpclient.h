@@ -164,6 +164,7 @@ public:
     quint64 starMessage(const QString &messageId, const QString &rid, bool starred);
     quint64 setRoomIsReadOnly(const QString &roomId, bool readOnly);
     quint64 archiveRoom(const QString &roomId);
+    quint64 setReaction(const QString &emoji, const QString &messageId);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
