@@ -219,7 +219,7 @@ void RestApiRequest::getAvatar(const QString &userId)
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getAvatar problem with mUserId or mAuthToken";
     } else {
-        QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(RestApiUtil::RestApiUrlType::GetAvatar));
+        QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar));
         QUrlQuery queryUrl;
         queryUrl.addQueryItem(QStringLiteral("userId"), userId);
         url.setQuery(queryUrl);

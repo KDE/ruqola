@@ -48,8 +48,44 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("logout");
     case RestApiUtil::RestApiUrlType::Me:
         return QStringLiteral("me");
-    case RestApiUtil::RestApiUrlType::GetAvatar:
+    case RestApiUtil::RestApiUrlType::UsersGetAvatar:
         return QStringLiteral("users.getAvatar");
+    case RestApiUtil::RestApiUrlType::UsersCreate:
+        return QStringLiteral("users.create");
+    case RestApiUtil::RestApiUrlType::UsersCreateToken:
+        return QStringLiteral("users.createToken");
+    case RestApiUtil::RestApiUrlType::UsersGetPresence:
+        return QStringLiteral("users.getPresence");
+    case RestApiUtil::RestApiUrlType::UsersInfo:
+        return QStringLiteral("users.info");
+    case RestApiUtil::RestApiUrlType::UsersList:
+        return QStringLiteral("users.list");
+    case RestApiUtil::RestApiUrlType::UsersRegister:
+        return QStringLiteral("users.register");
+    case RestApiUtil::RestApiUrlType::UsersResetAvatar:
+        return QStringLiteral("users.resetAvatar");
+    case RestApiUtil::RestApiUrlType::UsersSetAvatar:
+        return QStringLiteral("users.setAvatar");
+    case RestApiUtil::RestApiUrlType::UsersUpdate:
+        return QStringLiteral("users.update");
+    case RestApiUtil::RestApiUrlType::ChatDelete:
+        return QStringLiteral("chat.delete");
+    case RestApiUtil::RestApiUrlType::ChatGetMessage:
+        return QStringLiteral("chat.getMessage");
+    case RestApiUtil::RestApiUrlType::ChatPinMessage:
+        return QStringLiteral("chat.pinMessage");
+    case RestApiUtil::RestApiUrlType::ChatPostMessage:
+        return QStringLiteral("chat.postMessage");
+    case RestApiUtil::RestApiUrlType::ChatReact:
+        return QStringLiteral("chat.react");
+    case RestApiUtil::RestApiUrlType::ChatStarMessage:
+        return QStringLiteral("chat.starMessage");
+    case RestApiUtil::RestApiUrlType::ChatUnPinMessage:
+        return QStringLiteral("chat.unPinMessage");
+    case RestApiUtil::RestApiUrlType::ChatUnStarMessage:
+        return QStringLiteral("chat.unStarMessage");
+    case RestApiUtil::RestApiUrlType::ChatUpdate:
+        return QStringLiteral("chat.update");
     }
 #if 0
     //Channel
@@ -79,16 +115,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     return QStringLiteral("channels.setTopic");
     return QStringLiteral("channels.setType");
     return QStringLiteral("channels.unarchive");
-    //Chat
-    return QStringLiteral("chat.delete");
-    return QStringLiteral("chat.getMessage");
-    return QStringLiteral("chat.pinMessage");
-    return QStringLiteral("chat.postMessage");
-    return QStringLiteral("chat.react");
-    return QStringLiteral("chat.starMessage");
-    return QStringLiteral("chat.unPinMessage");
-    return QStringLiteral("chat.unStarMessage");
-    return QStringLiteral("chat.update");
     //Group
     return QStringLiteral("groups.addAll");
     return QStringLiteral("groups.addModerator");
@@ -113,17 +139,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     return QStringLiteral("groups.setTopic");
     return QStringLiteral("groups.setType");
     return QStringLiteral("groups.unarchive");
-    //Users
-    return QStringLiteral("users.create");
-    return QStringLiteral("users.createToken");
-
-    return QStringLiteral("users.getPresence");
-    return QStringLiteral("users.info");
-    return QStringLiteral("users.list");
-    return QStringLiteral("users.register");
-    return QStringLiteral("users.resetAvatar");
-    return QStringLiteral("users.setAvatar");
-    return QStringLiteral("users.update");
 #endif
     return {};
 }

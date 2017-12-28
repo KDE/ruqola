@@ -29,8 +29,25 @@ enum class RestApiUrlType {
     Login,
     Logout,
     Me,
-    GetAvatar,
-
+    UsersCreate,
+    UsersCreateToken,
+    UsersGetPresence,
+    UsersInfo,
+    UsersList,
+    UsersRegister,
+    UsersGetAvatar,
+    UsersResetAvatar,
+    UsersSetAvatar,
+    UsersUpdate,
+    ChatDelete,
+    ChatGetMessage,
+    ChatPinMessage,
+    ChatPostMessage,
+    ChatReact,
+    ChatStarMessage,
+    ChatUnPinMessage,
+    ChatUnStarMessage,
+    ChatUpdate
 };
 LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBRUQOLACORE_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
