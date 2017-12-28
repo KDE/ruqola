@@ -86,13 +86,7 @@ Component {
                                 createNewChannelDialog.initializeAndOpen()
                             }
                         }
-                        QQC2.MenuSeparator {
-                            padding: 0
-                            contentItem: Rectangle {
-                                implicitWidth: 200
-                                implicitHeight: 1
-                                color: "#1E000000"
-                            }
+                        RuqolaMenuSeparator {
                         }
                         QQC2.MenuItem {
                             text: i18n("Channel Info")
@@ -100,13 +94,7 @@ Component {
                                 channelInfoDialog.initializeAndOpen()
                             }
                         }
-                        QQC2.MenuSeparator {
-                            padding: 0
-                            contentItem: Rectangle {
-                                implicitWidth: 200
-                                implicitHeight: 1
-                                color: "#1E000000"
-                            }
+                        RuqolaMenuSeparator {
                         }
                         QQC2.MenuItem {
                             text: i18n("Video Chat")
@@ -116,13 +104,7 @@ Component {
                                 }
                             }
                         }
-                        QQC2.MenuSeparator {
-                            padding: 0
-                            contentItem: Rectangle {
-                                implicitWidth: 200
-                                implicitHeight: 1
-                                color: "#1E000000"
-                            }
+                        RuqolaMenuSeparator {
                         }
                         QQC2.MenuItem {
                             text: i18n("Test add user !")
@@ -130,13 +112,7 @@ Component {
                                 addUserDialog.initializeAndOpen()
                             }
                         }
-                        QQC2.MenuSeparator {
-                            padding: 0
-                            contentItem: Rectangle {
-                                implicitWidth: 200
-                                implicitHeight: 1
-                                color: "#1E000000"
-                            }
+                        RuqolaMenuSeparator {
                         }
                         QQC2.MenuItem {
                             text: i18n("Take a Video Message")
@@ -178,7 +154,7 @@ Component {
         ActiveChat {
             id: activeChat
             model: appid.model
-            rocketChatAccount: appid.rocketChatAccount
+            rcAccount: appid.rocketChatAccount
             
             onOpenDirectChannel: {
                 openDirectChannelDialog.username = userName;
