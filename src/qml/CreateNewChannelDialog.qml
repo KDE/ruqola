@@ -62,6 +62,7 @@ Dialog {
         }
         TextField {
             id: userList
+            //Add i18n context ?
             placeholderText: i18n("User separate with ','")
         }
 

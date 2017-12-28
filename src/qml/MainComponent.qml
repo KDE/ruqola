@@ -187,7 +187,7 @@ Component {
         footer: UserInput {
             id: userInputMessage
             visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false)
-            
+            anchors.bottom: mainWidget.bottom
             messageLineText: appid.rocketChatAccount.getUserCurrentMessage(appid.selectedRoomID)
             onTextEditing: {
                 appid.rocketChatAccount.textEditing(appid.selectedRoomID, str)

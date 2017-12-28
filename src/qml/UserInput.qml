@@ -32,7 +32,6 @@ RowLayout {
     id: footerItem
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.bottom: mainWidget.bottom
     property alias messageLineText: messageLine.text
 
     signal textEditing(string str)

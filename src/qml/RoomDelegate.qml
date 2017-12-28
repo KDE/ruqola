@@ -1,6 +1,7 @@
 /*
  
- * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
+ * Copyright 2016 Riccardo Iaconelli <riccardo@kde.org>
+ * Copyright 2017 Montel Laurent <montel@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -75,7 +76,7 @@ Kirigami.BasicListItem {
         QQC2.Label {
             id: unreadMessage
 
-            visible: !editingMode && d_unread > 0
+            visible: !d_editingMode && d_unread > 0
             height: parent.height
             width: height
             font.bold: true
@@ -85,7 +86,7 @@ Kirigami.BasicListItem {
         Kirigami.Icon {
             id: hideAction
 
-            visible: editingMode
+            visible: d_editingMode
             source: "hide_table_row"
             height: parent.height
             width: height
@@ -106,7 +107,7 @@ Kirigami.BasicListItem {
             id: quitAction
 
             //We can leave only channel not private chat
-            visible: editingMode && d_type == "c"
+            visible: d_editingMode && d_type == "c"
             source: "dialog-close"
             height: parent.height
             width: height
