@@ -40,6 +40,7 @@ set (Ruqola_core_srcs
     ruqolalogger.cpp
     ruqolaregisterengine.cpp
     ruqolaserverconfig.cpp
+    statusmodel.cpp
     aboutdata/qmlaboutdata.cpp
     aboutdata/qmlaboutdataauthormodel.cpp
     ${Ruqola_ddpapi_SRCS}
