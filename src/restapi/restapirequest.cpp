@@ -20,7 +20,6 @@
 
 #include "restapirequest.h"
 #include "ruqola_restapi_debug.h"
-#include "restapiutil.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -29,8 +28,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
-
-//TODO save/load token
 
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
@@ -170,10 +167,15 @@ QString RestApiRequest::userId() const
     return mUserId;
 }
 
+QUrl RestApiRequest::generateUrl(RestApiUtil::RestApiUrlType type)
+{
+    return QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(type));
+}
+
 void RestApiRequest::login()
 {
     if (!mUserName.isEmpty() && !mPassword.isEmpty() && !mServerUrl.isEmpty()) {
-        QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(RestApiUtil::RestApiUrlType::Login));
+        QUrl url = generateUrl(RestApiUtil::RestApiUrlType::Login);
         QNetworkRequest request(url);
         request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
 
@@ -192,7 +194,7 @@ void RestApiRequest::login()
 
 void RestApiRequest::logout()
 {
-    const QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(RestApiUtil::RestApiUrlType::Logout));
+    const QUrl url = generateUrl(RestApiUtil::RestApiUrlType::Logout);
     QNetworkRequest request(url);
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
@@ -205,7 +207,7 @@ void RestApiRequest::channelList()
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::channelList problem with mUserId or mAuthToken";
     } else {
-        const QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(RestApiUtil::RestApiUrlType::ChannelsList));
+        const QUrl url = generateUrl(RestApiUtil::RestApiUrlType::ChannelsList);
         QNetworkRequest request(url);
         qDebug() << " url "<< url;
         request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
@@ -220,7 +222,7 @@ void RestApiRequest::getAvatar(const QString &userId)
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getAvatar problem with mUserId or mAuthToken";
     } else {
-        QUrl url = QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar));
+        QUrl url = generateUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar);
         QUrlQuery queryUrl;
         queryUrl.addQueryItem(QStringLiteral("userId"), userId);
         url.setQuery(queryUrl);

@@ -23,6 +23,8 @@
 
 #include <QObject>
 #include <QSslError>
+#include "restapiutil.h"
+
 class QNetworkAccessManager;
 class QNetworkReply;
 class RestApiRequest : public QObject
@@ -57,6 +59,8 @@ public:
     void logout();
     void channelList();
     void getAvatar(const QString &userId);
+
+    QUrl generateUrl(RestApiUtil::RestApiUrlType type);
 
 Q_SIGNALS:
     void avartar(const QString &userId, const QString &url);
