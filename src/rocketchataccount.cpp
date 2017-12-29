@@ -63,7 +63,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mRocketChatBackend, &RocketChatBackend::notification, this, &RocketChatAccount::notification);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mUserCompleterModel = new UserCompleterModel(this);
-    mRoomModel = new RoomModel(this, this);
+    mRoomModel = new RoomModel(this);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
     mMessageQueue = new MessageQueue(this);
@@ -75,6 +75,15 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
 RocketChatAccount::~RocketChatAccount()
 {
+    QSettings settings;
+    settings.beginGroup(QStringLiteral("Avatar"));
+    QHash<QString, QString>::const_iterator i = mUserAvatarUrl.constBegin();
+    while (i != mUserAvatarUrl.constEnd()) {
+         settings.setValue(i.key(), i.value());
+         ++i;
+     }
+    settings.endGroup();
+
     delete mRuqolaServerConfig;
     delete mRuqolaLogger;
 }
@@ -116,6 +125,13 @@ RocketChatBackend *RocketChatAccount::rocketChatBackend() const
 
 void RocketChatAccount::loadSettings()
 {
+    QSettings settings;
+    settings.beginGroup(QStringLiteral("Avatar"));
+    const QStringList keys = settings.childKeys();
+    for (const QString &key : keys) {
+         mUserAvatarUrl[key] = settings.value(key).toString();
+    }
+    settings.endGroup();
     mSettings->loadSettings();
 }
 
