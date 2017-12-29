@@ -216,7 +216,8 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
             mRocketChatAccount->usersModel()->addUser(user);
         }
         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username << fields;
-        mRocketChatAccount->restApi()->getAvatar(object[QStringLiteral("id")].toString());
+        //Get avatar url
+        mRocketChatAccount->avatarUrl(object[QStringLiteral("id")].toString());
     } else if (collection == QLatin1String("rooms")) {
         qCDebug(RUQOLA_LOG) << "NEW ROOMS ADDED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {
