@@ -256,7 +256,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
         const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
         qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1String("args")).toArray().toVariantList();
 
-        if (eventname.endsWith(QStringLiteral("/subscriptions-changed"))) {
+        if (eventname.endsWith(QLatin1String("/subscriptions-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();
             model->updateSubscription(contents);
             if (mRocketChatAccount->ruqolaLogger()) {
@@ -266,7 +266,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             } else {
                 qCDebug(RUQOLA_LOG) << "stream-notify-user: subscriptions-changed " << object;
             }
-        } else if (eventname.endsWith(QStringLiteral("/rooms-changed"))) {
+        } else if (eventname.endsWith(QLatin1String("/rooms-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();
             model->updateRoom(fields);
             if (mRocketChatAccount->ruqolaLogger()) {
@@ -276,7 +276,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             } else {
                 qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
             }
-        } else if (eventname.endsWith(QStringLiteral("/notification"))) {
+        } else if (eventname.endsWith(QLatin1String("/notification"))) {
             const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
             const QString title = contents.at(0).toObject()[QStringLiteral("title")].toString();
             Q_EMIT notification(title, message);
