@@ -25,14 +25,15 @@ import QtQuick.Controls 1.4
 import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.2 as QQC2
-
+import QtQuick.Controls 2.3 as QQC2
+import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.DDPClient 1.0
 import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.DebugCategory 1.0
+import KDE.Ruqola.User 1.0
 
 Component {
     id: roomsComponent
@@ -75,7 +76,7 @@ Component {
                 QQC2.ComboBox {
                     anchors.left: comboboxLabel.right
                     anchors.right: parent.right
-
+                    flat: true
                     model: ListModel {
                         id: model
                         //TODO use i18n
@@ -85,7 +86,7 @@ Component {
                         ListElement { text: qsTr("Disconnect") }
                     }
                     onActivated: {
-
+                        appid.rocketChatAccount.setDefaultStatus(User.PresenceAway)
                     }
                 }
             }
