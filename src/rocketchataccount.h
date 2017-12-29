@@ -145,6 +145,8 @@ public:
 
     UserCompleterModel *userCompleterModel() const;
 
+    Q_INVOKABLE QString avatarUrl(const QString &userId);
+
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();
@@ -156,6 +158,7 @@ Q_SIGNALS:
     void notification(const QString &title, const QString &message);
 
 private:
+    void insertAvatarUrl(const QString &userId, const QString &url);
     void loadSettings();
     void clearModels();
     RocketChatAccountSettings *mSettings = nullptr;
@@ -163,6 +166,7 @@ private:
     QHash<QString, MessageModel *> mMessageModels;
     QHash<QString, UsersForRoomModel *> mUsersForRoomModels;
     QHash<QString, QString> mUserCurrentMessage;
+    QHash<QString, QString> mUserAvatarUrl;
     QVector<Emoji> mEmojiList;
 
     TypingNotification *mTypingNotification = nullptr;

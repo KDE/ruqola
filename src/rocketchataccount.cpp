@@ -230,10 +230,28 @@ void RocketChatAccount::sendMessage(const QString &roomID, const QString &messag
     ddp()->method(QStringLiteral("sendMessage"), QJsonDocument(json), DDPClient::Persistent);
 }
 
+QString RocketChatAccount::avatarUrl(const QString &userId)
+{
+    //avoid to call this method several time.
+    if (!mUserAvatarUrl.contains(userId)) {
+        restApi()->getAvatar(userId);
+        insertAvatarUrl(userId, QString());
+        return {};
+    } else {
+        return mUserAvatarUrl.value(userId);
+    }
+}
+
+void RocketChatAccount::insertAvatarUrl(const QString &userId, const QString &url)
+{
+    mUserAvatarUrl.insert(userId, url);
+}
+
 RestApiRequest *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
         mRestApi = new RestApiRequest(this);
+        connect(mRestApi, &RestApiRequest::avatar, this, &RocketChatAccount::insertAvatarUrl);
         mRestApi->setServerUrl(mSettings->serverUrl());
     }
     return mRestApi;

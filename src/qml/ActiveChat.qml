@@ -58,7 +58,7 @@ ListView {
         i_timestamp: timestamp
         i_messageID: messageID
         i_messageType: messagetype
-        i_avatar: avatar
+        i_avatar: avatar == "" ? rcAccount.avatarUrl(userID) : avatar
         i_urls: urls
         i_attachments: attachments
         i_date: date

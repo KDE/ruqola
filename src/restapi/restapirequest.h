@@ -63,7 +63,7 @@ public:
     QUrl generateUrl(RestApiUtil::RestApiUrlType type);
 
 Q_SIGNALS:
-    void avartar(const QString &userId, const QString &url);
+    void avatar(const QString &userId, const QString &url);
     void logoutDone();
     void loginDone(const QString &authToken, const QString &userId);
 

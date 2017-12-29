@@ -101,6 +101,9 @@ void RestApiRequest::setUserId(const QString &userId)
 void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userId)
 {
     qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
+    QString str = QString::fromUtf8(data);
+    str.remove(QLatin1Char('"'));
+    Q_EMIT avatar(userId, str);
 }
 
 void RestApiRequest::slotResult(QNetworkReply *reply)
