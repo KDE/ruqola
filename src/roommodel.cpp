@@ -133,6 +133,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomOrder] = "roomorder";
     roles[RoomFavorite] = "favorite";
     roles[RoomSection] = "sectionname";
+    roles[RoomStatus] = "status";
     return roles;
 }
 
@@ -181,6 +182,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return sectionName(r);
     case RoomModel::RoomOrder:
         return order(r);
+    case RoomModel::RoomStatus: //TODO
+        return QString();
     }
     return {};
 }
