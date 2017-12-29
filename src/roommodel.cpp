@@ -74,9 +74,6 @@ RoomWrapper *RoomModel::findRoom(const QString &roomID) const
         }
     }
     return nullptr;
-    //Leak!
-    Room *r = new Room;
-    return new RoomWrapper(r);
 }
 
 // Clear data and refill it with data in the cache, if there is
