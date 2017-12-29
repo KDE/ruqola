@@ -65,23 +65,39 @@ Component {
 
         header: Column {
 
-            RowLayout {
+            ColumnLayout {
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.leftMargin: 2*Kirigami.Units.smallSpacing
-                QQC2.Label {
-                    id: comboboxLabel
-
-                    text: i18n("Status:")
-                }
-
-                QQC2.ComboBox {
-                    anchors.left: comboboxLabel.right
+                RowLayout {
+                    anchors.left: parent.left
                     anchors.right: parent.right
-                    model: appid.rocketChatAccount.statusModel
-                    textRole: "statusi18n"
-                    onActivated: {
-                        appid.rocketChatAccount.setDefaultStatus(User.PresenceAway)
+                    anchors.leftMargin: 2*Kirigami.Units.smallSpacing
+                    QQC2.Label {
+                        id: comboboxLabel
+
+                        text: i18n("Status:")
+                    }
+
+                    QQC2.ComboBox {
+                        anchors.left: comboboxLabel.right
+                        anchors.right: parent.right
+                        model: appid.rocketChatAccount.statusModel
+                        textRole: "statusi18n"
+                        onActivated: {
+                            appid.rocketChatAccount.setDefaultStatus(User.PresenceAway)
+                        }
+                    }
+                }
+                TextField {
+                    id: searchField
+                    focus: true
+                    Layout.minimumHeight: Layout.maximumHeight
+                    Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
+                    Layout.fillWidth: true
+                    //width: parent.width
+                    placeholderText: i18n("Search...")
+                    onTextChanged: {
+                        //TODO filter list view
                     }
                 }
             }
@@ -89,19 +105,6 @@ Component {
 
         mainItem:
             RoomsView {
-            header: TextField {
-                id: searchField
-                focus: true
-                Layout.minimumHeight: Layout.maximumHeight
-                Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
-                Layout.fillWidth: true
-                width: parent.width
-                placeholderText: i18n("Search...")
-                onTextChanged: {
-                    //TODO filter list view
-                }
-            }
-            
             id: roomsList
             implicitWidth: Kirigami.Units.gridUnit * 10
             anchors.fill: parent
