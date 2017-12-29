@@ -28,8 +28,6 @@ import KDE.Ruqola.RocketChatAccount 1.0
 
 ListView {
     id: roomsList
-
-    anchors.fill: parent
     property string selectedRoomID;
     property bool editingMode: false;
     

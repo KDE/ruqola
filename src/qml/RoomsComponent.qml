@@ -44,7 +44,8 @@ Component {
             iconName: "list-add"
             text: i18n("Open room");
             onTriggered: {
-                channelsList.open();
+                //TODO reactivate it.
+                //channelsList.open();
             }
         }
         actions.left: Kirigami.Action {
@@ -59,7 +60,7 @@ Component {
         background: Rectangle {
             color: Kirigami.Theme.viewBackgroundColor
         }
-        
+
         mainItem:
             RoomsView {
             header: TextField {
@@ -93,11 +94,5 @@ Component {
             }
             
         } //RoomsView
-        Kirigami.OverlaySheet {
-            id: channelsList
-            
-            contentItem: ChannelsList {
-            }
-        }
     }
 }
