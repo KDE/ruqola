@@ -30,6 +30,7 @@
 #include "ruqolautils.h"
 #include "usersforroommodel.h"
 #include "usersmodel.h"
+#include "statusmodel.h"
 
 #include <KLocalizedContext>
 #include <QQmlApplicationEngine>
@@ -61,6 +62,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<QmlAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
     qmlRegisterType<QmlAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");
     qmlRegisterType<UserCompleterModel>("KDE.Ruqola.UserCompleterModel", 1, 0, "UserCompleterModel");
+    qmlRegisterType<StatusModel>("KDE.Ruqola.StatusModel", 1, 0, "StatusModel");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
     qRegisterMetaType<RocketChatAccount::RoomInfoType>();

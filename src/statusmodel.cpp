@@ -76,6 +76,7 @@ void StatusModel::fillModel()
 
 int StatusModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent);
     return mStatusList.count();
 }
 

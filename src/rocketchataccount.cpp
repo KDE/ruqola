@@ -33,6 +33,7 @@
 #include "ruqolalogger.h"
 #include "ruqolaserverconfig.h"
 #include "usercompletermodel.h"
+#include "statusmodel.h"
 
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -66,6 +67,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mRocketChatBackend, &RocketChatBackend::notification, this, &RocketChatAccount::notification);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mUserCompleterModel = new UserCompleterModel(this);
+    mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
@@ -101,6 +103,11 @@ void RocketChatAccount::clearModels()
     mMessageQueue->loadCache();
     //Try to send queue message
     mMessageQueue->processQueue();
+}
+
+StatusModel *RocketChatAccount::statusModel() const
+{
+    return mStatusModel;
 }
 
 UserCompleterModel *RocketChatAccount::userCompleterModel() const

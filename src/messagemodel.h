@@ -23,7 +23,6 @@
 #ifndef MESSAGEMODEL_H
 #define MESSAGEMODEL_H
 
-#include "libruqolacore_export.h"
 #include "libruqola_private_export.h"
 #include "message.h"
 #include <QAbstractListModel>

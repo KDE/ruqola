@@ -34,6 +34,7 @@ import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.User 1.0
+import KDE.Ruqola.StatusModel 1.0
 
 Component {
     id: roomsComponent
@@ -77,14 +78,8 @@ Component {
                     anchors.left: comboboxLabel.right
                     anchors.right: parent.right
                     flat: true
-                    model: ListModel {
-                        id: model
-                        //TODO use i18n
-                        ListElement { text: qsTr("Connected") }
-                        ListElement { text: qsTr("away") }
-                        ListElement { text: qsTr("Busy") }
-                        ListElement { text: qsTr("Disconnect") }
-                    }
+                    //model: appid.rocketChatAccount.statusModel()
+                    //textRole: text
                     onActivated: {
                         appid.rocketChatAccount.setDefaultStatus(User.PresenceAway)
                     }

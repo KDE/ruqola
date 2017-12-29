@@ -18,45 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef STATUSMODEL_H
-#define STATUSMODEL_H
 
-#include "user.h"
-#include "libruqola_private_export.h"
+#ifndef STATUSMODELTEST_H
+#define STATUSMODELTEST_H
 
-#include <QAbstractListModel>
-#include <QIcon>
+#include <QObject>
 
-struct StatusInfo {
-    QString displayText;
-    QIcon icon;
-    User::PresenceStatus status;
-};
-
-class LIBRUQOLACORE_TESTS_EXPORT StatusModel : public QAbstractListModel
+class StatusModelTest : public QObject
 {
     Q_OBJECT
 public:
-    enum StatusRoles {
-        StatusI18n = Qt::UserRole + 1,
-        Status,
-        Icon,
-    };
-    Q_ENUM(StatusRoles)
-
-    explicit StatusModel(QObject *parent = nullptr);
-    ~StatusModel();
-
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-
-protected:
-    QHash<int, QByteArray> roleNames() const override;
-
-private:
-    void fillModel();
-    QVector<StatusInfo> mStatusList;
-
+    explicit StatusModelTest(QObject *parent = nullptr);
+    ~StatusModelTest() = default;
 };
 
-#endif // STATUSMODEL_H
+#endif // STATUSMODELTEST_H

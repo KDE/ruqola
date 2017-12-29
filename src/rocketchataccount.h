@@ -40,6 +40,7 @@ class RoomFilterProxyModel;
 class RuqolaLogger;
 class RuqolaServerConfig;
 class UserCompleterModel;
+class StatusModel;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -147,6 +148,8 @@ public:
 
     Q_INVOKABLE QString avatarUrl(const QString &userId);
 
+    StatusModel *statusModel() const;
+
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();
@@ -181,6 +184,7 @@ private:
     RuqolaLogger *mRuqolaLogger = nullptr;
     RuqolaServerConfig *mRuqolaServerConfig = nullptr;
     UserCompleterModel *mUserCompleterModel = nullptr;
+    StatusModel *mStatusModel = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H
