@@ -36,7 +36,7 @@ StatusModel::~StatusModel()
 QHash<int, QByteArray> StatusModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[StatusI18n] = "text";
+    roles[StatusI18n] = "statusi18n";
     roles[Status] = "status";
     roles[Icon] = "icon";
     return roles;
@@ -92,5 +92,4 @@ QVariant StatusModel::data(const QModelIndex &index, int role) const
         return statusInfo.icon;
     }
     return {};
-
 }
