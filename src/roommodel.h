@@ -52,6 +52,7 @@ public:
         RoomFavorite,
         RoomSection,
         RoomStatus,
+        RoomIcon,
     };
 
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
@@ -96,6 +97,8 @@ protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
+    QIcon status(Room *r) const;
+    QIcon icon(Room *r) const;
     int order(Room *r) const;
     QString sectionName(Room *r) const;
     RocketChatAccount *mRocketChatAccount = nullptr;

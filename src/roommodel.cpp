@@ -27,6 +27,7 @@
 #include <KLocalizedString>
 
 #include <QAbstractItemModel>
+#include <QIcon>
 
 RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
@@ -131,6 +132,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomFavorite] = "favorite";
     roles[RoomSection] = "sectionname";
     roles[RoomStatus] = "status";
+    roles[RoomIcon] = "channelicon";
     return roles;
 }
 
@@ -181,6 +183,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return order(r);
     case RoomModel::RoomStatus: //TODO
         return QString();
+    case RoomModel::RoomIcon:
+        return icon(r);
     }
     return {};
 }
@@ -339,4 +343,24 @@ int RoomModel::order(Room *r) const
         order += 3;
     }
     return order;
+}
+
+QIcon RoomModel::icon(Room *r) const
+{
+    if (r->channelType() == QLatin1String("c")) {
+        return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
+    } else if (r->channelType() == QLatin1String("d")) {
+        return QIcon::fromTheme(QStringLiteral("user-avaliable"));
+    } else if (r->channelType() == QLatin1String("p")) {
+        return QIcon::fromTheme(QStringLiteral("lock"));
+    }
+    return {};
+}
+
+QIcon RoomModel::status(Room *r) const
+{
+    if (r->channelType() == QLatin1String("d")) {
+        //TODO give status.
+    }
+    return {};
 }

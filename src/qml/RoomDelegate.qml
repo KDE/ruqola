@@ -39,6 +39,7 @@ Kirigami.BasicListItem {
     property string d_type: "";
     property bool d_open: false;
     property bool d_alert: false;
+    property var d_icon
     
     property bool d_editingMode: false;
     
@@ -47,21 +48,7 @@ Kirigami.BasicListItem {
     signal leaveRoom(string roomID)
     signal hideRoom(string roomID)
     
-    function iconFromType(type)
-    {
-        //TODO add info about user status
-        if (type === "c") {
-            return "irc-channel-active"
-        } else if (type === "p") {
-            return "lock"
-        } else if (type === "d") {
-            return "user-avaliable"
-        }
-
-        return "";
-    }
-
-    icon: iconFromType(d_type)
+    icon: d_icon
     
     visible: !d_name.empty && d_open
 

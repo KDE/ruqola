@@ -66,6 +66,7 @@ ListView {
         d_alert: alert
         d_selected: selectedRoomID == room_id
         d_editingMode: editingMode
+        d_icon: channelicon
         
         onRoomSelected : {
             roomsList.roomSelected(roomID)
