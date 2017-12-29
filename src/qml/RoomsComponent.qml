@@ -61,6 +61,36 @@ Component {
             color: Kirigami.Theme.viewBackgroundColor
         }
 
+        header: Column {
+
+            RowLayout {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 2*Kirigami.Units.smallSpacing
+                QQC2.Label {
+                    id: comboboxLabel
+                    text: i18n("Status:")
+                }
+
+                QQC2.ComboBox {
+                    anchors.left: comboboxLabel.right
+                    anchors.right: parent.right
+
+                    model: ListModel {
+                        id: model
+                        //TODO use i18n
+                        ListElement { text: qsTr("Connected") }
+                        ListElement { text: qsTr("away") }
+                        ListElement { text: qsTr("Busy") }
+                        ListElement { text: qsTr("Disconnect") }
+                    }
+                    onActivated: {
+
+                    }
+                }
+            }
+        }
+
         mainItem:
             RoomsView {
             header: TextField {
