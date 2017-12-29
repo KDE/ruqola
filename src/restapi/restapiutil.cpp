@@ -138,59 +138,52 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.setType");
     case RestApiUtil::RestApiUrlType::ChannelsUnarchive:
         return QStringLiteral("channels.unarchive");
+    case RestApiUtil::RestApiUrlType::GroupsAddAll:
+        return QStringLiteral("groups.addAll");
+    case RestApiUtil::RestApiUrlType::GroupsAddModerator:
+        return QStringLiteral("groups.addModerator");
+    case RestApiUtil::RestApiUrlType::GroupsAddOwner:
+        return QStringLiteral("groups.addOwner");
+    case RestApiUtil::RestApiUrlType::GroupsArchive:
+        return QStringLiteral("groups.archive");
+    case RestApiUtil::RestApiUrlType::GroupsClose:
+        return QStringLiteral("groups.close");
+    case RestApiUtil::RestApiUrlType::GroupsCreate:
+        return QStringLiteral("groups.create");
+    case RestApiUtil::RestApiUrlType::GroupsGetIntegrations:
+        return QStringLiteral("groups.getIntegrations");
+    case RestApiUtil::RestApiUrlType::GroupsHistory:
+        return QStringLiteral("groups.history");
+    case RestApiUtil::RestApiUrlType::GroupsInfo:
+        return QStringLiteral("groups.info");
+    case RestApiUtil::RestApiUrlType::GroupsInvite:
+        return QStringLiteral("groups.invite");
+    case RestApiUtil::RestApiUrlType::GroupsKick:
+        return QStringLiteral("groups.kick");
+    case RestApiUtil::RestApiUrlType::GroupsLeave:
+        return QStringLiteral("groups.leave");
+    case RestApiUtil::RestApiUrlType::GroupsList:
+        return QStringLiteral("groups.list");
+    case RestApiUtil::RestApiUrlType::GroupsOpen:
+        return QStringLiteral("groups.open");
+    case RestApiUtil::RestApiUrlType::GroupsRemoveModerator:
+        return QStringLiteral("groups.removeModerator");
+    case RestApiUtil::RestApiUrlType::GroupRemoveOwner:
+        return QStringLiteral("groups.removeOwner");
+    case RestApiUtil::RestApiUrlType::GroupsRename:
+        return QStringLiteral("groups.rename");
+    case RestApiUtil::RestApiUrlType::GroupsSetDescription:
+        return QStringLiteral("groups.setDescription");
+    case RestApiUtil::RestApiUrlType::GroupsSetPurpose:
+        return QStringLiteral("groups.setPurpose");
+    case RestApiUtil::RestApiUrlType::GroupsSetReadOnly:
+        return QStringLiteral("groups.setReadOnly");
+    case RestApiUtil::RestApiUrlType::GroupsSetTopic:
+        return QStringLiteral("groups.setTopic");
+    case RestApiUtil::RestApiUrlType::GroupsSetType:
+        return QStringLiteral("groups.setType");
+    case RestApiUtil::RestApiUrlType::GroupsUnarchive:
+        return QStringLiteral("groups.unarchive");
     }
-#if 0
-    //Channel
-    return QStringLiteral("channels.addAll");
-    return QStringLiteral("channels.addModerator");
-    return QStringLiteral("channels.addOwner");
-    return QStringLiteral("channels.archive");
-    return QStringLiteral("channels.cleanHistory");
-    return QStringLiteral("channels.close");
-    return QStringLiteral("channels.create");
-    return QStringLiteral("channels.getIntegrations");
-    return QStringLiteral("channels.history");
-    return QStringLiteral("channels.info");
-    return QStringLiteral("channels.invite");
-    return QStringLiteral("channels.kick");
-    return QStringLiteral("channels.leave");
-    return QStringLiteral("channels.list");
-    return QStringLiteral("channels.list.joined");
-    return QStringLiteral("channels.open");
-    return QStringLiteral("channels.removeModerator");
-    return QStringLiteral("channels.removeOwner");
-    return QStringLiteral("channels.rename");
-    return QStringLiteral("channels.setDescription");
-    return QStringLiteral("channels.setJoinCode");
-    return QStringLiteral("channels.setPurpose");
-    return QStringLiteral("channels.setReadOnly");
-    return QStringLiteral("channels.setTopic");
-    return QStringLiteral("channels.setType");
-    return QStringLiteral("channels.unarchive");
-    //Group
-    return QStringLiteral("groups.addAll");
-    return QStringLiteral("groups.addModerator");
-    return QStringLiteral("groups.addOwner");
-    return QStringLiteral("groups.archive");
-    return QStringLiteral("groups.close");
-    return QStringLiteral("groups.create");
-    return QStringLiteral("groups.getIntegrations");
-    return QStringLiteral("groups.history");
-    return QStringLiteral("groups.info");
-    return QStringLiteral("groups.invite");
-    return QStringLiteral("groups.kick");
-    return QStringLiteral("groups.leave");
-    return QStringLiteral("groups.list");
-    return QStringLiteral("groups.open");
-    return QStringLiteral("groups.removeModerator");
-    return QStringLiteral("groups.removeOwner");
-    return QStringLiteral("groups.rename");
-    return QStringLiteral("groups.setDescription");
-    return QStringLiteral("groups.setPurpose");
-    return QStringLiteral("groups.setReadOnly");
-    return QStringLiteral("groups.setTopic");
-    return QStringLiteral("groups.setType");
-    return QStringLiteral("groups.unarchive");
-#endif
     return {};
 }
