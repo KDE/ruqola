@@ -160,6 +160,7 @@ Q_SIGNALS:
 private:
     void insertAvatarUrl(const QString &userId, const QString &url);
     void loadSettings();
+    void loadAvatarCache();
     void clearModels();
     RocketChatAccountSettings *mSettings = nullptr;
     //room, messagemodel

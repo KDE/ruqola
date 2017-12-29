@@ -51,6 +51,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
         mRuqolaLogger = new RuqolaLogger;
     }
+
+    loadAvatarCache();
+
     mRuqolaServerConfig = new RuqolaServerConfig;
     //TODO add account name.
     mSettings = new RocketChatAccountSettings(accountFileName, this);
@@ -83,6 +86,8 @@ RocketChatAccount::~RocketChatAccount()
          ++i;
      }
     settings.endGroup();
+    qDeleteAll(mUsersForRoomModels);
+    qDeleteAll(mMessageModels);
 
     delete mRuqolaServerConfig;
     delete mRuqolaLogger;
@@ -123,7 +128,7 @@ RocketChatBackend *RocketChatAccount::rocketChatBackend() const
     return mRocketChatBackend;
 }
 
-void RocketChatAccount::loadSettings()
+void RocketChatAccount::loadAvatarCache()
 {
     QSettings settings;
     settings.beginGroup(QStringLiteral("Avatar"));
@@ -132,6 +137,10 @@ void RocketChatAccount::loadSettings()
          mUserAvatarUrl[key] = settings.value(key).toString();
     }
     settings.endGroup();
+}
+
+void RocketChatAccount::loadSettings()
+{
     mSettings->loadSettings();
 }
 
