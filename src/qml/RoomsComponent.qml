@@ -71,6 +71,7 @@ Component {
                 anchors.leftMargin: 2*Kirigami.Units.smallSpacing
                 QQC2.Label {
                     id: comboboxLabel
+
                     text: i18n("Status:")
                 }
 
@@ -78,8 +79,8 @@ Component {
                     anchors.left: comboboxLabel.right
                     anchors.right: parent.right
                     flat: true
-                    //model: appid.rocketChatAccount.statusModel()
-                    //textRole: text
+                    model: appid.rocketChatAccount.statusModel
+                    textRole: "text"
                     onActivated: {
                         appid.rocketChatAccount.setDefaultStatus(User.PresenceAway)
                     }

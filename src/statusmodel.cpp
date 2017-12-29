@@ -83,7 +83,6 @@ int StatusModel::rowCount(const QModelIndex &parent) const
 QVariant StatusModel::data(const QModelIndex &index, int role) const
 {
     StatusInfo statusInfo = mStatusList.at(index.row());
-
     switch (role) {
     case StatusI18n:
         return statusInfo.displayText;
