@@ -148,7 +148,7 @@ public:
 
     Q_INVOKABLE QString avatarUrl(const QString &userId);
 
-    StatusModel *statusModel() const;
+    Q_INVOKABLE StatusModel *statusModel() const;
 
 Q_SIGNALS:
     void accountNameChanged();

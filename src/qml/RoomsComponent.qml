@@ -81,7 +81,7 @@ Component {
                     QQC2.ComboBox {
                         anchors.left: comboboxLabel.right
                         anchors.right: parent.right
-                        model: appid.rocketChatAccount.statusModel
+                        model: appid.rocketChatAccount.statusModel()
                         textRole: "statusi18n"
                         onActivated: {
                             appid.rocketChatAccount.setDefaultStatus(User.PresenceAway)
