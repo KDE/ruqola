@@ -33,6 +33,11 @@ StatusModel::~StatusModel()
 
 }
 
+User::PresenceStatus StatusModel::status(int index) const
+{
+    return mStatusList.at(index).status;
+}
+
 QHash<int, QByteArray> StatusModel::roleNames() const
 {
     QHash<int, QByteArray> roles;

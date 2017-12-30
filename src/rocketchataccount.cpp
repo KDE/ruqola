@@ -429,7 +429,13 @@ void RocketChatAccount::listEmojiCustom()
 
 void RocketChatAccount::setDefaultStatus(User::PresenceStatus status)
 {
+    qDebug() << " void RocketChatAccount::setDefaultStatus(User::PresenceStatus status)"<<status;
     ddp()->setDefaultStatus(status);
+}
+
+void RocketChatAccount::changeDefaultStatus(int index)
+{
+    setDefaultStatus(mStatusModel->status(index));
 }
 
 void RocketChatAccount::loadEmoji()

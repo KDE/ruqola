@@ -84,7 +84,7 @@ Component {
                         model: appid.rocketChatAccount.statusModel()
                         textRole: "statusi18n"
                         onActivated: {
-                            appid.rocketChatAccount.setDefaultStatus(User.PresenceAway)
+                            appid.rocketChatAccount.changeDefaultStatus(index)
                         }
                     }
                 }

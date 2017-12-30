@@ -111,6 +111,7 @@ public:
     Q_INVOKABLE void openDirectChannel(const QString &username);
     Q_INVOKABLE void listEmojiCustom();
     Q_INVOKABLE void setDefaultStatus(User::PresenceStatus status);
+    Q_INVOKABLE void changeDefaultStatus(int index);
     Q_INVOKABLE void createJitsiConfCall(const QString &roomId);
     Q_INVOKABLE void deleteMessage(const QString &messageId);
     Q_INVOKABLE void userAutocomplete(const QString &searchText, const QString &exception);
