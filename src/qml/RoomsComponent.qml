@@ -97,6 +97,7 @@ Component {
                     //width: parent.width
                     placeholderText: i18n("Search...")
                     onTextChanged: {
+                        console.log("text "  + text)
                         //TODO filter list view
                     }
                 }
