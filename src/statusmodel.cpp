@@ -72,20 +72,17 @@ void StatusModel::fillModel()
         statusInfo.status = User::PresenceStatus::PresenceOffline;
         mStatusList.append(statusInfo);
     }
-    qDebug() << " mStatusList.count " << mStatusList.count();
 }
 
 int StatusModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    qDebug() << " mStatusList.count()"<<mStatusList.count();
     return mStatusList.count();
 }
 
 QVariant StatusModel::data(const QModelIndex &index, int role) const
 {
     StatusInfo statusInfo = mStatusList.at(index.row());
-    qDebug() << " ssssssssssssssssss";
     switch (role) {
     case StatusI18n:
         return statusInfo.displayText;
