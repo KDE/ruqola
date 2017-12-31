@@ -23,6 +23,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import QtQuick 2.9
+import KDE.Ruqola.DebugCategory 1.0
 
 Dialog {
     id: deleteMessageDialog
@@ -48,6 +49,9 @@ Dialog {
     }
 
     onAccepted: {
-        deleteMessageDialog.deleteMessage(msgId)
+        if (msgId != "")
+            deleteMessageDialog.deleteMessage(msgId)
+        else
+            console.log(RuqolaDebugCategorySingleton.category, "message id is not define")
     }
 }
