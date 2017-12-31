@@ -58,7 +58,6 @@ protected:
 private:
     void fillModel();
     QVector<StatusInfo> mStatusList;
-
 };
 
 #endif // STATUSMODEL_H

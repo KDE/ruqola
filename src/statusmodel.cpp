@@ -21,7 +21,6 @@
 #include "statusmodel.h"
 #include <KLocalizedString>
 
-
 StatusModel::StatusModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -30,7 +29,6 @@ StatusModel::StatusModel(QObject *parent)
 
 StatusModel::~StatusModel()
 {
-
 }
 
 User::PresenceStatus StatusModel::status(int index) const

@@ -27,7 +27,6 @@ QTEST_MAIN(StatusModelTest)
 StatusModelTest::StatusModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void StatusModelTest::shouldHaveDefaultValue()

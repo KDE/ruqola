@@ -43,8 +43,6 @@
 #include <QFile>
 #include <QFileDialog>
 
-
-
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
 {
@@ -84,9 +82,9 @@ RocketChatAccount::~RocketChatAccount()
     settings.beginGroup(QStringLiteral("Avatar"));
     QHash<QString, QString>::const_iterator i = mUserAvatarUrl.constBegin();
     while (i != mUserAvatarUrl.constEnd()) {
-         settings.setValue(i.key(), i.value());
-         ++i;
-     }
+        settings.setValue(i.key(), i.value());
+        ++i;
+    }
     settings.endGroup();
     qDeleteAll(mUsersForRoomModels);
     qDeleteAll(mMessageModels);
@@ -141,7 +139,7 @@ void RocketChatAccount::loadAvatarCache()
     settings.beginGroup(QStringLiteral("Avatar"));
     const QStringList keys = settings.childKeys();
     for (const QString &key : keys) {
-         mUserAvatarUrl[key] = settings.value(key).toString();
+        mUserAvatarUrl[key] = settings.value(key).toString();
     }
     settings.endGroup();
 }

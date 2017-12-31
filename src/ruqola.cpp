@@ -40,7 +40,7 @@ Ruqola::Ruqola(QObject *parent)
 {
     //Todo load all account
     //customize account name.
-    mRocketChatAccount = new RocketChatAccount(QString() ,this);
+    mRocketChatAccount = new RocketChatAccount(QString(), this);
     mRuqolaAboutData = new QmlAboutData(this);
     connect(mRocketChatAccount, &RocketChatAccount::serverUrlChanged, this, &Ruqola::serverUrlChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &Ruqola::userIDChanged);
