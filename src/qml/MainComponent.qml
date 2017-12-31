@@ -107,7 +107,7 @@ Component {
                         RuqolaMenuSeparator {
                         }
                         QQC2.MenuItem {
-                            text: i18n("Test add user !")
+                            text: "Test add user !"
                             onTriggered: {
                                 addUserDialog.initializeAndOpen()
                             }
