@@ -30,6 +30,8 @@ class StatusModelTest : public QObject
 public:
     explicit StatusModelTest(QObject *parent = nullptr);
     ~StatusModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // STATUSMODELTEST_H

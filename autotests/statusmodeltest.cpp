@@ -19,6 +19,7 @@
 */
 
 #include "statusmodeltest.h"
+#include "statusmodel.h"
 #include <QTest>
 
 QTEST_MAIN(StatusModelTest)
@@ -27,4 +28,10 @@ StatusModelTest::StatusModelTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void StatusModelTest::shouldHaveDefaultValue()
+{
+    StatusModel w;
+    QCOMPARE(w.rowCount(), 4);
 }
