@@ -28,6 +28,7 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.ExtraColors 1.0
+import KDE.Ruqola.DebugCategory 1.0
 import "../js/message.js" as MessageScript;
 MessageBase {
     id: messageMain
@@ -73,10 +74,10 @@ MessageBase {
         } else if (type === "message_pinned") {
             return i18n("Message Pinned")
         } else {
-            console.log("Unkown type for message");
-            console.log(type);
-            console.log(i_messageText)
-            return i18n("Unknown action!");
+            console.log(RuqolaDebugCategorySingleton.category, "Unkown type for message");
+            console.log(RuqolaDebugCategorySingleton.category, "type : " + type);
+            console.log(RuqolaDebugCategorySingleton.category, "message: " + i_messageText)
+            return i18n(RuqolaDebugCategorySingleton.category, "Unknown action!");
         }
     }
 
