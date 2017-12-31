@@ -23,8 +23,6 @@
 import QtQuick 2.9
 
 import QtQuick.Controls 2.2 as QQC2
-//We need QtMultimedia module for playing audio file
-import QtMultimedia 5.8
 
 import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
