@@ -25,7 +25,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.3 as QQC2
+import QtQuick.Controls 2.2 as QQC2
 import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.Ruqola 1.0
@@ -40,7 +40,7 @@ Component {
     id: roomsComponent
     Kirigami.ScrollablePage {
         id: roomsPage
-        
+
         actions.main: Kirigami.Action {
             id: editAction
             iconName: "list-add"
@@ -123,7 +123,7 @@ Component {
                 appid.selectedRoom = appid.rocketChatAccount.getRoom(roomID)
                 appid.userModel = appid.rocketChatAccount.getUsersForRoomModel(roomID)
             }
-            
+
         } //RoomsView
     }
 }
