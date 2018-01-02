@@ -32,6 +32,7 @@ RowLayout {
     id: footerItem
     anchors.left: parent.left
     anchors.right: parent.right
+    property QtObject rcAccount
     property alias messageLineText: messageLine.text
 
     signal textEditing(string str)
@@ -50,7 +51,7 @@ RowLayout {
         height: messageLine.height/2
         MouseArea {
             anchors.fill: parent
-            onClicked: appid.rocketChatAccount.attachmentButtonClicked(selectedRoomID);
+            onClicked: rcAccount.attachmentButtonClicked(selectedRoomID);
         }
     }
     TextField {
@@ -66,8 +67,8 @@ RowLayout {
 
         property string type: "text"
         onAccepted: {
-            if (text != "" && appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn && !(selectedRoomID == "")) {
-                appid.rocketChatAccount.sendMessage(selectedRoomID, text, type);
+            if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && !(selectedRoomID == "")) {
+                rcAccount.sendMessage(selectedRoomID, text, type);
                 text = "";
             }
         }

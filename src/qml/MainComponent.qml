@@ -186,15 +186,16 @@ Component {
         }
         footer: UserInput {
             id: userInputMessage
+            rcAccount: appid.rocketChatAccount
             visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false)
             anchors.bottom: mainWidget.bottom
-            messageLineText: appid.rocketChatAccount.getUserCurrentMessage(appid.selectedRoomID)
+            messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
             onTextEditing: {
-                appid.rocketChatAccount.textEditing(appid.selectedRoomID, str)
+                rcAccount.textEditing(appid.selectedRoomID, str)
                 appid.userInputMessageText = str;
             }
             onClearUnreadMessages: {
-                appid.rocketChatAccount.clearUnreadMessages(appid.selectedRoomID)
+                rcAccount.clearUnreadMessages(appid.selectedRoomID)
             }
         }
     }// mainWidget Item
