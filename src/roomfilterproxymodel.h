@@ -33,6 +33,7 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
+    Q_INVOKABLE void setFilterString(const QString &string);
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };

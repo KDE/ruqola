@@ -98,6 +98,7 @@ Component {
                     placeholderText: i18n("Search...")
                     onTextChanged: {
                         console.log("text "  + text)
+                        //appid.rocketChatAccount.roomFilterProxyModel().setFilterString(text);
                         //TODO filter list view
                     }
                 }

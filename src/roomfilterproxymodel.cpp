@@ -20,11 +20,13 @@
 
 #include "roomfilterproxymodel.h"
 #include "roommodel.h"
+#include <QDebug>
 
 RoomFilterProxyModel::RoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
+    setFilterCaseSensitivity(Qt::CaseInsensitive);
     sort(0);
 }
 
@@ -54,4 +56,10 @@ QHash<int, QByteArray> RoomFilterProxyModel::roleNames() const
         return source->roleNames();
     }
     return QHash<int, QByteArray>();
+}
+
+void RoomFilterProxyModel::setFilterString(const QString &string)
+{
+    qDebug() << " void RoomFilterProxyModel::setFilterString(const QString &string)"<<string;
+    setFilterFixedString(string);
 }
