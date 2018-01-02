@@ -29,6 +29,7 @@ import KDE.Ruqola.UserCompleterModel 1.0
 Dialog {
     id: addUserDialog
 
+    property QtObject rcAccount
     signal searchUserName(string pattern)
 
     title: i18n("Add Users")
@@ -55,7 +56,7 @@ Dialog {
             }
         }
         ListView {
-            model: appid.rocketChatAccount.userCompleterModel
+            model: rcAccount.userCompleterModel
         }
     }
     onAccepted: {

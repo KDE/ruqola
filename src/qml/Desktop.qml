@@ -125,6 +125,7 @@ Kirigami.ApplicationWindow {
 
     AddUserDialog {
         id: addUserDialog
+        rcAccount: rocketChatAccount
         onSearchUserName: {
             console.log("Search username" + pattern);
             rocketChatAccount.userAutocomplete(pattern, "");
