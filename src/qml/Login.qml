@@ -150,7 +150,7 @@ Kirigami.Page {
             width: parent.width
             color: "#FF0000"
             font.bold: true
-            visible: appid.rocketChatAccount.loginStatus === DDPClient.LoginFailed
+            visible: rcAccount.loginStatus === DDPClient.LoginFailed
         }
     }
 }
