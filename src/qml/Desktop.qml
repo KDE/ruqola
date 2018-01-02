@@ -124,6 +124,10 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    HideChannelDialog {
+        id: hideChannelDialog
+    }
+
     AddUserDialog {
         id: addUserDialog
         rcAccount: rocketChatAccount
@@ -167,7 +171,7 @@ Kirigami.ApplicationWindow {
     }
 
     onClosing: {
-        console.log("Minimizing to systray...");
+        console.log(RuqolaDebugCategorySingleton.category, "Minimizing to systray...");
         hide();
     }
 
