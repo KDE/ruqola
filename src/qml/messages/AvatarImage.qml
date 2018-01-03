@@ -33,7 +33,7 @@ Rectangle {
     property string aliasname
     property string username
 
-    Layout.alignment: Qt.AlignTop
+    Layout.alignment: Qt.AlignCenter
     Layout.fillHeight: false
     //Customize it.
     implicitWidth: /*textLabel.font.pixelSize * 3*/ 12 * 3
@@ -43,8 +43,6 @@ Rectangle {
     
     anchors.rightMargin: 2*Kirigami.Units.smallSpacing
     
-     // Avatar is defined as "/avatar/" + name + ".jpg" we need to get it from server. We need a cache too
-
     color: avatarurl !== "" ? "transparent" : MessageScript.stringToColour(username)
     Image {
         id: avatarImage
