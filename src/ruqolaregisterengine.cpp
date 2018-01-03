@@ -24,6 +24,7 @@
 #include "usercompletermodel.h"
 #include "roomwrapper.h"
 #include "ruqola.h"
+#include "ruqola_debug.h"
 #include "aboutdata/qmlaboutdata.h"
 #include "aboutdata/qmlaboutdataauthormodel.h"
 #include "ruqolaregisterengine.h"
@@ -80,6 +81,7 @@ bool RuqolaRegisterEngine::initialize()
     mEngine->load(QUrl(QStringLiteral("qrc:/Desktop.qml")));
 
     if (mEngine->rootObjects().isEmpty()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to load object from Desktop.qml";
         return false;
     }
     return true;
