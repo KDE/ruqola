@@ -79,6 +79,7 @@ Rectangle {
                                   i_timestamp: i_timestamp,
                                   i_systemMessageType: i_systemMessageType,
                                   i_messageID: i_messageID,
+                                  i_avatar: i_avatar,
                                   i_date: i_date
                               }
                               )

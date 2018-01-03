@@ -38,6 +38,13 @@ MessageBase {
     property var i_timestamp
 
     RowLayout {
+        AvatarImage {
+            id: avatarRect
+            avatarurl: i_avatar
+            aliasname: i_aliasname
+            username: i_username
+        }
+
         Item {
             Layout.fillWidth: true
         }
