@@ -43,6 +43,7 @@ public:
     Q_ENUM(PresenceStatus)
 
     explicit User(QObject *parent = nullptr);
+    ~User();
 
     QString name() const;
     void setName(const QString &name);

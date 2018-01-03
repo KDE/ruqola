@@ -29,6 +29,11 @@ User::User(QObject *parent)
 {
 }
 
+User::~User()
+{
+
+}
+
 QString User::name() const
 {
     return mName;
