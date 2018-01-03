@@ -112,6 +112,12 @@ Component {
             anchors.fill: parent
             model: appid.rocketChatAccount.roomFilterProxyModel()
             selectedRoomID: appid.selectedRoomID;
+            onHideRoom: {
+                //TODO move to desktop.qml
+                hideChannelDialog.rId = roomID
+                hideChannelDialog.open()
+            }
+
             onRoomSelected: {
                 if (roomID == selectedRoomID) {
                     return;

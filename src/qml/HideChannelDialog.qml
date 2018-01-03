@@ -29,11 +29,12 @@ Dialog {
 
     title: i18n("Hide Channel")
 
-    signal hideChannel()
+    signal hideChannel(string roomId)
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
+    property string rId: ""
     modal: true
 
     standardButtons: Dialog.Ok | Dialog.Cancel
@@ -47,6 +48,6 @@ Dialog {
     }
 
     onAccepted: {
-        archiveRoomDialog.hideChannel()
+        hideChannelDialog.hideChannel(rId)
     }
 }
