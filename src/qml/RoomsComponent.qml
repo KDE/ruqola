@@ -19,7 +19,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
 import QtQuick 2.9
 import QtQuick.Controls 1.4
 import QtQuick.Window 2.2
@@ -79,12 +78,26 @@ Component {
                     }
 
                     QQC2.ComboBox {
+                        id: statusCombobox
                         anchors.left: comboboxLabel.right
                         anchors.right: parent.right
                         model: appid.rocketChatAccount.statusModel()
                         textRole: "statusi18n"
                         onActivated: {
                             appid.rocketChatAccount.changeDefaultStatus(index)
+                        }
+
+                        delegate: QQC2.ItemDelegate {
+                            width: statusCombobox.width
+
+                            contentItem: Text {
+                                text: model.statusi18n
+                                font: statusCombobox.font
+                                //TODO fix color.
+                                elide: Text.ElideRight
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                            highlighted: statusCombobox.highlightedIndex === index
                         }
                     }
                 }
