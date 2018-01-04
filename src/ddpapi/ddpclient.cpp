@@ -39,6 +39,13 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void get_users_of_room(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Get Users of Room:") + QJsonDocument(root).toJson());
+    }
+}
+
 void star_message(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -394,6 +401,12 @@ quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &excep
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(pattern, exception, m_uid);
     return method(result, user_auto_complete, DDPClient::Persistent);
+}
+
+quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->getUsersOfRoom(roomId, showAll, m_uid);
+    return method(result, get_users_of_room, DDPClient::Persistent);
 }
 
 quint64 DDPClient::createJitsiConfCall(const QString &roomId)
