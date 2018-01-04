@@ -59,6 +59,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::messageSearch(cons
     const QJsonArray params{
         QJsonValue(pattern),
         QJsonValue(roomId)
+                //TODO limit
     };
     return generateMethod(QStringLiteral("messageSearch"), QJsonDocument(params), id);
 }
@@ -379,10 +380,12 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
 }
 
 //We need to be able to send file for audio/video
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::sendFileMessage(quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::sendFileMessage(const QJsonObject &result, const QString &serviceUploadType, const QString &roomId, quint64 id)
 {
-    //TODO
-    const QJsonArray params{{}};
+    const QJsonArray obj = {roomId, serviceUploadType, result};
+    const QJsonArray params{{
+                                obj
+                            }};
     return generateMethod(QStringLiteral("sendFileMessage"), QJsonDocument(params), id);
 }
 

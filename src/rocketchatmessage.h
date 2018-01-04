@@ -79,7 +79,7 @@ public:
     RocketChatMessage::RocketChatMessageResult messageSearch(const QString &roomId, const QString &pattern, quint64 id);
     RocketChatMessage::RocketChatMessageResult listEmojiCustom(quint64 id);
     RocketChatMessage::RocketChatMessageResult createJitsiConfCall(const QString &roomId, quint64 id);
-    RocketChatMessage::RocketChatMessageResult sendFileMessage(quint64 id);
+    RocketChatMessage::RocketChatMessageResult sendFileMessage(const QJsonObject &result, const QString &serviceUploadType, const QString &roomId, quint64 id);
     RocketChatMessage::RocketChatMessageResult userAutocomplete(const QString &searchText, const QString &exception, quint64 id);
     RocketChatMessage::RocketChatMessageResult updateMessage(quint64 id);
     RocketChatMessage::RocketChatMessageResult unsubscribe(const QString &reqId, quint64 id);
