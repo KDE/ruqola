@@ -36,7 +36,6 @@ set (Ruqola_core_srcs
     rocketchataccount.cpp
     rocketchataccountsettings.cpp
     usersforroommodel.cpp
-    avatarfilecache.cpp
     ruqolalogger.cpp
     ruqolaregisterengine.cpp
     ruqolaserverconfig.cpp
