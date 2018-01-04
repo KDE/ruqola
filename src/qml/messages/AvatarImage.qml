@@ -33,7 +33,7 @@ Rectangle {
     property string aliasname
     property string username
 
-    Layout.alignment: Qt.AlignCenter
+    Layout.alignment: Qt.AlignTop | Qt.AlignCenter
     Layout.fillHeight: false
     //Customize it.
     implicitWidth: /*textLabel.font.pixelSize * 3*/ 12 * 3
