@@ -53,3 +53,13 @@ void RuqolaServerConfig::setJitsiMeetPrefix(const QString &jitsiMeetPrefix)
 {
     mJitsiMeetPrefix = jitsiMeetPrefix;
 }
+
+QString RuqolaServerConfig::fileUploadStorageType() const
+{
+    return mFileUploadStorageType;
+}
+
+void RuqolaServerConfig::setFileUploadStorageType(const QString &type)
+{
+    mFileUploadStorageType = type;
+}

@@ -502,8 +502,10 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             mRuqolaServerConfig->setJitsiMeetUrl(value);
         } else if (id == QLatin1String("Jitsi_URL_Room_Prefix")) {
             mRuqolaServerConfig->setJitsiMeetPrefix(value);
+        } else if (id == QLatin1String("FileUpload_Storage_Type")) {
+            mRuqolaServerConfig->setFileUploadStorageType(value);
         } else {
-            qCDebug(RUQOLA_LOG) << "Other public settings id " << id;
+            qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
     }
 }

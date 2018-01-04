@@ -36,19 +36,23 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.jitsiMeetPrefix().isEmpty());
     QVERIFY(config.jitsiMeetUrl().isEmpty());
     QVERIFY(config.uniqueId().isEmpty());
+    QVERIFY(config.fileUploadStorageType().isEmpty());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
 {
-    QString jitsimeetprefix = QStringLiteral("test 1");
-    QString jitsimeeturl = QStringLiteral("test 2");
-    QString uniqueId = QStringLiteral("test 3");
+    const QString jitsimeetprefix = QStringLiteral("test 1");
+    const QString jitsimeeturl = QStringLiteral("test 2");
+    const QString uniqueId = QStringLiteral("test 3");
+    const QString filestoragetype = QStringLiteral("test 4");
     RuqolaServerConfig config;
     config.setJitsiMeetPrefix(jitsimeetprefix);
     config.setJitsiMeetUrl(jitsimeeturl);
     config.setUniqueId(uniqueId);
+    config.setFileUploadStorageType(filestoragetype);
 
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
     QCOMPARE(config.uniqueId(), uniqueId);
+    QCOMPARE(config.fileUploadStorageType(), filestoragetype);
 }

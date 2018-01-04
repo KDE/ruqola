@@ -38,10 +38,14 @@ public:
     QString jitsiMeetPrefix() const;
     void setJitsiMeetPrefix(const QString &jitsiMeetPrefix);
 
+    QString fileUploadStorageType() const;
+    void setFileUploadStorageType(const QString &type);
+
 private:
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;
+    QString mFileUploadStorageType;
 };
 
 #endif // RUQOLASERVERCONFIG_H
