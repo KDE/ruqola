@@ -121,6 +121,7 @@ Dialog {
 
         //TODO improve it add icon
         ToolButton {
+            //visible if user is owner of room
             text: i18n("Delete")
             onClicked: {
                 deleteRoomDialog.open();
