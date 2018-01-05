@@ -29,8 +29,6 @@ Dialog {
 
     title: i18n("Archive Room")
 
-    signal archiveRoom()
-
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
@@ -44,9 +42,5 @@ Dialog {
             font.bold: true
             font.pointSize: 15
         }
-    }
-
-    onAccepted: {
-        archiveRoomDialog.archiveRoom()
     }
 }
