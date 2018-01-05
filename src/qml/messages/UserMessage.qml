@@ -24,7 +24,6 @@
 
 import QtQuick 2.9
 
-import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Layouts 1.1
@@ -97,7 +96,7 @@ MessageBase {
 
 
                     text: MessageScript.markdownme(i_messageText)
-                    wrapMode: Label.Wrap
+                    wrapMode: QQC2.Label.Wrap
 
                     onLinkActivated: messageMain.linkActivated(link)
                 }
@@ -113,7 +112,7 @@ MessageBase {
                             text: model.modelData.description === ""  ?
                                       MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.url)) :
                                       MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.description))
-                            wrapMode: Label.Wrap
+                            wrapMode: QQC2.Label.Wrap
                             renderType: Text.NativeRendering
                             textFormat: Text.RichText
 
@@ -127,7 +126,7 @@ MessageBase {
                         Text {
                             width: urlColumn.width
                             text: model.modelData.title
-                            wrapMode: Label.Wrap
+                            wrapMode: QQC2.Label.Wrap
                             anchors.leftMargin: Kirigami.Units.smallSpacing
                             anchors.rightMargin: Kirigami.Units.smallSpacing
                         }

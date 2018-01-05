@@ -30,7 +30,7 @@ QQC2.Dialog {
     id: channelInfoDialog
 
     title: i18n("Info about this channel")
-    standardButtons: Dialog.Close
+    standardButtons: QQC2.Dialog.Close
 
     modal: true
     x: parent.width / 2 - width / 2

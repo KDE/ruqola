@@ -20,7 +20,6 @@
 
 import QtQuick 2.9
 
-import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Layouts 1.1
@@ -28,10 +27,10 @@ import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.ExtraColors 1.0
 import KDE.Ruqola.DebugCategory 1.0
 import "../js/message.js" as MessageScript;
-Menu {
+QQC2.Menu {
     id: menu
     
-    MenuItem {
+    QQC2.MenuItem {
         enabled: i_username === i_own_username
         contentItem: QQC2.Label {
             text: i18n("Edit")
@@ -42,7 +41,7 @@ Menu {
             console.log(RuqolaDebugCategorySingleton.category, "User", i_own_username, i_username);
         }
     }
-    MenuItem {
+    QQC2.MenuItem {
         contentItem: QQC2.Label {
             text: i18n("Reply")
         }
@@ -51,7 +50,7 @@ Menu {
             messageMain.replyMessage(i_messageID);
         }
     }
-    MenuItem {
+    QQC2.MenuItem {
         contentItem: QQC2.Label {
             text: i18n("Set as Favorite")
         }
@@ -60,7 +59,7 @@ Menu {
             messageMain.setFavoriteMessage(i_messageID);
         }
     }
-    MenuItem {
+    QQC2.MenuItem {
         enabled: i_username === i_own_username
         contentItem: QQC2.Label {
             text: i18n("Delete")
