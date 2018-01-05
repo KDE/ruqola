@@ -601,3 +601,8 @@ void RocketChatAccount::downloadFile(const QString &url)
     const QUrl clickedUrl = QUrl::fromUserInput(settings()->serverUrl() + url);
     //QDesktopServices::openUrl(clickedUrl);
 }
+
+QString RocketChatAccount::attachmentUrl(const QString &url)
+{
+    return QUrl::fromUserInput(settings()->serverUrl() + url).url();
+}

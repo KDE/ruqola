@@ -151,6 +151,7 @@ public:
 
     Q_INVOKABLE StatusModel *statusModel() const;
 
+    Q_INVOKABLE QString attachmentUrl(const QString &url);
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();

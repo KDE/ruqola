@@ -87,6 +87,10 @@ MessageBase {
                     anchors.leftMargin: Kirigami.Units.smallSpacing
                     anchors.rightMargin: Kirigami.Units.smallSpacing
                 }
+                Image {
+                    source: appid.rocketChatAccount.attachmentUrl(model.modelData.link)
+                }
+
                 DownloadButton {
                     id: download
                     onDownloadButtonClicked: {
