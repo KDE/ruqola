@@ -20,12 +20,13 @@
 
 import QtQuick 2.9
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 1.4
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
 
-Dialog {
+QQC2.Dialog {
     id: channelInfoDialog
 
     title: i18n("Info about this channel")
@@ -55,7 +56,7 @@ Dialog {
 
     GridLayout {
         columns: 2
-        Label {
+        QQC2.Label {
             text: i18n("name:");
         }
         TextFieldEditor {
@@ -69,7 +70,7 @@ Dialog {
                 }
             }
         }
-        Label {
+        QQC2.Label {
             text: i18n("Comment:");
         }
         TextFieldEditor {
@@ -78,7 +79,7 @@ Dialog {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, newVal)
             }
         }
-        Label {
+        QQC2.Label {
             text: i18n("Annoucement:");
         }
         TextFieldEditor {
@@ -87,7 +88,7 @@ Dialog {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Annoucement, newVal)
             }
         }
-        Label {
+        QQC2.Label {
             text: i18n("Description:");
         }
         TextFieldEditor {
@@ -97,10 +98,10 @@ Dialog {
             }
         }
 
-        Label {
+        QQC2.Label {
             text: i18n("Read-Only:");
         }
-        Switch {
+        QQC2.Switch {
             id: readOnlyRoom
             checked: false
             onClicked: {
@@ -108,10 +109,10 @@ Dialog {
             }
         }
 
-        Label {
+        QQC2.Label {
             text: i18n("Archive:");
         }
-        Switch {
+        QQC2.Switch {
             id: archiveRoom
             checked: false
             onClicked: {
@@ -119,10 +120,9 @@ Dialog {
             }
         }
 
-        //TODO improve it add icon
         ToolButton {
             //visible if user is owner of room
-            text: i18n("Delete")
+            iconName: "edit-delete.svg"
             onClicked: {
                 deleteRoomDialog.open();
             }
@@ -134,6 +134,7 @@ Dialog {
         onArchiveRoom: {
             channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Archive, true)
         }
+        //TODO switch off if we cancel it.
     }
 
     DeleteRoomDialog {
