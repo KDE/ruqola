@@ -252,29 +252,28 @@ void RestApiRequest::getAvatar(const QString &userId)
     }
 }
 
-void RestApiRequest::post(const QUrl &url, const QByteArray &data, const QString &mimeType )
+void RestApiRequest::post(const QUrl &url, const QByteArray &data, const QString &mimeType)
 {
     QNetworkRequest request;
-    request.setUrl( url );
-    request.setHeader( QNetworkRequest::ContentTypeHeader, mimeType );
+    request.setUrl(url);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, mimeType);
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-    QNetworkReply *reply = mNetworkAccessManager->post( request, data );
+    QNetworkReply *reply = mNetworkAccessManager->post(request, data);
     reply->setProperty("method", QVariant::fromValue(RestMethod::Post));
 }
 
-void RestApiRequest::get( const QUrl &url, const QString &mimeType )
+void RestApiRequest::get(const QUrl &url, const QString &mimeType)
 {
     QNetworkRequest request;
-    request.setUrl( url );
+    request.setUrl(url);
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-    request.setHeader( QNetworkRequest::ContentTypeHeader, mimeType);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, mimeType);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-    QNetworkReply *reply = mNetworkAccessManager->get( request );
+    QNetworkReply *reply = mNetworkAccessManager->get(request);
     reply->setProperty("method", QVariant::fromValue(RestMethod::Get));
 }
-

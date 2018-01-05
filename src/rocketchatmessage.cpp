@@ -59,7 +59,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::messageSearch(cons
     const QJsonArray params{
         QJsonValue(pattern),
         QJsonValue(roomId)
-                //TODO limit
+        //TODO limit
     };
     return generateMethod(QStringLiteral("messageSearch"), QJsonDocument(params), id);
 }
