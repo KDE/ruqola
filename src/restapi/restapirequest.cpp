@@ -205,7 +205,6 @@ void RestApiRequest::login()
         const QByteArray baPostData = postData.toJson(QJsonDocument::Compact);
         QNetworkReply *reply = mNetworkAccessManager->post(request, baPostData);
         reply->setProperty("method", QVariant::fromValue(RestMethod::Login));
-        //connect(reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &CreatePhishingUrlDataBaseJob::slotError);
     } else {
         qCWarning(RUQOLA_RESTAPI_LOG) << "Password or user or url is empty";
     }
@@ -254,8 +253,7 @@ void RestApiRequest::getAvatar(const QString &userId)
 
 void RestApiRequest::post(const QUrl &url, const QByteArray &data, const QString &mimeType)
 {
-    QNetworkRequest request;
-    request.setUrl(url);
+    QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, mimeType);
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
@@ -267,11 +265,11 @@ void RestApiRequest::post(const QUrl &url, const QByteArray &data, const QString
 
 void RestApiRequest::get(const QUrl &url, const QString &mimeType)
 {
-    QNetworkRequest request;
-    request.setUrl(url);
+    QNetworkRequest request(url);
+    qDebug() << " void RestApiRequest::get(const QUrl &url, const QString &mimeType)"<<url;
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-    request.setHeader(QNetworkRequest::ContentTypeHeader, mimeType);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("text/plain"));
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     QNetworkReply *reply = mNetworkAccessManager->get(request);
