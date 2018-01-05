@@ -134,9 +134,12 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
         case GetAvatar:
             parseGetAvatar(data, reply->property("userId").toString());
             break;
-        case Get:
+        case Get: {
+            int status = reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+            qDebug() << " status " << status;
             parseGet(data);
             break;
+        }
         case Post:
             parsePost(data);
             break;

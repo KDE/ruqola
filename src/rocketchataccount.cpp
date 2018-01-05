@@ -34,6 +34,7 @@
 #include "ruqolaserverconfig.h"
 #include "usercompletermodel.h"
 #include "statusmodel.h"
+#include "utils.h"
 
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -598,7 +599,11 @@ void RocketChatAccount::downloadFile(const QString &url)
 {
     //TODO download it.
     qDebug() << " void RocketChatAccount::downloadFile(const QString &url)" << settings()->serverUrl() + url;
-    const QUrl clickedUrl = QUrl::fromUserInput(settings()->serverUrl() + url);
+    QString tmpUrl = settings()->serverUrl();
+    if (!tmpUrl.startsWith(QLatin1String("https://"))) {
+        tmpUrl = QStringLiteral("https://") + tmpUrl;
+    }
+    const QUrl clickedUrl = QUrl::fromUserInput(tmpUrl + url);
     restApi()->get(clickedUrl, QString());
     //QDesktopServices::openUrl(clickedUrl);
 }
