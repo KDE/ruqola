@@ -106,6 +106,16 @@ void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userI
     Q_EMIT avatar(userId, str);
 }
 
+void RestApiRequest::parseGet(const QByteArray &data)
+{
+    qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGet: " << data;
+}
+
+void RestApiRequest::parsePost(const QByteArray &data)
+{
+    qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parsePost: " << data;
+}
+
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError) {
@@ -123,6 +133,12 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             break;
         case GetAvatar:
             parseGetAvatar(data, reply->property("userId").toString());
+            break;
+        case Get:
+            parseGet(data);
+            break;
+        case Post:
+            parsePost(data);
             break;
         case Unknown:
             qCWarning(RUQOLA_RESTAPI_LOG) << " Unknown restapi method" << data;
@@ -235,3 +251,30 @@ void RestApiRequest::getAvatar(const QString &userId)
         reply->setProperty("userId", userId);
     }
 }
+
+void RestApiRequest::post(const QUrl &url, const QByteArray &data, const QString &mimeType )
+{
+    QNetworkRequest request;
+    request.setUrl( url );
+    request.setHeader( QNetworkRequest::ContentTypeHeader, mimeType );
+    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
+    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+    QNetworkReply *reply = mNetworkAccessManager->post( request, data );
+    reply->setProperty("method", QVariant::fromValue(RestMethod::Post));
+}
+
+void RestApiRequest::get( const QUrl &url, const QString &mimeType )
+{
+    QNetworkRequest request;
+    request.setUrl( url );
+    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
+    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+    request.setHeader( QNetworkRequest::ContentTypeHeader, mimeType);
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+    QNetworkReply *reply = mNetworkAccessManager->get( request );
+    reply->setProperty("method", QVariant::fromValue(RestMethod::Get));
+}
+

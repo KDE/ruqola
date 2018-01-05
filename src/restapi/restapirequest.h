@@ -36,7 +36,9 @@ public:
         Login,
         Logout,
         ChannelList,
-        GetAvatar
+        GetAvatar,
+        Get,
+        Post
     };
     Q_ENUM(RestMethod)
 
@@ -62,6 +64,8 @@ public:
 
     QUrl generateUrl(RestApiUtil::RestApiUrlType type);
 
+    void post(const QUrl &url, const QByteArray &data, const QString &mimeType);
+    void get(const QUrl &url, const QString &mimeType);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -75,6 +79,8 @@ private:
     void parseLogout(const QByteArray &data);
     void parseLogin(const QByteArray &data);
     void parseChannelList(const QByteArray &data);
+    void parseGet(const QByteArray &data);
+    void parsePost(const QByteArray &data);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QString mUserId;
     QString mAuthToken;
