@@ -27,6 +27,7 @@
 
 class QNetworkAccessManager;
 class QNetworkReply;
+class QNetworkCookieJar;
 class RestApiRequest : public QObject
 {
     Q_OBJECT
@@ -72,6 +73,7 @@ Q_SIGNALS:
     void loginDone(const QString &authToken, const QString &userId);
 
 private:
+    void initializeCookies();
     void slotResult(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
 
@@ -82,6 +84,7 @@ private:
     void parseGet(const QByteArray &data);
     void parsePost(const QByteArray &data);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
+    QNetworkCookieJar *mCookieJar;
     QString mUserId;
     QString mAuthToken;
     QString mServerUrl;
