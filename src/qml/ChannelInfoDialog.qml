@@ -134,7 +134,9 @@ QQC2.Dialog {
         onArchiveRoom: {
             channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Archive, true)
         }
-        //TODO switch off if we cancel it.
+        onRejected: {
+            archiveRoom.checked = false
+        }
     }
 
     DeleteRoomDialog {
