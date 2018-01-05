@@ -60,18 +60,23 @@ void RestApiRequest::initializeCookies()
         }
         qDebug() << " host " << host;
 
-        QNetworkCookie userIdCookie;
-        userIdCookie.setDomain( host );
-        userIdCookie.setName(QByteArrayLiteral("rc_uid"));
-        userIdCookie.setValue( mUserId.toUtf8() );
+        if (!mUserId.isEmpty()) {
+            QNetworkCookie userIdCookie;
+            userIdCookie.setDomain( host );
+            userIdCookie.setName(QByteArrayLiteral("rc_uid"));
+            userIdCookie.setValue( mUserId.toUtf8() );
+            mCookieJar->insertCookie( userIdCookie );
+        }
 
-        QNetworkCookie tokenCookie;
-        tokenCookie.setDomain( host );
-        tokenCookie.setName(QByteArrayLiteral("rc_token"));
-        tokenCookie.setValue( mAuthToken.toUtf8() );
+        if (!mAuthToken.isEmpty()) {
+            QNetworkCookie tokenCookie;
+            tokenCookie.setDomain( host );
+            tokenCookie.setName(QByteArrayLiteral("rc_token"));
+            tokenCookie.setValue( mAuthToken.toUtf8() );
 
-        mCookieJar->insertCookie( tokenCookie );
-        mCookieJar->insertCookie( userIdCookie );
+            mCookieJar->insertCookie( tokenCookie );
+        }
+        qDebug() << "mAuthToken.toUtf8() "<<mAuthToken.toUtf8()<<" mUserId.toUtf8()"<<mUserId.toUtf8();
     }
 }
 
@@ -125,15 +130,24 @@ void RestApiRequest::parseChannelList(const QByteArray &data)
 
 void RestApiRequest::setAuthToken(const QString &authToken)
 {
+    const bool isChanged = (mAuthToken != authToken);
     mAuthToken = authToken;
-    if (!mAuthToken.isEmpty()) {
-        initializeCookies();
+    if (isChanged) {
+        if (!mAuthToken.isEmpty()) {
+            initializeCookies();
+        }
     }
 }
 
 void RestApiRequest::setUserId(const QString &userId)
 {
+    const bool isChanged = (mUserId != userId);
     mUserId = userId;
+    if (isChanged) {
+        if (!mUserId.isEmpty()) {
+            initializeCookies();
+        }
+    }
 }
 
 void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userId)
