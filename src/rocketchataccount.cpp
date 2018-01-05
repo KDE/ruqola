@@ -599,6 +599,7 @@ void RocketChatAccount::downloadFile(const QString &url)
     //TODO download it.
     qDebug() << " void RocketChatAccount::downloadFile(const QString &url)" << settings()->serverUrl() + url;
     const QUrl clickedUrl = QUrl::fromUserInput(settings()->serverUrl() + url);
+    restApi()->get(clickedUrl, QString());
     //QDesktopServices::openUrl(clickedUrl);
 }
 
