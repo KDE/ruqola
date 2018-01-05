@@ -269,7 +269,7 @@ void RestApiRequest::post(const QUrl &url, const QByteArray &data, const QString
 void RestApiRequest::get(const QUrl &url, const QString &mimeType)
 {
     QNetworkRequest request(url);
-    qDebug() << " void RestApiRequest::get(const QUrl &url, const QString &mimeType)"<<url;
+    qDebug() << " void RestApiRequest::get(const QUrl &url, const QString &mimeType)"<<url<<mAuthToken.toLocal8Bit()<<mUserId.toLocal8Bit();
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("text/plain"));

@@ -276,6 +276,10 @@ QString RocketChatAccount::avatarUrl(const QString &userId)
 void RocketChatAccount::insertAvatarUrl(const QString &userId, const QString &url)
 {
     mUserAvatarUrl.insert(userId, url);
+    //TODO download avatar on local file.
+    if (!url.isEmpty()) {
+        restApi()->get(QUrl(url + QLatin1String(".svg")), QString());
+    }
 }
 
 RestApiRequest *RocketChatAccount::restApi()
