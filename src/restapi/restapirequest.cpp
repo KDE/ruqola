@@ -145,7 +145,7 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             break;
         }
     } else {
-        qCDebug(RUQOLA_RESTAPI_LOG) << " reply - "<<reply->errorString();
+        qCDebug(RUQOLA_RESTAPI_LOG) << " Error reply - "<<reply->errorString();
     }
     reply->deleteLater();
 }
