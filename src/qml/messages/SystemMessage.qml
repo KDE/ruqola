@@ -108,7 +108,7 @@ MessageBase {
 
                 text: getTextFor(i_systemMessageType)
 
-                wrapMode: Label.Wrap
+                wrapMode: QQC2.Label.Wrap
 
                 renderType: Text.NativeRendering
             }

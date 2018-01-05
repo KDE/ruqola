@@ -131,7 +131,7 @@ Component {
                 anchors.right: parent.right
                 anchors.left: parent.left
                 anchors.margins: 2*Kirigami.Units.smallSpacing
-                wrapMode: Label.Wrap
+                wrapMode: QQC2.Label.Wrap
             }
             QQC2.Label {
                 visible: appid.selectedRoom && (appid.selectedRoom.announcement !== "")
@@ -139,7 +139,7 @@ Component {
                 anchors.right: parent.right
                 anchors.left: parent.left
                 anchors.margins: 2*Kirigami.Units.smallSpacing
-                wrapMode: Label.Wrap
+                wrapMode: QQC2.Label.Wrap
             }
             
             Rectangle {
