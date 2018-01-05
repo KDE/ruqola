@@ -89,6 +89,7 @@ MessageBase {
                 }
                 Image {
                     source: appid.rocketChatAccount.attachmentUrl(model.modelData.link)
+                    asynchronous: true
                 }
 
                 DownloadButton {
