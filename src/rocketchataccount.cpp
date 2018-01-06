@@ -278,7 +278,7 @@ void RocketChatAccount::insertAvatarUrl(const QString &userId, const QString &ur
     mUserAvatarUrl.insert(userId, url);
     //TODO download avatar on local file.
     if (!url.isEmpty()) {
-        restApi()->get(QUrl(url + QLatin1String(".svg")), QString());
+        restApi()->get(QUrl(url + QLatin1String(".svg")));
     }
 }
 
@@ -608,8 +608,8 @@ void RocketChatAccount::downloadFile(const QString &url)
         tmpUrl = QStringLiteral("https://") + tmpUrl;
     }
     const QUrl clickedUrl = QUrl::fromUserInput(tmpUrl + url);
-    restApi()->get(clickedUrl, QString());
-    //QDesktopServices::openUrl(clickedUrl);
+    restApi()->get(clickedUrl);
+    //TODO save file
 }
 
 QString RocketChatAccount::attachmentUrl(const QString &url)
