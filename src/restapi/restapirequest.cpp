@@ -71,6 +71,8 @@ void RestApiRequest::initializeCookies()
             tokenCookie.setValue( mAuthToken.toLocal8Bit() );
             mCookieJar->insertCookie( tokenCookie );
         }
+    } else {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "We can not initialize cookies as server url is empty.";
     }
 }
 
@@ -318,7 +320,7 @@ void RestApiRequest::get(const QUrl &url, const QString &mimeType)
     qDebug() << " void RestApiRequest::get(const QUrl &url, const QString &mimeType)"<<url<<mAuthToken.toLocal8Bit()<<mUserId.toLocal8Bit();
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("text/plain"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, mimeType);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     QNetworkReply *reply = mNetworkAccessManager->get(request);

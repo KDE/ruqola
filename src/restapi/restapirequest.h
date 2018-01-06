@@ -65,8 +65,8 @@ public:
 
     QUrl generateUrl(RestApiUtil::RestApiUrlType type);
 
-    void post(const QUrl &url, const QByteArray &data, const QString &mimeType);
-    void get(const QUrl &url, const QString &mimeType);
+    void post(const QUrl &url, const QByteArray &data, const QString &mimeType = QStringLiteral("text/plain"));
+    void get(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"));
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
