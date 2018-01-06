@@ -48,23 +48,19 @@ RestApiRequest::~RestApiRequest()
 void RestApiRequest::initializeCookies()
 {
     if (!mServerUrl.isEmpty()) {
-        qDebug() << " mServerUrl" << mServerUrl;
         QString host;
         QStringList lsthost = mServerUrl.split( QStringLiteral("//") );
-        if (lsthost.isEmpty()) {
-            host = mServerUrl;
-        } else if (lsthost.count() == 1) {
+        if (lsthost.count() < 2) {
             host = mServerUrl;
         } else {
             host = lsthost.at(1);
         }
-        qDebug() << " host " << host;
 
         if (!mUserId.isEmpty()) {
             QNetworkCookie userIdCookie;
             userIdCookie.setDomain( host );
             userIdCookie.setName(QByteArrayLiteral("rc_uid"));
-            userIdCookie.setValue( mUserId.toUtf8() );
+            userIdCookie.setValue( mUserId.toLocal8Bit() );
             mCookieJar->insertCookie( userIdCookie );
         }
 
@@ -72,11 +68,9 @@ void RestApiRequest::initializeCookies()
             QNetworkCookie tokenCookie;
             tokenCookie.setDomain( host );
             tokenCookie.setName(QByteArrayLiteral("rc_token"));
-            tokenCookie.setValue( mAuthToken.toUtf8() );
-
+            tokenCookie.setValue( mAuthToken.toLocal8Bit() );
             mCookieJar->insertCookie( tokenCookie );
         }
-        qDebug() << "mAuthToken.toUtf8() "<<mAuthToken.toUtf8()<<" mUserId.toUtf8()"<<mUserId.toUtf8();
     }
 }
 
