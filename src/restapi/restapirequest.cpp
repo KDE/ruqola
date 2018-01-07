@@ -49,7 +49,7 @@ void RestApiRequest::initializeCookies()
 {
     if (!mServerUrl.isEmpty()) {
         QString host;
-        QStringList lsthost = mServerUrl.split( QStringLiteral("//") );
+        QStringList lsthost = mServerUrl.split(QStringLiteral("//"));
         if (lsthost.count() < 2) {
             host = mServerUrl;
         } else {
@@ -58,24 +58,23 @@ void RestApiRequest::initializeCookies()
 
         if (!mUserId.isEmpty()) {
             QNetworkCookie userIdCookie;
-            userIdCookie.setDomain( host );
+            userIdCookie.setDomain(host);
             userIdCookie.setName(QByteArrayLiteral("rc_uid"));
-            userIdCookie.setValue( mUserId.toLocal8Bit() );
-            mCookieJar->insertCookie( userIdCookie );
+            userIdCookie.setValue(mUserId.toLocal8Bit());
+            mCookieJar->insertCookie(userIdCookie);
         }
 
         if (!mAuthToken.isEmpty()) {
             QNetworkCookie tokenCookie;
-            tokenCookie.setDomain( host );
+            tokenCookie.setDomain(host);
             tokenCookie.setName(QByteArrayLiteral("rc_token"));
-            tokenCookie.setValue( mAuthToken.toLocal8Bit() );
-            mCookieJar->insertCookie( tokenCookie );
+            tokenCookie.setValue(mAuthToken.toLocal8Bit());
+            mCookieJar->insertCookie(tokenCookie);
         }
     } else {
         qCWarning(RUQOLA_RESTAPI_LOG) << "We can not initialize cookies as server url is empty.";
     }
 }
-
 
 void RestApiRequest::parseLogin(const QByteArray &data)
 {
@@ -183,8 +182,9 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
         case GetAvatar:
             parseGetAvatar(data, reply->property("userId").toString());
             break;
-        case Get: {
-            int status = reply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+        case Get:
+        {
+            int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
             qDebug() << " status " << status;
             parseGet(data);
             break;
