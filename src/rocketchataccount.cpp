@@ -599,20 +599,25 @@ QString RocketChatAccount::recordingImagePath() const
     return filePath;
 }
 
-void RocketChatAccount::downloadFile(const QString &url)
+QUrl RocketChatAccount::generateDownloadFile(const QString &url)
 {
-    //TODO download it.
-    qDebug() << " void RocketChatAccount::downloadFile(const QString &url)" << settings()->serverUrl() + url;
     QString tmpUrl = settings()->serverUrl();
+    qDebug() << " void RocketChatAccount::downloadFile(const QString &url)" << settings()->serverUrl() + url;
     if (!tmpUrl.startsWith(QLatin1String("https://"))) {
         tmpUrl = QStringLiteral("https://") + tmpUrl;
     }
-    const QUrl clickedUrl = QUrl::fromUserInput(tmpUrl + url);
+    const QUrl downloadFileUrl = QUrl::fromUserInput(tmpUrl + url);
+    return downloadFileUrl;
+}
+
+void RocketChatAccount::downloadFile(const QString &url)
+{
+    const QUrl clickedUrl = generateDownloadFile(url);
     restApi()->get(clickedUrl);
     //TODO save file
 }
 
 QString RocketChatAccount::attachmentUrl(const QString &url)
 {
-    return QUrl::fromUserInput(settings()->serverUrl() + url).url();
+    return generateDownloadFile(url).url();
 }

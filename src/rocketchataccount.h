@@ -168,6 +168,7 @@ private:
     void loadSettings();
     void loadAvatarCache();
     void clearModels();
+    QUrl generateDownloadFile(const QString &url);
     RocketChatAccountSettings *mSettings = nullptr;
     //room, messagemodel
     QHash<QString, MessageModel *> mMessageModels;
