@@ -74,6 +74,7 @@ Q_SIGNALS:
     void getDataDone(const QByteArray &data);
 
 private:
+    Q_DISABLE_COPY(RestApiRequest)
     void initializeCookies();
     void slotResult(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);

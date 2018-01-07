@@ -62,6 +62,7 @@ Q_SIGNALS:
     void accountNameChanged();
 
 private:
+    Q_DISABLE_COPY(RocketChatAccountSettings)
     QString mUserId;
     QString mAuthToken;
     QString mServerUrl;

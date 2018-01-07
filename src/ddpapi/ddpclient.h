@@ -188,6 +188,7 @@ private slots:
     void onWSclosed();
 
 private:
+    Q_DISABLE_COPY(DDPClient)
     void initializeWebSocket();
 
     QUrl adaptUrl(const QString &url);

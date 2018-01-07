@@ -54,6 +54,7 @@ public:
     QmlAboutDataAuthorModel *creditsModel() const;
     QmlAboutDataAuthorModel *translatorModel() const;
 private:
+    Q_DISABLE_COPY(QmlAboutData)
     QmlAboutDataAuthorModel *mAuthorModel = nullptr;
     QmlAboutDataAuthorModel *mCreditsModel = nullptr;
     QmlAboutDataAuthorModel *mTranslatorModel = nullptr;

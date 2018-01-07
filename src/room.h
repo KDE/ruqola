@@ -126,6 +126,7 @@ Q_SIGNALS:
     void readOnlyChanged();
 
 private:
+    Q_DISABLE_COPY(Room)
     //Room Object Fields
 
     // _id

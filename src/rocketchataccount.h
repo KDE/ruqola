@@ -163,6 +163,7 @@ Q_SIGNALS:
     void notification(const QString &title, const QString &message);
 
 private:
+    Q_DISABLE_COPY(RocketChatAccount)
     void insertAvatarUrl(const QString &userId, const QString &url);
     void loadSettings();
     void loadAvatarCache();

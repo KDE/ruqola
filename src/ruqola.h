@@ -83,6 +83,7 @@ Q_SIGNALS:
     void serverUrlChanged();
 
 private:
+    Q_DISABLE_COPY(Ruqola)
     void sendNotification(const QString &title, const QString &message);
     void slotInformTypingStatus(const QString &room, bool typing);
     explicit Ruqola(QObject *parent = nullptr);

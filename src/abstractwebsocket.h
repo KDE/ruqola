@@ -48,6 +48,8 @@ Q_SIGNALS:
     void disconnected();
     void connected();
     void textMessageReceived(const QString &message);
+private:
+    Q_DISABLE_COPY(AbstractWebSocket)
 };
 
 #endif // ABSTRACTWEBSOCKET_H

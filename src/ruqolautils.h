@@ -41,6 +41,7 @@ public:
     Q_INVOKABLE QString extractRoomUserFromUrl(QString url);
 private:
     explicit RuqolaUtils(QObject *parent = nullptr);
+    Q_DISABLE_COPY(RuqolaUtils)
 };
 
 inline static QObject *ruqolautils_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

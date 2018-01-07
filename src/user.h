@@ -69,6 +69,7 @@ Q_SIGNALS:
     void listRoomsChanged();
 
 private:
+    Q_DISABLE_COPY(User)
     QString mStatus;
     QString mUserId;
     QString mName;

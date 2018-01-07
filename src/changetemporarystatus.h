@@ -34,6 +34,7 @@ Q_SIGNALS:
     void changeStatusAway(bool away);
 
 private:
+    Q_DISABLE_COPY(ChangeTemporaryStatus)
     void initialize();
     QTimer *mTimer = nullptr;
 };

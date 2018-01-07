@@ -55,6 +55,7 @@ Q_SIGNALS:
     void readOnlyChanged();
 
 private:
+    Q_DISABLE_COPY(RoomWrapper)
     Room *mRoom = nullptr;
 };
 

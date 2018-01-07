@@ -47,6 +47,7 @@ Q_SIGNALS:
     void notification(const QString &title, const QString &message);
 
 private:
+    Q_DISABLE_COPY(RocketChatBackend)
     void onAdded(const QJsonObject &object);
     void onChanged(const QJsonObject &object);
     void onLoginStatusChanged();
