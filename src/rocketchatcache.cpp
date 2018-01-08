@@ -51,7 +51,22 @@ RocketChatCache::~RocketChatCache()
 void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url)
 {
     //TODO
-    //Q_EMIT imageDownloaded(....)
+
+    QString cachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+    //Split between image/video/audio
+    //TODO add accountName too.
+    QDir().mkpath(cachePath);
+
+
+    const QString newPath = cachePath + url.path();
+    QFile file(newPath); //TODO
+    if (file.open(QIODevice::WriteOnly)) {
+        file.write(data);
+        file.close();
+    } else {
+        qCWarning(RUQOLA_LOG) << file.errorString();
+    }
+    Q_EMIT fileDownloaded(url.toString(), newPath);
 }
 
 void RocketChatCache::loadAvatarCache()
