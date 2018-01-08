@@ -22,8 +22,9 @@
 #define ROCKETCHATCACHE_H
 
 #include <QObject>
+#include "libruqola_private_export.h"
 
-class RocketChatCache : public QObject
+class LIBRUQOLACORE_TESTS_EXPORT RocketChatCache : public QObject
 {
     Q_OBJECT
 public:

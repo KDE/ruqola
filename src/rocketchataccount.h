@@ -41,6 +41,7 @@ class RuqolaLogger;
 class RuqolaServerConfig;
 class UserCompleterModel;
 class StatusModel;
+class RocketChatCache;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -189,6 +190,7 @@ private:
     RuqolaServerConfig *mRuqolaServerConfig = nullptr;
     UserCompleterModel *mUserCompleterModel = nullptr;
     StatusModel *mStatusModel = nullptr;
+    RocketChatCache *mCache = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H

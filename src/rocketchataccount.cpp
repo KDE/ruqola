@@ -35,6 +35,7 @@
 #include "usercompletermodel.h"
 #include "statusmodel.h"
 #include "utils.h"
+#include "rocketchatcache.h"
 
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -72,6 +73,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mUserModel = new UsersModel(this);
     mMessageQueue = new MessageQueue(this);
     mTypingNotification = new TypingNotification(this);
+    mCache = new RocketChatCache(this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
     loadSettings();
     QTimer::singleShot(0, this, &RocketChatAccount::clearModels);
