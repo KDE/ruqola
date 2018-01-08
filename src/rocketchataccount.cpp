@@ -72,6 +72,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mMessageQueue = new MessageQueue(this);
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
+    connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
     loadSettings();
     QTimer::singleShot(0, this, &RocketChatAccount::clearModels);

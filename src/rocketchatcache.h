@@ -37,7 +37,7 @@ public:
     void insertAvatarUrl(const QString &userId, const QString &url);
 
 Q_SIGNALS:
-    void imageDownloaded(const QString &imageUrl, const QString &cacheImageUrl);
+    void fileDownloaded(const QString &imageUrl, const QString &cacheImageUrl);
 
 private:
     Q_DISABLE_COPY(RocketChatCache)

@@ -51,6 +51,7 @@ RocketChatCache::~RocketChatCache()
 void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url)
 {
     //TODO
+    //Q_EMIT imageDownloaded(....)
 }
 
 void RocketChatCache::loadAvatarCache()
