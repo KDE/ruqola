@@ -23,18 +23,23 @@
 
 #include <QObject>
 #include "libruqola_private_export.h"
-
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatCache : public QObject
 {
     Q_OBJECT
 public:
-    explicit RocketChatCache(QObject *parent = nullptr);
+    explicit RocketChatCache(RocketChatAccount *account, QObject *parent = nullptr);
     ~RocketChatCache();
 
     QString recordingVideoPath(const QString &accountName) const;
     QString recordingImagePath(const QString &accountName) const;
+    QString avatarUrl(const QString &userId);
+    void insertAvatarUrl(const QString &userId, const QString &url);
 private:
     Q_DISABLE_COPY(RocketChatCache)
+    void loadAvatarCache();
+    QHash<QString, QString> mUserAvatarUrl;
+    RocketChatAccount *mAccount = nullptr;
 };
 
 #endif // ROCKETCHATCACHE_H

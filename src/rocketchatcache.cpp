@@ -18,21 +18,66 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "rocketchataccount.h"
 #include "rocketchatcache.h"
 #include "ruqola_debug.h"
+#include "restapi/restapirequest.h"
 #include <QDateTime>
 #include <QDir>
+#include <QSettings>
 #include <QStandardPaths>
 
-RocketChatCache::RocketChatCache(QObject *parent)
+RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mAccount(account)
 {
-
+    loadAvatarCache();
 }
 
 RocketChatCache::~RocketChatCache()
 {
+    QSettings settings;
+    settings.beginGroup(QStringLiteral("Avatar"));
+    QHash<QString, QString>::const_iterator i = mUserAvatarUrl.constBegin();
+    while (i != mUserAvatarUrl.constEnd()) {
+        settings.setValue(i.key(), i.value());
+        ++i;
+    }
+    settings.endGroup();
+}
 
+
+
+void RocketChatCache::loadAvatarCache()
+{
+    QSettings settings;
+    settings.beginGroup(QStringLiteral("Avatar"));
+    const QStringList keys = settings.childKeys();
+    for (const QString &key : keys) {
+        mUserAvatarUrl[key] = settings.value(key).toString();
+    }
+    settings.endGroup();
+}
+
+QString RocketChatCache::avatarUrl(const QString &userId)
+{
+    //avoid to call this method several time.
+    if (!mUserAvatarUrl.contains(userId)) {
+        mAccount->restApi()->getAvatar(userId);
+        insertAvatarUrl(userId, QString());
+        return {};
+    } else {
+        return mUserAvatarUrl.value(userId);
+    }
+}
+
+void RocketChatCache::insertAvatarUrl(const QString &userId, const QString &url)
+{
+    mUserAvatarUrl.insert(userId, url);
+    //TODO download avatar on local file.
+    if (!url.isEmpty()) {
+        mAccount->restApi()->get(QUrl(url + QLatin1String(".svg")));
+    }
 }
 
 QString RocketChatCache::recordingVideoPath(const QString &accountName) const

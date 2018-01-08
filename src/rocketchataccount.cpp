@@ -53,8 +53,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         mRuqolaLogger = new RuqolaLogger;
     }
 
-    loadAvatarCache();
-
     mRuqolaServerConfig = new RuqolaServerConfig;
     //TODO add account name.
     mSettings = new RocketChatAccountSettings(accountFileName, this);
@@ -73,7 +71,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mUserModel = new UsersModel(this);
     mMessageQueue = new MessageQueue(this);
     mTypingNotification = new TypingNotification(this);
-    mCache = new RocketChatCache(this);
+    mCache = new RocketChatCache(this, this);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
     loadSettings();
     QTimer::singleShot(0, this, &RocketChatAccount::clearModels);
@@ -81,14 +79,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
 RocketChatAccount::~RocketChatAccount()
 {
-    QSettings settings;
-    settings.beginGroup(QStringLiteral("Avatar"));
-    QHash<QString, QString>::const_iterator i = mUserAvatarUrl.constBegin();
-    while (i != mUserAvatarUrl.constEnd()) {
-        settings.setValue(i.key(), i.value());
-        ++i;
-    }
-    settings.endGroup();
+    delete mCache;
+    mCache = nullptr;
     qDeleteAll(mUsersForRoomModels);
     qDeleteAll(mMessageModels);
 
@@ -134,17 +126,6 @@ RoomFilterProxyModel *RocketChatAccount::roomFilterProxyModel() const
 RocketChatBackend *RocketChatAccount::rocketChatBackend() const
 {
     return mRocketChatBackend;
-}
-
-void RocketChatAccount::loadAvatarCache()
-{
-    QSettings settings;
-    settings.beginGroup(QStringLiteral("Avatar"));
-    const QStringList keys = settings.childKeys();
-    for (const QString &key : keys) {
-        mUserAvatarUrl[key] = settings.value(key).toString();
-    }
-    settings.endGroup();
 }
 
 void RocketChatAccount::loadSettings()
@@ -265,23 +246,12 @@ void RocketChatAccount::sendMessage(const QString &roomID, const QString &messag
 
 QString RocketChatAccount::avatarUrl(const QString &userId)
 {
-    //avoid to call this method several time.
-    if (!mUserAvatarUrl.contains(userId)) {
-        restApi()->getAvatar(userId);
-        insertAvatarUrl(userId, QString());
-        return {};
-    } else {
-        return mUserAvatarUrl.value(userId);
-    }
+    return mCache->avatarUrl(userId);
 }
 
 void RocketChatAccount::insertAvatarUrl(const QString &userId, const QString &url)
 {
-    mUserAvatarUrl.insert(userId, url);
-    //TODO download avatar on local file.
-    if (!url.isEmpty()) {
-        restApi()->get(QUrl(url + QLatin1String(".svg")));
-    }
+    mCache->insertAvatarUrl(userId, url);
 }
 
 RestApiRequest *RocketChatAccount::restApi()

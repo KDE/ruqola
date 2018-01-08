@@ -167,7 +167,6 @@ private:
     Q_DISABLE_COPY(RocketChatAccount)
     void insertAvatarUrl(const QString &userId, const QString &url);
     void loadSettings();
-    void loadAvatarCache();
     void clearModels();
     QUrl generateDownloadFile(const QString &url);
     RocketChatAccountSettings *mSettings = nullptr;
@@ -175,7 +174,6 @@ private:
     QHash<QString, MessageModel *> mMessageModels;
     QHash<QString, UsersForRoomModel *> mUsersForRoomModels;
     QHash<QString, QString> mUserCurrentMessage;
-    QHash<QString, QString> mUserAvatarUrl;
     QVector<Emoji> mEmojiList;
 
     TypingNotification *mTypingNotification = nullptr;
