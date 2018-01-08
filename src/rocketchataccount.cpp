@@ -579,26 +579,12 @@ void RocketChatAccount::setServerUrl(const QString &serverURL)
 
 QString RocketChatAccount::recordingVideoPath() const
 {
-    const QString path = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation) + accountName() + QStringLiteral("/recordings");
-    QDir directory(path);
-    if (!directory.mkpath(path)) {
-        qCWarning(RUQOLA_LOG) << "Unable to create folder: " << path;
-        return QString();
-    }
-    const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + QStringLiteral(".mp4");
-    return filePath;
+    return mCache->recordingVideoPath(accountName());
 }
 
 QString RocketChatAccount::recordingImagePath() const
 {
-    const QString path = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + accountName() + QStringLiteral("/recordings");
-    QDir directory(path);
-    if (!directory.mkpath(path)) {
-        qCWarning(RUQOLA_LOG) << "Unable to create folder: " << path;
-        return QString();
-    }
-    const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + QStringLiteral(".jpg");
-    return filePath;
+    return mCache->recordingImagePath(accountName());
 }
 
 QUrl RocketChatAccount::generateDownloadFile(const QString &url)

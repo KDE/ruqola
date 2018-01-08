@@ -19,6 +19,10 @@
 */
 
 #include "rocketchatcache.h"
+#include "ruqola_debug.h"
+#include <QDateTime>
+#include <QDir>
+#include <QStandardPaths>
 
 RocketChatCache::RocketChatCache(QObject *parent)
     : QObject(parent)
@@ -29,4 +33,28 @@ RocketChatCache::RocketChatCache(QObject *parent)
 RocketChatCache::~RocketChatCache()
 {
 
+}
+
+QString RocketChatCache::recordingVideoPath(const QString &accountName) const
+{
+    const QString path = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation) + accountName + QStringLiteral("/recordings");
+    QDir directory(path);
+    if (!directory.mkpath(path)) {
+        qCWarning(RUQOLA_LOG) << "Unable to create folder: " << path;
+        return QString();
+    }
+    const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + QStringLiteral(".mp4");
+    return filePath;
+}
+
+QString RocketChatCache::recordingImagePath(const QString &accountName) const
+{
+    const QString path = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + accountName + QStringLiteral("/recordings");
+    QDir directory(path);
+    if (!directory.mkpath(path)) {
+        qCWarning(RUQOLA_LOG) << "Unable to create folder: " << path;
+        return QString();
+    }
+    const QString filePath = path + QLatin1Char('/') + QString::number(QDateTime::currentDateTime().toMSecsSinceEpoch()) + QStringLiteral(".jpg");
+    return filePath;
 }

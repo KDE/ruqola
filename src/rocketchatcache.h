@@ -31,6 +31,8 @@ public:
     explicit RocketChatCache(QObject *parent = nullptr);
     ~RocketChatCache();
 
+    QString recordingVideoPath(const QString &accountName) const;
+    QString recordingImagePath(const QString &accountName) const;
 private:
     Q_DISABLE_COPY(RocketChatCache)
 };
