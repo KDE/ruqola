@@ -71,7 +71,7 @@ Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
     void loginDone(const QString &authToken, const QString &userId);
-    void getDataDone(const QByteArray &data);
+    void getDataDone(const QByteArray &data, const QUrl &url);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

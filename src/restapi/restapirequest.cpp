@@ -156,7 +156,7 @@ void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userI
 void RestApiRequest::parseGet(const QByteArray &data, const QUrl &url)
 {
     qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGet: " << data << " url " << url;
-    Q_EMIT getDataDone(data);
+    Q_EMIT getDataDone(data, url);
 }
 
 void RestApiRequest::parsePost(const QByteArray &data)
