@@ -63,6 +63,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mRocketChatBackend = new RocketChatBackend(this, this);
     connect(mRocketChatBackend, &RocketChatBackend::notification, this, &RocketChatAccount::notification);
+
+    loadSettings();
+
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mUserCompleterModel = new UserCompleterModel(this);
     mStatusModel = new StatusModel(this);
@@ -74,7 +77,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mCache = new RocketChatCache(this, this);
     connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
-    loadSettings();
     QTimer::singleShot(0, this, &RocketChatAccount::clearModels);
 }
 
@@ -260,6 +262,7 @@ RestApiRequest *RocketChatAccount::restApi()
     if (!mRestApi) {
         mRestApi = new RestApiRequest(this);
         mRestApi->setServerUrl(mSettings->serverUrl());
+        qDebug() << " mSettings->serverUrl()"<<mSettings->serverUrl();
     }
     return mRestApi;
 }
@@ -545,6 +548,7 @@ QString RocketChatAccount::serverUrl() const
 void RocketChatAccount::setServerUrl(const QString &serverURL)
 {
     settings()->setServerUrl(serverURL);
+    restApi()->setServerUrl(serverURL);
 }
 
 QString RocketChatAccount::recordingVideoPath() const

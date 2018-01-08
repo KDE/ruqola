@@ -41,9 +41,12 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatCache)
+    bool fileInCache(const QUrl &url);
+    QString fileCachePath(const QUrl &url);
     void slotDataDownloaded(const QByteArray &data, const QUrl &url);
     void loadAvatarCache();
     QHash<QString, QString> mUserAvatarUrl;
+    QSet<QString> mFileInDownload;
     RocketChatAccount *mAccount = nullptr;
 };
 

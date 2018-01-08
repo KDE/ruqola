@@ -48,23 +48,32 @@ RocketChatCache::~RocketChatCache()
     settings.endGroup();
 }
 
+bool RocketChatCache::fileInCache(const QUrl &url)
+{
+    const QFileInfo f(fileCachePath(url));
+    return f.exists();
+}
+
+QString RocketChatCache::fileCachePath(const QUrl &url)
+{
+    const QString cachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+    const QString newPath = cachePath + QLatin1Char('/') + mAccount->accountName() + QLatin1Char('/') + url.path();
+    //return QUrl::fromLocalFile(newPath).toString();
+    return newPath;
+}
+
 void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url)
 {
-    //TODO
-
-    QString cachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+    const QString newPath = fileCachePath(url);
     //Split between image/video/audio
-    //TODO add accountName too.
-    QDir().mkpath(cachePath);
-
-
-    const QString newPath = cachePath + url.path();
-    QFile file(newPath); //TODO
-    if (file.open(QIODevice::WriteOnly)) {
+    QUrl urldir = QUrl::fromUserInput(newPath).adjusted( QUrl::RemoveFilename );
+    QDir().mkpath(urldir.path());
+    QFile file(newPath);
+    if (file.open(QIODevice::ReadWrite)) {
         file.write(data);
         file.close();
     } else {
-        qCWarning(RUQOLA_LOG) << file.errorString();
+        qCWarning(RUQOLA_LOG) <<" Error !" <<  file.errorString();
     }
     Q_EMIT fileDownloaded(url.toString(), newPath);
 }
@@ -88,16 +97,20 @@ QString RocketChatCache::avatarUrl(const QString &userId)
         insertAvatarUrl(userId, QString());
         return {};
     } else {
-        return mUserAvatarUrl.value(userId);
+        if (fileInCache(QUrl::fromUserInput(mUserAvatarUrl.value(userId)))) {
+            return QUrl::fromLocalFile(fileCachePath(QUrl::fromUserInput(mUserAvatarUrl.value(userId)))).toString();
+        } else {
+            mAccount->restApi()->getAvatar(userId);
+        }
+        return {};
     }
 }
 
 void RocketChatCache::insertAvatarUrl(const QString &userId, const QString &url)
 {
     mUserAvatarUrl.insert(userId, url);
-    //TODO download avatar on local file.
     if (!url.isEmpty()) {
-        mAccount->restApi()->get(QUrl(url + QLatin1String(".svg")));
+        mAccount->restApi()->get(QUrl(url));
     }
 }
 

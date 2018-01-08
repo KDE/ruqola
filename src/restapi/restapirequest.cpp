@@ -155,7 +155,8 @@ void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userI
 
 void RestApiRequest::parseGet(const QByteArray &data, const QUrl &url)
 {
-    qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGet: " << data << " url " << url;
+    //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGet: " << data << " url " << url;
+    qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGet: url " << url;
     Q_EMIT getDataDone(data, url);
 }
 
@@ -201,7 +202,8 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             break;
         }
     } else {
-        qCDebug(RUQOLA_RESTAPI_LOG) << " Error reply - "<<reply->errorString();
+        const RestMethod restMethod = reply->property("method").value<RestMethod>();
+        qCDebug(RUQOLA_RESTAPI_LOG) << " Error reply - "<<reply->errorString() << " restMethod "<<restMethod;
     }
     reply->deleteLater();
 }
@@ -301,6 +303,7 @@ void RestApiRequest::getAvatar(const QString &userId)
         queryUrl.addQueryItem(QStringLiteral("userId"), userId);
         url.setQuery(queryUrl);
         QNetworkRequest request(url);
+        qDebug() << " url "<< url;
         QNetworkReply *reply = mNetworkAccessManager->get(request);
         reply->setProperty("method", QVariant::fromValue(RestMethod::GetAvatar));
         reply->setProperty("userId", userId);
