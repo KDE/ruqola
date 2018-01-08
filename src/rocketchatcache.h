@@ -35,8 +35,13 @@ public:
     QString recordingImagePath(const QString &accountName) const;
     QString avatarUrl(const QString &userId);
     void insertAvatarUrl(const QString &userId, const QString &url);
+
+Q_SIGNALS:
+    void imageDownloaded(const QString &imageUrl, const QString &cacheImageUrl);
+
 private:
     Q_DISABLE_COPY(RocketChatCache)
+    void slotDataDownloaded(const QByteArray &data, const QUrl &url);
     void loadAvatarCache();
     QHash<QString, QString> mUserAvatarUrl;
     RocketChatAccount *mAccount = nullptr;

@@ -258,7 +258,6 @@ RestApiRequest *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
         mRestApi = new RestApiRequest(this);
-        connect(mRestApi, &RestApiRequest::avatar, this, &RocketChatAccount::insertAvatarUrl);
         mRestApi->setServerUrl(mSettings->serverUrl());
     }
     return mRestApi;

@@ -32,6 +32,8 @@ RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     , mAccount(account)
 {
     loadAvatarCache();
+    connect(mAccount->restApi(), &RestApiRequest::avatar, this, &RocketChatCache::insertAvatarUrl);
+    connect(mAccount->restApi(), &RestApiRequest::getDataDone, this, &RocketChatCache::slotDataDownloaded);
 }
 
 RocketChatCache::~RocketChatCache()
@@ -46,7 +48,10 @@ RocketChatCache::~RocketChatCache()
     settings.endGroup();
 }
 
-
+void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url)
+{
+    //TODO
+}
 
 void RocketChatCache::loadAvatarCache()
 {
