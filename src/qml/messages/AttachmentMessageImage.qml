@@ -69,6 +69,12 @@ MessageBase {
                                 console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. ")
                             }
                         }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                console.log(RuqolaDebugCategorySingleton.category, "Enlarge image");
+                            }
+                        }
                     }
                 }
 
