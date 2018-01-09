@@ -42,7 +42,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RocketChatCache)
     bool fileInCache(const QUrl &url);
-    void downloadFromServer(const QString &userId);
+    void downloadAvatarFromServer(const QString &userId);
     QString fileCachePath(const QUrl &url);
     void slotDataDownloaded(const QByteArray &data, const QUrl &url);
     void loadAvatarCache();

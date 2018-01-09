@@ -32,11 +32,6 @@ import "../js/message.js" as MessageScript;
 MessageBase {
     id: messageMain
 
-    property string i_messageText
-    property string i_username
-    property string i_aliasname
-    property var i_timestamp
-
     RowLayout {
         AvatarImage {
             id: avatarRect

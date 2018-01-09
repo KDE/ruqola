@@ -29,8 +29,6 @@ import "../js/message.js" as MessageScript;
 
 MessageBase {
 
-    property string i_messageText
-    property var i_timestamp
     property var i_urls
     property var i_attachments
 

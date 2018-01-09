@@ -89,7 +89,7 @@ void RocketChatCache::loadAvatarCache()
     settings.endGroup();
 }
 
-void RocketChatCache::downloadFromServer(const QString &userId)
+void RocketChatCache::downloadAvatarFromServer(const QString &userId)
 {
     mAccount->restApi()->getAvatar(userId);
 }
@@ -98,7 +98,7 @@ QString RocketChatCache::avatarUrl(const QString &userId)
 {
     //avoid to call this method several time.
     if (!mUserAvatarUrl.contains(userId)) {
-        downloadFromServer(userId);
+        downloadAvatarFromServer(userId);
         insertAvatarUrl(userId, QString());
         return {};
     } else {
@@ -108,7 +108,7 @@ QString RocketChatCache::avatarUrl(const QString &userId)
             qCDebug(RUQOLA_LOG) << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
             return url;
         } else {
-            downloadFromServer(userId);
+            downloadAvatarFromServer(userId);
         }
         return {};
     }

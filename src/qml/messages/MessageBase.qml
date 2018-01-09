@@ -34,6 +34,9 @@ ColumnLayout {
     property string i_username
     property string i_aliasname
     property string i_avatar
+    property var i_timestamp
+    property string i_messageText
+
 
     NewDateLabel {
         id: newDateRect

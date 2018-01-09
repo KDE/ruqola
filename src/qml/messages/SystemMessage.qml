@@ -34,7 +34,6 @@ MessageBase {
     id: messageMain
 
     property string i_systemMessageType
-    property var i_timestamp
 
     function getTextFor(type) {
         if (type === "uj") {
