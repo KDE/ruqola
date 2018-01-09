@@ -80,7 +80,8 @@ Rectangle {
                                   i_systemMessageType: i_systemMessageType,
                                   i_messageID: i_messageID,
                                   i_avatar: i_avatar,
-                                  i_date: i_date
+                                  i_date: i_date,
+                                  rcAccount: appid.rocketChatAccount
                               }
                               )
                 } else {
@@ -92,7 +93,8 @@ Rectangle {
                                   i_timestamp: i_timestamp,
                                   i_systemMessageType: i_systemMessageType,
                                   i_messageID: i_messageID,
-                                  i_date: i_date
+                                  i_date: i_date,
+                                  rcAccount: appid.rocketChatAccount
                               }
                               )
                 }
@@ -108,7 +110,8 @@ Rectangle {
                               i_urls: i_urls,
                               i_attachments: i_attachments,
                               i_date: i_date,
-                              i_own_username: i_own_username
+                              i_own_username: i_own_username,
+                              rcAccount: appid.rocketChatAccount
                           }
                           )
             } else if (i_messageType === Message.Audio) {
@@ -126,7 +129,8 @@ Rectangle {
                               i_avatar: i_avatar,
                               i_urls: i_urls,
                               i_attachments: i_attachments,
-                              i_date: i_date
+                              i_date: i_date,
+                              rcAccount: appid.rocketChatAccount
                           })
 
             } else {

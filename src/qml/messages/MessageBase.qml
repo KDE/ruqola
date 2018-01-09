@@ -36,6 +36,7 @@ ColumnLayout {
     property string i_avatar
     property var i_timestamp
     property string i_messageText
+    property QtObject rcAccount
 
 
     NewDateLabel {
