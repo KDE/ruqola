@@ -75,7 +75,7 @@ void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url
     } else {
         qCWarning(RUQOLA_LOG) <<" Error !" <<  file.errorString();
     }
-    Q_EMIT fileDownloaded(url.toString(), newPath);
+    Q_EMIT fileDownloaded(url.path(), newPath);
 }
 
 void RocketChatCache::loadAvatarCache()

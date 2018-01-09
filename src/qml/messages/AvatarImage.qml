@@ -25,6 +25,9 @@ import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 import "../js/message.js" as MessageScript;
+import QtQuick.Window 2.2
+import KDE.Ruqola.RocketChatAccount 1.0
+
 
 Rectangle {
     id: avatarRect
@@ -80,6 +83,18 @@ Rectangle {
                 return abbrev;
             }
             return "";
+        }
+    }
+    Connections {
+        target: appid.rocketChatAccount
+        onFileDownloaded: {
+            console.log("(const QString &imageUrl, const QString &cacheImageUrl); " + imageUrl + " cacheIma :" + cacheImageUrl + " avatarurl :" + avatarurl + " username " + username)
+            if (imageUrl === "/avatar/" + username) {
+                //if (avatarurl == "") {
+                    console.log("222222222(const QString &imageUrl, const QString &cacheImageUrl);" + imageUrl + " cacheIma" + cacheImageUrl)
+                    avatarurl = "file://" + cacheImageUrl
+                //}
+            }
         }
     }
 }
