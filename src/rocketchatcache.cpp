@@ -97,8 +97,11 @@ QString RocketChatCache::avatarUrl(const QString &userId)
         insertAvatarUrl(userId, QString());
         return {};
     } else {
-        if (fileInCache(QUrl::fromUserInput(mUserAvatarUrl.value(userId)))) {
-            return QUrl::fromLocalFile(fileCachePath(QUrl::fromUserInput(mUserAvatarUrl.value(userId)))).toString();
+        const QString valueId = mUserAvatarUrl.value(userId);
+        if (!valueId.isEmpty() && fileInCache(QUrl::fromUserInput(valueId))) {
+            const QString url = QUrl::fromLocalFile(fileCachePath(QUrl::fromUserInput(valueId))).toString();
+            qDebug() << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
+            return url;
         } else {
             mAccount->restApi()->getAvatar(userId);
         }
