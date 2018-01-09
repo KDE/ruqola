@@ -262,7 +262,6 @@ RestApiRequest *RocketChatAccount::restApi()
     if (!mRestApi) {
         mRestApi = new RestApiRequest(this);
         mRestApi->setServerUrl(mSettings->serverUrl());
-        qDebug() << " mSettings->serverUrl()"<<mSettings->serverUrl();
     }
     return mRestApi;
 }
@@ -561,28 +560,12 @@ QString RocketChatAccount::recordingImagePath() const
     return mCache->recordingImagePath(accountName());
 }
 
-//TODO remove it.
-QUrl RocketChatAccount::generateDownloadFile(const QString &url)
-{
-    QString tmpUrl = settings()->serverUrl();
-    if (!tmpUrl.startsWith(QLatin1String("https://"))) {
-        tmpUrl = QStringLiteral("https://") + tmpUrl;
-    }
-    const QUrl downloadFileUrl = QUrl::fromUserInput(tmpUrl + url);
-    return downloadFileUrl;
-}
-
 void RocketChatAccount::downloadFile(const QString &url)
 {
-    const QUrl clickedUrl = generateDownloadFile(url);
-    restApi()->get(clickedUrl);
-    //TODO save file
+    mCache->downloadFile(url);
 }
 
 QString RocketChatAccount::attachmentUrl(const QString &url)
 {
-    //TODO search in cache
-    mCache->downloadFileFromServer(url);
-    //return generateDownloadFile(url).url();
-    return {};
+    return mCache->attachmentUrl(url);
 }

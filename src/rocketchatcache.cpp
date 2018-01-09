@@ -88,6 +88,25 @@ void RocketChatCache::loadAvatarCache()
     settings.endGroup();
 }
 
+void RocketChatCache::downloadFile(const QString &url)
+{
+    const QUrl clickedUrl = generateDownloadFile(url);
+    mAccount->restApi()->get(clickedUrl);
+    //TODO save file
+}
+
+
+QString RocketChatCache::attachmentUrl(const QString &url)
+{
+    if (fileInCache(QUrl(url))) {
+        const QString newurl = QUrl::fromLocalFile(fileCachePath(QUrl::fromUserInput(url))).toString();
+        return newurl;
+    } else {
+        downloadFileFromServer(url);
+    }
+    return {};
+}
+
 void RocketChatCache::downloadAvatarFromServer(const QString &userId)
 {
     mAccount->restApi()->getAvatar(userId);

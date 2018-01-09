@@ -38,14 +38,16 @@ public:
 
     void downloadFileFromServer(const QString &filename);
 
+    QString attachmentUrl(const QString &url);
+    void downloadFile(const QString &url);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 
 private:
     Q_DISABLE_COPY(RocketChatCache)
     bool fileInCache(const QUrl &url);
-    void downloadAvatarFromServer(const QString &userId);
     QString fileCachePath(const QUrl &url);
+    void downloadAvatarFromServer(const QString &userId);
     void slotDataDownloaded(const QByteArray &data, const QUrl &url);
     QUrl generateDownloadFile(const QString &url);
     void loadAvatarCache();

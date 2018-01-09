@@ -23,10 +23,10 @@
 import QtQuick 2.9
 
 import QtQuick.Layouts 1.1
-
-Image {
+import org.kde.kirigami 2.1 as Kirigami
+Kirigami.Icon {
     id: download
-    source: "qrc:/icons/cloud-download.svg"
+    source: "cloud-download"
     signal downloadButtonClicked()
 
     //TODO customize size. Avoid to hardcode it.

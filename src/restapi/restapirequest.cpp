@@ -155,7 +155,6 @@ void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userI
 
 void RestApiRequest::parseGet(const QByteArray &data, const QUrl &url)
 {
-    //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGet: " << data << " url " << url;
     qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGet: url " << url;
     Q_EMIT getDataDone(data, url);
 }
@@ -186,7 +185,6 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
         case Get:
         {
             const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-            qDebug() << " status " << status;
             if (status == 200) {
                 parseGet(data, reply->url());
             } else {

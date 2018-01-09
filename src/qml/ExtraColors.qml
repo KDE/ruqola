@@ -23,6 +23,6 @@ pragma Singleton
 import QtQuick 2.9
 
 QtObject {
-    property string backgroundColor: "#eeeeee"
+    readonly property string backgroundColor: "#eeeeee"
 }
 

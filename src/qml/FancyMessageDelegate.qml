@@ -48,7 +48,7 @@ Rectangle {
     property var i_messageType
     property var i_urls
     property var i_attachments
-    property var i_date
+    property string i_date
     property string i_own_username;
 
     color: RuqolaSingleton.backgroundColor

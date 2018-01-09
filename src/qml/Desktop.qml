@@ -37,7 +37,7 @@ import KDE.Ruqola.DebugCategory 1.0
 
 Kirigami.ApplicationWindow {
     id: appid
-    property int margin: 11
+    readonly property int margin: 11
 
     property string selectedRoomID: "";
     property QtObject selectedRoom

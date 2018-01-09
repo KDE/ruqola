@@ -38,13 +38,13 @@ MessageBase {
         id: audioPlayer
         autoPlay: false
         onPaused: {
-            playerButton.source = "qrc:/icons/media-playback-start.svg"
+            playerButton.source = "media-playback-start"
         }
         onPlaying: {
-            playerButton.source = "qrc:/icons/media-playback-pause.svg"
+            playerButton.source = "media-playback-pause"
         }
         onStopped: {
-            playerButton.source = "qrc:/icons/media-playback-start.svg"
+            playerButton.source = "media-playback-start"
             playerSlider.value=0
         }
         onPositionChanged: {
@@ -63,11 +63,11 @@ MessageBase {
             username: i_username
         }
 
-        Image {
+         Kirigami.Icon {
             id: playerButton
-            source: "qrc:/icons/media-playback-start.svg"
-            width: 100
-            height: 100
+            source: "media-playback-start"
+            width: 24
+            height: 24
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
