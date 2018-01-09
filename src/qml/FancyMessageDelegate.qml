@@ -115,9 +115,33 @@ Rectangle {
                           }
                           )
             } else if (i_messageType === Message.Audio) {
-                setSource("messages/AttachmentMessageAudio.qml")
+                setSource("messages/AttachmentMessageAudio.qml",
+                          {
+                              i_messageText: i_messageText,
+                              i_username: i_username,
+                              i_aliasname: i_aliasname,
+                              i_timestamp: i_timestamp,
+                              i_messageID: i_messageID,
+                              i_avatar: i_avatar,
+                              i_urls: i_urls,
+                              i_attachments: i_attachments,
+                              i_date: i_date,
+                              rcAccount: appid.rocketChatAccount
+                          })
             } else if (i_messageType === Message.Video) {
-                setSource("messages/AttachmentMessageVideo.qml")
+                setSource("messages/AttachmentMessageVideo.qml",
+                          {
+                              i_messageText: i_messageText,
+                              i_username: i_username,
+                              i_aliasname: i_aliasname,
+                              i_timestamp: i_timestamp,
+                              i_messageID: i_messageID,
+                              i_avatar: i_avatar,
+                              i_urls: i_urls,
+                              i_attachments: i_attachments,
+                              i_date: i_date,
+                              rcAccount: appid.rocketChatAccount
+                          })
             } else if (i_messageType === Message.Image) {
                 setSource("messages/AttachmentMessageImage.qml",
                           {
