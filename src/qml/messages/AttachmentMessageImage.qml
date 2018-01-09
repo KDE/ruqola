@@ -61,6 +61,7 @@ MessageBase {
                         id: imageUrl
                         source: appid.rocketChatAccount.attachmentUrl(model.modelData.link)
                         asynchronous: true
+                        //TODO customize it.
                         width: 200
                         height: 200
                         onStatusChanged: {
@@ -80,7 +81,7 @@ MessageBase {
                 Connections {
                     target: appid.rocketChatAccount
                     onFileDownloaded: {
-                        console.log(" IMAGE SUPPORT (const QString &imageUrl, const QString &cacheImageUrl); " + filePath + " cacheIma :" + cacheImageUrl + "model.modelData.link " + model.modelData.link)
+                        console.log(RuqolaDebugCategorySingleton.category, " IMAGE SUPPORT (const QString &imageUrl, const QString &cacheImageUrl); " + filePath + " cacheIma :" + cacheImageUrl + "model.modelData.link " + model.modelData.link)
                         if (filePath === model.modelData.link) {
                             console.log(RuqolaDebugCategorySingleton.category, "Image updated: " + cacheImageUrl)
                             imageUrl.source = cacheImageUrl;
