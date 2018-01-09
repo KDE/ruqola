@@ -58,7 +58,6 @@ QString RocketChatCache::fileCachePath(const QUrl &url)
 {
     const QString cachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
     const QString newPath = cachePath + QLatin1Char('/') + mAccount->accountName() + QLatin1Char('/') + url.path();
-    //return QUrl::fromLocalFile(newPath).toString();
     return newPath;
 }
 
@@ -72,10 +71,10 @@ void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url
     if (file.open(QIODevice::ReadWrite)) {
         file.write(data);
         file.close();
+        Q_EMIT fileDownloaded(url.path(), QUrl::fromLocalFile(newPath));
     } else {
         qCWarning(RUQOLA_LOG) <<" Error !" <<  file.errorString();
     }
-    Q_EMIT fileDownloaded(url.path(), QUrl::fromLocalFile(newPath));
 }
 
 void RocketChatCache::loadAvatarCache()
