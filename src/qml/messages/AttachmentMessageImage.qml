@@ -62,8 +62,8 @@ MessageBase {
                         source: rcAccount.attachmentUrl(model.modelData.link)
                         asynchronous: true
                         //TODO customize it.
-                        width: 200
-                        height: 200
+                        width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
+                        height: model.modelData.imageHeight ===  -1 ? 200 : model.modelData.imageHeight
                         onStatusChanged: {
                             if(status == Image.Error){
                                 console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. ")
