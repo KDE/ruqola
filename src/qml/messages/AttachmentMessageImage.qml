@@ -45,53 +45,28 @@ MessageBase {
         Item {
             Layout.fillWidth: true
         }
-        //TODO remove it when we will able to display image
-
-        Rectangle {
-            Layout.alignment: Qt.AlignCenter
-            width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
-            height: textLabel.height
-
-            color: Kirigami.Theme.disabledTextColor
-            radius: 4*Kirigami.Units.smallSpacing
-
-            QQC2.Label {
-                id: textLabel
-
-                color: Kirigami.Theme.textColor
-                opacity: 1
-
-                anchors.centerIn: parent
-                anchors.leftMargin: Kirigami.Units.smallSpacing
-                anchors.rightMargin: Kirigami.Units.smallSpacing
-
-                width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
-
-                text: i_username + i18n(" Image ")
-
-                wrapMode: QQC2.Label.Wrap
-
-                renderType: Text.NativeRendering
-            }
-        }
         Repeater {
             id: repearterAttachments
 
             model: i_attachments
             Row {
-                Text {
-                    //width: urlColumn.width
-                    text: model.modelData.title
-                    wrapMode: QQC2.Label.Wrap
-                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                }
-                Image {
-                    source: appid.rocketChatAccount.attachmentUrl(model.modelData.link)
-                    asynchronous: true
-                    onStatusChanged: {
-                        if(status == Image.Error){
-                            console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. ")
+                Column {
+                    Text {
+                        text: model.modelData.title
+                        wrapMode: QQC2.Label.Wrap
+                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                    }
+                    Image {
+                        id: imageUrl
+                        source: appid.rocketChatAccount.attachmentUrl(model.modelData.link)
+                        asynchronous: true
+                        width: 200
+                        height: 200
+                        onStatusChanged: {
+                            if(status == Image.Error){
+                                console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. ")
+                            }
                         }
                     }
                 }
@@ -100,6 +75,16 @@ MessageBase {
                     id: download
                     onDownloadButtonClicked: {
                         messageMain.downloadAttachment(model.modelData.link)
+                    }
+                }
+                Connections {
+                    target: appid.rocketChatAccount
+                    onFileDownloaded: {
+                        console.log(" IMAGE SUPPORT (const QString &imageUrl, const QString &cacheImageUrl); " + filePath + " cacheIma :" + cacheImageUrl + "model.modelData.link " + model.modelData.link)
+                        if (filePath === model.modelData.link) {
+                            console.log(RuqolaDebugCategorySingleton.category, "Image updated: " + cacheImageUrl)
+                            imageUrl.source = cacheImageUrl;
+                        }
                     }
                 }
             }

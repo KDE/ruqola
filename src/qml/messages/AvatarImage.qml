@@ -88,11 +88,11 @@ Rectangle {
     Connections {
         target: appid.rocketChatAccount
         onFileDownloaded: {
-            console.log("(const QString &imageUrl, const QString &cacheImageUrl); " + imageUrl + " cacheIma :" + cacheImageUrl + " avatarurl :" + avatarurl + " username " + username)
-            if (imageUrl === "/avatar/" + username) {
+            //console.log("(const QString &imageUrl, const QString &cacheImageUrl); " + filePath + " cacheIma :" + cacheImageUrl + " avatarurl :" + avatarurl + " username " + username)
+            if (filePath === "/avatar/" + username) {
                 //if (avatarurl == "") {
-                    console.log("222222222(const QString &imageUrl, const QString &cacheImageUrl);" + imageUrl + " cacheIma" + cacheImageUrl)
-                    avatarurl = "file://" + cacheImageUrl
+                    //console.log("222222222(const QString &imageUrl, const QString &cacheImageUrl);" + filePath + " cacheIma" + cacheImageUrl)
+                    avatarurl = cacheImageUrl
                 //}
             }
         }

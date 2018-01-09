@@ -561,10 +561,10 @@ QString RocketChatAccount::recordingImagePath() const
     return mCache->recordingImagePath(accountName());
 }
 
+//TODO remove it.
 QUrl RocketChatAccount::generateDownloadFile(const QString &url)
 {
     QString tmpUrl = settings()->serverUrl();
-    qDebug() << " void RocketChatAccount::downloadFile(const QString &url)" << settings()->serverUrl() + url;
     if (!tmpUrl.startsWith(QLatin1String("https://"))) {
         tmpUrl = QStringLiteral("https://") + tmpUrl;
     }
@@ -581,5 +581,8 @@ void RocketChatAccount::downloadFile(const QString &url)
 
 QString RocketChatAccount::attachmentUrl(const QString &url)
 {
-    return generateDownloadFile(url).url();
+    //TODO search in cache
+    mCache->downloadFileFromServer(url);
+    //return generateDownloadFile(url).url();
+    return {};
 }

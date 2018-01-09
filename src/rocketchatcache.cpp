@@ -75,7 +75,7 @@ void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url
     } else {
         qCWarning(RUQOLA_LOG) <<" Error !" <<  file.errorString();
     }
-    Q_EMIT fileDownloaded(url.path(), newPath);
+    Q_EMIT fileDownloaded(url.path(), QUrl::fromLocalFile(newPath));
 }
 
 void RocketChatCache::loadAvatarCache()
@@ -92,6 +92,21 @@ void RocketChatCache::loadAvatarCache()
 void RocketChatCache::downloadAvatarFromServer(const QString &userId)
 {
     mAccount->restApi()->getAvatar(userId);
+}
+
+void RocketChatCache::downloadFileFromServer(const QString &filename)
+{
+    mAccount->restApi()->get(generateDownloadFile(filename));
+}
+
+QUrl RocketChatCache::generateDownloadFile(const QString &url)
+{
+    QString tmpUrl = mAccount->settings()->serverUrl();
+    if (!tmpUrl.startsWith(QLatin1String("https://"))) {
+        tmpUrl = QStringLiteral("https://") + tmpUrl;
+    }
+    const QUrl downloadFileUrl = QUrl::fromUserInput(tmpUrl + url);
+    return downloadFileUrl;
 }
 
 QString RocketChatCache::avatarUrl(const QString &userId)

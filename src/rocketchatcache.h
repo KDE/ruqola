@@ -36,8 +36,10 @@ public:
     QString avatarUrl(const QString &userId);
     void insertAvatarUrl(const QString &userId, const QString &url);
 
+    void downloadFileFromServer(const QString &filename);
+
 Q_SIGNALS:
-    void fileDownloaded(const QString &imageUrl, const QString &cacheImageUrl);
+    void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 
 private:
     Q_DISABLE_COPY(RocketChatCache)
@@ -45,6 +47,7 @@ private:
     void downloadAvatarFromServer(const QString &userId);
     QString fileCachePath(const QUrl &url);
     void slotDataDownloaded(const QByteArray &data, const QUrl &url);
+    QUrl generateDownloadFile(const QString &url);
     void loadAvatarCache();
     QHash<QString, QString> mUserAvatarUrl;
     QSet<QString> mFileInDownload;
