@@ -1,0 +1,33 @@
+{
+    "_id": "m2H3Cr2CZ8kbHFoxH",
+    "_updatedAt": {
+        "$date": 1515587824288
+    },
+    "alias": null,
+    "attachments": [
+        {
+            "color": "#225159",
+            "image_url": "https://media1.giphy.com/media/wmulhY0hkt0UU/giphy.gif?cid=e1bb72ff5a5608f0362f484c2e0b9f8c",
+            "title": "Gify"
+        }
+    ],
+    "bot": {
+        "i": "kqwMWJKNbkvg2PneJ"
+    },
+    "channels": [
+    ],
+    "groupable": false,
+    "mentions": [
+    ],
+    "msg": "",
+    "parseUrls": false,
+    "rid": "GENERAL",
+    "ts": {
+        "$date": 1515587824286
+    },
+    "u": {
+        "_id": "CtmbQDdqNNNytdYsX",
+        "name": "Bender",
+        "username": "bender"
+    }
+}

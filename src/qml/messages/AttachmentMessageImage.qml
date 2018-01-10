@@ -40,9 +40,6 @@ MessageBase {
             username: i_username
         }
 
-        Item {
-            Layout.fillWidth: true
-        }
         Repeater {
             id: repearterAttachments
 

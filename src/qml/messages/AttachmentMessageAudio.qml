@@ -34,26 +34,6 @@ import "../js/convert.js" as ConvertScript;
 MessageBase {
     id: attachmentAudio
 
-    MediaPlayer {
-        id: audioPlayer
-        autoPlay: false
-        onPaused: {
-            playerButton.source = "media-playback-start"
-        }
-        onPlaying: {
-            playerButton.source = "media-playback-pause"
-        }
-        onStopped: {
-            playerButton.source = "media-playback-start"
-            playerSlider.value=0
-        }
-        onPositionChanged: {
-            playerSlider.sync = true
-            playerSlider.value = audioPlayer.position / audioPlayer.duration
-            playerSlider.sync = false
-            timeLabel.text = ConvertScript.convertTimeString(audioPlayer.position) + "/" + ConvertScript.convertTimeString(audioPlayer.duration)
-        }
-    }
 
     RowLayout {
         AvatarImage {
@@ -65,8 +45,30 @@ MessageBase {
 
         Repeater {
             id: repearterAttachments
-
             model: i_attachments
+
+            MediaPlayer {
+                id: audioPlayer
+                autoPlay: false
+                onPaused: {
+                    playerButton.source = "media-playback-start"
+                }
+                onPlaying: {
+                    playerButton.source = "media-playback-pause"
+                }
+                onStopped: {
+                    playerButton.source = "media-playback-start"
+                    playerSlider.value=0
+                }
+                onPositionChanged: {
+                    playerSlider.sync = true
+                    playerSlider.value = audioPlayer.position / audioPlayer.duration
+                    playerSlider.sync = false
+                    timeLabel.text = ConvertScript.convertTimeString(audioPlayer.position) + "/" + ConvertScript.convertTimeString(audioPlayer.duration)
+                }
+                source: rcAccount.attachmentUrl(model.modelData.link)
+            }
+
 
             ColumnLayout {
                 Layout.fillWidth: true
@@ -88,11 +90,11 @@ MessageBase {
                             anchors.fill: parent
                             onClicked: {
                                 console.log(RuqolaDebugCategorySingleton.category, "Click on download audio file");
-                                if (audioPlayer.source !== "") {
-                                    if (audioPlayer.playbackState === MediaPlayer.PlayingState) {
-                                        audioPlayer.pause()
+                                if (repearterAttachments.audioPlayer.source !== "") {
+                                    if (repearterAttachments.audioPlayer.playbackState === MediaPlayer.PlayingState) {
+                                        repearterAttachments.audioPlayer.pause()
                                     } else {
-                                        audioPlayer.play()
+                                        repearterAttachments.audioPlayer.play()
                                     }
                                 } else {
                                     console.log(RuqolaDebugCategorySingleton.category, "Audio file no found");
