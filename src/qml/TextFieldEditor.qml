@@ -23,6 +23,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
+import org.kde.kirigami 2.1 as Kirigami
 
 RowLayout {
     id: textFieldEditor
@@ -33,8 +34,10 @@ RowLayout {
         channelNameField.clear()
     }
 
-    Image {
-        source: "" //TODO add it
+    Kirigami.Icon {
+        source: "document-edit"
+        width: 24
+        height: 24
         MouseArea {
             anchors.fill: parent
             onClicked: {
