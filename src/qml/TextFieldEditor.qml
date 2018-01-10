@@ -34,6 +34,16 @@ RowLayout {
         channelNameField.clear()
     }
 
+    QQC2.TextField {
+        id: channelNameField
+        onAccepted: {
+            if (enabled) {
+                textFieldEditor.updateValue(text)
+                //TODO disable it.
+            }
+        }
+    }
+
     Kirigami.Icon {
         source: "document-edit"
         width: 24
@@ -49,13 +59,4 @@ RowLayout {
         }
     }
 
-    QQC2.TextField {
-        id: channelNameField
-        onAccepted: {
-            if (enabled) {
-                textFieldEditor.updateValue(text)
-                //TODO disable it.
-            }
-        }
-    }
 }
