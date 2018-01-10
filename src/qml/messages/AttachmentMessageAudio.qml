@@ -63,49 +63,74 @@ MessageBase {
             username: i_username
         }
 
-        Kirigami.Icon {
-            id: playerButton
-            source: "media-playback-start"
-            width: 24
-            height: 24
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    console.log(RuqolaDebugCategorySingleton.category, "Click on download audio file");
-                    if (audioPlayer.source !== "") {
-                        if (audioPlayer.playbackState === MediaPlayer.PlayingState) {
-                            audioPlayer.pause()
-                        } else {
-                            audioPlayer.play()
+        Repeater {
+            id: repearterAttachments
+
+            model: i_attachments
+
+            ColumnLayout {
+                Layout.fillWidth: true
+
+                Text {
+                    text: model.modelData.title
+                    wrapMode: QQC2.Label.Wrap
+                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                }
+
+                RowLayout {
+                    Kirigami.Icon {
+                        id: playerButton
+                        source: "media-playback-start"
+                        width: 24
+                        height: 24
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                console.log(RuqolaDebugCategorySingleton.category, "Click on download audio file");
+                                if (audioPlayer.source !== "") {
+                                    if (audioPlayer.playbackState === MediaPlayer.PlayingState) {
+                                        audioPlayer.pause()
+                                    } else {
+                                        audioPlayer.play()
+                                    }
+                                } else {
+                                    console.log(RuqolaDebugCategorySingleton.category, "Audio file no found");
+                                }
+                            }
                         }
-                    } else {
-                        console.log(RuqolaDebugCategorySingleton.category, "Audio file no found");
+                    }
+                    QQC2.Slider {
+                        id: playerSlider
+                        Layout.fillWidth: true
+
+                        property bool sync: false
+
+                        onValueChanged: {
+                            if (!sync) {
+                                audioPlayer.seek(value * audioPlayer.duration)
+                            }
+                        }
+                    }
+
+                    QQC2.Label {
+                        id: timeLabel
+                        text: "00:00/00:00"
+                    }
+
+                    DownloadButton {
+                        id: download
+                        onDownloadButtonClicked: {
+                            //TODO messageMain.downloadAttachment(model.modelData.link)
+                        }
                     }
                 }
-            }
-        }
-        QQC2.Slider {
-            id: playerSlider
-            Layout.fillWidth: true
-
-            property bool sync: false
-
-            onValueChanged: {
-                if (!sync) {
-                    audioPlayer.seek(value * audioPlayer.duration)
+                Text {
+                    text: model.modelData.description
+                    wrapMode: QQC2.Label.Wrap
+                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                    anchors.rightMargin: Kirigami.Units.smallSpacing
                 }
-            }
-        }
-
-        QQC2.Label {
-            id: timeLabel
-            text: "00:00/00:00"
-        }
-
-        DownloadButton {
-            id: download
-            onDownloadButtonClicked: {
-                //TODO messageMain.downloadAttachment(model.modelData.link)
             }
         }
 
