@@ -32,61 +32,93 @@ void MessageTest::shouldParseMessage_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<Message>("expectedMessage");
-    Message firstMessageRef;
-    firstMessageRef.setMessageId(QStringLiteral("blaid"));
-    firstMessageRef.setAlias(QStringLiteral("aliasname"));
-    firstMessageRef.setGroupable(false);
-    firstMessageRef.setTimeStamp(1504509615057);
-    firstMessageRef.setUsername(QStringLiteral("foo.ff"));
-    firstMessageRef.setUserId(QStringLiteral("qt9uNY9FxyL5QT5no"));
-    firstMessageRef.setMessageType(Message::File);
-    firstMessageRef.setUpdatedAt(1504509615063);
-    firstMessageRef.setEditedAt(0);
-    firstMessageRef.setRoomId(QStringLiteral("qt9uNY9FxyL5QT5nouKK39zoewTkdacidH"));
-    MessageAttachment att;
-    att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
-    att.setTitle(QStringLiteral("dd.pdf"));
-    firstMessageRef.setAttachements({att});
-    QTest::addRow("first") << QStringLiteral("first") << firstMessageRef;
 
-    Message urlMessageRef;
-    urlMessageRef.setMessageId(QStringLiteral("9kHnbbjbHKHjXXQp7"));
-    urlMessageRef.setAlias(QStringLiteral("alias"));
-    urlMessageRef.setGroupable(false);
-    urlMessageRef.setTimeStamp(1504596899771);
-    urlMessageRef.setUsername(QStringLiteral("username"));
-    urlMessageRef.setUserId(QStringLiteral("bjBueJtHsHQECdkmH"));
-    urlMessageRef.setMessageType(Message::NormalText);
-    urlMessageRef.setUpdatedAt(1504596901803);
-    urlMessageRef.setEditedAt(0);
-    urlMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
-    urlMessageRef.setText(QStringLiteral("https://foo.com/event/whoa"));
-    MessageUrl url;
-    url.setUrl(QStringLiteral("https://foo.com/event/C8CT"));
-    url.setPageTitle(QStringLiteral(" Trainers Panel I"));
-    urlMessageRef.setUrls({url});
-    QTest::addRow("url") << QStringLiteral("url") << urlMessageRef;
+    {
+        Message firstMessageRef;
+        firstMessageRef.setMessageId(QStringLiteral("blaid"));
+        firstMessageRef.setAlias(QStringLiteral("aliasname"));
+        firstMessageRef.setGroupable(false);
+        firstMessageRef.setTimeStamp(1504509615057);
+        firstMessageRef.setUsername(QStringLiteral("foo.ff"));
+        firstMessageRef.setUserId(QStringLiteral("qt9uNY9FxyL5QT5no"));
+        firstMessageRef.setMessageType(Message::File);
+        firstMessageRef.setUpdatedAt(1504509615063);
+        firstMessageRef.setEditedAt(0);
+        firstMessageRef.setRoomId(QStringLiteral("qt9uNY9FxyL5QT5nouKK39zoewTkdacidH"));
+        MessageAttachment att;
+        att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
+        att.setTitle(QStringLiteral("dd.pdf"));
+        firstMessageRef.setAttachements({att});
+        QTest::addRow("first") << QStringLiteral("first") << firstMessageRef;
+    }
+    {
+        Message urlMessageRef;
+        urlMessageRef.setMessageId(QStringLiteral("9kHnbbjbHKHjXXQp7"));
+        urlMessageRef.setAlias(QStringLiteral("alias"));
+        urlMessageRef.setGroupable(false);
+        urlMessageRef.setTimeStamp(1504596899771);
+        urlMessageRef.setUsername(QStringLiteral("username"));
+        urlMessageRef.setUserId(QStringLiteral("bjBueJtHsHQECdkmH"));
+        urlMessageRef.setMessageType(Message::NormalText);
+        urlMessageRef.setUpdatedAt(1504596901803);
+        urlMessageRef.setEditedAt(0);
+        urlMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
+        urlMessageRef.setText(QStringLiteral("https://foo.com/event/whoa"));
+        MessageUrl url;
+        url.setUrl(QStringLiteral("https://foo.com/event/C8CT"));
+        url.setPageTitle(QStringLiteral(" Trainers Panel I"));
+        url.setDescription(QStringLiteral("Description"));
+        urlMessageRef.setUrls({url});
+        QTest::addRow("url") << QStringLiteral("url") << urlMessageRef;
 
-    //Image
-    Message imageMessageRef;
-    imageMessageRef.setMessageId(QStringLiteral("CD2LsyS4dNbj6TTjQ"));
-    imageMessageRef.setAlias(QStringLiteral("aliasname"));
-    imageMessageRef.setGroupable(false);
-    imageMessageRef.setTimeStamp(1505399177844);
-    imageMessageRef.setUsername(QStringLiteral("username"));
-    imageMessageRef.setUserId(QStringLiteral("FwHz8w8PWWQRqrJjM"));
-    imageMessageRef.setMessageType(Message::NormalText);
-    imageMessageRef.setUpdatedAt(1505399177846);
-    imageMessageRef.setEditedAt(0);
-    imageMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
+    }
+    {
+        //Image
+        Message imageMessageRef;
+        imageMessageRef.setMessageId(QStringLiteral("CD2LsyS4dNbj6TTjQ"));
+        imageMessageRef.setAlias(QStringLiteral("aliasname"));
+        imageMessageRef.setGroupable(false);
+        imageMessageRef.setTimeStamp(1505399177844);
+        imageMessageRef.setUsername(QStringLiteral("username"));
+        imageMessageRef.setUserId(QStringLiteral("FwHz8w8PWWQRqrJjM"));
+        imageMessageRef.setMessageType(Message::NormalText);
+        imageMessageRef.setUpdatedAt(1505399177846);
+        imageMessageRef.setEditedAt(0);
+        imageMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
 
-    MessageAttachment attImage;
-    attImage.setTitle(QStringLiteral("Clipboard"));
-    attImage.setLink(QStringLiteral("/file-upload/Kt7DBWPe7pnadXDQH/test file"));
-    imageMessageRef.setAttachements({attImage});
+        MessageAttachment attImage;
+        attImage.setTitle(QStringLiteral("Clipboard"));
+        attImage.setLink(QStringLiteral("/file-upload/Kt7DBWPe7pnadXDQH/test file"));
+        imageMessageRef.setAttachements({attImage});
 
-    QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
-    //TODO add Mentions
+        QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
+        //TODO add Mentions
+    }
+
+    {
+        //Image
+        Message videoMessageRef;
+        videoMessageRef.setMessageId(QStringLiteral("KCy2KiFYmS5NuakPm"));
+        videoMessageRef.setAlias(QStringLiteral("Laurent Montel"));
+        videoMessageRef.setGroupable(false);
+        videoMessageRef.setTimeStamp(1515580853098);
+        videoMessageRef.setUsername(QStringLiteral("laurent"));
+        videoMessageRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        videoMessageRef.setMessageType(Message::Video);
+        videoMessageRef.setUpdatedAt(1515580853102);
+        videoMessageRef.setEditedAt(0);
+        videoMessageRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
+
+        MessageAttachment attVideo;
+        attVideo.setTitle(QStringLiteral("SampleVideo_1280x720_1mb.mp4"));
+        attVideo.setLink(QStringLiteral("/file-upload/sLgmaWowyttg4d2ZD/SampleVideo_1280x720_1mb.mp4"));
+        attVideo.setDescription(QStringLiteral("test"));
+        //Add video size/video type etc.
+        videoMessageRef.setAttachements({attVideo});
+
+
+        QTest::addRow("video") << QStringLiteral("video") << videoMessageRef;
+    }
 }
 
 void MessageTest::shouldParseMessage()

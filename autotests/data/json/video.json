@@ -1,0 +1,39 @@
+{
+    "_id": "KCy2KiFYmS5NuakPm",
+    "_updatedAt": {
+        "$date": 1515580853102
+    },
+    "alias": "Laurent Montel",
+    "attachments": [
+        {
+            "description": "test",
+            "title": "SampleVideo_1280x720_1mb.mp4",
+            "title_link": "/file-upload/sLgmaWowyttg4d2ZD/SampleVideo_1280x720_1mb.mp4",
+            "title_link_download": true,
+            "type": "file",
+            "video_size": 1055736,
+            "video_type": "video/mp4",
+            "video_url": "/file-upload/sLgmaWowyttg4d2ZD/SampleVideo_1280x720_1mb.mp4"
+        }
+    ],
+    "channels": [
+    ],
+    "file": {
+        "_id": "sLgmaWowyttg4d2ZD",
+        "name": "SampleVideo_1280x720_1mb.mp4",
+        "type": "video/mp4"
+    },
+    "groupable": false,
+    "mentions": [
+    ],
+    "msg": "",
+    "rid": "kGtPa6bu7xHrS5xz6",
+    "ts": {
+        "$date": 1515580853098
+    },
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "name": "Laurent Montel",
+        "username": "laurent"
+    }
+}
