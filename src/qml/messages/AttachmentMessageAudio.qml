@@ -63,7 +63,7 @@ MessageBase {
             username: i_username
         }
 
-         Kirigami.Icon {
+        Kirigami.Icon {
             id: playerButton
             source: "media-playback-start"
             width: 24
