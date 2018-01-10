@@ -36,6 +36,9 @@ ColumnLayout {
     property string i_avatar
     property var i_timestamp
     property string i_messageText
+    property var i_urls
+    property var i_attachments
+
     property QtObject rcAccount
 
 

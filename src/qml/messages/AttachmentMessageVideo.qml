@@ -62,60 +62,87 @@ MessageBase {
             aliasname: i_aliasname
             username: i_username
         }
-        //Add video media
-        Kirigami.Icon {
-            id: playerButton
 
-            source: "media-playback-start"
-            width: 24
-            height: 24
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    console.log(RuqolaDebugCategorySingleton.category, "Click on video file!");
-                    if (videoPlayer.source !== "") {
-                        if (videoPlayer.playbackState === MediaPlayer.PlayingState) {
-                            videoPlayer.pause()
-                        } else {
-                            videoPlayer.play()
+        Repeater {
+            id: repearterAttachments
+
+            model: i_attachments
+            RowLayout {
+                //Perhaps hidding it by default.
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    Text {
+                        text: model.modelData.title
+                        wrapMode: QQC2.Label.Wrap
+                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                    }
+                    VideoOutput {
+                        id: videoOutput
+
+                        Layout.fillWidth: true
+                        source: videoPlayer
+                        width: 100
+                        height: 100
+                    }
+                    RowLayout {
+                        //Verify position.
+                        //Add video media
+                        Kirigami.Icon {
+                            id: playerButton
+
+                            source: "media-playback-start"
+                            width: 24
+                            height: 24
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    console.log(RuqolaDebugCategorySingleton.category, "Click on video file!");
+                                    if (videoPlayer.source !== "") {
+                                        if (videoPlayer.playbackState === MediaPlayer.PlayingState) {
+                                            videoPlayer.pause()
+                                        } else {
+                                            videoPlayer.play()
+                                        }
+                                    } else {
+                                        console.log(RuqolaDebugCategorySingleton.category, "Video file no found");
+                                    }
+                                }
+                            }
                         }
-                    } else {
-                        console.log(RuqolaDebugCategorySingleton.category, "Video file no found");
+
+                        QQC2.Slider {
+                            id: playerSlider
+
+                            Layout.fillWidth: true
+
+                            property bool sync: false
+
+                            onValueChanged: {
+                                if (!sync) {
+                                    videoPlayer.seek(value * videoPlayer.duration)
+                                }
+                            }
+                        }
+                        QQC2.Label {
+                            id: timeLabel
+                            text: "00:00/00:00"
+                        }
+
+                        DownloadButton {
+                            id: download
+                            onDownloadButtonClicked: {
+                                //TODO messageMain.downloadAttachment(model.modelData.link)
+                            }
+                        }
+                    }
+                    Text {
+                        text: model.modelData.description
+                        wrapMode: QQC2.Label.Wrap
+                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                        anchors.rightMargin: Kirigami.Units.smallSpacing
                     }
                 }
-            }
-        }
-        //Verify position.
-        //Perhaps hidding it by default.
-        VideoOutput {
-            id: videoOutput
-
-            Layout.fillWidth: true
-            source: videoPlayer
-        }
-
-        QQC2.Slider {
-            id: playerSlider
-
-            Layout.fillWidth: true
-
-            property bool sync: false
-
-            onValueChanged: {
-                if (!sync) {
-                    videoPlayer.seek(value * videoPlayer.duration)
-                }
-            }
-        }
-        QQC2.Label {
-            id: timeLabel
-            text: "00:00/00:00"
-        }
-
-        DownloadButton {
-            id: download
-            onDownloadButtonClicked: {
-                //TODO messageMain.downloadAttachment(model.modelData.link)
             }
         }
         TimestampText {
