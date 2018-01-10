@@ -29,8 +29,6 @@ import "../js/message.js" as MessageScript;
 
 MessageBase {
 
-    property var i_urls
-    property var i_attachments
 
     id: messageMain
 
@@ -63,7 +61,7 @@ MessageBase {
                         asynchronous: true
                         //TODO customize it.
                         width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
-                        height: model.modelData.imageHeight ===  -1 ? 200 : model.modelData.imageHeight
+                        height: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
                         onStatusChanged: {
                             if(status == Image.Error){
                                 console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. ")
@@ -72,9 +70,15 @@ MessageBase {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                console.log(RuqolaDebugCategorySingleton.category, "Enlarge image");
+                                console.log(RuqolaDebugCategorySingleton.category, "Not implemented yet: Enlarge image");
                             }
                         }
+                    }
+                    Text {
+                        text: model.modelData.description
+                        wrapMode: QQC2.Label.Wrap
+                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                        anchors.rightMargin: Kirigami.Units.smallSpacing
                     }
                 }
 
