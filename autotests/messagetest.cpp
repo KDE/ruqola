@@ -96,7 +96,7 @@ void MessageTest::shouldParseMessage_data()
     }
 
     {
-        //Image
+        //Video
         Message videoMessageRef;
         videoMessageRef.setMessageId(QStringLiteral("KCy2KiFYmS5NuakPm"));
         videoMessageRef.setAlias(QStringLiteral("Laurent Montel"));
@@ -118,6 +118,30 @@ void MessageTest::shouldParseMessage_data()
 
 
         QTest::addRow("video") << QStringLiteral("video") << videoMessageRef;
+    }
+    {
+        //Audio
+        Message audioMessageRef;
+        audioMessageRef.setMessageId(QStringLiteral("AwDsjWKJaW2wCP2ht"));
+        audioMessageRef.setAlias(QStringLiteral("Laurent Montel"));
+        audioMessageRef.setGroupable(false);
+        audioMessageRef.setTimeStamp(1515588347098);
+        audioMessageRef.setUsername(QStringLiteral("laurent"));
+        audioMessageRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        audioMessageRef.setMessageType(Message::Audio);
+        audioMessageRef.setUpdatedAt(1515588347102);
+        audioMessageRef.setEditedAt(0);
+        audioMessageRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
+
+        MessageAttachment attAudio;
+        attAudio.setTitle(QStringLiteral("joint.wav"));
+        attAudio.setLink(QStringLiteral("/file-upload/9E8YBGgq3H6GbASf3/joint.wav"));
+        attAudio.setDescription(QStringLiteral("dfgsdfgsdfg sdfgd dfsg sfd g"));
+        //Add video size/video type etc.
+        audioMessageRef.setAttachements({attAudio});
+
+
+        QTest::addRow("audio") << QStringLiteral("audio") << audioMessageRef;
     }
 }
 

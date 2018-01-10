@@ -1,0 +1,39 @@
+{
+    "_id": "AwDsjWKJaW2wCP2ht",
+    "_updatedAt": {
+        "$date": 1515588347102
+    },
+    "alias": "Laurent Montel",
+    "attachments": [
+        {
+            "audio_size": 59217,
+            "audio_type": "audio/wave",
+            "audio_url": "/file-upload/9E8YBGgq3H6GbASf3/joint.wav",
+            "description": "dfgsdfgsdfg sdfgd dfsg sfd g",
+            "title": "joint.wav",
+            "title_link": "/file-upload/9E8YBGgq3H6GbASf3/joint.wav",
+            "title_link_download": true,
+            "type": "file"
+        }
+    ],
+    "channels": [
+    ],
+    "file": {
+        "_id": "9E8YBGgq3H6GbASf3",
+        "name": "joint.wav",
+        "type": "audio/wave"
+    },
+    "groupable": false,
+    "mentions": [
+    ],
+    "msg": "",
+    "rid": "kGtPa6bu7xHrS5xz6",
+    "ts": {
+        "$date": 1515588347098
+    },
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "name": "Laurent Montel",
+        "username": "laurent"
+    }
+}
