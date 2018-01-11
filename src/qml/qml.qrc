@@ -29,6 +29,7 @@
         <file>HideChannelDialog.qml</file>
         <file>DownloadFileDialog.qml</file>
         <file>UploadFileDialog.qml</file>
+        <file>DisplayImageDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

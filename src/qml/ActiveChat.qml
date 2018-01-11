@@ -34,6 +34,7 @@ ListView {
     signal editMessage(string messageId)
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId)
+    signal displayImage(url imageUrl)
 
     property QtObject rcAccount
 
@@ -83,6 +84,9 @@ ListView {
         }
         onSetFavoriteMessage: {
             activeChat.setFavoriteMessage(messageId)
+        }
+        onDisplayImage: {
+            activeChat.displayImage(imageUrl)
         }
     }
 }

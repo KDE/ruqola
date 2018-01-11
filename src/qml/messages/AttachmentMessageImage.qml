@@ -70,7 +70,12 @@ MessageBase {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                console.log(RuqolaDebugCategorySingleton.category, "Not implemented yet: Enlarge image");
+                                if(status === Image.Error) {
+                                    console.log(RuqolaDebugCategorySingleton.category, "Image not loaded.");
+                                } else {
+                                    messageMain.displayImage(imageUrl.source)
+                                    console.log(RuqolaDebugCategorySingleton.category, "Not implemented yet: Enlarge image");
+                                }
                             }
                         }
                     }

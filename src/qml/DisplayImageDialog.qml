@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017-2018 Montel Laurent <montel@kde.org>
+   Copyright (c) 2018 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,33 +18,29 @@
    Boston, MA 02110-1301, USA.
 */
 
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.2
+import QtQuick.Window 2.0
 import QtQuick 2.9
 
-import QtQuick.Layouts 1.1
-ColumnLayout {
-    signal linkActivated(string link)
-    signal jitsiCallConfActivated()
-    signal deleteMessage(string messageId)
-    signal editMessage(string messageId)
-    signal replyMessage(string messageId)
-    signal setFavoriteMessage(string messageId)
-    signal downloadAttachment(string url)
-    signal displayImage(url imageUrl)
+//TODO add zoom support and co.
+Dialog {
+    id: displayImageDialog
 
-    property string i_date
-    property string i_username
-    property string i_aliasname
-    property string i_avatar
-    property var i_timestamp
-    property string i_messageText
-    property var i_urls
-    property var i_attachments
+    title: i18n("Image")
 
-    property QtObject rcAccount
+    property url iUrl
+    width: parent.width
+    height: parent.height
 
+    modal: true
 
-    NewDateLabel {
-        id: newDateRect
-        date: i_date
+    standardButtons: Dialog.Close
+
+    //Add scrollbar ?
+    Image {
+        anchors.fill: parent
+        source: iUrl
+        fillMode: Image.PreserveAspectFit
     }
 }

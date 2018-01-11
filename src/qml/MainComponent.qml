@@ -181,6 +181,11 @@ Component {
             onSetFavoriteMessage: {
                 appid.rocketChatAccount.starMessage(messageId, appid.selectedRoomID, true)
             }
+
+            onDisplayImage: {
+                displayImageDialog.iUrl = imageUrl
+                displayImageDialog.open();
+            }
             
             OpenDirectChannelDialog {
                 id: openDirectChannelDialog
@@ -206,6 +211,9 @@ Component {
                         console.log(RuqolaDebugCategorySingleton.category, "No file selected");
                     }
                 }
+            }
+            DisplayImageDialog {
+                id: displayImageDialog
             }
         }
         footer: UserInput {

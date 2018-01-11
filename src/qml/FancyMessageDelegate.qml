@@ -63,6 +63,7 @@ Rectangle {
     signal editMessage(string messageId)
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId)
+    signal displayImage(url imageUrl)
 
     Loader {
         id: loaded
@@ -190,6 +191,9 @@ Rectangle {
         }
         onSetFavoriteMessage: {
             messageMain.setFavoriteMessage(messageId)
+        }
+        onDisplayImage: {
+            messageMain.displayImage(imageUrl)
         }
     }
 }
