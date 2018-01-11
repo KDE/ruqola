@@ -29,8 +29,6 @@ import KDE.Ruqola.DDPClient 1.0
 Login {
     id: loginTab
 
-    property QtObject rcAccount
-
     anchors.fill: parent
     visible: rcAccount.loginStatus !== DDPClient.LoggedIn
     serverUrl: rcAccount.serverUrl

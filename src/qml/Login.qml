@@ -30,6 +30,7 @@ import KDE.Ruqola.RocketChatAccount 1.0
 Kirigami.Page {
     id: loginForm
     
+    property QtObject rcAccount
     property alias username: usernameField.text;
     property alias password: passField.text;
     property alias serverUrl: urlField.text;
