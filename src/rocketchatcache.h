@@ -38,7 +38,7 @@ public:
 
     void downloadFileFromServer(const QString &filename);
 
-    QString attachmentUrl(const QString &url);
+    QUrl attachmentUrl(const QString &url);
     void downloadFile(const QString &url, const QUrl &localFile);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);

@@ -48,7 +48,8 @@ MessageBase {
                 Column {
                     Text {
                         //TODO make it clickable ?
-                        text: i18n("File send: %1", model.modelData.title)
+                        text: model.modelData.title === "" ? "" :  i18n("File send: %1", model.modelData.title)
+                        visible: model.modelData.title !== ""
                         wrapMode: QQC2.Label.Wrap
                         anchors.leftMargin: Kirigami.Units.smallSpacing
                         anchors.rightMargin: Kirigami.Units.smallSpacing
@@ -62,7 +63,7 @@ MessageBase {
                         height: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
                         onStatusChanged: {
                             if(status == Image.Error){
-                                console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. ")
+                                console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. " + source)
                             }
                         }
                         MouseArea {
@@ -77,6 +78,7 @@ MessageBase {
                         wrapMode: QQC2.Label.Wrap
                         anchors.leftMargin: Kirigami.Units.smallSpacing
                         anchors.rightMargin: Kirigami.Units.smallSpacing
+                        visible: model.modelData.description !== ""
                     }
                 }
 
@@ -89,7 +91,7 @@ MessageBase {
                 Connections {
                     target: rcAccount
                     onFileDownloaded: {
-                        console.log(RuqolaDebugCategorySingleton.category, " IMAGE SUPPORT (const QString &imageUrl, const QString &cacheImageUrl); " + filePath + " cacheIma :" + cacheImageUrl + "model.modelData.link " + model.modelData.link)
+                        //console.log(RuqolaDebugCategorySingleton.category, " IMAGE SUPPORT: " + filePath + " cacheImageUrl :" + cacheImageUrl + " model.modelData.link: " + model.modelData.link)
                         if (filePath === model.modelData.link) {
                             console.log(RuqolaDebugCategorySingleton.category, "Image updated: " + cacheImageUrl)
                             imageUrl.source = cacheImageUrl;

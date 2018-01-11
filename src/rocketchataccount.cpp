@@ -565,7 +565,7 @@ void RocketChatAccount::downloadFile(const QString &downloadFileUrl, const QUrl 
     mCache->downloadFile(downloadFileUrl, localFile);
 }
 
-QString RocketChatAccount::attachmentUrl(const QString &url)
+QUrl RocketChatAccount::attachmentUrl(const QString &url)
 {
     return mCache->attachmentUrl(url);
 }

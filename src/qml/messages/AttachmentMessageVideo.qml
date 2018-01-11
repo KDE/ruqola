@@ -74,7 +74,8 @@ MessageBase {
                 ColumnLayout {
                     Layout.fillWidth: true
                     Text {
-                        text: i18n("File send: %1", model.modelData.title)
+                        text: model.modelData.title === "" ? "" :  i18n("File send: %1", model.modelData.title)
+                        visible: model.modelData.title !== ""
                         wrapMode: QQC2.Label.Wrap
                         anchors.leftMargin: Kirigami.Units.smallSpacing
                         anchors.rightMargin: Kirigami.Units.smallSpacing
@@ -140,6 +141,7 @@ MessageBase {
                     }
                     Text {
                         text: model.modelData.description
+                        visible: model.modelData.description !== ""
                         wrapMode: QQC2.Label.Wrap
                         anchors.leftMargin: Kirigami.Units.smallSpacing
                         anchors.rightMargin: Kirigami.Units.smallSpacing

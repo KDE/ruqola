@@ -57,7 +57,11 @@ bool RocketChatCache::fileInCache(const QUrl &url)
 QString RocketChatCache::fileCachePath(const QUrl &url)
 {
     const QString cachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
-    const QString newPath = cachePath + QLatin1Char('/') + mAccount->accountName() + QLatin1Char('/') + url.path();
+    QString newPath = cachePath;
+    if (!mAccount->accountName().isEmpty()) {
+        newPath += mAccount->accountName() + QLatin1Char('/');
+    }
+    newPath += url.path();
     return newPath;
 }
 
@@ -95,10 +99,10 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
     //TODO save file
 }
 
-QString RocketChatCache::attachmentUrl(const QString &url)
+QUrl RocketChatCache::attachmentUrl(const QString &url)
 {
     if (fileInCache(QUrl(url))) {
-        const QString newurl = QUrl::fromLocalFile(fileCachePath(QUrl::fromUserInput(url))).toString();
+        const QUrl newurl = QUrl::fromLocalFile(fileCachePath(QUrl(url)));
         return newurl;
     } else {
         downloadFileFromServer(url);
