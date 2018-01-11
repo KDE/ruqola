@@ -120,7 +120,7 @@ public:
     Q_INVOKABLE void changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue);
     Q_INVOKABLE QString recordingVideoPath() const;
     Q_INVOKABLE QString recordingImagePath() const;
-    Q_INVOKABLE void downloadFile(const QString &url);
+    Q_INVOKABLE void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     Q_INVOKABLE void starMessage(const QString &messageId, const QString &rid, bool starred);
 
     void loadEmoji();

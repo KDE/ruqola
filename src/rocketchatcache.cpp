@@ -88,7 +88,7 @@ void RocketChatCache::loadAvatarCache()
     settings.endGroup();
 }
 
-void RocketChatCache::downloadFile(const QString &url)
+void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
 {
     const QUrl clickedUrl = generateDownloadFile(url);
     mAccount->restApi()->get(clickedUrl);
