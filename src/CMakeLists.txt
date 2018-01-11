@@ -46,6 +46,7 @@ set (Ruqola_core_srcs
     ${Ruqola_restapi_SRCS}
     usercompletermodel.cpp
     rocketchatcache.cpp
+    downloadfilejob.cpp
 )
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)

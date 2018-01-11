@@ -27,6 +27,7 @@
         <file>ArchiveRoomDialog.qml</file>
         <file>RuqolaMenuSeparator.qml</file>
         <file>HideChannelDialog.qml</file>
+        <file>DownloadFileDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
