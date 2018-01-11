@@ -27,5 +27,4 @@ QTEST_MAIN(RocketChatCacheTest)
 RocketChatCacheTest::RocketChatCacheTest(QObject *parent)
     : QObject(parent)
 {
-
 }

@@ -65,7 +65,7 @@ void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url
 {
     const QString newPath = fileCachePath(url);
     //Split between image/video/audio
-    QUrl urldir = QUrl::fromUserInput(newPath).adjusted( QUrl::RemoveFilename );
+    QUrl urldir = QUrl::fromUserInput(newPath).adjusted(QUrl::RemoveFilename);
     QDir().mkpath(urldir.path());
     QFile file(newPath);
     if (file.open(QIODevice::ReadWrite)) {
@@ -94,7 +94,6 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
     mAccount->restApi()->get(clickedUrl);
     //TODO save file
 }
-
 
 QString RocketChatCache::attachmentUrl(const QString &url)
 {

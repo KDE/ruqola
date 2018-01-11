@@ -70,7 +70,6 @@ void MessageTest::shouldParseMessage_data()
         url.setDescription(QStringLiteral("Description"));
         urlMessageRef.setUrls({url});
         QTest::addRow("url") << QStringLiteral("url") << urlMessageRef;
-
     }
     {
         //Image
@@ -116,7 +115,6 @@ void MessageTest::shouldParseMessage_data()
         //Add video size/video type etc.
         videoMessageRef.setAttachements({attVideo});
 
-
         QTest::addRow("video") << QStringLiteral("video") << videoMessageRef;
     }
     {
@@ -139,7 +137,6 @@ void MessageTest::shouldParseMessage_data()
         attAudio.setDescription(QStringLiteral("dfgsdfgsdfg sdfgd dfsg sfd g"));
         //Add video size/video type etc.
         audioMessageRef.setAttachements({attAudio});
-
 
         QTest::addRow("audio") << QStringLiteral("audio") << audioMessageRef;
     }

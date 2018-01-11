@@ -192,7 +192,6 @@ Component {
                     }
                 }
             }
-            
         }
         footer: UserInput {
             id: userInputMessage

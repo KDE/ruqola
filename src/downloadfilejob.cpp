@@ -23,10 +23,8 @@
 DownloadFileJob::DownloadFileJob(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 DownloadFileJob::~DownloadFileJob()
 {
-
 }
