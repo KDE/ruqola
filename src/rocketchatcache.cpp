@@ -100,6 +100,7 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
         KIO::Job *job = KIO::copy(newurl, localFile, KIO::Overwrite | KIO::HideProgressInfo);
         job->exec();
     } else {
+        //Redownload it. TODO inform user ?
         const QUrl clickedUrl = generateDownloadFile(url);
         mAccount->restApi()->get(clickedUrl);
     }

@@ -58,6 +58,7 @@ MessageBase {
                         id: imageUrl
                         source: rcAccount.attachmentUrl(model.modelData.link)
                         asynchronous: true
+                        fillMode: Image.PreserveAspectFit
                         //TODO customize it.
                         width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
                         height: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
