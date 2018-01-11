@@ -31,7 +31,4 @@ FileDialog {
     selectFolder: false
     selectMultiple: false
     selectExisting: false
-    onAccepted: {
-        console.log("You chose: " + fileDialog.fileUrls)
-    }
 }

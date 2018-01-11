@@ -182,9 +182,24 @@ Component {
                 appid.rocketChatAccount.starMessage(messageId, appid.selectedRoomID, true)
             }
             
+            OpenDirectChannelDialog {
+                id: openDirectChannelDialog
+                onOpenDirectChannel: {
+                    appid.rocketChatAccount.openDirectChannel(userName);
+                }
+            }
+
+            DeleteMessageDialog {
+                id: deleteMessageDialog
+                onDeleteMessage: {
+                    appid.rocketChatAccount.deleteMessage(messageId)
+                }
+            }
+
             DownloadFileDialog {
                 id: downloadFileDialog
                 onAccepted: {
+                    console.log("You chose: " + fileUrl)
                     if (fileUrl != "") {
                         appid.rocketChatAccount.downloadFile(fileToSaveUrl, fileUrl)
                     } else {

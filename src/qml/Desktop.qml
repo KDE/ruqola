@@ -140,20 +140,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    OpenDirectChannelDialog {
-        id: openDirectChannelDialog
-        onOpenDirectChannel: {
-            rocketChatAccount.openDirectChannel(userName);
-        }
-    }
-
-    DeleteMessageDialog {
-        id: deleteMessageDialog
-        onDeleteMessage: {
-            rocketChatAccount.deleteMessage(messageId)
-        }
-    }
-
     TakeVideoMessageDialog {
         id: takeVideoMessage
         rcAccount: rocketChatAccount
