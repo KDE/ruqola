@@ -70,6 +70,7 @@ target_link_libraries(libruqolacore
     KF5::I18n
     KF5::Crash
     KF5::Notifications
+    KF5::KIOCore
 )
 
 if (WIN32 OR APPLE)

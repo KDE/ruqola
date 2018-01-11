@@ -22,6 +22,7 @@
 #include "rocketchatcache.h"
 #include "ruqola_debug.h"
 #include "restapi/restapirequest.h"
+#include <KIO/CopyJob>
 #include <QDateTime>
 #include <QDir>
 #include <QSettings>
@@ -94,9 +95,14 @@ void RocketChatCache::loadAvatarCache()
 
 void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
 {
-    const QUrl clickedUrl = generateDownloadFile(url);
-    mAccount->restApi()->get(clickedUrl);
-    //TODO save file
+    if (fileInCache(QUrl(url))) {
+        const QUrl newurl = QUrl::fromLocalFile(fileCachePath(QUrl(url)));
+        KIO::Job *job = KIO::copy(newurl, localFile, KIO::Overwrite | KIO::HideProgressInfo);
+        job->exec();
+    } else {
+        const QUrl clickedUrl = generateDownloadFile(url);
+        mAccount->restApi()->get(clickedUrl);
+    }
 }
 
 QUrl RocketChatCache::attachmentUrl(const QString &url)
