@@ -25,7 +25,6 @@ import QtQuick.Dialogs 1.2
 
 
 FileDialog {
-    id: downloadFileDialog
     title: i18n("Please choose a file")
     folder: shortcuts.home
     selectFolder: false

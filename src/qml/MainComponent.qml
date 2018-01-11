@@ -168,7 +168,8 @@ Component {
                 deleteMessageDialog.open()
             }
             onDownloadAttachment: {
-                appid.rocketChatAccount.downloadFile(url)
+                downloadFileDialog.open()
+                //appid.rocketChatAccount.downloadFile(url)
             }
             
             onEditMessage: {
@@ -197,6 +198,9 @@ Component {
             onClearUnreadMessages: {
                 rcAccount.clearUnreadMessages(appid.selectedRoomID)
             }
+        }
+        DownloadFileDialog {
+            id: downloadFileDialog
         }
     }// mainWidget Item
 }

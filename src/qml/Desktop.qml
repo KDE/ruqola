@@ -173,10 +173,6 @@ Kirigami.ApplicationWindow {
         id: mainComponent
     }
 
-    DownloadFileDialog {
-        id: downloadFileDialog
-    }
-
     onClosing: {
         console.log(RuqolaDebugCategorySingleton.category, "Minimizing to systray...");
         hide();
