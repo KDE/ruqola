@@ -47,7 +47,8 @@ MessageBase {
             Row {
                 Column {
                     Text {
-                        text: model.modelData.title
+                        //TODO make it clickable ?
+                        text: i18n("File send: %1", model.modelData.title)
                         wrapMode: QQC2.Label.Wrap
                         anchors.leftMargin: Kirigami.Units.smallSpacing
                         anchors.rightMargin: Kirigami.Units.smallSpacing

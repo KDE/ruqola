@@ -74,7 +74,7 @@ MessageBase {
                 Layout.fillWidth: true
 
                 Text {
-                    text: model.modelData.title
+                    text: i18n("File send: %1", model.modelData.title)
                     wrapMode: QQC2.Label.Wrap
                     anchors.leftMargin: Kirigami.Units.smallSpacing
                     anchors.rightMargin: Kirigami.Units.smallSpacing
