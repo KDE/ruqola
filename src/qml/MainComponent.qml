@@ -168,8 +168,8 @@ Component {
                 deleteMessageDialog.open()
             }
             onDownloadAttachment: {
-                downloadFileDialog.fileToSaveUrl = url
-                downloadFileDialog.open()
+//                downloadFileDialog.fileToSaveUrl = url
+//                downloadFileDialog.open()
             }
             
             onEditMessage: {
@@ -198,15 +198,15 @@ Component {
                 rcAccount.clearUnreadMessages(appid.selectedRoomID)
             }
         }
-        DownloadFileDialog {
-            id: downloadFileDialog
-            onAccepted: {
-                if (fileUrl != "") {
-                    appid.rocketChatAccount.downloadFile(fileToSaveUrl, fileUrl)
-                } else {
-                    console.log(RuqolaDebugCategorySingleton.category, "No file selected");
-                }
-            }
-        }
+//        DownloadFileDialog {
+//            id: downloadFileDialog
+//            onAccepted: {
+//                if (fileUrl != "") {
+//                    appid.rocketChatAccount.downloadFile(fileToSaveUrl, fileUrl)
+//                } else {
+//                    console.log(RuqolaDebugCategorySingleton.category, "No file selected");
+//                }
+//            }
+//        }
     }// mainWidget Item
 }
