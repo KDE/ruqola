@@ -47,6 +47,7 @@ MessageBase {
             Row {
                 Column {
                     Text {
+                        id: imageTitle
                         //TODO make it clickable ?
                         text: model.modelData.title === "" ? "" :  i18n("File send: %1", model.modelData.title)
                         visible: model.modelData.title !== ""
@@ -76,7 +77,7 @@ MessageBase {
                                 if(status === Image.Error) {
                                     console.log(RuqolaDebugCategorySingleton.category, "Image not loaded.");
                                 } else {
-                                    messageMain.displayImage(imageUrl.source)
+                                    messageMain.displayImage(imageUrl.source, imageTitle.text)
                                 }
                             }
                         }

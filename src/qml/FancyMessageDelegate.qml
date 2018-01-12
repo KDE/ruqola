@@ -63,7 +63,7 @@ Rectangle {
     signal editMessage(string messageId)
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId)
-    signal displayImage(url imageUrl)
+    signal displayImage(url imageUrl, string title)
 
     Loader {
         id: loaded
@@ -193,7 +193,7 @@ Rectangle {
             messageMain.setFavoriteMessage(messageId)
         }
         onDisplayImage: {
-            messageMain.displayImage(imageUrl)
+            messageMain.displayImage(imageUrl, title)
         }
     }
 }

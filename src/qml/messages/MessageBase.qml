@@ -29,7 +29,7 @@ ColumnLayout {
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId)
     signal downloadAttachment(string url)
-    signal displayImage(url imageUrl)
+    signal displayImage(url imageUrl, string title)
 
     property string i_date
     property string i_username
