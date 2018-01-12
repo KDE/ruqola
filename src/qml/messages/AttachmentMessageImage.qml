@@ -77,7 +77,6 @@ MessageBase {
                                     console.log(RuqolaDebugCategorySingleton.category, "Image not loaded.");
                                 } else {
                                     messageMain.displayImage(imageUrl.source)
-                                    console.log(RuqolaDebugCategorySingleton.category, "Not implemented yet: Enlarge image");
                                 }
                             }
                         }
