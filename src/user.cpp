@@ -77,6 +77,11 @@ bool User::operator ==(const User &other) const
            && (mListRooms == other.listRooms());
 }
 
+bool User::operator !=(const User &other) const
+{
+    return (! operator ==(other));
+}
+
 QStringList User::listRooms() const
 {
     return mListRooms;

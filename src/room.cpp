@@ -103,6 +103,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     if (json.contains(QStringLiteral("topic"))) {
         setTopic(json[QStringLiteral("topic")].toString());
     }
+    if (json.contains(QStringLiteral("name"))) {
+        setName(json[QStringLiteral("name")].toString());
+    }
 }
 
 bool Room::selected() const

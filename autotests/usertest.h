@@ -31,6 +31,12 @@ public:
     ~UserTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldSetAndGetName();
+    void shouldSetAndGetStatus();
+    void shouldSetAndGetUserId();
+    void shouldSetAndGetListRooms();
+    void shouldParseUser();
+    void checkEqualsAndUnequalsOperator();
 };
 
 #endif // USERTEST_H

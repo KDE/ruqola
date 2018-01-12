@@ -29,6 +29,21 @@ class RoomModelTest : public QObject
 public:
     explicit RoomModelTest(QObject *parent = nullptr);
     ~RoomModelTest() = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+    void shouldReturnRowCount();
+    void shouldFindRoom();
+    void shouldAddRoom();
+    void shouldUpdateRoom();
+    void shouldUpdateRoomFromQJsonObject();
+    void shouldUpdateSubcriptionActionRemoved();
+    void shouldUpdateSubcriptionActionInserted();
+    void shouldUpdateSubcriptionActionUpdated();
+    void shouldClear();
+    void shouldReset();
+    void shouldReturnDataDefault();
+    void shouldReturnData();
 };
 
 #endif // ROOMMODELTEST_H

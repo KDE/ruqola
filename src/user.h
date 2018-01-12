@@ -62,6 +62,7 @@ public:
     Q_INVOKABLE QString iconFromStatus() const;
 
     bool operator ==(const User &other) const;
+    bool operator !=(const User &other) const;
 
 Q_SIGNALS:
     void nameChanged();
