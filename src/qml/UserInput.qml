@@ -37,6 +37,7 @@ RowLayout {
     property alias messageLineText: messageLine.text
 
     signal textEditing(string str)
+    signal uploadFile()
     signal clearUnreadMessages()
     
     height: 2*Kirigami.Units.largeSpacing
@@ -52,7 +53,10 @@ RowLayout {
         height: messageLine.height/2
         MouseArea {
             anchors.fill: parent
-            onClicked: rcAccount.attachmentButtonClicked(selectedRoomID);
+            onClicked: {
+                //rcAccount.attachmentButtonClicked(selectedRoomID);
+                footerItem.uploadFile()
+            }
         }
     }
     TextField {

@@ -19,11 +19,11 @@
 */
 
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import QtQuick 2.9
 
-Dialog {
+QQC2.Dialog {
     id: uploadFileDialog
 
     title: i18n("Upload File")
@@ -34,16 +34,18 @@ Dialog {
 
     modal: true
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
+    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
-//    Row {
-//        Label {
-//            text: i18n("Do you want to delete this message?")
-//            font.bold: true
-//            font.pointSize: 15
-//        }
-//    }
+    function initializeAndOpen()
+    {
+        description.text = "";
+        open();
+    }
 
-    onAccepted: {
+    Column {
+        QQC2.TextField {
+            id: description
+            placeholderText: i18n("Description")
+        }
     }
 }

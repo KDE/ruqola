@@ -230,6 +230,13 @@ Component {
             onClearUnreadMessages: {
                 rcAccount.clearUnreadMessages(appid.selectedRoomID)
             }
+            onUploadFile: {
+                uploadFileDialog.initializeAndOpen()
+            }
+        }
+
+        UploadFileDialog {
+            id: uploadFileDialog
         }
     }// mainWidget Item
 }
