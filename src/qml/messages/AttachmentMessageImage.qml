@@ -62,6 +62,9 @@ MessageBase {
                         //TODO customize it.
                         width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
                         height: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
+                        sourceSize.width: 200
+                        sourceSize.height: 200
+
                         onStatusChanged: {
                             if(status == Image.Error){
                                 console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. " + source)
