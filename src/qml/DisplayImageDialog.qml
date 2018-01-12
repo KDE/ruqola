@@ -43,9 +43,17 @@ Dialog {
         ScrollBar.horizontal.interactive: true
         ScrollBar.vertical.interactive: true
         Image {
+            id: image
             source: iUrl
             fillMode: Image.PreserveAspectFit
+            MouseArea {
+                anchors.fill: parent
+                onWheel: {
+                    //TODO improve it
+                    var scaleBefore = image.scale;
+                    image.scale += image.scale * wheel.angleDelta.y / 120 / 10;
+                }
+            }
         }
-
     }
 }
