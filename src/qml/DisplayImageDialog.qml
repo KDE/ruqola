@@ -49,9 +49,10 @@ Dialog {
             MouseArea {
                 anchors.fill: parent
                 onWheel: {
-                    //TODO improve it
-                    var scaleBefore = image.scale;
-                    image.scale += image.scale * wheel.angleDelta.y / 120 / 10;
+                    if (wheel.modifiers & Qt.ControlModifier) {
+                        var scaleBefore = image.scale;
+                        image.scale += image.scale * wheel.angleDelta.y / 120 / 10;
+                    }
                 }
             }
         }
