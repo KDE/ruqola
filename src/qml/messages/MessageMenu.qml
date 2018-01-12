@@ -31,7 +31,7 @@ QQC2.Menu {
     id: menu
     
     QQC2.MenuItem {
-        enabled: i_username === i_own_username
+        visible: i_username === i_own_username
         contentItem: QQC2.Label {
             text: i18n("Edit")
         }
@@ -60,7 +60,7 @@ QQC2.Menu {
         }
     }
     QQC2.MenuItem {
-        enabled: i_username === i_own_username
+        visible: i_username === i_own_username
         contentItem: QQC2.Label {
             text: i18n("Delete")
         }
