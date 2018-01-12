@@ -38,8 +38,8 @@ Simulator::Simulator(QWidget *parent)
     : QWidget(parent)
 {
     RuqolaTestWebSocket::_k_ruqola_webSocket = new FakeWebSocket;
-    RuqolaRegisterEngine *engine = new RuqolaRegisterEngine;
-    if (engine->initialize()) {
+    mEngine = new RuqolaRegisterEngine;
+    if (mEngine->initialize()) {
         QVBoxLayout *mainLayout = new QVBoxLayout(this);
         mJsonTextEditor = new QTextEdit(this);
         mJsonTextEditor->setAcceptRichText(false);
@@ -53,6 +53,11 @@ Simulator::Simulator(QWidget *parent)
         mSendButton->setEnabled(false);
         connect(mSendButton, &QPushButton::clicked, this, &Simulator::slotSend);
     }
+}
+
+Simulator::~Simulator()
+{
+    delete mEngine;
 }
 
 void Simulator::slotUpdateButton()

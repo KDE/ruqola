@@ -24,17 +24,19 @@
 #include <QWidget>
 class QTextEdit;
 class QPushButton;
+class RuqolaRegisterEngine;
 class Simulator : public QWidget
 {
     Q_OBJECT
 public:
     explicit Simulator(QWidget *parent = nullptr);
-    ~Simulator() = default;
+    ~Simulator();
 private:
     void slotSend();
     void slotUpdateButton();
     QTextEdit *mJsonTextEditor = nullptr;
     QPushButton *mSendButton = nullptr;
+    RuqolaRegisterEngine *mEngine = nullptr;
 };
 
 #endif // SIMULATOR_H
