@@ -49,7 +49,7 @@ QVariant QmlAboutDataAuthorModel::data(const QModelIndex &index, int role) const
         return mAboutPerson.at(indexRow).task();
     } else if (role == EmailRole) {
         return QStringLiteral("<a href=\"mailto:%1\">%1</a>").arg(mAboutPerson.at(indexRow).emailAddress());
-    } else if (role == EmailRole) {
+    } else if (role == WebSiteRoles) {
         return QStringLiteral("<a href=\"%1\">%1</a>").arg(mAboutPerson.at(indexRow).webAddress());
     }
     return {};
