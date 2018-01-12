@@ -19,7 +19,7 @@
 */
 
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.3
 import QtQuick.Window 2.0
 import QtQuick 2.9
 
@@ -37,10 +37,15 @@ Dialog {
 
     standardButtons: Dialog.Close
 
-    //Add scrollbar ?
-    Image {
+    ScrollView {
         anchors.fill: parent
-        source: iUrl
-        fillMode: Image.PreserveAspectFit
+        clip: true
+        ScrollBar.horizontal.interactive: true
+        ScrollBar.vertical.interactive: true
+        Image {
+            source: iUrl
+            fillMode: Image.PreserveAspectFit
+        }
+
     }
 }
