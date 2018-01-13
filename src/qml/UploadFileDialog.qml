@@ -22,6 +22,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import QtQuick 2.9
+import org.kde.kirigami 2.1 as Kirigami
 
 QQC2.Dialog {
     id: uploadFileDialog
@@ -47,5 +48,25 @@ QQC2.Dialog {
             id: description
             placeholderText: i18n("Description")
         }
+        RowLayout {
+            id: textFieldEditor
+
+            QQC2.TextField {
+                id: channelNameField
+            }
+
+            Kirigami.Icon {
+                source: "folder"
+                width: 24
+                height: 24
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        //TODO open dialogbox
+                    }
+                }
+            }
+        }
+
     }
 }
