@@ -216,6 +216,9 @@ Component {
             DisplayImageDialog {
                 id: displayImageDialog
             }
+            UploadFileDialog {
+                id: uploadFileDialog
+            }
         }
         footer: UserInput {
             id: userInputMessage
@@ -235,8 +238,5 @@ Component {
             }
         }
 
-        UploadFileDialog {
-            id: uploadFileDialog
-        }
     }// mainWidget Item
 }
