@@ -16,8 +16,8 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMAddTests)
 include(GenerateExportHeader)
 include(FeatureSummary)
-# increase to 5.42 for kemoticon support
-set(KF5_VERSION "5.41.0")
+
+set(KF5_VERSION "5.42.0")
 
 find_package(ECM ${KF5_VERSION} CONFIG REQUIRED)
 
