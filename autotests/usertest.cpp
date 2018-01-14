@@ -124,10 +124,10 @@ void UserTest::shouldParseUser()
     QJsonObject fields;
     const QString name = QStringLiteral("Newton");
     const QString status = QStringLiteral("Newton");
-    fields.insert(QLatin1String("name"), QJsonValue(name));
-    fields.insert(QLatin1String("status"), QJsonValue(status));
-    object.insert(QLatin1String("id"), QJsonValue(QLatin1String("RA151100ECE")));
-    object.insert(QLatin1String("fields"), fields);
+    fields.insert(QStringLiteral("name"), QJsonValue(name));
+    fields.insert(QStringLiteral("status"), QJsonValue(status));
+    object.insert(QStringLiteral("id"), QJsonValue(QLatin1String("RA151100ECE")));
+    object.insert(QStringLiteral("fields"), fields);
 
     QSignalSpy spyN(&sampleUser, &User::nameChanged);
     QSignalSpy spyS(&sampleUser, &User::statusChanged);
@@ -160,6 +160,6 @@ void UserTest::checkEqualsAndUnequalsOperator()
     sampleuserOther.setStatus(status);
     QVERIFY(sampleuser == sampleuserOther);
 
-    sampleuserOther.setName(QLatin1String("Robert Segwick_NEW"));
+    sampleuserOther.setName(QStringLiteral("Robert Segwick_NEW"));
     QVERIFY(sampleuser != sampleuserOther);
 }
