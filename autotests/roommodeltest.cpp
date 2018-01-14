@@ -22,7 +22,6 @@
 #include "roomwrapper.h"
 #include "roommodeltest.h"
 #include "roommodel.h"
-#include "rocketchataccountsettings.h"
 
 #include <QAbstractItemModel>
 #include <qglobal.h>
@@ -124,10 +123,10 @@ void RoomModelTest::shouldUpdateRoomFromQJsonObject()
     const QString name = QStringLiteral("newName");
     const QString topic = QStringLiteral("myTopic");
     const QString announcement = QStringLiteral("Happy New Year announcement");
-    roomData.insert(QLatin1String("rid"), QJsonValue(QLatin1String("RA151100ECE")));
-    roomData.insert(QLatin1String("name"), QJsonValue(name));
-    roomData.insert(QLatin1String("announcement"), announcement);
-    roomData.insert(QLatin1String("topic"), topic);
+    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1String("RA151100ECE")));
+    roomData.insert(QStringLiteral("name"), QJsonValue(name));
+    roomData.insert(QStringLiteral("announcement"), announcement);
+    roomData.insert(QStringLiteral("topic"), topic);
 
     QCOMPARE(sampleModel.rowCount(), 0);
     sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));
@@ -151,7 +150,7 @@ void RoomModelTest::shouldUpdateSubcriptionActionRemoved()
     RoomModel sampleModel;
     QJsonArray input;
     QJsonObject roomData;
-    roomData.insert(QLatin1String("rid"), QJsonValue(QLatin1String("RA151100ECE")));
+    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1String("RA151100ECE")));
     input.append(QJsonValue(QLatin1String("removed")));
     input.append(QJsonValue(roomData));
 
@@ -161,7 +160,7 @@ void RoomModelTest::shouldUpdateSubcriptionActionRemoved()
     sampleModel.updateSubscription(input);
     QCOMPARE(sampleModel.rowCount(), 0);
 
-    roomData.insert(QLatin1String("rid"), QJsonValue(QLatin1String("RA151100ECE_NEW")));
+    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1String("RA151100ECE_NEW")));
     input.pop_back();
     input.append(QJsonValue(roomData));
     sampleModel.updateSubscription(input);
@@ -173,8 +172,8 @@ void RoomModelTest::shouldUpdateSubcriptionActionInserted()
     RoomModel sampleModel;
     QJsonArray input;
     QJsonObject roomData;
-    roomData.insert(QLatin1String("rid"), QJsonValue(QLatin1String("RA151100ECE")));
-    roomData.insert(QLatin1String("name"), QJsonValue(QLatin1String("myRoom")));
+    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1String("RA151100ECE")));
+    roomData.insert(QStringLiteral("name"), QJsonValue(QLatin1String("myRoom")));
     input.append(QJsonValue(QLatin1String("inserted")));
     input.append(QJsonValue(roomData));
 
@@ -198,10 +197,10 @@ void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
     const QString name = QStringLiteral("newName");
     const QString topic = QStringLiteral("myTopic");
     const QString announcement = QStringLiteral("Happy New Year announcement");
-    roomData.insert(QLatin1String("rid"), QJsonValue(QLatin1String("RA151100ECE")));
-    roomData.insert(QLatin1String("name"), QJsonValue(name));
-    roomData.insert(QLatin1String("announcement"), announcement);
-    roomData.insert(QLatin1String("topic"), topic);
+    roomData.insert(QStringLiteral("rid"), QJsonValue(QLatin1String("RA151100ECE")));
+    roomData.insert(QStringLiteral("name"), QJsonValue(name));
+    roomData.insert(QStringLiteral("announcement"), announcement);
+    roomData.insert(QStringLiteral("topic"), topic);
     input.append(QJsonValue(QLatin1String("updated")));
     input.append(roomData);
 
