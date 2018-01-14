@@ -250,7 +250,6 @@ void RoomModelTest::shouldReset()
     sampleWrapper = sampleModel.findRoom(Id);
     QCOMPARE(name, sampleWrapper->name());
     */
-
 }
 
 void RoomModelTest::shouldReturnDataDefault()
@@ -332,7 +331,6 @@ void RoomModelTest::shouldReturnData()
     input->setFavorite(favorite);
     input->setOpen(open);
 
-
     RoomModel sampleModel;
     QVariant output;
     sampleModel.addRoom(input);//don't pass address. pass pointer variable
@@ -374,8 +372,3 @@ void RoomModelTest::shouldReturnData()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomStatus);
     QVERIFY(output.toString().isEmpty());//still status needs to be implemented in roomModel.cpp
 }
-
-
-
-
-

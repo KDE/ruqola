@@ -78,7 +78,6 @@ void UserTest::shouldSetAndGetUserId()
     QCOMPARE(sampleUser.userId(), Id);
 }
 
-
 void UserTest::shouldSetAndGetStatus()
 {
     User sampleUser;
@@ -101,7 +100,6 @@ void UserTest::shouldSetAndGetStatus()
     QCOMPARE(spy.count(), 2);
 }
 
-
 void UserTest::shouldSetAndGetListRooms()
 {
     User sampleUser;
@@ -118,7 +116,6 @@ void UserTest::shouldSetAndGetListRooms()
     QCOMPARE(sampleUser.listRooms(), roomList);
     QCOMPARE(spy.count(), 1);
 }
-
 
 void UserTest::shouldParseUser()
 {
@@ -145,7 +142,6 @@ void UserTest::shouldParseUser()
     QCOMPARE(spyN.count(), 1);
     QCOMPARE(spyS.count(), 1);
 }
-
 
 void UserTest::checkEqualsAndUnequalsOperator()
 {
