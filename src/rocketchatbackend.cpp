@@ -143,6 +143,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
     account->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
     //TODO ?
     account->ddp()->listEmojiCustom();
+    //Force set online.
     account->ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
 }
 
