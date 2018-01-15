@@ -240,6 +240,5 @@ Component {
                 uploadFileDialog.initializeAndOpen()
             }
         }
-
     }// mainWidget Item
 }

@@ -47,6 +47,7 @@ set (Ruqola_core_srcs
     usercompletermodel.cpp
     rocketchatcache.cpp
     downloadfilejob.cpp
+    texthighlighter.cpp
 )
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
@@ -71,6 +72,7 @@ target_link_libraries(libruqolacore
     KF5::Crash
     KF5::Notifications
     KF5::KIOCore
+    KF5::SyntaxHighlighting
 )
 
 if (WIN32 OR APPLE)

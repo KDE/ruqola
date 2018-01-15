@@ -32,6 +32,7 @@ find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
     Crash
     KIO
     Notifications
+    SyntaxHighlighting
 )
 
 if (WIN32 OR APPLE)

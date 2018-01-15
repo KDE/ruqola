@@ -49,7 +49,6 @@ QString Utils::extractRoomUserFromUrl(QString url)
 QString Utils::markdownToRichText(const QString &markDown)
 {
     //qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
-    //Problem with smileys as qml load image as qrc:/.... so perhaps we need to change contextProperty("baseUrl"...)
     QString str = markDown;
 
     const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys;

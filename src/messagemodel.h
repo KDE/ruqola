@@ -29,6 +29,7 @@
 #include <QObject>
 #include <QByteArray>
 #include <QJsonObject>
+#include <KSyntaxHighlighting/Repository>
 
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
@@ -90,6 +91,7 @@ protected:
 
 private:
     QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const;
+    mutable KSyntaxHighlighting::Repository mRepo;
     const QString m_roomID;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
