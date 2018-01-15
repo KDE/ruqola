@@ -23,6 +23,7 @@ import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import QtQuick 2.9
 import org.kde.kirigami 2.1 as Kirigami
+import QtQuick.Dialogs 1.2
 
 QQC2.Dialog {
     id: uploadFileDialog
@@ -40,6 +41,7 @@ QQC2.Dialog {
     function initializeAndOpen()
     {
         description.text = "";
+        selectedFileNameField.text = "";
         open();
     }
 
@@ -52,7 +54,7 @@ QQC2.Dialog {
             id: textFieldEditor
 
             QQC2.TextField {
-                id: channelNameField
+                id: selectedFileNameField
             }
 
             Kirigami.Icon {
@@ -63,10 +65,21 @@ QQC2.Dialog {
                     anchors.fill: parent
                     onClicked: {
                         //TODO open dialogbox
+                        selectFileDialog.open()
                     }
                 }
             }
+            FileDialog {
+                id: selectFileDialog
+                title: i18n("Please choose a file")
+                folder: shortcuts.documents
+                selectFolder: false
+                selectMultiple: false
+                selectExisting: true
+                onAccepted: {
+                    selectedFileNameField.text = fileUrl
+                }
+            }
         }
-
     }
 }
