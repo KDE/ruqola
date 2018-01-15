@@ -205,8 +205,8 @@ Component {
             DownloadFileDialog {
                 id: downloadFileDialog
                 onAccepted: {
-                    console.log(RuqolaDebugCategorySingleton.category, "You chose: " + fileUrl)
                     if (fileUrl != "") {
+                        //console.log(RuqolaDebugCategorySingleton.category, "You chose: " + fileUrl)
                         appid.rocketChatAccount.downloadFile(fileToSaveUrl, fileUrl)
                     } else {
                         console.log(RuqolaDebugCategorySingleton.category, "No file selected");
@@ -218,6 +218,9 @@ Component {
             }
             UploadFileDialog {
                 id: uploadFileDialog
+                onUploadFile: {
+                    appid.rocketChatAccount.uploadFile(description, filename)
+                }
             }
         }
         footer: UserInput {

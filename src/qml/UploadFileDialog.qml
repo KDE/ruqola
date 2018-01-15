@@ -36,6 +36,8 @@ QQC2.Dialog {
 
     modal: true
 
+    signal uploadFile(string description, url filename)
+
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     function initializeAndOpen()
@@ -64,8 +66,7 @@ QQC2.Dialog {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        //TODO open dialogbox
-                        selectFileDialog.open()
+                       selectFileDialog.open()
                     }
                 }
             }
@@ -80,6 +81,11 @@ QQC2.Dialog {
                     selectedFileNameField.text = fileUrl
                 }
             }
+        }
+    }
+    onAccepted: {
+        if (selectedFileNameField.text != "") {
+            uploadFileDialog.uploadFile(description.text, selectedFileNameField.text)
         }
     }
 }

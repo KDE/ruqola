@@ -122,6 +122,7 @@ public:
     Q_INVOKABLE QString recordingImagePath() const;
     Q_INVOKABLE void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     Q_INVOKABLE void starMessage(const QString &messageId, const QString &rid, bool starred);
+    Q_INVOKABLE void uploadFile(const QString &description, const QUrl &fileUrl);
 
     void loadEmoji();
     void parsePublicSettings(const QJsonObject &obj);
