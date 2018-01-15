@@ -66,6 +66,7 @@ Dialog {
         autoOrientation: true
         focus: visible
         visible: isCameraAvailable && (camera.cameraStatus === Camera.ActiveStatus)
+        enabled: isCameraAvailable && (camera.cameraStatus === Camera.ActiveStatus)
     }
     Button {
         text: i18n("Video");
