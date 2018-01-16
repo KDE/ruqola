@@ -38,7 +38,7 @@
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 
-
+//#define USE_SYNTAXHIGHLIGHTING 1
 MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , m_roomID(roomID)
@@ -229,6 +229,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
 QString MessageModel::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const
 {
+#ifdef USE_SYNTAXHIGHLIGHTING
     if (str.startsWith(QLatin1String("```")) && str.endsWith(QLatin1String("```"))) {
         QString e = str;
         e = e.remove(QLatin1String("```"));
@@ -236,7 +237,7 @@ QString MessageModel::convertMessageText(const QString &str, const QMap<QString,
         QTextStream s(&result);
         const auto def = mRepo.definitionForName(QStringLiteral("C++"));
         if (!def.isValid()) {
-            qCWarning(RUQOLA_LOG) << " invalid !!!!";
+            qCWarning(RUQOLA_LOG) << "Unable to find definition";
             return {};
         }
 
@@ -248,5 +249,6 @@ QString MessageModel::convertMessageText(const QString &str, const QMap<QString,
         highLighter.highlight(e);
         return *s.string();
     }
+#endif
     return Utils::generateRichText(str, mentions);
 }
