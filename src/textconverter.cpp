@@ -22,38 +22,38 @@
 #include "ruqola_debug.h"
 
 #include "texthighlighter.h"
-#include <KSyntaxHighlighting/Definition>
+
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 
-//#define USE_SYNTAXHIGHLIGHTING 1
+#define USE_SYNTAXHIGHLIGHTING 1
 
 TextConverter::TextConverter()
 {
-
+    mDef = mRepo.definitionForName(QStringLiteral("C++"));
+    if (mDef.isValid()) {
+        mSyntaxHighlightingInitialized = true;
+    } else {
+        qCWarning(RUQOLA_LOG) << "Unable to find definition";
+    }
 }
 
 QString TextConverter::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const
 {
 #ifdef USE_SYNTAXHIGHLIGHTING
-    if (str.startsWith(QLatin1String("```")) && str.endsWith(QLatin1String("```"))) {
-        const KSyntaxHighlighting::Definition def = mRepo.definitionForName(QStringLiteral("C++"));
-        if (!def.isValid()) {
-            qCWarning(RUQOLA_LOG) << "Unable to find definition";
-            return {};
-        }
-
+    if (mSyntaxHighlightingInitialized && str.startsWith(QLatin1String("```")) && str.endsWith(QLatin1String("```"))) {
         QString e = str;
         e = e.remove(QLatin1String("```"));
         QString result;
         QTextStream s(&result);
 
         TextHighlighter highLighter(&s);
-        highLighter.setDefinition(def);
+        highLighter.setDefinition(mDef);
         highLighter.setTheme(/*QGuiApplication::palette().color(QPalette::Base).lightness() < 128
                              ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
                              : */mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
         highLighter.highlight(e);
+        qDebug() <<" *s.string()"<<*s.string();
         return *s.string();
     }
 #endif

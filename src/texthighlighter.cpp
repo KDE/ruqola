@@ -30,8 +30,6 @@ TextHighlighter::TextHighlighter(QTextStream *stream)
 {
 }
 
-TextHighlighter::~TextHighlighter() = default;
-
 void TextHighlighter::highlight(const QString &str)
 {
     *mStream << QStringLiteral("<pre>");
@@ -44,14 +42,16 @@ void TextHighlighter::highlight(const QString &str)
     for (; lineEnd != -1; lineStart = lineEnd + 1, lineEnd = str.indexOf(QLatin1Char('\n'), lineStart)) {
         mCurrentLine = str.mid(lineStart, lineEnd - lineStart);
         state = highlightLine(mCurrentLine, state);
-        *mStream << QLatin1Char('\n');
+        //*mStream << QLatin1Char('\n');
+        *mStream << QStringLiteral("<br>");
     }
     if (lineStart < str.size()) { // remaining content if str isn't ending with a newline
         mCurrentLine = str.mid(lineStart);
         state = highlightLine(mCurrentLine, state);
-        *mStream << QLatin1Char('\n');
+        //*mStream << QLatin1Char('\n');
+        *mStream << QStringLiteral("<br>");
     }
-    *mStream << QLatin1String("</pre>\n");
+    *mStream << QLatin1String("</pre>");
 }
 
 void TextHighlighter::applyFormat(int offset, int length, const KSyntaxHighlighting::Format &format)

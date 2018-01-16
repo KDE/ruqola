@@ -24,6 +24,7 @@
 #include <QMap>
 #include "libruqola_private_export.h"
 #include <KSyntaxHighlighting/Repository>
+#include <KSyntaxHighlighting/Definition>
 
 class LIBRUQOLACORE_TESTS_EXPORT TextConverter
 {
@@ -34,6 +35,8 @@ public:
     QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const;
 private:
     mutable KSyntaxHighlighting::Repository mRepo;
+    KSyntaxHighlighting::Definition mDef;
+    bool mSyntaxHighlightingInitialized = false;
 };
 
 #endif // TEXTCONVERTER_H
