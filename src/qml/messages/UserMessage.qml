@@ -73,7 +73,6 @@ MessageBase {
                             menu.x = mouse.x
                             menu.y = mouse.y
                             menu.open();
-                            console.log(RuqolaDebugCategorySingleton.category, "Menu opened", mouse.x);
                         }
                     }
                 }
