@@ -34,16 +34,17 @@
 #include "utils.h"
 #include "rocketchataccount.h"
 #include "texthighlighter.h"
+#include "textconverter.h"
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 
-//#define USE_SYNTAXHIGHLIGHTING 1
 MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , m_roomID(roomID)
     , mRocketChatAccount(account)
 {
+    mTextConverter = new TextConverter;
     qCDebug(RUQOLA_LOG) << "Creating message Model";
     if (mRocketChatAccount) {
         QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath()+QStringLiteral("/rooms_cache"));
@@ -85,6 +86,7 @@ MessageModel::~MessageModel()
             }
         }
     }
+    delete mTextConverter;
 }
 
 QHash<int, QByteArray> MessageModel::roleNames() const
@@ -229,26 +231,5 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
 QString MessageModel::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const
 {
-#ifdef USE_SYNTAXHIGHLIGHTING
-    if (str.startsWith(QLatin1String("```")) && str.endsWith(QLatin1String("```"))) {
-        QString e = str;
-        e = e.remove(QLatin1String("```"));
-        QString result;
-        QTextStream s(&result);
-        const auto def = mRepo.definitionForName(QStringLiteral("C++"));
-        if (!def.isValid()) {
-            qCWarning(RUQOLA_LOG) << "Unable to find definition";
-            return {};
-        }
-
-        TextHighlighter highLighter(&s);
-        highLighter.setDefinition(def);
-        highLighter.setTheme(/*QGuiApplication::palette().color(QPalette::Base).lightness() < 128
-                             ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                             : */mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
-        highLighter.highlight(e);
-        return *s.string();
-    }
-#endif
-    return Utils::generateRichText(str, mentions);
+    return mTextConverter->convertMessageText(str, mentions);
 }

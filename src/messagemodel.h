@@ -32,6 +32,7 @@
 #include <KSyntaxHighlighting/Repository>
 
 class RocketChatAccount;
+class TextConverter;
 class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -95,6 +96,7 @@ private:
     const QString m_roomID;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
+    TextConverter *mTextConverter = nullptr;
 };
 
 #endif

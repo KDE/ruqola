@@ -16,27 +16,20 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#ifndef TEXTHIGHLIGHTER_H
-#define TEXTHIGHLIGHTER_H
 
-#include <KSyntaxHighlighting/AbstractHighlighter>
+#ifndef TEXTCONVERTER_H
+#define TEXTCONVERTER_H
 
-class QTextStream;
+#include <QString>
+#include <QMap>
 
-class TextHighlighter : public KSyntaxHighlighting::AbstractHighlighter
+class TextConverter
 {
 public:
-    TextHighlighter(QTextStream *stream);
-    ~TextHighlighter();
+    TextConverter();
+    ~TextConverter() = default;
 
-    void highlight(const QString &str);
-
-protected:
-    void applyFormat(int offset, int length, const KSyntaxHighlighting::Format &format) override;
-
-private:
-    QString mCurrentLine;
-    QTextStream *mStream;
+    QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const;
 };
 
-#endif // TEXTHIGHLIGHTER_H
+#endif // TEXTCONVERTER_H
