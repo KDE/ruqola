@@ -108,7 +108,7 @@ public:
     Q_INVOKABLE void openChannel(const QString &url);
     Q_INVOKABLE void joinJitsiConfCall(const QString &roomId);
     Q_INVOKABLE void createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames);
-    Q_INVOKABLE void joinRoom(const QString &roomId);
+    Q_INVOKABLE void joinRoom(const QString &roomId, const QString &joinCode = QString());
     Q_INVOKABLE void openDirectChannel(const QString &username);
     Q_INVOKABLE void listEmojiCustom();
     Q_INVOKABLE void setDefaultStatus(User::PresenceStatus status);

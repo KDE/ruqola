@@ -38,7 +38,12 @@ RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
 RoomModel::~RoomModel()
 {
     if (mRocketChatAccount) {
-        QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath());
+        const QString cachePath = mRocketChatAccount->settings()->cacheBasePath();
+        if (cachePath.isEmpty()) {
+            qCWarning(RUQOLA_LOG) << " Cache Path is not defined";
+            return;
+        }
+        QDir cacheDir(cachePath);
         if (!cacheDir.exists(cacheDir.path())) {
             cacheDir.mkpath(cacheDir.path());
         }

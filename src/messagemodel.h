@@ -86,12 +86,14 @@ public:
     */
     qint64 lastTimestamp() const;
 
+    void deleteMessage(const QString &messageId);
+
 protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
     QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const;
-    const QString m_roomID;
+    const QString mRoomID;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
     TextConverter *mTextConverter = nullptr;

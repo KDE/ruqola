@@ -282,10 +282,35 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             const QString title = contents.at(0).toObject()[QStringLiteral("title")].toString();
             Q_EMIT notification(title, message);
         } else {
-            qCWarning(RUQOLA_LOG) << " Unknown event ? " << eventname;
+            qCWarning(RUQOLA_LOG) << "stream-notify-user : Unknown event ? " << eventname;
+        }
+    } else if (collection == QLatin1String("stream-notify-room")) {
+        qCDebug(RUQOLA_LOG) << " stream-notify-room " << collection << " object "<<object;
+        QJsonObject fields = object.value(QLatin1String("fields")).toObject();
+        const QString eventname = fields.value(QLatin1String("eventName")).toString();
+        const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
+        qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1String("args")).toArray().toVariantList();
+
+        if (eventname.endsWith(QLatin1String("/deleteMessage"))) {
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-room: DeleteMessage:") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "Delete message" << object;
+            }
+            //Move code in rocketChatAccount ?
+
+            QString roomId = eventname;
+            roomId.remove(QStringLiteral("/deleteMessage"));
+            MessageModel *messageModel = mRocketChatAccount->getMessageModelForRoom(roomId);
+            messageModel->deleteMessage(contents.at(0).toObject()[QStringLiteral("_id")].toString());
+            //qDebug() << " message id " << contents.at(0).toObject()[QStringLiteral("_id")].toString();
+        } else {
+            qCWarning(RUQOLA_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
         }
     } else {
-        qCDebug(RUQOLA_LOG) << " Other collection type " << collection;
+        qCDebug(RUQOLA_LOG) << " Other collection type " << collection << " object "<<object;
     }
 }
 

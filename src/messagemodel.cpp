@@ -41,13 +41,19 @@
 
 MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
-    , m_roomID(roomID)
+    , mRoomID(roomID)
     , mRocketChatAccount(account)
 {
     mTextConverter = new TextConverter;
     qCDebug(RUQOLA_LOG) << "Creating message Model";
     if (mRocketChatAccount) {
-        QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath()+QStringLiteral("/rooms_cache"));
+        const QString cachePath = mRocketChatAccount->settings()->cacheBasePath();
+        if (cachePath.isEmpty()) {
+            qCWarning(RUQOLA_LOG) << " Cache Path is not defined";
+            return;
+        }
+
+        QDir cacheDir(cachePath + QStringLiteral("/rooms_cache"));
 
         // load cache
         if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
@@ -70,13 +76,19 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QO
 MessageModel::~MessageModel()
 {
     if (mRocketChatAccount) {
-        QDir cacheDir(mRocketChatAccount->settings()->cacheBasePath()+QStringLiteral("/rooms_cache"));
+        const QString cachePath = mRocketChatAccount->settings()->cacheBasePath();
+        if (cachePath.isEmpty()) {
+            qCWarning(RUQOLA_LOG) << " Cache Path is not defined";
+            return;
+        }
+
+        QDir cacheDir(cachePath + QStringLiteral("/rooms_cache"));
         qCDebug(RUQOLA_LOG) << "Caching to..." << cacheDir.path();
         if (!cacheDir.exists(cacheDir.path())) {
             cacheDir.mkpath(cacheDir.path());
         }
 
-        QFile f(cacheDir.absoluteFilePath(m_roomID));
+        QFile f(cacheDir.absoluteFilePath(mRoomID));
 
         if (f.open(QIODevice::WriteOnly)) {
             QDataStream out(&f);
@@ -154,12 +166,15 @@ void MessageModel::addMessage(const Message &message)
 
     if (messageChanged) {
         mAllMessages.replace(pos-1, message);
+        qDebug() << " message" <<message.text();
     } else {
         mAllMessages.insert(i, message);
     }
 
     if (messageChanged) {
+        qDebug() << " createIndex(pos-1, 0)"<<createIndex(pos-1, 0);
         Q_EMIT dataChanged(createIndex(pos-1, 0), createIndex(pos-1, 0));
+        qDebug() << " pos : " << pos;
     } else {
         endInsertRows();
     }
@@ -232,4 +247,16 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 QString MessageModel::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const
 {
     return mTextConverter->convertMessageText(str, mentions);
+}
+
+void MessageModel::deleteMessage(const QString &messageId)
+{
+    for (int i = 0; i < mAllMessages.count(); ++i) {
+        if (mAllMessages.at(i).messageId() == messageId) {
+            beginRemoveRows(QModelIndex(), i, i);
+            mAllMessages.remove(i);
+            endRemoveRows();
+            break;
+        }
+    }
 }

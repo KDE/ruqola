@@ -392,10 +392,9 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
     }
 }
 
-void RocketChatAccount::joinRoom(const QString &roomId)
+void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 {
-    //TODO define joinCode
-    ddp()->joinRoom(roomId, QString());
+    ddp()->joinRoom(roomId, joinCode);
     ddp()->subscribeRoomMessage(roomId);
 }
 
