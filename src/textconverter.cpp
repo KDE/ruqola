@@ -37,15 +37,16 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
 {
 #ifdef USE_SYNTAXHIGHLIGHTING
     if (str.startsWith(QLatin1String("```")) && str.endsWith(QLatin1String("```"))) {
-        QString e = str;
-        e = e.remove(QLatin1String("```"));
-        QString result;
-        QTextStream s(&result);
-        const auto def = mRepo.definitionForName(QStringLiteral("C++"));
+        const KSyntaxHighlighting::Definition def = mRepo.definitionForName(QStringLiteral("C++"));
         if (!def.isValid()) {
             qCWarning(RUQOLA_LOG) << "Unable to find definition";
             return {};
         }
+
+        QString e = str;
+        e = e.remove(QLatin1String("```"));
+        QString result;
+        QTextStream s(&result);
 
         TextHighlighter highLighter(&s);
         highLighter.setDefinition(def);
