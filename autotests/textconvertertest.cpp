@@ -17,20 +17,13 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef TEXTCONVERTER_H
-#define TEXTCONVERTER_H
+#include "textconvertertest.h"
+#include <QTest>
 
-#include <QString>
-#include <QMap>
-#include "libruqola_private_export.h"
+QTEST_MAIN(TextConverterTest)
 
-class LIBRUQOLACORE_TESTS_EXPORT TextConverter
+TextConverterTest::TextConverterTest(QObject *parent)
+    : QObject(parent)
 {
-public:
-    TextConverter();
-    ~TextConverter() = default;
 
-    QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const;
-};
-
-#endif // TEXTCONVERTER_H
+}

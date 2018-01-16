@@ -23,6 +23,6 @@ add_ruqola_test(roomtest.cpp)
 add_ruqola_test(ruqolaserverconfigtest.cpp)
 add_ruqola_test(statusmodeltest.cpp)
 add_ruqola_test(rocketchatcachetest.cpp)
-
+add_ruqola_test(textconvertertest.cpp)
 
 add_subdirectory(qml)
