@@ -19,6 +19,12 @@
 
 #include "textconverter.h"
 #include "utils.h"
+#include "ruqola_debug.h"
+
+#include "texthighlighter.h"
+#include <KSyntaxHighlighting/Definition>
+#include <KSyntaxHighlighting/Repository>
+#include <KSyntaxHighlighting/Theme>
 
 //#define USE_SYNTAXHIGHLIGHTING 1
 
@@ -26,7 +32,6 @@ TextConverter::TextConverter()
 {
 
 }
-
 
 QString TextConverter::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const
 {
