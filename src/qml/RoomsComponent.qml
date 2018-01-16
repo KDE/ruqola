@@ -136,13 +136,11 @@ Component {
                     return;
                 }
                 appid.rocketChatAccount.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
-                //console.log("Choosing room", roomID);
                 appid.selectedRoomID = roomID;
                 appid.model = appid.rocketChatAccount.getMessageModelForRoom(roomID)
                 appid.selectedRoom = appid.rocketChatAccount.getRoom(roomID)
                 appid.userModel = appid.rocketChatAccount.getUsersForRoomModel(roomID)
             }
-
         } //RoomsView
     }
 }

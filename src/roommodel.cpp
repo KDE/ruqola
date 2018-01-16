@@ -317,8 +317,6 @@ QString RoomModel::sectionName(Room *r) const
             str = i18n("Rooms");
         } else if (r->channelType() == QLatin1String("d")) {
             str = i18n("Private Message");
-        } else {
-            str = QString();
         }
     }
     return str;
