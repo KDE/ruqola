@@ -53,7 +53,6 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
                              ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
                              : */mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
         highLighter.highlight(e);
-        qDebug() <<" *s.string()"<<*s.string();
         return *s.string();
     }
 #endif
