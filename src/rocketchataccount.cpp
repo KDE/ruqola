@@ -214,29 +214,6 @@ void RocketChatAccount::textEditing(const QString &roomId, const QString &str)
     mTypingNotification->setText(roomId, str);
 }
 
-void RocketChatAccount::attachmentButtonClicked(const QString &roomId)
-{
-    const QString fileName = QFileDialog::getOpenFileName(nullptr,
-                                                          i18n("Select one or more files to open"),
-                                                          QDir::homePath(),
-                                                          QStringLiteral("%1 (*.png *.jpeg *.jpg)").arg(i18n("Images")));
-    if (fileName.isEmpty()) {
-        return;
-    }
-
-    qCDebug(RUQOLA_LOG) << "Selected Image " << fileName;
-
-    QFile file(fileName);
-    if (!file.open(QFile::ReadOnly)) {
-        qCDebug(RUQOLA_LOG) << "Cannot open the selected file" << fileName;
-        return;
-    }
-    const QString message = QString::fromLatin1(file.readAll().toBase64());
-    const QString roomID(roomId);
-    const QString type(QStringLiteral("image"));
-    sendMessage(roomID, message, type);
-}
-
 void RocketChatAccount::sendMessage(const QString &roomID, const QString &message, const QString &type)
 {
     QJsonObject json;

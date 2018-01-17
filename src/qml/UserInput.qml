@@ -54,7 +54,6 @@ RowLayout {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                //rcAccount.attachmentButtonClicked(selectedRoomID);
                 footerItem.uploadFile()
             }
         }

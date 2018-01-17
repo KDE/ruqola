@@ -81,7 +81,6 @@ public:
 
     Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
 
-    Q_INVOKABLE void attachmentButtonClicked(const QString &roomId);
     Q_INVOKABLE void leaveRoom(const QString &roomId);
     Q_INVOKABLE void hideRoom(const QString &roomId);
     Q_INVOKABLE void tryLogin();
