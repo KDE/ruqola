@@ -159,7 +159,7 @@ void MessageModel::addMessage(const Message &message)
         const QModelIndex index = createIndex(it - 1 - mAllMessages.begin(), 0);
         Q_EMIT dataChanged(index, index);
     } else {
-        int pos = it - mAllMessages.begin();
+        const int pos = it - mAllMessages.begin();
         beginInsertRows(QModelIndex(), pos, pos);
         mAllMessages.insert(it, message);
         endInsertRows();
