@@ -256,10 +256,10 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         updateRoom(roomData);
     } else if (actionName == QStringLiteral("changed")) {
         qCDebug(RUQOLA_LOG) << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
-        qCDebug(RUQOLA_LOG) << " Not implementer changed room yet";
+        qCDebug(RUQOLA_LOG) << "RoomModel::updateSubscription Not implementer changed room yet" << array;
         updateRoom(roomData);
     } else {
-        qCDebug(RUQOLA_LOG) << " Undefined type" << actionName;
+        qCDebug(RUQOLA_LOG) << "RoomModel::updateSubscription Undefined type" << actionName;
     }
 }
 
