@@ -32,6 +32,8 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAddMessage();
+    void shouldRemoveMessage();
+    void shouldRemoveNotExistingMessage();
 };
 
 #endif // MESSAGEMODELTEST_H

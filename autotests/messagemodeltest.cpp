@@ -36,6 +36,82 @@ void MessageModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.rowCount(), 0);
 }
 
+void MessageModelTest::shouldRemoveMessage()
+{
+    MessageModel w;
+    Message input;
+
+    const QString messageId = QStringLiteral("ff");
+    input.setMessageId(messageId);
+    input.setRoomId(QStringLiteral("room2"));
+    input.setText(QStringLiteral("message1"));
+    input.setTimeStamp(42);
+    input.setUsername(QStringLiteral("user1"));
+    input.setUserId(QStringLiteral("userid1"));
+    input.setUpdatedAt(45);
+    input.setEditedAt(89);
+    input.setEditedByUsername(QStringLiteral("editeduser1"));
+    input.setEditedByUserId(QStringLiteral("editedbyid1"));
+    input.setAlias(QStringLiteral("ali"));
+    input.setAvatar(QStringLiteral("avatar1"));
+    input.setSystemMessageType(QStringLiteral("type"));
+    input.setGroupable(true);
+    input.setParseUrls(true);
+    input.setMessageType(Message::MessageType::Audio);
+    w.addMessage(input);
+
+    QCOMPARE(w.rowCount(), 1);
+    //Remove existing message
+    w.deleteMessage(messageId);
+    QCOMPARE(w.rowCount(), 0);
+
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 1);
+}
+
+void MessageModelTest::shouldRemoveNotExistingMessage()
+{
+    MessageModel w;
+    Message input;
+
+    const QString messageId = QStringLiteral("ff");
+    input.setMessageId(messageId);
+    input.setRoomId(QStringLiteral("room2"));
+    input.setText(QStringLiteral("message1"));
+    input.setTimeStamp(42);
+    input.setUsername(QStringLiteral("user1"));
+    input.setUserId(QStringLiteral("userid1"));
+    input.setUpdatedAt(45);
+    input.setEditedAt(89);
+    input.setEditedByUsername(QStringLiteral("editeduser1"));
+    input.setEditedByUserId(QStringLiteral("editedbyid1"));
+    input.setAlias(QStringLiteral("ali"));
+    input.setAvatar(QStringLiteral("avatar1"));
+    input.setSystemMessageType(QStringLiteral("type"));
+    input.setGroupable(true);
+    input.setParseUrls(true);
+    input.setMessageType(Message::MessageType::Audio);
+    w.addMessage(input);
+
+    QCOMPARE(w.rowCount(), 1);
+    //Remove existing message
+    w.deleteMessage(QStringLiteral("Bla"));
+    QCOMPARE(w.rowCount(), 1);
+
+    input.setMessageId(QStringLiteral("ff3"));
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 2);
+
+
+    input.setMessageId(QStringLiteral("ff4"));
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 3);
+
+    //Remove 3th element
+    w.deleteMessage(QStringLiteral("ff3"));
+    QCOMPARE(w.rowCount(), 2);
+}
+
 void MessageModelTest::shouldAddMessage()
 {
     MessageModel w;
@@ -64,9 +140,25 @@ void MessageModelTest::shouldAddMessage()
     w.addMessage(input);
     QCOMPARE(w.rowCount(), 1);
 
+    //Add other messageId
     input.setMessageId(QStringLiteral("ff2"));
+    input.setTimeStamp(43);
     w.addMessage(input);
     QCOMPARE(w.rowCount(), 2);
+
+    input.setMessageId(QStringLiteral("ff3"));
+    input.setTimeStamp(44);
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 3);
+
+    input.setMessageId(QStringLiteral("ff4"));
+    input.setTimeStamp(45);
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 4);
+
+    input.setMessageId(QStringLiteral("ff2"));
+    input.setTimeStamp(43);
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 4);
 }
 
-//TODO add remove message test
