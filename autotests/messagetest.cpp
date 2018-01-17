@@ -155,7 +155,7 @@ void MessageTest::shouldParseMessage()
     QJsonObject obj = doc.object();
     Message originalMessage;
     originalMessage.parseMessage(obj);
-    bool messageIsEqual = originalMessage.isEqual(expectedMessage);
+    const bool messageIsEqual = (originalMessage == expectedMessage);
     if (!messageIsEqual) {
         qDebug() << "originalMessage "<<originalMessage;
         qDebug() << "ExpectedMessage "<<expectedMessage;
@@ -210,6 +210,6 @@ void MessageTest::shouldSerializeData()
 
     const QByteArray ba = Message::serialize(input);
     Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
-    QVERIFY(input.isEqual(output));
+    QCOMPARE(input, output);
     //TODO add Mentions
 }

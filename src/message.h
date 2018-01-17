@@ -76,17 +76,13 @@ public:
 
     void parseMessage(const QJsonObject &o);
 
-    // To be used in ID find: message ID
     bool operator==(const Message &other) const;
-
 
     Message &operator=(const Message &other);
 
     // To be used in sorted insert: timestamp
     bool operator<(const Message &other) const;
 
-    //Need for autotest as operator== is already defined
-    bool isEqual(const Message &other) const;
 
     QString messageId() const;
     void setMessageId(const QString &messageId);

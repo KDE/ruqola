@@ -168,7 +168,24 @@ void Message::parseAttachment(const QJsonArray &attachments)
 
 bool Message::operator==(const Message &other) const
 {
-    return other.mMessageId == mMessageId;
+    return (mMessageId == other.messageId())
+           && (mRoomId == other.roomId())
+           && (mText == other.text())
+           && (mTimeStamp == other.timeStamp())
+           && (mUsername == other.username())
+           && (mUserId == other.userId())
+           && (mUpdatedAt == other.updatedAt())
+           && (mEditedAt == other.editedAt())
+           && (mEditedByUsername == other.editedByUsername())
+           && (mEditedByUserId == other.editedByUserId())
+           && (mAlias == other.alias())
+           && (mAvatar == other.avatar())
+           && (mSystemMessageType == other.systemMessageType())
+           && (mGroupable == other.groupable())
+           && (mParseUrls == other.parseUrls())
+           && (mUrls == other.urls())
+           && (mAttachements == other.attachements())
+           && (mMentions == other.mentions());
 }
 
 Message& Message::operator=(const Message &other)
@@ -504,26 +521,4 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "Mentions :" << t.mentions();
     d << "mMessageType: " << t.messageType();
     return d;
-}
-
-bool Message::isEqual(const Message &other) const
-{
-    return (mMessageId == other.messageId())
-           && (mRoomId == other.roomId())
-           && (mText == other.text())
-           && (mTimeStamp == other.timeStamp())
-           && (mUsername == other.username())
-           && (mUserId == other.userId())
-           && (mUpdatedAt == other.updatedAt())
-           && (mEditedAt == other.editedAt())
-           && (mEditedByUsername == other.editedByUsername())
-           && (mEditedByUserId == other.editedByUserId())
-           && (mAlias == other.alias())
-           && (mAvatar == other.avatar())
-           && (mSystemMessageType == other.systemMessageType())
-           && (mGroupable == other.groupable())
-           && (mParseUrls == other.parseUrls())
-           && (mUrls == other.urls())
-           && (mAttachements == other.attachements())
-           && (mMentions == other.mentions());
 }
