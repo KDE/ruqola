@@ -91,8 +91,10 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
 
     //qDebug() << " doc " << doc;
 
-    QJsonArray removed = obj.value(QLatin1String("remove")).toArray();
-    //qDebug() << " room removed " << removed;
+    const QJsonArray removed = obj.value(QLatin1String("remove")).toArray();
+    qDebug() << " room removed " << removed;
+    //TODO implement it.
+
     const QJsonArray updated = obj.value(QLatin1String("update")).toArray();
     //qDebug() << " updated : "<< updated;
 

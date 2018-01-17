@@ -332,6 +332,7 @@ void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 void RocketChatAccount::openChannel(const QString &url)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::openChannel(const QString &url)"<<url;
+    //TODO search correct room + select it.
     //TODO
 }
 
