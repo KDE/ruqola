@@ -79,6 +79,9 @@ public:
     // To be used in ID find: message ID
     bool operator==(const Message &other) const;
 
+
+    Message &operator=(const Message &other);
+
     // To be used in sorted insert: timestamp
     bool operator<(const Message &other) const;
 

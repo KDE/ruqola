@@ -171,6 +171,29 @@ bool Message::operator==(const Message &other) const
     return other.mMessageId == mMessageId;
 }
 
+Message& Message::operator=(const Message &other)
+{
+    setMessageId(other.messageId());
+    setRoomId(other.roomId());
+    setText(other.text());
+    setTimeStamp(other.timeStamp());
+    setUsername(other.username());
+    setUserId(other.userId());
+    setUpdatedAt(other.updatedAt());
+    setEditedAt(other.editedAt());
+    setEditedByUsername(other.editedByUsername());
+    setEditedByUserId(other.editedByUserId());
+    setAlias(other.alias());
+    setAvatar(other.avatar());
+    setSystemMessageType(other.systemMessageType());
+    setGroupable(other.groupable());
+    setParseUrls(other.parseUrls());
+    setUrls(other.urls());
+    setAttachements(other.attachements());
+    setMentions(other.mentions());
+    return *this;
+}
+
 bool Message::operator<(const Message &other) const
 {
     return mTimeStamp < other.mTimeStamp;

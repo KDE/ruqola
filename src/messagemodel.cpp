@@ -150,32 +150,19 @@ void MessageModel::addMessage(const Message &message)
         return;
     }
 #endif
-
-    auto existingMessage = std::find(mAllMessages.begin(), mAllMessages.end(), message);
-    bool present = (existingMessage != mAllMessages.end());
-    auto i = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message);
-    int pos = i-mAllMessages.begin();
-    bool messageChanged = false;
-
-    if (present) {
-        messageChanged = true;
-        //Figure out a better way to update just the really changed message
+    auto it = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message,
+                               [](const Message &lhs, const Message &rhs) -> bool {
+        return lhs.timeStamp() < rhs.timeStamp();
+    }
+    );
+    if (((it-1) != mAllMessages.begin() && (*(it - 1)).timeStamp() == message.timeStamp())) {
+        (*(it-1)) = message;
+        const QModelIndex index = createIndex(it - 1 - mAllMessages.begin(), 0);
+        Q_EMIT dataChanged(index, index);
     } else {
+        int pos = it - mAllMessages.begin();
         beginInsertRows(QModelIndex(), pos, pos);
-    }
-
-    if (messageChanged) {
-        mAllMessages.replace(pos-1, message);
-        qDebug() << " message" <<message.text();
-    } else {
-        mAllMessages.insert(i, message);
-    }
-
-    if (messageChanged) {
-        qDebug() << " createIndex(pos-1, 0)"<<createIndex(pos-1, 0);
-        Q_EMIT dataChanged(createIndex(pos-1, 0), createIndex(pos-1, 0));
-        qDebug() << " pos : " << pos;
-    } else {
+        mAllMessages.insert(it, message);
         endInsertRows();
     }
 }
