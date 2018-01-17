@@ -144,12 +144,6 @@ int MessageModel::rowCount(const QModelIndex &parent) const
 
 void MessageModel::addMessage(const Message &message)
 {
-#if 0
-    // Don't add empty messages
-    if (message.text().isEmpty()) {
-        return;
-    }
-#endif
     auto it = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message,
                                [](const Message &lhs, const Message &rhs) -> bool {
         return lhs.timeStamp() < rhs.timeStamp();
