@@ -60,6 +60,5 @@ QHash<int, QByteArray> RoomFilterProxyModel::roleNames() const
 
 void RoomFilterProxyModel::setFilterString(const QString &string)
 {
-    qDebug() << " void RoomFilterProxyModel::setFilterString(const QString &string)"<<string;
     setFilterFixedString(string);
 }
