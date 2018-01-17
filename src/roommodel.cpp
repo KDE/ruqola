@@ -352,6 +352,7 @@ QIcon RoomModel::icon(Room *r) const
     if (r->channelType() == QLatin1String("c")) {
         return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
     } else if (r->channelType() == QLatin1String("d")) {
+        //TODO use user status too
         return QIcon::fromTheme(QStringLiteral("user-avaliable"));
     } else if (r->channelType() == QLatin1String("p")) {
         return QIcon::fromTheme(QStringLiteral("lock"));
