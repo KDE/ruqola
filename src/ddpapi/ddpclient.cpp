@@ -515,6 +515,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
         QString messageType = root.value(QLatin1String("msg")).toString();
 
         if (messageType == QLatin1String("updated")) {
+            //nothing to do.
             qCDebug(RUQOLA_DDPAPI_LOG) << " message updated ! not implemented yet" << response;
         } else if (messageType == QLatin1String("result")) {
             unsigned id = root.value(QLatin1String("id")).toString().toInt();

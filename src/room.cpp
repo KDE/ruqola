@@ -323,6 +323,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
 
     const QJsonArray mutedArray = json.value(QLatin1String("muted")).toArray();
     QStringList lst;
+    lst.reserve(mutedArray.count());
     for (int i = 0; i < mutedArray.count(); ++i) {
         lst << mutedArray.at(i).toString();
     }
@@ -351,6 +352,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setOpen(o[QStringLiteral("open")].toBool());
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
     QStringList lst;
+    lst.reserve(mutedArray.count());
     for (int i = 0; i < mutedArray.count(); ++i) {
         lst <<mutedArray.at(i).toString();
     }
