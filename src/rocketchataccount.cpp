@@ -563,20 +563,19 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
 
         // Load history
         const qint64 endDateTime = roomModel->lastTimestamp();
-        qDebug() << " endDateTime : " << endDateTime;
         if (initial) {
             params.append(QJsonValue(QJsonValue::Null));
         } else {
             const qint64 startDateTime = endDateTime - ( 86400 * 3 * 1000 );
-            qDebug() << " startDateTime"<<startDateTime;
             QJsonObject dateObject;
             dateObject[QStringLiteral("$date")] = QJsonValue(startDateTime);
 
+            //qDebug() << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  << QDateTime::fromMSecsSinceEpoch(startDateTime);
             params.append(dateObject);
         }
         params.append(QJsonValue(50)); // Max number of messages to load;
         QJsonObject dateObject;
-        qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
+        //qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
         dateObject[QStringLiteral("$date")] = QJsonValue(endDateTime);
         params.append(dateObject);
         ddp()->loadHistory(params);

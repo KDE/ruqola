@@ -136,7 +136,7 @@ qint64 MessageModel::lastTimestamp() const
 {
     if (!mAllMessages.isEmpty()) {
         qCDebug(RUQOLA_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
-        return mAllMessages.last().timeStamp();
+        return mAllMessages.first().timeStamp();
     } else {
         return 0;
     }
