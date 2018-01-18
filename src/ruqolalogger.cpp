@@ -37,7 +37,7 @@ RuqolaLogger::RuqolaLogger()
         qCWarning(RUQOLA_LOG) << "Could not open log file for writing:" << mFile.fileName();
     }
     //No convert to qCDebug as we want to see this info.
-    qDebug() << " Log in file " << QFileInfo(mFile.fileName()).absoluteFilePath();
+    qDebug() << "Log in file: " << QFileInfo(mFile.fileName()).absoluteFilePath();
 }
 
 RuqolaLogger::~RuqolaLogger()
