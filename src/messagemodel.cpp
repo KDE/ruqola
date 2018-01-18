@@ -134,7 +134,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 
 qint64 MessageModel::lastTimestamp() const
 {
-    if (mAllMessages.size()) {
+    if (!mAllMessages.isEmpty()) {
         qCDebug(RUQOLA_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
         return mAllMessages.last().timeStamp();
     } else {
@@ -254,3 +254,5 @@ void MessageModel::deleteMessage(const QString &messageId)
         }
     }
 }
+
+
