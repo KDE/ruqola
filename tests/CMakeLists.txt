@@ -68,3 +68,13 @@ target_link_libraries(aboutdatatest
     Qt5::WebSockets
     libruqolacore
     )
+
+####
+set (qmlfiletest_SRCS qmltest.cpp)
+qt5_add_resources(qmlfiletestResources ../src/qml/qml.qrc)
+
+add_executable(qmlfiletest ${qmlfiletest_SRCS} ${qmlfiletestResources})
+
+target_link_libraries(qmlfiletest
+    libruqolacore
+    )
