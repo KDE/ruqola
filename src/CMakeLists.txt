@@ -49,6 +49,7 @@ set (Ruqola_core_srcs
     downloadfilejob.cpp
     texthighlighter.cpp
     textconverter.cpp
+    loadrecenthistorymanager.cpp
 )
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
