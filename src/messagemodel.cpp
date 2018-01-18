@@ -153,8 +153,10 @@ void MessageModel::addMessage(const Message &message)
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
         (*mAllMessages.begin()) = message;
         const QModelIndex index = createIndex(0, 0);
+        qCDebug(RUQOLA_LOG) << "Update Message";
         Q_EMIT dataChanged(index, index);
     } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
+        qCDebug(RUQOLA_LOG) << "Update Message";
         (*(it-1)) = message;
         const QModelIndex index = createIndex(it - 1 - mAllMessages.begin(), 0);
         Q_EMIT dataChanged(index, index);
