@@ -32,6 +32,7 @@
 
 class RocketChatAccount;
 class TextConverter;
+class LoadRecentHistoryManager;
 class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -97,6 +98,7 @@ private:
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
     TextConverter *mTextConverter = nullptr;
+    LoadRecentHistoryManager *mLoadRecentHistoryManager = nullptr;
 };
 
 #endif

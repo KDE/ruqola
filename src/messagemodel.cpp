@@ -35,11 +35,13 @@
 #include "rocketchataccount.h"
 #include "texthighlighter.h"
 #include "textconverter.h"
+#include "loadrecenthistorymanager.h"
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 
-#define STORE_MESSAGE 1
+//TODO reactivate when we will able to load message between cache and official server.
+//#define STORE_MESSAGE 1
 
 MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
@@ -47,6 +49,7 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QO
     , mRocketChatAccount(account)
 {
     mTextConverter = new TextConverter;
+    mLoadRecentHistoryManager = new LoadRecentHistoryManager;
     qCDebug(RUQOLA_LOG) << "Creating message Model";
 #ifdef STORE_MESSAGE
     if (mRocketChatAccount) {
@@ -105,6 +108,7 @@ MessageModel::~MessageModel()
     }
 #endif
     delete mTextConverter;
+    delete mLoadRecentHistoryManager;
 }
 
 QHash<int, QByteArray> MessageModel::roleNames() const
@@ -135,7 +139,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 qint64 MessageModel::lastTimestamp() const
 {
     if (!mAllMessages.isEmpty()) {
-        qCDebug(RUQOLA_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
+        //qCDebug(RUQOLA_LOG) << "returning timestamp" << mAllMessages.last().timeStamp();
         return mAllMessages.first().timeStamp();
     } else {
         return 0;
