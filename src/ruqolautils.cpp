@@ -40,7 +40,7 @@ RuqolaUtils *RuqolaUtils::self()
     return s_self;
 }
 
-QString RuqolaUtils::extractRoomUserFromUrl(QString url)
+QString RuqolaUtils::extractRoomUserFromUrl(const QString &url)
 {
     return Utils::extractRoomUserFromUrl(url);
 }

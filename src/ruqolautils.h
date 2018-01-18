@@ -38,7 +38,7 @@ public:
     Q_INVOKABLE QString markdownToRichText(const QString &markDown);
     Q_INVOKABLE void openUrl(const QString &url);
 
-    Q_INVOKABLE QString extractRoomUserFromUrl(QString url);
+    Q_INVOKABLE QString extractRoomUserFromUrl(const QString &url);
 private:
     explicit RuqolaUtils(QObject *parent = nullptr);
     Q_DISABLE_COPY(RuqolaUtils)
