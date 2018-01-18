@@ -208,6 +208,7 @@ Message& Message::operator=(const Message &other)
     setUrls(other.urls());
     setAttachements(other.attachements());
     setMentions(other.mentions());
+    setMessageType(other.messageType());
     return *this;
 }
 
