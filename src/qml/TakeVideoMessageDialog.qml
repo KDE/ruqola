@@ -38,7 +38,7 @@ Dialog {
     height: 500
 
     modal: true
-    property bool isCameraAvailable: QtMultimedia.availableCameras.length > 0
+    readonly property bool isCameraAvailable: QtMultimedia.availableCameras.length > 0
 
     Camera {
         id: camera
@@ -51,11 +51,12 @@ Dialog {
     //TODO align vertical center
     Label {
         visible: isCameraAvailable == false
-        text: i18n("No camera found.");
+        text: i18n("Sorry, No camera found.");
         font.bold: true
         font.pointSize: 20
         anchors.fill: parent
         anchors.centerIn: parent
+        wrapMode: Label.Wrap
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
