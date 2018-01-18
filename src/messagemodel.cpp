@@ -39,6 +39,8 @@
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 
+#define STORE_MESSAGE 1
+
 MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , mRoomID(roomID)
@@ -46,6 +48,7 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QO
 {
     mTextConverter = new TextConverter;
     qCDebug(RUQOLA_LOG) << "Creating message Model";
+#ifdef STORE_MESSAGE
     if (mRocketChatAccount) {
         const QString cachePath = mRocketChatAccount->settings()->cacheBasePath();
         if (cachePath.isEmpty()) {
@@ -71,10 +74,12 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QO
             }
         }
     }
+#endif
 }
 
 MessageModel::~MessageModel()
 {
+#ifdef STORE_MESSAGE
     if (mRocketChatAccount) {
         const QString cachePath = mRocketChatAccount->settings()->cacheBasePath();
         if (cachePath.isEmpty()) {
@@ -98,6 +103,7 @@ MessageModel::~MessageModel()
             }
         }
     }
+#endif
     delete mTextConverter;
 }
 
