@@ -43,13 +43,6 @@ void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
     }
 }
 
-void process_backlog(const QJsonObject &root, RocketChatAccount *account)
-{
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
-    qCDebug(RUQOLA_LOG) << obj.value(QLatin1String("messages")).toArray().size();
-    account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray());
-}
-
 void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
 {
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
@@ -125,18 +118,9 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
 
             account->ddp()->subscribeRoomMessage(roomID);
 
-            //Move to rocketchataccount
-            QJsonArray params;
-            params.append(QJsonValue(roomID));
+            //Load history
+            account->loadHistory(roomID);
 
-            // Load history
-            params.append(QJsonValue(QJsonValue::Null));
-            params.append(QJsonValue(50)); // Max number of messages to load;
-            QJsonObject dateObject;
-            qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
-            dateObject[QStringLiteral("$date")] = QJsonValue(roomModel->lastTimestamp());
-            params.append(dateObject);
-            account->ddp()->method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
         } else if (roomType == QLatin1String("l")) { //Live chat
             qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
         }

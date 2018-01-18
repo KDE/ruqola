@@ -552,3 +552,24 @@ QUrl RocketChatAccount::attachmentUrl(const QString &url)
 {
     return mCache->attachmentUrl(url);
 }
+
+void RocketChatAccount::loadHistory(const QString &roomID)
+{
+    MessageModel *roomModel = getMessageModelForRoom(roomID);
+    if (roomModel) {
+        //Move to rocketchataccount
+        QJsonArray params;
+        params.append(QJsonValue(roomID));
+
+        // Load history
+        params.append(QJsonValue(QJsonValue::Null));
+        params.append(QJsonValue(50)); // Max number of messages to load;
+        QJsonObject dateObject;
+        qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
+        dateObject[QStringLiteral("$date")] = QJsonValue(roomModel->lastTimestamp());
+        params.append(dateObject);
+        ddp()->loadHistory(params);
+    } else {
+        qCWarning(RUQOLA_LOG) << "Room is not found " << roomID;
+    }
+}

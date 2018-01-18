@@ -30,6 +30,7 @@
 #include "rocketchataccount.h"
 #include "messagequeue.h"
 #include "ruqolalogger.h"
+#include "rocketchatbackend.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -37,6 +38,13 @@
 
 namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
+}
+
+void process_backlog(const QJsonObject &root, RocketChatAccount *account)
+{
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    qCDebug(RUQOLA_DDPAPI_LOG) << obj.value(QLatin1String("messages")).toArray().size();
+    account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray());
 }
 
 void get_users_of_room(const QJsonObject &root, RocketChatAccount *account)
@@ -569,6 +577,11 @@ void DDPClient::onTextMessageReceived(const QString &message)
             qCDebug(RUQOLA_DDPAPI_LOG) << "received something unhandled:" << message;
         }
     }
+}
+
+quint64 DDPClient::loadHistory(const QJsonArray &params)
+{
+    return method(QStringLiteral("loadHistory"), QJsonDocument(params), process_backlog);
 }
 
 void DDPClient::login()

@@ -166,6 +166,7 @@ public:
     quint64 archiveRoom(const QString &roomId);
     quint64 setReaction(const QString &emoji, const QString &messageId);
     quint64 getUsersOfRoom(const QString &roomId, bool showAll);
+    quint64 loadHistory(const QJsonArray &params);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

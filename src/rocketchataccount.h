@@ -153,6 +153,7 @@ public:
     Q_INVOKABLE StatusModel *statusModel() const;
 
     Q_INVOKABLE QUrl attachmentUrl(const QString &url);
+    Q_INVOKABLE void loadHistory(const QString &roomID);
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();
