@@ -32,6 +32,28 @@ import KDE.Ruqola.DebugCategory 1.0
 MessageBase {
     id: attachmentVideo
 
+    MediaPlayer {
+        id: videoPlayer
+
+        autoPlay: false
+        onPaused: {
+            playerButton.source = "media-playback-start"
+        }
+        onPlaying: {
+            playerButton.source = "media-playback-pause"
+        }
+        onStopped: {
+            playerButton.source = "media-playback-start"
+            playerSlider.value=0
+        }
+        onPositionChanged: {
+            playerSlider.sync = true
+            playerSlider.value = videoPlayer.position / videoPlayer.duration
+            playerSlider.sync = false
+            timeLabel.text = ConvertScript.convertTimeString(videoPlayer.position) + "/" + ConvertScript.convertTimeString(videoPlayer.duration)
+        }
+        source: rcAccount.attachmentUrl(model.modelData.link)
+    }
 
 
     RowLayout {
@@ -47,28 +69,6 @@ MessageBase {
 
             model: i_attachments
 
-            MediaPlayer {
-                id: videoPlayer
-
-                autoPlay: false
-                onPaused: {
-                    playerButton.source = "media-playback-start"
-                }
-                onPlaying: {
-                    playerButton.source = "media-playback-pause"
-                }
-                onStopped: {
-                    playerButton.source = "media-playback-start"
-                    playerSlider.value=0
-                }
-                onPositionChanged: {
-                    playerSlider.sync = true
-                    playerSlider.value = videoPlayer.position / videoPlayer.duration
-                    playerSlider.sync = false
-                    timeLabel.text = ConvertScript.convertTimeString(videoPlayer.position) + "/" + ConvertScript.convertTimeString(videoPlayer.duration)
-                }
-                source: rcAccount.attachmentUrl(model.modelData.link)
-            }
             RowLayout {
                 //Perhaps hidding it by default.
                 ColumnLayout {
@@ -84,7 +84,7 @@ MessageBase {
                         id: videoOutput
 
                         Layout.fillWidth: true
-                        source: repearterAttachments.videoPlayer
+                        source: attachmentVideo.videoPlayer
                         width: 100
                         height: 100
                     }
