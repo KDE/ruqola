@@ -567,7 +567,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
         if (initial) {
             params.append(QJsonValue(QJsonValue::Null));
         } else {
-            const qint64 startDateTime = endDateTime - ( 86400 * 3 * 10000 );
+            const qint64 startDateTime = endDateTime - ( 86400 * 3 * 1000 );
             qDebug() << " startDateTime"<<startDateTime;
             QJsonObject dateObject;
             dateObject[QStringLiteral("$date")] = QJsonValue(startDateTime);
