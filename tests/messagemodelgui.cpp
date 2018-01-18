@@ -54,6 +54,7 @@ MessageModelGui::MessageModelGui(QWidget *parent)
     qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
     qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
+    qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/DebugCategory.qml")), "KDE.Ruqola.DebugCategory", 1, 0, "RuqolaDebugCategorySingleton");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
     mEngine = new QQmlApplicationEngine(this);
