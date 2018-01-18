@@ -120,6 +120,13 @@ Component {
                                 takeVideoMessage.open();
                             }
                         }
+                        RuqolaMenuSeparator {}
+                        QQC2.MenuItem {
+                            text: i18n("Load History")
+                            onTriggered: {
+                                appid.rocketChatAccount.loadHistory(appid.selectedRoomID);
+                            }
+                        }
                     }
                 }
             }

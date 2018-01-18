@@ -553,7 +553,7 @@ QUrl RocketChatAccount::attachmentUrl(const QString &url)
     return mCache->attachmentUrl(url);
 }
 
-void RocketChatAccount::loadHistory(const QString &roomID)
+void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
 {
     MessageModel *roomModel = getMessageModelForRoom(roomID);
     if (roomModel) {
@@ -562,11 +562,22 @@ void RocketChatAccount::loadHistory(const QString &roomID)
         params.append(QJsonValue(roomID));
 
         // Load history
-        params.append(QJsonValue(QJsonValue::Null));
+        const qint64 endDateTime = roomModel->lastTimestamp();
+        qDebug() << " endDateTime : " << endDateTime;
+        if (initial) {
+            params.append(QJsonValue(QJsonValue::Null));
+        } else {
+            const qint64 startDateTime = endDateTime - ( 86400 * 3 * 10000 );
+            qDebug() << " startDateTime"<<startDateTime;
+            QJsonObject dateObject;
+            dateObject[QStringLiteral("$date")] = QJsonValue(startDateTime);
+
+            params.append(dateObject);
+        }
         params.append(QJsonValue(50)); // Max number of messages to load;
         QJsonObject dateObject;
         qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
-        dateObject[QStringLiteral("$date")] = QJsonValue(roomModel->lastTimestamp());
+        dateObject[QStringLiteral("$date")] = QJsonValue(endDateTime);
         params.append(dateObject);
         ddp()->loadHistory(params);
     } else {

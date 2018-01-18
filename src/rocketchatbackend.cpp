@@ -105,8 +105,6 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
             || roomType == QLatin1String("p")     /*Private chat*/
             || roomType == QLatin1String("d")) {    //Direct chat) {
             const QString roomID = room.value(QLatin1String("rid")).toString();
-            MessageModel *roomModel = account->getMessageModelForRoom(roomID);
-
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPClient::LoggedIn) {
                 Room *r = new Room;
@@ -119,7 +117,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
             account->ddp()->subscribeRoomMessage(roomID);
 
             //Load history
-            account->loadHistory(roomID);
+            account->loadHistory(roomID, true /*initial loading*/);
 
         } else if (roomType == QLatin1String("l")) { //Live chat
             qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
