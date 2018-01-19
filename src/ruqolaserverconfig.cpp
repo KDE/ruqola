@@ -63,3 +63,24 @@ void RuqolaServerConfig::setFileUploadStorageType(const QString &type)
 {
     mFileUploadStorageType = type;
 }
+
+void RuqolaServerConfig::setAllowMessageEditing(bool state)
+{
+    mAllowEditingMessage = state;
+}
+
+bool RuqolaServerConfig::allowMessageEditing() const
+{
+    return mAllowEditingMessage;
+}
+
+void RuqolaServerConfig::setBlockEditingMessageInMinutes(int minutes)
+{
+    mBlockEditingMessageInMinutes = minutes;
+}
+
+int RuqolaServerConfig::blockEditingMessageInMinutes() const
+{
+    return mBlockEditingMessageInMinutes;
+}
+

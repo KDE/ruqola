@@ -41,11 +41,19 @@ public:
     QString fileUploadStorageType() const;
     void setFileUploadStorageType(const QString &type);
 
+    void setAllowMessageEditing(bool state);
+    bool allowMessageEditing() const;
+
+    void setBlockEditingMessageInMinutes(int minutes);
+    int blockEditingMessageInMinutes() const;
+
 private:
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;
     QString mFileUploadStorageType;
+    int mBlockEditingMessageInMinutes = 5;
+    bool mAllowEditingMessage = true;
 };
 
 #endif // RUQOLASERVERCONFIG_H

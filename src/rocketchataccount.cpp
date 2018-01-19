@@ -456,16 +456,20 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
     for (const QJsonValueRef &currentConfig : configs) {
         QJsonObject currentConfObject = currentConfig.toObject();
         const QString id = currentConfObject[QStringLiteral("_id")].toString();
-        const QString value = currentConfObject[QStringLiteral("value")].toString();
+        const QVariant value = currentConfObject[QStringLiteral("value")].toVariant();
 
         if (id == QLatin1String("uniqueID")) {
-            mRuqolaServerConfig->setUniqueId(value);
+            mRuqolaServerConfig->setUniqueId(value.toString());
         } else if (id == QLatin1String("Jitsi_Domain")) {
-            mRuqolaServerConfig->setJitsiMeetUrl(value);
+            mRuqolaServerConfig->setJitsiMeetUrl(value.toString());
         } else if (id == QLatin1String("Jitsi_URL_Room_Prefix")) {
-            mRuqolaServerConfig->setJitsiMeetPrefix(value);
+            mRuqolaServerConfig->setJitsiMeetPrefix(value.toString());
         } else if (id == QLatin1String("FileUpload_Storage_Type")) {
-            mRuqolaServerConfig->setFileUploadStorageType(value);
+            mRuqolaServerConfig->setFileUploadStorageType(value.toString());
+        } else if (id == QLatin1String("Message_AllowEditing")) {
+            mRuqolaServerConfig->setAllowMessageEditing(value.toBool());
+        } else if (id == QLatin1String("Message_AllowEditing_BlockEditInMinutes")) {
+            mRuqolaServerConfig->setBlockEditingMessageInMinutes(value.toInt());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
