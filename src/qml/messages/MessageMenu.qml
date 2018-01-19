@@ -31,7 +31,7 @@ QQC2.Menu {
     id: menu
     
     QQC2.MenuItem {
-        visible: i_username === i_own_username
+        visible: i_username === i_own_username && appid.rocketChatAccount.allowEditingMessages
         contentItem: QQC2.Label {
             text: i18n("Edit")
         }

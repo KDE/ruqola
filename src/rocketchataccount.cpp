@@ -587,3 +587,9 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
         qCWarning(RUQOLA_LOG) << "Room is not found " << roomID;
     }
 }
+
+bool RocketChatAccount::allowEditingMessages() const
+{
+    qDebug() << " bool RocketChatAccount::allowEditingMessages() const" << mRuqolaServerConfig->allowMessageEditing();
+    return mRuqolaServerConfig->allowMessageEditing();
+}
