@@ -44,6 +44,7 @@
         <file alias="DownloadButton.qml">messages/DownloadButton.qml</file>
         <file alias="MessageMenu.qml">messages/MessageMenu.qml</file>
         <file alias="TimestampText.qml">messages/TimestampText.qml</file>
+        <file alias="ShowHideButton.qml">messages/ShowHideButton.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="systray.png">icons/systray.png</file>

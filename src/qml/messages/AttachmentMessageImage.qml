@@ -57,12 +57,13 @@ MessageBase {
                     }
                     Image {
                         id: imageUrl
+                        readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
                         source: rcAccount.attachmentUrl(model.modelData.link)
                         asynchronous: true
                         fillMode: Image.PreserveAspectFit
                         //TODO customize it.
                         width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
-                        height: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
+                        height: imageHeight
                         sourceSize.width: 200
                         sourceSize.height: 200
 
@@ -89,6 +90,11 @@ MessageBase {
                         anchors.rightMargin: Kirigami.Units.smallSpacing
                         visible: model.modelData.description !== ""
                     }
+                }
+
+                ShowHideButton {
+                    targetAnimation: imageUrl
+                    defaultHeight: imageHeight
                 }
 
                 DownloadButton {
