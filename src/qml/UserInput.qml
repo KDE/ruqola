@@ -69,10 +69,9 @@ RowLayout {
         Layout.fillWidth: true
         placeholderText: i18n("Enter message")
 
-        property string type: "text"
         onAccepted: {
-            if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && !(selectedRoomID == "")) {
-                rcAccount.sendMessage(selectedRoomID, text, type);
+            if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
+                rcAccount.sendMessage(selectedRoomID, text);
                 text = "";
             }
         }

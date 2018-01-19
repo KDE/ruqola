@@ -214,12 +214,11 @@ void RocketChatAccount::textEditing(const QString &roomId, const QString &str)
     mTypingNotification->setText(roomId, str);
 }
 
-void RocketChatAccount::sendMessage(const QString &roomID, const QString &message, const QString &type)
+void RocketChatAccount::sendMessage(const QString &roomID, const QString &message)
 {
     QJsonObject json;
     json[QStringLiteral("rid")] = roomID;
     json[QStringLiteral("msg")] = message;
-    json[QStringLiteral("type")] = type;
 
     ddp()->method(QStringLiteral("sendMessage"), QJsonDocument(json), DDPClient::Persistent);
 }

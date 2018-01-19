@@ -96,7 +96,7 @@ public:
 
     //Make it private in future
     void slotInformTypingStatus(const QString &room, bool typing);
-    Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message, const QString &type);
+    Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
 
     MessageQueue *messageQueue() const;
 
