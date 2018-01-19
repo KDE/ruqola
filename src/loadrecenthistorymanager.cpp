@@ -19,6 +19,7 @@
 */
 
 #include "loadrecenthistorymanager.h"
+#include "ruqola_debug.h"
 
 LoadRecentHistoryManager::LoadRecentHistoryManager()
 {
@@ -44,5 +45,6 @@ qint64 LoadRecentHistoryManager::generateNewStartTimeStamp(qint64 lastTimeStamp)
         newTimeStamp = lastTimeStamp - ( 86400 * 3 * 1000 );
     }
     mLastLoadingTimeStamp = newTimeStamp;
+    qCDebug(RUQOLA_LOG) << "newTimeStamp " << QDateTime::fromMSecsSinceEpoch(newTimeStamp);
     return newTimeStamp;
 }
