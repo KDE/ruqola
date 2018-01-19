@@ -162,13 +162,14 @@ Component {
             id: activeChat
             model: appid.model
             rcAccount: appid.rocketChatAccount
+            roomId: appid.selectedRoomID
             
             onOpenDirectChannel: {
                 openDirectChannelDialog.username = userName;
                 openDirectChannelDialog.open()
             }
             onJitsiCallConfActivated: {
-                appid.rocketChatAccount.joinJitsiConfCall(appid.selectedRoomID)
+                appid.rocketChatAccount.joinJitsiConfCall(roomId)
             }
             onDeleteMessage: {
                 deleteMessageDialog.msgId = messageId
@@ -186,7 +187,7 @@ Component {
                 console.log(RuqolaDebugCategorySingleton.category, "reply message : " + messageId)
             }
             onSetFavoriteMessage: {
-                appid.rocketChatAccount.starMessage(messageId, appid.selectedRoomID, true)
+                appid.rocketChatAccount.starMessage(messageId, roomId, true)
             }
 
             onDisplayImage: {
@@ -235,13 +236,13 @@ Component {
             rcAccount: appid.rocketChatAccount
             visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false)
             anchors.bottom: mainWidget.bottom
-            messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
+            messageLineText: rcAccount.getUserCurrentMessage(roomId)
             onTextEditing: {
-                rcAccount.textEditing(appid.selectedRoomID, str)
+                rcAccount.textEditing(roomId, str)
                 appid.userInputMessageText = str;
             }
             onClearUnreadMessages: {
-                rcAccount.clearUnreadMessages(appid.selectedRoomID)
+                rcAccount.clearUnreadMessages(roomId)
             }
             onUploadFile: {
                 uploadFileDialog.initializeAndOpen()

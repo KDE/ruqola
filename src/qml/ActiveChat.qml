@@ -37,6 +37,7 @@ ListView {
     signal displayImage(url imageUrl, string title)
 
     property QtObject rcAccount
+    property string roomId: ""
 
     spacing: Kirigami.Units.smallSpacing
     onCountChanged: {
@@ -46,7 +47,10 @@ ListView {
     Component.onCompleted: positionViewAtIndex(count - 1, ListView.End)
     visible: count > 0
     onDragEnded : {
-        console.log("DND END");
+        if (roomId !== "") {
+            rcAccount.loadHistory(roomId)
+            console.log("DND END");
+        }
     }
     delegate: FancyMessageDelegate {
         anchors.left: parent.left
