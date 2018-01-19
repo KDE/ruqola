@@ -83,10 +83,11 @@ MessageBase {
                     VideoOutput {
                         id: videoOutput
 
+                        property int videoHeight: 100
                         Layout.fillWidth: true
                         source: attachmentVideo.videoPlayer
                         width: 100
-                        height: 100
+                        height: 0
                     }
                     RowLayout {
                         //Verify position.
@@ -137,6 +138,10 @@ MessageBase {
                             onDownloadButtonClicked: {
                                 //TODO messageMain.downloadAttachment(model.modelData.link)
                             }
+                        }
+                        ShowHideButton {
+                            targetAnimation: videoOutput
+                            defaultHeight: videoOutput.videoHeight
                         }
                     }
                     Text {
