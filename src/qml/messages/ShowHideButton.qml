@@ -27,12 +27,13 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 
 Kirigami.Icon {
-    source: "cloud-download"
-    width: 24
-    height: 24
     property QtObject targetAnimation
     property int defaultHeight: 200
     property bool isHidden: true
+
+    source: isHidden ? "hint" : "visibility"
+    width: 24
+    height: 24
     MouseArea {
         anchors.fill: parent
         onClicked: {
