@@ -223,6 +223,16 @@ void RocketChatAccount::sendMessage(const QString &roomID, const QString &messag
     ddp()->method(QStringLiteral("sendMessage"), QJsonDocument(json), DDPClient::Persistent);
 }
 
+void RocketChatAccount::updateMessage(const QString &roomID, const QString &messageId, const QString &message)
+{
+    QJsonObject json;
+    json[QStringLiteral("rid")] = roomID;
+    json[QStringLiteral("msg")] = message;
+    json[QStringLiteral("_id")] = messageId;
+
+    ddp()->method(QStringLiteral("updateMessage"), QJsonDocument(json), DDPClient::Persistent);
+}
+
 QString RocketChatAccount::avatarUrl(const QString &userId)
 {
     return mCache->avatarUrl(userId);
@@ -560,10 +570,8 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
 {
     MessageModel *roomModel = getMessageModelForRoom(roomID);
     if (roomModel) {
-        //Move to rocketchataccount
         QJsonArray params;
         params.append(QJsonValue(roomID));
-
         // Load history
         const qint64 endDateTime = roomModel->lastTimestamp();
         if (initial) {
