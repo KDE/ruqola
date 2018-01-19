@@ -32,7 +32,7 @@ Kirigami.Icon {
     height: 24
     property QtObject targetAnimation
     property int defaultHeight: 200
-    property bool isHidden: false
+    property bool isHidden: true
     MouseArea {
         anchors.fill: parent
         onClicked: {
