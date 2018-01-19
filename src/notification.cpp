@@ -39,3 +39,6 @@ void Notification::createTrayIcon()
     setToolTipTitle(QStringLiteral("Ruqola"));
     setIconByPixmap(QIcon(QStringLiteral(":/icons/systray.png")));
 }
+
+//TODO update tooltips.
+//Add Unity support
