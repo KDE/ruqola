@@ -236,13 +236,13 @@ Component {
             rcAccount: appid.rocketChatAccount
             visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false)
             anchors.bottom: mainWidget.bottom
-            messageLineText: rcAccount.getUserCurrentMessage(roomId)
+            messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
             onTextEditing: {
-                rcAccount.textEditing(roomId, str)
+                rcAccount.textEditing(appid.selectedRoomID, str)
                 appid.userInputMessageText = str;
             }
             onClearUnreadMessages: {
-                rcAccount.clearUnreadMessages(roomId)
+                rcAccount.clearUnreadMessages(appid.selectedRoomID)
             }
             onUploadFile: {
                 uploadFileDialog.initializeAndOpen()
