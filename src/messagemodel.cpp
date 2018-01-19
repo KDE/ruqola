@@ -259,4 +259,8 @@ void MessageModel::deleteMessage(const QString &messageId)
     }
 }
 
+qint64 MessageModel::generateNewStartTimeStamp(qint64 lastTimeStamp)
+{
+    return mLoadRecentHistoryManager->generateNewStartTimeStamp(lastTimeStamp);
+}
 
