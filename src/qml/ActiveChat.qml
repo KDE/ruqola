@@ -49,7 +49,6 @@ ListView {
     onDragEnded : {
         if (roomId !== "") {
             rcAccount.loadHistory(roomId)
-            console.log("DND END");
         }
     }
     delegate: FancyMessageDelegate {

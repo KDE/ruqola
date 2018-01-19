@@ -122,7 +122,7 @@ Component {
                         }
                         RuqolaMenuSeparator {}
                         QQC2.MenuItem {
-                            text: i18n("Load History")
+                            text: i18n("Load Recent History")
                             onTriggered: {
                                 appid.rocketChatAccount.loadHistory(appid.selectedRoomID);
                             }
