@@ -94,7 +94,7 @@ MessageBase {
 
                 ShowHideButton {
                     targetAnimation: imageUrl
-                    defaultHeight: imageHeight
+                    defaultHeight: imageUrl.imageHeight
                 }
 
                 DownloadButton {
