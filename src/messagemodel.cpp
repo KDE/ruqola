@@ -158,7 +158,7 @@ void MessageModel::addMessage(const Message &message)
                                [](const Message &lhs, const Message &rhs) -> bool {
         return lhs.timeStamp() < rhs.timeStamp();
     }
-    );
+                               );
     //When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
         (*mAllMessages.begin()) = message;
@@ -263,4 +263,3 @@ qint64 MessageModel::generateNewStartTimeStamp(qint64 lastTimeStamp)
 {
     return mLoadRecentHistoryManager->generateNewStartTimeStamp(lastTimeStamp);
 }
-

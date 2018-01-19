@@ -70,9 +70,10 @@ void QmlTest::loadCombobox()
         while (dirItr.hasNext()) {
             const QString filepath = dirItr.next();
             const QString filename = dirItr.fileName();
-            if (isQmlFile(filename)) combobox->addItem(filename, filepath);
+            if (isQmlFile(filename)) {
+                combobox->addItem(filename, filepath);
+            }
         }
-
     } else {
         //qCWarning(RUQOLA_LOG) << "Unable to initialize RuqolaRegisterEngine";
     }
@@ -82,8 +83,8 @@ void QmlTest::addFileToComboBox()
 {
     //take input from user
     const QString filepath = QFileDialog::getOpenFileName(this, QStringLiteral("Open qml file"),
-                                                    QStringLiteral(":/"),
-                                                    QStringLiteral("QML Files (*.qml)"));
+                                                          QStringLiteral(":/"),
+                                                          QStringLiteral("QML Files (*.qml)"));
 
     const bool notFound = (combobox->findText(filepath) == -1);
     if (notFound && !filepath.isEmpty()) {
@@ -108,7 +109,6 @@ void QmlTest::slotPushButtonClicked()
         //you can remove this else statment, to load the file directly after taking input from dialog box
         loadQmlFile(msg);
     }
-
 }
 
 int main(int argc, char *argv[])

@@ -118,7 +118,6 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
 
             //Load history
             account->loadHistory(roomID, true /*initial loading*/);
-
         } else if (roomType == QLatin1String("l")) { //Live chat
             qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
         }

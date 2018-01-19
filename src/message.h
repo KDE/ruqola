@@ -83,7 +83,6 @@ public:
     // To be used in sorted insert: timestamp
     bool operator<(const Message &other) const;
 
-
     QString messageId() const;
     void setMessageId(const QString &messageId);
 

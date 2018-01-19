@@ -188,7 +188,7 @@ bool Message::operator==(const Message &other) const
            && (mMentions == other.mentions());
 }
 
-Message& Message::operator=(const Message &other)
+Message &Message::operator=(const Message &other)
 {
     setMessageId(other.messageId());
     setRoomId(other.roomId());

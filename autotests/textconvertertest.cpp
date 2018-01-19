@@ -25,5 +25,4 @@ QTEST_MAIN(TextConverterTest)
 TextConverterTest::TextConverterTest(QObject *parent)
     : QObject(parent)
 {
-
 }

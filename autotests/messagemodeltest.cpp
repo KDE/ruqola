@@ -102,7 +102,6 @@ void MessageModelTest::shouldRemoveNotExistingMessage()
     w.addMessage(input);
     QCOMPARE(w.rowCount(), 2);
 
-
     input.setMessageId(QStringLiteral("ff4"));
     w.addMessage(input);
     QCOMPARE(w.rowCount(), 3);
@@ -161,4 +160,3 @@ void MessageModelTest::shouldAddMessage()
     w.addMessage(input);
     QCOMPARE(w.rowCount(), 4);
 }
-

@@ -49,7 +49,6 @@ private:
     QLabel *FileNameLabel = nullptr;
     QPushButton *loadButton = nullptr;
     RuqolaRegisterEngine *mEngine = nullptr;
-
 };
 
 #endif // QMLTEST_H

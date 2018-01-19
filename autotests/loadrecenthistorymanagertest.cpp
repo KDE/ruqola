@@ -25,5 +25,4 @@ QTEST_GUILESS_MAIN(LoadRecentHistoryManagerTest)
 LoadRecentHistoryManagerTest::LoadRecentHistoryManagerTest(QObject *parent)
     : QObject(parent)
 {
-
 }
