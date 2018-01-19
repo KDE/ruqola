@@ -35,6 +35,7 @@ RowLayout {
     anchors.right: parent.right
     property QtObject rcAccount
     property alias messageLineText: messageLine.text
+    property string messageId
 
     signal textEditing(string str)
     signal uploadFile()
@@ -71,7 +72,12 @@ RowLayout {
 
         onAccepted: {
             if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
-                rcAccount.sendMessage(selectedRoomID, text);
+                if (messageId !== "") {
+                    rcAccount.updateMessage(selectedRoomID, messageId, text);
+                    messageId = "";
+                } else {
+                    rcAccount.sendMessage(selectedRoomID, text);
+                }
                 text = "";
             }
         }
