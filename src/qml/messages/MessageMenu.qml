@@ -29,7 +29,7 @@ QQC2.Menu {
     property bool can_editing_message
 
     QQC2.MenuItem {
-        visible: (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
+        id: editMessageItem
         contentItem: QQC2.Label {
             text: i18n("Edit")
         }
@@ -65,5 +65,8 @@ QQC2.Menu {
         onTriggered: {
             messageMain.deleteMessage(i_messageID);
         }
+    }
+    onAboutToShow: {
+        editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
     }
 }
