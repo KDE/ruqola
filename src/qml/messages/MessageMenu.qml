@@ -29,7 +29,7 @@ QQC2.Menu {
     
     QQC2.MenuItem {
         //FIXME appid.rocketChatAccount.allowEditingMessages doesn't work.
-        visible: (i_username === i_own_username) && rcAccount.allowEditingMessages
+        visible: (i_username === i_own_username) && rcAccount.allowEditingMessages()
         contentItem: QQC2.Label {
             text: i18n("Edit")
         }
