@@ -23,10 +23,7 @@ import QtQuick 2.9
 import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Layouts 1.1
-import KDE.Ruqola.RuqolaUtils 1.0
-import KDE.Ruqola.ExtraColors 1.0
 import KDE.Ruqola.DebugCategory 1.0
-import "../js/message.js" as MessageScript;
 QQC2.Menu {
     id: menu
     

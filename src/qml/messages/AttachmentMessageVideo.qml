@@ -69,7 +69,6 @@ MessageBase {
             model: i_attachments
 
             RowLayout {
-                //Perhaps hidding it by default.
                 ColumnLayout {
                     Layout.fillWidth: true
                     Text {
