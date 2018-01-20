@@ -26,9 +26,10 @@ import QtQuick.Layouts 1.1
 import KDE.Ruqola.DebugCategory 1.0
 QQC2.Menu {
     id: menu
-    
+    property bool can_editing_message
+
     QQC2.MenuItem {
-        visible: (i_username === i_own_username) && rcAccount.allowEditingMessages()
+        visible: (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
         contentItem: QQC2.Label {
             text: i18n("Edit")
         }

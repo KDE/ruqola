@@ -69,6 +69,7 @@ ListView {
         i_attachments: attachments
         i_date: date
         i_own_username: rcAccount.userName
+        i_can_editing_message: canEditingMessage
         onOpenDirectChannel: {
             activeChat.openDirectChannel(userName)
         }
