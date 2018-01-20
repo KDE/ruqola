@@ -597,6 +597,5 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
 
 bool RocketChatAccount::allowEditingMessages() const
 {
-    qDebug() << " bool RocketChatAccount::allowEditingMessages() const" << mRuqolaServerConfig->allowMessageEditing();
     return mRuqolaServerConfig->allowMessageEditing();
 }
