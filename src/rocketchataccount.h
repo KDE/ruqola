@@ -127,7 +127,7 @@ public:
     void loadEmoji();
     void parsePublicSettings(const QJsonObject &obj);
 
-    RuqolaServerConfig *getRuqolaServerConfig() const;
+    RuqolaServerConfig *ruqolaServerConfig() const;
 
     void setUserName(const QString &username);
     QString userName() const;

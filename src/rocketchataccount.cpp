@@ -111,7 +111,7 @@ UserCompleterModel *RocketChatAccount::userCompleterModel() const
     return mUserCompleterModel;
 }
 
-RuqolaServerConfig *RocketChatAccount::getRuqolaServerConfig() const
+RuqolaServerConfig *RocketChatAccount::ruqolaServerConfig() const
 {
     return mRuqolaServerConfig;
 }

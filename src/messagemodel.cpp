@@ -29,6 +29,7 @@
 #include <QAbstractListModel>
 
 #include "messagemodel.h"
+#include "ruqolaserverconfig.h"
 #include "message.h"
 #include "ruqola_debug.h"
 #include "utils.h"
@@ -132,6 +133,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Attachments] = "attachments";
     roles[Urls] = "urls";
     roles[Date] = "date";
+    roles[CanEditingMessage] = "canEditingMessage";
 
     return roles;
 }
@@ -237,9 +239,10 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             }
         }
         return QString();
-    default:
-        return QString();
+    case MessageModel::CanEditingMessage:
+        return (mAllMessages.at(idx).timeStamp() + mRocketChatAccount->ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000) > QDateTime::currentMSecsSinceEpoch();
     }
+    return QString();
 }
 
 QString MessageModel::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const
