@@ -25,11 +25,8 @@ import org.kde.kirigami 2.1 as Kirigami
 
 import KDE.Ruqola.DebugCategory 1.0
 import QtQuick.Layouts 1.1
-import "../js/message.js" as MessageScript;
 
 MessageBase {
-
-
     id: messageMain
 
     RowLayout {
