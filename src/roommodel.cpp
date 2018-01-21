@@ -221,7 +221,7 @@ void RoomModel::addRoom(Room *room)
             break;
         }
     }
-    beginInsertRows(QModelIndex(), mRoomsList.count(), mRoomsList.count());
+    beginInsertRows(QModelIndex(), roomCount, roomCount);
     qCDebug(RUQOLA_LOG) << "Inserting room at position" <<roomCount;
     mRoomsList.append(room);
     endInsertRows();
