@@ -235,12 +235,12 @@ void RoomModelTest::shouldClear()
 void RoomModelTest::shouldReset()
 {
     RoomModel sampleModel;
-    RoomWrapper *sampleWrapper;
+    //RoomWrapper *sampleWrapper;
 
     const QString Id = QStringLiteral("RA151100ECE");
     const QString name = QStringLiteral("myRoom");
     QCOMPARE(sampleModel.rowCount(), 0);
-    sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));
+    sampleModel.addRoom(Id, name);
     QCOMPARE(sampleModel.rowCount(), 1);
     //TODO: should uncomment this after enabling cache in roomModel
 /*
