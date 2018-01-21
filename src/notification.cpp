@@ -22,6 +22,7 @@
 
 #include "notification.h"
 #include "ruqola.h"
+#include "ruqola_debug.h"
 #include <KLocalizedString>
 
 #include <QAction>
@@ -40,14 +41,17 @@ void Notification::createTrayIcon()
     setIconByPixmap(QIcon(QStringLiteral(":/icons/systray.png")));
 }
 
-void Notification::updateNotification(int alertNumber, int unreadNumber, const QString &account)
+void Notification::updateNotification(bool hasAlert, int unreadNumber, const QString &account)
 {
-
+    //TODO
+    //qCDebug(RUQOLA_LOG) << " hasAlert " << hasAlert << " unreadNumber " << unreadNumber << " account" << account;
+    qDebug() << " hasAlert " << hasAlert << " unreadNumber " << unreadNumber << " account" << account;
+    createToolTip();
 }
 
 void Notification::createToolTip()
 {
-
+    //TODO
 }
 
 //TODO update tooltips.

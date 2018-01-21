@@ -35,7 +35,7 @@ public:
     explicit Notification(QObject *parent = nullptr);
     ~Notification() = default;
 
-    void updateNotification(int alertNumber, int unreadNumber, const QString &account);
+    void updateNotification(bool hasAlert, int unreadNumber, const QString &account);
 private:
     /**
     * @brief Creates tray icon consisting of actions

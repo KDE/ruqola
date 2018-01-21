@@ -97,7 +97,7 @@ void RocketChatAccount::slotNeedToUpdateNotification()
     bool hasAlert = false;
     int nbUnread = 0;
     mRoomModel->getUnreadAlertFromAccount(hasAlert, nbUnread);
-    //TODO
+    Q_EMIT updateNotification(hasAlert, nbUnread, accountName());
 }
 
 void RocketChatAccount::clearModels()

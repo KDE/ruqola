@@ -166,6 +166,7 @@ Q_SIGNALS:
     void changed(const QJsonObject &item);
     void notification(const QString &title, const QString &message);
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
+    void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
