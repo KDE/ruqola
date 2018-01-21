@@ -99,6 +99,7 @@ protected:
 
 
 private:
+    Room *createNewRoom();
     QIcon status(Room *r) const;
     QIcon icon(Room *r) const;
     int order(Room *r) const;

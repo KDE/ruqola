@@ -202,16 +202,23 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
     }
     qCDebug(RUQOLA_LOG) << "Adding room : roomId: " << roomID << " room Name " << roomName << " isSelected : " << selected;
 
-    Room *r = new Room;
+    Room *r = createNewRoom();
     r->setId(roomID);
     r->setName(roomName);
     r->setSelected(selected);
     addRoom(r);
 }
 
-void RoomModel::addRoom(const QJsonObject &room)
+Room *RoomModel::createNewRoom()
 {
     Room *r = new Room;
+    return r;
+}
+
+void RoomModel::addRoom(const QJsonObject &room)
+{
+    Room *r = createNewRoom();
+    //connect(r, &Room)
     r->parseSubscriptionRoom(room);
     qCDebug(RUQOLA_LOG) << "Adding room subscription" << r->name() << r->id() << r->topic();
     addRoom(r);
