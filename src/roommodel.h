@@ -94,6 +94,8 @@ public:
     * @param room The room to be added
     */
     void addRoom(Room *room);
+
+    void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread);
 protected:
     QHash<int, QByteArray> roleNames() const override;
 

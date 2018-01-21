@@ -217,6 +217,16 @@ Room *RoomModel::createNewRoom()
     return r;
 }
 
+void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread)
+{
+    for (int i = 0; i < mRoomsList.count(); ++i) {
+        if (mRoomsList.at(i)->alert()) {
+            hasAlert = true;
+        }
+        nbUnread += mRoomsList.at(i)->unread();
+    }
+}
+
 void RoomModel::addRoom(const QJsonObject &room)
 {
     Room *r = createNewRoom();

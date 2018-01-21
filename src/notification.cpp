@@ -40,5 +40,15 @@ void Notification::createTrayIcon()
     setIconByPixmap(QIcon(QStringLiteral(":/icons/systray.png")));
 }
 
+void Notification::updateNotification(int alertNumber, int unreadNumber, const QString &account)
+{
+
+}
+
+void Notification::createToolTip()
+{
+
+}
+
 //TODO update tooltips.
 //Add Unity support

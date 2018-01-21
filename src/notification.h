@@ -25,8 +25,7 @@
 
 #include "libruqolacore_export.h"
 #include <KStatusNotifierItem>
-#include <QAction>
-#include <QMenu>
+#include <QMap>
 
 class LIBRUQOLACORE_EXPORT Notification : public KStatusNotifierItem
 {
@@ -36,11 +35,15 @@ public:
     explicit Notification(QObject *parent = nullptr);
     ~Notification() = default;
 
+    void updateNotification(int alertNumber, int unreadNumber, const QString &account);
 private:
     /**
     * @brief Creates tray icon consisting of actions
     */
     void createTrayIcon();
+    void createToolTip();
+
+    QMap<QString, QString> mListTrayIcon;
 };
 
 #endif // NOTIFICATION_H
