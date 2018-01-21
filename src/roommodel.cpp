@@ -212,7 +212,7 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
 void RoomModel::addRoom(Room *room)
 {
     qCDebug(RUQOLA_LOG) << " void RoomModel::addRoom(const Room &room)"<<room->name();
-    const int roomCount{
+    int roomCount{
         mRoomsList.count()
     };
     for (int i = 0; i < roomCount; ++i) {
@@ -221,6 +221,8 @@ void RoomModel::addRoom(Room *room)
             break;
         }
     }
+    roomCount = mRoomsList.count();
+
     beginInsertRows(QModelIndex(), roomCount, roomCount);
     qCDebug(RUQOLA_LOG) << "Inserting room at position" <<roomCount;
     mRoomsList.append(room);
