@@ -53,3 +53,5 @@ void RoomTest::shouldSerialized()
     QVERIFY(input.isEqual(*output));
     delete output;
 }
+
+//TODO add more autotests signal and co.
