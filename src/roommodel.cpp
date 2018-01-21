@@ -212,13 +212,14 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
 Room *RoomModel::createNewRoom()
 {
     Room *r = new Room;
+    connect(r, &Room::alertChanged, this, &RoomModel::needToUpdateNotification);
+    connect(r, &Room::unreadChanged, this, &RoomModel::needToUpdateNotification);
     return r;
 }
 
 void RoomModel::addRoom(const QJsonObject &room)
 {
     Room *r = createNewRoom();
-    //connect(r, &Room)
     r->parseSubscriptionRoom(room);
     qCDebug(RUQOLA_LOG) << "Adding room subscription" << r->name() << r->id() << r->topic();
     addRoom(r);

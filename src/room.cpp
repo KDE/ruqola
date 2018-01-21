@@ -129,6 +129,7 @@ void Room::setUnread(int unread)
 {
     if (mUnread != unread) {
         mUnread = unread;
+        Q_EMIT unreadChanged();
     }
 }
 

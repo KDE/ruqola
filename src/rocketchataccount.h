@@ -169,6 +169,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
+    void slotNeedToUpdateNotification();
     void insertAvatarUrl(const QString &userId, const QString &url);
     void loadSettings();
     void clearModels();
@@ -193,5 +194,6 @@ private:
     StatusModel *mStatusModel = nullptr;
     RocketChatCache *mCache = nullptr;
 };
+
 
 #endif // ROCKETCHATACCOUNT_H

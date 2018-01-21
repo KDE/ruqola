@@ -70,6 +70,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mUserCompleterModel = new UserCompleterModel(this);
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this);
+    connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
     mMessageQueue = new MessageQueue(this);
@@ -89,6 +90,11 @@ RocketChatAccount::~RocketChatAccount()
 
     delete mRuqolaServerConfig;
     delete mRuqolaLogger;
+}
+
+void RocketChatAccount::slotNeedToUpdateNotification()
+{
+    //TODO
 }
 
 void RocketChatAccount::clearModels()

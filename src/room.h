@@ -124,6 +124,7 @@ Q_SIGNALS:
     void userIdChanged();
     void alertChanged();
     void readOnlyChanged();
+    void unreadChanged();
 
 private:
     Q_DISABLE_COPY(Room)

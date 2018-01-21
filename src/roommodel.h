@@ -98,6 +98,9 @@ protected:
     QHash<int, QByteArray> roleNames() const override;
 
 
+Q_SIGNALS:
+    void needToUpdateNotification();
+
 private:
     Room *createNewRoom();
     QIcon status(Room *r) const;
