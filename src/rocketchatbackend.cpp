@@ -107,11 +107,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
             const QString roomID = room.value(QLatin1String("rid")).toString();
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPClient::LoggedIn) {
-                Room *r = new Room;
-                r->parseSubscriptionRoom(room);
-                qCDebug(RUQOLA_LOG) << "Adding room subscription" << r->name() << r->id() << r->topic();
-
-                model->addRoom(r);
+                model->addRoom(room);
             }
 
             account->ddp()->subscribeRoomMessage(roomID);

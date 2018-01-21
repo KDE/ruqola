@@ -70,12 +70,6 @@ public:
     */
     Q_INVOKABLE void addRoom(const QString &roomID, const QString &roomName, bool selected = false);
 
-    /**
-    * @brief Adds a room to m_roomsList with @param room
-    *
-    * @param room The room to be added
-    */
-    void addRoom(Room *room);
 
     void updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement, bool readOnly);
 
@@ -93,8 +87,16 @@ public:
 
     void updateSubscription(const QJsonArray &array);
     void updateRoom(const QJsonObject &array);
+    void addRoom(const QJsonObject &room);
+    /**
+    * @brief Adds a room to m_roomsList with @param room
+    *
+    * @param room The room to be added
+    */
+    void addRoom(Room *room);
 protected:
     QHash<int, QByteArray> roleNames() const override;
+
 
 private:
     QIcon status(Room *r) const;
