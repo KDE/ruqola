@@ -26,7 +26,6 @@
 #include <QDBusPendingReply>
 #include <QDBusConnectionInterface>
 #include <QApplication>
-#include <QTimer>
 
 UnityServiceManager::UnityServiceManager(QObject *parent)
     : QObject(parent)
