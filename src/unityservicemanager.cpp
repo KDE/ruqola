@@ -57,6 +57,11 @@ void UnityServiceManager::updateCount()
     }
 }
 
+void UnityServiceManager::setCount(int count)
+{
+    mCount = count;
+}
+
 void UnityServiceManager::initUnity()
 {
     mUnityServiceWatcher->setConnection(QDBusConnection::sessionBus());

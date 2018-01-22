@@ -31,6 +31,7 @@
 #include "roommodel.h"
 #include "messagemodel.h"
 #include "notification.h"
+#include "unityservicemanager.h"
 
 class QmlAboutData;
 
@@ -77,6 +78,8 @@ public:
     Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
 
     Q_INVOKABLE QmlAboutData *applicationData() const;
+    UnityServiceManager *unityServiceManager();
+
 Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
@@ -91,6 +94,7 @@ private:
     RocketChatAccount *mRocketChatAccount = nullptr;
     Notification *mNotification = nullptr;
     QmlAboutData *mRuqolaAboutData = nullptr;
+    UnityServiceManager *mUnityServiceManager = nullptr;
 };
 
 inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

@@ -49,6 +49,14 @@ Ruqola::Ruqola(QObject *parent)
     connect(mRocketChatAccount, &RocketChatAccount::updateNotification, this, &Ruqola::updateNotification);
 }
 
+UnityServiceManager *Ruqola::unityServiceManager()
+{
+    if (!mUnityServiceManager) {
+        mUnityServiceManager = new UnityServiceManager();
+    }
+    return mUnityServiceManager;
+}
+
 QmlAboutData *Ruqola::applicationData() const
 {
     return mRuqolaAboutData;
@@ -146,4 +154,5 @@ void Ruqola::slotInformTypingStatus(const QString &room, bool typing)
 void Ruqola::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)
 {
     notification()->updateNotification(hasAlert, nbUnread, accountName);
+    unityServiceManager()->setCount(nbUnread);
 }

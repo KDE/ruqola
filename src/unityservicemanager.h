@@ -21,16 +21,19 @@
 #ifndef UNITYSERVICEMANAGER_H
 #define UNITYSERVICEMANAGER_H
 
+#include "libruqola_private_export.h"
 #include <QModelIndex>
 #include <QObject>
 class QDBusServiceWatcher;
 class QAbstractItemModel;
-class UnityServiceManager : public QObject
+class LIBRUQOLACORE_TESTS_EXPORT UnityServiceManager : public QObject
 {
     Q_OBJECT
 public:
     explicit UnityServiceManager(QObject *parent = nullptr);
     ~UnityServiceManager();
+
+    void setCount(int count);
 
 private:
     void initUnity();
