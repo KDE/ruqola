@@ -43,15 +43,47 @@ void Notification::createTrayIcon()
 
 void Notification::updateNotification(bool hasAlert, int unreadNumber, const QString &account)
 {
-    //TODO
     //qCDebug(RUQOLA_LOG) << " hasAlert " << hasAlert << " unreadNumber " << unreadNumber << " account" << account;
     qDebug() << " hasAlert " << hasAlert << " unreadNumber " << unreadNumber << " account" << account;
+    TrayInfo info;
+    info.hasAlert = hasAlert;
+    info.unreadMessage = unreadNumber;
+    if (info.hasNotification()) {
+        mListTrayIcon.insert(account, info);
+    } else {
+        mListTrayIcon.remove(account);
+    }
     createToolTip();
 }
 
 void Notification::createToolTip()
 {
-    //TODO
+    QMapIterator<QString, TrayInfo> i(mListTrayIcon);
+    QString str;
+    bool firstElement = true;
+    bool hasAlert = false;
+    while (i.hasNext()) {
+        i.next();
+        if (!firstElement && !str.isEmpty()) {
+            str += QLatin1Char('\n');
+        }
+        str += i.key() + QLatin1Char('\n');
+        const TrayInfo trayInfo = i.value();
+        if (trayInfo.hasAlert) {
+            str += i18n("Has Alert") + QLatin1Char('\n');
+            hasAlert = trayInfo.hasAlert;
+        }
+        if (trayInfo.unreadMessage != 0) {
+            str += i18n("Has %1 Unread Message", trayInfo.unreadMessage);
+        }
+    }
+    qDebug() << " str " << str;
+    setToolTipSubTitle(str);
+    if (status() == KStatusNotifierItem::Passive && (!str.isEmpty())) {
+        setStatus(KStatusNotifierItem::Active);
+    } else if (status() == KStatusNotifierItem::Active && (str.isEmpty())) {
+        setStatus(KStatusNotifierItem::Passive);
+    }
 }
 
 //TODO update tooltips.

@@ -37,13 +37,20 @@ public:
 
     void updateNotification(bool hasAlert, int unreadNumber, const QString &account);
 private:
+    struct TrayInfo {
+        int unreadMessage = 0;
+        bool hasAlert = false;
+        bool hasNotification() const {
+            return (unreadMessage != 0) || hasAlert;
+        }
+    };
     /**
     * @brief Creates tray icon consisting of actions
     */
     void createTrayIcon();
     void createToolTip();
 
-    QMap<QString, QString> mListTrayIcon;
+    QMap<QString, TrayInfo> mListTrayIcon;
 };
 
 #endif // NOTIFICATION_H
