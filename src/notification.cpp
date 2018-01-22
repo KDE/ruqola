@@ -63,23 +63,24 @@ void Notification::createToolTip()
     while (i.hasNext()) {
         i.next();
         if (!firstElement && !str.isEmpty()) {
+            firstElement = false;
             str += QLatin1Char('\n');
         }
-        str += i.key() + QLatin1Char('\n');
+        if (!i.key().isEmpty()) {
+            str += i.key() + QLatin1Char('\n');
+        }
         const TrayInfo trayInfo = i.value();
         if (trayInfo.hasAlert) {
-            str += i18n("Has Alert") + QLatin1Char('\n');
             hasAlert = trayInfo.hasAlert;
         }
         if (trayInfo.unreadMessage != 0) {
             str += i18n("Has %1 Unread Message", trayInfo.unreadMessage);
         }
     }
-    qDebug() << " str " << str;
     setToolTipSubTitle(str);
-    if (status() == KStatusNotifierItem::Passive && (!str.isEmpty())) {
+    if (status() == KStatusNotifierItem::Passive && (!str.isEmpty() || hasAlert)) {
         setStatus(KStatusNotifierItem::Active);
-    } else if (status() == KStatusNotifierItem::Active && (str.isEmpty())) {
+    } else if (status() == KStatusNotifierItem::Active && (str.isEmpty() && !hasAlert)) {
         setStatus(KStatusNotifierItem::Passive);
     }
 }
