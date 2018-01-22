@@ -45,9 +45,7 @@ void Notification::updateNotification(bool hasAlert, int unreadNumber, const QSt
 {
     //qCDebug(RUQOLA_LOG) << " hasAlert " << hasAlert << " unreadNumber " << unreadNumber << " account" << account;
     qDebug() << " hasAlert " << hasAlert << " unreadNumber " << unreadNumber << " account" << account;
-    TrayInfo info;
-    info.hasAlert = hasAlert;
-    info.unreadMessage = unreadNumber;
+    const TrayInfo info(unreadNumber, hasAlert);
     if (info.hasNotification()) {
         mListTrayIcon.insert(account, info);
     } else {

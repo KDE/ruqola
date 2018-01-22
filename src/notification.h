@@ -38,6 +38,12 @@ public:
     void updateNotification(bool hasAlert, int unreadNumber, const QString &account);
 private:
     struct TrayInfo {
+        TrayInfo(int unread, bool alert)
+            : unreadMessage(unread)
+            , hasAlert(alert)
+        {
+
+        }
         int unreadMessage = 0;
         bool hasAlert = false;
         bool hasNotification() const {
