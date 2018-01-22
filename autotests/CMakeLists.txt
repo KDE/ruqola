@@ -25,5 +25,6 @@ add_ruqola_test(statusmodeltest.cpp)
 add_ruqola_test(rocketchatcachetest.cpp)
 add_ruqola_test(textconvertertest.cpp)
 add_ruqola_test(loadrecenthistorymanagertest.cpp)
+add_ruqola_test(notificationtest.cpp)
 
 add_subdirectory(qml)
