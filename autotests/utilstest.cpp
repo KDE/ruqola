@@ -88,3 +88,27 @@ void UtilsTest::shouldExtractRoomUserFromUrl()
     QFETCH(QString, output);
     QCOMPARE(Utils::extractRoomUserFromUrl(input), output);
 }
+
+void UtilsTest::shouldExtractGenerateRichText_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("output");
+    QTest::newRow("empty") << QString() << QString();
+    QTest::newRow("word@") << QStringLiteral("@foo") << QStringLiteral("<a href='ruqola:/user/foo'>@foo</a>");
+    QTest::newRow("word@-2") << QStringLiteral("@foo.bla") << QStringLiteral("<a href='ruqola:/user/foo.bla'>@foo.bla</a>");
+    QTest::newRow("word@-2") << QStringLiteral("@foo.bla.bli") << QStringLiteral("<a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a>");
+    QTest::newRow("word@-3") << QStringLiteral("@foo.bla.bli dd") << QStringLiteral("<a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a> dd");
+
+    QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<a href='ruqola:/room/foo'>#foo</a>");
+    QTest::newRow("word#-2") << QStringLiteral("#foo.bla") << QStringLiteral("<a href='ruqola:/room/foo.bla'>#foo.bla</a>");
+    QTest::newRow("word#-2") << QStringLiteral("#foo.bla.bli") << QStringLiteral("<a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a>");
+    QTest::newRow("word#-3") << QStringLiteral("#foo.bla.bli dd") << QStringLiteral("<a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a> dd");
+
+}
+
+void UtilsTest::shouldExtractGenerateRichText()
+{
+    QFETCH(QString, input);
+    QFETCH(QString, output);
+    QCOMPARE(Utils::generateRichText(input, {}), output);
+}

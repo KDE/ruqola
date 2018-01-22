@@ -38,6 +38,9 @@ private Q_SLOTS:
 
     void shouldExtractRoomUserFromUrl_data();
     void shouldExtractRoomUserFromUrl();
+
+    void shouldExtractGenerateRichText_data();
+    void shouldExtractGenerateRichText();
 };
 
 #endif // UTILSTEST_H

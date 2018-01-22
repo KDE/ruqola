@@ -40,6 +40,7 @@ TextConverter::TextConverter()
 
 QString TextConverter::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const
 {
+    //TODO improve it. Add autotest.
 #ifdef USE_SYNTAXHIGHLIGHTING
     if (mSyntaxHighlightingInitialized && str.startsWith(QLatin1String("```")) && str.endsWith(QLatin1String("```"))) {
         QString e = str;
