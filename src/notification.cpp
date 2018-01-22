@@ -86,5 +86,4 @@ void Notification::createToolTip()
     }
 }
 
-//TODO update tooltips.
 //Add Unity support

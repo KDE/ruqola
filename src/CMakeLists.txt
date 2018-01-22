@@ -50,6 +50,7 @@ set (Ruqola_core_srcs
     texthighlighter.cpp
     textconverter.cpp
     loadrecenthistorymanager.cpp
+    unityservicemanager.cpp
 )
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
@@ -69,6 +70,7 @@ target_link_libraries(libruqolacore
     Qt5::WebSockets
     Qt5::Network
     Qt5::NetworkAuth
+    Qt5::DBus
     KF5::CoreAddons
     KF5::I18n
     KF5::Crash
