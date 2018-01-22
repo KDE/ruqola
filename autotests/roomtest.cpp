@@ -22,6 +22,7 @@
 #include "room.h"
 #include <QJsonDocument>
 #include <QTest>
+#include <QSignalSpy>
 
 QTEST_MAIN(RoomTest)
 
@@ -54,4 +55,49 @@ void RoomTest::shouldSerialized()
     delete output;
 }
 
+void RoomTest::shouldEmitSignals()
+{
+    Room input;
+    QSignalSpy spyNameChanged(&input, &Room::nameChanged);
+    QSignalSpy spyannouncementChanged(&input, &Room::announcementChanged);
+    QSignalSpy spytopicChanged(&input, &Room::topicChanged);
+    QSignalSpy spyfavoriteChanged(&input, &Room::favoriteChanged);
+    QSignalSpy spyuserIdChanged(&input, &Room::userIdChanged);
+    QSignalSpy spyalertChanged(&input, &Room::alertChanged);
+    QSignalSpy spyreadOnlyChanged(&input, &Room::readOnlyChanged);
+    QSignalSpy spyunreadChanged(&input, &Room::unreadChanged);
+    input.setId(QStringLiteral("foo"));
+    input.setChannelType(QStringLiteral("p"));
+    input.setName(QStringLiteral("d"));
+    input.setAnnouncement(QStringLiteral("AA"));
+    input.setUserName(QStringLiteral("pp"));
+    input.setUserId(QStringLiteral("sdfsdfs"));
+    input.setTopic(QStringLiteral("topic"));
+    input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
+    input.setJitsiTimeout(55);
+    input.setReadOnly(true);
+    input.setUnread(66);
+    input.setSelected(true);
+    input.setFavorite(true);
+    input.setAlert(true);
+    input.setOpen(true);
+
+    QCOMPARE(spyNameChanged.count(), 1);
+    QCOMPARE(spyannouncementChanged.count(), 1);
+    QCOMPARE(spytopicChanged.count(), 1);
+    QCOMPARE(spyfavoriteChanged.count(), 1);
+    QCOMPARE(spyuserIdChanged.count(), 1);
+    QCOMPARE(spyalertChanged.count(), 1);
+    QCOMPARE(spyreadOnlyChanged.count(), 1);
+    QCOMPARE(spyunreadChanged.count(), 1);
+}
+
+//void nameChanged();
+//void announcementChanged();
+//void topicChanged();
+//void favoriteChanged();
+//void userIdChanged();
+//void alertChanged();
+//void readOnlyChanged();
+//void unreadChanged();
 //TODO add more autotests signal and co.

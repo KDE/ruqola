@@ -31,6 +31,7 @@ public:
     ~RoomTest() = default;
 private Q_SLOTS:
     void shouldSerialized();
+    void shouldEmitSignals();
 };
 
 #endif // ROOMTEST_H
