@@ -38,7 +38,6 @@ UnityServiceManager::~UnityServiceManager()
 {
 }
 
-
 void UnityServiceManager::updateCount()
 {
     if (mUnityServiceAvailable) {

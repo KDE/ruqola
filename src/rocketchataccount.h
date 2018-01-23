@@ -196,5 +196,4 @@ private:
     RocketChatCache *mCache = nullptr;
 };
 
-
 #endif // ROCKETCHATACCOUNT_H

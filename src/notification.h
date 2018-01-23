@@ -41,11 +41,12 @@ private:
             : unreadMessage(unread)
             , hasAlert(alert)
         {
-
         }
+
         int unreadMessage = 0;
         bool hasAlert = false;
-        bool hasNotification() const {
+        bool hasNotification() const
+        {
             return (unreadMessage != 0) || hasAlert;
         }
     };
