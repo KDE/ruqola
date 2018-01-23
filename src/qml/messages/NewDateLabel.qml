@@ -40,6 +40,9 @@ Rectangle {
     QQC2.Label {
         id: dateLabel
         text: date
+        font.bold: true
+        font.italic: true
+        color: "#FF0000"
         anchors.centerIn: parent
     }
 }
