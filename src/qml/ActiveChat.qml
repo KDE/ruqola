@@ -33,7 +33,7 @@ ListView {
     signal downloadAttachment(string url)
     signal editMessage(string messageId)
     signal replyMessage(string messageId)
-    signal setFavoriteMessage(string messageId)
+    signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title)
 
     property QtObject rcAccount
@@ -91,7 +91,7 @@ ListView {
             activeChat.replyMessage(messageId)
         }
         onSetFavoriteMessage: {
-            activeChat.setFavoriteMessage(messageId)
+            activeChat.setFavoriteMessage(messageId, starred)
         }
         onDisplayImage: {
             activeChat.displayImage(imageUrl, title)

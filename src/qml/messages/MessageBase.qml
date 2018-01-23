@@ -27,7 +27,7 @@ ColumnLayout {
     signal deleteMessage(string messageId)
     signal editMessage(string messageId)
     signal replyMessage(string messageId)
-    signal setFavoriteMessage(string messageId)
+    signal setFavoriteMessage(string messageId, bool starred)
     signal downloadAttachment(string url)
     signal displayImage(url imageUrl, string title)
 

@@ -64,7 +64,7 @@ Rectangle {
     signal downloadAttachment(string url)
     signal editMessage(string messageId)
     signal replyMessage(string messageId)
-    signal setFavoriteMessage(string messageId)
+    signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title)
 
     Loader {
@@ -201,7 +201,7 @@ Rectangle {
             messageMain.replyMessage(messageId)
         }
         onSetFavoriteMessage: {
-            messageMain.setFavoriteMessage(messageId)
+            messageMain.setFavoriteMessage(messageId, starred)
         }
         onDisplayImage: {
             messageMain.displayImage(imageUrl, title)

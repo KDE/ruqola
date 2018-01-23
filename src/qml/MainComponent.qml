@@ -189,7 +189,7 @@ Component {
                 console.log(RuqolaDebugCategorySingleton.category, "reply message : " + messageId)
             }
             onSetFavoriteMessage: {
-                appid.rocketChatAccount.starMessage(messageId, roomId, true)
+                appid.rocketChatAccount.starMessage(messageId, roomId, starred)
             }
 
             onDisplayImage: {

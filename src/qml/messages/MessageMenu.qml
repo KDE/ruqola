@@ -61,7 +61,7 @@ QQC2.Menu {
         }
         onTriggered: {
             console.log(RuqolaDebugCategorySingleton.category, "Set as favorite", i_messageID);
-            messageMain.setFavoriteMessage(i_messageID);
+            messageMain.setFavoriteMessage(i_messageID, !starred);
         }
     }
     QQC2.MenuItem {
