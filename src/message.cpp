@@ -50,6 +50,7 @@ void Message::parseMessage(const QJsonObject &o)
     mAvatar = o.value(QLatin1String("avatar")).toString();
     mGroupable = o.value(QLatin1String("groupable")).toBool();
     mParseUrls = o.value(QLatin1String("parseUrls")).toBool();
+    //TODO add starred !
 
     mMessageType = Message::MessageType::NormalText;
     if (!type.isEmpty()) {
