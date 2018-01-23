@@ -165,14 +165,27 @@ void MessageModel::addMessage(const Message &message)
     //When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
         (*mAllMessages.begin()) = message;
-        const QModelIndex index = createIndex(0, 0);
+        //const QModelIndex index = createIndex(0, 0);
         qCDebug(RUQOLA_LOG) << "Update Message";
-        Q_EMIT dataChanged(index, index);
+        //Q_EMIT dataChanged(index, index);
+
+        //For the moment !!!! It's not optimal but Q_EMIT dataChanged(index, index); doesn't work
+        beginRemoveRows(QModelIndex(), 0, 0);
+        endRemoveRows();
+
+        beginInsertRows(QModelIndex(), 0, 0);
+        endInsertRows();
     } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
         qCDebug(RUQOLA_LOG) << "Update Message";
         (*(it-1)) = message;
-        const QModelIndex index = createIndex(it - 1 - mAllMessages.begin(), 0);
-        Q_EMIT dataChanged(index, index);
+        //const QModelIndex index = createIndex(it - 1 - mAllMessages.begin(), 0);
+        //For the moment !!!! It's not optimal but Q_EMIT dataChanged(index, index); doesn't work
+        beginRemoveRows(QModelIndex(), it - 1 - mAllMessages.begin(), it - 1 - mAllMessages.begin());
+        endRemoveRows();
+
+        beginInsertRows(QModelIndex(), it - 1 - mAllMessages.begin(), it - 1 - mAllMessages.begin());
+        endInsertRows();
+        //Q_EMIT dataChanged(index, index);
     } else {
         const int pos = it - mAllMessages.begin();
         beginInsertRows(QModelIndex(), pos, pos);
