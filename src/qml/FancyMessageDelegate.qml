@@ -195,6 +195,7 @@ Rectangle {
             messageMain.downloadAttachment(url)
         }
         onEditMessage: {
+            console.log("i_messageText " + i_messageText);
             messageMain.editMessage(messageId)
         }
         onReplyMessage: {

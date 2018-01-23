@@ -44,6 +44,7 @@ void MessageTest::shouldParseMessage_data()
         firstMessageRef.setMessageType(Message::File);
         firstMessageRef.setUpdatedAt(1504509615063);
         firstMessageRef.setEditedAt(0);
+        firstMessageRef.setStarred(false);
         firstMessageRef.setRoomId(QStringLiteral("qt9uNY9FxyL5QT5nouKK39zoewTkdacidH"));
         MessageAttachment att;
         att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
@@ -62,6 +63,7 @@ void MessageTest::shouldParseMessage_data()
         urlMessageRef.setMessageType(Message::NormalText);
         urlMessageRef.setUpdatedAt(1504596901803);
         urlMessageRef.setEditedAt(0);
+        urlMessageRef.setStarred(false);
         urlMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
         urlMessageRef.setText(QStringLiteral("https://foo.com/event/whoa"));
         MessageUrl url;
@@ -83,6 +85,7 @@ void MessageTest::shouldParseMessage_data()
         imageMessageRef.setMessageType(Message::NormalText);
         imageMessageRef.setUpdatedAt(1505399177846);
         imageMessageRef.setEditedAt(0);
+        imageMessageRef.setStarred(false);
         imageMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
 
         MessageAttachment attImage;
@@ -106,6 +109,7 @@ void MessageTest::shouldParseMessage_data()
         videoMessageRef.setMessageType(Message::Video);
         videoMessageRef.setUpdatedAt(1515580853102);
         videoMessageRef.setEditedAt(0);
+        videoMessageRef.setStarred(false);
         videoMessageRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
 
         MessageAttachment attVideo;
@@ -129,6 +133,7 @@ void MessageTest::shouldParseMessage_data()
         audioMessageRef.setMessageType(Message::Audio);
         audioMessageRef.setUpdatedAt(1515588347102);
         audioMessageRef.setEditedAt(0);
+        audioMessageRef.setStarred(false);
         audioMessageRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
 
         MessageAttachment attAudio;
@@ -139,6 +144,44 @@ void MessageTest::shouldParseMessage_data()
         audioMessageRef.setAttachements({attAudio});
 
         QTest::addRow("audio") << QStringLiteral("audio") << audioMessageRef;
+    }
+    {
+        //Message Starred
+        Message messageStarredRef;
+        messageStarredRef.setMessageId(QStringLiteral("R6AkSJ7orEkYHNcZJ"));
+        messageStarredRef.setAlias(QStringLiteral("Laurent"));
+        messageStarredRef.setGroupable(false);
+        messageStarredRef.setTimeStamp(1516711967347);
+        messageStarredRef.setUsername(QStringLiteral("laurent"));
+        messageStarredRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        messageStarredRef.setMessageType(Message::NormalText);
+        messageStarredRef.setUpdatedAt(1516721464681);
+        messageStarredRef.setEditedAt(1516712012309);
+        messageStarredRef.setEditedByUsername(QStringLiteral("laurent"));
+        messageStarredRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
+        messageStarredRef.setStarred(true);
+        messageStarredRef.setText(QStringLiteral("sefssssdfsefdsdfsd"));
+
+        QTest::addRow("messagestarred") << QStringLiteral("messagestarred") << messageStarredRef;
+    }
+    {
+        //Message Remove Starred status
+        Message messageStarredRemovedRef;
+        messageStarredRemovedRef.setMessageId(QStringLiteral("R6AkSJ7orEkYHNcZJ"));
+        messageStarredRemovedRef.setAlias(QStringLiteral("Laurent"));
+        messageStarredRemovedRef.setGroupable(false);
+        messageStarredRemovedRef.setTimeStamp(1516711967347);
+        messageStarredRemovedRef.setUsername(QStringLiteral("laurent"));
+        messageStarredRemovedRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        messageStarredRemovedRef.setMessageType(Message::NormalText);
+        messageStarredRemovedRef.setUpdatedAt(1516721464681);
+        messageStarredRemovedRef.setEditedAt(1516712012309);
+        messageStarredRemovedRef.setEditedByUsername(QStringLiteral("laurent"));
+        messageStarredRemovedRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
+        messageStarredRemovedRef.setStarred(false);
+        messageStarredRemovedRef.setText(QStringLiteral("sefssssdfsefdsdfsd"));
+
+        QTest::addRow("messageremovedstarred") << QStringLiteral("messageremovedstarred") << messageStarredRemovedRef;
     }
 }
 

@@ -84,5 +84,3 @@ void Notification::createToolTip()
         setStatus(KStatusNotifierItem::Passive);
     }
 }
-
-//Add Unity support
