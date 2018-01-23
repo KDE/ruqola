@@ -18,7 +18,7 @@
 */
 
 #include "unityservicemanager.h"
-
+#include "ruqola_debug.h"
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusServiceWatcher>
@@ -59,7 +59,10 @@ void UnityServiceManager::updateCount()
 
 void UnityServiceManager::setCount(int count)
 {
-    mCount = count;
+    if (mCount != count) {
+        mCount = count;
+        updateCount();
+    }
 }
 
 void UnityServiceManager::initUnity()
@@ -86,6 +89,7 @@ void UnityServiceManager::initUnity()
         watcher->deleteLater();
 
         if (reply.isError()) {
+            qCWarning(RUQOLA_LOG) << " reply"<<reply.error().message();
             return;
         }
 
