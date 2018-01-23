@@ -38,12 +38,14 @@ MessageBase {
     property var i_attachments
     property string i_own_username
     property bool i_can_editing_message
+    property bool i_starred
 
     id: messageMain
     Layout.alignment: Qt.AlignTop
     MessageMenu {
         id: menu
         can_editing_message: i_can_editing_message
+        starred: i_starred
     }
 
     RowLayout {

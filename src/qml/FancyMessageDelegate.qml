@@ -51,6 +51,7 @@ Rectangle {
     property string i_date
     property string i_own_username
     property bool i_can_editing_message
+    property bool i_starred
 
     color: RuqolaSingleton.backgroundColor
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
@@ -117,7 +118,9 @@ Rectangle {
                               i_date: i_date,
                               i_own_username: i_own_username,
                               rcAccount: appid.rocketChatAccount,
-                              i_can_editing_message: i_can_editing_message
+                              i_can_editing_message: i_can_editing_message,
+                              i_starred: i_starred
+
                           }
                           )
             } else if (i_messageType === Message.Audio) {

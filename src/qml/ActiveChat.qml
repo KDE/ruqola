@@ -70,6 +70,8 @@ ListView {
         i_date: date
         i_own_username: rcAccount.userName
         i_can_editing_message: canEditingMessage
+        i_starred: starred
+
         onOpenDirectChannel: {
             activeChat.openDirectChannel(userName)
         }

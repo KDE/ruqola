@@ -104,6 +104,16 @@ void Message::parseUrls(const QJsonArray &urls)
     }
 }
 
+bool Message::starred() const
+{
+    return mStarred;
+}
+
+void Message::setStarred(bool starred)
+{
+    mStarred = starred;
+}
+
 QMap<QString, QString> Message::mentions() const
 {
     return mMentions;
@@ -170,23 +180,24 @@ void Message::parseAttachment(const QJsonArray &attachments)
 bool Message::operator==(const Message &other) const
 {
     return (mMessageId == other.messageId())
-           && (mRoomId == other.roomId())
-           && (mText == other.text())
-           && (mTimeStamp == other.timeStamp())
-           && (mUsername == other.username())
-           && (mUserId == other.userId())
-           && (mUpdatedAt == other.updatedAt())
-           && (mEditedAt == other.editedAt())
-           && (mEditedByUsername == other.editedByUsername())
-           && (mEditedByUserId == other.editedByUserId())
-           && (mAlias == other.alias())
-           && (mAvatar == other.avatar())
-           && (mSystemMessageType == other.systemMessageType())
-           && (mGroupable == other.groupable())
-           && (mParseUrls == other.parseUrls())
-           && (mUrls == other.urls())
-           && (mAttachements == other.attachements())
-           && (mMentions == other.mentions());
+            && (mRoomId == other.roomId())
+            && (mText == other.text())
+            && (mTimeStamp == other.timeStamp())
+            && (mUsername == other.username())
+            && (mUserId == other.userId())
+            && (mUpdatedAt == other.updatedAt())
+            && (mEditedAt == other.editedAt())
+            && (mEditedByUsername == other.editedByUsername())
+            && (mEditedByUserId == other.editedByUserId())
+            && (mAlias == other.alias())
+            && (mAvatar == other.avatar())
+            && (mSystemMessageType == other.systemMessageType())
+            && (mGroupable == other.groupable())
+            && (mParseUrls == other.parseUrls())
+            && (mUrls == other.urls())
+            && (mAttachements == other.attachements())
+            && (mMentions == other.mentions())
+            && (mStarred == other.starred());
 }
 
 Message &Message::operator=(const Message &other)
@@ -210,6 +221,7 @@ Message &Message::operator=(const Message &other)
     setAttachements(other.attachements());
     setMentions(other.mentions());
     setMessageType(other.messageType());
+    setStarred(other.starred());
     return *this;
 }
 
@@ -467,6 +479,7 @@ QByteArray Message::serialize(const Message &message)
     o[QStringLiteral("avatar")] = message.mAvatar;
     o[QStringLiteral("groupable")] = message.mGroupable;
     o[QStringLiteral("parseUrls")] = message.mParseUrls;
+    o[QStringLiteral("starred")] = message.mStarred;
 
     o[QStringLiteral("type")] = message.mSystemMessageType;
     o[QStringLiteral("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
@@ -514,6 +527,7 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mAvatar: " << t.avatar();
     d << "mGroupable: " << t.groupable();
     d << "mParseUrls: " << t.parseUrls();
+    d << "mStarred: " << t.starred();
     for (int i = 0; i < t.attachements().count(); ++i) {
         d << "Attachment :" << t.attachements().at(i);
     }

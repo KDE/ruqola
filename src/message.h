@@ -131,6 +131,9 @@ public:
     QMap<QString, QString> mentions() const;
     void setMentions(const QMap<QString, QString> &mentions);
 
+    bool starred() const;
+    void setStarred(bool starred);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -183,6 +186,9 @@ private:
 
     // parseUrls
     bool mParseUrls = false;
+
+    //Starred
+    bool mStarred = false;
 };
 Q_DECLARE_METATYPE(Message)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Message &t);
