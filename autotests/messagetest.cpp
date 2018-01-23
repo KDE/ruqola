@@ -183,6 +183,8 @@ void MessageTest::shouldSerializeData()
     input.setGroupable(true);
     input.setParseUrls(true);
     input.setMessageType(Message::MessageType::Audio);
+    //It will break as it's not supported yet
+    input.setStarred(true);
 
     QVector<MessageAttachment> lstAttachement;
     MessageAttachment attachment;
