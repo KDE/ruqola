@@ -98,6 +98,7 @@ void UtilsTest::shouldExtractGenerateRichText_data()
     QTest::newRow("word@-2") << QStringLiteral("@foo.bla") << QStringLiteral("<a href='ruqola:/user/foo.bla'>@foo.bla</a>");
     QTest::newRow("word@-2") << QStringLiteral("@foo.bla.bli") << QStringLiteral("<a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a>");
     QTest::newRow("word@-3") << QStringLiteral("@foo.bla.bli dd") << QStringLiteral("<a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a> dd");
+    QTest::newRow("word@-4") << QStringLiteral("bla bla 21 @foo.bla.bli dd") << QStringLiteral("bla bla 21 <a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a> dd");
 
     QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<a href='ruqola:/room/foo'>#foo</a>");
     QTest::newRow("word#-2") << QStringLiteral("#foo.bla") << QStringLiteral("<a href='ruqola:/room/foo.bla'>#foo.bla</a>");
