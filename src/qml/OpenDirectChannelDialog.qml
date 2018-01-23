@@ -19,17 +19,17 @@
 */
 
 import QtQuick 2.9
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import QtQuick.Layouts 1.3
 
-Dialog {
+QQC2.Dialog {
     id: openDirectChannelDialog
     property string username: "username"
 
     signal openDirectChannel(string userName)
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
+    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
@@ -37,10 +37,11 @@ Dialog {
     modal: true
 
     Row {
-        Label {
+        QQC2.Label {
             text: i18n("Open Conversation with \"%1\"?", username)
             font.bold: true
             font.pointSize: 15
+            wrapMode: QQC2.Label.Wrap
         }
     }
 
