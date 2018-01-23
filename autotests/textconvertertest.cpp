@@ -18,6 +18,7 @@
 */
 
 #include "textconvertertest.h"
+#include "textconverter.h"
 #include <QTest>
 
 QTEST_MAIN(TextConverterTest)
@@ -25,4 +26,19 @@ QTEST_MAIN(TextConverterTest)
 TextConverterTest::TextConverterTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void TextConverterTest::shouldConvertText_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("output");
+    QTest::newRow("empty") << QString() << QString();
+}
+
+void TextConverterTest::shouldConvertText()
+{
+    QFETCH(QString, input);
+    QFETCH(QString, output);
+    TextConverter w;
+    QCOMPARE(w.convertMessageText(input, {}), output);
 }
