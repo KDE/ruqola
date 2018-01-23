@@ -203,6 +203,9 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
         qCDebug(RUQOLA_LOG) << "NEW ROOMS ADDED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {
         qCDebug(RUQOLA_LOG) << "stream-notify-user: " << object;
+    } else if (collection == QLatin1String("stream-notify-all")) {
+        qCDebug(RUQOLA_LOG) << "stream-notify-user: " << object;
+        //TODO verify that all is ok !
     }
 }
 
@@ -263,8 +266,12 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
             const QString title = contents.at(0).toObject()[QStringLiteral("title")].toString();
             Q_EMIT notification(title, message);
+        } else if (eventname.endsWith(QLatin1String("/webrtc"))) {
+            qCWarning(RUQOLA_LOG) << "stream-notify-user : WEBRTC ? " << eventname << " contents " << contents;
+        } else if (eventname.endsWith(QLatin1String("/otr"))) {
+            qCWarning(RUQOLA_LOG) << "stream-notify-user : OTR ? " << eventname << " contents " << contents;
         } else {
-            qCWarning(RUQOLA_LOG) << "stream-notify-user : Unknown event ? " << eventname;
+            qCWarning(RUQOLA_LOG) << "stream-notify-user : Unknown event ? " << eventname << " contents " << contents;
         }
     } else if (collection == QLatin1String("stream-notify-room")) {
         qCDebug(RUQOLA_LOG) << " stream-notify-room " << collection << " object "<<object;
@@ -343,17 +350,65 @@ void RocketChatBackend::onUserIDChanged()
         params.append(QJsonValue(params));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("activeUsers"), params);
     }
-    //TODO stream-notify-all ?
+    //stream-notify-all
     {
-        QJsonArray params;
-        //TODO
-        /*
-        "params":[
-              "updateAvatar",
-              false
-          ]
-        */
-        params.append(QJsonValue(params));
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("updateAvatar")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " updateAvatar"<<params;
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("roles-change")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " roles-change"<<params;
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("updateEmojiCustom")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " updateEmojiCustom"<<params;
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("deleteEmojiCustom")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " deleteEmojiCustom"<<params;
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("public-settings-changed")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " public-settings-changed"<<params;
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("permissions-changed")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " permissions-changed"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
 }
