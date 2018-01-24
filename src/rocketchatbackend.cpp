@@ -320,7 +320,6 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             roomId.remove(QStringLiteral("/deleteMessage"));
             MessageModel *messageModel = mRocketChatAccount->getMessageModelForRoom(roomId);
             messageModel->deleteMessage(contents.at(0).toObject()[QStringLiteral("_id")].toString());
-            //qDebug() << " message id " << contents.at(0).toObject()[QStringLiteral("_id")].toString();
         } else {
             qCWarning(RUQOLA_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
         }
