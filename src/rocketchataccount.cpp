@@ -408,9 +408,10 @@ void RocketChatAccount::changeDefaultStatus(int index)
     setDefaultStatus(mStatusModel->status(index));
 }
 
-void RocketChatAccount::loadEmoji()
+void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
     mEmojiList.clear();
+    //TODO parsing.
     //TODO
 }
 

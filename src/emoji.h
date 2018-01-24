@@ -21,10 +21,26 @@
 #ifndef EMOJI_H
 #define EMOJI_H
 
+#include <QString>
+
 class Emoji
 {
 public:
     Emoji();
+    void parseEmoji();
+    QString identifier() const;
+    void setIdentifier(const QString &identifier);
+
+    QString extension() const;
+    void setExtension(const QString &extension);
+
+    void setName(const QString &name);
+    QString name() const;
+
+private:
+    QString mIdentifier;
+    QString mExtension;
+    QString mName;
 };
 
 #endif // EMOJI_H

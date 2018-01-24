@@ -124,7 +124,7 @@ public:
     Q_INVOKABLE void starMessage(const QString &messageId, const QString &rid, bool starred);
     Q_INVOKABLE void uploadFile(const QString &description, const QUrl &fileUrl);
 
-    void loadEmoji();
+    void loadEmoji(const QJsonObject &obj);
     void parsePublicSettings(const QJsonObject &obj);
 
     RuqolaServerConfig *ruqolaServerConfig() const;

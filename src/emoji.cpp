@@ -23,3 +23,38 @@
 Emoji::Emoji()
 {
 }
+
+void Emoji::parseEmoji()
+{
+    //TODO
+}
+
+QString Emoji::identifier() const
+{
+    return mIdentifier;
+}
+
+void Emoji::setIdentifier(const QString &identifier)
+{
+    mIdentifier = identifier;
+}
+
+QString Emoji::extension() const
+{
+    return mExtension;
+}
+
+void Emoji::setExtension(const QString &extension)
+{
+    mExtension = extension;
+}
+
+void Emoji::setName(const QString &name)
+{
+    mName = name;
+}
+
+QString Emoji::name() const
+{
+    return mName;
+}
