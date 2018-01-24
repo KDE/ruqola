@@ -113,3 +113,16 @@ void UtilsTest::shouldExtractGenerateRichText()
     QFETCH(QString, output);
     QCOMPARE(Utils::generateRichText(input, {}), output);
 }
+
+void UtilsTest::shouldParseNotification()
+{
+
+}
+#if 0
+void Utils::parseNotification(const QJsonArray &contents, QString &message, QString &title)
+{
+    const QJsonObject obj = contents.at(0).toObject();
+    message = obj[QStringLiteral("text")].toString();
+    title = obj[QStringLiteral("title")].toString();
+}
+#endif

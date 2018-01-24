@@ -41,6 +41,8 @@ private Q_SLOTS:
 
     void shouldExtractGenerateRichText_data();
     void shouldExtractGenerateRichText();
+
+    void shouldParseNotification();
 };
 
 #endif // UTILSTEST_H
