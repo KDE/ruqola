@@ -7,6 +7,7 @@ find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 cmake_policy(SET CMP0063 NEW)
+cmake_policy(SET CMP0071 NEW)
 
 include(KDECompilerSettings)
 include(KDEInstallDirs)
