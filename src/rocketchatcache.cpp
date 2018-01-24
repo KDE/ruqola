@@ -140,12 +140,23 @@ QUrl RocketChatCache::generateDownloadFile(const QString &url)
     return downloadFileUrl;
 }
 
+QString RocketChatCache::avatarUrlFromCacheOnly(const QString &userId)
+{
+    const QString valueId = mUserAvatarUrl.value(userId);
+    if (!valueId.isEmpty() && fileInCache(QUrl::fromUserInput(valueId))) {
+        const QString url = QUrl::fromLocalFile(fileCachePath(QUrl::fromUserInput(valueId))).toString();
+        qCDebug(RUQOLA_LOG) << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
+        return url;
+    }
+    return {};
+}
+
 QString RocketChatCache::avatarUrl(const QString &userId)
 {
     //avoid to call this method several time.
     if (!mUserAvatarUrl.contains(userId)) {
-        downloadAvatarFromServer(userId);
         insertAvatarUrl(userId, QString());
+        downloadAvatarFromServer(userId);
         return {};
     } else {
         const QString valueId = mUserAvatarUrl.value(userId);

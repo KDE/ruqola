@@ -615,6 +615,11 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     QString title;
     QString sender;
     Utils::parseNotification(contents, message, title, sender);
-    QString iconFileName; //TODO
-    Q_EMIT notification(title, message, iconFileName);
+
+    const QString iconFileName = mCache->avatarUrlFromCacheOnly(sender);
+    QPixmap pix;
+    if (!iconFileName.isEmpty()) {
+        pix.load(iconFileName);
+    }
+    Q_EMIT notification(title, message, pix);
 }
