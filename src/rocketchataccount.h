@@ -156,6 +156,9 @@ public:
     Q_INVOKABLE QUrl attachmentUrl(const QString &url);
     Q_INVOKABLE void loadHistory(const QString &roomID, bool initial = false);
     Q_INVOKABLE bool allowEditingMessages() const;
+
+    void sendNotification(const QJsonArray &contents);
+
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();

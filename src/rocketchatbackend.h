@@ -43,9 +43,6 @@ public:
     */
     void processIncomingMessages(const QJsonArray &messages);
 
-Q_SIGNALS:
-    void notification(const QString &title, const QString &message);
-
 private:
     Q_DISABLE_COPY(RocketChatBackend)
     void onAdded(const QJsonObject &object);

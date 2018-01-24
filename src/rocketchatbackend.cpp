@@ -263,13 +263,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
             }
         } else if (eventname.endsWith(QLatin1String("/notification"))) {
-            const QJsonObject obj = contents.at(0).toObject();
-            const QString message = obj[QStringLiteral("text")].toString();
-            const QString title = obj[QStringLiteral("title")].toString();
-            //const QString sender = obj[QStringLiteral("sender")].toString();
-            //TODO add autotest for notification too
-            qDebug() << " contents" << contents;
-            Q_EMIT notification(title, message);
+            mRocketChatAccount->sendNotification(contents);
         } else if (eventname.endsWith(QLatin1String("/webrtc"))) {
             qCWarning(RUQOLA_LOG) << "stream-notify-user : WEBRTC ? " << eventname << " contents " << contents;
         } else if (eventname.endsWith(QLatin1String("/otr"))) {

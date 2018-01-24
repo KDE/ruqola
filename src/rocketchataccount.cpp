@@ -62,7 +62,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
 
     mRocketChatBackend = new RocketChatBackend(this, this);
-    connect(mRocketChatBackend, &RocketChatBackend::notification, this, &RocketChatAccount::notification);
 
     loadSettings();
 
@@ -607,4 +606,13 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
 bool RocketChatAccount::allowEditingMessages() const
 {
     return mRuqolaServerConfig->allowMessageEditing();
+}
+
+void RocketChatAccount::sendNotification(const QJsonArray &contents)
+{
+    qDebug() << "void RocketChatAccount::sendNotification(const QJsonArray &contents) " << contents;
+    const QJsonObject obj = contents.at(0).toObject();
+    const QString message = obj[QStringLiteral("text")].toString();
+    const QString title = obj[QStringLiteral("title")].toString();
+    Q_EMIT notification(title, message);
 }
