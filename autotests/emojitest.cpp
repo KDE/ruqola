@@ -20,6 +20,7 @@
 
 
 #include "emojitest.h"
+#include "emoji.h"
 #include <QTest>
 
 QTEST_MAIN(EmojiTest)
@@ -28,4 +29,26 @@ EmojiTest::EmojiTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void EmojiTest::shouldHaveDefaultValue()
+{
+    Emoji j;
+    QVERIFY(j.extension().isEmpty());
+    QVERIFY(j.identifier().isEmpty());
+    QVERIFY(j.name().isEmpty());
+}
+
+void EmojiTest::shouldAssignValue()
+{
+    Emoji j;
+    const QString ext{QStringLiteral("foo")};
+    const QString id{QStringLiteral("bla")};
+    const QString name{QStringLiteral("bli")};
+    j.setExtension(ext);
+    j.setName(name);
+    j.setIdentifier(id);
+    QCOMPARE(j.extension(), ext);
+    QCOMPARE(j.identifier(), id);
+    QCOMPARE(j.name(), name);
 }
