@@ -1,1 +1,24 @@
-{"_id":"rXXHjW6FPcje4oBgR","name":"foo","rid":"dBWXYy4nyBHn8Q7dv","sender":{"_id":"N8nfMD3sqiMqKBYMn","name":"Laurent","username":"laurent"},"type":"c"},"text":"text is sending","title":"title!"}}
+{
+    "collection": "stream-notify-user",
+    "fields": {
+        "args": [
+            {
+                "payload": {
+                    "_id": "yfitiEkpGyDAAJ6Eo",
+                    "rid": "tgrk5CZKgYGiSSqXpuKK39zoewTkdacidH",
+                    "sender": {
+                        "_id": "tgrk5CZKgYGiSSqXp",
+                        "name": "Laurent",
+                        "username": "laurent"
+                    },
+                    "type": "d"
+                },
+                "text": "pong",
+                "title": "title"
+            }
+        ],
+        "eventName": "uKK39zoewTkdacidH/notification"
+    },
+    "id": "id",
+    "msg": "changed"
+}

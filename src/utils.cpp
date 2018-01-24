@@ -118,11 +118,18 @@ User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
 
 void Utils::parseNotification(const QJsonArray &contents, QString &message, QString &title, QString &sender)
 {
-    const QJsonObject obj = contents.at(0).toObject();
+    QJsonObject obj = contents.at(0).toObject();
     message = obj[QStringLiteral("text")].toString();
     title = obj[QStringLiteral("title")].toString();
-    if (obj.contains(QStringLiteral("sender"))) {
-        QJsonObject senderObj = obj.value(QStringLiteral("sender")).toObject();
-        sender = senderObj[QStringLiteral("_id")].toString();
+    obj = obj.value(QStringLiteral("payload")).toObject();
+    if (!obj.isEmpty()) {
+        obj = obj.value(QStringLiteral("sender")).toObject();
+        if (!obj.isEmpty()) {
+            sender = obj.value(QStringLiteral("_id")).toString();
+        } else {
+            qCDebug(RUQOLA_LOG) << "Problem with notication json: missing sender";
+        }
+    } else {
+        qCDebug(RUQOLA_LOG) << "Problem with notication json: missing payload";
     }
 }

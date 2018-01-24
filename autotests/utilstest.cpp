@@ -123,7 +123,7 @@ void UtilsTest::shouldParseNotification_data()
     QTest::addColumn<QString>("title");
     QTest::addColumn<QString>("message");
     QTest::addColumn<QString>("sender");
-    QTest::newRow("notification1") << QStringLiteral("notification") << QStringLiteral("title") << QStringLiteral("message") << QStringLiteral("sender");
+    QTest::newRow("notification1") << QStringLiteral("notification") << QStringLiteral("title") << QStringLiteral("pong") << QStringLiteral("tgrk5CZKgYGiSSqXp");
 }
 
 void UtilsTest::shouldParseNotification()
@@ -138,8 +138,8 @@ void UtilsTest::shouldParseNotification()
     const QByteArray content = f.readAll();
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject obj = doc.object();
-    const QJsonArray contents = obj.value(QLatin1String("args")).toArray();
+    const QJsonObject fields = doc.object().value(QLatin1String("fields")).toObject();
+    const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
 
     QString parseTitle;
     QString parseMessage;
