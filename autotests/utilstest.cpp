@@ -123,7 +123,7 @@ void UtilsTest::shouldParseNotification_data()
     QTest::addColumn<QString>("title");
     QTest::addColumn<QString>("message");
     QTest::addColumn<QString>("sender");
-    QTest::newRow("notification1") << QStringLiteral("foo") << QStringLiteral("title") << QStringLiteral("message") << QStringLiteral("sender");
+    QTest::newRow("notification1") << QStringLiteral("notification") << QStringLiteral("title") << QStringLiteral("message") << QStringLiteral("sender");
 }
 
 void UtilsTest::shouldParseNotification()
