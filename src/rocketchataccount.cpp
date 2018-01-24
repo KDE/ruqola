@@ -611,8 +611,8 @@ bool RocketChatAccount::allowEditingMessages() const
 void RocketChatAccount::sendNotification(const QJsonArray &contents)
 {
     qDebug() << "void RocketChatAccount::sendNotification(const QJsonArray &contents) " << contents;
-    const QJsonObject obj = contents.at(0).toObject();
-    const QString message = obj[QStringLiteral("text")].toString();
-    const QString title = obj[QStringLiteral("title")].toString();
+    QString message;
+    QString title;
+    Utils::parseNotification(contents, message, title);
     Q_EMIT notification(title, message);
 }

@@ -20,6 +20,8 @@
 
 #include "utils.h"
 #include "ruqola_debug.h"
+#include <QJsonObject>
+#include <QJsonArray>
 #include <KTextToHTML>
 #include <qregularexpression.h>
 
@@ -111,4 +113,12 @@ User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
         qCDebug(RUQOLA_LOG) << "Problem with status " << status;
         return {};
     }
+}
+
+
+void Utils::parseNotification(const QJsonArray &contents, QString &message, QString &title)
+{
+    const QJsonObject obj = contents.at(0).toObject();
+    message = obj[QStringLiteral("text")].toString();
+    title = obj[QStringLiteral("title")].toString();
 }
