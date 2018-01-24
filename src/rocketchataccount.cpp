@@ -613,6 +613,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     qDebug() << "void RocketChatAccount::sendNotification(const QJsonArray &contents) " << contents;
     QString message;
     QString title;
-    Utils::parseNotification(contents, message, title);
+    QString sender;
+    Utils::parseNotification(contents, message, title, sender);
     Q_EMIT notification(title, message);
 }

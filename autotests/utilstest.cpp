@@ -20,6 +20,9 @@
 
 #include "utilstest.h"
 #include "utils.h"
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
 QTEST_MAIN(UtilsTest)
 
@@ -114,15 +117,36 @@ void UtilsTest::shouldExtractGenerateRichText()
     QCOMPARE(Utils::generateRichText(input, {}), output);
 }
 
+void UtilsTest::shouldParseNotification_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::addColumn<QString>("title");
+    QTest::addColumn<QString>("message");
+    QTest::addColumn<QString>("sender");
+    QTest::newRow("notification1") << QStringLiteral("foo") << QStringLiteral("title") << QStringLiteral("message") << QStringLiteral("sender");
+}
+
 void UtilsTest::shouldParseNotification()
 {
+    QFETCH(QString, fileName);
+    QFETCH(QString, title);
+    QFETCH(QString, message);
+    QFETCH(QString, sender);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + fileName + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    const QJsonArray contents = obj.value(QLatin1String("args")).toArray();
 
+    QString parseTitle;
+    QString parseMessage;
+    QString parseSender;
+
+    Utils::parseNotification(contents, parseMessage, parseTitle, parseSender);
+    QCOMPARE(parseMessage, message);
+    QCOMPARE(parseTitle, title);
+    QCOMPARE(parseSender, sender);
 }
-#if 0
-void Utils::parseNotification(const QJsonArray &contents, QString &message, QString &title)
-{
-    const QJsonObject obj = contents.at(0).toObject();
-    message = obj[QStringLiteral("text")].toString();
-    title = obj[QStringLiteral("title")].toString();
-}
-#endif
