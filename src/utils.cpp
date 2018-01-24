@@ -121,5 +121,8 @@ void Utils::parseNotification(const QJsonArray &contents, QString &message, QStr
     const QJsonObject obj = contents.at(0).toObject();
     message = obj[QStringLiteral("text")].toString();
     title = obj[QStringLiteral("title")].toString();
-    //TODO sender
+    if (obj.contains(QStringLiteral("sender"))) {
+        QJsonObject senderObj = obj.value(QStringLiteral("sender")).toObject();
+        sender = senderObj[QStringLiteral("_id")].toString();
+    }
 }
