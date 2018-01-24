@@ -615,5 +615,6 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     QString title;
     QString sender;
     Utils::parseNotification(contents, message, title, sender);
-    Q_EMIT notification(title, message);
+    QString iconFileName; //TODO
+    Q_EMIT notification(title, message, iconFileName);
 }

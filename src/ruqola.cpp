@@ -120,7 +120,7 @@ void Ruqola::setUserId(const QString &userID)
     mRocketChatAccount->setUserID(userID);
 }
 
-void Ruqola::sendNotification(const QString &title, const QString &message)
+void Ruqola::sendNotification(const QString &title, const QString &message, const QString &iconFilename)
 {
     KNotification::event(KNotification::Notification, title,
                          message,
