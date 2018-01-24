@@ -36,12 +36,7 @@ Authentication::Authentication()
 
 void Authentication::getDataFromJson()
 {
-    QDir cacheDir(QStringLiteral(":/"));
-    if (!cacheDir.exists(cacheDir.path())) {
-        cacheDir.mkpath(cacheDir.path());
-    }
-
-    QFile f(cacheDir.absoluteFilePath(QStringLiteral("client_secret.json")));
+    QFile f(QStringLiteral(":/client_secret.json"));
 
     QString val;
     if (f.open(QIODevice::ReadOnly | QIODevice::Text)) {
