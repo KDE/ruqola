@@ -22,12 +22,16 @@
 #define EMOJI_H
 
 #include <QString>
+#include "libruqola_private_export.h"
 
-class Emoji
+class LIBRUQOLACORE_TESTS_EXPORT Emoji
 {
 public:
     Emoji();
+    ~Emoji();
+
     void parseEmoji();
+
     QString identifier() const;
     void setIdentifier(const QString &identifier);
 

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017-2018 Montel Laurent <montel@kde.org>
+   Copyright (c) 2018 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,48 +18,14 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "emoji.h"
 
-Emoji::Emoji()
+#include "emojitest.h"
+#include <QTest>
+
+QTEST_MAIN(EmojiTest)
+
+EmojiTest::EmojiTest(QObject *parent)
+    : QObject(parent)
 {
-}
 
-Emoji::~Emoji()
-{
-
-}
-
-void Emoji::parseEmoji()
-{
-    //TODO
-}
-
-QString Emoji::identifier() const
-{
-    return mIdentifier;
-}
-
-void Emoji::setIdentifier(const QString &identifier)
-{
-    mIdentifier = identifier;
-}
-
-QString Emoji::extension() const
-{
-    return mExtension;
-}
-
-void Emoji::setExtension(const QString &extension)
-{
-    mExtension = extension;
-}
-
-void Emoji::setName(const QString &name)
-{
-    mName = name;
-}
-
-QString Emoji::name() const
-{
-    return mName;
 }
