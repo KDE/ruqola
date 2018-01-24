@@ -301,7 +301,6 @@ void RestApiRequest::getAvatar(const QString &userId)
         queryUrl.addQueryItem(QStringLiteral("userId"), userId);
         url.setQuery(queryUrl);
         QNetworkRequest request(url);
-        qDebug() << " url "<< url;
         QNetworkReply *reply = mNetworkAccessManager->get(request);
         reply->setProperty("method", QVariant::fromValue(RestMethod::GetAvatar));
         reply->setProperty("userId", userId);
