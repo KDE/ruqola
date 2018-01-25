@@ -20,6 +20,9 @@
 
 #include "emojimanager.h"
 
+#include <QJsonObject>
+#include "ruqola_debug.h"
+
 EmojiManager::EmojiManager(QObject *parent)
     : QObject(parent)
 {
@@ -29,4 +32,18 @@ EmojiManager::EmojiManager(QObject *parent)
 EmojiManager::~EmojiManager()
 {
 
+}
+
+void EmojiManager::loadEmoji(const QJsonObject &obj)
+{
+    mEmojiList.clear();
+    //qDebug() << " RocketChatAccount::loadEmoji"<<obj;
+    const QJsonArray result = obj.value(QLatin1String("result")).toArray();
+    for (int i = 0; i < result.size(); i++) {
+        const QJsonObject emojiJson = result.at(i).toObject();
+        Emoji emoji;
+        emoji.parseEmoji(emojiJson);
+        mEmojiList.append(emoji);
+        qDebug() << "emojiJson"<<emojiJson;
+    }
 }

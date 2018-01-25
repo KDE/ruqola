@@ -22,6 +22,7 @@
 #define EMOJIMANAGER_H
 
 #include <QObject>
+#include "emoji.h"
 #include "libruqola_private_export.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT EmojiManager : public QObject
@@ -30,6 +31,11 @@ class LIBRUQOLACORE_TESTS_EXPORT EmojiManager : public QObject
 public:
     explicit EmojiManager(QObject *parent = nullptr);
     ~EmojiManager();
+
+    void loadEmoji(const QJsonObject &obj);
+private:
+    //Use identifier in a QMap ???
+    QVector<Emoji> mEmojiList;
 };
 
 #endif // EMOJIMANAGER_H

@@ -25,7 +25,6 @@
 #include <ddpapi/ddpclient.h>
 #include "rocketchataccountsettings.h"
 #include "libruqola_private_export.h"
-#include "emoji.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -42,6 +41,7 @@ class RuqolaServerConfig;
 class UserCompleterModel;
 class StatusModel;
 class RocketChatCache;
+class EmojiManager;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -182,8 +182,8 @@ private:
     QHash<QString, MessageModel *> mMessageModels;
     QHash<QString, UsersForRoomModel *> mUsersForRoomModels;
     QHash<QString, QString> mUserCurrentMessage;
-    QVector<Emoji> mEmojiList;
 
+    EmojiManager *mEmojiManager = nullptr;
     TypingNotification *mTypingNotification = nullptr;
     UsersModel *mUserModel = nullptr;
     RoomModel *mRoomModel = nullptr;

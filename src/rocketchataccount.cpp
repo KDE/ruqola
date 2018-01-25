@@ -36,6 +36,7 @@
 #include "statusmodel.h"
 #include "utils.h"
 #include "rocketchatcache.h"
+#include "emojimanager.h"
 
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -65,6 +66,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     loadSettings();
 
+    mEmojiManager = new EmojiManager(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mUserCompleterModel = new UserCompleterModel(this);
     mStatusModel = new StatusModel(this);
@@ -410,16 +412,7 @@ void RocketChatAccount::changeDefaultStatus(int index)
 
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
-    mEmojiList.clear();
-    //qDebug() << " RocketChatAccount::loadEmoji"<<obj;
-    const QJsonArray result = obj.value(QLatin1String("result")).toArray();
-    for (int i = 0; i < result.size(); i++) {
-        QJsonObject emojiJson = result.at(i).toObject();
-        qDebug() << "emojiJson"<<emojiJson;
-    }
-
-    //TODO parsing.
-    //TODO
+    mEmojiManager->loadEmoji(obj);
 }
 
 void RocketChatAccount::deleteMessage(const QString &messageId)
@@ -625,9 +618,13 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     Utils::parseNotification(contents, message, title, sender);
 
     const QString iconFileName = mCache->avatarUrlFromCacheOnly(sender);
+    qDebug() << " iconFileName"<<iconFileName << " sender " << sender;
     QPixmap pix;
     if (!iconFileName.isEmpty()) {
-        pix.load(iconFileName);
+        const QUrl url = QUrl::fromLocalFile(iconFileName);
+        qDebug() << "url.toLocalFile()"<<url.toLocalFile();
+        pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
+        qDebug() << " pix " << pix.isNull();
     }
     Q_EMIT notification(title, message, pix);
 }
