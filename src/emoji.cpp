@@ -28,7 +28,6 @@ Emoji::Emoji()
 
 Emoji::~Emoji()
 {
-
 }
 
 void Emoji::parseEmoji(const QJsonObject &emoji)

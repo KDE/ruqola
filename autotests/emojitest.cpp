@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "emojitest.h"
 #include "emoji.h"
 #include <QJsonObject>
@@ -30,7 +29,6 @@ QTEST_GUILESS_MAIN(EmojiTest)
 EmojiTest::EmojiTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void EmojiTest::shouldHaveDefaultValue()
@@ -86,5 +84,4 @@ void EmojiTest::shouldParseEmoji()
         qDebug() << "ExpectedEmoji " << expectedEmoji;
     }
     QVERIFY(emojiIsEqual);
-
 }

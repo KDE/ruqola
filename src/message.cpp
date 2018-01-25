@@ -51,7 +51,7 @@ void Message::parseMessage(const QJsonObject &o)
     mGroupable = o.value(QLatin1String("groupable")).toBool();
     mParseUrls = o.value(QLatin1String("parseUrls")).toBool();
     if (o.contains(QLatin1String("starred"))) {
-         mStarred = !o.value(QStringLiteral("starred")).toArray().isEmpty();
+        mStarred = !o.value(QStringLiteral("starred")).toArray().isEmpty();
     } else {
         mStarred = false;
     }
@@ -184,24 +184,24 @@ void Message::parseAttachment(const QJsonArray &attachments)
 bool Message::operator==(const Message &other) const
 {
     return (mMessageId == other.messageId())
-            && (mRoomId == other.roomId())
-            && (mText == other.text())
-            && (mTimeStamp == other.timeStamp())
-            && (mUsername == other.username())
-            && (mUserId == other.userId())
-            && (mUpdatedAt == other.updatedAt())
-            && (mEditedAt == other.editedAt())
-            && (mEditedByUsername == other.editedByUsername())
-            && (mEditedByUserId == other.editedByUserId())
-            && (mAlias == other.alias())
-            && (mAvatar == other.avatar())
-            && (mSystemMessageType == other.systemMessageType())
-            && (mGroupable == other.groupable())
-            && (mParseUrls == other.parseUrls())
-            && (mUrls == other.urls())
-            && (mAttachements == other.attachements())
-            && (mMentions == other.mentions())
-            && (mStarred == other.starred());
+           && (mRoomId == other.roomId())
+           && (mText == other.text())
+           && (mTimeStamp == other.timeStamp())
+           && (mUsername == other.username())
+           && (mUserId == other.userId())
+           && (mUpdatedAt == other.updatedAt())
+           && (mEditedAt == other.editedAt())
+           && (mEditedByUsername == other.editedByUsername())
+           && (mEditedByUserId == other.editedByUserId())
+           && (mAlias == other.alias())
+           && (mAvatar == other.avatar())
+           && (mSystemMessageType == other.systemMessageType())
+           && (mGroupable == other.groupable())
+           && (mParseUrls == other.parseUrls())
+           && (mUrls == other.urls())
+           && (mAttachements == other.attachements())
+           && (mMentions == other.mentions())
+           && (mStarred == other.starred());
 }
 
 Message &Message::operator=(const Message &other)

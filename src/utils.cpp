@@ -115,7 +115,6 @@ User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
     }
 }
 
-
 void Utils::parseNotification(const QJsonArray &contents, QString &message, QString &title, QString &sender)
 {
     QJsonObject obj = contents.at(0).toObject();
