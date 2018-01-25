@@ -115,7 +115,8 @@ MessageModel::~MessageModel()
 QHash<int, QByteArray> MessageModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[MessageText] = "messageText";
+    roles[OriginalMessage] = "originalMessage";
+    roles[MessageConvertedText] = "messageConverted";
     roles[Username] = "username";
     roles[Timestamp] = "timestamp";
     roles[UserId] = "userID";
@@ -204,7 +205,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case MessageModel::Username:
         return mAllMessages.at(idx).username();
-    case MessageModel::MessageText:
+    case MessageModel::OriginalMessage:
+        return mAllMessages.at(idx).text();
+    case MessageModel::MessageConvertedText:
         return convertMessageText(mAllMessages.at(idx).text(), mAllMessages.at(idx).mentions());
     case MessageModel::Timestamp:
         return mAllMessages.at(idx).timeStamp();

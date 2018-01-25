@@ -38,6 +38,7 @@ Rectangle {
     id: messageMain
 
     property string i_messageID
+    property string i_originalMessage
     property string i_messageText
     property string i_username
     property bool i_systemMessage
@@ -107,6 +108,7 @@ Rectangle {
                 console.log(RuqolaDebugCategorySingleton.category, "User Message");
                 setSource("messages/UserMessage.qml",
                           {
+                              i_originalMessage: i_originalMessage,
                               i_messageText: i_messageText,
                               i_username: i_username,
                               i_aliasname: i_aliasname,

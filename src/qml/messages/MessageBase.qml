@@ -37,6 +37,7 @@ ColumnLayout {
     property string i_avatar
     property var i_timestamp
     property string i_messageText
+    property string i_originalMessage
     property var i_urls
     property var i_attachments
 

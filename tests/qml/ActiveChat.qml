@@ -46,7 +46,7 @@ ListView {
 
     delegate: FancyMessageDelegate {
         width: parent.width
-        i_messageText: messageText
+        i_messageText: messageConverted
         i_username: username
         i_aliasname: alias
         i_systemMessageType: type

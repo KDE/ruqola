@@ -57,7 +57,8 @@ ListView {
         anchors.rightMargin: Kirigami.Units.largeSpacing
         anchors.leftMargin: Kirigami.Units.largeSpacing
 
-        i_messageText: messageText
+        i_originalMessage: originalMessage
+        i_messageText: messageConverted
         i_username: username
         i_aliasname: alias
         i_systemMessageType: type

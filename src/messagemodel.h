@@ -39,7 +39,8 @@ class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
 public:
     enum MessageRoles {
         Username = Qt::UserRole + 1,
-        MessageText,
+        OriginalMessage,
+        MessageConvertedText,
         Timestamp,
         UserId,
         SystemMessageType,
