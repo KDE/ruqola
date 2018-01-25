@@ -62,8 +62,10 @@ QString Utils::markdownToRichText(const QString &markDown)
 
 QString Utils::generateRichText(const QString &str, const QMap<QString, QString> &mentions)
 {
+    //Not using mentions for the moment.
+    Q_UNUSED(mentions)
     QString newStr = Utils::markdownToRichText(str);
-    static const QRegularExpression regularExpressionUser(QStringLiteral("@([\\w.]+)"));
+    static const QRegularExpression regularExpressionUser(QStringLiteral("@([\\w._-]+)"));
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
@@ -71,7 +73,7 @@ QString Utils::generateRichText(const QString &str, const QMap<QString, QString>
         newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
     }
 
-    static const QRegularExpression regularExpressionRoom(QStringLiteral("#([\\w.]+)"));
+    static const QRegularExpression regularExpressionRoom(QStringLiteral("#([\\w._-]+)"));
     QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
     while (roomIterator.hasNext()) {
         const QRegularExpressionMatch match = roomIterator.next();
