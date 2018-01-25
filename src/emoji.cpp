@@ -69,3 +69,24 @@ QString Emoji::name() const
 {
     return mName;
 }
+
+bool Emoji::operator==(const Emoji &other) const
+{
+    return (mName == other.name()) && (mExtension == other.extension()) && (mIdentifier == other.identifier());
+}
+
+Emoji &Emoji::operator=(const Emoji &other)
+{
+    mName = other.name();
+    mExtension = other.extension();
+    mIdentifier = other.identifier();
+    return *this;
+}
+
+QDebug operator <<(QDebug d, const Emoji &t)
+{
+    d << "Name: " << t.name();
+    d << "Identifier: " << t.identifier();
+    d << "extension: " << t.extension();
+    return d;
+}
