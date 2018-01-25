@@ -50,7 +50,7 @@ void Message::parseMessage(const QJsonObject &o)
     mAvatar = o.value(QLatin1String("avatar")).toString();
     mGroupable = o.value(QLatin1String("groupable")).toBool();
     mParseUrls = o.value(QLatin1String("parseUrls")).toBool();
-    if (o.contains(QStringLiteral("starred"))) {
+    if (o.contains(QLatin1String("starred"))) {
          mStarred = !o.value(QStringLiteral("starred")).toArray().isEmpty();
     } else {
         mStarred = false;
@@ -145,16 +145,16 @@ void Message::parseAttachment(const QJsonArray &attachments)
                 messageAttachement.setTitle(title.toString());
             }
 
-            if (attachment.contains(QStringLiteral("audio_url"))) {
+            if (attachment.contains(QLatin1String("audio_url"))) {
                 messageAttachement.setLink(attachment.value(QLatin1String("audio_url")).toString());
                 mMessageType = Message::MessageType::Audio;
-            } else if (attachment.contains(QStringLiteral("video_url"))) {
+            } else if (attachment.contains(QLatin1String("video_url"))) {
                 messageAttachement.setLink(attachment.value(QLatin1String("video_url")).toString());
                 mMessageType = Message::MessageType::Video;
-            } else if (attachment.contains(QStringLiteral("image_url"))) {
+            } else if (attachment.contains(QLatin1String("image_url"))) {
                 messageAttachement.setLink(attachment.value(QLatin1String("image_url")).toString());
                 mMessageType = Message::MessageType::Image;
-            } else if (attachment.contains(QStringLiteral("title_link"))) { //Last as an image_url can have a title_link
+            } else if (attachment.contains(QLatin1String("title_link"))) { //Last as an image_url can have a title_link
                 messageAttachement.setLink(attachment.value(QLatin1String("title_link")).toString());
                 mMessageType = Message::MessageType::File;
             }

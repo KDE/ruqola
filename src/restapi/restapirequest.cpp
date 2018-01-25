@@ -81,10 +81,10 @@ void RestApiRequest::parseLogin(const QByteArray &data)
     const QJsonDocument replyJson = QJsonDocument::fromJson(data);
     const QJsonObject replyObject = replyJson.object();
 
-    if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success") && replyObject.contains(QStringLiteral("data"))) {
+    if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success") && replyObject.contains(QLatin1String("data"))) {
         QJsonObject data = replyObject[QStringLiteral("data")].toObject();
 
-        if (data.contains(QStringLiteral("authToken")) && data.contains(QStringLiteral("userId"))) {
+        if (data.contains(QLatin1String("authToken")) && data.contains(QLatin1String("userId"))) {
             mAuthToken = data[QStringLiteral("authToken")].toString();
             mUserId = data[QStringLiteral("userId")].toString();
         }
