@@ -21,7 +21,7 @@
 #include "textconverter.h"
 #include <QTest>
 
-QTEST_MAIN(TextConverterTest)
+QTEST_GUILESS_MAIN(TextConverterTest)
 
 TextConverterTest::TextConverterTest(QObject *parent)
     : QObject(parent)

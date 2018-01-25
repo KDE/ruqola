@@ -22,7 +22,7 @@
 #include "messageattachment.h"
 #include <QJsonObject>
 #include <QTest>
-QTEST_MAIN(MessageAttachmentTest)
+QTEST_GUILESS_MAIN(MessageAttachmentTest)
 
 MessageAttachmentTest::MessageAttachmentTest(QObject *parent)
     : QObject(parent)

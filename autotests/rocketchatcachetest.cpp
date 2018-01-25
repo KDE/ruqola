@@ -19,10 +19,10 @@
 */
 
 #include "rocketchatcachetest.h"
-
+#include "rocketchatcache.h"
 #include <QTest>
 
-QTEST_MAIN(RocketChatCacheTest)
+QTEST_GUILESS_MAIN(RocketChatCacheTest)
 
 RocketChatCacheTest::RocketChatCacheTest(QObject *parent)
     : QObject(parent)

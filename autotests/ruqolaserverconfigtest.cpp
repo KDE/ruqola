@@ -23,7 +23,7 @@
 
 #include <QTest>
 
-QTEST_MAIN(RuqolaServerConfigTest)
+QTEST_GUILESS_MAIN(RuqolaServerConfigTest)
 
 RuqolaServerConfigTest::RuqolaServerConfigTest(QObject *parent)
     : QObject(parent)

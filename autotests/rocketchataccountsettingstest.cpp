@@ -24,7 +24,7 @@
 #include <QSignalSpy>
 #include <QStandardPaths>
 
-QTEST_MAIN(RocketChatAccountSettingsTest)
+QTEST_GUILESS_MAIN(RocketChatAccountSettingsTest)
 
 RocketChatAccountSettingsTest::RocketChatAccountSettingsTest(QObject *parent)
     : QObject(parent)

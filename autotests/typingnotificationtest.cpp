@@ -24,7 +24,7 @@
 #include <QSignalSpy>
 
 #include <QTest>
-QTEST_MAIN(TypingNotificationTest)
+QTEST_GUILESS_MAIN(TypingNotificationTest)
 
 extern LIBRUQOLACORE_TESTS_EXPORT int timerTimeOutValueMs;
 

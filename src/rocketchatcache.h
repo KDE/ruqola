@@ -21,7 +21,9 @@
 #ifndef ROCKETCHATCACHE_H
 #define ROCKETCHATCACHE_H
 
+#include <QHash>
 #include <QObject>
+#include <QSet>
 #include "libruqola_private_export.h"
 class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatCache : public QObject
