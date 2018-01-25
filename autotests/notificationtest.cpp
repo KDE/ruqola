@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "notificationtest.h"
 #include "notification.h"
 #include <QTest>
@@ -27,7 +26,6 @@ QTEST_MAIN(NotificationTest)
 NotificationTest::NotificationTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void NotificationTest::shouldHaveDefaultValue()
@@ -56,5 +54,4 @@ void NotificationTest::shouldChangeStatus()
     QCOMPARE(w.status(), KStatusNotifierItem::Active);
     w.updateNotification(false, 0, QStringLiteral("Bla"));
     QCOMPARE(w.status(), KStatusNotifierItem::Passive);
-
 }

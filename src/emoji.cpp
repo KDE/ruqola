@@ -20,6 +20,72 @@
 
 #include "emoji.h"
 
+#include <QJsonObject>
+
 Emoji::Emoji()
 {
+}
+
+Emoji::~Emoji()
+{
+}
+
+void Emoji::parseEmoji(const QJsonObject &emoji)
+{
+    mIdentifier = emoji.value(QLatin1String("_id")).toString();
+    mExtension = emoji.value(QLatin1String("extension")).toString();
+    mName = emoji.value(QLatin1String("name")).toString();
+
+    //TODO add alias ? updated ?
+}
+
+QString Emoji::identifier() const
+{
+    return mIdentifier;
+}
+
+void Emoji::setIdentifier(const QString &identifier)
+{
+    mIdentifier = identifier;
+}
+
+QString Emoji::extension() const
+{
+    return mExtension;
+}
+
+void Emoji::setExtension(const QString &extension)
+{
+    mExtension = extension;
+}
+
+void Emoji::setName(const QString &name)
+{
+    mName = name;
+}
+
+QString Emoji::name() const
+{
+    return mName;
+}
+
+bool Emoji::operator==(const Emoji &other) const
+{
+    return (mName == other.name()) && (mExtension == other.extension()) && (mIdentifier == other.identifier());
+}
+
+Emoji &Emoji::operator=(const Emoji &other)
+{
+    mName = other.name();
+    mExtension = other.extension();
+    mIdentifier = other.identifier();
+    return *this;
+}
+
+QDebug operator <<(QDebug d, const Emoji &t)
+{
+    d << "Name: " << t.name();
+    d << "Identifier: " << t.identifier();
+    d << "extension: " << t.extension();
+    return d;
 }

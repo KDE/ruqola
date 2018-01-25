@@ -58,22 +58,27 @@ QString QmlAboutData::title() const
 QString QmlAboutData::about() const
 {
     //Set up the first page...
-    QString aboutPageText = mAboutData.shortDescription() + QLatin1Char('\n');
+    QString aboutPageText = mAboutData.shortDescription() + QStringLiteral("<br>");
 
     const QString other = mAboutData.otherText();
     if (!other.isEmpty()) {
-        aboutPageText += QLatin1Char('\n') + other + QLatin1Char('\n');
+        aboutPageText += QStringLiteral("<br>") + other + QStringLiteral("<br>");
     }
 
     const QString copyrightStatement = mAboutData.copyrightStatement();
     if (!copyrightStatement.isEmpty()) {
-        aboutPageText += QLatin1Char('\n') + copyrightStatement + QLatin1Char('\n');
+        aboutPageText += QStringLiteral("<br>") + copyrightStatement + QStringLiteral("<br>");
     }
 
     const QString homepage = mAboutData.homepage();
     if (!homepage.isEmpty()) {
-        aboutPageText += QLatin1Char('\n') + QStringLiteral("<a href=\"%1\">%1</a>").arg(homepage) + QLatin1Char('\n');
+        aboutPageText += QStringLiteral("<br>") + QStringLiteral("<a href=\"%1\">%1</a>").arg(homepage) + QStringLiteral("<br>");
     }
+    const QString bugReportPage = mAboutData.bugAddress();
+    if (!bugReportPage.isEmpty()) {
+        aboutPageText += QStringLiteral("<br>") + i18n("KDE has a bug tracking system. Visit <a href=\"%1\">%1</a>", bugReportPage) + QStringLiteral("<br>");
+    }
+
     aboutPageText = aboutPageText.trimmed();
     return aboutPageText;
 }

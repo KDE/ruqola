@@ -21,7 +21,9 @@
 #ifndef ROCKETCHATCACHE_H
 #define ROCKETCHATCACHE_H
 
+#include <QHash>
 #include <QObject>
+#include <QSet>
 #include "libruqola_private_export.h"
 class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatCache : public QObject
@@ -40,6 +42,7 @@ public:
 
     QUrl attachmentUrl(const QString &url);
     void downloadFile(const QString &url, const QUrl &localFile);
+    QString avatarUrlFromCacheOnly(const QString &userId);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 

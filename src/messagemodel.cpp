@@ -115,7 +115,8 @@ MessageModel::~MessageModel()
 QHash<int, QByteArray> MessageModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[MessageText] = "messageText";
+    roles[OriginalMessage] = "originalMessage";
+    roles[MessageConvertedText] = "messageConverted";
     roles[Username] = "username";
     roles[Timestamp] = "timestamp";
     roles[UserId] = "userID";
@@ -134,6 +135,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Urls] = "urls";
     roles[Date] = "date";
     roles[CanEditingMessage] = "canEditingMessage";
+    roles[Starred] = "starred";
 
     return roles;
 }
@@ -164,14 +166,27 @@ void MessageModel::addMessage(const Message &message)
     //When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
         (*mAllMessages.begin()) = message;
-        const QModelIndex index = createIndex(0, 0);
+        //const QModelIndex index = createIndex(0, 0);
         qCDebug(RUQOLA_LOG) << "Update Message";
-        Q_EMIT dataChanged(index, index);
+        //Q_EMIT dataChanged(index, index);
+
+        //For the moment !!!! It's not optimal but Q_EMIT dataChanged(index, index); doesn't work
+        beginRemoveRows(QModelIndex(), 0, 0);
+        endRemoveRows();
+
+        beginInsertRows(QModelIndex(), 0, 0);
+        endInsertRows();
     } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
         qCDebug(RUQOLA_LOG) << "Update Message";
         (*(it-1)) = message;
-        const QModelIndex index = createIndex(it - 1 - mAllMessages.begin(), 0);
-        Q_EMIT dataChanged(index, index);
+        //const QModelIndex index = createIndex(it - 1 - mAllMessages.begin(), 0);
+        //For the moment !!!! It's not optimal but Q_EMIT dataChanged(index, index); doesn't work
+        beginRemoveRows(QModelIndex(), it - 1 - mAllMessages.begin(), it - 1 - mAllMessages.begin());
+        endRemoveRows();
+
+        beginInsertRows(QModelIndex(), it - 1 - mAllMessages.begin(), it - 1 - mAllMessages.begin());
+        endInsertRows();
+        //Q_EMIT dataChanged(index, index);
     } else {
         const int pos = it - mAllMessages.begin();
         beginInsertRows(QModelIndex(), pos, pos);
@@ -190,7 +205,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case MessageModel::Username:
         return mAllMessages.at(idx).username();
-    case MessageModel::MessageText:
+    case MessageModel::OriginalMessage:
+        return mAllMessages.at(idx).text();
+    case MessageModel::MessageConvertedText:
         return convertMessageText(mAllMessages.at(idx).text(), mAllMessages.at(idx).mentions());
     case MessageModel::Timestamp:
         return mAllMessages.at(idx).timeStamp();
@@ -241,6 +258,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return QString();
     case MessageModel::CanEditingMessage:
         return (mAllMessages.at(idx).timeStamp() + mRocketChatAccount->ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000) > QDateTime::currentMSecsSinceEpoch();
+    case MessageModel::Starred:
+        return mAllMessages.at(idx).starred();
     }
     return QString();
 }

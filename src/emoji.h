@@ -21,10 +21,40 @@
 #ifndef EMOJI_H
 #define EMOJI_H
 
-class Emoji
+#include <QJsonArray>
+#include <QString>
+#include <QObject>
+#include <QDebug>
+#include "libruqola_private_export.h"
+
+class LIBRUQOLACORE_TESTS_EXPORT Emoji
 {
+    Q_GADGET
 public:
     Emoji();
+    ~Emoji();
+
+    void parseEmoji(const QJsonObject &emoji);
+
+    QString identifier() const;
+    void setIdentifier(const QString &identifier);
+
+    QString extension() const;
+    void setExtension(const QString &extension);
+
+    void setName(const QString &name);
+    QString name() const;
+
+    bool operator==(const Emoji &other) const;
+
+    Emoji &operator=(const Emoji &other);
+
+private:
+    QString mIdentifier;
+    QString mExtension;
+    QString mName;
 };
+Q_DECLARE_METATYPE(Emoji)
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Emoji &t);
 
 #endif // EMOJI_H

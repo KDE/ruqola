@@ -36,6 +36,7 @@
 #include "statusmodel.h"
 #include "utils.h"
 #include "rocketchatcache.h"
+#include "emojimanager.h"
 
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -62,10 +63,10 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
 
     mRocketChatBackend = new RocketChatBackend(this, this);
-    connect(mRocketChatBackend, &RocketChatBackend::notification, this, &RocketChatAccount::notification);
 
     loadSettings();
 
+    mEmojiManager = new EmojiManager(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mUserCompleterModel = new UserCompleterModel(this);
     mStatusModel = new StatusModel(this);
@@ -409,10 +410,9 @@ void RocketChatAccount::changeDefaultStatus(int index)
     setDefaultStatus(mStatusModel->status(index));
 }
 
-void RocketChatAccount::loadEmoji()
+void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
-    mEmojiList.clear();
-    //TODO
+    mEmojiManager->loadEmoji(obj);
 }
 
 void RocketChatAccount::deleteMessage(const QString &messageId)
@@ -607,4 +607,24 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
 bool RocketChatAccount::allowEditingMessages() const
 {
     return mRuqolaServerConfig->allowMessageEditing();
+}
+
+void RocketChatAccount::sendNotification(const QJsonArray &contents)
+{
+    qDebug() << "void RocketChatAccount::sendNotification(const QJsonArray &contents) " << contents;
+    QString message;
+    QString title;
+    QString sender;
+    Utils::parseNotification(contents, message, title, sender);
+
+    const QString iconFileName = mCache->avatarUrlFromCacheOnly(sender);
+    qDebug() << " iconFileName"<<iconFileName << " sender " << sender;
+    QPixmap pix;
+    if (!iconFileName.isEmpty()) {
+        const QUrl url = QUrl::fromLocalFile(iconFileName);
+        qDebug() << "url.toLocalFile()"<<url.toLocalFile();
+        pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
+        qDebug() << " pix " << pix.isNull();
+    }
+    Q_EMIT notification(title, message, pix);
 }

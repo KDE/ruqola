@@ -25,7 +25,6 @@
 #include <ddpapi/ddpclient.h>
 #include "rocketchataccountsettings.h"
 #include "libruqola_private_export.h"
-#include "emoji.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -42,6 +41,7 @@ class RuqolaServerConfig;
 class UserCompleterModel;
 class StatusModel;
 class RocketChatCache;
+class EmojiManager;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -124,7 +124,7 @@ public:
     Q_INVOKABLE void starMessage(const QString &messageId, const QString &rid, bool starred);
     Q_INVOKABLE void uploadFile(const QString &description, const QUrl &fileUrl);
 
-    void loadEmoji();
+    void loadEmoji(const QJsonObject &obj);
     void parsePublicSettings(const QJsonObject &obj);
 
     RuqolaServerConfig *ruqolaServerConfig() const;
@@ -156,6 +156,9 @@ public:
     Q_INVOKABLE QUrl attachmentUrl(const QString &url);
     Q_INVOKABLE void loadHistory(const QString &roomID, bool initial = false);
     Q_INVOKABLE bool allowEditingMessages() const;
+
+    void sendNotification(const QJsonArray &contents);
+
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();
@@ -164,7 +167,7 @@ Q_SIGNALS:
     void loginStatusChanged();
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
-    void notification(const QString &title, const QString &message);
+    void notification(const QString &title, const QString &message, const QPixmap &pixmap);
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
 
@@ -179,8 +182,8 @@ private:
     QHash<QString, MessageModel *> mMessageModels;
     QHash<QString, UsersForRoomModel *> mUsersForRoomModels;
     QHash<QString, QString> mUserCurrentMessage;
-    QVector<Emoji> mEmojiList;
 
+    EmojiManager *mEmojiManager = nullptr;
     TypingNotification *mTypingNotification = nullptr;
     UsersModel *mUserModel = nullptr;
     RoomModel *mRoomModel = nullptr;
@@ -195,6 +198,5 @@ private:
     StatusModel *mStatusModel = nullptr;
     RocketChatCache *mCache = nullptr;
 };
-
 
 #endif // ROCKETCHATACCOUNT_H

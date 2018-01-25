@@ -25,9 +25,9 @@ ColumnLayout {
     signal linkActivated(string link)
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
-    signal editMessage(string messageId)
+    signal editMessage(string messageId, string messageStr)
     signal replyMessage(string messageId)
-    signal setFavoriteMessage(string messageId)
+    signal setFavoriteMessage(string messageId, bool starred)
     signal downloadAttachment(string url)
     signal displayImage(url imageUrl, string title)
 
@@ -37,6 +37,7 @@ ColumnLayout {
     property string i_avatar
     property var i_timestamp
     property string i_messageText
+    property string i_originalMessage
     property var i_urls
     property var i_attachments
 

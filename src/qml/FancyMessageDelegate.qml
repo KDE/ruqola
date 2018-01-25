@@ -38,6 +38,7 @@ Rectangle {
     id: messageMain
 
     property string i_messageID
+    property string i_originalMessage
     property string i_messageText
     property string i_username
     property bool i_systemMessage
@@ -51,6 +52,7 @@ Rectangle {
     property string i_date
     property string i_own_username
     property bool i_can_editing_message
+    property bool i_starred
 
     color: RuqolaSingleton.backgroundColor
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
@@ -61,9 +63,9 @@ Rectangle {
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
     signal downloadAttachment(string url)
-    signal editMessage(string messageId)
+    signal editMessage(string messageId, string messageStr)
     signal replyMessage(string messageId)
-    signal setFavoriteMessage(string messageId)
+    signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title)
 
     Loader {
@@ -106,6 +108,7 @@ Rectangle {
                 console.log(RuqolaDebugCategorySingleton.category, "User Message");
                 setSource("messages/UserMessage.qml",
                           {
+                              i_originalMessage: i_originalMessage,
                               i_messageText: i_messageText,
                               i_username: i_username,
                               i_aliasname: i_aliasname,
@@ -117,7 +120,9 @@ Rectangle {
                               i_date: i_date,
                               i_own_username: i_own_username,
                               rcAccount: appid.rocketChatAccount,
-                              i_can_editing_message: i_can_editing_message
+                              i_can_editing_message: i_can_editing_message,
+                              i_starred: i_starred
+
                           }
                           )
             } else if (i_messageType === Message.Audio) {
@@ -192,13 +197,14 @@ Rectangle {
             messageMain.downloadAttachment(url)
         }
         onEditMessage: {
-            messageMain.editMessage(messageId)
+            console.log("i_messageText " + i_messageText);
+            messageMain.editMessage(messageId, messageStr)
         }
         onReplyMessage: {
             messageMain.replyMessage(messageId)
         }
         onSetFavoriteMessage: {
-            messageMain.setFavoriteMessage(messageId)
+            messageMain.setFavoriteMessage(messageId, starred)
         }
         onDisplayImage: {
             messageMain.displayImage(imageUrl, title)

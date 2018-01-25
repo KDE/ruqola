@@ -27,6 +27,12 @@ import KDE.Ruqola.DebugCategory 1.0
 QQC2.Menu {
     id: menu
     property bool can_editing_message
+    property bool starred
+
+    function updateFavoriteLabelText()
+    {
+        return (i_starred === true) ? i18n("Remove as Favorite") : i18n("Set as Favorite")
+    }
 
     QQC2.MenuItem {
         id: editMessageItem
@@ -34,8 +40,8 @@ QQC2.Menu {
             text: i18n("Edit")
         }
         onTriggered: {
-            messageMain.editMessage(i_messageID);
-            console.log(RuqolaDebugCategorySingleton.category, "Edit", i_messageID, i_messageText);
+            messageMain.editMessage(i_messageID, i_originalMessage);
+            console.log(RuqolaDebugCategorySingleton.category, "Edit", i_messageID, i_originalMessage);
             console.log(RuqolaDebugCategorySingleton.category, "User", i_own_username, i_username);
         }
     }
@@ -50,11 +56,12 @@ QQC2.Menu {
     }
     QQC2.MenuItem {
         contentItem: QQC2.Label {
-            text: i18n("Set as Favorite")
+            id: favoriteLabel
+            text: updateFavoriteLabelText()
         }
         onTriggered: {
             console.log(RuqolaDebugCategorySingleton.category, "Set as favorite", i_messageID);
-            messageMain.setFavoriteMessage(i_messageID);
+            messageMain.setFavoriteMessage(i_messageID, !starred);
         }
     }
     QQC2.MenuItem {
@@ -68,5 +75,6 @@ QQC2.Menu {
     }
     onAboutToShow: {
         editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
+        favoriteLabel.text = updateFavoriteLabelText()
     }
 }

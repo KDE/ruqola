@@ -31,9 +31,9 @@ ListView {
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
     signal downloadAttachment(string url)
-    signal editMessage(string messageId)
+    signal editMessage(string messageId, string messageStr)
     signal replyMessage(string messageId)
-    signal setFavoriteMessage(string messageId)
+    signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title)
 
     property QtObject rcAccount
@@ -57,7 +57,8 @@ ListView {
         anchors.rightMargin: Kirigami.Units.largeSpacing
         anchors.leftMargin: Kirigami.Units.largeSpacing
 
-        i_messageText: messageText
+        i_originalMessage: originalMessage
+        i_messageText: messageConverted
         i_username: username
         i_aliasname: alias
         i_systemMessageType: type
@@ -70,6 +71,8 @@ ListView {
         i_date: date
         i_own_username: rcAccount.userName
         i_can_editing_message: canEditingMessage
+        i_starred: starred
+
         onOpenDirectChannel: {
             activeChat.openDirectChannel(userName)
         }
@@ -83,13 +86,13 @@ ListView {
             activeChat.downloadAttachment(url)
         }
         onEditMessage: {
-            activeChat.editMessage(messageId)
+            activeChat.editMessage(messageId, messageStr)
         }
         onReplyMessage: {
             activeChat.replyMessage(messageId)
         }
         onSetFavoriteMessage: {
-            activeChat.setFavoriteMessage(messageId)
+            activeChat.setFavoriteMessage(messageId, starred)
         }
         onDisplayImage: {
             activeChat.displayImage(imageUrl, title)

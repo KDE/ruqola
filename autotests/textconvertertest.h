@@ -28,6 +28,9 @@ class TextConverterTest : public QObject
 public:
     explicit TextConverterTest(QObject *parent = nullptr);
     ~TextConverterTest() = default;
+private Q_SLOTS:
+    void shouldConvertText_data();
+    void shouldConvertText();
 };
 
 #endif // TEXTCONVERTERTEST_H

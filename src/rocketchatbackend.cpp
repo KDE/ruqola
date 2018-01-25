@@ -203,6 +203,9 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
         qCDebug(RUQOLA_LOG) << "NEW ROOMS ADDED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {
         qCDebug(RUQOLA_LOG) << "stream-notify-user: " << object;
+    } else if (collection == QLatin1String("stream-notify-all")) {
+        qCDebug(RUQOLA_LOG) << "stream-notify-user: " << object;
+        //TODO verify that all is ok !
     }
 }
 
@@ -260,11 +263,41 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
             }
         } else if (eventname.endsWith(QLatin1String("/notification"))) {
-            const QString message = contents.at(0).toObject()[QStringLiteral("text")].toString();
-            const QString title = contents.at(0).toObject()[QStringLiteral("title")].toString();
-            Q_EMIT notification(title, message);
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: notification:") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
+            }
+            mRocketChatAccount->sendNotification(contents);
+        } else if (eventname.endsWith(QLatin1String("/webrtc"))) {
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: webrtc: ") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
+            }
+            qCWarning(RUQOLA_LOG) << "stream-notify-user : WEBRTC ? " << eventname << " contents " << contents;
+        } else if (eventname.endsWith(QLatin1String("/otr"))) {
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: otr: ") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
+            }
+            qCWarning(RUQOLA_LOG) << "stream-notify-user : OTR ? " << eventname << " contents " << contents;
         } else {
-            qCWarning(RUQOLA_LOG) << "stream-notify-user : Unknown event ? " << eventname;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: Unknown event: ") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
+            }
+            qCWarning(RUQOLA_LOG) << "stream-notify-user : Unknown event ? " << eventname << " contents " << contents;
         }
     } else if (collection == QLatin1String("stream-notify-room")) {
         qCDebug(RUQOLA_LOG) << " stream-notify-room " << collection << " object "<<object;
@@ -287,7 +320,6 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             roomId.remove(QStringLiteral("/deleteMessage"));
             MessageModel *messageModel = mRocketChatAccount->getMessageModelForRoom(roomId);
             messageModel->deleteMessage(contents.at(0).toObject()[QStringLiteral("_id")].toString());
-            //qDebug() << " message id " << contents.at(0).toObject()[QStringLiteral("_id")].toString();
         } else {
             qCWarning(RUQOLA_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
         }
@@ -343,17 +375,65 @@ void RocketChatBackend::onUserIDChanged()
         params.append(QJsonValue(params));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("activeUsers"), params);
     }
-    //TODO stream-notify-all ?
+    //stream-notify-all
     {
-        QJsonArray params;
-        //TODO
-        /*
-        "params":[
-              "updateAvatar",
-              false
-          ]
-        */
-        params.append(QJsonValue(params));
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("updateAvatar")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " updateAvatar"<<params;
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("roles-change")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " roles-change"<<params;
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("updateEmojiCustom")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " updateEmojiCustom"<<params;
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("deleteEmojiCustom")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " deleteEmojiCustom"<<params;
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("public-settings-changed")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " public-settings-changed"<<params;
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("permissions-changed")), {
+                true
+            }
+        };
+        //params.append(QJsonValue(params));
+        qDebug() << " permissions-changed"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
 }

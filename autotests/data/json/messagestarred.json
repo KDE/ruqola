@@ -1,0 +1,33 @@
+{
+    "_id": "R6AkSJ7orEkYHNcZJ",
+    "_updatedAt": {
+        "$date": 1516721464681
+    },
+    "alias": "Laurent",
+    "channels": [
+    ],
+    "editedAt": {
+        "$date": 1516712012309
+    },
+    "editedBy": {
+        "_id": "uKK39zoewTkdacidH",
+        "username": "laurent"
+    },
+    "mentions": [
+    ],
+    "msg": "sefssssdfsefdsdfsd",
+    "rid": "kGtPa6bu7xHrS5xz6",
+    "starred": [
+        {
+            "_id": "uKK39zoewTkdacidH"
+        }
+    ],
+    "ts": {
+        "$date": 1516711967347
+    },
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "name": "Laurent",
+        "username": "laurent"
+    }
+}

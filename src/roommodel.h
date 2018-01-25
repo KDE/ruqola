@@ -70,7 +70,6 @@ public:
     */
     Q_INVOKABLE void addRoom(const QString &roomID, const QString &roomName, bool selected = false);
 
-
     void updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement, bool readOnly);
 
     /**
@@ -98,7 +97,6 @@ public:
     void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread);
 protected:
     QHash<int, QByteArray> roleNames() const override;
-
 
 Q_SIGNALS:
     void needToUpdateNotification();

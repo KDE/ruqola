@@ -26,8 +26,6 @@
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 
-#define USE_SYNTAXHIGHLIGHTING 1
-
 TextConverter::TextConverter()
 {
     mDef = mRepo.definitionForName(QStringLiteral("C++"));
@@ -41,7 +39,6 @@ TextConverter::TextConverter()
 QString TextConverter::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const
 {
     //TODO improve it. Add autotest.
-#ifdef USE_SYNTAXHIGHLIGHTING
     if (mSyntaxHighlightingInitialized && str.startsWith(QLatin1String("```")) && str.endsWith(QLatin1String("```"))) {
         QString e = str;
         e = e.remove(QLatin1String("```"));
@@ -56,6 +53,5 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
         highLighter.highlight(e);
         return *s.string();
     }
-#endif
     return Utils::generateRichText(str, mentions);
 }

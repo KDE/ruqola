@@ -22,7 +22,7 @@
 #include "messageurl.h"
 #include <QJsonObject>
 #include <QTest>
-QTEST_MAIN(MessageUrlTest)
+QTEST_GUILESS_MAIN(MessageUrlTest)
 
 MessageUrlTest::MessageUrlTest(QObject *parent)
     : QObject(parent)

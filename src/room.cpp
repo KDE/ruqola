@@ -81,29 +81,29 @@ QDebug operator <<(QDebug d, const Room &t)
 void Room::parseUpdateRoom(const QJsonObject &json)
 {
     //QJsonArray(["updated",{"_id":"7jHqcrZ8FYXJBwgRB","_updatedAt":{"$date":1503902695955},"alert":false,"f":true,"groupMentions":0,"ls":{"$date":1503902695955},"name":"dev","open":true,"rid":"dBWXYy4nyBHn8Q7dv","t":"c","ts":{"$date":1493034182680},"u":{"_id":"uKK39zoewTkdacidH","username":"laurent"},"unread":0,"userMentions":0}])
-    if (json.contains(QStringLiteral("rid"))) {
+    if (json.contains(QLatin1String("rid"))) {
         setId(json.value(QLatin1String("rid")).toString());
     }
-    if (json.contains(QStringLiteral("alert"))) {
+    if (json.contains(QLatin1String("alert"))) {
         setAlert(json[QStringLiteral("alert")].toBool());
     }
-    if (json.contains(QStringLiteral("f"))) {
+    if (json.contains(QLatin1String("f"))) {
         setFavorite(json[QStringLiteral("f")].toBool());
     }
 
-    if (json.contains(QStringLiteral("unread"))) {
+    if (json.contains(QLatin1String("unread"))) {
         setUnread(json[QStringLiteral("unread")].toInt());
     }
-    if (json.contains(QStringLiteral("announcement"))) {
+    if (json.contains(QLatin1String("announcement"))) {
         setAnnouncement(json[QStringLiteral("announcement")].toString());
     }
-    if (json.contains(QStringLiteral("open"))) {
+    if (json.contains(QLatin1String("open"))) {
         setOpen(json[QStringLiteral("open")].toBool());
     }
-    if (json.contains(QStringLiteral("topic"))) {
+    if (json.contains(QLatin1String("topic"))) {
         setTopic(json[QStringLiteral("topic")].toString());
     }
-    if (json.contains(QStringLiteral("name"))) {
+    if (json.contains(QLatin1String("name"))) {
         setName(json[QStringLiteral("name")].toString());
     }
 }

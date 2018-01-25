@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
                          QStringLiteral(RUQOLA_VERSION),
                          i18n("Rocket Chat Client"),
                          KAboutLicense::GPL_V2,
-                         i18n("Copyright © 2017 Ruqola authors"));
+                         i18n("Copyright © 2017-2018 Ruqola authors"));
 
     aboutData.addAuthor(i18n("Laurent Montel"), i18n("Maintainer"), QStringLiteral("montel@kde.org"));
     aboutData.addAuthor(i18n("Riccardo Iaconelli"), i18n("Original author"), QStringLiteral("riccardo@kde.org"));
@@ -69,6 +69,7 @@ int main(int argc, char *argv[])
     aboutData.setOrganizationDomain(QByteArrayLiteral("kde.org"));
     aboutData.setProductName(QByteArrayLiteral("ruqola"));
     aboutData.addCredit(i18n("Paul Lemire"), i18n("Help for debugging QML"), QStringLiteral("paul.lemire@kdab.com"));
+    aboutData.addCredit(i18n("Veluri Mithun"), i18n("Autotest Improvment and created some tests apps"), QStringLiteral("velurimithun38@gmail.com"));
 
     KAboutData::setApplicationData(aboutData);
 

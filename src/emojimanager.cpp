@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017-2018 Montel Laurent <montel@kde.org>
+   Copyright (c) 2018 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,34 +18,32 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.9
-import QtQuick.Controls 2.2 as QQC2
-import QtQuick.Window 2.0
-import QtQuick.Layouts 1.3
+#include "emojimanager.h"
 
-QQC2.Dialog {
-    id: openDirectChannelDialog
-    property string username: "username"
+#include <QJsonObject>
+#include "ruqola_debug.h"
 
-    signal openDirectChannel(string userName)
+EmojiManager::EmojiManager(QObject *parent)
+    : QObject(parent)
+{
 
-    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
+}
 
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+EmojiManager::~EmojiManager()
+{
 
-    modal: true
+}
 
-    Row {
-        QQC2.Label {
-            text: i18n("Open Conversation with \"%1\"?", username)
-            font.bold: true
-            font.pointSize: 15
-            wrapMode: QQC2.Label.Wrap
-        }
-    }
-
-    onAccepted: {
-        openDirectChannelDialog.openDirectChannel(username)
+void EmojiManager::loadEmoji(const QJsonObject &obj)
+{
+    mEmojiList.clear();
+    //qDebug() << " RocketChatAccount::loadEmoji"<<obj;
+    const QJsonArray result = obj.value(QLatin1String("result")).toArray();
+    for (int i = 0; i < result.size(); i++) {
+        const QJsonObject emojiJson = result.at(i).toObject();
+        Emoji emoji;
+        emoji.parseEmoji(emojiJson);
+        mEmojiList.append(emoji);
+        qDebug() << "emojiJson"<<emojiJson;
     }
 }

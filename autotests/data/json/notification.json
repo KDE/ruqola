@@ -1,0 +1,24 @@
+{
+    "collection": "stream-notify-user",
+    "fields": {
+        "args": [
+            {
+                "payload": {
+                    "_id": "yfitiEkpGyDAAJ6Eo",
+                    "rid": "tgrk5CZKgYGiSSqXpuKK39zoewTkdacidH",
+                    "sender": {
+                        "_id": "tgrk5CZKgYGiSSqXp",
+                        "name": "Laurent",
+                        "username": "laurent"
+                    },
+                    "type": "d"
+                },
+                "text": "pong",
+                "title": "title"
+            }
+        ],
+        "eventName": "uKK39zoewTkdacidH/notification"
+    },
+    "id": "id",
+    "msg": "changed"
+}

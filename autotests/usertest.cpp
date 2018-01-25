@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QSignalSpy>
 #include <QJsonObject>
-QTEST_MAIN(UserTest)
+QTEST_GUILESS_MAIN(UserTest)
 
 UserTest::UserTest(QObject *parent)
     : QObject(parent)

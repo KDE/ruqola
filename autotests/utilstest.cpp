@@ -20,8 +20,11 @@
 
 #include "utilstest.h"
 #include "utils.h"
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
-QTEST_MAIN(UtilsTest)
+QTEST_GUILESS_MAIN(UtilsTest)
 
 UtilsTest::UtilsTest(QObject *parent)
     : QObject(parent)
@@ -96,13 +99,20 @@ void UtilsTest::shouldExtractGenerateRichText_data()
     QTest::newRow("empty") << QString() << QString();
     QTest::newRow("word@") << QStringLiteral("@foo") << QStringLiteral("<a href='ruqola:/user/foo'>@foo</a>");
     QTest::newRow("word@-2") << QStringLiteral("@foo.bla") << QStringLiteral("<a href='ruqola:/user/foo.bla'>@foo.bla</a>");
-    QTest::newRow("word@-2") << QStringLiteral("@foo.bla.bli") << QStringLiteral("<a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a>");
-    QTest::newRow("word@-3") << QStringLiteral("@foo.bla.bli dd") << QStringLiteral("<a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a> dd");
+    QTest::newRow("word@-3") << QStringLiteral("@foo.bla.bli") << QStringLiteral("<a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a>");
+    QTest::newRow("word@-4") << QStringLiteral("@foo.bla.bli dd") << QStringLiteral("<a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a> dd");
+    QTest::newRow("word@-5") << QStringLiteral("bla bla 21 @foo.bla.bli dd") << QStringLiteral("bla bla 21 <a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a> dd");
+    QTest::newRow("word@-6") << QStringLiteral("@foo-bla") << QStringLiteral("<a href='ruqola:/user/foo-bla'>@foo-bla</a>");
+    QTest::newRow("word@-7") << QStringLiteral("@foo_bla") << QStringLiteral("<a href='ruqola:/user/foo_bla'>@foo_bla</a>");
 
     QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<a href='ruqola:/room/foo'>#foo</a>");
     QTest::newRow("word#-2") << QStringLiteral("#foo.bla") << QStringLiteral("<a href='ruqola:/room/foo.bla'>#foo.bla</a>");
-    QTest::newRow("word#-2") << QStringLiteral("#foo.bla.bli") << QStringLiteral("<a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a>");
-    QTest::newRow("word#-3") << QStringLiteral("#foo.bla.bli dd") << QStringLiteral("<a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a> dd");
+    QTest::newRow("word#-3") << QStringLiteral("#foo.bla.bli") << QStringLiteral("<a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a>");
+    QTest::newRow("word#-4") << QStringLiteral("#foo.bla.bli dd") << QStringLiteral("<a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a> dd");
+    QTest::newRow("word#-5") << QStringLiteral("bla bla 21 #foo.bla.bli dd") << QStringLiteral("bla bla 21 <a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a> dd");
+    QTest::newRow("word#-6") << QStringLiteral("#foo-bla") << QStringLiteral("<a href='ruqola:/room/foo-bla'>#foo-bla</a>");
+    QTest::newRow("word#-7") << QStringLiteral("#foo_bla") << QStringLiteral("<a href='ruqola:/room/foo_bla'>#foo_bla</a>");
+    //Test parsing when it's in an url... don't replace it.
 
 }
 
@@ -111,4 +121,38 @@ void UtilsTest::shouldExtractGenerateRichText()
     QFETCH(QString, input);
     QFETCH(QString, output);
     QCOMPARE(Utils::generateRichText(input, {}), output);
+}
+
+void UtilsTest::shouldParseNotification_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::addColumn<QString>("title");
+    QTest::addColumn<QString>("message");
+    QTest::addColumn<QString>("sender");
+    QTest::newRow("notification1") << QStringLiteral("notification") << QStringLiteral("title") << QStringLiteral("pong") << QStringLiteral("tgrk5CZKgYGiSSqXp");
+}
+
+void UtilsTest::shouldParseNotification()
+{
+    QFETCH(QString, fileName);
+    QFETCH(QString, title);
+    QFETCH(QString, message);
+    QFETCH(QString, sender);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + fileName + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject fields = doc.object().value(QLatin1String("fields")).toObject();
+    const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
+
+    QString parseTitle;
+    QString parseMessage;
+    QString parseSender;
+
+    Utils::parseNotification(contents, parseMessage, parseTitle, parseSender);
+    QCOMPARE(parseMessage, message);
+    QCOMPARE(parseTitle, title);
+    QCOMPARE(parseSender, sender);
 }

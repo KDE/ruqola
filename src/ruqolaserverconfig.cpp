@@ -83,4 +83,3 @@ int RuqolaServerConfig::blockEditingMessageInMinutes() const
 {
     return mBlockEditingMessageInMinutes;
 }
-

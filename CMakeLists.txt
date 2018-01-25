@@ -1,4 +1,4 @@
-set(RUQOLA_VERSION "0.6.1")
+set(RUQOLA_VERSION "0.6.2")
 cmake_minimum_required(VERSION 3.1)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set (CMAKE_CXX_STANDARD 11)
@@ -6,7 +6,13 @@ set (CMAKE_CXX_STANDARD 11)
 find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
-cmake_policy(SET CMP0063 NEW)
+if (POLICY CMP0063)
+    cmake_policy(SET CMP0063 NEW)
+endif()
+
+if (POLICY CMP0071)
+    cmake_policy(SET CMP0071 NEW)
+endif()
 
 include(KDECompilerSettings)
 include(KDEInstallDirs)

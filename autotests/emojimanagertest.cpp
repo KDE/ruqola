@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017-2018 Montel Laurent <montel@kde.org>
+   Copyright (c) 2018 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,34 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.9
-import QtQuick.Controls 2.2 as QQC2
-import QtQuick.Window 2.0
-import QtQuick.Layouts 1.3
+#include "emojimanagertest.h"
+#include "emojimanager.h"
+#include <QTest>
+QTEST_GUILESS_MAIN(EmojiManagerTest)
 
-QQC2.Dialog {
-    id: openDirectChannelDialog
-    property string username: "username"
+EmojiManagerTest::EmojiManagerTest(QObject *parent)
+    : QObject(parent)
+{
 
-    signal openDirectChannel(string userName)
-
-    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
-
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
-
-    modal: true
-
-    Row {
-        QQC2.Label {
-            text: i18n("Open Conversation with \"%1\"?", username)
-            font.bold: true
-            font.pointSize: 15
-            wrapMode: QQC2.Label.Wrap
-        }
-    }
-
-    onAccepted: {
-        openDirectChannelDialog.openDirectChannel(username)
-    }
 }

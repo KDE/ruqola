@@ -20,6 +20,8 @@
 
 #include "utils.h"
 #include "ruqola_debug.h"
+#include <QJsonObject>
+#include <QJsonArray>
 #include <KTextToHTML>
 #include <qregularexpression.h>
 
@@ -60,8 +62,10 @@ QString Utils::markdownToRichText(const QString &markDown)
 
 QString Utils::generateRichText(const QString &str, const QMap<QString, QString> &mentions)
 {
+    //Not using mentions for the moment.
+    Q_UNUSED(mentions)
     QString newStr = Utils::markdownToRichText(str);
-    static const QRegularExpression regularExpressionUser(QStringLiteral("@([\\w.]+)"));
+    static const QRegularExpression regularExpressionUser(QStringLiteral("@([\\w._-]+)"));
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
@@ -69,7 +73,7 @@ QString Utils::generateRichText(const QString &str, const QMap<QString, QString>
         newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
     }
 
-    static const QRegularExpression regularExpressionRoom(QStringLiteral("#([\\w.]+)"));
+    static const QRegularExpression regularExpressionRoom(QStringLiteral("#([\\w._-]+)"));
     QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
     while (roomIterator.hasNext()) {
         const QRegularExpressionMatch match = roomIterator.next();
@@ -110,5 +114,23 @@ User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
     } else {
         qCDebug(RUQOLA_LOG) << "Problem with status " << status;
         return {};
+    }
+}
+
+void Utils::parseNotification(const QJsonArray &contents, QString &message, QString &title, QString &sender)
+{
+    QJsonObject obj = contents.at(0).toObject();
+    message = obj[QStringLiteral("text")].toString();
+    title = obj[QStringLiteral("title")].toString();
+    obj = obj.value(QStringLiteral("payload")).toObject();
+    if (!obj.isEmpty()) {
+        obj = obj.value(QStringLiteral("sender")).toObject();
+        if (!obj.isEmpty()) {
+            sender = obj.value(QStringLiteral("_id")).toString();
+        } else {
+            qCDebug(RUQOLA_LOG) << "Problem with notication json: missing sender";
+        }
+    } else {
+        qCDebug(RUQOLA_LOG) << "Problem with notication json: missing payload";
     }
 }
