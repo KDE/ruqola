@@ -36,6 +36,7 @@ RowLayout {
     property QtObject rcAccount
     property alias messageLineText: messageLine.text
     property string messageId
+    property string savePreviousMessage
 
     signal textEditing(string str)
     signal uploadFile()
@@ -46,6 +47,7 @@ RowLayout {
     function setOriginalMessage(messageStr)
     {
         messageLine.text = messageStr
+        savePreviousMessage = messageStr
         messageLine.selectAll()
     }
 
@@ -81,7 +83,10 @@ RowLayout {
         onAccepted: {
             if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
                 if (messageId !== "") {
-                    rcAccount.updateMessage(selectedRoomID, messageId, text);
+                    if (text !== savePreviousMessage) {
+                        rcAccount.updateMessage(selectedRoomID, messageId, text);
+                    }
+                    savePreviousMessage = "";
                     messageId = "";
                 } else {
                     rcAccount.sendMessage(selectedRoomID, text);

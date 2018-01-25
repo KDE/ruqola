@@ -39,6 +39,12 @@ void Emoji::parseEmoji(const QJsonObject &emoji)
     //TODO add alias ? updated ?
 }
 
+bool Emoji::isValid() const
+{
+    //Add more check ?
+    return !mIdentifier.isEmpty();
+}
+
 QString Emoji::identifier() const
 {
     return mIdentifier;

@@ -43,7 +43,9 @@ void EmojiManager::loadEmoji(const QJsonObject &obj)
         const QJsonObject emojiJson = result.at(i).toObject();
         Emoji emoji;
         emoji.parseEmoji(emojiJson);
-        mEmojiList.append(emoji);
+        if (emoji.isValid()) {
+            mEmojiList.append(emoji);
+        }
         qDebug() << "emojiJson"<<emojiJson;
     }
 }

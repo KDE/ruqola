@@ -49,6 +49,7 @@ public:
 
     Emoji &operator=(const Emoji &other);
 
+    bool isValid() const;
 private:
     QString mIdentifier;
     QString mExtension;
