@@ -32,6 +32,9 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAssignValue();
+
+    void shouldParseEmoji_data();
+    void shouldParseEmoji();
 };
 
 #endif // EMOJITEST_H

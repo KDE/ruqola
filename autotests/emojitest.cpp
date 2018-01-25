@@ -21,9 +21,11 @@
 
 #include "emojitest.h"
 #include "emoji.h"
+#include <QJsonObject>
 #include <QTest>
+#include <qjsondocument.h>
 
-QTEST_MAIN(EmojiTest)
+QTEST_GUILESS_MAIN(EmojiTest)
 
 EmojiTest::EmojiTest(QObject *parent)
     : QObject(parent)
@@ -51,4 +53,38 @@ void EmojiTest::shouldAssignValue()
     QCOMPARE(j.extension(), ext);
     QCOMPARE(j.identifier(), id);
     QCOMPARE(j.name(), name);
+}
+
+void EmojiTest::shouldParseEmoji_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<Emoji>("expectedEmoji");
+    Emoji emojiRef;
+    emojiRef.setExtension(QStringLiteral("jpg"));
+    emojiRef.setName(QStringLiteral("troll"));
+    emojiRef.setIdentifier(QStringLiteral("2cgzHwKP6Cq3iZCob"));
+
+    QTest::addRow("emoji1") << QStringLiteral("emoji") << emojiRef;
+}
+
+void EmojiTest::shouldParseEmoji()
+{
+    QFETCH(QString, name);
+    QFETCH(Emoji, expectedEmoji);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + name + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    Emoji originalEmoji;
+    originalEmoji.parseEmoji(obj);
+    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
+    if (!emojiIsEqual) {
+        qDebug() << "originalEmoji " << originalEmoji;
+        qDebug() << "ExpectedEmoji " << expectedEmoji;
+    }
+    QVERIFY(emojiIsEqual);
+
 }
