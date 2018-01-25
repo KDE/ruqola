@@ -69,6 +69,7 @@ int main(int argc, char *argv[])
     aboutData.setOrganizationDomain(QByteArrayLiteral("kde.org"));
     aboutData.setProductName(QByteArrayLiteral("ruqola"));
     aboutData.addCredit(i18n("Paul Lemire"), i18n("Help for debugging QML"), QStringLiteral("paul.lemire@kdab.com"));
+    aboutData.addCredit(i18n("Veluri Mithun"), i18n("Autotest Improvment and created some tests apps"), QStringLiteral("velurimithun38@gmail.com"));
 
     KAboutData::setApplicationData(aboutData);
 
