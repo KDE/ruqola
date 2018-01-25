@@ -20,6 +20,8 @@
 
 #include "emoji.h"
 
+#include <QJsonObject>
+
 Emoji::Emoji()
 {
 }
@@ -31,7 +33,11 @@ Emoji::~Emoji()
 
 void Emoji::parseEmoji(const QJsonObject &emoji)
 {
-    //TODO
+    mIdentifier = emoji.value(QLatin1String("_id")).toString();
+    mExtension = emoji.value(QLatin1String("extension")).toString();
+    mName = emoji.value(QLatin1String("name")).toString();
+
+    //TODO add alias ? updated ?
 }
 
 QString Emoji::identifier() const
