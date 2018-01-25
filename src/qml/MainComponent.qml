@@ -182,7 +182,7 @@ Component {
             
             onEditMessage: {
                 userInputMessage.messageId = messageId;
-                //TODO show message text too
+                userInputMessage.messageLineText = messageStr
                 console.log(RuqolaDebugCategorySingleton.category, "edit! messageId : " + messageId + " messageStr " + messageStr)
             }
             onReplyMessage: {

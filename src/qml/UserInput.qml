@@ -43,6 +43,12 @@ RowLayout {
     
     height: 2*Kirigami.Units.largeSpacing
     
+    function setOriginalMessage(messageStr)
+    {
+        messageLine.text = messageStr
+        messageLine.selectAll()
+    }
+
     Kirigami.Icon {
         id: attachment
 
