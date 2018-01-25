@@ -62,7 +62,7 @@ Rectangle {
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
     signal downloadAttachment(string url)
-    signal editMessage(string messageId)
+    signal editMessage(string messageId, string messageStr)
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title)
@@ -196,7 +196,7 @@ Rectangle {
         }
         onEditMessage: {
             console.log("i_messageText " + i_messageText);
-            messageMain.editMessage(messageId)
+            messageMain.editMessage(messageId, messageStr)
         }
         onReplyMessage: {
             messageMain.replyMessage(messageId)
