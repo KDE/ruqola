@@ -21,6 +21,7 @@
 #ifndef EMOJI_H
 #define EMOJI_H
 
+#include <QJsonArray>
 #include <QString>
 #include "libruqola_private_export.h"
 
@@ -30,7 +31,7 @@ public:
     Emoji();
     ~Emoji();
 
-    void parseEmoji();
+    void parseEmoji(const QJsonArray &attachments);
 
     QString identifier() const;
     void setIdentifier(const QString &identifier);
