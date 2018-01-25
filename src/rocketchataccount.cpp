@@ -411,6 +411,13 @@ void RocketChatAccount::changeDefaultStatus(int index)
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
     mEmojiList.clear();
+    //qDebug() << " RocketChatAccount::loadEmoji"<<obj;
+    const QJsonArray result = obj.value(QLatin1String("result")).toArray();
+    for (int i = 0; i < result.size(); i++) {
+        QJsonObject emojiJson = result.at(i).toObject();
+        qDebug() << "emojiJson"<<emojiJson;
+    }
+
     //TODO parsing.
     //TODO
 }

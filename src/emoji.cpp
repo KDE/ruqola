@@ -29,7 +29,7 @@ Emoji::~Emoji()
 
 }
 
-void Emoji::parseEmoji(const QJsonArray &attachments)
+void Emoji::parseEmoji(const QJsonObject &emoji)
 {
     //TODO
 }
