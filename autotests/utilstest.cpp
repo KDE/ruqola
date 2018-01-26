@@ -132,6 +132,8 @@ void UtilsTest::shouldParseNotification_data()
     QTest::addColumn<QString>("message");
     QTest::addColumn<QString>("sender");
     QTest::newRow("notification1") << QStringLiteral("notification") << QStringLiteral("title") << QStringLiteral("pong") << QStringLiteral("tgrk5CZKgYGiSSqXp");
+    //TODO
+    QTest::newRow("notificationencrypted") << QStringLiteral("notificationencrypted") << QStringLiteral("title") << QStringLiteral("pong") << QStringLiteral("tgrk5CZKgYGiSSqXp");
 }
 
 void UtilsTest::shouldParseNotification()

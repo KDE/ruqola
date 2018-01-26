@@ -50,6 +50,10 @@ void Otr::parseOtr(const QJsonArray &contents)
         const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
         //TODO parsing publicKey.
         qDebug() << " HANDSHAKE" << obj << " roomId " << roomId << " userId " << userId << " publicKey "<<publicKey;
+    } else if (type == QLatin1String("deny")) {
+        qDebug() << " Deny " << contents;
+    } else if (type == QLatin1String("acknowledge")) {
+        qDebug() << " acknowledge " << contents;
     } else {
         qDebug() << " unknown" << type;
     }

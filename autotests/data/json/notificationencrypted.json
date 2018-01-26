@@ -1,0 +1,24 @@
+{
+    "collection": "stream-notify-user",
+    "fields": {
+        "args": [
+            {
+                "payload": {
+                    "_id": "PuKLfJfd5r5DrZBdN",
+                    "rid": "XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH",
+                    "sender": {
+                        "_id": "XQv6u7Kyb4pfDhS4w",
+                        "name": "foo",
+                        "username": "bla"
+                    },
+                    "type": "d"
+                },
+                "text": "{\"$binary\":\"t4PzPCNq4ODXJiFzH6WsJNig304IOPvNqh6KkFidaZpFkLpU/q7lRUXABY7DvwWFpH+r3EVI9wSSa/QrzpaxChuWffc4OcmGIWcEtIRMUQEtQzOefPPKwq6v32Vg==\"}",
+                "title": "title"
+            }
+        ],
+        "eventName": "uKK39zoewTkdacidH/notification"
+    },
+    "id": "id",
+    "msg": "changed"
+}
