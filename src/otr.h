@@ -22,14 +22,28 @@
 
 #include "libruqola_private_export.h"
 #include <QJsonArray>
+#include <QObject>
 
 class LIBRUQOLACORE_TESTS_EXPORT Otr
 {
+    Q_GADGET
 public:
     Otr();
     ~Otr();
 
+    enum OtrType {
+        Unknown = 0,
+        End,
+        Handshake
+    };
+    Q_ENUM(OtrType)
+
     void parseOtr(const QJsonArray &contents);
+
+    OtrType type() const;
+
+private:
+    OtrType mType = OtrType::Unknown;
 };
 
 #endif // OTR_H

@@ -58,3 +58,8 @@ void Otr::parseOtr(const QJsonArray &contents)
         qDebug() << " unknown" << type;
     }
 }
+
+Otr::OtrType Otr::type() const
+{
+    return mType;
+}
