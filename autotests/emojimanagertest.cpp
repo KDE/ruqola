@@ -20,6 +20,9 @@
 
 #include "emojimanagertest.h"
 #include "emojimanager.h"
+#include "emoji.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
 QTEST_GUILESS_MAIN(EmojiManagerTest)
 
@@ -27,4 +30,30 @@ EmojiManagerTest::EmojiManagerTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void EmojiManagerTest::shouldParseEmoji_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addRow("emoji1") << QStringLiteral("emoji");
+}
+
+void EmojiManagerTest::shouldParseEmoji()
+{
+    QFETCH(QString, name);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + name + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    EmojiManager manager;
+    manager.loadEmoji(obj);
+//    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
+//    if (!emojiIsEqual) {
+//        qDebug() << "originalEmoji " << originalEmoji;
+//        qDebug() << "ExpectedEmoji " << expectedEmoji;
+//    }
+//    QVERIFY(emojiIsEqual);
 }

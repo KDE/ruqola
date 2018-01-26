@@ -29,6 +29,9 @@ class EmojiManagerTest : public QObject
 public:
     explicit EmojiManagerTest(QObject *parent = nullptr);
     ~EmojiManagerTest() = default;
+
+    void shouldParseEmoji_data();
+    void shouldParseEmoji();
 };
 
 #endif // EMOJIMANAGERTEST_H
