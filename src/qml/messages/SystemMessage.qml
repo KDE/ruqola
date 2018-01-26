@@ -75,7 +75,7 @@ MessageBase {
             console.log(RuqolaDebugCategorySingleton.category, "Unkown type for message");
             console.log(RuqolaDebugCategorySingleton.category, "type : " + type);
             console.log(RuqolaDebugCategorySingleton.category, "message: " + i_messageText)
-            return i18n(RuqolaDebugCategorySingleton.category, "Unknown action!");
+            return i18n("Unknown action!");
         }
     }
 
