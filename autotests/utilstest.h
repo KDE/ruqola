@@ -44,6 +44,9 @@ private Q_SLOTS:
 
     void shouldParseNotification_data();
     void shouldParseNotification();
+
+    void shouldParseOtr_data();
+    void shouldParseOtr();
 };
 
 #endif // UTILSTEST_H

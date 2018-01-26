@@ -152,3 +152,17 @@ void Utils::parseNotification(const QJsonArray &contents, QString &message, QStr
         qCDebug(RUQOLA_LOG) << "Problem with notication json: missing payload";
     }
 }
+
+void Utils::parseOtr(const QJsonArray &contents)
+{
+    qDebug() << " contents " << contents;
+    const QString type = contents.at(0).toString();
+    if (type == QLatin1String("end")) {
+        qDebug() << " END" << contents.at(1).toObject();
+        //const QString roomId = contents
+    } else if (type == QLatin1String("handshake")) {
+        qDebug() << " HANDSHAKE" << contents.at(1).toObject();
+    } else {
+        qDebug() << " unknown" << type;
+    }
+}

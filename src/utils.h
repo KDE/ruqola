@@ -32,6 +32,7 @@ LIBRUQOLACORE_TESTS_EXPORT User::PresenceStatus presenceStatusFromString(const Q
 LIBRUQOLACORE_TESTS_EXPORT QString generateRichText(const QString &markDown, const QMap<QString, QString> &mentions);
 LIBRUQOLACORE_TESTS_EXPORT QString extractRoomUserFromUrl(QString url);
 LIBRUQOLACORE_TESTS_EXPORT void parseNotification(const QJsonArray &contents, QString &message, QString &title, QString &sender);
+LIBRUQOLACORE_TESTS_EXPORT void parseOtr(const QJsonArray &contents);
 }
 
 #endif // UTILS_H

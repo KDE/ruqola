@@ -158,3 +158,26 @@ void UtilsTest::shouldParseNotification()
     QCOMPARE(parseTitle, title);
     QCOMPARE(parseSender, sender);
 }
+
+void UtilsTest::shouldParseOtr_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::newRow("otrend") << QStringLiteral("otrend");
+    QTest::newRow("otrbegin") << QStringLiteral("otrbegin");
+}
+
+void UtilsTest::shouldParseOtr()
+{
+    QFETCH(QString, fileName);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + fileName + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject fields = doc.object().value(QLatin1String("fields")).toObject();
+    const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
+
+    Utils::parseOtr(contents);
+    //TODO
+}

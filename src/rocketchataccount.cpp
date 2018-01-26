@@ -611,7 +611,8 @@ bool RocketChatAccount::allowEditingMessages() const
 
 void RocketChatAccount::parseOtr(const QJsonArray &contents)
 {
-    //TODO
+    //TODO return status ?
+    Utils::parseOtr(contents);
 }
 
 void RocketChatAccount::sendNotification(const QJsonArray &contents)

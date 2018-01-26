@@ -38,7 +38,7 @@ import KDE.Ruqola.DebugCategory 1.0
 
 Component {
     id: mainComponent
-    
+
     
     Kirigami.ScrollablePage {
         
