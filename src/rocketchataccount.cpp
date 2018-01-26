@@ -488,6 +488,8 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             mRuqolaServerConfig->setAllowMessageEditing(value.toBool());
         } else if (id == QLatin1String("Message_AllowEditing_BlockEditInMinutes")) {
             mRuqolaServerConfig->setBlockEditingMessageInMinutes(value.toInt());
+        } else if (id == QLatin1String("OTR_Enable")) {
+            mRuqolaServerConfig->setOtrEnabled(value.toBool());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

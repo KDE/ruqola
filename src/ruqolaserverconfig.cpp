@@ -83,3 +83,13 @@ int RuqolaServerConfig::blockEditingMessageInMinutes() const
 {
     return mBlockEditingMessageInMinutes;
 }
+
+bool RuqolaServerConfig::otrEnabled() const
+{
+    return mOtrEnabled;
+}
+
+void RuqolaServerConfig::setOtrEnabled(bool otrEnabled)
+{
+    mOtrEnabled = otrEnabled;
+}

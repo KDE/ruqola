@@ -47,6 +47,9 @@ public:
     void setBlockEditingMessageInMinutes(int minutes);
     int blockEditingMessageInMinutes() const;
 
+    bool otrEnabled() const;
+    void setOtrEnabled(bool otrEnabled);
+
 private:
     QString mUniqueId;
     QString mJitsiMeetUrl;
@@ -54,6 +57,7 @@ private:
     QString mFileUploadStorageType;
     int mBlockEditingMessageInMinutes = 5;
     bool mAllowEditingMessage = true;
+    bool mOtrEnabled = true;
 };
 
 #endif // RUQOLASERVERCONFIG_H

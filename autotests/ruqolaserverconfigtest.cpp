@@ -38,6 +38,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.uniqueId().isEmpty());
     QVERIFY(config.fileUploadStorageType().isEmpty());
     QVERIFY(config.allowMessageEditing());
+    QVERIFY(config.otrEnabled());
     QCOMPARE(config.blockEditingMessageInMinutes(), 5);
 }
 
@@ -49,6 +50,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const QString filestoragetype = QStringLiteral("test 4");
     const bool allowEditing = false;
     const int minutes = 12;
+    const bool otrEnable = false;
     RuqolaServerConfig config;
     config.setJitsiMeetPrefix(jitsimeetprefix);
     config.setJitsiMeetUrl(jitsimeeturl);
@@ -56,6 +58,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setFileUploadStorageType(filestoragetype);
     config.setAllowMessageEditing(allowEditing);
     config.setBlockEditingMessageInMinutes(minutes);
+    config.setOtrEnabled(otrEnable);
 
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
@@ -63,4 +66,5 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.fileUploadStorageType(), filestoragetype);
     QCOMPARE(config.allowMessageEditing(), allowEditing);
     QCOMPARE(config.blockEditingMessageInMinutes(), minutes);
+    QCOMPARE(config.otrEnabled(), otrEnable);
 }
