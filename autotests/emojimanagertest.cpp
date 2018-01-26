@@ -29,7 +29,6 @@ QTEST_GUILESS_MAIN(EmojiManagerTest)
 EmojiManagerTest::EmojiManagerTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void EmojiManagerTest::shouldParseEmoji_data()

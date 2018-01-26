@@ -26,12 +26,10 @@
 EmojiManager::EmojiManager(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 EmojiManager::~EmojiManager()
 {
-
 }
 
 void EmojiManager::loadEmoji(const QJsonObject &obj)
