@@ -170,6 +170,7 @@ void Utils::parseOtr(const QJsonArray &contents)
         const QString roomId = obj.value(QLatin1String("roomId")).toString();
         const QString userId = obj.value(QLatin1String("userId")).toString();
         const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
+        //TODO parsing publicKey.
         qDebug() << " HANDSHAKE" << obj << " roomId " << roomId << " userId " << userId << " publicKey "<<publicKey;
     } else {
         qDebug() << " unknown" << type;

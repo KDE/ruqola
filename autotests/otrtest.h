@@ -17,19 +17,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef OTR_H
-#define OTR_H
+#ifndef OTRTEST_H
+#define OTRTEST_H
 
-#include "libruqola_private_export.h"
-#include <QJsonArray>
+#include <QObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT Otr
+class OtrTest : public QObject
 {
+    Q_OBJECT
 public:
-    Otr();
-    ~Otr();
-
-    void parseOtr(const QJsonArray &contents);
+    explicit OtrTest(QObject *parent = nullptr);
+    ~OtrTest() = default;
 };
 
-#endif // OTR_H
+#endif // OTRTEST_H
