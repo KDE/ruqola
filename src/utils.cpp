@@ -158,15 +158,15 @@ void Utils::parseOtr(const QJsonArray &contents)
     qDebug() << " contents " << contents;
     const QString type = contents.at(0).toString();
     if (type == QLatin1String("end")) {
-        QJsonObject obj =  contents.at(1).toObject();
+        const QJsonObject obj =  contents.at(1).toObject();
         const QString roomId = obj.value(QLatin1String("roomId")).toString();
         const QString userId = obj.value(QLatin1String("userId")).toString();
         qDebug() << " END" << obj << " roomId " << roomId << " userId " << userId;
 
         //const QString roomId = contents
     } else if (type == QLatin1String("handshake")) {
-        qDebug() << " HANDSHAKE" << contents.at(1).toObject();
-        QJsonObject obj =  contents.at(1).toObject();
+        //qDebug() << " HANDSHAKE" << contents.at(1).toObject();
+        const QJsonObject obj =  contents.at(1).toObject();
         const QString roomId = obj.value(QLatin1String("roomId")).toString();
         const QString userId = obj.value(QLatin1String("userId")).toString();
         const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
