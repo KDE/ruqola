@@ -623,7 +623,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     if (!iconFileName.isEmpty()) {
         const QUrl url = QUrl::fromLocalFile(iconFileName);
         qDebug() << "url.toLocalFile()"<<url.toLocalFile();
-        pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
+        qDebug() << " load pixmap : "<< pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
         qDebug() << " pix " << pix.isNull();
     }
     Q_EMIT notification(title, message, pix);
