@@ -32,6 +32,7 @@ ListView {
     signal deleteMessage(string messageId)
     signal downloadAttachment(string url)
     signal editMessage(string messageId, string messageStr)
+    signal copyMessage(string messageId, string messageStr)
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title)
@@ -86,6 +87,9 @@ ListView {
             activeChat.downloadAttachment(url)
         }
         onEditMessage: {
+            activeChat.editMessage(messageId, messageStr)
+        }
+        onCopyMessage: {
             activeChat.editMessage(messageId, messageStr)
         }
         onReplyMessage: {

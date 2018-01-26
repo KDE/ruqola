@@ -64,6 +64,7 @@ Rectangle {
     signal deleteMessage(string messageId)
     signal downloadAttachment(string url)
     signal editMessage(string messageId, string messageStr)
+    signal copyMessage(string messageId, string messageStr)
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title)
@@ -199,6 +200,10 @@ Rectangle {
         onEditMessage: {
             console.log("i_messageText " + i_messageText);
             messageMain.editMessage(messageId, messageStr)
+        }
+        onCopyMessage: {
+            console.log("i_messageText " + i_messageText);
+            messageMain.copyMessage(messageId, messageStr)
         }
         onReplyMessage: {
             messageMain.replyMessage(messageId)

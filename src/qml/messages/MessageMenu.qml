@@ -35,6 +35,17 @@ QQC2.Menu {
     }
 
     QQC2.MenuItem {
+        id: copyMessageItem
+        contentItem: QQC2.Label {
+            text: i18n("Copy")
+        }
+        onTriggered: {
+            messageMain.copyMessage(i_messageID, i_originalMessage);
+            console.log(RuqolaDebugCategorySingleton.category, "Copy", i_messageID, i_originalMessage);
+        }
+    }
+
+    QQC2.MenuItem {
         id: editMessageItem
         contentItem: QQC2.Label {
             text: i18n("Edit")
