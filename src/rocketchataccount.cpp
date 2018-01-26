@@ -606,6 +606,11 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
     }
 }
 
+bool RocketChatAccount::otrEnabled() const
+{
+    return mRuqolaServerConfig->otrEnabled();
+}
+
 bool RocketChatAccount::allowEditingMessages() const
 {
     return mRuqolaServerConfig->allowMessageEditing();
