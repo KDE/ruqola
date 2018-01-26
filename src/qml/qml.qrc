@@ -30,6 +30,7 @@
         <file>DownloadFileDialog.qml</file>
         <file>UploadFileDialog.qml</file>
         <file>DisplayImageDialog.qml</file>
+        <file>EncryptedConversationDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
