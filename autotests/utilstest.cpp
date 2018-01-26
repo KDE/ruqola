@@ -114,6 +114,7 @@ void UtilsTest::shouldExtractGenerateRichText_data()
     QTest::newRow("word#-7") << QStringLiteral("#foo_bla") << QStringLiteral("<a href='ruqola:/room/foo_bla'>#foo_bla</a>");
     //Test parsing when it's in an url... don't replace it.
 
+    QTest::newRow("url") << QStringLiteral("http://www.kde.org#foo_bla") << QStringLiteral("http://www.kde.org#foo_bla");
 }
 
 void UtilsTest::shouldExtractGenerateRichText()
