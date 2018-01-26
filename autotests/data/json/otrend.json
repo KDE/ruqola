@@ -1,0 +1,15 @@
+{
+    "collection": "stream-notify-user",
+    "fields": {
+        "args": [
+            "end",
+            {
+                "roomId": "XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH",
+                "userId": "XQv6u7Kyb4pfDhS4w"
+            }
+        ],
+        "eventName": "uKK39zoewTkdacidH/otr"
+    },
+    "id": "id",
+    "msg": "changed"
+}
