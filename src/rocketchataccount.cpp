@@ -609,6 +609,11 @@ bool RocketChatAccount::allowEditingMessages() const
     return mRuqolaServerConfig->allowMessageEditing();
 }
 
+void RocketChatAccount::parseOtr(const QJsonArray &contents)
+{
+    //TODO
+}
+
 void RocketChatAccount::sendNotification(const QJsonArray &contents)
 {
     QString message;

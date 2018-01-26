@@ -158,6 +158,7 @@ public:
     Q_INVOKABLE bool allowEditingMessages() const;
 
     void sendNotification(const QJsonArray &contents);
+    void parseOtr(const QJsonArray &contents);
 
 Q_SIGNALS:
     void accountNameChanged();
