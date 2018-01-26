@@ -140,11 +140,11 @@ void Utils::parseNotification(const QJsonArray &contents, QString &message, QStr
     QJsonObject obj = contents.at(0).toObject();
     message = obj[QStringLiteral("text")].toString();
     title = obj[QStringLiteral("title")].toString();
-    obj = obj.value(QStringLiteral("payload")).toObject();
+    obj = obj.value(QLatin1String("payload")).toObject();
     if (!obj.isEmpty()) {
-        obj = obj.value(QStringLiteral("sender")).toObject();
+        obj = obj.value(QLatin1String("sender")).toObject();
         if (!obj.isEmpty()) {
-            sender = obj.value(QStringLiteral("_id")).toString();
+            sender = obj.value(QLatin1String("_id")).toString();
         } else {
             qCDebug(RUQOLA_LOG) << "Problem with notication json: missing sender";
         }
@@ -158,10 +158,19 @@ void Utils::parseOtr(const QJsonArray &contents)
     qDebug() << " contents " << contents;
     const QString type = contents.at(0).toString();
     if (type == QLatin1String("end")) {
-        qDebug() << " END" << contents.at(1).toObject();
+        QJsonObject obj =  contents.at(1).toObject();
+        const QString roomId = obj.value(QLatin1String("roomId")).toString();
+        const QString userId = obj.value(QLatin1String("userId")).toString();
+        qDebug() << " END" << obj << " roomId " << roomId << " userId " << userId;
+
         //const QString roomId = contents
     } else if (type == QLatin1String("handshake")) {
         qDebug() << " HANDSHAKE" << contents.at(1).toObject();
+        QJsonObject obj =  contents.at(1).toObject();
+        const QString roomId = obj.value(QLatin1String("roomId")).toString();
+        const QString userId = obj.value(QLatin1String("userId")).toString();
+        const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
+        qDebug() << " HANDSHAKE" << obj << " roomId " << roomId << " userId " << userId << " publicKey "<<publicKey;
     } else {
         qDebug() << " unknown" << type;
     }
