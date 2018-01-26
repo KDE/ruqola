@@ -73,3 +73,8 @@ QString Otr::userId() const
 {
     return mUserId;
 }
+
+bool Otr::isValid() const
+{
+    return (mType != Otr::Unknown);
+}

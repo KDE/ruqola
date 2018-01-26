@@ -35,4 +35,5 @@ void OtrTest::shouldHaveDefaultValue()
     QVERIFY(t.roomId().isEmpty());
     QVERIFY(t.userId().isEmpty());
     QCOMPARE(t.type(), Otr::OtrType::Unknown);
+    QVERIFY(!t.isValid());
 }

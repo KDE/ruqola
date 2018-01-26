@@ -46,6 +46,8 @@ public:
 
     QString userId() const;
 
+    bool isValid() const;
+
 private:
     QString mRoomId;
     QString mUserId;
