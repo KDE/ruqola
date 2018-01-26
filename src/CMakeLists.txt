@@ -31,6 +31,7 @@ set (Ruqola_core_srcs
     emoji.cpp
     emojimanager.cpp
     clipboardproxy.cpp
+    otr.cpp
     abstractwebsocket.cpp
     ruqolawebsocket.cpp
     messageattachment.cpp
