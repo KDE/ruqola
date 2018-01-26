@@ -19,20 +19,20 @@ ClipboardProxy::~ClipboardProxy()
 
 void ClipboardProxy::setDataText(const QString &text)
 {
-    QGuiApplication::clipboard()->setText(text, QClipboard::Clipboard);
+    QApplication::clipboard()->setText(text, QClipboard::Clipboard);
 }
 
 QString ClipboardProxy::dataText() const
 {
-    return QGuiApplication::clipboard()->text(QClipboard::Clipboard);
+    return QApplication::clipboard()->text(QClipboard::Clipboard);
 }
 
 void ClipboardProxy::setSelectionText(const QString &text)
 {
-    QGuiApplication::clipboard()->setText(text, QClipboard::Selection);
+    QApplication::clipboard()->setText(text, QClipboard::Selection);
 }
 
 QString ClipboardProxy::selectionText() const
 {
-    return QGuiApplication::clipboard()->text(QClipboard::Selection);
+    return QApplication::clipboard()->text(QClipboard::Selection);
 }
