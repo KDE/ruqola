@@ -63,3 +63,13 @@ Otr::OtrType Otr::type() const
 {
     return mType;
 }
+
+QString Otr::roomId() const
+{
+    return mRoomId;
+}
+
+QString Otr::userId() const
+{
+    return mUserId;
+}

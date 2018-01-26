@@ -42,7 +42,13 @@ public:
 
     OtrType type() const;
 
+    QString roomId() const;
+
+    QString userId() const;
+
 private:
+    QString mRoomId;
+    QString mUserId;
     OtrType mType = OtrType::Unknown;
 };
 

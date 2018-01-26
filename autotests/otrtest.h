@@ -28,6 +28,8 @@ class OtrTest : public QObject
 public:
     explicit OtrTest(QObject *parent = nullptr);
     ~OtrTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // OTRTEST_H

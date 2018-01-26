@@ -18,6 +18,7 @@
 */
 
 #include "otrtest.h"
+#include "otr.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(OtrTest)
@@ -26,4 +27,12 @@ OtrTest::OtrTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void OtrTest::shouldHaveDefaultValue()
+{
+    Otr t;
+    QVERIFY(t.roomId().isEmpty());
+    QVERIFY(t.userId().isEmpty());
+    QCOMPARE(t.type(), Otr::OtrType::Unknown);
 }
