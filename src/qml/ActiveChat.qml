@@ -90,7 +90,7 @@ ListView {
             activeChat.editMessage(messageId, messageStr)
         }
         onCopyMessage: {
-            activeChat.editMessage(messageId, messageStr)
+            activeChat.copyMessage(messageId, messageStr)
         }
         onReplyMessage: {
             activeChat.replyMessage(messageId)
