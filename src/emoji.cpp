@@ -45,6 +45,12 @@ bool Emoji::isValid() const
     return !mIdentifier.isEmpty();
 }
 
+QString Emoji::html() const
+{
+    //TODO
+    return {};
+}
+
 QString Emoji::identifier() const
 {
     return mIdentifier;
