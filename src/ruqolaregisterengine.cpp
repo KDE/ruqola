@@ -32,6 +32,7 @@
 #include "usersforroommodel.h"
 #include "usersmodel.h"
 #include "statusmodel.h"
+#include "clipboardproxy.h"
 
 #include <KLocalizedContext>
 #include <QQmlApplicationEngine>
@@ -65,6 +66,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<UserCompleterModel>("KDE.Ruqola.UserCompleterModel", 1, 0, "UserCompleterModel");
     qmlRegisterType<StatusModel>("KDE.Ruqola.StatusModel", 1, 0, "StatusModel");
     qRegisterMetaType<Message::MessageType>();
+    qmlRegisterType<ClipboardProxy>("KDE.Ruqola.Clipboard", 1, 0, "Clipboard");
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
     qRegisterMetaType<RocketChatAccount::RoomInfoType>();
     qRegisterMetaType<User::PresenceStatus>();
