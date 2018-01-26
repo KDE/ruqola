@@ -185,6 +185,9 @@ Component {
                 userInputMessage.setOriginalMessage(messageStr)
                 console.log(RuqolaDebugCategorySingleton.category, "edit! messageId : " + messageId + " messageStr " + messageStr)
             }
+            onCopyMessage: {
+                console.log(RuqolaDebugCategorySingleton.category, "copy! messageId : " + messageId + " messageStr " + messageStr)
+            }
             onReplyMessage: {
                 console.log(RuqolaDebugCategorySingleton.category, "reply message : " + messageId)
             }
