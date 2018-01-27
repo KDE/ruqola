@@ -22,7 +22,7 @@
 #include "restapi/restapiutil.h"
 #include <QTest>
 
-QTEST_MAIN(RestApiUtilTest)
+QTEST_GUILESS_MAIN(RestApiUtilTest)
 
 RestApiUtilTest::RestApiUtilTest(QObject *parent)
     : QObject(parent)

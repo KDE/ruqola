@@ -164,6 +164,12 @@ void RestApiRequest::parsePost(const QByteArray &data)
     qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parsePost: " << data;
 }
 
+void RestApiRequest::parseServerInfo(const QByteArray &data)
+{
+    qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseServerInfo: " << data;
+    Q_EMIT getServerInfoDone(data);
+}
+
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError) {
@@ -181,6 +187,9 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             break;
         case GetAvatar:
             parseGetAvatar(data, reply->property("userId").toString());
+            break;
+        case ServerInfo:
+            parseServerInfo(data);
             break;
         case Get:
         {
@@ -329,4 +338,14 @@ void RestApiRequest::get(const QUrl &url, const QString &mimeType)
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     QNetworkReply *reply = mNetworkAccessManager->get(request);
     reply->setProperty("method", QVariant::fromValue(RestMethod::Get));
+}
+
+void RestApiRequest::serverInfo()
+{
+    QUrl url = generateUrl(RestApiUtil::RestApiUrlType::ServerInfo);
+    QNetworkRequest request(url);
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+    QNetworkReply *reply = mNetworkAccessManager->get(request);
+    reply->setProperty("method", QVariant::fromValue(RestMethod::ServerInfo));
 }

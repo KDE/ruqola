@@ -39,7 +39,8 @@ public:
         ChannelList,
         GetAvatar,
         Get,
-        Post
+        Post,
+        ServerInfo
     };
     Q_ENUM(RestMethod)
 
@@ -67,11 +68,14 @@ public:
 
     void post(const QUrl &url, const QByteArray &data, const QString &mimeType = QStringLiteral("text/plain"));
     void get(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"));
+
+    void serverInfo();
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
     void loginDone(const QString &authToken, const QString &userId);
     void getDataDone(const QByteArray &data, const QUrl &url);
+    void getServerInfoDone(const QByteArray &data);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
@@ -79,6 +83,7 @@ private:
     void slotResult(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
 
+    void parseServerInfo(const QByteArray &data);
     void parseGetAvatar(const QByteArray &data, const QString &userId);
     void parseLogout(const QByteArray &data);
     void parseLogin(const QByteArray &data);

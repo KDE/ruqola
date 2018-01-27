@@ -184,6 +184,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("groups.setType");
     case RestApiUtil::RestApiUrlType::GroupsUnarchive:
         return QStringLiteral("groups.unarchive");
+    case RestApiUtil::RestApiUrlType::ServerInfo:
+        return QStringLiteral("info");
     }
     return {};
 }
