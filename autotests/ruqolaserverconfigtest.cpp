@@ -39,6 +39,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.fileUploadStorageType().isEmpty());
     QVERIFY(config.allowMessageEditing());
     QVERIFY(config.otrEnabled());
+    QVERIFY(!config.needAdaptNewSubscriptionRC60());
     QCOMPARE(config.blockEditingMessageInMinutes(), 5);
 }
 
