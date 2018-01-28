@@ -608,6 +608,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
 
 void RocketChatAccount::setServerVersion(const QString &version)
 {
+    qDebug() << " void RocketChatAccount::setServerVersion(const QString &version)" << version;
     //TODO mRuqolaServerConfig
 }
 
