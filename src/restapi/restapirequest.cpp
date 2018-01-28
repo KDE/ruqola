@@ -300,7 +300,6 @@ void RestApiRequest::channelList()
     } else {
         const QUrl url = generateUrl(RestApiUtil::RestApiUrlType::ChannelsList);
         QNetworkRequest request(url);
-        qDebug() << " url "<< url;
         request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
         request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
         QNetworkReply *reply = mNetworkAccessManager->get(request);
