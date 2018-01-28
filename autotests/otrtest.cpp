@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(OtrTest)
 OtrTest::OtrTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void OtrTest::shouldHaveDefaultValue()

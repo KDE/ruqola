@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "otrmanagertest.h"
 #include <QTest>
 
@@ -26,5 +25,4 @@ QTEST_GUILESS_MAIN(OtrManagerTest)
 OtrManagerTest::OtrManagerTest(QObject *parent)
     : QObject(parent)
 {
-
 }

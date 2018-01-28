@@ -22,10 +22,8 @@
 OtrManager::OtrManager(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 OtrManager::~OtrManager()
 {
-
 }

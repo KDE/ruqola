@@ -511,9 +511,9 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
     //Fix RC 0.60.
     QJsonArray args;
     QJsonObject obj;
-    obj[QStringLiteral( "useCollection" )] = false;
-    obj[QStringLiteral( "args" )] = args;
-    newParams.append( obj );
+    obj[QStringLiteral("useCollection")] = false;
+    obj[QStringLiteral("args")] = args;
+    newParams.append(obj);
 #endif
 
     json[QStringLiteral("params")] = newParams;

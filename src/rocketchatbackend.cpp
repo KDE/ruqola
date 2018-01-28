@@ -164,7 +164,6 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 void RocketChatBackend::onLoginStatusChanged()
 {
     if (mRocketChatAccount->loginStatus() == DDPClient::LoggedIn) {
-
         mRocketChatAccount->restApi()->serverInfo();
         connect(mRocketChatAccount->restApi(), &RestApiRequest::getServerInfoDone, this, &RocketChatBackend::parseServerVersionDone);
     }
@@ -177,8 +176,8 @@ void RocketChatBackend::parseServerVersionDone(const QString &version)
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
     std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &obj, RocketChatAccount *account) {
-        getsubscription_parsing(obj, account);
-    };
+                                                                                      getsubscription_parsing(obj, account);
+                                                                                  };
     mRocketChatAccount->setServerVersion(version);
     mRocketChatAccount->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
     mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->settings()->authToken());
