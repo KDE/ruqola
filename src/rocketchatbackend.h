@@ -49,6 +49,7 @@ private:
     void onChanged(const QJsonObject &object);
     void onLoginStatusChanged();
     void onUserIDChanged();
+    void parseServerVersionDone(const QString &version);
 
     RocketChatAccount *mRocketChatAccount = nullptr;
 };

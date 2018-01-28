@@ -160,6 +160,7 @@ public:
 
     void sendNotification(const QJsonArray &contents);
     void parseOtr(const QJsonArray &contents);
+    void setServerVersion(const QString &version);
 
 Q_SIGNALS:
     void accountNameChanged();

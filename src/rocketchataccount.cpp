@@ -606,6 +606,11 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
     }
 }
 
+void RocketChatAccount::setServerVersion(const QString &version)
+{
+    //TODO mRuqolaServerConfig
+}
+
 bool RocketChatAccount::otrEnabled() const
 {
     return mRuqolaServerConfig->otrEnabled();
