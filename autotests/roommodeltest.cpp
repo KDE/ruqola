@@ -31,7 +31,7 @@
 #include <QSignalSpy>
 #include <QTest>
 
-QTEST_MAIN(RoomModelTest)
+QTEST_GUILESS_MAIN(RoomModelTest)
 
 RoomModelTest::RoomModelTest(QObject *parent)
     : QObject(parent)

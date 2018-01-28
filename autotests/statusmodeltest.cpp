@@ -22,7 +22,7 @@
 #include "statusmodel.h"
 #include <QTest>
 
-QTEST_MAIN(StatusModelTest)
+QTEST_GUILESS_MAIN(StatusModelTest)
 
 StatusModelTest::StatusModelTest(QObject *parent)
     : QObject(parent)

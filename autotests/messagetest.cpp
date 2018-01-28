@@ -22,7 +22,7 @@
 #include "message.h"
 #include <QTest>
 #include <QJsonDocument>
-QTEST_MAIN(MessageTest)
+QTEST_GUILESS_MAIN(MessageTest)
 MessageTest::MessageTest(QObject *parent)
     : QObject(parent)
 {

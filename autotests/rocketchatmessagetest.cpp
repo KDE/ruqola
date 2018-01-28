@@ -22,7 +22,7 @@
 #include "rocketchatmessage.h"
 #include <QProcess>
 #include <QTest>
-QTEST_MAIN(RocketChatMessageTest)
+QTEST_GUILESS_MAIN(RocketChatMessageTest)
 
 RocketChatMessageTest::RocketChatMessageTest(QObject *parent)
     : QObject(parent)
