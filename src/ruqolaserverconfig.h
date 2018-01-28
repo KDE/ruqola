@@ -50,14 +50,24 @@ public:
     bool otrEnabled() const;
     void setOtrEnabled(bool otrEnabled);
 
+    bool needAdaptNewSubscriptionRC60() const;
+
+    void setServerVersion(const QString &version);
+
 private:
+    void adaptToServerVersion();
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;
     QString mFileUploadStorageType;
     int mBlockEditingMessageInMinutes = 5;
+    int mServerVersionMajor = -1;
+    int mServerVersionMinor = -1;
+    int mServerVersionPatch = -1;
+
     bool mAllowEditingMessage = true;
     bool mOtrEnabled = true;
+    bool mNeedAdaptNewSubscriptionRC60 = false;
 };
 
 #endif // RUQOLASERVERCONFIG_H

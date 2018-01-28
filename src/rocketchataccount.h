@@ -162,6 +162,7 @@ public:
     void parseOtr(const QJsonArray &contents);
     void setServerVersion(const QString &version);
 
+    bool needAdaptNewSubscriptionRC60() const;
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();

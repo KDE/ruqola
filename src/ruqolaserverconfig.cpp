@@ -19,6 +19,8 @@
 */
 
 #include "ruqolaserverconfig.h"
+#include <QStringList>
+#include "ruqola_debug.h"
 
 RuqolaServerConfig::RuqolaServerConfig()
 {
@@ -92,4 +94,34 @@ bool RuqolaServerConfig::otrEnabled() const
 void RuqolaServerConfig::setOtrEnabled(bool otrEnabled)
 {
     mOtrEnabled = otrEnabled;
+}
+
+bool RuqolaServerConfig::needAdaptNewSubscriptionRC60() const
+{
+    return mNeedAdaptNewSubscriptionRC60;
+}
+
+void RuqolaServerConfig::setServerVersion(const QString &version)
+{
+    qCDebug(RUQOLA_LOG) << " void RocketChatAccount::setServerVersion(const QString &version)" << version;
+    const QStringList lst = version.split(QLatin1Char('.'));
+    bool ok;
+    int value = lst.at(0).toInt(&ok);
+    if (ok) {
+        mServerVersionMajor = value;
+    }
+    value = lst.at(1).toInt(&ok);
+    if (ok) {
+        mServerVersionMinor = value;
+    }
+    value = lst.at(2).toInt(&ok);
+    if (ok) {
+        mServerVersionPatch = value;
+    }
+    adaptToServerVersion();
+}
+
+void RuqolaServerConfig::adaptToServerVersion()
+{
+    mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor == 0) && (mServerVersionMinor >= 60);
 }

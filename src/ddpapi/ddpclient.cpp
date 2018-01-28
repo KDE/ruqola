@@ -507,14 +507,13 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
 
     QJsonArray newParams = params;
 
-#if 0
-    //Fix RC 0.60.
-    QJsonArray args;
-    QJsonObject obj;
-    obj[QStringLiteral("useCollection")] = false;
-    obj[QStringLiteral("args")] = args;
-    newParams.append(obj);
-#endif
+    if (mRocketChatAccount->needAdaptNewSubscriptionRC60()) {
+        QJsonArray args;
+        QJsonObject obj;
+        obj[QStringLiteral("useCollection")] = false;
+        obj[QStringLiteral("args")] = args;
+        newParams.append(obj);
+    }
 
     json[QStringLiteral("params")] = newParams;
 
