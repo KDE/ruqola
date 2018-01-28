@@ -397,6 +397,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::unsubscribe(const 
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QString &name, const QJsonDocument &params, quint64 id)
 {
+    //TODO fixme.
     QJsonObject json;
     json[QStringLiteral("msg")] = QStringLiteral("sub");
     json[QStringLiteral("id")] = QString::number(id);

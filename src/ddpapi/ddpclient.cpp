@@ -504,7 +504,19 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
     json[QStringLiteral("msg")] = QStringLiteral("sub");
     json[QStringLiteral("id")] = QString::number(m_uid);
     json[QStringLiteral("name")] = collection;
-    json[QStringLiteral("params")] = params;
+
+    QJsonArray newParams = params;
+
+#if 0
+    //Fix RC 0.60.
+    QJsonArray args;
+    QJsonObject obj;
+    obj[QStringLiteral( "useCollection" )] = false;
+    obj[QStringLiteral( "args" )] = args;
+    newParams.append( obj );
+#endif
+
+    json[QStringLiteral("params")] = newParams;
 
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(QJsonDocument(json).toJson(QJsonDocument::Compact)));
     if (bytes < json.length()) {
