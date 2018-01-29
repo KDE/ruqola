@@ -35,7 +35,6 @@ EmojiManager::~EmojiManager()
 void EmojiManager::loadEmoji(const QJsonObject &obj)
 {
     mEmojiList.clear();
-    //qDebug() << " RocketChatAccount::loadEmoji"<<obj;
     const QJsonArray result = obj.value(QLatin1String("result")).toArray();
     for (int i = 0; i < result.size(); i++) {
         const QJsonObject emojiJson = result.at(i).toObject();
@@ -46,4 +45,9 @@ void EmojiManager::loadEmoji(const QJsonObject &obj)
         }
         qDebug() << "emojiJson"<<emojiJson;
     }
+}
+
+int EmojiManager::count() const
+{
+    return mEmojiList.count();
 }

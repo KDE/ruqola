@@ -33,6 +33,9 @@ public:
     ~EmojiManager();
 
     void loadEmoji(const QJsonObject &obj);
+
+    int count() const;
+
 private:
     //Use identifier in a QMap ???
     QVector<Emoji> mEmojiList;
