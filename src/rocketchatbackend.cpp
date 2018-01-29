@@ -171,6 +171,7 @@ void RocketChatBackend::onLoginStatusChanged()
 
 void RocketChatBackend::parseServerVersionDone(const QString &version)
 {
+    qDebug() << " void RocketChatBackend::parseServerVersionDone(const QString &version)******************";
     //         qCDebug(RUQOLA_LOG) << "GETTING LIST OF ROOMS";
     QJsonObject params;
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
@@ -183,6 +184,7 @@ void RocketChatBackend::parseServerVersionDone(const QString &version)
     mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->settings()->authToken());
     mRocketChatAccount->restApi()->setUserId(mRocketChatAccount->settings()->userId());
     mRocketChatAccount->restApi()->channelList();
+    //onUserIDChanged();
 }
 
 void RocketChatBackend::onAdded(const QJsonObject &object)
@@ -337,6 +339,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
 
 void RocketChatBackend::onUserIDChanged()
 {
+    qDebug() << " void RocketChatBackend::onUserIDChanged()**************************************";
     const QString userId{
         mRocketChatAccount->settings()->userId()
     };
