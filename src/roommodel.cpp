@@ -190,6 +190,9 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return QString();
     case RoomModel::RoomIcon:
         return icon(r);
+    case RoomModel::RoomOtr:
+        //TODO implement it.
+        return {};
     }
     return {};
 }

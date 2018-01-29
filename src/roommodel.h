@@ -53,6 +53,7 @@ public:
         RoomSection,
         RoomStatus,
         RoomIcon,
+        RoomOtr,
     };
 
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);

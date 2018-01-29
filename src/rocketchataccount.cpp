@@ -631,9 +631,10 @@ bool RocketChatAccount::allowEditingMessages() const
 
 void RocketChatAccount::parseOtr(const QJsonArray &contents)
 {
-    Otr t = mOtrManager->parseOtr(contents);
+    const Otr t = mOtrManager->parseOtr(contents);
     qDebug() << " void RocketChatAccount::parseOtr(const QJsonArray &contents)"<<t;
-    //TODO
+    //TODO add notification ?
+
 }
 
 void RocketChatAccount::sendNotification(const QJsonArray &contents)

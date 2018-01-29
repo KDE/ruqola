@@ -25,6 +25,11 @@
 #include <QJsonArray>
 #include <QObject>
 
+struct CryptoSettings
+{
+    QString mCrypt;
+};
+
 class LIBRUQOLACORE_TESTS_EXPORT Otr
 {
     Q_GADGET
@@ -52,10 +57,12 @@ public:
     bool isValid() const;
 
 private:
+    void parseCryptoSettings(const QString &publicKey);
     //TODO add crypto support
     QString mRoomId;
     QString mUserId;
     OtrType mType = OtrType::Unknown;
+    CryptoSettings mCrypto;
 };
 Q_DECLARE_METATYPE(Otr)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Otr &t);

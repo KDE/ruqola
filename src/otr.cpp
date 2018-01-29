@@ -51,6 +51,7 @@ void Otr::parseOtr(const QJsonArray &contents)
         //TODO parsing publicKey.
         qCDebug(RUQOLA_LOG) << " HANDSHAKE" << obj << " roomId " << roomId << " userId " << userId << " publicKey "<<publicKey;
         mType = Otr::Handshake;
+        parseCryptoSettings(publicKey);
     } else if (type == QLatin1String("deny")) {
         qCDebug(RUQOLA_LOG) << " Deny " << contents;
     } else if (type == QLatin1String("acknowledge")) {
@@ -58,6 +59,11 @@ void Otr::parseOtr(const QJsonArray &contents)
     } else {
         qCDebug(RUQOLA_LOG) << " unknown" << type;
     }
+}
+
+void Otr::parseCryptoSettings(const QString &publicKey)
+{
+    //TODO
 }
 
 Otr::OtrType Otr::type() const

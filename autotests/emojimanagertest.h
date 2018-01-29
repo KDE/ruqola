@@ -29,7 +29,7 @@ class EmojiManagerTest : public QObject
 public:
     explicit EmojiManagerTest(QObject *parent = nullptr);
     ~EmojiManagerTest() = default;
-
+private Q_SLOTS:
     void shouldParseEmoji_data();
     void shouldParseEmoji();
 };

@@ -34,12 +34,14 @@ EmojiManagerTest::EmojiManagerTest(QObject *parent)
 void EmojiManagerTest::shouldParseEmoji_data()
 {
     QTest::addColumn<QString>("name");
-    QTest::addRow("emoji1") << QStringLiteral("emoji");
+    QTest::addColumn<int>("number");
+    QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 40;
 }
 
 void EmojiManagerTest::shouldParseEmoji()
 {
     QFETCH(QString, name);
+    QFETCH(int, number);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + name + QStringLiteral(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
@@ -49,10 +51,5 @@ void EmojiManagerTest::shouldParseEmoji()
     const QJsonObject obj = doc.object();
     EmojiManager manager;
     manager.loadEmoji(obj);
-//    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
-//    if (!emojiIsEqual) {
-//        qDebug() << "originalEmoji " << originalEmoji;
-//        qDebug() << "ExpectedEmoji " << expectedEmoji;
-//    }
-//    QVERIFY(emojiIsEqual);
+    QCOMPARE(manager.count(), number);
 }
