@@ -92,12 +92,4 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyunreadChanged.count(), 1);
 }
 
-//void nameChanged();
-//void announcementChanged();
-//void topicChanged();
-//void favoriteChanged();
-//void userIdChanged();
-//void alertChanged();
-//void readOnlyChanged();
-//void unreadChanged();
 //TODO add more autotests signal and co.
