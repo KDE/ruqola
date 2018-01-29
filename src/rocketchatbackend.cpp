@@ -184,7 +184,7 @@ void RocketChatBackend::parseServerVersionDone(const QString &version)
     mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->settings()->authToken());
     mRocketChatAccount->restApi()->setUserId(mRocketChatAccount->settings()->userId());
     mRocketChatAccount->restApi()->channelList();
-    //onUserIDChanged();
+    onUserIDChanged();
 }
 
 void RocketChatBackend::onAdded(const QJsonObject &object)
@@ -339,6 +339,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
 
 void RocketChatBackend::onUserIDChanged()
 {
+    //TODO verify if we don"t send two subscription.
     qDebug() << " void RocketChatBackend::onUserIDChanged()**************************************";
     const QString userId{
         mRocketChatAccount->settings()->userId()
