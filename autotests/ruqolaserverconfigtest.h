@@ -32,6 +32,9 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldAssignValues();
+
+    void shouldEnabledRc60_data();
+    void shouldEnabledRc60();
 };
 
 #endif // RUQOLASERVERCONFIGTEST_H

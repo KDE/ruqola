@@ -69,3 +69,23 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.blockEditingMessageInMinutes(), minutes);
     QCOMPARE(config.otrEnabled(), otrEnable);
 }
+
+void RuqolaServerConfigTest::shouldEnabledRc60_data()
+{
+    QTest::addColumn<QString>("serverVersion");
+    QTest::addColumn<bool>("needRc60");
+    QTest::newRow("0.1.0") << QStringLiteral("0.1.0") << false;
+    QTest::newRow("0.60.0") << QStringLiteral("0.60.0") << true;
+    QTest::newRow("0.70.0") << QStringLiteral("0.70.0") << true;
+    QTest::newRow("invalid") << QStringLiteral("foo") << false;
+    QTest::newRow("invalid-2") << QStringLiteral("0.6foo") << false;
+}
+
+void RuqolaServerConfigTest::shouldEnabledRc60()
+{
+    QFETCH(QString, serverVersion);
+    QFETCH(bool, needRc60);
+    RuqolaServerConfig config;
+    config.setServerVersion(serverVersion);
+    QCOMPARE(config.needAdaptNewSubscriptionRC60(), needRc60);
+}

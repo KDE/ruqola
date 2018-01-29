@@ -105,18 +105,20 @@ void RuqolaServerConfig::setServerVersion(const QString &version)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::setServerVersion(const QString &version)" << version;
     const QStringList lst = version.split(QLatin1Char('.'));
-    bool ok;
-    int value = lst.at(0).toInt(&ok);
-    if (ok) {
-        mServerVersionMajor = value;
-    }
-    value = lst.at(1).toInt(&ok);
-    if (ok) {
-        mServerVersionMinor = value;
-    }
-    value = lst.at(2).toInt(&ok);
-    if (ok) {
-        mServerVersionPatch = value;
+    if (lst.count() == 3) {
+        bool ok;
+        int value = lst.at(0).toInt(&ok);
+        if (ok) {
+            mServerVersionMajor = value;
+        }
+        value = lst.at(1).toInt(&ok);
+        if (ok) {
+            mServerVersionMinor = value;
+        }
+        value = lst.at(2).toInt(&ok);
+        if (ok) {
+            mServerVersionPatch = value;
+        }
     }
     adaptToServerVersion();
 }
