@@ -18,6 +18,7 @@
 */
 
 #include "otrmanager.h"
+#include "otr.h"
 
 OtrManager::OtrManager(QObject *parent)
     : QObject(parent)
@@ -26,4 +27,11 @@ OtrManager::OtrManager(QObject *parent)
 
 OtrManager::~OtrManager()
 {
+}
+
+Otr OtrManager::parseOtr(const QJsonArray &contents)
+{
+    Otr t;
+    t.parseOtr(contents);
+    return t;
 }

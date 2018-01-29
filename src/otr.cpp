@@ -41,6 +41,7 @@ void Otr::parseOtr(const QJsonArray &contents)
         qCDebug(RUQOLA_LOG) << " END" << obj << " roomId " << roomId << " userId " << userId;
 
         //const QString roomId = contents
+        mType = Otr::End;
     } else if (type == QLatin1String("handshake")) {
         //qDebug() << " HANDSHAKE" << contents.at(1).toObject();
         const QJsonObject obj = contents.at(1).toObject();
@@ -49,6 +50,7 @@ void Otr::parseOtr(const QJsonArray &contents)
         const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
         //TODO parsing publicKey.
         qCDebug(RUQOLA_LOG) << " HANDSHAKE" << obj << " roomId " << roomId << " userId " << userId << " publicKey "<<publicKey;
+        mType = Otr::Handshake;
     } else if (type == QLatin1String("deny")) {
         qCDebug(RUQOLA_LOG) << " Deny " << contents;
     } else if (type == QLatin1String("acknowledge")) {
@@ -76,4 +78,13 @@ QString Otr::userId() const
 bool Otr::isValid() const
 {
     return mType != Otr::Unknown;
+}
+
+QDebug operator <<(QDebug d, const Otr &t)
+{
+    d << "isValid: " << t.isValid();
+    d << "type : " << t.type();
+    d << "userId: " << t.userId();
+    d << "roomId: " << t.roomId();
+    return d;
 }

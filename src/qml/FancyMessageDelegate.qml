@@ -198,11 +198,11 @@ Rectangle {
             messageMain.downloadAttachment(url)
         }
         onEditMessage: {
-            console.log("i_messageText " + i_messageText);
+            console.log(RuqolaDebugCategorySingleton.category, "i_messageText " + i_messageText);
             messageMain.editMessage(messageId, messageStr)
         }
         onCopyMessage: {
-            console.log("i_messageText " + i_messageText);
+            console.log(RuqolaDebugCategorySingleton.category, "i_messageText " + i_messageText);
             messageMain.copyMessage(messageId, messageStr)
         }
         onReplyMessage: {

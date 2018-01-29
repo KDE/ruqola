@@ -42,6 +42,7 @@ class UserCompleterModel;
 class StatusModel;
 class RocketChatCache;
 class EmojiManager;
+class OtrManager;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -201,6 +202,7 @@ private:
     UserCompleterModel *mUserCompleterModel = nullptr;
     StatusModel *mStatusModel = nullptr;
     RocketChatCache *mCache = nullptr;
+    OtrManager *mOtrManager = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H

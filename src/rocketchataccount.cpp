@@ -37,6 +37,7 @@
 #include "utils.h"
 #include "rocketchatcache.h"
 #include "emojimanager.h"
+#include "otrmanager.h"
 
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -67,6 +68,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     loadSettings();
 
     mEmojiManager = new EmojiManager(this);
+    mOtrManager = new OtrManager(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mUserCompleterModel = new UserCompleterModel(this);
     mStatusModel = new StatusModel(this);
@@ -629,8 +631,8 @@ bool RocketChatAccount::allowEditingMessages() const
 
 void RocketChatAccount::parseOtr(const QJsonArray &contents)
 {
-    //TODO return status ?
-    Utils::parseOtr(contents);
+    Otr t = mOtrManager->parseOtr(contents);
+    //TODO
 }
 
 void RocketChatAccount::sendNotification(const QJsonArray &contents)

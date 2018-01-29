@@ -21,6 +21,7 @@
 #define OTR_H
 
 #include "libruqola_private_export.h"
+#include <QDebug>
 #include <QJsonArray>
 #include <QObject>
 
@@ -34,7 +35,9 @@ public:
     enum OtrType {
         Unknown = 0,
         End,
-        Handshake
+        Handshake,
+        Deny,
+        AcknowLedge
     };
     Q_ENUM(OtrType)
 
@@ -49,9 +52,12 @@ public:
     bool isValid() const;
 
 private:
+    //TODO add crypto support
     QString mRoomId;
     QString mUserId;
     OtrType mType = OtrType::Unknown;
 };
+Q_DECLARE_METATYPE(Otr)
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Otr &t);
 
 #endif // OTR_H

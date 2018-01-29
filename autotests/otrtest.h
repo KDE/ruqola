@@ -30,6 +30,8 @@ public:
     ~OtrTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldParseOtr_data();
+    void shouldParseOtr();
 };
 
 #endif // OTRTEST_H
