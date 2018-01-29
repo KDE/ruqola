@@ -226,6 +226,22 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomJoinCode(co
 {
     return saveRoomSettings(QStringLiteral("joinCode"), roomId, joinCode, id);
 }
+//TODO verify
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QString &userId, quint64 id)
+{
+    const QJsonArray params{{
+                                userId
+                            }};
+    return generateMethod(QStringLiteral("unblockUser"), QJsonDocument(params), id);
+}
+//TODO verify
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const QString &userId, quint64 id)
+{
+    const QJsonArray params{{
+                                userId
+                            }};
+    return generateMethod(QStringLiteral("blockUser"), QJsonDocument(params), id);
+}
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
 {
