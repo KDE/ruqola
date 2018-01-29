@@ -18,6 +18,7 @@
 */
 
 #include "otr.h"
+#include "ruqola_debug.h"
 #include <QDebug>
 #include <QJsonObject>
 
@@ -31,13 +32,13 @@ Otr::~Otr()
 
 void Otr::parseOtr(const QJsonArray &contents)
 {
-    qDebug() << " contents " << contents;
+    qCDebug(RUQOLA_LOG) << " contents " << contents;
     const QString type = contents.at(0).toString();
     if (type == QLatin1String("end")) {
         const QJsonObject obj = contents.at(1).toObject();
         const QString roomId = obj.value(QLatin1String("roomId")).toString();
         const QString userId = obj.value(QLatin1String("userId")).toString();
-        qDebug() << " END" << obj << " roomId " << roomId << " userId " << userId;
+        qCDebug(RUQOLA_LOG) << " END" << obj << " roomId " << roomId << " userId " << userId;
 
         //const QString roomId = contents
     } else if (type == QLatin1String("handshake")) {
@@ -47,13 +48,13 @@ void Otr::parseOtr(const QJsonArray &contents)
         const QString userId = obj.value(QLatin1String("userId")).toString();
         const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
         //TODO parsing publicKey.
-        qDebug() << " HANDSHAKE" << obj << " roomId " << roomId << " userId " << userId << " publicKey "<<publicKey;
+        qCDebug(RUQOLA_LOG) << " HANDSHAKE" << obj << " roomId " << roomId << " userId " << userId << " publicKey "<<publicKey;
     } else if (type == QLatin1String("deny")) {
-        qDebug() << " Deny " << contents;
+        qCDebug(RUQOLA_LOG) << " Deny " << contents;
     } else if (type == QLatin1String("acknowledge")) {
-        qDebug() << " acknowledge " << contents;
+        qCDebug(RUQOLA_LOG) << " acknowledge " << contents;
     } else {
-        qDebug() << " unknown" << type;
+        qCDebug(RUQOLA_LOG) << " unknown" << type;
     }
 }
 
