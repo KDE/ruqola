@@ -35,6 +35,7 @@ void Emoji::parseEmoji(const QJsonObject &emoji)
     mIdentifier = emoji.value(QLatin1String("_id")).toString();
     mExtension = emoji.value(QLatin1String("extension")).toString();
     mName = emoji.value(QLatin1String("name")).toString();
+    //TODO
 
     //TODO add alias ? updated ?
 }
@@ -49,6 +50,16 @@ QString Emoji::html() const
 {
     //TODO
     return {};
+}
+
+QStringList Emoji::aliases() const
+{
+    return mAliases;
+}
+
+void Emoji::setAliases(const QStringList &aliases)
+{
+    mAliases = aliases;
 }
 
 QString Emoji::identifier() const
@@ -83,7 +94,10 @@ QString Emoji::name() const
 
 bool Emoji::operator==(const Emoji &other) const
 {
-    return (mName == other.name()) && (mExtension == other.extension()) && (mIdentifier == other.identifier());
+    return (mName == other.name()) &&
+            (mExtension == other.extension()) &&
+            (mIdentifier == other.identifier() &&
+             (mAliases == other.aliases()));
 }
 
 Emoji &Emoji::operator=(const Emoji &other)
@@ -91,6 +105,7 @@ Emoji &Emoji::operator=(const Emoji &other)
     mName = other.name();
     mExtension = other.extension();
     mIdentifier = other.identifier();
+    mAliases = other.aliases();
     return *this;
 }
 
@@ -99,5 +114,6 @@ QDebug operator <<(QDebug d, const Emoji &t)
     d << "Name: " << t.name();
     d << "Identifier: " << t.identifier();
     d << "extension: " << t.extension();
+    d << "aliases: " << t.aliases();
     return d;
 }

@@ -52,10 +52,15 @@ public:
     bool isValid() const;
 
     QString html() const;
+
+    QStringList aliases() const;
+    void setAliases(const QStringList &aliases);
+
 private:
     QString mIdentifier;
     QString mExtension;
     QString mName;
+    QStringList mAliases;
 };
 Q_DECLARE_METATYPE(Emoji)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Emoji &t);

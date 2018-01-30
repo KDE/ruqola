@@ -1,0 +1,11 @@
+{   
+    "_id": "scSbxNPzm9xWrNqCG",
+    "_updatedAt": {
+          "$date": 1514915356313
+    },
+    "aliases": [
+       "clap"
+    ],
+    "extension": "gif",
+    "name": "clapping"
+}

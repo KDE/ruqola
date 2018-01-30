@@ -57,12 +57,22 @@ void EmojiTest::shouldParseEmoji_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<Emoji>("expectedEmoji");
-    Emoji emojiRef;
-    emojiRef.setExtension(QStringLiteral("jpg"));
-    emojiRef.setName(QStringLiteral("troll"));
-    emojiRef.setIdentifier(QStringLiteral("2cgzHwKP6Cq3iZCob"));
+    {
+        Emoji emojiRef;
+        emojiRef.setExtension(QStringLiteral("jpg"));
+        emojiRef.setName(QStringLiteral("troll"));
+        emojiRef.setIdentifier(QStringLiteral("2cgzHwKP6Cq3iZCob"));
 
-    QTest::addRow("emoji1") << QStringLiteral("emoji") << emojiRef;
+        QTest::addRow("emoji") << QStringLiteral("emoji") << emojiRef;
+    }
+    {
+        Emoji emojiRef;
+        emojiRef.setExtension(QStringLiteral("gif"));
+        emojiRef.setName(QStringLiteral("clapping"));
+        emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
+        emojiRef.setAliases(QStringList{QStringLiteral("clap")});
+        QTest::addRow("emojialias") << QStringLiteral("emojialias") << emojiRef;
+    }
 }
 
 void EmojiTest::shouldParseEmoji()
