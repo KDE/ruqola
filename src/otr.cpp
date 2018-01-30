@@ -77,6 +77,11 @@ void Otr::parseCryptoSettings(const QString &publicKey)
     //TODO
 }
 
+CryptoSettings Otr::crypto() const
+{
+    return mCrypto;
+}
+
 Otr::OtrType Otr::type() const
 {
     return mType;
@@ -103,5 +108,12 @@ QDebug operator <<(QDebug d, const Otr &t)
     d << "type : " << t.type();
     d << "userId: " << t.userId();
     d << "roomId: " << t.roomId();
+    d << "crypto settings " << t.crypto();
+    return d;
+}
+
+QDebug operator <<(QDebug d, const CryptoSettings &t)
+{
+    d << "isValid: " << t.mCrypt;
     return d;
 }

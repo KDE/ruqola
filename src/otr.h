@@ -56,6 +56,8 @@ public:
 
     bool isValid() const;
 
+    CryptoSettings crypto() const;
+
 private:
     void parseCryptoSettings(const QString &publicKey);
     //TODO add crypto support
@@ -66,5 +68,6 @@ private:
 };
 Q_DECLARE_METATYPE(Otr)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Otr &t);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const CryptoSettings &t);
 
 #endif // OTR_H
