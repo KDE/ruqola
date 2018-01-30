@@ -49,12 +49,12 @@ void Emoji::parseEmoji(const QJsonObject &emoji)
 bool Emoji::isValid() const
 {
     //Add more check ?
-    return !mIdentifier.isEmpty();
+    return !mIdentifier.isEmpty() && !mName.isEmpty();
 }
 
 QString Emoji::html() const
 {
-    //TODO
+    //TODO generate url
     return {};
 }
 
