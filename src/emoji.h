@@ -51,7 +51,7 @@ public:
 
     bool isValid() const;
 
-    QString html(const QString &serverUrl) const;
+    QString html(const QString &serverUrl);
 
     QStringList aliases() const;
     void setAliases(const QStringList &aliases);
@@ -64,6 +64,7 @@ private:
     QString mIdentifier;
     QString mExtension;
     QString mName;
+    QString mCachedHtml;
     QStringList mAliases;
 };
 Q_DECLARE_METATYPE(Emoji)

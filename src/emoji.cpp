@@ -53,14 +53,15 @@ bool Emoji::isValid() const
     return !mIdentifier.isEmpty() && !mName.isEmpty();
 }
 
-QString Emoji::html(const QString &serverUrl) const
+QString Emoji::html(const QString &serverUrl)
 {
-    const QString url = serverUrl + QStringLiteral("/emoji-custom/%1.%2").arg(mName).arg(mExtension);
-    //https://rocket.chat/docs/developer-guides/realtime-api/method-calls/list-custom-emoji/#list-custom-emoji
-    //http://yourhost.com/emoji-custom/Emoji%20Name.png
-    //TODO generate url
-    //TODO cache it ?
-    return QStringLiteral("<img height='22' width='22' src='%1'/>").arg(url);
+    if (mCachedHtml.isEmpty()) {
+        const QString url = serverUrl + QStringLiteral("/emoji-custom/%1.%2").arg(mName).arg(mExtension);
+        //https://rocket.chat/docs/developer-guides/realtime-api/method-calls/list-custom-emoji/#list-custom-emoji
+        //http://yourhost.com/emoji-custom/Emoji%20Name.png
+        mCachedHtml = QStringLiteral("<img height='22' width='22' src='%1'/>").arg(url);
+    }
+    return mCachedHtml;
 }
 
 QStringList Emoji::aliases() const

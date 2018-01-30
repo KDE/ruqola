@@ -53,12 +53,15 @@ int EmojiManager::count() const
     return mEmojiList.count();
 }
 
-QString EmojiManager::html(const QString &emojiIdentifier) const
+QString EmojiManager::html(const QString &emojiIdentifier)
 {
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
         for (int i = 0, total = mEmojiList.size(); i < total; ++i) {
             if (mEmojiList.at(i).emojiIdentifier() == emojiIdentifier) {
-                return mEmojiList.at(i).html(/* server url */ QString());
+                Emoji emoji = mEmojiList[i];
+                const QString htmlStr = emoji.html(/* server url */ QString());
+                mEmojiList.replace(i, emoji);
+                return htmlStr;
             }
         }
     } else {
