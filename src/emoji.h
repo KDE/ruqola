@@ -61,6 +61,7 @@ public:
 
     QString cachedHtml() const;
 
+    void clearCachedHtml();
 private:
     QString mEmojiIdentifier;
     QString mIdentifier;

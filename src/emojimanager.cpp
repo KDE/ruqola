@@ -55,13 +55,17 @@ int EmojiManager::count() const
 
 QString EmojiManager::html(const QString &emojiIdentifier)
 {
+    if (mServerUrl.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << "Server Url not defined";
+        return emojiIdentifier;
+    }
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
         for (int i = 0, total = mEmojiList.size(); i < total; ++i) {
             if (mEmojiList.at(i).emojiIdentifier() == emojiIdentifier) {
                 QString cachedHtml = mEmojiList.at(i).cachedHtml();
                 if (cachedHtml.isEmpty()) {
                     Emoji emoji = mEmojiList[i];
-                    cachedHtml = emoji.html(/* server url */ QString());
+                    cachedHtml = emoji.html(mServerUrl);
                     mEmojiList.replace(i, emoji);
                 }
                 return cachedHtml;
@@ -71,4 +75,29 @@ QString EmojiManager::html(const QString &emojiIdentifier)
         qCWarning(RUQOLA_LOG) << "Emoji identifier is not correct :" << emojiIdentifier;
     }
     return emojiIdentifier;
+}
+
+QString EmojiManager::serverUrl() const
+{
+    return mServerUrl;
+}
+
+void EmojiManager::setServerUrl(const QString &serverUrl)
+{
+    if (mServerUrl != serverUrl) {
+        mServerUrl = serverUrl;
+        clearEmojiCachedHtml();
+    }
+}
+
+void EmojiManager::clearEmojiCachedHtml()
+{
+    for (int i = 0, total = mEmojiList.size(); i < total; ++i) {
+        QString cachedHtml = mEmojiList.at(i).cachedHtml();
+        if (!cachedHtml.isEmpty()) {
+            Emoji emoji = mEmojiList[i];
+            emoji.clearCachedHtml();
+            mEmojiList.replace(i, emoji);
+        }
+    }
 }

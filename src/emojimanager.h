@@ -37,9 +37,15 @@ public:
     int count() const;
 
     QString html(const QString &emojiIdentifier);
+    QString serverUrl() const;
+    void setServerUrl(const QString &serverUrl);
+
 private:
+    Q_DISABLE_COPY(EmojiManager)
+    void clearEmojiCachedHtml();
     //Use identifier in a QMap ???
     QVector<Emoji> mEmojiList;
+    QString mServerUrl;
 };
 
 #endif // EMOJIMANAGER_H

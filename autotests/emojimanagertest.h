@@ -30,8 +30,14 @@ public:
     explicit EmojiManagerTest(QObject *parent = nullptr);
     ~EmojiManagerTest() = default;
 private Q_SLOTS:
+    void shouldHaveDefaultValue();
+
     void shouldParseEmoji_data();
     void shouldParseEmoji();
+
+    void shouldGenerateHtml();
+
+    void shouldChangeServerUrl();
 };
 
 #endif // EMOJIMANAGERTEST_H

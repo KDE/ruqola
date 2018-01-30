@@ -20,13 +20,16 @@
 #include "textconverter.h"
 #include "utils.h"
 #include "ruqola_debug.h"
+#include "emojimanager.h"
 
+#include "rocketchataccount.h"
 #include "texthighlighter.h"
 
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 
-TextConverter::TextConverter()
+TextConverter::TextConverter(RocketChatAccount *account)
+    : mRocketChatAccount(account)
 {
     mDef = mRepo.definitionForName(QStringLiteral("C++"));
     if (mDef.isValid()) {
@@ -53,5 +56,11 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
         highLighter.highlight(e);
         return *s.string();
     }
-    return Utils::generateRichText(str, mentions);
+    QString richText = Utils::generateRichText(str, mentions);
+    if (mRocketChatAccount) {
+        //TODO use custom emoji
+        //TODO replace custom emoji
+        //mRocketChatAccount->emojiManager()->html(QString());
+    }
+    return richText;
 }

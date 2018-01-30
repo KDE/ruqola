@@ -31,6 +31,13 @@ EmojiManagerTest::EmojiManagerTest(QObject *parent)
 {
 }
 
+void EmojiManagerTest::shouldHaveDefaultValue()
+{
+    EmojiManager manager;
+    QVERIFY(manager.serverUrl().isEmpty());
+    QCOMPARE(manager.count(), 0);
+}
+
 void EmojiManagerTest::shouldParseEmoji_data()
 {
     QTest::addColumn<QString>("name");
@@ -52,4 +59,55 @@ void EmojiManagerTest::shouldParseEmoji()
     EmojiManager manager;
     manager.loadEmoji(obj);
     QCOMPARE(manager.count(), number);
+}
+
+void EmojiManagerTest::shouldGenerateHtml()
+{
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + QStringLiteral("emojiparent") + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    EmojiManager manager;
+    manager.loadEmoji(obj);
+    //No serverUrl set.
+    QCOMPARE(manager.html(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
+
+    const QString serverUrl = QStringLiteral("www.kde.org");
+    manager.setServerUrl(serverUrl);
+
+    //:foo: doesn't exist
+    QCOMPARE(manager.html(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
+
+    //It exists
+    QCOMPARE(manager.html(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='www.kde.org/emoji-custom/react_rocket.png'/>"));
+
+
+    QCOMPARE(manager.html(QStringLiteral(":totoro:")), QStringLiteral("<img height='22' width='22' src='www.kde.org/emoji-custom/totoro.gif'/>"));
+}
+
+void EmojiManagerTest::shouldChangeServerUrl()
+{
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + QStringLiteral("emojiparent") + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    EmojiManager manager;
+    manager.loadEmoji(obj);
+    QString serverUrl = QStringLiteral("www.kde.org");
+    manager.setServerUrl(serverUrl);
+
+    //It exists
+    QCOMPARE(manager.html(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='%1/emoji-custom/react_rocket.png'/>").arg(serverUrl));
+
+    //Change server url => clear cache
+    serverUrl = QStringLiteral("www.bla.org");
+    manager.setServerUrl(serverUrl);
+    QCOMPARE(manager.html(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='%1/emoji-custom/react_rocket.png'/>").arg(serverUrl));
+
 }

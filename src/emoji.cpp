@@ -64,6 +64,11 @@ QString Emoji::html(const QString &serverUrl)
     return mCachedHtml;
 }
 
+void Emoji::clearCachedHtml()
+{
+    mCachedHtml.clear();
+}
+
 QStringList Emoji::aliases() const
 {
     return mAliases;

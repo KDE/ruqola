@@ -164,6 +164,8 @@ public:
     void setServerVersion(const QString &version);
 
     bool needAdaptNewSubscriptionRC60() const;
+    EmojiManager *emojiManager() const;
+
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();

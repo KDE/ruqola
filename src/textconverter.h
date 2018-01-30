@@ -25,17 +25,18 @@
 #include "libruqola_private_export.h"
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Definition>
-
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT TextConverter
 {
 public:
-    TextConverter();
+    explicit TextConverter(RocketChatAccount *account = nullptr);
     ~TextConverter() = default;
 
     QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const;
 private:
     mutable KSyntaxHighlighting::Repository mRepo;
     KSyntaxHighlighting::Definition mDef;
+    RocketChatAccount *mRocketChatAccount = nullptr;
     bool mSyntaxHighlightingInitialized = false;
 };
 

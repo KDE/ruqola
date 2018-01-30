@@ -19,6 +19,7 @@
 */
 
 #include "loadrecenthistorymanagertest.h"
+#include "loadrecenthistorymanager.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(LoadRecentHistoryManagerTest)
 

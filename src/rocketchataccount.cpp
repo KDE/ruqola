@@ -67,7 +67,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     loadSettings();
 
+    //After loadSettings
     mEmojiManager = new EmojiManager(this);
+    mEmojiManager->setServerUrl(mSettings->serverUrl());
     mOtrManager = new OtrManager(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
     mUserCompleterModel = new UserCompleterModel(this);
@@ -111,6 +113,11 @@ void RocketChatAccount::clearModels()
     mMessageQueue->loadCache();
     //Try to send queue message
     mMessageQueue->processQueue();
+}
+
+EmojiManager *RocketChatAccount::emojiManager() const
+{
+    return mEmojiManager;
 }
 
 StatusModel *RocketChatAccount::statusModel() const
@@ -557,6 +564,7 @@ void RocketChatAccount::setServerUrl(const QString &serverURL)
 {
     settings()->setServerUrl(serverURL);
     restApi()->setServerUrl(serverURL);
+    mEmojiManager->setServerUrl(serverURL);
 }
 
 QString RocketChatAccount::recordingVideoPath() const
