@@ -51,7 +51,7 @@ public:
 
     bool isValid() const;
 
-    QString html() const;
+    QString html(const QString &serverUrl) const;
 
     QStringList aliases() const;
     void setAliases(const QStringList &aliases);

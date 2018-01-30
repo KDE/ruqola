@@ -23,6 +23,8 @@
 #include <QJsonObject>
 #include "ruqola_debug.h"
 
+//TODO cache emoji ?
+
 EmojiManager::EmojiManager(QObject *parent)
     : QObject(parent)
 {
@@ -56,7 +58,7 @@ QString EmojiManager::html(const QString &emojiIdentifier) const
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
         for (int i = 0, total = mEmojiList.size(); i < total; ++i) {
             if (mEmojiList.at(i).emojiIdentifier() == emojiIdentifier) {
-                return mEmojiList.at(i).html();
+                return mEmojiList.at(i).html(/* server url */ QString());
             }
         }
     } else {
