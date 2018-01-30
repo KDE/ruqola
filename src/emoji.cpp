@@ -35,9 +35,15 @@ void Emoji::parseEmoji(const QJsonObject &emoji)
     mIdentifier = emoji.value(QLatin1String("_id")).toString();
     mExtension = emoji.value(QLatin1String("extension")).toString();
     mName = emoji.value(QLatin1String("name")).toString();
-    //TODO
-
-    //TODO add alias ? updated ?
+    const QJsonArray array = emoji.value(QLatin1String("aliases")).toArray();
+    const int arrayCount = array.count();
+    QStringList lst;
+    lst.reserve(arrayCount);
+    for (int i = 0; i < arrayCount; ++i) {
+        lst.append(array.at(i).toString());
+    }
+    mAliases = lst;
+    //TODO updated ?
 }
 
 bool Emoji::isValid() const
