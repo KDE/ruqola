@@ -36,6 +36,7 @@ public:
 
     int count() const;
 
+    QString html(const QString &emojiIdentifier) const;
 private:
     //Use identifier in a QMap ???
     QVector<Emoji> mEmojiList;

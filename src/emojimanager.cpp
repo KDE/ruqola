@@ -50,3 +50,9 @@ int EmojiManager::count() const
 {
     return mEmojiList.count();
 }
+
+QString EmojiManager::html(const QString &emojiIdentifier) const
+{
+    //TODO
+    return {};
+}
