@@ -53,6 +53,14 @@ int EmojiManager::count() const
 
 QString EmojiManager::html(const QString &emojiIdentifier) const
 {
-    //TODO
-    return {};
+    if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
+        for (int i = 0, total = mEmojiList.size(); i < total; ++i) {
+            if (mEmojiList.at(i).emojiIdentifier() == emojiIdentifier) {
+                return mEmojiList.at(i).html();
+            }
+        }
+    } else {
+        qCWarning(RUQOLA_LOG) << "Emoji identifier is not correct :" << emojiIdentifier;
+    }
+    return emojiIdentifier;
 }
