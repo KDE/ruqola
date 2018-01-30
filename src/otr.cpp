@@ -39,8 +39,6 @@ void Otr::parseOtr(const QJsonArray &contents)
         const QString roomId = obj.value(QLatin1String("roomId")).toString();
         const QString userId = obj.value(QLatin1String("userId")).toString();
         qCDebug(RUQOLA_LOG) << " END" << obj << " roomId " << roomId << " userId " << userId;
-
-        //const QString roomId = contents
         mType = Otr::End;
     } else if (type == QLatin1String("handshake")) {
         //qDebug() << " HANDSHAKE" << contents.at(1).toObject();
@@ -48,7 +46,6 @@ void Otr::parseOtr(const QJsonArray &contents)
         const QString roomId = obj.value(QLatin1String("roomId")).toString();
         const QString userId = obj.value(QLatin1String("userId")).toString();
         const QString publicKey = obj.value(QLatin1String("publicKey")).toString();
-        //TODO parsing publicKey.
         qCDebug(RUQOLA_LOG) << " HANDSHAKE" << obj << " roomId " << roomId << " userId " << userId << " publicKey "<<publicKey;
         mType = Otr::Handshake;
         parseCryptoSettings(publicKey);
