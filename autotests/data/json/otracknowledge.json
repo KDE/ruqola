@@ -1,0 +1,16 @@
+{
+    "collection": "stream-notify-user",
+    "fields": {
+        "args": [
+            "acknowledge",
+            {
+                "publicKey": "{\"crv\":\"P-256\",\"ext\":true,\"key_ops\":[],\"kty\":\"EC\",\"x\":\"bE054wT8Ab_ZlUxyGw1qkbpBgIdCNP9no0aFaD8DXaU\",\"y\":\"Dm00--NQBQojKc4qXuQu1VUQJXc1JaWsxmwFAorfm8E\"}",
+                "roomId": "XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH",
+                "userId": "XQv6u7Kyb4pfDhS4w"
+            }
+        ],
+        "eventName": "uKK39zoewTkdacidH/otr"
+    },
+    "id": "id",
+    "msg": "changed"
+}

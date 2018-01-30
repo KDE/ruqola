@@ -44,7 +44,7 @@ void Emoji::parseEmoji(const QJsonObject &emoji)
         lst.append(array.at(i).toString());
     }
     mAliases = lst;
-    //TODO updated ?
+    //TODO updated when we will store data on system
 }
 
 bool Emoji::isValid() const

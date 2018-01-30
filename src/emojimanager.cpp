@@ -61,6 +61,7 @@ QString EmojiManager::html(const QString &emojiIdentifier)
     }
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
         for (int i = 0, total = mEmojiList.size(); i < total; ++i) {
+            //TODO check aliases too ?
             if (mEmojiList.at(i).emojiIdentifier() == emojiIdentifier) {
                 QString cachedHtml = mEmojiList.at(i).cachedHtml();
                 if (cachedHtml.isEmpty()) {
