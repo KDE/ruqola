@@ -55,6 +55,8 @@ void Otr::parseOtr(const QJsonArray &contents)
         parseCryptoSettings(publicKey);
     } else if (type == QLatin1String("deny")) {
         qCDebug(RUQOLA_LOG) << " Deny " << contents;
+        //TODO
+        mType = Otr::Deny;
     } else if (type == QLatin1String("acknowledge")) {
         qCDebug(RUQOLA_LOG) << " acknowledge " << contents;
         const QJsonObject obj = contents.at(1).toObject();
