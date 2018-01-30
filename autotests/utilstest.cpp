@@ -104,7 +104,7 @@ void UtilsTest::shouldExtractGenerateRichText_data()
     QTest::newRow("word@-5") << QStringLiteral("bla bla 21 @foo.bla.bli dd") << QStringLiteral("bla bla 21 <a href='ruqola:/user/foo.bla.bli'>@foo.bla.bli</a> dd");
     QTest::newRow("word@-6") << QStringLiteral("@foo-bla") << QStringLiteral("<a href='ruqola:/user/foo-bla'>@foo-bla</a>");
     QTest::newRow("word@-7") << QStringLiteral("@foo_bla") << QStringLiteral("<a href='ruqola:/user/foo_bla'>@foo_bla</a>");
-    QTest::newRow("word@-8") << QStringLiteral("bli@foo_bla") << QStringLiteral("<a href='ruqola:/user/foo_bla'>@foo_bla</a>");
+    QTest::newRow("word@-8") << QStringLiteral("bli@foo_bla") << QStringLiteral("bli@foo_bla");
 
     QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<a href='ruqola:/room/foo'>#foo</a>");
     QTest::newRow("word#-2") << QStringLiteral("#foo.bla") << QStringLiteral("<a href='ruqola:/room/foo.bla'>#foo.bla</a>");
@@ -115,7 +115,7 @@ void UtilsTest::shouldExtractGenerateRichText_data()
     QTest::newRow("word#-7") << QStringLiteral("#foo_bla") << QStringLiteral("<a href='ruqola:/room/foo_bla'>#foo_bla</a>");
     //Test parsing when it's in an url... don't replace it.
 
-    QTest::newRow("url") << QStringLiteral("http://www.kde.org#foo_bla") << QStringLiteral("http://www.kde.org#foo_bla");
+    QTest::newRow("url") << QStringLiteral("http://www.kde.org#foo_bla") << QStringLiteral("<a href=\"http://www.kde.org#foo_bla\">http://www.kde.org#foo_bla</a>");
 }
 
 void UtilsTest::shouldExtractGenerateRichText()
