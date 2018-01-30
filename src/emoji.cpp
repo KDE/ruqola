@@ -84,6 +84,11 @@ void Emoji::setEmojiIdentifier(const QString &emojiIdentifier)
     mEmojiIdentifier = emojiIdentifier;
 }
 
+QString Emoji::cachedHtml() const
+{
+    return mCachedHtml;
+}
+
 QString Emoji::identifier() const
 {
     return mIdentifier;

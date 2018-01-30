@@ -59,6 +59,8 @@ public:
     QString emojiIdentifier() const;
     void setEmojiIdentifier(const QString &emojiIdentifier);
 
+    QString cachedHtml() const;
+
 private:
     QString mEmojiIdentifier;
     QString mIdentifier;

@@ -58,10 +58,13 @@ QString EmojiManager::html(const QString &emojiIdentifier)
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
         for (int i = 0, total = mEmojiList.size(); i < total; ++i) {
             if (mEmojiList.at(i).emojiIdentifier() == emojiIdentifier) {
-                Emoji emoji = mEmojiList[i];
-                const QString htmlStr = emoji.html(/* server url */ QString());
-                mEmojiList.replace(i, emoji);
-                return htmlStr;
+                QString cachedHtml = mEmojiList.at(i).cachedHtml();
+                if (cachedHtml.isEmpty()) {
+                    Emoji emoji = mEmojiList[i];
+                    cachedHtml = emoji.html(/* server url */ QString());
+                    mEmojiList.replace(i, emoji);
+                }
+                return cachedHtml;
             }
         }
     } else {
