@@ -37,6 +37,7 @@ void EmojiTest::shouldHaveDefaultValue()
     QVERIFY(j.extension().isEmpty());
     QVERIFY(j.identifier().isEmpty());
     QVERIFY(j.name().isEmpty());
+    QVERIFY(j.aliases().isEmpty());
 }
 
 void EmojiTest::shouldAssignValue()
@@ -45,12 +46,20 @@ void EmojiTest::shouldAssignValue()
     const QString ext{QStringLiteral("foo")};
     const QString id{QStringLiteral("bla")};
     const QString name{QStringLiteral("bli")};
+    const QStringList aliases{QStringLiteral("foo"), QStringLiteral("bla")};
     j.setExtension(ext);
     j.setName(name);
     j.setIdentifier(id);
+    j.setAliases(aliases);
+
+    const QString emojiId = QLatin1Char(':') + name + QLatin1Char(':');
+    j.setEmojiIdentifier(emojiId);
+
     QCOMPARE(j.extension(), ext);
     QCOMPARE(j.identifier(), id);
     QCOMPARE(j.name(), name);
+    QCOMPARE(j.aliases(), aliases);
+    QCOMPARE(j.emojiIdentifier(), emojiId);
 }
 
 void EmojiTest::shouldParseEmoji_data()
@@ -62,6 +71,7 @@ void EmojiTest::shouldParseEmoji_data()
         emojiRef.setExtension(QStringLiteral("jpg"));
         emojiRef.setName(QStringLiteral("troll"));
         emojiRef.setIdentifier(QStringLiteral("2cgzHwKP6Cq3iZCob"));
+        emojiRef.setEmojiIdentifier(QStringLiteral(":troll:"));
 
         QTest::addRow("emoji") << QStringLiteral("emoji") << emojiRef;
     }
@@ -71,6 +81,7 @@ void EmojiTest::shouldParseEmoji_data()
         emojiRef.setName(QStringLiteral("clapping"));
         emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
         emojiRef.setAliases(QStringList{QStringLiteral("clap")});
+        emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
         QTest::addRow("emojialias") << QStringLiteral("emojialias") << emojiRef;
     }
 }

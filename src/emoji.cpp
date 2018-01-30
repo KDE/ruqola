@@ -35,6 +35,7 @@ void Emoji::parseEmoji(const QJsonObject &emoji)
     mIdentifier = emoji.value(QLatin1String("_id")).toString();
     mExtension = emoji.value(QLatin1String("extension")).toString();
     mName = emoji.value(QLatin1String("name")).toString();
+    mEmojiIdentifier = QLatin1Char(':') + mName + QLatin1Char(':');
     const QJsonArray array = emoji.value(QLatin1String("aliases")).toArray();
     const int arrayCount = array.count();
     QStringList lst;
@@ -54,6 +55,8 @@ bool Emoji::isValid() const
 
 QString Emoji::html() const
 {
+    //https://rocket.chat/docs/developer-guides/realtime-api/method-calls/list-custom-emoji/#list-custom-emoji
+    //http://yourhost.com/emoji-custom/Emoji%20Name.png
     //TODO generate url
     return {};
 }
@@ -66,6 +69,16 @@ QStringList Emoji::aliases() const
 void Emoji::setAliases(const QStringList &aliases)
 {
     mAliases = aliases;
+}
+
+QString Emoji::emojiIdentifier() const
+{
+    return mEmojiIdentifier;
+}
+
+void Emoji::setEmojiIdentifier(const QString &emojiIdentifier)
+{
+    mEmojiIdentifier = emojiIdentifier;
 }
 
 QString Emoji::identifier() const
@@ -103,7 +116,8 @@ bool Emoji::operator==(const Emoji &other) const
     return (mName == other.name()) &&
             (mExtension == other.extension()) &&
             (mIdentifier == other.identifier() &&
-             (mAliases == other.aliases()));
+             (mAliases == other.aliases()) &&
+             (mEmojiIdentifier == other.emojiIdentifier()));
 }
 
 Emoji &Emoji::operator=(const Emoji &other)
@@ -112,6 +126,7 @@ Emoji &Emoji::operator=(const Emoji &other)
     mExtension = other.extension();
     mIdentifier = other.identifier();
     mAliases = other.aliases();
+    mEmojiIdentifier = other.emojiIdentifier();
     return *this;
 }
 

@@ -56,7 +56,11 @@ public:
     QStringList aliases() const;
     void setAliases(const QStringList &aliases);
 
+    QString emojiIdentifier() const;
+    void setEmojiIdentifier(const QString &emojiIdentifier);
+
 private:
+    QString mEmojiIdentifier;
     QString mIdentifier;
     QString mExtension;
     QString mName;
