@@ -28,11 +28,24 @@ class LIBRUQOLACORE_EXPORT UsersModelForRoom : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum UserRoles {
+        UserName = Qt::UserRole + 1,
+        UserId,
+        UserIconStatus
+    };
+    Q_ENUM(UserRoles)
+
     explicit UsersModelForRoom(QObject *parent = nullptr);
     ~UsersModelForRoom();
 
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
+
+protected:
+    QHash<int, QByteArray> roleNames() const override;
+
+private:
+    //TODO
 };
 
 #endif // USERSFORROOMMODEL_H

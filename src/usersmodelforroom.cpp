@@ -31,38 +31,17 @@ UsersModelForRoom::~UsersModelForRoom()
 {
 }
 
-/*
-bool UsersModelForRoom::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
-{
-    if (mCurrentRoomId.isEmpty()) {
-        qCWarning(RUQOLA_LOG) << "current room id is not defined. It's a bug";
-        return false;
-    }
-    const QModelIndex idx = sourceModel()->index(source_row, 0, source_parent);
-    if (!idx.isValid()) {
-        return false;
-    }
-    return true;
-}
-
-QString UsersModelForRoom::currentRoomId() const
-{
-    return mCurrentRoomId;
-}
-
-void UsersModelForRoom::setCurrentRoomId(const QString &currentRoomId)
-{
-    mCurrentRoomId = currentRoomId;
-}
-*/
-
-
 int UsersModelForRoom::rowCount(const QModelIndex &parent) const
 {
     return {};
 }
 
 QVariant UsersModelForRoom::data(const QModelIndex &index, int role) const
+{
+    return {};
+}
+
+QHash<int, QByteArray> UsersModelForRoom::roleNames() const
 {
     return {};
 }
