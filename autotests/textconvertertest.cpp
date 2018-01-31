@@ -19,7 +19,10 @@
 
 #include "textconvertertest.h"
 #include "textconverter.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
+#include <emojimanager.h>
 
 QTEST_GUILESS_MAIN(TextConverterTest)
 
@@ -33,6 +36,8 @@ void TextConverterTest::shouldConvertText_data()
     QTest::addColumn<QString>("input");
     QTest::addColumn<QString>("output");
     QTest::newRow("empty") << QString() << QString();
+    QTest::newRow("simpletext") << QStringLiteral("foo") << QStringLiteral("foo");
+    QTest::newRow("customemojiwithoutmanager") << QStringLiteral(":foo:") << QStringLiteral(":foo:");
 }
 
 void TextConverterTest::shouldConvertText()
@@ -40,5 +45,50 @@ void TextConverterTest::shouldConvertText()
     QFETCH(QString, input);
     QFETCH(QString, output);
     TextConverter w;
+    QCOMPARE(w.convertMessageText(input, {}), output);
+}
+
+void TextConverterTest::shouldConvertTextWithEmoji_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("output");
+    QTest::addColumn<QString>("serverUrl");
+    QTest::newRow("empty") << QString() << QString() << QStringLiteral("www.kde.org");
+    QTest::newRow("simpletext") << QStringLiteral("foo") << QStringLiteral("foo") << QStringLiteral("www.kde.org");
+    QTest::newRow("customemojiwithmanager") << QStringLiteral(":foo:") << QStringLiteral(":foo:") << QStringLiteral("www.kde.org");
+    QTest::newRow("customemojiwithmanager1") << QStringLiteral(":totoro:")
+                                             << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>")
+                                             << QStringLiteral("www.kde.org");
+    QTest::newRow("customemojiwithmanager2") << QStringLiteral(":totoro::totoro:")
+                                             << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>")
+                                             << QStringLiteral("www.kde.org");
+
+    //Use server with http://
+    QTest::newRow("customemojiwithmanager2") << QStringLiteral(":totoro::totoro:")
+                                             << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>")
+                                             << QStringLiteral("http://www.kde.org");
+    //TODO add alias support too
+}
+
+void TextConverterTest::shouldConvertTextWithEmoji()
+{
+    QFETCH(QString, input);
+    QFETCH(QString, output);
+    QFETCH(QString, serverUrl);
+
+    //Load emoji
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + QStringLiteral("emojiparent") + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    EmojiManager manager;
+    manager.loadEmoji(obj);
+    manager.setServerUrl(serverUrl);
+
+    TextConverter w(&manager);
+
     QCOMPARE(w.convertMessageText(input, {}), output);
 }

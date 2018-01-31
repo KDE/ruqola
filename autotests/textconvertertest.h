@@ -31,6 +31,9 @@ public:
 private Q_SLOTS:
     void shouldConvertText_data();
     void shouldConvertText();
+
+    void shouldConvertTextWithEmoji_data();
+    void shouldConvertTextWithEmoji();
 };
 
 #endif // TEXTCONVERTERTEST_H
