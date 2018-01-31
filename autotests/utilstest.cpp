@@ -65,6 +65,8 @@ void UtilsTest::shouldMarkdownToRichText_data()
     QTest::newRow("multi star3") << QStringLiteral("***bla ******")
                                  << QStringLiteral("***bla ******");
     QTest::newRow("Remove <br/>") << QStringLiteral("foo<br />") << QStringLiteral("foo");
+
+    QTest::newRow("0.6.3") << QStringLiteral("0.6.3") << QStringLiteral("0.6.3");
 }
 
 void UtilsTest::shouldMarkdownToRichText()
@@ -116,6 +118,8 @@ void UtilsTest::shouldExtractGenerateRichText_data()
     //Test parsing when it's in an url... don't replace it.
 
     QTest::newRow("url") << QStringLiteral("http://www.kde.org#foo_bla") << QStringLiteral("<a href=\"http://www.kde.org#foo_bla\">http://www.kde.org#foo_bla</a>");
+
+    QTest::newRow("0.6.3") << QStringLiteral("0.6.3") << QStringLiteral("0.6.3");
 }
 
 void UtilsTest::shouldExtractGenerateRichText()
