@@ -183,7 +183,10 @@ Rectangle {
             if (link.startsWith("ruqola:/room/")) {
                 appid.rocketChatAccount.openChannel(RuqolaUtils.extractRoomUserFromUrl(link));
             } else if (link.startsWith("ruqola:/user/")) {
-                messageMain.openDirectChannel(RuqolaUtils.extractRoomUserFromUrl(link))
+                var username = RuqolaUtils.extractRoomUserFromUrl(link);
+                if (username !== appid.rocketChatAccount.userName) {
+                    messageMain.openDirectChannel(username)
+                }
             } else {
                 RuqolaUtils.openUrl(link);
             }
