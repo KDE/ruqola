@@ -111,6 +111,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
             }
 
             account->ddp()->subscribeRoomMessage(roomID);
+            account->getUsersOfRoom(roomID);
 
             //Load history
             account->loadHistory(roomID, true /*initial loading*/);

@@ -120,6 +120,17 @@ EmojiManager *RocketChatAccount::emojiManager() const
     return mEmojiManager;
 }
 
+QString RocketChatAccount::userStatusIconFileName(const QString &id)
+{
+    User *user = mUserModel->userFromName(id);
+    if (user) {
+        return user->iconFromStatus();
+    } else {
+        qCWarning(RUQOLA_LOG) << "User for id " << id << " not defined";
+    }
+    return {};
+}
+
 StatusModel *RocketChatAccount::statusModel() const
 {
     return mStatusModel;
@@ -432,6 +443,11 @@ void RocketChatAccount::deleteMessage(const QString &messageId)
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
 {
     ddp()->userAutocomplete(searchText, exception);
+}
+
+void RocketChatAccount::getUsersOfRoom(const QString &roomId)
+{
+    ddp()->getUsersOfRoom(roomId, true);
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)

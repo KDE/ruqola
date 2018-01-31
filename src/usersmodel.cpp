@@ -61,12 +61,29 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+User *UsersModel::userFromName(const QString &name)
+{
+    const int userCount{
+        mUsers.count()
+    };
+    //qDebug() << " User *UsersModel::user(const QString &userId)"<< name;
+    for (int i = 0; i < userCount; ++i) {
+        //qDebug() << " User *UsersModel::user(const QString &userId)"<< name<<" d "<<mUsers.at(i)->name();
+        if (mUsers.at(i)->userName() == name) {
+            qDebug() << " found user" << name;
+            return mUsers.at(i);
+        }
+    }
+    return nullptr;
+}
+
 User *UsersModel::user(const QString &userId)
 {
     const int userCount{
         mUsers.count()
     };
     for (int i = 0; i < userCount; ++i) {
+        //qDebug() << " User *UsersModel::user(const QString &userId)"<<mUsers.at(i)->userId()<< " search" << userId;
         if (mUsers.at(i)->userId() == userId) {
             return mUsers.at(i);
         }

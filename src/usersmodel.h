@@ -48,6 +48,7 @@ public:
 
     void updateUser(const QJsonObject &array);
     Q_INVOKABLE User *user(const QString &userId);
+    User *userFromName(const QString &name);
 private:
     QVector<User *> mUsers;
 };

@@ -165,7 +165,9 @@ public:
 
     bool needAdaptNewSubscriptionRC60() const;
     EmojiManager *emojiManager() const;
+    QString userStatusIconFileName(const QString &id);
 
+    void getUsersOfRoom(const QString &roomId);
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();

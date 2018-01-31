@@ -74,12 +74,26 @@ bool User::operator ==(const User &other) const
     return (mName == other.name())
            && (mUserId == other.userId())
            && (mStatus == other.status())
-           && (mListRooms == other.listRooms());
+           && (mListRooms == other.listRooms())
+            && (mUserName == other.userName());
 }
 
 bool User::operator !=(const User &other) const
 {
     return !operator ==(other);
+}
+
+QString User::userName() const
+{
+    return mUserName;
+}
+
+void User::setUserName(const QString &userName)
+{
+    if (mUserName != userName) {
+        mUserName = userName;
+        Q_EMIT userNameChanged();
+    }
 }
 
 QStringList User::listRooms() const
@@ -100,16 +114,19 @@ QDebug operator <<(QDebug d, const User &t)
     d << "Name " << t.name();
     d << "UserId " << t.userId();
     d << "Status " << t.status();
+    d << "UserName " << t.userName();
     d << "List Rooms " << t.listRooms();
     return d;
 }
 
 void User::parseUser(const QJsonObject &object)
 {
+    qDebug() << " void User::parseUser(const QJsonObject &object)"<<object;
     const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
     setName(fields.value(QLatin1String("name")).toString());
     setUserId(object.value(QLatin1String("id")).toString());
     setStatus(fields.value(QLatin1String("status")).toString());
+    setUserName(fields.value(QLatin1String("username")).toString());
 }
 
 QString User::iconFromStatus() const

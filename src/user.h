@@ -64,16 +64,21 @@ public:
     bool operator ==(const User &other) const;
     bool operator !=(const User &other) const;
 
+    QString userName() const;
+    void setUserName(const QString &userName);
+
 Q_SIGNALS:
     void nameChanged();
     void statusChanged();
     void listRoomsChanged();
+    void userNameChanged();
 
 private:
     Q_DISABLE_COPY(User)
     QString mStatus;
     QString mUserId;
     QString mName;
+    QString mUserName;
     QStringList mListRooms;
 };
 
