@@ -26,6 +26,8 @@
 #include <QJsonObject>
 QTEST_GUILESS_MAIN(UserTest)
 
+//TODO test username too
+
 UserTest::UserTest(QObject *parent)
     : QObject(parent)
 {
@@ -37,6 +39,7 @@ void UserTest::shouldHaveDefaultValue()
     QVERIFY(u.name().isEmpty());
     QVERIFY(u.userId().isEmpty());
     QVERIFY(u.status().isEmpty());
+    QVERIFY(u.userName().isEmpty());
     QVERIFY(u.listRooms().isEmpty());
 }
 
