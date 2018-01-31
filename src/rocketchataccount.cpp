@@ -658,7 +658,6 @@ void RocketChatAccount::parseOtr(const QJsonArray &contents)
     const Otr t = mOtrManager->parseOtr(contents);
     qDebug() << " void RocketChatAccount::parseOtr(const QJsonArray &contents)"<<t;
     //TODO add notification ?
-
 }
 
 void RocketChatAccount::sendNotification(const QJsonArray &contents)

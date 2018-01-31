@@ -33,7 +33,7 @@ Emoji::~Emoji()
 
 bool Emoji::hasEmoji(const QString &identifier) const
 {
-    return ((mEmojiIdentifier == identifier) || mAliases.contains(identifier));
+    return (mEmojiIdentifier == identifier) || mAliases.contains(identifier);
 }
 
 void Emoji::parseEmoji(const QJsonObject &emoji)
@@ -138,11 +138,11 @@ QString Emoji::name() const
 
 bool Emoji::operator==(const Emoji &other) const
 {
-    return (mName == other.name()) &&
-            (mExtension == other.extension()) &&
-            (mIdentifier == other.identifier() &&
-             (mAliases == other.aliases()) &&
-             (mEmojiIdentifier == other.emojiIdentifier()));
+    return (mName == other.name())
+           && (mExtension == other.extension())
+           && (mIdentifier == other.identifier()
+               && (mAliases == other.aliases())
+               && (mEmojiIdentifier == other.emojiIdentifier()));
 }
 
 Emoji &Emoji::operator=(const Emoji &other)

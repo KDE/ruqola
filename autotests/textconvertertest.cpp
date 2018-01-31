@@ -60,12 +60,14 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
                                              << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>")
                                              << QStringLiteral("www.kde.org");
     QTest::newRow("customemojiwithmanager2") << QStringLiteral(":totoro::totoro:")
-                                             << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>")
+                                             << QStringLiteral(
+        "<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>")
                                              << QStringLiteral("www.kde.org");
 
     //Use server with http://
     QTest::newRow("customemojiwithmanager2") << QStringLiteral(":totoro::totoro:")
-                                             << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>")
+                                             << QStringLiteral(
+        "<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>")
                                              << QStringLiteral("http://www.kde.org");
     //TODO add alias support too
 }

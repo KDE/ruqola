@@ -84,7 +84,6 @@ void EmojiManagerTest::shouldGenerateHtml()
     //It exists
     QCOMPARE(manager.html(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/react_rocket.png'/>"));
 
-
     QCOMPARE(manager.html(QStringLiteral(":totoro:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>"));
 
     //Test aliases
@@ -113,5 +112,4 @@ void EmojiManagerTest::shouldChangeServerUrl()
     serverUrl = QStringLiteral("www.bla.org");
     manager.setServerUrl(serverUrl);
     QCOMPARE(manager.html(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/react_rocket.png'/>").arg(serverUrl));
-
 }

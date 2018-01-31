@@ -54,7 +54,6 @@ public:
     QString status() const;
     void setStatus(const QString &status);
 
-
     void parseUser(const QJsonObject &json);
     Q_INVOKABLE QString iconFromStatus() const;
 

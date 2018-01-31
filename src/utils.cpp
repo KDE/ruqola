@@ -134,4 +134,3 @@ void Utils::parseNotification(const QJsonArray &contents, QString &message, QStr
         qCDebug(RUQOLA_LOG) << "Problem with notication json: missing payload";
     }
 }
-

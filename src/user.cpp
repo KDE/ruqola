@@ -74,7 +74,7 @@ bool User::operator ==(const User &other) const
     return (mName == other.name())
            && (mUserId == other.userId())
            && (mStatus == other.status())
-            && (mUserName == other.userName());
+           && (mUserName == other.userName());
 }
 
 bool User::operator !=(const User &other) const

@@ -226,6 +226,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomJoinCode(co
 {
     return saveRoomSettings(QStringLiteral("joinCode"), roomId, joinCode, id);
 }
+
 //TODO verify
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QString &userId, quint64 id)
 {
@@ -234,6 +235,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QS
                             }};
     return generateMethod(QStringLiteral("unblockUser"), QJsonDocument(params), id);
 }
+
 //TODO verify
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const QString &userId, quint64 id)
 {
