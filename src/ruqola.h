@@ -38,7 +38,6 @@ class QmlAboutData;
 class TypingNotification;
 class RestApiRequest;
 class RocketChatAccount;
-class UsersModelForRoom;
 class RoomFilterProxyModel;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
