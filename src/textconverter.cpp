@@ -64,7 +64,6 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
         while (userIterator.hasNext()) {
             const QRegularExpressionMatch match = userIterator.next();
             const QString word = match.captured(1);
-            qDebug() << "word "<<word;
             const QString replaceWord = mEmojiManager->html(word);
             if (!replaceWord.isEmpty()) {
                 richText.replace(word, replaceWord);
@@ -73,6 +72,5 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
     } else {
         qCWarning(RUQOLA_LOG) << "Emojimanager was not setted";
     }
-    qDebug() << " str" << str << " richtext" << richText;
     return richText;
 }
