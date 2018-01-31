@@ -46,7 +46,7 @@ void EmojiTest::shouldAssignValue()
     const QString ext{QStringLiteral("foo")};
     const QString id{QStringLiteral("bla")};
     const QString name{QStringLiteral("bli")};
-    const QStringList aliases{QStringLiteral("foo"), QStringLiteral("bla")};
+    const QStringList aliases{QStringLiteral(":foo:"), QStringLiteral(":bla:")};
     j.setExtension(ext);
     j.setName(name);
     j.setIdentifier(id);
@@ -68,7 +68,7 @@ void EmojiTest::shouldCopyValue()
     const QString ext{QStringLiteral("foo")};
     const QString id{QStringLiteral("bla")};
     const QString name{QStringLiteral("bli")};
-    const QStringList aliases{QStringLiteral("foo"), QStringLiteral("bla")};
+    const QStringList aliases{QStringLiteral(":foo:"), QStringLiteral(":bla:")};
     j.setExtension(ext);
     j.setName(name);
     j.setIdentifier(id);
@@ -86,7 +86,7 @@ void EmojiTest::shouldClearCachedHtml()
     emojiRef.setExtension(QStringLiteral("gif"));
     emojiRef.setName(QStringLiteral("clapping"));
     emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
-    emojiRef.setAliases(QStringList{QStringLiteral("clap")});
+    emojiRef.setAliases(QStringList{QStringLiteral(":clap:")});
     emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
 
     const QString cachedHtml = emojiRef.html(QStringLiteral("www.kde.org"));
@@ -116,7 +116,7 @@ void EmojiTest::shouldParseEmoji_data()
         emojiRef.setExtension(QStringLiteral("gif"));
         emojiRef.setName(QStringLiteral("clapping"));
         emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
-        emojiRef.setAliases(QStringList{QStringLiteral("clap")});
+        emojiRef.setAliases(QStringList{QStringLiteral(":clap:")});
         emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
         QTest::addRow("emojialias") << QStringLiteral("emojialias") << emojiRef;
     }
@@ -156,7 +156,7 @@ void EmojiTest::shouldGenerateHtml_data()
         emojiRef.setIdentifier(QStringLiteral("scSbxNPzm9xWrNqCG"));
         emojiRef.setAliases(QStringList{QStringLiteral("clap")});
         emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
-        QTest::addRow("emoji") << emojiRef << QStringLiteral("www.kde.org") << QStringLiteral("<img height='22' width='22' src='www.kde.org/emoji-custom/clapping.gif'/>");
+        QTest::addRow("emoji") << emojiRef << QStringLiteral("www.kde.org") << QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>");
     }
 }
 

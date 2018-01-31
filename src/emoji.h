@@ -62,6 +62,7 @@ public:
     QString cachedHtml() const;
 
     void clearCachedHtml();
+    bool hasEmoji(const QString &identifier) const;
 private:
     QString mEmojiIdentifier;
     QString mIdentifier;

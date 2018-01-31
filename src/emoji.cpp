@@ -30,6 +30,11 @@ Emoji::~Emoji()
 {
 }
 
+bool Emoji::hasEmoji(const QString &identifier) const
+{
+    return ((mEmojiIdentifier == identifier) || mAliases.contains(identifier));
+}
+
 void Emoji::parseEmoji(const QJsonObject &emoji)
 {
     mIdentifier = emoji.value(QLatin1String("_id")).toString();
@@ -41,7 +46,7 @@ void Emoji::parseEmoji(const QJsonObject &emoji)
     QStringList lst;
     lst.reserve(arrayCount);
     for (int i = 0; i < arrayCount; ++i) {
-        lst.append(array.at(i).toString());
+        lst.append(QLatin1Char(':') + array.at(i).toString() + QLatin1Char(':'));
     }
     mAliases = lst;
     //TODO updated when we will store data on system

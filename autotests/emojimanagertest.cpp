@@ -82,10 +82,14 @@ void EmojiManagerTest::shouldGenerateHtml()
     QCOMPARE(manager.html(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
 
     //It exists
-    QCOMPARE(manager.html(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='www.kde.org/emoji-custom/react_rocket.png'/>"));
+    QCOMPARE(manager.html(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/react_rocket.png'/>"));
 
 
-    QCOMPARE(manager.html(QStringLiteral(":totoro:")), QStringLiteral("<img height='22' width='22' src='www.kde.org/emoji-custom/totoro.gif'/>"));
+    QCOMPARE(manager.html(QStringLiteral(":totoro:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>"));
+
+    //Test aliases
+    QCOMPARE(manager.html(QStringLiteral(":clap:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>"));
+    QCOMPARE(manager.html(QStringLiteral(":clapping:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>"));
 }
 
 void EmojiManagerTest::shouldChangeServerUrl()
@@ -103,11 +107,11 @@ void EmojiManagerTest::shouldChangeServerUrl()
     manager.setServerUrl(serverUrl);
 
     //It exists
-    QCOMPARE(manager.html(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='%1/emoji-custom/react_rocket.png'/>").arg(serverUrl));
+    QCOMPARE(manager.html(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/react_rocket.png'/>").arg(serverUrl));
 
     //Change server url => clear cache
     serverUrl = QStringLiteral("www.bla.org");
     manager.setServerUrl(serverUrl);
-    QCOMPARE(manager.html(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='%1/emoji-custom/react_rocket.png'/>").arg(serverUrl));
+    QCOMPARE(manager.html(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/react_rocket.png'/>").arg(serverUrl));
 
 }
