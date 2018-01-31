@@ -93,7 +93,7 @@ MessageBase {
                     textFormat: Text.RichText
 
 
-                    text: MessageScript.markdownme(i_messageText)
+                    text: /*MessageScript.markdownme*/(i_messageText)
                     wrapMode: QQC2.Label.Wrap
 
                     onLinkActivated: messageMain.linkActivated(link)
@@ -108,8 +108,8 @@ MessageBase {
                         Text {
                             width: urlColumn.width
                             text: model.modelData.description === ""  ?
-                                      MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.url)) :
-                                      MessageScript.markdownme(RuqolaUtils.markdownToRichText(model.modelData.description))
+                                      /*MessageScript.markdownme*/(RuqolaUtils.markdownToRichText(model.modelData.url)) :
+                                      /*MessageScript.markdownme*/(RuqolaUtils.markdownToRichText(model.modelData.description))
                             wrapMode: QQC2.Label.Wrap
                             renderType: Text.NativeRendering
                             textFormat: Text.RichText
