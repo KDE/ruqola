@@ -35,10 +35,7 @@
 
 class QmlAboutData;
 
-class TypingNotification;
-class RestApiRequest;
 class RocketChatAccount;
-class RoomFilterProxyModel;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT

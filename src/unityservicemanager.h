@@ -23,7 +23,6 @@
 #include "libruqola_private_export.h"
 #include <QObject>
 class QDBusServiceWatcher;
-class QAbstractItemModel;
 class LIBRUQOLACORE_TESTS_EXPORT UnityServiceManager : public QObject
 {
     Q_OBJECT
