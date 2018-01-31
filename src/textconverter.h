@@ -25,18 +25,18 @@
 #include "libruqola_private_export.h"
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Definition>
-class RocketChatAccount;
+class EmojiManager;
 class LIBRUQOLACORE_TESTS_EXPORT TextConverter
 {
 public:
-    explicit TextConverter(RocketChatAccount *account = nullptr);
+    explicit TextConverter(EmojiManager *emojiManager = nullptr);
     ~TextConverter() = default;
 
     QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const;
 private:
     mutable KSyntaxHighlighting::Repository mRepo;
     KSyntaxHighlighting::Definition mDef;
-    RocketChatAccount *mRocketChatAccount = nullptr;
+    EmojiManager *mEmojiManager = nullptr;
     bool mSyntaxHighlightingInitialized = false;
 };
 

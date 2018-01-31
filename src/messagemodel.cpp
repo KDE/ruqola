@@ -49,7 +49,7 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QO
     , mRoomID(roomID)
     , mRocketChatAccount(account)
 {
-    mTextConverter = new TextConverter;
+    mTextConverter = new TextConverter(mRocketChatAccount->emojiManager());
     mLoadRecentHistoryManager = new LoadRecentHistoryManager;
     qCDebug(RUQOLA_LOG) << "Creating message Model";
 #ifdef STORE_MESSAGE

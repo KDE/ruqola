@@ -22,14 +22,15 @@
 #include "ruqola_debug.h"
 #include "emojimanager.h"
 
-#include "rocketchataccount.h"
 #include "texthighlighter.h"
 
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
 
-TextConverter::TextConverter(RocketChatAccount *account)
-    : mRocketChatAccount(account)
+#include <QRegularExpressionMatch>
+
+TextConverter::TextConverter(EmojiManager *emojiManager)
+    : mEmojiManager(emojiManager)
 {
     mDef = mRepo.definitionForName(QStringLiteral("C++"));
     if (mDef.isValid()) {
@@ -57,17 +58,21 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
         return *s.string();
     }
     QString richText = Utils::generateRichText(str, mentions);
-    if (mRocketChatAccount) {
+    if (mEmojiManager) {
         static const QRegularExpression regularExpressionUser(QStringLiteral("(:\\w+:)"));
         QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(richText);
         while (userIterator.hasNext()) {
             const QRegularExpressionMatch match = userIterator.next();
             const QString word = match.captured(1);
-            const QString replaceWord = mRocketChatAccount->emojiManager()->html(word);
+            qDebug() << "word "<<word;
+            const QString replaceWord = mEmojiManager->html(word);
             if (!replaceWord.isEmpty()) {
                 richText.replace(word, replaceWord);
             }
         }
+    } else {
+        qCWarning(RUQOLA_LOG) << "Emojimanager was not setted";
     }
+    qDebug() << " str" << str << " richtext" << richText;
     return richText;
 }
