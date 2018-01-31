@@ -23,7 +23,6 @@
 #ifndef MESSAGEQUEUE_H
 #define MESSAGEQUEUE_H
 
-#include <QtCore>
 #include <QObject>
 class RocketChatAccount;
 class MessageQueue : public QObject

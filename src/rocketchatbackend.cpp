@@ -32,6 +32,7 @@
 #include "user.h"
 
 #include <QJsonObject>
+#include <QJsonArray>
 
 void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
 {

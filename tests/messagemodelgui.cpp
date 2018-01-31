@@ -36,6 +36,7 @@
 #include <rocketchataccount.h>
 #include <QTextEdit>
 #include <QPushButton>
+#include <QDateTime>
 
 MessageModelGui::MessageModelGui(QWidget *parent)
     : QWidget(parent)

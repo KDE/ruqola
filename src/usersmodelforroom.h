@@ -21,8 +21,8 @@
 #ifndef USERSFORROOMMODEL_H
 #define USERSFORROOMMODEL_H
 
-#include <QSortFilterProxyModel>
 #include "libruqolacore_export.h"
+#include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT UsersModelForRoom : public QAbstractListModel
 {

@@ -21,9 +21,7 @@
 #ifndef EMOJI_H
 #define EMOJI_H
 
-#include <QJsonArray>
 #include <QString>
-#include <QObject>
 #include <QDebug>
 #include "libruqola_private_export.h"
 

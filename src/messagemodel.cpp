@@ -21,8 +21,6 @@
  */
 
 #include <QFile>
-#include <QVector>
-#include <QJsonObject>
 #include <QJsonDocument>
 #include <QDataStream>
 #include <QModelIndex>

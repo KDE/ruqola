@@ -21,6 +21,7 @@
 #include "emoji.h"
 
 #include <QJsonObject>
+#include <QJsonArray>
 
 Emoji::Emoji()
 {

@@ -21,8 +21,7 @@
  */
 
 #include <QApplication>
-#include <QtQml>
-#include <KLocalizedContext>
+#include <QCommandLineParser>
 #include <KLocalizedString>
 #include <KCrash>
 #include "ruqolaregisterengine.h"
@@ -30,7 +29,6 @@
 #include <QIcon>
 
 #include <KAboutData>
-#include <QJsonDocument>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #include <KIconTheme>

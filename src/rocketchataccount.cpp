@@ -42,10 +42,9 @@
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
 
-#include <KLocalizedString>
 #include <QDesktopServices>
 #include <QFile>
-#include <QFileDialog>
+#include <QTimer>
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)

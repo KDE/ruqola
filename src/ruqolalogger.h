@@ -20,7 +20,6 @@
 
 #ifndef RUQOLALOGGER_H
 #define RUQOLALOGGER_H
-#include <QObject>
 #include <QFile>
 
 class RuqolaLogger

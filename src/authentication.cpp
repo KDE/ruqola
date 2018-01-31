@@ -28,6 +28,9 @@
 
 #include <QOAuth2AuthorizationCodeFlow>
 #include <QFile>
+#include <QJsonArray>
+#include <QSettings>
+#include <QUuid>
 
 Authentication::Authentication()
 {

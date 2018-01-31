@@ -26,8 +26,10 @@
 #include "roomwrapper.h"
 #include <KLocalizedString>
 
-#include <QAbstractItemModel>
 #include <QIcon>
+#include <QDir>
+#include <QFile>
+#include <QJsonArray>
 
 RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)

@@ -23,9 +23,7 @@
 #include "roommodeltest.h"
 #include "roommodel.h"
 
-#include <QAbstractItemModel>
 #include <qglobal.h>
-#include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QSignalSpy>

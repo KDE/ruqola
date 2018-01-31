@@ -25,7 +25,6 @@
 #include "user.h"
 #include <QString>
 #include <QJsonDocument>
-#include <QObject>
 class QDateTime;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatMessage
 {

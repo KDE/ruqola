@@ -21,9 +21,11 @@
 #ifndef RUQOLAABOUTDATAAUTHORMODEL_H
 #define RUQOLAABOUTDATAAUTHORMODEL_H
 
-#include <KAboutData>
 #include <QAbstractListModel>
 #include "libruqola_private_export.h"
+#include <KAboutData>
+#include <QList>
+#include <QHash>
 
 class LIBRUQOLACORE_TESTS_EXPORT QmlAboutDataAuthorModel : public QAbstractListModel
 {

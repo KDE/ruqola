@@ -26,8 +26,7 @@
 #include "rocketchatmessage.h"
 #include "libruqolacore_export.h"
 #include <functional>
-#include <QtCore>
-#include <QWebSocket>
+#include <QQueue>
 
 class QJsonObject;
 class QJsonDocument;

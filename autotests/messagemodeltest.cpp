@@ -20,7 +20,6 @@
 
 #include "messagemodeltest.h"
 #include "messagemodel.h"
-#include <QJsonDocument>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(MessageModelTest)

@@ -23,7 +23,6 @@
 #include "libruqola_private_export.h"
 #include <QDebug>
 #include <QJsonArray>
-#include <QObject>
 
 struct CryptoSettings
 {

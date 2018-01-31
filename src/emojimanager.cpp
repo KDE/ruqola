@@ -21,6 +21,7 @@
 #include "emojimanager.h"
 
 #include <QJsonObject>
+#include <QJsonArray>
 #include "ruqola_debug.h"
 
 //TODO cache emoji ?

@@ -20,7 +20,6 @@
 
 #include "roomfilterproxymodel.h"
 #include "roommodel.h"
-#include <QDebug>
 
 RoomFilterProxyModel::RoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)

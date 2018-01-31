@@ -30,10 +30,6 @@
 #include "aboutdata/qmlaboutdata.h"
 #include "restapi/restapirequest.h"
 #include <KNotification>
-#include <QFileDialog>
-#include <QTcpSocket>
-#include <QDataStream>
-#include <KAboutData>
 
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)

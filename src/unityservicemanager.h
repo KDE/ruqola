@@ -21,7 +21,6 @@
 #define UNITYSERVICEMANAGER_H
 
 #include "libruqola_private_export.h"
-#include <QModelIndex>
 #include <QObject>
 class QDBusServiceWatcher;
 class QAbstractItemModel;

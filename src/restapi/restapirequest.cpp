@@ -27,9 +27,9 @@
 #include <QUrlQuery>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QJsonArray>
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
+#include <QJsonArray>
 
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)

@@ -22,6 +22,7 @@
 #define ROCKETCHATACCOUNT_H
 
 #include <QObject>
+#include <QUrl>
 #include <ddpapi/ddpclient.h>
 #include "rocketchataccountsettings.h"
 #include "libruqola_private_export.h"

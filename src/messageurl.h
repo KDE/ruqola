@@ -22,7 +22,6 @@
 #define MESSAGEURL_H
 
 #include "libruqola_private_export.h"
-#include <QObject>
 #include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT MessageUrl
 {

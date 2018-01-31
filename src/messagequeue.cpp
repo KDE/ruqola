@@ -26,6 +26,11 @@
 #include "messagequeue.h"
 #include "rocketchataccount.h"
 
+#include <QJsonArray>
+#include <QPair>
+#include <QDir>
+#include <QDataStream>
+
 MessageQueue::MessageQueue(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mRocketChatAccount(account)

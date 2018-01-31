@@ -28,7 +28,6 @@
 #include <QAbstractListModel>
 #include <QObject>
 #include <QByteArray>
-#include <QJsonObject>
 
 class RocketChatAccount;
 class TextConverter;
