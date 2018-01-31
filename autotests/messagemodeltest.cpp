@@ -32,6 +32,7 @@ MessageModelTest::MessageModelTest(QObject *parent)
 
 void MessageModelTest::shouldHaveDefaultValue()
 {
+    //TODO add roqulaaccount
     MessageModel w;
     QCOMPARE(w.rowCount(), 0);
 }
