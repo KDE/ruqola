@@ -58,9 +58,16 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
     }
     QString richText = Utils::generateRichText(str, mentions);
     if (mRocketChatAccount) {
-        //TODO use custom emoji
-        //TODO replace custom emoji
-        //mRocketChatAccount->emojiManager()->html(QString());
+        static const QRegularExpression regularExpressionUser(QStringLiteral("(:\\w+:)"));
+        QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(richText);
+        while (userIterator.hasNext()) {
+            const QRegularExpressionMatch match = userIterator.next();
+            const QString word = match.captured(1);
+            const QString replaceWord = mRocketChatAccount->emojiManager()->html(word);
+            if (!replaceWord.isEmpty()) {
+                richText.replace(word, replaceWord);
+            }
+        }
     }
     return richText;
 }
