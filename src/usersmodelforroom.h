@@ -24,20 +24,15 @@
 #include <QSortFilterProxyModel>
 #include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_EXPORT UsersForRoomModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT UsersModelForRoom : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    explicit UsersForRoomModel(QObject *parent = nullptr);
-    ~UsersForRoomModel();
+    explicit UsersModelForRoom(QObject *parent = nullptr);
+    ~UsersModelForRoom();
 
-    QString currentRoomId() const;
-    void setCurrentRoomId(const QString &currentRoomId);
-
-protected:
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
-
-    QString mCurrentRoomId;
+    int rowCount(const QModelIndex &parent) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
 };
 
 #endif // USERSFORROOMMODEL_H

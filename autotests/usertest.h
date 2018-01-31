@@ -34,7 +34,6 @@ private Q_SLOTS:
     void shouldSetAndGetName();
     void shouldSetAndGetStatus();
     void shouldSetAndGetUserId();
-    void shouldSetAndGetListRooms();
     void shouldParseUser();
     void checkEqualsAndUnequalsOperator();
 };

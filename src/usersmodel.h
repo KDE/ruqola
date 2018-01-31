@@ -33,7 +33,6 @@ public:
         UserName = Qt::UserRole + 1,
         UserId,
         UserStatus,
-        UserListRooms,
         UserIcon
     };
 
@@ -49,6 +48,9 @@ public:
     void updateUser(const QJsonObject &array);
     Q_INVOKABLE User *user(const QString &userId);
     User *userFromName(const QString &name);
+
+Q_SIGNALS:
+    void userStatusChanged(const QString &id);
 private:
     QVector<User *> mUsers;
 };

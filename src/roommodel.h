@@ -51,7 +51,6 @@ public:
         RoomOrder,
         RoomFavorite,
         RoomSection,
-        RoomStatus,
         RoomIcon,
         RoomOtr,
     };
@@ -96,6 +95,7 @@ public:
     void addRoom(Room *room);
 
     void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread);
+    void userStatusChanged(const QString &id);
 protected:
     QHash<int, QByteArray> roleNames() const override;
 

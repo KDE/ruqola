@@ -40,7 +40,6 @@ void UserTest::shouldHaveDefaultValue()
     QVERIFY(u.userId().isEmpty());
     QVERIFY(u.status().isEmpty());
     QVERIFY(u.userName().isEmpty());
-    QVERIFY(u.listRooms().isEmpty());
 }
 
 void UserTest::shouldSetAndGetName()
@@ -101,23 +100,6 @@ void UserTest::shouldSetAndGetStatus()
     sampleUser.setStatus(status);
     QCOMPARE(sampleUser.status(), status);
     QCOMPARE(spy.count(), 2);
-}
-
-void UserTest::shouldSetAndGetListRooms()
-{
-    User sampleUser;
-    QStringList roomList;
-    QString room1 = QStringLiteral("myRoom1");
-    QString room2 = QStringLiteral("myRoom2");
-    QString room3 = QStringLiteral("myRoom3");
-    roomList.append(room1);
-    roomList.append(room2);
-    roomList.append(room3);
-
-    QSignalSpy spy(&sampleUser, &User::listRoomsChanged);
-    sampleUser.setListRooms(roomList);
-    QCOMPARE(sampleUser.listRooms(), roomList);
-    QCOMPARE(spy.count(), 1);
 }
 
 void UserTest::shouldParseUser()

@@ -50,8 +50,6 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
             return user->userId();
         case UserStatus:
             return user->status();
-        case UserListRooms:
-            return user->listRooms();
         case UserIcon:
             return user->iconFromStatus();
         default:
@@ -66,11 +64,8 @@ User *UsersModel::userFromName(const QString &name)
     const int userCount{
         mUsers.count()
     };
-    //qDebug() << " User *UsersModel::user(const QString &userId)"<< name;
     for (int i = 0; i < userCount; ++i) {
-        //qDebug() << " User *UsersModel::user(const QString &userId)"<< name<<" d "<<mUsers.at(i)->name();
         if (mUsers.at(i)->userName() == name) {
-            qDebug() << " found user" << name;
             return mUsers.at(i);
         }
     }
@@ -130,8 +125,9 @@ void UsersModel::updateUser(const QJsonObject &array)
             const QJsonObject fields = array.value(QLatin1String("fields")).toObject();
             const QString newStatus = fields.value(QLatin1String("status")).toString();
             user->setStatus(newStatus);
-            //TODO name ?
-            Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
+            const QModelIndex idx = createIndex(i, 0);
+            Q_EMIT dataChanged(idx, idx);
+            Q_EMIT userStatusChanged(mUsers.at(i)->userName());
             break;
         }
     }

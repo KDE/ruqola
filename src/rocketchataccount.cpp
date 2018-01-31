@@ -28,7 +28,7 @@
 #include "ruqola.h"
 #include "messagequeue.h"
 #include "rocketchatbackend.h"
-#include "usersforroommodel.h"
+#include "usersmodelforroom.h"
 #include "roomfilterproxymodel.h"
 #include "ruqolalogger.h"
 #include "ruqolaserverconfig.h"
@@ -78,6 +78,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
+    connect(mUserModel, &UsersModel::userStatusChanged, mRoomModel, &RoomModel::userStatusChanged);
     mMessageQueue = new MessageQueue(this);
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
@@ -206,14 +207,14 @@ MessageModel *RocketChatAccount::getMessageModelForRoom(const QString &roomID)
     }
 }
 
-UsersForRoomModel *RocketChatAccount::getUsersForRoomModel(const QString &roomId)
+UsersModelForRoom *RocketChatAccount::getUsersModelForRoom(const QString &roomId)
 {
-    UsersForRoomModel *model = nullptr;
+    UsersModelForRoom *model = nullptr;
     if ((model = mUsersForRoomModels.value(roomId))) {
         return model;
     } else {
-        model = new UsersForRoomModel(this);
-        model->setCurrentRoomId(roomId);
+        model = new UsersModelForRoom(this);
+        //model->setCurrentRoomId(roomId);
         mUsersForRoomModels[roomId] = model;
         return model;
     }

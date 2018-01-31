@@ -293,8 +293,6 @@ void RoomModelTest::shouldReturnDataDefault()
     QCOMPARE(output, QVariant(int(6))); // not favorite (3) + no channel selected or 'p' (3) = total order(6)
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
     QCOMPARE(output, QVariant(QIcon()));
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomStatus);
-    QVERIFY(output.toString().isEmpty());//still status needs to be implemented in roomModel.cpp
 }
 
 void RoomModelTest::shouldReturnData()
@@ -368,6 +366,4 @@ void RoomModelTest::shouldReturnData()
     QCOMPARE(output, QVariant(int(3))); // not favorite (0) + no channel selected or 'p' (3) = total order(3)
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
     QCOMPARE(output, QVariant(QIcon::fromTheme(QStringLiteral("lock"))));
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomStatus);
-    QVERIFY(output.toString().isEmpty());//still status needs to be implemented in roomModel.cpp
 }

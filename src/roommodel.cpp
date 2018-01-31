@@ -136,7 +136,6 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomOrder] = "roomorder";
     roles[RoomFavorite] = "favorite";
     roles[RoomSection] = "sectionname";
-    roles[RoomStatus] = "status";
     roles[RoomIcon] = "channelicon";
     return roles;
 }
@@ -186,8 +185,6 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return sectionName(r);
     case RoomModel::RoomOrder:
         return order(r);
-    case RoomModel::RoomStatus: //TODO
-        return QString();
     case RoomModel::RoomIcon:
         return icon(r);
     case RoomModel::RoomOtr:
@@ -319,6 +316,20 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     }
 }
 
+void RoomModel::userStatusChanged(const QString &id)
+{
+    const int roomCount{
+        mRoomsList.count()
+    };
+    for (int i = 0; i < roomCount; ++i) {
+        if (mRoomsList.at(i)->name() == id) {
+            const QModelIndex idx = createIndex(i, 0);
+            Q_EMIT dataChanged(idx, idx);
+            return;
+        }
+    }
+}
+
 void RoomModel::updateRoom(const QString &name, const QString &roomId, const QString &topic, const QString &announcement, bool readOnly)
 {
     const int roomCount{
@@ -332,7 +343,8 @@ void RoomModel::updateRoom(const QString &name, const QString &roomId, const QSt
             foundRoom->setAnnouncement(announcement);
             foundRoom->setName(name);
             foundRoom->setReadOnly(readOnly);
-            Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
+            const QModelIndex idx = createIndex(i, 0);
+            Q_EMIT dataChanged(idx, idx);
 
             if (mRocketChatAccount) {
                 mRocketChatAccount->getMessageModelForRoom(roomId);
@@ -384,7 +396,7 @@ QIcon RoomModel::icon(Room *r) const
         return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
     } else if (r->channelType() == QLatin1String("d")) {
         const QString userStatusIconFileName = mRocketChatAccount->userStatusIconFileName(r->name());
-        qDebug() <<  "userStatusIconFileName"<<userStatusIconFileName << " r-> name" << r->name();
+        //qDebug() <<  "userStatusIconFileName"<<userStatusIconFileName << " r-> name" << r->name();
         if (userStatusIconFileName.isEmpty()) {
             return QIcon::fromTheme(QStringLiteral("user-avaliable"));
         } else {

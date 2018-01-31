@@ -39,7 +39,7 @@ set (Ruqola_core_srcs
     messageurl.cpp
     rocketchataccount.cpp
     rocketchataccountsettings.cpp
-    usersforroommodel.cpp
+    usersmodelforroom.cpp
     ruqolalogger.cpp
     ruqolaregisterengine.cpp
     ruqolaserverconfig.cpp

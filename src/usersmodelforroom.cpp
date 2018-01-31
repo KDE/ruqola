@@ -18,20 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usersforroommodel.h"
+#include "usersmodelforroom.h"
 #include "usersmodel.h"
 #include "ruqola_debug.h"
 
-UsersForRoomModel::UsersForRoomModel(QObject *parent)
-    : QSortFilterProxyModel(parent)
+UsersModelForRoom::UsersModelForRoom(QObject *parent)
+    : QAbstractListModel(parent)
 {
 }
 
-UsersForRoomModel::~UsersForRoomModel()
+UsersModelForRoom::~UsersModelForRoom()
 {
 }
 
-bool UsersForRoomModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+/*
+bool UsersModelForRoom::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     if (mCurrentRoomId.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "current room id is not defined. It's a bug";
@@ -41,20 +42,27 @@ bool UsersForRoomModel::filterAcceptsRow(int source_row, const QModelIndex &sour
     if (!idx.isValid()) {
         return false;
     }
-    const QStringList lst = idx.data(UsersModel::UserListRooms).toStringList();
-    if (!lst.isEmpty()) {
-        return false;
-    }
-
-    return lst.contains(mCurrentRoomId);
+    return true;
 }
 
-QString UsersForRoomModel::currentRoomId() const
+QString UsersModelForRoom::currentRoomId() const
 {
     return mCurrentRoomId;
 }
 
-void UsersForRoomModel::setCurrentRoomId(const QString &currentRoomId)
+void UsersModelForRoom::setCurrentRoomId(const QString &currentRoomId)
 {
     mCurrentRoomId = currentRoomId;
+}
+*/
+
+
+int UsersModelForRoom::rowCount(const QModelIndex &parent) const
+{
+    return {};
+}
+
+QVariant UsersModelForRoom::data(const QModelIndex &index, int role) const
+{
+    return {};
 }

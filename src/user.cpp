@@ -74,7 +74,6 @@ bool User::operator ==(const User &other) const
     return (mName == other.name())
            && (mUserId == other.userId())
            && (mStatus == other.status())
-           && (mListRooms == other.listRooms())
             && (mUserName == other.userName());
 }
 
@@ -96,26 +95,12 @@ void User::setUserName(const QString &userName)
     }
 }
 
-QStringList User::listRooms() const
-{
-    return mListRooms;
-}
-
-void User::setListRooms(const QStringList &listRooms)
-{
-    if (mListRooms != listRooms) {
-        mListRooms = listRooms;
-        Q_EMIT listRoomsChanged();
-    }
-}
-
 QDebug operator <<(QDebug d, const User &t)
 {
     d << "Name " << t.name();
     d << "UserId " << t.userId();
     d << "Status " << t.status();
     d << "UserName " << t.userName();
-    d << "List Rooms " << t.listRooms();
     return d;
 }
 

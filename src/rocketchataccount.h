@@ -34,7 +34,7 @@ class DDPClient;
 class RestApiRequest;
 class MessageQueue;
 class RocketChatBackend;
-class UsersForRoomModel;
+class UsersModelForRoom;
 class RoomFilterProxyModel;
 class RuqolaLogger;
 class RuqolaServerConfig;
@@ -76,7 +76,7 @@ public:
     Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
     Q_INVOKABLE RoomWrapper *getRoom(const QString &roomId);
     Q_INVOKABLE MessageModel *getMessageModelForRoom(const QString &roomID);
-    Q_INVOKABLE UsersForRoomModel *getUsersForRoomModel(const QString &roomId);
+    Q_INVOKABLE UsersModelForRoom *getUsersModelForRoom(const QString &roomId);
     Q_INVOKABLE QString getUserCurrentMessage(const QString &roomId);
     Q_INVOKABLE void setUserCurrentMessage(const QString &message, const QString &roomId);
 
@@ -189,7 +189,7 @@ private:
     RocketChatAccountSettings *mSettings = nullptr;
     //room, messagemodel
     QHash<QString, MessageModel *> mMessageModels;
-    QHash<QString, UsersForRoomModel *> mUsersForRoomModels;
+    QHash<QString, UsersModelForRoom *> mUsersForRoomModels;
     QHash<QString, QString> mUserCurrentMessage;
 
     EmojiManager *mEmojiManager = nullptr;
