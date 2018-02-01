@@ -59,7 +59,6 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<UsersModelForRoom>("KDE.Ruqola.UsersForRoomModel", 1, 0, "UsersForRoomModel");
     qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
     qmlRegisterType<UsersModel>("KDE.Ruqola.UsersModel", 1, 0, "UsersModel");
-    qmlRegisterType<User>("KDE.Ruqola.User", 1, 0, "User");
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
     qmlRegisterType<QmlAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
     qmlRegisterType<QmlAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");

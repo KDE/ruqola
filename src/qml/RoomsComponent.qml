@@ -29,7 +29,6 @@ import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
-import KDE.Ruqola.User 1.0
 import KDE.Ruqola.StatusModel 1.0
 
 Component {

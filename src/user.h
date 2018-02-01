@@ -25,12 +25,9 @@
 #include <QObject>
 #include <QDebug>
 #include "libruqola_private_export.h"
-class LIBRUQOLACORE_TESTS_EXPORT User : public QObject
+class LIBRUQOLACORE_TESTS_EXPORT User
 {
-    Q_OBJECT
-    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
-    Q_PROPERTY(QString status READ status WRITE setStatus NOTIFY statusChanged)
-    Q_PROPERTY(QString username READ userName WRITE setUserName NOTIFY userNameChanged)
+    Q_GADGET
 public:
 
     enum class PresenceStatus {
@@ -42,7 +39,7 @@ public:
     };
     Q_ENUM(PresenceStatus)
 
-    explicit User(QObject *parent = nullptr);
+    User();
     ~User();
 
     QString name() const;
@@ -60,23 +57,17 @@ public:
     bool operator ==(const User &other) const;
     bool operator !=(const User &other) const;
 
+    User &operator=(const User &other);
     QString userName() const;
     void setUserName(const QString &userName);
 
-Q_SIGNALS:
-    void nameChanged();
-    void statusChanged();
-    void userNameChanged();
-
 private:
-    Q_DISABLE_COPY(User)
     QString mStatus;
     QString mUserId;
     QString mName;
     QString mUserName;
-    QStringList mListRooms;
 };
-
+Q_DECLARE_METATYPE(User)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const User &t);
 
 #endif // USER_H

@@ -24,6 +24,7 @@
 #include <QTest>
 #include <QSignalSpy>
 #include <QJsonObject>
+#include <QJsonDocument>
 QTEST_GUILESS_MAIN(UserTest)
 
 //TODO test username too
@@ -45,22 +46,18 @@ void UserTest::shouldHaveDefaultValue()
 void UserTest::shouldSetAndGetName()
 {
     User sampleUser;
-    QSignalSpy spy(&sampleUser, &User::nameChanged);
     QString name = QStringLiteral("Maxwell");
     sampleUser.setName(name);
 
     QCOMPARE(sampleUser.name(), name);
-    QCOMPARE(spy.count(), 1);
 
     name = QStringLiteral("Maxwell_NEW");
     sampleUser.setName(name);
     QCOMPARE(sampleUser.name(), name);
-    QCOMPARE(spy.count(), 2);
 
     name = QStringLiteral("Maxwell_NEW");
     sampleUser.setName(name);
     QCOMPARE(sampleUser.name(), name);
-    QCOMPARE(spy.count(), 2);
 }
 
 void UserTest::shouldSetAndGetUserId()
@@ -85,21 +82,17 @@ void UserTest::shouldSetAndGetStatus()
     User sampleUser;
     QString status = QStringLiteral("myStatus");
 
-    QSignalSpy spy(&sampleUser, &User::statusChanged);
     sampleUser.setStatus(status);
 
     QCOMPARE(sampleUser.status(), status);
-    QCOMPARE(spy.count(), 1);
 
     status = QStringLiteral("myStatus_NEW");
     sampleUser.setStatus(status);
     QCOMPARE(sampleUser.status(), status);
-    QCOMPARE(spy.count(), 2);
 
     status = QStringLiteral("myStatus_NEW");
     sampleUser.setStatus(status);
     QCOMPARE(sampleUser.status(), status);
-    QCOMPARE(spy.count(), 2);
 }
 
 void UserTest::shouldParseUser()
@@ -114,18 +107,13 @@ void UserTest::shouldParseUser()
     object.insert(QStringLiteral("id"), QJsonValue(QLatin1String("RA151100ECE")));
     object.insert(QStringLiteral("fields"), fields);
 
-    QSignalSpy spyN(&sampleUser, &User::nameChanged);
-    QSignalSpy spyS(&sampleUser, &User::statusChanged);
     sampleUser.parseUser(object);
     QCOMPARE(sampleUser.name(), name);
     QCOMPARE(sampleUser.status(), status);
-    QCOMPARE(spyN.count(), 1);
-    QCOMPARE(spyS.count(), 1);
 
-    //here signal should not be emmited since we are passing same values
     sampleUser.parseUser(object);
-    QCOMPARE(spyN.count(), 1);
-    QCOMPARE(spyS.count(), 1);
+    QCOMPARE(sampleUser.name(), name);
+    QCOMPARE(sampleUser.status(), status);
 }
 
 void UserTest::checkEqualsAndUnequalsOperator()
@@ -147,4 +135,30 @@ void UserTest::checkEqualsAndUnequalsOperator()
 
     sampleuserOther.setName(QStringLiteral("Robert Segwick_NEW"));
     QVERIFY(sampleuser != sampleuserOther);
+}
+
+void UserTest::shouldParseJson_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::addColumn<User>("expectedUser");
+    User expected;
+    QTest::newRow("user1") << QStringLiteral("user1") << expected;
+}
+
+void UserTest::shouldParseJson()
+{
+    QFETCH(QString, fileName);
+    QFETCH(User, expectedUser);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + fileName + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject fields = doc.object().value(QLatin1String("fields")).toObject();
+
+    User user;
+    user.parseUser(fields);
+    QCOMPARE(user, expectedUser);
+
 }

@@ -26,7 +26,6 @@ import org.kde.kirigami 2.1 as Kirigami
 
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.UsersModel 1.0
-import KDE.Ruqola.User 1.0
 import QtQuick.Controls 2.2 as QQC2
 
 Kirigami.BasicListItem {

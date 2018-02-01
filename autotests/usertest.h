@@ -36,6 +36,10 @@ private Q_SLOTS:
     void shouldSetAndGetUserId();
     void shouldParseUser();
     void checkEqualsAndUnequalsOperator();
+
+    void shouldParseJson_data();
+    void shouldParseJson();
+
 };
 
 #endif // USERTEST_H

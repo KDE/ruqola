@@ -24,8 +24,7 @@
 
 #include <QJsonObject>
 
-User::User(QObject *parent)
-    : QObject(parent)
+User::User()
 {
 }
 
@@ -40,10 +39,7 @@ QString User::name() const
 
 void User::setName(const QString &name)
 {
-    if (mName != name) {
-        mName = name;
-        Q_EMIT nameChanged();
-    }
+    mName = name;
 }
 
 QString User::userId() const
@@ -63,23 +59,29 @@ QString User::status() const
 
 void User::setStatus(const QString &status)
 {
-    if (mStatus != status) {
-        mStatus = status;
-        Q_EMIT statusChanged();
-    }
+    mStatus = status;
 }
 
 bool User::operator ==(const User &other) const
 {
     return (mName == other.name())
-           && (mUserId == other.userId())
-           && (mStatus == other.status())
-           && (mUserName == other.userName());
+            && (mUserId == other.userId())
+            && (mStatus == other.status())
+            && (mUserName == other.userName());
 }
 
 bool User::operator !=(const User &other) const
 {
     return !operator ==(other);
+}
+
+User &User::operator=(const User &other)
+{
+    mStatus = other.status();
+    mUserId = other.userId();
+    mName = other.name();
+    mUserName = other.userName();
+    return *this;
 }
 
 QString User::userName() const
@@ -89,10 +91,7 @@ QString User::userName() const
 
 void User::setUserName(const QString &userName)
 {
-    if (mUserName != userName) {
-        mUserName = userName;
-        Q_EMIT userNameChanged();
-    }
+    mUserName = userName;
 }
 
 QDebug operator <<(QDebug d, const User &t)
