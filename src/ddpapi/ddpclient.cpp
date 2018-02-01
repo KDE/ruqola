@@ -409,9 +409,10 @@ quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->getUsersOfRoom(roomId, showAll, m_uid);
     std::function<void(QJsonObject, RocketChatAccount *)> callback = [ roomId ]( const QJsonObject &root, RocketChatAccount *account) {
-        qDebug() << " roomId" << roomId;
         if (account->ruqolaLogger()) {
             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Get Users of Room:") + QJsonDocument(root).toJson());
+        } else {
+            qCWarning(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
         }
         account->parseUsersForRooms(roomId, root);
     };

@@ -31,6 +31,14 @@ UsersModelForRoom::~UsersModelForRoom()
 {
 }
 
+void UsersModelForRoom::insertUsers(const QVector<User> &users)
+{
+    mUsers.clear();
+    beginInsertRows(QModelIndex(), 0, 0);
+    mUsers = users;
+    endInsertRows();
+}
+
 int UsersModelForRoom::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);

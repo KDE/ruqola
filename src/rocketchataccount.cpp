@@ -37,6 +37,7 @@
 #include "rocketchatcache.h"
 #include "emojimanager.h"
 #include "otrmanager.h"
+#include "usersmodelforroom.h"
 
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -152,6 +153,11 @@ RuqolaLogger *RocketChatAccount::ruqolaLogger() const
 RoomFilterProxyModel *RocketChatAccount::roomFilterProxyModel() const
 {
     return mRoomFilterProxyModel;
+}
+
+UsersModelForRoom *RocketChatAccount::usersModelForRoom(const QString &roomId) const
+{
+    return mRoomModel->usersModelForRoom(roomId);
 }
 
 RocketChatBackend *RocketChatAccount::rocketChatBackend() const
@@ -468,6 +474,8 @@ void RocketChatAccount::parseUsersForRooms(const QString &roomId, const QJsonObj
         UsersModelForRoom *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
         if (!usersModelForRoom) {
             qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
+        } else {
+            usersModelForRoom->insertUsers(users);
         }
     } else {
         qCWarning(RUQOLA_LOG) << "Error in users for rooms json" << root;

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017-2018 Montel Laurent <montel@kde.org>
+   Copyright (c) 2018 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,38 +18,35 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSFORROOMMODEL_H
-#define USERSFORROOMMODEL_H
 
-#include "libruqolacore_export.h"
-#include "user.h"
-#include <QVector>
-#include <QAbstractListModel>
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.2
+import QtQuick.Window 2.0
+import QtQuick 2.9
+import KDE.Ruqola.UsersForRoomModel 1.0
 
-class LIBRUQOLACORE_EXPORT UsersModelForRoom : public QAbstractListModel
-{
-    Q_OBJECT
-public:
-    enum UserRoles {
-        UserName = Qt::UserRole + 1,
-        UserId,
-        UserIconStatus
-    };
-    Q_ENUM(UserRoles)
+Dialog {
+    id: showUsersInRoomDialog
 
-    explicit UsersModelForRoom(QObject *parent = nullptr);
-    ~UsersModelForRoom();
+    title: i18n("Show User In Room")
 
-    void insertUsers(const QVector<User> &users);
+    property QtObject userModel
 
-    int rowCount(const QModelIndex &parent) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
+    x: parent.width / 2 - width / 2
+    y: parent.height / 2 - height / 2
 
-protected:
-    QHash<int, QByteArray> roleNames() const override;
+    modal: true
 
-private:
-    QVector<User> mUsers;
-};
+    standardButtons: Dialog.Close
 
-#endif // USERSFORROOMMODEL_H
+    Row {
+        ListView {
+            width: 180; height: 200
+
+            model: userModel
+            delegate: Text {
+                text: username
+            }
+        }
+    }
+}

@@ -128,6 +128,14 @@ Component {
                                 appid.rocketChatAccount.loadHistory(appid.selectedRoomID);
                             }
                         }
+                        RuqolaMenuSeparator {}
+                        QQC2.MenuItem {
+                            text: i18n("Show Users")
+                            onTriggered: {
+                                showUsersDialog.userModel = appid.userModel
+                                showUsersDialog.open()
+                            }
+                        }
                     }
                 }
             }
@@ -241,6 +249,11 @@ Component {
                     appid.rocketChatAccount.uploadFile(description, filename)
                 }
             }
+
+            ShowUsersInRoomDialog {
+                id: showUsersDialog
+            }
+
         }
         footer: UserInput {
             id: userInputMessage
