@@ -33,15 +33,28 @@ UsersModelForRoom::~UsersModelForRoom()
 
 int UsersModelForRoom::rowCount(const QModelIndex &parent) const
 {
-    return {};
+    Q_UNUSED(parent);
+    return mUsers.count();
 }
 
 QVariant UsersModelForRoom::data(const QModelIndex &index, int role) const
 {
+    const User user = mUsers.at(index.row());
+    switch (role) {
+    case UserName:
+        return user.userName();
+    case UserIconStatus:
+        return user.iconFromStatus();
+    default:
+        qCWarning(RUQOLA_LOG) << "Unknown usersmodel roles: " << role;
+    }
     return {};
 }
 
 QHash<int, QByteArray> UsersModelForRoom::roleNames() const
 {
-    return {};
+    QHash<int, QByteArray> roles;
+    roles[UserName] = "username";
+    roles[UserIconStatus] = "iconstatus";
+    return roles;
 }

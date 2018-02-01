@@ -22,6 +22,8 @@
 #define USERSFORROOMMODEL_H
 
 #include "libruqolacore_export.h"
+#include "user.h"
+#include <QVector>
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT UsersModelForRoom : public QAbstractListModel
@@ -45,7 +47,7 @@ protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
-    //TODO
+    QVector<User> mUsers;
 };
 
 #endif // USERSFORROOMMODEL_H

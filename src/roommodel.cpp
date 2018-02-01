@@ -318,18 +318,31 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     }
 }
 
-void RoomModel::userStatusChanged(const QString &id)
+void RoomModel::userStatusChanged(const QString &name)
 {
     const int roomCount{
         mRoomsList.count()
     };
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->name() == id) {
+        if (mRoomsList.at(i)->name() == name) {
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);
             return;
         }
     }
+}
+
+UsersModelForRoom *RoomModel::usersModelForRoom(const QString &roomId) const
+{
+    const int roomCount{
+        mRoomsList.count()
+    };
+    for (int i = 0; i < roomCount; ++i) {
+        if (mRoomsList.at(i)->id() == roomId) {
+            return mRoomsList.at(i)->usersModelForRoom();
+        }
+    }
+    return {};
 }
 
 void RoomModel::updateRoom(const QString &name, const QString &roomId, const QString &topic, const QString &announcement, bool readOnly)
@@ -406,14 +419,6 @@ QIcon RoomModel::icon(Room *r) const
         }
     } else if (r->channelType() == QLatin1String("p")) {
         return QIcon::fromTheme(QStringLiteral("lock"));
-    }
-    return {};
-}
-
-QIcon RoomModel::status(Room *r) const
-{
-    if (r->channelType() == QLatin1String("d")) {
-        //TODO give status.
     }
     return {};
 }

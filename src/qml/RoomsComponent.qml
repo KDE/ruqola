@@ -135,7 +135,7 @@ Component {
                 appid.selectedRoomID = roomID;
                 appid.model = appid.rocketChatAccount.getMessageModelForRoom(roomID)
                 appid.selectedRoom = appid.rocketChatAccount.getRoom(roomID)
-                appid.userModel = appid.rocketChatAccount.getUsersModelForRoom(roomID)
+                appid.userModel = appid.selectedRoom.usersModelForRoom()
             }
         } //RoomsView
     }

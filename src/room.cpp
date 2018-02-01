@@ -21,6 +21,7 @@
  */
 
 #include "room.h"
+#include "usersmodelforroom.h"
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -28,6 +29,7 @@
 Room::Room(QObject *parent)
     : QObject(parent)
 {
+    mUsersModelForRoom = new UsersModelForRoom(this);
 }
 
 bool Room::operator==(const Room &other) const
@@ -395,4 +397,9 @@ QByteArray Room::serialize(Room *r)
 
     d.setObject(o);
     return d.toBinaryData();
+}
+
+UsersModelForRoom *Room::usersModelForRoom() const
+{
+    return mUsersModelForRoom;
 }

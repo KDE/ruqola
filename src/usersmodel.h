@@ -42,12 +42,11 @@ public:
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
-    void addUser(User *user);
+    void addUser(User *userFromUserId);
     void removeUser(const QString &userId);
 
     void updateUser(const QJsonObject &array);
-    Q_INVOKABLE User *user(const QString &userId);
-    User *userFromName(const QString &name);
+    User *userFromUserName(const QString &name);
 
 Q_SIGNALS:
     void userStatusChanged(const QString &id);

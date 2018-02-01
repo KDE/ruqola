@@ -53,33 +53,19 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
         case UserIcon:
             return user->iconFromStatus();
         default:
-            qCWarning(RUQOLA_LOG) << "Unknow usersmodel roles: " << role;
+            qCWarning(RUQOLA_LOG) << "Unknown usersmodel roles: " << role;
         }
     }
     return {};
 }
 
-User *UsersModel::userFromName(const QString &name)
+User *UsersModel::userFromUserName(const QString &name)
 {
     const int userCount{
         mUsers.count()
     };
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i)->userName() == name) {
-            return mUsers.at(i);
-        }
-    }
-    return nullptr;
-}
-
-User *UsersModel::user(const QString &userId)
-{
-    const int userCount{
-        mUsers.count()
-    };
-    for (int i = 0; i < userCount; ++i) {
-        //qDebug() << " User *UsersModel::user(const QString &userId)"<<mUsers.at(i)->userId()<< " search" << userId;
-        if (mUsers.at(i)->userId() == userId) {
             return mUsers.at(i);
         }
     }

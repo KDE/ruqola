@@ -28,7 +28,6 @@
 #include "ruqola.h"
 #include "messagequeue.h"
 #include "rocketchatbackend.h"
-#include "usersmodelforroom.h"
 #include "roomfilterproxymodel.h"
 #include "ruqolalogger.h"
 #include "ruqolaserverconfig.h"
@@ -90,7 +89,6 @@ RocketChatAccount::~RocketChatAccount()
 {
     delete mCache;
     mCache = nullptr;
-    qDeleteAll(mUsersForRoomModels);
     qDeleteAll(mMessageModels);
 
     delete mRuqolaServerConfig;
@@ -122,7 +120,7 @@ EmojiManager *RocketChatAccount::emojiManager() const
 
 QString RocketChatAccount::userStatusIconFileName(const QString &id)
 {
-    User *user = mUserModel->userFromName(id);
+    User *user = mUserModel->userFromUserName(id);
     if (user) {
         return user->iconFromStatus();
     } else {
@@ -203,19 +201,6 @@ MessageModel *RocketChatAccount::getMessageModelForRoom(const QString &roomID)
     } else {
         mMessageModels[roomID] = new MessageModel(roomID, this, this);
         return mMessageModels[roomID];
-    }
-}
-
-UsersModelForRoom *RocketChatAccount::getUsersModelForRoom(const QString &roomId)
-{
-    UsersModelForRoom *model = nullptr;
-    if ((model = mUsersForRoomModels.value(roomId))) {
-        return model;
-    } else {
-        model = new UsersModelForRoom(this);
-        //model->setCurrentRoomId(roomId);
-        mUsersForRoomModels[roomId] = model;
-        return model;
     }
 }
 
@@ -452,8 +437,41 @@ void RocketChatAccount::getUsersOfRoom(const QString &roomId)
 
 void RocketChatAccount::parseUsersForRooms(const QString &roomId, const QJsonObject &root)
 {
-    //TODO add code for parsing it.
-    qDebug() << " room ID " << roomId << " root : " << root;
+    //qDebug() << " room ID " << roomId << " root : " << root;
+    const QJsonObject result = root[QLatin1String("result")].toObject();
+    if (!result.isEmpty()) {
+        const QJsonArray records = result[QStringLiteral("records")].toArray();
+        const int total = result[QLatin1String("total")].toInt();
+        //qDebug() << " total " << total;
+
+        QVector<User> users;
+        users.reserve(records.count());
+        for ( const QJsonValue &current : records ) {
+            if ( current.type() == QJsonValue::Object ) {
+                const QJsonObject userObject = current.toObject();
+                const QString userName = userObject[QStringLiteral("username")].toString();
+                const QString name = userObject[QStringLiteral("name")].toString();
+                const QString id = userObject[QStringLiteral("_id")].toString();
+                User user;
+                user.setName(name);
+                user.setUserName(userName);
+                user.setUserId(id);
+                users.append(user);
+                //qDebug() << " object " << name;
+            } else {
+                qCWarning(RUQOLA_LOG) << "Parse records: Error in users for rooms json" << root;
+            }
+        }
+        if (users.count() != total) {
+            qCWarning(RUQOLA_LOG) << "Users for rooms, parsing error. Parse " << users.count() << " users but json give us a total number : "<< total;
+        }
+        UsersModelForRoom *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
+        if (!usersModelForRoom) {
+            qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
+        }
+    } else {
+        qCWarning(RUQOLA_LOG) << "Error in users for rooms json" << root;
+    }
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)

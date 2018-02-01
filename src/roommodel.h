@@ -95,7 +95,10 @@ public:
     void addRoom(Room *room);
 
     void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread);
-    void userStatusChanged(const QString &id);
+    void userStatusChanged(const QString &name);
+
+    UsersModelForRoom *usersModelForRoom(const QString &roomId) const;
+
 protected:
     QHash<int, QByteArray> roleNames() const override;
 
@@ -104,7 +107,6 @@ Q_SIGNALS:
 
 private:
     Room *createNewRoom();
-    QIcon status(Room *r) const;
     QIcon icon(Room *r) const;
     int order(Room *r) const;
     QString sectionName(Room *r) const;

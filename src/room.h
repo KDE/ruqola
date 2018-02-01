@@ -27,6 +27,7 @@
 #include <QObject>
 
 #include "libruqola_private_export.h"
+class UsersModelForRoom;
 
 class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
 {
@@ -116,6 +117,8 @@ public:
     */
     static QByteArray serialize(Room *r);
 
+    Q_INVOKABLE UsersModelForRoom *usersModelForRoom() const;
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -165,6 +168,7 @@ private:
     //We can hide it or not.
     bool mOpen = false;
     bool mAlert = false;
+    UsersModelForRoom *mUsersModelForRoom = nullptr;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);
