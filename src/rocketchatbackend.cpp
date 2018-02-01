@@ -186,7 +186,6 @@ void RocketChatBackend::parseServerVersionDone(const QString &version)
     mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->settings()->authToken());
     mRocketChatAccount->restApi()->setUserId(mRocketChatAccount->settings()->userId());
     mRocketChatAccount->restApi()->channelList();
-    onUserIDChanged();
 }
 
 void RocketChatBackend::onAdded(const QJsonObject &object)
