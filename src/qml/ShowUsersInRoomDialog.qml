@@ -24,6 +24,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import QtQuick 2.9
 import KDE.Ruqola.UsersForRoomModel 1.0
+import org.kde.kirigami 2.1 as Kirigami
 
 Dialog {
     id: showUsersInRoomDialog
@@ -41,11 +42,22 @@ Dialog {
 
     Row {
         ListView {
-            width: 180; height: 200
+            //TODO fix me
+            width: 300;
+            height: 200
 
             model: userModel
-            delegate: Text {
-                text: username
+            delegate:
+                RowLayout {
+                Kirigami.Icon {
+                    source: iconstatus
+                    //FIXME
+                    height: 20
+                    width: 20
+                }
+                Text {
+                    text: username
+                }
             }
         }
     }
