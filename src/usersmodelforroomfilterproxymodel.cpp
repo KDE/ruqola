@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017-2018 Montel Laurent <montel@kde.org>
+   Copyright (c) 2018 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,42 +18,26 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomfilterproxymodel.h"
-#include "roommodel.h"
 
-RoomFilterProxyModel::RoomFilterProxyModel(QObject *parent)
+#include "usersmodelforroomfilterproxymodel.h"
+#include "usersmodelforroom.h"
+
+UsersModelForRoomFilterProxyModel::UsersModelForRoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(RoomModel::RoomName);
+    //Filter on alias/username ?
+    setFilterRole(UsersModelForRoom::UserName);
     sort(0);
 }
 
-RoomFilterProxyModel::~RoomFilterProxyModel()
+UsersModelForRoomFilterProxyModel::~UsersModelForRoomFilterProxyModel()
 {
+
 }
 
-bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
-{
-    if (!sourceModel()) {
-        return false;
-    }
-    if (left.isValid() && right.isValid()) {
-        const int orderLeftData = sourceModel()->data(left, RoomModel::RoomOrder).toInt();
-        const int orderRightData = sourceModel()->data(right, RoomModel::RoomOrder).toInt();
-        if (orderLeftData == orderRightData) {
-            const QString leftString = sourceModel()->data(left, RoomModel::RoomName).toString();
-            const QString rightString = sourceModel()->data(right, RoomModel::RoomName).toString();
-            return QString::localeAwareCompare(leftString, rightString) < 0;
-        } else {
-            return orderLeftData < orderRightData;
-        }
-    }
-    return false;
-}
-
-QHash<int, QByteArray> RoomFilterProxyModel::roleNames() const
+QHash<int, QByteArray> UsersModelForRoomFilterProxyModel::roleNames() const
 {
     if (QAbstractItemModel *source = sourceModel()) {
         return source->roleNames();
@@ -61,7 +45,21 @@ QHash<int, QByteArray> RoomFilterProxyModel::roleNames() const
     return QHash<int, QByteArray>();
 }
 
-void RoomFilterProxyModel::setFilterString(const QString &string)
+void UsersModelForRoomFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);
+}
+
+bool UsersModelForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+{
+    if (!sourceModel()) {
+        return false;
+    }
+    if (left.isValid() && right.isValid()) {
+        const QString leftString = sourceModel()->data(left, UsersModelForRoom::UserName).toString();
+        const QString rightString = sourceModel()->data(right, UsersModelForRoom::UserName).toString();
+        return QString::localeAwareCompare(leftString, rightString) < 0;
+    } else {
+        return false;
+    }
 }

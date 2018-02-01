@@ -33,6 +33,7 @@
 #include "usersmodel.h"
 #include "statusmodel.h"
 #include "clipboardproxy.h"
+#include "usersmodelforroomfilterproxymodel.h"
 
 #include <KLocalizedContext>
 #include <QQmlApplicationEngine>
@@ -60,6 +61,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
     qmlRegisterType<UsersModel>("KDE.Ruqola.UsersModel", 1, 0, "UsersModel");
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
+    qmlRegisterType<UsersModelForRoomFilterProxyModel>("KDE.Ruqola.UsersModelForRoomFilterProxyModel", 1, 0, "UsersModelForRoomFilterProxyModel");
     qmlRegisterType<QmlAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
     qmlRegisterType<QmlAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");
     qmlRegisterType<UserCompleterModel>("KDE.Ruqola.UserCompleterModel", 1, 0, "UserCompleterModel");

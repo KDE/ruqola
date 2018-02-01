@@ -23,6 +23,7 @@
 #include "roommodel.h"
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"
+#include "usersmodelforroom.h"
 #include "roomwrapper.h"
 #include <KLocalizedString>
 
@@ -318,17 +319,18 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     }
 }
 
-void RoomModel::userStatusChanged(const QString &name)
+void RoomModel::userStatusChanged(const User &user)
 {
     const int roomCount{
         mRoomsList.count()
     };
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->name() == name) {
+        Room *room = mRoomsList.at(i);
+        if (room->name() == user.userName()) {
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);
-            return;
         }
+        room->usersModelForRoom()->userStatusChanged(user);
     }
 }
 
@@ -340,6 +342,19 @@ UsersModelForRoom *RoomModel::usersModelForRoom(const QString &roomId) const
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->id() == roomId) {
             return mRoomsList.at(i)->usersModelForRoom();
+        }
+    }
+    return {};
+}
+
+UsersModelForRoomFilterProxyModel *RoomModel::usersModelForRoomFilterProxyModel(const QString &roomId) const
+{
+    const int roomCount{
+        mRoomsList.count()
+    };
+    for (int i = 0; i < roomCount; ++i) {
+        if (mRoomsList.at(i)->id() == roomId) {
+            return mRoomsList.at(i)->usersModelForRoomProxyModel();
         }
     }
     return {};

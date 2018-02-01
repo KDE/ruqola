@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017-2018 Montel Laurent <montel@kde.org>
+   Copyright (c) 2018 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,40 +18,25 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERMODEL_H
-#define USERMODEL_H
+#ifndef USERSMODELFORROOMFILTERPROXYMODEL_H
+#define USERSMODELFORROOMFILTERPROXYMODEL_H
 
+#include <QSortFilterProxyModel>
 #include "libruqola_private_export.h"
-#include <QAbstractListModel>
-#include "user.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT UsersModel : public QAbstractListModel
+class LIBRUQOLACORE_TESTS_EXPORT UsersModelForRoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    enum UserRoles {
-        UserName = Qt::UserRole + 1,
-        UserId,
-        UserStatus,
-        UserIcon
-    };
+    explicit UsersModelForRoomFilterProxyModel(QObject *parent = nullptr);
+    ~UsersModelForRoomFilterProxyModel();
 
-    explicit UsersModel(QObject *parent = nullptr);
-    ~UsersModel();
+    QHash<int, QByteArray> roleNames() const override;
 
-    int rowCount(const QModelIndex &parent) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
+    Q_INVOKABLE void setFilterString(const QString &string);
 
-    void addUser(const User &userFromUserId);
-    void removeUser(const QString &userId);
-
-    void updateUser(const QJsonObject &array);
-    QString userStatusIconFileName(const QString &name);
-
-Q_SIGNALS:
-    void userStatusChanged(const User &user);
-private:
-    QVector<User> mUsers;
+protected:
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
 
-#endif // USERMODEL_H
+#endif // USERSMODELFORROOMFILTERPROXYMODEL_H

@@ -24,6 +24,7 @@
 #define ROOMMODEL_H
 #include "libruqolacore_export.h"
 #include "room.h"
+#include "user.h"
 #include <QAbstractListModel>
 #include <QObject>
 class RoomWrapper;
@@ -95,9 +96,11 @@ public:
     void addRoom(Room *room);
 
     void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread);
-    void userStatusChanged(const QString &name);
+    void userStatusChanged(const User &user);
 
     UsersModelForRoom *usersModelForRoom(const QString &roomId) const;
+
+    UsersModelForRoomFilterProxyModel *usersModelForRoomFilterProxyModel(const QString &roomId) const;
 
 protected:
     QHash<int, QByteArray> roleNames() const override;

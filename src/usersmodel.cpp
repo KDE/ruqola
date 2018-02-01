@@ -30,7 +30,6 @@ UsersModel::UsersModel(QObject *parent)
 UsersModel::~UsersModel()
 {
     qCDebug(RUQOLA_LOG) << "UsersModel::~UsersModel() "<< mUsers.count();
-    qDeleteAll(mUsers);
 }
 
 int UsersModel::rowCount(const QModelIndex &parent) const
@@ -41,35 +40,35 @@ int UsersModel::rowCount(const QModelIndex &parent) const
 
 QVariant UsersModel::data(const QModelIndex &index, int role) const
 {
-    User *user = mUsers.at(index.row());
-    if (user) {
-        switch (role) {
-        case UserName:
-            return user->name();
-        case UserId:
-            return user->userId();
-        case UserStatus:
-            return user->status();
-        case UserIcon:
-            return user->iconFromStatus();
-        default:
-            qCWarning(RUQOLA_LOG) << "Unknown usersmodel roles: " << role;
-        }
+    const User user = mUsers.at(index.row());
+    switch (role) {
+    case UserName:
+        return user.name();
+    case UserId:
+        return user.userId();
+    case UserStatus:
+        return user.status();
+    case UserIcon:
+        return user.iconFromStatus();
+    default:
+        qCWarning(RUQOLA_LOG) << "Unknown usersmodel roles: " << role;
     }
     return {};
 }
 
-User *UsersModel::userFromUserName(const QString &name)
+QString UsersModel::userStatusIconFileName(const QString &name)
 {
     const int userCount{
         mUsers.count()
     };
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i)->userName() == name) {
-            return mUsers.at(i);
+        if (mUsers.at(i).userName() == name) {
+            return mUsers.at(i).iconFromStatus();
         }
     }
-    return nullptr;
+
+    qCWarning(RUQOLA_LOG) << "User for name " << name << " not defined";
+    return {};
 }
 
 void UsersModel::removeUser(const QString &userId)
@@ -79,19 +78,19 @@ void UsersModel::removeUser(const QString &userId)
         mUsers.count()
     };
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i)->userId() == userId) {
-            qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i)->name();
+        if (mUsers.at(i).userId() == userId) {
+            qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i).name();
             beginRemoveRows(QModelIndex(), i, i);
-            delete mUsers.takeAt(i);
+            mUsers.takeAt(i);
             endRemoveRows();
             break;
         }
     }
 }
 
-void UsersModel::addUser(User *user)
+void UsersModel::addUser(const User &user)
 {
-    qCDebug(RUQOLA_LOG) << " User added " << *user;
+    qCDebug(RUQOLA_LOG) << " User added " << user;
     //TODO verify if duplicate ?
     const int pos = mUsers.size();
     beginInsertRows(QModelIndex(), pos, pos);
@@ -106,14 +105,15 @@ void UsersModel::updateUser(const QJsonObject &array)
         mUsers.count()
     };
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i)->userId() == id) {
-            User *user = mUsers.at(i);
+        if (mUsers.at(i).userId() == id) {
+            User user = mUsers.at(i);
             const QJsonObject fields = array.value(QLatin1String("fields")).toObject();
             const QString newStatus = fields.value(QLatin1String("status")).toString();
-            user->setStatus(newStatus);
+            user.setStatus(newStatus);
+            mUsers.replace(i, user);
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);
-            Q_EMIT userStatusChanged(mUsers.at(i)->userName());
+            Q_EMIT userStatusChanged(user);
             break;
         }
     }

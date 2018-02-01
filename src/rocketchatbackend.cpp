@@ -201,8 +201,8 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
             qCDebug(RUQOLA_LOG) << "User id set to " << mRocketChatAccount->settings()->userId();
         } else {
             //TODO add current user ? me ?
-            User *user = new User;
-            user->parseUser(object);
+            User user;
+            user.parseUser(object);
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);

@@ -45,6 +45,8 @@ public:
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
+    void parseUsersForRooms(const QJsonObject &root);
+    void userStatusChanged(const User &newuser);
 protected:
     QHash<int, QByteArray> roleNames() const override;
 

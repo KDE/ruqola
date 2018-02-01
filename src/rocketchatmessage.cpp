@@ -397,6 +397,26 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
     return subscribe(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
 }
 
+//Verify it.
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::channelAndPrivateAutocomplete(const QString &searchText, const QString &exception, quint64 id)
+{
+    QJsonArray params;
+
+    QJsonObject firstParam;
+
+    const QStringList users = exception.split(QLatin1Char(','));
+    QJsonArray exceptionEntries;
+    for (const QString &entry: users) {
+        exceptionEntries.append(entry);
+    }
+    //exceptionEntries.append( mUsername );
+    firstParam[QStringLiteral("exceptions")] = exceptionEntries;
+    firstParam[QStringLiteral("term")] = searchText;
+    params.append(firstParam);
+    qDebug() << " params " << params;
+    return subscribe(QStringLiteral("channelAndPrivateAutocomplete"), QJsonDocument(params), id);
+}
+
 //We need to be able to send file for audio/video
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::sendFileMessage(const QJsonObject &result, const QString &serviceUploadType, const QString &roomId, quint64 id)
 {

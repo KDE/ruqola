@@ -107,7 +107,7 @@ Component {
                     placeholderText: i18n("Search...")
                     onTextChanged: {
                         console.log("text "  + text)
-                        //appid.rocketChatAccount.roomFilterProxyModel().setFilterString(text);
+                        appid.rocketChatAccount.roomFilterProxyModel().setFilterString(text);
                         //TODO filter list view
                     }
                 }
@@ -135,7 +135,8 @@ Component {
                 appid.selectedRoomID = roomID;
                 appid.model = appid.rocketChatAccount.getMessageModelForRoom(roomID)
                 appid.selectedRoom = appid.rocketChatAccount.getRoom(roomID)
-                appid.userModel = appid.rocketChatAccount.usersModelForRoom(roomID)
+                appid.userModel = appid.rocketChatAccount.usersModelForRoomFilterProxyModel(roomID)
+                //appid.userModel = appid.rocketChatAccount.usersModelForRoom(roomID)
             }
         } //RoomsView
     }

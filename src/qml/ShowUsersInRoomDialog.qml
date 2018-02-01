@@ -40,7 +40,20 @@ Dialog {
 
     standardButtons: Dialog.Close
 
-    Row {
+    Column {
+        TextField {
+            id: searchField
+            focus: true
+            Layout.minimumHeight: Layout.maximumHeight
+            Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
+            Layout.fillWidth: true
+            //width: parent.width
+            placeholderText: i18n("Search...")
+            onTextChanged: {
+                console.log("text "  + text)
+                appid.userModel.setFilterString(text);
+            }
+        }
         ListView {
             //TODO fix me
             width: 300;

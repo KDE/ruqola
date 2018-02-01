@@ -136,7 +136,7 @@ Kirigami.ApplicationWindow {
         rcAccount: rocketChatAccount
         onSearchUserName: {
             console.log("Search username" + pattern);
-            rocketChatAccount.userAutocomplete(pattern, "");
+            rocketChatAccount.channelAndPrivateAutocomplete(pattern, "");
         }
     }
 

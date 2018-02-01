@@ -22,6 +22,9 @@
 #include "usersmodel.h"
 #include "ruqola_debug.h"
 
+#include <QJsonArray>
+#include <QJsonObject>
+
 UsersModelForRoom::UsersModelForRoom(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -34,7 +37,7 @@ UsersModelForRoom::~UsersModelForRoom()
 void UsersModelForRoom::insertUsers(const QVector<User> &users)
 {
     mUsers.clear();
-    beginInsertRows(QModelIndex(), 0, 0);
+    beginInsertRows(QModelIndex(), 0, users.count());
     mUsers = users;
     endInsertRows();
 }
@@ -65,4 +68,54 @@ QHash<int, QByteArray> UsersModelForRoom::roleNames() const
     roles[UserName] = "username";
     roles[UserIconStatus] = "iconstatus";
     return roles;
+}
+
+
+void UsersModelForRoom::parseUsersForRooms(const QJsonObject &root)
+{
+    const QJsonObject result = root[QLatin1String("result")].toObject();
+    if (!result.isEmpty()) {
+        const QJsonArray records = result[QStringLiteral("records")].toArray();
+        const int total = result[QLatin1String("total")].toInt();
+
+        QVector<User> users;
+        users.reserve(records.count());
+        for ( const QJsonValue &current : records ) {
+            if ( current.type() == QJsonValue::Object ) {
+                const QJsonObject userObject = current.toObject();
+                const QString userName = userObject[QStringLiteral("username")].toString();
+                const QString name = userObject[QStringLiteral("name")].toString();
+                const QString id = userObject[QStringLiteral("_id")].toString();
+                User user;
+                user.setName(name);
+                user.setUserName(userName);
+                user.setUserId(id);
+                users.append(user);
+            } else {
+                qCWarning(RUQOLA_LOG) << "Parse records: Error in users for rooms json" << root;
+            }
+        }
+        if (users.count() != total) {
+            qCWarning(RUQOLA_LOG) << "Users for rooms, parsing error. Parse " << users.count() << " users but json give us a total number : "<< total;
+        }
+        insertUsers(users);
+    } else {
+        qCWarning(RUQOLA_LOG) << "Error in users for rooms json" << root;
+    }
+}
+
+void UsersModelForRoom::userStatusChanged(const User &newuser)
+{
+    const int roomCount{
+        mUsers.count()
+    };
+    for (int i = 0; i < roomCount; ++i) {
+        User user = mUsers.at(i);
+        if (newuser.userId() == user.userId()) {
+            user.setStatus(newuser.status());
+            mUsers.replace(i, user);
+            const QModelIndex idx = createIndex(i, 0);
+            Q_EMIT dataChanged(idx, idx);
+        }
+    }
 }
