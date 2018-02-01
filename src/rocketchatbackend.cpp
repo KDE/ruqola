@@ -174,7 +174,6 @@ void RocketChatBackend::onLoginStatusChanged()
 void RocketChatBackend::parseServerVersionDone(const QString &version)
 {
     qDebug() << " void RocketChatBackend::parseServerVersionDone(const QString &version)******************";
-    //         qCDebug(RUQOLA_LOG) << "GETTING LIST OF ROOMS";
     QJsonObject params;
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
@@ -312,7 +311,7 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: Unknown event: ") + d.toJson());
             } else {
-                qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
+                qCDebug(RUQOLA_LOG) << "Unknow change: " << object;
             }
             qCWarning(RUQOLA_LOG) << "stream-notify-user : Unknown event ? " << eventname << " contents " << contents;
         }
