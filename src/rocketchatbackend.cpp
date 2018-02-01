@@ -205,7 +205,14 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
             //TODO add current user ? me ?
             User *user = new User;
             user->parseUser(object);
-            qCDebug(RUQOLA_LOG) << " USER ADDED VALUE " << user;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("users: Add User:") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "USER ADDED VALUE" << object;
+            }
+
             mRocketChatAccount->usersModel()->addUser(user);
         }
         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username << fields;
