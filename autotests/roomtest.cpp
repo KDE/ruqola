@@ -31,6 +31,12 @@ RoomTest::RoomTest(QObject *parent)
 {
 }
 
+void RoomTest::shouldHaveDefaultValue()
+{
+    Room input;
+    QVERIFY(input.usersModelForRoom());
+}
+
 void RoomTest::shouldSerialized()
 {
     Room input;

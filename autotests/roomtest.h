@@ -30,6 +30,7 @@ public:
     explicit RoomTest(QObject *parent = nullptr);
     ~RoomTest() = default;
 private Q_SLOTS:
+    void shouldHaveDefaultValue();
     void shouldSerialized();
     void shouldEmitSignals();
 };
