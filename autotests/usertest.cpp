@@ -142,7 +142,11 @@ void UserTest::shouldParseJson_data()
     QTest::addColumn<QString>("fileName");
     QTest::addColumn<User>("expectedUser");
     User expected;
-    QTest::newRow("user1") << QStringLiteral("user1") << expected;
+    expected.setName(QStringLiteral("Laurent M"));
+    expected.setStatus(QStringLiteral("away"));
+    expected.setUserId(QStringLiteral("yi2ucvqkdkxiTkyZ5"));
+    expected.setUserName(QStringLiteral("laurent"));
+    QTest::newRow("user1") << QStringLiteral("adduser") << expected;
 }
 
 void UserTest::shouldParseJson()
@@ -155,10 +159,14 @@ void UserTest::shouldParseJson()
     const QByteArray content = f.readAll();
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject fields = doc.object().value(QLatin1String("fields")).toObject();
+    const QJsonObject fields = doc.object();
 
     User user;
     user.parseUser(fields);
-    QCOMPARE(user, expectedUser);
-
+    const bool equal = (user == expectedUser);
+    if (!equal) {
+        qDebug() << " current value " << user;
+        qDebug() << " expected value " << expectedUser;
+    }
+    QVERIFY(equal);
 }

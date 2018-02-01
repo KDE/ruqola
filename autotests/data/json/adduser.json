@@ -1,0 +1,12 @@
+{
+    "collection": "users",
+    "fields": {
+        "name": "Laurent M",
+        "status": "away",
+        "username": "laurent",
+        "utcOffset": 1
+    },
+    "id": "yi2ucvqkdkxiTkyZ5",
+    "msg": "added"
+}
+
