@@ -84,6 +84,14 @@ void user_auto_complete(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
+void channel_and_private_autocomplete(const QJsonObject &root, RocketChatAccount *account)
+{
+    qDebug() << " void channel_and_private_autocomplete(const QJsonObject &root, RocketChatAccount *account)"<<root;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Channel And Private AutoComplete:") + QJsonDocument(root).toJson());
+    }
+}
+
 void create_jitsi_conf_call(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -403,6 +411,12 @@ quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &excep
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(pattern, exception, m_uid);
     return method(result, user_auto_complete, DDPClient::Persistent);
+}
+
+quint64 DDPClient::channelAndPrivateAutocomplete(const QString &pattern, const QString &exception)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->channelAndPrivateAutocomplete(pattern, exception, m_uid);
+    return method(result, channel_and_private_autocomplete, DDPClient::Persistent);
 }
 
 quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
