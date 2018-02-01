@@ -40,6 +40,8 @@ private Q_SLOTS:
     void shouldParseJson_data();
     void shouldParseJson();
 
+    void shouldGetStatusIcon_data();
+    void shouldGetStatusIcon();
 };
 
 #endif // USERTEST_H

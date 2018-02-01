@@ -170,3 +170,24 @@ void UserTest::shouldParseJson()
     }
     QVERIFY(equal);
 }
+
+void UserTest::shouldGetStatusIcon_data()
+{
+    QTest::addColumn<QString>("status");
+    QTest::addColumn<QString>("iconFileName");
+    QTest::newRow("online") << QStringLiteral("online") << QStringLiteral("user-online");
+    QTest::newRow("busy") << QStringLiteral("busy") << QStringLiteral("user-busy");
+    QTest::newRow("away") << QStringLiteral("away") << QStringLiteral("user-away");
+    QTest::newRow("offline") << QStringLiteral("offline") << QStringLiteral("user-offline");
+    QTest::newRow("unknown") << QStringLiteral("foo") << QStringLiteral("unknown");
+    QTest::newRow("unknown1") << QString() << QStringLiteral("unknown");
+}
+
+void UserTest::shouldGetStatusIcon()
+{
+    QFETCH(QString, status);
+    QFETCH(QString, iconFileName);
+    User user;
+    user.setStatus(status);
+    QCOMPARE(user.iconFromStatus(), iconFileName);
+}

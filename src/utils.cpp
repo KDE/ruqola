@@ -113,7 +113,7 @@ User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
         return User::PresenceStatus::PresenceOffline;
     } else {
         qCDebug(RUQOLA_LOG) << "Problem with status " << status;
-        return {};
+        return User::PresenceStatus::Unknown;
     }
 }
 
