@@ -48,13 +48,6 @@ void process_backlog(const QJsonObject &root, RocketChatAccount *account)
     account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray());
 }
 
-void get_users_of_room(const QJsonObject &root, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Get Users of Room:") + QJsonDocument(root).toJson());
-    }
-}
-
 void star_message(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -415,7 +408,16 @@ quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &excep
 quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->getUsersOfRoom(roomId, showAll, m_uid);
-    return method(result, get_users_of_room, DDPClient::Persistent);
+    std::function<void(QJsonObject, RocketChatAccount *)> callback = [ roomId ]( const QJsonObject &root, RocketChatAccount *account) {
+        qDebug() << " roomId" << roomId;
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Get Users of Room:") + QJsonDocument(root).toJson());
+        }
+        account->parseUsersForRooms(roomId, root);
+    };
+
+
+    return method(result, callback, DDPClient::Persistent);
 }
 
 quint64 DDPClient::createJitsiConfCall(const QString &roomId)

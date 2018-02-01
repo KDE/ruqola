@@ -450,6 +450,12 @@ void RocketChatAccount::getUsersOfRoom(const QString &roomId)
     ddp()->getUsersOfRoom(roomId, true);
 }
 
+void RocketChatAccount::parseUsersForRooms(const QString &roomId, const QJsonObject &root)
+{
+    //TODO add code for parsing it.
+    qDebug() << " room ID " << roomId << " root : " << root;
+}
+
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 {
     ddp()->createJitsiConfCall(roomId);

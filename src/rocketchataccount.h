@@ -169,6 +169,8 @@ public:
     QString userStatusIconFileName(const QString &id);
 
     void getUsersOfRoom(const QString &roomId);
+    void parseUsersForRooms(const QString &roomId, const QJsonObject &root);
+
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();
