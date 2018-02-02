@@ -182,7 +182,7 @@ Q_SIGNALS:
      * @param id The ID received in the method() call
      * @param result The response sent by server
      */
-    void result(unsigned id, const QJsonDocument &result);
+    void result(quint64 id, const QJsonDocument &result);
 
 private slots:
     void onWSConnected();
@@ -213,9 +213,9 @@ private:
      *
      * @def QHash unsigned messageID and std::function<void (QJsonDocument)> pointer to callback
      */
-    QHash <unsigned, std::function<void(QJsonObject, RocketChatAccount *)> > m_callbackHash;
+    QHash <quint64, std::function<void(QJsonObject, RocketChatAccount *)> > m_callbackHash;
 
-    unsigned m_loginJob = 0;
+    quint64 m_loginJob = 0;
     LoginStatus m_loginStatus;
     LoginType m_loginType;
 

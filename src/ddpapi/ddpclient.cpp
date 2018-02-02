@@ -561,7 +561,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             //nothing to do.
             qCDebug(RUQOLA_DDPAPI_LOG) << " message updated ! not implemented yet" << response;
         } else if (messageType == QLatin1String("result")) {
-            unsigned id = root.value(QLatin1String("id")).toString().toInt();
+            quint64 id = root.value(QLatin1String("id")).toString().toULongLong();
 
             if (m_callbackHash.contains(id)) {
                 std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
@@ -602,7 +602,19 @@ void DDPClient::onTextMessageReceived(const QString &message)
         } else if (messageType == QLatin1String("changed")) {
             Q_EMIT changed(root);
         } else if (messageType == QLatin1String("ready")) {
-            // do nothing
+            qCDebug(RUQOLA_DDPAPI_LOG) << "READY element" <<response;
+            const QJsonArray subs = root[QStringLiteral("subs")].toArray();
+            if (!subs.isEmpty()) {
+                const quint64 id = subs.at(0).toString().toULongLong();
+                if (m_callbackHash.contains(id)) {
+                    qDebug() << " has callback ";
+                    std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
+                    callback(root, mRocketChatAccount);
+                }
+            } else {
+                qCWarning(RUQOLA_DDPAPI_LOG) << "Problem with subs json " << root;
+            }
+
         } else if (messageType == QLatin1String("removed")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << "REMOVED element" <<response;
             Q_EMIT removed(root);
