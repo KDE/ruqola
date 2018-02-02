@@ -19,12 +19,57 @@
 */
 
 #include "usercompletermodel.h"
+#include "ruqola_debug.h"
 
 UserCompleterModel::UserCompleterModel(QObject *parent)
-    : QStringListModel(parent)
+    : QAbstractListModel(parent)
 {
 }
 
 UserCompleterModel::~UserCompleterModel()
 {
 }
+
+void UserCompleterModel::insertUsers(const User &users)
+{
+    mUsers.clear();
+    beginInsertRows(QModelIndex(), mUsers.count(), mUsers.count());
+    mUsers.append(users);
+    endInsertRows();
+}
+
+int UserCompleterModel::rowCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+    return mUsers.count();
+}
+
+QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
+{
+    const User user = mUsers.at(index.row());
+    switch (role) {
+    case UserName:
+        return user.userName();
+    case UserIconStatus:
+        return user.iconFromStatus();
+    default:
+        qCWarning(RUQOLA_LOG) << "Unknown usersmodel roles: " << role;
+    }
+    return {};
+}
+
+QHash<int, QByteArray> UserCompleterModel::roleNames() const
+{
+    QHash<int, QByteArray> roles;
+    roles[UserName] = QByteArrayLiteral("username");
+    roles[UserIconStatus] = QByteArrayLiteral("iconstatus");
+    return roles;
+}
+
+
+void UserCompleterModel::parseUser(const QJsonObject &root)
+{
+    //TODO add/remove ?
+    //TODO
+}
+

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017-2018 Montel Laurent <montel@kde.org>
+   Copyright (c) 2018 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,39 +18,26 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERCOMPLETERMODEL_H
-#define USERCOMPLETERMODEL_H
+#ifndef USERCOMPLETERMODELFILTERMODELPROXY_H
+#define USERCOMPLETERMODELFILTERMODELPROXY_H
 
-#include "user.h"
 
-#include <QStringListModel>
+#include "libruqola_private_export.h"
+#include <QSortFilterProxyModel>
 
-class UserCompleterModel : public QAbstractListModel
+class LIBRUQOLACORE_TESTS_EXPORT UserCompleterModelFilterModelProxy : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    enum UserRoles {
-        UserName = Qt::UserRole + 1,
-        UserId,
-        UserIconStatus
-    };
-    Q_ENUM(UserRoles)
+    explicit UserCompleterModelFilterModelProxy(QObject *parent = nullptr);
+    ~UserCompleterModelFilterModelProxy();
 
-    explicit UserCompleterModel(QObject *parent = nullptr);
-    ~UserCompleterModel();
-
-    void insertUsers(const User &users);
-
-    int rowCount(const QModelIndex &parent) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
-
-    void parseUser(const QJsonObject &root);
-protected:
     QHash<int, QByteArray> roleNames() const override;
 
-private:
-    QVector<User> mUsers;
+    Q_INVOKABLE void setFilterString(const QString &string);
 
+protected:
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
 
-#endif // USERCOMPLETERMODEL_H
+#endif // USERCOMPLETERMODELFILTERMODELPROXY_H

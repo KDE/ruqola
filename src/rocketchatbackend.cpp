@@ -243,7 +243,15 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         qCDebug(RUQOLA_LOG) << "stream-notify-user: " << object;
         //TODO verify that all is ok !
     } else if (collection == QLatin1String("autocompleteRecords")) {
-        qCDebug(RUQOLA_LOG) << "autocompleteRecords: " << object;
+        if (mRocketChatAccount->ruqolaLogger()) {
+            QJsonDocument d;
+            d.setObject(object);
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("users: Add User:") + d.toJson());
+        } else {
+            qCDebug(RUQOLA_LOG) << "AutoCompleteRecords VALUE" << object;
+        }
+        //TODO add/remove completer user
+
     } else {
         qCDebug(RUQOLA_LOG) << "Unknow added element: "<< object;
     }
