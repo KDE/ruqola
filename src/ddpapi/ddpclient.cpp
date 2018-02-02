@@ -427,7 +427,7 @@ quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
         if (account->ruqolaLogger()) {
             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Get Users of Room:") + QJsonDocument(root).toJson());
         } else {
-            qCWarning(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
+            qCDebug(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
         }
         account->parseUsersForRooms(roomId, root);
     };
