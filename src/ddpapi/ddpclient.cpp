@@ -575,7 +575,6 @@ void DDPClient::onTextMessageReceived(const QString &message)
                     mRocketChatAccount->settings()->setAuthToken(token);
                     mRocketChatAccount->restApi()->setAuthToken(token);
                     mRocketChatAccount->restApi()->setUserId(root.value(QLatin1String("id")).toString());
-                    //mRocketChatAccount->restApi()->channelList();
                     setLoginStatus(DDPClient::LoggedIn);
                 }
             }
@@ -584,8 +583,6 @@ void DDPClient::onTextMessageReceived(const QString &message)
             m_connected = true;
             Q_EMIT connectedChanged();
             setLoginStatus(DDPClient::LoggingIn);
-            //Ruqola::self()->authentication()->OAuthLogin();
-
             login(); // Try to resume auth token login
         } else if (messageType == QLatin1String("error")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << "ERROR!!" << message;
