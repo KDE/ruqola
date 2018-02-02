@@ -24,7 +24,8 @@ import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 
 import KDE.Ruqola.RocketChatAccount 1.0
-import KDE.Ruqola.UserCompleterModel 1.0
+import KDE.Ruqola.UserCompleterModelFilterModelProxy 1.0
+import org.kde.kirigami 2.1 as Kirigami
 
 Dialog {
     id: addUserDialog
@@ -44,19 +45,38 @@ Dialog {
     {
         username.text = "";
         open();
-        //TODO clear listview too
     }
 
-    Column {
+    ColumnLayout {
         TextField {
             id: username
-            placeholderText: i18n("Search Name")
+            focus: true
+            Layout.minimumHeight: Layout.maximumHeight
+            Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
+            Layout.fillWidth: true
+            placeholderText: i18n("Search user...")
             onTextChanged: {
                 addUserDialog.searchUserName(username.text)
             }
         }
         ListView {
-            model: rcAccount.userCompleterModel
+            id: listview
+            width: 300;
+            height: 200
+
+            model: rcAccount.userCompleterModelFilterModelProxy
+            delegate:
+                RowLayout {
+                Kirigami.Icon {
+                    source: iconstatus
+                    //FIXME
+                    height: 22
+                    width: 22
+                }
+                Text {
+                    text: username
+                }
+            }
         }
     }
     onAccepted: {
