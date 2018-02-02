@@ -39,7 +39,7 @@ public:
     explicit UserCompleterModel(QObject *parent = nullptr);
     ~UserCompleterModel();
 
-    void insertUsers(const User &users);
+    void insertUser(const User &users);
 
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;

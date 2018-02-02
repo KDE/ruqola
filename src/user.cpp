@@ -106,8 +106,9 @@ QDebug operator <<(QDebug d, const User &t)
 void User::parseUser(const QJsonObject &object)
 {
     const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
-    setName(fields.value(QLatin1String("name")).toString());
     setUserId(object.value(QLatin1String("id")).toString());
+
+    setName(fields.value(QLatin1String("name")).toString());
     setStatus(fields.value(QLatin1String("status")).toString());
     setUserName(fields.value(QLatin1String("username")).toString());
 }

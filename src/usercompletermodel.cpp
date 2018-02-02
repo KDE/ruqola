@@ -35,14 +35,15 @@ void UserCompleterModel::clear()
     beginRemoveRows(QModelIndex(), 0, mUsers.count()-1);
     mUsers.clear();
     endInsertRows();
+    qDebug() << " clear";
 }
 
-void UserCompleterModel::insertUsers(const User &users)
+void UserCompleterModel::insertUser(const User &users)
 {
-    mUsers.clear();
     beginInsertRows(QModelIndex(), mUsers.count(), mUsers.count());
     mUsers.append(users);
     endInsertRows();
+    qDebug() << " ADDDD " << mUsers.count();
 }
 
 int UserCompleterModel::rowCount(const QModelIndex &parent) const
@@ -76,6 +77,12 @@ QHash<int, QByteArray> UserCompleterModel::roleNames() const
 
 void UserCompleterModel::parseUser(const QJsonObject &root)
 {
+    User user;
+    user.parseUser(root);
+    insertUser(user);
+    qDebug() << " user " << user;
+
+
     //TODO add/remove ?
     //TODO
 }
