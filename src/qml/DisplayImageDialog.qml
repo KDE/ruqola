@@ -19,12 +19,12 @@
 */
 
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import QtQuick 2.9
 
 //TODO add zoom support and co.
-Dialog {
+QQC2.Dialog {
     id: displayImageDialog
 
     title: i18n("Image")
@@ -35,7 +35,7 @@ Dialog {
 
     modal: true
 
-    standardButtons: Dialog.Close
+    standardButtons: QQC2.Dialog.Close
 
     function clearScaleAndOpen()
     {
@@ -43,11 +43,13 @@ Dialog {
         open();
     }
 
-    ScrollView {
+    QQC2.ScrollView {
         anchors.fill: parent
+        height: 600
+        width: 600
         clip: true
-        ScrollBar.horizontal.interactive: true
-        ScrollBar.vertical.interactive: true
+        //QQC2.ScrollBar.horizontal.interactive: true
+        //QQC2.ScrollBar.vertical.interactive: true
         Image {
             id: image
             source: iUrl
