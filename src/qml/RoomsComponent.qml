@@ -41,8 +41,7 @@ Component {
             iconName: "list-add"
             text: i18n("Open room");
             onTriggered: {
-                //TODO reactivate it.
-                //channelsList.open();
+                searchChannelDialog.open();
             }
         }
         actions.left: Kirigami.Action {
