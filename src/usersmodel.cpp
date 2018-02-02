@@ -80,7 +80,7 @@ void UsersModel::removeUser(const QString &userId)
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i).userId() == userId) {
             qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i).name();
-            //Send info as it's disconnected. But remove it from list
+            //Send info as it's disconnected. But don't remove it from list
             User user = mUsers.at(i);
             user.setStatus(QStringLiteral("offline"));
             mUsers.replace(i, user);
