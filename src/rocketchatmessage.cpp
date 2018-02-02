@@ -407,7 +407,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::channelAndPrivateA
     firstParam[QStringLiteral("name")] = roomName;
     params.append(firstParam);
     qDebug() << " params " << params;
-    return subscribe(QStringLiteral("channelAndPrivateAutocomplete"), QJsonDocument(params), id);
+    return subscribe(QStringLiteral("channelAndPrivateAutocomplete"), QJsonDocument(firstParam), id);
 }
 
 //We need to be able to send file for audio/video
