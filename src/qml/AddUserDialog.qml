@@ -30,7 +30,7 @@ import org.kde.kirigami 2.1 as Kirigami
 Dialog {
     id: addUserDialog
 
-    property QtObject rcAccount
+    property QtObject completerModel
     signal searchUserName(string pattern)
 
     title: i18n("Add Users")
@@ -64,7 +64,7 @@ Dialog {
             width: 300;
             height: 200
 
-            model: rcAccount.userCompleterModelFilterModelProxy()
+            model: completerModel
             delegate:
                 RowLayout {
                 Kirigami.Icon {

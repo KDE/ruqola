@@ -80,7 +80,6 @@ void UserCompleterModel::parseUser(const QJsonObject &root)
     User user;
     user.parseUser(root);
     insertUser(user);
-    qDebug() << " user " << user;
 
 
     //TODO add/remove ?

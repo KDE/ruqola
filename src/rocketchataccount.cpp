@@ -73,10 +73,10 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mOtrManager = new OtrManager(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
 
+    mUserCompleterModel = new UserCompleterModel(this);
     mUserCompleterModelFilterModelProxy = new UserCompleterModelFilterModelProxy(this);
     mUserCompleterModelFilterModelProxy->setSourceModel(mUserCompleterModel);
 
-    mUserCompleterModel = new UserCompleterModel(this);
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this);
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
@@ -119,6 +119,11 @@ void RocketChatAccount::clearModels()
     mMessageQueue->processQueue();
 }
 
+UserCompleterModel *RocketChatAccount::userCompleterModel() const
+{
+    return mUserCompleterModel;
+}
+
 UserCompleterModelFilterModelProxy *RocketChatAccount::userCompleterModelFilterModelProxy() const
 {
     return mUserCompleterModelFilterModelProxy;
@@ -137,11 +142,6 @@ QString RocketChatAccount::userStatusIconFileName(const QString &name)
 StatusModel *RocketChatAccount::statusModel() const
 {
     return mStatusModel;
-}
-
-UserCompleterModel *RocketChatAccount::userCompleterModel() const
-{
-    return mUserCompleterModel;
 }
 
 RuqolaServerConfig *RocketChatAccount::ruqolaServerConfig() const

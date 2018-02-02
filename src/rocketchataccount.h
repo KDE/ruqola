@@ -152,7 +152,7 @@ public:
     Q_INVOKABLE QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
-    UserCompleterModel *userCompleterModel() const;
+    Q_INVOKABLE UserCompleterModel *userCompleterModel() const;
 
     Q_INVOKABLE QString avatarUrl(const QString &userId);
 
