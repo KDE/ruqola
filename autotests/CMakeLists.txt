@@ -31,5 +31,6 @@ add_ruqola_test(emojimanagertest.cpp)
 add_ruqola_test(otrtest.cpp)
 add_ruqola_test(otrmanagertest.cpp)
 add_ruqola_test(rocketchataccounttest.cpp)
+add_ruqola_test(usersmodeltest.cpp)
 
 add_subdirectory(qml)
