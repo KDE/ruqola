@@ -411,7 +411,16 @@ quint64 DDPClient::listEmojiCustom()
 quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &exception)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(pattern, exception, m_uid);
-    return method(result, user_auto_complete, DDPClient::Persistent);
+    std::function<void(QJsonObject, RocketChatAccount *)> callback = [ = ]( const QJsonObject &root, RocketChatAccount *account) {
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User AutoComplete:") + QJsonDocument(root).toJson());
+        } else {
+            qDebug() << " User AutoComplete" << root;
+            qCDebug(RUQOLA_DDPAPI_LOG) << " User AutoComplete" << root;
+        }
+    };
+
+    return method(result, callback, DDPClient::Persistent);
 }
 
 quint64 DDPClient::channelAndPrivateAutocomplete(const QString &pattern, const QString &exception)

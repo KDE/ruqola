@@ -242,6 +242,10 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
     } else if (collection == QLatin1String("stream-notify-all")) {
         qCDebug(RUQOLA_LOG) << "stream-notify-user: " << object;
         //TODO verify that all is ok !
+    } else if (collection == QLatin1String("autocompleteRecords")) {
+        qCDebug(RUQOLA_LOG) << "autocompleteRecords: " << object;
+    } else {
+        qCDebug(RUQOLA_LOG) << "Unknow added element: "<< object;
     }
 }
 
