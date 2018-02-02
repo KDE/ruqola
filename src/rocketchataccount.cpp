@@ -32,6 +32,7 @@
 #include "ruqolalogger.h"
 #include "ruqolaserverconfig.h"
 #include "usercompletermodel.h"
+#include "usercompletermodelfiltermodelproxy.h"
 #include "statusmodel.h"
 #include "utils.h"
 #include "rocketchatcache.h"
@@ -71,6 +72,10 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mEmojiManager->setServerUrl(mSettings->serverUrl());
     mOtrManager = new OtrManager(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
+
+    mUserCompleterModelFilterModelProxy = new UserCompleterModelFilterModelProxy(this);
+    mUserCompleterModelFilterModelProxy->setSourceModel(mUserCompleterModel);
+
     mUserCompleterModel = new UserCompleterModel(this);
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this);
@@ -112,6 +117,11 @@ void RocketChatAccount::clearModels()
     mMessageQueue->loadCache();
     //Try to send queue message
     mMessageQueue->processQueue();
+}
+
+UserCompleterModelFilterModelProxy *RocketChatAccount::userCompleterModelFilterModelProxy() const
+{
+    return mUserCompleterModelFilterModelProxy;
 }
 
 EmojiManager *RocketChatAccount::emojiManager() const
@@ -433,6 +443,8 @@ void RocketChatAccount::deleteMessage(const QString &messageId)
 
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
 {
+    //Clear before to create new search
+    userCompleterModel()->clear();
     ddp()->userAutocomplete(searchText, exception);
 }
 

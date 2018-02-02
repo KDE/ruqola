@@ -39,6 +39,7 @@ class RoomFilterProxyModel;
 class RuqolaLogger;
 class RuqolaServerConfig;
 class UserCompleterModel;
+class UserCompleterModelFilterModelProxy;
 class StatusModel;
 class RocketChatCache;
 class EmojiManager;
@@ -174,6 +175,8 @@ public:
     void parseUsersForRooms(const QString &roomId, const QJsonObject &root);
 
     Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern, const QString &exception);
+    Q_INVOKABLE UserCompleterModelFilterModelProxy *userCompleterModelFilterModelProxy() const;
+
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();
@@ -210,6 +213,7 @@ private:
     RuqolaLogger *mRuqolaLogger = nullptr;
     RuqolaServerConfig *mRuqolaServerConfig = nullptr;
     UserCompleterModel *mUserCompleterModel = nullptr;
+    UserCompleterModelFilterModelProxy *mUserCompleterModelFilterModelProxy = nullptr;
     StatusModel *mStatusModel = nullptr;
     RocketChatCache *mCache = nullptr;
     OtrManager *mOtrManager = nullptr;

@@ -30,6 +30,13 @@ UserCompleterModel::~UserCompleterModel()
 {
 }
 
+void UserCompleterModel::clear()
+{
+    beginRemoveRows(QModelIndex(), 0, mUsers.count()-1);
+    mUsers.clear();
+    endInsertRows();
+}
+
 void UserCompleterModel::insertUsers(const User &users)
 {
     mUsers.clear();

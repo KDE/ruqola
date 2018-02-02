@@ -45,6 +45,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
 
     void parseUser(const QJsonObject &root);
+    void clear();
 protected:
     QHash<int, QByteArray> roleNames() const override;
 

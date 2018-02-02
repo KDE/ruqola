@@ -23,6 +23,7 @@
 
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
+#include "usercompletermodel.h"
 #include "ruqola_debug.h"
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -250,8 +251,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         } else {
             qCDebug(RUQOLA_LOG) << "AutoCompleteRecords VALUE" << object;
         }
-        //TODO add/remove completer user
-
+        mRocketChatAccount->userCompleterModel()->parseUser(object);
     } else {
         qCDebug(RUQOLA_LOG) << "Unknow added element: "<< object;
     }
