@@ -40,22 +40,20 @@ Dialog {
 
     standardButtons: Dialog.Close
 
-    Column {
+    ColumnLayout {
         TextField {
             id: searchField
             focus: true
             Layout.minimumHeight: Layout.maximumHeight
             Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
             Layout.fillWidth: true
-            //width: parent.width
-            placeholderText: i18n("Search...")
+            placeholderText: i18n("Search user...")
             onTextChanged: {
-                console.log("text "  + text)
                 appid.userModel.setFilterString(text);
             }
         }
         ListView {
-            //TODO fix me
+            id: listview
             width: 300;
             height: 200
 
@@ -65,8 +63,8 @@ Dialog {
                 Kirigami.Icon {
                     source: iconstatus
                     //FIXME
-                    height: 20
-                    width: 20
+                    height: 22
+                    width: 22
                 }
                 Text {
                     text: username
