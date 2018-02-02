@@ -94,8 +94,9 @@ void UsersModel::removeUser(const QString &userId)
 
 void UsersModel::addUser(const User &newuser)
 {
+    //It can be duplicate as we don't remove user from list when user is disconnected. Otherwise it will not sync with
+    // user for room list
     qCDebug(RUQOLA_LOG) << " User added " << newuser;
-    //TODO verify if duplicate ?
     const int userCount{
         mUsers.count()
     };
