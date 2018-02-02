@@ -212,7 +212,7 @@ Component {
             onDisplayImage: {
                 displayImageDialog.iUrl = imageUrl
                 displayImageDialog.title = title
-                displayImageDialog.open();
+                displayImageDialog.clearScaleAndOpen();
             }
             
             OpenDirectChannelDialog {

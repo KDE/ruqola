@@ -37,6 +37,12 @@ Dialog {
 
     standardButtons: Dialog.Close
 
+    function clearScaleAndOpen()
+    {
+        image.scale = 1.0
+        open();
+    }
+
     ScrollView {
         anchors.fill: parent
         clip: true
