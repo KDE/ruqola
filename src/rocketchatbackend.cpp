@@ -421,7 +421,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        //params.append(QJsonValue(params));
         qDebug() << " updateAvatar"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
@@ -431,7 +430,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        //params.append(QJsonValue(params));
         qDebug() << " roles-change"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
@@ -441,7 +439,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        //params.append(QJsonValue(params));
         qDebug() << " updateEmojiCustom"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
@@ -451,7 +448,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        //params.append(QJsonValue(params));
         qDebug() << " deleteEmojiCustom"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
@@ -461,7 +457,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        //params.append(QJsonValue(params));
         qDebug() << " public-settings-changed"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
@@ -471,7 +466,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        //params.append(QJsonValue(params));
         qDebug() << " permissions-changed"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
