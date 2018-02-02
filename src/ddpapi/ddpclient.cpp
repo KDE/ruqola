@@ -461,6 +461,8 @@ quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const 
     if (bytes < result.result.length()) {
         qCDebug(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qCDebug(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+    } else {
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
     }
     const int value = m_uid;
     m_uid++;
@@ -540,6 +542,8 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
     if (bytes < json.length()) {
         qCDebug(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
         qCDebug(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+    } else {
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << json;
     }
     m_uid++;
 }
