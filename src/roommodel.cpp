@@ -122,24 +122,24 @@ void RoomModel::reset()
 QHash<int, QByteArray> RoomModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[RoomName] = "name";
-    roles[RoomID] = "room_id";
-    roles[RoomSelected] = "selected";
-    roles[RoomUnread] = "unread";
-    roles[RoomType] = "type";
-    roles[RoomUserName] = "username";
-    roles[RoomUserID] = "userID";
-    roles[RoomTopic] = "topic";
-    roles[RoomMutedUsers] = "mutedUsers";
-    roles[RoomJitsiTimeout] = "jitsiTimeout";
-    roles[RoomRo] = "readOnly";
-    roles[RoomAnnoucement] = "announcement";
-    roles[RoomOpen] = "open";
-    roles[RoomAlert] = "alert";
-    roles[RoomOrder] = "roomorder";
-    roles[RoomFavorite] = "favorite";
-    roles[RoomSection] = "sectionname";
-    roles[RoomIcon] = "channelicon";
+    roles[RoomName] = QByteArrayLiteral("name");
+    roles[RoomID] = QByteArrayLiteral("room_id");
+    roles[RoomSelected] = QByteArrayLiteral("selected");
+    roles[RoomUnread] = QByteArrayLiteral("unread");
+    roles[RoomType] = QByteArrayLiteral("type");
+    roles[RoomUserName] = QByteArrayLiteral("username");
+    roles[RoomUserID] = QByteArrayLiteral("userID");
+    roles[RoomTopic] = QByteArrayLiteral("topic");
+    roles[RoomMutedUsers] = QByteArrayLiteral("mutedUsers");
+    roles[RoomJitsiTimeout] = QByteArrayLiteral("jitsiTimeout");
+    roles[RoomRo] = QByteArrayLiteral("readOnly");
+    roles[RoomAnnoucement] = QByteArrayLiteral("announcement");
+    roles[RoomOpen] = QByteArrayLiteral("open");
+    roles[RoomAlert] = QByteArrayLiteral("alert");
+    roles[RoomOrder] = QByteArrayLiteral("roomorder");
+    roles[RoomFavorite] = QByteArrayLiteral("favorite");
+    roles[RoomSection] = QByteArrayLiteral("sectionname");
+    roles[RoomIcon] = QByteArrayLiteral("channelicon");
     return roles;
 }
 

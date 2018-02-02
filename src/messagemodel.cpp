@@ -113,27 +113,27 @@ MessageModel::~MessageModel()
 QHash<int, QByteArray> MessageModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[OriginalMessage] = "originalMessage";
-    roles[MessageConvertedText] = "messageConverted";
-    roles[Username] = "username";
-    roles[Timestamp] = "timestamp";
-    roles[UserId] = "userID";
-    roles[SystemMessageType] = "type";
-    roles[MessageId] = "messageID";
-    roles[RoomId] = "roomID";
-    roles[UpdatedAt] = "updatedAt";
-    roles[EditedAt] = "editedAt";
-    roles[EditedByUserName] = "editedByUsername";
-    roles[EditedByUserId] = "editedByUserID";
-    roles[Alias] = "alias";
-    roles[Avatar] = "avatar";
-    roles[Groupable] = "groupable";
-    roles[MessageType] = "messagetype";
-    roles[Attachments] = "attachments";
-    roles[Urls] = "urls";
-    roles[Date] = "date";
-    roles[CanEditingMessage] = "canEditingMessage";
-    roles[Starred] = "starred";
+    roles[OriginalMessage] = QByteArrayLiteral("originalMessage");
+    roles[MessageConvertedText] = QByteArrayLiteral("messageConverted");
+    roles[Username] = QByteArrayLiteral("username");
+    roles[Timestamp] = QByteArrayLiteral("timestamp");
+    roles[UserId] = QByteArrayLiteral("userID");
+    roles[SystemMessageType] = QByteArrayLiteral("type");
+    roles[MessageId] = QByteArrayLiteral("messageID");
+    roles[RoomId] = QByteArrayLiteral("roomID");
+    roles[UpdatedAt] = QByteArrayLiteral("updatedAt");
+    roles[EditedAt] = QByteArrayLiteral("editedAt");
+    roles[EditedByUserName] = QByteArrayLiteral("editedByUsername");
+    roles[EditedByUserId] = QByteArrayLiteral("editedByUserID");
+    roles[Alias] = QByteArrayLiteral("alias");
+    roles[Avatar] = QByteArrayLiteral("avatar");
+    roles[Groupable] = QByteArrayLiteral("groupable");
+    roles[MessageType] = QByteArrayLiteral("messagetype");
+    roles[Attachments] = QByteArrayLiteral("attachments");
+    roles[Urls] = QByteArrayLiteral("urls");
+    roles[Date] = QByteArrayLiteral("date");
+    roles[CanEditingMessage] = QByteArrayLiteral("canEditingMessage");
+    roles[Starred] = QByteArrayLiteral("starred");
 
     return roles;
 }

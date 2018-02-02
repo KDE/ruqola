@@ -65,8 +65,8 @@ QVariant UsersModelForRoom::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> UsersModelForRoom::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[UserName] = "username";
-    roles[UserIconStatus] = "iconstatus";
+    roles[UserName] = QByteArrayLiteral("username");
+    roles[UserIconStatus] = QByteArrayLiteral("iconstatus");
     return roles;
 }
 
