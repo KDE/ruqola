@@ -411,9 +411,9 @@ void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
     ddp()->subscribeRoomMessage(roomId);
 }
 
-void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern, const QString &exception)
+void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 {
-    ddp()->channelAndPrivateAutocomplete(pattern, exception);
+    ddp()->channelAndPrivateAutocomplete(pattern);
 }
 
 void RocketChatAccount::listEmojiCustom()

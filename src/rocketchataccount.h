@@ -174,7 +174,7 @@ public:
     void getUsersOfRoom(const QString &roomId);
     void parseUsersForRooms(const QString &roomId, const QJsonObject &root);
 
-    Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern, const QString &exception);
+    Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
     Q_INVOKABLE UserCompleterModelFilterModelProxy *userCompleterModelFilterModelProxy() const;
 
 Q_SIGNALS:

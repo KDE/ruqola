@@ -398,20 +398,13 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
 }
 
 //Verify it.
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::channelAndPrivateAutocomplete(const QString &searchText, const QString &exception, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::channelAndPrivateAutocomplete(const QString &roomName, quint64 id)
 {
     QJsonArray params;
 
     QJsonObject firstParam;
 
-    const QStringList users = exception.split(QLatin1Char(','));
-    QJsonArray exceptionEntries;
-    for (const QString &entry: users) {
-        exceptionEntries.append(entry);
-    }
-    //exceptionEntries.append( mUsername );
-    firstParam[QStringLiteral("exceptions")] = exceptionEntries;
-    firstParam[QStringLiteral("term")] = searchText;
+    firstParam[QStringLiteral("name")] = roomName;
     params.append(firstParam);
     qDebug() << " params " << params;
     return subscribe(QStringLiteral("channelAndPrivateAutocomplete"), QJsonDocument(params), id);

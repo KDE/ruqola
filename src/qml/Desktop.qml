@@ -135,8 +135,8 @@ Kirigami.ApplicationWindow {
         id: addUserDialog
         completerModel: rocketChatAccount.userCompleterModel()
         onSearchUserName: {
-            //rocketChatAccount.channelAndPrivateAutocomplete(pattern, "");
-            rocketChatAccount.userAutocomplete(pattern, "");
+            rocketChatAccount.channelAndPrivateAutocomplete(pattern);
+            //rocketChatAccount.userAutocomplete(pattern, "");
         }
     }
 

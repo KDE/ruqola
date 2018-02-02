@@ -426,9 +426,9 @@ quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &excep
     return method(result, callback, DDPClient::Persistent);
 }
 
-quint64 DDPClient::channelAndPrivateAutocomplete(const QString &pattern, const QString &exception)
+quint64 DDPClient::channelAndPrivateAutocomplete(const QString &pattern)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->channelAndPrivateAutocomplete(pattern, exception, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->channelAndPrivateAutocomplete(pattern, m_uid);
     return method(result, channel_and_private_autocomplete, DDPClient::Persistent);
 }
 
