@@ -77,14 +77,6 @@ void delete_message(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
-void user_auto_complete(const QJsonObject &root, RocketChatAccount *account)
-{
-    qDebug() << " void user_auto_complete(const QJsonObject &root, RocketChatAccount *account)"<<root;
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User AutoComplete:") + QJsonDocument(root).toJson());
-    }
-}
-
 void channel_and_private_autocomplete(const QJsonObject &root, RocketChatAccount *account)
 {
     qDebug() << " void channel_and_private_autocomplete(const QJsonObject &root, RocketChatAccount *account)"<<root;
