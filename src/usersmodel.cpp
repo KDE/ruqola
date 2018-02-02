@@ -80,22 +80,44 @@ void UsersModel::removeUser(const QString &userId)
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i).userId() == userId) {
             qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i).name();
-            beginRemoveRows(QModelIndex(), i, i);
-            mUsers.takeAt(i);
-            endRemoveRows();
+            //Send info as it's disconnected. But remove it from list
+            User user = mUsers.at(i);
+            user.setStatus(QStringLiteral("offline"));
+            mUsers.replace(i, user);
+            const QModelIndex idx = createIndex(i, 0);
+            Q_EMIT userStatusChanged(user);
+            Q_EMIT dataChanged(idx, idx);
             break;
         }
     }
 }
 
-void UsersModel::addUser(const User &user)
+void UsersModel::addUser(const User &newuser)
 {
-    qCDebug(RUQOLA_LOG) << " User added " << user;
+    qCDebug(RUQOLA_LOG) << " User added " << newuser;
     //TODO verify if duplicate ?
-    const int pos = mUsers.size();
-    beginInsertRows(QModelIndex(), pos, pos);
-    mUsers.append(user);
-    endInsertRows();
+    const int userCount{
+        mUsers.count()
+    };
+    bool found = false;
+    for (int i = 0; i < userCount; ++i) {
+        if (mUsers.at(i).userId() == newuser.userId()) {
+            found = true;
+            User user = mUsers.at(i);
+            user.setStatus(newuser.status());
+            mUsers.replace(i, user);
+            const QModelIndex idx = createIndex(i, 0);
+            Q_EMIT userStatusChanged(user);
+            Q_EMIT dataChanged(idx, idx);
+            break;
+        }
+    }
+    if (!found) {
+        const int pos = mUsers.size();
+        beginInsertRows(QModelIndex(), pos, pos);
+        mUsers.append(newuser);
+        endInsertRows();
+    }
 }
 
 void UsersModel::updateUser(const QJsonObject &array)
