@@ -284,6 +284,7 @@ DDPClient *RocketChatAccount::ddp()
         connect(mDdp, &DDPClient::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
         connect(mDdp, &DDPClient::changed, this, &RocketChatAccount::changed);
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
+        connect(mDdp, &DDPClient::removed, this, &RocketChatAccount::removed);
 
         mDdp->setServerUrl(mSettings->serverUrl());
         mDdp->start();

@@ -1,6 +1,7 @@
 /*
 
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
+ * Copyright 2018 Laurent Montel <montel@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -135,10 +136,11 @@ RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent
     : QObject(parent)
     , mRocketChatAccount(account)
 {
-    connect(mRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RocketChatBackend::onLoginStatusChanged);
-    connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &RocketChatBackend::onUserIDChanged);
-    connect(mRocketChatAccount, &RocketChatAccount::changed, this, &RocketChatBackend::onChanged);
-    connect(mRocketChatAccount, &RocketChatAccount::added, this, &RocketChatBackend::onAdded);
+    connect(mRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RocketChatBackend::slotLoginStatusChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &RocketChatBackend::slotUserIDChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::changed, this, &RocketChatBackend::slotChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::added, this, &RocketChatBackend::slotAdded);
+    connect(mRocketChatAccount, &RocketChatAccount::removed, this, &RocketChatBackend::slotRemoved);
 }
 
 RocketChatBackend::~RocketChatBackend()
@@ -163,7 +165,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
     }
 }
 
-void RocketChatBackend::onLoginStatusChanged()
+void RocketChatBackend::slotLoginStatusChanged()
 {
     if (mRocketChatAccount->loginStatus() == DDPClient::LoggedIn) {
         mRocketChatAccount->restApi()->serverInfo();
@@ -187,9 +189,21 @@ void RocketChatBackend::parseServerVersionDone(const QString &version)
     mRocketChatAccount->restApi()->channelList();
 }
 
-void RocketChatBackend::onAdded(const QJsonObject &object)
+void RocketChatBackend::slotRemoved(const QJsonObject &object)
 {
-    QString collection = object.value(QLatin1String("collection")).toString();
+    //TODO
+    const QString collection = object.value(QLatin1String("collection")).toString();
+    if (collection == QLatin1String("users")) {
+        const QString id = object.value(QLatin1String("id")).toString();
+        qCDebug(RUQOLA_LOG) << " user removed : "<< id;
+    } else {
+        qCDebug(RUQOLA_LOG) << " Other collection type  removed " << collection << " object "<<object;
+    }
+}
+
+void RocketChatBackend::slotAdded(const QJsonObject &object)
+{
+    const QString collection = object.value(QLatin1String("collection")).toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
         qCDebug(RUQOLA_LOG) << "stream-room-messages : " << object;
@@ -224,7 +238,7 @@ void RocketChatBackend::onAdded(const QJsonObject &object)
     }
 }
 
-void RocketChatBackend::onChanged(const QJsonObject &object)
+void RocketChatBackend::slotChanged(const QJsonObject &object)
 {
     //qDebug() << " void RocketChatBackend::onChanged(const QJsonObject &object)"<<object;
     const QString collection = object[QStringLiteral("collection")].toString();
@@ -340,11 +354,11 @@ void RocketChatBackend::onChanged(const QJsonObject &object)
             qCWarning(RUQOLA_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
         }
     } else {
-        qCDebug(RUQOLA_LOG) << " Other collection type " << collection << " object "<<object;
+        qCDebug(RUQOLA_LOG) << " Other collection type changed " << collection << " object "<<object;
     }
 }
 
-void RocketChatBackend::onUserIDChanged()
+void RocketChatBackend::slotUserIDChanged()
 {
     //TODO verify if we don"t send two subscription.
     qDebug() << " void RocketChatBackend::onUserIDChanged()**************************************";

@@ -1,6 +1,7 @@
 /*
 
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
+ * Copyright 2018 Laurent Montel <montel@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -45,10 +46,11 @@ public:
 
 private:
     Q_DISABLE_COPY(RocketChatBackend)
-    void onAdded(const QJsonObject &object);
-    void onChanged(const QJsonObject &object);
-    void onLoginStatusChanged();
-    void onUserIDChanged();
+    void slotRemoved(const QJsonObject &object);
+    void slotAdded(const QJsonObject &object);
+    void slotChanged(const QJsonObject &object);
+    void slotLoginStatusChanged();
+    void slotUserIDChanged();
     void parseServerVersionDone(const QString &version);
 
     RocketChatAccount *mRocketChatAccount = nullptr;

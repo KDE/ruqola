@@ -182,6 +182,7 @@ Q_SIGNALS:
     void loginStatusChanged();
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
+    void removed(const QJsonObject &item);
     void notification(const QString &title, const QString &message, const QPixmap &pixmap);
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);

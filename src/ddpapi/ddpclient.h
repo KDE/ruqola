@@ -174,6 +174,7 @@ Q_SIGNALS:
     void disconnected();
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
+    void removed(const QJsonObject &item);
 
     /**
      * @brief Emitted whenever a result is received

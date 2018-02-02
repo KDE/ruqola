@@ -602,6 +602,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             // do nothing
         } else if (messageType == QLatin1String("removed")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << "REMOVED element" <<response;
+            Q_EMIT removed(root);
         } else {
             qCDebug(RUQOLA_DDPAPI_LOG) << "received something unhandled:" << message;
         }
