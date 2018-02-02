@@ -64,7 +64,7 @@ Dialog {
             width: 300;
             height: 200
 
-            model: rcAccount.userCompleterModelFilterModelProxy
+            model: rcAccount.userCompleterModelFilterModelProxy()
             delegate:
                 RowLayout {
                 Kirigami.Icon {
