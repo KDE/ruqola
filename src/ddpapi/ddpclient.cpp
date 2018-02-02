@@ -410,6 +410,16 @@ quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &excep
             qDebug() << " User AutoComplete" << root;
             qCDebug(RUQOLA_DDPAPI_LOG) << " User AutoComplete" << root;
         }
+        const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(m_uid);
+        std::function<void(QJsonObject, RocketChatAccount *)> callbackUnsubscribeAutoComplete = [ = ]( const QJsonObject &root, RocketChatAccount *account) {
+            if (account->ruqolaLogger()) {
+                account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Unsubscribe AutoComplete:") + QJsonDocument(root).toJson());
+            } else {
+                qDebug() << " Unsubscribe AutoComplete" << root;
+                qCDebug(RUQOLA_DDPAPI_LOG) << " Unsubscribe AutoComplete" << root;
+            }
+        };
+        method(resultUnsubscribe, callbackUnsubscribeAutoComplete, DDPClient::Persistent);
     };
 
     return method(result, callback, DDPClient::Persistent);
@@ -593,9 +603,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             qCDebug(RUQOLA_DDPAPI_LOG) << "ERROR!!" << message;
         } else if (messageType == QLatin1String("ping")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << "Ping - Pong";
-            QJsonObject pong;
-            pong[QStringLiteral("msg")] = QStringLiteral("pong");
-            mWebSocket->sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
+            pong();
         } else if (messageType == QLatin1String("added")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << "ADDING element" <<response;
             Q_EMIT added(root);
@@ -603,21 +611,12 @@ void DDPClient::onTextMessageReceived(const QString &message)
             Q_EMIT changed(root);
         } else if (messageType == QLatin1String("ready")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << "READY element" <<response;
-            const QJsonArray subs = root[QStringLiteral("subs")].toArray();
-            if (!subs.isEmpty()) {
-                const quint64 id = subs.at(0).toString().toULongLong();
-                if (m_callbackHash.contains(id)) {
-                    qDebug() << " has callback ";
-                    std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
-                    callback(root, mRocketChatAccount);
-                }
-            } else {
-                qCWarning(RUQOLA_DDPAPI_LOG) << "Problem with subs json " << root;
-            }
-
+            executeSubsCallBack(root);
         } else if (messageType == QLatin1String("removed")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << "REMOVED element" <<response;
             Q_EMIT removed(root);
+        } else if (messageType == QLatin1String("nosub")) {
+            qCDebug(RUQOLA_DDPAPI_LOG) << "Unsubscribe element" <<message;
         } else {
             qCDebug(RUQOLA_DDPAPI_LOG) << "received something unhandled:" << message;
         }
@@ -678,4 +677,27 @@ void DDPClient::onWSclosed()
 {
     qCDebug(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED" << mWebSocket->closeReason() << mWebSocket->error() << mWebSocket->closeCode();
     setLoginStatus(NotConnected);
+}
+
+void DDPClient::pong()
+{
+    QJsonObject pong;
+    pong[QStringLiteral("msg")] = QStringLiteral("pong");
+    mWebSocket->sendBinaryMessage(QJsonDocument(pong).toJson(QJsonDocument::Compact));
+}
+
+
+void DDPClient::executeSubsCallBack(const QJsonObject &root)
+{
+    const QJsonArray subs = root[QStringLiteral("subs")].toArray();
+    if (!subs.isEmpty()) {
+        const quint64 id = subs.at(0).toString().toULongLong();
+        if (m_callbackHash.contains(id)) {
+            qDebug() << " has callback ";
+            std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
+            callback(root, mRocketChatAccount);
+        }
+    } else {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "Problem with subs json " << root;
+    }
 }

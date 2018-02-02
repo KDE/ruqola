@@ -428,9 +428,15 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::sendFileMessage(co
 }
 
 //Verify
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::unsubscribe(const QString &reqId, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::unsubscribe(quint64 id)
 {
-    return {};
+    QJsonObject json;
+    json[QStringLiteral("msg")] = QStringLiteral("unsub");
+    json[QStringLiteral("id")] = QString::number(id);
+    const QString generatedJsonDoc = QString::fromUtf8(QJsonDocument(json).toJson(mJsonFormat));
+    RocketChatMessageResult result;
+    result.result = generatedJsonDoc;
+    return result;
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::subscribe(const QString &name, const QJsonDocument &params, quint64 id)
