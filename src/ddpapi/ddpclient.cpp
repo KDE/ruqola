@@ -25,6 +25,7 @@
 #include "restapi/restapirequest.h"
 #include "utils.h"
 #include "ruqola_ddpapi_debug.h"
+#include "ruqola_ddpapi_command_debug.h"
 #include "rocketchatmessage.h"
 #include "ruqolawebsocket.h"
 #include "rocketchataccount.h"
@@ -470,15 +471,15 @@ quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &resu
 {
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
-        qCDebug(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
-        qCDebug(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
 
         if (messageType == DDPClient::Persistent) {
             m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
             mRocketChatAccount->messageQueue()->processQueue();
         }
     } else {
-        qCDebug(RUQOLA_DDPAPI_LOG) << "Successfully sent " << result.result;
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
     }
 
     m_callbackHash[m_uid] = callback;
@@ -498,15 +499,15 @@ quint64 DDPClient::method(const QString &method, const QJsonDocument &params, st
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->generateMethod(method, params, m_uid);
     qint64 bytes = mWebSocket->sendTextMessage(result.result);
     if (bytes < result.result.length()) {
-        qCDebug(RUQOLA_DDPAPI_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
-        qCDebug(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
 
         if (messageType == DDPClient::Persistent) {
             m_messageQueue.enqueue(qMakePair(result.method, result.jsonDocument));
             mRocketChatAccount->messageQueue()->processQueue();
         }
     } else {
-        qCDebug(RUQOLA_DDPAPI_LOG) << "Successfully sent " << result.result;
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
     }
 
     m_callbackHash[m_uid] = callback;
@@ -652,10 +653,10 @@ void DDPClient::onWSConnected()
     QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialize));
     if (bytes < serialize.length()) {
-        qCDebug(RUQOLA_DDPAPI_LOG) << "onWSConnected: ERROR! I couldn't send all of my message. This is a bug! (try again)";
-        qCDebug(RUQOLA_DDPAPI_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "onWSConnected: ERROR! I couldn't send all of my message. This is a bug! (try again)";
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
     } else {
-        qCDebug(RUQOLA_DDPAPI_LOG) << "Successfully sent " << serialize;
+        qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << serialize;
     }
 }
 
