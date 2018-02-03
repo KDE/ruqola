@@ -659,7 +659,7 @@ void DDPClient::onWSConnected()
     qCDebug(RUQOLA_DDPAPI_LOG) << "Websocket connected at URL" << mUrl;
 
     QJsonArray supportedVersions;
-    supportedVersions.append(QStringLiteral("1"));
+    supportedVersions.append(QLatin1String("1"));
     QJsonObject protocol;
     protocol[QStringLiteral("msg")] = QStringLiteral("connect");
     protocol[QStringLiteral("version")] = QStringLiteral("1");

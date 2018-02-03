@@ -87,7 +87,7 @@ void Authentication::OAuthLogin()
     Ruqola::self()->rocketChatAccount()->ddp()->method(QStringLiteral("login"), QJsonDocument(auth));
 
     QJsonArray requestPermissions;
-    requestPermissions.append(QStringLiteral("email"));
+    requestPermissions.append(QLatin1String("email"));
 
     QUuid state;
     state = state.createUuid();
