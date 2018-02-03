@@ -39,7 +39,7 @@ void UserTest::shouldHaveDefaultValue()
     User u;
     QVERIFY(u.name().isEmpty());
     QVERIFY(u.userId().isEmpty());
-    QVERIFY(u.status().isEmpty());
+    QCOMPARE(u.status(), QStringLiteral("offline"));
     QVERIFY(u.userName().isEmpty());
 }
 

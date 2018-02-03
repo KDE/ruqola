@@ -62,7 +62,7 @@ public:
     void setUserName(const QString &userName);
 
 private:
-    QString mStatus;
+    QString mStatus = QStringLiteral("offline");
     QString mUserId;
     QString mName;
     QString mUserName;
