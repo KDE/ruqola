@@ -94,6 +94,8 @@ void UsersModelForRoom::parseUsersForRooms(const QJsonObject &root)
                 user.setUserId(id);
                 if (user.isValid()) {
                     users.append(user);
+                } else {
+                    qCWarning(RUQOLA_LOG) << "Invalid user" << user;
                 }
             } else {
                 qCWarning(RUQOLA_LOG) << "Parse records: Error in users for rooms json" << root;
