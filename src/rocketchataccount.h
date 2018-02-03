@@ -177,6 +177,7 @@ public:
     Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
     Q_INVOKABLE UserCompleterModelFilterModelProxy *userCompleterModelFilterModelProxy() const;
 
+    void insertCompleterUsers();
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();

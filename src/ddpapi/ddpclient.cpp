@@ -411,6 +411,8 @@ quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &excep
             qDebug() << " User AutoComplete" << root;
             qCDebug(RUQOLA_DDPAPI_LOG) << " User AutoComplete" << root;
         }
+        account->insertCompleterUsers();
+
         const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(subscribeId);
         std::function<void(QJsonObject, RocketChatAccount *)> callbackUnsubscribeAutoComplete = [ = ]( const QJsonObject &root, RocketChatAccount *account) {
             if (account->ruqolaLogger()) {

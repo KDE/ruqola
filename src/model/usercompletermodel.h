@@ -39,13 +39,11 @@ public:
     explicit UserCompleterModel(QObject *parent = nullptr);
     ~UserCompleterModel();
 
-    void insertUser(const User &users);
-
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
-    void parseUser(const QJsonObject &root);
     void clear();
+    void insertUsers(const QVector<User> &users);
 protected:
     QHash<int, QByteArray> roleNames() const override;
 

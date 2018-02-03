@@ -441,10 +441,16 @@ void RocketChatAccount::deleteMessage(const QString &messageId)
     ddp()->deleteMessage(messageId);
 }
 
+void RocketChatAccount::insertCompleterUsers()
+{
+    userCompleterModel()->insertUsers(rocketChatBackend()->users());
+}
+
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
 {
     //Clear before to create new search
     userCompleterModel()->clear();
+    rocketChatBackend()->clearUsers();
     ddp()->userAutocomplete(searchText, exception);
 }
 

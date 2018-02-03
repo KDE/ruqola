@@ -27,7 +27,7 @@
 #include "libruqolacore_export.h"
 #include <QObject>
 #include <QJsonObject>
-
+#include "user.h"
 #include "model/roommodel.h"
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT RocketChatBackend : public QObject
@@ -44,6 +44,10 @@ public:
     */
     void processIncomingMessages(const QJsonArray &messages);
 
+    void clearUsers();
+
+    QVector<User> users() const;
+
 private:
     Q_DISABLE_COPY(RocketChatBackend)
     void slotRemoved(const QJsonObject &object);
@@ -53,6 +57,7 @@ private:
     void slotUserIDChanged();
     void parseServerVersionDone(const QString &version);
 
+    QVector<User> mUsers;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };
 

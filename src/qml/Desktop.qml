@@ -133,7 +133,7 @@ Kirigami.ApplicationWindow {
 
     AddUserDialog {
         id: addUserDialog
-        completerModel: rocketChatAccount.userCompleterModel()
+        completerModel: rocketChatAccount.userCompleterModelFilterModelProxy()
         onSearchUserName: {
             rocketChatAccount.userAutocomplete(pattern, "");
         }

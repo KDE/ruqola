@@ -190,6 +190,11 @@ void RocketChatBackend::parseServerVersionDone(const QString &version)
     mRocketChatAccount->restApi()->channelList();
 }
 
+QVector<User> RocketChatBackend::users() const
+{
+    return mUsers;
+}
+
 void RocketChatBackend::slotRemoved(const QJsonObject &object)
 {
     //TODO
@@ -251,7 +256,9 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         } else {
             qCDebug(RUQOLA_LOG) << "AutoCompleteRecords VALUE" << object;
         }
-        mRocketChatAccount->userCompleterModel()->parseUser(object);
+        User user;
+        user.parseUser(object);
+        mUsers.append(user);
     } else {
         qCDebug(RUQOLA_LOG) << "Unknow added element: "<< object;
     }
@@ -375,6 +382,13 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
     } else {
         qCDebug(RUQOLA_LOG) << " Other collection type changed " << collection << " object "<<object;
     }
+}
+
+
+
+void RocketChatBackend::clearUsers()
+{
+    mUsers.clear();
 }
 
 void RocketChatBackend::slotUserIDChanged()
