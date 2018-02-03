@@ -32,7 +32,6 @@ UserCompleterModelFilterModelProxy::UserCompleterModelFilterModelProxy(QObject *
 
 UserCompleterModelFilterModelProxy::~UserCompleterModelFilterModelProxy()
 {
-
 }
 
 QHash<int, QByteArray> UserCompleterModelFilterModelProxy::roleNames() const

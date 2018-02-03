@@ -70,7 +70,6 @@ QHash<int, QByteArray> UsersModelForRoom::roleNames() const
     return roles;
 }
 
-
 void UsersModelForRoom::parseUsersForRooms(const QJsonObject &root)
 {
     const QJsonObject result = root[QLatin1String("result")].toObject();
@@ -80,8 +79,8 @@ void UsersModelForRoom::parseUsersForRooms(const QJsonObject &root)
 
         QVector<User> users;
         users.reserve(records.count());
-        for ( const QJsonValue &current : records ) {
-            if ( current.type() == QJsonValue::Object ) {
+        for (const QJsonValue &current : records) {
+            if (current.type() == QJsonValue::Object) {
                 const QJsonObject userObject = current.toObject();
                 const QString userName = userObject[QStringLiteral("username")].toString();
                 const QString name = userObject[QStringLiteral("name")].toString();

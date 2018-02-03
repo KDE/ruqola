@@ -21,7 +21,6 @@
 #ifndef USERCOMPLETERMODELFILTERMODELPROXY_H
 #define USERCOMPLETERMODELFILTERMODELPROXY_H
 
-
 #include "libruqola_private_export.h"
 #include <QSortFilterProxyModel>
 

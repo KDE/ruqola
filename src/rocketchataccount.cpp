@@ -462,6 +462,7 @@ void RocketChatAccount::parseUsersForRooms(const QString &roomId, const QJsonObj
         qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
     }
 }
+
 UsersModelForRoom *RocketChatAccount::usersModelForRoom(const QString &roomId) const
 {
     return mRoomModel->usersModelForRoom(roomId);

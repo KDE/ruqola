@@ -74,15 +74,12 @@ QHash<int, QByteArray> UserCompleterModel::roleNames() const
     return roles;
 }
 
-
 void UserCompleterModel::parseUser(const QJsonObject &root)
 {
     User user;
     user.parseUser(root);
     insertUser(user);
 
-
     //TODO add/remove ?
     //TODO
 }
-

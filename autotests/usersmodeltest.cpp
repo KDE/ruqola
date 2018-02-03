@@ -26,5 +26,4 @@ QTEST_GUILESS_MAIN(UsersModelTest)
 UsersModelTest::UsersModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

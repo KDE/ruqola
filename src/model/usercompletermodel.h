@@ -51,7 +51,6 @@ protected:
 
 private:
     QVector<User> mUsers;
-
 };
 
 #endif // USERCOMPLETERMODEL_H
