@@ -58,9 +58,7 @@ bool UserCompleterModelFilterModelProxy::lessThan(const QModelIndex &left, const
 
 int UserCompleterModelFilterModelProxy::numberOfUsers() const
 {
-    qDebug() << "int UserCompleterModelFilterModelProxy::numberOfUsers() const" ;
     if (QAbstractItemModel *source = sourceModel()) {
-        qDebug() << " dssssssssssssssssssssssssssssssss";
         return source->rowCount(QModelIndex());
     }
     return 0;
