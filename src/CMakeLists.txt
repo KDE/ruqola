@@ -9,11 +9,21 @@ set(Ruqola_ddpapi_SRCS
     ddpapi/ddpclient.cpp
     )
 
+set (Ruqola_model_core_srcs    
+    model/messagemodel.cpp
+    model/roommodel.cpp
+    model/roomfilterproxymodel.cpp
+    model/usersmodelforroom.cpp
+    model/usersmodelforroomfilterproxymodel.cpp
+    model/usercompletermodelfiltermodelproxy.cpp
+    model/usercompletermodel.cpp
+    model/statusmodel.cpp
+    model/usersmodel.cpp
+    )
+    
 set (Ruqola_core_srcs
-    messagemodel.cpp
+    ${Ruqola_model_core_srcs}
     message.cpp
-    roommodel.cpp
-    roomfilterproxymodel.cpp
     room.cpp
     roomwrapper.cpp
     ruqola.cpp
@@ -25,7 +35,6 @@ set (Ruqola_core_srcs
     rocketchatmessage.cpp
     typingnotification.cpp
     changetemporarystatus.cpp
-    usersmodel.cpp
     user.cpp
     utils.cpp
     emoji.cpp
@@ -39,24 +48,19 @@ set (Ruqola_core_srcs
     messageurl.cpp
     rocketchataccount.cpp
     rocketchataccountsettings.cpp
-    usersmodelforroom.cpp
     ruqolalogger.cpp
     ruqolaregisterengine.cpp
     ruqolaserverconfig.cpp
-    statusmodel.cpp
     aboutdata/qmlaboutdata.cpp
     aboutdata/qmlaboutdataauthormodel.cpp
     ${Ruqola_ddpapi_SRCS}
     ${Ruqola_restapi_SRCS}
-    usercompletermodel.cpp
     rocketchatcache.cpp
     downloadfilejob.cpp
     texthighlighter.cpp
     textconverter.cpp
     loadrecenthistorymanager.cpp
     unityservicemanager.cpp
-    usersmodelforroomfilterproxymodel.cpp
-    usercompletermodelfiltermodelproxy.cpp
 )
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)

@@ -28,7 +28,7 @@
 #include <QObject>
 #include <QJsonObject>
 
-#include "roommodel.h"
+#include "model/roommodel.h"
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT RocketChatBackend : public QObject
 {

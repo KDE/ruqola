@@ -23,14 +23,14 @@
 
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
-#include "usercompletermodel.h"
+#include "model/usercompletermodel.h"
 #include "ruqola_debug.h"
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
 #include "user.h"
-#include "usersmodel.h"
+#include "model/usersmodel.h"
 #include "ruqolalogger.h"
-#include "messagemodel.h"
+#include "model/messagemodel.h"
 #include "user.h"
 
 #include <QJsonObject>

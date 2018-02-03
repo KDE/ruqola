@@ -21,7 +21,7 @@
 #include "room.h"
 #include "roomwrapper.h"
 #include "roommodeltest.h"
-#include "roommodel.h"
+#include "model/roommodel.h"
 
 #include <qglobal.h>
 #include <QJsonObject>

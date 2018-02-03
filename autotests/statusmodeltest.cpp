@@ -19,7 +19,7 @@
 */
 
 #include "statusmodeltest.h"
-#include "statusmodel.h"
+#include "model/statusmodel.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(StatusModelTest)

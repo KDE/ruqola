@@ -27,7 +27,7 @@
 #include <ruqolautils.h>
 #include <ruqola.h>
 #include <rocketchataccount.h>
-#include <roomfilterproxymodel.h>
+#include <model/roomfilterproxymodel.h>
 #include <KLocalizedContext>
 
 RoomModelGui::RoomModelGui(QWidget *parent)

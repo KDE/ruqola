@@ -21,8 +21,8 @@
  */
 
 #include "room.h"
-#include "usersmodelforroom.h"
-#include "usersmodelforroomfilterproxymodel.h"
+#include "model/usersmodelforroom.h"
+#include "model/usersmodelforroomfilterproxymodel.h"
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>

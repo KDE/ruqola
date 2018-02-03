@@ -28,8 +28,8 @@
 #include <QQmlEngine>
 #include <QJSEngine>
 #include "ddpapi/ddpclient.h"
-#include "roommodel.h"
-#include "messagemodel.h"
+#include "model/roommodel.h"
+#include "model/messagemodel.h"
 #include "notification.h"
 #include "unityservicemanager.h"
 

@@ -19,7 +19,7 @@
 */
 
 #include "messagemodeltest.h"
-#include "messagemodel.h"
+#include "model/messagemodel.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(MessageModelTest)

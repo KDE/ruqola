@@ -20,9 +20,9 @@
 
 #include "messagemodelgui.h"
 
-#include <roomfilterproxymodel.h>
+#include <model/roomfilterproxymodel.h>
 #include <message.h>
-#include "messagemodel.h"
+#include "model/messagemodel.h"
 
 #include <KLocalizedContext>
 

@@ -20,8 +20,8 @@
 
 #include "message.h"
 #include "rocketchataccount.h"
-#include "roomfilterproxymodel.h"
-#include "usercompletermodel.h"
+#include "model/roomfilterproxymodel.h"
+#include "model/usercompletermodel.h"
 #include "roomwrapper.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
@@ -29,12 +29,12 @@
 #include "aboutdata/qmlaboutdataauthormodel.h"
 #include "ruqolaregisterengine.h"
 #include "ruqolautils.h"
-#include "usersmodelforroom.h"
-#include "usersmodel.h"
-#include "statusmodel.h"
+#include "model/usersmodelforroom.h"
+#include "model/usersmodel.h"
+#include "model/statusmodel.h"
 #include "clipboardproxy.h"
-#include "usersmodelforroomfilterproxymodel.h"
-#include "usercompletermodelfiltermodelproxy.h"
+#include "model/usersmodelforroomfilterproxymodel.h"
+#include "model/usercompletermodelfiltermodelproxy.h"
 
 #include <KLocalizedContext>
 #include <QQmlApplicationEngine>
