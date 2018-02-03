@@ -94,6 +94,11 @@ void User::setUserName(const QString &userName)
     mUserName = userName;
 }
 
+bool User::isValid() const
+{
+    return !mUserName.isEmpty() || !mName.isEmpty();
+}
+
 QDebug operator <<(QDebug d, const User &t)
 {
     d << "Name " << t.name();

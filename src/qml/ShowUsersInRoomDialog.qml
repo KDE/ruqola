@@ -67,7 +67,7 @@ Dialog {
                     width: 22
                 }
                 Text {
-                    text: username
+                    text: username == "" ? name : username
                 }
             }
         }

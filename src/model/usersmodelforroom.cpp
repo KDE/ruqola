@@ -54,8 +54,10 @@ QVariant UsersModelForRoom::data(const QModelIndex &index, int role) const
     switch (role) {
     case UserName:
         return user.userName();
-    case UserIconStatus:
+    case IconStatus:
         return user.iconFromStatus();
+    case Name:
+        return user.name();
     default:
         qCWarning(RUQOLA_LOG) << "Unknown usersmodel roles: " << role;
     }
@@ -66,7 +68,8 @@ QHash<int, QByteArray> UsersModelForRoom::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[UserName] = QByteArrayLiteral("username");
-    roles[UserIconStatus] = QByteArrayLiteral("iconstatus");
+    roles[Name] = QByteArrayLiteral("name");
+    roles[IconStatus] = QByteArrayLiteral("iconstatus");
     return roles;
 }
 
@@ -89,7 +92,9 @@ void UsersModelForRoom::parseUsersForRooms(const QJsonObject &root)
                 user.setName(name);
                 user.setUserName(userName);
                 user.setUserId(id);
-                users.append(user);
+                if (user.isValid()) {
+                    users.append(user);
+                }
             } else {
                 qCWarning(RUQOLA_LOG) << "Parse records: Error in users for rooms json" << root;
             }

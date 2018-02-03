@@ -41,6 +41,29 @@ void UserTest::shouldHaveDefaultValue()
     QVERIFY(u.userId().isEmpty());
     QCOMPARE(u.status(), QStringLiteral("offline"));
     QVERIFY(u.userName().isEmpty());
+    QVERIFY(!u.isValid());
+}
+
+void UserTest::shouldBeValid()
+{
+    User u;
+
+    u.setName(QStringLiteral("foo"));
+    QVERIFY(u.isValid());
+
+    User u2;
+    u2.setUserId(QStringLiteral("bla"));
+    QVERIFY(!u2.isValid());
+
+    User u3;
+    u3.setUserName(QStringLiteral("dd"));
+    QVERIFY(u3.isValid());
+
+    User u4;
+    u4.setUserId(QStringLiteral("d"));
+    u4.setUserName(QStringLiteral("dd"));
+    u4.setName(QStringLiteral("foo"));
+    QVERIFY(u4.isValid());
 }
 
 void UserTest::shouldSetAndGetName()

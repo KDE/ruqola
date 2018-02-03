@@ -29,6 +29,7 @@ class UserTest : public QObject
 public:
     explicit UserTest(QObject *parent = nullptr);
     ~UserTest() = default;
+
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldSetAndGetName();
@@ -42,6 +43,8 @@ private Q_SLOTS:
 
     void shouldGetStatusIcon_data();
     void shouldGetStatusIcon();
+
+    void shouldBeValid();
 };
 
 #endif // USERTEST_H

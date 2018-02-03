@@ -61,6 +61,8 @@ public:
     QString userName() const;
     void setUserName(const QString &userName);
 
+    bool isValid() const;
+
 private:
     QString mStatus = QStringLiteral("offline");
     QString mUserId;
