@@ -100,9 +100,7 @@ Component {
                         QQC2.MenuItem {
                             text: i18n("Video Chat")
                             onTriggered: {
-                                if (appid.selectedRoom) {
-                                    appid.rocketChatAccount.createJitsiConfCall(appid.selectedRoom);
-                                }
+                                appid.rocketChatAccount.createJitsiConfCall(appid.selectedRoomID);
                             }
                         }
                         RuqolaMenuSeparator {
