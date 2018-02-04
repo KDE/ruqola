@@ -49,6 +49,13 @@ void process_backlog(const QJsonObject &root, RocketChatAccount *account)
     account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray());
 }
 
+void show_rooms_files(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Room Files:") + QJsonDocument(root).toJson());
+    }
+}
+
 void star_message(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -448,6 +455,12 @@ quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
 
 
     return method(result, callback, DDPClient::Persistent);
+}
+
+quint64 DDPClient::roomFiles(const QString &roomId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->roomFiles(roomId, m_uid);
+    return method(result, show_rooms_files, DDPClient::Persistent);
 }
 
 quint64 DDPClient::createJitsiConfCall(const QString &roomId)
