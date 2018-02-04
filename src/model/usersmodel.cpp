@@ -29,7 +29,6 @@ UsersModel::UsersModel(QObject *parent)
 
 UsersModel::~UsersModel()
 {
-    qCDebug(RUQOLA_LOG) << "UsersModel::~UsersModel() "<< mUsers.count();
 }
 
 int UsersModel::rowCount(const QModelIndex &parent) const
