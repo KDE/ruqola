@@ -33,7 +33,7 @@ add_ruqola_test(otrmanagertest.cpp)
 add_ruqola_test(rocketchataccounttest.cpp)
 add_ruqola_test(usersmodeltest.cpp)
 add_ruqola_test(usersmodelforroomtest.cpp)
-add_ruqola_test(filestest.cpp)
+add_ruqola_test(filetest.cpp)
 add_ruqola_test(filesmodelforroomtest.cpp)
 
 add_subdirectory(qml)
