@@ -252,13 +252,23 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("users: Add User:") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("autocompleteRecords: Add User:") + d.toJson());
         } else {
             qCDebug(RUQOLA_LOG) << "AutoCompleteRecords VALUE" << object;
         }
         User user;
         user.parseUser(object);
         mUsers.append(user);
+    } else if (collection == QLatin1String("room_files")) {
+        if (mRocketChatAccount->ruqolaLogger()) {
+            QJsonDocument d;
+            d.setObject(object);
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("room_files: Add Files:") + d.toJson());
+        } else {
+            qCDebug(RUQOLA_LOG) << "room_files VALUE" << object;
+        }
+        //TODO
+
     } else {
         qCDebug(RUQOLA_LOG) << "Unknow added element: "<< object;
     }
