@@ -374,7 +374,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::roomFiles(const QS
     const QJsonArray params{{
                                 QJsonValue(roomId)
                             }};
-    return generateMethod(QStringLiteral("roomFiles"), QJsonDocument(params), id);
+    return subscribe(QStringLiteral("roomFiles"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::logout(const QString &name, quint64 id)
