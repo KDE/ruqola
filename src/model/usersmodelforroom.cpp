@@ -37,7 +37,7 @@ UsersModelForRoom::~UsersModelForRoom()
 void UsersModelForRoom::insertUsers(const QVector<User> &users)
 {
     mUsers.clear();
-    beginInsertRows(QModelIndex(), 0, users.count());
+    beginInsertRows(QModelIndex(), 0, users.count() - 1);
     mUsers = users;
     endInsertRows();
 }
