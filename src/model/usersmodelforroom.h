@@ -43,7 +43,7 @@ public:
 
     void insertUsers(const QVector<User> &users);
 
-    int rowCount(const QModelIndex &parent) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
     void parseUsersForRooms(const QJsonObject &root);

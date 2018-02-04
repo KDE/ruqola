@@ -32,7 +32,7 @@ UserCompleterModel::~UserCompleterModel()
 
 void UserCompleterModel::clear()
 {
-    beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
+    beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
     mUsers.clear();
     endInsertRows();
 }
@@ -40,7 +40,7 @@ void UserCompleterModel::clear()
 void UserCompleterModel::insertUsers(const QVector<User> &users)
 {
     qDebug() << " void UserCompleterModel::insertUsers(const QVector<User> &users)"<<users.count();
-    beginInsertRows(QModelIndex(), 0, mUsers.count() - 1);
+    beginInsertRows(QModelIndex(), 0, rowCount() - 1);
     mUsers = users;
     endInsertRows();
 }
