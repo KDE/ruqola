@@ -49,15 +49,6 @@ void process_backlog(const QJsonObject &root, RocketChatAccount *account)
     account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray());
 }
 
-void show_rooms_files(const QJsonObject &root, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Room Files:") + QJsonDocument(root).toJson());
-    } else {
-        qCDebug(RUQOLA_DDPAPI_LOG) << " Room Files " << root;
-    }
-}
-
 void star_message(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -461,8 +452,32 @@ quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
 
 quint64 DDPClient::roomFiles(const QString &roomId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->roomFiles(roomId, m_uid);
-    return method(result, show_rooms_files, DDPClient::Persistent);
+    const int subscribeId = m_uid;
+
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->roomFiles(roomId, subscribeId);
+    std::function<void(QJsonObject, RocketChatAccount *)> callback = [ = ]( const QJsonObject &root, RocketChatAccount *account) {
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Room File done:") + QJsonDocument(root).toJson());
+        } else {
+            qDebug() << "Room Files " << root;
+            qCDebug(RUQOLA_DDPAPI_LOG) << " Room Files" << root;
+        }
+        //TODO add files list
+        //account->insertCompleterUsers();
+
+        const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(subscribeId);
+        std::function<void(QJsonObject, RocketChatAccount *)> callbackUnsubscribeAutoComplete = [ = ]( const QJsonObject &root, RocketChatAccount *account) {
+            if (account->ruqolaLogger()) {
+                account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Unsubscribe room files:") + QJsonDocument(root).toJson());
+            } else {
+                qDebug() << " Unsubscribe room files" << root;
+                qCDebug(RUQOLA_DDPAPI_LOG) << " Unsubscribe room files" << root;
+            }
+        };
+        method(resultUnsubscribe, callbackUnsubscribeAutoComplete, DDPClient::Persistent);
+    };
+
+    return method(result, callback, DDPClient::Persistent);
 }
 
 quint64 DDPClient::createJitsiConfCall(const QString &roomId)
