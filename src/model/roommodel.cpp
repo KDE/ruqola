@@ -88,6 +88,8 @@ RoomWrapper *RoomModel::findRoom(const QString &roomID) const
 // Clear data and refill it with data in the cache, if there is
 void RoomModel::reset()
 {
+    clear();
+
     if (!mRocketChatAccount) {
         return;
     }
@@ -95,7 +97,6 @@ void RoomModel::reset()
         return;
     }
 
-    clear();
     //Laurent disable cache for the moment
 /*
     QDir cacheDir(Ruqola::self()->cacheBasePath());
