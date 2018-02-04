@@ -19,6 +19,7 @@ set (Ruqola_model_core_srcs
     model/usercompletermodel.cpp
     model/statusmodel.cpp
     model/usersmodel.cpp
+    model/filesmodelforroom.cpp
     )
     
 set (Ruqola_core_srcs

@@ -34,5 +34,6 @@ add_ruqola_test(rocketchataccounttest.cpp)
 add_ruqola_test(usersmodeltest.cpp)
 add_ruqola_test(usersmodelforroomtest.cpp)
 add_ruqola_test(filestest.cpp)
+add_ruqola_test(filesmodelforroomtest.cpp)
 
 add_subdirectory(qml)
