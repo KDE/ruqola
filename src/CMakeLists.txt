@@ -61,6 +61,7 @@ set (Ruqola_core_srcs
     textconverter.cpp
     loadrecenthistorymanager.cpp
     unityservicemanager.cpp
+    files.cpp
 )
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
