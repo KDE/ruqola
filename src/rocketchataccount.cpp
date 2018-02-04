@@ -474,6 +474,11 @@ UsersModelForRoom *RocketChatAccount::usersModelForRoom(const QString &roomId) c
     return mRoomModel->usersModelForRoom(roomId);
 }
 
+void RocketChatAccount::roomFiles(const QString &roomId)
+{
+    ddp()->roomFiles(roomId);
+}
+
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 {
     ddp()->createJitsiConfCall(roomId);

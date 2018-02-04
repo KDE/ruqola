@@ -178,6 +178,7 @@ public:
     Q_INVOKABLE UserCompleterModelFilterModelProxy *userCompleterModelFilterModelProxy() const;
 
     void insertCompleterUsers();
+    Q_INVOKABLE void roomFiles(const QString &roomId);
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();

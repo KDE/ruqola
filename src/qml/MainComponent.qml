@@ -134,6 +134,14 @@ Component {
                                 showUsersDialog.open()
                             }
                         }
+                        RuqolaMenuSeparator {
+                        }
+                        QQC2.MenuItem {
+                            text: i18n("Room Files (test)")
+                            onTriggered: {
+                                appid.rocketChatAccount.roomFiles(appid.selectedRoomID);
+                            }
+                        }
                     }
                 }
             }

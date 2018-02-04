@@ -53,6 +53,8 @@ void show_rooms_files(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Room Files:") + QJsonDocument(root).toJson());
+    } else {
+        qCDebug(RUQOLA_DDPAPI_LOG) << " Room Files " << root;
     }
 }
 
