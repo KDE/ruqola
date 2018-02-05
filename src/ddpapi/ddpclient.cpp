@@ -462,8 +462,7 @@ quint64 DDPClient::roomFiles(const QString &roomId)
             qDebug() << "Room Files " << root;
             qCDebug(RUQOLA_DDPAPI_LOG) << " Room Files" << root;
         }
-        //TODO add files list
-        //account->insertCompleterUsers();
+        account->insertFilesList(roomId);
 
         const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(subscribeId);
         std::function<void(QJsonObject, RocketChatAccount *)> callbackUnsubscribeAutoComplete = [ = ]( const QJsonObject &root, RocketChatAccount *account) {

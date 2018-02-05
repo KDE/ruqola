@@ -179,6 +179,7 @@ public:
 
     void insertCompleterUsers();
     Q_INVOKABLE void roomFiles(const QString &roomId);
+    void insertFilesList(const QString &roomId);
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();

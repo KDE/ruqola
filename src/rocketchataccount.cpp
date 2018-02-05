@@ -47,6 +47,8 @@
 #include <QFile>
 #include <QTimer>
 
+#include <model/filesforroommodel.h>
+
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
 {
@@ -441,6 +443,16 @@ void RocketChatAccount::deleteMessage(const QString &messageId)
     ddp()->deleteMessage(messageId);
 }
 
+void RocketChatAccount::insertFilesList(const QString &roomId)
+{
+    FilesForRoomModel *filesForRoomModel = roomModel()->filesModelForRoom(roomId);
+    if (filesForRoomModel) {
+        filesForRoomModel->insertFiles(rocketChatBackend()->files());
+    } else {
+        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
+    }
+}
+
 void RocketChatAccount::insertCompleterUsers()
 {
     userCompleterModel()->insertUsers(rocketChatBackend()->users());
@@ -450,7 +462,7 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
 {
     //Clear before to create new search
     userCompleterModel()->clear();
-    rocketChatBackend()->clearUsers();
+    rocketChatBackend()->clearUsersList();
     ddp()->userAutocomplete(searchText, exception);
 }
 
@@ -476,6 +488,7 @@ UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) c
 
 void RocketChatAccount::roomFiles(const QString &roomId)
 {
+    rocketChatBackend()->clearFilesList();
     ddp()->roomFiles(roomId);
 }
 

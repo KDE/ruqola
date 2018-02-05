@@ -31,6 +31,7 @@
 #include "model/usersmodel.h"
 #include "ruqolalogger.h"
 #include "model/messagemodel.h"
+#include "file.h"
 #include "user.h"
 
 #include <QJsonObject>
@@ -190,6 +191,11 @@ void RocketChatBackend::parseServerVersionDone(const QString &version)
     mRocketChatAccount->restApi()->channelList();
 }
 
+QVector<File> RocketChatBackend::files() const
+{
+    return mFiles;
+}
+
 QVector<User> RocketChatBackend::users() const
 {
     return mUsers;
@@ -268,7 +274,9 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
             qCDebug(RUQOLA_LOG) << "room_files VALUE" << object;
         }
         //TODO
-
+        File file;
+        file.parseFile(object);
+        mFiles.append(file);
     } else {
         qCDebug(RUQOLA_LOG) << "Unknow added element: "<< object;
     }
@@ -394,9 +402,12 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
     }
 }
 
+void RocketChatBackend::clearFilesList()
+{
+    mFiles.clear();
+}
 
-
-void RocketChatBackend::clearUsers()
+void RocketChatBackend::clearUsersList()
 {
     mUsers.clear();
 }

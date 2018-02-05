@@ -24,6 +24,7 @@
 #ifndef ROCKETCHATBACKEND_H
 #define ROCKETCHATBACKEND_H
 
+#include "file.h"
 #include "libruqolacore_export.h"
 #include <QObject>
 #include <QJsonObject>
@@ -44,9 +45,12 @@ public:
     */
     void processIncomingMessages(const QJsonArray &messages);
 
-    void clearUsers();
+    void clearUsersList();
 
     QVector<User> users() const;
+
+    void clearFilesList();
+    QVector<File> files() const;
 
 private:
     Q_DISABLE_COPY(RocketChatBackend)
@@ -58,6 +62,7 @@ private:
     void parseServerVersionDone(const QString &version);
 
     QVector<User> mUsers;
+    QVector<File> mFiles;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
