@@ -121,7 +121,7 @@ public:
 
     Q_INVOKABLE UsersForRoomModel *usersModelForRoom() const;
 
-    UsersForRoomFilterProxyModel *usersModelForRoomProxyModel() const;
+    Q_INVOKABLE UsersForRoomFilterProxyModel *usersModelForRoomProxyModel() const;
 
     Q_INVOKABLE FilesForRoomModel *filesModelForRoom() const;
 
