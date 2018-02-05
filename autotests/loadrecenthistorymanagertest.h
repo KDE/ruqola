@@ -29,6 +29,8 @@ class LoadRecentHistoryManagerTest : public QObject
 public:
     explicit LoadRecentHistoryManagerTest(QObject *parent = nullptr);
     ~LoadRecentHistoryManagerTest() = default;
+private Q_SLOTS:
+    void shouldIncreaseTimer();
 };
 
 #endif // LOADRECENTHISTORYMANAGERTEST_H

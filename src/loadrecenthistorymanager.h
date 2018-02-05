@@ -23,8 +23,9 @@
 
 #include <qglobal.h>
 #include <QDateTime>
+#include "libruqola_private_export.h"
 
-class LoadRecentHistoryManager
+class LIBRUQOLACORE_TESTS_EXPORT LoadRecentHistoryManager
 {
 public:
     LoadRecentHistoryManager();
