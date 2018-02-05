@@ -43,9 +43,17 @@ public:
     bool operator ==(const File &other) const;
 
     File &operator=(const File &other);
+    QString userId() const;
+    void setUserId(const QString &userId);
+
+    QString url() const;
+    void setUrl(const QString &url);
+
 private:
     QString mName;
     QString mDescription;
+    QString mUserId;
+    QString mUrl;
 };
 Q_DECLARE_METATYPE(File)
 Q_DECLARE_TYPEINFO(File, Q_MOVABLE_TYPE);

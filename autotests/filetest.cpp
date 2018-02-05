@@ -19,6 +19,7 @@
 
 
 #include "filetest.h"
+#include "file.h"
 
 #include <QTest>
 
@@ -28,4 +29,47 @@ FileTest::FileTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void FileTest::shouldHaveDefaultValue()
+{
+    File f;
+    QVERIFY(f.name().isEmpty());
+    QVERIFY(f.description().isEmpty());
+    QVERIFY(f.userId().isEmpty());
+    QVERIFY(f.url().isEmpty());
+}
+
+void FileTest::shouldAssignValue()
+{
+    File f;
+    const QString url = QStringLiteral("foo");
+    const QString name = QStringLiteral("bla");
+    const QString description = QStringLiteral("des");
+    const QString userId = QStringLiteral("ble");
+    f.setUrl(url);
+    f.setName(name);
+    f.setDescription(description);
+    f.setUserId(userId);
+
+    QCOMPARE(f.url(), url);
+    QCOMPARE(f.name(), name);
+    QCOMPARE(f.description(), description);
+    QCOMPARE(f.userId(), userId);
+}
+
+void FileTest::shouldCopyValue()
+{
+    File f;
+    const QString url = QStringLiteral("foo");
+    const QString name = QStringLiteral("bla");
+    const QString description = QStringLiteral("des");
+    const QString userId = QStringLiteral("ble");
+    f.setUrl(url);
+    f.setName(name);
+    f.setDescription(description);
+    f.setUserId(userId);
+
+    File f2 = f;
+    QCOMPARE(f2, f);
 }

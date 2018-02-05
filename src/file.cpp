@@ -56,14 +56,39 @@ void File::setDescription(const QString &description)
 
 bool File::operator ==(const File &other) const
 {
-    return (description() == other.description()) && (name() == other.name());
+    return (description() == other.description())
+            && (name() == other.name())
+            && (url() == other.url())
+            && (userId() == other.userId());
 }
 
 File &File::operator=(const File &other)
 {
     mName = other.name();
     mDescription = other.description();
+    mUrl = other.url();
+    mUserId = other.userId();
     return *this;
+}
+
+QString File::userId() const
+{
+    return mUserId;
+}
+
+void File::setUserId(const QString &userId)
+{
+    mUserId = userId;
+}
+
+QString File::url() const
+{
+    return mUrl;
+}
+
+void File::setUrl(const QString &url)
+{
+    mUrl = url;
 }
 
 QDebug operator <<(QDebug d, const File &t)

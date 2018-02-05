@@ -28,6 +28,10 @@ class FileTest : public QObject
 public:
     explicit FileTest(QObject *parent = nullptr);
     ~FileTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldAssignValue();
+    void shouldCopyValue();
 };
 
 #endif // FILESTEST_H
