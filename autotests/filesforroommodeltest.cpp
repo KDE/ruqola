@@ -19,6 +19,7 @@
 */
 
 #include "filesforroommodeltest.h"
+#include "model/filesforroommodel.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(FilesForRoomModelTest)

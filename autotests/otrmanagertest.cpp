@@ -18,6 +18,7 @@
 */
 
 #include "otrmanagertest.h"
+#include "otrmanager.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(OtrManagerTest)
