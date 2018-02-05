@@ -40,6 +40,13 @@ Dialog {
 
     standardButtons: Dialog.Close
 
+    function initializeAndOpen()
+    {
+        searchField.text = "";
+        open();
+    }
+
+
     ColumnLayout {
         TextField {
             id: searchField
@@ -53,8 +60,7 @@ Dialog {
             }
         }
         Label {
-            //text: i18np("%1 user in room", "%1 users in room", appid.userModel ? appid.userModel.numberOfUsers : 0)
-            text: i18n("Files in room")
+            text: i18n("Files in room:")
         }
 
         ListView {

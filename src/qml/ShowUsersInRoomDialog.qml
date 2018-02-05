@@ -40,6 +40,12 @@ Dialog {
 
     standardButtons: Dialog.Close
 
+    function initializeAndOpen()
+    {
+        searchField.text = "";
+        open();
+    }
+
     ColumnLayout {
         TextField {
             id: searchField
