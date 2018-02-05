@@ -61,7 +61,6 @@ void Emoji::parseEmoji(const QJsonObject &emoji)
         lst.append(QLatin1Char(':') + array.at(i).toString() + QLatin1Char(':'));
     }
     mAliases = lst;
-    //TODO updated when we will store data on system
 }
 
 bool Emoji::isValid() const
