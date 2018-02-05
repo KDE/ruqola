@@ -44,6 +44,7 @@ Kirigami.ApplicationWindow {
 
     property QtObject model
     property QtObject userModel
+    property QtObject filesModel
     property QtObject rocketChatAccount: Ruqola.rocketChatAccount()
     property string userInputMessageText: "";
 

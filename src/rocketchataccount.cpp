@@ -166,6 +166,12 @@ UsersForRoomFilterProxyModel *RocketChatAccount::usersForRoomFilterProxyModel(co
     return mRoomModel->usersForRoomFilterProxyModel(roomId);
 }
 
+FilesForRoomModel *RocketChatAccount::filesForRoomModel(const QString &roomId) const
+{
+    return mRoomModel->filesModelForRoom(roomId);
+}
+
+
 RocketChatBackend *RocketChatAccount::rocketChatBackend() const
 {
     return mRocketChatBackend;

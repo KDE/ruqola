@@ -49,6 +49,7 @@ int FilesForRoomModel::rowCount(const QModelIndex &parent) const
 QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
 {
     const File user = mFiles.at(index.row());
+    qDebug() << " QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const"<<user;
     switch (role) {
     case UserName:
         return user.name();
@@ -60,7 +61,6 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
         return user.url();
     case Description:
         return user.description();
-
     default:
         qCWarning(RUQOLA_LOG) << "Unknown filesmodel roles: " << role;
     }

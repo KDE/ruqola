@@ -41,7 +41,7 @@ Component {
             iconName: "list-add"
             text: i18n("Open room");
             onTriggered: {
-                searchChannelDialog.open();
+                searchChannelDialog.initializeAndOpen();
             }
         }
         actions.left: Kirigami.Action {
@@ -136,6 +136,7 @@ Component {
                 appid.selectedRoom = appid.rocketChatAccount.getRoom(roomID)
                 //appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(roomID)
                 appid.userModel = appid.rocketChatAccount.usersModelForRoom(roomID)
+                appid.filesModel = appid.rocketChatAccount.filesForRoomModel(roomID)
             }
         } //RoomsView
     }

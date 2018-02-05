@@ -46,6 +46,7 @@ class EmojiManager;
 class OtrManager;
 class UsersForRoomFilterProxyModel;
 class UsersForRoomModel;
+class FilesForRoomModel;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -180,6 +181,7 @@ public:
     void insertCompleterUsers();
     Q_INVOKABLE void roomFiles(const QString &roomId);
     void insertFilesList(const QString &roomId);
+    Q_INVOKABLE FilesForRoomModel *filesForRoomModel(const QString &roomId) const;
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();

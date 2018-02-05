@@ -37,6 +37,7 @@ public:
         Url,
         MimeType
     };
+    Q_ENUM(UserRoles)
 
     explicit FilesForRoomModel(QObject *parent = nullptr);
     ~FilesForRoomModel();
@@ -48,6 +49,7 @@ public:
 
 protected:
     QHash<int, QByteArray> roleNames() const override;
+
 private:
     QVector<File> mFiles;
 };

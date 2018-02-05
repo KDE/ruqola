@@ -131,7 +131,7 @@ Component {
                             text: i18n("Show Users")
                             onTriggered: {
                                 showUsersDialog.userModel = appid.userModel
-                                showUsersDialog.open()
+                                showUsersDialog.initializeAndOpen()
                             }
                         }
                         RuqolaMenuSeparator {
@@ -140,6 +140,7 @@ Component {
                             text: i18n("Room Files (test)")
                             onTriggered: {
                                 appid.rocketChatAccount.roomFiles(appid.selectedRoomID);
+                                showFilesInRoomDialog.initializeAndOpen()
                             }
                         }
                     }
@@ -257,10 +258,11 @@ Component {
             }
 
             ShowUsersInRoomDialog {
-                id: showUsersDialog
+                id: showUsersDialog                
             }
             ShowFilesInRoomDialog {
                 id: showFilesInRoomDialog
+                filesModel: appid.filesModel
             }
 
         }

@@ -80,7 +80,7 @@ Dialog {
 //                }
                 Text {
                     // ???
-                    text: name + description
+                    text: description//username// + description
                 }
                 //TODO add "download element"
             }

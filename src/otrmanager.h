@@ -32,6 +32,8 @@ public:
     explicit OtrManager(QObject *parent = nullptr);
     ~OtrManager();
     Otr parseOtr(const QJsonArray &contents);
+private:
+    Q_DISABLE_COPY(OtrManager)
 };
 
 #endif // OTRMANAGER_H
