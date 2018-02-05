@@ -65,11 +65,18 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
                                              << QStringLiteral("www.kde.org");
 
     //Use server with http://
-    QTest::newRow("customemojiwithmanager2") << QStringLiteral(":totoro::totoro:")
+    QTest::newRow("customemojiwithmanager3") << QStringLiteral(":totoro::totoro:")
                                              << QStringLiteral(
         "<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>")
                                              << QStringLiteral("http://www.kde.org");
-    //TODO add alias support too
+
+    //alias support
+    QTest::newRow("customemojiwithmanager4-with-alias") << QStringLiteral(":clap::clapping:")
+                                                        << QStringLiteral(
+                   "<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>")
+                                                        << QStringLiteral("http://www.kde.org");
+
+
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji()
