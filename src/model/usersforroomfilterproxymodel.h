@@ -18,17 +18,25 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSMODELFORROOMTEST_H
-#define USERSMODELFORROOMTEST_H
+#ifndef USERSMODELFORROOMFILTERPROXYMODEL_H
+#define USERSMODELFORROOMFILTERPROXYMODEL_H
 
-#include <QObject>
+#include <QSortFilterProxyModel>
+#include "libruqola_private_export.h"
 
-class UsersModelForRoomTest : public QObject
+class LIBRUQOLACORE_TESTS_EXPORT UsersForRoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit UsersModelForRoomTest(QObject *parent = nullptr);
-    ~UsersModelForRoomTest() = default;
+    explicit UsersForRoomFilterProxyModel(QObject *parent = nullptr);
+    ~UsersForRoomFilterProxyModel();
+
+    QHash<int, QByteArray> roleNames() const override;
+
+    Q_INVOKABLE void setFilterString(const QString &string);
+
+protected:
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
 
-#endif // USERSMODELFORROOMTEST_H
+#endif // USERSMODELFORROOMFILTERPROXYMODEL_H

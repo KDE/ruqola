@@ -29,7 +29,7 @@
 #include <QObject>
 class RoomWrapper;
 class RocketChatAccount;
-class FilesModelForRoom;
+class FilesForRoomModel;
 class LIBRUQOLACORE_EXPORT RoomModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -99,11 +99,11 @@ public:
     void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread);
     void userStatusChanged(const User &user);
 
-    UsersModelForRoom *usersModelForRoom(const QString &roomId) const;
+    UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
 
-    UsersModelForRoomFilterProxyModel *usersModelForRoomFilterProxyModel(const QString &roomId) const;
+    UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
 
-    FilesModelForRoom *filesModelForRoom(const QString &roomId) const;
+    FilesForRoomModel *filesModelForRoom(const QString &roomId) const;
 
 protected:
     QHash<int, QByteArray> roleNames() const override;

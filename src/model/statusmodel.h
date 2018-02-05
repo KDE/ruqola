@@ -56,6 +56,7 @@ protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
+    Q_DISABLE_COPY(StatusModel)
     void fillModel();
     QVector<StatusInfo> mStatusList;
 };

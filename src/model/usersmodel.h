@@ -51,6 +51,7 @@ public:
 Q_SIGNALS:
     void userStatusChanged(const User &user);
 private:
+    Q_DISABLE_COPY(UsersModel)
     QVector<User> mUsers;
 };
 

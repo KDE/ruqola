@@ -39,13 +39,13 @@ class RoomFilterProxyModel;
 class RuqolaLogger;
 class RuqolaServerConfig;
 class UserCompleterModel;
-class UserCompleterModelFilterModelProxy;
+class UserCompleterFilterModelProxy;
 class StatusModel;
 class RocketChatCache;
 class EmojiManager;
 class OtrManager;
-class UsersModelForRoomFilterProxyModel;
-class UsersModelForRoom;
+class UsersForRoomFilterProxyModel;
+class UsersForRoomModel;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -77,8 +77,8 @@ public:
     Q_INVOKABLE RoomModel *roomModel() const;
 
     Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
-    Q_INVOKABLE UsersModelForRoomFilterProxyModel *usersModelForRoomFilterProxyModel(const QString &roomId) const;
-    Q_INVOKABLE UsersModelForRoom *usersModelForRoom(const QString &roomId) const;
+    Q_INVOKABLE UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
+    Q_INVOKABLE UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
     Q_INVOKABLE RoomWrapper *getRoom(const QString &roomId);
     Q_INVOKABLE MessageModel *getMessageModelForRoom(const QString &roomID);
     Q_INVOKABLE QString getUserCurrentMessage(const QString &roomId);
@@ -175,7 +175,7 @@ public:
     void parseUsersForRooms(const QString &roomId, const QJsonObject &root);
 
     Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
-    Q_INVOKABLE UserCompleterModelFilterModelProxy *userCompleterModelFilterModelProxy() const;
+    Q_INVOKABLE UserCompleterFilterModelProxy *userCompleterFilterModelProxy() const;
 
     void insertCompleterUsers();
     Q_INVOKABLE void roomFiles(const QString &roomId);
@@ -215,7 +215,7 @@ private:
     RuqolaLogger *mRuqolaLogger = nullptr;
     RuqolaServerConfig *mRuqolaServerConfig = nullptr;
     UserCompleterModel *mUserCompleterModel = nullptr;
-    UserCompleterModelFilterModelProxy *mUserCompleterModelFilterModelProxy = nullptr;
+    UserCompleterFilterModelProxy *mUserCompleterFilterModelProxy = nullptr;
     StatusModel *mStatusModel = nullptr;
     RocketChatCache *mCache = nullptr;
     OtrManager *mOtrManager = nullptr;

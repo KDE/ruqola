@@ -18,23 +18,23 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usersmodelforroom.h"
+#include "usersforroommodel.h"
 #include "usersmodel.h"
 #include "ruqola_debug.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
 
-UsersModelForRoom::UsersModelForRoom(QObject *parent)
+UsersForRoomModel::UsersForRoomModel(QObject *parent)
     : QAbstractListModel(parent)
 {
 }
 
-UsersModelForRoom::~UsersModelForRoom()
+UsersForRoomModel::~UsersForRoomModel()
 {
 }
 
-void UsersModelForRoom::insertUsers(const QVector<User> &users)
+void UsersForRoomModel::insertUsers(const QVector<User> &users)
 {
     mUsers.clear();
     beginInsertRows(QModelIndex(), 0, rowCount() - 1);
@@ -42,14 +42,18 @@ void UsersModelForRoom::insertUsers(const QVector<User> &users)
     endInsertRows();
 }
 
-int UsersModelForRoom::rowCount(const QModelIndex &parent) const
+int UsersForRoomModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return mUsers.count();
 }
 
-QVariant UsersModelForRoom::data(const QModelIndex &index, int role) const
+QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
 {
+    if (index.row() < 0 || index.row() >= mUsers.count()) {
+        return QVariant();
+    }
+
     const User user = mUsers.at(index.row());
     switch (role) {
     case UserName:
@@ -64,7 +68,7 @@ QVariant UsersModelForRoom::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QHash<int, QByteArray> UsersModelForRoom::roleNames() const
+QHash<int, QByteArray> UsersForRoomModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[UserName] = QByteArrayLiteral("username");
@@ -73,7 +77,7 @@ QHash<int, QByteArray> UsersModelForRoom::roleNames() const
     return roles;
 }
 
-void UsersModelForRoom::parseUsersForRooms(const QJsonObject &root)
+void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root)
 {
     const QJsonObject result = root[QLatin1String("result")].toObject();
     if (!result.isEmpty()) {
@@ -110,7 +114,7 @@ void UsersModelForRoom::parseUsersForRooms(const QJsonObject &root)
     }
 }
 
-void UsersModelForRoom::userStatusChanged(const User &newuser)
+void UsersForRoomModel::userStatusChanged(const User &newuser)
 {
     const int roomCount{
         mUsers.count()

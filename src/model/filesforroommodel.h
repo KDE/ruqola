@@ -18,13 +18,38 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "filesmodelforroomtest.h"
-#include <QTest>
+#ifndef FILESMODELFORROOM_H
+#define FILESMODELFORROOM_H
 
-QTEST_GUILESS_MAIN(FilesModelForRoomTest)
+#include <QAbstractListModel>
+#include "file.h"
+#include "libruqola_private_export.h"
 
-FilesModelForRoomTest::FilesModelForRoomTest(QObject *parent)
-    : QObject(parent)
+
+class LIBRUQOLACORE_TESTS_EXPORT FilesForRoomModel : public QAbstractListModel
 {
+    Q_OBJECT
+public:
+    enum UserRoles {
+        UserName = Qt::UserRole + 1,
+        UserId,
+        Description,
+        Url,
+        MimeType
+    };
 
-}
+    explicit FilesForRoomModel(QObject *parent = nullptr);
+    ~FilesForRoomModel();
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
+
+    void insertFiles(const QVector<File> &files);
+
+protected:
+    QHash<int, QByteArray> roleNames() const override;
+private:
+    QVector<File> mFiles;
+};
+
+#endif // FILESMODELFORROOM_H

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017-2018 Montel Laurent <montel@kde.org>
+   Copyright (c) 2018 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,38 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERCOMPLETERMODEL_H
-#define USERCOMPLETERMODEL_H
+#ifndef FILESMODELFORROOMTEST_H
+#define FILESMODELFORROOMTEST_H
 
-#include "user.h"
+#include <QObject>
 
-#include <QStringListModel>
-
-class UserCompleterModel : public QAbstractListModel
+class FilesForRoomModelTest : public QObject
 {
     Q_OBJECT
 public:
-    enum UserRoles {
-        UserName = Qt::UserRole + 1,
-        UserId,
-        UserIconStatus
-    };
-    Q_ENUM(UserRoles)
+    explicit FilesForRoomModelTest(QObject *parent = nullptr);
+    ~FilesForRoomModelTest() = default;
 
-    explicit UserCompleterModel(QObject *parent = nullptr);
-    ~UserCompleterModel();
-
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
-
-    void clear();
-    void insertUsers(const QVector<User> &users);
-protected:
-    QHash<int, QByteArray> roleNames() const override;
-
-private:
-    Q_DISABLE_COPY(UserCompleterModel)
-    QVector<User> mUsers;
 };
 
-#endif // USERCOMPLETERMODEL_H
+#endif // FILESMODELFORROOMTEST_H

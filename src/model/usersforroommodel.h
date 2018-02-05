@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018 Montel Laurent <montel@kde.org>
+   Copyright (c) 2017-2018 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,38 +18,41 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef FILESMODELFORROOM_H
-#define FILESMODELFORROOM_H
+#ifndef USERSFORROOMMODEL_H
+#define USERSFORROOMMODEL_H
 
+#include "libruqolacore_export.h"
+#include "user.h"
+#include <QVector>
 #include <QAbstractListModel>
-#include "file.h"
-#include "libruqola_private_export.h"
 
-
-class LIBRUQOLACORE_TESTS_EXPORT FilesModelForRoom : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT UsersForRoomModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
     enum UserRoles {
         UserName = Qt::UserRole + 1,
         UserId,
-        Description,
-        Url,
-        MimeType
+        Name,
+        IconStatus
     };
+    Q_ENUM(UserRoles)
 
-    explicit FilesModelForRoom(QObject *parent = nullptr);
-    ~FilesModelForRoom();
+    explicit UsersForRoomModel(QObject *parent = nullptr);
+    ~UsersForRoomModel();
+
+    void insertUsers(const QVector<User> &users);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
-    void insertFiles(const QVector<File> &files);
-
+    void parseUsersForRooms(const QJsonObject &root);
+    void userStatusChanged(const User &newuser);
 protected:
     QHash<int, QByteArray> roleNames() const override;
+
 private:
-    QVector<File> mFiles;
+    QVector<User> mUsers;
 };
 
-#endif // FILESMODELFORROOM_H
+#endif // USERSFORROOMMODEL_H

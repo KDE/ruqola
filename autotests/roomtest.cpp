@@ -20,8 +20,8 @@
 
 #include "roomtest.h"
 #include "room.h"
-#include "model/usersmodelforroom.h"
-#include "model/usersmodelforroomfilterproxymodel.h"
+#include "model/usersforroommodel.h"
+#include "model/usersforroomfilterproxymodel.h"
 #include <QJsonDocument>
 #include <QTest>
 #include <QSignalSpy>

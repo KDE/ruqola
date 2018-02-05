@@ -27,9 +27,9 @@
 #include <QObject>
 
 #include "libruqola_private_export.h"
-class UsersModelForRoom;
-class UsersModelForRoomFilterProxyModel;
-class FilesModelForRoom;
+class UsersForRoomModel;
+class UsersForRoomFilterProxyModel;
+class FilesForRoomModel;
 
 class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
 {
@@ -119,11 +119,11 @@ public:
     */
     static QByteArray serialize(Room *r);
 
-    Q_INVOKABLE UsersModelForRoom *usersModelForRoom() const;
+    Q_INVOKABLE UsersForRoomModel *usersModelForRoom() const;
 
-    UsersModelForRoomFilterProxyModel *usersModelForRoomProxyModel() const;
+    UsersForRoomFilterProxyModel *usersModelForRoomProxyModel() const;
 
-    Q_INVOKABLE FilesModelForRoom *filesModelForRoom() const;
+    Q_INVOKABLE FilesForRoomModel *filesModelForRoom() const;
 
 Q_SIGNALS:
     void nameChanged();
@@ -174,9 +174,9 @@ private:
     //We can hide it or not.
     bool mOpen = false;
     bool mAlert = false;
-    UsersModelForRoom *mUsersModelForRoom = nullptr;
-    UsersModelForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
-    FilesModelForRoom *mFilesModelForRoom = nullptr;
+    UsersForRoomModel *mUsersModelForRoom = nullptr;
+    UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
+    FilesForRoomModel *mFilesModelForRoom = nullptr;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);

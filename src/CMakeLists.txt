@@ -13,13 +13,19 @@ set (Ruqola_model_core_srcs
     model/messagemodel.cpp
     model/roommodel.cpp
     model/roomfilterproxymodel.cpp
-    model/usersmodelforroom.cpp
-    model/usersmodelforroomfilterproxymodel.cpp
-    model/usercompletermodelfiltermodelproxy.cpp
-    model/usercompletermodel.cpp
-    model/statusmodel.cpp
+
+    model/usersforroommodel.cpp
+    model/usersforroomfilterproxymodel.cpp
+
     model/usersmodel.cpp
-    model/filesmodelforroom.cpp
+
+    model/usercompleterfiltermodelproxy.cpp
+    model/usercompletermodel.cpp
+
+    model/statusmodel.cpp
+
+    model/filesforroommodel.cpp
+    model/filesforroomfilterproxymodel.cpp
     )
     
 set (Ruqola_core_srcs

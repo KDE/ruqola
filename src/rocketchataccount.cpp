@@ -32,13 +32,13 @@
 #include "ruqolalogger.h"
 #include "ruqolaserverconfig.h"
 #include "model/usercompletermodel.h"
-#include "model/usercompletermodelfiltermodelproxy.h"
+#include "model/usercompleterfiltermodelproxy.h"
 #include "model/statusmodel.h"
 #include "utils.h"
 #include "rocketchatcache.h"
 #include "emojimanager.h"
 #include "otrmanager.h"
-#include "model/usersmodelforroom.h"
+#include "model/usersforroommodel.h"
 
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -74,8 +74,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
 
     mUserCompleterModel = new UserCompleterModel(this);
-    mUserCompleterModelFilterModelProxy = new UserCompleterModelFilterModelProxy(this);
-    mUserCompleterModelFilterModelProxy->setSourceModel(mUserCompleterModel);
+    mUserCompleterFilterModelProxy = new UserCompleterFilterModelProxy(this);
+    mUserCompleterFilterModelProxy->setSourceModel(mUserCompleterModel);
 
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this);
@@ -124,9 +124,9 @@ UserCompleterModel *RocketChatAccount::userCompleterModel() const
     return mUserCompleterModel;
 }
 
-UserCompleterModelFilterModelProxy *RocketChatAccount::userCompleterModelFilterModelProxy() const
+UserCompleterFilterModelProxy *RocketChatAccount::userCompleterFilterModelProxy() const
 {
-    return mUserCompleterModelFilterModelProxy;
+    return mUserCompleterFilterModelProxy;
 }
 
 EmojiManager *RocketChatAccount::emojiManager() const
@@ -159,9 +159,9 @@ RoomFilterProxyModel *RocketChatAccount::roomFilterProxyModel() const
     return mRoomFilterProxyModel;
 }
 
-UsersModelForRoomFilterProxyModel *RocketChatAccount::usersModelForRoomFilterProxyModel(const QString &roomId) const
+UsersForRoomFilterProxyModel *RocketChatAccount::usersForRoomFilterProxyModel(const QString &roomId) const
 {
-    return mRoomModel->usersModelForRoomFilterProxyModel(roomId);
+    return mRoomModel->usersForRoomFilterProxyModel(roomId);
 }
 
 RocketChatBackend *RocketChatAccount::rocketChatBackend() const
@@ -461,7 +461,7 @@ void RocketChatAccount::getUsersOfRoom(const QString &roomId)
 
 void RocketChatAccount::parseUsersForRooms(const QString &roomId, const QJsonObject &root)
 {
-    UsersModelForRoom *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
+    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
     if (usersModelForRoom) {
         usersModelForRoom->parseUsersForRooms(root);
     } else {
@@ -469,7 +469,7 @@ void RocketChatAccount::parseUsersForRooms(const QString &roomId, const QJsonObj
     }
 }
 
-UsersModelForRoom *RocketChatAccount::usersModelForRoom(const QString &roomId) const
+UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) const
 {
     return mRoomModel->usersModelForRoom(roomId);
 }

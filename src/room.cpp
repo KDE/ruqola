@@ -21,9 +21,9 @@
  */
 
 #include "room.h"
-#include "model/usersmodelforroom.h"
-#include "model/usersmodelforroomfilterproxymodel.h"
-#include "model/filesmodelforroom.h"
+#include "model/usersforroommodel.h"
+#include "model/usersforroomfilterproxymodel.h"
+#include "model/filesforroommodel.h"
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -31,11 +31,11 @@
 Room::Room(QObject *parent)
     : QObject(parent)
 {
-    mUsersModelForRoom = new UsersModelForRoom(this);
-    mUsersModelForRoomProxyModel = new UsersModelForRoomFilterProxyModel(this);
+    mUsersModelForRoom = new UsersForRoomModel(this);
+    mUsersModelForRoomProxyModel = new UsersForRoomFilterProxyModel(this);
     mUsersModelForRoomProxyModel->setSourceModel(mUsersModelForRoom);
 
-    mFilesModelForRoom = new FilesModelForRoom(this);
+    mFilesModelForRoom = new FilesForRoomModel(this);
 }
 
 bool Room::operator==(const Room &other) const
@@ -405,17 +405,17 @@ QByteArray Room::serialize(Room *r)
     return d.toBinaryData();
 }
 
-UsersModelForRoom *Room::usersModelForRoom() const
+UsersForRoomModel *Room::usersModelForRoom() const
 {
     return mUsersModelForRoom;
 }
 
-UsersModelForRoomFilterProxyModel *Room::usersModelForRoomProxyModel() const
+UsersForRoomFilterProxyModel *Room::usersModelForRoomProxyModel() const
 {
     return mUsersModelForRoomProxyModel;
 }
 
-FilesModelForRoom *Room::filesModelForRoom() const
+FilesForRoomModel *Room::filesModelForRoom() const
 {
     return mFilesModelForRoom;
 }

@@ -18,24 +18,24 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usersmodelforroomfilterproxymodel.h"
-#include "usersmodelforroom.h"
+#include "usersforroomfilterproxymodel.h"
+#include "usersforroommodel.h"
 
-UsersModelForRoomFilterProxyModel::UsersModelForRoomFilterProxyModel(QObject *parent)
+UsersForRoomFilterProxyModel::UsersForRoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     //Filter on alias/username ?
-    setFilterRole(UsersModelForRoom::UserName);
+    setFilterRole(UsersForRoomModel::UserName);
     sort(0);
 }
 
-UsersModelForRoomFilterProxyModel::~UsersModelForRoomFilterProxyModel()
+UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> UsersModelForRoomFilterProxyModel::roleNames() const
+QHash<int, QByteArray> UsersForRoomFilterProxyModel::roleNames() const
 {
     if (QAbstractItemModel *source = sourceModel()) {
         return source->roleNames();
@@ -43,19 +43,19 @@ QHash<int, QByteArray> UsersModelForRoomFilterProxyModel::roleNames() const
     return QHash<int, QByteArray>();
 }
 
-void UsersModelForRoomFilterProxyModel::setFilterString(const QString &string)
+void UsersForRoomFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);
 }
 
-bool UsersModelForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+bool UsersForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     if (!sourceModel()) {
         return false;
     }
     if (left.isValid() && right.isValid()) {
-        const QString leftString = sourceModel()->data(left, UsersModelForRoom::UserName).toString();
-        const QString rightString = sourceModel()->data(right, UsersModelForRoom::UserName).toString();
+        const QString leftString = sourceModel()->data(left, UsersForRoomModel::UserName).toString();
+        const QString rightString = sourceModel()->data(right, UsersForRoomModel::UserName).toString();
         return QString::localeAwareCompare(leftString, rightString) < 0;
     } else {
         return false;

@@ -18,11 +18,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usersmodelforroomtest.h"
+#include "usersforroommodeltest.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(UsersModelForRoomTest)
+QTEST_GUILESS_MAIN(UsersForRoomModelTest)
 
-UsersModelForRoomTest::UsersModelForRoomTest(QObject *parent)
+UsersForRoomModelTest::UsersForRoomModelTest(QObject *parent)
     : QObject(parent)
 {
 

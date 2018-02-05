@@ -23,7 +23,7 @@
 #include "roommodel.h"
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"
-#include "usersmodelforroom.h"
+#include "usersforroommodel.h"
 #include "roomwrapper.h"
 #include <KLocalizedString>
 
@@ -335,7 +335,7 @@ void RoomModel::userStatusChanged(const User &user)
     }
 }
 
-UsersModelForRoom *RoomModel::usersModelForRoom(const QString &roomId) const
+UsersForRoomModel *RoomModel::usersModelForRoom(const QString &roomId) const
 {
     const int roomCount{
         mRoomsList.count()
@@ -348,7 +348,7 @@ UsersModelForRoom *RoomModel::usersModelForRoom(const QString &roomId) const
     return {};
 }
 
-UsersModelForRoomFilterProxyModel *RoomModel::usersModelForRoomFilterProxyModel(const QString &roomId) const
+UsersForRoomFilterProxyModel *RoomModel::usersForRoomFilterProxyModel(const QString &roomId) const
 {
     const int roomCount{
         mRoomsList.count()
@@ -361,7 +361,7 @@ UsersModelForRoomFilterProxyModel *RoomModel::usersModelForRoomFilterProxyModel(
     return {};
 }
 
-FilesModelForRoom *RoomModel::filesModelForRoom(const QString &roomId) const
+FilesForRoomModel *RoomModel::filesModelForRoom(const QString &roomId) const
 {
     const int roomCount{
         mRoomsList.count()

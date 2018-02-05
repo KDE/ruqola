@@ -18,21 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "filesmodelforroom.h"
+#include "filesforroommodel.h"
 #include "ruqola_debug.h"
 
-FilesModelForRoom::FilesModelForRoom(QObject *parent)
+FilesForRoomModel::FilesForRoomModel(QObject *parent)
     : QAbstractListModel(parent)
 {
 
 }
 
-FilesModelForRoom::~FilesModelForRoom()
+FilesForRoomModel::~FilesForRoomModel()
 {
 
 }
 
-void FilesModelForRoom::insertFiles(const QVector<File> &files)
+void FilesForRoomModel::insertFiles(const QVector<File> &files)
 {
     mFiles.clear();
     beginInsertRows(QModelIndex(), 0, rowCount() - 1);
@@ -40,13 +40,13 @@ void FilesModelForRoom::insertFiles(const QVector<File> &files)
     endInsertRows();
 }
 
-int FilesModelForRoom::rowCount(const QModelIndex &parent) const
+int FilesForRoomModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return mFiles.count();
 }
 
-QVariant FilesModelForRoom::data(const QModelIndex &index, int role) const
+QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
 {
     const File user = mFiles.at(index.row());
     switch (role) {
@@ -67,7 +67,7 @@ QVariant FilesModelForRoom::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QHash<int, QByteArray> FilesModelForRoom::roleNames() const
+QHash<int, QByteArray> FilesForRoomModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[UserName] = QByteArrayLiteral("username");
