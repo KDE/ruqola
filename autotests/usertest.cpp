@@ -22,12 +22,9 @@
 #include "user.h"
 
 #include <QTest>
-#include <QSignalSpy>
 #include <QJsonObject>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(UserTest)
-
-//TODO test username too
 
 UserTest::UserTest(QObject *parent)
     : QObject(parent)
