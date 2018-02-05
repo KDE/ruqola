@@ -23,8 +23,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import QtQuick 2.9
-//TODO fix me
-import KDE.Ruqola.UsersForRoomModel 1.0
+import KDE.Ruqola.FilesForRoomModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
 Dialog {
@@ -48,14 +47,14 @@ Dialog {
             Layout.minimumHeight: Layout.maximumHeight
             Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
             Layout.fillWidth: true
-            placeholderText: i18n("Search user...")
+            placeholderText: i18n("Search file...")
             onTextChanged: {
                 appid.userModel.setFilterString(text);
             }
         }
         Label {
             //text: i18np("%1 user in room", "%1 users in room", appid.userModel ? appid.userModel.numberOfUsers : 0)
-            text: i18n("User in room")
+            text: i18n("Files in room")
         }
 
         ListView {
@@ -63,18 +62,21 @@ Dialog {
             width: 300;
             height: 200
 
-            model: userModel
+            model: filesModel
             delegate:
                 RowLayout {
-                Kirigami.Icon {
-                    source: iconstatus
-                    //FIXME
-                    height: 22
-                    width: 22
-                }
+                //Add icon from mimetype
+//                Kirigami.Icon {
+//                    source: iconstatus
+//                    //FIXME
+//                    height: 22
+//                    width: 22
+//                }
                 Text {
-                    text: username == "" ? name : username
+                    // ???
+                    text: name + description
                 }
+                //TODO add "download element"
             }
         }
     }
