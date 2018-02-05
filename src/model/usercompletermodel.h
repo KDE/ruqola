@@ -40,7 +40,7 @@ public:
     ~UserCompleterModel();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
     void insertUsers(const QVector<User> &users);

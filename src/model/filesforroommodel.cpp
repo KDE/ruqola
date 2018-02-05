@@ -32,6 +32,7 @@ FilesForRoomModel::~FilesForRoomModel()
 
 void FilesForRoomModel::insertFiles(const QVector<File> &files)
 {
+    qDebug() << " void FilesForRoomModel::insertFiles(const QVector<File> &files)";
     mFiles.clear();
     beginInsertRows(QModelIndex(), 0, rowCount() - 1);
     mFiles = files;
@@ -77,5 +78,6 @@ QHash<int, QByteArray> FilesForRoomModel::roleNames() const
     roles[MimeType] = QByteArrayLiteral("mimetype");
     roles[Url] = QByteArrayLiteral("url");
     roles[Description] = QByteArrayLiteral("description");
+    qDebug() << " roles " << roles;
     return roles;
 }
