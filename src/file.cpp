@@ -29,7 +29,7 @@ File::~File()
 
 }
 
-void File::parseFiles(const QJsonObject &json)
+void File::parseFile(const QJsonObject &json)
 {
     //TODO
 }

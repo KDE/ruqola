@@ -32,6 +32,9 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAssignValue();
     void shouldCopyValue();
+
+    void shouldParseFile_data();
+    void shouldParseFile();
 };
 
 #endif // FILESTEST_H

@@ -33,7 +33,7 @@ public:
     File();
     ~File();
 
-    void parseFiles(const QJsonObject &json);
+    void parseFile(const QJsonObject &json);
     QString name() const;
     void setName(const QString &name);
 

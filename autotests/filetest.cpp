@@ -21,6 +21,7 @@
 #include "filetest.h"
 #include "file.h"
 
+#include <QJsonDocument>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(FileTest)
@@ -72,4 +73,39 @@ void FileTest::shouldCopyValue()
 
     File f2 = f;
     QCOMPARE(f2, f);
+}
+
+void FileTest::shouldParseFile_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::addColumn<File>("expectedFile");
+    File expected;
+    expected.setName(QStringLiteral("Laurent M"));
+    expected.setUrl(QStringLiteral("away"));
+    expected.setUserId(QStringLiteral("yi2ucvqkdkxiTkyZ5"));
+    expected.setDescription(QStringLiteral("laurent"));
+    QTest::newRow("file1") << QStringLiteral("adduser") << expected;
+
+}
+
+void FileTest::shouldParseFile()
+{
+    QFETCH(QString, fileName);
+    QFETCH(File, expectedFile);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + fileName + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject fields = doc.object();
+
+    File newFile;
+    newFile.parseFile(fields);
+    const bool equal = (newFile == expectedFile);
+    if (!equal) {
+        qDebug() << " current value " << newFile;
+        qDebug() << " expected value " << expectedFile;
+    }
+    QVERIFY(equal);
 }
