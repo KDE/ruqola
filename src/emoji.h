@@ -61,6 +61,10 @@ public:
 
     void clearCachedHtml();
     bool hasEmoji(const QString &identifier) const;
+
+    qint64 updatedAt() const;
+    void setUpdatedAt(const qint64 &updatedAt);
+
 private:
     QString mEmojiIdentifier;
     QString mIdentifier;
@@ -68,6 +72,7 @@ private:
     QString mName;
     QString mCachedHtml;
     QStringList mAliases;
+    qint64 mUpdatedAt = 0;
 };
 Q_DECLARE_METATYPE(Emoji)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Emoji &t);

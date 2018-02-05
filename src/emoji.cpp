@@ -36,12 +36,23 @@ bool Emoji::hasEmoji(const QString &identifier) const
     return (mEmojiIdentifier == identifier) || mAliases.contains(identifier);
 }
 
+qint64 Emoji::updatedAt() const
+{
+    return mUpdatedAt;
+}
+
+void Emoji::setUpdatedAt(const qint64 &updatedAt)
+{
+    mUpdatedAt = updatedAt;
+}
+
 void Emoji::parseEmoji(const QJsonObject &emoji)
 {
     mIdentifier = emoji.value(QLatin1String("_id")).toString();
     mExtension = emoji.value(QLatin1String("extension")).toString();
     mName = emoji.value(QLatin1String("name")).toString();
     mEmojiIdentifier = QLatin1Char(':') + mName + QLatin1Char(':');
+    mUpdatedAt = emoji.value(QLatin1String("_updatedAt")).toObject().value(QLatin1String("$date")).toDouble();
     const QJsonArray array = emoji.value(QLatin1String("aliases")).toArray();
     const int arrayCount = array.count();
     QStringList lst;
@@ -139,10 +150,11 @@ QString Emoji::name() const
 bool Emoji::operator==(const Emoji &other) const
 {
     return (mName == other.name())
-           && (mExtension == other.extension())
-           && (mIdentifier == other.identifier()
-               && (mAliases == other.aliases())
-               && (mEmojiIdentifier == other.emojiIdentifier()));
+            && (mExtension == other.extension())
+            && (mIdentifier == other.identifier())
+            && (mAliases == other.aliases())
+            && (mEmojiIdentifier == other.emojiIdentifier())
+            && (mUpdatedAt == other.updatedAt());
 }
 
 Emoji &Emoji::operator=(const Emoji &other)
@@ -152,6 +164,7 @@ Emoji &Emoji::operator=(const Emoji &other)
     mIdentifier = other.identifier();
     mAliases = other.aliases();
     mEmojiIdentifier = other.emojiIdentifier();
+    mUpdatedAt = other.updatedAt();
     return *this;
 }
 
@@ -161,5 +174,6 @@ QDebug operator <<(QDebug d, const Emoji &t)
     d << "Identifier: " << t.identifier();
     d << "extension: " << t.extension();
     d << "aliases: " << t.aliases();
+    d << "UpdatedAt: " << t.updatedAt();
     return d;
 }
