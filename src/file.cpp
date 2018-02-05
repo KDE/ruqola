@@ -29,9 +29,15 @@ File::~File()
 
 }
 
-void File::parseFile(const QJsonObject &json)
+void File::parseFile(const QJsonObject &object)
 {
-    //TODO
+    const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
+    setUserId(fields.value(QLatin1String("userId")).toString());
+
+    setName(fields.value(QLatin1String("name")).toString());
+    setMimeType(fields.value(QLatin1String("type")).toString());
+    setUrl(fields.value(QLatin1String("url")).toString());
+    setUploadedAt(fields.value(QLatin1String("uploadedAt")).toObject().value(QLatin1String("$date")).toInt());
 }
 
 QString File::name() const

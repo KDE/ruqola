@@ -1,0 +1,16 @@
+{
+    "collection": "room_files",
+    "fields": {
+        "description": "",
+        "name": "191135.jpg",
+        "rid": "GENERAL",
+        "type": "image/jpeg",
+        "uploadedAt": {
+            "$date": 1507828418338
+        },
+        "url": "/ufs/FileSystem:Uploads/ybWLKB4FpCkzQXsa/191135.jpg",
+        "userId": "aX7va58FuNuq4bcti"
+    },
+    "id": "ybWLKB4FepCkzQXsa",
+    "msg": "added"
+}

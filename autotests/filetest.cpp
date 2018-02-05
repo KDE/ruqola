@@ -92,11 +92,13 @@ void FileTest::shouldParseFile_data()
     QTest::addColumn<QString>("fileName");
     QTest::addColumn<File>("expectedFile");
     File expected;
-    expected.setName(QStringLiteral("Laurent M"));
-    expected.setUrl(QStringLiteral("away"));
-    expected.setUserId(QStringLiteral("yi2ucvqkdkxiTkyZ5"));
-    expected.setDescription(QStringLiteral("laurent"));
-    QTest::newRow("file1") << QStringLiteral("adduser") << expected;
+    expected.setName(QStringLiteral("191135.jpg"));
+    expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/ybWLKB4FpCkzQXsa/191135.jpg"));
+    expected.setUserId(QStringLiteral("aX7va58FuNuq4bcti"));
+    expected.setDescription(QString());
+    expected.setMimeType(QStringLiteral("image/jpeg"));
+    expected.setUploadedAt(1507828418338);
+    QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected;
 
 }
 
