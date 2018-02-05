@@ -259,6 +259,9 @@ Component {
             ShowUsersInRoomDialog {
                 id: showUsersDialog
             }
+            ShowFilesInRoomDialog {
+                id: showFilesInRoomDialog
+            }
 
         }
         footer: UserInput {
