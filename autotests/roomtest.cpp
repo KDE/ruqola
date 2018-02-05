@@ -20,6 +20,8 @@
 
 #include "roomtest.h"
 #include "room.h"
+#include "model/usersmodelforroom.h"
+#include "model/usersmodelforroomfilterproxymodel.h"
 #include <QJsonDocument>
 #include <QTest>
 #include <QSignalSpy>
@@ -35,6 +37,9 @@ void RoomTest::shouldHaveDefaultValue()
 {
     Room input;
     QVERIFY(input.usersModelForRoom());
+    QVERIFY(input.filesModelForRoom());
+    QVERIFY(input.usersModelForRoomProxyModel());
+    QCOMPARE(input.usersModelForRoomProxyModel()->sourceModel(), input.usersModelForRoom());
 }
 
 void RoomTest::shouldSerialized()

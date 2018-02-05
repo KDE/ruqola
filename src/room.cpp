@@ -23,6 +23,7 @@
 #include "room.h"
 #include "model/usersmodelforroom.h"
 #include "model/usersmodelforroomfilterproxymodel.h"
+#include "model/filesmodelforroom.h"
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -33,6 +34,8 @@ Room::Room(QObject *parent)
     mUsersModelForRoom = new UsersModelForRoom(this);
     mUsersModelForRoomProxyModel = new UsersModelForRoomFilterProxyModel(this);
     mUsersModelForRoomProxyModel->setSourceModel(mUsersModelForRoom);
+
+    mFilesModelForRoom = new FilesModelForRoom(this);
 }
 
 bool Room::operator==(const Room &other) const
@@ -410,4 +413,9 @@ UsersModelForRoom *Room::usersModelForRoom() const
 UsersModelForRoomFilterProxyModel *Room::usersModelForRoomProxyModel() const
 {
     return mUsersModelForRoomProxyModel;
+}
+
+FilesModelForRoom *Room::filesModelForRoom() const
+{
+    return mFilesModelForRoom;
 }

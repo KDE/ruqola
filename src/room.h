@@ -29,6 +29,7 @@
 #include "libruqola_private_export.h"
 class UsersModelForRoom;
 class UsersModelForRoomFilterProxyModel;
+class FilesModelForRoom;
 
 class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
 {
@@ -122,6 +123,8 @@ public:
 
     UsersModelForRoomFilterProxyModel *usersModelForRoomProxyModel() const;
 
+    FilesModelForRoom *filesModelForRoom() const;
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -173,6 +176,7 @@ private:
     bool mAlert = false;
     UsersModelForRoom *mUsersModelForRoom = nullptr;
     UsersModelForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
+    FilesModelForRoom *mFilesModelForRoom = nullptr;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);
