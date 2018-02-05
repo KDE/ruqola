@@ -37,7 +37,7 @@ void File::parseFile(const QJsonObject &object)
     setName(fields.value(QLatin1String("name")).toString());
     setMimeType(fields.value(QLatin1String("type")).toString());
     setUrl(fields.value(QLatin1String("url")).toString());
-    setUploadedAt(fields.value(QLatin1String("uploadedAt")).toObject().value(QLatin1String("$date")).toInt());
+    setUploadedAt(fields.value(QLatin1String("uploadedAt")).toObject().value(QLatin1String("$date")).toDouble());
 }
 
 QString File::name() const
