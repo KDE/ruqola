@@ -24,12 +24,10 @@
 FilesForRoomModel::FilesForRoomModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 FilesForRoomModel::~FilesForRoomModel()
 {
-
 }
 
 void FilesForRoomModel::insertFiles(const QVector<File> &files)

@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "filetest.h"
 #include "file.h"
 
@@ -29,7 +28,6 @@ QTEST_GUILESS_MAIN(FileTest)
 FileTest::FileTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void FileTest::shouldHaveDefaultValue()
@@ -99,7 +97,6 @@ void FileTest::shouldParseFile_data()
     expected.setMimeType(QStringLiteral("image/jpeg"));
     expected.setUploadedAt(1507828418338);
     QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected;
-
 }
 
 void FileTest::shouldParseFile()

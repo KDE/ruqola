@@ -25,5 +25,4 @@ QTEST_GUILESS_MAIN(UsersForRoomModelTest)
 UsersForRoomModelTest::UsersForRoomModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

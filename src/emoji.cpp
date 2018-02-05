@@ -149,11 +149,11 @@ QString Emoji::name() const
 bool Emoji::operator==(const Emoji &other) const
 {
     return (mName == other.name())
-            && (mExtension == other.extension())
-            && (mIdentifier == other.identifier())
-            && (mAliases == other.aliases())
-            && (mEmojiIdentifier == other.emojiIdentifier())
-            && (mUpdatedAt == other.updatedAt());
+           && (mExtension == other.extension())
+           && (mIdentifier == other.identifier())
+           && (mAliases == other.aliases())
+           && (mEmojiIdentifier == other.emojiIdentifier())
+           && (mUpdatedAt == other.updatedAt());
 }
 
 Emoji &Emoji::operator=(const Emoji &other)

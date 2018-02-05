@@ -171,7 +171,6 @@ FilesForRoomModel *RocketChatAccount::filesForRoomModel(const QString &roomId) c
     return mRoomModel->filesModelForRoom(roomId);
 }
 
-
 RocketChatBackend *RocketChatAccount::rocketChatBackend() const
 {
     return mRocketChatBackend;

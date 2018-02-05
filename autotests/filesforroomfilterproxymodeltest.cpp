@@ -25,6 +25,4 @@ QTEST_MAIN(FilesForRoomFilterProxyModelTest)
 FilesForRoomFilterProxyModelTest::FilesForRoomFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
-

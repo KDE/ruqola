@@ -29,7 +29,6 @@ class FilesForRoomModelTest : public QObject
 public:
     explicit FilesForRoomModelTest(QObject *parent = nullptr);
     ~FilesForRoomModelTest() = default;
-
 };
 
 #endif // FILESMODELFORROOMTEST_H

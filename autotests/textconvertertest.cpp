@@ -73,10 +73,8 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
     //alias support
     QTest::newRow("customemojiwithmanager4-with-alias") << QStringLiteral(":clap::clapping:")
                                                         << QStringLiteral(
-                   "<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>")
+        "<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>")
                                                         << QStringLiteral("http://www.kde.org");
-
-
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji()

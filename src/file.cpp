@@ -21,12 +21,10 @@
 
 File::File()
 {
-
 }
 
 File::~File()
 {
-
 }
 
 void File::parseFile(const QJsonObject &object)
@@ -63,11 +61,11 @@ void File::setDescription(const QString &description)
 bool File::operator ==(const File &other) const
 {
     return (description() == other.description())
-            && (name() == other.name())
-            && (url() == other.url())
-            && (userId() == other.userId())
-            && (mimeType() == other.mimeType())
-            && (uploadedAt() == other.uploadedAt());
+           && (name() == other.name())
+           && (url() == other.url())
+           && (userId() == other.userId())
+           && (mimeType() == other.mimeType())
+           && (uploadedAt() == other.uploadedAt());
 }
 
 File &File::operator=(const File &other)

@@ -27,5 +27,4 @@ QTEST_GUILESS_MAIN(FilesForRoomModelTest)
 FilesForRoomModelTest::FilesForRoomModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
