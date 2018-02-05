@@ -19,6 +19,7 @@
 */
 
 #include "filesmodelforroom.h"
+#include "ruqola_debug.h"
 
 FilesModelForRoom::FilesModelForRoom(QObject *parent)
     : QAbstractListModel(parent)
@@ -31,6 +32,14 @@ FilesModelForRoom::~FilesModelForRoom()
 
 }
 
+void FilesModelForRoom::insertFiles(const QVector<File> &files)
+{
+    mFiles.clear();
+    beginInsertRows(QModelIndex(), 0, rowCount() - 1);
+    mFiles = files;
+    endInsertRows();
+}
+
 int FilesModelForRoom::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
@@ -39,12 +48,32 @@ int FilesModelForRoom::rowCount(const QModelIndex &parent) const
 
 QVariant FilesModelForRoom::data(const QModelIndex &index, int role) const
 {
-    //TODO
+    const File user = mFiles.at(index.row());
+    switch (role) {
+    case UserName:
+        return user.name();
+    case UserId:
+        return user.userId();
+    case MimeType:
+        return user.mimeType();
+    case Url:
+        return user.url();
+    case Description:
+        return user.description();
+
+    default:
+        qCWarning(RUQOLA_LOG) << "Unknown filesmodel roles: " << role;
+    }
     return {};
 }
 
 QHash<int, QByteArray> FilesModelForRoom::roleNames() const
 {
-    //TODO
-    return {};
+    QHash<int, QByteArray> roles;
+    roles[UserName] = QByteArrayLiteral("username");
+    roles[UserId] = QByteArrayLiteral("userid");
+    roles[MimeType] = QByteArrayLiteral("mimetype");
+    roles[Url] = QByteArrayLiteral("url");
+    roles[Description] = QByteArrayLiteral("description");
+    return roles;
 }

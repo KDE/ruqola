@@ -30,11 +30,22 @@ class LIBRUQOLACORE_TESTS_EXPORT FilesModelForRoom : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum UserRoles {
+        UserName = Qt::UserRole + 1,
+        UserId,
+        Description,
+        Url,
+        MimeType
+    };
+
     explicit FilesModelForRoom(QObject *parent = nullptr);
     ~FilesModelForRoom();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role) const override;
+
+    void insertFiles(const QVector<File> &files);
+
 protected:
     QHash<int, QByteArray> roleNames() const override;
 private:
