@@ -40,6 +40,7 @@ void FileTest::shouldHaveDefaultValue()
     QVERIFY(f.userId().isEmpty());
     QVERIFY(f.url().isEmpty());
     QVERIFY(f.mimeType().isEmpty());
+    QCOMPARE(f.uploadedAt(), -1);
 }
 
 void FileTest::shouldAssignValue()
@@ -50,17 +51,20 @@ void FileTest::shouldAssignValue()
     const QString description = QStringLiteral("des");
     const QString userId = QStringLiteral("ble");
     const QString mimetype = QStringLiteral("ble1");
+    const qint64 timeUploaded = 55;
     f.setUrl(url);
     f.setName(name);
     f.setDescription(description);
     f.setUserId(userId);
     f.setMimeType(mimetype);
+    f.setUploadedAt(timeUploaded);
 
     QCOMPARE(f.url(), url);
     QCOMPARE(f.name(), name);
     QCOMPARE(f.description(), description);
     QCOMPARE(f.userId(), userId);
     QCOMPARE(f.mimeType(), mimetype);
+    QCOMPARE(f.uploadedAt(), timeUploaded);
 }
 
 void FileTest::shouldCopyValue()
@@ -71,11 +75,13 @@ void FileTest::shouldCopyValue()
     const QString description = QStringLiteral("des");
     const QString userId = QStringLiteral("ble");
     const QString mimetype = QStringLiteral("ble1");
+    const qint64 timeUploaded = 55;
     f.setUrl(url);
     f.setName(name);
     f.setDescription(description);
     f.setUserId(userId);
     f.setMimeType(mimetype);
+    f.setUploadedAt(timeUploaded);
 
     File f2 = f;
     QCOMPARE(f2, f);

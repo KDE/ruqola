@@ -52,12 +52,16 @@ public:
     QString mimeType() const;
     void setMimeType(const QString &mimeType);
 
+    qint64 uploadedAt() const;
+    void setUploadedAt(const qint64 &uploadedAt);
+
 private:
     QString mName;
     QString mDescription;
     QString mUserId;
     QString mUrl;
     QString mMimeType;
+    qint64 mUploadedAt = -1;
 };
 Q_DECLARE_METATYPE(File)
 Q_DECLARE_TYPEINFO(File, Q_MOVABLE_TYPE);
