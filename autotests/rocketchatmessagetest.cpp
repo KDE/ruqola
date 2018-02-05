@@ -344,3 +344,11 @@ void RocketChatMessageTest::shouldSendFileMessage()
     //RocketChatMessage::RocketChatMessageResult r = m.sendFileMessage(43);
     //compareFile(r.result, QStringLiteral("sendFileMessage"));
 }
+
+void RocketChatMessageTest::shouldChannelAndPrivateAutocomplete()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.channelAndPrivateAutocomplete(QStringLiteral("room"), 43);
+    compareFile(r.result, QStringLiteral("channelAndPrivateAutocomplete"));
+}
