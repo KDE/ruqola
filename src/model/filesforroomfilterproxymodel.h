@@ -30,6 +30,11 @@ class FilesForRoomFilterProxyModel : public QSortFilterProxyModel
 public:
     explicit FilesForRoomFilterProxyModel(QObject *parent = nullptr);
     ~FilesForRoomFilterProxyModel();
+
+    QHash<int, QByteArray> roleNames() const override;
+
+protected:
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
 
 #endif // FILESFORROOMFILTERPROXYMODEL_H

@@ -20,13 +20,39 @@
 
 
 #include "filesforroomfilterproxymodel.h"
+#include "filesforroommodel.h"
 
 FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-
+    setDynamicSortFilter(true);
+    setFilterCaseSensitivity(Qt::CaseInsensitive);
+    setFilterRole(FilesForRoomModel::UserName);
+    sort(0);
 }
 
 FilesForRoomFilterProxyModel::~FilesForRoomFilterProxyModel()
 {
+}
+
+QHash<int, QByteArray> FilesForRoomFilterProxyModel::roleNames() const
+{
+    if (QAbstractItemModel *source = sourceModel()) {
+        return source->roleNames();
+    }
+    return QHash<int, QByteArray>();
+}
+
+bool FilesForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+{
+    if (!sourceModel()) {
+        return false;
+    }
+    if (left.isValid() && right.isValid()) {
+        const QString leftString = sourceModel()->data(left, FilesForRoomModel::UserName).toString();
+        const QString rightString = sourceModel()->data(right, FilesForRoomModel::UserName).toString();
+        return QString::localeAwareCompare(leftString, rightString) < 0;
+    } else {
+        return false;
+    }
 }

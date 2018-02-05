@@ -48,6 +48,10 @@ int FilesForRoomModel::rowCount(const QModelIndex &parent) const
 
 QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
 {
+    if (index.row() < 0 || index.row() >= mFiles.count()) {
+        return QVariant();
+    }
+
     const File user = mFiles.at(index.row());
     qDebug() << " QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const"<<user;
     switch (role) {

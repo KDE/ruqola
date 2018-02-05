@@ -65,7 +65,7 @@ Dialog {
 
         ListView {
             id: listview
-            width: 300;
+            width: 300
             height: 200
 
             model: filesModel
