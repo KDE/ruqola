@@ -22,6 +22,7 @@
 #define FILESMODELFORROOM_H
 
 #include <QAbstractListModel>
+#include "file.h"
 #include "libruqola_private_export.h"
 
 
@@ -36,6 +37,8 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
 protected:
     QHash<int, QByteArray> roleNames() const override;
+private:
+    QVector<File> mFiles;
 };
 
 #endif // FILESMODELFORROOM_H

@@ -33,8 +33,8 @@ FilesModelForRoom::~FilesModelForRoom()
 
 int FilesModelForRoom::rowCount(const QModelIndex &parent) const
 {
-    //TODO
-    return {};
+    Q_UNUSED(parent);
+    return mFiles.count();
 }
 
 QVariant FilesModelForRoom::data(const QModelIndex &index, int role) const
