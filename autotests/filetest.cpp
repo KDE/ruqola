@@ -39,6 +39,7 @@ void FileTest::shouldHaveDefaultValue()
     QVERIFY(f.description().isEmpty());
     QVERIFY(f.userId().isEmpty());
     QVERIFY(f.url().isEmpty());
+    QVERIFY(f.mimeType().isEmpty());
 }
 
 void FileTest::shouldAssignValue()
@@ -48,15 +49,18 @@ void FileTest::shouldAssignValue()
     const QString name = QStringLiteral("bla");
     const QString description = QStringLiteral("des");
     const QString userId = QStringLiteral("ble");
+    const QString mimetype = QStringLiteral("ble1");
     f.setUrl(url);
     f.setName(name);
     f.setDescription(description);
     f.setUserId(userId);
+    f.setMimeType(mimetype);
 
     QCOMPARE(f.url(), url);
     QCOMPARE(f.name(), name);
     QCOMPARE(f.description(), description);
     QCOMPARE(f.userId(), userId);
+    QCOMPARE(f.mimeType(), mimetype);
 }
 
 void FileTest::shouldCopyValue()
@@ -66,10 +70,12 @@ void FileTest::shouldCopyValue()
     const QString name = QStringLiteral("bla");
     const QString description = QStringLiteral("des");
     const QString userId = QStringLiteral("ble");
+    const QString mimetype = QStringLiteral("ble1");
     f.setUrl(url);
     f.setName(name);
     f.setDescription(description);
     f.setUserId(userId);
+    f.setMimeType(mimetype);
 
     File f2 = f;
     QCOMPARE(f2, f);

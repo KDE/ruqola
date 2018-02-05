@@ -49,11 +49,15 @@ public:
     QString url() const;
     void setUrl(const QString &url);
 
+    QString mimeType() const;
+    void setMimeType(const QString &mimeType);
+
 private:
     QString mName;
     QString mDescription;
     QString mUserId;
     QString mUrl;
+    QString mMimeType;
 };
 Q_DECLARE_METATYPE(File)
 Q_DECLARE_TYPEINFO(File, Q_MOVABLE_TYPE);

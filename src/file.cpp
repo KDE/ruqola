@@ -59,7 +59,8 @@ bool File::operator ==(const File &other) const
     return (description() == other.description())
             && (name() == other.name())
             && (url() == other.url())
-            && (userId() == other.userId());
+            && (userId() == other.userId())
+            && (mimeType() == other.mimeType());
 }
 
 File &File::operator=(const File &other)
@@ -68,6 +69,7 @@ File &File::operator=(const File &other)
     mDescription = other.description();
     mUrl = other.url();
     mUserId = other.userId();
+    mMimeType = other.mimeType();
     return *this;
 }
 
@@ -91,9 +93,22 @@ void File::setUrl(const QString &url)
     mUrl = url;
 }
 
+QString File::mimeType() const
+{
+    return mMimeType;
+}
+
+void File::setMimeType(const QString &mimeType)
+{
+    mMimeType = mimeType;
+}
+
 QDebug operator <<(QDebug d, const File &t)
 {
     d << "Name : " << t.name();
     d << "Description: " << t.description();
+    d << "Url :" << t.url();
+    d << "UserId: " << t.userId();
+    d << "Mimetype : "<< t.mimeType();
     return d;
 }
