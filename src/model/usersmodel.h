@@ -35,6 +35,7 @@ public:
         UserStatus,
         UserIcon
     };
+    Q_ENUM(UserRoles)
 
     explicit UsersModel(QObject *parent = nullptr);
     ~UsersModel();

@@ -30,13 +30,13 @@ class LIBRUQOLACORE_EXPORT UsersForRoomModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    enum UserRoles {
+    enum UsersForRoomRoles {
         UserName = Qt::UserRole + 1,
         UserId,
         Name,
         IconStatus
     };
-    Q_ENUM(UserRoles)
+    Q_ENUM(UsersForRoomRoles)
 
     explicit UsersForRoomModel(QObject *parent = nullptr);
     ~UsersForRoomModel();
