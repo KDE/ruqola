@@ -27,7 +27,8 @@ UsersForRoomFilterProxyModel::UsersForRoomFilterProxyModel(QObject *parent)
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     //Filter on alias/username ?
-    setFilterRole(UsersForRoomModel::UserName);
+    setFilterRole(UsersForRoomModel::UsersForRoomRoles::UserName);
+    setSortRole(UsersForRoomModel::UsersForRoomRoles::UserName);
     sort(0);
 }
 
@@ -38,6 +39,7 @@ UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel()
 QHash<int, QByteArray> UsersForRoomFilterProxyModel::roleNames() const
 {
     if (QAbstractItemModel *source = sourceModel()) {
+        qDebug() << " source->roleNames()"<<source->roleNames();
         return source->roleNames();
     }
     return QHash<int, QByteArray>();
@@ -56,6 +58,7 @@ bool UsersForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QMode
     if (left.isValid() && right.isValid()) {
         const QString leftString = sourceModel()->data(left, UsersForRoomModel::UserName).toString();
         const QString rightString = sourceModel()->data(right, UsersForRoomModel::UserName).toString();
+        qDebug() << " leftString"<<leftString<<" rightString"<<rightString;
         return QString::localeAwareCompare(leftString, rightString) < 0;
     } else {
         return false;
