@@ -29,7 +29,7 @@ File::~File()
 
 }
 
-void File::parseFiles()
+void File::parseFiles(const QJsonObject &json)
 {
     //TODO
 }
@@ -54,8 +54,21 @@ void File::setDescription(const QString &description)
     mDescription = description;
 }
 
+bool File::operator ==(const File &other) const
+{
+    return (description() == other.description()) && (name() == other.name());
+}
+
+File &File::operator=(const File &other)
+{
+    mName = other.name();
+    mDescription = other.description();
+    return *this;
+}
+
 QDebug operator <<(QDebug d, const File &t)
 {
-    //TODO
+    d << "Name : " << t.name();
+    d << "Description: " << t.description();
     return d;
 }

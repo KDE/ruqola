@@ -24,6 +24,7 @@
 #include <QString>
 #include <QObject>
 #include <QDebug>
+#include <QJsonObject>
 
 class LIBRUQOLACORE_TESTS_EXPORT File
 {
@@ -32,13 +33,16 @@ public:
     File();
     ~File();
 
-    void parseFiles();
+    void parseFiles(const QJsonObject &json);
     QString name() const;
     void setName(const QString &name);
 
     QString description() const;
     void setDescription(const QString &description);
 
+    bool operator ==(const File &other) const;
+
+    File &operator=(const File &other);
 private:
     QString mName;
     QString mDescription;
