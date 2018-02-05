@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.1)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set (CMAKE_CXX_STANDARD 11)
 
-find_package(ECM REQUIRED NO_MODULE)
+set(KF5_VERSION "5.42.0")
+find_package(ECM ${KF5_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 if (POLICY CMP0063)
@@ -25,7 +26,6 @@ include(FeatureSummary)
 
 set(KF5_VERSION "5.42.0")
 
-find_package(ECM ${KF5_VERSION} CONFIG REQUIRED)
 
 set(REQUIRED_QT_VERSION "5.9.0")
 
