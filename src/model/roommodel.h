@@ -112,6 +112,7 @@ Q_SIGNALS:
     void needToUpdateNotification();
 
 private:
+    Q_DISABLE_COPY(RoomModel)
     Room *createNewRoom();
     QIcon icon(Room *r) const;
     int order(Room *r) const;

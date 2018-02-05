@@ -96,6 +96,7 @@ protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
+    Q_DISABLE_COPY(MessageModel)
     QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const;
     const QString mRoomID;
     QVector<Message> mAllMessages;

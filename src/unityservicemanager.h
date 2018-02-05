@@ -33,6 +33,7 @@ public:
     void setCount(int count);
 
 private:
+    Q_DISABLE_COPY(UnityServiceManager)
     void initUnity();
     void updateCount();
     QDBusServiceWatcher *mUnityServiceWatcher = nullptr;

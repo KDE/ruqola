@@ -36,6 +36,8 @@ public:
     Q_INVOKABLE void setFilterString(const QString &string);
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+private:
+    Q_DISABLE_COPY(RoomFilterProxyModel)
 };
 
 #endif // ROOMFILTERPROXYMODEL_H
