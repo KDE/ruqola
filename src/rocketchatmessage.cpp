@@ -405,17 +405,20 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
     return subscribe(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
 }
 
-//Verify it.
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::channelAndPrivateAutocomplete(const QString &roomName, quint64 id)
 {
     QJsonArray params;
+    params.append(roomName);
 
-    QJsonObject firstParam;
+    QJsonArray type;
+    params.append(type);
 
-    firstParam[QStringLiteral("name")] = roomName;
-    params.append(firstParam);
+    QJsonObject secondParams;
+    secondParams[QStringLiteral("rooms")] = true;
+    secondParams[QStringLiteral("users")] = true;
+    params.append(secondParams);
     qDebug() << " params " << params;
-    return subscribe(QStringLiteral("channelAndPrivateAutocomplete"), QJsonDocument(firstParam), id);
+    return generateMethod(QStringLiteral("spotlight"), QJsonDocument(params), id);
 }
 
 //We need to be able to send file for audio/video
