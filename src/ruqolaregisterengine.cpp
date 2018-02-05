@@ -35,6 +35,7 @@
 #include "clipboardproxy.h"
 #include "model/usersmodelforroomfilterproxymodel.h"
 #include "model/usercompletermodelfiltermodelproxy.h"
+#include "model/filesmodelforroom.h"
 
 #include <KLocalizedContext>
 #include <QQmlApplicationEngine>
@@ -64,6 +65,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
     qmlRegisterType<UsersModelForRoomFilterProxyModel>("KDE.Ruqola.UsersModelForRoomFilterProxyModel", 1, 0, "UsersModelForRoomFilterProxyModel");
     qmlRegisterType<UserCompleterModelFilterModelProxy>("KDE.Ruqola.UserCompleterModelFilterModelProxy", 1, 0, "UserCompleterModelFilterModelProxy");
+    qmlRegisterType<FilesModelForRoom>("KDE.Ruqola.FilesModelForRoom", 1, 0, "FilesModelForRoom");
     qmlRegisterType<QmlAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
     qmlRegisterType<QmlAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");
     qmlRegisterType<UserCompleterModel>("KDE.Ruqola.UserCompleterModel", 1, 0, "UserCompleterModel");

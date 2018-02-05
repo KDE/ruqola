@@ -123,7 +123,7 @@ public:
 
     UsersModelForRoomFilterProxyModel *usersModelForRoomProxyModel() const;
 
-    FilesModelForRoom *filesModelForRoom() const;
+    Q_INVOKABLE FilesModelForRoom *filesModelForRoom() const;
 
 Q_SIGNALS:
     void nameChanged();
