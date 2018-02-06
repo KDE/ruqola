@@ -31,6 +31,11 @@ Channel::~Channel()
 
 }
 
+void Channel::parseChannel(const QJsonObject &object)
+{
+
+}
+
 QDebug operator <<(QDebug d, const Channel &t)
 {
     //TODO

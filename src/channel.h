@@ -31,6 +31,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Channel
 public:
     Channel();
     ~Channel();
+    void parseChannel(const QJsonObject &object);
 };
 Q_DECLARE_METATYPE(Channel)
 Q_DECLARE_TYPEINFO(Channel, Q_MOVABLE_TYPE);
