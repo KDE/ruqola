@@ -62,7 +62,7 @@ Dialog {
             }
         }
         Label {
-            text: i18n("Files in room:")
+            text: i18np("%1 attachment in room", "%1 attachments in room", filesModel ? filesModel.rowCount() : 0)
         }
 
         ListView {
@@ -81,14 +81,11 @@ Dialog {
 //                    width: 22
 //                }
                 Text {
-                    // ???
-                    text: description//username// + description
+                    text: username + description
                 }
                 DownloadButton {
-
+                    //TODO
                 }
-
-                //TODO add "download element"
             }
         }
     }
