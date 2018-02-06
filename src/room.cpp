@@ -32,10 +32,13 @@ Room::Room(QObject *parent)
     : QObject(parent)
 {
     mUsersModelForRoom = new UsersForRoomModel(this);
+    mUsersModelForRoom->setObjectName(QStringLiteral("usersforroommodel"));
     mUsersModelForRoomProxyModel = new UsersForRoomFilterProxyModel(this);
+    mUsersModelForRoomProxyModel->setObjectName(QStringLiteral("usersforroommodelproxymodel"));
     mUsersModelForRoomProxyModel->setSourceModel(mUsersModelForRoom);
 
     mFilesModelForRoom = new FilesForRoomModel(this);
+    mFilesModelForRoom->setObjectName(QStringLiteral("filesmodelforrooms"));
 }
 
 bool Room::operator==(const Room &other) const
