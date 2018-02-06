@@ -405,31 +405,31 @@ quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &excep
     const int subscribeId = m_uid;
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(pattern, exception, subscribeId);
     std::function<void(QJsonObject, RocketChatAccount *)> callback = [=](const QJsonObject &root, RocketChatAccount *account) {
-                                                                         if (account->ruqolaLogger()) {
-                                                                             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User AutoComplete:") + QJsonDocument(root).toJson());
-                                                                         } else {
-                                                                             qDebug() << " User AutoComplete" << root;
-                                                                             qCDebug(RUQOLA_DDPAPI_LOG) << " User AutoComplete" << root;
-                                                                         }
-                                                                         account->insertCompleterUsers();
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User AutoComplete:") + QJsonDocument(root).toJson());
+        } else {
+            qDebug() << " User AutoComplete" << root;
+            qCDebug(RUQOLA_DDPAPI_LOG) << " User AutoComplete" << root;
+        }
+        account->insertCompleterUsers();
 
-                                                                         const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(subscribeId);
-                                                                         std::function<void(QJsonObject,
-                                                                                            RocketChatAccount *)> callbackUnsubscribeAutoComplete
-                                                                             = [=](const QJsonObject &root, RocketChatAccount *account) {
-                                                                                   if (account->ruqolaLogger()) {
-                                                                                       account->ruqolaLogger()->
-                                                                                       dataReceived(QByteArrayLiteral(
-                                                                                                        "Unsubscribe AutoComplete:") + QJsonDocument(root).toJson());
-                                                                                   } else {
-                                                                                       qDebug()
-                                                                                                                                                                << " Unsubscribe AutoComplete" << root;
-                                                                                       qCDebug(RUQOLA_DDPAPI_LOG)
-                                                                                                                                                                << " Unsubscribe AutoComplete" << root;
-                                                                                   }
-                                                                               };
-                                                                         method(resultUnsubscribe, callbackUnsubscribeAutoComplete, DDPClient::Persistent);
-                                                                     };
+        const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(subscribeId);
+        std::function<void(QJsonObject,
+                           RocketChatAccount *)> callbackUnsubscribeAutoComplete
+                = [=](const QJsonObject &root, RocketChatAccount *account) {
+            if (account->ruqolaLogger()) {
+                account->ruqolaLogger()->
+                        dataReceived(QByteArrayLiteral(
+                                         "Unsubscribe AutoComplete:") + QJsonDocument(root).toJson());
+            } else {
+                qDebug()
+                        << " Unsubscribe AutoComplete" << root;
+                qCDebug(RUQOLA_DDPAPI_LOG)
+                        << " Unsubscribe AutoComplete" << root;
+            }
+        };
+        method(resultUnsubscribe, callbackUnsubscribeAutoComplete, DDPClient::Persistent);
+    };
 
     return method(result, callback, DDPClient::Persistent);
 }
