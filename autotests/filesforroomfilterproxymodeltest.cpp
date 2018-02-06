@@ -19,6 +19,8 @@
 */
 
 #include "filesforroomfilterproxymodeltest.h"
+#include "model/filesforroomfilterproxymodel.h"
+#include "model/filesforroommodel.h"
 #include <QTest>
 QTEST_MAIN(FilesForRoomFilterProxyModelTest)
 
@@ -26,3 +28,9 @@ FilesForRoomFilterProxyModelTest::FilesForRoomFilterProxyModelTest(QObject *pare
     : QObject(parent)
 {
 }
+
+void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValue()
+{
+
+}
+

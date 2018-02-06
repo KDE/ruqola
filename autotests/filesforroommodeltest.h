@@ -31,6 +31,8 @@ public:
     ~FilesForRoomModelTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldAddFiles();
+    void shouldVerifyData();
 };
 
 #endif // FILESMODELFORROOMTEST_H

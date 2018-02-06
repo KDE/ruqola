@@ -19,10 +19,17 @@
 */
 
 #include "usersforroommodeltest.h"
+#include "model/usersforroommodel.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(UsersForRoomModelTest)
 
 UsersForRoomModelTest::UsersForRoomModelTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void UsersForRoomModelTest::shouldHaveDefaultValue()
+{
+    UsersForRoomModel w;
+    QCOMPARE(w.rowCount(), 0);
 }
