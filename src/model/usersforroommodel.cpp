@@ -60,6 +60,8 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
         return user.userName();
     case IconStatus:
         return user.iconFromStatus();
+    case UserId:
+        return user.userId();
     case Name:
         return user.name();
     default:

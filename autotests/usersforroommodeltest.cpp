@@ -33,3 +33,55 @@ void UsersForRoomModelTest::shouldHaveDefaultValue()
     UsersForRoomModel w;
     QCOMPARE(w.rowCount(), 0);
 }
+
+void UsersForRoomModelTest::shouldAddValues()
+{
+    UsersForRoomModel w;
+    QVector<User> users;
+    for (int i = 0; i < 10; i++) {
+        User user;
+        user.setName(QStringLiteral("name%1").arg(i));
+        user.setStatus(QStringLiteral("status%1").arg(i));
+        user.setUserId(QStringLiteral("userId%1").arg(i));
+        user.setUserName(QStringLiteral("username%1").arg(i));
+        users.append(user);
+    }
+    w.insertUsers(users);
+    QCOMPARE(w.rowCount(), 10);
+
+    users.clear();
+    for (int i = 0; i < 3; ++i) {
+        User user;
+        user.setName(QStringLiteral("name%1").arg(i));
+        user.setStatus(QStringLiteral("status%1").arg(i));
+        user.setUserId(QStringLiteral("userId%1").arg(i));
+        user.setUserName(QStringLiteral("username%1").arg(i));
+        users.append(user);
+    }
+    w.insertUsers(users);
+    QCOMPARE(w.rowCount(), 3);
+
+}
+
+void UsersForRoomModelTest::shouldVerifyData()
+{
+    UsersForRoomModel w;
+    QVector<User> users;
+    for (int i = 0; i < 10; i++) {
+        User user;
+        user.setName(QStringLiteral("name%1").arg(i));
+        user.setStatus(QStringLiteral("status%1").arg(i));
+        user.setUserId(QStringLiteral("userId%1").arg(i));
+        user.setUserName(QStringLiteral("username%1").arg(i));
+        users.append(user);
+    }
+    w.insertUsers(users);
+    QCOMPARE(w.rowCount(), 10);
+
+    for (int i = 0; i < 10; ++i) {
+        QCOMPARE(w.data(w.index(i), UsersForRoomModel::Name).toString(), QStringLiteral("name%1").arg(i));
+        //TODO fix me.QCOMPARE(w.data(w.index(i), UsersForRoomModel::IconStatus).toString(), QStringLiteral("description%1").arg(i));
+        QCOMPARE(w.data(w.index(i), UsersForRoomModel::UserId).toString(), QStringLiteral("userId%1").arg(i));
+        QCOMPARE(w.data(w.index(i), UsersForRoomModel::UserName).toString(), QStringLiteral("username%1").arg(i));
+    }
+}
