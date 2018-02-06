@@ -66,6 +66,8 @@ Kirigami.BasicListItem {
             height: parent.height
             width: height
             font.bold: true
+            //FIX COLOR
+            color: (d_unread != 0) ? "#FF0000" : "#FFFFFF"
             text: i18n("(%1)", d_unread)
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
         }
