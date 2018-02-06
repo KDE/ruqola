@@ -39,7 +39,6 @@ UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel()
 QHash<int, QByteArray> UsersForRoomFilterProxyModel::roleNames() const
 {
     if (QAbstractItemModel *source = sourceModel()) {
-        qDebug() << " source->roleNames()"<<source->roleNames();
         return source->roleNames();
     }
     return QHash<int, QByteArray>();
