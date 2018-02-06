@@ -35,7 +35,9 @@ void UsersModelTest::shouldHaveDefaultValue()
     UsersModel w;
     QSignalSpy rowInsertedSpy(&w, &UsersModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &UsersModel::rowsAboutToBeInserted);
+    QSignalSpy userStatusChangedSpy(&w, &UsersModel::userStatusChanged);
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(userStatusChangedSpy.count(), 0);
 }
