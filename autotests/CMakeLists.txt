@@ -38,5 +38,5 @@ add_ruqola_test(filesforroommodeltest.cpp)
 add_ruqola_test(filesforroomfilterproxymodeltest.cpp)
 add_ruqola_test(channeltest.cpp)
 add_ruqola_test(usersforroomfilterproxymodeltest.cpp)
-
+add_ruqola_test(usercompletermodeltest.cpp)
 add_subdirectory(qml)
