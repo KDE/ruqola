@@ -29,6 +29,8 @@ class UsersModelTest : public QObject
 public:
     explicit UsersModelTest(QObject *parent = nullptr);
     ~UsersModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // USERSMODELTEST_H

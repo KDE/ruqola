@@ -19,6 +19,7 @@
 */
 
 #include "usersmodeltest.h"
+#include "model/usersmodel.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UsersModelTest)
@@ -26,4 +27,10 @@ QTEST_GUILESS_MAIN(UsersModelTest)
 UsersModelTest::UsersModelTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void UsersModelTest::shouldHaveDefaultValue()
+{
+    UsersModel model;
+    QCOMPARE(model.rowCount(), 0);
 }
