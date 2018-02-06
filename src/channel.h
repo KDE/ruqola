@@ -29,9 +29,22 @@ class LIBRUQOLACORE_TESTS_EXPORT Channel
 {
     Q_GADGET
 public:
+    enum class ChannelType {
+        Room,
+        PrivateChannel,
+        Unknown
+    };
+    Q_ENUM(ChannelType)
+
     Channel();
     ~Channel();
     void parseChannel(const QJsonObject &object);
+
+    ChannelType type() const;
+    void setType(const ChannelType &type);
+
+private:
+    ChannelType mType = ChannelType::Unknown;
 };
 Q_DECLARE_METATYPE(Channel)
 Q_DECLARE_TYPEINFO(Channel, Q_MOVABLE_TYPE);

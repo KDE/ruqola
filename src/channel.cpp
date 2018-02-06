@@ -36,6 +36,16 @@ void Channel::parseChannel(const QJsonObject &object)
 
 }
 
+Channel::ChannelType Channel::type() const
+{
+    return mType;
+}
+
+void Channel::setType(const ChannelType &type)
+{
+    mType = type;
+}
+
 QDebug operator <<(QDebug d, const Channel &t)
 {
     //TODO
