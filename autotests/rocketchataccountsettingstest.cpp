@@ -113,6 +113,7 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserIDChanged()
 
 void RocketChatAccountSettingsTest::shouldEmitSignalWhenLoginStatusChanged()
 {
+    //TODO
 }
 
 void RocketChatAccountSettingsTest::shouldLogout()
