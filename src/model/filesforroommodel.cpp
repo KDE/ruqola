@@ -32,7 +32,6 @@ FilesForRoomModel::~FilesForRoomModel()
 
 void FilesForRoomModel::insertFiles(const QVector<File> &files)
 {
-    qDebug() << " void FilesForRoomModel::insertFiles(const QVector<File> &files)";
     mFiles.clear();
     beginInsertRows(QModelIndex(), 0, rowCount() - 1);
     mFiles = files;
@@ -52,7 +51,6 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
     }
 
     const File user = mFiles.at(index.row());
-    qDebug() << " QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const"<<user;
     switch (role) {
     case UserName:
         return user.name();
@@ -78,6 +76,5 @@ QHash<int, QByteArray> FilesForRoomModel::roleNames() const
     roles[MimeType] = QByteArrayLiteral("mimetype");
     roles[Url] = QByteArrayLiteral("url");
     roles[Description] = QByteArrayLiteral("description");
-    qDebug() << " roles " << roles;
     return roles;
 }
