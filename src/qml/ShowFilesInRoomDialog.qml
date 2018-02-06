@@ -25,6 +25,8 @@ import QtQuick.Window 2.0
 import QtQuick 2.9
 import KDE.Ruqola.FilesForRoomModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
+//TODO move in common directory ?
+import "messages"
 
 Dialog {
     id: showFilesInRoomDialog
@@ -82,6 +84,10 @@ Dialog {
                     // ???
                     text: description//username// + description
                 }
+                DownloadButton {
+
+                }
+
                 //TODO add "download element"
             }
         }
