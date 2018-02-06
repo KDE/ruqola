@@ -22,6 +22,7 @@
 #define CHANNEL_H
 
 #include "libruqola_private_export.h"
+#include "user.h"
 #include <QObject>
 #include <QDebug>
 
@@ -43,7 +44,12 @@ public:
     ChannelType type() const;
     void setType(const ChannelType &type);
 
+    User user() const;
+    void setUser(const User &user);
+
 private:
+    //TODO add room info.
+    User mUser;
     ChannelType mType = ChannelType::Unknown;
 };
 Q_DECLARE_METATYPE(Channel)

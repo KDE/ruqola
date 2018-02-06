@@ -46,6 +46,16 @@ void Channel::setType(const ChannelType &type)
     mType = type;
 }
 
+User Channel::user() const
+{
+    return mUser;
+}
+
+void Channel::setUser(const User &user)
+{
+    mUser = user;
+}
+
 QDebug operator <<(QDebug d, const Channel &t)
 {
     d << "type: " << t.type();
