@@ -71,7 +71,6 @@ public:
     };
     Q_ENUM(RoomInfoType)
 
-    RocketChatAccountSettings *settings() const;
 
     Q_INVOKABLE UsersModel *usersModel() const;
 
@@ -94,23 +93,8 @@ public:
     Q_INVOKABLE void clearUnreadMessages(const QString &roomId);
 
     Q_INVOKABLE void changeFavorite(const QString &roomId, bool checked);
-
-    DDPClient *ddp();
-
-    DDPClient::LoginStatus loginStatus();
-    RestApiRequest *restApi();
-
-    //Make it private in future
-    void slotInformTypingStatus(const QString &room, bool typing);
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
     Q_INVOKABLE void updateMessage(const QString &roomID, const QString &messageId, const QString &message);
-
-    MessageQueue *messageQueue() const;
-
-    RocketChatBackend *rocketChatBackend() const;
-
-    RuqolaLogger *ruqolaLogger() const;
-
     Q_INVOKABLE void openChannel(const QString &url);
     Q_INVOKABLE void joinJitsiConfCall(const QString &roomId);
     Q_INVOKABLE void createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames);
@@ -129,6 +113,37 @@ public:
     Q_INVOKABLE void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     Q_INVOKABLE void starMessage(const QString &messageId, const QString &rid, bool starred);
     Q_INVOKABLE void uploadFile(const QString &description, const QUrl &fileUrl);
+    Q_INVOKABLE QString serverUrl() const;
+    Q_INVOKABLE UserCompleterModel *userCompleterModel() const;
+
+    Q_INVOKABLE QString avatarUrl(const QString &userId);
+
+    Q_INVOKABLE StatusModel *statusModel() const;
+
+    Q_INVOKABLE QUrl attachmentUrl(const QString &url);
+    Q_INVOKABLE void loadHistory(const QString &roomID, bool initial = false);
+    Q_INVOKABLE bool allowEditingMessages() const;
+    Q_INVOKABLE bool otrEnabled() const;
+    Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
+    Q_INVOKABLE UserCompleterFilterModelProxy *userCompleterFilterModelProxy() const;
+    Q_INVOKABLE void roomFiles(const QString &roomId);
+    Q_INVOKABLE FilesForRoomModel *filesForRoomModel(const QString &roomId) const;
+
+    RocketChatAccountSettings *settings() const;
+    DDPClient *ddp();
+
+    DDPClient::LoginStatus loginStatus();
+    RestApiRequest *restApi();
+
+    //Make it private in future
+    void slotInformTypingStatus(const QString &room, bool typing);
+
+    MessageQueue *messageQueue() const;
+
+    RocketChatBackend *rocketChatBackend() const;
+
+    RuqolaLogger *ruqolaLogger() const;
+
 
     void loadEmoji(const QJsonObject &obj);
     void parsePublicSettings(const QJsonObject &obj);
@@ -150,19 +165,8 @@ public:
     void setAuthToken(const QString &token);
     QString authToken() const;
 
-    Q_INVOKABLE QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
-    Q_INVOKABLE UserCompleterModel *userCompleterModel() const;
-
-    Q_INVOKABLE QString avatarUrl(const QString &userId);
-
-    Q_INVOKABLE StatusModel *statusModel() const;
-
-    Q_INVOKABLE QUrl attachmentUrl(const QString &url);
-    Q_INVOKABLE void loadHistory(const QString &roomID, bool initial = false);
-    Q_INVOKABLE bool allowEditingMessages() const;
-    Q_INVOKABLE bool otrEnabled() const;
 
     void sendNotification(const QJsonArray &contents);
     void parseOtr(const QJsonArray &contents);
@@ -175,13 +179,9 @@ public:
     void getUsersOfRoom(const QString &roomId);
     void parseUsersForRooms(const QString &roomId, const QJsonObject &root);
 
-    Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
-    Q_INVOKABLE UserCompleterFilterModelProxy *userCompleterFilterModelProxy() const;
 
     void insertCompleterUsers();
-    Q_INVOKABLE void roomFiles(const QString &roomId);
     void insertFilesList(const QString &roomId);
-    Q_INVOKABLE FilesForRoomModel *filesForRoomModel(const QString &roomId) const;
 Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();
