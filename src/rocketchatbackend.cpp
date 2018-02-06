@@ -273,7 +273,6 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         } else {
             qCDebug(RUQOLA_LOG) << "room_files VALUE" << object;
         }
-        //TODO
         File file;
         file.parseFile(object);
         mFiles.append(file);
