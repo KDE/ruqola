@@ -55,7 +55,7 @@ Dialog {
             Layout.fillWidth: true
             placeholderText: i18n("Search user...")
             onTextChanged: {
-                appid.userModel.setFilterString(text);
+                userModel.setFilterString(text);
             }
         }
         Label {
