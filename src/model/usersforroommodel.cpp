@@ -34,12 +34,18 @@ UsersForRoomModel::~UsersForRoomModel()
 {
 }
 
-void UsersForRoomModel::insertUsers(const QVector<User> &users)
+void UsersForRoomModel::setUsers(const QVector<User> &users)
 {
-    mUsers.clear();
-    beginInsertRows(QModelIndex(), 0, users.count() - 1);
-    mUsers = users;
-    endInsertRows();
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
+        mUsers.clear();
+        endRemoveRows();
+    }
+    if (!users.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, users.count() - 1);
+        mUsers = users;
+        endInsertRows();
+    }
 }
 
 int UsersForRoomModel::rowCount(const QModelIndex &parent) const
@@ -110,7 +116,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root)
         if (users.count() != total) {
             qCWarning(RUQOLA_LOG) << "Users for rooms, parsing error. Parse " << users.count() << " users but json give us a total number : "<< total;
         }
-        insertUsers(users);
+        setUsers(users);
     } else {
         qCWarning(RUQOLA_LOG) << "Error in users for rooms json" << root;
     }

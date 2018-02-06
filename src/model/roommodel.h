@@ -56,6 +56,7 @@ public:
         RoomIcon,
         RoomOtr,
     };
+    Q_ENUM(RoomRoles)
 
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     virtual ~RoomModel();

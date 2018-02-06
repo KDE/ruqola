@@ -30,6 +30,8 @@ class ChannelTest : public QObject
 public:
     explicit ChannelTest(QObject *parent = nullptr);
     ~ChannelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // CHANNELTEST_H

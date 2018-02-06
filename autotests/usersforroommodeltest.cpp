@@ -19,7 +19,9 @@
 */
 
 #include "usersforroommodeltest.h"
+#include "test_model_helpers.h"
 #include "model/usersforroommodel.h"
+#include <QSignalSpy>
 #include <QTest>
 QTEST_GUILESS_MAIN(UsersForRoomModelTest)
 
@@ -31,13 +33,19 @@ UsersForRoomModelTest::UsersForRoomModelTest(QObject *parent)
 void UsersForRoomModelTest::shouldHaveDefaultValue()
 {
     UsersForRoomModel w;
+    QSignalSpy rowInsertedSpy(&w, &UsersForRoomModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
     QCOMPARE(w.rowCount(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
 }
 
 void UsersForRoomModelTest::shouldAddValues()
 {
     UsersForRoomModel w;
     QVector<User> users;
+    QSignalSpy rowInsertedSpy(&w, &UsersForRoomModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));
@@ -46,8 +54,14 @@ void UsersForRoomModelTest::shouldAddValues()
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
     }
-    w.insertUsers(users);
+    w.setUsers(users);
     QCOMPARE(w.rowCount(), 10);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9"));
+    rowABTInserted.clear();
+    rowInsertedSpy.clear();
 
     users.clear();
     for (int i = 0; i < 3; ++i) {
@@ -58,8 +72,23 @@ void UsersForRoomModelTest::shouldAddValues()
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
     }
-    w.insertUsers(users);
+    w.setUsers(users);
     QCOMPARE(w.rowCount(), 3);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,2"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,2"));
+
+    rowABTInserted.clear();
+    rowInsertedSpy.clear();
+
+    users.clear();
+    w.setUsers(users);
+    QCOMPARE(w.rowCount(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QString());
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QString());
 
 }
 
@@ -75,7 +104,7 @@ void UsersForRoomModelTest::shouldVerifyData()
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
     }
-    w.insertUsers(users);
+    w.setUsers(users);
     QCOMPARE(w.rowCount(), 10);
 
     for (int i = 0; i < 10; ++i) {

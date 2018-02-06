@@ -31,6 +31,8 @@
 
 QTEST_GUILESS_MAIN(RoomModelTest)
 
+//TEST signal/slot
+
 RoomModelTest::RoomModelTest(QObject *parent)
     : QObject(parent)
 {

@@ -60,7 +60,7 @@ void UsersForRoomFilterProxyModelTest::shouldAssignValue()
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
     }
-    model.insertUsers(users);
+    model.setUsers(users);
     QCOMPARE(proxy.rowCount(), 10);
     QCOMPARE(model.rowCount(), 10);
 }

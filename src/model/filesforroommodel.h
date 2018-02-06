@@ -44,7 +44,7 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
-    void insertFiles(const QVector<File> &files);
+    void setFiles(const QVector<File> &files);
 
 protected:
     QHash<int, QByteArray> roleNames() const override;

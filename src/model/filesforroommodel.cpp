@@ -30,12 +30,18 @@ FilesForRoomModel::~FilesForRoomModel()
 {
 }
 
-void FilesForRoomModel::insertFiles(const QVector<File> &files)
+void FilesForRoomModel::setFiles(const QVector<File> &files)
 {
-    mFiles.clear();
-    beginInsertRows(QModelIndex(), 0, files.count() - 1);
-    mFiles = files;
-    endInsertRows();
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mFiles.count() - 1);
+        mFiles.clear();
+        endRemoveRows();
+    }
+    if (!files.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, files.count() - 1);
+        mFiles = files;
+        endInsertRows();
+    }
 }
 
 int FilesForRoomModel::rowCount(const QModelIndex &parent) const

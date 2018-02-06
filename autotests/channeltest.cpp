@@ -29,3 +29,10 @@ ChannelTest::ChannelTest(QObject *parent)
 {
 
 }
+
+void ChannelTest::shouldHaveDefaultValue()
+{
+    Channel t;
+    QCOMPARE(t.type(), Channel::ChannelType::Unknown);
+    //TODO
+}

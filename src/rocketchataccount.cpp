@@ -452,7 +452,7 @@ void RocketChatAccount::insertFilesList(const QString &roomId)
 {
     FilesForRoomModel *filesForRoomModel = roomModel()->filesModelForRoom(roomId);
     if (filesForRoomModel) {
-        filesForRoomModel->insertFiles(rocketChatBackend()->files());
+        filesForRoomModel->setFiles(rocketChatBackend()->files());
     } else {
         qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
     }

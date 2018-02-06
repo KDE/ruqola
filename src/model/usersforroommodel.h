@@ -41,7 +41,7 @@ public:
     explicit UsersForRoomModel(QObject *parent = nullptr);
     ~UsersForRoomModel();
 
-    void insertUsers(const QVector<User> &users);
+    void setUsers(const QVector<User> &users);
 
     Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
     QVariant data(const QModelIndex &index, int role) const override;

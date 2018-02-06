@@ -32,6 +32,8 @@ public:
     ~UserCompleterModelTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldAddValues();
+    void shouldVerifyData();
 };
 
 #endif // USERCOMPLETERMODELTEST_H

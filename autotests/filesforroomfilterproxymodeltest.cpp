@@ -34,3 +34,40 @@ void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValue()
 
 }
 
+void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValues()
+{
+    FilesForRoomFilterProxyModel proxy;
+    FilesForRoomModel model;
+    proxy.setSourceModel(&model);
+    QCOMPARE(proxy.rowCount(), 0);
+}
+
+void FilesForRoomFilterProxyModelTest::shouldAssignValue()
+{
+    FilesForRoomFilterProxyModel proxy;
+    FilesForRoomModel model;
+    proxy.setSourceModel(&model);
+    QVector<File> mFiles;
+    for (int i = 0; i < 10; ++i) {
+        File f;
+        f.setName(QStringLiteral("name%1").arg(i));
+        f.setDescription(QStringLiteral("description%1").arg(i));
+        f.setUserId(QStringLiteral("userid%1").arg(i));
+        mFiles.append(f);
+    }
+    model.setFiles(mFiles);
+    QCOMPARE(model.rowCount(), 10);
+    QCOMPARE(proxy.rowCount(), 10);
+
+    mFiles.clear();
+    for (int i = 0; i < 3; ++i) {
+        File f;
+        f.setName(QStringLiteral("name%1").arg(i));
+        f.setDescription(QStringLiteral("description%1").arg(i));
+        f.setUserId(QStringLiteral("userid%1").arg(i));
+        mFiles.append(f);
+    }
+    model.setFiles(mFiles);
+    QCOMPARE(model.rowCount(), 3);
+    QCOMPARE(proxy.rowCount(), 3);
+}

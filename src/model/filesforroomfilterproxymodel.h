@@ -22,8 +22,9 @@
 #define FILESFORROOMFILTERPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
+#include "libruqola_private_export.h"
 
-class FilesForRoomFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_TESTS_EXPORT FilesForRoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:

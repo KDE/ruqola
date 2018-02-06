@@ -31,6 +31,8 @@ public:
     ~FilesForRoomFilterProxyModelTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldHaveDefaultValues();
+    void shouldAssignValue();
 };
 
 #endif // FILESFORROOMFILTERPROXYMODELTEST_H

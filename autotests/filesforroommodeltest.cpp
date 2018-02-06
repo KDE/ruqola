@@ -20,6 +20,7 @@
 
 #include "filesforroommodeltest.h"
 #include "model/filesforroommodel.h"
+#include <QSignalSpy>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(FilesForRoomModelTest)
@@ -32,7 +33,10 @@ FilesForRoomModelTest::FilesForRoomModelTest(QObject *parent)
 void FilesForRoomModelTest::shouldHaveDefaultValue()
 {
     FilesForRoomModel w;
+    QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
+    // (if it had 0 columns, it would have to emit column insertions, too much trouble)
     QCOMPARE(w.rowCount(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 0);
 }
 
 void FilesForRoomModelTest::shouldAddFiles()
@@ -46,9 +50,14 @@ void FilesForRoomModelTest::shouldAddFiles()
         f.setUserId(QStringLiteral("userid%1").arg(i));
         mFiles.append(f);
     }
+    QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
 
-    w.insertFiles(mFiles);
+
+
+    w.setFiles(mFiles);
     QCOMPARE(w.rowCount(), 10);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+
 
     mFiles.clear();
     for (int i = 0; i < 3; ++i) {
@@ -58,8 +67,9 @@ void FilesForRoomModelTest::shouldAddFiles()
         f.setUserId(QStringLiteral("userid%1").arg(i));
         mFiles.append(f);
     }
-    w.insertFiles(mFiles);
+    w.setFiles(mFiles);
     QCOMPARE(w.rowCount(), 3);
+    QCOMPARE(rowInsertedSpy.count(), 2);
 }
 
 void FilesForRoomModelTest::shouldVerifyData()
@@ -74,7 +84,7 @@ void FilesForRoomModelTest::shouldVerifyData()
         mFiles.append(f);
     }
 
-    w.insertFiles(mFiles);
+    w.setFiles(mFiles);
     QCOMPARE(w.rowCount(), 10);
     for (int i = 0; i < 10; ++i) {
         QCOMPARE(w.data(w.index(i), FilesForRoomModel::UserName).toString(), QStringLiteral("name%1").arg(i));
@@ -89,7 +99,7 @@ void FilesForRoomModelTest::shouldVerifyData()
         f.setUserId(QStringLiteral("userid%1").arg(i));
         mFiles.append(f);
     }
-    w.insertFiles(mFiles);
+    w.setFiles(mFiles);
     for (int i = 0; i < 3; ++i) {
         QCOMPARE(w.data(w.index(i), FilesForRoomModel::UserName).toString(), QStringLiteral("name%1").arg(i));
         QCOMPARE(w.data(w.index(i), FilesForRoomModel::Description).toString(), QStringLiteral("description%1").arg(i));

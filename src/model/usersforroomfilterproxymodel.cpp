@@ -57,7 +57,6 @@ bool UsersForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QMode
     if (left.isValid() && right.isValid()) {
         const QString leftString = sourceModel()->data(left, UsersForRoomModel::UserName).toString();
         const QString rightString = sourceModel()->data(right, UsersForRoomModel::UserName).toString();
-        qDebug() << " leftString"<<leftString<<" rightString"<<rightString;
         return QString::localeAwareCompare(leftString, rightString) < 0;
     } else {
         return false;
