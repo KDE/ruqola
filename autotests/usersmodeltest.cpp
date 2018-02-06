@@ -35,9 +35,30 @@ void UsersModelTest::shouldHaveDefaultValue()
     UsersModel w;
     QSignalSpy rowInsertedSpy(&w, &UsersModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &UsersModel::rowsAboutToBeInserted);
+    QSignalSpy rowRemovedSpy(&w, &UsersModel::rowsRemoved);
+    QSignalSpy rowABTRemoved(&w, &UsersModel::rowsAboutToBeRemoved);
     QSignalSpy userStatusChangedSpy(&w, &UsersModel::userStatusChanged);
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
     QCOMPARE(userStatusChangedSpy.count(), 0);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+}
+
+void UsersModelTest::shouldRemoveUser()
+{
+    UsersModel w;
+    QSignalSpy rowInsertedSpy(&w, &UsersModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &UsersModel::rowsAboutToBeInserted);
+    QSignalSpy rowRemovedSpy(&w, &UsersModel::rowsRemoved);
+    QSignalSpy rowABTRemoved(&w, &UsersModel::rowsAboutToBeRemoved);
+    QSignalSpy userStatusChangedSpy(&w, &UsersModel::userStatusChanged);
+    QCOMPARE(w.rowCount(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(userStatusChangedSpy.count(), 0);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+
 }

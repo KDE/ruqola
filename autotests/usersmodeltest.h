@@ -31,6 +31,7 @@ public:
     ~UsersModelTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldRemoveUser();
 };
 
 #endif // USERSMODELTEST_H
