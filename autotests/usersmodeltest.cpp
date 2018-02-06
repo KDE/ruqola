@@ -20,6 +20,7 @@
 
 #include "usersmodeltest.h"
 #include "model/usersmodel.h"
+#include <QSignalSpy>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UsersModelTest)
@@ -31,6 +32,10 @@ UsersModelTest::UsersModelTest(QObject *parent)
 
 void UsersModelTest::shouldHaveDefaultValue()
 {
-    UsersModel model;
-    QCOMPARE(model.rowCount(), 0);
+    UsersModel w;
+    QSignalSpy rowInsertedSpy(&w, &UsersModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &UsersModel::rowsAboutToBeInserted);
+    QCOMPARE(w.rowCount(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
 }
