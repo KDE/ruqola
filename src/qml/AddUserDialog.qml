@@ -32,9 +32,10 @@ Dialog {
 
     property QtObject completerModel
     signal searchUserName(string pattern)
+    signal addUser(string name)
 
     title: i18n("Add Users")
-    standardButtons: Dialog.Ok | Dialog.Cancel
+    standardButtons: Dialog.Close
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
@@ -67,6 +68,19 @@ Dialog {
             model: completerModel
             delegate:
                 RowLayout {
+                Kirigami.Icon {
+                    source: "list-add"
+                    //FIXME
+                    height: 22
+                    width: 22
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            //root.hideRoom(d_roomID)
+                        }
+                    }
+                }
+
                 Kirigami.Icon {
                     source: iconstatus
                     //FIXME
