@@ -72,7 +72,6 @@ MessageBase {
                     acceptedButtons: Qt.RightButton
 
                     onClicked: {
-                        console.log(RuqolaDebugCategorySingleton.category, "clicked");
                         if (mouse.button === Qt.RightButton) {
                             menu.x = mouse.x
                             menu.y = mouse.y
@@ -97,6 +96,18 @@ MessageBase {
                     wrapMode: QQC2.Label.Wrap
 
                     onLinkActivated: messageMain.linkActivated(link)
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.RightButton
+
+                        onClicked: {
+                            if (mouse.button === Qt.RightButton) {
+                                menu.x = mouse.x
+                                menu.y = mouse.y
+                                menu.open();
+                            }
+                        }
+                    }
                 }
                 Column {
                     id: urlColumn
