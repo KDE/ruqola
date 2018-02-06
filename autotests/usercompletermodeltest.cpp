@@ -30,3 +30,9 @@ UserCompleterModelTest::UserCompleterModelTest(QObject *parent)
 {
 
 }
+
+void UserCompleterModelTest::shouldHaveDefaultValue()
+{
+    UserCompleterModel w;
+    QCOMPARE(w.rowCount(), 0);
+}

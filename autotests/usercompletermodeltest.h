@@ -30,6 +30,8 @@ class UserCompleterModelTest : public QObject
 public:
     explicit UserCompleterModelTest(QObject *parent = nullptr);
     ~UserCompleterModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // USERCOMPLETERMODELTEST_H
