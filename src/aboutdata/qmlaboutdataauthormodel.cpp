@@ -68,7 +68,7 @@ QHash<int, QByteArray> QmlAboutDataAuthorModel::roleNames() const
 void QmlAboutDataAuthorModel::setAboutPerson(const QList<KAboutPerson> &aboutPerson)
 {
     if (!aboutPerson.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, aboutPerson.size() - 1);
+        beginInsertRows(QModelIndex(), 0, aboutPerson.count() - 1);
         mAboutPerson = aboutPerson;
         endInsertRows();
     }
