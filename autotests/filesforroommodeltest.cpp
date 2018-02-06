@@ -28,3 +28,9 @@ FilesForRoomModelTest::FilesForRoomModelTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+void FilesForRoomModelTest::shouldHaveDefaultValue()
+{
+    FilesForRoomModel w;
+    QCOMPARE(w.rowCount(), 0);
+}
