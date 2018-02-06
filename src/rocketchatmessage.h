@@ -86,8 +86,9 @@ public:
     //TODO add autotest
     RocketChatMessage::RocketChatMessageResult blockUser(const QString &userId, quint64 id);
     RocketChatMessage::RocketChatMessageResult unblockUser(const QString &userId, quint64 id);
-    RocketChatMessage::RocketChatMessageResult channelAndPrivateAutocomplete(const QString &roomName, quint64 id);
+    RocketChatMessage::RocketChatMessageResult channelAndPrivateAutocomplete(const QString &pattern, quint64 id);
     RocketChatMessage::RocketChatMessageResult roomFiles(const QString &roomId, quint64 id);
+    RocketChatMessage::RocketChatMessageResult searchRoomUsers(const QString &pattern, bool searchUser, bool searchRoom, quint64 id);
 private:
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);

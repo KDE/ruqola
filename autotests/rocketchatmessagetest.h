@@ -75,6 +75,8 @@ private Q_SLOTS:
 
     void shouldSetRoomAnnouncement();
     void shouldChannelAndPrivateAutocomplete();
+    void shouldSplotlightWithoutUsers();
+    void shouldSplotlightWithoutRooms();
 
 private:
     void compareFile(const QString &data, const QString &name);

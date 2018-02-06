@@ -352,3 +352,19 @@ void RocketChatMessageTest::shouldChannelAndPrivateAutocomplete()
     RocketChatMessage::RocketChatMessageResult r = m.channelAndPrivateAutocomplete(QStringLiteral("room"), 43);
     compareFile(r.result, QStringLiteral("channelAndPrivateAutocomplete"));
 }
+
+void RocketChatMessageTest::shouldSplotlightWithoutUsers()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QStringLiteral("room"), false, true, 43);
+    compareFile(r.result, QStringLiteral("spotlight-without-users"));
+}
+
+void RocketChatMessageTest::shouldSplotlightWithoutRooms()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QStringLiteral("room"), true, false, 43);
+    compareFile(r.result, QStringLiteral("spotlight-without-rooms"));
+}

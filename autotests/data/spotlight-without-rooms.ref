@@ -1,0 +1,14 @@
+{
+    "id": "43",
+    "method": "spotlight",
+    "msg": "method",
+    "params": [
+        "room",
+        [
+        ],
+        {
+            "rooms": false,
+            "users": true
+        }
+    ]
+}

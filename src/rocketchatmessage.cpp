@@ -405,19 +405,23 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
     return subscribe(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::channelAndPrivateAutocomplete(const QString &roomName, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::channelAndPrivateAutocomplete(const QString &pattern, quint64 id)
+{
+    return searchRoomUsers(pattern, true, true, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::searchRoomUsers(const QString &pattern, bool searchUser, bool searchRoom, quint64 id)
 {
     QJsonArray params;
-    params.append(roomName);
+    params.append(pattern);
 
     QJsonArray type;
     params.append(type);
 
     QJsonObject secondParams;
-    secondParams[QStringLiteral("rooms")] = true;
-    secondParams[QStringLiteral("users")] = true;
+    secondParams[QStringLiteral("rooms")] = searchRoom;
+    secondParams[QStringLiteral("users")] = searchUser;
     params.append(secondParams);
-    qDebug() << " params " << params;
     return generateMethod(QStringLiteral("spotlight"), QJsonDocument(params), id);
 }
 
