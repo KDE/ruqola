@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "channel.h"
+#include "ruqola_debug.h"
 
 Channel::Channel()
 {
@@ -33,7 +33,7 @@ Channel::~Channel()
 
 void Channel::parseChannel(const QJsonObject &object)
 {
-
+    //TODO
 }
 
 Channel::ChannelType Channel::type() const
@@ -48,6 +48,7 @@ void Channel::setType(const ChannelType &type)
 
 QDebug operator <<(QDebug d, const Channel &t)
 {
+    d << "type: " << t.type();
     //TODO
     return d;
 }
