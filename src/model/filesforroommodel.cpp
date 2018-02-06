@@ -33,7 +33,7 @@ FilesForRoomModel::~FilesForRoomModel()
 void FilesForRoomModel::insertFiles(const QVector<File> &files)
 {
     mFiles.clear();
-    beginInsertRows(QModelIndex(), 0, rowCount() - 1);
+    beginInsertRows(QModelIndex(), 0, files.count() - 1);
     mFiles = files;
     endInsertRows();
 }

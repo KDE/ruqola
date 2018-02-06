@@ -22,10 +22,10 @@
 #define USERCOMPLETERMODEL_H
 
 #include "user.h"
-
+#include "libruqola_private_export.h"
 #include <QStringListModel>
 
-class UserCompleterModel : public QAbstractListModel
+class LIBRUQOLACORE_TESTS_EXPORT UserCompleterModel : public QAbstractListModel
 {
     Q_OBJECT
 public:

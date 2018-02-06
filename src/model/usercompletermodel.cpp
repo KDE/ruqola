@@ -40,7 +40,7 @@ void UserCompleterModel::clear()
 void UserCompleterModel::insertUsers(const QVector<User> &users)
 {
     qDebug() << " void UserCompleterModel::insertUsers(const QVector<User> &users)"<<users.count();
-    beginInsertRows(QModelIndex(), 0, rowCount() - 1);
+    beginInsertRows(QModelIndex(), 0, users.count() - 1);
     mUsers = users;
     endInsertRows();
 }
