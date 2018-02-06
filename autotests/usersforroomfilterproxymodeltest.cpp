@@ -35,3 +35,32 @@ UsersForRoomFilterProxyModelTest::~UsersForRoomFilterProxyModelTest()
 {
 
 }
+
+void UsersForRoomFilterProxyModelTest::shouldHaveDefaultValues()
+{
+    UsersForRoomFilterProxyModel proxy;
+    UsersForRoomModel model;
+    proxy.setSourceModel(&model);
+    QCOMPARE(proxy.rowCount(), 0);
+}
+
+void UsersForRoomFilterProxyModelTest::shouldAssignValue()
+{
+    UsersForRoomFilterProxyModel proxy;
+    UsersForRoomModel model;
+    proxy.setSourceModel(&model);
+    QCOMPARE(proxy.rowCount(), 0);
+
+    QVector<User> users;
+    for (int i = 0; i < 10; i++) {
+        User user;
+        user.setName(QStringLiteral("name%1").arg(i));
+        user.setStatus(QStringLiteral("status%1").arg(i));
+        user.setUserId(QStringLiteral("userId%1").arg(i));
+        user.setUserName(QStringLiteral("username%1").arg(i));
+        users.append(user);
+    }
+    model.insertUsers(users);
+    QCOMPARE(proxy.rowCount(), 10);
+    QCOMPARE(model.rowCount(), 10);
+}
