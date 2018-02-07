@@ -65,6 +65,7 @@ Dialog {
             text: i18np("%1 attachment in room", "%1 attachments in room", filesModel ? filesModel.rowCount() : 0)
         }
 
+        //Add scrollview
         ListView {
             id: listview
             width: 300
