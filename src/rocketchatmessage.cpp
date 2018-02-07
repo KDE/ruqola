@@ -377,6 +377,21 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::roomFiles(const QS
     return subscribe(QStringLiteral("roomFiles"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::addUserToRoom(const QString &username, const QString &roomId, quint64 id)
+{
+    //This method use multiusers
+    const QJsonArray users = QJsonArray::fromStringList( QStringList() << username );
+
+    QJsonArray params;
+
+    QJsonObject param;
+    param[QStringLiteral("rid")] = roomId;
+    param[QStringLiteral("username")] = users.first();
+    params.append( param );
+
+    return generateMethod(QStringLiteral("addUserToRoom"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::logout(const QString &name, quint64 id)
 {
     Q_UNUSED(name);

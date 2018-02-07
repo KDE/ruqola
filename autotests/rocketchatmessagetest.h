@@ -78,6 +78,7 @@ private Q_SLOTS:
     void shouldSplotlightWithoutUsers();
     void shouldSplotlightWithoutRooms();
 
+    void shouldAddUserToRoom();
 private:
     void compareFile(const QString &data, const QString &name);
 };

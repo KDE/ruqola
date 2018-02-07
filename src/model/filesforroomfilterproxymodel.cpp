@@ -56,3 +56,8 @@ bool FilesForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QMode
         return false;
     }
 }
+
+void FilesForRoomFilterProxyModel::setFilterString(const QString &string)
+{
+    setFilterFixedString(string);
+}

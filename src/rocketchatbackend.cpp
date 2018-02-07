@@ -203,7 +203,6 @@ QVector<User> RocketChatBackend::users() const
 
 void RocketChatBackend::slotRemoved(const QJsonObject &object)
 {
-    //TODO
     const QString collection = object.value(QLatin1String("collection")).toString();
     if (collection == QLatin1String("users")) {
         const QString id = object.value(QLatin1String("id")).toString();
@@ -211,7 +210,7 @@ void RocketChatBackend::slotRemoved(const QJsonObject &object)
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
-            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("users: Add Removed:") + d.toJson());
+            mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("users: Removed user:") + d.toJson());
         } else {
             qCDebug(RUQOLA_LOG) << "USER REMOVED VALUE" << object;
         }

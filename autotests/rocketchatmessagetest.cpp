@@ -368,3 +368,11 @@ void RocketChatMessageTest::shouldSplotlightWithoutRooms()
     RocketChatMessage::RocketChatMessageResult r = m.searchRoomUsers(QStringLiteral("room"), true, false, 43);
     compareFile(r.result, QStringLiteral("spotlight-without-rooms"));
 }
+
+void RocketChatMessageTest::shouldAddUserToRoom()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.addUserToRoom(QStringLiteral("userId"), QStringLiteral("room"), 43);
+    compareFile(r.result, QStringLiteral("addusertoroom"));
+}

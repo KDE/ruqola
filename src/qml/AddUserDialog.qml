@@ -32,7 +32,9 @@ Dialog {
 
     property QtObject completerModel
     signal searchUserName(string pattern)
-    signal addUser(string name)
+    signal addUser(string name, string rid)
+
+    property string roomId: ""
 
     title: i18n("Add Users")
     standardButtons: Dialog.Close
@@ -76,7 +78,8 @@ Dialog {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            //root.hideRoom(d_roomID)
+                            addUserDialog.addUser(username, roomId)
+                            console.log("Add user " + username)
                         }
                     }
                 }

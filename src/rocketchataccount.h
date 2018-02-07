@@ -47,6 +47,7 @@ class OtrManager;
 class UsersForRoomFilterProxyModel;
 class UsersForRoomModel;
 class FilesForRoomModel;
+class FilesForRoomFilterProxyModel;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -128,6 +129,8 @@ public:
     Q_INVOKABLE UserCompleterFilterModelProxy *userCompleterFilterModelProxy() const;
     Q_INVOKABLE void roomFiles(const QString &roomId);
     Q_INVOKABLE FilesForRoomModel *filesForRoomModel(const QString &roomId) const;
+    Q_INVOKABLE FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel(const QString &roomId) const;
+    Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId);
 
     RocketChatAccountSettings *settings() const;
     DDPClient *ddp();

@@ -171,6 +171,11 @@ FilesForRoomModel *RocketChatAccount::filesForRoomModel(const QString &roomId) c
     return mRoomModel->filesModelForRoom(roomId);
 }
 
+FilesForRoomFilterProxyModel *RocketChatAccount::filesForRoomFilterProxyModel(const QString &roomId) const
+{
+    return mRoomModel->filesForRoomFilterProxyModel(roomId);
+}
+
 RocketChatBackend *RocketChatAccount::rocketChatBackend() const
 {
     return mRocketChatBackend;
@@ -501,6 +506,11 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 {
     ddp()->createJitsiConfCall(roomId);
     joinJitsiConfCall(roomId);
+}
+
+void RocketChatAccount::addUserToRoom(const QString &username, const QString &roomId)
+{
+    ddp()->addUserToRoom(username, roomId);
 }
 
 void RocketChatAccount::starMessage(const QString &messageId, const QString &rid, bool starred)

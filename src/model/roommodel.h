@@ -30,6 +30,7 @@
 class RoomWrapper;
 class RocketChatAccount;
 class FilesForRoomModel;
+class FilesForRoomFilterProxyModel;
 class LIBRUQOLACORE_EXPORT RoomModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -106,6 +107,7 @@ public:
 
     FilesForRoomModel *filesModelForRoom(const QString &roomId) const;
 
+    FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel(const QString &roomId) const;
 protected:
     QHash<int, QByteArray> roleNames() const override;
 

@@ -49,6 +49,13 @@ void process_backlog(const QJsonObject &root, RocketChatAccount *account)
     account->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray());
 }
 
+void add_user_to_room(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Add User To Room:") + QJsonDocument(root).toJson());
+    }
+}
+
 void star_message(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -502,6 +509,12 @@ quint64 DDPClient::clearUnreadMessages(const QString &roomID)
     return method(result, empty_callback, DDPClient::Persistent);
 }
 
+quint64 DDPClient::addUserToRoom(const QString &username, const QString &roomId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->addUserToRoom(username, roomId, m_uid);
+    return method(result, add_user_to_room, DDPClient::Persistent);
+}
+
 quint64 DDPClient::starMessage(const QString &messageId, const QString &rid, bool starred)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->starMessage(messageId, rid, starred, m_uid);
@@ -651,6 +664,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             qCDebug(RUQOLA_DDPAPI_LOG) << "ADDING element" <<response;
             Q_EMIT added(root);
         } else if (messageType == QLatin1String("changed")) {
+            qCDebug(RUQOLA_DDPAPI_LOG) << "Changed element" <<response;
             Q_EMIT changed(root);
         } else if (messageType == QLatin1String("ready")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << "READY element" <<response;

@@ -30,6 +30,7 @@
 class UsersForRoomModel;
 class UsersForRoomFilterProxyModel;
 class FilesForRoomModel;
+class FilesForRoomFilterProxyModel;
 
 class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
 {
@@ -125,6 +126,8 @@ public:
 
     Q_INVOKABLE FilesForRoomModel *filesModelForRoom() const;
 
+    FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -177,6 +180,7 @@ private:
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;
+    FilesForRoomFilterProxyModel *mFilesForRoomFilterProxyModel = nullptr;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);

@@ -57,7 +57,7 @@ QQC2.Dialog {
     GridLayout {
         columns: 2
         QQC2.Label {
-            text: i18n("name:");
+            text: i18n("Name:");
         }
         TextFieldEditor {
             id: channelNameField

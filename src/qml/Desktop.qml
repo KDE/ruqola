@@ -138,6 +138,9 @@ Kirigami.ApplicationWindow {
         onSearchUserName: {
             rocketChatAccount.userAutocomplete(pattern, "");
         }
+        onAddUser: {
+            rocketChatAccount.addUserToRoom(name, rid)
+        }
     }
 
     SearchChannelDialog {

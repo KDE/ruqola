@@ -23,7 +23,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import QtQuick 2.9
-import KDE.Ruqola.FilesForRoomModel 1.0
+import KDE.Ruqola.FilesForRoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 //TODO move in common directory ?
 import "messages"
@@ -58,7 +58,7 @@ Dialog {
             Layout.fillWidth: true
             placeholderText: i18n("Search file...")
             onTextChanged: {
-                appid.userModel.setFilterString(text);
+                filesModel.setFilterString(text);
             }
         }
         Label {

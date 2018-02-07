@@ -168,6 +168,7 @@ public:
     quint64 loadHistory(const QJsonArray &params);
     quint64 channelAndPrivateAutocomplete(const QString &pattern);
     quint64 roomFiles(const QString &roomId);
+    quint64 addUserToRoom(const QString &userId, const QString &roomId);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

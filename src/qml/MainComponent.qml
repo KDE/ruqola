@@ -106,8 +106,9 @@ Component {
                         RuqolaMenuSeparator {
                         }
                         QQC2.MenuItem {
-                            text: "Test add user !"
+                            text: i18n("Add User In Room")
                             onTriggered: {
+                                addUserDialog.roomId = appid.selectedRoomID
                                 addUserDialog.initializeAndOpen()
                             }
                         }
@@ -128,7 +129,7 @@ Component {
                         }
                         RuqolaMenuSeparator {}
                         QQC2.MenuItem {
-                            text: i18n("Show Users")
+                            text: i18n("Show Users In Room")
                             onTriggered: {
                                 showUsersDialog.userModel = appid.userModel
                                 showUsersDialog.initializeAndOpen()
@@ -137,7 +138,7 @@ Component {
                         RuqolaMenuSeparator {
                         }
                         QQC2.MenuItem {
-                            text: i18n("Room Files (test)")
+                            text: i18n("Show Files Attachment In Room")
                             onTriggered: {
                                 appid.rocketChatAccount.roomFiles(appid.selectedRoomID);
                                 showFilesInRoomDialog.initializeAndOpen()

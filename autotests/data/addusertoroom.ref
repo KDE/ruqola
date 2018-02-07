@@ -1,10 +1,11 @@
 {
     "id": "43",
-    "method": "deleteMessage",
+    "method": "addUserToRoom",
     "msg": "method",
     "params": [
         {
-            "_id": "messid"
+            "rid": "room",
+            "username": "userId"
         }
     ]
 }

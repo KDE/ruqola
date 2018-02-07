@@ -81,6 +81,7 @@ QHash<int, QByteArray> UserCompleterModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[UserName] = QByteArrayLiteral("username");
+    roles[UserId] = QByteArrayLiteral("userid");
     roles[UserIconStatus] = QByteArrayLiteral("iconstatus");
     return roles;
 }

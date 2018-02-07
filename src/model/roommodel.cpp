@@ -361,6 +361,20 @@ UsersForRoomFilterProxyModel *RoomModel::usersForRoomFilterProxyModel(const QStr
     return {};
 }
 
+FilesForRoomFilterProxyModel *RoomModel::filesForRoomFilterProxyModel(const QString &roomId) const
+{
+    const int roomCount{
+        mRoomsList.count()
+    };
+    for (int i = 0; i < roomCount; ++i) {
+        if (mRoomsList.at(i)->id() == roomId) {
+            return mRoomsList.at(i)->filesForRoomFilterProxyModel();
+        }
+    }
+    return {};
+}
+
+
 FilesForRoomModel *RoomModel::filesModelForRoom(const QString &roomId) const
 {
     const int roomCount{
