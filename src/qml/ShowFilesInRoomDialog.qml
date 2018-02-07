@@ -73,18 +73,15 @@ Dialog {
             model: filesModel
             delegate:
                 RowLayout {
-                //Add icon from mimetype
-//                Kirigami.Icon {
-//                    source: iconstatus
-//                    //FIXME
-//                    height: 22
-//                    width: 22
-//                }
-                Text {
+                Label {
                     text: username + description
+                    wrapMode: Label.Wrap
                 }
                 DownloadButton {
-                    //TODO
+                    onDownloadButtonClicked: {
+                        console.log("Click on button" + url)
+                        //TODO messageMain.downloadAttachment(model.modelData.link)
+                    }
                 }
             }
         }
