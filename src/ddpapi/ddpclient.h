@@ -203,6 +203,7 @@ private:
     Q_INVOKABLE void setLoginType(LoginType t);
     void pong();
     void executeSubsCallBack(const QJsonObject &root);
+    quint64 login(const QString &username, const QString &password);
 
     QString mUrl;
     AbstractWebSocket *mWebSocket = nullptr;

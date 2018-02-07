@@ -354,7 +354,7 @@ void DDPClient::subscribeRoomMessage(const QString &roomId)
 
     const QJsonArray params2{
         QJsonValue(QStringLiteral("%1/%2").arg(roomId).arg(QStringLiteral("deleteMessage"))),
-        true
+                true
     };
     subscribe(QStringLiteral("stream-notify-room"), params2);
 }
@@ -451,13 +451,13 @@ quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->getUsersOfRoom(roomId, showAll, m_uid);
     std::function<void(QJsonObject, RocketChatAccount *)> callback = [ roomId ](const QJsonObject &root, RocketChatAccount *account) {
-                                                                         if (account->ruqolaLogger()) {
-                                                                             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Get Users of Room:") + QJsonDocument(root).toJson());
-                                                                         } else {
-                                                                             qCDebug(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
-                                                                         }
-                                                                         account->parseUsersForRooms(roomId, root);
-                                                                     };
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Get Users of Room:") + QJsonDocument(root).toJson());
+        } else {
+            qCDebug(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
+        }
+        account->parseUsersForRooms(roomId, root);
+    };
 
     return method(result, callback, DDPClient::Persistent);
 }
@@ -468,31 +468,31 @@ quint64 DDPClient::roomFiles(const QString &roomId)
 
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->roomFiles(roomId, subscribeId);
     std::function<void(QJsonObject, RocketChatAccount *)> callback = [=](const QJsonObject &root, RocketChatAccount *account) {
-                                                                         if (account->ruqolaLogger()) {
-                                                                             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Room File done:") + QJsonDocument(root).toJson());
-                                                                         } else {
-                                                                             qDebug() << "Room Files " << root;
-                                                                             qCDebug(RUQOLA_DDPAPI_LOG) << " Room Files" << root;
-                                                                         }
-                                                                         account->insertFilesList(roomId);
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Room File done:") + QJsonDocument(root).toJson());
+        } else {
+            qDebug() << "Room Files " << root;
+            qCDebug(RUQOLA_DDPAPI_LOG) << " Room Files" << root;
+        }
+        account->insertFilesList(roomId);
 
-                                                                         const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(subscribeId);
-                                                                         std::function<void(QJsonObject,
-                                                                                            RocketChatAccount *)> callbackUnsubscribeAutoComplete
-                                                                             = [=](const QJsonObject &root, RocketChatAccount *account) {
-                                                                                   if (account->ruqolaLogger()) {
-                                                                                       account->ruqolaLogger()->
-                                                                                       dataReceived(QByteArrayLiteral(
-                                                                                                        "Unsubscribe room files:") + QJsonDocument(root).toJson());
-                                                                                   } else {
-                                                                                       qDebug()
-                                                                                                                                                                << " Unsubscribe room files" << root;
-                                                                                       qCDebug(RUQOLA_DDPAPI_LOG)
-                                                                                                                                                                << " Unsubscribe room files" << root;
-                                                                                   }
-                                                                               };
-                                                                         method(resultUnsubscribe, callbackUnsubscribeAutoComplete, DDPClient::Persistent);
-                                                                     };
+        const RocketChatMessage::RocketChatMessageResult resultUnsubscribe = mRocketChatMessage->unsubscribe(subscribeId);
+        std::function<void(QJsonObject,
+                           RocketChatAccount *)> callbackUnsubscribeAutoComplete
+                = [=](const QJsonObject &root, RocketChatAccount *account) {
+            if (account->ruqolaLogger()) {
+                account->ruqolaLogger()->
+                        dataReceived(QByteArrayLiteral(
+                                         "Unsubscribe room files:") + QJsonDocument(root).toJson());
+            } else {
+                qDebug()
+                        << " Unsubscribe room files" << root;
+                qCDebug(RUQOLA_DDPAPI_LOG)
+                        << " Unsubscribe room files" << root;
+            }
+        };
+        method(resultUnsubscribe, callbackUnsubscribeAutoComplete, DDPClient::Persistent);
+    };
 
     return method(result, callback, DDPClient::Persistent);
 }
@@ -507,6 +507,13 @@ quint64 DDPClient::clearUnreadMessages(const QString &roomID)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->readMessages(roomID, m_uid);
     return method(result, empty_callback, DDPClient::Persistent);
+}
+
+quint64 DDPClient::login(const QString &username, const QString &password)
+{
+    qDebug() << " quint64 DDPClient::login(const QString &username, const QString &password)********************************************************";
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->login(username, password, m_uid);
+    return method(result, empty_callback, DDPClient::Ephemeral);
 }
 
 quint64 DDPClient::addUserToRoom(const QString &username, const QString &roomId)
@@ -650,11 +657,11 @@ void DDPClient::onTextMessageReceived(const QString &message)
                 }
             }
         } else if (messageType == QLatin1String("connected")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << "Connected";
+            //qCDebug(RUQOLA_DDPAPI_LOG) << "Connected";
+            qDebug() << "Connected";
             m_connected = true;
-            Q_EMIT connectedChanged();
             setLoginStatus(DDPClient::LoggingIn);
-            login(); // Try to resume auth token login
+            Q_EMIT connectedChanged();
         } else if (messageType == QLatin1String("error")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << "ERROR!!" << message;
         } else if (messageType == QLatin1String("ping")) {
@@ -694,12 +701,8 @@ void DDPClient::login()
             return;
         }
         m_attemptedPasswordLogin = true;
-        QJsonObject user;
-        user[QStringLiteral("username")] = mRocketChatAccount->settings()->userName();
-        QJsonObject json;
-        json[QStringLiteral("password")] = mRocketChatAccount->settings()->password();
-        json[QStringLiteral("user")] = user;
-        m_loginJob = method(QStringLiteral("login"), QJsonDocument(json));
+
+        m_loginJob = login(mRocketChatAccount->settings()->userName(), mRocketChatAccount->settings()->password());
     } else if (!mRocketChatAccount->settings()->authToken().isEmpty() && !m_attemptedTokenLogin) {
         m_attemptedPasswordLogin = true;
         QJsonObject json;

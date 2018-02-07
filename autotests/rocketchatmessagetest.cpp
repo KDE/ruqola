@@ -376,3 +376,11 @@ void RocketChatMessageTest::shouldAddUserToRoom()
     RocketChatMessage::RocketChatMessageResult r = m.addUserToRoom(QStringLiteral("userId"), QStringLiteral("room"), 43);
     compareFile(r.result, QStringLiteral("addusertoroom"));
 }
+
+void RocketChatMessageTest::shouldLogin()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.login(QStringLiteral("user"), QStringLiteral("password"), 43);
+    compareFile(r.result, QStringLiteral("login"));
+}

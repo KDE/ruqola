@@ -71,6 +71,7 @@ private Q_SLOTS:
     RocketChatMessage::RocketChatMessageResult setRoomHasSystemMessages(const QString &roomId, bool systemMessages, quint64 id);
     RocketChatMessage::RocketChatMessageResult readMessages(const QString &roomID, quint64 id);
     RocketChatMessage::RocketChatMessageResult getSubscriptions(const QDateTime &lastUpdate, quint64 id);
+    RocketChatMessage::RocketChatMessageResult RocketChatMessage::login(const QString &username, const QString &password, quint64 id)
 #endif
 
     void shouldSetRoomAnnouncement();
@@ -79,6 +80,7 @@ private Q_SLOTS:
     void shouldSplotlightWithoutRooms();
 
     void shouldAddUserToRoom();
+    void shouldLogin();
 private:
     void compareFile(const QString &data, const QString &name);
 };

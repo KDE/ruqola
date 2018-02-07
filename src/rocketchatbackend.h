@@ -58,6 +58,7 @@ private:
     void slotAdded(const QJsonObject &object);
     void slotChanged(const QJsonObject &object);
     void slotLoginStatusChanged();
+    void slotConnectedChanged();
     void slotUserIDChanged();
     void parseServerVersionDone(const QString &version);
 

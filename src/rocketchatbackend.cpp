@@ -143,10 +143,17 @@ RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent
     connect(mRocketChatAccount, &RocketChatAccount::changed, this, &RocketChatBackend::slotChanged);
     connect(mRocketChatAccount, &RocketChatAccount::added, this, &RocketChatBackend::slotAdded);
     connect(mRocketChatAccount, &RocketChatAccount::removed, this, &RocketChatBackend::slotRemoved);
+    connect(mRocketChatAccount, &RocketChatAccount::connectedChanged, this, &RocketChatBackend::slotConnectedChanged);
 }
 
 RocketChatBackend::~RocketChatBackend()
 {
+}
+
+void RocketChatBackend::slotConnectedChanged()
+{
+    mRocketChatAccount->restApi()->serverInfo();
+    connect(mRocketChatAccount->restApi(), &RestApiRequest::getServerInfoDone, this, &RocketChatBackend::parseServerVersionDone);
 }
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
@@ -170,25 +177,24 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 void RocketChatBackend::slotLoginStatusChanged()
 {
     if (mRocketChatAccount->loginStatus() == DDPClient::LoggedIn) {
-        mRocketChatAccount->restApi()->serverInfo();
-        connect(mRocketChatAccount->restApi(), &RestApiRequest::getServerInfoDone, this, &RocketChatBackend::parseServerVersionDone);
+        QJsonObject params;
+        params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
+
+        std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &obj, RocketChatAccount *account) {
+                                                                                          getsubscription_parsing(obj, account);
+                                                                                      };
+        mRocketChatAccount->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
+        mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->settings()->authToken());
+        mRocketChatAccount->restApi()->setUserId(mRocketChatAccount->settings()->userId());
+        mRocketChatAccount->restApi()->channelList();
     }
 }
 
 void RocketChatBackend::parseServerVersionDone(const QString &version)
 {
     qDebug() << " void RocketChatBackend::parseServerVersionDone(const QString &version)******************";
-    QJsonObject params;
-    params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
-
-    std::function<void(QJsonObject, RocketChatAccount *)> subscription_callback = [=](const QJsonObject &obj, RocketChatAccount *account) {
-                                                                                      getsubscription_parsing(obj, account);
-                                                                                  };
     mRocketChatAccount->setServerVersion(version);
-    mRocketChatAccount->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
-    mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->settings()->authToken());
-    mRocketChatAccount->restApi()->setUserId(mRocketChatAccount->settings()->userId());
-    mRocketChatAccount->restApi()->channelList();
+    mRocketChatAccount->ddp()->login();
 }
 
 QVector<File> RocketChatBackend::files() const

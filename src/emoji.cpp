@@ -75,7 +75,7 @@ QString Emoji::html(const QString &serverUrl)
         //TODO verify it.
 
         QString url = serverUrl + QStringLiteral("/emoji-custom/%1.%2").arg(mName).arg(mExtension);
-        if (!url.startsWith(QStringLiteral("http://"))) {
+        if (!url.startsWith(QLatin1String("http://"))) {
             url.prepend(QLatin1String("http://"));
         }
         //https://rocket.chat/docs/developer-guides/realtime-api/method-calls/list-custom-emoji/#list-custom-emoji

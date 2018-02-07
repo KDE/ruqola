@@ -90,6 +90,7 @@ public:
     RocketChatMessage::RocketChatMessageResult roomFiles(const QString &roomId, quint64 id);
     RocketChatMessage::RocketChatMessageResult searchRoomUsers(const QString &pattern, bool searchUser, bool searchRoom, quint64 id);
     RocketChatMessage::RocketChatMessageResult addUserToRoom(const QString &username, const QString &roomId, quint64 id);
+    RocketChatMessage::RocketChatMessageResult login(const QString &username, const QString &password, quint64 id);
 private:
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);

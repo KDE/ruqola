@@ -186,6 +186,7 @@ public:
     void insertCompleterUsers();
     void insertFilesList(const QString &roomId);
 Q_SIGNALS:
+    void connectedChanged();
     void accountNameChanged();
     void userNameChanged();
     void userIDChanged();
