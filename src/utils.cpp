@@ -32,9 +32,9 @@ QUrl Utils::generateServerUrl(const QString &url)
     }
     QString serverUrl = url;
     if (serverUrl.startsWith(QLatin1String("https://"))) {
-        serverUrl.replace(QStringLiteral("https://"), QStringLiteral("wss://"));
+        serverUrl.replace(QLatin1String("https://"), QLatin1String("wss://"));
     } else if (serverUrl.startsWith(QLatin1String("http://"))) {
-        serverUrl.replace(QStringLiteral("http://"), QStringLiteral("ws://"));
+        serverUrl.replace(QLatin1String("http://"), QLatin1String("ws://"));
     } else {
         serverUrl = QStringLiteral("wss://") + serverUrl;
     }

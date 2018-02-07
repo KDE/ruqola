@@ -57,7 +57,7 @@ QmlTest::~QmlTest()
 
 bool QmlTest::isQmlFile(const QString &filename)
 {
-    return filename.endsWith(QStringLiteral(".qml"));
+    return filename.endsWith(QLatin1String(".qml"));
 }
 
 void QmlTest::loadCombobox()
