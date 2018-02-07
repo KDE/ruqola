@@ -410,11 +410,15 @@ void RocketChatAccount::openDirectChannel(const QString &username)
 
 void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames)
 {
-    const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
-    if (privateRoom) {
-        ddp()->createPrivateGroup(name, lstUsers);
+    if (!name.trimmed().isEmpty()) {
+        const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
+        if (privateRoom) {
+            ddp()->createPrivateGroup(name, lstUsers);
+        } else {
+            ddp()->createChannel(name, lstUsers, readOnly);
+        }
     } else {
-        ddp()->createChannel(name, lstUsers, readOnly);
+        qCDebug(RUQOLA_LOG) << "Channel name can't be empty";
     }
 }
 
