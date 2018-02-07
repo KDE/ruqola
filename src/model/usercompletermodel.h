@@ -44,7 +44,7 @@ public:
 
     void clear();
     void insertUsers(const QVector<User> &users);
-protected:
+
     QHash<int, QByteArray> roleNames() const override;
 
 private:

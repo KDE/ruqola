@@ -108,7 +108,7 @@ public:
     FilesForRoomModel *filesModelForRoom(const QString &roomId) const;
 
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel(const QString &roomId) const;
-protected:
+
     QHash<int, QByteArray> roleNames() const override;
 
 Q_SIGNALS:

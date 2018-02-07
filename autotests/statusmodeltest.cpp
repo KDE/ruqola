@@ -33,4 +33,11 @@ void StatusModelTest::shouldHaveDefaultValue()
 {
     StatusModel w;
     QCOMPARE(w.rowCount(), 4);
+
+    QHash<int, QByteArray> roles;
+    roles[StatusModel::StatusI18n] = QByteArrayLiteral("statusi18n");
+    roles[StatusModel::Status] = QByteArrayLiteral("status");
+    roles[StatusModel::Icon] = QByteArrayLiteral("icon");
+
+    QCOMPARE(w.roleNames(), roles);
 }

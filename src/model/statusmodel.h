@@ -52,7 +52,6 @@ public:
 
     User::PresenceStatus status(int index) const;
 
-protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:

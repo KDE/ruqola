@@ -46,7 +46,6 @@ public:
 
     void setFiles(const QVector<File> &files);
 
-protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:

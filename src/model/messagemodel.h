@@ -92,7 +92,6 @@ public:
     void deleteMessage(const QString &messageId);
 
     qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
-protected:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
