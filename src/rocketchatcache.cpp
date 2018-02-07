@@ -101,6 +101,7 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
         job->exec();
     } else {
         //Redownload it. TODO inform user ?
+        //FIXME we don't use localfile!
         const QUrl clickedUrl = generateDownloadFile(url);
         mAccount->restApi()->get(clickedUrl);
     }

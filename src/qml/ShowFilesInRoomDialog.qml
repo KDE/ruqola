@@ -82,8 +82,6 @@ Dialog {
                 DownloadButton {
                     onDownloadButtonClicked: {
                         showFilesInRoomDialog.downloadFile(url)
-                        console.log("Click on button" + url)
-                        //TODO messageMain.downloadAttachment(model.modelData.link)
                     }
                 }
             }
