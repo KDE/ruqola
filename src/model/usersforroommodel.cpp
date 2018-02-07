@@ -34,6 +34,16 @@ UsersForRoomModel::~UsersForRoomModel()
 {
 }
 
+void UsersForRoomModel::removeUser()
+{
+    
+}
+
+void UsersForRoomModel::addUser(const User &users)
+{
+    //TODO verify if it
+}
+
 void UsersForRoomModel::setUsers(const QVector<User> &users)
 {
     if (rowCount() != 0) {

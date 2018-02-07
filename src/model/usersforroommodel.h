@@ -48,6 +48,8 @@ public:
 
     void parseUsersForRooms(const QJsonObject &root);
     void userStatusChanged(const User &newuser);
+    void removeUser();
+    void addUser(const User &users);
 protected:
     QHash<int, QByteArray> roleNames() const override;
 
