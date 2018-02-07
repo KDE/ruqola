@@ -266,7 +266,11 @@ Component {
                 id: showFilesInRoomDialog
                 filesModel: appid.filesModel
                 onDownloadFile: {
-                    console.log("Download file" + url)
+                    console.log("Download file" + file)
+                    //Verify it
+                    downloadFileDialog.fileToSaveUrl = file
+                    downloadFileDialog.open()
+
                 }
             }
 
