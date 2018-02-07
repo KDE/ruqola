@@ -1,0 +1,10 @@
+{
+    "id": "43",
+    "method": "deleteMessage",
+    "msg": "method",
+    "params": [
+        {
+            "_id": "messid"
+        }
+    ]
+}

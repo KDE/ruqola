@@ -4,7 +4,6 @@
         <file>FancyMessageDelegate.qml</file>
         <file>RoomsView.qml</file>
         <file>RoomDelegate.qml</file>
-        <file>ChannelsList.qml</file>
         <file>Login.qml</file>
         <file>UserInput.qml</file>
         <file>LoginPage.qml</file>
