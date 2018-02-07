@@ -459,6 +459,12 @@ void RocketChatBackend::slotUserIDChanged()
         params.append(QJsonValue(params));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("activeUsers"), params);
     }
+    {
+        //Subscruve users in room ? //TODO verify it.
+        QJsonArray params;
+        params.append(QJsonValue(params));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-room-users"), params);
+    }
     //stream-notify-all
     {
         const QJsonArray params{
@@ -466,7 +472,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        qDebug() << " updateAvatar"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     {
@@ -475,7 +480,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        qDebug() << " roles-change"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     {
@@ -484,7 +488,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        qDebug() << " updateEmojiCustom"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     {
@@ -493,7 +496,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        qDebug() << " deleteEmojiCustom"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     {
@@ -502,7 +504,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        qDebug() << " public-settings-changed"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
     {
@@ -511,7 +512,6 @@ void RocketChatBackend::slotUserIDChanged()
                 true
             }
         };
-        qDebug() << " permissions-changed"<<params;
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
 }
