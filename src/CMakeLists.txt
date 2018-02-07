@@ -26,6 +26,8 @@ set (Ruqola_model_core_srcs
 
     model/filesforroommodel.cpp
     model/filesforroomfilterproxymodel.cpp
+
+    model/searchchannelroommodel.cpp
     )
     
 set (Ruqola_core_srcs
