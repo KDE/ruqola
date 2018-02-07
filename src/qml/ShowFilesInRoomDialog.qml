@@ -32,6 +32,7 @@ Dialog {
     id: showFilesInRoomDialog
 
     title: i18n("Show Files In Room")
+    signal downloadFile(string file)
 
     property QtObject filesModel
 
@@ -80,6 +81,7 @@ Dialog {
                 }
                 DownloadButton {
                     onDownloadButtonClicked: {
+                        showFilesInRoomDialog.downloadFile(url)
                         console.log("Click on button" + url)
                         //TODO messageMain.downloadAttachment(model.modelData.link)
                     }

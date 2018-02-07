@@ -261,9 +261,13 @@ Component {
             ShowUsersInRoomDialog {
                 id: showUsersDialog                
             }
+
             ShowFilesInRoomDialog {
                 id: showFilesInRoomDialog
                 filesModel: appid.filesModel
+                onDownloadFile: {
+                    console.log("Download file" + url)
+                }
             }
 
         }
