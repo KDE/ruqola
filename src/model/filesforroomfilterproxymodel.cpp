@@ -26,7 +26,8 @@ FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(QObject *parent)
 {
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(FilesForRoomModel::UserName);
+    setFilterRole(FilesForRoomModel::Url);
+    setFilterRole(FilesForRoomModel::Url);
     sort(0);
 }
 
