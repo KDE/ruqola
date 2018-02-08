@@ -25,7 +25,7 @@
 
 RuqolaLogger::RuqolaLogger()
 {
-    static qint64 nextIdentifier = 0;
+    static quint64 nextIdentifier = 0;
     mIdentifier = ++nextIdentifier;
 
     mFile.setFileName(QLatin1String(qgetenv("RUQOLA_LOGFILE"))

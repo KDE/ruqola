@@ -409,7 +409,7 @@ quint64 DDPClient::listEmojiCustom()
 
 quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &exception)
 {
-    const int subscribeId = m_uid;
+    const quint64 subscribeId = m_uid;
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->userAutocomplete(pattern, exception, subscribeId);
     std::function<void(QJsonObject, RocketChatAccount *)> callback = [=](const QJsonObject &root, RocketChatAccount *account) {
         if (account->ruqolaLogger()) {
@@ -464,7 +464,7 @@ quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
 
 quint64 DDPClient::roomFiles(const QString &roomId)
 {
-    const int subscribeId = m_uid;
+    const quint64 subscribeId = m_uid;
 
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->roomFiles(roomId, subscribeId);
     std::function<void(QJsonObject, RocketChatAccount *)> callback = [=](const QJsonObject &root, RocketChatAccount *account) {
@@ -538,7 +538,7 @@ quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const 
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << result.result;
     }
-    const int value = m_uid;
+    const quint64 value = m_uid;
     m_uid++;
     return value;
 }
@@ -560,7 +560,7 @@ quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &resu
 
     m_callbackHash[m_uid] = callback;
 
-    const int value = m_uid;
+    const quint64 value = m_uid;
     m_uid++;
     return value;
 }
