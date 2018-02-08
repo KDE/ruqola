@@ -24,12 +24,12 @@
 #include "libruqola_private_export.h"
 #include <QSortFilterProxyModel>
 
-class LIBRUQOLACORE_TESTS_EXPORT UserCompleterFilterModelProxy : public QSortFilterProxyModel
+class LIBRUQOLACORE_TESTS_EXPORT UserCompleterFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit UserCompleterFilterModelProxy(QObject *parent = nullptr);
-    ~UserCompleterFilterModelProxy();
+    explicit UserCompleterFilterProxyModel(QObject *parent = nullptr);
+    ~UserCompleterFilterProxyModel();
 
     QHash<int, QByteArray> roleNames() const override;
 

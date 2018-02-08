@@ -40,7 +40,7 @@ add_ruqola_test(channeltest.cpp)
 add_ruqola_test(usersforroomfilterproxymodeltest.cpp)
 add_ruqola_test(usercompletermodeltest.cpp)
 add_ruqola_test(roomfilterproxymodeltest.cpp)
-add_ruqola_test(usercompleterfiltermodelproxytest.cpp)
+add_ruqola_test(usercompleterfilterproxymodeltest.cpp)
 add_ruqola_test(searchchannelmodeltest.cpp)
 add_ruqola_test(searchchannelfilterproxymodeltest.cpp)
 

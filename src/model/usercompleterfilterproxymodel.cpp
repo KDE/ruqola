@@ -18,10 +18,10 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usercompleterfiltermodelproxy.h"
+#include "usercompleterfilterproxymodel.h"
 #include "usercompletermodel.h"
 
-UserCompleterFilterModelProxy::UserCompleterFilterModelProxy(QObject *parent)
+UserCompleterFilterProxyModel::UserCompleterFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
@@ -30,11 +30,11 @@ UserCompleterFilterModelProxy::UserCompleterFilterModelProxy(QObject *parent)
     sort(0);
 }
 
-UserCompleterFilterModelProxy::~UserCompleterFilterModelProxy()
+UserCompleterFilterProxyModel::~UserCompleterFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> UserCompleterFilterModelProxy::roleNames() const
+QHash<int, QByteArray> UserCompleterFilterProxyModel::roleNames() const
 {
     if (QAbstractItemModel *source = sourceModel()) {
         return source->roleNames();
@@ -42,7 +42,7 @@ QHash<int, QByteArray> UserCompleterFilterModelProxy::roleNames() const
     return QHash<int, QByteArray>();
 }
 
-bool UserCompleterFilterModelProxy::lessThan(const QModelIndex &left, const QModelIndex &right) const
+bool UserCompleterFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     if (!sourceModel()) {
         return false;
@@ -56,7 +56,7 @@ bool UserCompleterFilterModelProxy::lessThan(const QModelIndex &left, const QMod
     }
 }
 
-int UserCompleterFilterModelProxy::numberOfUsers() const
+int UserCompleterFilterProxyModel::numberOfUsers() const
 {
     if (QAbstractItemModel *source = sourceModel()) {
         return source->rowCount(QModelIndex());

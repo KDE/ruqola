@@ -23,12 +23,12 @@
 
 #include <QObject>
 
-class UserCompleterFilterModelProxyTest : public QObject
+class UserCompleterFilterProxyModelTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit UserCompleterFilterModelProxyTest(QObject *parent = nullptr);
-    ~UserCompleterFilterModelProxyTest() = default;
+    explicit UserCompleterFilterProxyModelTest(QObject *parent = nullptr);
+    ~UserCompleterFilterProxyModelTest() = default;
 };
 
 #endif // USERCOMPLETERFILTERMODELPROXYTEST_H

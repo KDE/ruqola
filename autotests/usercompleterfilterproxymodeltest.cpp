@@ -18,12 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usercompleterfiltermodelproxytest.h"
-#include "model/usercompleterfiltermodelproxy.h"
+#include "usercompleterfilterproxymodeltest.h"
+#include "model/usercompleterfilterproxymodel.h"
 #include <QTest>
-QTEST_MAIN(UserCompleterFilterModelProxyTest)
+QTEST_MAIN(UserCompleterFilterProxyModelTest)
 
-UserCompleterFilterModelProxyTest::UserCompleterFilterModelProxyTest(QObject *parent)
+UserCompleterFilterProxyModelTest::UserCompleterFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
 

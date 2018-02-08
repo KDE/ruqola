@@ -39,7 +39,7 @@ class RoomFilterProxyModel;
 class RuqolaLogger;
 class RuqolaServerConfig;
 class UserCompleterModel;
-class UserCompleterFilterModelProxy;
+class UserCompleterFilterProxyModel;
 class StatusModel;
 class RocketChatCache;
 class EmojiManager;
@@ -128,7 +128,7 @@ public:
     Q_INVOKABLE bool allowEditingMessages() const;
     Q_INVOKABLE bool otrEnabled() const;
     Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
-    Q_INVOKABLE UserCompleterFilterModelProxy *userCompleterFilterModelProxy() const;
+    Q_INVOKABLE UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
     Q_INVOKABLE void roomFiles(const QString &roomId);
     Q_INVOKABLE FilesForRoomModel *filesForRoomModel(const QString &roomId) const;
     Q_INVOKABLE FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel(const QString &roomId) const;
@@ -228,7 +228,7 @@ private:
     RuqolaLogger *mRuqolaLogger = nullptr;
     RuqolaServerConfig *mRuqolaServerConfig = nullptr;
     UserCompleterModel *mUserCompleterModel = nullptr;
-    UserCompleterFilterModelProxy *mUserCompleterFilterModelProxy = nullptr;
+    UserCompleterFilterProxyModel *mUserCompleterFilterModelProxy = nullptr;
     StatusModel *mStatusModel = nullptr;
     RocketChatCache *mCache = nullptr;
     OtrManager *mOtrManager = nullptr;

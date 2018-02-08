@@ -19,7 +19,7 @@ set (Ruqola_model_core_srcs
 
     model/usersmodel.cpp
 
-    model/usercompleterfiltermodelproxy.cpp
+    model/usercompleterfilterproxymodel.cpp
     model/usercompletermodel.cpp
 
     model/statusmodel.cpp

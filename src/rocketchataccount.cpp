@@ -32,7 +32,7 @@
 #include "ruqolalogger.h"
 #include "ruqolaserverconfig.h"
 #include "model/usercompletermodel.h"
-#include "model/usercompleterfiltermodelproxy.h"
+#include "model/usercompleterfilterproxymodel.h"
 #include "model/statusmodel.h"
 #include "utils.h"
 #include "rocketchatcache.h"
@@ -78,7 +78,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
 
     mUserCompleterModel = new UserCompleterModel(this);
-    mUserCompleterFilterModelProxy = new UserCompleterFilterModelProxy(this);
+    mUserCompleterFilterModelProxy = new UserCompleterFilterProxyModel(this);
     mUserCompleterFilterModelProxy->setSourceModel(mUserCompleterModel);
 
     mSearchChannelModel = new SearchChannelModel(this);
@@ -142,7 +142,7 @@ UserCompleterModel *RocketChatAccount::userCompleterModel() const
     return mUserCompleterModel;
 }
 
-UserCompleterFilterModelProxy *RocketChatAccount::userCompleterFilterModelProxy() const
+UserCompleterFilterProxyModel *RocketChatAccount::userCompleterFilterModelProxy() const
 {
     return mUserCompleterFilterModelProxy;
 }
