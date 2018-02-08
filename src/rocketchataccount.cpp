@@ -39,6 +39,9 @@
 #include "emojimanager.h"
 #include "otrmanager.h"
 #include "model/usersforroommodel.h"
+#include "model/filesforroommodel.h"
+#include "model/searchchannelfilterproxymodel.h"
+#include "model/searchchannelmodel.h"
 
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -47,8 +50,6 @@
 #include <QFile>
 #include <QTimer>
 
-#include <model/filesforroommodel.h>
-#include <model/searchchannelmodel.h>
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
@@ -81,6 +82,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mUserCompleterFilterModelProxy->setSourceModel(mUserCompleterModel);
 
     mSearchChannelModel = new SearchChannelModel(this);
+    mSearchChannelFilterProxyModel = new SearchChannelFilterProxyModel(this);
+    mSearchChannelFilterProxyModel->setSourceModel(mSearchChannelModel);
 
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this);
@@ -122,6 +125,11 @@ void RocketChatAccount::clearModels()
     mMessageQueue->loadCache();
     //Try to send queue message
     mMessageQueue->processQueue();
+}
+
+SearchChannelFilterProxyModel *RocketChatAccount::searchChannelFilterProxyModel() const
+{
+    return mSearchChannelFilterProxyModel;
 }
 
 SearchChannelModel *RocketChatAccount::searchChannelModel() const
