@@ -512,6 +512,11 @@ void RocketChatAccount::parseUsersForRooms(const QString &roomId, const QJsonObj
     }
 }
 
+void RocketChatAccount::loadAutoCompleteChannel(const QJsonObject &obj)
+{
+    mSearchChannelModel->parseChannels(obj);
+}
+
 UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) const
 {
     return mRoomModel->usersModelForRoom(roomId);

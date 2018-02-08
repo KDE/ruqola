@@ -184,6 +184,8 @@ public:
     void getUsersOfRoom(const QString &roomId);
     void parseUsersForRooms(const QString &roomId, const QJsonObject &root);
 
+    void loadAutoCompleteChannel(const QJsonObject &obj);
+
 
     void insertCompleterUsers();
     void insertFilesList(const QString &roomId);    

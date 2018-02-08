@@ -38,6 +38,9 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
     void setChannels(const QVector<Channel> &channels);
+
+    void parseChannels(const QJsonObject &obj);
+
 private:
     QVector<Channel> mChannel;
 };

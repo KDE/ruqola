@@ -46,6 +46,11 @@ void SearchChannelModel::setChannels(const QVector<Channel> &channels)
     }
 }
 
+void SearchChannelModel::parseChannels(const QJsonObject &obj)
+{
+    //TODO
+}
+
 int SearchChannelModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
