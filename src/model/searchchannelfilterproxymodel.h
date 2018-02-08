@@ -25,12 +25,12 @@
 #include "libruqola_private_export.h"
 
 
-class LIBRUQOLACORE_TESTS_EXPORT SearchChannelRoomFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_TESTS_EXPORT SearchChannelFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit SearchChannelRoomFilterProxyModel(QObject *parent = nullptr);
-    ~SearchChannelRoomFilterProxyModel();
+    explicit SearchChannelFilterProxyModel(QObject *parent = nullptr);
+    ~SearchChannelFilterProxyModel();
 };
 
 #endif // SEARCHCHANNELROOMFILTERPROXYMODEL_H

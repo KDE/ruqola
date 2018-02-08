@@ -18,17 +18,14 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHCHANNELROOMMODELTEST_H
-#define SEARCHCHANNELROOMMODELTEST_H
+#include "searchchannelmodeltest.h"
+#include "model/searchchannelmodel.h"
+#include <QTest>
 
-#include <QObject>
+QTEST_MAIN(SearchChannelModelTest)
 
-class SearchChannelRoomModelTest : public QObject
+SearchChannelModelTest::SearchChannelModelTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit SearchChannelRoomModelTest(QObject *parent = nullptr);
-    ~SearchChannelRoomModelTest() = default;
-};
 
-#endif // SEARCHCHANNELROOMMODELTEST_H
+}

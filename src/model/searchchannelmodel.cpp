@@ -18,21 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "searchchannelroommodel.h"
+#include "searchchannelmodel.h"
 #include "ruqola_debug.h"
 
-SearchChannelRoomModel::SearchChannelRoomModel(QObject *parent)
+SearchChannelModel::SearchChannelModel(QObject *parent)
     : QAbstractListModel(parent)
 {
 
 }
 
-SearchChannelRoomModel::~SearchChannelRoomModel()
+SearchChannelModel::~SearchChannelModel()
 {
 
 }
 
-void SearchChannelRoomModel::setChannels(const QVector<Channel> &channels)
+void SearchChannelModel::setChannels(const QVector<Channel> &channels)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mChannel.count() - 1);
@@ -46,13 +46,13 @@ void SearchChannelRoomModel::setChannels(const QVector<Channel> &channels)
     }
 }
 
-int SearchChannelRoomModel::rowCount(const QModelIndex &parent) const
+int SearchChannelModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return mChannel.count();
 }
 
-QVariant SearchChannelRoomModel::data(const QModelIndex &index, int role) const
+QVariant SearchChannelModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mChannel.count()) {
         return {};
@@ -67,7 +67,7 @@ QVariant SearchChannelRoomModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QHash<int, QByteArray> SearchChannelRoomModel::roleNames() const
+QHash<int, QByteArray> SearchChannelModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     //TODO

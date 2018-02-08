@@ -48,6 +48,7 @@
 #include <QTimer>
 
 #include <model/filesforroommodel.h>
+#include <model/searchchannelmodel.h>
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
@@ -78,6 +79,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mUserCompleterModel = new UserCompleterModel(this);
     mUserCompleterFilterModelProxy = new UserCompleterFilterModelProxy(this);
     mUserCompleterFilterModelProxy->setSourceModel(mUserCompleterModel);
+
+    mSearchChannelModel = new SearchChannelModel(this);
 
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this);
@@ -119,6 +122,11 @@ void RocketChatAccount::clearModels()
     mMessageQueue->loadCache();
     //Try to send queue message
     mMessageQueue->processQueue();
+}
+
+SearchChannelModel *RocketChatAccount::searchChannelModel() const
+{
+    return mSearchChannelModel;
 }
 
 UserCompleterModel *RocketChatAccount::userCompleterModel() const

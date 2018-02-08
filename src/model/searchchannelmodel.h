@@ -26,12 +26,12 @@
 #include "libruqola_private_export.h"
 
 
-class LIBRUQOLACORE_TESTS_EXPORT SearchChannelRoomModel : public QAbstractListModel
+class LIBRUQOLACORE_TESTS_EXPORT SearchChannelModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    explicit SearchChannelRoomModel(QObject *parent = nullptr);
-    ~SearchChannelRoomModel();
+    explicit SearchChannelModel(QObject *parent = nullptr);
+    ~SearchChannelModel();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

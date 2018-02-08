@@ -48,6 +48,7 @@ class UsersForRoomFilterProxyModel;
 class UsersForRoomModel;
 class FilesForRoomModel;
 class FilesForRoomFilterProxyModel;
+class SearchChannelModel;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -184,7 +185,9 @@ public:
 
 
     void insertCompleterUsers();
-    void insertFilesList(const QString &roomId);
+    void insertFilesList(const QString &roomId);    
+    SearchChannelModel *searchChannelModel() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -226,6 +229,7 @@ private:
     StatusModel *mStatusModel = nullptr;
     RocketChatCache *mCache = nullptr;
     OtrManager *mOtrManager = nullptr;
+    SearchChannelModel *mSearchChannelModel = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H

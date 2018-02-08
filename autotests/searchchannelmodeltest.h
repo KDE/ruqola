@@ -18,15 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "searchchannelroomfilterproxymodel.h"
+#ifndef SEARCHCHANNELROOMMODELTEST_H
+#define SEARCHCHANNELROOMMODELTEST_H
 
-SearchChannelRoomFilterProxyModel::SearchChannelRoomFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel(parent)
+#include <QObject>
+
+class SearchChannelModelTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit SearchChannelModelTest(QObject *parent = nullptr);
+    ~SearchChannelModelTest() = default;
+};
 
-}
-
-SearchChannelRoomFilterProxyModel::~SearchChannelRoomFilterProxyModel()
-{
-
-}
+#endif // SEARCHCHANNELROOMMODELTEST_H
