@@ -66,7 +66,6 @@ set (Ruqola_core_srcs
     ${Ruqola_ddpapi_SRCS}
     ${Ruqola_restapi_SRCS}
     rocketchatcache.cpp
-    downloadfilejob.cpp
     texthighlighter.cpp
     textconverter.cpp
     loadrecenthistorymanager.cpp
