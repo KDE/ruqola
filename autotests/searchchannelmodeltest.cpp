@@ -27,5 +27,4 @@ QTEST_MAIN(SearchChannelModelTest)
 SearchChannelModelTest::SearchChannelModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

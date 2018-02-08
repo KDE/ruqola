@@ -51,7 +51,6 @@ public:
 
     Channel &operator=(const Channel &other);
 
-
 private:
     //TODO add room info.
     User mUser;

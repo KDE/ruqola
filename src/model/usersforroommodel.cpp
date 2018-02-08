@@ -36,7 +36,6 @@ UsersForRoomModel::~UsersForRoomModel()
 
 void UsersForRoomModel::removeUser()
 {
-    
 }
 
 void UsersForRoomModel::addUser(const User &users)

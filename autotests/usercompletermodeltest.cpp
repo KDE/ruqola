@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "usercompletermodeltest.h"
 #include "usercompletermodeltest.h"
 #include "model/usercompletermodel.h"
@@ -31,7 +30,6 @@ QTEST_MAIN(UserCompleterModelTest)
 UserCompleterModelTest::UserCompleterModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void UserCompleterModelTest::shouldHaveDefaultValue()
@@ -48,7 +46,6 @@ void UserCompleterModelTest::shouldHaveDefaultValue()
     roles[UserCompleterModel::UserId] = QByteArrayLiteral("userid");
     roles[UserCompleterModel::UserIconStatus] = QByteArrayLiteral("iconstatus");
     QCOMPARE(w.roleNames(), roles);
-
 }
 
 void UserCompleterModelTest::shouldAddValues()
@@ -87,7 +84,6 @@ void UserCompleterModelTest::shouldAddValues()
     QCOMPARE(rowABTInserted.count(), 2);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9;0,2"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9;0,2"));
-
 }
 
 void UserCompleterModelTest::shouldVerifyData()
@@ -111,4 +107,3 @@ void UserCompleterModelTest::shouldVerifyData()
         QCOMPARE(w.data(w.index(i), UserCompleterModel::UserName).toString(), QStringLiteral("username%1").arg(i));
     }
 }
-

@@ -23,10 +23,8 @@
 SearchChannelFilterProxyModel::SearchChannelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-
 }
 
 SearchChannelFilterProxyModel::~SearchChannelFilterProxyModel()
 {
-
 }

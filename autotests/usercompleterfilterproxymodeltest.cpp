@@ -26,5 +26,4 @@ QTEST_MAIN(UserCompleterFilterProxyModelTest)
 UserCompleterFilterProxyModelTest::UserCompleterFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

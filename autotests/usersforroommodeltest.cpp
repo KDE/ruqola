@@ -44,7 +44,6 @@ void UsersForRoomModelTest::shouldHaveDefaultValue()
     roles[UsersForRoomModel::Name] = QByteArrayLiteral("name");
     roles[UsersForRoomModel::IconStatus] = QByteArrayLiteral("iconstatus");
     QCOMPARE(w.roleNames(), roles);
-
 }
 
 void UsersForRoomModelTest::shouldAddValues()
@@ -96,7 +95,6 @@ void UsersForRoomModelTest::shouldAddValues()
     QCOMPARE(rowABTInserted.count(), 0);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QString());
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QString());
-
 }
 
 void UsersForRoomModelTest::shouldVerifyData()

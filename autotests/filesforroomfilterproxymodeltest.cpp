@@ -31,7 +31,6 @@ FilesForRoomFilterProxyModelTest::FilesForRoomFilterProxyModelTest(QObject *pare
 
 void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValue()
 {
-
 }
 
 void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValues()

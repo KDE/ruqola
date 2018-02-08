@@ -41,7 +41,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.usersModelForRoom());
     QVERIFY(input.usersModelForRoomProxyModel());
 
-    QVERIFY(input.filesModelForRoom());    
+    QVERIFY(input.filesModelForRoom());
     QVERIFY(input.filesForRoomFilterProxyModel());
 
     QCOMPARE(input.filesForRoomFilterProxyModel()->sourceModel(), input.filesModelForRoom());

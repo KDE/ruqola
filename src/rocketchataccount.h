@@ -74,7 +74,6 @@ public:
     };
     Q_ENUM(RoomInfoType)
 
-
     Q_INVOKABLE UsersModel *usersModel() const;
 
     Q_INVOKABLE RoomModel *roomModel() const;
@@ -149,7 +148,6 @@ public:
 
     RuqolaLogger *ruqolaLogger() const;
 
-
     void loadEmoji(const QJsonObject &obj);
     void parsePublicSettings(const QJsonObject &obj);
 
@@ -172,7 +170,6 @@ public:
 
     void setServerUrl(const QString &serverUrl);
 
-
     void sendNotification(const QJsonArray &contents);
     void parseOtr(const QJsonArray &contents);
     void setServerVersion(const QString &version);
@@ -186,9 +183,8 @@ public:
 
     void loadAutoCompleteChannel(const QJsonObject &obj);
 
-
     void insertCompleterUsers();
-    void insertFilesList(const QString &roomId);    
+    void insertFilesList(const QString &roomId);
     SearchChannelModel *searchChannelModel() const;
 
     SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
@@ -235,7 +231,7 @@ private:
     RocketChatCache *mCache = nullptr;
     OtrManager *mOtrManager = nullptr;
     SearchChannelModel *mSearchChannelModel = nullptr;
-    SearchChannelFilterProxyModel *mSearchChannelFilterProxyModel= nullptr;
+    SearchChannelFilterProxyModel *mSearchChannelFilterProxyModel = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H

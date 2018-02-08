@@ -24,12 +24,10 @@
 SearchChannelModel::SearchChannelModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 SearchChannelModel::~SearchChannelModel()
 {
-
 }
 
 void SearchChannelModel::setChannels(const QVector<Channel> &channels)

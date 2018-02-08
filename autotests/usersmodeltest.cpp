@@ -60,5 +60,4 @@ void UsersModelTest::shouldRemoveUser()
     QCOMPARE(userStatusChangedSpy.count(), 0);
     QCOMPARE(rowRemovedSpy.count(), 0);
     QCOMPARE(rowABTRemoved.count(), 0);
-
 }

@@ -28,12 +28,10 @@ QTEST_MAIN(UsersForRoomFilterProxyModelTest)
 UsersForRoomFilterProxyModelTest::UsersForRoomFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 UsersForRoomFilterProxyModelTest::~UsersForRoomFilterProxyModelTest()
 {
-
 }
 
 void UsersForRoomFilterProxyModelTest::shouldHaveDefaultValues()

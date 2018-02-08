@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "roomfilterproxymodeltest.h"
 #include "model/roomfilterproxymodel.h"
 #include <QTest>
@@ -28,6 +27,4 @@ QTEST_MAIN(RoomFilterProxyModelTest)
 RoomFilterProxyModelTest::RoomFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
-

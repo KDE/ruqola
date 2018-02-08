@@ -24,7 +24,6 @@
 #include <QSortFilterProxyModel>
 #include "libruqola_private_export.h"
 
-
 class LIBRUQOLACORE_TESTS_EXPORT SearchChannelFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT

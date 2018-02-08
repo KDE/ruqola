@@ -105,7 +105,7 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bo
         //FIXME we don't use localfile!
         const QUrl clickedUrl = generateDownloadFile(url);
         QNetworkReply *reply = mAccount->restApi()->get(clickedUrl);
-        reply->setProperty("storeInCache",  storeInCache);
+        reply->setProperty("storeInCache", storeInCache);
         reply->setProperty("localFile", localFile);
     }
 }

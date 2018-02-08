@@ -21,9 +21,7 @@
 #include <QString>
 #include <QSignalSpy>
 
-namespace TestModelHelpers
-{
-
+namespace TestModelHelpers {
 inline QString rowSpyToText(const QSignalSpy &spy)
 {
     if (!spy.isValid()) {
@@ -38,6 +36,4 @@ inline QString rowSpyToText(const QSignalSpy &spy)
     }
     return str;
 }
-
 }
-

@@ -399,14 +399,14 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::login(const QStrin
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::addUserToRoom(const QString &username, const QString &roomId, quint64 id)
 {
     //This method use multiusers
-    const QJsonArray users = QJsonArray::fromStringList( QStringList() << username );
+    const QJsonArray users = QJsonArray::fromStringList(QStringList() << username);
 
     QJsonArray params;
 
     QJsonObject param;
     param[QStringLiteral("rid")] = roomId;
     param[QStringLiteral("username")] = users.first();
-    params.append( param );
+    params.append(param);
 
     return generateMethod(QStringLiteral("addUserToRoom"), QJsonDocument(params), id);
 }

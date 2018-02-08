@@ -29,7 +29,6 @@ QTEST_GUILESS_MAIN(ChannelTest)
 ChannelTest::ChannelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ChannelTest::shouldHaveDefaultValue()
@@ -65,5 +64,4 @@ void ChannelTest::shouldParseChannel()
         qDebug() << "ExpectedEmoji " << expectedChannel;
     }
     QVERIFY(emojiIsEqual);
-
 }

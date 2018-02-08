@@ -374,7 +374,6 @@ FilesForRoomFilterProxyModel *RoomModel::filesForRoomFilterProxyModel(const QStr
     return {};
 }
 
-
 FilesForRoomModel *RoomModel::filesModelForRoom(const QString &roomId) const
 {
     const int roomCount{

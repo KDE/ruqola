@@ -25,7 +25,6 @@
 #include <channel.h>
 #include "libruqola_private_export.h"
 
-
 class LIBRUQOLACORE_TESTS_EXPORT SearchChannelModel : public QAbstractListModel
 {
     Q_OBJECT

@@ -50,7 +50,6 @@
 #include <QFile>
 #include <QTimer>
 
-
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
 {

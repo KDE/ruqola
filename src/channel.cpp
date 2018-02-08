@@ -23,12 +23,10 @@
 
 Channel::Channel()
 {
-
 }
 
 Channel::~Channel()
 {
-
 }
 
 void Channel::parseChannel(const QJsonObject &object)

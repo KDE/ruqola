@@ -59,12 +59,9 @@ void FilesForRoomModelTest::shouldAddFiles()
     }
     QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
 
-
-
     w.setFiles(mFiles);
     QCOMPARE(w.rowCount(), 10);
     QCOMPARE(rowInsertedSpy.count(), 1);
-
 
     mFiles.clear();
     for (int i = 0; i < 3; ++i) {
