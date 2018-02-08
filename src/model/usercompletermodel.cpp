@@ -49,7 +49,6 @@ void UserCompleterModel::insertUsers(const QVector<User> &users)
         mUsers = users;
         endInsertRows();
     }
-    qDebug() << " void UserCompleterModel::insertUsers(const QVector<User> &users)"<<users;
 }
 
 int UserCompleterModel::rowCount(const QModelIndex &parent) const
