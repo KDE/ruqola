@@ -22,6 +22,7 @@
 #define SEARCHCHANNELROOMMODEL_H
 
 #include <QAbstractListModel>
+#include <channel.h>
 #include "libruqola_private_export.h"
 
 
@@ -36,7 +37,9 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     QHash<int, QByteArray> roleNames() const override;
-
+    void setChannels(const QVector<Channel> &channels);
+private:
+    QVector<Channel> mChannel;
 };
 
 #endif // SEARCHCHANNELROOMMODEL_H

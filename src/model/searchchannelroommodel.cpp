@@ -19,6 +19,7 @@
 */
 
 #include "searchchannelroommodel.h"
+#include "ruqola_debug.h"
 
 SearchChannelRoomModel::SearchChannelRoomModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -31,17 +32,44 @@ SearchChannelRoomModel::~SearchChannelRoomModel()
 
 }
 
+void SearchChannelRoomModel::setChannels(const QVector<Channel> &channels)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mChannel.count() - 1);
+        mChannel.clear();
+        endRemoveRows();
+    }
+    if (!channels.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, channels.count() - 1);
+        mChannel = channels;
+        endInsertRows();
+    }
+}
+
 int SearchChannelRoomModel::rowCount(const QModelIndex &parent) const
 {
-    return {};
+    Q_UNUSED(parent);
+    return mChannel.count();
 }
 
 QVariant SearchChannelRoomModel::data(const QModelIndex &index, int role) const
 {
+    if (index.row() < 0 || index.row() >= mChannel.count()) {
+        return {};
+    }
+    const Channel channel = mChannel.at(index.row());
+    switch (role) {
+    //TODO
+    default:
+        qCWarning(RUQOLA_LOG) << "Unknown SearchChannelRoomModel roles: " << role;
+    }
+
     return {};
 }
 
 QHash<int, QByteArray> SearchChannelRoomModel::roleNames() const
 {
-    return {};
+    QHash<int, QByteArray> roles;
+    //TODO
+    return roles;
 }
