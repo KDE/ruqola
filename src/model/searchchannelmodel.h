@@ -31,7 +31,7 @@ class LIBRUQOLACORE_TESTS_EXPORT SearchChannelModel : public QAbstractListModel
     Q_OBJECT
 public:
     explicit SearchChannelModel(QObject *parent = nullptr);
-    ~SearchChannelModel();
+    ~SearchChannelModel() override;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

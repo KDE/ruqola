@@ -37,7 +37,7 @@ public:
     Q_ENUM(UserRoles)
 
     explicit UserCompleterModel(QObject *parent = nullptr);
-    ~UserCompleterModel();
+    ~UserCompleterModel() override;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

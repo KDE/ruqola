@@ -29,7 +29,7 @@ class LIBRUQOLACORE_TESTS_EXPORT UserCompleterFilterProxyModel : public QSortFil
     Q_OBJECT
 public:
     explicit UserCompleterFilterProxyModel(QObject *parent = nullptr);
-    ~UserCompleterFilterProxyModel();
+    ~UserCompleterFilterProxyModel() override;
 
     QHash<int, QByteArray> roleNames() const override;
 

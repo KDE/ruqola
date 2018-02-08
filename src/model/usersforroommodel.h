@@ -39,7 +39,7 @@ public:
     Q_ENUM(UsersForRoomRoles)
 
     explicit UsersForRoomModel(QObject *parent = nullptr);
-    ~UsersForRoomModel();
+    ~UsersForRoomModel() override;
 
     void setUsers(const QVector<User> &users);
 

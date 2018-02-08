@@ -60,7 +60,7 @@ public:
     Q_ENUM(RoomRoles)
 
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
-    virtual ~RoomModel();
+    ~RoomModel() override;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

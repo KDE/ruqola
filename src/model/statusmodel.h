@@ -45,7 +45,7 @@ public:
     Q_ENUM(StatusRoles)
 
     explicit StatusModel(QObject *parent = nullptr);
-    ~StatusModel();
+    ~StatusModel() override;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
