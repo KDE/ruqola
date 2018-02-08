@@ -19,7 +19,7 @@
 */
 
 #include "qmlaboutdata.h"
-#include "kcoreaddons_version.h"
+#include <kcoreaddons_version.h>
 #include "qmlaboutdataauthormodel.h"
 
 #include <KAboutData>
