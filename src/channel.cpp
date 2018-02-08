@@ -69,6 +69,7 @@ Channel &Channel::operator=(const Channel &other)
 QDebug operator <<(QDebug d, const Channel &t)
 {
     d << "type: " << t.type();
+    d << "user: " << t.user();
     //TODO
     return d;
 }
