@@ -153,10 +153,10 @@ void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userI
     Q_EMIT avatar(userId, str);
 }
 
-void RestApiRequest::parseGet(const QByteArray &data, const QUrl &url)
+void RestApiRequest::parseGet(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl)
 {
     qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGet: url " << url;
-    Q_EMIT getDataDone(data, url);
+    Q_EMIT getDataDone(data, url, useCache, localFileUrl);
 }
 
 void RestApiRequest::parsePost(const QByteArray &data)
@@ -214,7 +214,7 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
                     localFile = var.toUrl();
                 }
                 //TODO
-                parseGet(data, reply->url());
+                parseGet(data, reply->url(), useCache, localFile);
             } else {
                 qCWarning(RUQOLA_RESTAPI_LOG) << "Unable to download " << reply->url();
             }

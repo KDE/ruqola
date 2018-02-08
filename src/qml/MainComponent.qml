@@ -241,8 +241,8 @@ Component {
                 id: downloadFileDialog
                 onAccepted: {
                     if (fileUrl != "") {
-                        //console.log(RuqolaDebugCategorySingleton.category, "You chose: " + fileUrl)
-                        appid.rocketChatAccount.downloadFile(fileToSaveUrl, fileUrl)
+                        console.log(RuqolaDebugCategorySingleton.category, "You chose: " + fileUrl + " use cache :" + useCache)
+                        appid.rocketChatAccount.downloadFile(fileToSaveUrl, fileUrl, useCache)
                     } else {
                         console.log(RuqolaDebugCategorySingleton.category, "No file selected");
                     }
@@ -269,6 +269,7 @@ Component {
                     console.log("Download file" + file)
                     //Verify it
                     downloadFileDialog.fileToSaveUrl = file
+                    downloadFileDialog.useCache = false
                     downloadFileDialog.open()
 
                 }

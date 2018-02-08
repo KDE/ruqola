@@ -51,7 +51,7 @@ private:
     bool fileInCache(const QUrl &url);
     QString fileCachePath(const QUrl &url);
     void downloadAvatarFromServer(const QString &userId);
-    void slotDataDownloaded(const QByteArray &data, const QUrl &url);
+    void slotDataDownloaded(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
     QUrl generateDownloadFile(const QString &url);
     void loadAvatarCache();
     QHash<QString, QString> mUserAvatarUrl;

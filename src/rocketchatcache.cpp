@@ -67,9 +67,9 @@ QString RocketChatCache::fileCachePath(const QUrl &url)
     return newPath;
 }
 
-void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url)
+void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl)
 {
-    const QString newPath = fileCachePath(url);
+    const QString newPath = useCache ? fileCachePath(url) : localFileUrl.path();
     //Split between image/video/audio
     const QUrl urldir = QUrl::fromUserInput(newPath).adjusted(QUrl::RemoveFilename);
     QDir().mkpath(urldir.path());

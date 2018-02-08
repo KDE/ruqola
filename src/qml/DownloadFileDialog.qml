@@ -26,6 +26,7 @@ import QtQuick.Dialogs 1.2
 FileDialog {
     title: i18n("Please choose a file")
     property string fileToSaveUrl
+    property bool useCache: true
     folder: shortcuts.documents
     selectFolder: false
     selectMultiple: false

@@ -74,7 +74,7 @@ Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
     void loginDone(const QString &authToken, const QString &userId);
-    void getDataDone(const QByteArray &data, const QUrl &url);
+    void getDataDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
     void getServerInfoDone(const QString &version);
 
 private:
@@ -88,7 +88,7 @@ private:
     void parseLogout(const QByteArray &data);
     void parseLogin(const QByteArray &data);
     void parseChannelList(const QByteArray &data);
-    void parseGet(const QByteArray &data, const QUrl &url);
+    void parseGet(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFile);
     void parsePost(const QByteArray &data);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QNetworkCookieJar *mCookieJar;
