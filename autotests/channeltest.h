@@ -32,6 +32,8 @@ public:
     ~ChannelTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldParseChannel_data();
+    void shouldParseChannel();
 };
 
 #endif // CHANNELTEST_H

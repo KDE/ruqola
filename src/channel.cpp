@@ -56,6 +56,18 @@ void Channel::setUser(const User &user)
     mUser = user;
 }
 
+bool Channel::operator==(const Channel &other) const
+{
+    return (mType == other.type()) && (mUser == other.user());
+}
+
+Channel &Channel::operator=(const Channel &other)
+{
+    mType = other.type();
+    mUser = other.user();
+    return *this;
+}
+
 QDebug operator <<(QDebug d, const Channel &t)
 {
     d << "type: " << t.type();

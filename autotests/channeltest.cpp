@@ -20,6 +20,8 @@
 
 #include "channeltest.h"
 #include "channel.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
 
 QTEST_GUILESS_MAIN(ChannelTest)
@@ -35,4 +37,33 @@ void ChannelTest::shouldHaveDefaultValue()
     Channel t;
     QCOMPARE(t.type(), Channel::ChannelType::Unknown);
     //TODO
+}
+
+void ChannelTest::shouldParseChannel_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<Channel>("expectedChannel");
+    QTest::newRow("test") << QStringLiteral("foo") << Channel();
+}
+
+void ChannelTest::shouldParseChannel()
+{
+    QFETCH(QString, name);
+    QFETCH(Channel, expectedChannel);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + name + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    Channel originalChannel;
+    originalChannel.parseChannel(obj);
+    const bool emojiIsEqual = (originalChannel == expectedChannel);
+    if (!emojiIsEqual) {
+        qDebug() << "originalEmoji " << originalChannel;
+        qDebug() << "ExpectedEmoji " << expectedChannel;
+    }
+    QVERIFY(emojiIsEqual);
+
 }

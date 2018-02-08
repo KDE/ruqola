@@ -47,6 +47,11 @@ public:
     User user() const;
     void setUser(const User &user);
 
+    bool operator==(const Channel &other) const;
+
+    Channel &operator=(const Channel &other);
+
+
 private:
     //TODO add room info.
     User mUser;
