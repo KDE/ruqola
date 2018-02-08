@@ -42,6 +42,13 @@ void UserCompleterModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
+
+    QHash<int, QByteArray> roles;
+    roles[UserCompleterModel::UserName] = QByteArrayLiteral("username");
+    roles[UserCompleterModel::UserId] = QByteArrayLiteral("userid");
+    roles[UserCompleterModel::UserIconStatus] = QByteArrayLiteral("iconstatus");
+    QCOMPARE(w.roleNames(), roles);
+
 }
 
 void UserCompleterModelTest::shouldAddValues()

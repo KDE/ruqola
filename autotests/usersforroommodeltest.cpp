@@ -38,6 +38,13 @@ void UsersForRoomModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
+
+    QHash<int, QByteArray> roles;
+    roles[UsersForRoomModel::UserName] = QByteArrayLiteral("username");
+    roles[UsersForRoomModel::Name] = QByteArrayLiteral("name");
+    roles[UsersForRoomModel::IconStatus] = QByteArrayLiteral("iconstatus");
+    QCOMPARE(w.roleNames(), roles);
+
 }
 
 void UsersForRoomModelTest::shouldAddValues()

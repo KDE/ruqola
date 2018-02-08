@@ -34,6 +34,31 @@ void MessageModelTest::shouldHaveDefaultValue()
     //TODO add roqulaaccount
     MessageModel w;
     QCOMPARE(w.rowCount(), 0);
+
+    QHash<int, QByteArray> roles;
+    roles[MessageModel::OriginalMessage] = QByteArrayLiteral("originalMessage");
+    roles[MessageModel::MessageConvertedText] = QByteArrayLiteral("messageConverted");
+    roles[MessageModel::Username] = QByteArrayLiteral("username");
+    roles[MessageModel::Timestamp] = QByteArrayLiteral("timestamp");
+    roles[MessageModel::UserId] = QByteArrayLiteral("userID");
+    roles[MessageModel::SystemMessageType] = QByteArrayLiteral("type");
+    roles[MessageModel::MessageId] = QByteArrayLiteral("messageID");
+    roles[MessageModel::RoomId] = QByteArrayLiteral("roomID");
+    roles[MessageModel::UpdatedAt] = QByteArrayLiteral("updatedAt");
+    roles[MessageModel::EditedAt] = QByteArrayLiteral("editedAt");
+    roles[MessageModel::EditedByUserName] = QByteArrayLiteral("editedByUsername");
+    roles[MessageModel::EditedByUserId] = QByteArrayLiteral("editedByUserID");
+    roles[MessageModel::Alias] = QByteArrayLiteral("alias");
+    roles[MessageModel::Avatar] = QByteArrayLiteral("avatar");
+    roles[MessageModel::Groupable] = QByteArrayLiteral("groupable");
+    roles[MessageModel::MessageType] = QByteArrayLiteral("messagetype");
+    roles[MessageModel::Attachments] = QByteArrayLiteral("attachments");
+    roles[MessageModel::Urls] = QByteArrayLiteral("urls");
+    roles[MessageModel::Date] = QByteArrayLiteral("date");
+    roles[MessageModel::CanEditingMessage] = QByteArrayLiteral("canEditingMessage");
+    roles[MessageModel::Starred] = QByteArrayLiteral("starred");
+
+    QCOMPARE(w.roleNames(), roles);
 }
 
 void MessageModelTest::shouldRemoveMessage()
