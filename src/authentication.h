@@ -45,7 +45,7 @@ public:
     */
     void sendApiRequest();
 
-private slots:
+private Q_SLOTS:
     void onGranted();
 
 private:
