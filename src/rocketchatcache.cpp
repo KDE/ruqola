@@ -25,6 +25,7 @@
 #include <KIO/CopyJob>
 #include <QDateTime>
 #include <QDir>
+#include <QNetworkReply>
 #include <QSettings>
 #include <QStandardPaths>
 
@@ -93,7 +94,7 @@ void RocketChatCache::loadAvatarCache()
     settings.endGroup();
 }
 
-void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
+void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bool useCache)
 {
     if (fileInCache(QUrl(url))) {
         const QUrl newurl = QUrl::fromLocalFile(fileCachePath(QUrl(url)));
@@ -103,7 +104,9 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
         //Redownload it. TODO inform user ?
         //FIXME we don't use localfile!
         const QUrl clickedUrl = generateDownloadFile(url);
-        mAccount->restApi()->get(clickedUrl);
+        QNetworkReply *reply = mAccount->restApi()->get(clickedUrl);
+        reply->setProperty("useCache", useCache);
+        reply->setProperty("localFile", localFile);
     }
 }
 

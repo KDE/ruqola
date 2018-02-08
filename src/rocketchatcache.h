@@ -41,7 +41,7 @@ public:
     void downloadFileFromServer(const QString &filename);
 
     QUrl attachmentUrl(const QString &url);
-    void downloadFile(const QString &url, const QUrl &localFile);
+    void downloadFile(const QString &url, const QUrl &localFile, bool useCache);
     QString avatarUrlFromCacheOnly(const QString &userId);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);

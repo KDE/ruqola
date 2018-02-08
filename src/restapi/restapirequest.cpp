@@ -203,6 +203,17 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
         {
             const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
             if (status == 200) {
+                bool useCache = true;
+                QUrl localFile;
+                QVariant var = reply->property("useCache");
+                if (var.isValid()) {
+                    useCache = var.toBool();
+                }
+                var = reply->property("localFile");
+                if (var.isValid()) {
+                    localFile = var.toUrl();
+                }
+                //TODO
                 parseGet(data, reply->url());
             } else {
                 qCWarning(RUQOLA_RESTAPI_LOG) << "Unable to download " << reply->url();
@@ -335,7 +346,7 @@ void RestApiRequest::post(const QUrl &url, const QByteArray &data, const QString
     reply->setProperty("method", QVariant::fromValue(RestMethod::Post));
 }
 
-void RestApiRequest::get(const QUrl &url, const QString &mimeType)
+QNetworkReply *RestApiRequest::get(const QUrl &url, const QString &mimeType)
 {
     QNetworkRequest request(url);
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
@@ -345,6 +356,7 @@ void RestApiRequest::get(const QUrl &url, const QString &mimeType)
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     QNetworkReply *reply = mNetworkAccessManager->get(request);
     reply->setProperty("method", QVariant::fromValue(RestMethod::Get));
+    return reply;
 }
 
 void RestApiRequest::serverInfo()

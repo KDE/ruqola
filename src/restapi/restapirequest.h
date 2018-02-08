@@ -67,7 +67,7 @@ public:
     QUrl generateUrl(RestApiUtil::RestApiUrlType type);
 
     void post(const QUrl &url, const QByteArray &data, const QString &mimeType = QStringLiteral("text/plain"));
-    void get(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"));
+    QNetworkReply *get(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"));
 
     void serverInfo();
 Q_SIGNALS:

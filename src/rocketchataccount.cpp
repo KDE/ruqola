@@ -671,9 +671,9 @@ QString RocketChatAccount::recordingImagePath() const
     return mCache->recordingImagePath(accountName());
 }
 
-void RocketChatAccount::downloadFile(const QString &downloadFileUrl, const QUrl &localFile)
+void RocketChatAccount::downloadFile(const QString &downloadFileUrl, const QUrl &localFile, bool useCache)
 {
-    mCache->downloadFile(downloadFileUrl, localFile);
+    mCache->downloadFile(downloadFileUrl, localFile, useCache);
 }
 
 QUrl RocketChatAccount::attachmentUrl(const QString &url)
