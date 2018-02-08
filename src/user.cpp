@@ -112,7 +112,6 @@ void User::parseUser(const QJsonObject &object)
 {
     const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
     setUserId(object.value(QLatin1String("id")).toString());
-
     setName(fields.value(QLatin1String("name")).toString());
     setStatus(fields.value(QLatin1String("status")).toString());
     setUserName(fields.value(QLatin1String("username")).toString());

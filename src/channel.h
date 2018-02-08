@@ -39,7 +39,7 @@ public:
 
     Channel();
     ~Channel();
-    void parseChannel(const QJsonObject &object);
+    void parseChannel(const QJsonObject &object, Channel::ChannelType);
 
     ChannelType type() const;
     void setType(const ChannelType &type);
@@ -51,9 +51,21 @@ public:
 
     Channel &operator=(const Channel &other);
 
+    QString roomId() const;
+    void setRoomId(const QString &roomId);
+
+    QString roomName() const;
+    void setRoomName(const QString &roomName);
+
+    QString roomType() const;
+    void setRoomType(const QString &roomType);
+
 private:
     //TODO add room info.
     User mUser;
+    QString mRoomId;
+    QString mRoomName;
+    QString mRoomType;
     ChannelType mType = ChannelType::Unknown;
 };
 Q_DECLARE_METATYPE(Channel)

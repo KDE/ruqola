@@ -21,6 +21,8 @@
 #include "channel.h"
 #include "ruqola_debug.h"
 
+#include <QJsonObject>
+
 Channel::Channel()
 {
 }
@@ -29,9 +31,19 @@ Channel::~Channel()
 {
 }
 
-void Channel::parseChannel(const QJsonObject &object)
+void Channel::parseChannel(const QJsonObject &object, ChannelType type)
 {
-    //TODO
+    mType = type;
+    if (mType == ChannelType::PrivateChannel) {
+        mUser.setUserId(object.value(QLatin1String("_id")).toString());
+        mUser.setName(object.value(QLatin1String("name")).toString());
+        mUser.setStatus(object.value(QLatin1String("status")).toString());
+        mUser.setUserName(object.value(QLatin1String("username")).toString());
+    } else {
+        mRoomId = object.value(QLatin1String("_id")).toString();
+        mRoomName = object.value(QLatin1String("name")).toString();
+        mRoomType = object.value(QLatin1String("t")).toString();
+    }
 }
 
 Channel::ChannelType Channel::type() const
@@ -56,20 +68,59 @@ void Channel::setUser(const User &user)
 
 bool Channel::operator==(const Channel &other) const
 {
-    return (mType == other.type()) && (mUser == other.user());
+    return (mType == other.type())
+            && (mUser == other.user())
+            && (mRoomId == other.roomId())
+            && (mRoomType == other.roomType())
+            && (mRoomName == other.roomName());
 }
 
 Channel &Channel::operator=(const Channel &other)
 {
     mType = other.type();
     mUser = other.user();
+    mRoomId = other.roomId();
+    mRoomType = other.roomType();
+    mRoomName = other.roomName();
     return *this;
+}
+
+QString Channel::roomId() const
+{
+    return mRoomId;
+}
+
+void Channel::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
+}
+
+QString Channel::roomName() const
+{
+    return mRoomName;
+}
+
+void Channel::setRoomName(const QString &roomName)
+{
+    mRoomName = roomName;
+}
+
+QString Channel::roomType() const
+{
+    return mRoomType;
+}
+
+void Channel::setRoomType(const QString &roomType)
+{
+    mRoomType = roomType;
 }
 
 QDebug operator <<(QDebug d, const Channel &t)
 {
     d << "type: " << t.type();
     d << "user: " << t.user();
-    //TODO
+    d << "roomName: " << t.roomName();
+    d << "roomType: " << t.roomType();
+    d << "roomId: " << t.roomId();
     return d;
 }

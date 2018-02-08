@@ -31,6 +31,10 @@ public:
     ~ChannelTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+
+    void shouldAssignValue();
+    void shouldCopyValue();
+
     void shouldParseChannel_data();
     void shouldParseChannel();
 };

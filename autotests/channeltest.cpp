@@ -35,19 +35,52 @@ void ChannelTest::shouldHaveDefaultValue()
 {
     Channel t;
     QCOMPARE(t.type(), Channel::ChannelType::Unknown);
-    //TODO
+    QVERIFY(!t.user().isValid());
+    QVERIFY(t.roomName().isEmpty());
+    QVERIFY(t.roomId().isEmpty());
+    QVERIFY(t.roomType().isEmpty());
+}
+
+void ChannelTest::shouldAssignValue()
+{
+
+}
+
+void ChannelTest::shouldCopyValue()
+{
+
 }
 
 void ChannelTest::shouldParseChannel_data()
 {
     QTest::addColumn<QString>("name");
+    QTest::addColumn<Channel::ChannelType>("channelType");
     QTest::addColumn<Channel>("expectedChannel");
-    QTest::newRow("test") << QStringLiteral("foo") << Channel();
+
+    Channel chanRoom;
+    chanRoom.setRoomId(QStringLiteral("aH6LfuQz4f7x9rMb"));
+    chanRoom.setRoomName(QStringLiteral("qt"));
+    chanRoom.setRoomType(QStringLiteral("c"));
+    chanRoom.setType(Channel::ChannelType::Room);
+
+    QTest::newRow("room") << QStringLiteral("channelroom") << Channel::ChannelType::Room << chanRoom;
+
+    Channel chanUser;
+    User user;
+    user.setName(QStringLiteral("foo"));
+    user.setUserName(QStringLiteral("bla"));
+    user.setUserId(QStringLiteral("o7kiLAYPCiDidqJe"));
+    user.setStatus(QStringLiteral("online"));
+    chanUser.setUser(user);
+    chanUser.setType(Channel::ChannelType::PrivateChannel);
+
+    QTest::newRow("user") << QStringLiteral("channeluser") << Channel::ChannelType::PrivateChannel << chanUser;
 }
 
 void ChannelTest::shouldParseChannel()
 {
     QFETCH(QString, name);
+    QFETCH(Channel::ChannelType, channelType);
     QFETCH(Channel, expectedChannel);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + name + QStringLiteral(".json");
     QFile f(originalJsonFile);
@@ -57,11 +90,11 @@ void ChannelTest::shouldParseChannel()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
     Channel originalChannel;
-    originalChannel.parseChannel(obj);
-    const bool emojiIsEqual = (originalChannel == expectedChannel);
-    if (!emojiIsEqual) {
-        qDebug() << "originalEmoji " << originalChannel;
-        qDebug() << "ExpectedEmoji " << expectedChannel;
+    originalChannel.parseChannel(obj, channelType);
+    const bool channelIsEqual = (originalChannel == expectedChannel);
+    if (!channelIsEqual) {
+        qDebug() << "originalChannel " << originalChannel;
+        qDebug() << "ExpectedChannel " << expectedChannel;
     }
-    QVERIFY(emojiIsEqual);
+    QVERIFY(channelIsEqual);
 }
