@@ -574,7 +574,7 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
     QJsonArray configs = obj.value(QLatin1String("result")).toArray();
 
-    for (const QJsonValueRef &currentConfig : configs) {
+    for (QJsonValueRef currentConfig : configs) {
         QJsonObject currentConfObject = currentConfig.toObject();
         const QString id = currentConfObject[QStringLiteral("_id")].toString();
         const QVariant value = currentConfObject[QStringLiteral("value")].toVariant();
