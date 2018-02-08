@@ -153,10 +153,10 @@ void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userI
     Q_EMIT avatar(userId, str);
 }
 
-void RestApiRequest::parseGet(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl)
+void RestApiRequest::parseGet(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl)
 {
     qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGet: url " << url;
-    Q_EMIT getDataDone(data, url, useCache, localFileUrl);
+    Q_EMIT getDataDone(data, url, storeInCache, localFileUrl);
 }
 
 void RestApiRequest::parsePost(const QByteArray &data)
@@ -203,18 +203,17 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
         {
             const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
             if (status == 200) {
-                bool useCache = true;
+                bool storeInCache = true;
                 QUrl localFile;
-                QVariant var = reply->property("useCache");
+                QVariant var = reply->property("storeInCache");
                 if (var.isValid()) {
-                    useCache = var.toBool();
+                    storeInCache = var.toBool();
                 }
                 var = reply->property("localFile");
                 if (var.isValid()) {
                     localFile = var.toUrl();
                 }
-                //TODO
-                parseGet(data, reply->url(), useCache, localFile);
+                parseGet(data, reply->url(), storeInCache, localFile);
             } else {
                 qCWarning(RUQOLA_RESTAPI_LOG) << "Unable to download " << reply->url();
             }

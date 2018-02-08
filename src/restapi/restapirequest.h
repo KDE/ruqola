@@ -88,7 +88,7 @@ private:
     void parseLogout(const QByteArray &data);
     void parseLogin(const QByteArray &data);
     void parseChannelList(const QByteArray &data);
-    void parseGet(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFile);
+    void parseGet(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFile);
     void parsePost(const QByteArray &data);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QNetworkCookieJar *mCookieJar;

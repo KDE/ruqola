@@ -67,9 +67,9 @@ QString RocketChatCache::fileCachePath(const QUrl &url)
     return newPath;
 }
 
-void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl)
+void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl)
 {
-    const QString newPath = useCache ? fileCachePath(url) : localFileUrl.path();
+    const QString newPath = storeInCache ? fileCachePath(url) : localFileUrl.path();
     //Split between image/video/audio
     const QUrl urldir = QUrl::fromUserInput(newPath).adjusted(QUrl::RemoveFilename);
     QDir().mkpath(urldir.path());
@@ -94,7 +94,7 @@ void RocketChatCache::loadAvatarCache()
     settings.endGroup();
 }
 
-void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bool useCache)
+void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bool storeInCache)
 {
     if (fileInCache(QUrl(url))) {
         const QUrl newurl = QUrl::fromLocalFile(fileCachePath(QUrl(url)));
@@ -105,7 +105,7 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bo
         //FIXME we don't use localfile!
         const QUrl clickedUrl = generateDownloadFile(url);
         QNetworkReply *reply = mAccount->restApi()->get(clickedUrl);
-        reply->setProperty("useCache", useCache);
+        reply->setProperty("storeInCache",  storeInCache);
         reply->setProperty("localFile", localFile);
     }
 }
