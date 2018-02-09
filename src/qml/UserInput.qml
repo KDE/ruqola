@@ -103,6 +103,12 @@ RowLayout {
                 clearUnreadMessages();
             }
         }
+        Keys.onPressed: {
+            if (event.key === Qt.Key_Up) {
+                console.log("move up");
+                event.accepted = true;
+            }
+        }
     }
     
     Kirigami.Icon {
