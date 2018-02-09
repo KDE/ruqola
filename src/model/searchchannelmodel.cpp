@@ -21,6 +21,7 @@
 #include "searchchannelmodel.h"
 #include "ruqola_debug.h"
 
+#include <QIcon>
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -83,7 +84,12 @@ QVariant SearchChannelModel::data(const QModelIndex &index, int role) const
     }
     const Channel channel = mChannel.at(index.row());
     switch (role) {
-    //TODO
+    case SearchChannelModel::ChannelId:
+        return channelId(channel);
+    case SearchChannelModel::ChannelName:
+        return channelName(channel);
+    case SearchChannelModel::IconName:
+        return channelIconName(channel);
     default:
         qCWarning(RUQOLA_LOG) << "Unknown SearchChannelRoomModel roles: " << role;
     }
@@ -91,9 +97,62 @@ QVariant SearchChannelModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+QString SearchChannelModel::channelId(const Channel &channel) const
+{
+    switch (channel.type()) {
+    case Channel::ChannelType::PrivateChannel:
+        return channel.user().userId();
+    case Channel::ChannelType::Room: {
+        return channel.roomId();
+    }
+    case Channel::ChannelType::Unknown:
+        qCWarning(RUQOLA_LOG) << "Unknown channel type!";
+        return {};
+    }
+    return {};
+}
+
+QString SearchChannelModel::channelName(const Channel &channel) const
+{
+    switch (channel.type()) {
+    case Channel::ChannelType::PrivateChannel:
+        return channel.user().userName();
+    case Channel::ChannelType::Room: {
+        return channel.roomName();
+    }
+    case Channel::ChannelType::Unknown:
+        qCWarning(RUQOLA_LOG) << "Unknown channel type!";
+        return {};
+    }
+    return {};
+}
+
+QIcon SearchChannelModel::channelIconName(const Channel &channel) const
+{
+    switch (channel.type()) {
+    case Channel::ChannelType::PrivateChannel:
+        return QIcon::fromTheme(channel.user().iconFromStatus());
+    case Channel::ChannelType::Room: {
+        if (channel.roomType() == QLatin1String("c")) {
+            return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
+        } else if (channel.roomType() == QLatin1String("p")) {
+            return QIcon::fromTheme(QStringLiteral("lock"));
+        }
+        qCWarning(RUQOLA_LOG) << "Unknown room type!" << channel.roomType();
+        return {};
+    }
+    case Channel::ChannelType::Unknown:
+        qCWarning(RUQOLA_LOG) << "Unknown channel type!";
+        return {};
+    }
+    return {};
+}
+
 QHash<int, QByteArray> SearchChannelModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    //TODO
+    roles[SearchChannelModel::ChannelName] = QByteArrayLiteral("channelname");
+    roles[SearchChannelModel::ChannelId] = QByteArrayLiteral("channelid");
+    roles[SearchChannelModel::IconName] = QByteArrayLiteral("iconname");
     return roles;
 }

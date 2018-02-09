@@ -30,11 +30,9 @@ class LIBRUQOLACORE_TESTS_EXPORT SearchChannelModel : public QAbstractListModel
     Q_OBJECT
 public:    
     enum ChannelRoles {
-        UserName = Qt::UserRole + 1,
-        UserId,
-        RoomId,
-        RoomType,
-        RoomName
+        ChannelName = Qt::UserRole + 1,
+        ChannelId,
+        IconName,
     };
     Q_ENUM(ChannelRoles)
 
@@ -50,6 +48,9 @@ public:
     void parseChannels(const QJsonObject &obj);
 
 private:
+    QIcon channelIconName(const Channel &channel) const;
+    QString channelId(const Channel &channel) const;
+    QString channelName(const Channel &channel) const;
     QVector<Channel> mChannel;
 };
 

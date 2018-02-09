@@ -24,6 +24,7 @@ import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 
 import KDE.Ruqola.RocketChatAccount 1.0
+import KDE.Ruqola.SearchChannelFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
 Dialog {
@@ -67,17 +68,15 @@ Dialog {
             delegate:
                 RowLayout {
                 Kirigami.Icon {
-                    source: iconstatus
+                    source: iconname
                     //FIXME
                     height: 22
                     width: 22
                 }
                 Text {
-                    text: username
+                    text: channelname
                 }
             }
         }
-    }
-    onAccepted: {
     }
 }

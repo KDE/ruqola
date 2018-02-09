@@ -24,6 +24,10 @@
 SearchChannelFilterProxyModel::SearchChannelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
+    setDynamicSortFilter(true);
+    setFilterCaseSensitivity(Qt::CaseInsensitive);
+    setFilterRole(SearchChannelModel::ChannelName);
+    sort(0);
 }
 
 SearchChannelFilterProxyModel::~SearchChannelFilterProxyModel()
@@ -43,14 +47,12 @@ bool SearchChannelFilterProxyModel::lessThan(const QModelIndex &left, const QMod
     if (!sourceModel()) {
         return false;
     }
-    /*
     if (left.isValid() && right.isValid()) {
-        const QString leftString = sourceModel()->data(left, UserCompleterModel::UserName).toString();
-        const QString rightString = sourceModel()->data(right, UserCompleterModel::UserName).toString();
+        const QString leftString = sourceModel()->data(left, SearchChannelModel::ChannelName).toString();
+        const QString rightString = sourceModel()->data(right, SearchChannelModel::ChannelName).toString();
         return QString::localeAwareCompare(leftString, rightString) < 0;
     } else {
         return false;
     }
-    */
     return true;
 }
