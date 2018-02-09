@@ -1,0 +1,15 @@
+{
+    "id": "43",
+    "msg": "sub",
+    "name": "userAutocomplete",
+    "params": [
+        {
+            "exceptions": [
+                "foo",
+                "bla",
+                "bli"
+            ],
+            "term": "foo"
+        }
+    ]
+}

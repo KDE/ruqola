@@ -326,13 +326,15 @@ void RocketChatMessageTest::shouldListEmojiCustom()
     compareFile(r.result, QStringLiteral("listEmojiCustom"));
 }
 
-//TODO fix me
 void RocketChatMessageTest::shouldUserAutoComplete()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
     RocketChatMessage::RocketChatMessageResult r = m.userAutocomplete(QStringLiteral("foo"), QStringLiteral("exception"), 43);
     compareFile(r.result, QStringLiteral("userAutocomplete"));
+
+    r = m.userAutocomplete(QStringLiteral("foo"), QStringLiteral("foo,bla,bli"), 43);
+    compareFile(r.result, QStringLiteral("userAutocomplete-exceptions"));
 }
 
 //TODO fix me
