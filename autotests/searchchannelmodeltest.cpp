@@ -28,3 +28,9 @@ SearchChannelModelTest::SearchChannelModelTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+void SearchChannelModelTest::shouldHaveDefaultValue()
+{
+    SearchChannelModel w;
+    QCOMPARE(w.rowCount(), 0);
+}

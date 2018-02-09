@@ -31,3 +31,13 @@ SearchChannelFilterProxyModelTest::SearchChannelFilterProxyModelTest(QObject *pa
     : QObject(parent)
 {
 }
+
+void SearchChannelFilterProxyModelTest::shouldHaveDefaultValue()
+{
+    SearchChannelFilterProxyModel w;
+    SearchChannelModel sourceModel;
+    w.setSourceModel(&sourceModel);
+    QCOMPARE(w.rowCount(), 0);
+    QVERIFY(w.sourceModel());
+    QCOMPARE(w.sourceModel(), &sourceModel);
+}

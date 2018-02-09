@@ -29,6 +29,8 @@ class SearchChannelFilterProxyModelTest : public QObject
 public:
     explicit SearchChannelFilterProxyModelTest(QObject *parent = nullptr);
     ~SearchChannelFilterProxyModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // SEARCHCHANNELROOMFILTERPROXYMODELTEST_H

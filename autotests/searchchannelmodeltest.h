@@ -29,6 +29,8 @@ class SearchChannelModelTest : public QObject
 public:
     explicit SearchChannelModelTest(QObject *parent = nullptr);
     ~SearchChannelModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // SEARCHCHANNELROOMMODELTEST_H
