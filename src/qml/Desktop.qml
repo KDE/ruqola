@@ -151,15 +151,12 @@ Kirigami.ApplicationWindow {
             rocketChatAccount.channelAndPrivateAutocomplete(pattern);
         }
         onOpenChannel: {
-            console.log("open channel" + channelname + " type : " + channeltype)
             if (channeltype === Channel.Room) {
-                console.log("open room " + channelname)
                 rocketChatAccount.openChannel(channelname)
             } else if (channeltype === Channel.PrivateChannel) {
-                console.log("open private " + channelname)
                 rocketChatAccount.openDirectChannel(channelname)
             } else {
-                console.log("Unknown open channel type : "  + channeltype + " name : "  + channelname)
+                console.log(RuqolaDebugCategorySingleton.category, "Unknown open channel type : "  + channeltype + " name : "  + channelname)
             }
         }
     }
