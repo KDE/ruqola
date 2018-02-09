@@ -21,6 +21,9 @@
 #include "searchchannelmodel.h"
 #include "ruqola_debug.h"
 
+#include <QJsonArray>
+#include <QJsonObject>
+
 SearchChannelModel::SearchChannelModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -42,11 +45,30 @@ void SearchChannelModel::setChannels(const QVector<Channel> &channels)
         mChannel = channels;
         endInsertRows();
     }
+    qDebug() << " void SearchChannelModel::setChannels(const QVector<Channel> &channels)" << mChannel.count();
 }
 
 void SearchChannelModel::parseChannels(const QJsonObject &obj)
 {
-    //TODO
+    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
+    qDebug() << " ROOMS " << rooms;
+    for (int i = 0; i < rooms.size(); i++) {
+        const QJsonObject o = rooms.at(i).toObject();
+        Channel channel;
+        channel.parseChannel(o, Channel::ChannelType::Room);
+        //Verify that it's valid
+        mChannel.append(channel);
+    }
+    const QJsonArray users = obj.value(QLatin1String("users")).toArray();
+    qDebug() << " USERS " << users;
+    for (int i = 0; i < users.size(); i++) {
+        const QJsonObject o = users.at(i).toObject();
+        Channel channel;
+        channel.parseChannel(o, Channel::ChannelType::PrivateChannel);
+        //Verify that it's valid
+        mChannel.append(channel);
+    }
+    setChannels(mChannel);
 }
 
 int SearchChannelModel::rowCount(const QModelIndex &parent) const
