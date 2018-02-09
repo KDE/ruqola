@@ -97,5 +97,43 @@ void SearchChannelModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QString());
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QString());
 
+    //Test add same number of element.
+    channelList.clear();
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+    rowRemovedSpy.clear();
+    rowABTRemoved.clear();
+
+    for (int i = 0; i < 5; ++i) {
+        Channel c;
+        c.setRoomId(QStringLiteral("roomid%1").arg(i));
+        c.setRoomName(QStringLiteral("roomname%1").arg(i));
+        c.setRoomType(QStringLiteral("online"));
+        channelList.append(c);
+    }
+    w.setChannels(channelList);
+    QCOMPARE(w.rowCount(), 5);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,4"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
+
+
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+    rowRemovedSpy.clear();
+    rowABTRemoved.clear();
+    w.setChannels(channelList);
+
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowRemovedSpy.count(), 1);
+    QCOMPARE(rowABTRemoved.count(), 1);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,4"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,4"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,4"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
 
 }
