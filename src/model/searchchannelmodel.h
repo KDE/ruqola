@@ -28,7 +28,16 @@
 class LIBRUQOLACORE_TESTS_EXPORT SearchChannelModel : public QAbstractListModel
 {
     Q_OBJECT
-public:
+public:    
+    enum ChannelRoles {
+        UserName = Qt::UserRole + 1,
+        UserId,
+        RoomId,
+        RoomType,
+        RoomName
+    };
+    Q_ENUM(ChannelRoles)
+
     explicit SearchChannelModel(QObject *parent = nullptr);
     ~SearchChannelModel() override;
 
