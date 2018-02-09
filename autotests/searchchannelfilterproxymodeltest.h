@@ -31,6 +31,7 @@ public:
     ~SearchChannelFilterProxyModelTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldLoadChannelJSon();
 };
 
 #endif // SEARCHCHANNELROOMFILTERPROXYMODELTEST_H
