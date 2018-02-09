@@ -29,6 +29,8 @@ set (Ruqola_model_core_srcs
 
     model/searchchannelmodel.cpp
     model/searchchannelfilterproxymodel.cpp
+
+    model/inputcompletermodel.cpp
     )
     
 set (Ruqola_core_srcs
