@@ -85,6 +85,13 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+                text: i18n("Report a Bug")
+                iconName: "system-log-out"
+                onTriggered: {
+                    //TODO
+                }
+            },
+            Kirigami.Action {
                 shortcut: StandardKey.Quit
                 text: i18n("Quit")
                 iconName: "application-exit"
