@@ -417,7 +417,6 @@ quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &excep
         if (account->ruqolaLogger()) {
             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User AutoComplete:") + QJsonDocument(root).toJson());
         } else {
-            qDebug() << " User AutoComplete" << root;
             qCDebug(RUQOLA_DDPAPI_LOG) << " User AutoComplete" << root;
         }
         account->insertCompleterUsers();

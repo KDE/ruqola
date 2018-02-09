@@ -497,7 +497,9 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
     //Clear before to create new search
     userCompleterModel()->clear();
     rocketChatBackend()->clearUsersList();
-    ddp()->userAutocomplete(searchText, exception);
+    if (!searchText.isEmpty()) {
+        ddp()->userAutocomplete(searchText, exception);
+    }
 }
 
 void RocketChatAccount::getUsersOfRoom(const QString &roomId)
