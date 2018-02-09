@@ -25,6 +25,7 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtMultimedia 5.8
 import QtQuick.Layouts 1.1
 import "../js/convert.js" as ConvertScript;
+import "../common"
 
 import KDE.Ruqola.DebugCategory 1.0
 

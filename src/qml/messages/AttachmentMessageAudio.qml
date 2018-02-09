@@ -28,6 +28,7 @@ import QtQuick.Layouts 1.1
 import KDE.Ruqola.DebugCategory 1.0
 
 import "../js/convert.js" as ConvertScript;
+import "../common"
 
 MessageBase {
     id: attachmentAudio
