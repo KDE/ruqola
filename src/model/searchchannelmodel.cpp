@@ -109,9 +109,11 @@ QVariant SearchChannelModel::data(const QModelIndex &index, int role) const
 
 QString SearchChannelModel::channelId(const Channel &channel) const
 {
+    //Specific channelId for opening room
+    //For private channel we need to use username for channel we need roomId
     switch (channel.type()) {
     case Channel::ChannelType::PrivateChannel:
-        return channel.user().userId();
+        return channel.user().userName();
     case Channel::ChannelType::Room: {
         return channel.roomId();
     }

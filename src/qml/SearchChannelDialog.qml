@@ -76,8 +76,7 @@ Dialog {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            //TODO ?
-                            searchChannelDialog.openChannel(channelname, channeltype)
+                            searchChannelDialog.openChannel(channelid, channeltype)
                         }
                     }
                 }
