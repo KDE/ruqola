@@ -445,7 +445,11 @@ void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 
 void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 {
-    ddp()->channelAndPrivateAutocomplete(pattern);
+    if (pattern.isEmpty()) {
+        searchChannelModel()->clear();
+    } else {
+        ddp()->channelAndPrivateAutocomplete(pattern);
+    }
 }
 
 void RocketChatAccount::listEmojiCustom()

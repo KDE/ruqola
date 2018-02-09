@@ -46,7 +46,6 @@ void SearchChannelModel::setChannels(const QVector<Channel> &channels)
         mChannel = channels;
         endInsertRows();
     }
-    qDebug() << " void SearchChannelModel::setChannels(const QVector<Channel> &channels)" << mChannel.count();
 }
 
 void SearchChannelModel::parseChannels(const QJsonObject &obj)
@@ -69,6 +68,15 @@ void SearchChannelModel::parseChannels(const QJsonObject &obj)
         channelList.append(channel);
     }
     setChannels(channelList);
+}
+
+void SearchChannelModel::clear()
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mChannel.count() - 1);
+        mChannel.clear();
+        endRemoveRows();
+    }
 }
 
 int SearchChannelModel::rowCount(const QModelIndex &parent) const

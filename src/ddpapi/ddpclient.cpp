@@ -88,9 +88,6 @@ void channel_and_private_autocomplete(const QJsonObject &root, RocketChatAccount
 {
     qDebug() << " void channel_and_private_autocomplete(const QJsonObject &root, RocketChatAccount *account)"<<root;
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
-    if (!obj.isEmpty()) {
-        qDebug() << " obj " << obj;
-    }
     account->loadAutoCompleteChannel(obj);
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Channel And Private AutoComplete:") + QJsonDocument(root).toJson());
