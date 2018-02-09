@@ -19,6 +19,7 @@
 */
 
 #include "searchchannelfilterproxymodel.h"
+#include "searchchannelmodel.h"
 
 SearchChannelFilterProxyModel::SearchChannelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
@@ -27,4 +28,29 @@ SearchChannelFilterProxyModel::SearchChannelFilterProxyModel(QObject *parent)
 
 SearchChannelFilterProxyModel::~SearchChannelFilterProxyModel()
 {
+}
+
+QHash<int, QByteArray> SearchChannelFilterProxyModel::roleNames() const
+{
+    if (QAbstractItemModel *source = sourceModel()) {
+        return source->roleNames();
+    }
+    return QHash<int, QByteArray>();
+}
+
+bool SearchChannelFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+{
+    if (!sourceModel()) {
+        return false;
+    }
+    /*
+    if (left.isValid() && right.isValid()) {
+        const QString leftString = sourceModel()->data(left, UserCompleterModel::UserName).toString();
+        const QString rightString = sourceModel()->data(right, UserCompleterModel::UserName).toString();
+        return QString::localeAwareCompare(leftString, rightString) < 0;
+    } else {
+        return false;
+    }
+    */
+    return true;
 }

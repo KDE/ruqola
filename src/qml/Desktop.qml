@@ -145,7 +145,7 @@ Kirigami.ApplicationWindow {
 
     SearchChannelDialog {
         id: searchChannelDialog
-        //completerModel: rocketChatAccount.userCompleterModel()
+        searchChannelModel: rocketChatAccount.searchChannelFilterProxyModel()
         onSearchChannel: {
             rocketChatAccount.channelAndPrivateAutocomplete(pattern);
         }

@@ -29,11 +29,11 @@ import org.kde.kirigami 2.1 as Kirigami
 Dialog {
     id: searchChannelDialog
 
-    property QtObject completerModel
+    property QtObject searchChannelModel
     signal searchChannel(string pattern)
 
     title: i18n("Search Channel")
-    standardButtons: Dialog.Ok | Dialog.Cancel
+    standardButtons: Dialog.Close
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
@@ -58,25 +58,25 @@ Dialog {
                 searchChannelDialog.searchChannel(channelname.text)
             }
         }
-//        ListView {
-//            id: listview
-//            width: 300;
-//            height: 200
+        ListView {
+            id: listview
+            width: 300;
+            height: 200
 
-//            model: completerModel
-//            delegate:
-//                RowLayout {
-//                Kirigami.Icon {
-//                    source: iconstatus
-//                    //FIXME
-//                    height: 22
-//                    width: 22
-//                }
-//                Text {
-//                    text: username
-//                }
-//            }
-//        }
+            model: searchChannelModel
+            delegate:
+                RowLayout {
+                Kirigami.Icon {
+                    source: iconstatus
+                    //FIXME
+                    height: 22
+                    width: 22
+                }
+                Text {
+                    text: username
+                }
+            }
+        }
     }
     onAccepted: {
     }
