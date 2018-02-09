@@ -34,6 +34,7 @@ import KDE.Ruqola.DDPClient 1.0
 import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.DebugCategory 1.0
+import KDE.Ruqola.Channel 1.0
 
 Kirigami.ApplicationWindow {
     id: appid
@@ -150,7 +151,14 @@ Kirigami.ApplicationWindow {
             rocketChatAccount.channelAndPrivateAutocomplete(pattern);
         }
         onOpenChannel: {
-            console.log("open channel" + channelname)
+            console.log("open channel" + channelname + " type : " + channeltype)
+            if (channeltype === Channel.Room) {
+                console.log("open room " + channelname)
+            } else if (channeltype === Channel.PrivateChannel) {
+                console.log("open private " + channelname)
+            } else {
+                console.log("Unknown open channel type : "  + channeltype + " name : "  + channelname)
+            }
         }
     }
 

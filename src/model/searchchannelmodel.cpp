@@ -90,6 +90,8 @@ QVariant SearchChannelModel::data(const QModelIndex &index, int role) const
         return channelName(channel);
     case SearchChannelModel::IconName:
         return channelIconName(channel);
+    case SearchChannelModel::ChannelType:
+        return channel.type();
     default:
         qCWarning(RUQOLA_LOG) << "Unknown SearchChannelRoomModel roles: " << role;
     }
@@ -154,5 +156,6 @@ QHash<int, QByteArray> SearchChannelModel::roleNames() const
     roles[SearchChannelModel::ChannelName] = QByteArrayLiteral("channelname");
     roles[SearchChannelModel::ChannelId] = QByteArrayLiteral("channelid");
     roles[SearchChannelModel::IconName] = QByteArrayLiteral("iconname");
+    roles[SearchChannelModel::ChannelType] = QByteArrayLiteral("channeltype");
     return roles;
 }

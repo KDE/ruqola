@@ -33,6 +33,7 @@ public:
         ChannelName = Qt::UserRole + 1,
         ChannelId,
         IconName,
+        ChannelType,
     };
     Q_ENUM(ChannelRoles)
 

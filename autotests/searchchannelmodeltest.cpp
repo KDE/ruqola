@@ -40,6 +40,7 @@ void SearchChannelModelTest::shouldHaveDefaultValue()
     roles[SearchChannelModel::ChannelName] = QByteArrayLiteral("channelname");
     roles[SearchChannelModel::ChannelId] = QByteArrayLiteral("channelid");
     roles[SearchChannelModel::IconName] = QByteArrayLiteral("iconname");
+    roles[SearchChannelModel::ChannelType] = QByteArrayLiteral("channeltype");
     QCOMPARE(w.roleNames(), roles);
 }
 

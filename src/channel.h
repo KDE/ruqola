@@ -30,7 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Channel
 {
     Q_GADGET
 public:
-    enum class ChannelType {
+    enum ChannelType {
         Room,
         PrivateChannel,
         Unknown

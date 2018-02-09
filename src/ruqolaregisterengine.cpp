@@ -38,7 +38,7 @@
 #include "model/filesforroommodel.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/searchchannelfilterproxymodel.h"
-
+#include "channel.h"
 #include <KLocalizedContext>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
@@ -80,6 +80,7 @@ bool RuqolaRegisterEngine::initialize()
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterType<ClipboardProxy>("KDE.Ruqola.Clipboard", 1, 0, "Clipboard");
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
+    qmlRegisterUncreatableType<Channel>("KDE.Ruqola.Channel", 1, 0, "Channel", QStringLiteral("ChannelType is an enum container"));
     qRegisterMetaType<RocketChatAccount::RoomInfoType>();
     qRegisterMetaType<User::PresenceStatus>();
     (void)Ruqola::self();
