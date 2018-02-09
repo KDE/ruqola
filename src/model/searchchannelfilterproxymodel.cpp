@@ -54,5 +54,4 @@ bool SearchChannelFilterProxyModel::lessThan(const QModelIndex &left, const QMod
     } else {
         return false;
     }
-    return true;
 }
