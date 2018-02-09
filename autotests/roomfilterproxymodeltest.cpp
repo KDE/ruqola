@@ -20,6 +20,7 @@
 
 #include "roomfilterproxymodeltest.h"
 #include "model/roomfilterproxymodel.h"
+#include "model/roommodel.h"
 #include <QTest>
 
 QTEST_MAIN(RoomFilterProxyModelTest)
@@ -27,4 +28,14 @@ QTEST_MAIN(RoomFilterProxyModelTest)
 RoomFilterProxyModelTest::RoomFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void RoomFilterProxyModelTest::shouldHaveDefaultValue()
+{
+    RoomFilterProxyModel w;
+    RoomModel sourceModel;
+    w.setSourceModel(&sourceModel);
+    QCOMPARE(w.rowCount(), 0);
+    QVERIFY(w.sourceModel());
+    QCOMPARE(w.sourceModel(), &sourceModel);
 }

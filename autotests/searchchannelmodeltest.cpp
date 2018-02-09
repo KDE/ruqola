@@ -21,6 +21,8 @@
 #include "searchchannelmodeltest.h"
 #include "model/searchchannelmodel.h"
 #include "test_model_helpers.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QSignalSpy>
 #include <QTest>
 
@@ -153,5 +155,14 @@ void SearchChannelModelTest::shouldLoadValueFromJson()
     QSignalSpy rowRemovedSpy(&w, &SearchChannelModel::rowsRemoved);
     QSignalSpy rowABTRemoved(&w, &SearchChannelModel::rowsAboutToBeRemoved);
 
-    //TODO
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/channelparent.json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject root = doc.object();
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    w.parseChannels(obj);
+    QCOMPARE(w.rowCount(), 8);
 }

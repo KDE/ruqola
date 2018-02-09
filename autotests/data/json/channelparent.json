@@ -1,0 +1,55 @@
+{
+    "id": "208",
+    "msg": "result",
+    "result": {
+        "rooms": [
+            {
+                "_id": "Xy9KpTrnHnSwe8Dk",
+                "name": "bal1",
+                "t": "c"
+            },
+            {
+                "_id": "eo8GAcgNQSZMdAJo",
+                "name": "bal2",
+                "t": "c"
+            },
+            {
+                "_id": "nPzLgDcWxe7KeqGz",
+                "name": "bal3",
+                "t": "c"
+            }
+        ],
+        "users": [
+            {
+                "_id": "juQkGXDnsDiXGugj",
+                "name": "foo1",
+                "status": "online",
+                "username": "bla.foo1"
+            },
+            {
+                "_id": "pcXQwq5LthgjDLoe",
+                "name": "foo2",
+                "status": "online",
+                "username": "bla.foo2"
+            },
+            {
+                "_id": "8jMRLPyKMXZt5fem",
+                "name": "foo3",
+                "status": "offline",
+                "username": "bla.foo3"
+            },
+            {
+                "_id": "D4mArmug2mbTpcGA",
+                "name": "foo4",
+                "status": "away",
+                "username": "bla.foo4"
+            },
+            {
+                "_id": "uKK39zoewTkacidH",
+                "name": "foo5",
+                "status": "online",
+                "username": "bla.foo5"
+            }
+        ]
+    }
+}
