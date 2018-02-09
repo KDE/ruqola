@@ -448,8 +448,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::searchRoomUsers(co
     QJsonArray params;
     params.append(pattern);
 
-    QJsonArray type;
-    params.append(type);
     const QJsonArray exceptionJson = QJsonArray::fromStringList(exceptions.split(QLatin1Char(',')));
     params.append(exceptionJson);
 
