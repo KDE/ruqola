@@ -32,6 +32,8 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAssignValues();
+
+    void shouldLoadValueFromJson();
 };
 
 #endif // SEARCHCHANNELROOMMODELTEST_H

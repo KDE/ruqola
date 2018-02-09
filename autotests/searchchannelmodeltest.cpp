@@ -137,3 +137,14 @@ void SearchChannelModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
 
 }
+
+void SearchChannelModelTest::shouldLoadValueFromJson()
+{
+    SearchChannelModel w;
+    QSignalSpy rowInsertedSpy(&w, &SearchChannelModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &SearchChannelModel::rowsAboutToBeInserted);
+    QSignalSpy rowRemovedSpy(&w, &SearchChannelModel::rowsRemoved);
+    QSignalSpy rowABTRemoved(&w, &SearchChannelModel::rowsAboutToBeRemoved);
+
+    //TODO
+}
