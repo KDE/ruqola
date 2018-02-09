@@ -79,7 +79,6 @@ Dialog {
                         anchors.fill: parent
                         onClicked: {
                             addUserDialog.addUser(username, roomId)
-                            console.log("Add user " + username)
                         }
                     }
                 }
