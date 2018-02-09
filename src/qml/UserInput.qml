@@ -103,11 +103,8 @@ RowLayout {
                 clearUnreadMessages();
             }
         }
-        Keys.onPressed: {
-            if (event.key === Qt.Key_Up) {
-                console.log("move up");
-                event.accepted = true;
-            }
+        Keys.onUpPressed: {
+            console.log("move up");
         }
     }
     
