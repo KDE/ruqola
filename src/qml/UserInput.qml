@@ -67,45 +67,8 @@ RowLayout {
             }
         }
     }
-    TextField {
+    MessageLine {
         id: messageLine
-        //TODO add background style.
-
-
-        //FIXME add multiline !!!
-        inputMethodHints: Qt.ImhMultiLine
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        
-        Layout.fillWidth: true
-        placeholderText: i18n("Enter message")
-
-        onAccepted: {
-            if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
-                if (messageId !== "") {
-                    if (text !== savePreviousMessage) {
-                        rcAccount.updateMessage(selectedRoomID, messageId, text);
-                    }
-                    savePreviousMessage = "";
-                    messageId = "";
-                } else {
-                    rcAccount.sendMessage(selectedRoomID, text);
-                }
-                text = "";
-            }
-        }
-        onTextChanged: {
-            footerItem.textEditing(text)
-        }
-        Shortcut {
-            sequence: "Escape"
-            onActivated: {
-                clearUnreadMessages();
-            }
-        }
-        Keys.onUpPressed: {
-            console.log("move up");
-        }
     }
     
     Kirigami.Icon {
