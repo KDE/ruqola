@@ -147,6 +147,22 @@ void SearchChannelModelTest::shouldAssignValues()
 
 }
 
+QJsonObject loadFile(const QString &file)
+{
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + file;
+    QFile f(originalJsonFile);
+    if (!f.open(QIODevice::ReadOnly)) {
+        qWarning() << " Unable to load file " << file;
+        return {};
+    }
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject root = doc.object();
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    return obj;
+}
+
 void SearchChannelModelTest::shouldLoadValueFromJson()
 {
     SearchChannelModel w;
@@ -155,14 +171,38 @@ void SearchChannelModelTest::shouldLoadValueFromJson()
     QSignalSpy rowRemovedSpy(&w, &SearchChannelModel::rowsRemoved);
     QSignalSpy rowABTRemoved(&w, &SearchChannelModel::rowsAboutToBeRemoved);
 
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/channelparent.json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject root = doc.object();
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    QJsonObject obj = loadFile(QStringLiteral("channelparent.json"));
     w.parseChannels(obj);
     QCOMPARE(w.rowCount(), 8);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,7"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,7"));
+
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+    rowRemovedSpy.clear();
+    rowABTRemoved.clear();
+
+    //Test room
+    QCOMPARE(w.data(w.index(2), SearchChannelModel::ChannelName).toString(), QStringLiteral("bal3"));
+    QCOMPARE(w.data(w.index(2), SearchChannelModel::ChannelType), Channel::ChannelType::Room);
+    QCOMPARE(w.data(w.index(2), SearchChannelModel::ChannelId).toString(), QStringLiteral("nPzLgDcWxe7KeqGz"));
+
+    //Test user
+    QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelName).toString(), QStringLiteral("bla.foo4"));
+    QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelType), Channel::ChannelType::PrivateChannel);
+    QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelId).toString(), QStringLiteral("D4mArmug2mbTpcGA"));
+
+    obj = loadFile(QStringLiteral("channelparentempty.json"));
+    w.parseChannels(obj);
+    QCOMPARE(w.rowCount(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(rowRemovedSpy.count(), 1);
+    QCOMPARE(rowABTRemoved.count(), 1);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,7"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,7"));
 }
