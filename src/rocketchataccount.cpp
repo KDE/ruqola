@@ -498,7 +498,14 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
     userCompleterModel()->clear();
     rocketChatBackend()->clearUsersList();
     if (!searchText.isEmpty()) {
-        ddp()->userAutocomplete(searchText, exception);
+        //Avoid to show own user
+        QString addUserNameToException;
+        if (exception.isEmpty()) {
+            addUserNameToException = userName();
+        } else {
+            addUserNameToException += QLatin1Char(',') + userName();
+        }
+        ddp()->userAutocomplete(searchText, addUserNameToException);
     }
 }
 

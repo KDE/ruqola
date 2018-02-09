@@ -431,7 +431,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
     for (const QString &entry: users) {
         exceptionEntries.append(entry);
     }
-    //exceptionEntries.append( mUsername );
     firstParam[QStringLiteral("exceptions")] = exceptionEntries;
     firstParam[QStringLiteral("term")] = searchText;
     params.append(firstParam);
