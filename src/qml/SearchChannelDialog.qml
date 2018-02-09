@@ -32,6 +32,7 @@ Dialog {
 
     property QtObject searchChannelModel
     signal searchChannel(string pattern)
+    signal openChannel(string pattern)
 
     title: i18n("Search Channel")
     standardButtons: Dialog.Close
@@ -67,6 +68,18 @@ Dialog {
             model: searchChannelModel
             delegate:
                 RowLayout {
+                Kirigami.Icon {
+                    source: "list-add"
+                    //FIXME
+                    height: 22
+                    width: 22
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            searchChannelDialog.openChannel(username)
+                        }
+                    }
+                }
                 Kirigami.Icon {
                     source: iconname
                     //FIXME
