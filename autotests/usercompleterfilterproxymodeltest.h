@@ -29,6 +29,8 @@ class UserCompleterFilterProxyModelTest : public QObject
 public:
     explicit UserCompleterFilterProxyModelTest(QObject *parent = nullptr);
     ~UserCompleterFilterProxyModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // USERCOMPLETERFILTERMODELPROXYTEST_H

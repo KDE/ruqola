@@ -20,10 +20,21 @@
 
 #include "usercompleterfilterproxymodeltest.h"
 #include "model/usercompleterfilterproxymodel.h"
+#include "model/usercompletermodel.h"
 #include <QTest>
 QTEST_MAIN(UserCompleterFilterProxyModelTest)
 
 UserCompleterFilterProxyModelTest::UserCompleterFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void UserCompleterFilterProxyModelTest::shouldHaveDefaultValue()
+{
+    UserCompleterFilterProxyModel w;
+    QCOMPARE(w.rowCount(), 0);
+    UserCompleterModel source;
+    w.setSourceModel(&source);
+    QCOMPARE(w.rowCount(), 0);
+    QCOMPARE(w.sourceModel(), &source);
 }
