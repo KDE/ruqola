@@ -63,6 +63,7 @@ Dialog {
             }
         }
         Label {
+            //TODO verify why rowCount doesn't work
             text: i18np("%1 attachment in room", "%1 attachments in room", filesModel ? filesModel.rowCount() : 0)
         }
 

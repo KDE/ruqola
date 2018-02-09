@@ -61,3 +61,12 @@ void FilesForRoomFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);
 }
+
+int FilesForRoomFilterProxyModel::rowCount(const QModelIndex &parent) const
+{
+    if (QAbstractItemModel *source = sourceModel()) {
+        qDebug() << " int FilesForRoomFilterProxyModel::rowCount(const QModelIndex &parent) const" << source->rowCount(parent);
+        return source->rowCount(parent);
+    }
+    return 0;
+}
