@@ -438,18 +438,20 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
     return subscribe(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::channelAndPrivateAutocomplete(const QString &pattern, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::channelAndPrivateAutocomplete(const QString &pattern, const QString &exceptions, quint64 id)
 {
-    return searchRoomUsers(pattern, true, true, id);
+    return searchRoomUsers(pattern, exceptions, true, true, id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::searchRoomUsers(const QString &pattern, bool searchUser, bool searchRoom, quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id)
 {
     QJsonArray params;
     params.append(pattern);
 
     QJsonArray type;
     params.append(type);
+    const QJsonArray exceptionJson = QJsonArray::fromStringList(exceptions.split(QLatin1Char(',')));
+    params.append(exceptionJson);
 
     QJsonObject secondParams;
     secondParams[QStringLiteral("rooms")] = searchRoom;

@@ -6,6 +6,10 @@
         "room",
         [
         ],
+        [
+            "foo",
+            "bla"
+        ],
         {
             "rooms": true,
             "users": true

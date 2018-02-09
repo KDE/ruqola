@@ -448,7 +448,9 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
     if (pattern.isEmpty()) {
         searchChannelModel()->clear();
     } else {
-        ddp()->channelAndPrivateAutocomplete(pattern);
+        //Avoid to show own user
+        const QString addUserNameToException = userName();
+        ddp()->channelAndPrivateAutocomplete(pattern, addUserNameToException);
     }
 }
 

@@ -86,9 +86,9 @@ public:
     //TODO add autotest
     RocketChatMessage::RocketChatMessageResult blockUser(const QString &userId, quint64 id);
     RocketChatMessage::RocketChatMessageResult unblockUser(const QString &userId, quint64 id);
-    RocketChatMessage::RocketChatMessageResult channelAndPrivateAutocomplete(const QString &pattern, quint64 id);
+    RocketChatMessage::RocketChatMessageResult channelAndPrivateAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
     RocketChatMessage::RocketChatMessageResult roomFiles(const QString &roomId, quint64 id);
-    RocketChatMessage::RocketChatMessageResult searchRoomUsers(const QString &pattern, bool searchUser, bool searchRoom, quint64 id);
+    RocketChatMessage::RocketChatMessageResult searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
     RocketChatMessage::RocketChatMessageResult addUserToRoom(const QString &username, const QString &roomId, quint64 id);
     RocketChatMessage::RocketChatMessageResult login(const QString &username, const QString &password, quint64 id);
 private:

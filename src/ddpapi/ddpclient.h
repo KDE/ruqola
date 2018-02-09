@@ -166,7 +166,7 @@ public:
     quint64 setReaction(const QString &emoji, const QString &messageId);
     quint64 getUsersOfRoom(const QString &roomId, bool showAll);
     quint64 loadHistory(const QJsonArray &params);
-    quint64 channelAndPrivateAutocomplete(const QString &pattern);
+    quint64 channelAndPrivateAutocomplete(const QString &pattern, const QString &exception);
     quint64 roomFiles(const QString &roomId);
     quint64 addUserToRoom(const QString &userId, const QString &roomId);
 Q_SIGNALS:
