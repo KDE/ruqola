@@ -20,6 +20,8 @@
 
 #include "searchchannelmodeltest.h"
 #include "model/searchchannelmodel.h"
+#include "test_model_helpers.h"
+#include <QSignalSpy>
 #include <QTest>
 
 QTEST_MAIN(SearchChannelModelTest)
@@ -33,4 +35,67 @@ void SearchChannelModelTest::shouldHaveDefaultValue()
 {
     SearchChannelModel w;
     QCOMPARE(w.rowCount(), 0);
+}
+
+void SearchChannelModelTest::shouldAssignValues()
+{
+    SearchChannelModel w;
+    QSignalSpy rowInsertedSpy(&w, &SearchChannelModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &SearchChannelModel::rowsAboutToBeInserted);
+    QSignalSpy rowRemovedSpy(&w, &SearchChannelModel::rowsRemoved);
+    QSignalSpy rowABTRemoved(&w, &SearchChannelModel::rowsAboutToBeRemoved);
+
+    QVector<Channel> channelList;
+    for (int i = 0; i < 10; ++i) {
+        Channel c;
+        c.setRoomId(QStringLiteral("roomid%1").arg(i));
+        c.setRoomName(QStringLiteral("roomname%1").arg(i));
+        c.setRoomType(QStringLiteral("online"));
+        channelList.append(c);
+    }
+    w.setChannels(channelList);
+    QCOMPARE(w.rowCount(), 10);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9"));
+
+    //add Empty list
+    channelList.clear();
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+    rowRemovedSpy.clear();
+    rowABTRemoved.clear();
+
+    w.setChannels(channelList);
+
+    QCOMPARE(w.rowCount(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(rowRemovedSpy.count(), 1);
+    QCOMPARE(rowABTRemoved.count(), 1);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,9"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,9"));
+
+    //Add same element
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+    rowRemovedSpy.clear();
+    rowABTRemoved.clear();
+
+    w.setChannels(channelList);
+
+    QCOMPARE(w.rowCount(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QString());
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QString());
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QString());
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QString());
+
+
 }

@@ -31,6 +31,7 @@ public:
     ~SearchChannelModelTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldAssignValues();
 };
 
 #endif // SEARCHCHANNELROOMMODELTEST_H
