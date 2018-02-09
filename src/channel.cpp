@@ -35,6 +35,7 @@ void Channel::parseChannel(const QJsonObject &object, ChannelType type)
 {
     mType = type;
     if (mType == ChannelType::PrivateChannel) {
+        //We can't use User.parseUser as it uses different json.
         mUser.setUserId(object.value(QLatin1String("_id")).toString());
         mUser.setName(object.value(QLatin1String("name")).toString());
         mUser.setStatus(object.value(QLatin1String("status")).toString());
