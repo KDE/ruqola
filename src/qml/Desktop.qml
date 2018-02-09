@@ -149,6 +149,9 @@ Kirigami.ApplicationWindow {
         onSearchChannel: {
             rocketChatAccount.channelAndPrivateAutocomplete(pattern);
         }
+        onOpenChannel: {
+            console.log("open channel" + channelname)
+        }
     }
 
     TakeVideoMessageDialog {

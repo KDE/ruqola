@@ -32,7 +32,7 @@ Dialog {
 
     property QtObject searchChannelModel
     signal searchChannel(string pattern)
-    signal openChannel(string pattern)
+    signal openChannel(string channelname)
 
     title: i18n("Search Channel")
     standardButtons: Dialog.Close
@@ -76,7 +76,8 @@ Dialog {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            searchChannelDialog.openChannel(username)
+                            //TODO ?
+                            searchChannelDialog.openChannel(channelname)
                         }
                     }
                 }
