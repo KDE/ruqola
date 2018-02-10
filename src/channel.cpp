@@ -70,10 +70,10 @@ void Channel::setUser(const User &user)
 bool Channel::operator==(const Channel &other) const
 {
     return (mType == other.type())
-            && (mUser == other.user())
-            && (mRoomId == other.roomId())
-            && (mRoomType == other.roomType())
-            && (mRoomName == other.roomName());
+           && (mUser == other.user())
+           && (mRoomId == other.roomId())
+           && (mRoomType == other.roomType())
+           && (mRoomName == other.roomName());
 }
 
 Channel &Channel::operator=(const Channel &other)

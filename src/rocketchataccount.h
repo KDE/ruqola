@@ -135,7 +135,6 @@ public:
     Q_INVOKABLE SearchChannelModel *searchChannelModel() const;
     Q_INVOKABLE SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
 
-
     RocketChatAccountSettings *settings() const;
     DDPClient *ddp();
 
@@ -188,7 +187,6 @@ public:
 
     void insertCompleterUsers();
     void insertFilesList(const QString &roomId);
-
 
 Q_SIGNALS:
     void connectedChanged();

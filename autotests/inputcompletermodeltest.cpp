@@ -27,5 +27,4 @@ QTEST_MAIN(InputCompleterModelTest)
 InputCompleterModelTest::InputCompleterModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

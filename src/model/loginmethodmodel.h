@@ -24,7 +24,6 @@
 #include <QAbstractItemModel>
 #include "libruqola_private_export.h"
 
-
 class LIBRUQOLACORE_TESTS_EXPORT LoginMethodModel : public QAbstractListModel
 {
     Q_OBJECT

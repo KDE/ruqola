@@ -129,7 +129,6 @@ void SearchChannelModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,4"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
 
-
     rowInsertedSpy.clear();
     rowABTInserted.clear();
     rowRemovedSpy.clear();
@@ -144,7 +143,6 @@ void SearchChannelModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,4"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,4"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
-
 }
 
 QJsonObject loadFile(const QString &file)

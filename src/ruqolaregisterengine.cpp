@@ -43,7 +43,6 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
-
 RuqolaRegisterEngine::RuqolaRegisterEngine()
 {
 }

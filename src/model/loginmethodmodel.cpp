@@ -23,10 +23,8 @@
 LoginMethodModel::LoginMethodModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 LoginMethodModel::~LoginMethodModel()
 {
-
 }

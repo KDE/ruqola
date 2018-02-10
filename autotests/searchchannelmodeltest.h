@@ -36,7 +36,6 @@ private Q_SLOTS:
     void shouldLoadValueFromJson();
 
     void shouldClearModel();
-
 };
 
 #endif // SEARCHCHANNELROOMMODELTEST_H

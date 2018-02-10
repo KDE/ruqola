@@ -114,9 +114,8 @@ QString SearchChannelModel::channelId(const Channel &channel) const
     switch (channel.type()) {
     case Channel::ChannelType::PrivateChannel:
         return channel.user().userName();
-    case Channel::ChannelType::Room: {
+    case Channel::ChannelType::Room:
         return channel.roomId();
-    }
     case Channel::ChannelType::Unknown:
         qCWarning(RUQOLA_LOG) << "Unknown channel type!";
         return {};
@@ -129,9 +128,8 @@ QString SearchChannelModel::channelName(const Channel &channel) const
     switch (channel.type()) {
     case Channel::ChannelType::PrivateChannel:
         return channel.user().userName();
-    case Channel::ChannelType::Room: {
+    case Channel::ChannelType::Room:
         return channel.roomName();
-    }
     case Channel::ChannelType::Unknown:
         qCWarning(RUQOLA_LOG) << "Unknown channel type!";
         return {};
@@ -144,7 +142,7 @@ QIcon SearchChannelModel::channelIconName(const Channel &channel) const
     switch (channel.type()) {
     case Channel::ChannelType::PrivateChannel:
         return QIcon::fromTheme(channel.user().iconFromStatus());
-    case Channel::ChannelType::Room: {
+    case Channel::ChannelType::Room:
         if (channel.roomType() == QLatin1String("c")) {
             return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
         } else if (channel.roomType() == QLatin1String("p")) {
@@ -152,7 +150,6 @@ QIcon SearchChannelModel::channelIconName(const Channel &channel) const
         }
         qCWarning(RUQOLA_LOG) << "Unknown room type!" << channel.roomType();
         return {};
-    }
     case Channel::ChannelType::Unknown:
         qCWarning(RUQOLA_LOG) << "Unknown channel type!";
         return {};

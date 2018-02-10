@@ -43,12 +43,10 @@ void ChannelTest::shouldHaveDefaultValue()
 
 void ChannelTest::shouldAssignValue()
 {
-
 }
 
 void ChannelTest::shouldCopyValue()
 {
-
 }
 
 void ChannelTest::shouldParseChannel_data()

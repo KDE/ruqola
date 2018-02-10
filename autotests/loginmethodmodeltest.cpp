@@ -26,5 +26,4 @@ QTEST_MAIN(LoginMethodModelTest)
 LoginMethodModelTest::LoginMethodModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

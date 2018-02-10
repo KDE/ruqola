@@ -28,7 +28,7 @@
 class LIBRUQOLACORE_TESTS_EXPORT SearchChannelModel : public QAbstractListModel
 {
     Q_OBJECT
-public:    
+public:
     enum ChannelRoles {
         ChannelName = Qt::UserRole + 1,
         ChannelId,

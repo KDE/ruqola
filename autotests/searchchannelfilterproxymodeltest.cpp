@@ -60,7 +60,6 @@ QJsonObject loadFile(const QString &file)
     return obj;
 }
 
-
 void SearchChannelFilterProxyModelTest::shouldLoadChannelJSon()
 {
     SearchChannelFilterProxyModel w;

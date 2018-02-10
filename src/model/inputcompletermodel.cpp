@@ -23,10 +23,8 @@
 InputCompleterModel::InputCompleterModel(QObject *parent)
     : QStringListModel(parent)
 {
-
 }
 
 InputCompleterModel::~InputCompleterModel()
 {
-
 }
