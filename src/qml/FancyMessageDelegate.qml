@@ -45,6 +45,7 @@ Rectangle {
     property string i_systemMessageType
     property string i_avatar
     property string i_aliasname
+    property string i_editedByUserName
     property var i_timestamp
     property var i_messageType
     property var i_urls
@@ -122,8 +123,8 @@ Rectangle {
                               i_own_username: i_own_username,
                               rcAccount: appid.rocketChatAccount,
                               i_can_editing_message: i_can_editing_message,
+                              i_editedByUserName: i_editedByUserName,
                               i_starred: i_starred
-
                           }
                           )
             } else if (i_messageType === Message.Audio) {
@@ -139,6 +140,7 @@ Rectangle {
                               i_urls: i_urls,
                               i_attachments: i_attachments,
                               i_date: i_date,
+                              i_editedByUserName: i_editedByUserName,
                               rcAccount: appid.rocketChatAccount
                           })
             } else if (i_messageType === Message.Video) {
@@ -154,6 +156,7 @@ Rectangle {
                               i_urls: i_urls,
                               i_attachments: i_attachments,
                               i_date: i_date,
+                              i_editedByUserName: i_editedByUserName,
                               rcAccount: appid.rocketChatAccount
                           })
             } else if (i_messageType === Message.Image) {
@@ -169,6 +172,7 @@ Rectangle {
                               i_urls: i_urls,
                               i_attachments: i_attachments,
                               i_date: i_date,
+                              i_editedByUserName: i_editedByUserName,
                               rcAccount: appid.rocketChatAccount
                           })
 

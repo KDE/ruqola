@@ -41,6 +41,8 @@ ColumnLayout {
     property string i_originalMessage
     property var i_urls
     property var i_attachments
+    property string i_editedByUserName
+
 
     property QtObject rcAccount
 
