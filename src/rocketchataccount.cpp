@@ -48,6 +48,7 @@
 
 #include <QDesktopServices>
 #include <QFile>
+#include <QRegularExpression>
 #include <QTimer>
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
@@ -612,6 +613,8 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             mRuqolaServerConfig->setBlockEditingMessageInMinutes(value.toInt());
         } else if (id == QLatin1String("OTR_Enable")) {
             mRuqolaServerConfig->setOtrEnabled(value.toBool());
+        } else if (id.contains(QRegularExpression(QStringLiteral("^Accounts_OAuth_\\w+")))) {
+            qDebug() << "Account oauth" << id << " value : " << value;
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
