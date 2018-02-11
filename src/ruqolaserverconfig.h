@@ -69,12 +69,17 @@ public:
 
     void setServerVersion(const QString &version);
 
+    void addOauthService(const QString &service);
+
+    OauthTypes oauthTypes() const;
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;
     QString mFileUploadStorageType;
+    OauthTypes mOauthTypes = OauthType::Unknown;
     int mBlockEditingMessageInMinutes = 5;
     int mServerVersionMajor = -1;
     int mServerVersionMinor = -1;

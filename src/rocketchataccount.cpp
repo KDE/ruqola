@@ -614,6 +614,9 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
         } else if (id == QLatin1String("OTR_Enable")) {
             mRuqolaServerConfig->setOtrEnabled(value.toBool());
         } else if (id.contains(QRegularExpression(QStringLiteral("^Accounts_OAuth_\\w+")))) {
+            if (value.toBool()) {
+                mRuqolaServerConfig->addOauthService(id);
+            }
             qDebug() << "Account oauth" << id << " value : " << value;
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;

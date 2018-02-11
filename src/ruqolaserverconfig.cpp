@@ -123,7 +123,34 @@ void RuqolaServerConfig::setServerVersion(const QString &version)
     adaptToServerVersion();
 }
 
+void RuqolaServerConfig::addOauthService(const QString &service)
+{
+    const QString serviceLower = service.toLower();
+    if (serviceLower.endsWith(QLatin1String("twitter"))) {
+        mOauthTypes |= RuqolaServerConfig::OauthType::Twitter;
+    } else if (serviceLower.endsWith(QLatin1String("facebook"))) {
+        mOauthTypes |= RuqolaServerConfig::OauthType::FaceBook;
+    } else if (serviceLower.endsWith(QLatin1String("github"))) {
+        mOauthTypes |= RuqolaServerConfig::OauthType::GitHub;
+    } else if (serviceLower.endsWith(QLatin1String("gitlab"))) {
+        mOauthTypes |= RuqolaServerConfig::OauthType::GitLab;
+    } else if (serviceLower.endsWith(QLatin1String("google"))) {
+        mOauthTypes |= RuqolaServerConfig::OauthType::Google;
+    } else if (serviceLower.endsWith(QLatin1String("linkedin"))) {
+        mOauthTypes |= RuqolaServerConfig::OauthType::Linkedin;
+    } else if (serviceLower.endsWith(QLatin1String("wordpress"))) {
+        mOauthTypes |= RuqolaServerConfig::OauthType::Wordpress;
+    } else {
+        qCWarning(RUQOLA_LOG) << "Unknow service type: " << service;
+    }
+}
+
 void RuqolaServerConfig::adaptToServerVersion()
 {
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor == 0) && (mServerVersionMinor >= 60);
+}
+
+RuqolaServerConfig::OauthTypes RuqolaServerConfig::oauthTypes() const
+{
+    return mOauthTypes;
 }
