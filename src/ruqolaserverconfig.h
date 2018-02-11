@@ -73,6 +73,9 @@ public:
 
     OauthTypes oauthTypes() const;
 
+    bool serverHasSupportForOauthType(OauthType type) const;
+
+    bool ruqolaHasSupportForOauthType(OauthType type) const;
 private:
     void adaptToServerVersion();
     QString mUniqueId;

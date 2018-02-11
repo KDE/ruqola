@@ -123,6 +123,16 @@ void RuqolaServerConfig::setServerVersion(const QString &version)
     adaptToServerVersion();
 }
 
+bool RuqolaServerConfig::ruqolaHasSupportForOauthType(OauthType type) const
+{
+    return false;
+}
+
+bool RuqolaServerConfig::serverHasSupportForOauthType(OauthType type) const
+{
+    return mOauthTypes & type;
+}
+
 void RuqolaServerConfig::addOauthService(const QString &service)
 {
     const QString serviceLower = service.toLower();
