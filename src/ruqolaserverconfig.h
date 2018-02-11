@@ -21,12 +21,27 @@
 #ifndef RUQOLASERVERCONFIG_H
 #define RUQOLASERVERCONFIG_H
 
+#include <QObject>
 #include "libruqola_private_export.h"
 #include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT RuqolaServerConfig
 {
+    Q_GADGET
 public:
+    enum class OauthType {
+        Unknown = 0,
+        Twitter = 1,
+        FaceBook = 2,
+        GitHub = 4,
+        GitLab = 8,
+        Google = 16,
+        Linkedin = 32,
+        Wordpress = 64
+    };
+    Q_ENUMS(OauthType)
+    Q_DECLARE_FLAGS(OauthTypes, OauthType)
+
     RuqolaServerConfig();
 
     QString uniqueId() const;
