@@ -28,7 +28,7 @@ class RuqolaWebSocket : public AbstractWebSocket
 {
 public:
     explicit RuqolaWebSocket(QObject *parent = nullptr);
-    ~RuqolaWebSocket();
+    ~RuqolaWebSocket() override;
 
     void openUrl(const QUrl &url) override;
     qint64 sendTextMessage(const QString &message) override;

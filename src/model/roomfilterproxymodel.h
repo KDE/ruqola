@@ -29,7 +29,7 @@ class LIBRUQOLACORE_EXPORT RoomFilterProxyModel : public QSortFilterProxyModel
     Q_OBJECT
 public:
     explicit RoomFilterProxyModel(QObject *parent = nullptr);
-    ~RoomFilterProxyModel();
+    ~RoomFilterProxyModel() override;
 
     QHash<int, QByteArray> roleNames() const override;
 

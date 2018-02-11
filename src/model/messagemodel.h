@@ -63,7 +63,7 @@ public:
     Q_ENUM(MessageRoles)
 
     explicit MessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, QObject *parent = nullptr);
-    virtual ~MessageModel();
+    ~MessageModel() override;
 
     /**
     * @brief Adds a message to QVector m_allMessages

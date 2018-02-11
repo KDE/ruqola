@@ -39,7 +39,7 @@ public:
     Q_ENUM(UserRoles)
 
     explicit FilesForRoomModel(QObject *parent = nullptr);
-    ~FilesForRoomModel();
+    ~FilesForRoomModel() override;
 
     Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role) const override;

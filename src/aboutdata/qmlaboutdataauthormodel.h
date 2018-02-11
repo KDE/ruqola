@@ -40,7 +40,7 @@ public:
     Q_ENUM(AuthorRoles)
 
     explicit QmlAboutDataAuthorModel(QObject *parent = nullptr);
-    ~QmlAboutDataAuthorModel() = default;
+    ~QmlAboutDataAuthorModel() override = default;
 
     Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
