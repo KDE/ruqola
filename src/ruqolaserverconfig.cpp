@@ -125,6 +125,24 @@ void RuqolaServerConfig::setServerVersion(const QString &version)
 
 bool RuqolaServerConfig::ruqolaHasSupportForOauthType(OauthType type) const
 {
+    switch (type) {
+    case OauthType::Unknown:
+        return false;
+    case OauthType::Twitter:
+        return false;
+    case OauthType::FaceBook:
+        return false;
+    case OauthType::GitHub:
+        return false;
+    case OauthType::GitLab:
+        return false;
+    case OauthType::Google:
+        return false;
+    case OauthType::Linkedin:
+        return false;
+    case OauthType::Wordpress:
+        return false;
+    }
     return false;
 }
 
