@@ -153,3 +153,18 @@ void RuqolaServerConfigTest::shouldVerifyOauthType()
     }
     QCOMPARE(config.oauthTypes(), types);
 }
+
+void RuqolaServerConfigTest::shouldVerifyThatServerSupportService()
+{
+    RuqolaServerConfig config;
+    QVERIFY(!config.serverHasSupportForOauthType(RuqolaServerConfig::OauthType::Twitter));
+    config.addOauthService(QStringLiteral("Accounts_OAuth_Twitter"));
+    QVERIFY(config.serverHasSupportForOauthType(RuqolaServerConfig::OauthType::Twitter));
+
+    QVERIFY(!config.serverHasSupportForOauthType(RuqolaServerConfig::OauthType::FaceBook));
+    config.addOauthService(QStringLiteral("Accounts_OAuth_Google"));
+    QVERIFY(config.serverHasSupportForOauthType(RuqolaServerConfig::OauthType::Google));
+
+    config.addOauthService(QStringLiteral("Accounts_OAuth_FaceBook"));
+    QVERIFY(config.serverHasSupportForOauthType(RuqolaServerConfig::OauthType::FaceBook));
+}

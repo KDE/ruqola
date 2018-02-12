@@ -38,6 +38,8 @@ private Q_SLOTS:
 
     void shouldVerifyOauthType_data();
     void shouldVerifyOauthType();
+
+    void shouldVerifyThatServerSupportService();
 };
 
 #endif // RUQOLASERVERCONFIGTEST_H
