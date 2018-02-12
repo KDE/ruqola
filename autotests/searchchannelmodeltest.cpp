@@ -192,7 +192,8 @@ void SearchChannelModelTest::shouldLoadValueFromJson()
     //Test user
     QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelName).toString(), QStringLiteral("bla.foo4"));
     QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelType), Channel::ChannelType::PrivateChannel);
-    QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelId).toString(), QStringLiteral("D4mArmug2mbTpcGA"));
+    //We use for user a channelid == channel name as we use it for opening direct channel
+    QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelId).toString(), QStringLiteral("bla.foo4"));
 
     obj = loadFile(QStringLiteral("channelparentempty.json"));
     w.parseChannels(obj);
