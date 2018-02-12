@@ -81,6 +81,10 @@ private Q_SLOTS:
 
     void shouldAddUserToRoom();
     void shouldLogin();
+
+    void inputChannelAutocomplete();
+
+    void inputUserAutocomplete();
 private:
     void compareFile(const QString &data, const QString &name);
 };

@@ -169,6 +169,8 @@ public:
     quint64 channelAndPrivateAutocomplete(const QString &pattern, const QString &exception);
     quint64 roomFiles(const QString &roomId);
     quint64 addUserToRoom(const QString &userId, const QString &roomId);
+    quint64 inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
+    quint64 inputUserAutocomplete(const QString &pattern, const QString &exceptions);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

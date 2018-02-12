@@ -419,7 +419,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::logout(const QStri
     return generateMethod(QStringLiteral("logout"), QJsonDocument(params), id);
 }
 
-//Verify it.
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(const QString &searchText, const QString &exception, quint64 id)
 {
     QJsonArray params;
@@ -434,7 +433,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
     firstParam[QStringLiteral("exceptions")] = exceptionEntries;
     firstParam[QStringLiteral("term")] = searchText;
     params.append(firstParam);
-    qDebug() << " params " << params;
     return subscribe(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
 }
 
@@ -442,6 +440,17 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::channelAndPrivateA
 {
     return searchRoomUsers(pattern, exceptions, true, true, id);
 }
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::inputChannelAutocomplete(const QString &pattern, const QString &exceptions, quint64 id)
+{
+    return searchRoomUsers(pattern, exceptions, false, true, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::inputUserAutocomplete(const QString &pattern, const QString &exceptions, quint64 id)
+{
+    return searchRoomUsers(pattern, exceptions, true, false, id);
+}
+
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id)
 {

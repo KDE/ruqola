@@ -42,6 +42,21 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void input_channel_autocomplete(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Input channel autocomplete:") + QJsonDocument(root).toJson());
+    }
+}
+
+
+void input_user_autocomplete(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Input users autocomplete:") + QJsonDocument(root).toJson());
+    }
+}
+
 void process_backlog(const QJsonObject &root, RocketChatAccount *account)
 {
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
@@ -508,6 +523,18 @@ quint64 DDPClient::clearUnreadMessages(const QString &roomID)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->readMessages(roomID, m_uid);
     return method(result, empty_callback, DDPClient::Persistent);
+}
+
+quint64 DDPClient::inputChannelAutocomplete(const QString &pattern, const QString &exceptions)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputChannelAutocomplete(pattern, exceptions,  m_uid);
+    return method(result, input_channel_autocomplete, DDPClient::Persistent);
+}
+
+quint64 DDPClient::inputUserAutocomplete(const QString &pattern, const QString &exceptions)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputUserAutocomplete(pattern, exceptions,  m_uid);
+    return method(result, input_user_autocomplete, DDPClient::Persistent);
 }
 
 quint64 DDPClient::login(const QString &username, const QString &password)

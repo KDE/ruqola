@@ -386,3 +386,19 @@ void RocketChatMessageTest::shouldLogin()
     RocketChatMessage::RocketChatMessageResult r = m.login(QStringLiteral("user"), QStringLiteral("password"), 43);
     compareFile(r.result, QStringLiteral("login"));
 }
+
+void RocketChatMessageTest::inputChannelAutocomplete()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.inputChannelAutocomplete(QStringLiteral("pattern"), QStringLiteral("exception"), 43);
+    compareFile(r.result, QStringLiteral("inputChannelAutocomplete"));
+}
+
+void RocketChatMessageTest::inputUserAutocomplete()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.inputUserAutocomplete(QStringLiteral("pattern"), QStringLiteral("exception"), 43);
+    compareFile(r.result, QStringLiteral("inputUserAutocomplete"));
+}
