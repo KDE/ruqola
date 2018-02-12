@@ -86,9 +86,9 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: i18n("Report a Bug")
-                iconName: "system-log-out"
+                iconName: "tools-report-bug"
                 onTriggered: {
-                    //TODO
+                    Qt.openUrlExternally("https://bugs.kde.org/report.cgi");
                 }
             },
             Kirigami.Action {
