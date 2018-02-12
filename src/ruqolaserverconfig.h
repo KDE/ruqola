@@ -92,5 +92,5 @@ private:
     bool mOtrEnabled = true;
     bool mNeedAdaptNewSubscriptionRC60 = false;
 };
-
+Q_DECLARE_METATYPE(RuqolaServerConfig::OauthTypes)
 #endif // RUQOLASERVERCONFIG_H

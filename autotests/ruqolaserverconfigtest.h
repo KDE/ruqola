@@ -35,6 +35,9 @@ private Q_SLOTS:
 
     void shouldEnabledRc60_data();
     void shouldEnabledRc60();
+
+    void shouldVerifyOauthType_data();
+    void shouldVerifyOauthType();
 };
 
 #endif // RUQOLASERVERCONFIGTEST_H

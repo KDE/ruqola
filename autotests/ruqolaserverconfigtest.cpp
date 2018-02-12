@@ -41,6 +41,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.otrEnabled());
     QVERIFY(!config.needAdaptNewSubscriptionRC60());
     QCOMPARE(config.blockEditingMessageInMinutes(), 5);
+    QCOMPARE(config.oauthTypes(), RuqolaServerConfig::OauthType::Unknown);
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -88,4 +89,67 @@ void RuqolaServerConfigTest::shouldEnabledRc60()
     RuqolaServerConfig config;
     config.setServerVersion(serverVersion);
     QCOMPARE(config.needAdaptNewSubscriptionRC60(), needRc60);
+}
+
+void RuqolaServerConfigTest::shouldVerifyOauthType_data()
+{
+    QTest::addColumn<QStringList>("oauthlist");
+    QTest::addColumn<RuqolaServerConfig::OauthTypes>("types");
+
+    {
+        QStringList lst;
+        RuqolaServerConfig::OauthTypes types;
+        types |= RuqolaServerConfig::OauthType::Unknown;
+        QTest::newRow("empty") << lst << types;
+    }
+    {
+        const QStringList lst = {QStringLiteral("Accounts_OAuth_FaceBook")};
+        RuqolaServerConfig::OauthTypes types;
+        types |= RuqolaServerConfig::OauthType::FaceBook;
+        QTest::newRow("fb") << lst << types;
+    }
+    {
+        const QStringList lst = {QStringLiteral("Accounts_OAuth_Twitter")};
+        RuqolaServerConfig::OauthTypes types;
+        types |= RuqolaServerConfig::OauthType::Twitter;
+        QTest::newRow("tw") << lst << types;
+    }
+    {
+        const QStringList lst = {QStringLiteral("Accounts_OAuth_Google")};
+        RuqolaServerConfig::OauthTypes types;
+        types |= RuqolaServerConfig::OauthType::Google;
+        QTest::newRow("go") << lst << types;
+    }
+    {
+        const QStringList lst = {QStringLiteral("Accounts_OAuth_Google"), QStringLiteral("Accounts_OAuth_Twitter"), QStringLiteral("Accounts_OAuth_FaceBook")};
+        RuqolaServerConfig::OauthTypes types;
+        types |= RuqolaServerConfig::OauthType::Google;
+        types |= RuqolaServerConfig::OauthType::FaceBook;
+        types |= RuqolaServerConfig::OauthType::Twitter;
+        QTest::newRow("go-tw-fb") << lst << types;
+    }
+    {
+        const QStringList lst = {QStringLiteral("Accounts_OAuth_Blable")};
+        RuqolaServerConfig::OauthTypes types;
+        types |= RuqolaServerConfig::OauthType::Unknown;
+        QTest::newRow("unknow") << lst << types;
+    }
+    {
+        const QStringList lst = {QStringLiteral("Accounts_OAuth_Blable"), QStringLiteral("Accounts_OAuth_Twitter")};
+        RuqolaServerConfig::OauthTypes types;
+        types |= RuqolaServerConfig::OauthType::Twitter;
+        QTest::newRow("unknow-2") << lst << types;
+    }
+
+}
+
+void RuqolaServerConfigTest::shouldVerifyOauthType()
+{
+    QFETCH(QStringList, oauthlist);
+    QFETCH(RuqolaServerConfig::OauthTypes, types);
+    RuqolaServerConfig config;
+    for (const QString &t : oauthlist) {
+        config.addOauthService(t);
+    }
+    QCOMPARE(config.oauthTypes(), types);
 }
