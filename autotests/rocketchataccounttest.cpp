@@ -41,4 +41,5 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(!w.ruqolaLogger());
     QVERIFY(w.ruqolaServerConfig());
     QVERIFY(w.userCompleterFilterModelProxy());
+    QVERIFY(w.loginMethodModel());
 }

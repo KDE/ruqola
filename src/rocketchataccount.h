@@ -50,6 +50,7 @@ class FilesForRoomModel;
 class FilesForRoomFilterProxyModel;
 class SearchChannelModel;
 class SearchChannelFilterProxyModel;
+class LoginMethodModel;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -188,6 +189,8 @@ public:
     void insertCompleterUsers();
     void insertFilesList(const QString &roomId);
 
+    LoginMethodModel *loginMethodModel() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -208,6 +211,8 @@ private:
     void insertAvatarUrl(const QString &userId, const QString &url);
     void loadSettings();
     void clearModels();
+    void fillOauthModel();
+
     RocketChatAccountSettings *mSettings = nullptr;
     //room, messagemodel
     QHash<QString, MessageModel *> mMessageModels;
@@ -231,6 +236,7 @@ private:
     OtrManager *mOtrManager = nullptr;
     SearchChannelModel *mSearchChannelModel = nullptr;
     SearchChannelFilterProxyModel *mSearchChannelFilterProxyModel = nullptr;
+    LoginMethodModel *mLoginMethodModel = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H

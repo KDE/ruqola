@@ -28,3 +28,14 @@ LoginMethodModel::LoginMethodModel(QObject *parent)
 LoginMethodModel::~LoginMethodModel()
 {
 }
+
+
+int LoginMethodModel::rowCount(const QModelIndex &parent) const
+{
+    return {};
+}
+
+QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
+{
+    return {};
+}

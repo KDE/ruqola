@@ -30,6 +30,9 @@ class LIBRUQOLACORE_TESTS_EXPORT LoginMethodModel : public QAbstractListModel
 public:
     explicit LoginMethodModel(QObject *parent = nullptr);
     ~LoginMethodModel();
+
+    int rowCount(const QModelIndex &parent) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
 };
 
 #endif // LOGINMETHODMODEL_H

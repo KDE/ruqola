@@ -42,6 +42,7 @@
 #include "model/filesforroommodel.h"
 #include "model/searchchannelfilterproxymodel.h"
 #include "model/searchchannelmodel.h"
+#include "model/loginmethodmodel.h"
 
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -51,6 +52,7 @@
 #include <QRegularExpression>
 #include <QTimer>
 
+
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
 {
@@ -58,6 +60,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
         mRuqolaLogger = new RuqolaLogger;
     }
+
+    //Create it before loading settings
+    mLoginMethodModel = new LoginMethodModel(this);
 
     mRuqolaServerConfig = new RuqolaServerConfig;
     //TODO add account name.
@@ -622,6 +627,17 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
     }
+    fillOauthModel();
+}
+
+void RocketChatAccount::fillOauthModel()
+{
+    //TODO
+}
+
+LoginMethodModel *RocketChatAccount::loginMethodModel() const
+{
+    return mLoginMethodModel;
 }
 
 QString RocketChatAccount::authToken() const
