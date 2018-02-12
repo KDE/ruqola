@@ -133,7 +133,7 @@ Component {
                 }
                 appid.rocketChatAccount.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
                 appid.selectedRoomID = roomID;
-                appid.model = appid.rocketChatAccount.getMessageModelForRoom(roomID)
+                appid.model = appid.rocketChatAccount.messageModelForRoom(roomID)
                 appid.selectedRoom = appid.rocketChatAccount.getRoom(roomID)
                 appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(roomID)
                 appid.filesModel = appid.rocketChatAccount.filesForRoomFilterProxyModel(roomID)

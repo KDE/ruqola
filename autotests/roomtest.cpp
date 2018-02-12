@@ -37,7 +37,7 @@ RoomTest::RoomTest(QObject *parent)
 
 void RoomTest::shouldHaveDefaultValue()
 {
-    Room input;
+    Room input(nullptr);
     QVERIFY(input.usersModelForRoom());
     QVERIFY(input.usersModelForRoomProxyModel());
 
@@ -46,11 +46,14 @@ void RoomTest::shouldHaveDefaultValue()
 
     QCOMPARE(input.filesForRoomFilterProxyModel()->sourceModel(), input.filesModelForRoom());
     QCOMPARE(input.usersModelForRoomProxyModel()->sourceModel(), input.usersModelForRoom());
+
+    QVERIFY(input.messageModel());
+    QVERIFY(input.inputMessage().isEmpty());
 }
 
 void RoomTest::shouldSerialized()
 {
-    Room input;
+    Room input(nullptr);
     input.setId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
@@ -74,7 +77,7 @@ void RoomTest::shouldSerialized()
 
 void RoomTest::shouldEmitSignals()
 {
-    Room input;
+    Room input(nullptr);
     QSignalSpy spyNameChanged(&input, &Room::nameChanged);
     QSignalSpy spyannouncementChanged(&input, &Room::announcementChanged);
     QSignalSpy spytopicChanged(&input, &Room::topicChanged);
@@ -107,6 +110,23 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyalertChanged.count(), 1);
     QCOMPARE(spyreadOnlyChanged.count(), 1);
     QCOMPARE(spyunreadChanged.count(), 1);
+}
+
+void RoomTest::shouldChangeInputMessage()
+{
+    Room input(nullptr);
+    QString inputMsg = QStringLiteral("Foo");
+    input.setInputMessage(inputMsg);
+    QCOMPARE(input.inputMessage(), inputMsg);
+
+    inputMsg = QString();
+    input.setInputMessage(inputMsg);
+    QCOMPARE(input.inputMessage(), inputMsg);
+
+    inputMsg = QStringLiteral("foo");
+    input.setInputMessage(inputMsg);
+    QCOMPARE(input.inputMessage(), inputMsg);
+
 }
 
 //TODO add more autotests signal and co.

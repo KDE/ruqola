@@ -43,6 +43,7 @@
 #include "model/searchchannelfilterproxymodel.h"
 #include "model/searchchannelmodel.h"
 #include "model/loginmethodmodel.h"
+#include "model/inputcompletermodel.h"
 
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
@@ -51,6 +52,7 @@
 #include <QFile>
 #include <QRegularExpression>
 #include <QTimer>
+
 
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
@@ -63,6 +65,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     //Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
+    mInputCompleterModel = new InputCompleterModel(this);
 
     mRuqolaServerConfig = new RuqolaServerConfig;
     //TODO add account name.
@@ -108,7 +111,6 @@ RocketChatAccount::~RocketChatAccount()
 {
     delete mCache;
     mCache = nullptr;
-    qDeleteAll(mMessageModels);
 
     delete mRuqolaServerConfig;
     delete mRuqolaLogger;
@@ -237,14 +239,9 @@ RoomWrapper *RocketChatAccount::getRoom(const QString &roomId)
     return mRoomModel->findRoom(roomId);
 }
 
-MessageModel *RocketChatAccount::getMessageModelForRoom(const QString &roomID)
+MessageModel *RocketChatAccount::messageModelForRoom(const QString &roomID)
 {
-    if (MessageModel *model = mMessageModels.value(roomID)) {
-        return model;
-    } else {
-        mMessageModels[roomID] = new MessageModel(roomID, this, this);
-        return mMessageModels[roomID];
-    }
+    return mRoomModel->messageModel(roomID);
 }
 
 QString RocketChatAccount::getUserCurrentMessage(const QString &roomId)
@@ -349,11 +346,6 @@ void RocketChatAccount::tryLogin()
 {
     qCDebug(RUQOLA_LOG) << "Attempting login" << mSettings->userName() << "on" << mSettings->serverUrl();
 
-    // Reset model views
-    foreach (const QString &key, mMessageModels.keys()) {
-        MessageModel *m = mMessageModels.take(key);
-        delete m;
-    }
     delete mDdp;
     mDdp = nullptr;
 
@@ -368,11 +360,6 @@ void RocketChatAccount::tryLogin()
 void RocketChatAccount::logOut()
 {
     mSettings->logout();
-
-    foreach (const QString &key, mMessageModels.keys()) {
-        MessageModel *m = mMessageModels.take(key);
-        delete m;
-    }
 
     mRoomModel->clear();
 
@@ -622,7 +609,6 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mRuqolaServerConfig->addOauthService(id);
             }
-            qDebug() << "Account oauth" << id << " value : " << value;
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
@@ -633,6 +619,11 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 void RocketChatAccount::fillOauthModel()
 {
     //TODO
+}
+
+InputCompleterModel *RocketChatAccount::inputCompleterModel() const
+{
+    return mInputCompleterModel;
 }
 
 LoginMethodModel *RocketChatAccount::loginMethodModel() const
@@ -724,7 +715,7 @@ QUrl RocketChatAccount::attachmentUrl(const QString &url)
 
 void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
 {
-    MessageModel *roomModel = getMessageModelForRoom(roomID);
+    MessageModel *roomModel = messageModelForRoom(roomID);
     if (roomModel) {
         QJsonArray params;
         params.append(QJsonValue(roomID));
@@ -753,7 +744,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
 
 void RocketChatAccount::setServerVersion(const QString &version)
 {
-    qDebug() << " void RocketChatAccount::setServerVersion(const QString &version)" << version;
+    qCDebug(RUQOLA_LOG) << " void RocketChatAccount::setServerVersion(const QString &version)" << version;
     mRuqolaServerConfig->setServerVersion(version);
 }
 

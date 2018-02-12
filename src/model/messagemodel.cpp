@@ -267,6 +267,11 @@ QString MessageModel::convertMessageText(const QString &str, const QMap<QString,
     return mTextConverter->convertMessageText(str, mentions);
 }
 
+void MessageModel::setRoomID(const QString &roomID)
+{
+    mRoomID = roomID;
+}
+
 void MessageModel::deleteMessage(const QString &messageId)
 {
     for (int i = 0; i < mAllMessages.count(); ++i) {

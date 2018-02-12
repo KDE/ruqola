@@ -21,15 +21,17 @@
  */
 
 #include "room.h"
+#include "ruqola_debug.h"
 #include "model/usersforroommodel.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
 #include "model/filesforroomfilterproxymodel.h"
-#include <QDebug>
+#include "model/messagemodel.h"
+
 #include <QJsonArray>
 #include <QJsonDocument>
 
-Room::Room(QObject *parent)
+Room::Room(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
 {
     mUsersModelForRoom = new UsersForRoomModel(this);
@@ -43,6 +45,8 @@ Room::Room(QObject *parent)
     mFilesForRoomFilterProxyModel = new FilesForRoomFilterProxyModel(this);
     mFilesForRoomFilterProxyModel->setObjectName(QStringLiteral("filesforroomfiltermodelproxy"));
     mFilesForRoomFilterProxyModel->setSourceModel(mFilesModelForRoom);
+
+    mMessageModel = new MessageModel(QString(), account, this);
 }
 
 bool Room::operator==(const Room &other) const
@@ -205,6 +209,7 @@ void Room::setId(const QString &id)
 {
     if (mRoomId != id) {
         mRoomId = id;
+        mMessageModel->setRoomID(id);
     }
 }
 
@@ -349,7 +354,8 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
 
 Room *Room::fromJSon(const QJsonObject &o)
 {
-    Room *r = new Room;
+    //FIXME
+    Room *r = new Room(nullptr);
 
     r->setId(o[QStringLiteral("id")].toString());
     r->setChannelType(o[QStringLiteral("t")].toString());
@@ -430,4 +436,19 @@ FilesForRoomModel *Room::filesModelForRoom() const
 FilesForRoomFilterProxyModel *Room::filesForRoomFilterProxyModel() const
 {
     return mFilesForRoomFilterProxyModel;
+}
+
+MessageModel *Room::messageModel() const
+{
+    return mMessageModel;
+}
+
+QString Room::inputMessage() const
+{
+    return mInputMessage;
+}
+
+void Room::setInputMessage(const QString &inputMessage)
+{
+    mInputMessage = inputMessage;
 }

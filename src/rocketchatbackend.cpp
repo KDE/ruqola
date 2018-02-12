@@ -72,7 +72,8 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
             || roomType == QLatin1String("p") /*Private chat*/) {
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPClient::LoggedIn) {
-                Room r;
+                //TODO FIXME
+                Room r(account);
                 r.parseRoom(roomJson);
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.id() << r.topic() << r.announcement();
                 model->updateRoom(r.name(), r.id(), r.topic(), r.announcement(), r.readOnly());
@@ -170,7 +171,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         Message m;
         m.parseMessage(o);
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
-        mRocketChatAccount->getMessageModelForRoom(m.roomId())->addMessage(m);
+        mRocketChatAccount->messageModelForRoom(m.roomId())->addMessage(m);
     }
 }
 
@@ -396,7 +397,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
 
             QString roomId = eventname;
             roomId.remove(QStringLiteral("/deleteMessage"));
-            MessageModel *messageModel = mRocketChatAccount->getMessageModelForRoom(roomId);
+            MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
             messageModel->deleteMessage(contents.at(0).toObject()[QStringLiteral("_id")].toString());
         } else {
             qCWarning(RUQOLA_LOG) << "stream-notify-room:  Unknown event ? " << eventname;

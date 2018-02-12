@@ -317,7 +317,7 @@ void RoomModelTest::shouldReturnDataDefault()
 
 void RoomModelTest::shouldReturnData()
 {
-    Room *input = new Room();
+    Room *input = new Room(nullptr);
     const QString Id = QStringLiteral("RA151100ECE");
     const QString name = QStringLiteral("myRoom");
     const bool selected = true;

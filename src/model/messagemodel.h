@@ -94,10 +94,12 @@ public:
     qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
     QHash<int, QByteArray> roleNames() const override;
 
+    void setRoomID(const QString &roomID);
+
 private:
     Q_DISABLE_COPY(MessageModel)
     QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const;
-    const QString mRoomID;
+    QString mRoomID;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
     TextConverter *mTextConverter = nullptr;

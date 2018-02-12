@@ -215,7 +215,7 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
 
 Room *RoomModel::createNewRoom()
 {
-    Room *r = new Room;
+    Room *r = new Room(mRocketChatAccount);
     connect(r, &Room::alertChanged, this, &RoomModel::needToUpdateNotification);
     connect(r, &Room::unreadChanged, this, &RoomModel::needToUpdateNotification);
     return r;
@@ -257,9 +257,6 @@ void RoomModel::addRoom(Room *room)
     qCDebug(RUQOLA_LOG) << "Inserting room at position" <<roomCount;
     mRoomsList.append(room);
     endInsertRows();
-    if (mRocketChatAccount) {
-        mRocketChatAccount->getMessageModelForRoom(room->id());
-    }
 }
 
 void RoomModel::updateSubscription(const QJsonArray &array)
@@ -309,9 +306,6 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
                 room->parseUpdateRoom(roomData);
                 Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
 
-                if (mRocketChatAccount) {
-                    mRocketChatAccount->getMessageModelForRoom(room->id());
-                }
                 break;
             }
         }
@@ -374,6 +368,19 @@ FilesForRoomFilterProxyModel *RoomModel::filesForRoomFilterProxyModel(const QStr
     return {};
 }
 
+MessageModel *RoomModel::messageModel(const QString &roomId) const
+{
+    const int roomCount{
+        mRoomsList.count()
+    };
+    for (int i = 0; i < roomCount; ++i) {
+        if (mRoomsList.at(i)->id() == roomId) {
+            return mRoomsList.at(i)->messageModel();
+        }
+    }
+    return {};
+}
+
 FilesForRoomModel *RoomModel::filesModelForRoom(const QString &roomId) const
 {
     const int roomCount{
@@ -403,9 +410,6 @@ void RoomModel::updateRoom(const QString &name, const QString &roomId, const QSt
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);
 
-            if (mRocketChatAccount) {
-                mRocketChatAccount->getMessageModelForRoom(roomId);
-            }
             return;
         }
     }

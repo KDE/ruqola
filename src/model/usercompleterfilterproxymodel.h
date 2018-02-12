@@ -33,8 +33,6 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE int numberOfUsers() const;
-
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };

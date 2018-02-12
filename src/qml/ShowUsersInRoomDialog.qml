@@ -59,7 +59,7 @@ Dialog {
             }
         }
         Label {
-            text: i18np("%1 user in room", "%1 users in room", userModel ? userModel.rowCount() : 0)
+            text: i18np("%1 user in room:", "%1 users in room:", userModel ? userModel.rowCount() : 0)
         }
 
         ListView {

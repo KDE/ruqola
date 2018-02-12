@@ -33,6 +33,8 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldSerialized();
     void shouldEmitSignals();
+
+    void shouldChangeInputMessage();
 };
 
 #endif // ROOMTEST_H

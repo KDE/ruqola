@@ -31,6 +31,8 @@ class UsersForRoomModel;
 class UsersForRoomFilterProxyModel;
 class FilesForRoomModel;
 class FilesForRoomFilterProxyModel;
+class MessageModel;
+class RocketChatAccount;
 
 class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
 {
@@ -42,7 +44,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(bool readOnly READ readOnly WRITE setReadOnly NOTIFY readOnlyChanged)
     Q_PROPERTY(bool alert READ alert WRITE setAlert NOTIFY alertChanged)
 public:
-    explicit Room(QObject *parent = nullptr);
+    explicit Room(RocketChatAccount *account, QObject *parent = nullptr);
 
     // To be used in ID find: message ID
     bool operator==(const Room &other) const;
@@ -120,13 +122,16 @@ public:
     */
     static QByteArray serialize(Room *r);
 
-    Q_INVOKABLE UsersForRoomModel *usersModelForRoom() const;
+    UsersForRoomModel *usersModelForRoom() const;
+    UsersForRoomFilterProxyModel *usersModelForRoomProxyModel() const;
 
-    Q_INVOKABLE UsersForRoomFilterProxyModel *usersModelForRoomProxyModel() const;
-
-    Q_INVOKABLE FilesForRoomModel *filesModelForRoom() const;
-
+    FilesForRoomModel *filesModelForRoom() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
+
+    MessageModel *messageModel() const;
+
+    QString inputMessage() const;
+    void setInputMessage(const QString &inputMessage);
 
 Q_SIGNALS:
     void nameChanged();
@@ -141,6 +146,8 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(Room)
     //Room Object Fields
+
+    QString mInputMessage;
 
     // _id
     QString mRoomId;
@@ -181,6 +188,8 @@ private:
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;
     FilesForRoomFilterProxyModel *mFilesForRoomFilterProxyModel = nullptr;
+
+    MessageModel *mMessageModel = nullptr;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);

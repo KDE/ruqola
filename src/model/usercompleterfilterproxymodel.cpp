@@ -55,11 +55,3 @@ bool UserCompleterFilterProxyModel::lessThan(const QModelIndex &left, const QMod
         return false;
     }
 }
-
-int UserCompleterFilterProxyModel::numberOfUsers() const
-{
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->rowCount(QModelIndex());
-    }
-    return 0;
-}

@@ -51,6 +51,7 @@ class FilesForRoomFilterProxyModel;
 class SearchChannelModel;
 class SearchChannelFilterProxyModel;
 class LoginMethodModel;
+class InputCompleterModel;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -83,7 +84,7 @@ public:
     Q_INVOKABLE UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
     Q_INVOKABLE UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
     Q_INVOKABLE RoomWrapper *getRoom(const QString &roomId);
-    Q_INVOKABLE MessageModel *getMessageModelForRoom(const QString &roomID);
+    Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);
     Q_INVOKABLE QString getUserCurrentMessage(const QString &roomId);
     Q_INVOKABLE void setUserCurrentMessage(const QString &message, const QString &roomId);
 
@@ -191,6 +192,8 @@ public:
 
     LoginMethodModel *loginMethodModel() const;
 
+    InputCompleterModel *inputCompleterModel() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -215,7 +218,6 @@ private:
 
     RocketChatAccountSettings *mSettings = nullptr;
     //room, messagemodel
-    QHash<QString, MessageModel *> mMessageModels;
     QHash<QString, QString> mUserCurrentMessage;
 
     EmojiManager *mEmojiManager = nullptr;
@@ -237,6 +239,7 @@ private:
     SearchChannelModel *mSearchChannelModel = nullptr;
     SearchChannelFilterProxyModel *mSearchChannelFilterProxyModel = nullptr;
     LoginMethodModel *mLoginMethodModel = nullptr;
+    InputCompleterModel *mInputCompleterModel = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H
