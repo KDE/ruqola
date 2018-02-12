@@ -146,7 +146,6 @@ bool RuqolaServerConfig::ruqolaHasSupportForOauthType(OauthType type) const
     return false;
 }
 
-
 bool RuqolaServerConfig::canShowOauthService(OauthType type) const
 {
     return serverHasSupportForOauthType(type) && ruqolaHasSupportForOauthType(type);

@@ -140,7 +140,6 @@ void RuqolaServerConfigTest::shouldVerifyOauthType_data()
         types |= RuqolaServerConfig::OauthType::Twitter;
         QTest::newRow("unknow-2") << lst << types;
     }
-
 }
 
 void RuqolaServerConfigTest::shouldVerifyOauthType()
