@@ -452,8 +452,7 @@ QIcon RoomModel::icon(Room *r) const
     if (r->channelType() == QLatin1String("c")) {
         return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
     } else if (r->channelType() == QLatin1String("d")) {
-        const QString userStatusIconFileName = mRocketChatAccount->userStatusIconFileName(r->name());
-        //qDebug() <<  "userStatusIconFileName"<<userStatusIconFileName << " r-> name" << r->name();
+        const QString userStatusIconFileName = mRocketChatAccount ? mRocketChatAccount->userStatusIconFileName(r->name()) : QString();
         if (userStatusIconFileName.isEmpty()) {
             return QIcon::fromTheme(QStringLiteral("user-avaliable"));
         } else {
