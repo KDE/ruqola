@@ -255,7 +255,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
         return QString();
     case MessageModel::CanEditingMessage:
-        return (mAllMessages.at(idx).timeStamp() + mRocketChatAccount->ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000) > QDateTime::currentMSecsSinceEpoch();
+        return (mAllMessages.at(idx).timeStamp() + (mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000 : 0)) > QDateTime::currentMSecsSinceEpoch();
     case MessageModel::Starred:
         return mAllMessages.at(idx).starred();
     }
