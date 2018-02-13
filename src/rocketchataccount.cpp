@@ -785,3 +785,7 @@ void RocketChatAccount::inputUserAutocomplete(const QString &pattern, const QStr
     ddp()->inputUserAutocomplete(pattern, exceptions);
 }
 
+void RocketChatAccount::inputTextCompleter(const QJsonObject &obj)
+{
+    mInputTextManager->inputTextCompleter(obj);
+}

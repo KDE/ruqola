@@ -58,3 +58,8 @@ void InputTextManager::setCompleterList(const QStringList &lst)
 {
     mInputCompleterModel->setStringList(lst);
 }
+
+void InputTextManager::inputTextCompleter(const QJsonObject &obj)
+{
+    mInputCompleterModel->parseInputTextCompleter(obj);
+}

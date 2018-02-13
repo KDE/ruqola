@@ -197,6 +197,7 @@ public:
 
     void inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
     void inputUserAutocomplete(const QString &pattern, const QString &exceptions);
+    void inputTextCompleter(const QJsonObject &obj);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

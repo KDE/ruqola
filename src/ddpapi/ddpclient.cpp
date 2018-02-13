@@ -42,19 +42,14 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
-void input_channel_autocomplete(const QJsonObject &root, RocketChatAccount *account)
+void input_user_channel_autocomplete(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Input channel autocomplete:") + QJsonDocument(root).toJson());
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Input channel/User autocomplete:") + QJsonDocument(root).toJson());
     }
-}
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
 
-
-void input_user_autocomplete(const QJsonObject &root, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Input users autocomplete:") + QJsonDocument(root).toJson());
-    }
+    account->inputTextCompleter(obj);
 }
 
 void process_backlog(const QJsonObject &root, RocketChatAccount *account)
@@ -101,7 +96,6 @@ void delete_message(const QJsonObject &root, RocketChatAccount *account)
 
 void channel_and_private_autocomplete(const QJsonObject &root, RocketChatAccount *account)
 {
-    qDebug() << " void channel_and_private_autocomplete(const QJsonObject &root, RocketChatAccount *account)"<<root;
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
     account->loadAutoCompleteChannel(obj);
     if (account->ruqolaLogger()) {
@@ -528,13 +522,13 @@ quint64 DDPClient::clearUnreadMessages(const QString &roomID)
 quint64 DDPClient::inputChannelAutocomplete(const QString &pattern, const QString &exceptions)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputChannelAutocomplete(pattern, exceptions,  m_uid);
-    return method(result, input_channel_autocomplete, DDPClient::Persistent);
+    return method(result, input_user_channel_autocomplete, DDPClient::Persistent);
 }
 
 quint64 DDPClient::inputUserAutocomplete(const QString &pattern, const QString &exceptions)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->inputUserAutocomplete(pattern, exceptions,  m_uid);
-    return method(result, input_user_autocomplete, DDPClient::Persistent);
+    return method(result, input_user_channel_autocomplete, DDPClient::Persistent);
 }
 
 quint64 DDPClient::login(const QString &username, const QString &password)

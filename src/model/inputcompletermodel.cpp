@@ -19,6 +19,7 @@
 */
 
 #include "inputcompletermodel.h"
+#include "ruqola_debug.h"
 
 InputCompleterModel::InputCompleterModel(QObject *parent)
     : QStringListModel(parent)
@@ -27,4 +28,9 @@ InputCompleterModel::InputCompleterModel(QObject *parent)
 
 InputCompleterModel::~InputCompleterModel()
 {
+}
+
+void InputCompleterModel::parseInputTextCompleter(const QJsonObject &obj)
+{
+    //TODO
 }

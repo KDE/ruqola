@@ -21,6 +21,7 @@
 #ifndef INPUTTEXTMANAGER_H
 #define INPUTTEXTMANAGER_H
 
+#include <QJsonObject>
 #include <QObject>
 
 #include "libruqola_private_export.h"
@@ -38,6 +39,8 @@ public:
     InputCompleterModel *inputCompleterModel() const;
 
     void setCompleterList(const QStringList &lst);
+
+    void inputTextCompleter(const QJsonObject &obj);
 
 private:
     InputCompleterModel *mInputCompleterModel = nullptr;

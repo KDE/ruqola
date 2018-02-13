@@ -23,6 +23,7 @@
 
 #include <QStringListModel>
 #include "libruqola_private_export.h"
+#include <QJsonObject>
 
 class LIBRUQOLACORE_TESTS_EXPORT InputCompleterModel : public QStringListModel
 {
@@ -30,6 +31,8 @@ class LIBRUQOLACORE_TESTS_EXPORT InputCompleterModel : public QStringListModel
 public:
     explicit InputCompleterModel(QObject *parent = nullptr);
     ~InputCompleterModel();
+
+    void parseInputTextCompleter(const QJsonObject &obj);
 };
 
 #endif // INPUTCOMPLETERMODEL_H
