@@ -21,6 +21,8 @@
 #include "inputcompletermodel.h"
 #include "ruqola_debug.h"
 
+#include <QJsonArray>
+
 InputCompleterModel::InputCompleterModel(QObject *parent)
     : QStringListModel(parent)
 {
@@ -32,5 +34,18 @@ InputCompleterModel::~InputCompleterModel()
 
 void InputCompleterModel::parseInputTextCompleter(const QJsonObject &obj)
 {
+    QStringList lst;
+    const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
+    for (int i = 0; i < rooms.size(); i++) {
+        const QJsonObject o = rooms.at(i).toObject();
+        lst.append(o.value(QLatin1String("name")).toString());
+    }
+    const QJsonArray users = obj.value(QLatin1String("users")).toArray();
+    for (int i = 0; i < users.size(); i++) {
+        const QJsonObject o = users.at(i).toObject();
+        lst.append(o.value(QLatin1String("name")).toString());
+    }
     //TODO
+    qDebug() << " void InputCompleterModel::parseInputTextCompleter(const QJsonObject &obj)"<<lst;
+    setStringList(lst);
 }
