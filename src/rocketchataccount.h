@@ -120,7 +120,6 @@ public:
     Q_INVOKABLE void uploadFile(const QString &description, const QUrl &fileUrl);
     Q_INVOKABLE QString serverUrl() const;
 
-    UserCompleterModel *userCompleterModel() const;
 
     Q_INVOKABLE QString avatarUrl(const QString &userId);
 
@@ -135,9 +134,14 @@ public:
     Q_INVOKABLE void roomFiles(const QString &roomId);
     Q_INVOKABLE FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel(const QString &roomId) const;
     Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId);
-    SearchChannelModel *searchChannelModel() const;
     Q_INVOKABLE SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
+    Q_INVOKABLE InputCompleterModel *inputCompleterModel() const;
+    Q_INVOKABLE LoginMethodModel *loginMethodModel() const;
 
+
+
+    SearchChannelModel *searchChannelModel() const;
+    UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
     DDPClient *ddp();
 
@@ -191,9 +195,7 @@ public:
     void insertCompleterUsers();
     void insertFilesList(const QString &roomId);
 
-    LoginMethodModel *loginMethodModel() const;
 
-    InputCompleterModel *inputCompleterModel() const;
 
     void inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
     void inputUserAutocomplete(const QString &pattern, const QString &exceptions);
@@ -205,6 +207,7 @@ Q_SIGNALS:
     void userIDChanged();
     void serverUrlChanged();
     void loginStatusChanged();
+    void logoutDone(const QString &accountname);
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
     void removed(const QJsonObject &item);

@@ -20,8 +20,6 @@
 
 #include "message.h"
 #include "rocketchataccount.h"
-#include "model/roomfilterproxymodel.h"
-#include "model/usercompletermodel.h"
 #include "roomwrapper.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
@@ -29,15 +27,20 @@
 #include "aboutdata/qmlaboutdataauthormodel.h"
 #include "ruqolaregisterengine.h"
 #include "ruqolautils.h"
+#include "clipboardproxy.h"
+
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
 #include "model/statusmodel.h"
-#include "clipboardproxy.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usercompleterfilterproxymodel.h"
 #include "model/filesforroommodel.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/searchchannelfilterproxymodel.h"
+#include "model/inputcompletermodel.h"
+#include "model/roomfilterproxymodel.h"
+#include "model/usercompletermodel.h"
+
 #include "channel.h"
 #include <KLocalizedContext>
 #include <QQmlApplicationEngine>
@@ -74,6 +77,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<UserCompleterModel>("KDE.Ruqola.UserCompleterModel", 1, 0, "UserCompleterModel");
     qmlRegisterType<StatusModel>("KDE.Ruqola.StatusModel", 1, 0, "StatusModel");
     qmlRegisterType<SearchChannelFilterProxyModel>("KDE.Ruqola.SearchChannelFilterProxyModel", 1, 0, "SearchChannelFilterProxyModel");
+    qmlRegisterType<InputCompleterModel>("KDE.Ruqola.InputCompleterModel", 1, 0, "InputCompleterModel");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterType<ClipboardProxy>("KDE.Ruqola.Clipboard", 1, 0, "Clipboard");
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));

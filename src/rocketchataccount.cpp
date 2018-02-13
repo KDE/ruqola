@@ -247,6 +247,9 @@ QString RocketChatAccount::getUserCurrentMessage(const QString &roomId)
 void RocketChatAccount::setUserCurrentMessage(const QString &message, const QString &roomId)
 {
     mRoomModel->setInputMessage(roomId, message);
+    //Only for test
+    qDebug() << " message " << message;
+    mInputTextManager->setInputText(message, 0);
 }
 
 void RocketChatAccount::textEditing(const QString &roomId, const QString &str)
@@ -356,6 +359,7 @@ void RocketChatAccount::logOut()
 
     delete mDdp;
     mDdp = nullptr;
+    Q_EMIT logoutDone(accountName());
     Q_EMIT loginStatusChanged();
     qCDebug(RUQOLA_LOG) << "Successfully logged out!";
 }
