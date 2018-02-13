@@ -21,6 +21,7 @@
 #include "room.h"
 #include "roomwrapper.h"
 #include "roommodeltest.h"
+#include "test_model_helpers.h"
 #include "model/roommodel.h"
 
 #include <qglobal.h>
@@ -243,13 +244,37 @@ void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
 void RoomModelTest::shouldClear()
 {
     RoomModel sampleModel;
+    QSignalSpy rowInsertedSpy(&sampleModel, &RoomModel::rowsInserted);
+    QSignalSpy rowABTInserted(&sampleModel, &RoomModel::rowsAboutToBeInserted);
+    QSignalSpy rowRemovedSpy(&sampleModel, &RoomModel::rowsRemoved);
+    QSignalSpy rowABTRemoved(&sampleModel, &RoomModel::rowsAboutToBeRemoved);
 
     QCOMPARE(sampleModel.rowCount(), 0);
-    sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));
+    sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));    
     QCOMPARE(sampleModel.rowCount(), 1);
 
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,0"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,0"));
+
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+    rowRemovedSpy.clear();
+    rowABTRemoved.clear();
+
     sampleModel.clear();
+
     QCOMPARE(sampleModel.rowCount(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(rowRemovedSpy.count(), 1);
+    QCOMPARE(rowABTRemoved.count(), 1);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,0"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,0"));
+
 }
 
 void RoomModelTest::shouldReset()

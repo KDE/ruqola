@@ -68,7 +68,7 @@ RoomModel::~RoomModel()
 void RoomModel::clear()
 {
     if (!mRoomsList.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, rowCount()-1);
+        beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
         qDeleteAll(mRoomsList);
         mRoomsList.clear();
         endRemoveRows();
