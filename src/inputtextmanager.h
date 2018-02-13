@@ -24,13 +24,22 @@
 #include <QObject>
 
 #include "libruqola_private_export.h"
-
+class InputCompleterModel;
 class LIBRUQOLACORE_TESTS_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT
 public:
     explicit InputTextManager(QObject *parent = nullptr);
     ~InputTextManager();
+
+    void setInputText(const QString &str, int cursorPosition);
+
+    InputCompleterModel *inputCompleterModel() const;
+
+    void setCompleterList(const QStringList &lst);
+
+private:
+    InputCompleterModel *mInputCompleterModel = nullptr;
 };
 
 #endif // INPUTTEXTMANAGER_H

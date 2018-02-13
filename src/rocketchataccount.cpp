@@ -38,6 +38,7 @@
 #include "rocketchatcache.h"
 #include "emojimanager.h"
 #include "otrmanager.h"
+#include "inputtextmanager.h"
 #include "model/usersforroommodel.h"
 #include "model/filesforroommodel.h"
 #include "model/searchchannelfilterproxymodel.h"
@@ -65,8 +66,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     //Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
-    mInputCompleterModel = new InputCompleterModel(this);
-
+    mInputTextManager = new InputTextManager(this);
     mRuqolaServerConfig = new RuqolaServerConfig;
     //TODO add account name.
     mSettings = new RocketChatAccountSettings(accountFileName, this);
@@ -187,11 +187,6 @@ RoomFilterProxyModel *RocketChatAccount::roomFilterProxyModel() const
 UsersForRoomFilterProxyModel *RocketChatAccount::usersForRoomFilterProxyModel(const QString &roomId) const
 {
     return mRoomModel->usersForRoomFilterProxyModel(roomId);
-}
-
-FilesForRoomModel *RocketChatAccount::filesForRoomModel(const QString &roomId) const
-{
-    return mRoomModel->filesModelForRoom(roomId);
 }
 
 FilesForRoomFilterProxyModel *RocketChatAccount::filesForRoomFilterProxyModel(const QString &roomId) const
@@ -613,7 +608,7 @@ void RocketChatAccount::fillOauthModel()
 
 InputCompleterModel *RocketChatAccount::inputCompleterModel() const
 {
-    return mInputCompleterModel;
+    return mInputTextManager->inputCompleterModel();
 }
 
 LoginMethodModel *RocketChatAccount::loginMethodModel() const

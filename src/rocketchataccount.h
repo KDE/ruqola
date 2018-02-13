@@ -52,6 +52,7 @@ class SearchChannelModel;
 class SearchChannelFilterProxyModel;
 class LoginMethodModel;
 class InputCompleterModel;
+class InputTextManager;
 
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -118,7 +119,8 @@ public:
     Q_INVOKABLE void starMessage(const QString &messageId, const QString &rid, bool starred);
     Q_INVOKABLE void uploadFile(const QString &description, const QUrl &fileUrl);
     Q_INVOKABLE QString serverUrl() const;
-    Q_INVOKABLE UserCompleterModel *userCompleterModel() const;
+
+    UserCompleterModel *userCompleterModel() const;
 
     Q_INVOKABLE QString avatarUrl(const QString &userId);
 
@@ -131,10 +133,9 @@ public:
     Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
     Q_INVOKABLE UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
     Q_INVOKABLE void roomFiles(const QString &roomId);
-    Q_INVOKABLE FilesForRoomModel *filesForRoomModel(const QString &roomId) const;
     Q_INVOKABLE FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel(const QString &roomId) const;
     Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId);
-    Q_INVOKABLE SearchChannelModel *searchChannelModel() const;
+    SearchChannelModel *searchChannelModel() const;
     Q_INVOKABLE SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
 
     RocketChatAccountSettings *settings() const;
@@ -237,7 +238,7 @@ private:
     SearchChannelModel *mSearchChannelModel = nullptr;
     SearchChannelFilterProxyModel *mSearchChannelFilterProxyModel = nullptr;
     LoginMethodModel *mLoginMethodModel = nullptr;
-    InputCompleterModel *mInputCompleterModel = nullptr;
+    InputTextManager *mInputTextManager = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H

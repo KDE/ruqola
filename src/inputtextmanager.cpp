@@ -19,14 +19,31 @@
 */
 
 #include "inputtextmanager.h"
+#include "model/inputcompletermodel.h"
+
 
 InputTextManager::InputTextManager(QObject *parent)
     : QObject(parent)
 {
-
+    mInputCompleterModel = new InputCompleterModel(this);
 }
 
 InputTextManager::~InputTextManager()
 {
 
+}
+
+void InputTextManager::setInputText(const QString &str, int cursorPosition)
+{
+    //TODO check last word
+}
+
+InputCompleterModel *InputTextManager::inputCompleterModel() const
+{
+    return mInputCompleterModel;
+}
+
+void InputTextManager::setCompleterList(const QStringList &lst)
+{
+    mInputCompleterModel->setStringList(lst);
 }

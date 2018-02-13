@@ -20,6 +20,7 @@
 
 #include "inputtextmanagertest.h"
 #include "inputtextmanager.h"
+#include "model/inputcompletermodel.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(InputTextManagerTest)
 
@@ -31,5 +32,8 @@ InputTextManagerTest::InputTextManagerTest(QObject *parent)
 
 void InputTextManagerTest::shouldHaveDefaultValue()
 {
+    InputTextManager manager;
+    QVERIFY(manager.inputCompleterModel());
+    QCOMPARE(manager.inputCompleterModel()->rowCount(), 0);
     //TODO
 }
