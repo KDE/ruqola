@@ -39,12 +39,16 @@ void InputTextManager::setInputText(const QString &word, int cursorPosition)
 {
     if (mAccount) {
         //TODO check last word
-        if (word.startsWith(QLatin1Char('@'))) {
-            //FIXME word without @ ? and exception!
-            mAccount->inputChannelAutocomplete(word, QString());
-        } else if (word.startsWith(QLatin1Char('#'))) {
-            //FIXME word without @ ? and exception!
-            mAccount->inputUserAutocomplete(word, QString());
+        QString str = word.right(word.length()-1);
+        qDebug() << str;
+        if (!word.isEmpty()) {
+            if (word.startsWith(QLatin1Char('@'))) {
+                //FIXME word without @ ? and exception!
+                mAccount->inputUserAutocomplete(str, QString());
+            } else if (word.startsWith(QLatin1Char('#'))) {
+                //FIXME word without @ ? and exception!
+                mAccount->inputChannelAutocomplete(str, QString());
+            }
         }
     }
 }
