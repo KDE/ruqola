@@ -63,13 +63,11 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<MessageModel>("KDE.Ruqola.MessageModel", 1, 0, "MessageModel");
     qmlRegisterType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient");
     qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
-    qmlRegisterType<UsersForRoomModel>("KDE.Ruqola.UsersForRoomModel", 1, 0, "UsersForRoomModel");
     qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
     qmlRegisterType<UsersModel>("KDE.Ruqola.UsersModel", 1, 0, "UsersModel");
     qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
     qmlRegisterType<UsersForRoomFilterProxyModel>("KDE.Ruqola.UsersForRoomFilterProxyModel", 1, 0, "UsersForRoomFilterProxyModel");
     qmlRegisterType<UserCompleterFilterProxyModel>("KDE.Ruqola.UserCompleterFilterModelProxy", 1, 0, "UserCompleterFilterModelProxy");
-    qmlRegisterType<FilesForRoomModel>("KDE.Ruqola.FilesForRoomModel", 1, 0, "FilesModelForRoom");
     qmlRegisterType<FilesForRoomFilterProxyModel>("KDE.Ruqola.FilesForRoomFilterProxyModel", 1, 0, "FilesForRoomFilterProxyModel");
     qmlRegisterType<QmlAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
     qmlRegisterType<QmlAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");

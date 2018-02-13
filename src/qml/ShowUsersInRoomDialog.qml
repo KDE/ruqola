@@ -23,7 +23,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
 import QtQuick 2.9
-import KDE.Ruqola.UsersForRoomModel 1.0
+import KDE.Ruqola.UsersForRoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
 Dialog {
