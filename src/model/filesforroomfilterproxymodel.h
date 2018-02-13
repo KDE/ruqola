@@ -34,7 +34,6 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void setFilterString(const QString &string);
-    Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
