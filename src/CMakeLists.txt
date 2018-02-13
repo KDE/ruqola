@@ -76,6 +76,7 @@ set (Ruqola_core_srcs
     unityservicemanager.cpp
     file.cpp
     channel.cpp
+    inputtextmanager.cpp
 )
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
