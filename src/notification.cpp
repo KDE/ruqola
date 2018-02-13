@@ -39,6 +39,13 @@ void Notification::createTrayIcon()
     setIconByPixmap(QIcon(QStringLiteral(":/icons/systray.png")));
 }
 
+void Notification::clearNotification(const QString &account)
+{
+    //TODO add Account name
+    mListTrayIcon.remove(account);
+    createToolTip();
+}
+
 void Notification::updateNotification(bool hasAlert, int unreadNumber, const QString &account)
 {
     qCDebug(RUQOLA_LOG) << " hasAlert " << hasAlert << " unreadNumber " << unreadNumber << " account" << account;

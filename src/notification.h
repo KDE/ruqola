@@ -35,6 +35,7 @@ public:
     ~Notification() = default;
 
     void updateNotification(bool hasAlert, int unreadNumber, const QString &account);
+    void clearNotification(const QString &account);
 private:
     struct TrayInfo {
         TrayInfo(int unread, bool alert)

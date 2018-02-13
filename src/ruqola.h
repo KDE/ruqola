@@ -86,6 +86,7 @@ private:
     void sendNotification(const QString &title, const QString &message, const QPixmap &pixmap);
     void slotInformTypingStatus(const QString &room, bool typing);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
+    void logout(const QString &accountName);
     explicit Ruqola(QObject *parent = nullptr);
     RocketChatAccount *mRocketChatAccount = nullptr;
     Notification *mNotification = nullptr;

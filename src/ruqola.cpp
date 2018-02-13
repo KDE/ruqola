@@ -43,6 +43,7 @@ Ruqola::Ruqola(QObject *parent)
     connect(mRocketChatAccount, &RocketChatAccount::userNameChanged, this, &Ruqola::userNameChanged);
     connect(mRocketChatAccount, &RocketChatAccount::notification, this, &Ruqola::sendNotification);
     connect(mRocketChatAccount, &RocketChatAccount::updateNotification, this, &Ruqola::updateNotification);
+    connect(mRocketChatAccount, &RocketChatAccount::logoutDone, this, &Ruqola::logout);
 }
 
 UnityServiceManager *Ruqola::unityServiceManager()
@@ -151,4 +152,10 @@ void Ruqola::updateNotification(bool hasAlert, int nbUnread, const QString &acco
 {
     notification()->updateNotification(hasAlert, nbUnread, accountName);
     unityServiceManager()->setCount(nbUnread);
+}
+
+void Ruqola::logout(const QString &accountName)
+{
+    //TODO account name when multi
+    notification()->clearNotification(accountName);
 }
