@@ -274,7 +274,7 @@ void MessageModel::setRoomID(const QString &roomID)
 
 void MessageModel::deleteMessage(const QString &messageId)
 {
-    for (int i = 0; i < mAllMessages.count(); ++i) {
+    for (int i = 0, total = mAllMessages.count(); i < total; ++i) {
         if (mAllMessages.at(i).messageId() == messageId) {
             beginRemoveRows(QModelIndex(), i, i);
             mAllMessages.remove(i);
