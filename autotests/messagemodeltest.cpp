@@ -19,6 +19,7 @@
 */
 
 #include "messagemodeltest.h"
+#include "test_model_helpers.h"
 #include "model/messagemodel.h"
 #include <QTest>
 
@@ -66,6 +67,12 @@ void MessageModelTest::shouldRemoveMessage()
     MessageModel w;
     Message input;
 
+    QSignalSpy rowInsertedSpy(&w, &MessageModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &MessageModel::rowsAboutToBeInserted);
+    QSignalSpy rowRemovedSpy(&w, &MessageModel::rowsRemoved);
+    QSignalSpy rowABTRemoved(&w, &MessageModel::rowsAboutToBeRemoved);
+
+
     const QString messageId = QStringLiteral("ff");
     input.setMessageId(messageId);
     input.setRoomId(QStringLiteral("room2"));
@@ -87,11 +94,45 @@ void MessageModelTest::shouldRemoveMessage()
 
     QCOMPARE(w.rowCount(), 1);
     //Remove existing message
+
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,0"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,0"));
+
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+    rowRemovedSpy.clear();
+    rowABTRemoved.clear();
+
     w.deleteMessage(messageId);
+
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(rowRemovedSpy.count(), 1);
+    QCOMPARE(rowABTRemoved.count(), 1);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,0"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,0"));
+
+
     QCOMPARE(w.rowCount(), 0);
+
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+    rowRemovedSpy.clear();
+    rowABTRemoved.clear();
+
 
     w.addMessage(input);
     QCOMPARE(w.rowCount(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,0"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,0"));
+
 }
 
 void MessageModelTest::shouldRemoveNotExistingMessage()
