@@ -217,8 +217,6 @@ private:
     void fillOauthModel();
 
     RocketChatAccountSettings *mSettings = nullptr;
-    //room, messagemodel
-    QHash<QString, QString> mUserCurrentMessage;
 
     EmojiManager *mEmojiManager = nullptr;
     TypingNotification *mTypingNotification = nullptr;

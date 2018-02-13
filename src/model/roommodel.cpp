@@ -394,6 +394,31 @@ FilesForRoomModel *RoomModel::filesModelForRoom(const QString &roomId) const
     return {};
 }
 
+QString RoomModel::inputMessage(const QString &roomId) const
+{
+    const int roomCount{
+        mRoomsList.count()
+    };
+    for (int i = 0; i < roomCount; ++i) {
+        if (mRoomsList.at(i)->id() == roomId) {
+            return mRoomsList.at(i)->inputMessage();
+        }
+    }
+    return {};
+}
+
+void RoomModel::setInputMessage(const QString &roomId, const QString &inputMessage)
+{
+    const int roomCount{
+        mRoomsList.count()
+    };
+    for (int i = 0; i < roomCount; ++i) {
+        if (mRoomsList.at(i)->id() == roomId) {
+            return mRoomsList.at(i)->setInputMessage(inputMessage);
+        }
+    }
+}
+
 void RoomModel::updateRoom(const QString &name, const QString &roomId, const QString &topic, const QString &announcement, bool readOnly)
 {
     const int roomCount{

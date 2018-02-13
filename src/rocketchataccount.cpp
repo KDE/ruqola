@@ -246,22 +246,12 @@ MessageModel *RocketChatAccount::messageModelForRoom(const QString &roomID)
 
 QString RocketChatAccount::getUserCurrentMessage(const QString &roomId)
 {
-    return mUserCurrentMessage.value(roomId);
+    return mRoomModel->inputMessage(roomId);
 }
 
 void RocketChatAccount::setUserCurrentMessage(const QString &message, const QString &roomId)
 {
-    if (mUserCurrentMessage.contains(roomId)) {
-        if (!message.trimmed().isEmpty()) {
-            mUserCurrentMessage[roomId] = message;
-        } else {
-            mUserCurrentMessage.remove(roomId);
-        }
-    } else {
-        if (!message.trimmed().isEmpty()) {
-            mUserCurrentMessage.insert(roomId, message);
-        }
-    }
+    mRoomModel->setInputMessage(roomId, message);
 }
 
 void RocketChatAccount::textEditing(const QString &roomId, const QString &str)

@@ -115,6 +115,8 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
+    QString inputMessage(const QString &roomId) const;
+    void setInputMessage(const QString &roomId, const QString &inputMessage);
 Q_SIGNALS:
     void needToUpdateNotification();
 
