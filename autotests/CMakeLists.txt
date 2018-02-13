@@ -46,5 +46,6 @@ add_ruqola_test(searchchannelfilterproxymodeltest.cpp)
 add_ruqola_test(inputcompletermodeltest.cpp)
 add_ruqola_test(loginmethodmodeltest.cpp)
 add_ruqola_test(inputtextmanagertest.cpp)
+add_ruqola_test(clipboardproxytest.cpp)
 
 add_subdirectory(qml)
