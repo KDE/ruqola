@@ -275,6 +275,25 @@ void RoomModelTest::shouldClear()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,0"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,0"));
 
+    for (int i = 0; i < 15; i++) {
+        sampleModel.addRoom(QStringLiteral("RA151100ECE%1").arg(i), QStringLiteral("myRoom%1").arg(i));
+    }
+    QCOMPARE(sampleModel.rowCount(), 15);
+
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+    rowRemovedSpy.clear();
+    rowABTRemoved.clear();
+
+    sampleModel.clear();
+
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(rowRemovedSpy.count(), 1);
+    QCOMPARE(rowABTRemoved.count(), 1);
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,14"));
+    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,14"));
+
 }
 
 void RoomModelTest::shouldReset()
