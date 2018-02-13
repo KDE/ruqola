@@ -195,6 +195,8 @@ public:
 
     InputCompleterModel *inputCompleterModel() const;
 
+    void inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
+    void inputUserAutocomplete(const QString &pattern, const QString &exceptions);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

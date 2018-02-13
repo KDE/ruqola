@@ -774,3 +774,14 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     }
     Q_EMIT notification(title, message, pix);
 }
+
+void RocketChatAccount::inputChannelAutocomplete(const QString &pattern, const QString &exceptions)
+{
+    ddp()->inputChannelAutocomplete(pattern, exceptions);
+}
+
+void RocketChatAccount::inputUserAutocomplete(const QString &pattern, const QString &exceptions)
+{
+    ddp()->inputUserAutocomplete(pattern, exceptions);
+}
+

@@ -25,14 +25,15 @@
 
 #include "libruqola_private_export.h"
 class InputCompleterModel;
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit InputTextManager(QObject *parent = nullptr);
+    explicit InputTextManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~InputTextManager();
 
-    void setInputText(const QString &str, int cursorPosition);
+    void setInputText(const QString &word, int cursorPosition);
 
     InputCompleterModel *inputCompleterModel() const;
 
@@ -40,6 +41,7 @@ public:
 
 private:
     InputCompleterModel *mInputCompleterModel = nullptr;
+    RocketChatAccount *mAccount = nullptr;
 };
 
 #endif // INPUTTEXTMANAGER_H

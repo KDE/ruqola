@@ -19,11 +19,13 @@
 */
 
 #include "inputtextmanager.h"
+#include "rocketchataccount.h"
 #include "model/inputcompletermodel.h"
 
 
-InputTextManager::InputTextManager(QObject *parent)
+InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mAccount(account)
 {
     mInputCompleterModel = new InputCompleterModel(this);
 }
@@ -33,9 +35,18 @@ InputTextManager::~InputTextManager()
 
 }
 
-void InputTextManager::setInputText(const QString &str, int cursorPosition)
+void InputTextManager::setInputText(const QString &word, int cursorPosition)
 {
-    //TODO check last word
+    if (mAccount) {
+        //TODO check last word
+        if (word.startsWith(QLatin1Char('@'))) {
+            //FIXME word without @ ? and exception!
+            mAccount->inputChannelAutocomplete(word, QString());
+        } else if (word.startsWith(QLatin1Char('#'))) {
+            //FIXME word without @ ? and exception!
+            mAccount->inputUserAutocomplete(word, QString());
+        }
+    }
 }
 
 InputCompleterModel *InputTextManager::inputCompleterModel() const
