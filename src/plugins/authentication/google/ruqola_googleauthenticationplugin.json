@@ -1,8 +1,9 @@
 {
     "KPlugin": {
         "Id": "googleauthenticationplugin",
+        "Name": "Google Authentication Plugin",
         "ServiceTypes": [
-            "Ruqoal/Authentication"
+            "Ruqola/Authentication"
         ],
         "Version": "1.0"
     }

@@ -46,6 +46,8 @@
 #include "model/loginmethodmodel.h"
 #include "model/inputcompletermodel.h"
 
+#include "authenticationmanager.h"
+
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
 
@@ -53,6 +55,8 @@
 #include <QFile>
 #include <QRegularExpression>
 #include <QTimer>
+
+#include <plugins/pluginauthentication.h>
 
 
 
@@ -64,6 +68,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         mRuqolaLogger = new RuqolaLogger;
     }
 
+    initializeAuthenticationPlugins();
     //Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
     mInputTextManager = new InputTextManager(this);
@@ -608,6 +613,15 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 void RocketChatAccount::fillOauthModel()
 {
     //TODO
+}
+
+void RocketChatAccount::initializeAuthenticationPlugins()
+{
+    const QVector<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
+    qCDebug(RUQOLA_LOG) <<" void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
+    for (PluginAuthentication *abstractPlugin : lstPlugins) {
+        qCDebug(RUQOLA_LOG) << " plugin type " << static_cast<int>(abstractPlugin->type());
+    }
 }
 
 InputCompleterModel *RocketChatAccount::inputCompleterModel() const

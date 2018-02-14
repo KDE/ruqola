@@ -31,7 +31,6 @@ GooglePluginAuthentication::GooglePluginAuthentication(QObject *parent, const QV
 
 }
 
-
 GooglePluginAuthentication::~GooglePluginAuthentication()
 {
 }

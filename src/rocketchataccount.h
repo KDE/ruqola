@@ -222,6 +222,7 @@ private:
     void loadSettings();
     void clearModels();
     void fillOauthModel();
+    void initializeAuthenticationPlugins();
 
     RocketChatAccountSettings *mSettings = nullptr;
 

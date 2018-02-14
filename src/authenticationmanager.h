@@ -21,8 +21,35 @@
 #ifndef AUTHENTICATIONMANAGER_H
 #define AUTHENTICATIONMANAGER_H
 
+#include <KPluginMetaData>
 #include <QObject>
 #include "libruqolacore_export.h"
+class PluginAuthentication;
+class PluginUtilData
+{
+public:
+    PluginUtilData()
+    {
+    }
+
+    QStringList mExtraInfo;
+    QString mIdentifier;
+    QString mName;
+};
+
+class AuthenticationManagerInfo
+{
+public:
+    AuthenticationManagerInfo()
+    {
+    }
+
+    QString metaDataFileNameBaseName;
+    QString metaDataFileName;
+    PluginUtilData pluginData;
+    PluginAuthentication *plugin = nullptr;
+};
+
 
 class LIBRUQOLACORE_EXPORT AuthenticationManager : public QObject
 {
@@ -43,6 +70,17 @@ public:
 
     explicit AuthenticationManager(QObject *parent = nullptr);
     ~AuthenticationManager();
+
+    static AuthenticationManager *self();
+
+    QVector<PluginAuthentication *> pluginsList() const;
+
+private:
+    bool initializePluginList();
+    void loadPlugin(AuthenticationManagerInfo *item);
+    PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);
+    QVector<AuthenticationManagerInfo> mPluginList;
+    QVector<PluginUtilData> mPluginDataList;
 
 };
 Q_DECLARE_METATYPE(AuthenticationManager::OauthTypes)

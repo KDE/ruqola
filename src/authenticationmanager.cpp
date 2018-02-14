@@ -21,14 +21,87 @@
 #include "authenticationmanager.h"
 #include "ruqola_debug.h"
 
-//Load Plugins
+#include <QFileInfo>
+#include <KPluginMetaData>
+#include <KPluginLoader>
+#include <KPluginFactory>
+
+#include <plugins/pluginauthentication.h>
 
 AuthenticationManager::AuthenticationManager(QObject *parent)
     : QObject(parent)
 {
-
+    initializePluginList();
 }
 
 AuthenticationManager::~AuthenticationManager()
 {
+}
+
+AuthenticationManager *AuthenticationManager::self()
+{
+    static AuthenticationManager s_self;
+    return &s_self;
+}
+
+bool AuthenticationManager::initializePluginList()
+{
+    const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("ruqolaplugins"), [](const KPluginMetaData &md) {
+        return md.serviceTypes().contains(QLatin1String("Ruqola/Authentication"));
+    });
+
+    QVectorIterator<KPluginMetaData> i(plugins);
+    i.toBack();
+    QSet<QString> unique;
+    while (i.hasPrevious()) {
+        AuthenticationManagerInfo info;
+        const KPluginMetaData data = i.previous();
+
+        //1) get plugin data => name/description etc.
+        info.pluginData = createPluginMetaData(data);
+        //2) look at if plugin is activated
+        info.metaDataFileNameBaseName = QFileInfo(data.fileName()).baseName();
+        info.metaDataFileName = data.fileName();
+        // only load plugins once, even if found multiple times!
+        if (unique.contains(info.metaDataFileNameBaseName)) {
+            continue;
+        }
+        info.plugin = nullptr;
+        mPluginList.push_back(info);
+        unique.insert(info.metaDataFileNameBaseName);
+    }
+    QVector<AuthenticationManagerInfo>::iterator end(mPluginList.end());
+    for (QVector<AuthenticationManagerInfo>::iterator it = mPluginList.begin(); it != end; ++it) {
+        loadPlugin(&(*it));
+    }
+    return true;
+}
+
+void AuthenticationManager::loadPlugin(AuthenticationManagerInfo *item)
+{
+    KPluginLoader pluginLoader(item->metaDataFileName);
+    if (pluginLoader.factory()) {
+        item->plugin = pluginLoader.factory()->create<PluginAuthentication>(this, QVariantList() << item->metaDataFileNameBaseName);
+        mPluginDataList.append(item->pluginData);
+    }
+}
+
+QVector<PluginAuthentication *> AuthenticationManager::pluginsList() const
+{
+    QVector<PluginAuthentication *> lst;
+    QVector<AuthenticationManagerInfo>::ConstIterator end(mPluginList.constEnd());
+    for (QVector<AuthenticationManagerInfo>::ConstIterator it = mPluginList.constBegin(); it != end; ++it) {
+        if (auto plugin = (*it).plugin) {
+            lst << plugin;
+        }
+    }
+    return lst;
+}
+
+PluginUtilData AuthenticationManager::createPluginMetaData(const KPluginMetaData &metaData)
+{
+    PluginUtilData pluginData;
+    pluginData.mName = metaData.name();
+    pluginData.mIdentifier = metaData.pluginId();
+    return pluginData;
 }
