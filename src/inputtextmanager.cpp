@@ -39,7 +39,7 @@ void InputTextManager::setInputText(const QString &word)
 {
     if (mAccount) {
         //TODO check last word
-        QString str = word.right(word.length()-1);
+        const QString str = word.right(word.length()-1);
         qDebug() << str;
         if (!word.isEmpty()) {
             if (word.startsWith(QLatin1Char('@'))) {
