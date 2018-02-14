@@ -18,33 +18,32 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AUTHENTICATIONMANAGER_H
-#define AUTHENTICATIONMANAGER_H
+#include "googlepluginauthentication.h"
+#include "googleauthenticationinterface.h"
+#include <kpluginfactory.h>
+#include "plugins/kcoreaddons_ruqola_compat.h"
 
-#include <QObject>
-#include "libruqolacore_export.h"
+K_PLUGIN_CLASS_WITH_JSON(GooglePluginAuthentication, "ruqola_googleauthenticationplugin.json")
 
-class LIBRUQOLACORE_EXPORT AuthenticationManager : public QObject
+GooglePluginAuthentication::GooglePluginAuthentication(QObject *parent, const QVariantList&)
+    : PluginAuthentication(parent)
 {
-    Q_OBJECT
-public:
-    enum class OauthType {
-        Unknown = 0,
-        Twitter = 1,
-        FaceBook = 2,
-        GitHub = 4,
-        GitLab = 8,
-        Google = 16,
-        Linkedin = 32,
-        Wordpress = 64
-    };
-    Q_ENUMS(OauthType)
-    Q_DECLARE_FLAGS(OauthTypes, OauthType)
 
-    explicit AuthenticationManager(QObject *parent = nullptr);
-    ~AuthenticationManager();
+}
 
-};
-Q_DECLARE_METATYPE(AuthenticationManager::OauthTypes)
 
-#endif // AUTHENTICATIONMANAGER_H
+GooglePluginAuthentication::~GooglePluginAuthentication()
+{
+}
+
+PluginAuthenticationInterface *GooglePluginAuthentication::createInterface(QObject *parent)
+{
+    return new GoogleAuthenticationInterface(parent);
+}
+
+AuthenticationManager::OauthType GooglePluginAuthentication::type() const
+{
+    return AuthenticationManager::OauthType::Google;
+}
+
+#include "googlepluginauthentication.moc"

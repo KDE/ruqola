@@ -34,9 +34,23 @@ set (Ruqola_model_core_srcs
 
     model/loginmethodmodel.cpp
     )
-    
+
+set(Ruqola_plugins_srcs
+    plugins/pluginauthenticationinterface.cpp
+    plugins/pluginauthentication.cpp
+    )
+
+set(Ruqola_aboutdata_srcs
+    aboutdata/qmlaboutdata.cpp
+    aboutdata/qmlaboutdataauthormodel.cpp
+    )
+
 set (Ruqola_core_srcs
     ${Ruqola_model_core_srcs}
+    ${Ruqola_plugins_srcs}
+    ${Ruqola_aboutdata_srcs}
+    ${Ruqola_ddpapi_SRCS}
+    ${Ruqola_restapi_SRCS}
     message.cpp
     room.cpp
     roomwrapper.cpp
@@ -65,10 +79,6 @@ set (Ruqola_core_srcs
     ruqolalogger.cpp
     ruqolaregisterengine.cpp
     ruqolaserverconfig.cpp
-    aboutdata/qmlaboutdata.cpp
-    aboutdata/qmlaboutdataauthormodel.cpp
-    ${Ruqola_ddpapi_SRCS}
-    ${Ruqola_restapi_SRCS}
     rocketchatcache.cpp
     texthighlighter.cpp
     textconverter.cpp
@@ -77,7 +87,6 @@ set (Ruqola_core_srcs
     file.cpp
     channel.cpp
     inputtextmanager.cpp
-    plugins/abstractauthenticationinterface.cpp
     authenticationmanager.cpp
 )
 

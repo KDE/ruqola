@@ -18,21 +18,14 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef KCOREADDONS_RUQOLA_COMPAT_H
+#define KCOREADDONS_RUQOLA_COMPAT_H
 
-#ifndef AbstractAuthenticationInterface_H
-#define AbstractAuthenticationInterface_H
+#include <kcoreaddons_version.h>
 
-#include <QObject>
-#include "libruqolacore_export.h"
+#include <kpluginfactory.h>
+#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 44, 0)
+#define K_PLUGIN_CLASS_WITH_JSON(classname, json) K_PLUGIN_FACTORY_WITH_JSON(classname ## Factory, json, registerPlugin<classname >();)
+#endif
 
-class LIBRUQOLACORE_EXPORT AbstractAuthenticationInterface : public QObject
-{
-    Q_OBJECT
-public:
-    explicit AbstractAuthenticationInterface(QObject *parent = nullptr);
-    ~AbstractAuthenticationInterface();
-
-    virtual void login() = 0;
-};
-
-#endif // AbstractAuthenticationInterface_H
+#endif

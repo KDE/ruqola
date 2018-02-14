@@ -18,33 +18,25 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AUTHENTICATIONMANAGER_H
-#define AUTHENTICATIONMANAGER_H
+#ifndef PLUGINAUTHENTICATION_H
+#define PLUGINAUTHENTICATION_H
 
 #include <QObject>
 #include "libruqolacore_export.h"
+#include "authenticationmanager.h"
 
-class LIBRUQOLACORE_EXPORT AuthenticationManager : public QObject
+class PluginAuthenticationInterface;
+
+class LIBRUQOLACORE_EXPORT PluginAuthentication : public QObject
 {
     Q_OBJECT
 public:
-    enum class OauthType {
-        Unknown = 0,
-        Twitter = 1,
-        FaceBook = 2,
-        GitHub = 4,
-        GitLab = 8,
-        Google = 16,
-        Linkedin = 32,
-        Wordpress = 64
-    };
-    Q_ENUMS(OauthType)
-    Q_DECLARE_FLAGS(OauthTypes, OauthType)
+    explicit PluginAuthentication(QObject *parent = nullptr);
+    ~PluginAuthentication();
 
-    explicit AuthenticationManager(QObject *parent = nullptr);
-    ~AuthenticationManager();
+    virtual PluginAuthenticationInterface *createInterface(QObject *parent) = 0;
 
+    virtual AuthenticationManager::OauthType type() const = 0;
 };
-Q_DECLARE_METATYPE(AuthenticationManager::OauthTypes)
 
-#endif // AUTHENTICATIONMANAGER_H
+#endif // PLUGINAUTHENTICATION_H

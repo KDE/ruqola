@@ -23,25 +23,12 @@
 
 #include <QObject>
 #include "libruqola_private_export.h"
+#include "authenticationmanager.h"
 #include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT RuqolaServerConfig
 {
-    Q_GADGET
 public:
-    enum class OauthType {
-        Unknown = 0,
-        Twitter = 1,
-        FaceBook = 2,
-        GitHub = 4,
-        GitLab = 8,
-        Google = 16,
-        Linkedin = 32,
-        Wordpress = 64
-    };
-    Q_ENUMS(OauthType)
-    Q_DECLARE_FLAGS(OauthTypes, OauthType)
-
     RuqolaServerConfig();
 
     QString uniqueId() const;
@@ -71,19 +58,19 @@ public:
 
     void addOauthService(const QString &service);
 
-    OauthTypes oauthTypes() const;
+    AuthenticationManager::OauthTypes oauthTypes() const;
 
-    bool serverHasSupportForOauthType(OauthType type) const;
+    bool serverHasSupportForOauthType(AuthenticationManager::OauthType type) const;
 
-    bool ruqolaHasSupportForOauthType(OauthType type) const;
-    bool canShowOauthService(OauthType type) const;
+    bool ruqolaHasSupportForOauthType(AuthenticationManager::OauthType type) const;
+    bool canShowOauthService(AuthenticationManager::OauthType type) const;
 private:
     void adaptToServerVersion();
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;
     QString mFileUploadStorageType;
-    OauthTypes mOauthTypes = OauthType::Unknown;
+    AuthenticationManager::OauthTypes mOauthTypes = AuthenticationManager::OauthType::Unknown;
     int mBlockEditingMessageInMinutes = 5;
     int mServerVersionMajor = -1;
     int mServerVersionMinor = -1;
@@ -93,5 +80,4 @@ private:
     bool mOtrEnabled = true;
     bool mNeedAdaptNewSubscriptionRC60 = false;
 };
-Q_DECLARE_METATYPE(RuqolaServerConfig::OauthTypes)
 #endif // RUQOLASERVERCONFIG_H

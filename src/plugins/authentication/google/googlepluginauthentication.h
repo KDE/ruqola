@@ -18,16 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef GOOGLEPLUGINAUTHENTICATION_H
+#define GOOGLEPLUGINAUTHENTICATION_H
 
-#include "abstractauthenticationinterface.h"
+#include <plugins/pluginauthentication.h>
 
-AbstractAuthenticationInterface::AbstractAuthenticationInterface(QObject *parent)
-    : QObject(parent)
+class GooglePluginAuthentication : public PluginAuthentication
 {
+    Q_OBJECT
+public:
+    explicit GooglePluginAuthentication(QObject *parent = nullptr, const QVariantList & = {});
+    ~GooglePluginAuthentication();
 
-}
+    PluginAuthenticationInterface *createInterface(QObject *parent) override;
+    AuthenticationManager::OauthType type() const override;
+};
 
-AbstractAuthenticationInterface::~AbstractAuthenticationInterface()
-{
-
-}
+#endif // GOOGLEPLUGINAUTHENTICATION_H

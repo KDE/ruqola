@@ -1,0 +1,10 @@
+{
+    "KPlugin": {
+        "Id": "googleauthenticationplugin",
+        "ServiceTypes": [
+            "Ruqoal/Authentication"
+        ],
+        "Version": "1.0"
+    }
+}
+

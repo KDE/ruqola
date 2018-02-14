@@ -18,33 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef AUTHENTICATIONMANAGER_H
-#define AUTHENTICATIONMANAGER_H
+#ifndef GOOGLEAUTHENTICATIONINTERFACE_H
+#define GOOGLEAUTHENTICATIONINTERFACE_H
 
-#include <QObject>
-#include "libruqolacore_export.h"
+#include "plugins/pluginauthenticationinterface.h"
 
-class LIBRUQOLACORE_EXPORT AuthenticationManager : public QObject
+class GoogleAuthenticationInterface : public PluginAuthenticationInterface
 {
     Q_OBJECT
 public:
-    enum class OauthType {
-        Unknown = 0,
-        Twitter = 1,
-        FaceBook = 2,
-        GitHub = 4,
-        GitLab = 8,
-        Google = 16,
-        Linkedin = 32,
-        Wordpress = 64
-    };
-    Q_ENUMS(OauthType)
-    Q_DECLARE_FLAGS(OauthTypes, OauthType)
+    explicit GoogleAuthenticationInterface(QObject *parent = nullptr);
+    ~GoogleAuthenticationInterface() override;
 
-    explicit AuthenticationManager(QObject *parent = nullptr);
-    ~AuthenticationManager();
-
+    void login() override;
 };
-Q_DECLARE_METATYPE(AuthenticationManager::OauthTypes)
 
-#endif // AUTHENTICATIONMANAGER_H
+#endif // GOOGLEAUTHENTICATIONINTERFACE_H
