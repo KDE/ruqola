@@ -70,6 +70,10 @@ RowLayout {
     MessageLine {
         id: messageLine
     }
+
+    InputTextCompleter {
+        id: inputTextCompleter
+    }
     
     Kirigami.Icon {
         source: "mail-sent"

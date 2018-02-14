@@ -24,6 +24,7 @@ Item {
     property QtObject inputTextCompleterModel
 
     signal replaceText(string completerText)
+
     ListView {
         model: inputTextCompleterModel
     }
