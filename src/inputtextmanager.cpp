@@ -35,7 +35,7 @@ InputTextManager::~InputTextManager()
 
 }
 
-void InputTextManager::setInputText(const QString &word, int cursorPosition)
+void InputTextManager::setInputText(const QString &word)
 {
     if (mAccount) {
         //TODO check last word

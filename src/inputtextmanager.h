@@ -34,7 +34,7 @@ public:
     explicit InputTextManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~InputTextManager();
 
-    void setInputText(const QString &word, int cursorPosition);
+    void setInputText(const QString &word);
 
     InputCompleterModel *inputCompleterModel() const;
 
