@@ -59,11 +59,8 @@ TextField {
     onTextChanged: {
         footerItem.textEditing(text)
     }
-    Shortcut {
-        sequence: "Escape"
-        onActivated: {
-            clearUnreadMessages();
-        }
+    Keys.onEscapePressed: {
+        clearUnreadMessages();
     }
     Keys.onUpPressed: {
         console.log("move up");
