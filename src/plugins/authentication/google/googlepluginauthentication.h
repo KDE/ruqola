@@ -28,7 +28,7 @@ class GooglePluginAuthentication : public PluginAuthentication
     Q_OBJECT
 public:
     explicit GooglePluginAuthentication(QObject *parent = nullptr, const QVariantList & = {});
-    ~GooglePluginAuthentication();
+    ~GooglePluginAuthentication() override;
 
     PluginAuthenticationInterface *createInterface(QObject *parent) override;
     AuthenticationManager::OauthType type() const override;
