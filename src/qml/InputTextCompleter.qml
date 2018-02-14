@@ -19,8 +19,10 @@
 */
 
 import QtQuick 2.9
+import QtQuick.Layouts 1.1
+import org.kde.kirigami 2.1 as Kirigami
 
-Item {
+RowLayout {
     property QtObject inputTextCompleterModel
 
     signal replaceText(string completerText)

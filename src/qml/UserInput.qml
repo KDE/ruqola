@@ -26,7 +26,6 @@ import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 
 import KDE.Ruqola.RocketChatAccount 1.0
-import KDE.Ruqola.DDPClient 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
 RowLayout {
@@ -34,7 +33,7 @@ RowLayout {
     anchors.left: parent.left
     anchors.right: parent.right
     property QtObject rcAccount
-    property alias messageLineText: messageLine.text
+    property alias messageLineText: messageLine.messageLineText
     property string messageId
     property string savePreviousMessage
 
@@ -69,10 +68,6 @@ RowLayout {
     }
     MessageLine {
         id: messageLine
-    }
-
-    InputTextCompleter {
-        id: inputTextCompleter
     }
     
     Kirigami.Icon {

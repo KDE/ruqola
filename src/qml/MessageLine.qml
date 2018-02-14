@@ -26,43 +26,53 @@ import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 
 import KDE.Ruqola.RocketChatAccount 1.0
+import KDE.Ruqola.InputCompleterModel 1.0
 import KDE.Ruqola.DDPClient 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
-TextField {
-    id: messageLine
-    //TODO add background style.
-    
-    
-    //FIXME add multiline !!!
-    inputMethodHints: Qt.ImhMultiLine
-    anchors.top: parent.top
-    anchors.bottom: parent.bottom
-    
-    Layout.fillWidth: true
-    placeholderText: i18n("Enter message")
-    
-    onAccepted: {
-        if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
-            if (messageId !== "") {
-                if (text !== savePreviousMessage) {
-                    rcAccount.updateMessage(selectedRoomID, messageId, text);
+ColumnLayout {
+    property string messageLineText: messageLine.text
+    InputTextCompleter {
+        id: inputTextCompleter
+        inputTextCompleterModel: rcAccount.inputCompleterModel()
+    }
+
+    TextField {
+        id: messageLine
+        //TODO add background style.
+
+
+        //FIXME add multiline !!!
+        inputMethodHints: Qt.ImhMultiLine
+        anchors.top: inputTextCompleter.bottom
+        anchors.bottom: parent.bottom
+
+        Layout.fillWidth: true
+        placeholderText: i18n("Enter message")
+
+        onAccepted: {
+            if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
+                if (messageId !== "") {
+                    if (text !== savePreviousMessage) {
+                        rcAccount.updateMessage(selectedRoomID, messageId, text);
+                    }
+                    savePreviousMessage = "";
+                    messageId = "";
+                } else {
+                    rcAccount.sendMessage(selectedRoomID, text);
                 }
-                savePreviousMessage = "";
-                messageId = "";
-            } else {
-                rcAccount.sendMessage(selectedRoomID, text);
+                text = "";
             }
-            text = "";
+        }
+        onTextChanged: {
+            footerItem.textEditing(text)
+        }
+        Keys.onEscapePressed: {
+            clearUnreadMessages();
+        }
+        Keys.onUpPressed: {
+            console.log("move up");
         }
     }
-    onTextChanged: {
-        footerItem.textEditing(text)
-    }
-    Keys.onEscapePressed: {
-        clearUnreadMessages();
-    }
-    Keys.onUpPressed: {
-        console.log("move up");
-    }
+
 }

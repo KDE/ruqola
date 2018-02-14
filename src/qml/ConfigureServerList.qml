@@ -21,7 +21,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.1 as Kirigami
-import KDE.Ruqola.DDPClient 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
 
 Kirigami.Page {
