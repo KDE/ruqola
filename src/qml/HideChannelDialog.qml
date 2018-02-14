@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.0
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0

@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick 2.0
+import QtQuick 2.9
 
 Item {
-
+    property QtObject inputTextCompleterModel
 }
