@@ -77,7 +77,7 @@ set (Ruqola_core_srcs
     file.cpp
     channel.cpp
     inputtextmanager.cpp
-    abstractauthenticationinterface.cpp
+    plugins/abstractauthenticationinterface.cpp
     authenticationmanager.cpp
 )
 
