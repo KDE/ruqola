@@ -19,20 +19,15 @@
 */
 
 
-#ifndef ABSTRACTAUTHENTICATION_H
-#define ABSTRACTAUTHENTICATION_H
+#include "abstractauthenticationinterface.h"
 
-#include <QObject>
-#include "libruqolacore_export.h"
-
-class LIBRUQOLACORE_EXPORT AbstractAuthentication : public QObject
+AbstractAuthenticationInterface::AbstractAuthenticationInterface(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit AbstractAuthentication(QObject *parent = nullptr);
-    ~AbstractAuthentication();
 
-    virtual void login() = 0;
-};
+}
 
-#endif // ABSTRACTAUTHENTICATION_H
+AbstractAuthenticationInterface::~AbstractAuthenticationInterface()
+{
+
+}
