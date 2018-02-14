@@ -22,4 +22,6 @@ import QtQuick 2.9
 
 Item {
     property QtObject inputTextCompleterModel
+
+    signal replaceText(string completerText)
 }
