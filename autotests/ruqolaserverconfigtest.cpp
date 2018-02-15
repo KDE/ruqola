@@ -176,4 +176,24 @@ void RuqolaServerConfigTest::shouldAddRuqolaAuthenticationSupport()
     config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::Twitter);
     QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Twitter));
 
+    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::FaceBook));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::FaceBook);
+    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::FaceBook));
+
+    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Google));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::Google);
+    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Google));
+
+    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::GitHub));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::GitHub);
+    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::GitHub));
+
+    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::GitLab));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::GitLab);
+    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::GitLab));
+
+    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Linkedin));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::Linkedin);
+    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Linkedin));
+
 }
