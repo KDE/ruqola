@@ -63,7 +63,8 @@ public:
         GitLab = 8,
         Google = 16,
         Linkedin = 32,
-        Wordpress = 64
+        Wordpress = 64,
+        Password = 128
     };
     Q_ENUMS(OauthType)
     Q_DECLARE_FLAGS(OauthTypes, OauthType)
