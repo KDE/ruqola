@@ -84,7 +84,7 @@ public:
     * @param roomID The ID of the room to find
     * @return RoomWrapper Pointer, The pointer to room with @param roomID in m_roomsList, if exists. Else return a new RoomWrapper object
     */
-    RoomWrapper *findRoom(const QString &roomID) const;
+    RoomWrapper *findRoomWrapper(const QString &roomID) const;
 
     //Clear data and refill it with data in the cache, if there is
     void reset();
@@ -117,6 +117,7 @@ public:
 
     QString inputMessage(const QString &roomId) const;
     void setInputMessage(const QString &roomId, const QString &inputMessage);
+    Room *findRoom(const QString &roomID) const;
 Q_SIGNALS:
     void needToUpdateNotification();
 

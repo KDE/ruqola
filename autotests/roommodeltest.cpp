@@ -122,11 +122,11 @@ void RoomModelTest::shouldFindRoom()
     RoomWrapper *sampleWrapper = nullptr;
 
     sampleModel.addRoom(QStringLiteral("RA15"), QStringLiteral("master"));
-    sampleWrapper = sampleModel.findRoom(QStringLiteral("RA151100ECE"));
+    sampleWrapper = sampleModel.findRoomWrapper(QStringLiteral("RA151100ECE"));
     QVERIFY(!sampleWrapper);
 
     sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));
-    sampleWrapper = sampleModel.findRoom(QStringLiteral("RA151100ECE"));
+    sampleWrapper = sampleModel.findRoomWrapper(QStringLiteral("RA151100ECE"));
     QVERIFY(sampleWrapper);
     QCOMPARE(QStringLiteral("myRoom"), sampleWrapper->name());
 
@@ -142,7 +142,7 @@ void RoomModelTest::shouldAddRoom()
     sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));
     QCOMPARE(sampleModel.rowCount(), 1);
 
-    sampleWrapper = sampleModel.findRoom(QStringLiteral("RA151100ECE"));
+    sampleWrapper = sampleModel.findRoomWrapper(QStringLiteral("RA151100ECE"));
     QVERIFY(sampleWrapper);
     QCOMPARE(QStringLiteral("myRoom"), sampleWrapper->name());
 
@@ -162,7 +162,7 @@ void RoomModelTest::shouldUpdateRoom()
     const QString topic = QStringLiteral("myTopic");
     const QString announcement = QStringLiteral("Happy New Year announcement");
     sampleModel.updateRoom(name, Id, topic, announcement, true);
-    sampleWrapper = sampleModel.findRoom(Id);
+    sampleWrapper = sampleModel.findRoomWrapper(Id);
     QVERIFY(sampleWrapper);
 
     QCOMPARE(name, sampleWrapper->name());
@@ -194,7 +194,7 @@ void RoomModelTest::shouldUpdateRoomFromQJsonObject()
 
     QSignalSpy spy(&sampleModel, &RoomModel::dataChanged);
     sampleModel.updateRoom(roomData);
-    sampleWrapper = sampleModel.findRoom(QStringLiteral("RA151100ECE"));
+    sampleWrapper = sampleModel.findRoomWrapper(QStringLiteral("RA151100ECE"));
     QVERIFY(sampleWrapper);
 
     QCOMPARE(name, sampleWrapper->name());
@@ -270,7 +270,7 @@ void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
     sampleModel.updateSubscription(input);
     QCOMPARE(sampleModel.rowCount(), 1);
 
-    sampleWrapper = sampleModel.findRoom(QStringLiteral("RA151100ECE"));
+    sampleWrapper = sampleModel.findRoomWrapper(QStringLiteral("RA151100ECE"));
     QVERIFY(sampleWrapper);
 
     QCOMPARE(name, sampleWrapper->name());
@@ -351,7 +351,7 @@ void RoomModelTest::shouldReset()
 /*
     sampleModel.reset();
     QCOMPARE(1, sampleModel.rowCount());
-    sampleWrapper = sampleModel.findRoom(Id);
+    sampleWrapper = sampleModel.findRoomWrapper(Id);
     QCOMPARE(name, sampleWrapper->name());
     */
 }

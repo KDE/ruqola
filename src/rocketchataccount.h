@@ -53,7 +53,7 @@ class SearchChannelFilterProxyModel;
 class LoginMethodModel;
 class InputCompleterModel;
 class InputTextManager;
-
+class Room;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
@@ -137,6 +137,7 @@ public:
     Q_INVOKABLE SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
     Q_INVOKABLE InputCompleterModel *inputCompleterModel() const;
     Q_INVOKABLE LoginMethodModel *loginMethodModel() const;
+    Q_INVOKABLE Room *getRoom(const QString &roomId);
 
 
 

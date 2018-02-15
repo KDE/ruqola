@@ -75,7 +75,17 @@ void RoomModel::clear()
     }
 }
 
-RoomWrapper *RoomModel::findRoom(const QString &roomID) const
+Room *RoomModel::findRoom(const QString &roomID) const
+{
+    foreach (Room *r, qAsConst(mRoomsList)) {
+        if (r->id() == roomID) {
+            return r;
+        }
+    }
+    return nullptr;
+}
+
+RoomWrapper *RoomModel::findRoomWrapper(const QString &roomID) const
 {
     foreach (Room *r, qAsConst(mRoomsList)) {
         if (r->id() == roomID) {
