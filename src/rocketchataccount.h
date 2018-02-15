@@ -53,6 +53,7 @@ class SearchChannelFilterProxyModel;
 class LoginMethodModel;
 class InputCompleterModel;
 class InputTextManager;
+class PluginAuthenticationInterface;
 class Room;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
@@ -225,6 +226,7 @@ private:
     void fillOauthModel();
     void initializeAuthenticationPlugins();
 
+    QVector<PluginAuthenticationInterface *> mLstPluginAuthenticationInterface;
     RocketChatAccountSettings *mSettings = nullptr;
 
     EmojiManager *mEmojiManager = nullptr;

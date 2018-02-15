@@ -41,7 +41,8 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.otrEnabled());
     QVERIFY(!config.needAdaptNewSubscriptionRC60());
     QCOMPARE(config.blockEditingMessageInMinutes(), 5);
-    QCOMPARE(config.oauthTypes(), AuthenticationManager::OauthType::Unknown);
+    QCOMPARE(config.ruqolaOauthTypes(), AuthenticationManager::OauthType::Unknown);
+    QCOMPARE(config.serverOauthTypes(), AuthenticationManager::OauthType::Unknown);
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -150,7 +151,7 @@ void RuqolaServerConfigTest::shouldVerifyOauthType()
     for (const QString &t : oauthlist) {
         config.addOauthService(t);
     }
-    QCOMPARE(config.oauthTypes(), types);
+    QCOMPARE(config.serverOauthTypes(), types);
 }
 
 void RuqolaServerConfigTest::shouldVerifyThatServerSupportService()
@@ -166,4 +167,13 @@ void RuqolaServerConfigTest::shouldVerifyThatServerSupportService()
 
     config.addOauthService(QStringLiteral("Accounts_OAuth_FaceBook"));
     QVERIFY(config.serverHasSupportForOauthType(AuthenticationManager::OauthType::FaceBook));
+}
+
+void RuqolaServerConfigTest::shouldAddRuqolaAuthenticationSupport()
+{
+    RuqolaServerConfig config;
+    QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Twitter));
+    config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::Twitter);
+    QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Twitter));
+
 }

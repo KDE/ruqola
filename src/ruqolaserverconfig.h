@@ -58,19 +58,23 @@ public:
 
     void addOauthService(const QString &service);
 
-    AuthenticationManager::OauthTypes oauthTypes() const;
+    AuthenticationManager::OauthTypes serverOauthTypes() const;
 
     bool serverHasSupportForOauthType(AuthenticationManager::OauthType type) const;
 
     bool ruqolaHasSupportForOauthType(AuthenticationManager::OauthType type) const;
     bool canShowOauthService(AuthenticationManager::OauthType type) const;
+    void addRuqolaAuthenticationSupport(AuthenticationManager::OauthType type);
+    AuthenticationManager::OauthTypes ruqolaOauthTypes() const;
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;
     QString mFileUploadStorageType;
-    AuthenticationManager::OauthTypes mOauthTypes = AuthenticationManager::OauthType::Unknown;
+    AuthenticationManager::OauthTypes mServerOauthTypes = AuthenticationManager::OauthType::Unknown;
+    AuthenticationManager::OauthTypes mRuqolaOauthTypes = AuthenticationManager::OauthType::Unknown;
     int mBlockEditingMessageInMinutes = 5;
     int mServerVersionMajor = -1;
     int mServerVersionMinor = -1;

@@ -57,6 +57,7 @@
 #include <QTimer>
 
 #include <plugins/pluginauthentication.h>
+#include <plugins/pluginauthenticationinterface.h>
 
 
 
@@ -68,11 +69,13 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         mRuqolaLogger = new RuqolaLogger;
     }
 
-    initializeAuthenticationPlugins();
     //Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
     mInputTextManager = new InputTextManager(this);
     mRuqolaServerConfig = new RuqolaServerConfig;
+
+    initializeAuthenticationPlugins();
+
     //TODO add account name.
     mSettings = new RocketChatAccountSettings(accountFileName, this);
     connect(mSettings, &RocketChatAccountSettings::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
@@ -625,7 +628,11 @@ void RocketChatAccount::initializeAuthenticationPlugins()
 {
     const QVector<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
     qCDebug(RUQOLA_LOG) <<" void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
+    mLstPluginAuthenticationInterface.clear();
+
     for (PluginAuthentication *abstractPlugin : lstPlugins) {
+        PluginAuthenticationInterface *interface = abstractPlugin->createInterface(this);
+        mLstPluginAuthenticationInterface.append(interface);
         qCDebug(RUQOLA_LOG) << " plugin type " << static_cast<int>(abstractPlugin->type());
     }
 }

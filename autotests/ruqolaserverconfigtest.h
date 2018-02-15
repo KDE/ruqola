@@ -40,6 +40,9 @@ private Q_SLOTS:
     void shouldVerifyOauthType();
 
     void shouldVerifyThatServerSupportService();
+
+    void shouldAddRuqolaAuthenticationSupport();
+
 };
 
 #endif // RUQOLASERVERCONFIGTEST_H
