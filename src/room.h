@@ -44,7 +44,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(bool readOnly READ readOnly WRITE setReadOnly NOTIFY readOnlyChanged)
     Q_PROPERTY(bool alert READ alert WRITE setAlert NOTIFY alertChanged)
 public:
-    explicit Room(RocketChatAccount *account, QObject *parent = nullptr);
+    explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
 
     // To be used in ID find: message ID
     bool operator==(const Room &other) const;

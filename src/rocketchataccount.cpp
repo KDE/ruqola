@@ -234,7 +234,7 @@ UsersModel *RocketChatAccount::usersModel() const
     return mUserModel;
 }
 
-RoomWrapper *RocketChatAccount::getRoom(const QString &roomId)
+RoomWrapper *RocketChatAccount::getRoomWrapper(const QString &roomId)
 {
     return mRoomModel->findRoom(roomId);
 }
