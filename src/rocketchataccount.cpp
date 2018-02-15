@@ -632,6 +632,8 @@ void RocketChatAccount::initializeAuthenticationPlugins()
 
     for (PluginAuthentication *abstractPlugin : lstPlugins) {
         PluginAuthenticationInterface *interface = abstractPlugin->createInterface(this);
+        //Add type support
+        mRuqolaServerConfig->addRuqolaAuthenticationSupport(abstractPlugin->type());
         mLstPluginAuthenticationInterface.append(interface);
         qCDebug(RUQOLA_LOG) << " plugin type " << static_cast<int>(abstractPlugin->type());
     }
