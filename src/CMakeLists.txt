@@ -51,6 +51,7 @@ set (Ruqola_core_srcs
     ${Ruqola_aboutdata_srcs}
     ${Ruqola_ddpapi_SRCS}
     ${Ruqola_restapi_SRCS}
+    authenticationinfo.cpp
     message.cpp
     room.cpp
     roomwrapper.cpp
@@ -59,7 +60,6 @@ set (Ruqola_core_srcs
     rocketchatbackend.cpp
     notification.cpp
     messagequeue.cpp
-    authentication.cpp
     rocketchatmessage.cpp
     typingnotification.cpp
     changetemporarystatus.cpp

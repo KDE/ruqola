@@ -19,6 +19,9 @@
 */
 
 #include "passwordauthenticationinterface.h"
+#include "rocketchataccount.h"
+#include "passwordauthenticationplugin_debug.h"
+#include "ddpapi/ddpclient.h"
 
 PasswordAuthenticationInterface::PasswordAuthenticationInterface(QObject *parent)
     : PluginAuthenticationInterface(parent)
@@ -32,7 +35,9 @@ PasswordAuthenticationInterface::~PasswordAuthenticationInterface()
 }
 
 
-void PasswordAuthenticationInterface::login()
+quint64 PasswordAuthenticationInterface::login()
 {
-    //TODO
+    const quint64 loginJob = mAccount->ddp()->login(mAccount->settings()->userName(), mAccount->settings()->password());
+    qCDebug(RUQOLA_PASSWORDAUTHENTICATION_PLUGIN_LOG) << "Password job id : " << loginJob;
+    return loginJob;
 }

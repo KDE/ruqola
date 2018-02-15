@@ -21,6 +21,7 @@
 #include "googlepluginauthentication.h"
 #include "googleauthenticationinterface.h"
 #include <kpluginfactory.h>
+#include <KLocalizedString>
 #include "plugins/kcoreaddons_ruqola_compat.h"
 
 K_PLUGIN_CLASS_WITH_JSON(GooglePluginAuthentication, "ruqola_googleauthenticationplugin.json")
@@ -44,5 +45,17 @@ AuthenticationManager::OauthType GooglePluginAuthentication::type() const
 {
     return AuthenticationManager::OauthType::Google;
 }
+
+QString GooglePluginAuthentication::name() const
+{
+    return i18n("Google");
+}
+
+QString GooglePluginAuthentication::iconName() const
+{
+    //TODO
+    return {};
+}
+
 
 #include "googlepluginauthentication.moc"

@@ -51,11 +51,6 @@ public:
         Ephemeral
     };
 
-    enum LoginType {
-        Password,
-        Google
-    };
-
     explicit DDPClient(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~DDPClient();
 
@@ -171,10 +166,10 @@ public:
     quint64 addUserToRoom(const QString &userId, const QString &roomId);
     quint64 inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
     quint64 inputUserAutocomplete(const QString &pattern, const QString &exceptions);
+    quint64 login(const QString &username, const QString &password);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
-    void loginTypeChanged();
     void disconnected();
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
@@ -201,11 +196,8 @@ private:
 
     void setLoginStatus(LoginStatus l);
 
-    LoginType loginType() const;
-    Q_INVOKABLE void setLoginType(LoginType t);
     void pong();
     void executeSubsCallBack(const QJsonObject &root);
-    quint64 login(const QString &username, const QString &password);
 
     QString mUrl;
     AbstractWebSocket *mWebSocket = nullptr;
@@ -224,7 +216,6 @@ private:
 
     quint64 m_loginJob = 0;
     LoginStatus m_loginStatus;
-    LoginType m_loginType;
 
     bool m_connected = false;
 

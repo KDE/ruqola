@@ -18,22 +18,41 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GOOGLEPLUGINAUTHENTICATION_H
-#define GOOGLEPLUGINAUTHENTICATION_H
+#include "authenticationinfo.h"
 
-#include <plugins/pluginauthentication.h>
-
-class GooglePluginAuthentication : public PluginAuthentication
+AuthenticationInfo::AuthenticationInfo()
 {
-    Q_OBJECT
-public:
-    explicit GooglePluginAuthentication(QObject *parent = nullptr, const QVariantList & = {});
-    ~GooglePluginAuthentication() override;
 
-    PluginAuthenticationInterface *createInterface(QObject *parent) override;
-    AuthenticationManager::OauthType type() const override;
-    QString name() const override;
-    QString iconName() const override;
-};
+}
 
-#endif // GOOGLEPLUGINAUTHENTICATION_H
+AuthenticationInfo::~AuthenticationInfo()
+{
+
+}
+
+QString AuthenticationInfo::name() const
+{
+    return mName;
+}
+
+void AuthenticationInfo::setName(const QString &name)
+{
+    mName = name;
+}
+
+QString AuthenticationInfo::iconName() const
+{
+    return mIconName;
+}
+
+void AuthenticationInfo::setIconName(const QString &iconName)
+{
+    mIconName = iconName;
+}
+
+QDebug operator <<(QDebug d, const AuthenticationInfo &t)
+{
+    d << "Iconname: " << t.iconName();
+    d << "Name: " << t.name();
+    return d;
+}

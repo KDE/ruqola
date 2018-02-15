@@ -32,7 +32,9 @@ GoogleAuthenticationInterface::~GoogleAuthenticationInterface()
 }
 
 
-void GoogleAuthenticationInterface::login()
+quint64 GoogleAuthenticationInterface::login()
 {
+    return {};
     //TODO
 }
+

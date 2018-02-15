@@ -22,17 +22,30 @@
 #define LOGINMETHODMODEL_H
 
 #include <QAbstractItemModel>
+#include "authenticationinfo.h"
 #include "libruqola_private_export.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT LoginMethodModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum LoginRoles {
+        Name = Qt::UserRole + 1,
+        IconName,
+    };
+    Q_ENUM(LoginRoles)
     explicit LoginMethodModel(QObject *parent = nullptr);
-    ~LoginMethodModel();
+    ~LoginMethodModel() override;
 
-    int rowCount(const QModelIndex &parent) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role) const override;
+
+    void setAuthenticationInfos(const QVector<AuthenticationInfo> &infos);
+
+    QHash<int, QByteArray> roleNames() const override;
+
+private:
+    QVector<AuthenticationInfo> mAuthentications;
 };
 
 #endif // LOGINMETHODMODEL_H

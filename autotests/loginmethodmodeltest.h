@@ -29,6 +29,8 @@ class LoginMethodModelTest : public QObject
 public:
     explicit LoginMethodModelTest(QObject *parent = nullptr);
     ~LoginMethodModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // LOGINMETHODMODELTEST_H

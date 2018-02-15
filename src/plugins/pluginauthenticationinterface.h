@@ -33,12 +33,12 @@ public:
     explicit PluginAuthenticationInterface(QObject *parent = nullptr);
     ~PluginAuthenticationInterface();
 
-    virtual void login() = 0;
+    virtual quint64 login() = 0;
 
     RocketChatAccount *account() const;
     void setAccount(RocketChatAccount *account);
 
-private:
+protected:
     RocketChatAccount *mAccount = nullptr;
 };
 

@@ -19,6 +19,7 @@
 */
 
 #include "loginmethodmodeltest.h"
+#include "model/loginmethodmodel.h"
 #include <QTest>
 
 QTEST_MAIN(LoginMethodModelTest)
@@ -26,4 +27,12 @@ QTEST_MAIN(LoginMethodModelTest)
 LoginMethodModelTest::LoginMethodModelTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void LoginMethodModelTest::shouldHaveDefaultValue()
+{
+    LoginMethodModel w;
+    QCOMPARE(w.rowCount(), 0);
+
+    //TODO
 }

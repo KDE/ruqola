@@ -32,6 +32,7 @@
 #include "messagequeue.h"
 #include "ruqolalogger.h"
 #include "rocketchatbackend.h"
+#include "plugins/pluginauthenticationinterface.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -171,7 +172,6 @@ DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
     , m_uid(1)
     , m_loginJob(0)
     , m_loginStatus(NotConnected)
-    , m_loginType(Password)
     , m_connected(false)
     , m_attemptedPasswordLogin(false)
     , m_attemptedTokenLogin(false)
@@ -260,20 +260,6 @@ void DDPClient::setLoginStatus(DDPClient::LoginStatus l)
     if (l == LoginFailed) {
         m_attemptedPasswordLogin = false;
         m_attemptedTokenLogin = false;
-    }
-}
-
-DDPClient::LoginType DDPClient::loginType() const
-{
-    return m_loginType;
-}
-
-void DDPClient::setLoginType(DDPClient::LoginType t)
-{
-    if (m_loginType != t) {
-        qCDebug(RUQOLA_DDPAPI_LOG) << "Setting login type to" << t;
-        m_loginType = t;
-        Q_EMIT loginTypeChanged();
     }
 }
 
@@ -724,7 +710,8 @@ void DDPClient::login()
         }
         m_attemptedPasswordLogin = true;
 
-        m_loginJob = login(mRocketChatAccount->settings()->userName(), mRocketChatAccount->settings()->password());
+        //m_loginJob = login(mRocketChatAccount->settings()->userName(), mRocketChatAccount->settings()->password());
+        m_loginJob = mRocketChatAccount->defaultAuthenticationInterface()->login();
     } else if (!mRocketChatAccount->settings()->authToken().isEmpty() && !m_attemptedTokenLogin) {
         m_attemptedPasswordLogin = true;
         QJsonObject json;

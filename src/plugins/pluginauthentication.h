@@ -37,6 +37,12 @@ public:
     virtual PluginAuthenticationInterface *createInterface(QObject *parent) = 0;
 
     virtual AuthenticationManager::OauthType type() const = 0;
+
+    virtual QString name() const = 0;
+    virtual QString iconName() const = 0;
+
+Q_SIGNALS:
+    void loginFailed(const QString &message);
 };
 
 #endif // PLUGINAUTHENTICATION_H

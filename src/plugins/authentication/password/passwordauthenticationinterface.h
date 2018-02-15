@@ -30,7 +30,7 @@ public:
     explicit PasswordAuthenticationInterface(QObject *parent = nullptr);
     ~PasswordAuthenticationInterface() override;
 
-    void login() override;
+    quint64 login() override;
 };
 
 #endif // PASSWORDAUTHENTICATIONINTERFACE_H

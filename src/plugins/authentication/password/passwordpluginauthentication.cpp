@@ -21,6 +21,7 @@
 #include "passwordpluginauthentication.h"
 #include "passwordauthenticationinterface.h"
 #include <kpluginfactory.h>
+#include <KLocalizedString>
 #include "plugins/kcoreaddons_ruqola_compat.h"
 
 K_PLUGIN_CLASS_WITH_JSON(PasswordPluginAuthentication, "ruqola_passwordauthenticationplugin.json")
@@ -43,6 +44,17 @@ PluginAuthenticationInterface *PasswordPluginAuthentication::createInterface(QOb
 AuthenticationManager::OauthType PasswordPluginAuthentication::type() const
 {
     return AuthenticationManager::OauthType::Password;
+}
+
+QString PasswordPluginAuthentication::name() const
+{
+    return i18n("Login/Password");
+}
+
+QString PasswordPluginAuthentication::iconName() const
+{
+    //TODO
+    return {};
 }
 
 #include "passwordpluginauthentication.moc"

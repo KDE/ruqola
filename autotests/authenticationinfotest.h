@@ -18,22 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GOOGLEPLUGINAUTHENTICATION_H
-#define GOOGLEPLUGINAUTHENTICATION_H
+#ifndef AUTHENTICATIONINFOTEST_H
+#define AUTHENTICATIONINFOTEST_H
 
-#include <plugins/pluginauthentication.h>
+#include <QObject>
 
-class GooglePluginAuthentication : public PluginAuthentication
+class AuthenticationInfoTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit GooglePluginAuthentication(QObject *parent = nullptr, const QVariantList & = {});
-    ~GooglePluginAuthentication() override;
-
-    PluginAuthenticationInterface *createInterface(QObject *parent) override;
-    AuthenticationManager::OauthType type() const override;
-    QString name() const override;
-    QString iconName() const override;
+    explicit AuthenticationInfoTest(QObject *parent = nullptr);
+    ~AuthenticationInfoTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldAssignValue();
 };
 
-#endif // GOOGLEPLUGINAUTHENTICATION_H
+#endif // AUTHENTICATIONINFOTEST_H

@@ -635,8 +635,17 @@ void RocketChatAccount::initializeAuthenticationPlugins()
         interface->setAccount(this);
         mRuqolaServerConfig->addRuqolaAuthenticationSupport(abstractPlugin->type());
         mLstPluginAuthenticationInterface.append(interface);
+        //For the moment initialize default interface
+        if (abstractPlugin->type() == AuthenticationManager::OauthType::Password) {
+            mDefaultAuthenticationInterface = interface;
+        }
         qCDebug(RUQOLA_LOG) << " plugin type " << static_cast<int>(abstractPlugin->type());
     }
+}
+
+PluginAuthenticationInterface *RocketChatAccount::defaultAuthenticationInterface() const
+{
+    return mDefaultAuthenticationInterface;
 }
 
 InputCompleterModel *RocketChatAccount::inputCompleterModel() const

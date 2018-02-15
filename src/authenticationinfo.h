@@ -18,22 +18,30 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GOOGLEPLUGINAUTHENTICATION_H
-#define GOOGLEPLUGINAUTHENTICATION_H
+#ifndef AUTHENTICATIONINFO_H
+#define AUTHENTICATIONINFO_H
 
-#include <plugins/pluginauthentication.h>
-
-class GooglePluginAuthentication : public PluginAuthentication
+#include "libruqola_private_export.h"
+#include <QObject>
+#include <QDebug>
+class LIBRUQOLACORE_TESTS_EXPORT AuthenticationInfo
 {
-    Q_OBJECT
+    Q_GADGET
 public:
-    explicit GooglePluginAuthentication(QObject *parent = nullptr, const QVariantList & = {});
-    ~GooglePluginAuthentication() override;
+    AuthenticationInfo();
+    ~AuthenticationInfo();
 
-    PluginAuthenticationInterface *createInterface(QObject *parent) override;
-    AuthenticationManager::OauthType type() const override;
-    QString name() const override;
-    QString iconName() const override;
+    QString name() const;
+    void setName(const QString &name);
+
+    QString iconName() const;
+    void setIconName(const QString &iconName);
+
+private:
+    QString mName;
+    QString mIconName;
 };
+Q_DECLARE_TYPEINFO(AuthenticationInfo, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const AuthenticationInfo &t);
 
-#endif // GOOGLEPLUGINAUTHENTICATION_H
+#endif // AUTHENTICATIONINFO_H

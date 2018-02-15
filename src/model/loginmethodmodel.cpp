@@ -32,10 +32,40 @@ LoginMethodModel::~LoginMethodModel()
 
 int LoginMethodModel::rowCount(const QModelIndex &parent) const
 {
-    return {};
+    Q_UNUSED(parent);
+    return mAuthentications.count();
 }
 
 QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
 {
+    if (index.row() < 0 || index.row() >= mAuthentications.count()) {
+        return QVariant();
+    }
+
+    const AuthenticationInfo info = mAuthentications.at(index.row());
+    //TODO
+    switch (role) {
+    ;
+    }
+    return {};
+}
+
+void LoginMethodModel::setAuthenticationInfos(const QVector<AuthenticationInfo> &infos)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mAuthentications.count() - 1);
+        mAuthentications.clear();
+        endRemoveRows();
+    }
+    if (!infos.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, infos.count() - 1);
+        mAuthentications = infos;
+        endInsertRows();
+    }
+}
+
+QHash<int, QByteArray> LoginMethodModel::roleNames() const
+{
+    //TODO
     return {};
 }
