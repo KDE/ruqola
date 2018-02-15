@@ -632,8 +632,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
 
     for (PluginAuthentication *abstractPlugin : lstPlugins) {
         PluginAuthenticationInterface *interface = abstractPlugin->createInterface(this);
-        //FIXME interface->setDdp(ddp());
-        //Add type support
+        interface->setAccount(this);
         mRuqolaServerConfig->addRuqolaAuthenticationSupport(abstractPlugin->type());
         mLstPluginAuthenticationInterface.append(interface);
         qCDebug(RUQOLA_LOG) << " plugin type " << static_cast<int>(abstractPlugin->type());

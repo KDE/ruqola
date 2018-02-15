@@ -21,6 +21,8 @@
 
 #include "pluginauthenticationinterface.h"
 
+#include "rocketchataccount.h"
+
 PluginAuthenticationInterface::PluginAuthenticationInterface(QObject *parent)
     : QObject(parent)
 {
@@ -32,12 +34,12 @@ PluginAuthenticationInterface::~PluginAuthenticationInterface()
 
 }
 
-DDPClient *PluginAuthenticationInterface::ddp() const
+RocketChatAccount *PluginAuthenticationInterface::account() const
 {
-    return mDdp;
+    return mAccount;
 }
 
-void PluginAuthenticationInterface::setDdp(DDPClient *ddp)
+void PluginAuthenticationInterface::setAccount(RocketChatAccount *account)
 {
-    mDdp = ddp;
+    mAccount = account;
 }

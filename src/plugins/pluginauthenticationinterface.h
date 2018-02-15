@@ -25,7 +25,7 @@
 #include <QObject>
 #include "libruqolacore_export.h"
 #include "ddpapi/ddpclient.h"
-
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT PluginAuthenticationInterface : public QObject
 {
     Q_OBJECT
@@ -35,11 +35,11 @@ public:
 
     virtual void login() = 0;
 
-    DDPClient *ddp() const;
-    void setDdp(DDPClient *ddp);
+    RocketChatAccount *account() const;
+    void setAccount(RocketChatAccount *account);
 
 private:
-    DDPClient *mDdp = nullptr;
+    RocketChatAccount *mAccount = nullptr;
 };
 
 #endif
