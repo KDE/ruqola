@@ -73,8 +73,8 @@ private:
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;
     QString mFileUploadStorageType;
-    AuthenticationManager::OauthTypes mServerOauthTypes = AuthenticationManager::OauthType::Unknown;
-    AuthenticationManager::OauthTypes mRuqolaOauthTypes = AuthenticationManager::OauthType::Unknown;
+    AuthenticationManager::OauthTypes mServerOauthTypes = AuthenticationManager::OauthType::Password;
+    AuthenticationManager::OauthTypes mRuqolaOauthTypes = AuthenticationManager::OauthType::Password;
     int mBlockEditingMessageInMinutes = 5;
     int mServerVersionMajor = -1;
     int mServerVersionMinor = -1;
