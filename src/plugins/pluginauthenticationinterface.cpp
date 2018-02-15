@@ -31,3 +31,13 @@ PluginAuthenticationInterface::~PluginAuthenticationInterface()
 {
 
 }
+
+DDPClient *PluginAuthenticationInterface::ddp() const
+{
+    return mDdp;
+}
+
+void PluginAuthenticationInterface::setDdp(DDPClient *ddp)
+{
+    mDdp = ddp;
+}

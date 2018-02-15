@@ -632,6 +632,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
 
     for (PluginAuthentication *abstractPlugin : lstPlugins) {
         PluginAuthenticationInterface *interface = abstractPlugin->createInterface(this);
+        interface->setDdp(ddp());
         //Add type support
         mRuqolaServerConfig->addRuqolaAuthenticationSupport(abstractPlugin->type());
         mLstPluginAuthenticationInterface.append(interface);

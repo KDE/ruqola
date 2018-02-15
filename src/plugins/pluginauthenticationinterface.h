@@ -24,6 +24,7 @@
 
 #include <QObject>
 #include "libruqolacore_export.h"
+#include "ddpapi/ddpclient.h"
 
 class LIBRUQOLACORE_EXPORT PluginAuthenticationInterface : public QObject
 {
@@ -33,6 +34,12 @@ public:
     ~PluginAuthenticationInterface();
 
     virtual void login() = 0;
+
+    DDPClient *ddp() const;
+    void setDdp(DDPClient *ddp);
+
+private:
+    DDPClient *mDdp = nullptr;
 };
 
 #endif
