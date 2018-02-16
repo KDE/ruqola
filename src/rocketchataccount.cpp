@@ -626,14 +626,14 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     qCDebug(RUQOLA_LOG) <<" void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     mLstPluginAuthenticationInterface.clear();
 
-    QVector<AuthenticationInfo> lstInfos;
+    mLstInfos.clear();
     for (PluginAuthentication *abstractPlugin : lstPlugins) {
         AuthenticationInfo info;
         info.setIconName(abstractPlugin->iconName());
         info.setName(abstractPlugin->name());
         info.setOauthType(abstractPlugin->type());
         if (info.isValid()) {
-            lstInfos.append(info);
+            mLstInfos.append(info);
         }
 
         PluginAuthenticationInterface *interface = abstractPlugin->createInterface(this);

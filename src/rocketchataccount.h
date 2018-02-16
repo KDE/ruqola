@@ -26,6 +26,7 @@
 #include <ddpapi/ddpclient.h>
 #include "rocketchataccountsettings.h"
 #include "libruqola_private_export.h"
+#include "authenticationinfo.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -226,6 +227,7 @@ private:
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 
     QVector<PluginAuthenticationInterface *> mLstPluginAuthenticationInterface;
+    QVector<AuthenticationInfo> mLstInfos;
     RocketChatAccountSettings *mSettings = nullptr;
 
     EmojiManager *mEmojiManager = nullptr;
