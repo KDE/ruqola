@@ -635,7 +635,9 @@ void RocketChatAccount::initializeAuthenticationPlugins()
         info.setIconName(abstractPlugin->iconName());
         info.setName(abstractPlugin->name());
         info.setOauthType(abstractPlugin->type());
-        lstInfos.append(info);
+        if (info.isValid()) {
+            lstInfos.append(info);
+        }
 
         PluginAuthenticationInterface *interface = abstractPlugin->createInterface(this);
         interface->setAccount(this);
