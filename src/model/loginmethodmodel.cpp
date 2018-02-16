@@ -43,9 +43,13 @@ QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
     }
 
     const AuthenticationInfo info = mAuthentications.at(index.row());
-    //TODO
     switch (role) {
-    ;
+    case Name:
+        return info.name();
+    case IconName:
+        return info.iconName();
+    case Type:
+        return info.oauthType();
     }
     return {};
 }
@@ -66,6 +70,9 @@ void LoginMethodModel::setAuthenticationInfos(const QVector<AuthenticationInfo> 
 
 QHash<int, QByteArray> LoginMethodModel::roleNames() const
 {
-    //TODO
-    return {};
+    QHash<int, QByteArray> roles;
+    roles[Name] = QByteArrayLiteral("name");
+    roles[IconName] = QByteArrayLiteral("iconname");
+    roles[Type] = QByteArrayLiteral("type");
+    return roles;
 }

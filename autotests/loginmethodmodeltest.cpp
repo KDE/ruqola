@@ -34,5 +34,9 @@ void LoginMethodModelTest::shouldHaveDefaultValue()
     LoginMethodModel w;
     QCOMPARE(w.rowCount(), 0);
 
-    //TODO
+    QHash<int, QByteArray> roles;
+    roles[LoginMethodModel::Name] = QByteArrayLiteral("name");
+    roles[LoginMethodModel::IconName] = QByteArrayLiteral("iconname");
+    roles[LoginMethodModel::Type] = QByteArrayLiteral("type");
+    QCOMPARE(w.roleNames(), roles);
 }

@@ -22,6 +22,7 @@
 #define AUTHENTICATIONINFO_H
 
 #include "libruqola_private_export.h"
+#include "authenticationmanager.h"
 #include <QObject>
 #include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT AuthenticationInfo
@@ -37,9 +38,13 @@ public:
     QString iconName() const;
     void setIconName(const QString &iconName);
 
+    AuthenticationManager::OauthType oauthType() const;
+    void setOauthType(const AuthenticationManager::OauthType &oauthType);
+
 private:
     QString mName;
     QString mIconName;
+    AuthenticationManager::OauthType mOauthType = AuthenticationManager::OauthType::Unknown;
 };
 Q_DECLARE_TYPEINFO(AuthenticationInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const AuthenticationInfo &t);

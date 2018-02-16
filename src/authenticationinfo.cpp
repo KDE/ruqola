@@ -50,9 +50,20 @@ void AuthenticationInfo::setIconName(const QString &iconName)
     mIconName = iconName;
 }
 
+AuthenticationManager::OauthType AuthenticationInfo::oauthType() const
+{
+    return mOauthType;
+}
+
+void AuthenticationInfo::setOauthType(const AuthenticationManager::OauthType &oauthType)
+{
+    mOauthType = oauthType;
+}
+
 QDebug operator <<(QDebug d, const AuthenticationInfo &t)
 {
     d << "Iconname: " << t.iconName();
     d << "Name: " << t.name();
+    d << "Type: " << t.oauthType();
     return d;
 }

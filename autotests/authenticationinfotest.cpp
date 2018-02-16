@@ -45,4 +45,5 @@ void AuthenticationInfoTest::shouldAssignValue()
     info.setIconName(iconname);
     QCOMPARE(info.name(), name);
     QCOMPARE(info.iconName(), iconname);
+    QCOMPARE(info.oauthType(), AuthenticationManager::Unknown);
 }

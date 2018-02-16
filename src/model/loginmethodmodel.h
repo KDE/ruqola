@@ -32,6 +32,7 @@ public:
     enum LoginRoles {
         Name = Qt::UserRole + 1,
         IconName,
+        Type,
     };
     Q_ENUM(LoginRoles)
     explicit LoginMethodModel(QObject *parent = nullptr);

@@ -55,7 +55,7 @@ class LIBRUQOLACORE_EXPORT AuthenticationManager : public QObject
 {
     Q_OBJECT
 public:
-    enum class OauthType {
+    enum OauthType {
         Unknown = 0,
         Twitter = 1,
         FaceBook = 2,
