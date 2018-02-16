@@ -136,6 +136,7 @@ public:
 
     void setServerUrl(const QString &url);
     void start();
+    void setLoginJobId(quint64 jobid);
 
     LoginStatus loginStatus() const;
 

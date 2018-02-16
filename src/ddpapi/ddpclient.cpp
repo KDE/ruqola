@@ -226,6 +226,11 @@ void DDPClient::start()
     }
 }
 
+void DDPClient::setLoginJobId(quint64 jobid)
+{
+    m_loginJob = jobid;
+}
+
 QUrl DDPClient::adaptUrl(const QString &url)
 {
     return Utils::generateServerUrl(url);
@@ -711,7 +716,7 @@ void DDPClient::login()
         m_attemptedPasswordLogin = true;
 
         //m_loginJob = login(mRocketChatAccount->settings()->userName(), mRocketChatAccount->settings()->password());
-        m_loginJob = mRocketChatAccount->defaultAuthenticationInterface()->login();
+        mRocketChatAccount->defaultAuthenticationInterface()->login();
     } else if (!mRocketChatAccount->settings()->authToken().isEmpty() && !m_attemptedTokenLogin) {
         m_attemptedPasswordLogin = true;
         QJsonObject json;
