@@ -41,27 +41,27 @@
 Google::Google(QObject *parent)
     : QObject(parent)
 {
-    p_o2Google = new O2Google(this);
+    mO2Google = new O2Google(this);
 
     getDataFromJson();
 
-    p_o2Google->setClientId(m_clientID);
-    p_o2Google->setClientSecret(m_clientSecret);
-    p_o2Google->setLocalPort(8888); //it is from redirect url(http://127.0.0.1:8888/)
-    p_o2Google->setRequestUrl(m_authUri);  // Use the desktop login UI
-    p_o2Google->setScope(QStringLiteral("email"));
+    mO2Google->setClientId(m_clientID);
+    mO2Google->setClientSecret(m_clientSecret);
+    mO2Google->setLocalPort(8888); //it is from redirect url(http://127.0.0.1:8888/)
+    mO2Google->setRequestUrl(m_authUri);  // Use the desktop login UI
+    mO2Google->setScope(QStringLiteral("email"));
 
     // Create a store object for writing the received tokens
-    O0SettingsStore *store = new O0SettingsStore(QLatin1String(O2_ENCRYPTION_KEY));
+    O0SettingsStore *store = new O0SettingsStore(QLatin1String(O2_ENCRYPTION_KEY), this);
     store->setGroupKey(QStringLiteral("Google"));
-    p_o2Google->setStore(store);
+    mO2Google->setStore(store);
 
-    connect(p_o2Google, &O2Google::linkedChanged, this, &Google::onLinkedChanged);
-    connect(p_o2Google, &O2Google::linkingFailed, this, &Google::linkingFailed);
-    connect(p_o2Google, &O2Google::linkingSucceeded, this, &Google::onLinkingSucceeded);
-    connect(p_o2Google, &O2Google::openBrowser, this, &Google::onOpenBrowser);
-    connect(p_o2Google, &O2Google::closeBrowser, this, &Google::onCloseBrowser);
-    connect(p_o2Google, &O2Google::linkingSucceeded, this, &Google::OAuthLoginMethodParameter);
+    connect(mO2Google, &O2Google::linkedChanged, this, &Google::onLinkedChanged);
+    connect(mO2Google, &O2Google::linkingFailed, this, &Google::linkingFailed);
+    connect(mO2Google, &O2Google::linkingSucceeded, this, &Google::onLinkingSucceeded);
+    connect(mO2Google, &O2Google::openBrowser, this, &Google::onOpenBrowser);
+    connect(mO2Google, &O2Google::closeBrowser, this, &Google::onCloseBrowser);
+    connect(mO2Google, &O2Google::linkingSucceeded, this, &Google::OAuthLoginMethodParameter);
 }
 
 void Google::getDataFromJson()
@@ -74,6 +74,7 @@ void Google::getDataFromJson()
     } else {
         qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "Impossible to read client_secret.json";
         //TODO exit ?
+        return;
     }
 
     //******github*******
@@ -81,8 +82,8 @@ void Google::getDataFromJson()
     //bb617841568d7c1e0c0888f292cf69b7b11d327e3 > clientSecret
     //https://github.com/login/oauth/authorize
     //https://github.com/login/oauth/access_token
-    QJsonDocument document = QJsonDocument::fromJson(val.toUtf8());
-    QJsonObject object = document.object();
+    const QJsonDocument document = QJsonDocument::fromJson(val.toUtf8());
+    const QJsonObject object = document.object();
     const auto settingsObject = object[QStringLiteral("web")].toObject();
     const auto authUri(settingsObject[QStringLiteral("auth_uri")].toString());
     const auto clientID = settingsObject[QStringLiteral("client_id")].toString();
@@ -96,30 +97,29 @@ void Google::getDataFromJson()
 
 void Google::doOAuth(O2::GrantFlow grantFlowType)
 {
-    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Starting OAuth 2 with grant flow type:") << QStringLiteral("Authorization Grant Flow")
-                                                    << QStringLiteral("...");
-    p_o2Google->setGrantFlow(grantFlowType);
-    p_o2Google->unlink();
+    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "Starting OAuth 2 with grant flow type: Authorization Grant Flow...";
+    mO2Google->setGrantFlow(grantFlowType);
+    mO2Google->unlink();
 
     //TODO: refresh the token if it is expired(not valid)
     validateToken();
     if (m_isValidToken) {
         OAuthLoginMethodParameter();
     } else {
-        p_o2Google->link();
+        mO2Google->link();
     }
 }
 
 //currently not used
 void Google::validateToken()
 {
-    if (!p_o2Google->linked()) {
+    if (!mO2Google->linked()) {
         qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "ERROR: Application is not linked!";
         Q_EMIT linkingFailed();
         return;
     }
 
-    QString accessToken = p_o2Google->token();
+    QString accessToken = mO2Google->token();
     QString debugUrlStr = QString(m_tokenUri).arg(accessToken);
     QNetworkRequest request = QNetworkRequest(QUrl(debugUrlStr));
     QNetworkAccessManager *mgr = new QNetworkAccessManager(this);
@@ -150,7 +150,7 @@ void Google::onLinkingSucceeded()
         return;
     }
     m_accessToken = o1t->token();
-    QVariantMap extraTokens = o1t->extraTokens();
+    const QVariantMap extraTokens = o1t->extraTokens();
     if (!extraTokens.isEmpty()) {
         Q_EMIT extraTokensReady(extraTokens);
         qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Extra tokens in response:");

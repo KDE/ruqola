@@ -55,7 +55,7 @@ private Q_SLOTS:
 
     void OAuthLoginMethodParameter();
 private:
-    O2Google *p_o2Google = nullptr;
+    O2Google *mO2Google = nullptr;
     QString m_clientID;
     QString m_clientSecret;
     QString m_authUri;
