@@ -38,7 +38,7 @@ public:
     explicit LoginMethodModel(QObject *parent = nullptr);
     ~LoginMethodModel() override;
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
     void setAuthenticationInfos(const QVector<AuthenticationInfo> &infos);
@@ -46,6 +46,8 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     void clear();
+
+    AuthenticationManager::OauthType loginType(int index);
 private:
     QVector<AuthenticationInfo> mAuthentications;
 };

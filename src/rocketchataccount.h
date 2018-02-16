@@ -139,7 +139,9 @@ public:
     Q_INVOKABLE InputCompleterModel *inputCompleterModel() const;
     Q_INVOKABLE LoginMethodModel *loginMethodModel() const;
     Q_INVOKABLE Room *getRoom(const QString &roomId);
-    Q_INVOKABLE void setDefaultAuthentication(AuthenticationManager::OauthType type);
+
+    Q_INVOKABLE void changeDefaultAuthentication(int index);
+
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
@@ -224,6 +226,7 @@ private:
     void clearModels();
     void fillOauthModel();
     void initializeAuthenticationPlugins();
+    void setDefaultAuthentication(AuthenticationManager::OauthType type);
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 

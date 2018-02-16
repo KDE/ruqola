@@ -628,8 +628,14 @@ void RocketChatAccount::fillOauthModel()
     mLoginMethodModel->setAuthenticationInfos(fillModel);
 }
 
+void RocketChatAccount::changeDefaultAuthentication(int index)
+{
+    setDefaultAuthentication(mLoginMethodModel->loginType(index));
+}
+
 void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::OauthType type)
 {
+    qDebug() <<" void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::OauthType type)"<<type;
     PluginAuthenticationInterface *interface = mLstPluginAuthenticationInterface.value(type);
     if (interface) {
         mDefaultAuthenticationInterface = interface;

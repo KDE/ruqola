@@ -19,6 +19,7 @@
 */
 
 #include "loginmethodmodel.h"
+#include <QDebug>
 
 LoginMethodModel::LoginMethodModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -32,6 +33,7 @@ LoginMethodModel::~LoginMethodModel()
 int LoginMethodModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
+    qDebug() << " int LoginMethodModel::rowCount(const QModelIndex &parent) const"<<mAuthentications.count();
     return mAuthentications.count();
 }
 
@@ -42,6 +44,11 @@ void LoginMethodModel::clear()
         mAuthentications.clear();
         endRemoveRows();
     }
+}
+
+AuthenticationManager::OauthType LoginMethodModel::loginType(int index)
+{
+    return mAuthentications.at(index).oauthType();
 }
 
 QVariant LoginMethodModel::data(const QModelIndex &index, int role) const

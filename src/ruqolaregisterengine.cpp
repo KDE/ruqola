@@ -41,6 +41,7 @@
 #include "model/inputcompletermodel.h"
 #include "model/roomfilterproxymodel.h"
 #include "model/usercompletermodel.h"
+#include "model/loginmethodmodel.h"
 
 #include "channel.h"
 #include <KLocalizedContext>
@@ -79,6 +80,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<StatusModel>("KDE.Ruqola.StatusModel", 1, 0, "StatusModel");
     qmlRegisterType<SearchChannelFilterProxyModel>("KDE.Ruqola.SearchChannelFilterProxyModel", 1, 0, "SearchChannelFilterProxyModel");
     qmlRegisterType<InputCompleterModel>("KDE.Ruqola.InputCompleterModel", 1, 0, "InputCompleterModel");
+    qmlRegisterType<LoginMethodModel>("KDE.Ruqola.LoginMethodModel", 1, 0, "LoginMethodModel");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterType<ClipboardProxy>("KDE.Ruqola.Clipboard", 1, 0, "Clipboard");
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
