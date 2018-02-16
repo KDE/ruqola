@@ -228,7 +228,7 @@ private:
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 
-    QVector<PluginAuthenticationInterface *> mLstPluginAuthenticationInterface;
+    QHash<AuthenticationManager::OauthType, PluginAuthenticationInterface *> mLstPluginAuthenticationInterface;
     QVector<AuthenticationInfo> mLstInfos;
     RocketChatAccountSettings *mSettings = nullptr;
 
