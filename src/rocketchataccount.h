@@ -201,7 +201,6 @@ public:
     void inputTextCompleter(const QJsonObject &obj);
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
-
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

@@ -34,8 +34,6 @@
 #include <QJsonDocument>
 #include <QFile>
 
-
-
 #include <o2/o0globals.h>
 #include <o2/o0settingsstore.h>
 #include <o2/o2google.h>
@@ -99,7 +97,7 @@ void Google::getDataFromJson()
 void Google::doOAuth(O2::GrantFlow grantFlowType)
 {
     qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Starting OAuth 2 with grant flow type:") << QStringLiteral("Authorization Grant Flow")
-             << QStringLiteral("...");
+                                                    << QStringLiteral("...");
     p_o2Google->setGrantFlow(grantFlowType);
     p_o2Google->unlink();
 
@@ -110,8 +108,6 @@ void Google::doOAuth(O2::GrantFlow grantFlowType)
     } else {
         p_o2Google->link();
     }
-
-
 }
 
 //currently not used
@@ -160,7 +156,7 @@ void Google::onLinkingSucceeded()
         qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Extra tokens in response:");
         foreach (const QString &key, extraTokens.keys()) {
             qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << key << QStringLiteral(":")
-                     << (extraTokens.value(key).toString().left(3) + QStringLiteral("..."));
+                                                            << (extraTokens.value(key).toString().left(3) + QStringLiteral("..."));
         }
     }
 }
@@ -210,4 +206,3 @@ void Google::OAuthLoginMethodParameter()
     //oauthLoginJob = Ruqola::self()->rocketChatAccount()->ddp()->method(QStringLiteral("login"), QJsonDocument(auth));
     Q_EMIT loginMethodCalled();
 }
-

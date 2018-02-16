@@ -27,7 +27,6 @@ QTEST_MAIN(PasswordPluginAuthenticationTest)
 PasswordPluginAuthenticationTest::PasswordPluginAuthenticationTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void PasswordPluginAuthenticationTest::shouldHaveDefaultValue()

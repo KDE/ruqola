@@ -27,7 +27,6 @@ QTEST_MAIN(GooglePluginAuthenticationTest)
 GooglePluginAuthenticationTest::GooglePluginAuthenticationTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void GooglePluginAuthenticationTest::shouldHaveDefaultValue()
