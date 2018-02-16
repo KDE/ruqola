@@ -621,7 +621,6 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 
 void RocketChatAccount::fillOauthModel()
 {
-    //TODO
 }
 
 void RocketChatAccount::initializeAuthenticationPlugins()
@@ -630,7 +629,14 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     qCDebug(RUQOLA_LOG) <<" void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     mLstPluginAuthenticationInterface.clear();
 
+    QVector<AuthenticationInfo> lstInfos;
     for (PluginAuthentication *abstractPlugin : lstPlugins) {
+        AuthenticationInfo info;
+        info.setIconName(abstractPlugin->iconName());
+        info.setName(abstractPlugin->name());
+        info.setOauthType(abstractPlugin->type());
+        lstInfos.append(info);
+
         PluginAuthenticationInterface *interface = abstractPlugin->createInterface(this);
         interface->setAccount(this);
         mRuqolaServerConfig->addRuqolaAuthenticationSupport(abstractPlugin->type());
@@ -641,6 +647,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
         }
         qCDebug(RUQOLA_LOG) << " plugin type " << static_cast<int>(abstractPlugin->type());
     }
+    //TODO fill ??? or store QVector<AuthenticationInfo>
 }
 
 PluginAuthenticationInterface *RocketChatAccount::defaultAuthenticationInterface() const
