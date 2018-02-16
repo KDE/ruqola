@@ -1,6 +1,6 @@
 /*
-
- * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
+ * Copyright 2016 Riccardo Iaconelli <riccardo@kde.org>
+ * Copyright 2018 Veluri Mithun <velurimithun38@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -18,26 +18,55 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ *
  */
 
-#include "ruqola.h"
-#include "authentication.h"
-#include "ddpapi/ddpclient.h"
+#include "googlejob.h"
 #include "ruqola_debug.h"
-#include "rocketchataccount.h"
+#include "googleauthenticationplugin_debug.h"
 
-#include <QOAuth2AuthorizationCodeFlow>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QDesktopServices>
+#include <QMetaEnum>
+#include <QJsonObject>
+#include <QJsonDocument>
 #include <QFile>
-#include <QJsonArray>
-#include <QSettings>
-#include <QUuid>
 
-Authentication::Authentication()
+
+
+#include <o2/o0globals.h>
+#include <o2/o0settingsstore.h>
+#include <o2/o2google.h>
+
+Google::Google(QObject *parent)
+    : QObject(parent)
 {
+    p_o2Google = new O2Google(this);
+
     getDataFromJson();
+
+    p_o2Google->setClientId(m_clientID);
+    p_o2Google->setClientSecret(m_clientSecret);
+    p_o2Google->setLocalPort(8888); //it is from redirect url(http://127.0.0.1:8888/)
+    p_o2Google->setRequestUrl(m_authUri);  // Use the desktop login UI
+    p_o2Google->setScope(QStringLiteral("email"));
+
+    // Create a store object for writing the received tokens
+    O0SettingsStore *store = new O0SettingsStore(QLatin1String(O2_ENCRYPTION_KEY));
+    store->setGroupKey(QStringLiteral("Google"));
+    p_o2Google->setStore(store);
+
+    connect(p_o2Google, &O2Google::linkedChanged, this, &Google::onLinkedChanged);
+    connect(p_o2Google, &O2Google::linkingFailed, this, &Google::linkingFailed);
+    connect(p_o2Google, &O2Google::linkingSucceeded, this, &Google::onLinkingSucceeded);
+    connect(p_o2Google, &O2Google::openBrowser, this, &Google::onOpenBrowser);
+    connect(p_o2Google, &O2Google::closeBrowser, this, &Google::onCloseBrowser);
+    connect(p_o2Google, &O2Google::linkingSucceeded, this, &Google::OAuthLoginMethodParameter);
 }
 
-void Authentication::getDataFromJson()
+void Google::getDataFromJson()
 {
     QFile f(QStringLiteral(":/client_secret.json"));
 
@@ -45,69 +74,140 @@ void Authentication::getDataFromJson()
     if (f.open(QIODevice::ReadOnly | QIODevice::Text)) {
         val = QString::fromLatin1(f.readAll());
     } else {
-        qCWarning(RUQOLA_LOG) << "Impossible to read client_secret.json";
+        qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "Impossible to read client_secret.json";
         //TODO exit ?
     }
 
+    //******github*******
+    //38a607244195a0d7af8 > clientID
+    //bb617841568d7c1e0c0888f292cf69b7b11d327e3 > clientSecret
+    //https://github.com/login/oauth/authorize
+    //https://github.com/login/oauth/access_token
     QJsonDocument document = QJsonDocument::fromJson(val.toUtf8());
     QJsonObject object = document.object();
     const auto settingsObject = object[QStringLiteral("web")].toObject();
-    const QUrl authUri(settingsObject[QStringLiteral("auth_uri")].toString());
-    const QUrl tokenUri(settingsObject[QStringLiteral("token_uri")].toString());
+    const auto authUri(settingsObject[QStringLiteral("auth_uri")].toString());
     const auto clientID = settingsObject[QStringLiteral("client_id")].toString();
     const auto clientSecret(settingsObject[QStringLiteral("client_secret")].toString());
-    const auto redirectUrls = settingsObject[QStringLiteral("redirect_uris")].toArray();
-    const QUrl redirectUrl(redirectUrls[0].toString());
 
-/*
-    QString clientID = QString("143580046552-s4rmnq5mg008u76id0d3rl63od985hc6.apps.googleusercontent.com");
-    QString clientSecret = QString("nyVm19iOjjtldcCZJ-7003xg");
-    QString redirectUrl = QString("http://localhost:8080/cb/_oauth/google?close");
-*/
-
-    QSettings s;
-    s.setValue(QStringLiteral("clientID"), clientID);
     m_clientID = clientID;
-    s.setValue(QStringLiteral("clientSecret"), clientSecret);
     m_clientSecret = clientSecret;
-    s.setValue(QStringLiteral("redirectUrl"), redirectUrl);
+    m_authUri = authUri;
+    m_tokenUri = QStringLiteral("https://accounts.google.com/o/oauth2/token");
 }
 
-void Authentication::OAuthLogin()
+void Google::doOAuth(O2::GrantFlow grantFlowType)
+{
+    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Starting OAuth 2 with grant flow type:") << QStringLiteral("Authorization Grant Flow")
+             << QStringLiteral("...");
+    p_o2Google->setGrantFlow(grantFlowType);
+    p_o2Google->unlink();
+
+    //TODO: refresh the token if it is expired(not valid)
+    validateToken();
+    if (m_isValidToken) {
+        OAuthLoginMethodParameter();
+    } else {
+        p_o2Google->link();
+    }
+
+
+}
+
+//currently not used
+void Google::validateToken()
+{
+    if (!p_o2Google->linked()) {
+        qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "ERROR: Application is not linked!";
+        Q_EMIT linkingFailed();
+        return;
+    }
+
+    QString accessToken = p_o2Google->token();
+    QString debugUrlStr = QString(m_tokenUri).arg(accessToken);
+    QNetworkRequest request = QNetworkRequest(QUrl(debugUrlStr));
+    QNetworkAccessManager *mgr = new QNetworkAccessManager(this);
+    QNetworkReply *reply = mgr->get(request);
+    connect(reply, &QNetworkReply::finished, this, &Google::onFinished);
+    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Validating user token. Please wait...");
+}
+
+void Google::onOpenBrowser(const QUrl &url)
+{
+    QDesktopServices::openUrl(url);
+}
+
+void Google::onCloseBrowser()
+{
+    //TODO: close the browser
+}
+
+void Google::onLinkedChanged()
+{
+    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Link changed!");
+}
+
+void Google::onLinkingSucceeded()
+{
+    O2Google *o1t = qobject_cast<O2Google *>(sender());
+    if (o1t == nullptr || !o1t->linked()) {
+        return;
+    }
+    m_accessToken = o1t->token();
+    QVariantMap extraTokens = o1t->extraTokens();
+    if (!extraTokens.isEmpty()) {
+        Q_EMIT extraTokensReady(extraTokens);
+        qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Extra tokens in response:");
+        foreach (const QString &key, extraTokens.keys()) {
+            qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << key << QStringLiteral(":")
+                     << (extraTokens.value(key).toString().left(3) + QStringLiteral("..."));
+        }
+    }
+}
+
+//currently not used
+void Google::onFinished()
+{
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    if (!reply) {
+        qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("NULL reply!");
+        Q_EMIT linkingFailed();
+        return;
+    }
+
+    reply->deleteLater();
+    if (reply->error() != QNetworkReply::NoError) {
+        qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Reply error:") << reply->error();
+        qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Reason:") << reply->errorString();
+        Q_EMIT linkingFailed();
+        return;
+    }
+
+    const QByteArray replyData = reply->readAll();
+    bool valid = !replyData.contains("error");
+    if (valid) {
+        qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Token is valid");
+        Q_EMIT linkingSucceeded();
+        m_isValidToken = true;
+    } else {
+        qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Token is invalid");
+        Q_EMIT linkingFailed();
+    }
+}
+
+void Google::OAuthLoginMethodParameter()
 {
     QJsonObject auth;
-    QJsonObject authKeys;
-    authKeys[QStringLiteral("credentialToken")] = m_clientID;
+    QJsonObject authKeys;//
+    authKeys[QStringLiteral("credentialToken")] = m_accessToken;
     authKeys[QStringLiteral("credentialSecret")] = m_clientSecret;
 
     auth[QStringLiteral("oauth")] = authKeys;
-    qCDebug(RUQOLA_LOG) << "-------------------------";
-    qCDebug(RUQOLA_LOG) << "-------------------------";
-    qCDebug(RUQOLA_LOG) << "OAuth Json" << auth;
-    Ruqola::self()->rocketChatAccount()->ddp()->method(QStringLiteral("login"), QJsonDocument(auth));
+    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "-------------------------";
+    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "-------------------------";
+    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "OAuth Json" << auth;
 
-    QJsonArray requestPermissions;
-    requestPermissions.append(QLatin1String("email"));
-
-    QUuid state;
-    state = state.createUuid();
-    QSettings s;
-    s.setValue(QStringLiteral("stateRandomNumber"), state);
-
-    QJsonObject loginUrlParameters;
-    loginUrlParameters[QStringLiteral("client_id")] = m_clientID;
-    loginUrlParameters[QStringLiteral("response_type")] = QStringLiteral("code");
-    loginUrlParameters[QStringLiteral("scope")] = QStringLiteral("openID profile email");
-    loginUrlParameters[QStringLiteral("state")] = state.toString();
-
-    QJsonObject json;
-    json[QStringLiteral("requestPermissions")] = requestPermissions;
-    json[QStringLiteral("requestOfflineToken")] = true;
-    json[QStringLiteral("loginUrlParameters")] = loginUrlParameters;
-    json[QStringLiteral("loginHint")] = s.value(QStringLiteral("username")).toString();
-    json[QStringLiteral("loginStyle")] = QStringLiteral("redirect");
-    json[QStringLiteral("redirectUrl")] = s.value(QStringLiteral("redirectUrl")).toString();
-
-//    qCDebug(RUQOLA_LOG) << "OAuth Json" << json;
-//    Ruqola::self()->ddp()->method("login", QJsonDocument(json));
+    //oauthLoginJob = Ruqola::self()->rocketChatAccount()->ddp()->method(QStringLiteral("login"), QJsonDocument(auth));
+    Q_EMIT loginMethodCalled();
 }
+

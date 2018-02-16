@@ -1,6 +1,6 @@
 /*
-
- * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
+ * Copyright 2016 Riccardo Iaconelli <riccardo@kde.org>
+ * Copyright 2018 Veluri Mithun <velurimithun38@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -20,38 +20,48 @@
  *
  */
 
-#ifndef AUTHENTICATION_H
-#define AUTHENTICATION_H
+#ifndef Google_H
+#define Google_H
 
-#include <QString>
+#include <QObject>
+#include "o2/o2google.h"
+#include "o2/o0baseauth.h"
 
-class Authentication
+class Google : public QObject
 {
-public:
-    Authentication();
+    Q_OBJECT
 
-    /**
-    * @brief Extract info from Google Json API
-    */
+public:
+    explicit Google(QObject *parent = nullptr);
     void getDataFromJson();
 
-    /**
-    * @brief Call DDPClient's @method method with OAuth params
-    */
-    void OAuthLogin();
+    unsigned oauthLoginJob;
+Q_SIGNALS:
+    void extraTokensReady(const QVariantMap &extraTokens);
+    void linkingFailed();
+    void linkingSucceeded();
+    void loginMethodCalled();
 
-    /**
-    * @brief Make requests to Google on behalf of user using access token
-    */
-    void sendApiRequest();
+public Q_SLOTS:
+    void doOAuth(O2::GrantFlow grantFlowType);
+    void validateToken();
 
 private Q_SLOTS:
-    void onGranted();
+    void onLinkedChanged();
+    void onLinkingSucceeded();
+    void onOpenBrowser(const QUrl &url);
+    void onCloseBrowser();
+    void onFinished();
 
+    void OAuthLoginMethodParameter();
 private:
-    bool m_authGranted = false;
+    O2Google *p_o2Google = nullptr;
     QString m_clientID;
     QString m_clientSecret;
+    QString m_authUri;
+    QString m_tokenUri;
+    QString m_accessToken;
+    bool m_isValidToken = false;
 };
 
-#endif // AUTHENTICATION_H
+#endif // Google_H

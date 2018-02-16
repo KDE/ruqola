@@ -126,7 +126,7 @@ set_target_properties(libruqolacore
     )
 
 
-qt5_add_resources(RuqolaResources qml/qml.qrc ruqola.qrc)
+qt5_add_resources(RuqolaResources qml/qml.qrc)
 
 add_executable(ruqola main.cpp ${RuqolaResources})
 

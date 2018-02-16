@@ -5,7 +5,7 @@ set (CMAKE_CXX_STANDARD 11)
 
 set(KF5_VERSION "5.42.0")
 find_package(ECM ${KF5_VERSION} CONFIG REQUIRED)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
 if (POLICY CMP0063)
     cmake_policy(SET CMP0063 NEW)
@@ -28,6 +28,7 @@ set(KF5_VERSION "5.42.0")
 
 
 set(REQUIRED_QT_VERSION "5.9.0")
+option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" FALSE)
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth Test)
 
@@ -65,6 +66,10 @@ configure_file(config-ruqola.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-ruqola.h
 if(BUILD_TESTING)
    add_definitions(-DBUILD_TESTING)
 endif(BUILD_TESTING)
+
+if (PLUGINS_AUTHENTICATION_BASED_ON_O2)
+    find_package(o2)
+endif()
 
 
 add_subdirectory(src)
