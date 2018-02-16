@@ -21,6 +21,7 @@
 #include "statusmodeltest.h"
 #include "model/statusmodel.h"
 #include <QTest>
+#include <QModelIndex>
 
 QTEST_GUILESS_MAIN(StatusModelTest)
 
@@ -38,6 +39,8 @@ void StatusModelTest::shouldHaveDefaultValue()
     roles[StatusModel::StatusI18n] = QByteArrayLiteral("statusi18n");
     roles[StatusModel::Status] = QByteArrayLiteral("status");
     roles[StatusModel::Icon] = QByteArrayLiteral("icon");
+    roles[StatusModel::CurrentStatus] = QByteArrayLiteral("currentstatus");
 
     QCOMPARE(w.roleNames(), roles);
+    QCOMPARE(w.data(w.index(0), StatusModel::CurrentStatus), 0);
 }
