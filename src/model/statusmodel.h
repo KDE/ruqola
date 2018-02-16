@@ -41,6 +41,7 @@ public:
         StatusI18n = Qt::UserRole + 1,
         Status,
         Icon,
+        CurrentStatus
     };
     Q_ENUM(StatusRoles)
 
@@ -58,6 +59,7 @@ private:
     Q_DISABLE_COPY(StatusModel)
     void fillModel();
     QVector<StatusInfo> mStatusList;
+    int mCurrentStatus = 0;
 };
 
 #endif // STATUSMODEL_H

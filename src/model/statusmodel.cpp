@@ -42,6 +42,7 @@ QHash<int, QByteArray> StatusModel::roleNames() const
     roles[StatusI18n] = QByteArrayLiteral("statusi18n");
     roles[Status] = QByteArrayLiteral("status");
     roles[Icon] = QByteArrayLiteral("icon");
+    roles[CurrentStatus] = QByteArrayLiteral("currentstatus");
     return roles;
 }
 
@@ -93,6 +94,8 @@ QVariant StatusModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(statusInfo.status);
     case Icon:
         return statusInfo.icon;
+    case CurrentStatus:
+        return mCurrentStatus;
     }
     return {};
 }
