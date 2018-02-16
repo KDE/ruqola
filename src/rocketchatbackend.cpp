@@ -128,7 +128,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
     QJsonObject params;
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
     account->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
-    account->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
+
     //TODO ?
     account->ddp()->listEmojiCustom();
     //Force set online.
@@ -155,6 +155,7 @@ void RocketChatBackend::slotConnectedChanged()
 {
     mRocketChatAccount->restApi()->serverInfo();
     connect(mRocketChatAccount->restApi(), &RestApiRequest::getServerInfoDone, this, &RocketChatBackend::parseServerVersionDone);
+    mRocketChatAccount->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
 }
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
