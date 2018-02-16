@@ -32,6 +32,17 @@ GoogleAuthenticationInterface::~GoogleAuthenticationInterface()
 
 quint64 GoogleAuthenticationInterface::login()
 {
+#if 0
+    +    Google *api = new Google(this);
+    +    api->doOAuth(O2::GrantFlowAuthorizationCode);
+    +
+    +    //When this signal is emitted from google.cpp it means it has called the login 'method'
+    +    //by sending credentialToken and credentialSecret
+    +    connect(api, &Google::loginMethodCalled, [=] {
+    +        m_loginJob = api->oauthLoginJob;
+    +    });
+#endif
+
     qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "Not implemented yet";
     return {};
     //TODO
