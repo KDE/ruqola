@@ -196,5 +196,4 @@ void RuqolaServerConfigTest::shouldAddRuqolaAuthenticationSupport()
     QVERIFY(!config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Linkedin));
     config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::Linkedin);
     QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Linkedin));
-
 }

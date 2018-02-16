@@ -72,7 +72,6 @@ void MessageModelTest::shouldRemoveMessage()
     QSignalSpy rowRemovedSpy(&w, &MessageModel::rowsRemoved);
     QSignalSpy rowABTRemoved(&w, &MessageModel::rowsAboutToBeRemoved);
 
-
     const QString messageId = QStringLiteral("ff");
     input.setMessageId(messageId);
     input.setRoomId(QStringLiteral("room2"));
@@ -116,14 +115,12 @@ void MessageModelTest::shouldRemoveMessage()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,0"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,0"));
 
-
     QCOMPARE(w.rowCount(), 0);
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
-
 
     w.addMessage(input);
     QCOMPARE(w.rowCount(), 1);
@@ -132,7 +129,6 @@ void MessageModelTest::shouldRemoveMessage()
     QCOMPARE(rowABTRemoved.count(), 0);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,0"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,0"));
-
 }
 
 void MessageModelTest::shouldRemoveNotExistingMessage()

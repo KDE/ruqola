@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "pluginauthenticationinterface.h"
 
 #include "rocketchataccount.h"
@@ -26,12 +25,10 @@
 PluginAuthenticationInterface::PluginAuthenticationInterface(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 PluginAuthenticationInterface::~PluginAuthenticationInterface()
 {
-
 }
 
 RocketChatAccount *PluginAuthenticationInterface::account() const

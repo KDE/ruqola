@@ -22,12 +22,10 @@
 
 AuthenticationInfo::AuthenticationInfo()
 {
-
 }
 
 AuthenticationInfo::~AuthenticationInfo()
 {
-
 }
 
 QString AuthenticationInfo::name() const

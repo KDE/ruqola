@@ -126,7 +126,6 @@ void RoomTest::shouldChangeInputMessage()
     inputMsg = QStringLiteral("foo");
     input.setInputMessage(inputMsg);
     QCOMPARE(input.inputMessage(), inputMsg);
-
 }
 
 //TODO add more autotests signal and co.

@@ -28,7 +28,6 @@ QTEST_MAIN(ClipboardProxyTest)
 ClipboardProxyTest::ClipboardProxyTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ClipboardProxyTest::shouldEmitSignals()
@@ -51,7 +50,6 @@ void ClipboardProxyTest::shouldEmitSignals()
     QCOMPARE(dataChangedSpy.count(), 1);
     QCOMPARE(selectionChangedSpy.count(), 0);
 
-
     dataChangedSpy.clear();
     selectionChangedSpy.clear();
 
@@ -59,5 +57,4 @@ void ClipboardProxyTest::shouldEmitSignals()
     QCOMPARE(w.selectionText(), QStringLiteral("foo"));
     QCOMPARE(dataChangedSpy.count(), 0);
     QCOMPARE(selectionChangedSpy.count(), 1);
-
 }

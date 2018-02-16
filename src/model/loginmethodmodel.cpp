@@ -29,7 +29,6 @@ LoginMethodModel::~LoginMethodModel()
 {
 }
 
-
 int LoginMethodModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
@@ -44,7 +43,6 @@ void LoginMethodModel::clear()
         endRemoveRows();
     }
 }
-
 
 QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
 {

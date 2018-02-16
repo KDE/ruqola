@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(AuthenticationInfoTest)
 AuthenticationInfoTest::AuthenticationInfoTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AuthenticationInfoTest::shouldHaveDefaultValue()

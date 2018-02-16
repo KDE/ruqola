@@ -451,7 +451,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::inputUserAutocompl
     return searchRoomUsers(pattern, exceptions, true, false, id);
 }
 
-
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id)
 {
     QJsonArray params;

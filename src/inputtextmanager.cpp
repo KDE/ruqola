@@ -22,7 +22,6 @@
 #include "rocketchataccount.h"
 #include "model/inputcompletermodel.h"
 
-
 InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mAccount(account)
@@ -32,7 +31,6 @@ InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
 
 InputTextManager::~InputTextManager()
 {
-
 }
 
 void InputTextManager::setInputText(const QString &word)

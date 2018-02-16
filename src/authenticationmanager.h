@@ -50,7 +50,6 @@ public:
     PluginAuthentication *plugin = nullptr;
 };
 
-
 class LIBRUQOLACORE_EXPORT AuthenticationManager : public QObject
 {
     Q_OBJECT
@@ -82,7 +81,6 @@ private:
     PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);
     QVector<AuthenticationManagerInfo> mPluginList;
     QVector<PluginUtilData> mPluginDataList;
-
 };
 Q_DECLARE_METATYPE(AuthenticationManager::OauthTypes)
 

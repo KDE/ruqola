@@ -26,10 +26,9 @@
 
 K_PLUGIN_CLASS_WITH_JSON(GooglePluginAuthentication, "ruqola_googleauthenticationplugin.json")
 
-GooglePluginAuthentication::GooglePluginAuthentication(QObject *parent, const QVariantList&)
+GooglePluginAuthentication::GooglePluginAuthentication(QObject *parent, const QVariantList &)
     : PluginAuthentication(parent)
 {
-
 }
 
 GooglePluginAuthentication::~GooglePluginAuthentication()
@@ -56,6 +55,5 @@ QString GooglePluginAuthentication::iconName() const
     //TODO
     return {};
 }
-
 
 #include "googlepluginauthentication.moc"

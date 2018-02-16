@@ -27,7 +27,6 @@ QTEST_GUILESS_MAIN(InputTextManagerTest)
 InputTextManagerTest::InputTextManagerTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void InputTextManagerTest::shouldHaveDefaultValue()

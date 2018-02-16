@@ -43,7 +43,6 @@ void LoginMethodModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.roleNames(), roles);
 }
 
-
 void LoginMethodModelTest::shouldClearModel()
 {
     LoginMethodModel w;
@@ -84,7 +83,6 @@ void LoginMethodModelTest::shouldClearModel()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,7"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,7"));
 }
-
 
 void LoginMethodModelTest::shouldAssignValues()
 {
@@ -152,7 +150,6 @@ void LoginMethodModelTest::shouldAssignValues()
     rowABTInserted.clear();
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
-
 
     for (int i = 0; i < 5; ++i) {
         AuthenticationInfo info;

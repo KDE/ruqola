@@ -59,8 +59,6 @@
 #include <plugins/pluginauthentication.h>
 #include <plugins/pluginauthenticationinterface.h>
 
-
-
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
 {
@@ -241,7 +239,6 @@ Room *RocketChatAccount::getRoom(const QString &roomId)
 {
     return mRoomModel->findRoom(roomId);
 }
-
 
 RoomWrapper *RocketChatAccount::getRoomWrapper(const QString &roomId)
 {

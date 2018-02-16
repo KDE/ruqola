@@ -121,7 +121,6 @@ public:
     Q_INVOKABLE void uploadFile(const QString &description, const QUrl &fileUrl);
     Q_INVOKABLE QString serverUrl() const;
 
-
     Q_INVOKABLE QString avatarUrl(const QString &userId);
 
     Q_INVOKABLE StatusModel *statusModel() const;
@@ -139,8 +138,6 @@ public:
     Q_INVOKABLE InputCompleterModel *inputCompleterModel() const;
     Q_INVOKABLE LoginMethodModel *loginMethodModel() const;
     Q_INVOKABLE Room *getRoom(const QString &roomId);
-
-
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
@@ -196,8 +193,6 @@ public:
 
     void insertCompleterUsers();
     void insertFilesList(const QString &roomId);
-
-
 
     void inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
     void inputUserAutocomplete(const QString &pattern, const QString &exceptions);

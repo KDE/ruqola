@@ -23,11 +23,8 @@
 PluginAuthentication::PluginAuthentication(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 PluginAuthentication::~PluginAuthentication()
 {
-
 }
-

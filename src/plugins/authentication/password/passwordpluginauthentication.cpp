@@ -26,10 +26,9 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PasswordPluginAuthentication, "ruqola_passwordauthenticationplugin.json")
 
-PasswordPluginAuthentication::PasswordPluginAuthentication(QObject *parent, const QVariantList&)
+PasswordPluginAuthentication::PasswordPluginAuthentication(QObject *parent, const QVariantList &)
     : PluginAuthentication(parent)
 {
-
 }
 
 PasswordPluginAuthentication::~PasswordPluginAuthentication()

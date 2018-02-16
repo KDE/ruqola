@@ -42,7 +42,6 @@ private Q_SLOTS:
     void shouldVerifyThatServerSupportService();
 
     void shouldAddRuqolaAuthenticationSupport();
-
 };
 
 #endif // RUQOLASERVERCONFIGTEST_H

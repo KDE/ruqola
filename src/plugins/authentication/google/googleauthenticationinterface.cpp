@@ -23,18 +23,14 @@
 GoogleAuthenticationInterface::GoogleAuthenticationInterface(QObject *parent)
     : PluginAuthenticationInterface(parent)
 {
-
 }
 
 GoogleAuthenticationInterface::~GoogleAuthenticationInterface()
 {
-
 }
-
 
 quint64 GoogleAuthenticationInterface::login()
 {
     return {};
     //TODO
 }
-

@@ -26,14 +26,11 @@
 PasswordAuthenticationInterface::PasswordAuthenticationInterface(QObject *parent)
     : PluginAuthenticationInterface(parent)
 {
-
 }
 
 PasswordAuthenticationInterface::~PasswordAuthenticationInterface()
 {
-
 }
-
 
 quint64 PasswordAuthenticationInterface::login()
 {

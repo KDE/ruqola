@@ -34,7 +34,6 @@ public:
     AuthenticationManager::OauthType type() const override;
     QString name() const override;
     QString iconName() const override;
-
 };
 
 #endif // PASSWORDPLUGINAUTHENTICATION_H

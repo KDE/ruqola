@@ -113,7 +113,6 @@ void RoomModelTest::shouldReturnRowCount()
     QCOMPARE(rowABTRemoved.count(), 0);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("1,1"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("1,1"));
-
 }
 
 void RoomModelTest::shouldFindRoom()
@@ -291,7 +290,7 @@ void RoomModelTest::shouldClear()
     QSignalSpy rowABTRemoved(&sampleModel, &RoomModel::rowsAboutToBeRemoved);
 
     QCOMPARE(sampleModel.rowCount(), 0);
-    sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));    
+    sampleModel.addRoom(QStringLiteral("RA151100ECE"), QStringLiteral("myRoom"));
     QCOMPARE(sampleModel.rowCount(), 1);
 
     QCOMPARE(rowInsertedSpy.count(), 1);
@@ -334,7 +333,6 @@ void RoomModelTest::shouldClear()
     QCOMPARE(rowABTRemoved.count(), 1);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,14"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,14"));
-
 }
 
 void RoomModelTest::shouldReset()
