@@ -32,9 +32,9 @@ PasswordAuthenticationInterface::~PasswordAuthenticationInterface()
 {
 }
 
-quint64 PasswordAuthenticationInterface::login()
+void PasswordAuthenticationInterface::login()
 {
     const quint64 loginJob = mAccount->ddp()->login(mAccount->settings()->userName(), mAccount->settings()->password());
+    mAccount->ddp()->setLoginJobId(loginJob);
     qCDebug(RUQOLA_PASSWORDAUTHENTICATION_PLUGIN_LOG) << "Password job id : " << loginJob;
-    return loginJob;
 }

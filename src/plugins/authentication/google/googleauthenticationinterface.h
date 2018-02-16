@@ -30,7 +30,7 @@ public:
     explicit GoogleAuthenticationInterface(QObject *parent = nullptr);
     ~GoogleAuthenticationInterface() override;
 
-    quint64 login() override;
+    void login() override;
 };
 
 #endif // GOOGLEAUTHENTICATIONINTERFACE_H

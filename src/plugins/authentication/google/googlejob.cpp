@@ -38,7 +38,7 @@
 #include <o2/o0settingsstore.h>
 #include <o2/o2google.h>
 
-Google::Google(QObject *parent)
+GoogleJob::GoogleJob(QObject *parent)
     : QObject(parent)
 {
     mO2Google = new O2Google(this);
@@ -56,15 +56,15 @@ Google::Google(QObject *parent)
     store->setGroupKey(QStringLiteral("Google"));
     mO2Google->setStore(store);
 
-    connect(mO2Google, &O2Google::linkedChanged, this, &Google::onLinkedChanged);
-    connect(mO2Google, &O2Google::linkingFailed, this, &Google::linkingFailed);
-    connect(mO2Google, &O2Google::linkingSucceeded, this, &Google::onLinkingSucceeded);
-    connect(mO2Google, &O2Google::openBrowser, this, &Google::onOpenBrowser);
-    connect(mO2Google, &O2Google::closeBrowser, this, &Google::onCloseBrowser);
-    connect(mO2Google, &O2Google::linkingSucceeded, this, &Google::OAuthLoginMethodParameter);
+    connect(mO2Google, &O2Google::linkedChanged, this, &GoogleJob::onLinkedChanged);
+    connect(mO2Google, &O2Google::linkingFailed, this, &GoogleJob::linkingFailed);
+    connect(mO2Google, &O2Google::linkingSucceeded, this, &GoogleJob::onLinkingSucceeded);
+    connect(mO2Google, &O2Google::openBrowser, this, &GoogleJob::onOpenBrowser);
+    connect(mO2Google, &O2Google::closeBrowser, this, &GoogleJob::onCloseBrowser);
+    connect(mO2Google, &O2Google::linkingSucceeded, this, &GoogleJob::OAuthLoginMethodParameter);
 }
 
-void Google::getDataFromJson()
+void GoogleJob::getDataFromJson()
 {
     QFile f(QStringLiteral(":/client_secret.json"));
 
@@ -95,7 +95,7 @@ void Google::getDataFromJson()
     m_tokenUri = QStringLiteral("https://accounts.google.com/o/oauth2/token");
 }
 
-void Google::doOAuth(O2::GrantFlow grantFlowType)
+void GoogleJob::doOAuth(O2::GrantFlow grantFlowType)
 {
     qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "Starting OAuth 2 with grant flow type: Authorization Grant Flow...";
     mO2Google->setGrantFlow(grantFlowType);
@@ -111,7 +111,7 @@ void Google::doOAuth(O2::GrantFlow grantFlowType)
 }
 
 //currently not used
-void Google::validateToken()
+void GoogleJob::validateToken()
 {
     if (!mO2Google->linked()) {
         qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "ERROR: Application is not linked!";
@@ -124,26 +124,26 @@ void Google::validateToken()
     QNetworkRequest request = QNetworkRequest(QUrl(debugUrlStr));
     QNetworkAccessManager *mgr = new QNetworkAccessManager(this);
     QNetworkReply *reply = mgr->get(request);
-    connect(reply, &QNetworkReply::finished, this, &Google::onFinished);
+    connect(reply, &QNetworkReply::finished, this, &GoogleJob::onFinished);
     qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Validating user token. Please wait...");
 }
 
-void Google::onOpenBrowser(const QUrl &url)
+void GoogleJob::onOpenBrowser(const QUrl &url)
 {
     QDesktopServices::openUrl(url);
 }
 
-void Google::onCloseBrowser()
+void GoogleJob::onCloseBrowser()
 {
     //TODO: close the browser
 }
 
-void Google::onLinkedChanged()
+void GoogleJob::onLinkedChanged()
 {
     qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Link changed!");
 }
 
-void Google::onLinkingSucceeded()
+void GoogleJob::onLinkingSucceeded()
 {
     O2Google *o1t = qobject_cast<O2Google *>(sender());
     if (o1t == nullptr || !o1t->linked()) {
@@ -162,12 +162,12 @@ void Google::onLinkingSucceeded()
 }
 
 //currently not used
-void Google::onFinished()
+void GoogleJob::onFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (!reply) {
         qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("NULL reply!");
-        Q_EMIT linkingFailed();
+        Q_EMIT linkingFailed(QString());
         return;
     }
 
@@ -175,7 +175,7 @@ void Google::onFinished()
     if (reply->error() != QNetworkReply::NoError) {
         qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Reply error:") << reply->error();
         qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Reason:") << reply->errorString();
-        Q_EMIT linkingFailed();
+        Q_EMIT linkingFailed(QString());
         return;
     }
 
@@ -187,11 +187,12 @@ void Google::onFinished()
         m_isValidToken = true;
     } else {
         qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("Token is invalid");
-        Q_EMIT linkingFailed();
+        //TODO
+        Q_EMIT linkingFailed(QString());
     }
 }
 
-void Google::OAuthLoginMethodParameter()
+void GoogleJob::OAuthLoginMethodParameter()
 {
     QJsonObject auth;
     QJsonObject authKeys;//

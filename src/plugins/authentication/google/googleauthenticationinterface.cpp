@@ -20,6 +20,9 @@
 
 #include "googleauthenticationinterface.h"
 #include "googleauthenticationplugin_debug.h"
+#include "googlejob.h"
+#include "ddpapi/ddpclient.h"
+#include "rocketchataccount.h"
 
 GoogleAuthenticationInterface::GoogleAuthenticationInterface(QObject *parent)
     : PluginAuthenticationInterface(parent)
@@ -30,20 +33,16 @@ GoogleAuthenticationInterface::~GoogleAuthenticationInterface()
 {
 }
 
-quint64 GoogleAuthenticationInterface::login()
+void GoogleAuthenticationInterface::login()
 {
-#if 0
-    +    Google *api = new Google(this);
-    +    api->doOAuth(O2::GrantFlowAuthorizationCode);
-    +
-    +    //When this signal is emitted from google.cpp it means it has called the login 'method'
-    +    //by sending credentialToken and credentialSecret
-    +    connect(api, &Google::loginMethodCalled, [=] {
-    +        m_loginJob = api->oauthLoginJob;
-    +    });
-#endif
+    GoogleJob *api = new GoogleJob(this);
+    api->doOAuth(O2::GrantFlowAuthorizationCode);
 
+    //When this signal is emitted from google.cpp it means it has called the login 'method'
+    //by sending credentialToken and credentialSecret
+    connect(api, &GoogleJob::loginMethodCalled, [=] {
+        mAccount->ddp()->setLoginJobId(api->oauthLoginJob);
+    });
+    connect(api, &GoogleJob::linkingFailed, this, &GoogleAuthenticationInterface::loginFailed);
     qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "Not implemented yet";
-    return {};
-    //TODO
 }

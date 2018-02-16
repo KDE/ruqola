@@ -20,25 +20,25 @@
  *
  */
 
-#ifndef Google_H
-#define Google_H
+#ifndef GOOGLE_JOB_H
+#define GOOGLE_JOB_H
 
 #include <QObject>
 #include "o2/o2google.h"
 #include "o2/o0baseauth.h"
 
-class Google : public QObject
+class GoogleJob : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit Google(QObject *parent = nullptr);
+    explicit GoogleJob(QObject *parent = nullptr);
     void getDataFromJson();
 
     unsigned oauthLoginJob;
 Q_SIGNALS:
     void extraTokensReady(const QVariantMap &extraTokens);
-    void linkingFailed();
+    void linkingFailed(const QString &msg);
     void linkingSucceeded();
     void loginMethodCalled();
 
@@ -64,4 +64,4 @@ private:
     bool m_isValidToken = false;
 };
 
-#endif // Google_H
+#endif // GOOGLE_JOB_H

@@ -41,8 +41,6 @@ public:
     virtual QString name() const = 0;
     virtual QString iconName() const = 0;
 
-Q_SIGNALS:
-    void loginFailed(const QString &message);
 };
 
 #endif // PLUGINAUTHENTICATION_H

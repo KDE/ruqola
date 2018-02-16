@@ -24,9 +24,12 @@
 
 import QtQuick 2.9
 import QtQuick.Controls 1.3
+import QtQuick.Controls 2.2 as QQC2
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.DDPClient 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
+import KDE.Ruqola.LoginMethodModel 1.0
+
 Kirigami.Page {
     id: loginForm
     
@@ -90,6 +93,43 @@ Kirigami.Page {
             placeholderText: i18n("Enter address of the server")
         }
         
+        //
+
+        Text {
+            width: parent.width
+            text: i18n("Authentication Method")
+            visible: loginMethodCombobox.visible
+        }
+
+        QQC2.ComboBox {
+            property QtObject loginModel: appid.rocketChatAccount.loginMethodModel()
+            id: loginMethodCombobox
+            width: parent.width
+            model: loginModel
+            //TODO fix me
+            visible: loginModel.rowCount() > 0
+            textRole: "name"
+            currentIndex: 0
+            onActivated: {
+                appid.rocketChatAccount.changeDefaultAuthentication(index)
+            }
+
+            delegate: QQC2.ItemDelegate {
+                width: loginMethodCombobox.width
+
+                contentItem: Text {
+                    text: model.name
+                    font: loginMethodCombobox.font
+                    //TODO fix color.
+                    elide: Text.ElideRight
+                    verticalAlignment: Text.AlignVCenter
+                }
+                highlighted: loginMethodCombobox.highlightedIndex === index
+            }
+        }
+
+
+
         Text {
             id:username
 

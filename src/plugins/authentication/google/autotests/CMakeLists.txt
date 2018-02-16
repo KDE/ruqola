@@ -8,7 +8,7 @@ macro(add_ruqola_plugin_unittest _source _additional)
     add_test(NAME ${_name} COMMAND ${_name} )
 
     ecm_mark_as_test(${_name})
-    target_link_libraries( ${_name} Qt5::Test KF5::I18n libruqolacore)
+    target_link_libraries( ${_name} Qt5::Test KF5::I18n libruqolacore ${o2_LIBRARIES})
 endmacro ()
 
-add_ruqola_plugin_unittest(googlepluginauthenticationtest.cpp "../googlepluginauthentication.cpp;../googleauthenticationinterface.cpp")
+add_ruqola_plugin_unittest(googlepluginauthenticationtest.cpp "../googlepluginauthentication.cpp;../googleauthenticationinterface.cpp;../googlejob.cpp")
