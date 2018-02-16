@@ -31,6 +31,8 @@ public:
     ~LoginMethodModelTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldClearModel();
+    void shouldAssignValues();
 };
 
 #endif // LOGINMETHODMODELTEST_H

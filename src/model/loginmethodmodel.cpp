@@ -36,6 +36,16 @@ int LoginMethodModel::rowCount(const QModelIndex &parent) const
     return mAuthentications.count();
 }
 
+void LoginMethodModel::clear()
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mAuthentications.count() - 1);
+        mAuthentications.clear();
+        endRemoveRows();
+    }
+}
+
+
 QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mAuthentications.count()) {

@@ -45,6 +45,7 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
+    void clear();
 private:
     QVector<AuthenticationInfo> mAuthentications;
 };
