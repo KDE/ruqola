@@ -645,7 +645,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
         if (abstractPlugin->type() == AuthenticationManager::OauthType::Password) {
             mDefaultAuthenticationInterface = interface;
         }
-        qCDebug(RUQOLA_LOG) << " plugin type " << static_cast<int>(abstractPlugin->type());
+        qCDebug(RUQOLA_LOG) << " plugin type " << abstractPlugin->type();
     }
     //TODO fill ??? or store QVector<AuthenticationInfo>
 }
