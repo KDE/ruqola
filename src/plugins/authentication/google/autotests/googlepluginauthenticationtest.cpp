@@ -18,21 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "googleauthenticationinterface.h"
-#include "googleauthenticationplugin_debug.h"
+#include "googlepluginauthenticationtest.h"
+#include "../googlepluginauthentication.h"
+#include <QTest>
 
-GoogleAuthenticationInterface::GoogleAuthenticationInterface(QObject *parent)
-    : PluginAuthenticationInterface(parent)
+QTEST_MAIN(GooglePluginAuthenticationTest)
+
+GooglePluginAuthenticationTest::GooglePluginAuthenticationTest(QObject *parent)
+    : QObject(parent)
 {
+
 }
 
-GoogleAuthenticationInterface::~GoogleAuthenticationInterface()
+void GooglePluginAuthenticationTest::shouldHaveDefaultValue()
 {
-}
-
-quint64 GoogleAuthenticationInterface::login()
-{
-    qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "Not implemented yet";
-    return {};
-    //TODO
+    GooglePluginAuthentication w(nullptr, {});
+    QVERIFY(!w.name().isEmpty());
+    QCOMPARE(w.type(), AuthenticationManager::OauthType::Google);
 }
