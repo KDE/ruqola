@@ -18,10 +18,9 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick.Layouts 1.3
+import QtQuick 2.9
 import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
-import QtQuick 2.9
 
 //TODO add zoom support and co.
 QQC2.Dialog {
@@ -43,26 +42,28 @@ QQC2.Dialog {
         open();
     }
 
-    QQC2.ScrollView {
-        anchors.fill: parent
-        height: 600
-        width: 600
-        clip: true
-        //QQC2.ScrollBar.horizontal.interactive: true
-        //QQC2.ScrollBar.vertical.interactive: true
-        Image {
-            id: image
-            source: iUrl
-            fillMode: Image.PreserveAspectFit
-            MouseArea {
-                anchors.fill: parent
-                onWheel: {
-                    if (wheel.modifiers & Qt.ControlModifier) {
-                        var scaleBefore = image.scale;
-                        image.scale += image.scale * wheel.angleDelta.y / 120 / 10;
+        Flickable {
+            clip: true
+            anchors.fill: parent
+            contentWidth: image.width
+            contentHeight: image.height
+
+            // Scrollars
+            QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
+            QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
+
+            Image {
+                id: image
+                source: iUrl
+                MouseArea {
+                    anchors.fill: parent
+                    onWheel: {
+                        if (wheel.modifiers & Qt.ControlModifier) {
+                            var scaleBefore = image.scale;
+                            image.scale += image.scale * wheel.angleDelta.y / 120 / 10;
+                        }
                     }
                 }
             }
         }
-    }
 }
