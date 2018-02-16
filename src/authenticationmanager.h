@@ -83,5 +83,6 @@ private:
     QVector<PluginUtilData> mPluginDataList;
 };
 Q_DECLARE_METATYPE(AuthenticationManager::OauthTypes)
+Q_DECLARE_METATYPE(AuthenticationManager::OauthType)
 
 #endif // AUTHENTICATIONMANAGER_H

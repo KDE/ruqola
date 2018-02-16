@@ -620,6 +620,11 @@ void RocketChatAccount::fillOauthModel()
 {
 }
 
+void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::OauthType type)
+{
+
+}
+
 void RocketChatAccount::initializeAuthenticationPlugins()
 {
     //TODO change it when we change server

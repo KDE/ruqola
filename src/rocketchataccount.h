@@ -139,6 +139,7 @@ public:
     Q_INVOKABLE InputCompleterModel *inputCompleterModel() const;
     Q_INVOKABLE LoginMethodModel *loginMethodModel() const;
     Q_INVOKABLE Room *getRoom(const QString &roomId);
+    Q_INVOKABLE void setDefaultAuthentication(AuthenticationManager::OauthType type);
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
@@ -199,6 +200,7 @@ public:
     void inputUserAutocomplete(const QString &pattern, const QString &exceptions);
     void inputTextCompleter(const QJsonObject &obj);
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
+
 
 Q_SIGNALS:
     void connectedChanged();

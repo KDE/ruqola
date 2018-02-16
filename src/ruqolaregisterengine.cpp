@@ -28,6 +28,7 @@
 #include "ruqolaregisterengine.h"
 #include "ruqolautils.h"
 #include "clipboardproxy.h"
+#include "authenticationmanager.h"
 
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
@@ -85,6 +86,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterUncreatableType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient", QStringLiteral("DDPClient.LoginStatus is an enum container"));
     qRegisterMetaType<RocketChatAccount::RoomInfoType>();
     qRegisterMetaType<User::PresenceStatus>();
+    qRegisterMetaType<AuthenticationManager::OauthType>();
     (void)Ruqola::self();
     mEngine = new QQmlApplicationEngine;
 
