@@ -618,6 +618,14 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 
 void RocketChatAccount::fillOauthModel()
 {
+    QVector<AuthenticationInfo> fillModel;
+    for (int i = 0; i < mLstInfos.count(); ++i) {
+        if (mRuqolaServerConfig->canShowOauthService(mLstInfos.at(i).oauthType())) {
+            fillModel.append(mLstInfos.at(i));
+        }
+    }
+    qDebug()<< "void RocketChatAccount::fillOauthModel()"<<fillModel;
+    mLoginMethodModel->setAuthenticationInfos(fillModel);
 }
 
 void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::OauthType type)
