@@ -60,6 +60,11 @@ void AuthenticationInfo::setOauthType(const AuthenticationManager::OauthType &oa
     mOauthType = oauthType;
 }
 
+bool AuthenticationInfo::isValid() const
+{
+    return (mOauthType != AuthenticationManager::Unknown) && !mName.isEmpty();
+}
+
 QDebug operator <<(QDebug d, const AuthenticationInfo &t)
 {
     d << "Iconname: " << t.iconName();

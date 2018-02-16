@@ -32,6 +32,7 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAssignValue();
+    void shouldBeValid();
 };
 
 #endif // AUTHENTICATIONINFOTEST_H

@@ -41,6 +41,8 @@ public:
     AuthenticationManager::OauthType oauthType() const;
     void setOauthType(const AuthenticationManager::OauthType &oauthType);
 
+    bool isValid() const;
+
 private:
     QString mName;
     QString mIconName;

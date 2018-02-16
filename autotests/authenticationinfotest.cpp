@@ -34,6 +34,7 @@ void AuthenticationInfoTest::shouldHaveDefaultValue()
     AuthenticationInfo info;
     QVERIFY(info.iconName().isEmpty());
     QVERIFY(info.name().isEmpty());
+    QCOMPARE(info.oauthType(), AuthenticationManager::Unknown);
 }
 
 void AuthenticationInfoTest::shouldAssignValue()
@@ -46,4 +47,26 @@ void AuthenticationInfoTest::shouldAssignValue()
     QCOMPARE(info.name(), name);
     QCOMPARE(info.iconName(), iconname);
     QCOMPARE(info.oauthType(), AuthenticationManager::Unknown);
+}
+
+void AuthenticationInfoTest::shouldBeValid()
+{
+    AuthenticationInfo info;
+    QVERIFY(!info.isValid());
+
+    const QString name = QStringLiteral("name1");
+    const QString iconname = QStringLiteral("iconname1");
+    info.setName(name);
+    QVERIFY(!info.isValid());
+    info.setIconName(iconname);
+    QVERIFY(!info.isValid());
+
+    info.setOauthType(AuthenticationManager::Twitter);
+    QVERIFY(info.isValid());
+
+    info.setIconName(QString());
+    QVERIFY(info.isValid());
+
+    info.setName(QString());
+    QVERIFY(!info.isValid());
 }
