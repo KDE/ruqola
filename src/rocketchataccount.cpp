@@ -622,6 +622,8 @@ void RocketChatAccount::fillOauthModel()
 
 void RocketChatAccount::initializeAuthenticationPlugins()
 {
+    //TODO change it when we change server
+    //Clean up at the end.
     const QVector<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
     qCDebug(RUQOLA_LOG) <<" void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     mLstPluginAuthenticationInterface.clear();
