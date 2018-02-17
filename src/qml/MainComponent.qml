@@ -200,6 +200,11 @@ Component {
                         }
                         Text {
                             text: model.username === "" ? model.name : model.username
+                            onLinkActivated: {
+                                openDirectChannelDialog.username = link;
+                                openDirectChannelDialog.open()
+                                console.log("Link clicked " + link)
+                            }
                         }
                     }
                 }
