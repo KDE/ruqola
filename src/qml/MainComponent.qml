@@ -199,7 +199,7 @@ Component {
                             width: 22
                         }
                         Text {
-                            text: model.username === "" ? model.name : model.username
+                            text: model.username === "" ? model.name : model.username//"<a href=\'foo\'>@foo</a>"
                             onLinkActivated: {
                                 openDirectChannelDialog.username = link;
                                 openDirectChannelDialog.open()

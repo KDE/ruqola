@@ -22,7 +22,6 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 
-//TODO add zoom support and co.
 QQC2.Dialog {
     id: displayImageDialog
 
@@ -42,28 +41,28 @@ QQC2.Dialog {
         open();
     }
 
-        Flickable {
-            clip: true
-            anchors.fill: parent
-            contentWidth: image.width
-            contentHeight: image.height
+    Flickable {
+        clip: true
+        anchors.fill: parent
+        contentWidth: image.width
+        contentHeight: image.height
 
-            // Scrollars
-            QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
-            QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
+        // Scrollars
+        QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
+        QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
 
-            Image {
-                id: image
-                source: iUrl
-                MouseArea {
-                    anchors.fill: parent
-                    onWheel: {
-                        if (wheel.modifiers & Qt.ControlModifier) {
-                            var scaleBefore = image.scale;
-                            image.scale += image.scale * wheel.angleDelta.y / 120 / 10;
-                        }
+        Image {
+            id: image
+            source: iUrl
+            MouseArea {
+                anchors.fill: parent
+                onWheel: {
+                    if (wheel.modifiers & Qt.ControlModifier) {
+                        var scaleBefore = image.scale;
+                        image.scale += image.scale * wheel.angleDelta.y / 120 / 10;
                     }
                 }
             }
         }
+    }
 }
