@@ -124,7 +124,7 @@ void GoogleJob::validateToken()
         return;
     }
 
-    QString accessToken = mO2Google->token();
+    const QString accessToken = mO2Google->token();
     QString debugUrlStr = QString(m_tokenUri).arg(accessToken);
     QNetworkRequest request = QNetworkRequest(QUrl(debugUrlStr));
     QNetworkAccessManager *mgr = new QNetworkAccessManager(this);
@@ -151,7 +151,7 @@ void GoogleJob::onLinkedChanged()
 void GoogleJob::onLinkingSucceeded()
 {
     O2Google *o1t = qobject_cast<O2Google *>(sender());
-    if (o1t == nullptr || !o1t->linked()) {
+    if (!o1t || !o1t->linked()) {
         return;
     }
     m_accessToken = o1t->token();
@@ -171,7 +171,7 @@ void GoogleJob::onFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (!reply) {
-        qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << QStringLiteral("NULL reply!");
+        qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "NULL reply!";
         Q_EMIT linkingFailed(QString());
         return;
     }
@@ -209,6 +209,7 @@ void GoogleJob::OAuthLoginMethodParameter()
     qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "-------------------------";
     qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "OAuth Json" << auth;
 
+    //TODO !!!!!
     //oauthLoginJob = Ruqola::self()->rocketChatAccount()->ddp()->method(QStringLiteral("login"), QJsonDocument(auth));
     Q_EMIT loginMethodCalled();
 }
