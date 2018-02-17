@@ -178,44 +178,45 @@ Component {
                 opacity: .5
                 visible: appid.selectedRoom
             }
-        }
-        Flow {
-            id: topBarUserList
-            readonly property bool isActive: showUsersButton.checked
-            anchors {
-                left: parent.left
-                right: parent.right
-                margins: Kirigami.Units.smallSpacing
-            }
-            opacity: topBarUserList.isActive ? 1 : 0
-            Behavior on opacity { NumberAnimation { duration: 650; easing.type: Easing.InOutQuad } }
+            Flow {
+                id: topBarUserList
+                readonly property bool isActive: showUsersButton.checked
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    margins: Kirigami.Units.smallSpacing
+                }
+                opacity: topBarUserList.isActive ? 1 : 0
+                Behavior on opacity { NumberAnimation { duration: 650; easing.type: Easing.InOutQuad } }
 
-            Repeater {
-                model: parent.opacity > 0.5 ? appid.userModel : 0
-                RowLayout {
-                    Kirigami.Icon {
-                        source: model.iconstatus
-                        //FIXME
-                        height: 22
-                        width: 22
-                    }
-                    Text {
-                        text: model.username === "" ? model.name : model.username
+                Repeater {
+                    model: parent.opacity > 0.5 ? appid.userModel : 0
+                    RowLayout {
+                        Kirigami.Icon {
+                            source: model.iconstatus
+                            //FIXME
+                            height: 22
+                            width: 22
+                        }
+                        Text {
+                            text: model.username === "" ? model.name : model.username
+                        }
                     }
                 }
-            }
-            Item {
-                width: parent.width
-                height: topBarUserList.isActive ? 1 : 0
-                Rectangle {
-                    height: parent.height
-                    width: height > 0 ? parent.width : 0
-                    anchors.centerIn: parent
-                    Behavior on width { NumberAnimation { duration: 650; easing.type: Easing.InOutQuad } }
-                    color: Kirigami.Theme.textColor
+                Item {
+                    width: parent.width
+                    height: topBarUserList.isActive ? 1 : 0
+                    Rectangle {
+                        height: parent.height
+                        width: height > 0 ? parent.width : 0
+                        anchors.centerIn: parent
+                        Behavior on width { NumberAnimation { duration: 650; easing.type: Easing.InOutQuad } }
+                        color: Kirigami.Theme.textColor
+                    }
                 }
             }
         }
+
         Clipboard {
             id: clipboard
         }
