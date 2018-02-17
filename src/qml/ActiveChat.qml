@@ -23,6 +23,7 @@ import org.kde.kirigami 2.1 as Kirigami
 
 ListView {
     id: activeChat
+    clip: true
 
     signal openDirectChannel(string userName)
     signal jitsiCallConfActivated()
