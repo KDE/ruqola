@@ -34,8 +34,9 @@ UsersForRoomModel::~UsersForRoomModel()
 {
 }
 
-void UsersForRoomModel::removeUser()
+void UsersForRoomModel::removeUser(const QString &userId)
 {
+    //TODO verify if it
 }
 
 void UsersForRoomModel::addUser(const User &users)

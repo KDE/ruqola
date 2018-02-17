@@ -48,7 +48,7 @@ public:
 
     void parseUsersForRooms(const QJsonObject &root);
     void userStatusChanged(const User &newuser);
-    void removeUser();
+    void removeUser(const QString &userId);
     void addUser(const User &users);
 
     QHash<int, QByteArray> roleNames() const override;
