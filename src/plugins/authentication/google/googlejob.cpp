@@ -64,6 +64,11 @@ GoogleJob::GoogleJob(QObject *parent)
     connect(mO2Google, &O2Google::linkingSucceeded, this, &GoogleJob::OAuthLoginMethodParameter);
 }
 
+GoogleJob::~GoogleJob()
+{
+
+}
+
 void GoogleJob::getDataFromJson()
 {
     QFile f(QStringLiteral(":/client_secret.json"));
@@ -115,7 +120,7 @@ void GoogleJob::validateToken()
 {
     if (!mO2Google->linked()) {
         qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "ERROR: Application is not linked!";
-        Q_EMIT linkingFailed();
+        Q_EMIT linkingFailed(QString());
         return;
     }
 

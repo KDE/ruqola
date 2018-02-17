@@ -33,6 +33,7 @@ class GoogleJob : public QObject
 
 public:
     explicit GoogleJob(QObject *parent = nullptr);
+    ~GoogleJob();
     void getDataFromJson();
 
     unsigned oauthLoginJob;
@@ -46,7 +47,7 @@ public Q_SLOTS:
     void doOAuth(O2::GrantFlow grantFlowType);
     void validateToken();
 
-private Q_SLOTS:
+private:
     void onLinkedChanged();
     void onLinkingSucceeded();
     void onOpenBrowser(const QUrl &url);
@@ -54,7 +55,6 @@ private Q_SLOTS:
     void onFinished();
 
     void OAuthLoginMethodParameter();
-private:
     O2Google *mO2Google = nullptr;
     QString m_clientID;
     QString m_clientSecret;
