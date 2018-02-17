@@ -41,6 +41,9 @@ void GoogleAuthenticationInterface::login()
     //When this signal is emitted from google.cpp it means it has called the login 'method'
     //by sending credentialToken and credentialSecret
     connect(api, &GoogleJob::loginMethodCalled, [=] {
+
+        //TODO fix me !!!!!
+
         mAccount->ddp()->setLoginJobId(api->oauthLoginJob);
     });
     connect(api, &GoogleJob::linkingFailed, this, &GoogleAuthenticationInterface::loginFailed);

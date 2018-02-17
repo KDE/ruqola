@@ -57,7 +57,7 @@ GoogleJob::GoogleJob(QObject *parent)
     mO2Google->setStore(store);
 
     connect(mO2Google, &O2Google::linkedChanged, this, &GoogleJob::onLinkedChanged);
-    connect(mO2Google, &O2Google::linkingFailed, this, &GoogleJob::linkingFailed);
+    connect(mO2Google, &O2Google::linkingFailed, this, [this]() { Q_EMIT linkingFailed(); });
     connect(mO2Google, &O2Google::linkingSucceeded, this, &GoogleJob::onLinkingSucceeded);
     connect(mO2Google, &O2Google::openBrowser, this, &GoogleJob::onOpenBrowser);
     connect(mO2Google, &O2Google::closeBrowser, this, &GoogleJob::onCloseBrowser);
@@ -211,5 +211,5 @@ void GoogleJob::OAuthLoginMethodParameter()
 
     //TODO !!!!!
     //oauthLoginJob = Ruqola::self()->rocketChatAccount()->ddp()->method(QStringLiteral("login"), QJsonDocument(auth));
-    Q_EMIT loginMethodCalled();
+    Q_EMIT loginMethodCalled(m_accessToken, m_clientSecret);
 }

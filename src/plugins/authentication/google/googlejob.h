@@ -39,9 +39,11 @@ public:
     unsigned oauthLoginJob;
 Q_SIGNALS:
     void extraTokensReady(const QVariantMap &extraTokens);
-    void linkingFailed(const QString &msg);
+    void linkingFailed(const QString &msg = QString());
     void linkingSucceeded();
-    void loginMethodCalled();
+
+
+    void loginMethodCalled(const QString &credentialToken, const QString &credentialSecret);
 
 public Q_SLOTS:
     void doOAuth(O2::GrantFlow grantFlowType);
