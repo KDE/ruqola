@@ -199,17 +199,5 @@ void GoogleJob::onFinished()
 
 void GoogleJob::OAuthLoginMethodParameter()
 {
-    QJsonObject auth;
-    QJsonObject authKeys;//
-    authKeys[QStringLiteral("credentialToken")] = m_accessToken;
-    authKeys[QStringLiteral("credentialSecret")] = m_clientSecret;
-
-    auth[QStringLiteral("oauth")] = authKeys;
-    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "-------------------------";
-    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "-------------------------";
-    qCDebug(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "OAuth Json" << auth;
-
-    //TODO !!!!!
-    //oauthLoginJob = Ruqola::self()->rocketChatAccount()->ddp()->method(QStringLiteral("login"), QJsonDocument(auth));
     Q_EMIT loginMethodCalled(m_accessToken, m_clientSecret);
 }

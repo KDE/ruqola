@@ -31,6 +31,9 @@ public:
     ~GoogleAuthenticationInterface() override;
 
     void login() override;
+
+private:
+    void slotLoginProvider(const QString &credentialToken, const QString &credentialSecret);
 };
 
 #endif // GOOGLEAUTHENTICATIONINTERFACE_H

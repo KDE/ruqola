@@ -40,12 +40,12 @@ void GoogleAuthenticationInterface::login()
 
     //When this signal is emitted from google.cpp it means it has called the login 'method'
     //by sending credentialToken and credentialSecret
-    connect(api, &GoogleJob::loginMethodCalled, [=] {
-
-        //TODO fix me !!!!!
-
-        mAccount->ddp()->setLoginJobId(api->oauthLoginJob);
-    });
+    connect(api, &GoogleJob::loginMethodCalled, this, &GoogleAuthenticationInterface::slotLoginProvider);
     connect(api, &GoogleJob::linkingFailed, this, &GoogleAuthenticationInterface::loginFailed);
-    qCWarning(RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG) << "Not implemented yet";
+}
+
+void GoogleAuthenticationInterface::slotLoginProvider(const QString &credentialToken, const QString &credentialSecret)
+{
+    const quint64 loginJob = mAccount->ddp()->loginProvider(credentialToken, credentialSecret);
+    mAccount->ddp()->setLoginJobId(loginJob);
 }

@@ -36,7 +36,6 @@ public:
     ~GoogleJob();
     void getDataFromJson();
 
-    unsigned oauthLoginJob;
 Q_SIGNALS:
     void extraTokensReady(const QVariantMap &extraTokens);
     void linkingFailed(const QString &msg = QString());
