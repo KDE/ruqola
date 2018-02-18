@@ -39,6 +39,13 @@ void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValues()
     FilesForRoomModel model;
     proxy.setSourceModel(&model);
     QCOMPARE(proxy.rowCount(), 0);
+    QHash<int, QByteArray> roles;
+    roles[FilesForRoomModel::UserName] = QByteArrayLiteral("username");
+    roles[FilesForRoomModel::UserId] = QByteArrayLiteral("userid");
+    roles[FilesForRoomModel::MimeType] = QByteArrayLiteral("mimetype");
+    roles[FilesForRoomModel::Url] = QByteArrayLiteral("url");
+    roles[FilesForRoomModel::Description] = QByteArrayLiteral("description");
+    QCOMPARE(proxy.roleNames(), roles);
 }
 
 void FilesForRoomFilterProxyModelTest::shouldAssignValue()

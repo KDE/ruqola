@@ -37,4 +37,10 @@ void UserCompleterFilterProxyModelTest::shouldHaveDefaultValue()
     w.setSourceModel(&source);
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(w.sourceModel(), &source);
+
+    QHash<int, QByteArray> roles;
+    roles[UserCompleterModel::UserName] = QByteArrayLiteral("username");
+    roles[UserCompleterModel::UserId] = QByteArrayLiteral("userid");
+    roles[UserCompleterModel::UserIconStatus] = QByteArrayLiteral("iconstatus");
+    QCOMPARE(w.roleNames(), roles);
 }
