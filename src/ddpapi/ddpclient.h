@@ -169,6 +169,7 @@ public:
     quint64 inputUserAutocomplete(const QString &pattern, const QString &exceptions);
     quint64 login(const QString &username, const QString &password);
     quint64 loginProvider(const QString &credentialToken, const QString &credentialSecret);
+    quint64 messageSearch(const QString &rid, const QString &pattern);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
