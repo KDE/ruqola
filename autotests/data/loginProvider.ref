@@ -1,0 +1,13 @@
+{
+    "id": "43",
+    "method": "login",
+    "msg": "method",
+    "params": [
+        {
+            "oauth": {
+                "credentialSecret": "credentialSecret",
+                "credentialToken": "credentialToken"
+            }
+        }
+    ]
+}
