@@ -396,6 +396,28 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::login(const QStrin
     return generateMethod(QStringLiteral("login"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::loginProvider(const QString &credentialToken, const QString &credentialSecretd, quint64 id)
+{
+#if 0
+    QJsonObject user;
+    user[QStringLiteral("username")] = username;
+
+    QByteArray passwordAsArray = QCryptographicHash::hash(password.toUtf8(), QCryptographicHash::Sha256);
+    const QString hash = QString::fromLatin1(passwordAsArray.toHex());
+
+    QJsonObject passwordObject;
+    passwordObject[QStringLiteral("digest")] = hash;
+    passwordObject[QStringLiteral("algorithm")] = QStringLiteral("sha-256");
+
+    QJsonObject params;
+    params[QStringLiteral("password")] = passwordObject;
+    params[QStringLiteral("user")] = user;
+    return generateMethod(QStringLiteral("login"), QJsonDocument(params), id);
+#endif
+    //TODO
+    return {};
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::addUserToRoom(const QString &username, const QString &roomId, quint64 id)
 {
     //This method use multiusers

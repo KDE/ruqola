@@ -387,6 +387,14 @@ void RocketChatMessageTest::shouldLogin()
     compareFile(r.result, QStringLiteral("login"));
 }
 
+void RocketChatMessageTest::shouldLoginProvider()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.loginProvider(QStringLiteral("credentialToken"), QStringLiteral("credentialSecret"), 43);
+    compareFile(r.result, QStringLiteral("loginProvider"));
+}
+
 void RocketChatMessageTest::inputChannelAutocomplete()
 {
     RocketChatMessage m;
