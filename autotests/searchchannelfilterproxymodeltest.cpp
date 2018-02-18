@@ -42,6 +42,13 @@ void SearchChannelFilterProxyModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.sourceModel());
     QCOMPARE(w.sourceModel(), &sourceModel);
+
+    QHash<int, QByteArray> roles;
+    roles[SearchChannelModel::ChannelName] = QByteArrayLiteral("channelname");
+    roles[SearchChannelModel::ChannelId] = QByteArrayLiteral("channelid");
+    roles[SearchChannelModel::IconName] = QByteArrayLiteral("iconname");
+    roles[SearchChannelModel::ChannelType] = QByteArrayLiteral("channeltype");
+    QCOMPARE(w.roleNames(), roles);
 }
 
 QJsonObject loadFile(const QString &file)

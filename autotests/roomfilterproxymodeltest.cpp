@@ -38,4 +38,25 @@ void RoomFilterProxyModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.sourceModel());
     QCOMPARE(w.sourceModel(), &sourceModel);
+
+    QHash<int, QByteArray> roles;
+    roles[RoomModel::RoomName] = QByteArrayLiteral("name");
+    roles[RoomModel::RoomID] = QByteArrayLiteral("room_id");
+    roles[RoomModel::RoomSelected] = QByteArrayLiteral("selected");
+    roles[RoomModel::RoomUnread] = QByteArrayLiteral("unread");
+    roles[RoomModel::RoomType] = QByteArrayLiteral("type");
+    roles[RoomModel::RoomUserName] = QByteArrayLiteral("username");
+    roles[RoomModel::RoomUserID] = QByteArrayLiteral("userID");
+    roles[RoomModel::RoomTopic] = QByteArrayLiteral("topic");
+    roles[RoomModel::RoomMutedUsers] = QByteArrayLiteral("mutedUsers");
+    roles[RoomModel::RoomJitsiTimeout] = QByteArrayLiteral("jitsiTimeout");
+    roles[RoomModel::RoomRo] = QByteArrayLiteral("readOnly");
+    roles[RoomModel::RoomAnnoucement] = QByteArrayLiteral("announcement");
+    roles[RoomModel::RoomOpen] = QByteArrayLiteral("open");
+    roles[RoomModel::RoomAlert] = QByteArrayLiteral("alert");
+    roles[RoomModel::RoomOrder] = QByteArrayLiteral("roomorder");
+    roles[RoomModel::RoomFavorite] = QByteArrayLiteral("favorite");
+    roles[RoomModel::RoomSection] = QByteArrayLiteral("sectionname");
+    roles[RoomModel::RoomIcon] = QByteArrayLiteral("channelicon");
+    QCOMPARE(w.roleNames(), roles);
 }
