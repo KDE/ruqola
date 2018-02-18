@@ -40,6 +40,14 @@ void UsersForRoomFilterProxyModelTest::shouldHaveDefaultValues()
     UsersForRoomModel model;
     proxy.setSourceModel(&model);
     QCOMPARE(proxy.rowCount(), 0);
+
+    QHash<int, QByteArray> roles;
+    roles[UsersForRoomModel::UserName] = QByteArrayLiteral("username");
+    roles[UsersForRoomModel::Name] = QByteArrayLiteral("name");
+    roles[UsersForRoomModel::IconStatus] = QByteArrayLiteral("iconstatus");
+    roles[UsersForRoomModel::DisplayName] = QByteArrayLiteral("displayname");
+    QCOMPARE(proxy.roleNames(), roles);
+
 }
 
 void UsersForRoomFilterProxyModelTest::shouldAssignValue()

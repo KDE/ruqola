@@ -41,7 +41,7 @@ Dialog {
 
     standardButtons: Dialog.Close
 
-    contentItem :ScrollView {
+    contentItem: ScrollView {
         id: view
         TextArea {
             text: licenseText

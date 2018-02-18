@@ -34,7 +34,8 @@ public:
         UserName = Qt::UserRole + 1,
         UserId,
         Name,
-        IconStatus
+        IconStatus,
+        DisplayName
     };
     Q_ENUM(UsersForRoomRoles)
 
@@ -54,6 +55,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
+    QString generateDisplayName(const User &user) const;
     QVector<User> mUsers;
 };
 

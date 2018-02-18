@@ -43,6 +43,7 @@ void UsersForRoomModelTest::shouldHaveDefaultValue()
     roles[UsersForRoomModel::UserName] = QByteArrayLiteral("username");
     roles[UsersForRoomModel::Name] = QByteArrayLiteral("name");
     roles[UsersForRoomModel::IconStatus] = QByteArrayLiteral("iconstatus");
+    roles[UsersForRoomModel::DisplayName] = QByteArrayLiteral("displayname");
     QCOMPARE(w.roleNames(), roles);
 }
 

@@ -72,6 +72,8 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
 
     const User user = mUsers.at(index.row());
     switch (role) {
+    case DisplayName:
+        return generateDisplayName(user);
     case UserName:
         return user.userName();
     case IconStatus:
@@ -86,12 +88,19 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+QString UsersForRoomModel::generateDisplayName(const User &user) const
+{
+    const QString displayName = QStringLiteral("<a href=\'%1\'>%1</a>").arg(user.userName().isEmpty() ? user.name() : user.userName());
+    return displayName;
+}
+
 QHash<int, QByteArray> UsersForRoomModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[UserName] = QByteArrayLiteral("username");
     roles[Name] = QByteArrayLiteral("name");
     roles[IconStatus] = QByteArrayLiteral("iconstatus");
+    roles[DisplayName] = QByteArrayLiteral("displayname");
     return roles;
 }
 
