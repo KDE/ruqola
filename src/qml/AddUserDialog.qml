@@ -95,8 +95,4 @@ Dialog {
             }
         }
     }
-    onAccepted: {
-
-        //addUserDialog.addUsers(msgId)
-    }
 }
