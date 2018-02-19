@@ -82,7 +82,7 @@ Component {
                         onActivated: {
                             appid.rocketChatAccount.changeDefaultStatus(index)
                         }
-                        //FIXME currentIndex: model.currentstatus
+                        currentIndex: model.currentStatus
                         delegate: QQC2.ItemDelegate {
                             width: statusCombobox.width
 

@@ -41,6 +41,7 @@ void LoginMethodModelTest::shouldHaveDefaultValue()
     roles[LoginMethodModel::IconName] = QByteArrayLiteral("iconname");
     roles[LoginMethodModel::Type] = QByteArrayLiteral("type");
     QCOMPARE(w.roleNames(), roles);
+    QCOMPARE(w.currentLoginMethod(), 0);
 }
 
 void LoginMethodModelTest::shouldClearModel()

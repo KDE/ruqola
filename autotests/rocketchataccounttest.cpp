@@ -20,6 +20,8 @@
 
 #include "rocketchataccounttest.h"
 #include "rocketchataccount.h"
+#include "model/searchmessagefilterproxymodel.h"
+#include "model/searchmessagemodel.h"
 #include <QTest>
 #include <QStandardPaths>
 
@@ -44,4 +46,7 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.loginMethodModel());
     QVERIFY(w.inputCompleterModel());
     QVERIFY(!w.ruqolaLogger());
+    QVERIFY(w.searchChannelFilterProxyModel());
+    QVERIFY(w.searchMessageModel());
+    QCOMPARE(w.searchMessageFilterProxyModel()->sourceModel(), w.searchMessageModel());
 }

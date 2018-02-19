@@ -48,6 +48,8 @@ void message_search(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Search Message:") + QJsonDocument(root).toJson());
     }
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    account->displaySearchedMessage(obj);
 }
 
 void input_user_channel_autocomplete(const QJsonObject &root, RocketChatAccount *account)

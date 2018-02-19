@@ -56,6 +56,8 @@ class InputCompleterModel;
 class InputTextManager;
 class PluginAuthenticationInterface;
 class Room;
+class SearchMessageModel;
+class SearchMessageFilterProxyModel;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
@@ -205,6 +207,11 @@ public:
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
 
+    SearchMessageModel *searchMessageModel() const;
+
+    SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
+
+    void displaySearchedMessage(const QJsonObject &obj);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -256,6 +263,9 @@ private:
     SearchChannelFilterProxyModel *mSearchChannelFilterProxyModel = nullptr;
     LoginMethodModel *mLoginMethodModel = nullptr;
     InputTextManager *mInputTextManager = nullptr;
+
+    SearchMessageModel *mSearchMessageModel = nullptr;
+    SearchMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H

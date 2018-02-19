@@ -42,3 +42,15 @@ QHash<int, QByteArray> SearchMessageModel::roleNames() const
     //TODO
     return {};
 }
+
+
+int SearchMessageModel::rowCount(const QModelIndex &parent) const
+{
+    //TODO
+    return {};
+}
+
+void SearchMessageModel::parseResult(const QJsonObject &obj)
+{
+    //TODO
+}

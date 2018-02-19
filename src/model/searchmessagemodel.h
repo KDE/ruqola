@@ -22,6 +22,7 @@
 #define SEARCHMESSAGEMODEL_H
 
 #include <QAbstractListModel>
+#include <QJsonObject>
 #include "libruqola_private_export.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT SearchMessageModel : public QAbstractListModel
@@ -35,9 +36,10 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
+    int rowCount(const QModelIndex &parent) const override;
+    void parseResult(const QJsonObject &obj);
 private:
     Q_DISABLE_COPY(SearchMessageModel)
-
 };
 
 #endif // SEARCHMESSAGEMODEL_H

@@ -45,6 +45,8 @@
 #include "model/searchchannelmodel.h"
 #include "model/loginmethodmodel.h"
 #include "model/inputcompletermodel.h"
+#include "model/searchmessagemodel.h"
+#include "model/searchmessagefilterproxymodel.h"
 
 #include "authenticationmanager.h"
 
@@ -98,6 +100,10 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mSearchChannelModel = new SearchChannelModel(this);
     mSearchChannelFilterProxyModel = new SearchChannelFilterProxyModel(this);
     mSearchChannelFilterProxyModel->setSourceModel(mSearchChannelModel);
+
+    mSearchMessageModel = new SearchMessageModel(this);
+    mSearchMessageFilterProxyModel = new SearchMessageFilterProxyModel(this);
+    mSearchMessageFilterProxyModel->setSourceModel(mSearchMessageModel);
 
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this);
@@ -649,6 +655,16 @@ void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::OauthTyp
     }
 }
 
+SearchMessageFilterProxyModel *RocketChatAccount::searchMessageFilterProxyModel() const
+{
+    return mSearchMessageFilterProxyModel;
+}
+
+SearchMessageModel *RocketChatAccount::searchMessageModel() const
+{
+    return mSearchMessageModel;
+}
+
 void RocketChatAccount::initializeAuthenticationPlugins()
 {
     //TODO change it when we change server
@@ -867,4 +883,9 @@ void RocketChatAccount::inputUserAutocomplete(const QString &pattern, const QStr
 void RocketChatAccount::inputTextCompleter(const QJsonObject &obj)
 {
     mInputTextManager->inputTextCompleter(obj);
+}
+
+void RocketChatAccount::displaySearchedMessage(const QJsonObject &obj)
+{
+    mSearchMessageModel->parseResult(obj);
 }
