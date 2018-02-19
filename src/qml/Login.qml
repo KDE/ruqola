@@ -107,7 +107,7 @@ Kirigami.Page {
             model: appid.rocketChatAccount.loginMethodModel()
             visible: count > 1
             textRole: "name"
-            currentIndex: 0
+            currentIndex: model.currentLoginMethod
             onActivated: {
                 appid.rocketChatAccount.changeDefaultAuthentication(index)
             }
