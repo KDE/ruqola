@@ -153,6 +153,10 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    ShowSearchMessageDialog {
+        id: searchMessageDialog
+    }
+
     SearchChannelDialog {
         id: searchChannelDialog
         searchChannelModel: rocketChatAccount.searchChannelFilterProxyModel()
