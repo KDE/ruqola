@@ -78,6 +78,14 @@ Component {
                     iconName: "system-users"
                     checkable: true
                 }
+
+                ToolButton {
+                    id: searchMessage
+                    iconName: "edit-find"
+                    onClicked: {
+                        searchMessageDialog.open();
+                    }
+                }
                 ToolButton {
                     iconName: "settings-configure"
                     onClicked: menu.open();
@@ -138,15 +146,6 @@ Component {
                             onTriggered: {
                                 appid.rocketChatAccount.roomFiles(appid.selectedRoomID);
                                 showFilesInRoomDialog.initializeAndOpen()
-                            }
-                        }
-                        RuqolaMenuSeparator {
-                        }
-                        QQC2.MenuItem {
-                            text: i18n("Search Message... (experimental)")
-                            onTriggered: {
-                                appid.rocketChatAccount.messageSearch(appid.selectedRoomID, "laurent");
-                                //TODO experimental
                             }
                         }
                     }
