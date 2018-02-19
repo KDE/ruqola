@@ -42,8 +42,22 @@ QHash<int, QByteArray> StatusModel::roleNames() const
     roles[StatusI18n] = QByteArrayLiteral("statusi18n");
     roles[Status] = QByteArrayLiteral("status");
     roles[Icon] = QByteArrayLiteral("icon");
-    roles[CurrentStatus] = QByteArrayLiteral("currentstatus");
     return roles;
+}
+
+void StatusModel::setCurrentPresenceStatus(User::PresenceStatus status)
+{
+    int newStatusIndex = 0;
+    for (int i = 0; i < mStatusList.count(); ++i) {
+        if (mStatusList.at(i).status == status) {
+            newStatusIndex = i;
+            break;
+        }
+    }
+    if (mCurrentStatus != newStatusIndex) {
+        mCurrentStatus = newStatusIndex;
+        Q_EMIT currentStatusChanged();
+    }
 }
 
 void StatusModel::fillModel()
@@ -78,6 +92,11 @@ void StatusModel::fillModel()
     }
 }
 
+int StatusModel::currentStatus() const
+{
+    return mCurrentStatus;
+}
+
 int StatusModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
@@ -94,8 +113,6 @@ QVariant StatusModel::data(const QModelIndex &index, int role) const
         return QVariant::fromValue(statusInfo.status);
     case Icon:
         return statusInfo.icon;
-    case CurrentStatus:
-        return mCurrentStatus;
     }
     return {};
 }

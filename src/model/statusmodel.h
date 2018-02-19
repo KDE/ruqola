@@ -36,12 +36,12 @@ struct StatusInfo {
 class LIBRUQOLACORE_TESTS_EXPORT StatusModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(int currentStatus READ currentStatus NOTIFY currentStatusChanged)
 public:
     enum StatusRoles {
         StatusI18n = Qt::UserRole + 1,
         Status,
-        Icon,
-        CurrentStatus
+        Icon
     };
     Q_ENUM(StatusRoles)
 
@@ -54,6 +54,13 @@ public:
     User::PresenceStatus status(int index) const;
 
     QHash<int, QByteArray> roleNames() const override;
+
+    void setCurrentPresenceStatus(User::PresenceStatus status);
+
+    int currentStatus() const;
+
+Q_SIGNALS:
+    void currentStatusChanged();
 
 private:
     Q_DISABLE_COPY(StatusModel)
