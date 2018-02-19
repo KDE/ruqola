@@ -546,6 +546,11 @@ void RocketChatAccount::addUserToRoom(const QString &username, const QString &ro
     ddp()->addUserToRoom(username, roomId);
 }
 
+void RocketChatAccount::messageSearch(const QString &rid, const QString &pattern)
+{
+    ddp()->messageSearch(rid, pattern);
+}
+
 void RocketChatAccount::starMessage(const QString &messageId, const QString &rid, bool starred)
 {
     ddp()->starMessage(messageId, rid, starred);

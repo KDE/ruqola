@@ -141,6 +141,7 @@ public:
     Q_INVOKABLE Room *getRoom(const QString &roomId);
 
     Q_INVOKABLE void changeDefaultAuthentication(int index);
+    Q_INVOKABLE void messageSearch(const QString &rid, const QString &pattern);
 
 
     SearchChannelModel *searchChannelModel() const;
@@ -202,6 +203,7 @@ public:
     void inputUserAutocomplete(const QString &pattern, const QString &exceptions);
     void inputTextCompleter(const QJsonObject &obj);
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
+
 
 Q_SIGNALS:
     void connectedChanged();
