@@ -31,7 +31,7 @@ Dialog {
 
     title: i18n("Search Message")
 
-    property QtObject userModel
+    property QtObject searchMessageModel
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
@@ -55,7 +55,7 @@ Dialog {
             Layout.fillWidth: true
             placeholderText: i18n("Search word...")
             onTextChanged: {
-                userModel.setFilterString(text);
+                //searchMessageModel.setFilterString(text);
             }
         }
 
@@ -64,7 +64,7 @@ Dialog {
             width: 300;
             height: 200
 
-            model: userModel
+            model: searchMessageModel
             delegate:
                 RowLayout {
                 Kirigami.Icon {
