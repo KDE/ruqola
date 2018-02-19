@@ -30,7 +30,6 @@
         <file>UploadFileDialog.qml</file>
         <file>DisplayImageDialog.qml</file>
         <file>EncryptedConversationDialog.qml</file>
-        <file>ShowUsersInRoomDialog.qml</file>
         <file>SearchChannelDialog.qml</file>
         <file>ShowFilesInRoomDialog.qml</file>
         <file>MessageLine.qml</file>

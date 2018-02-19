@@ -131,14 +131,6 @@ Component {
                                 appid.rocketChatAccount.loadHistory(appid.selectedRoomID);
                             }
                         }
-                        RuqolaMenuSeparator {}
-                        QQC2.MenuItem {
-                            text: i18n("Show Users In Room")
-                            onTriggered: {
-                                showUsersDialog.userModel = appid.userModel
-                                showUsersDialog.initializeAndOpen()
-                            }
-                        }
                         RuqolaMenuSeparator {
                         }
                         QQC2.MenuItem {
@@ -313,10 +305,6 @@ Component {
                     onUploadFile: {
                         appid.rocketChatAccount.uploadFile(description, filename)
                     }
-                }
-
-                ShowUsersInRoomDialog {
-                    id: showUsersDialog
                 }
 
                 ShowFilesInRoomDialog {
