@@ -155,6 +155,9 @@ Kirigami.ApplicationWindow {
 
     ShowSearchMessageDialog {
         id: searchMessageDialog
+        onSearchMessage: {
+            rocketChatAccount.messageSearch(pattern, rid)
+        }
     }
 
     SearchChannelDialog {

@@ -31,8 +31,10 @@ Dialog {
 
     title: i18n("Search Message")
 
-    property QtObject searchMessageModel
+    signal searchMessage(string pattern, string rid)
 
+    property QtObject searchMessageModel
+    property string roomId
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
@@ -54,8 +56,9 @@ Dialog {
             Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
             Layout.fillWidth: true
             placeholderText: i18n("Search word...")
-            onTextChanged: {
-                //searchMessageModel.setFilterString(text);
+            //onAccepted: or onTextChanged:  ????
+            onAccepted: {
+                showSearchMessageDialog.searchMessage(text, roomId)
             }
         }
 

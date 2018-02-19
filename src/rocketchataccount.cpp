@@ -552,9 +552,13 @@ void RocketChatAccount::addUserToRoom(const QString &username, const QString &ro
     ddp()->addUserToRoom(username, roomId);
 }
 
-void RocketChatAccount::messageSearch(const QString &rid, const QString &pattern)
+void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid)
 {
-    ddp()->messageSearch(rid, pattern);
+    if (pattern.isEmpty()) {
+        mSearchMessageModel->clear();
+    } else {
+        ddp()->messageSearch(rid, pattern);
+    }
 }
 
 void RocketChatAccount::starMessage(const QString &messageId, const QString &rid, bool starred)
@@ -635,7 +639,6 @@ void RocketChatAccount::fillOauthModel()
             fillModel.append(mLstInfos.at(i));
         }
     }
-    qDebug()<< "void RocketChatAccount::fillOauthModel()"<<fillModel;
     mLoginMethodModel->setAuthenticationInfos(fillModel);
 }
 
@@ -646,7 +649,6 @@ void RocketChatAccount::changeDefaultAuthentication(int index)
 
 void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::OauthType type)
 {
-    qDebug() <<" void RocketChatAccount::setDefaultAuthentication(AuthenticationManager::OauthType type)"<<type;
     PluginAuthenticationInterface *interface = mLstPluginAuthenticationInterface.value(type);
     if (interface) {
         mDefaultAuthenticationInterface = interface;

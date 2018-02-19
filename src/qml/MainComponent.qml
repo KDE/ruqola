@@ -83,7 +83,8 @@ Component {
                     id: searchMessage
                     iconName: "edit-find"
                     onClicked: {
-                        searchMessageDialog.open();
+                        searchMessageDialog.roomId = appid.selectedRoomID
+                        searchMessageDialog.initializeAndOpen();
                     }
                 }
                 ToolButton {

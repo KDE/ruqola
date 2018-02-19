@@ -24,6 +24,7 @@
 #include <QAbstractListModel>
 #include <QJsonObject>
 #include "libruqola_private_export.h"
+#include "searchmessage.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT SearchMessageModel : public QAbstractListModel
 {
@@ -38,8 +39,10 @@ public:
 
     int rowCount(const QModelIndex &parent) const override;
     void parseResult(const QJsonObject &obj);
+    void clear();
 private:
     Q_DISABLE_COPY(SearchMessageModel)
+    QVector<SearchMessage> mSearchMessages;
 };
 
 #endif // SEARCHMESSAGEMODEL_H

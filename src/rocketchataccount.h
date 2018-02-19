@@ -143,7 +143,7 @@ public:
     Q_INVOKABLE Room *getRoom(const QString &roomId);
 
     Q_INVOKABLE void changeDefaultAuthentication(int index);
-    Q_INVOKABLE void messageSearch(const QString &rid, const QString &pattern);
+    Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid);
 
 
     SearchChannelModel *searchChannelModel() const;

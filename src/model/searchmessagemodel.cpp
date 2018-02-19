@@ -19,6 +19,7 @@
 */
 
 #include "searchmessagemodel.h"
+#include "ruqola_debug.h"
 
 SearchMessageModel::SearchMessageModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -46,11 +47,17 @@ QHash<int, QByteArray> SearchMessageModel::roleNames() const
 
 int SearchMessageModel::rowCount(const QModelIndex &parent) const
 {
-    //TODO
-    return {};
+    Q_UNUSED(parent);
+    return mSearchMessages.count();
 }
 
 void SearchMessageModel::parseResult(const QJsonObject &obj)
 {
     //TODO
+    qDebug() << " void SearchMessageModel::parseResult(const QJsonObject &obj)"<<obj;
+}
+
+void SearchMessageModel::clear()
+{
+    //TODO clear
 }
