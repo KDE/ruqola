@@ -102,12 +102,10 @@ Kirigami.Page {
         }
 
         QQC2.ComboBox {
-            property QtObject loginModel: appid.rocketChatAccount.loginMethodModel()
             id: loginMethodCombobox
             width: parent.width
-            model: loginModel
-            //TODO fix me
-            visible: loginModel.rowCount() > 0
+            model: appid.rocketChatAccount.loginMethodModel()
+            visible: count > 1
             textRole: "name"
             currentIndex: 0
             onActivated: {

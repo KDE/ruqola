@@ -28,6 +28,7 @@
 class LIBRUQOLACORE_TESTS_EXPORT LoginMethodModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(int currentLoginMethod READ currentLoginMethod NOTIFY currentLoginMethodChanged)
 public:
     enum LoginRoles {
         Name = Qt::UserRole + 1,
@@ -48,8 +49,16 @@ public:
     void clear();
 
     AuthenticationManager::OauthType loginType(int index);
+
+    int currentLoginMethod() const;
+    void setCurrentLoginMethod(int currentLoginMethod);
+
+Q_SIGNALS:
+    void currentLoginMethodChanged();
+
 private:
     QVector<AuthenticationInfo> mAuthentications;
+    int mCurrentLoginMethod = 0;
 };
 
 #endif // LOGINMETHODMODEL_H

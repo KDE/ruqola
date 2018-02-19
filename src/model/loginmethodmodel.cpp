@@ -33,7 +33,6 @@ LoginMethodModel::~LoginMethodModel()
 int LoginMethodModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    qDebug() << " int LoginMethodModel::rowCount(const QModelIndex &parent) const"<<mAuthentications.count();
     return mAuthentications.count();
 }
 
@@ -49,6 +48,19 @@ void LoginMethodModel::clear()
 AuthenticationManager::OauthType LoginMethodModel::loginType(int index)
 {
     return mAuthentications.at(index).oauthType();
+}
+
+int LoginMethodModel::currentLoginMethod() const
+{
+    return mCurrentLoginMethod;
+}
+
+void LoginMethodModel::setCurrentLoginMethod(int currentLoginMethod)
+{
+    if (mCurrentLoginMethod != currentLoginMethod) {
+        mCurrentLoginMethod = currentLoginMethod;
+        Q_EMIT currentLoginMethodChanged();
+    }
 }
 
 QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
