@@ -48,5 +48,5 @@ add_ruqola_test(loginmethodmodeltest.cpp)
 add_ruqola_test(inputtextmanagertest.cpp)
 add_ruqola_test(clipboardproxytest.cpp)
 add_ruqola_test(authenticationinfotest.cpp)
-
+add_ruqola_test(searchmessagemodeltest.cpp)
 add_subdirectory(qml)

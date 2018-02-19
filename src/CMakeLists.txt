@@ -33,6 +33,8 @@ set (Ruqola_model_core_srcs
     model/inputcompletermodel.cpp
 
     model/loginmethodmodel.cpp
+
+    model/searchmessagemodel.cpp
     )
 
 set(Ruqola_plugins_srcs
