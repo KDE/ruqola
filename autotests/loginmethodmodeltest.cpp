@@ -184,3 +184,23 @@ void LoginMethodModelTest::shouldAssignValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,4"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,4"));
 }
+
+void LoginMethodModelTest::shouldEmitLoginMethodChanged()
+{
+    LoginMethodModel w;
+    QSignalSpy loginMethodChanged(&w, &LoginMethodModel::currentLoginMethodChanged);
+
+    w.setCurrentLoginMethod(3);
+    QCOMPARE(loginMethodChanged.count(), 1);
+
+    loginMethodChanged.clear();
+
+    w.setCurrentLoginMethod(3);
+    QCOMPARE(loginMethodChanged.count(), 0);
+
+
+    loginMethodChanged.clear();
+
+    w.setCurrentLoginMethod(1);
+    QCOMPARE(loginMethodChanged.count(), 1);
+}

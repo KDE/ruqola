@@ -33,6 +33,8 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldClearModel();
     void shouldAssignValues();
+
+    void shouldEmitLoginMethodChanged();
 };
 
 #endif // LOGINMETHODMODELTEST_H
