@@ -35,6 +35,7 @@ set (Ruqola_model_core_srcs
     model/loginmethodmodel.cpp
 
     model/searchmessagemodel.cpp
+    model/searchmessagefilterproxymodel.cpp
     )
 
 set(Ruqola_plugins_srcs
