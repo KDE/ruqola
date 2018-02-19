@@ -148,6 +148,15 @@ Component {
                                 showFilesInRoomDialog.initializeAndOpen()
                             }
                         }
+                        RuqolaMenuSeparator {
+                        }
+                        QQC2.MenuItem {
+                            text: i18n("Search Message... (experimental)")
+                            onTriggered: {
+                                appid.rocketChatAccount.messageSearch(appid.selectedRoomID, "laurent");
+                                //TODO experimental
+                            }
+                        }
                     }
                 }
             }

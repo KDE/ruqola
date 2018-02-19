@@ -35,6 +35,7 @@
         <file>ShowFilesInRoomDialog.qml</file>
         <file>MessageLine.qml</file>
         <file>InputTextCompleter.qml</file>
+        <file>ShowSearchMessageDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
