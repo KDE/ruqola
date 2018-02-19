@@ -48,6 +48,7 @@ Kirigami.ApplicationWindow {
     property QtObject filesModel
     property QtObject rocketChatAccount: Ruqola.rocketChatAccount()
     property QtObject inputCompleterModel: rocketChatAccount.inputCompleterModel()
+    property QtObject searchMessageModel //TODO
     property string userInputMessageText: "";
 
     width: Kirigami.Units.gridUnit * 55
