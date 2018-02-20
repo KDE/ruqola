@@ -212,6 +212,9 @@ public:
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
 
     void displaySearchedMessage(const QJsonObject &obj);
+
+    void updateUser(const QJsonObject &object);
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -236,6 +239,8 @@ private:
     void fillOauthModel();
     void initializeAuthenticationPlugins();
     void setDefaultAuthentication(AuthenticationManager::OauthType type);
+    void userStatusChanged(const User &user);
+
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 

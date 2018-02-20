@@ -298,8 +298,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
         processIncomingMessages(contents);
     } else if (collection == QLatin1String("users")) {
-        UsersModel *model = mRocketChatAccount->usersModel();
-        model->updateUser(object);
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
             d.setObject(object);
@@ -307,6 +305,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else {
             qCDebug(RUQOLA_LOG) << "USER CHANGED" << object;
         }
+        mRocketChatAccount->updateUser(object);
     } else if (collection == QLatin1String("rooms")) {
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;

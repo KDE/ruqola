@@ -110,7 +110,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
-    connect(mUserModel, &UsersModel::userStatusChanged, mRoomModel, &RoomModel::userStatusChanged);
+    connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::userStatusChanged);
     mMessageQueue = new MessageQueue(this);
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
@@ -890,4 +890,19 @@ void RocketChatAccount::inputTextCompleter(const QJsonObject &obj)
 void RocketChatAccount::displaySearchedMessage(const QJsonObject &obj)
 {
     mSearchMessageModel->parseResult(obj);
+}
+
+void RocketChatAccount::updateUser(const QJsonObject &object)
+{
+    usersModel()->updateUser(object);
+}
+
+void RocketChatAccount::userStatusChanged(const User &user)
+{
+    qDebug() << " void RocketChatAccount::userStatusChanged(const User &user)"<<user.userId() << " userId" << userID();
+    if (user.userId() == userID()) {
+        qDebug() << " void RocketChatAccount::userStatusChanged(const User &user) current user !!!!!!!!!!!!" << user;
+        statusModel()->setCurrentPresenceStatus(Utils::presenceStatusFromString(user.status()));
+    }
+    mRoomModel->userStatusChanged(user);
 }
