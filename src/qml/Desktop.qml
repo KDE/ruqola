@@ -43,12 +43,12 @@ Kirigami.ApplicationWindow {
     property string selectedRoomID: "";
     property QtObject selectedRoom
 
-    property QtObject model
+    property QtObject messageModel
     property QtObject userModel
     property QtObject filesModel
     property QtObject rocketChatAccount: Ruqola.rocketChatAccount()
     property QtObject inputCompleterModel: rocketChatAccount.inputCompleterModel()
-    property QtObject searchMessageModel //TODO
+    property QtObject searchMessageModel: rocketChatAccount.searchMessageFilterProxyModel()
     property string userInputMessageText: "";
 
     width: Kirigami.Units.gridUnit * 55
@@ -155,6 +155,7 @@ Kirigami.ApplicationWindow {
 
     ShowSearchMessageDialog {
         id: searchMessageDialog
+        searchMessageModel: appid.searchMessageModel
         onSearchMessage: {
             rocketChatAccount.messageSearch(pattern, rid)
         }

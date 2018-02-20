@@ -27,23 +27,43 @@
 #include "messagequeue.h"
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"
+#include "accountmanager.h"
 #include "aboutdata/qmlaboutdata.h"
 #include "restapi/restapirequest.h"
 #include <KNotification>
 
+Ruqola *Ruqola::self()
+{
+    static Ruqola *s_self = nullptr;
+    if (!s_self) {
+        s_self = new Ruqola;
+        // Create systray to show notifications on Desktop
+#if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
+        s_self->notification();
+#endif
+    }
+    return s_self;
+}
+
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
 {
+    mAccountManager = new AccountManager(this);
     //Todo load all account
     //customize account name.
     mRocketChatAccount = new RocketChatAccount(QString(), this);
     mRuqolaAboutData = new QmlAboutData(this);
-    connect(mRocketChatAccount, &RocketChatAccount::serverUrlChanged, this, &Ruqola::serverUrlChanged);
-    connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &Ruqola::userIDChanged);
-    connect(mRocketChatAccount, &RocketChatAccount::userNameChanged, this, &Ruqola::userNameChanged);
+//    connect(mRocketChatAccount, &RocketChatAccount::serverUrlChanged, this, &Ruqola::serverUrlChanged);
+//    connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &Ruqola::userIDChanged);
+//    connect(mRocketChatAccount, &RocketChatAccount::userNameChanged, this, &Ruqola::userNameChanged);
     connect(mRocketChatAccount, &RocketChatAccount::notification, this, &Ruqola::sendNotification);
     connect(mRocketChatAccount, &RocketChatAccount::updateNotification, this, &Ruqola::updateNotification);
     connect(mRocketChatAccount, &RocketChatAccount::logoutDone, this, &Ruqola::logout);
+}
+
+AccountManager *Ruqola::accountManager() const
+{
+    return mAccountManager;
 }
 
 UnityServiceManager *Ruqola::unityServiceManager()
@@ -64,19 +84,7 @@ RocketChatAccount *Ruqola::rocketChatAccount() const
     return mRocketChatAccount;
 }
 
-Ruqola *Ruqola::self()
-{
-    static Ruqola *s_self = nullptr;
-    if (!s_self) {
-        s_self = new Ruqola;
-        // Create systray to show notifications on Desktop
-#if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
-        s_self->notification();
-#endif
-    }
-    return s_self;
-}
-
+#if 0
 QString Ruqola::authToken() const
 {
     return mRocketChatAccount->authToken();
@@ -116,7 +124,7 @@ void Ruqola::setUserId(const QString &userID)
 {
     mRocketChatAccount->setUserID(userID);
 }
-
+#endif
 void Ruqola::sendNotification(const QString &title, const QString &message, const QPixmap &pixmap)
 {
     KNotification::event(KNotification::Notification, title,
@@ -132,7 +140,7 @@ Notification *Ruqola::notification()
     }
     return mNotification;
 }
-
+#if 0
 QString Ruqola::serverUrl() const
 {
     return mRocketChatAccount->serverUrl();
@@ -142,6 +150,7 @@ void Ruqola::setServerUrl(const QString &serverURL)
 {
     mRocketChatAccount->setServerUrl(serverURL);
 }
+#endif
 
 void Ruqola::slotInformTypingStatus(const QString &room, bool typing)
 {

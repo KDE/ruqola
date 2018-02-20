@@ -228,7 +228,7 @@ Component {
 
         ActiveChat {
             id: activeChat
-            model: appid.model
+            model: appid.messageModel
             rcAccount: appid.rocketChatAccount
             roomId: appid.selectedRoomID
             anchors.fill: parent

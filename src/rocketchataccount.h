@@ -145,6 +145,8 @@ public:
     Q_INVOKABLE void changeDefaultAuthentication(int index);
     Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid);
 
+    Q_INVOKABLE SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
+
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
@@ -209,7 +211,7 @@ public:
 
     SearchMessageModel *searchMessageModel() const;
 
-    SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
+
 
     void displaySearchedMessage(const QJsonObject &obj);
 

@@ -36,14 +36,15 @@
 class QmlAboutData;
 
 class RocketChatAccount;
+class AccountManager;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
-    Q_PROPERTY(QString userID READ userID WRITE setUserId NOTIFY userIDChanged)
-    Q_PROPERTY(QString serverUrl READ serverUrl WRITE setServerUrl NOTIFY serverUrlChanged)
-    Q_PROPERTY(QString password WRITE setPassword)
+//    Q_PROPERTY(QString userName READ userName WRITE setUserName NOTIFY userNameChanged)
+//    Q_PROPERTY(QString userID READ userID WRITE setUserId NOTIFY userIDChanged)
+//    Q_PROPERTY(QString serverUrl READ serverUrl WRITE setServerUrl NOTIFY serverUrlChanged)
+//    Q_PROPERTY(QString password WRITE setPassword)
 
 public:
 
@@ -53,7 +54,7 @@ public:
     * @return Returns the singleton object m_self
     */
     static Ruqola *self();
-
+#if 0
     void setUserName(const QString &username);
     QString userName() const;
 
@@ -68,7 +69,7 @@ public:
 
     QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
-
+#endif
     Notification *notification();
 
     Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
@@ -76,22 +77,25 @@ public:
     Q_INVOKABLE QmlAboutData *applicationData() const;
     UnityServiceManager *unityServiceManager();
 
-Q_SIGNALS:
-    void userNameChanged();
-    void userIDChanged();
-    void serverUrlChanged();
+//Q_SIGNALS:
+//    void userNameChanged();
+//    void userIDChanged();
+//    void serverUrlChanged();
 
+    Q_INVOKABLE AccountManager *accountManager() const;
+
+    explicit Ruqola(QObject *parent = nullptr);
 private:
     Q_DISABLE_COPY(Ruqola)
     void sendNotification(const QString &title, const QString &message, const QPixmap &pixmap);
     void slotInformTypingStatus(const QString &room, bool typing);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void logout(const QString &accountName);
-    explicit Ruqola(QObject *parent = nullptr);
     RocketChatAccount *mRocketChatAccount = nullptr;
     Notification *mNotification = nullptr;
     QmlAboutData *mRuqolaAboutData = nullptr;
     UnityServiceManager *mUnityServiceManager = nullptr;
+    AccountManager *mAccountManager = nullptr;
 };
 
 inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

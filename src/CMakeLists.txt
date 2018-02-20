@@ -36,6 +36,9 @@ set (Ruqola_model_core_srcs
 
     model/searchmessagemodel.cpp
     model/searchmessagefilterproxymodel.cpp
+
+    model/rocketchataccountmodel.cpp
+
     )
 
 set(Ruqola_plugins_srcs
@@ -92,6 +95,8 @@ set (Ruqola_core_srcs
     inputtextmanager.cpp
     authenticationmanager.cpp
     searchmessage.cpp
+
+    accountmanager.cpp
 )
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)

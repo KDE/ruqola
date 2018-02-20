@@ -127,6 +127,7 @@ private:
     QIcon icon(Room *r) const;
     int order(Room *r) const;
     QString sectionName(Room *r) const;
+
     RocketChatAccount *mRocketChatAccount = nullptr;
     QVector<Room *> mRoomsList;
 };

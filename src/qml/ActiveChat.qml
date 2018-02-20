@@ -40,7 +40,7 @@ ListView {
 
     spacing: Kirigami.Units.smallSpacing
     highlightRangeMode: ListView.ApplyRange
-    preferredHighlightBegin: parent.height - currentItem.height
+    preferredHighlightBegin: currentItem === null ? parent.height : parent.height - currentItem.height
     preferredHighlightEnd: parent.height
 
     onCountChanged: {
