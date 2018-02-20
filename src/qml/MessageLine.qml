@@ -31,7 +31,16 @@ import KDE.Ruqola.DDPClient 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
 ColumnLayout {
-    property string messageLineText: messageLine.text
+    property alias messageLineText: messageLine.text
+    property string savePreviousMessage
+
+    function setOriginalMessage(messageStr)
+    {
+        messageLine.text = messageStr
+        savePreviousMessage = messageStr
+        messageLine.selectAll()
+    }
+
     InputTextCompleter {
         id: inputTextCompleter
         inputTextCompleterModel: rcAccount.inputCompleterModel()

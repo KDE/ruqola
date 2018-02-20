@@ -35,7 +35,6 @@ RowLayout {
     property QtObject rcAccount
     property alias messageLineText: messageLine.messageLineText
     property string messageId
-    property string savePreviousMessage
 
     signal textEditing(string str)
     signal uploadFile()
@@ -45,9 +44,7 @@ RowLayout {
     
     function setOriginalMessage(messageStr)
     {
-        messageLine.text = messageStr
-        savePreviousMessage = messageStr
-        messageLine.selectAll()
+        messageLine.setOriginalMessage(messageStr)
     }
 
     Kirigami.Icon {
