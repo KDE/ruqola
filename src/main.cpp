@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 
     QApplication app(argc, argv);
     app.setAttribute(Qt::AA_UseHighDpiPixmaps, true);
-    app.setWindowIcon(QIcon(QStringLiteral(":/icons/systray.png")));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
 
     KCrash::initialize();
 

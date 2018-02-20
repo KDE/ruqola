@@ -142,3 +142,4 @@ install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELI
 install(PROGRAMS data/org.kde.ruqola.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 add_subdirectory(plugins)
+add_subdirectory(icons)
