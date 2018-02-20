@@ -93,7 +93,7 @@ Component {
                     QQC2.Menu {
                         id: menu
                         y: parent.height
-                        
+
                         QQC2.MenuItem {
                             text: i18n("Create New Channel")
                             onTriggered: {
@@ -226,95 +226,95 @@ Component {
             id: clipboard
         }
 
-        QQC2.ScrollView {
+        ActiveChat {
+            id: activeChat
+            model: appid.model
+            rcAccount: appid.rocketChatAccount
+            roomId: appid.selectedRoomID
             anchors.fill: parent
-            ActiveChat {
-                id: activeChat
-                model: appid.model
-                rcAccount: appid.rocketChatAccount
-                roomId: appid.selectedRoomID
+            clip: true
 
+            QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
+
+            onEditMessage: {
+                userInputMessage.messageId = messageId;
+                userInputMessage.setOriginalMessage(messageStr)
+                //console.log(RuqolaDebugCategorySingleton.category, "edit! messageId : " + messageId + " messageStr " + messageStr)
+            }
+            onCopyMessage: {
+                clipboard.text = messageStr
+                //console.log(RuqolaDebugCategorySingleton.category, "copy! messageId : " + messageId + " messageStr " + messageStr)
+            }
+            onReplyMessage: {
+                console.log(RuqolaDebugCategorySingleton.category, "Not implemented reply message : " + messageId)
+            }
+            onSetFavoriteMessage: {
+                appid.rocketChatAccount.starMessage(messageId, roomId, starred)
+            }
+
+            onOpenDirectChannel: {
+                openDirectChannelDialog.username = userName;
+                openDirectChannelDialog.open()
+            }
+            onJitsiCallConfActivated: {
+                appid.rocketChatAccount.joinJitsiConfCall(roomId)
+            }
+            onDeleteMessage: {
+                deleteMessageDialog.msgId = messageId
+                deleteMessageDialog.open()
+            }
+            onDownloadAttachment: {
+                downloadFileDialog.fileToSaveUrl = url
+                downloadFileDialog.open()
+            }
+
+            onDisplayImage: {
+                displayImageDialog.iUrl = imageUrl
+                displayImageDialog.title = title
+                displayImageDialog.clearScaleAndOpen();
+            }
+
+            OpenDirectChannelDialog {
+                id: openDirectChannelDialog
                 onOpenDirectChannel: {
-                    openDirectChannelDialog.username = userName;
-                    openDirectChannelDialog.open()
+                    appid.rocketChatAccount.openDirectChannel(userName);
                 }
-                onJitsiCallConfActivated: {
-                    appid.rocketChatAccount.joinJitsiConfCall(roomId)
-                }
+            }
+
+            DeleteMessageDialog {
+                id: deleteMessageDialog
                 onDeleteMessage: {
-                    deleteMessageDialog.msgId = messageId
-                    deleteMessageDialog.open()
+                    appid.rocketChatAccount.deleteMessage(messageId)
                 }
-                onDownloadAttachment: {
-                    downloadFileDialog.fileToSaveUrl = url
+            }
+
+            DownloadFileDialog {
+                id: downloadFileDialog
+                onAccepted: {
+                    if (fileUrl != "") {
+                        console.log(RuqolaDebugCategorySingleton.category, "You chose: " + fileUrl)
+                        appid.rocketChatAccount.downloadFile(fileToSaveUrl, fileUrl)
+                    } else {
+                        console.log(RuqolaDebugCategorySingleton.category, "No file selected");
+                    }
+                }
+            }
+            DisplayImageDialog {
+                id: displayImageDialog
+            }
+            UploadFileDialog {
+                id: uploadFileDialog
+                onUploadFile: {
+                    appid.rocketChatAccount.uploadFile(description, filename)
+                }
+            }
+
+            ShowFilesInRoomDialog {
+                id: showFilesInRoomDialog
+                filesModel: appid.filesModel
+                onDownloadFile: {
+                    downloadFileDialog.fileToSaveUrl = file
                     downloadFileDialog.open()
-                }
-
-                onEditMessage: {
-                    userInputMessage.messageId = messageId;
-                    userInputMessage.setOriginalMessage(messageStr)
-                    //console.log(RuqolaDebugCategorySingleton.category, "edit! messageId : " + messageId + " messageStr " + messageStr)
-                }
-                onCopyMessage: {
-                    clipboard.text = messageStr
-                    //console.log(RuqolaDebugCategorySingleton.category, "copy! messageId : " + messageId + " messageStr " + messageStr)
-                }
-                onReplyMessage: {
-                    console.log(RuqolaDebugCategorySingleton.category, "Not implemented reply message : " + messageId)
-                }
-                onSetFavoriteMessage: {
-                    appid.rocketChatAccount.starMessage(messageId, roomId, starred)
-                }
-
-                onDisplayImage: {
-                    displayImageDialog.iUrl = imageUrl
-                    displayImageDialog.title = title
-                    displayImageDialog.clearScaleAndOpen();
-                }
-
-                OpenDirectChannelDialog {
-                    id: openDirectChannelDialog
-                    onOpenDirectChannel: {
-                        appid.rocketChatAccount.openDirectChannel(userName);
-                    }
-                }
-
-                DeleteMessageDialog {
-                    id: deleteMessageDialog
-                    onDeleteMessage: {
-                        appid.rocketChatAccount.deleteMessage(messageId)
-                    }
-                }
-
-                DownloadFileDialog {
-                    id: downloadFileDialog
-                    onAccepted: {
-                        if (fileUrl != "") {
-                            console.log(RuqolaDebugCategorySingleton.category, "You chose: " + fileUrl)
-                            appid.rocketChatAccount.downloadFile(fileToSaveUrl, fileUrl)
-                        } else {
-                            console.log(RuqolaDebugCategorySingleton.category, "No file selected");
-                        }
-                    }
-                }
-                DisplayImageDialog {
-                    id: displayImageDialog
-                }
-                UploadFileDialog {
-                    id: uploadFileDialog
-                    onUploadFile: {
-                        appid.rocketChatAccount.uploadFile(description, filename)
-                    }
-                }
-
-                ShowFilesInRoomDialog {
-                    id: showFilesInRoomDialog
-                    filesModel: appid.filesModel
-                    onDownloadFile: {
-                        downloadFileDialog.fileToSaveUrl = file
-                        downloadFileDialog.open()
-
-                    }
                 }
             }
         }

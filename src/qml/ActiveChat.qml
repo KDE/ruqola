@@ -39,11 +39,15 @@ ListView {
     property string roomId: ""
 
     spacing: Kirigami.Units.smallSpacing
+    highlightRangeMode: ListView.ApplyRange
+    preferredHighlightBegin: parent.height - currentItem.height
+    preferredHighlightEnd: parent.height
+
     onCountChanged: {
-        positionViewAtIndex(count - 1, ListView.Beginning)
+        currentIndex = count - 1
     }
 
-    Component.onCompleted: positionViewAtIndex(count - 1, ListView.End)
+    Component.onCompleted: positionViewAtEnd()
     visible: count > 0
     onDragEnded : {
         if (roomId !== "") {
