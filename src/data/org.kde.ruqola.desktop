@@ -6,4 +6,4 @@ Icon=ruqola
 GenericName=Rocket.Chat client
 Terminal=false
 StartupNotify=true
-Categories=Qt;KDE;Office;Network;
+Categories=Qt;KDE;Network;
