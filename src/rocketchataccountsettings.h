@@ -25,7 +25,7 @@
 #include <QObject>
 #include "libruqola_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccountSettings : public QObject
+class LIBRUQOLACORE_EXPORT RocketChatAccountSettings : public QObject
 {
     Q_OBJECT
 public:
