@@ -61,9 +61,9 @@ void AccountManager::addAccount(RocketChatAccount *account)
     mRocketChatAccountModel->insertAccount(account);
 }
 
-void AccountManager::removeAccount()
+void AccountManager::removeAccount(const QString &accountName)
 {
-    //TODO add account
+    mRocketChatAccountModel->removeAccount(accountName);
 }
 
 RocketChatAccountModel *AccountManager::rocketChatAccountModel() const

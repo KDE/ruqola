@@ -32,10 +32,10 @@ public:
     explicit AccountManager(QObject *parent = nullptr);
     ~AccountManager();
 
-    void loadAccount();
-
     Q_INVOKABLE RocketChatAccountModel *rocketChatAccountModel() const;
-    void removeAccount();
+
+    void removeAccount(const QString &accountName);
+
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
@@ -44,6 +44,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(AccountManager)
 
+    void loadAccount();
     void addAccount(RocketChatAccount *account);
     RocketChatAccountModel *mRocketChatAccountModel = nullptr;
 };
