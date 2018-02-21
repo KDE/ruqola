@@ -51,16 +51,20 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
     case Name:
         return mRocketChatAccount.at(idx)->accountName();
     }
+    //Add icon ???
+
     qCWarning(RUQOLA_LOG) << "RocketChatAccountModel: Invalid role name " << role;
     return {};
 }
 
 void RocketChatAccountModel::insertAccount(RocketChatAccount *account)
 {
+    //Verify that we have it ?
+    mRocketChatAccount.append(account);
     //Add account!
 }
 
-void RocketChatAccountModel::removeAccount()
+void RocketChatAccountModel::removeAccount(const QString &name)
 {
     //Search account.
 }

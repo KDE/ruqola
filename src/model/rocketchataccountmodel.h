@@ -40,7 +40,7 @@ public:
     QVariant data(const QModelIndex &index, int role) const override;
 
     void insertAccount(RocketChatAccount *account);
-    void removeAccount();
+    void removeAccount(const QString &name);
     QHash<int, QByteArray> roleNames() const override;
 
 private:
