@@ -33,6 +33,15 @@ RocketChatAccountModel::~RocketChatAccountModel()
     qDeleteAll(mRocketChatAccount);
 }
 
+void RocketChatAccountModel::clear()
+{
+    if (!mRocketChatAccount.isEmpty()) {
+        beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
+        qDeleteAll(mRocketChatAccount);
+        mRocketChatAccount.clear();
+        endRemoveRows();
+    }
+}
 
 int RocketChatAccountModel::rowCount(const QModelIndex &parent) const
 {

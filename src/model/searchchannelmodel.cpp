@@ -72,7 +72,7 @@ void SearchChannelModel::parseChannels(const QJsonObject &obj)
 
 void SearchChannelModel::clear()
 {
-    if (rowCount() != 0) {
+    if (!mChannel.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, mChannel.count() - 1);
         mChannel.clear();
         endRemoveRows();

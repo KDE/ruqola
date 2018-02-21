@@ -46,14 +46,11 @@ void AccountManager::loadAccount()
     while (it.hasNext()) {
         qDebug() << " list.at(i)" << it.next();
     }
-    //Load account
-    //TODO add account
 }
 
 void AccountManager::addAccount(RocketChatAccount *account)
 {
     mRocketChatAccountModel->insertAccount(account);
-    //TODO add account
 }
 
 void AccountManager::removeAccount()

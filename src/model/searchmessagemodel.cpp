@@ -59,5 +59,9 @@ void SearchMessageModel::parseResult(const QJsonObject &obj)
 
 void SearchMessageModel::clear()
 {
-    //TODO clear
+    if (!mSearchMessages.isEmpty()) {
+        beginRemoveRows(QModelIndex(), 0, mSearchMessages.count() - 1);
+        mSearchMessages.clear();
+        endRemoveRows();
+    }
 }

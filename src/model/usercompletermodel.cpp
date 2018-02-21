@@ -32,9 +32,11 @@ UserCompleterModel::~UserCompleterModel()
 
 void UserCompleterModel::clear()
 {
-    beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
-    mUsers.clear();
-    endRemoveRows();
+    if (!mUsers.isEmpty()) {
+        beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
+        mUsers.clear();
+        endRemoveRows();
+    }
 }
 
 void UserCompleterModel::insertUsers(const QVector<User> &users)

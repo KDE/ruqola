@@ -43,6 +43,7 @@ public:
     void removeAccount(const QString &name);
     QHash<int, QByteArray> roleNames() const override;
 
+    void clear();
 private:
     QVector<RocketChatAccount *> mRocketChatAccount;
 };
