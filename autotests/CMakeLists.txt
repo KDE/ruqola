@@ -54,4 +54,6 @@ add_ruqola_test(searchmessagetest.cpp)
 add_ruqola_test(accountmanagertest.cpp)
 add_ruqola_test(rocketchataccountmodeltest.cpp)
 add_ruqola_test(ruqolatest.cpp)
+add_ruqola_test(managerdatapathstest.cpp)
+
 add_subdirectory(qml)

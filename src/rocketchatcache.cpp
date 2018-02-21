@@ -21,13 +21,13 @@
 #include "rocketchataccount.h"
 #include "rocketchatcache.h"
 #include "ruqola_debug.h"
+#include "managerdatapaths.h"
 #include "restapi/restapirequest.h"
 #include <KIO/CopyJob>
 #include <QDateTime>
 #include <QDir>
 #include <QNetworkReply>
 #include <QSettings>
-#include <QStandardPaths>
 
 RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
@@ -58,13 +58,9 @@ bool RocketChatCache::fileInCache(const QUrl &url)
 
 QString RocketChatCache::fileCachePath(const QUrl &url)
 {
-    const QString cachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
-    QString newPath = cachePath;
-    if (!mAccount->accountName().isEmpty()) {
-        newPath += mAccount->accountName() + QLatin1Char('/');
-    }
-    newPath += url.path();
-    return newPath;
+    QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccount->accountName());
+    cachePath += QLatin1Char('/') + url.path();
+    return cachePath;
 }
 
 void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl)
@@ -185,7 +181,7 @@ void RocketChatCache::insertAvatarUrl(const QString &userId, const QString &url)
 
 QString RocketChatCache::recordingVideoPath(const QString &accountName) const
 {
-    const QString path = QStandardPaths::writableLocation(QStandardPaths::MoviesLocation) + accountName + QStringLiteral("/recordings");
+    const QString path = ManagerDataPaths::self()->path(ManagerDataPaths::Video, accountName);
     QDir directory(path);
     if (!directory.mkpath(path)) {
         qCWarning(RUQOLA_LOG) << "Unable to create folder: " << path;
@@ -197,7 +193,7 @@ QString RocketChatCache::recordingVideoPath(const QString &accountName) const
 
 QString RocketChatCache::recordingImagePath(const QString &accountName) const
 {
-    const QString path = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + accountName + QStringLiteral("/recordings");
+    const QString path = ManagerDataPaths::self()->path(ManagerDataPaths::Picture, accountName);
     QDir directory(path);
     if (!directory.mkpath(path)) {
         qCWarning(RUQOLA_LOG) << "Unable to create folder: " << path;

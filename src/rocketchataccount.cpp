@@ -47,7 +47,7 @@
 #include "model/inputcompletermodel.h"
 #include "model/searchmessagemodel.h"
 #include "model/searchmessagefilterproxymodel.h"
-
+#include "managerdatapaths.h"
 #include "authenticationmanager.h"
 
 #include "ddpapi/ddpclient.h"
@@ -723,9 +723,12 @@ QString RocketChatAccount::userName() const
     return settings()->userName();
 }
 
-void RocketChatAccount::setAccountName(const QString &servername)
+void RocketChatAccount::setAccountName(const QString &accountname)
 {
-    settings()->setAccountName(servername);
+    //Initialize new account room
+    ManagerDataPaths::self()->initializeAccountPath(accountname);
+    qDebug() << "void RocketChatAccount::setAccountName(const QString &servername)"<<accountname;
+    settings()->setAccountName(accountname);
 }
 
 QString RocketChatAccount::accountName() const

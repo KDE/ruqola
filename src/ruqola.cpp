@@ -28,6 +28,7 @@
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"
 #include "accountmanager.h"
+#include "managerdatapaths.h"
 #include "aboutdata/qmlaboutdata.h"
 #include "restapi/restapirequest.h"
 #include <KNotification>
@@ -48,14 +49,13 @@ Ruqola *Ruqola::self()
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
 {
+    //Initialize paths
+    (void) ManagerDataPaths::self();
     mAccountManager = new AccountManager(this);
     //Todo load all account
     //customize account name.
     mRocketChatAccount = new RocketChatAccount(QString(), this);
     mRuqolaAboutData = new QmlAboutData(this);
-//    connect(mRocketChatAccount, &RocketChatAccount::serverUrlChanged, this, &Ruqola::serverUrlChanged);
-//    connect(mRocketChatAccount, &RocketChatAccount::userIDChanged, this, &Ruqola::userIDChanged);
-//    connect(mRocketChatAccount, &RocketChatAccount::userNameChanged, this, &Ruqola::userNameChanged);
     connect(mRocketChatAccount, &RocketChatAccount::notification, this, &Ruqola::sendNotification);
     connect(mRocketChatAccount, &RocketChatAccount::updateNotification, this, &Ruqola::updateNotification);
     connect(mRocketChatAccount, &RocketChatAccount::logoutDone, this, &Ruqola::logout);

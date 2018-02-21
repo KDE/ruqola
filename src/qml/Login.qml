@@ -76,7 +76,7 @@ Kirigami.Page {
 
         TextField {
             id: nameField
-            readOnly: true
+            readOnly: text !== ""
             width: parent.width
             placeholderText: i18n("Enter Account Name")
         }
