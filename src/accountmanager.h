@@ -33,8 +33,10 @@ public:
 
     void loadAccount();
 
-    RocketChatAccountModel *rocketChatAccountModel() const;
+    Q_INVOKABLE RocketChatAccountModel *rocketChatAccountModel() const;
 
+    void addAccount();
+    void removeAccount();
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);

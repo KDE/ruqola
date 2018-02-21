@@ -36,7 +36,17 @@ AccountManager::~AccountManager()
 
 void AccountManager::loadAccount()
 {
-    //TODO
+    //TODO add account
+}
+
+void AccountManager::addAccount()
+{
+    //TODO add account
+}
+
+void AccountManager::removeAccount()
+{
+    //TODO add account
 }
 
 RocketChatAccountModel *AccountManager::rocketChatAccountModel() const
