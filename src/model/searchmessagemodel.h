@@ -30,6 +30,15 @@ class LIBRUQOLACORE_TESTS_EXPORT SearchMessageModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum SearchMessageRoles {
+        MessageConvertedText = Qt::UserRole + 1,
+        Timestamp,
+        UserId,
+        SystemMessageType,
+        MessageId,
+    };
+    Q_ENUM(SearchMessageRoles)
+
     explicit SearchMessageModel(QObject *parent = nullptr);
     ~SearchMessageModel() override;
 
