@@ -45,6 +45,12 @@ void AccountManager::loadAccount()
                         "ruqola.conf"), QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
     while (it.hasNext()) {
         qDebug() << " list.at(i)" << it.next();
+#if 0
+        RocketChatAccount *account = new RocketChatAccount(it.next());
+        connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
+        connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
+        connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+     #endif
     }
 }
 

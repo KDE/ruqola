@@ -52,6 +52,10 @@ Ruqola::Ruqola(QObject *parent)
     //Initialize paths
     (void)ManagerDataPaths::self();
     mAccountManager = new AccountManager(this);
+    connect(mAccountManager, &AccountManager::notification, this, &Ruqola::sendNotification);
+    connect(mAccountManager, &AccountManager::updateNotification, this, &Ruqola::updateNotification);
+    connect(mAccountManager, &AccountManager::logoutAccountDone, this, &Ruqola::logout);
+
     //Todo load all account
     //customize account name.
     mRocketChatAccount = new RocketChatAccount(QString(), this);
@@ -59,6 +63,8 @@ Ruqola::Ruqola(QObject *parent)
     connect(mRocketChatAccount, &RocketChatAccount::notification, this, &Ruqola::sendNotification);
     connect(mRocketChatAccount, &RocketChatAccount::updateNotification, this, &Ruqola::updateNotification);
     connect(mRocketChatAccount, &RocketChatAccount::logoutDone, this, &Ruqola::logout);
+
+
 }
 
 AccountManager *Ruqola::accountManager() const
