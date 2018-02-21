@@ -22,6 +22,8 @@
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include <QTest>
+#include <QSignalSpy>
+
 QTEST_MAIN(RocketChatAccountModelTest)
 
 RocketChatAccountModelTest::RocketChatAccountModelTest(QObject *parent)
@@ -37,4 +39,14 @@ void RocketChatAccountModelTest::shouldHaveDefaultValue()
     QHash<int, QByteArray> roles;
     roles[RocketChatAccountModel::Name] = QByteArrayLiteral("name");
     QCOMPARE(w.roleNames(), roles);
+}
+
+void RocketChatAccountModelTest::shouldAddAccount()
+{
+    //TODO
+}
+
+void RocketChatAccountModelTest::shouldRemoveAccount()
+{
+    //TODO
 }

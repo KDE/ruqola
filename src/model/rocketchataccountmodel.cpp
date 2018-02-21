@@ -55,13 +55,14 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-void RocketChatAccountModel::insertAccount()
+void RocketChatAccountModel::insertAccount(RocketChatAccount *account)
 {
+    //Add account!
 }
 
 void RocketChatAccountModel::removeAccount()
 {
-
+    //Search account.
 }
 
 

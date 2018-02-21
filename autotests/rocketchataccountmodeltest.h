@@ -33,6 +33,8 @@ public:
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldAddAccount();
+    void shouldRemoveAccount();
 };
 
 #endif // ROCKETCHATACCOUNTMODELTEST_H

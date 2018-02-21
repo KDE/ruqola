@@ -19,6 +19,7 @@
 */
 
 #include "accountmanager.h"
+#include "rocketchataccount.h"
 
 #include "model/rocketchataccountmodel.h"
 
@@ -36,11 +37,13 @@ AccountManager::~AccountManager()
 
 void AccountManager::loadAccount()
 {
+    //Load account
     //TODO add account
 }
 
-void AccountManager::addAccount()
+void AccountManager::addAccount(RocketChatAccount *account)
 {
+    mRocketChatAccountModel->insertAccount(account);
     //TODO add account
 }
 

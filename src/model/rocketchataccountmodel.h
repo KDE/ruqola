@@ -39,7 +39,7 @@ public:
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
-    void insertAccount();
+    void insertAccount(RocketChatAccount *account);
     void removeAccount();
     QHash<int, QByteArray> roleNames() const override;
 
