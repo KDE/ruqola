@@ -44,6 +44,9 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     void clear();
+
+    void insertAccounts(const QVector<RocketChatAccount *> &accounts);
+
 private:
     QVector<RocketChatAccount *> mRocketChatAccount;
 };

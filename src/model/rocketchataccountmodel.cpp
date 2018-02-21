@@ -42,6 +42,23 @@ void RocketChatAccountModel::clear()
     }
 }
 
+void RocketChatAccountModel::insertAccounts(const QVector<RocketChatAccount *> &accounts)
+{
+
+
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mRocketChatAccount.count() - 1);
+        mRocketChatAccount.clear();
+        endRemoveRows();
+    }
+    if (!mRocketChatAccount.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, accounts.count() - 1);
+        mRocketChatAccount = accounts;
+        endInsertRows();
+    }
+
+}
+
 int RocketChatAccountModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
