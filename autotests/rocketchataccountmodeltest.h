@@ -30,6 +30,9 @@ class RocketChatAccountModelTest : public QObject
 public:
     explicit RocketChatAccountModelTest(QObject *parent = nullptr);
     ~RocketChatAccountModelTest() = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // ROCKETCHATACCOUNTMODELTEST_H

@@ -28,6 +28,11 @@ class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccountModel : public QAbstractListMo
 {
     Q_OBJECT
 public:
+    enum AccountRoles {
+        Name = Qt::UserRole + 1,
+    };
+    Q_ENUM(AccountRoles)
+
     explicit RocketChatAccountModel(QObject *parent = nullptr);
     ~RocketChatAccountModel() override;
 
@@ -36,6 +41,8 @@ public:
 
     void insertAccount();
     void removeAccount();
+    QHash<int, QByteArray> roleNames() const override;
+
 private:
     QVector<RocketChatAccount *> mRocketChatAccount;
 };

@@ -199,7 +199,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
         return {};
     }
-    int idx = index.row();
+    const int idx = index.row();
     switch (role) {
     case MessageModel::Username:
         return mAllMessages.at(idx).username();

@@ -19,6 +19,8 @@
 */
 
 #include "rocketchataccountmodel.h"
+#include "rocketchataccount.h"
+#include "ruqola_debug.h"
 
 RocketChatAccountModel::RocketChatAccountModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -40,16 +42,32 @@ int RocketChatAccountModel::rowCount(const QModelIndex &parent) const
 
 QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
 {
-    //TODO
+    if (!index.isValid()) {
+        qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
+        return {};
+    }
+    const int idx = index.row();
+    switch (role) {
+    case Name:
+        return mRocketChatAccount.at(idx)->accountName();
+    }
+    qCWarning(RUQOLA_LOG) << "RocketChatAccountModel: Invalid role name " << role;
     return {};
 }
 
 void RocketChatAccountModel::insertAccount()
 {
-
 }
 
 void RocketChatAccountModel::removeAccount()
 {
 
+}
+
+
+QHash<int, QByteArray> RocketChatAccountModel::roleNames() const
+{
+    QHash<int, QByteArray> roles;
+    roles[Name] = QByteArrayLiteral("name");
+    return roles;
 }

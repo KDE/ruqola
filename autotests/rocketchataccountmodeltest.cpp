@@ -19,6 +19,8 @@
 */
 
 #include "rocketchataccountmodeltest.h"
+#include "model/rocketchataccountmodel.h"
+#include "rocketchataccount.h"
 #include <QTest>
 QTEST_MAIN(RocketChatAccountModelTest)
 
@@ -26,4 +28,13 @@ RocketChatAccountModelTest::RocketChatAccountModelTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void RocketChatAccountModelTest::shouldHaveDefaultValue()
+{
+    RocketChatAccountModel w;
+
+    QHash<int, QByteArray> roles;
+    roles[RocketChatAccountModel::Name] = QByteArrayLiteral("name");
+    QCOMPARE(w.roleNames(), roles);
 }
