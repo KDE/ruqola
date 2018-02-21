@@ -172,7 +172,7 @@ Kirigami.Page {
 
             width: parent.width
             text: i18n("Log in")
-            enabled: (passField.text && urlField.text && usernameField.text)
+            enabled: (passField.text && urlField.text && usernameField.text && nameField.text)
             onClicked: loginForm.accepted()
             isDefault: true
         }        
