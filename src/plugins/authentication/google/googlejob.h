@@ -41,7 +41,6 @@ Q_SIGNALS:
     void linkingFailed(const QString &msg = QString());
     void linkingSucceeded();
 
-
     void loginMethodCalled(const QString &credentialToken, const QString &credentialSecret);
 
 public Q_SLOTS:

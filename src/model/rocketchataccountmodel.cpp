@@ -25,7 +25,6 @@
 RocketChatAccountModel::RocketChatAccountModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 RocketChatAccountModel::~RocketChatAccountModel()
@@ -77,7 +76,6 @@ void RocketChatAccountModel::removeAccount(const QString &name)
 {
     //Search account.
 }
-
 
 QHash<int, QByteArray> RocketChatAccountModel::roleNames() const
 {

@@ -29,7 +29,6 @@ QTEST_MAIN(RocketChatAccountModelTest)
 RocketChatAccountModelTest::RocketChatAccountModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RocketChatAccountModelTest::shouldHaveDefaultValue()

@@ -57,7 +57,9 @@ GoogleJob::GoogleJob(QObject *parent)
     mO2Google->setStore(store);
 
     connect(mO2Google, &O2Google::linkedChanged, this, &GoogleJob::onLinkedChanged);
-    connect(mO2Google, &O2Google::linkingFailed, this, [this]() { Q_EMIT linkingFailed(); });
+    connect(mO2Google, &O2Google::linkingFailed, this, [this]() {
+        Q_EMIT linkingFailed();
+    });
     connect(mO2Google, &O2Google::linkingSucceeded, this, &GoogleJob::onLinkingSucceeded);
     connect(mO2Google, &O2Google::openBrowser, this, &GoogleJob::onOpenBrowser);
     connect(mO2Google, &O2Google::closeBrowser, this, &GoogleJob::onCloseBrowser);
@@ -66,7 +68,6 @@ GoogleJob::GoogleJob(QObject *parent)
 
 GoogleJob::~GoogleJob()
 {
-
 }
 
 void GoogleJob::getDataFromJson()

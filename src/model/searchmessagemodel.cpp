@@ -24,12 +24,10 @@
 SearchMessageModel::SearchMessageModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 SearchMessageModel::~SearchMessageModel()
 {
-
 }
 
 QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
@@ -43,7 +41,6 @@ QHash<int, QByteArray> SearchMessageModel::roleNames() const
     //TODO
     return {};
 }
-
 
 int SearchMessageModel::rowCount(const QModelIndex &parent) const
 {

@@ -40,7 +40,6 @@ public:
 
     virtual QString name() const = 0;
     virtual QString iconName() const = 0;
-
 };
 
 #endif // PLUGINAUTHENTICATION_H

@@ -46,7 +46,6 @@ private:
 
     void addAccount(RocketChatAccount *account);
     RocketChatAccountModel *mRocketChatAccountModel = nullptr;
-
 };
 
 #endif // ACCOUNTMANAGER_H

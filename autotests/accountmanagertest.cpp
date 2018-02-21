@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "accountmanagertest.h"
 #include "accountmanager.h"
 #include <QTest>
@@ -27,7 +26,6 @@ QTEST_MAIN(AccountManagerTest)
 AccountManagerTest::AccountManagerTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AccountManagerTest::shouldHaveDefaultValue()

@@ -36,13 +36,13 @@ AccountManager::AccountManager(QObject *parent)
 
 AccountManager::~AccountManager()
 {
-
 }
 
 void AccountManager::loadAccount()
 {
     qDebug() << " void AccountManager::loadAccount()"<<ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
-    QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()), QStringList() << QStringLiteral("ruqola.conf"), QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+    QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()), QStringList() << QStringLiteral(
+                        "ruqola.conf"), QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
     while (it.hasNext()) {
         qDebug() << " list.at(i)" << it.next();
     }
@@ -62,4 +62,3 @@ RocketChatAccountModel *AccountManager::rocketChatAccountModel() const
 {
     return mRocketChatAccountModel;
 }
-

@@ -50,7 +50,7 @@ Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
 {
     //Initialize paths
-    (void) ManagerDataPaths::self();
+    (void)ManagerDataPaths::self();
     mAccountManager = new AccountManager(this);
     //Todo load all account
     //customize account name.

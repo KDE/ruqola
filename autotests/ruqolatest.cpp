@@ -23,11 +23,9 @@
 #include <QTest>
 QTEST_MAIN(RuqolaTest)
 
-
 RuqolaTest::RuqolaTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RuqolaTest::shouldHaveDefaultValue()

@@ -47,7 +47,6 @@ void UsersForRoomFilterProxyModelTest::shouldHaveDefaultValues()
     roles[UsersForRoomModel::IconStatus] = QByteArrayLiteral("iconstatus");
     roles[UsersForRoomModel::DisplayName] = QByteArrayLiteral("displayname");
     QCOMPARE(proxy.roleNames(), roles);
-
 }
 
 void UsersForRoomFilterProxyModelTest::shouldAssignValue()

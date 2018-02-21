@@ -27,10 +27,8 @@ QTEST_GUILESS_MAIN(ManagerDataPathsTest)
 ManagerDataPathsTest::ManagerDataPathsTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ManagerDataPathsTest::shouldHaveDefaultValue()
 {
-
 }

@@ -17,17 +17,14 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "searchmessage.h"
 
 SearchMessage::SearchMessage()
 {
-
 }
 
 SearchMessage::~SearchMessage()
 {
-
 }
 
 void SearchMessage::parseResult()

@@ -18,13 +18,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef SEARCHMESSAGEFILTERPROXYMODEL_H
 #define SEARCHMESSAGEFILTERPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
 #include "libruqola_private_export.h"
-
 
 class LIBRUQOLACORE_TESTS_EXPORT SearchMessageFilterProxyModel : public QSortFilterProxyModel
 {

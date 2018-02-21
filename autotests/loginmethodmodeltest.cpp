@@ -198,7 +198,6 @@ void LoginMethodModelTest::shouldEmitLoginMethodChanged()
     w.setCurrentLoginMethod(3);
     QCOMPARE(loginMethodChanged.count(), 0);
 
-
     loginMethodChanged.clear();
 
     w.setCurrentLoginMethod(1);

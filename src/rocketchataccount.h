@@ -147,7 +147,6 @@ public:
 
     Q_INVOKABLE SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
 
-
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
@@ -208,10 +207,7 @@ public:
     void inputTextCompleter(const QJsonObject &obj);
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
-
     SearchMessageModel *searchMessageModel() const;
-
-
 
     void displaySearchedMessage(const QJsonObject &obj);
 
@@ -242,7 +238,6 @@ private:
     void initializeAuthenticationPlugins();
     void setDefaultAuthentication(AuthenticationManager::OauthType type);
     void userStatusChanged(const User &user);
-
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 

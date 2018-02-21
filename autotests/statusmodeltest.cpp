@@ -43,4 +43,5 @@ void StatusModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.roleNames(), roles);
     QCOMPARE(w.currentStatus(), 0);
 }
+
 //TODO add autotest about currentStatus changed !

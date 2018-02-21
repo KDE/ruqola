@@ -25,5 +25,4 @@ QTEST_MAIN(SearchMessageFilterProxyModelTest)
 SearchMessageFilterProxyModelTest::SearchMessageFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "searchmessagefilterproxymodel.h"
 
 SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(QObject *parent)
@@ -32,9 +31,7 @@ SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(QObject *parent)
 
 SearchMessageFilterProxyModel::~SearchMessageFilterProxyModel()
 {
-
 }
-
 
 QHash<int, QByteArray> SearchMessageFilterProxyModel::roleNames() const
 {
@@ -43,6 +40,7 @@ QHash<int, QByteArray> SearchMessageFilterProxyModel::roleNames() const
     }
     return QHash<int, QByteArray>();
 }
+
 /*
 bool SearchMessageFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {

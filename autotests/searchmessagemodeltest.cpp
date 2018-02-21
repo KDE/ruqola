@@ -27,5 +27,4 @@ QTEST_MAIN(SearchMessageModelTest)
 SearchMessageModelTest::SearchMessageModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

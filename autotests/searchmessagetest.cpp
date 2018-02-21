@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "searchmessagetest.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(SearchMessageTest)
@@ -25,5 +24,4 @@ QTEST_GUILESS_MAIN(SearchMessageTest)
 SearchMessageTest::SearchMessageTest(QObject *parent)
     : QObject(parent)
 {
-
 }
