@@ -84,47 +84,6 @@ RocketChatAccount *Ruqola::rocketChatAccount() const
     return mRocketChatAccount;
 }
 
-#if 0
-QString Ruqola::authToken() const
-{
-    return mRocketChatAccount->authToken();
-}
-
-QString Ruqola::userName() const
-{
-    return mRocketChatAccount->userName();
-}
-
-QString Ruqola::userID() const
-{
-    return mRocketChatAccount->userID();
-}
-
-QString Ruqola::password() const
-{
-    return mRocketChatAccount->password();
-}
-
-void Ruqola::setAuthToken(const QString &token)
-{
-    mRocketChatAccount->setAuthToken(token);
-}
-
-void Ruqola::setPassword(const QString &password)
-{
-    mRocketChatAccount->setPassword(password);
-}
-
-void Ruqola::setUserName(const QString &username)
-{
-    mRocketChatAccount->setUserName(username);
-}
-
-void Ruqola::setUserId(const QString &userID)
-{
-    mRocketChatAccount->setUserID(userID);
-}
-#endif
 void Ruqola::sendNotification(const QString &title, const QString &message, const QPixmap &pixmap)
 {
     KNotification::event(KNotification::Notification, title,
@@ -140,17 +99,6 @@ Notification *Ruqola::notification()
     }
     return mNotification;
 }
-#if 0
-QString Ruqola::serverUrl() const
-{
-    return mRocketChatAccount->serverUrl();
-}
-
-void Ruqola::setServerUrl(const QString &serverURL)
-{
-    mRocketChatAccount->setServerUrl(serverURL);
-}
-#endif
 
 void Ruqola::slotInformTypingStatus(const QString &room, bool typing)
 {
