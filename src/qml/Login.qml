@@ -39,6 +39,7 @@ Kirigami.Page {
     property alias serverUrl: urlField.text;
     property alias accountName: nameField.text;
 
+    property string originalAccountName
     signal accepted()
 
     
@@ -76,7 +77,8 @@ Kirigami.Page {
 
         TextField {
             id: nameField
-            readOnly: text !== ""
+            text: originalAccountName
+            readOnly: originalAccountName !== ""
             width: parent.width
             placeholderText: i18n("Enter Account Name")
         }

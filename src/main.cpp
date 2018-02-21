@@ -50,8 +50,6 @@ int main(int argc, char *argv[])
 #endif
 
     KLocalizedString::setApplicationDomain("ruqola");
-    //Remove it!
-    QCoreApplication::setOrganizationName(QStringLiteral("KDE"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
 
     KAboutData aboutData(QStringLiteral("ruqola"),

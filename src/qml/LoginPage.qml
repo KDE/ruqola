@@ -33,7 +33,7 @@ Login {
     visible: rcAccount.loginStatus !== DDPClient.LoggedIn
     serverUrl: rcAccount.serverUrl
     username: rcAccount.userName
-    accountName: rcAccount.accountName
+    originalAccountName: rcAccount.accountName
     onAccepted: {
         rcAccount.password = loginTab.password;
         rcAccount.userName = loginTab.username;
