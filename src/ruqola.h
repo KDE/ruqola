@@ -62,10 +62,8 @@ public:
 private:
     Q_DISABLE_COPY(Ruqola)
     void sendNotification(const QString &title, const QString &message, const QPixmap &pixmap);
-    void slotInformTypingStatus(const QString &room, bool typing);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void logout(const QString &accountName);
-    RocketChatAccount *mRocketChatAccount = nullptr;
     Notification *mNotification = nullptr;
     QmlAboutData *mRuqolaAboutData = nullptr;
     UnityServiceManager *mUnityServiceManager = nullptr;

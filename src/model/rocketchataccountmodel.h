@@ -47,6 +47,7 @@ public:
 
     void insertAccounts(const QVector<RocketChatAccount *> &accounts);
 
+    RocketChatAccount *account(int index) const;
 private:
     QVector<RocketChatAccount *> mRocketChatAccount;
 };

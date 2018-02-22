@@ -23,12 +23,13 @@
 #include "rocketchataccount.h"
 #include <QTest>
 #include <QSignalSpy>
-
+#include <QStandardPaths>
 QTEST_MAIN(RocketChatAccountModelTest)
 
 RocketChatAccountModelTest::RocketChatAccountModelTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RocketChatAccountModelTest::shouldHaveDefaultValue()
@@ -40,12 +41,84 @@ void RocketChatAccountModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.roleNames(), roles);
 }
 
-void RocketChatAccountModelTest::shouldAddAccount()
+void RocketChatAccountModelTest::shouldAddAccountValue()
 {
-    //TODO
+    RocketChatAccountModel w;
+    QVector<RocketChatAccount *> accounts;
+    for (int i = 0; i < 10; ++i) {
+        RocketChatAccount *f = new RocketChatAccount();
+        accounts.append(f);
+    }
+    QSignalSpy rowInsertedSpy(&w, &RocketChatAccountModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &RocketChatAccountModel::rowsAboutToBeInserted);
+    QSignalSpy rowRemovedSpy(&w, &RocketChatAccountModel::rowsRemoved);
+    QSignalSpy rowABTRemoved(&w, &RocketChatAccountModel::rowsAboutToBeRemoved);
+
+    w.insertAccounts(accounts);
+    QCOMPARE(w.rowCount(), 10);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+    rowRemovedSpy.clear();
+    rowABTRemoved.clear();
+
+
+    qDeleteAll(accounts);
+    accounts.clear();
+    for (int i = 0; i < 3; ++i) {
+        RocketChatAccount *f = new RocketChatAccount();
+        accounts.append(f);
+    }
+
+    w.insertAccounts(accounts);
+
+    QCOMPARE(w.rowCount(), 3);
+
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowRemovedSpy.count(), 1);
+    QCOMPARE(rowABTRemoved.count(), 1);
+}
+
+void RocketChatAccountModelTest::shouldClearAccounts()
+{
+
 }
 
 void RocketChatAccountModelTest::shouldRemoveAccount()
 {
-    //TODO
+    RocketChatAccountModel w;
+    QVector<RocketChatAccount *> accounts;
+    for (int i = 0; i < 10; ++i) {
+        RocketChatAccount *f = new RocketChatAccount();
+        accounts.append(f);
+    }
+    QSignalSpy rowInsertedSpy(&w, &RocketChatAccountModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &RocketChatAccountModel::rowsAboutToBeInserted);
+    QSignalSpy rowRemovedSpy(&w, &RocketChatAccountModel::rowsRemoved);
+    QSignalSpy rowABTRemoved(&w, &RocketChatAccountModel::rowsAboutToBeRemoved);
+
+    w.insertAccounts(accounts);
+    QCOMPARE(w.rowCount(), 10);
+    QCOMPARE(rowInsertedSpy.count(), 1);
+    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+
+    rowInsertedSpy.clear();
+    rowABTInserted.clear();
+    rowRemovedSpy.clear();
+    rowABTRemoved.clear();
+
+    w.clear();
+
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(rowRemovedSpy.count(), 1);
+    QCOMPARE(rowABTRemoved.count(), 1);
+
 }

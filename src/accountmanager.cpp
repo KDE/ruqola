@@ -48,14 +48,32 @@ void AccountManager::loadAccount()
     while (it.hasNext()) {
         QString val = it.next();
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
-#if 0
-        RocketChatAccount *account = new RocketChatAccount(it.next());
+        qDebug() << "Account found list.at(i)" << val;
+        RocketChatAccount *account = new RocketChatAccount(val);
         connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
         connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
         connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
-     #endif
+        lstAccounts.append(account);
     }
+
+    //New account => empty list.
+    if(lstAccounts.isEmpty()) {
+        RocketChatAccount *account = new RocketChatAccount();
+        connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
+        connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
+        connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+        lstAccounts.append(account);
+    }
+
     mRocketChatAccountModel->insertAccounts(lstAccounts);
+}
+
+RocketChatAccount *AccountManager::firstAccount() const
+{
+    //Temporary too
+    RocketChatAccount *t = mRocketChatAccountModel->account(0);
+    qDebug() << "RocketChatAccount *AccountManager::firstAccount() const "<<t;
+    return t;
 }
 
 void AccountManager::addAccount(RocketChatAccount *account)

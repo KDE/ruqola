@@ -58,13 +58,7 @@ Ruqola::Ruqola(QObject *parent)
 
     //Todo load all account
     //customize account name.
-    mRocketChatAccount = new RocketChatAccount(QString(), this);
     mRuqolaAboutData = new QmlAboutData(this);
-    connect(mRocketChatAccount, &RocketChatAccount::notification, this, &Ruqola::sendNotification);
-    connect(mRocketChatAccount, &RocketChatAccount::updateNotification, this, &Ruqola::updateNotification);
-    connect(mRocketChatAccount, &RocketChatAccount::logoutDone, this, &Ruqola::logout);
-
-
 }
 
 AccountManager *Ruqola::accountManager() const
@@ -87,7 +81,7 @@ QmlAboutData *Ruqola::applicationData() const
 
 RocketChatAccount *Ruqola::rocketChatAccount() const
 {
-    return mRocketChatAccount;
+    return mAccountManager->firstAccount();
 }
 
 void Ruqola::sendNotification(const QString &title, const QString &message, const QPixmap &pixmap)
@@ -104,11 +98,6 @@ Notification *Ruqola::notification()
         mNotification = new Notification();
     }
     return mNotification;
-}
-
-void Ruqola::slotInformTypingStatus(const QString &room, bool typing)
-{
-    mRocketChatAccount->slotInformTypingStatus(room, typing);
 }
 
 void Ruqola::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)

@@ -36,6 +36,7 @@ public:
 
     void removeAccount(const QString &accountName);
 
+    Q_INVOKABLE RocketChatAccount *firstAccount() const;
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);

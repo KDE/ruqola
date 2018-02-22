@@ -30,4 +30,5 @@ Kirigami.Page {
     implicitWidth: 300
 
     //TODO
+    //Add listview  + delegate + remove button + add button.
 }

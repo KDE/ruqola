@@ -29,6 +29,7 @@
 #include "ruqolautils.h"
 #include "clipboardproxy.h"
 #include "authenticationmanager.h"
+#include "accountmanager.h"
 
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
@@ -84,6 +85,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<InputCompleterModel>("KDE.Ruqola.InputCompleterModel", 1, 0, "InputCompleterModel");
     qmlRegisterType<LoginMethodModel>("KDE.Ruqola.LoginMethodModel", 1, 0, "LoginMethodModel");
     qmlRegisterType<SearchMessageFilterProxyModel>("KDE.Ruqola.SearchMessageFilterProxyModel", 1, 0, "SearchMessageFilterProxyModel");
+    qmlRegisterType<AccountManager>("KDE.Ruqola.AccountManager", 1, 0, "AccountManager");
     qmlRegisterType<RocketChatAccountModel>("KDE.Ruqola.RocketChatAccountModel", 1, 0, "RocketChatAccountModel");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterType<ClipboardProxy>("KDE.Ruqola.Clipboard", 1, 0, "Clipboard");

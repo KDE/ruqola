@@ -64,6 +64,7 @@
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
 {
+    qDebug() << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)"<<accountFileName;
     //create an uniq file for each account
     if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
         mRuqolaLogger = new RuqolaLogger;

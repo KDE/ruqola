@@ -35,6 +35,7 @@ import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.Channel 1.0
+import KDE.Ruqola.AccountManager 1.0
 
 Kirigami.ApplicationWindow {
     id: appid
@@ -46,7 +47,8 @@ Kirigami.ApplicationWindow {
     property QtObject messageModel
     property QtObject userModel
     property QtObject filesModel
-    property QtObject rocketChatAccount: Ruqola.rocketChatAccount()
+    property QtObject accountManagerModel: Ruqola.accountManager()
+    property QtObject rocketChatAccount: accountManagerModel.firstAccount()
     property QtObject inputCompleterModel: rocketChatAccount.inputCompleterModel()
     property QtObject searchMessageModel: rocketChatAccount.searchMessageFilterProxyModel()
     property string userInputMessageText: "";
@@ -91,6 +93,13 @@ Kirigami.ApplicationWindow {
                 iconName: "tools-report-bug"
                 onTriggered: {
                     Qt.openUrlExternally("https://bugs.kde.org/report.cgi");
+                }
+            },
+            Kirigami.Action {
+                text: i18n("Configure Account")
+                iconName: "settings-configure"
+                onTriggered: {
+                    //TODO
                 }
             },
             Kirigami.Action {
