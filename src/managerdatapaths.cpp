@@ -53,8 +53,7 @@ QString ManagerDataPaths::path(ManagerDataPaths::PathType type, const QString &a
     if (!subdirectory.isEmpty()) {
         path += QLatin1Char('/') + subdirectory;
     }
-    //qCDebug(RUQOLA_LOG) << "ManagerDataPaths::path:" << path;
-    qDebug() << "ManagerDataPaths::path:" << path;
+    qCDebug(RUQOLA_LOG) << "ManagerDataPaths::path:" << path;
     return path;
 }
 
@@ -64,7 +63,7 @@ void ManagerDataPaths::initializePaths()
     mPathTypeHash.insert(PathType::Cache, QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
     mPathTypeHash.insert(PathType::Video, QStandardPaths::writableLocation(QStandardPaths::MoviesLocation));
     mPathTypeHash.insert(PathType::Picture, QStandardPaths::writableLocation(QStandardPaths::PicturesLocation));
-    qDebug() << "mPathTypeHash"<<mPathTypeHash;
+    qCDebug(RUQOLA_LOG) << "mPathTypeHash:" << mPathTypeHash;
 }
 
 void ManagerDataPaths::initializeAccountPath(const QString &accountName)

@@ -160,8 +160,11 @@ void RuqolaServerConfig::addOauthService(const QString &service)
         mServerOauthTypes |= AuthenticationManager::OauthType::Linkedin;
     } else if (serviceLower.endsWith(QLatin1String("wordpress"))) {
         mServerOauthTypes |= AuthenticationManager::OauthType::Wordpress;
+    } else if (serviceLower.endsWith(QLatin1String("_OAuth_Proxy_host"))) {
+        //Hide warning as it's not a service
+        qCDebug(RUQOLA_LOG) << "_OAuth_Proxy_host found ";
     } else {
-        qCWarning(RUQOLA_LOG) << "Unknow service type: " << service;
+        qCWarning(RUQOLA_LOG) << "Unknown service type: " << service;
     }
 }
 
