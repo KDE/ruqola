@@ -48,4 +48,7 @@ Dialog {
     onAccepted: {
         //TODO
     }
+    onRejected: {
+        //TODO
+    }
 }

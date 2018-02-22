@@ -85,10 +85,10 @@ void ManagerDataPaths::initializeAccountPath(const QString &accountName)
     if (!dir.mkpath(path(ManagerDataPaths::PathType::Config, accountName))) {
         qCWarning(RUQOLA_LOG) << "Impossible to create Config directory !";
     }
-    if (!dir.mkpath(path(ManagerDataPaths::PathType::Video, accountName, QStringLiteral("/recordings")))) {
+    if (!dir.mkpath(path(ManagerDataPaths::PathType::Video, accountName))) {
         qCWarning(RUQOLA_LOG) << "Impossible to create Video directory !";
     }
-    if (!dir.mkpath(path(ManagerDataPaths::PathType::Picture, accountName, QStringLiteral("/recordings")))) {
+    if (!dir.mkpath(path(ManagerDataPaths::PathType::Picture, accountName))) {
         qCWarning(RUQOLA_LOG) << "Impossible to create Picture directory !";
     }
 }

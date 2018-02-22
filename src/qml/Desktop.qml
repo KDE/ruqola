@@ -47,8 +47,9 @@ Kirigami.ApplicationWindow {
     property QtObject messageModel
     property QtObject userModel
     property QtObject filesModel
-    property QtObject accountManagerModel: Ruqola.accountManager()
-    property QtObject rocketChatAccount: accountManagerModel.firstAccount()
+    property QtObject accountManager: Ruqola.accountManager()
+    property QtObject accountManagerModel: accountManager.rocketChatAccountModel()
+    property QtObject rocketChatAccount: accountManager.firstAccount()
     property QtObject inputCompleterModel: rocketChatAccount.inputCompleterModel()
     property QtObject searchMessageModel: rocketChatAccount.searchMessageFilterProxyModel()
     property string userInputMessageText: "";
@@ -99,7 +100,8 @@ Kirigami.ApplicationWindow {
                 text: i18n("Configure Account")
                 iconName: "settings-configure"
                 onTriggered: {
-                    //TODO
+                    configureServerList.visible = true
+                    pageStack.visible = false
                 }
             },
             Kirigami.Action {
@@ -113,6 +115,12 @@ Kirigami.ApplicationWindow {
         ]
     }
     
+    ConfigureServerList {
+        id: configureServerList
+        accountModel: accountManagerModel
+        visible: false
+    }
+
     LoginPage {
         id: loginTab
         rcAccount: rocketChatAccount

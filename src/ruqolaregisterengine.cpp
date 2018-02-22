@@ -45,6 +45,7 @@
 #include "model/loginmethodmodel.h"
 #include "model/searchmessagefilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
+#include "model/rocketchataccountfilterproxymodel.h"
 
 #include "channel.h"
 #include <KLocalizedContext>
@@ -86,6 +87,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<LoginMethodModel>("KDE.Ruqola.LoginMethodModel", 1, 0, "LoginMethodModel");
     qmlRegisterType<SearchMessageFilterProxyModel>("KDE.Ruqola.SearchMessageFilterProxyModel", 1, 0, "SearchMessageFilterProxyModel");
     qmlRegisterType<AccountManager>("KDE.Ruqola.AccountManager", 1, 0, "AccountManager");
+    qmlRegisterType<RocketChatAccountFilterProxyModel>("KDE.Ruqola.RocketChatAccountFilterProxyModel", 1, 0, "RocketChatAccountFilterProxyModel");
     qmlRegisterType<RocketChatAccountModel>("KDE.Ruqola.RocketChatAccountModel", 1, 0, "RocketChatAccountModel");
     qRegisterMetaType<Message::MessageType>();
     qmlRegisterType<ClipboardProxy>("KDE.Ruqola.Clipboard", 1, 0, "Clipboard");

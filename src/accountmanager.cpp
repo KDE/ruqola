@@ -27,11 +27,14 @@
 #include <QFileInfoList>
 
 #include "model/rocketchataccountmodel.h"
+#include "model/rocketchataccountfilterproxymodel.h"
 
 AccountManager::AccountManager(QObject *parent)
     : QObject(parent)
 {
     mRocketChatAccountModel = new RocketChatAccountModel(this);
+    mRocketChatAccountProxyModel = new RocketChatAccountFilterProxyModel(this);
+    mRocketChatAccountProxyModel->setSourceModel(mRocketChatAccountModel);
     loadAccount();
 }
 
@@ -66,6 +69,11 @@ void AccountManager::loadAccount()
     }
 
     mRocketChatAccountModel->insertAccounts(lstAccounts);
+}
+
+RocketChatAccountFilterProxyModel *AccountManager::rocketChatAccountProxyModel() const
+{
+    return mRocketChatAccountProxyModel;
 }
 
 RocketChatAccount *AccountManager::firstAccount() const

@@ -25,6 +25,8 @@
 #include "libruqola_private_export.h"
 class RocketChatAccountModel;
 class RocketChatAccount;
+class RocketChatAccountFilterProxyModel;
+
 class LIBRUQOLACORE_TESTS_EXPORT AccountManager : public QObject
 {
     Q_OBJECT
@@ -35,8 +37,11 @@ public:
     Q_INVOKABLE RocketChatAccountModel *rocketChatAccountModel() const;
 
     void removeAccount(const QString &accountName);
+    void addAccount(RocketChatAccount *account);
 
     Q_INVOKABLE RocketChatAccount *firstAccount() const;
+    Q_INVOKABLE RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel() const;
+
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
@@ -46,8 +51,8 @@ private:
     Q_DISABLE_COPY(AccountManager)
 
     void loadAccount();
-    void addAccount(RocketChatAccount *account);
     RocketChatAccountModel *mRocketChatAccountModel = nullptr;
+    RocketChatAccountFilterProxyModel *mRocketChatAccountProxyModel = nullptr;
 };
 
 #endif // ACCOUNTMANAGER_H

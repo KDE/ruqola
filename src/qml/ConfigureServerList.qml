@@ -20,6 +20,7 @@
 
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import QtQuick.Layouts 1.3
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.RocketChatAccount 1.0
 
@@ -29,6 +30,32 @@ Kirigami.Page {
     implicitHeight: 400
     implicitWidth: 300
 
-    //TODO
-    //Add listview  + delegate + remove button + add button.
+    property QtObject accountModel
+
+    ListView {
+        id: listview
+        width: 300;
+        height: 200
+
+        model: accountModel
+        delegate:
+            RowLayout {
+            Text {
+                text: name
+            }
+            Kirigami.Icon {
+                //Fix icon ??
+                source: "list-remove"
+                //FIXME
+                height: 22
+                width: 22
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        //TODO show dialogbox when we remove account
+                    }
+                }
+            }
+        }
+    }
 }
