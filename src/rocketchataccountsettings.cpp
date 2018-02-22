@@ -42,7 +42,8 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
 {
     delete mSetting;
     mSetting = new QSettings(accountFileName, QSettings::IniFormat);
-    qCDebug(RUQOLA_LOG) << "accountFileName "<<accountFileName;
+    //qCDebug(RUQOLA_LOG) << "accountFileName "<<accountFileName;
+    qDebug() << "accountFileName "<<accountFileName;
 }
 
 QString RocketChatAccountSettings::userId() const

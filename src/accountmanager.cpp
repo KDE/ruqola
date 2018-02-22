@@ -46,7 +46,8 @@ void AccountManager::loadAccount()
                         "ruqola.conf"), QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
     QVector<RocketChatAccount *> lstAccounts;
     while (it.hasNext()) {
-        qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << it.next();
+        QString val = it.next();
+        qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
 #if 0
         RocketChatAccount *account = new RocketChatAccount(it.next());
         connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
