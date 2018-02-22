@@ -1,5 +1,6 @@
 org.kde.ruqola ruqola (ruqola)
 org.kde.ruqola.ddpapi ruqola (ddpapi)
+org.kde.ruqola.message ruqola (show message debug)
 org.kde.ruqola.ddpapi.command ruqola (ddpapi command)
 org.kde.ruqola.restapi ruqola (restapi)
 org.kde.ruqola.qml ruqola (qml)

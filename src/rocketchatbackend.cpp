@@ -25,6 +25,7 @@
 #include "rocketchatbackend.h"
 #include "model/usercompletermodel.h"
 #include "ruqola_debug.h"
+#include "ruqola_message_debug.h"
 #include "ddpapi/ddpclient.h"
 #include "restapi/restapirequest.h"
 #include "user.h"
@@ -167,7 +168,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
             d.setObject(o);
             mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("Message:") + d.toJson());
         } else {
-            qCDebug(RUQOLA_LOG) <<" new message: " << o;
+            qCDebug(RUQOLA_MESSAGE_LOG) <<" new message: " << o;
         }
         Message m;
         m.parseMessage(o);

@@ -21,6 +21,7 @@
 #include "accountmanager.h"
 #include "rocketchataccount.h"
 #include "managerdatapaths.h"
+#include "ruqola_debug.h"
 #include <QDir>
 #include <QDirIterator>
 #include <QFileInfoList>
@@ -40,12 +41,12 @@ AccountManager::~AccountManager()
 
 void AccountManager::loadAccount()
 {
-    qDebug() << " void AccountManager::loadAccount()"<<ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
+    qCDebug(RUQOLA_LOG) << " void AccountManager::loadAccount()"<<ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
     QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()), QStringList() << QStringLiteral(
                         "ruqola.conf"), QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
     QVector<RocketChatAccount *> lstAccounts;
     while (it.hasNext()) {
-        qDebug() << " list.at(i)" << it.next();
+        qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << it.next();
 #if 0
         RocketChatAccount *account = new RocketChatAccount(it.next());
         connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
