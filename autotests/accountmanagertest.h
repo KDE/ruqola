@@ -31,6 +31,7 @@ public:
     ~AccountManagerTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldAddAccount();
 };
 
 #endif // ACCOUNTMANAGERTEST_H
