@@ -48,7 +48,6 @@ void AccountManager::loadAccount()
     while (it.hasNext()) {
         QString val = it.next();
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
-        qDebug() << "Account found list.at(i)" << val;
         RocketChatAccount *account = new RocketChatAccount(val);
         connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
         connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
@@ -58,6 +57,7 @@ void AccountManager::loadAccount()
 
     //New account => empty list.
     if(lstAccounts.isEmpty()) {
+        qCDebug(RUQOLA_LOG) << "Empty list. Create a default rocketchataccout";
         RocketChatAccount *account = new RocketChatAccount();
         connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
         connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
