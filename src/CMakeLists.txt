@@ -38,6 +38,7 @@ set (Ruqola_model_core_srcs
     model/searchmessagefilterproxymodel.cpp
 
     model/rocketchataccountmodel.cpp
+    model/rocketchataccountfilterproxymodel.cpp
 
     )
 
