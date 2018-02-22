@@ -19,6 +19,7 @@
 */
 
 #include "rocketchataccountsettings.h"
+#include "managerdatapaths.h"
 #include "ruqola_debug.h"
 
 #include <QSettings>
@@ -26,9 +27,22 @@
 
 RocketChatAccountSettings::RocketChatAccountSettings(const QString &accountFileName, QObject *parent)
     : QObject(parent)
-    , mAccountFileName(accountFileName)
 {
-    //TODO use accountname for settings
+    initializeSettings(accountFileName);
+    qDebug() << " mAccountFileName"<<accountFileName;
+}
+
+RocketChatAccountSettings::~RocketChatAccountSettings()
+{
+    mSetting->sync();
+    delete mSetting;
+}
+
+void RocketChatAccountSettings::initializeSettings(const QString &accountFileName)
+{
+    delete mSetting;
+    mSetting = new QSettings(accountFileName, QSettings::IniFormat);
+    qCDebug(RUQOLA_LOG) << "accountFileName "<<accountFileName;
 }
 
 QString RocketChatAccountSettings::userId() const
@@ -40,8 +54,8 @@ void RocketChatAccountSettings::setUserId(const QString &userId)
 {
     //Don't use if( m_userID != userID) as we need to Q_EMIT userIDChanged
     mUserId = userId;
-    QSettings s;
-    s.setValue(QStringLiteral("userID"), userId);
+    mSetting->setValue(QStringLiteral("userID"), userId);
+    mSetting->sync();
     Q_EMIT userIDChanged();
 }
 
@@ -54,16 +68,15 @@ void RocketChatAccountSettings::setAuthToken(const QString &authToken)
 {
     if (mAuthToken != authToken) {
         qCDebug(RUQOLA_LOG) << "Setting token to" << authToken;
-        QSettings s;
         mAuthToken = authToken;
-        s.setValue(QStringLiteral("authToken"), authToken);
+        mSetting->setValue(QStringLiteral("authToken"), authToken);
     }
 }
 
 void RocketChatAccountSettings::logout()
 {
-    QSettings s;
-    s.setValue(QStringLiteral("authToken"), QString());
+    mSetting->setValue(QStringLiteral("authToken"), QString());
+    mSetting->sync();
     mAuthToken.clear();
     mUserId.clear();
     mPassword.clear();
@@ -71,12 +84,11 @@ void RocketChatAccountSettings::logout()
 
 void RocketChatAccountSettings::loadSettings()
 {
-    QSettings s;
-    mServerUrl = s.value(QStringLiteral("serverURL"), QStringLiteral("open.rocket.chat")).toString();
-    mUserName = s.value(QStringLiteral("username")).toString();
-    mUserId = s.value(QStringLiteral("userID")).toString();
-    mAuthToken = s.value(QStringLiteral("authToken")).toString();
-    mAccountName = s.value(QStringLiteral("accountName")).toString();
+    mServerUrl = mSetting->value(QStringLiteral("serverURL"), QStringLiteral("open.rocket.chat")).toString();
+    mUserName = mSetting->value(QStringLiteral("username")).toString();
+    mUserId = mSetting->value(QStringLiteral("userID")).toString();
+    mAuthToken = mSetting->value(QStringLiteral("authToken")).toString();
+    mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
 }
 
 QString RocketChatAccountSettings::password() const
@@ -98,8 +110,8 @@ void RocketChatAccountSettings::setUserName(const QString &userName)
 {
     if (mUserName != userName) {
         mUserName = userName;
-        QSettings s;
-        s.setValue(QStringLiteral("username"), mUserName);
+        mSetting->setValue(QStringLiteral("username"), mUserName);
+        mSetting->sync();
         Q_EMIT userNameChanged();
     }
 }
@@ -115,8 +127,9 @@ void RocketChatAccountSettings::setAccountName(const QString &accountName)
         return;
     }
 
-    QSettings s;
-    s.setValue(QStringLiteral("accountName"), accountName);
+    initializeSettings(ManagerDataPaths::self()->accountConfigFileName(accountName));
+    mSetting->setValue(QStringLiteral("accountName"), accountName);
+    mSetting->sync();
     mAccountName = accountName;
     Q_EMIT accountNameChanged();
 }
@@ -132,8 +145,8 @@ void RocketChatAccountSettings::setServerUrl(const QString &serverUrl)
         return;
     }
 
-    QSettings s;
-    s.setValue(QStringLiteral("serverURL"), serverUrl);
+    mSetting->setValue(QStringLiteral("serverURL"), serverUrl);
+    mSetting->sync();
     mServerUrl = serverUrl;
     Q_EMIT serverURLChanged();
 }
@@ -144,7 +157,7 @@ QString RocketChatAccountSettings::cacheBasePath()
         return QString();
     }
     if (mCachePath.isEmpty()) {
-        mCachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/') + mServerUrl;
+        mCachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccountName);
     }
     return mCachePath;
 }

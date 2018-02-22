@@ -213,6 +213,7 @@ public:
 
     void updateUser(const QJsonObject &object);
 
+    void initializeSettings(const QString &accountFileName);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

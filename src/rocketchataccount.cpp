@@ -77,11 +77,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     initializeAuthenticationPlugins();
 
     //TODO add account name.
-    mSettings = new RocketChatAccountSettings(accountFileName, this);
-    connect(mSettings, &RocketChatAccountSettings::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
-    connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverUrlChanged);
-    connect(mSettings, &RocketChatAccountSettings::userIDChanged, this, &RocketChatAccount::userIDChanged);
-    connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
+    initializeSettings(accountFileName);
 
     mRocketChatBackend = new RocketChatBackend(this, this);
 
@@ -126,6 +122,16 @@ RocketChatAccount::~RocketChatAccount()
 
     delete mRuqolaServerConfig;
     delete mRuqolaLogger;
+}
+
+void RocketChatAccount::initializeSettings(const QString &accountFileName)
+{
+    delete mSettings;
+    mSettings = new RocketChatAccountSettings(accountFileName, this);
+    connect(mSettings, &RocketChatAccountSettings::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
+    connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverUrlChanged);
+    connect(mSettings, &RocketChatAccountSettings::userIDChanged, this, &RocketChatAccount::userIDChanged);
+    connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
 }
 
 void RocketChatAccount::slotNeedToUpdateNotification()
@@ -728,6 +734,7 @@ void RocketChatAccount::setAccountName(const QString &accountname)
     //Initialize new account room
     ManagerDataPaths::self()->initializeAccountPath(accountname);
     qDebug() << "void RocketChatAccount::setAccountName(const QString &servername)"<<accountname;
+    initializeSettings(ManagerDataPaths::self()->accountConfigFileName(accountname));
     settings()->setAccountName(accountname);
 }
 

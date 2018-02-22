@@ -34,6 +34,12 @@ ManagerDataPaths *ManagerDataPaths::self()
     return &s_self;
 }
 
+QString ManagerDataPaths::accountConfigFileName(const QString &accountName)
+{
+    const QString accountPath = path(ManagerDataPaths::PathType::Config, accountName) + QStringLiteral("/ruqola.conf");
+    return accountPath;
+}
+
 QString ManagerDataPaths::path(ManagerDataPaths::PathType type, const QString &accountName, const QString &subdirectory)
 {
     QString path = mPathTypeHash.value(type);

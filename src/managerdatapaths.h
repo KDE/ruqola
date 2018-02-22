@@ -41,6 +41,7 @@ public:
     QString path(PathType type, const QString &accountName, const QString &subdirectory = QString());
 
     void initializeAccountPath(const QString &accountName);
+    QString accountConfigFileName(const QString &accountName);
 private:
     void initializePaths();
     QHash<ManagerDataPaths::PathType, QString> mPathTypeHash;

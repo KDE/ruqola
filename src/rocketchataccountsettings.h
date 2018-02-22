@@ -24,13 +24,13 @@
 #include <QString>
 #include <QObject>
 #include "libruqola_private_export.h"
-
+class QSettings;
 class LIBRUQOLACORE_EXPORT RocketChatAccountSettings : public QObject
 {
     Q_OBJECT
 public:
     explicit RocketChatAccountSettings(const QString &accountFileName = QString(), QObject *parent = nullptr);
-
+    ~RocketChatAccountSettings();
     QString userId() const;
     void setUserId(const QString &userId);
 
@@ -63,6 +63,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccountSettings)
+    void initializeSettings(const QString &accountFileName);
     QString mUserId;
     QString mAuthToken;
     QString mServerUrl;
@@ -70,7 +71,7 @@ private:
     QString mCachePath;
     QString mUserName;
     QString mPassword;
-    QString mAccountFileName;
+    QSettings *mSetting = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNTSETTINGS_H

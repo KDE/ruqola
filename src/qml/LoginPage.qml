@@ -35,10 +35,10 @@ Login {
     username: rcAccount.userName
     originalAccountName: rcAccount.accountName
     onAccepted: {
+        rcAccount.accountName = loginTab.accountName;
         rcAccount.password = loginTab.password;
         rcAccount.userName = loginTab.username;
         rcAccount.serverUrl = loginTab.serverUrl;
-        rcAccount.accountName = loginTab.accountName;
         rcAccount.tryLogin();
     }
 }
