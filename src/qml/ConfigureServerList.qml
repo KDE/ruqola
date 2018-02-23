@@ -34,6 +34,8 @@ Kirigami.Page {
 
     ListView {
         id: listview
+//        anchors.left: parent.left
+//        anchors.right: parent.right
         width: 300;
         height: 200
 
