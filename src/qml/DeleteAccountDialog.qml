@@ -29,7 +29,7 @@ Dialog {
 
     title: i18n("Delete Account")
 
-    property string rId: ""
+    property string accountName
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
@@ -39,7 +39,7 @@ Dialog {
 
     Row {
         Label {
-            text: i18n("Do you want to delete this account?")
+            text: i18n("Do you want to delete '%1' account?", accountName)
             font.bold: true
             font.pointSize: 15
         }

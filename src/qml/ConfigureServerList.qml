@@ -52,10 +52,18 @@ Kirigami.Page {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        //TODO show dialogbox when we remove account
+                        deleteAccountDialog.accountName = name
+                        deleteAccountDialog.open()
                     }
                 }
             }
+        }
+    }
+
+    DeleteAccountDialog {
+        id: deleteAccountDialog
+        onAccepted: {
+            //TODO
         }
     }
 }
