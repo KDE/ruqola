@@ -37,10 +37,12 @@ public:
     Q_INVOKABLE RocketChatAccountModel *rocketChatAccountModel() const;
 
     Q_INVOKABLE void removeAccount(const QString &accountName);
-    void addAccount(RocketChatAccount *account);
+    Q_INVOKABLE void addAccount(const QString &accountName, const QString &username, const QString &url);
 
     Q_INVOKABLE RocketChatAccount *firstAccount() const;
     Q_INVOKABLE RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel() const;
+
+    void addAccount(RocketChatAccount *account);
 
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);

@@ -173,6 +173,26 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor == 0) && (mServerVersionMinor >= 60);
 }
 
+QString RuqolaServerConfig::siteName() const
+{
+    return mSiteName;
+}
+
+void RuqolaServerConfig::setSiteName(const QString &siteName)
+{
+    mSiteName = siteName;
+}
+
+QString RuqolaServerConfig::siteUrl() const
+{
+    return mSiteUrl;
+}
+
+void RuqolaServerConfig::setSiteUrl(const QString &siteUrl)
+{
+    mSiteUrl = siteUrl;
+}
+
 AuthenticationManager::OauthTypes RuqolaServerConfig::ruqolaOauthTypes() const
 {
     return mRuqolaOauthTypes;

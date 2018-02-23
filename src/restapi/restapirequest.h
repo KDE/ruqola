@@ -85,6 +85,7 @@ private:
     void slotResult(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
 
+    void parsePrivateInfo(const QByteArray &data);
     void parseServerInfo(const QByteArray &data);
     void parseGetAvatar(const QByteArray &data, const QString &userId);
     void parseLogout(const QByteArray &data);

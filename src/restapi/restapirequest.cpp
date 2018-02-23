@@ -164,6 +164,12 @@ void RestApiRequest::parsePost(const QByteArray &data)
     qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parsePost: " << data;
 }
 
+void RestApiRequest::parsePrivateInfo(const QByteArray &data)
+{
+    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+    qDebug() << " replyJson" << replyJson;
+}
+
 void RestApiRequest::parseServerInfo(const QByteArray &data)
 {
     //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseServerInfo: " << data;
@@ -194,7 +200,7 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             parseChannelList(data);
             break;
         case PrivateInfo:
-            qDebug() << " private info" << data;
+            parsePrivateInfo(data);
             break;
         case GetAvatar:
             parseGetAvatar(data, reply->property("userId").toString());
@@ -340,12 +346,12 @@ void RestApiRequest::getPrivateSettings()
 {
     if (mUserId.isEmpty() ||mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getPrivateSettings problem with mUserId or mAuthToken";
-    } else {
+    } else {                
         QUrl url = generateUrl(RestApiUtil::RestApiUrlType::Settings);
-        QUrlQuery queryUrl;
-        queryUrl.addQueryItem(QStringLiteral("userId"), mUserId);
-        url.setQuery(queryUrl);
         QNetworkRequest request(url);
+        request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
+        request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+
         QNetworkReply *reply = mNetworkAccessManager->get(request);
         reply->setProperty("method", QVariant::fromValue(RestMethod::PrivateInfo));
     }

@@ -632,9 +632,9 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
                 mRuqolaServerConfig->addOauthService(id);
             }
         } else if (id == QLatin1String("Site_Url")) {
-            //TODO implement it.
+            mRuqolaServerConfig->setSiteUrl(value.toString());
         } else if (id == QLatin1String("Site_Name")) {
-            //TODO
+            mRuqolaServerConfig->setSiteName(value.toString());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
             qDebug() << "Other public settings id " << id << value;

@@ -67,12 +67,20 @@ public:
     void addRuqolaAuthenticationSupport(AuthenticationManager::OauthType type);
     AuthenticationManager::OauthTypes ruqolaOauthTypes() const;
 
+    QString siteUrl() const;
+    void setSiteUrl(const QString &siteUrl);
+
+    QString siteName() const;
+    void setSiteName(const QString &siteName);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;
     QString mFileUploadStorageType;
+    QString mSiteUrl;
+    QString mSiteName;
     AuthenticationManager::OauthTypes mServerOauthTypes = AuthenticationManager::OauthType::Password;
     AuthenticationManager::OauthTypes mRuqolaOauthTypes = AuthenticationManager::OauthType::Password;
     int mBlockEditingMessageInMinutes = 5;

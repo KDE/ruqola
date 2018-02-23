@@ -37,6 +37,8 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.jitsiMeetUrl().isEmpty());
     QVERIFY(config.uniqueId().isEmpty());
     QVERIFY(config.fileUploadStorageType().isEmpty());
+    QVERIFY(config.siteName().isEmpty());
+    QVERIFY(config.siteUrl().isEmpty());
     QVERIFY(config.allowMessageEditing());
     QVERIFY(config.otrEnabled());
     QVERIFY(!config.needAdaptNewSubscriptionRC60());
@@ -54,6 +56,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const bool allowEditing = false;
     const int minutes = 12;
     const bool otrEnable = false;
+    const QString siteName = QStringLiteral("sitename");
+    const QString siteUrl = QStringLiteral("siteurl");
     RuqolaServerConfig config;
     config.setJitsiMeetPrefix(jitsimeetprefix);
     config.setJitsiMeetUrl(jitsimeeturl);
@@ -62,6 +66,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setAllowMessageEditing(allowEditing);
     config.setBlockEditingMessageInMinutes(minutes);
     config.setOtrEnabled(otrEnable);
+    config.setSiteName(siteName);
+    config.setSiteUrl(siteUrl);
 
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
@@ -70,6 +76,9 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.allowMessageEditing(), allowEditing);
     QCOMPARE(config.blockEditingMessageInMinutes(), minutes);
     QCOMPARE(config.otrEnabled(), otrEnable);
+
+    QCOMPARE(config.siteUrl(), siteUrl);
+    QCOMPARE(config.siteName(), siteName);
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60_data()

@@ -84,6 +84,11 @@ RocketChatAccount *AccountManager::firstAccount() const
     return t;
 }
 
+void AccountManager::addAccount(const QString &accountName, const QString &username, const QString &url)
+{
+    //TODO
+}
+
 void AccountManager::addAccount(RocketChatAccount *account)
 {
     mRocketChatAccountModel->insertAccount(account);
