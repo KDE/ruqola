@@ -19,8 +19,9 @@
 */
 
 import QtQuick 2.9
-import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import QtQuick.Controls 1.4
+import QtQuick.Controls 2.2 as QQC2
 import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.RocketChatAccount 1.0
 
@@ -32,40 +33,51 @@ Kirigami.Page {
 
     property QtObject accountModel
 
-    ListView {
-        id: listview
-//        anchors.left: parent.left
-//        anchors.right: parent.right
-        width: 300;
-        height: 200
+    ColumnLayout {
+        ListView {
+            id: listview
+            //        anchors.left: parent.left
+            //        anchors.right: parent.right
+            width: 300;
+            height: 200
 
-        model: accountModel
-        delegate:
-            RowLayout {
-            Text {
-                text: name
-            }
-            Kirigami.Icon {
-                //Fix icon ??
-                source: "list-remove"
-                //FIXME
-                height: 22
-                width: 22
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        deleteAccountDialog.accountName = name
-                        deleteAccountDialog.open()
+            model: accountModel
+            delegate:
+                RowLayout {
+                Text {
+                    text: name
+                }
+                Kirigami.Icon {
+                    //Fix icon ??
+                    source: "list-remove"
+                    //FIXME
+                    height: 22
+                    width: 22
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            deleteAccountDialog.accountName = name
+                            deleteAccountDialog.open()
+                        }
                     }
                 }
             }
         }
+
+        ToolButton {
+            //iconName: "list-add"
+            text: i18n("Add Account...")
+            onClicked: {
+                //TODO
+            }
+        }
     }
+
 
     DeleteAccountDialog {
         id: deleteAccountDialog
         onAccepted: {
-            //TODO
+            appid.accountManager.removeAccount(accountName)
         }
     }
 }

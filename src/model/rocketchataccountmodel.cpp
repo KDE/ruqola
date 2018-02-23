@@ -98,6 +98,7 @@ void RocketChatAccountModel::insertAccount(RocketChatAccount *account)
 
 void RocketChatAccountModel::removeAccount(const QString &name)
 {
+    qDebug() << " void RocketChatAccountModel::removeAccount(const QString &name)"<<name;
     //Search account.
 }
 

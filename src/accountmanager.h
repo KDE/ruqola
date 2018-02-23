@@ -36,7 +36,7 @@ public:
 
     Q_INVOKABLE RocketChatAccountModel *rocketChatAccountModel() const;
 
-    void removeAccount(const QString &accountName);
+    Q_INVOKABLE void removeAccount(const QString &accountName);
     void addAccount(RocketChatAccount *account);
 
     Q_INVOKABLE RocketChatAccount *firstAccount() const;
