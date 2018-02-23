@@ -56,8 +56,6 @@ Ruqola::Ruqola(QObject *parent)
     connect(mAccountManager, &AccountManager::updateNotification, this, &Ruqola::updateNotification);
     connect(mAccountManager, &AccountManager::logoutAccountDone, this, &Ruqola::logout);
 
-    //Todo load all account
-    //customize account name.
     mRuqolaAboutData = new QmlAboutData(this);
 }
 
