@@ -59,7 +59,10 @@ QQC2.Dialog {
                 onWheel: {
                     if (wheel.modifiers & Qt.ControlModifier) {
                         var scaleBefore = image.scale;
-                        image.scale += image.scale * wheel.angleDelta.y / 120 / 10;
+                        var delta = wheel.angleDelta.y;
+                        if ((image.scale > 0.1 && delta < 0) || (image.scale < 5 && delta > 0)) {
+                            image.scale += image.scale * delta / 120 / 10;
+                        }
                     }
                 }
             }
