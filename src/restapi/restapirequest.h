@@ -40,7 +40,8 @@ public:
         GetAvatar,
         Get,
         Post,
-        ServerInfo
+        ServerInfo,
+        PrivateInfo,
     };
     Q_ENUM(RestMethod)
 
@@ -70,6 +71,7 @@ public:
     QNetworkReply *get(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"));
 
     void serverInfo();
+    void getPrivateSettings();
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

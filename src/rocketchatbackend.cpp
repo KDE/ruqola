@@ -189,7 +189,7 @@ void RocketChatBackend::slotLoginStatusChanged()
         mRocketChatAccount->ddp()->method(QStringLiteral("subscriptions/get"), QJsonDocument(params), subscription_callback);
         mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->settings()->authToken());
         mRocketChatAccount->restApi()->setUserId(mRocketChatAccount->settings()->userId());
-        mRocketChatAccount->restApi()->channelList();
+        mRocketChatAccount->restApi()->getPrivateSettings();
     }
 }
 

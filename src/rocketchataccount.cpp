@@ -631,8 +631,13 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mRuqolaServerConfig->addOauthService(id);
             }
+        } else if (id == QLatin1String("Site_Url")) {
+            //TODO implement it.
+        } else if (id == QLatin1String("Site_Name")) {
+            //TODO
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
+            qDebug() << "Other public settings id " << id << value;
         }
     }
     fillOauthModel();

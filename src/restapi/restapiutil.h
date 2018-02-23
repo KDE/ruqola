@@ -98,6 +98,7 @@ enum class RestApiUrlType {
     GroupsSetType,
     GroupsUnarchive,
     ServerInfo,
+    Settings,
 };
 LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBRUQOLACORE_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
