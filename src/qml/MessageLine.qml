@@ -45,8 +45,6 @@ ColumnLayout {
     TextField {
         id: messageLine
         //TODO add background style.
-
-
         //FIXME add multiline !!!
         inputMethodHints: Qt.ImhMultiLine
 
@@ -105,12 +103,16 @@ ColumnLayout {
                     interactive: true
                     clip: true
                     model: rcAccount.inputCompleterModel()
-                    delegate:
-                        RowLayout {
-                        Text {
-                            text: display
-                        }
+                    delegate: QQC2.ItemDelegate {
+                          text: model.display
+                          width: parent.width
+                          checked: listView.currentIndex == index
+                          onClicked:  {
+                              listView.currentIndex = model.index
+                              textSelected()
+                          }
                     }
+                    QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
                 }
             }
         }
@@ -122,10 +124,19 @@ ColumnLayout {
         }
     }
 
+    function textSelected() {
+        if (listView.currentItem) {
+            //Assign text.
+            //text = listView.currentItem.text;
+        }
+        popup.close()
+        //Put text.
+        //root.accepted()
+    }
     Keys.onDownPressed: {
-        inputTextCompleter.completionListView.incrementCurrentIndex()
+        listView.incrementCurrentIndex()
     }
     Keys.onUpPressed: {
-        inputTextCompleter.completionListView.decrementCurrentIndex()
+        listView.decrementCurrentIndex()
     }
 }
