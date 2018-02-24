@@ -26,7 +26,7 @@ RowLayout {
     property QtObject inputTextCompleterModel
 
     signal replaceText(string completerText)
-
+    property alias completionListView: listView
 //    Flow {
 //        id: topBarUserList
 //        readonly property bool isActive: true
@@ -59,6 +59,9 @@ RowLayout {
 //        }
 //    }
     ListView {
+        id: listView
         model: inputTextCompleterModel
+
+
     }
 }

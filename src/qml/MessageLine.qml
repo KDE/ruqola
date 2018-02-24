@@ -23,6 +23,7 @@
 
 import QtQuick 2.9
 import QtQuick.Controls 1.4
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Layouts 1.1
 
 import KDE.Ruqola.RocketChatAccount 1.0
@@ -41,11 +42,6 @@ ColumnLayout {
         messageLine.selectAll()
     }
 
-    InputTextCompleter {
-        id: inputTextCompleter
-        inputTextCompleterModel: rcAccount.inputCompleterModel()
-    }
-
     TextField {
         id: messageLine
         //TODO add background style.
@@ -58,7 +54,14 @@ ColumnLayout {
 
         Layout.fillWidth: true
         placeholderText: i18n("Enter message")
-
+        onTextChanged: {
+            if (text.length >= 2) {
+                showPopupCompleting()
+            } else {
+                popup.close()
+            }
+            footerItem.textEditing(text)
+        }
         onAccepted: {
             if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
                 if (messageId !== "") {
@@ -73,15 +76,54 @@ ColumnLayout {
                 text = "";
             }
         }
-        onTextChanged: {
-            footerItem.textEditing(text)
-        }
         Keys.onEscapePressed: {
             clearUnreadMessages();
         }
-        Keys.onUpPressed: {
-            console.log("move up");
+        QQC2.Popup {
+            id: popup
+            x: 0
+            y: /*messageLine.height*/-100 //TODO customize it.
+            padding: 0
+            width: messageLine.width
+            contentHeight: rect.height
+            visible: listView.count > 0
+
+            Rectangle {
+                id: rect
+
+                anchors.top: popup.top
+                anchors.left: popup.left
+
+                height: /*listView.contentHeight*/100 //TODO customize it.
+                width: popup.width
+
+                ListView {
+                    id: listView
+                    height: /*contentHeight*/100 //TODO customize it.
+                    width: parent.width
+                    interactive: true
+                    model: rcAccount.inputCompleterModel()
+                    delegate:
+                        RowLayout {
+                        Text {
+                            text: display
+                        }
+                    }
+                }
+            }
+        }
+        function showPopupCompleting() {
+            if (!popup.visible) {
+                popup.open()
+                listView.currentIndex = -1
+            }
         }
     }
 
+    Keys.onDownPressed: {
+        inputTextCompleter.completionListView.incrementCurrentIndex()
+    }
+    Keys.onUpPressed: {
+        inputTextCompleter.completionListView.decrementCurrentIndex()
+    }
 }
