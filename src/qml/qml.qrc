@@ -33,7 +33,6 @@
         <file>SearchChannelDialog.qml</file>
         <file>ShowFilesInRoomDialog.qml</file>
         <file>MessageLine.qml</file>
-        <file>InputTextCompleter.qml</file>
         <file>ShowSearchMessageDialog.qml</file>
         <file>DeleteAccountDialog.qml</file>
     </qresource>
