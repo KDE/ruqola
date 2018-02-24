@@ -52,13 +52,11 @@ ColumnLayout {
         placeholderText: i18n("Enter message")
         onTextChanged: {
             //Reactivate when autocompletion is ok.
-            /*
-            if (listView.count > 0) {
-                showPopupCompleting()
-            } else {
-                popup.close()
-            }
-            */
+//            if (listView.count > 0) {
+//                showPopupCompleting()
+//            } else {
+//                popup.close()
+//            }
             footerItem.textEditing(text)
         }
         onAccepted: {
@@ -74,9 +72,6 @@ ColumnLayout {
                 }
                 text = "";
             }
-        }
-        Keys.onEscapePressed: {
-            clearUnreadMessages();
         }
         QQC2.Popup {
             id: popup
@@ -130,9 +125,15 @@ ColumnLayout {
             //text = listView.currentItem.text;
         }
         popup.close()
-        //Put text.
-        //root.accepted()
     }
+    Keys.onEscapePressed: {
+        if (popup.visible) {
+            popup.close()
+        } else {
+            clearUnreadMessages();
+        }
+    }
+
     Keys.onDownPressed: {
         listView.incrementCurrentIndex()
     }
