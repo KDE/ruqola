@@ -49,17 +49,18 @@ ColumnLayout {
 
         //FIXME add multiline !!!
         inputMethodHints: Qt.ImhMultiLine
-        anchors.top: inputTextCompleter.bottom
-        anchors.bottom: parent.bottom
 
         Layout.fillWidth: true
         placeholderText: i18n("Enter message")
         onTextChanged: {
-            if (text.length >= 2) {
+            //Reactivate when autocompletion is ok.
+            /*
+            if (listView.count > 0) {
                 showPopupCompleting()
             } else {
                 popup.close()
             }
+            */
             footerItem.textEditing(text)
         }
         onAccepted: {
@@ -102,6 +103,7 @@ ColumnLayout {
                     height: /*contentHeight*/100 //TODO customize it.
                     width: parent.width
                     interactive: true
+                    clip: true
                     model: rcAccount.inputCompleterModel()
                     delegate:
                         RowLayout {
