@@ -70,6 +70,7 @@ Dialog {
             id: listview
             width: 300
             height: 200
+            clip: true
 
             model: filesModel
             delegate:

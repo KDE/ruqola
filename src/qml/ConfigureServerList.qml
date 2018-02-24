@@ -40,6 +40,7 @@ Kirigami.Page {
             //        anchors.right: parent.right
             width: 300;
             height: 200
+            clip: true
 
             model: accountModel
             delegate:
