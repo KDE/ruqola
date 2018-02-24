@@ -71,6 +71,9 @@ Dialog {
             width: 300
             height: 200
             clip: true
+            // Scrollars
+            ScrollIndicator.vertical: ScrollIndicator { }
+            ScrollIndicator.horizontal: ScrollIndicator { }
 
             model: filesModel
             delegate:
