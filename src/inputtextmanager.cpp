@@ -38,6 +38,12 @@ QString InputTextManager::replaceWord(const QString &newWord, const QString &tex
     if (newWord.isEmpty()) {
         return text;
     }
+    if (text.isEmpty()) {
+        return text;
+    }
+    if ((position >= text.length()) || (position < 0)) {
+        return text;
+    }
 
     int start = 0;
     for (int i = position; i >= 0; i--) {
