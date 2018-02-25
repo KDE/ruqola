@@ -147,6 +147,7 @@ public:
 
     Q_INVOKABLE SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     Q_INVOKABLE void setInputTextChanged(const QString &str, int position);
+    Q_INVOKABLE QString replaceWord(const QString &newWord, const QString &str, int position);
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;

@@ -33,19 +33,43 @@ InputTextManager::~InputTextManager()
 {
 }
 
-QString InputTextManager::replaceWord(const QString &newWord, const QString &str, int position)
+QString InputTextManager::replaceWord(const QString &newWord, const QString &text, int position)
 {
-    return str;
+    if (newWord.isEmpty()) {
+        return text;
+    }
+
+    int start = 0;
+    for (int i = position; i >= 0; i--) {
+        if (!text.at(i).isSpace()) {
+            continue;
+        }
+        //Don't replace # or @
+        start = i + 2;
+        break;
+    }
+    int end = text.length() - 1;
+    for (int i = position; i < text.length(); i++) {
+        if (!text.at(i).isSpace()) {
+            continue;
+        }
+        end = i;
+        break;
+    }
+    QString replaceText = text;
+    replaceText.replace(start, end - start + 1, newWord);
+    qDebug() << " new text" << replaceText;
+    return replaceText;
 }
 
 void InputTextManager::setInputTextChanged(const QString &text, int position)
 {
     if (text.isEmpty()) {
-        clear();
+        clearCompleter();
         return;
     }
     if (mAccount) {
-        QString word; //TODO search it.
+
         int start = 0;
         for (int i = position; i >= 0; i--) {
             if (!text.at(i).isSpace()) {
@@ -63,7 +87,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
             break;
         }
 
-        word = text.mid(start, end - start + 1);
+        const QString word = text.mid(start, end - start + 1);
         qDebug() << " text " << text << " position : " << position << " word: "<<word;
         //TODO check last word
         const QString str = word.right(word.length()-1);
@@ -77,12 +101,12 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
                 mAccount->inputChannelAutocomplete(str, QString());
             }
         } else {
-            clear();
+            clearCompleter();
         }
     }
 }
 
-void InputTextManager::clear()
+void InputTextManager::clearCompleter()
 {
     mInputCompleterModel->setStringList(QStringList());
 }

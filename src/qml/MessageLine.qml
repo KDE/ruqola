@@ -58,8 +58,6 @@ ColumnLayout {
             } else {
                 popup.close()
             }
-            //TextInput.moveCursorSelection(cursorPosition, TextInput.SelectWords);
-            //console.log("text:" + selectedText())
             footerItem.textEditing(text)
         }
         onAccepted: {
@@ -125,8 +123,7 @@ ColumnLayout {
 
     function textSelected() {
         if (listView.currentItem) {
-            //Assign text.
-            //text = listView.currentItem.text;
+            messageLine.text = rcAccount.replaceWord(listView.currentItem.text, messageLine.text, messageLine.cursorPosition)
         }
         popup.close()
     }

@@ -46,7 +46,7 @@ public:
 
     void setInputTextChanged(const QString &str, int position);
 
-    void clear();
+    void clearCompleter();
 
 private:
     InputCompleterModel *mInputCompleterModel = nullptr;
