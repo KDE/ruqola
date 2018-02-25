@@ -271,9 +271,11 @@ QString RocketChatAccount::getUserCurrentMessage(const QString &roomId)
 void RocketChatAccount::setUserCurrentMessage(const QString &message, const QString &roomId)
 {
     mRoomModel->setInputMessage(roomId, message);
-    //Only for test
-    qDebug() << " message " << message;
-    mInputTextManager->setInputText(message);
+}
+
+void RocketChatAccount::setInputTextChanged(const QString &str, int position)
+{
+    mInputTextManager->setInputTextChanged(str, position);
 }
 
 void RocketChatAccount::textEditing(const QString &roomId, const QString &str)

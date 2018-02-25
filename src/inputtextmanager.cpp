@@ -33,9 +33,15 @@ InputTextManager::~InputTextManager()
 {
 }
 
-void InputTextManager::setInputText(const QString &word)
+QString InputTextManager::replaceWord(const QString &newWord, const QString &str, int position)
+{
+    return str;
+}
+
+void InputTextManager::setInputTextChanged(const QString &str, int position)
 {
     if (mAccount) {
+        QString word; //TODO search it.
         //TODO check last word
         const QString str = word.right(word.length()-1);
         qDebug() << str;
