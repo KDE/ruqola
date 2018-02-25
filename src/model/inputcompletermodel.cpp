@@ -43,9 +43,10 @@ void InputCompleterModel::parseInputTextCompleter(const QJsonObject &obj)
     const QJsonArray users = obj.value(QLatin1String("users")).toArray();
     for (int i = 0; i < users.size(); i++) {
         const QJsonObject o = users.at(i).toObject();
-        lst.append(o.value(QLatin1String("name")).toString());
+        lst.append(o.value(QLatin1String("username")).toString());
+        //TODO store status!
     }
     //TODO
-    qDebug() << " void InputCompleterModel::parseInputTextCompleter(const QJsonObject &obj)"<<lst;
+    qDebug() << " void InputCompleterModel::parseInputTextCompleter(const QJsonObject &obj)"<<lst << obj;
     setStringList(lst);
 }
