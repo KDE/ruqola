@@ -20,6 +20,7 @@
 
 #include "inputtextmanager.h"
 #include "rocketchataccount.h"
+#include "ruqola_debug.h"
 #include "model/inputcompletermodel.h"
 
 InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
@@ -36,12 +37,15 @@ InputTextManager::~InputTextManager()
 QString InputTextManager::replaceWord(const QString &newWord, const QString &text, int position)
 {
     if (newWord.isEmpty()) {
+        qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Empty newWord";
         return text;
     }
     if (text.isEmpty()) {
+        qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Empty text";
         return text;
     }
     if ((position >= text.length()) || (position < 0)) {
+        qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Invalid position" << position;
         return text;
     }
 
