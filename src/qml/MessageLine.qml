@@ -57,6 +57,8 @@ ColumnLayout {
 //            } else {
 //                popup.close()
 //            }
+            //TextInput.moveCursorSelection(cursorPosition, TextInput.SelectWords);
+            //console.log("text:" + selectedText())
             footerItem.textEditing(text)
         }
         onAccepted: {
