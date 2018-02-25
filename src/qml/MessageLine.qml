@@ -34,7 +34,7 @@ import org.kde.kirigami 2.1 as Kirigami
 ColumnLayout {
     property alias messageLineText: messageLine.text
     property string savePreviousMessage
-
+    readonly property int popupheight: 100
     function setOriginalMessage(messageStr)
     {
         messageLine.text = messageStr
@@ -76,7 +76,7 @@ ColumnLayout {
         QQC2.Popup {
             id: popup
             x: 0
-            y: /*messageLine.height*/-100 //TODO customize it.
+            y: popupheight
             padding: 0
             width: messageLine.width
             contentHeight: rect.height
@@ -88,12 +88,12 @@ ColumnLayout {
                 anchors.top: popup.top
                 anchors.left: popup.left
 
-                height: /*listView.contentHeight*/100 //TODO customize it.
+                height: popupheight
                 width: popup.width
 
                 ListView {
                     id: listView
-                    height: /*contentHeight*/100 //TODO customize it.
+                    height: popupheight
                     width: parent.width
                     interactive: true
                     clip: true
