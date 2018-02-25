@@ -36,3 +36,24 @@ void InputTextManagerTest::shouldHaveDefaultValue()
     QCOMPARE(manager.inputCompleterModel()->rowCount(), 0);
     //TODO
 }
+
+void InputTextManagerTest::shouldReplaceWord_data()
+{
+    QTest::addColumn<QString>("newword");
+    QTest::addColumn<QString>("text");
+    QTest::addColumn<int>("position");
+    QTest::addColumn<QString>("result");
+    QTest::newRow("empty") << QString() << QString() << 5 << QString();
+}
+
+void InputTextManagerTest::shouldReplaceWord()
+{
+    QFETCH(QString, newword);
+    QFETCH(QString, text);
+    QFETCH(int, position);
+    QFETCH(QString, result);
+
+    InputTextManager manager(nullptr);
+    QCOMPARE(manager.replaceWord(newword, text, position), result);
+
+}

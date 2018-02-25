@@ -32,6 +32,8 @@ public:
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldReplaceWord_data();
+    void shouldReplaceWord();
 };
 
 #endif // INPUTTEXTMANAGERTEST_H
