@@ -51,12 +51,13 @@ ColumnLayout {
         Layout.fillWidth: true
         placeholderText: i18n("Enter message")
         onTextChanged: {
+            rcAccount.setInputTextChanged(text, cursorPosition);
             //Reactivate when autocompletion is ok.
-//            if (listView.count > 0) {
-//                showPopupCompleting()
-//            } else {
-//                popup.close()
-//            }
+            if (listView.count > 0) {
+                showPopupCompleting()
+            } else {
+                popup.close()
+            }
             //TextInput.moveCursorSelection(cursorPosition, TextInput.SelectWords);
             //console.log("text:" + selectedText())
             footerItem.textEditing(text)
@@ -78,7 +79,7 @@ ColumnLayout {
         QQC2.Popup {
             id: popup
             x: 0
-            y: popupheight
+            y: -popupheight
             padding: 0
             width: messageLine.width
             contentHeight: rect.height
@@ -115,6 +116,7 @@ ColumnLayout {
         }
         function showPopupCompleting() {
             if (!popup.visible) {
+                console.log("open !!!!!!!");
                 popup.open()
                 listView.currentIndex = -1
             }

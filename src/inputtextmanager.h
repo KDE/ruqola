@@ -46,6 +46,8 @@ public:
 
     void setInputTextChanged(const QString &str, int position);
 
+    void clear();
+
 private:
     InputCompleterModel *mInputCompleterModel = nullptr;
     RocketChatAccount *mAccount = nullptr;

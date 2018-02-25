@@ -38,10 +38,33 @@ QString InputTextManager::replaceWord(const QString &newWord, const QString &str
     return str;
 }
 
-void InputTextManager::setInputTextChanged(const QString &str, int position)
+void InputTextManager::setInputTextChanged(const QString &text, int position)
 {
+    if (text.isEmpty()) {
+        clear();
+        return;
+    }
     if (mAccount) {
         QString word; //TODO search it.
+        int start = 0;
+        for (int i = position; i >= 0; i--) {
+            if (!text.at(i).isSpace()) {
+                continue;
+            }
+            start = i + 1;
+            break;
+        }
+        int end = text.length() - 1;
+        for (int i = position; i < text.length(); i++) {
+            if (!text.at(i).isSpace()) {
+                continue;
+            }
+            end = i;
+            break;
+        }
+
+        word = text.mid(start, end - start + 1);
+        qDebug() << " text " << text << " position : " << position << " word: "<<word;
         //TODO check last word
         const QString str = word.right(word.length()-1);
         qDebug() << str;
@@ -53,8 +76,15 @@ void InputTextManager::setInputTextChanged(const QString &str, int position)
                 //FIXME word without @ ? and exception!
                 mAccount->inputChannelAutocomplete(str, QString());
             }
+        } else {
+            clear();
         }
     }
+}
+
+void InputTextManager::clear()
+{
+    mInputCompleterModel->setStringList(QStringList());
 }
 
 InputCompleterModel *InputTextManager::inputCompleterModel() const
