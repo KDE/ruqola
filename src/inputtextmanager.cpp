@@ -69,7 +69,6 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         return;
     }
     if (mAccount) {
-
         int start = 0;
         for (int i = position; i >= 0; i--) {
             if (!text.at(i).isSpace()) {

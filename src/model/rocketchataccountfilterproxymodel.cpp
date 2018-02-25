@@ -23,12 +23,10 @@
 RocketChatAccountFilterProxyModel::RocketChatAccountFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-
 }
 
 RocketChatAccountFilterProxyModel::~RocketChatAccountFilterProxyModel()
 {
-
 }
 
 QHash<int, QByteArray> RocketChatAccountFilterProxyModel::roleNames() const

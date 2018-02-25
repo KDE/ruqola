@@ -344,9 +344,9 @@ void RestApiRequest::getAvatar(const QString &userId)
 
 void RestApiRequest::getPrivateSettings()
 {
-    if (mUserId.isEmpty() ||mAuthToken.isEmpty()) {
+    if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getPrivateSettings problem with mUserId or mAuthToken";
-    } else {                
+    } else {
         QUrl url = generateUrl(RestApiUtil::RestApiUrlType::Settings);
         QNetworkRequest request(url);
         request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());

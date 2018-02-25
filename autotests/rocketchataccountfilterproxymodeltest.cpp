@@ -26,5 +26,4 @@ QTEST_MAIN(RocketChatAccountFilterProxyModelTest)
 RocketChatAccountFilterProxyModelTest::RocketChatAccountFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

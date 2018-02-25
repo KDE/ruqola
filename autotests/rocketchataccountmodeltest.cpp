@@ -66,7 +66,6 @@ void RocketChatAccountModelTest::shouldAddAccountValue()
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
 
-
     qDeleteAll(accounts);
     accounts.clear();
     for (int i = 0; i < 3; ++i) {
@@ -86,7 +85,6 @@ void RocketChatAccountModelTest::shouldAddAccountValue()
 
 void RocketChatAccountModelTest::shouldClearAccounts()
 {
-
 }
 
 void RocketChatAccountModelTest::shouldRemoveAccount()
@@ -120,5 +118,4 @@ void RocketChatAccountModelTest::shouldRemoveAccount()
     QCOMPARE(rowABTInserted.count(), 0);
     QCOMPARE(rowRemovedSpy.count(), 1);
     QCOMPARE(rowABTRemoved.count(), 1);
-
 }
