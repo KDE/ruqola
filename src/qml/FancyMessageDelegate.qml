@@ -185,6 +185,7 @@ Rectangle {
         target: loaded.item
         onLinkActivated: {
             if (link.startsWith("ruqola:/room/")) {
+                //TODO open channel dialogbox
                 appid.rocketChatAccount.openChannel(RuqolaUtils.extractRoomUserFromUrl(link));
             } else if (link.startsWith("ruqola:/user/")) {
                 var username = RuqolaUtils.extractRoomUserFromUrl(link);
