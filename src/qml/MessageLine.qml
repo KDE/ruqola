@@ -114,7 +114,6 @@ ColumnLayout {
         }
         function showPopupCompleting() {
             if (!popup.visible) {
-                console.log("open !!!!!!!");
                 popup.open()
                 listView.currentIndex = -1
             }
