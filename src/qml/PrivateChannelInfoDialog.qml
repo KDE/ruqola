@@ -17,9 +17,32 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+import QtQuick 2.9
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 1.4
+import QtQuick.Controls 2.2 as QQC2
+import QtQuick.Window 2.0
+import KDE.Ruqola.DebugCategory 1.0
+import KDE.Ruqola.RocketChatAccount 1.0
 
-import QtQuick 2.0
+QQC2.Dialog {
+    id: channelInfoDialog
 
-Item {
+    title: i18n("Info about this private channel")
+    standardButtons: QQC2.Dialog.Close
 
+    modal: true
+    x: parent.width / 2 - width / 2
+    y: parent.height / 2 - height / 2
+
+    property string userId: ""
+
+    function initializeAndOpen()
+    {
+        open();
+    }
+
+    GridLayout {
+        //TODO
+    }
 }
