@@ -52,6 +52,10 @@ QString InputTextManager::replaceWord(const QString &newWord, const QString &tex
 
     int start = 0;
     for (int i = position; i >= 0; i--) {
+        if (i == 0) {
+            start = 1;
+            break;
+        }
         if (!text.at(i).isSpace()) {
             continue;
         }
@@ -64,12 +68,11 @@ QString InputTextManager::replaceWord(const QString &newWord, const QString &tex
         if (!text.at(i).isSpace()) {
             continue;
         }
-        end = i;
+        end = i - 1;
         break;
     }
     QString replaceText = text;
     replaceText.replace(start, end - start + 1, newWord);
-    qDebug() << " new text" << replaceText;
     return replaceText;
 }
 

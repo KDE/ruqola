@@ -46,6 +46,7 @@ void InputTextManagerTest::shouldReplaceWord_data()
     QTest::newRow("empty") << QString() << QString() << 5 << QString();
     QTest::newRow("replace1") << QStringLiteral("bla") << QStringLiteral("foo @d") << 5 << QStringLiteral("foo @bla");
     QTest::newRow("replace2") << QStringLiteral("bla") << QStringLiteral("foo @daaaa") << 5 << QStringLiteral("foo @bla");
+    QTest::newRow("replace3") << QStringLiteral("bla") << QStringLiteral("@daaaa foo") << 0 << QStringLiteral("@bla foo");
 }
 
 void InputTextManagerTest::shouldReplaceWord()
