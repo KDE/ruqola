@@ -48,6 +48,8 @@ public:
 
     void clearCompleter();
 
+    //Only for autotests
+    QString searchWord(const QString &text, int position);
 private:
     InputCompleterModel *mInputCompleterModel = nullptr;
     RocketChatAccount *mAccount = nullptr;

@@ -60,3 +60,21 @@ void InputTextManagerTest::shouldReplaceWord()
     QCOMPARE(manager.replaceWord(newword, text, position), result);
 
 }
+
+void InputTextManagerTest::shouldSearchWord_data()
+{
+    QTest::addColumn<QString>("text");
+    QTest::addColumn<int>("position");
+    QTest::addColumn<QString>("result");
+    QTest::newRow("empty") << QString() << 5 << QString();
+}
+
+void InputTextManagerTest::shouldSearchWord()
+{
+    QFETCH(QString, text);
+    QFETCH(int, position);
+    QFETCH(QString, result);
+
+    InputTextManager manager(nullptr);
+    QCOMPARE(manager.searchWord(text, position), result);
+}

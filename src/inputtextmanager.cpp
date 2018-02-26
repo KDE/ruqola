@@ -76,6 +76,32 @@ QString InputTextManager::replaceWord(const QString &newWord, const QString &tex
     return replaceText;
 }
 
+QString InputTextManager::searchWord(const QString &text, int position)
+{
+    if (text.isEmpty()) {
+        return {};
+    }
+    int start = 0;
+    for (int i = position; i >= 0; i--) {
+        if (!text.at(i).isSpace()) {
+            continue;
+        }
+        start = i + 1;
+        break;
+    }
+    int end = text.length() - 1;
+    for (int i = position; i < text.length(); i++) {
+        if (!text.at(i).isSpace()) {
+            continue;
+        }
+        end = i;
+        break;
+    }
+
+    const QString word = text.mid(start, end - start + 1);
+    return word;
+}
+
 void InputTextManager::setInputTextChanged(const QString &text, int position)
 {
     if (text.isEmpty()) {
@@ -83,38 +109,20 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         return;
     }
     if (mAccount) {
-        int start = 0;
-        for (int i = position; i >= 0; i--) {
-            if (!text.at(i).isSpace()) {
-                continue;
-            }
-            start = i + 1;
-            break;
-        }
-        int end = text.length() - 1;
-        for (int i = position; i < text.length(); i++) {
-            if (!text.at(i).isSpace()) {
-                continue;
-            }
-            end = i;
-            break;
-        }
-
-        const QString word = text.mid(start, end - start + 1);
-        qDebug() << " text " << text << " position : " << position << " word: "<<word;
-        //TODO check last word
+        const QString word = searchWord(text, position);
         const QString str = word.right(word.length()-1);
-        qDebug() << str;
-        if (!word.isEmpty()) {
+        if (word.isEmpty()) {
+            clearCompleter();
+        } else {
             if (word.startsWith(QLatin1Char('@'))) {
                 //FIXME word without @ ? and exception!
                 mAccount->inputUserAutocomplete(str, QString());
             } else if (word.startsWith(QLatin1Char('#'))) {
                 //FIXME word without @ ? and exception!
                 mAccount->inputChannelAutocomplete(str, QString());
+            } else {
+                clearCompleter();
             }
-        } else {
-            clearCompleter();
         }
     }
 }
