@@ -38,6 +38,7 @@ void RoomWrapperTest::shouldHaveDefaultValue()
     QVERIFY(w.announcement().isEmpty());
     QVERIFY(w.name().isEmpty());
     QVERIFY(w.topic().isEmpty());
+    QVERIFY(w.channelType().isEmpty());
     QCOMPARE(w.favorite(), false);
     QCOMPARE(w.blocker(), false);
 

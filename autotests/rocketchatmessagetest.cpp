@@ -410,3 +410,19 @@ void RocketChatMessageTest::inputUserAutocomplete()
     RocketChatMessage::RocketChatMessageResult r = m.inputUserAutocomplete(QStringLiteral("pattern"), QStringLiteral("exception"), 43);
     compareFile(r.result, QStringLiteral("inputUserAutocomplete"));
 }
+
+void RocketChatMessageTest::blockUser()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.blockUser(QStringLiteral("userId"), 43);
+    compareFile(r.result, QStringLiteral("blockUser"));
+}
+
+void RocketChatMessageTest::unBlockUser()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.unblockUser(QStringLiteral("userId"), 43);
+    compareFile(r.result, QStringLiteral("unBlockUser"));
+}

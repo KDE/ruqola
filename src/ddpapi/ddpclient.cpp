@@ -43,6 +43,20 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void block_user(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Block User:") + QJsonDocument(root).toJson());
+    }
+}
+
+void unblock_user(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("UnBlock User:") + QJsonDocument(root).toJson());
+    }
+}
+
 void message_search(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -561,6 +575,18 @@ quint64 DDPClient::messageSearch(const QString &rid, const QString &pattern)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->messageSearch(rid, pattern, m_uid);
     return method(result, message_search, DDPClient::Persistent);
+}
+
+quint64 DDPClient::unBlockUser(const QString &userId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->unblockUser(userId, m_uid);
+    return method(result, block_user, DDPClient::Persistent);
+}
+
+quint64 DDPClient::blockUser(const QString &userId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->blockUser(userId, m_uid);
+    return method(result, unblock_user, DDPClient::Persistent);
 }
 
 quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)

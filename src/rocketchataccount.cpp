@@ -929,3 +929,12 @@ void RocketChatAccount::userStatusChanged(const User &user)
     }
     mRoomModel->userStatusChanged(user);
 }
+
+void RocketChatAccount::blockUser(const QString &userId, bool block)
+{
+    if (block) {
+        ddp()->blockUser(userId);
+    } else {
+        ddp()->unBlockUser(userId);
+    }
+}

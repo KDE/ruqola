@@ -37,6 +37,7 @@
         <file>DeleteAccountDialog.qml</file>
         <file>OpenChannelDialog.qml</file>
         <file>PrivateChannelInfoDialog.qml</file>
+        <file>PasswordLineEdit.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

@@ -17,45 +17,10 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-import QtQuick 2.9
-import QtQuick.Layouts 1.3
-import QtQuick.Controls 1.4
-import QtQuick.Controls 2.2 as QQC2
-import QtQuick.Window 2.0
-import KDE.Ruqola.DebugCategory 1.0
-import KDE.Ruqola.RocketChatAccount 1.0
 
-QQC2.Dialog {
-    id: privateChannelInfoDialog
 
-    property QtObject roomInfo
-    property string userId //TODO
+import QtQuick 2.0
 
-    signal blockUser(string userId, bool block)
+Item {
 
-    title: i18n("Info about this private channel")
-    standardButtons: QQC2.Dialog.Close
-
-    modal: true
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
-
-    property string userId: ""
-
-    function initializeAndOpen()
-    {
-        //TODO change text !
-        open();
-    }
-
-    ColumnLayout {
-        Button {
-            id: blockUnblockUser
-            width: parent.width
-            text: roomInfo.blocker ? i18n("Unblock user") : i18n("Block user")
-            onClicked: {
-                //TODO emit
-            }
-        }
-    }
 }

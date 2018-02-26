@@ -134,6 +134,11 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    PrivateChannelInfoDialog {
+        id: privateChannelInfoDialog
+        //TODO
+    }
+
     ChannelInfoDialog {
         id: channelInfoDialog
         channelName: (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""

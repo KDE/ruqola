@@ -105,7 +105,16 @@ Component {
                         QQC2.MenuItem {
                             text: i18n("Channel Info")
                             onTriggered: {
-                                channelInfoDialog.initializeAndOpen()
+                                var channelType = appid.selectedRoom.channelType;
+                                if (channelType === "c") {
+                                    channelInfoDialog.roomInfo = appid.selectedRoom
+                                    channelInfoDialog.initializeAndOpen()
+                                } else if (channelType === "d") {
+                                    privateChannelInfoDialog.roomInfo = appid.selectedRoom
+                                    privateChannelInfoDialog.initializeAndOpen()
+                                } else {
+                                    console.log("channel type " + appid.selectedRoom.channelType)
+                                }
                             }
                         }
                         RuqolaMenuSeparator {

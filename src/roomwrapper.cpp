@@ -73,3 +73,8 @@ bool RoomWrapper::blocker() const
 {
     return mRoom->blocker();
 }
+
+QString RoomWrapper::channelType() const
+{
+    return mRoom->channelType();
+}

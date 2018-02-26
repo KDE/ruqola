@@ -28,6 +28,7 @@ import org.kde.kirigami 2.1 as Kirigami
 RowLayout {
     id: textFieldEditor
     signal updateValue(string newVal)
+    property alias textField: channelNameField.text
 
     function clear()
     {

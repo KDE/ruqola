@@ -25,6 +25,7 @@ import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
+import KDE.Ruqola.RoomWrapper 1.0
 
 QQC2.Dialog {
     id: channelInfoDialog
@@ -37,6 +38,7 @@ QQC2.Dialog {
     y: parent.height / 2 - height / 2
 
     property string channelName: ""
+    property QtObject roomInfo
 
     signal modifyChannelSetting(string roomId, int type, var newVal)
     signal deleteRoom(string roomId)
@@ -45,12 +47,14 @@ QQC2.Dialog {
 
     function initializeAndOpen()
     {
-        channelNameField.clear();
-        channelCommentField.clear();
-        channelAnnoucementField.clear();
+        channelNameField.textField = roomInfo.name;
+        channelCommentField.textField = roomInfo.topic;
+        channelAnnoucementField.textField = roomInfo.announcement;
+        //TODO add description.
         channelDescriptionField.clear();
+        //TODO
         archiveRoom.checked = false;
-        readOnlyRoom.checked = false;
+        readOnlyRoom.checked = roomInfo.readOnly;
         open();
     }
 
