@@ -26,6 +26,7 @@ ListView {
     clip: true
 
     signal openDirectChannel(string userName)
+    signal openChannel(string channel)
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
     signal downloadAttachment(string url)
@@ -76,6 +77,10 @@ ListView {
         i_can_editing_message: canEditingMessage
         i_starred: starred
         i_editedByUserName: editedByUsername
+
+        onOpenChannel: {
+            activeChat.openChannel(channel)
+        }
 
         onOpenDirectChannel: {
             activeChat.openDirectChannel(userName)

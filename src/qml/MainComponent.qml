@@ -239,17 +239,22 @@ Component {
             onEditMessage: {
                 userInputMessage.messageId = messageId;
                 userInputMessage.setOriginalMessage(messageStr)
-                //console.log(RuqolaDebugCategorySingleton.category, "edit! messageId : " + messageId + " messageStr " + messageStr)
+                console.log(RuqolaDebugCategorySingleton.category, "edit! messageId : " + messageId + " messageStr " + messageStr)
             }
             onCopyMessage: {
                 clipboard.text = messageStr
-                //console.log(RuqolaDebugCategorySingleton.category, "copy! messageId : " + messageId + " messageStr " + messageStr)
+                console.log(RuqolaDebugCategorySingleton.category, "copy! messageId : " + messageId + " messageStr " + messageStr)
             }
             onReplyMessage: {
                 console.log(RuqolaDebugCategorySingleton.category, "Not implemented reply message : " + messageId)
             }
             onSetFavoriteMessage: {
                 appid.rocketChatAccount.starMessage(messageId, roomId, starred)
+            }
+
+            onOpenChannel: {
+                openChannelDialog.channelName = channel
+                openChannelDialog.open()
             }
 
             onOpenDirectChannel: {
@@ -272,6 +277,13 @@ Component {
                 displayImageDialog.iUrl = imageUrl
                 displayImageDialog.title = title
                 displayImageDialog.clearScaleAndOpen();
+            }
+
+            OpenChannelDialog {
+                id: openChannelDialog
+                onOpenChannel: {
+                    appid.rocketChatAccount.openChannel(channelName);
+                }
             }
 
             OpenDirectChannelDialog {
@@ -322,7 +334,7 @@ Component {
         footer: UserInput {
             id: userInputMessage
             rcAccount: appid.rocketChatAccount
-            visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false)
+            visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false) && appid.selectedRoom.blocker === false
             anchors.bottom: mainWidget.bottom
             messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
             onTextEditing: {

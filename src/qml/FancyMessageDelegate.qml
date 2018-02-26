@@ -61,6 +61,7 @@ Rectangle {
     implicitWidth: 150
     
     signal openDirectChannel(string userName)
+    signal openChannel(string channel)
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
     signal downloadAttachment(string url)
@@ -185,8 +186,8 @@ Rectangle {
         target: loaded.item
         onLinkActivated: {
             if (link.startsWith("ruqola:/room/")) {
-                //TODO open channel dialogbox
-                appid.rocketChatAccount.openChannel(RuqolaUtils.extractRoomUserFromUrl(link));
+                var username = RuqolaUtils.extractRoomUserFromUrl(link);
+                messageMain.openChannel(username)
             } else if (link.startsWith("ruqola:/user/")) {
                 var username = RuqolaUtils.extractRoomUserFromUrl(link);
                 if (username !== appid.rocketChatAccount.userName) {
