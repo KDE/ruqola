@@ -1,6 +1,6 @@
 /*
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
- * Copyright 2017  Laurent Montel <montel@kde.org>
+ * Copyright 2017-2018 Laurent Montel <montel@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -34,6 +34,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(QString announcement READ announcement NOTIFY announcementChanged)
     Q_PROPERTY(bool favorite READ favorite NOTIFY favoriteChanged)
     Q_PROPERTY(bool readOnly READ readOnly NOTIFY readOnlyChanged)
+    Q_PROPERTY(bool blocker READ blocker NOTIFY blockerChanged)
     Q_OBJECT
 
 public:
@@ -46,6 +47,7 @@ public:
     QString announcement() const;
     bool favorite() const;
     bool readOnly() const;
+    bool blocker() const;
 
 Q_SIGNALS:
     void nameChanged();
@@ -53,6 +55,7 @@ Q_SIGNALS:
     void announcementChanged();
     void favoriteChanged();
     void readOnlyChanged();
+    void blockerChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)

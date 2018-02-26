@@ -29,6 +29,9 @@ class RoomWrapperTest : public QObject
 public:
     explicit RoomWrapperTest(QObject *parent = nullptr);
     ~RoomWrapperTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldAssignValue();
 };
 
 #endif // ROOMWRAPPERTEST_H

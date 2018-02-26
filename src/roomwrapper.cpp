@@ -1,6 +1,6 @@
 /*
  * Copyright 2016  Riccardo Iaconelli <riccardo@kde.org>
- * Copyright 2017  Laurent Montel <montel@kde.org>
+ * Copyright 2017-2018 Laurent Montel <montel@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -37,6 +37,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::announcementChanged, this, &RoomWrapper::announcementChanged);
     connect(mRoom, &Room::nameChanged, this, &RoomWrapper::nameChanged);
     connect(mRoom, &Room::readOnlyChanged, this, &RoomWrapper::readOnlyChanged);
+    connect(mRoom, &Room::blockerChanged, this, &RoomWrapper::blockerChanged);
 }
 
 RoomWrapper::~RoomWrapper()
@@ -66,4 +67,9 @@ bool RoomWrapper::favorite() const
 bool RoomWrapper::readOnly() const
 {
     return mRoom->readOnly();
+}
+
+bool RoomWrapper::blocker() const
+{
+    return mRoom->blocker();
 }

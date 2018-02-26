@@ -19,11 +19,159 @@
 */
 
 #include "roomwrappertest.h"
+#include "roomwrapper.h"
+#include "room.h"
 #include <QTest>
+#include <QSignalSpy>
 QTEST_GUILESS_MAIN(RoomWrapperTest)
 
 RoomWrapperTest::RoomWrapperTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void RoomWrapperTest::shouldHaveDefaultValue()
+{
+    Room *room = new Room();
+    RoomWrapper w(room);
+    QVERIFY(w.announcement().isEmpty());
+    QVERIFY(w.name().isEmpty());
+    QVERIFY(w.topic().isEmpty());
+    QCOMPARE(w.favorite(), false);
+    QCOMPARE(w.blocker(), false);
+
+    delete room;
+}
+
+void RoomWrapperTest::shouldAssignValue()
+{
+    Room *room = new Room();
+    RoomWrapper w(room);
+    QSignalSpy spyRoomAnnoucementChanged(&w, &RoomWrapper::announcementChanged);
+    QSignalSpy spyRoomTopicChanged(&w, &RoomWrapper::topicChanged);
+    QSignalSpy spyRoomNameChanged(&w, &RoomWrapper::nameChanged);
+    QSignalSpy spyRoomFavoriteChanged(&w, &RoomWrapper::favoriteChanged);
+    QSignalSpy spyRoomBlockerChanged(&w, &RoomWrapper::blockerChanged);
+
+    room->setAnnouncement(QStringLiteral("foo"));
+
+    QCOMPARE(spyRoomAnnoucementChanged.count(), 1);
+    QCOMPARE(spyRoomTopicChanged.count(), 0);
+    QCOMPARE(spyRoomNameChanged.count(), 0);
+    QCOMPARE(spyRoomFavoriteChanged.count(), 0);
+    QCOMPARE(spyRoomBlockerChanged.count(), 0);
+
+    spyRoomAnnoucementChanged.clear();
+    spyRoomTopicChanged.clear();
+    spyRoomNameChanged.clear();
+    spyRoomFavoriteChanged.clear();
+    spyRoomBlockerChanged.clear();
+
+    room->setAnnouncement(QStringLiteral("foo"));
+    QCOMPARE(spyRoomAnnoucementChanged.count(), 0);
+    QCOMPARE(spyRoomTopicChanged.count(), 0);
+    QCOMPARE(spyRoomNameChanged.count(), 0);
+    QCOMPARE(spyRoomFavoriteChanged.count(), 0);
+    QCOMPARE(spyRoomBlockerChanged.count(), 0);
+
+    spyRoomAnnoucementChanged.clear();
+    spyRoomTopicChanged.clear();
+    spyRoomNameChanged.clear();
+    spyRoomFavoriteChanged.clear();
+    spyRoomBlockerChanged.clear();
+
+    room->setTopic(QStringLiteral("foo"));
+    QCOMPARE(spyRoomAnnoucementChanged.count(), 0);
+    QCOMPARE(spyRoomTopicChanged.count(), 1);
+    QCOMPARE(spyRoomNameChanged.count(), 0);
+    QCOMPARE(spyRoomFavoriteChanged.count(), 0);
+    QCOMPARE(spyRoomBlockerChanged.count(), 0);
+
+    spyRoomAnnoucementChanged.clear();
+    spyRoomTopicChanged.clear();
+    spyRoomNameChanged.clear();
+    spyRoomFavoriteChanged.clear();
+    spyRoomBlockerChanged.clear();
+
+    room->setTopic(QStringLiteral("foo"));
+    QCOMPARE(spyRoomAnnoucementChanged.count(), 0);
+    QCOMPARE(spyRoomTopicChanged.count(), 0);
+    QCOMPARE(spyRoomNameChanged.count(), 0);
+    QCOMPARE(spyRoomFavoriteChanged.count(), 0);
+    QCOMPARE(spyRoomBlockerChanged.count(), 0);
+
+    spyRoomAnnoucementChanged.clear();
+    spyRoomTopicChanged.clear();
+    spyRoomNameChanged.clear();
+    spyRoomFavoriteChanged.clear();
+    spyRoomBlockerChanged.clear();
+
+    //favorite
+    room->setFavorite(true);
+    QCOMPARE(spyRoomAnnoucementChanged.count(), 0);
+    QCOMPARE(spyRoomTopicChanged.count(), 0);
+    QCOMPARE(spyRoomNameChanged.count(), 0);
+    QCOMPARE(spyRoomFavoriteChanged.count(), 1);
+    QCOMPARE(spyRoomBlockerChanged.count(), 0);
+
+    spyRoomAnnoucementChanged.clear();
+    spyRoomTopicChanged.clear();
+    spyRoomNameChanged.clear();
+    spyRoomFavoriteChanged.clear();
+    spyRoomBlockerChanged.clear();
+
+    room->setFavorite(true);
+    QCOMPARE(spyRoomAnnoucementChanged.count(), 0);
+    QCOMPARE(spyRoomTopicChanged.count(), 0);
+    QCOMPARE(spyRoomNameChanged.count(), 0);
+    QCOMPARE(spyRoomFavoriteChanged.count(), 0);
+    QCOMPARE(spyRoomBlockerChanged.count(), 0);
+
+    spyRoomAnnoucementChanged.clear();
+    spyRoomTopicChanged.clear();
+    spyRoomNameChanged.clear();
+    spyRoomFavoriteChanged.clear();
+    spyRoomBlockerChanged.clear();
+
+    //blocker
+    room->setBlocker(true);
+    QCOMPARE(spyRoomAnnoucementChanged.count(), 0);
+    QCOMPARE(spyRoomTopicChanged.count(), 0);
+    QCOMPARE(spyRoomNameChanged.count(), 0);
+    QCOMPARE(spyRoomFavoriteChanged.count(), 0);
+    QCOMPARE(spyRoomBlockerChanged.count(), 1);
+
+    spyRoomAnnoucementChanged.clear();
+    spyRoomTopicChanged.clear();
+    spyRoomNameChanged.clear();
+    spyRoomFavoriteChanged.clear();
+    spyRoomBlockerChanged.clear();
+
+    room->setBlocker(true);
+    QCOMPARE(spyRoomAnnoucementChanged.count(), 0);
+    QCOMPARE(spyRoomTopicChanged.count(), 0);
+    QCOMPARE(spyRoomNameChanged.count(), 0);
+    QCOMPARE(spyRoomFavoriteChanged.count(), 0);
+    QCOMPARE(spyRoomBlockerChanged.count(), 0);
+
+    spyRoomAnnoucementChanged.clear();
+    spyRoomTopicChanged.clear();
+    spyRoomNameChanged.clear();
+    spyRoomFavoriteChanged.clear();
+    spyRoomBlockerChanged.clear();
+    room->setBlocker(false);
+    QCOMPARE(spyRoomAnnoucementChanged.count(), 0);
+    QCOMPARE(spyRoomTopicChanged.count(), 0);
+    QCOMPARE(spyRoomNameChanged.count(), 0);
+    QCOMPARE(spyRoomFavoriteChanged.count(), 0);
+    QCOMPARE(spyRoomBlockerChanged.count(), 1);
+
+    spyRoomAnnoucementChanged.clear();
+    spyRoomTopicChanged.clear();
+    spyRoomNameChanged.clear();
+    spyRoomFavoriteChanged.clear();
+    spyRoomBlockerChanged.clear();
+
+    delete room;
 }

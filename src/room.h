@@ -43,6 +43,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(bool favorite READ favorite WRITE setFavorite NOTIFY favoriteChanged)
     Q_PROPERTY(bool readOnly READ readOnly WRITE setReadOnly NOTIFY readOnlyChanged)
     Q_PROPERTY(bool alert READ alert WRITE setAlert NOTIFY alertChanged)
+    Q_PROPERTY(bool blocker READ blocker WRITE setBlocker NOTIFY blockerChanged)
 public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
 
@@ -102,6 +103,10 @@ public:
     QString id() const;
     void setId(const QString &id);
 
+    void setBlocker(bool alert);
+    bool blocker() const;
+
+
     void parseSubscriptionRoom(const QJsonObject &json);
     void parseRoom(const QJsonObject &json);
     void parseUpdateRoom(const QJsonObject &json);
@@ -142,6 +147,7 @@ Q_SIGNALS:
     void alertChanged();
     void readOnlyChanged();
     void unreadChanged();
+    void blockerChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -184,6 +190,7 @@ private:
     //We can hide it or not.
     bool mOpen = false;
     bool mAlert = false;
+    bool mBlocker = false;
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;

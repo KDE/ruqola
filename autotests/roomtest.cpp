@@ -69,6 +69,7 @@ void RoomTest::shouldSerialized()
     input.setFavorite(true);
     input.setAlert(true);
     input.setOpen(true);
+    input.setBlocker(true);
     const QByteArray ba = Room::serialize(&input);
     Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(*output));
@@ -86,6 +87,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyalertChanged(&input, &Room::alertChanged);
     QSignalSpy spyreadOnlyChanged(&input, &Room::readOnlyChanged);
     QSignalSpy spyunreadChanged(&input, &Room::unreadChanged);
+    QSignalSpy spyblockerChanged(&input, &Room::blockerChanged);
     input.setId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
@@ -101,6 +103,7 @@ void RoomTest::shouldEmitSignals()
     input.setFavorite(true);
     input.setAlert(true);
     input.setOpen(true);
+    input.setBlocker(true);
 
     QCOMPARE(spyNameChanged.count(), 1);
     QCOMPARE(spyannouncementChanged.count(), 1);
@@ -110,6 +113,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyalertChanged.count(), 1);
     QCOMPARE(spyreadOnlyChanged.count(), 1);
     QCOMPARE(spyunreadChanged.count(), 1);
+    QCOMPARE(spyblockerChanged.count(), 1);
 }
 
 void RoomTest::shouldChangeInputMessage()
