@@ -22,7 +22,6 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2
 import QtQuick.Window 2.0
-import org.kde.kirigami 2.1 as Kirigami
 import KDE.Ruqola.DebugCategory 1.0
 Dialog {
     id: createNewChannelDialog

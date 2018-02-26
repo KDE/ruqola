@@ -29,7 +29,6 @@ import QtQuick.Layouts 1.1
 import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.InputCompleterModel 1.0
 import KDE.Ruqola.DDPClient 1.0
-import org.kde.kirigami 2.1 as Kirigami
 
 ColumnLayout {
     property alias messageLineText: messageLine.text
