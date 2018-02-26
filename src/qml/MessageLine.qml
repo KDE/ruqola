@@ -52,7 +52,6 @@ ColumnLayout {
         placeholderText: i18n("Enter message")
         onTextChanged: {
             rcAccount.setInputTextChanged(text, cursorPosition);
-            //Reactivate when autocompletion is ok.
             if (listView.count > 0) {
                 showPopupCompleting()
             } else {
