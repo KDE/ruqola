@@ -26,7 +26,7 @@ import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
 
 QQC2.Dialog {
-    id: privateChannelInfoDialog
+    id: privateChannelInfoDlg
 
     property QtObject roomInfo
     property string userId //TODO
@@ -40,8 +40,6 @@ QQC2.Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    property string userId: ""
-
     function initializeAndOpen()
     {
         //TODO change text !
@@ -54,6 +52,7 @@ QQC2.Dialog {
             width: parent.width
             text: roomInfo.blocker ? i18n("Unblock user") : i18n("Block user")
             onClicked: {
+                privateChannelInfoDialog.blockUser(userId, !roomInfo.blocker)
                 //TODO emit
             }
         }
