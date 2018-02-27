@@ -930,7 +930,7 @@ void RocketChatAccount::userStatusChanged(const User &user)
     mRoomModel->userStatusChanged(user);
 }
 
-void RocketChatAccount::blockUser(const QString &rid, const QString &userId, bool block)
+void RocketChatAccount::blockUser(const QString &userId, const QString &rid, bool block)
 {
     if (userId.isEmpty() || rid.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " void RocketChatAccount::blockUser EMPTY userId ! block " << block;
