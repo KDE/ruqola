@@ -101,6 +101,9 @@ QDebug operator <<(QDebug d, const Room &t)
 
 void Room::parseUpdateRoom(const QJsonObject &json)
 {
+    if (json.contains(QLatin1String("_id"))) {
+        setUserId(json.value(QLatin1String("_id")).toString());
+    }
     if (json.contains(QLatin1String("rid"))) {
         setId(json.value(QLatin1String("rid")).toString());
     }
@@ -332,7 +335,8 @@ void Room::setName(const QString &name)
 
 void Room::parseRoom(const QJsonObject &json)
 {
-    setId(json.value(QLatin1String("_id")).toString());
+    setUserId(json.value(QLatin1String("_id")).toString());
+    setId(json.value(QLatin1String("rid")).toString());
     setName(json[QStringLiteral("name")].toString());
     setTopic(json[QStringLiteral("topic")].toString());
     setAnnouncement(json[QStringLiteral("announcement")].toString());
@@ -349,6 +353,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     const QString roomID = json.value(QLatin1String("rid")).toString();
     setId(roomID);
+    setUserId(json.value(QLatin1String("_id")).toString());
     setName(json[QStringLiteral("name")].toString());
     setTopic(json[QStringLiteral("topic")].toString());
     setAnnouncement(json[QStringLiteral("announcement")].toString());
@@ -389,7 +394,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     //FIXME
     Room *r = new Room(nullptr);
 
-    r->setId(o[QStringLiteral("id")].toString());
+    r->setId(o[QStringLiteral("rid")].toString());
     r->setChannelType(o[QStringLiteral("t")].toString());
     r->setName(o[QStringLiteral("name")].toString());
     r->setUserName(o[QStringLiteral("userName")].toString());
@@ -421,7 +426,7 @@ QByteArray Room::serialize(Room *r)
     QJsonDocument d;
     QJsonObject o;
 
-    o[QStringLiteral("id")] = r->id();
+    o[QStringLiteral("rid")] = r->id();
     o[QStringLiteral("t")] = r->channelType();
     o[QStringLiteral("name")] = r->name();
     o[QStringLiteral("userName")] = r->userName();

@@ -21,6 +21,7 @@
  */
 
 #include "roomwrapper.h"
+#include "ruqola_debug.h"
 #include "room.h"
 
 RoomWrapper::RoomWrapper(QObject *parent)

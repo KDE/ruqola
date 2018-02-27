@@ -932,9 +932,15 @@ void RocketChatAccount::userStatusChanged(const User &user)
 
 void RocketChatAccount::blockUser(const QString &userId, bool block)
 {
-    if (block) {
-        ddp()->blockUser(userId);
+    if (userId.isEmpty()) {
+        //qCWarning(RUQOLA_LOG) << " void RocketChatAccount::blockUser EMPTY userId ! block " << block;
+        qDebug() << " void RocketChatAccount::blockUser EMPTY userId ! block " << block;
     } else {
-        ddp()->unBlockUser(userId);
+        qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block;
+        if (block) {
+            ddp()->blockUser(userId);
+        } else {
+            ddp()->unBlockUser(userId);
+        }
     }
 }

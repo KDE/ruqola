@@ -29,7 +29,6 @@ QQC2.Dialog {
     id: privateChannelInfoDlg
 
     property QtObject roomInfo
-    property string userId //TODO
 
     signal blockUser(string userId, bool block)
 
@@ -42,7 +41,6 @@ QQC2.Dialog {
 
     function initializeAndOpen()
     {
-        //TODO change text !
         open();
     }
 
@@ -52,8 +50,7 @@ QQC2.Dialog {
             width: parent.width
             text: roomInfo.blocker ? i18n("Unblock user") : i18n("Block user")
             onClicked: {
-                privateChannelInfoDialog.blockUser(userId, !roomInfo.blocker)
-                //TODO emit
+                privateChannelInfoDialog.blockUser(roomInfo.userId, !roomInfo.blocker)
             }
         }
     }

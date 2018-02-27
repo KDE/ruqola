@@ -1,6 +1,6 @@
 {
     "id": "43",
-    "method": "unblockUser",
+    "method": "blockUser",
     "msg": "method",
     "params": [
         "userId"
