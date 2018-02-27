@@ -31,6 +31,9 @@ public:
     ~InputCompleterModelTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldAssignValues();
+    void shouldLoadValueFromJson();
+    void shouldClearModel();
 };
 
 #endif // INPUTCOMPLETERMODELTEST_H
