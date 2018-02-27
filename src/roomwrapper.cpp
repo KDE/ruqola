@@ -78,3 +78,8 @@ QString RoomWrapper::channelType() const
 {
     return mRoom->channelType();
 }
+
+QString RoomWrapper::userId() const
+{
+    return mRoom->userId();
+}

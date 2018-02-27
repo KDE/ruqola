@@ -41,6 +41,7 @@ void RoomWrapperTest::shouldHaveDefaultValue()
     QVERIFY(w.channelType().isEmpty());
     QCOMPARE(w.favorite(), false);
     QCOMPARE(w.blocker(), false);
+    QVERIFY(w.userId().isEmpty());
 
     delete room;
 }
@@ -173,6 +174,15 @@ void RoomWrapperTest::shouldAssignValue()
     spyRoomNameChanged.clear();
     spyRoomFavoriteChanged.clear();
     spyRoomBlockerChanged.clear();
+
+    const QString userId = QStringLiteral("foo");
+    room->setUserId(userId);
+    QCOMPARE(spyRoomAnnoucementChanged.count(), 0);
+    QCOMPARE(spyRoomTopicChanged.count(), 0);
+    QCOMPARE(spyRoomNameChanged.count(), 0);
+    QCOMPARE(spyRoomFavoriteChanged.count(), 0);
+    QCOMPARE(spyRoomBlockerChanged.count(), 0);
+    QCOMPARE(w.userId(), userId);
 
     delete room;
 }
