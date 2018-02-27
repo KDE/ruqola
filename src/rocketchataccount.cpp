@@ -934,13 +934,17 @@ void RocketChatAccount::blockUser(const QString &userId, const QString &rid, boo
 {
     if (userId.isEmpty() || rid.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " void RocketChatAccount::blockUser EMPTY userId ! block " << block;
-        qDebug() << " void RocketChatAccount::blockUser EMPTY userId or userid ! : " << userId << " rid " << rid << " block :" << block;
     } else {
-        qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block << " rid " << rid;
+        //qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block << " rid " << rid << " own userdId" << userID();
+
+        //Info from fairchat
+        QString userId2 = rid;
+        userId2.remove(userID());
+
         if (block) {
-            ddp()->blockUser(rid, userId);
+            ddp()->blockUser(rid, userId2);
         } else {
-            ddp()->unBlockUser(rid, userId);
+            ddp()->unBlockUser(rid, userId2);
         }
     }
 }

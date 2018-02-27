@@ -228,7 +228,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomJoinCode(co
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QString &rid, const QString &userId, quint64 id)
-{
+{    
     QJsonObject obj{
         {
             QStringLiteral("rid"), rid
