@@ -580,13 +580,13 @@ quint64 DDPClient::messageSearch(const QString &rid, const QString &pattern)
 quint64 DDPClient::unBlockUser(const QString &rid, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->unblockUser(rid, userId, m_uid);
-    return method(result, block_user, DDPClient::Persistent);
+    return method(result, unblock_user, DDPClient::Persistent);
 }
 
 quint64 DDPClient::blockUser(const QString &rid, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->blockUser(rid, userId, m_uid);
-    return method(result, unblock_user, DDPClient::Persistent);
+    return method(result, block_user, DDPClient::Persistent);
 }
 
 quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)
