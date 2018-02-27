@@ -644,7 +644,6 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             mRuqolaServerConfig->setSiteName(value.toString());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
-            qDebug() << "Other public settings id " << id << value;
         }
     }
     fillOauthModel();
@@ -930,21 +929,21 @@ void RocketChatAccount::userStatusChanged(const User &user)
     mRoomModel->userStatusChanged(user);
 }
 
-void RocketChatAccount::blockUser(const QString &userId, const QString &rid, bool block)
+void RocketChatAccount::blockUser(const QString &rid, bool block)
 {
-    if (userId.isEmpty() || rid.isEmpty()) {
-        qCWarning(RUQOLA_LOG) << " void RocketChatAccount::blockUser EMPTY userId ! block " << block;
+    if (rid.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << " void RocketChatAccount::blockUser EMPTY rid ! block " << block;
     } else {
         //qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block << " rid " << rid << " own userdId" << userID();
 
         //Info from fairchat
-        QString userId2 = rid;
-        userId2.remove(userID());
+        QString userId = rid;
+        userId.remove(userID());
 
         if (block) {
-            ddp()->blockUser(rid, userId2);
+            ddp()->blockUser(rid, userId);
         } else {
-            ddp()->unBlockUser(rid, userId2);
+            ddp()->unBlockUser(rid, userId);
         }
     }
 }

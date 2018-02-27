@@ -137,7 +137,7 @@ Kirigami.ApplicationWindow {
     PrivateChannelInfoDialog {
         id: privateChannelInfoDialog
         onBlockUser: {
-            rocketChatAccount.blockUser(userId, rid, block)
+            rocketChatAccount.blockUser(rid, block)
         }
     }
 

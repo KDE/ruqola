@@ -106,7 +106,7 @@ Component {
                             text: i18n("Channel Info")
                             onTriggered: {
                                 var channelType = appid.selectedRoom.channelType;
-                                if (channelType === "c") {
+                                if (channelType === "c" || channelType === "p") {
                                     channelInfoDialog.roomInfo = appid.selectedRoom
                                     channelInfoDialog.initializeAndOpen()
                                 } else if (channelType === "d") {
@@ -340,21 +340,31 @@ Component {
             }
         }
 
-        footer: UserInput {
-            id: userInputMessage
-            rcAccount: appid.rocketChatAccount
-            visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false) && appid.selectedRoom.blocker === false
+        footer:
+            RowLayout {
             anchors.bottom: mainWidget.bottom
-            messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
-            onTextEditing: {
-                rcAccount.textEditing(appid.selectedRoomID, str)
-                appid.userInputMessageText = str;
+            Label {
+                id: channelInfo
+                font.bold: true
+                visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true) || (appid.selectedRoom.blocker === true))
+                text: appid.selectedRoom ? (appid.selectedRoom.readOnly === true ? i18n("Channel is read only") : i18n("Channel is blocked")) : ""
             }
-            onClearUnreadMessages: {
-                rcAccount.clearUnreadMessages(appid.selectedRoomID)
-            }
-            onUploadFile: {
-                uploadFileDialog.initializeAndOpen()
+
+            UserInput {
+                id: userInputMessage
+                rcAccount: appid.rocketChatAccount
+                visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false) && (appid.selectedRoom.blocker === false)
+                messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
+                onTextEditing: {
+                    rcAccount.textEditing(appid.selectedRoomID, str)
+                    appid.userInputMessageText = str;
+                }
+                onClearUnreadMessages: {
+                    rcAccount.clearUnreadMessages(appid.selectedRoomID)
+                }
+                onUploadFile: {
+                    uploadFileDialog.initializeAndOpen()
+                }
             }
         }
     }// mainWidget Item
