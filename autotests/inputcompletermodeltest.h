@@ -29,6 +29,8 @@ class InputCompleterModelTest : public QObject
 public:
     explicit InputCompleterModelTest(QObject *parent = nullptr);
     ~InputCompleterModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // INPUTCOMPLETERMODELTEST_H

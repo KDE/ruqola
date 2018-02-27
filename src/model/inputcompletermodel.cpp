@@ -23,8 +23,12 @@
 
 #include <QJsonArray>
 
+#include <QIcon>
+#include <QJsonArray>
+#include <QJsonObject>
+
 InputCompleterModel::InputCompleterModel(QObject *parent)
-    : QStringListModel(parent)
+    : QAbstractListModel(parent)
 {
 }
 
@@ -32,21 +36,142 @@ InputCompleterModel::~InputCompleterModel()
 {
 }
 
-void InputCompleterModel::parseInputTextCompleter(const QJsonObject &obj)
+void InputCompleterModel::setChannels(const QVector<Channel> &channels)
 {
-    QStringList lst;
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mChannel.count() - 1);
+        mChannel.clear();
+        endRemoveRows();
+    }
+    if (!channels.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, channels.count() - 1);
+        mChannel = channels;
+        endInsertRows();
+    }
+}
+
+void InputCompleterModel::parseChannels(const QJsonObject &obj)
+{
+    QVector<Channel> channelList;
     const QJsonArray rooms = obj.value(QLatin1String("rooms")).toArray();
     for (int i = 0; i < rooms.size(); i++) {
         const QJsonObject o = rooms.at(i).toObject();
-        lst.append(o.value(QLatin1String("name")).toString());
+        Channel channel;
+        channel.parseChannel(o, Channel::ChannelType::Room);
+        //Verify that it's valid
+        channelList.append(channel);
     }
     const QJsonArray users = obj.value(QLatin1String("users")).toArray();
     for (int i = 0; i < users.size(); i++) {
         const QJsonObject o = users.at(i).toObject();
-        lst.append(o.value(QLatin1String("username")).toString());
-        //TODO store status!
+        Channel channel;
+        channel.parseChannel(o, Channel::ChannelType::PrivateChannel);
+        //Verify that it's valid
+        channelList.append(channel);
     }
-    //TODO
-    qDebug() << " void InputCompleterModel::parseInputTextCompleter(const QJsonObject &obj)"<<lst << obj;
-    setStringList(lst);
+    setChannels(channelList);
 }
+
+void InputCompleterModel::clear()
+{
+    if (!mChannel.isEmpty()) {
+        beginRemoveRows(QModelIndex(), 0, mChannel.count() - 1);
+        mChannel.clear();
+        endRemoveRows();
+    }
+}
+
+int InputCompleterModel::rowCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+    return mChannel.count();
+}
+
+QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
+{
+    if (index.row() < 0 || index.row() >= mChannel.count()) {
+        return {};
+    }
+    const Channel channel = mChannel.at(index.row());
+    switch (role) {
+    case InputCompleterModel::DisplayName:
+        return channelName(channel);
+    case InputCompleterModel::CompleterName:
+        return completerName(channel);
+    case InputCompleterModel::IconName:
+        return channelIconName(channel);
+    case InputCompleterModel::ChannelType:
+        return channel.type();
+    default:
+        qCWarning(RUQOLA_LOG) << "Unknown InputCompleterModel roles: " << role;
+    }
+
+    return {};
+}
+
+QString InputCompleterModel::completerName(const Channel &channel) const
+{
+    //Specific channelId for opening room
+    //For private channel we need to use username for channel we need roomId
+    switch (channel.type()) {
+    case Channel::ChannelType::PrivateChannel:
+        return channel.user().userName();
+    case Channel::ChannelType::Room:
+        return channel.roomName();
+    case Channel::ChannelType::Unknown:
+        qCWarning(RUQOLA_LOG) << "Unknown channel type!";
+        return {};
+    }
+    return {};
+}
+
+QString InputCompleterModel::channelName(const Channel &channel) const
+{
+    switch (channel.type()) {
+    case Channel::ChannelType::PrivateChannel: {
+        QString text = channel.user().userName();
+        const QString name = channel.user().name();
+        if (!name.isEmpty()) {
+            text += QStringLiteral(" (") + channel.user().name() + QLatin1Char(')');
+        }
+        return text;
+    }
+    case Channel::ChannelType::Room:
+        return channel.roomName();
+    case Channel::ChannelType::Unknown:
+        qCWarning(RUQOLA_LOG) << "Unknown channel type!";
+        return {};
+    }
+    return {};
+}
+
+QIcon InputCompleterModel::channelIconName(const Channel &channel) const
+{
+    switch (channel.type()) {
+    case Channel::ChannelType::PrivateChannel:
+        return QIcon::fromTheme(channel.user().iconFromStatus());
+    case Channel::ChannelType::Room:
+        if (channel.roomType() == QLatin1String("c")) {
+            return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
+        } else if (channel.roomType() == QLatin1String("p")) {
+            return QIcon::fromTheme(QStringLiteral("lock"));
+        }
+        qCWarning(RUQOLA_LOG) << "Unknown room type!" << channel.roomType();
+        return {};
+    case Channel::ChannelType::Unknown:
+        qCWarning(RUQOLA_LOG) << "Unknown channel type!";
+        return {};
+    }
+    return {};
+}
+
+QHash<int, QByteArray> InputCompleterModel::roleNames() const
+{
+    QHash<int, QByteArray> roles;
+    roles[InputCompleterModel::DisplayName] = QByteArrayLiteral("displayname");
+    roles[InputCompleterModel::CompleterName] = QByteArrayLiteral("completername");
+    roles[InputCompleterModel::IconName] = QByteArrayLiteral("iconname");
+    roles[InputCompleterModel::ChannelType] = QByteArrayLiteral("channeltype");
+    return roles;
+}
+

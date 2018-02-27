@@ -129,7 +129,7 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
 
 void InputTextManager::clearCompleter()
 {
-    mInputCompleterModel->setStringList(QStringList());
+    mInputCompleterModel->clear();
 }
 
 InputCompleterModel *InputTextManager::inputCompleterModel() const
@@ -137,12 +137,7 @@ InputCompleterModel *InputTextManager::inputCompleterModel() const
     return mInputCompleterModel;
 }
 
-void InputTextManager::setCompleterList(const QStringList &lst)
-{
-    mInputCompleterModel->setStringList(lst);
-}
-
 void InputTextManager::inputTextCompleter(const QJsonObject &obj)
 {
-    mInputCompleterModel->parseInputTextCompleter(obj);
+    mInputCompleterModel->parseChannels(obj);
 }

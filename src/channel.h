@@ -25,7 +25,7 @@
 #include "user.h"
 #include <QObject>
 #include <QDebug>
-
+//TODO rename it
 class LIBRUQOLACORE_TESTS_EXPORT Channel
 {
     Q_GADGET
@@ -61,7 +61,6 @@ public:
     void setRoomType(const QString &roomType);
 
 private:
-    //TODO add room info.
     User mUser;
     QString mRoomId;
     QString mRoomName;

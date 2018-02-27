@@ -23,16 +23,39 @@
 
 #include <QStringListModel>
 #include "libruqola_private_export.h"
+#include "channel.h"
 #include <QJsonObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT InputCompleterModel : public QStringListModel
+class LIBRUQOLACORE_TESTS_EXPORT InputCompleterModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-    explicit InputCompleterModel(QObject *parent = nullptr);
-    ~InputCompleterModel();
+    enum InputCompleterRoles {
+        DisplayName = Qt::UserRole + 1,
+        CompleterName,
+        IconName,
+        ChannelType,
+    };
+    Q_ENUM(InputCompleterRoles)
 
-    void parseInputTextCompleter(const QJsonObject &obj);
+    explicit InputCompleterModel(QObject *parent = nullptr);
+    ~InputCompleterModel() override;
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
+    QHash<int, QByteArray> roleNames() const override;
+    void setChannels(const QVector<Channel> &channels);
+
+    void parseChannels(const QJsonObject &obj);
+
+    void clear();
+
+private:
+    QIcon channelIconName(const Channel &channel) const;
+    QString completerName(const Channel &channel) const;
+    QString channelName(const Channel &channel) const;
+    QVector<Channel> mChannel;
 };
 
 #endif // INPUTCOMPLETERMODEL_H

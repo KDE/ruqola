@@ -29,6 +29,7 @@ import QtQuick.Layouts 1.1
 import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.InputCompleterModel 1.0
 import KDE.Ruqola.DDPClient 1.0
+import org.kde.kirigami 2.1 as Kirigami
 
 ColumnLayout {
     property alias messageLineText: messageLine.text
@@ -97,14 +98,14 @@ ColumnLayout {
                     interactive: true
                     clip: true
                     model: rcAccount.inputCompleterModel()
-                    delegate: QQC2.ItemDelegate {
-                          text: model.display
-                          width: parent.width
-                          checked: listView.currentIndex == index
-                          onClicked:  {
-                              listView.currentIndex = model.index
-                              textSelected()
-                          }
+                    delegate: Kirigami.BasicListItem {
+                        icon: model.iconname
+
+                        label: model.displayname
+                        onClicked: {
+                            listView.currentIndex = model.index
+                            textSelected(model.completername)
+                        }
                     }
                     QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
                 }
@@ -118,9 +119,9 @@ ColumnLayout {
         }
     }
 
-    function textSelected() {
+    function textSelected(completer) {
         if (listView.currentItem) {
-            messageLine.text = rcAccount.replaceWord(listView.currentItem.text, messageLine.text, messageLine.cursorPosition)
+            messageLine.text = rcAccount.replaceWord(completer, messageLine.text, messageLine.cursorPosition)
         }
         popup.close()
     }

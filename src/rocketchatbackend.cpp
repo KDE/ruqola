@@ -77,6 +77,8 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
                 Room r(account);
                 r.parseRoom(roomJson);
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.id() << r.topic() << r.announcement();
+                qDebug() << "Adding room" << r.id() << r.topic() << r.announcement();
+
                 model->updateRoom(r.name(), r.id(), r.topic(), r.announcement(), r.readOnly());
             }
         }
@@ -333,6 +335,8 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
         } else if (eventname.endsWith(QLatin1String("/rooms-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();
+            qDebug() << " sssssssssssssssssssssssssssssssssss" << fields;
+
             model->updateRoom(fields);
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;

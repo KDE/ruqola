@@ -101,6 +101,7 @@ QDebug operator <<(QDebug d, const Room &t)
 
 void Room::parseUpdateRoom(const QJsonObject &json)
 {
+    qDebug() << " void Room::parseUpdateRoom(const QJsonObject &json)"<<json;
     if (json.contains(QLatin1String("_id"))) {
         setUserId(json.value(QLatin1String("_id")).toString());
     }
@@ -335,6 +336,7 @@ void Room::setName(const QString &name)
 
 void Room::parseRoom(const QJsonObject &json)
 {
+    qDebug() << " void Room::parseRoom(const QJsonObject &json)"<<json;
     setUserId(json.value(QLatin1String("_id")).toString());
     setId(json.value(QLatin1String("rid")).toString());
     setName(json[QStringLiteral("name")].toString());

@@ -28,3 +28,16 @@ InputCompleterModelTest::InputCompleterModelTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+void InputCompleterModelTest::shouldHaveDefaultValue()
+{
+    InputCompleterModel w;
+    QCOMPARE(w.rowCount(), 0);
+
+    QHash<int, QByteArray> roles;
+    roles[InputCompleterModel::DisplayName] = QByteArrayLiteral("displayname");
+    roles[InputCompleterModel::CompleterName] = QByteArrayLiteral("completername");
+    roles[InputCompleterModel::IconName] = QByteArrayLiteral("iconname");
+    roles[InputCompleterModel::ChannelType] = QByteArrayLiteral("channeltype");
+    QCOMPARE(w.roleNames(), roles);
+}

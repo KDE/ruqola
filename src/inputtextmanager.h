@@ -38,8 +38,6 @@ public:
 
     InputCompleterModel *inputCompleterModel() const;
 
-    void setCompleterList(const QStringList &lst);
-
     void inputTextCompleter(const QJsonObject &obj);
 
     QString replaceWord(const QString &newWord, const QString &str, int position);
