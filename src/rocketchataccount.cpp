@@ -930,17 +930,17 @@ void RocketChatAccount::userStatusChanged(const User &user)
     mRoomModel->userStatusChanged(user);
 }
 
-void RocketChatAccount::blockUser(const QString &userId, bool block)
+void RocketChatAccount::blockUser(const QString &rid, const QString &userId, bool block)
 {
-    if (userId.isEmpty()) {
-        //qCWarning(RUQOLA_LOG) << " void RocketChatAccount::blockUser EMPTY userId ! block " << block;
-        qDebug() << " void RocketChatAccount::blockUser EMPTY userId ! block " << block;
+    if (userId.isEmpty() || rid.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << " void RocketChatAccount::blockUser EMPTY userId ! block " << block;
+        qDebug() << " void RocketChatAccount::blockUser EMPTY userId or userid ! : " << userId << " rid " << rid << " block :" << block;
     } else {
-        qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block;
+        qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block << " rid " << rid;
         if (block) {
-            ddp()->blockUser(userId);
+            ddp()->blockUser(rid, userId);
         } else {
-            ddp()->unBlockUser(userId);
+            ddp()->unBlockUser(rid, userId);
         }
     }
 }

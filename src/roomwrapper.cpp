@@ -84,3 +84,8 @@ QString RoomWrapper::userId() const
 {
     return mRoom->userId();
 }
+
+QString RoomWrapper::rid() const
+{
+    return mRoom->id();
+}

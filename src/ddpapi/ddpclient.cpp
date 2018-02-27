@@ -577,15 +577,15 @@ quint64 DDPClient::messageSearch(const QString &rid, const QString &pattern)
     return method(result, message_search, DDPClient::Persistent);
 }
 
-quint64 DDPClient::unBlockUser(const QString &userId)
+quint64 DDPClient::unBlockUser(const QString &rid, const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->unblockUser(userId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->unblockUser(rid, userId, m_uid);
     return method(result, block_user, DDPClient::Persistent);
 }
 
-quint64 DDPClient::blockUser(const QString &userId)
+quint64 DDPClient::blockUser(const QString &rid, const QString &userId)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->blockUser(userId, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->blockUser(rid, userId, m_uid);
     return method(result, unblock_user, DDPClient::Persistent);
 }
 

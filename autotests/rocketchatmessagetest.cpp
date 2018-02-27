@@ -415,7 +415,7 @@ void RocketChatMessageTest::blockUser()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.blockUser(QStringLiteral("userId"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.blockUser(QStringLiteral("rid"), QStringLiteral("userId"), 43);
     compareFile(r.result, QStringLiteral("blockUser"));
 }
 
@@ -423,6 +423,6 @@ void RocketChatMessageTest::unBlockUser()
 {
     RocketChatMessage m;
     m.setJsonFormat(QJsonDocument::Indented);
-    RocketChatMessage::RocketChatMessageResult r = m.unblockUser(QStringLiteral("userId"), 43);
+    RocketChatMessage::RocketChatMessageResult r = m.unblockUser(QStringLiteral("rid"), QStringLiteral("userId"), 43);
     compareFile(r.result, QStringLiteral("unBlockUser"));
 }

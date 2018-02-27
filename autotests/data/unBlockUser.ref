@@ -3,6 +3,9 @@
     "method": "unblockUser",
     "msg": "method",
     "params": [
-        "userId"
+        {
+            "blocked": "userId",
+            "rid": "rid"
+        }
     ]
 }

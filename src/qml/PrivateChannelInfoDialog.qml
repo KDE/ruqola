@@ -30,7 +30,7 @@ QQC2.Dialog {
 
     property QtObject roomInfo
 
-    signal blockUser(string userId, bool block)
+    signal blockUser(string userId, string rid, bool block)
 
     title: i18n("Info about this private channel")
     standardButtons: QQC2.Dialog.Close
@@ -50,7 +50,7 @@ QQC2.Dialog {
             width: parent.width
             text: roomInfo.blocker ? i18n("Unblock user") : i18n("Block user")
             onClicked: {
-                privateChannelInfoDialog.blockUser(roomInfo.userId, !roomInfo.blocker)
+                privateChannelInfoDialog.blockUser(roomInfo.userId, roomInfo.rid, !roomInfo.blocker)
             }
         }
     }

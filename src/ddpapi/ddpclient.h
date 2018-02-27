@@ -170,8 +170,8 @@ public:
     quint64 login(const QString &username, const QString &password);
     quint64 loginProvider(const QString &credentialToken, const QString &credentialSecret);
     quint64 messageSearch(const QString &rid, const QString &pattern);
-    quint64 unBlockUser(const QString &userId);
-    quint64 blockUser(const QString &userId);
+    quint64 unBlockUser(const QString &rid, const QString &userId);
+    quint64 blockUser(const QString &rid, const QString &userId);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

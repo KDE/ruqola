@@ -84,8 +84,8 @@ public:
     RocketChatMessage::RocketChatMessageResult unsubscribe(quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomAnnouncement(const QString &roomId, const QString &announcement, quint64 id);
     //TODO add autotest
-    RocketChatMessage::RocketChatMessageResult blockUser(const QString &userId, quint64 id);
-    RocketChatMessage::RocketChatMessageResult unblockUser(const QString &userId, quint64 id);
+    RocketChatMessage::RocketChatMessageResult blockUser(const QString &rid, const QString &userId, quint64 id);
+    RocketChatMessage::RocketChatMessageResult unblockUser(const QString &rid, const QString &userId, quint64 id);
     RocketChatMessage::RocketChatMessageResult channelAndPrivateAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
     RocketChatMessage::RocketChatMessageResult roomFiles(const QString &roomId, quint64 id);
     RocketChatMessage::RocketChatMessageResult searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
