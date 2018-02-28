@@ -128,7 +128,8 @@ QString InputCompleterModel::completerName(const Channel &channel) const
 QString InputCompleterModel::channelName(const Channel &channel) const
 {
     switch (channel.type()) {
-    case Channel::ChannelType::PrivateChannel: {
+    case Channel::ChannelType::PrivateChannel:
+    {
         QString text = channel.user().userName();
         const QString name = channel.user().name();
         if (!name.isEmpty()) {
@@ -174,4 +175,3 @@ QHash<int, QByteArray> InputCompleterModel::roleNames() const
     roles[InputCompleterModel::ChannelType] = QByteArrayLiteral("channeltype");
     return roles;
 }
-

@@ -71,7 +71,7 @@ bool Room::isEqual(const Room &other) const
            && (mSelected == other.selected())
            && (mFavorite == other.favorite())
            && (mOpen == other.open())
-            && (mBlocker == other.blocker());
+           && (mBlocker == other.blocker());
 }
 
 QString Room::name() const

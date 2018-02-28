@@ -58,7 +58,6 @@ void InputTextManagerTest::shouldReplaceWord()
 
     InputTextManager manager(nullptr);
     QCOMPARE(manager.replaceWord(newword, text, position), result);
-
 }
 
 void InputTextManagerTest::shouldSearchWord_data()

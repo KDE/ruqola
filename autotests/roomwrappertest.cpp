@@ -28,7 +28,6 @@ QTEST_GUILESS_MAIN(RoomWrapperTest)
 RoomWrapperTest::RoomWrapperTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RoomWrapperTest::shouldHaveDefaultValue()

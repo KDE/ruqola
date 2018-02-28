@@ -150,7 +150,6 @@ public:
     Q_INVOKABLE QString replaceWord(const QString &newWord, const QString &str, int position);
     Q_INVOKABLE void blockUser(const QString &userId, bool block);
 
-
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
