@@ -309,11 +309,15 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
     //TODO fix me!
     //Use "_id"
     QString rId = roomData.value(QLatin1String("rid")).toString();
+    if (rId.isEmpty()) {
+        rId = roomData.value(QLatin1String("_id")).toString();
+    }
     if (!rId.isEmpty()) {
         const int roomCount{
             mRoomsList.size()
         };
         for (int i = 0; i < roomCount; ++i) {
+            qDebug() << " mRoomsList.at(i)->id()"<<mRoomsList.at(i)->id()<< " rid   " << rId;
             if (mRoomsList.at(i)->id() == rId) {
                 qDebug() << " ROOOM FOUND!!!!!!!!!";
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";

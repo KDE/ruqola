@@ -335,9 +335,16 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
         } else if (eventname.endsWith(QLatin1String("/rooms-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();
-            qDebug() << " sssssssssssssssssssssssssssssssssss" << fields;
-
-            model->updateRoom(fields);
+            //qDebug() << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1String("args")).toArray().toVariantList();
+            //qDebug() << " sssssssssssssssssssssssssssssssssss" << contents;
+            const QJsonArray lst = fields.value(QLatin1String("args")).toArray();
+            const QString actionName = lst[0].toString();
+            if (actionName == QLatin1String("updated")) {
+                const QJsonObject roomData = lst[1].toObject();
+                model->updateRoom(roomData);
+            } else {
+                qCWarning(RUQOLA_LOG) << "rooms-changed invalid actionName " << actionName;
+            }
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);

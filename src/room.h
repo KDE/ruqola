@@ -190,6 +190,7 @@ private:
     bool mOpen = false;
     bool mAlert = false;
     bool mBlocker = false;
+    bool mArchived = false;
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;
