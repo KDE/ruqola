@@ -78,8 +78,11 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
                 r.parseRoom(roomJson);
                 qCDebug(RUQOLA_LOG) << "Adding room" << r.id() << r.topic() << r.announcement();
                 qDebug() << "Adding room" << r.id() << r.topic() << r.announcement();
-
-                model->updateRoom(r.name(), r.id(), r.topic(), r.announcement(), r.readOnly());
+                QString id = r.id();
+                if (id.isEmpty()) {
+                    id = r.userId();
+                }
+                model->updateRoom(r.name(), id, r.topic(), r.announcement(), r.readOnly());
             }
         }
     }
