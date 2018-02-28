@@ -19,13 +19,14 @@
 */
 
 #include "searchmessagefilterproxymodel.h"
+#include "searchmessagemodel.h"
 
 SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    //setFilterRole(UserCompleterModel::UserName);
+    setFilterRole(SearchMessageModel::Timestamp);
     sort(0);
 }
 
