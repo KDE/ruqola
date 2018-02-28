@@ -24,7 +24,7 @@ import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
-
+import "common"
 QQC2.Dialog {
     id: privateChannelInfoDlg
 
@@ -41,13 +41,22 @@ QQC2.Dialog {
 
     function initializeAndOpen()
     {
+        avatarRect.avatarurl = appid.rocketChatAccount.avatarUrl(roomInfo.userId)
+        //console.log("ddddd " + avatarRect.avatarurl + " roomInfo.rid" + roomInfo.userId)
         open();
     }
 
     ColumnLayout {
+        AvatarImage {
+            id: avatarRect
+            avatarurl: roomInfo ? appid.rocketChatAccount.avatarUrl(roomInfo.userId) : ""
+            //aliasname: i_aliasname
+            //username: i_username
+        }
+
         Button {
             id: blockUnblockUser
-            width: parent.width
+            Layout.fillWidth: true
             text: roomInfo === null ? "" : (roomInfo.blocker ? i18n("Unblock user") : i18n("Block user"))
             onClicked: {
                 privateChannelInfoDialog.blockUser(roomInfo.rid, !roomInfo.blocker)
