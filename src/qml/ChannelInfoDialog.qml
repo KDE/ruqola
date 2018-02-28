@@ -47,13 +47,8 @@ QQC2.Dialog {
 
     function initializeAndOpen()
     {
-        channelNameField.textField = roomInfo.name;
-        channelCommentField.textField = roomInfo.topic;
-        channelAnnoucementField.textField = roomInfo.announcement;
-        channelDescriptionField.textField = roomInfo.description;
         //TODO
         archiveRoom.checked = false;
-        readOnlyRoom.checked = roomInfo.readOnly;
         open();
     }
 
@@ -64,6 +59,7 @@ QQC2.Dialog {
         }
         TextFieldEditor {
             id: channelNameField
+            textField: roomInfo.name
             onUpdateValue: {
                 if (newVal != "") {
                     channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal)
@@ -78,6 +74,7 @@ QQC2.Dialog {
         }
         TextFieldEditor {
             id: channelCommentField
+            textField: roomInfo.topic
             onUpdateValue: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, newVal)
             }
@@ -87,6 +84,7 @@ QQC2.Dialog {
         }
         TextFieldEditor {
             id: channelAnnoucementField
+            textField: roomInfo.announcement;
             onUpdateValue: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Annoucement, newVal)
             }
@@ -96,6 +94,7 @@ QQC2.Dialog {
         }
         TextFieldEditor {
             id: channelDescriptionField
+            textField: roomInfo.description;
             onUpdateValue: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal)
             }
@@ -106,7 +105,7 @@ QQC2.Dialog {
         }
         QQC2.Switch {
             id: readOnlyRoom
-            checked: false
+            checked: roomInfo.readOnly
             onClicked: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.ReadOnly, checked)
             }
