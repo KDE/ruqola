@@ -54,6 +54,7 @@ Dialog {
         TextField {
             id: username
             focus: true
+            selectByMouse: true
             Layout.minimumHeight: Layout.maximumHeight
             Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
             Layout.fillWidth: true
