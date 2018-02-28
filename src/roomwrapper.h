@@ -38,6 +38,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(QString channelType READ channelType CONSTANT)
     Q_PROPERTY(QString userId READ userId CONSTANT)
     Q_PROPERTY(QString rid READ rid CONSTANT)
+    Q_PROPERTY(QString description READ description NOTIFY descriptionChanged)
     Q_OBJECT
 
 public:
@@ -54,6 +55,7 @@ public:
     QString channelType() const;
     QString userId() const;
     QString rid() const;
+    QString description() const;
 
 Q_SIGNALS:
     void nameChanged();
@@ -62,6 +64,7 @@ Q_SIGNALS:
     void favoriteChanged();
     void readOnlyChanged();
     void blockerChanged();
+    void descriptionChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)

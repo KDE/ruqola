@@ -49,6 +49,11 @@ void RoomTest::shouldHaveDefaultValue()
 
     QVERIFY(input.messageModel());
     QVERIFY(input.inputMessage().isEmpty());
+
+    QVERIFY(input.description().isEmpty());
+    QVERIFY(input.announcement().isEmpty());
+    QVERIFY(!input.readOnly());
+    //Add more
 }
 
 void RoomTest::shouldSerialized()
@@ -71,6 +76,7 @@ void RoomTest::shouldSerialized()
     input.setOpen(true);
     input.setBlocker(true);
     input.setArchived(true);
+    input.setDescription(QStringLiteral("dd"));
     const QByteArray ba = Room::serialize(&input);
     Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(*output));
@@ -90,6 +96,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyunreadChanged(&input, &Room::unreadChanged);
     QSignalSpy spyblockerChanged(&input, &Room::blockerChanged);
     QSignalSpy spyarchivedChanged(&input, &Room::archivedChanged);
+    QSignalSpy spydescriptionChanged(&input, &Room::descriptionChanged);
     input.setId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
@@ -107,6 +114,7 @@ void RoomTest::shouldEmitSignals()
     input.setOpen(true);
     input.setBlocker(true);
     input.setArchived(true);
+    input.setDescription(QStringLiteral("ddd"));
 
     QCOMPARE(spyNameChanged.count(), 1);
     QCOMPARE(spyannouncementChanged.count(), 1);
@@ -118,6 +126,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyunreadChanged.count(), 1);
     QCOMPARE(spyblockerChanged.count(), 1);
     QCOMPARE(spyarchivedChanged.count(), 1);
+    QCOMPARE(spydescriptionChanged.count(), 1);
 }
 
 void RoomTest::shouldChangeInputMessage()

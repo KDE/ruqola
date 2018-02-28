@@ -71,7 +71,9 @@ bool Room::isEqual(const Room &other) const
            && (mSelected == other.selected())
            && (mFavorite == other.favorite())
            && (mOpen == other.open())
-           && (mBlocker == other.blocker());
+           && (mBlocker == other.blocker())
+            && (mArchived == other.archived())
+            && (mDescription == other.description());
 }
 
 QString Room::name() const
@@ -96,6 +98,8 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "favorite :" << t.favorite();
     d << "open :" << t.open();
     d << "blocker: " << t.blocker();
+    d << "archived: " << t.archived();
+    d << "description: " << t.description();
     return d;
 }
 
@@ -120,6 +124,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     }
     if (json.contains(QLatin1String("announcement"))) {
         setAnnouncement(json[QStringLiteral("announcement")].toString());
+    }
+    if (json.contains(QLatin1String("description"))) {
+        setAnnouncement(json[QStringLiteral("description")].toString());
     }
     if (json.contains(QLatin1String("open"))) {
         setOpen(json[QStringLiteral("open")].toBool());
@@ -345,6 +352,7 @@ void Room::parseRoom(const QJsonObject &json)
     setName(json[QStringLiteral("name")].toString());
     setTopic(json[QStringLiteral("topic")].toString());
     setAnnouncement(json[QStringLiteral("announcement")].toString());
+    setDescription(json[QStringLiteral("description")].toString());
     setReadOnly(json[QStringLiteral("ro")].toBool());
     const QJsonValue archivedValue = json.value(QLatin1String("archived"));
     if (!archivedValue.isUndefined()) {
@@ -366,6 +374,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setName(json[QStringLiteral("name")].toString());
     setTopic(json[QStringLiteral("topic")].toString());
     setAnnouncement(json[QStringLiteral("announcement")].toString());
+    setDescription(json[QStringLiteral("description")].toString());
     const QString roomType = json.value(QLatin1String("t")).toString();
     setChannelType(roomType);
     const QJsonValue favoriteValue = json.value(QLatin1String("f"));
@@ -424,6 +433,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setAlert(o[QStringLiteral("alert")].toBool());
     r->setOpen(o[QStringLiteral("open")].toBool());
     r->setArchived(o[QStringLiteral("archived")].toBool());
+    r->setDescription(o[QStringLiteral("description")].toString());
     //TODO ???
     r->setBlocker(o[QStringLiteral("blocker")].toBool());
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
@@ -458,6 +468,7 @@ QByteArray Room::serialize(Room *r)
     o[QStringLiteral("open")] = r->open();
     o[QStringLiteral("blocker")] = r->blocker();
     o[QStringLiteral("archived")] = r->archived();
+    o[QStringLiteral("description")] = r->description();
 
     //Urls
     if (!r->mutedUsers().isEmpty()) {
@@ -520,5 +531,18 @@ void Room::setArchived(bool archived)
     if (mArchived != archived) {
         mArchived = archived;
         Q_EMIT archivedChanged();
+    }
+}
+
+QString Room::description() const
+{
+    return mDescription;
+}
+
+void Room::setDescription(const QString &description)
+{
+    if (mDescription != description) {
+        mDescription = description;
+        Q_EMIT descriptionChanged();
     }
 }

@@ -316,6 +316,7 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
         const int roomCount{
             mRoomsList.size()
         };
+        qDebug() << " rId" << rId << " roomCount " << roomCount;
         for (int i = 0; i < roomCount; ++i) {
             qDebug() << " mRoomsList.at(i)->id()"<<mRoomsList.at(i)->id()<< " rid   " << rId;
             if (mRoomsList.at(i)->id() == rId) {

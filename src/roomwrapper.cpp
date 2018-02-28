@@ -39,6 +39,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::nameChanged, this, &RoomWrapper::nameChanged);
     connect(mRoom, &Room::readOnlyChanged, this, &RoomWrapper::readOnlyChanged);
     connect(mRoom, &Room::blockerChanged, this, &RoomWrapper::blockerChanged);
+    connect(mRoom, &Room::descriptionChanged, this, &RoomWrapper::descriptionChanged);
 }
 
 RoomWrapper::~RoomWrapper()
@@ -88,4 +89,9 @@ QString RoomWrapper::userId() const
 QString RoomWrapper::rid() const
 {
     return mRoom->id();
+}
+
+QString RoomWrapper::description() const
+{
+    return mRoom->description();
 }

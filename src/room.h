@@ -45,6 +45,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(bool alert READ alert WRITE setAlert NOTIFY alertChanged)
     Q_PROPERTY(bool blocker READ blocker WRITE setBlocker NOTIFY blockerChanged)
     Q_PROPERTY(bool archived READ archived WRITE setArchived NOTIFY archivedChanged)
+    Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
 public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
 
@@ -141,6 +142,9 @@ public:
     bool archived() const;
     void setArchived(bool archived);
 
+    QString description() const;
+    void setDescription(const QString &description);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -152,6 +156,7 @@ Q_SIGNALS:
     void unreadChanged();
     void blockerChanged();
     void archivedChanged();
+    void descriptionChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -177,6 +182,8 @@ private:
 
     // topic
     QString mTopic;
+
+    QString mDescription;
 
     // muted - collection of muted users by its usernames
     QStringList mMutedUsers;
