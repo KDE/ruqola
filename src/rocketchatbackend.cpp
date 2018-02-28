@@ -82,7 +82,7 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
                 if (id.isEmpty()) {
                     id = r.userId();
                 }
-                model->updateRoom(r.name(), id, r.topic(), r.announcement(), r.readOnly());
+                model->updateRoom(r.name(), id, r.topic(), r.announcement(), r.readOnly(), r.description());
             }
         }
     }

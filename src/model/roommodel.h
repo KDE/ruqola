@@ -76,7 +76,7 @@ public:
     */
     Q_INVOKABLE void addRoom(const QString &roomID, const QString &roomName, bool selected = false);
 
-    void updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement, bool readOnly);
+    void updateRoom(const QString &name, const QString &roomID, const QString &topic, const QString &announcement, bool readOnly, const QString &description);
 
     /**
     * @brief Finds a room with @param roomID in m_roomsList

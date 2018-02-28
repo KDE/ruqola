@@ -160,13 +160,15 @@ void RoomModelTest::shouldUpdateRoom()
     const QString name = QStringLiteral("newName");
     const QString topic = QStringLiteral("myTopic");
     const QString announcement = QStringLiteral("Happy New Year announcement");
-    sampleModel.updateRoom(name, Id, topic, announcement, true);
+    const QString description = QStringLiteral("description");
+    sampleModel.updateRoom(name, Id, topic, announcement, true, description);
     sampleWrapper = sampleModel.findRoomWrapper(Id);
     QVERIFY(sampleWrapper);
 
-    QCOMPARE(name, sampleWrapper->name());
-    QCOMPARE(topic, sampleWrapper->topic());
-    QCOMPARE(announcement, sampleWrapper->announcement());
+    QCOMPARE(sampleWrapper->name(), name);
+    QCOMPARE(sampleWrapper->topic(), topic);
+    QCOMPARE(sampleWrapper->announcement(), announcement);
+    QCOMPARE(sampleWrapper->description(), description);
     QVERIFY(sampleWrapper->readOnly());
     QCOMPARE(spy.count(), 1);
 

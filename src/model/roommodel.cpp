@@ -441,11 +441,12 @@ void RoomModel::setInputMessage(const QString &roomId, const QString &inputMessa
     }
 }
 
-void RoomModel::updateRoom(const QString &name, const QString &roomId, const QString &topic, const QString &announcement, bool readOnly)
+void RoomModel::updateRoom(const QString &name, const QString &roomId, const QString &topic, const QString &announcement, bool readOnly, const QString &description)
 {
     const int roomCount{
         mRoomsList.count()
     };
+    //TODO change it!
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->id() == roomId) {
             qCDebug(RUQOLA_LOG) << "Room changed!" << roomId;
@@ -454,6 +455,7 @@ void RoomModel::updateRoom(const QString &name, const QString &roomId, const QSt
             foundRoom->setAnnouncement(announcement);
             foundRoom->setName(name);
             foundRoom->setReadOnly(readOnly);
+            foundRoom->setDescription(description);
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);
 
