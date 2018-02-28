@@ -130,10 +130,13 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     if (json.contains(QLatin1String("name"))) {
         setName(json[QStringLiteral("name")].toString());
     }
-    if (json.contains(QLatin1String("blocker"))) {
-        setBlocker(json[QStringLiteral("blocker")].toBool());
+    if (json.contains(QLatin1String("name"))) {
+        setName(json[QStringLiteral("name")].toString());
+    }
+    if (json.contains(QLatin1String("archived"))) {
+        setArchived(json[QStringLiteral("archived")].toBool());
     } else {
-        setBlocker(false);
+        setArchived(false);
     }
 }
 
@@ -343,6 +346,10 @@ void Room::parseRoom(const QJsonObject &json)
     setTopic(json[QStringLiteral("topic")].toString());
     setAnnouncement(json[QStringLiteral("announcement")].toString());
     setReadOnly(json[QStringLiteral("ro")].toBool());
+    const QJsonValue archivedValue = json.value(QLatin1String("archived"));
+    if (!archivedValue.isUndefined()) {
+        setArchived(archivedValue.toBool());
+    }
     const QJsonValue blockerValue = json.value(QLatin1String("blocker"));
     if (!blockerValue.isUndefined()) {
         setBlocker(blockerValue.toBool());
@@ -379,6 +386,12 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     } else {
         setBlocker(false);
     }
+    const QJsonValue archivedValue = json.value(QLatin1String("archived"));
+    if (!archivedValue.isUndefined()) {
+        setArchived(archivedValue.toBool());
+    } else {
+        setArchived(false);
+    }
 
     const QJsonArray mutedArray = json.value(QLatin1String("muted")).toArray();
     QStringList lst;
@@ -410,6 +423,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setFavorite(o[QStringLiteral("favorite")].toBool());
     r->setAlert(o[QStringLiteral("alert")].toBool());
     r->setOpen(o[QStringLiteral("open")].toBool());
+    r->setArchived(o[QStringLiteral("archived")].toBool());
     //TODO ???
     r->setBlocker(o[QStringLiteral("blocker")].toBool());
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
@@ -443,6 +457,7 @@ QByteArray Room::serialize(Room *r)
     o[QStringLiteral("alert")] = r->alert();
     o[QStringLiteral("open")] = r->open();
     o[QStringLiteral("blocker")] = r->blocker();
+    o[QStringLiteral("archived")] = r->archived();
 
     //Urls
     if (!r->mutedUsers().isEmpty()) {
@@ -493,4 +508,17 @@ QString Room::inputMessage() const
 void Room::setInputMessage(const QString &inputMessage)
 {
     mInputMessage = inputMessage;
+}
+
+bool Room::archived() const
+{
+    return mArchived;
+}
+
+void Room::setArchived(bool archived)
+{
+    if (mArchived != archived) {
+        mArchived = archived;
+        Q_EMIT archivedChanged();
+    }
 }
