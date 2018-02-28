@@ -46,7 +46,7 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
-    int rowCount(const QModelIndex &parent) const override;
+    int rowCount(const QModelIndex &parent = {}) const override;
     void parseResult(const QJsonObject &obj);
     void clear();
 private:

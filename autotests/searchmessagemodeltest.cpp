@@ -20,11 +20,18 @@
 
 #include "searchmessagemodeltest.h"
 #include "model/searchmessagemodel.h"
-
+#include "test_model_helpers.h"
 #include <QTest>
+
 QTEST_MAIN(SearchMessageModelTest)
 
 SearchMessageModelTest::SearchMessageModelTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void SearchMessageModelTest::shouldHaveDefaultValue()
+{
+    SearchMessageModel w;
+    QCOMPARE(w.rowCount(), 0);
 }

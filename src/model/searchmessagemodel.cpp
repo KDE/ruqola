@@ -32,14 +32,23 @@ SearchMessageModel::~SearchMessageModel()
 
 QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
 {
+    if (index.row() < 0 || index.row() >= mSearchMessages.count()) {
+        return {};
+    }
+    const SearchMessage message = mSearchMessages.at(index.row());
+
     //TODO
     return {};
 }
 
 QHash<int, QByteArray> SearchMessageModel::roleNames() const
 {
-    //TODO
-    return {};
+    QHash<int, QByteArray> roles;
+    roles[SearchMessageModel::MessageConvertedText] = QByteArrayLiteral("messagetext");
+    roles[SearchMessageModel::Timestamp] = QByteArrayLiteral("timestamp");
+    roles[SearchMessageModel::MessageId] = QByteArrayLiteral("messageid");
+    //Add more ????
+    return roles;
 }
 
 int SearchMessageModel::rowCount(const QModelIndex &parent) const

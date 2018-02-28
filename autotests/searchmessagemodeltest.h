@@ -28,6 +28,8 @@ class SearchMessageModelTest : public QObject
 public:
     explicit SearchMessageModelTest(QObject *parent = nullptr);
     ~SearchMessageModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // SEARCHMESSAGEMODELTEST_H
