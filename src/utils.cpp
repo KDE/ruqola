@@ -134,3 +134,10 @@ void Utils::parseNotification(const QJsonArray &contents, QString &message, QStr
         qCDebug(RUQOLA_LOG) << "Problem with notication json: missing payload";
     }
 }
+
+QString Utils::userIdFromDirectChannel(const QString &rid, const QString &userId)
+{
+    QString newUserId = rid;
+    newUserId.remove(userId);
+    return newUserId;
+}

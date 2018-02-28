@@ -63,8 +63,8 @@ void RoomTest::shouldSerialized()
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
     input.setAnnouncement(QStringLiteral("AA"));
-    input.setUserName(QStringLiteral("pp"));
-    input.setUserId(QStringLiteral("sdfsdfs"));
+    input.setRoomCreatorUserName(QStringLiteral("pp"));
+    input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
     input.setTopic(QStringLiteral("topic"));
     input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
     input.setJitsiTimeout(55);
@@ -90,7 +90,6 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyannouncementChanged(&input, &Room::announcementChanged);
     QSignalSpy spytopicChanged(&input, &Room::topicChanged);
     QSignalSpy spyfavoriteChanged(&input, &Room::favoriteChanged);
-    QSignalSpy spyuserIdChanged(&input, &Room::userIdChanged);
     QSignalSpy spyalertChanged(&input, &Room::alertChanged);
     QSignalSpy spyreadOnlyChanged(&input, &Room::readOnlyChanged);
     QSignalSpy spyunreadChanged(&input, &Room::unreadChanged);
@@ -101,8 +100,8 @@ void RoomTest::shouldEmitSignals()
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
     input.setAnnouncement(QStringLiteral("AA"));
-    input.setUserName(QStringLiteral("pp"));
-    input.setUserId(QStringLiteral("sdfsdfs"));
+    input.setRoomCreatorUserName(QStringLiteral("pp"));
+    input.setRoomCreatorUserId(QStringLiteral("sdfsdfs"));
     input.setTopic(QStringLiteral("topic"));
     input.setMutedUsers(QStringList{QStringLiteral("mutedUsers"), QStringLiteral("muted2")});
     input.setJitsiTimeout(55);
@@ -120,7 +119,6 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyannouncementChanged.count(), 1);
     QCOMPARE(spytopicChanged.count(), 1);
     QCOMPARE(spyfavoriteChanged.count(), 1);
-    QCOMPARE(spyuserIdChanged.count(), 1);
     QCOMPARE(spyalertChanged.count(), 1);
     QCOMPARE(spyreadOnlyChanged.count(), 1);
     QCOMPARE(spyunreadChanged.count(), 1);

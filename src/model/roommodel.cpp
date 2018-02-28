@@ -175,9 +175,9 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomType:
         return r->channelType();
     case RoomModel::RoomUserID:
-        return r->userId();
+        return r->roomCreatorUserId();
     case RoomModel::RoomUserName:
-        return r->userName();
+        return r->roomCreatorUserName();
     case RoomModel::RoomTopic:
         return r->topic();
     case RoomModel::RoomMutedUsers:

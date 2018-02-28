@@ -20,6 +20,7 @@
  *
  */
 
+#include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola_debug.h"
 #include "model/usersforroommodel.h"
@@ -33,6 +34,7 @@
 
 Room::Room(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mRocketChatAccount(account)
 {
     mUsersModelForRoom = new UsersForRoomModel(this);
     mUsersModelForRoom->setObjectName(QStringLiteral("usersforroommodel"));
@@ -61,8 +63,8 @@ bool Room::isEqual(const Room &other) const
            && (mChannelType == other.channelType())
            && (mName == other.name())
            && (mAnnouncement == other.announcement())
-           && (mUserName == other.userName())
-           && (mUserId == other.userId())
+           && (mRoomCreatorUserName == other.roomCreatorUserName())
+           && (mRoomCreateUserId == other.roomCreatorUserId())
            && (mTopic == other.topic())
            && (mMutedUsers == other.mutedUsers())
            && (mJitsiTimeout == other.jitsiTimeout())
@@ -87,8 +89,8 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "type :" << t.channelType();
     d << "name :" << t.name();
     d << "mAnnouncement :" << t.announcement();
-    d << "userName :" << t.userName();
-    d << "userID :" << t.userId();
+    d << "roomCreaterUserName :" << t.roomCreatorUserName();
+    d << "roomCreaterUserID :" << t.roomCreatorUserId();
     d << "topic :" << t.topic();
     d << "mutedUsers :" << t.mutedUsers();
     d << "jitsiTimeout :" << t.jitsiTimeout();
@@ -103,12 +105,22 @@ QDebug operator <<(QDebug d, const Room &t)
     return d;
 }
 
+bool Room::canBeModify() const
+{
+    if (mRocketChatAccount) {
+        qDebug() <<  "mRoomCreateUserId"<<mRoomCreateUserId << " mRocketChatAccount->userID()"<<mRocketChatAccount->userID();
+        return (mRoomCreateUserId == mRocketChatAccount->userID());
+    }
+    return false;
+}
+
 void Room::parseUpdateRoom(const QJsonObject &json)
 {
     qDebug() << " void Room::parseUpdateRoom(const QJsonObject &json)"<<json;
-    if (json.contains(QLatin1String("_id"))) {
-        setUserId(json.value(QLatin1String("_id")).toString());
-    }
+    // ???? FIXME it's not _id
+//    if (json.contains(QLatin1String("_id"))) {
+//        setRoomCreatorUserId(json.value(QLatin1String("_id")).toString());
+//    }
     if (json.contains(QLatin1String("rid"))) {
         setId(json.value(QLatin1String("rid")).toString());
     }
@@ -145,6 +157,13 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     } else {
         setArchived(false);
     }
+    const QJsonValue ownerValue = json.value(QLatin1String("u"));
+    if (!ownerValue.isUndefined()) {
+        const QJsonObject objOwner = ownerValue.toObject();
+        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
+        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+    }
+    qDebug() << " *thus" << *this;
 }
 
 bool Room::selected() const
@@ -196,28 +215,27 @@ void Room::setMutedUsers(const QStringList &mutedUsers)
     }
 }
 
-QString Room::userId() const
+QString Room::roomCreatorUserId() const
 {
-    return mUserId;
+    return mRoomCreateUserId;
 }
 
-void Room::setUserId(const QString &userId)
+void Room::setRoomCreatorUserId(const QString &userId)
 {
-    if (mUserId != userId) {
-        mUserId = userId;
+    if (mRoomCreateUserId != userId) {
+        mRoomCreateUserId = userId;
     }
 }
 
-QString Room::userName() const
+QString Room::roomCreatorUserName() const
 {
-    return mUserName;
+    return mRoomCreatorUserName;
 }
 
-void Room::setUserName(const QString &userName)
+void Room::setRoomCreatorUserName(const QString &userName)
 {
-    if (mUserName != userName) {
-        mUserName = userName;
-        Q_EMIT userIdChanged();
+    if (mRoomCreatorUserName != userName) {
+        mRoomCreatorUserName = userName;
     }
 }
 
@@ -347,7 +365,7 @@ void Room::setName(const QString &name)
 void Room::parseRoom(const QJsonObject &json)
 {
     qDebug() << " void Room::parseRoom(const QJsonObject &json)"<<json;
-    setUserId(json.value(QLatin1String("_id")).toString());
+    //setRoomCreatorUserId(json.value(QLatin1String("_id")).toString());
     setId(json.value(QLatin1String("rid")).toString());
     setName(json[QStringLiteral("name")].toString());
     setTopic(json[QStringLiteral("topic")].toString());
@@ -364,13 +382,22 @@ void Room::parseRoom(const QJsonObject &json)
     } else {
         setBlocker(false);
     }
+    const QJsonValue ownerValue = json.value(QLatin1String("u"));
+    if (!ownerValue.isUndefined()) {
+        const QJsonObject objOwner = ownerValue.toObject();
+        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
+        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+    }
+    qDebug() << " *thus" << *this;
 }
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     const QString roomID = json.value(QLatin1String("rid")).toString();
     setId(roomID);
-    setUserId(json.value(QLatin1String("_id")).toString());
+    //????? FIXME
+    //setRoomCreatorUserId(json.value(QLatin1String("_id")).toString());
+    //
     setName(json[QStringLiteral("name")].toString());
     setTopic(json[QStringLiteral("topic")].toString());
     setAnnouncement(json[QStringLiteral("announcement")].toString());
@@ -408,6 +435,13 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     for (int i = 0; i < mutedArray.count(); ++i) {
         lst << mutedArray.at(i).toString();
     }
+    const QJsonValue ownerValue = json.value(QLatin1String("u"));
+    if (!ownerValue.isUndefined()) {
+        const QJsonObject objOwner = ownerValue.toObject();
+        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
+        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+    }
+    qDebug() << " *thus" << *this;
 
     setMutedUsers(lst);
     //TODO add muted
@@ -421,8 +455,8 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setId(o[QStringLiteral("rid")].toString());
     r->setChannelType(o[QStringLiteral("t")].toString());
     r->setName(o[QStringLiteral("name")].toString());
-    r->setUserName(o[QStringLiteral("userName")].toString());
-    r->setUserId(o[QStringLiteral("userID")].toString());
+    r->setRoomCreatorUserName(o[QStringLiteral("roomCreatorUserName")].toString());
+    r->setRoomCreatorUserId(o[QStringLiteral("roomCreatorUserID")].toString());
     r->setTopic(o[QStringLiteral("topic")].toString());
     r->setJitsiTimeout(o[QStringLiteral("jitsiTimeout")].toDouble());
     r->setReadOnly(o[QStringLiteral("ro")].toBool());
@@ -434,7 +468,6 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setOpen(o[QStringLiteral("open")].toBool());
     r->setArchived(o[QStringLiteral("archived")].toBool());
     r->setDescription(o[QStringLiteral("description")].toString());
-    //TODO ???
     r->setBlocker(o[QStringLiteral("blocker")].toBool());
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
     QStringList lst;
@@ -455,8 +488,8 @@ QByteArray Room::serialize(Room *r)
     o[QStringLiteral("rid")] = r->id();
     o[QStringLiteral("t")] = r->channelType();
     o[QStringLiteral("name")] = r->name();
-    o[QStringLiteral("userName")] = r->userName();
-    o[QStringLiteral("userID")] = r->userId();
+    o[QStringLiteral("roomCreatorUserName")] = r->roomCreatorUserName();
+    o[QStringLiteral("roomCreatorUserID")] = r->roomCreatorUserId();
     o[QStringLiteral("topic")] = r->topic();
     o[QStringLiteral("jitsiTimeout")] = r->jitsiTimeout();
     o[QStringLiteral("ro")] = r->readOnly();

@@ -32,6 +32,7 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAssignValue();
+    void shouldVerifyCanBeModify();
 };
 
 #endif // ROOMWRAPPERTEST_H

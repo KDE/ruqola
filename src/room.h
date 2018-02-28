@@ -55,11 +55,11 @@ public:
     //we can't use operator== as it tests only id. We need it for autotest
     bool isEqual(const Room &other) const;
 
-    QString userName() const;
-    void setUserName(const QString &userName);
+    QString roomCreatorUserName() const;
+    void setRoomCreatorUserName(const QString &userName);
 
-    QString userId() const;
-    void setUserId(const QString &userId);
+    QString roomCreatorUserId() const;
+    void setRoomCreatorUserId(const QString &userId);
 
     QStringList mutedUsers() const;
     void setMutedUsers(const QStringList &mutedUsers);
@@ -145,12 +145,12 @@ public:
     QString description() const;
     void setDescription(const QString &description);
 
+    bool canBeModify() const;
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
     void topicChanged();
     void favoriteChanged();
-    void userIdChanged();
     void alertChanged();
     void readOnlyChanged();
     void unreadChanged();
@@ -177,8 +177,8 @@ private:
     QString mAnnouncement;
 
     // u
-    QString mUserName;
-    QString mUserId;
+    QString mRoomCreatorUserName;
+    QString mRoomCreateUserId;
 
     // topic
     QString mTopic;
@@ -209,6 +209,7 @@ private:
     FilesForRoomFilterProxyModel *mFilesForRoomFilterProxyModel = nullptr;
 
     MessageModel *mMessageModel = nullptr;
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Room &t);

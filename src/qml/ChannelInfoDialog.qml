@@ -47,6 +47,11 @@ QQC2.Dialog {
 
     function initializeAndOpen()
     {
+        channelNameField.setReadOnly(!roomInfo.canBeModify);
+        channelCommentField.setReadOnly(!roomInfo.canBeModify);
+        channelAnnoucementField.setReadOnly(!roomInfo.canBeModify);
+        channelDescriptionField.setReadOnly(!roomInfo.canBeModify);
+
         open();
     }
 
@@ -58,6 +63,7 @@ QQC2.Dialog {
         TextFieldEditor {
             id: channelNameField
             textField: roomInfo === null ? "" : roomInfo.name
+
             onUpdateValue: {
                 if (newVal != "") {
                     channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal)

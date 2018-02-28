@@ -307,6 +307,11 @@ void RocketChatAccount::updateMessage(const QString &roomID, const QString &mess
     ddp()->method(QStringLiteral("updateMessage"), QJsonDocument(json), DDPClient::Persistent);
 }
 
+QString RocketChatAccount::avatarUrlFromDirectChannel(const QString &rid)
+{
+    return mCache->avatarUrl(Utils::userIdFromDirectChannel(rid, userID()));
+}
+
 QString RocketChatAccount::avatarUrl(const QString &userId)
 {
     return mCache->avatarUrl(userId);
@@ -936,10 +941,7 @@ void RocketChatAccount::blockUser(const QString &rid, bool block)
     } else {
         //qDebug() << " void RocketChatAccount::blockUser userId " << userId << " block " << block << " rid " << rid << " own userdId" << userID();
 
-        //Info from fairchat
-        QString userId = rid;
-        userId.remove(userID());
-
+        const QString userId = Utils::userIdFromDirectChannel(rid, userID());
         if (block) {
             ddp()->blockUser(rid, userId);
         } else {

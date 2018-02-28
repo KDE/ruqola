@@ -82,9 +82,9 @@ QString RoomWrapper::channelType() const
     return mRoom->channelType();
 }
 
-QString RoomWrapper::userId() const
+QString RoomWrapper::roomCreatorUserId() const
 {
-    return mRoom->userId();
+    return mRoom->roomCreatorUserId();
 }
 
 QString RoomWrapper::rid() const
@@ -100,4 +100,9 @@ QString RoomWrapper::description() const
 bool RoomWrapper::archived() const
 {
     return mRoom->archived();
+}
+
+bool RoomWrapper::canBeModify() const
+{
+    return mRoom->canBeModify();
 }

@@ -41,17 +41,15 @@ QQC2.Dialog {
 
     function initializeAndOpen()
     {
-        avatarRect.avatarurl = appid.rocketChatAccount.avatarUrl(roomInfo.userId)
-        //console.log("ddddd " + avatarRect.avatarurl + " roomInfo.rid" + roomInfo.userId)
+        avatarRect.avatarurl = appid.rocketChatAccount.avatarUrlFromDirectChannel(roomInfo.rid)
         open();
     }
 
     ColumnLayout {
         AvatarImage {
             id: avatarRect
-            avatarurl: roomInfo ? appid.rocketChatAccount.avatarUrl(roomInfo.userId) : ""
-            //aliasname: i_aliasname
-            //username: i_username
+            implicitHeight: 160
+            implicitWidth: 160
         }
 
         Button {

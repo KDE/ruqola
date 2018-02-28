@@ -30,6 +30,12 @@ RowLayout {
     signal updateValue(string newVal)
     property alias textField: channelNameField.text
 
+    function setReadOnly(ro)
+    {
+        channelNameField.readOnly = ro;
+        channelIcon.visible = !ro;
+    }
+
     function clear()
     {
         channelNameField.clear()
@@ -47,6 +53,7 @@ RowLayout {
     }
 
     Kirigami.Icon {
+        id: channelIcon
         source: "document-edit"
         width: 24
         height: 24

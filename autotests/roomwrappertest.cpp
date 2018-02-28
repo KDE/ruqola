@@ -40,7 +40,7 @@ void RoomWrapperTest::shouldHaveDefaultValue()
     QVERIFY(w.channelType().isEmpty());
     QVERIFY(!w.favorite());
     QVERIFY(!w.blocker());
-    QVERIFY(w.userId().isEmpty());
+    QVERIFY(w.roomCreatorUserId().isEmpty());
     QVERIFY(w.rid().isEmpty());
     QVERIFY(w.description().isEmpty());
     QVERIFY(!w.archived());
@@ -272,7 +272,7 @@ void RoomWrapperTest::shouldAssignValue()
     //
 
     const QString userId = QStringLiteral("foo");
-    room->setUserId(userId);
+    room->setRoomCreatorUserId(userId);
     QCOMPARE(spyRoomAnnoucementChanged.count(), 0);
     QCOMPARE(spyRoomTopicChanged.count(), 0);
     QCOMPARE(spyRoomNameChanged.count(), 0);
@@ -280,7 +280,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomBlockerChanged.count(), 0);
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
-    QCOMPARE(w.userId(), userId);
+    QCOMPARE(w.roomCreatorUserId(), userId);
 
     const QString rId = QStringLiteral("foo");
     room->setId(rId);
@@ -293,5 +293,15 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
     QCOMPARE(w.rid(), rId);
 
+    delete room;
+}
+
+void RoomWrapperTest::shouldVerifyCanBeModify()
+{
+    Room *room = new Room();
+    room->setRoomCreatorUserId(QStringLiteral("foo"));
+    RoomWrapper w(room);
+    QVERIFY(!w.canBeModify());
+    //TODO check true but we need to add rocketchataccount;
     delete room;
 }

@@ -425,8 +425,8 @@ void RoomModelTest::shouldReturnData()
     input->setName(name);
     input->setSelected(selected);
     input->setChannelType(roomType);
-    input->setUserId(userId);
-    input->setUserName(userName);
+    input->setRoomCreatorUserId(userId);
+    input->setRoomCreatorUserName(userName);
     input->setTopic(topic);
     input->setMutedUsers(mutedUsers);
     input->setJitsiTimeout(time);
