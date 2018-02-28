@@ -50,8 +50,7 @@ QQC2.Dialog {
         channelNameField.textField = roomInfo.name;
         channelCommentField.textField = roomInfo.topic;
         channelAnnoucementField.textField = roomInfo.announcement;
-        //TODO add description.
-        channelDescriptionField.clear();
+        channelDescriptionField.textField = roomInfo.description;
         //TODO
         archiveRoom.checked = false;
         readOnlyRoom.checked = roomInfo.readOnly;

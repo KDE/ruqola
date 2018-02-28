@@ -126,7 +126,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setAnnouncement(json[QStringLiteral("announcement")].toString());
     }
     if (json.contains(QLatin1String("description"))) {
-        setAnnouncement(json[QStringLiteral("description")].toString());
+        setDescription(json[QStringLiteral("description")].toString());
     }
     if (json.contains(QLatin1String("open"))) {
         setOpen(json[QStringLiteral("open")].toBool());

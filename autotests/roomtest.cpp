@@ -146,3 +146,4 @@ void RoomTest::shouldChangeInputMessage()
 }
 
 //TODO add more autotests signal and co.
+// add parseUpdateRoom feature
