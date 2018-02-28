@@ -50,6 +50,7 @@ QQC2.Dialog {
     Column {
         QQC2.TextField {
             id: description
+            selectByMouse: true
             placeholderText: i18n("Description")
         }
         RowLayout {
