@@ -28,6 +28,7 @@ import org.kde.kirigami 2.1 as Kirigami
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.ExtraColors 1.0
 import "../js/message.js" as MessageScript;
+import "../common"
 
 MessageBase {
     id: messageMain

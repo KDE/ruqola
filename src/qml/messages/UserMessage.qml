@@ -31,6 +31,7 @@ import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.ExtraColors 1.0
 import KDE.Ruqola.DebugCategory 1.0
 import "../js/message.js" as MessageScript;
+import "../common"
 MessageBase {
 
     property string i_messageID
