@@ -57,7 +57,7 @@ QQC2.Dialog {
         }
         TextFieldEditor {
             id: channelNameField
-            textField: roomInfo.name
+            textField: roomInfo === null ? "" : roomInfo.name
             onUpdateValue: {
                 if (newVal != "") {
                     channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal)
@@ -72,7 +72,7 @@ QQC2.Dialog {
         }
         TextFieldEditor {
             id: channelCommentField
-            textField: roomInfo.topic
+            textField: roomInfo === null ? "" : roomInfo.topic
             onUpdateValue: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, newVal)
             }
@@ -82,7 +82,7 @@ QQC2.Dialog {
         }
         TextFieldEditor {
             id: channelAnnoucementField
-            textField: roomInfo.announcement;
+            textField: roomInfo === null ? "" : roomInfo.announcement;
             onUpdateValue: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Annoucement, newVal)
             }
@@ -92,7 +92,7 @@ QQC2.Dialog {
         }
         TextFieldEditor {
             id: channelDescriptionField
-            textField: roomInfo.description;
+            textField: roomInfo === null ? "" : roomInfo.description;
             onUpdateValue: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal)
             }
@@ -103,7 +103,7 @@ QQC2.Dialog {
         }
         QQC2.Switch {
             id: readOnlyRoom
-            checked: roomInfo.readOnly
+            checked: roomInfo === null ? false : roomInfo.readOnly
             onClicked: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.ReadOnly, checked)
             }
@@ -114,7 +114,7 @@ QQC2.Dialog {
         }
         QQC2.Switch {
             id: archiveRoom
-            checked: roomInfo.archived
+            checked: roomInfo === null ? false : roomInfo.archived
             onClicked: {
                 archiveRoomDialog.open()
             }
