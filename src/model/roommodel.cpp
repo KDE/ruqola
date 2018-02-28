@@ -306,6 +306,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
 
 void RoomModel::updateRoom(const QJsonObject &roomData)
 {
+    qDebug() << " void RoomModel::updateRoom(const QJsonObject &roomData)";
     //TODO fix me!
     //Use "_id"
     QString rId = roomData.value(QLatin1String("rid")).toString();
@@ -318,7 +319,6 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
         };
         qDebug() << " rId" << rId << " roomCount " << roomCount;
         for (int i = 0; i < roomCount; ++i) {
-            qDebug() << " mRoomsList.at(i)->id()"<<mRoomsList.at(i)->id()<< " rid   " << rId;
             if (mRoomsList.at(i)->id() == rId) {
                 qDebug() << " ROOOM FOUND!!!!!!!!!";
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
@@ -333,6 +333,7 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
         //qCWarning(RUQOLA_LOG) << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
         qWarning() << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
     }
+    qDebug() << "END void RoomModel::updateRoom(const QJsonObject &roomData)";
 }
 
 void RoomModel::userStatusChanged(const User &user)
