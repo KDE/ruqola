@@ -73,16 +73,7 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
             || roomType == QLatin1String("p") /*Private chat*/) {
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPClient::LoggedIn) {
-                //TODO FIXME
-                Room r(account);
-                r.parseRoom(roomJson);
-                qCDebug(RUQOLA_LOG) << "Adding room" << r.id() << r.topic() << r.announcement();
-                qDebug() << "Adding room" << r.id() << r.topic() << r.announcement();
-                QString id = r.id();
-                if (id.isEmpty()) {
-                    id = r.userId();
-                }
-                model->updateRoom(r.name(), id, r.topic(), r.announcement(), r.readOnly(), r.description());
+                model->updateRoom(roomJson);
             }
         }
     }
