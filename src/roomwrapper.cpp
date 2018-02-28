@@ -40,6 +40,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::readOnlyChanged, this, &RoomWrapper::readOnlyChanged);
     connect(mRoom, &Room::blockerChanged, this, &RoomWrapper::blockerChanged);
     connect(mRoom, &Room::descriptionChanged, this, &RoomWrapper::descriptionChanged);
+    connect(mRoom, &Room::archivedChanged, this, &RoomWrapper::archivedChanged);
 }
 
 RoomWrapper::~RoomWrapper()
@@ -94,4 +95,9 @@ QString RoomWrapper::rid() const
 QString RoomWrapper::description() const
 {
     return mRoom->description();
+}
+
+bool RoomWrapper::archived() const
+{
+    return mRoom->archived();
 }

@@ -47,8 +47,6 @@ QQC2.Dialog {
 
     function initializeAndOpen()
     {
-        //TODO
-        archiveRoom.checked = false;
         open();
     }
 
@@ -116,7 +114,7 @@ QQC2.Dialog {
         }
         QQC2.Switch {
             id: archiveRoom
-            checked: false
+            checked: roomInfo.archived
             onClicked: {
                 archiveRoomDialog.open()
             }
