@@ -62,7 +62,7 @@ Kirigami.BasicListItem {
     {
         var str;
         if (d_userMentions > 0) {
-            str = '@';
+            str = "@";
         }
         str += i18n("(%1)", d_unread);
         return str;
