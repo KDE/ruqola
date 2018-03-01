@@ -60,7 +60,7 @@ Kirigami.BasicListItem {
     }
     function generateText()
     {
-        var str;
+        var str = "";
         if (d_userMentions > 0) {
             str = "@";
         }
