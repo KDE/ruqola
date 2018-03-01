@@ -31,5 +31,12 @@ NotificationOptionsTest::NotificationOptionsTest(QObject *parent)
 
 void NotificationOptionsTest::shouldHaveDefaultValue()
 {
-
+    NotificationOptions w;
+    QVERIFY(w.audioNotifications().isEmpty());
+    QVERIFY(w.desktopNotifications().isEmpty());
+    QVERIFY(w.mobilePushNotification().isEmpty());
+    QVERIFY(w.emailNotifications().isEmpty());
+    QVERIFY(w.unreadTrayIconAlert().isEmpty());
+    QVERIFY(!w.disableNotifications());
+    QVERIFY(!w.hideUnreadStatus());
 }
