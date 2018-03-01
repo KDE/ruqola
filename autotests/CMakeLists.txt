@@ -57,4 +57,6 @@ add_ruqola_test(ruqolatest.cpp)
 add_ruqola_test(managerdatapathstest.cpp)
 add_ruqola_test(rocketchataccountfilterproxymodeltest.cpp)
 add_ruqola_test(roomwrappertest.cpp)
+add_ruqola_test(notificationoptionstest.cpp)
+
 add_subdirectory(qml)

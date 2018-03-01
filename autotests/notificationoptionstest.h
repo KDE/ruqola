@@ -29,7 +29,8 @@ class NotificationOptionsTest : public QObject
 public:
     explicit NotificationOptionsTest(QObject *parent = nullptr);
     ~NotificationOptionsTest() = default;
-
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // NOTIFICATIONOPTIONSTEST_H

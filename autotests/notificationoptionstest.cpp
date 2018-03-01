@@ -19,11 +19,17 @@
 */
 
 #include "notificationoptionstest.h"
+#include "notificationoptions.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(NotificationOptionsTest)
 
 NotificationOptionsTest::NotificationOptionsTest(QObject *parent)
     : QObject(parent)
+{
+
+}
+
+void NotificationOptionsTest::shouldHaveDefaultValue()
 {
 
 }
