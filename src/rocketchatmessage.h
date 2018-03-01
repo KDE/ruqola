@@ -94,6 +94,7 @@ public:
     RocketChatMessage::RocketChatMessageResult inputChannelAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
     RocketChatMessage::RocketChatMessageResult inputUserAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
     RocketChatMessage::RocketChatMessageResult loginProvider(const QString &credentialToken, const QString &credentialSecretd, quint64 id);
+    RocketChatMessage::RocketChatMessageResult saveNotificationsSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
 private:
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);

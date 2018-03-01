@@ -261,6 +261,20 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const 
     return generateMethod(QStringLiteral("unblockUser"), QJsonDocument(params), id);
 }
 
+//TODO verify
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveNotificationsSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
+{
+    const QJsonArray params{{
+                                roomId
+                            }, {
+                                key
+                            }, {
+                                value
+                            }};
+    return generateMethod(QStringLiteral("saveNotificationSettings"), QJsonDocument(params), id);
+}
+
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
 {
     const QJsonArray params{{
