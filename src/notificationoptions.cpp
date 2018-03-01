@@ -27,7 +27,59 @@ NotificationOptions::NotificationOptions()
 
 void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
 {
-    //TODO
+    mHideUnreadStatus = obj.value(QLatin1String("hideUnreadStatus")).toBool();
+    mDisableNotifications = obj.value(QLatin1String("disableNotifications")).toBool();
+    mAudioNotifications = obj.value(QLatin1String("audioNotifications")).toString();
+    mAudioNotificationValue = obj.value(QLatin1String("audioNotificationValue")).toInt();
+    //"desktopNotificationDuration":0,"desktopNotifications":"mentions"
+    mDesktopNotifications = obj.value(QLatin1String("desktopNotifications")).toString();
+    mDesktopNotificationDuration = obj.value(QLatin1String("desktopNotificationDuration")).toInt();
+    //"mobilePushNotifications":"nothing"
+    mMobilePushNotification = obj.value(QLatin1String("mobilePushNotifications")).toString();
+    //"emailNotifications":"default"
+    mEmailNotifications = obj.value(QLatin1String("emailNotifications")).toString();
+    //"unreadAlert":"nothing"
+    mUnreadTrayIconAlert = obj.value(QLatin1String("unreadAlert")).toString();
+}
+
+int NotificationOptions::audioNotificationValue() const
+{
+    return mAudioNotificationValue;
+}
+
+void NotificationOptions::setAudioNotificationValue(int audioNotificationValue)
+{
+    mAudioNotificationValue = audioNotificationValue;
+}
+
+int NotificationOptions::desktopNotificationDuration() const
+{
+    return mDesktopNotificationDuration;
+}
+
+void NotificationOptions::setDesktopNotificationDuration(int desktopNotificationDuration)
+{
+    mDesktopNotificationDuration = desktopNotificationDuration;
+}
+
+QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
+{
+    QJsonObject obj;
+    obj[QStringLiteral("audioNotifications")] = options.audioNotifications();
+    obj[QStringLiteral("audioNotificationValue")] = options.audioNotificationValue();
+    obj[QStringLiteral("disableNotifications")] = options.disableNotifications();
+    obj[QStringLiteral("desktopNotifications")] = options.desktopNotifications();
+    obj[QStringLiteral("desktopNotificationDuration")] = options.desktopNotificationDuration();
+    obj[QStringLiteral("mobilePushNotifications")] = options.mobilePushNotification();
+    obj[QStringLiteral("emailNotifications")] = options.emailNotifications();
+    obj[QStringLiteral("unreadAlert")] = options.unreadTrayIconAlert();
+    obj[QStringLiteral("hideUnreadStatus")] = options.audioNotifications();
+    return obj;
+}
+
+NotificationOptions NotificationOptions::fromJSon(const QJsonObject &o)
+{
+    return {};
 }
 
 bool NotificationOptions::hideUnreadStatus() const
@@ -108,13 +160,17 @@ bool NotificationOptions::operator==(const NotificationOptions &other) const
             && (mEmailNotifications == other.emailNotifications())
             && (mUnreadTrayIconAlert == other.unreadTrayIconAlert())
             && (mDisableNotifications == other.disableNotifications())
-            && (mHideUnreadStatus == other.hideUnreadStatus());
+            && (mHideUnreadStatus == other.hideUnreadStatus())
+            && (mAudioNotificationValue == other.audioNotificationValue())
+            && (mDesktopNotificationDuration == other.desktopNotificationDuration());
 }
 
 QDebug operator <<(QDebug d, const NotificationOptions &t)
 {
     d << "mAudioNotifications: " << t.audioNotifications();
+    d << "mAudioNotificationValue: " << t.audioNotificationValue();
     d << "mDesktopNotifications: " << t.desktopNotifications();
+    d << "mDesktopNotificationDuration: " << t.desktopNotificationDuration();
     d << "mMobilePushNotification: " << t.mobilePushNotification();
     d << "mEmailNotifications: " << t.emailNotifications();
     d << "mDisableNotifications: " << t.disableNotifications();

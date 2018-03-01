@@ -35,6 +35,12 @@ private Q_SLOTS:
     void shouldEmitSignals();
 
     void shouldChangeInputMessage();
+
+    void shouldParseRoom_data();
+    void shouldParseRoom();
+
+private:
+    void compareFile(const QByteArray &data, const QString &name);
 };
 
 #endif // ROOMTEST_H

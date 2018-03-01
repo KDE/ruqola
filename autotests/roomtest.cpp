@@ -27,6 +27,7 @@
 #include <QJsonDocument>
 #include <QTest>
 #include <QSignalSpy>
+#include <QProcess>
 
 QTEST_GUILESS_MAIN(RoomTest)
 
@@ -80,6 +81,7 @@ void RoomTest::shouldSerialized()
     input.setBlocker(true);
     input.setArchived(true);
     input.setDescription(QStringLiteral("dd"));
+    input.setUserMentions(3);
     const QByteArray ba = Room::serialize(&input);
     Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(*output));
@@ -145,6 +147,60 @@ void RoomTest::shouldChangeInputMessage()
     input.setInputMessage(inputMsg);
     QCOMPARE(input.inputMessage(), inputMsg);
 }
+
+void RoomTest::compareFile(const QByteArray &data, const QString &name)
+{
+    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/room/") + name + QStringLiteral(".ref");
+    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/room/") + name + QStringLiteral("-generated.ref");
+    //Create generated file
+    QFile f(generatedFile);
+    QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));
+    f.write(data);
+    f.close();
+
+    // compare to reference file
+    QStringList args = QStringList()
+                       << QStringLiteral("-u")
+                       << refFile
+                       << generatedFile;
+    QProcess proc;
+    proc.setProcessChannelMode(QProcess::ForwardedChannels);
+    proc.start(QStringLiteral("diff"), args);
+    QVERIFY(proc.waitForFinished());
+    QCOMPARE(proc.exitCode(), 0);
+}
+
+void RoomTest::shouldParseRoom_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::newRow("notification-room") << QStringLiteral("notification-room");
+}
+
+void RoomTest::shouldParseRoom()
+{
+    QFETCH(QString, fileName);
+
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/room/") + fileName + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject fields = doc.object();
+
+    Room r;
+    r.parseSubscriptionRoom(fields);
+    //qDebug() << " fields"<<fields;
+
+    const QByteArray ba = Room::serialize(&r, false);
+    //qDebug() << " ba " << ba;
+    const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
+
+    const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
+    compareFile(jsonIndented, fileName);
+}
+
+
 
 //TODO add more autotests signal and co.
 // add parseUpdateRoom feature

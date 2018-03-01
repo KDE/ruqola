@@ -55,6 +55,16 @@ public:
     bool operator==(const NotificationOptions &other) const;
 
     void parseNotificationOptions(const QJsonObject &obj);
+
+    int audioNotificationValue() const;
+    void setAudioNotificationValue(int audioNotificationValue);
+
+    int desktopNotificationDuration() const;
+    void setDesktopNotificationDuration(int desktopNotificationDuration);
+
+    static QJsonObject serialize(const NotificationOptions &message);
+    static NotificationOptions fromJSon(const QJsonObject &o);
+
 private:
     //TODO use enums ????
     QString mAudioNotifications;
@@ -62,6 +72,8 @@ private:
     QString mMobilePushNotification;
     QString mEmailNotifications;
     QString mUnreadTrayIconAlert;
+    int mAudioNotificationValue = 0; //seconds
+    int mDesktopNotificationDuration = 0; //seconds
     bool mDisableNotifications = false;
     bool mHideUnreadStatus = false;
 };

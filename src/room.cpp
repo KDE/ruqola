@@ -475,6 +475,8 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
         setRoomCreatorUserName(QString());
     }
     qDebug() << " *thus" << *this;
+    mNotificationOptions.parseNotificationOptions(json);
+
 
     setMutedUsers(lst);
     //TODO add muted
@@ -515,7 +517,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     return r;
 }
 
-QByteArray Room::serialize(Room *r)
+QByteArray Room::serialize(Room *r, bool toBinary)
 {
     QJsonDocument d;
     QJsonObject o;
@@ -550,10 +552,14 @@ QByteArray Room::serialize(Room *r)
         }
         o[QStringLiteral("mutedUsers")] = array;
     }
+    o[QStringLiteral("notifications")] = NotificationOptions::serialize(r->notificationOptions());
 
     d.setObject(o);
     //TODO add notifications
-    return d.toBinaryData();
+    if (toBinary) {
+        return d.toBinaryData();
+    }
+    return d.toJson(QJsonDocument::Indented);
 }
 
 UsersForRoomModel *Room::usersModelForRoom() const

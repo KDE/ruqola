@@ -127,7 +127,7 @@ public:
     * @param message The Room object
     * @return QByteArray, The Json containing room attributes
     */
-    static QByteArray serialize(Room *r);
+    static QByteArray serialize(Room *r, bool toBinary = true);
 
     UsersForRoomModel *usersModelForRoom() const;
     UsersForRoomFilterProxyModel *usersModelForRoomProxyModel() const;
