@@ -53,6 +53,7 @@ Dialog {
         }
         TextField {
             id: channelName
+            selectByMouse: true
             placeholderText: i18n("Channel Name")
         }
 
@@ -61,6 +62,7 @@ Dialog {
         }
         TextField {
             id: userList
+            selectByMouse: true
             //Add i18n context ?
             placeholderText: i18n("User separate with ','")
         }
