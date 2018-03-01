@@ -75,7 +75,9 @@ bool Room::isEqual(const Room &other) const
            && (mOpen == other.open())
            && (mBlocker == other.blocker())
             && (mArchived == other.archived())
-            && (mDescription == other.description());
+            && (mDescription == other.description())
+            && (mUserMentions == other.userMentions())
+            && (mNotificationOptions == other.notificationOptions());
 }
 
 QString Room::name() const
@@ -102,16 +104,38 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "blocker: " << t.blocker();
     d << "archived: " << t.archived();
     d << "description: " << t.description();
+    d << "userMentions: " << t.userMentions();
+    d << "notifications: " << t.notificationOptions();
     return d;
 }
 
 bool Room::canBeModify() const
 {
     if (mRocketChatAccount) {
-        qDebug() <<  "mRoomCreateUserId"<<mRoomCreateUserId << " mRocketChatAccount->userID()"<<mRocketChatAccount->userID();
+        qCDebug(RUQOLA_LOG) <<  "mRoomCreateUserId"<<mRoomCreateUserId << " mRocketChatAccount->userID()"<<mRocketChatAccount->userID();
         return (mRoomCreateUserId == mRocketChatAccount->userID());
     }
     return false;
+}
+
+NotificationOptions Room::notificationOptions() const
+{
+    return mNotificationOptions;
+}
+
+void Room::setNotificationOptions(const NotificationOptions &notificationOptions)
+{
+    mNotificationOptions = notificationOptions;
+}
+
+int Room::userMentions() const
+{
+    return mUserMentions;
+}
+
+void Room::setUserMentions(int userMentions)
+{
+    mUserMentions = userMentions;
 }
 
 void Room::parseUpdateRoom(const QJsonObject &json)
@@ -129,6 +153,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 
     if (json.contains(QLatin1String("unread"))) {
         setUnread(json[QStringLiteral("unread")].toInt());
+    }
+    if (json.contains(QLatin1String("userMentions"))) {
+        setUserMentions(json[QStringLiteral("userMentions")].toInt());
     }
     if (json.contains(QLatin1String("announcement"))) {
         setAnnouncement(json[QStringLiteral("announcement")].toString());
@@ -414,6 +441,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     }
 
     setUnread(json[QStringLiteral("unread")].toInt());
+    setUserMentions(json[QStringLiteral("userMentions")].toInt());
     setOpen(json[QStringLiteral("open")].toBool());
     setAlert(json[QStringLiteral("alert")].toBool());
     const QJsonValue blockerValue = json.value(QLatin1String("blocker"));
@@ -466,6 +494,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setJitsiTimeout(o[QStringLiteral("jitsiTimeout")].toDouble());
     r->setReadOnly(o[QStringLiteral("ro")].toBool());
     r->setUnread(o[QStringLiteral("unread")].toInt(0));
+    r->setUserMentions(o[QStringLiteral("userMentions")].toInt(0));
     r->setAnnouncement(o[QStringLiteral("announcement")].toString());
     r->setSelected(o[QStringLiteral("selected")].toBool());
     r->setFavorite(o[QStringLiteral("favorite")].toBool());
@@ -481,6 +510,7 @@ Room *Room::fromJSon(const QJsonObject &o)
         lst <<mutedArray.at(i).toString();
     }
     r->setMutedUsers(lst);
+    //TODO add notification!
 
     return r;
 }
@@ -507,6 +537,7 @@ QByteArray Room::serialize(Room *r)
     o[QStringLiteral("blocker")] = r->blocker();
     o[QStringLiteral("archived")] = r->archived();
     o[QStringLiteral("description")] = r->description();
+    o[QStringLiteral("userMentions")] = r->userMentions();
 
     //Urls
     if (!r->mutedUsers().isEmpty()) {
@@ -521,6 +552,7 @@ QByteArray Room::serialize(Room *r)
     }
 
     d.setObject(o);
+    //TODO add notifications
     return d.toBinaryData();
 }
 

@@ -60,6 +60,7 @@ ListView {
     delegate: RoomDelegate {
         d_name: name
         d_unread: unread
+        d_userMentions: userMentions
         d_roomID: room_id
         d_type: type
         d_open: open

@@ -62,6 +62,7 @@ void RoomModelTest::shouldHaveDefaultValues()
     roles[RoomModel::RoomFavorite] = QByteArrayLiteral("favorite");
     roles[RoomModel::RoomSection] = QByteArrayLiteral("sectionname");
     roles[RoomModel::RoomIcon] = QByteArrayLiteral("channelicon");
+    roles[RoomModel::RoomUserMentions] = QByteArrayLiteral("userMentions");
     QCOMPARE(sampleModel.roleNames(), roles);
 }
 

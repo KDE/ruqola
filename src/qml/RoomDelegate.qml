@@ -32,6 +32,7 @@ Kirigami.BasicListItem {
     id: root
 
     property int d_unread: 0;
+    property int d_userMentions: 0;
     property string d_name: "roomName";
     property bool d_selected: false;
     property string d_roomID : "";
@@ -57,6 +58,16 @@ Kirigami.BasicListItem {
     onClicked: {
         root.roomSelected(d_roomID);
     }
+    function generateText()
+    {
+        var str;
+        if (d_userMentions > 0) {
+            str = '@';
+        }
+        str += i18n("(%1)", d_unread);
+        return str;
+    }
+
     RowLayout {
         id: editingActions
         QQC2.Label {
@@ -68,7 +79,7 @@ Kirigami.BasicListItem {
             font.bold: true
             //FIX COLOR
             color: (d_unread != 0) ? "#FF0000" : "#FFFFFF"
-            text: i18n("(%1)", d_unread)
+            text: generateText()
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
         }
         Kirigami.Icon {

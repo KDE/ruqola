@@ -54,8 +54,11 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.announcement().isEmpty());
     QVERIFY(!input.readOnly());
     //Add more
+    QCOMPARE(input.userMentions(), -1);
+    QCOMPARE(input.unread(), -1);
 }
 
+//TODO add notification, userMentions too
 void RoomTest::shouldSerialized()
 {
     Room input(nullptr);

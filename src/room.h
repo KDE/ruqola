@@ -25,6 +25,7 @@
 
 #include <QJsonObject>
 #include <QObject>
+#include "notificationoptions.h"
 
 #include "libruqola_private_export.h"
 class UsersForRoomModel;
@@ -146,6 +147,12 @@ public:
     void setDescription(const QString &description);
 
     bool canBeModify() const;
+    NotificationOptions notificationOptions() const;
+    void setNotificationOptions(const NotificationOptions &notificationOptions);
+
+    int userMentions() const;
+    void setUserMentions(int userMentions);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -161,6 +168,8 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(Room)
     //Room Object Fields
+
+    NotificationOptions mNotificationOptions;
 
     QString mInputMessage;
 
@@ -196,6 +205,7 @@ private:
 
     //quint64 ?
     int mUnread = -1;
+    int mUserMentions = -1;
     bool mSelected = false;
     bool mFavorite = false;
     //We can hide it or not.

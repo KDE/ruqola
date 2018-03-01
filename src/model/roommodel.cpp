@@ -152,6 +152,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomFavorite] = QByteArrayLiteral("favorite");
     roles[RoomSection] = QByteArrayLiteral("sectionname");
     roles[RoomIcon] = QByteArrayLiteral("channelicon");
+    roles[RoomUserMentions] = QByteArrayLiteral("userMentions");
     return roles;
 }
 
@@ -205,6 +206,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomOtr:
         //TODO implement it.
         return {};
+    case RoomModel::RoomUserMentions:
+        return r->userMentions();
     }
     return {};
 }
