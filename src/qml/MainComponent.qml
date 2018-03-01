@@ -74,6 +74,15 @@ Component {
                     Layout.fillWidth: true
                 }
                 ToolButton {
+                    id: showNotification
+                    iconName: "preferences-desktop-notification"
+                    onClicked: {
+                        //TODO
+                        console.log("Notification dialog. Not implemented yet.");
+                    }
+                }
+
+                ToolButton {
                     id: showUsersButton
                     iconName: "system-users"
                     checkable: true
