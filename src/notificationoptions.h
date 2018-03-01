@@ -21,11 +21,47 @@
 #ifndef NOTIFICATIONOPTIONS_H
 #define NOTIFICATIONOPTIONS_H
 
+#include <QString>
+#include <QDebug>
+#include "libruqola_private_export.h"
 
-class NotificationOptions
+class LIBRUQOLACORE_TESTS_EXPORT NotificationOptions
 {
 public:
     NotificationOptions();
+
+    bool hideUnreadStatus() const;
+    void setHideUnreadStatus(bool value);
+
+    bool disableNotifications() const;
+    void setDisableNotifications(bool disableNotifications);
+
+    QString unreadTrayIconAlert() const;
+    void setUnreadTrayIconAlert(const QString &unreadTrayIconAlert);
+
+    QString emailNotifications() const;
+    void setEmailNotifications(const QString &emailNotifications);
+
+    QString mobilePushNotification() const;
+    void setMobilePushNotification(const QString &mobilePushNotification);
+
+    QString desktopNotifications() const;
+    void setDesktopNotifications(const QString &desktopNotifications);
+
+    QString audioNotifications() const;
+    void setAudioNotifications(const QString &audioNotifications);
+
+    bool operator==(const NotificationOptions &other) const;
+private:
+    //TODO use enums ????
+    QString mAudioNotifications;
+    QString mDesktopNotifications;
+    QString mMobilePushNotification;
+    QString mEmailNotifications;
+    QString mUnreadTrayIconAlert;
+    bool mDisableNotifications = false;
+    bool mHideUnreadStatus = false;
 };
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const NotificationOptions &t);
 
 #endif // NOTIFICATIONOPTIONS_H
