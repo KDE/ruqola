@@ -116,11 +116,7 @@ bool Room::canBeModify() const
 
 void Room::parseUpdateRoom(const QJsonObject &json)
 {
-    qDebug() << " void Room::parseUpdateRoom(const QJsonObject &json)"<<json;
-    // ???? FIXME it's not _id
-//    if (json.contains(QLatin1String("_id"))) {
-//        setRoomCreatorUserId(json.value(QLatin1String("_id")).toString());
-//    }
+    qDebug() << "void Room::parseUpdateRoom(const QJsonObject &json)"<<json;
     if (json.contains(QLatin1String("rid"))) {
         setId(json.value(QLatin1String("rid")).toString());
     }
@@ -162,8 +158,12 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         const QJsonObject objOwner = ownerValue.toObject();
         setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
         setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+    } else {
+        //When room is initialized we are the owner. When we update room we have the real
+        //owner and if it's empty => we need to clear it.
+        setRoomCreatorUserId(QString());
+        setRoomCreatorUserName(QString());
     }
-    qDebug() << " *thus" << *this;
 }
 
 bool Room::selected() const
@@ -364,7 +364,6 @@ void Room::setName(const QString &name)
 
 void Room::parseRoom(const QJsonObject &json)
 {
-    qDebug() << " void Room::parseRoom(const QJsonObject &json)"<<json;
     //setRoomCreatorUserId(json.value(QLatin1String("_id")).toString());
     setId(json.value(QLatin1String("rid")).toString());
     setName(json[QStringLiteral("name")].toString());
@@ -387,17 +386,18 @@ void Room::parseRoom(const QJsonObject &json)
         const QJsonObject objOwner = ownerValue.toObject();
         setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
         setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+    } else {
+        //When room is initialized we are the owner. When we update room we have the real
+        //owner and if it's empty => we need to clear it.
+        setRoomCreatorUserId(QString());
+        setRoomCreatorUserName(QString());
     }
-    qDebug() << " *thus" << *this;
 }
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     const QString roomID = json.value(QLatin1String("rid")).toString();
     setId(roomID);
-    //????? FIXME
-    //setRoomCreatorUserId(json.value(QLatin1String("_id")).toString());
-    //
     setName(json[QStringLiteral("name")].toString());
     setTopic(json[QStringLiteral("topic")].toString());
     setAnnouncement(json[QStringLiteral("announcement")].toString());
@@ -440,6 +440,11 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
         const QJsonObject objOwner = ownerValue.toObject();
         setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
         setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+    } else {
+        //When room is initialized we are the owner. When we update room we have the real
+        //owner and if it's empty => we need to clear it.
+        setRoomCreatorUserId(QString());
+        setRoomCreatorUserName(QString());
     }
     qDebug() << " *thus" << *this;
 

@@ -318,10 +318,8 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
         const int roomCount{
             mRoomsList.size()
         };
-        qDebug() << " rId" << rId << " roomCount " << roomCount;
         for (int i = 0; i < roomCount; ++i) {
             if (mRoomsList.at(i)->id() == rId) {
-                qDebug() << " ROOOM FOUND!!!!!!!!!";
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
                 Room *room = mRoomsList.at(i);
                 room->parseUpdateRoom(roomData);
@@ -334,7 +332,6 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
         //qCWarning(RUQOLA_LOG) << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
         qWarning() << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
     }
-    qDebug() << "END void RoomModel::updateRoom(const QJsonObject &roomData)";
 }
 
 void RoomModel::userStatusChanged(const User &user)
