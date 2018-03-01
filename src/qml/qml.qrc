@@ -38,6 +38,7 @@
         <file>OpenChannelDialog.qml</file>
         <file>PrivateChannelInfoDialog.qml</file>
         <file>PasswordLineEdit.qml</file>
+        <file>NotificationOptionsDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
