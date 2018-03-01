@@ -23,6 +23,7 @@
 
 #include <QString>
 #include <QDebug>
+#include <QJsonObject>
 #include "libruqola_private_export.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT NotificationOptions
@@ -52,6 +53,8 @@ public:
     void setAudioNotifications(const QString &audioNotifications);
 
     bool operator==(const NotificationOptions &other) const;
+
+    void parseNotificationOptions(const QJsonObject &obj);
 private:
     //TODO use enums ????
     QString mAudioNotifications;

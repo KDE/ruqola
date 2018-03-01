@@ -25,6 +25,11 @@ NotificationOptions::NotificationOptions()
 
 }
 
+void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
+{
+    //TODO
+}
+
 bool NotificationOptions::hideUnreadStatus() const
 {
     return mHideUnreadStatus;
