@@ -448,3 +448,43 @@ void RocketChatMessageTest::hideUnreadStatus()
     r = m.hideUnreadStatus(QStringLiteral("rid"), false, 43);
     compareFile(r.result, QStringLiteral("hideUnreadStatusfalse"));
 }
+
+void RocketChatMessageTest::audioNotifications()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.audioNotifications(QStringLiteral("rid"), QStringLiteral("bla"), 43);
+    compareFile(r.result, QStringLiteral("audioNotifications"));
+}
+
+void RocketChatMessageTest::desktopNotifications()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.desktopNotifications(QStringLiteral("rid"), QStringLiteral("bla"), 43);
+    compareFile(r.result, QStringLiteral("desktopNotifications"));
+}
+
+void RocketChatMessageTest::emailNotifications()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.emailNotifications(QStringLiteral("rid"), QStringLiteral("bla"), 43);
+    compareFile(r.result, QStringLiteral("emailNotifications"));
+}
+
+void RocketChatMessageTest::mobilePushNotifications()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.mobilePushNotifications(QStringLiteral("rid"), QStringLiteral("bla"), 43);
+    compareFile(r.result, QStringLiteral("mobilePushNotifications"));
+}
+
+void RocketChatMessageTest::unreadAlert()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.unreadAlert(QStringLiteral("rid"), QStringLiteral("bla"), 43);
+    compareFile(r.result, QStringLiteral("unreadAlert"));
+}

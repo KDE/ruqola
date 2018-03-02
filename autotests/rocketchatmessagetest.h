@@ -90,6 +90,11 @@ private Q_SLOTS:
     void unBlockUser();
     void disableNotifications();
     void hideUnreadStatus();
+    void audioNotifications();
+    void desktopNotifications();
+    void emailNotifications();
+    void mobilePushNotifications();
+    void unreadAlert();
 private:
     void compareFile(const QString &data, const QString &name);
 };

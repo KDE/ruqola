@@ -284,6 +284,31 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::hideUnreadStatus(c
     return saveNotificationsSettings(QStringLiteral("hideUnreadStatus"), roomId, QJsonValue(disabled ? QLatin1String("1") : QLatin1String("0")), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::audioNotifications(const QString &roomId, const QString &value, quint64 id)
+{
+    return saveNotificationsSettings(QStringLiteral("audioNotifications"), roomId, value, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::desktopNotifications(const QString &roomId, const QString &value, quint64 id)
+{
+    return saveNotificationsSettings(QStringLiteral("desktopNotifications"), roomId, value, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::mobilePushNotifications(const QString &roomId, const QString &value, quint64 id)
+{
+    return saveNotificationsSettings(QStringLiteral("mobilePushNotifications"), roomId, value, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::emailNotifications(const QString &roomId, const QString &value, quint64 id)
+{
+    return saveNotificationsSettings(QStringLiteral("emailNotifications"), roomId, value, id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::unreadAlert(const QString &roomId, const QString &value, quint64 id)
+{
+    return saveNotificationsSettings(QStringLiteral("unreadAlert"), roomId, value, id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
 {
     const QJsonArray params{{

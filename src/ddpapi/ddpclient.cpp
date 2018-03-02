@@ -390,6 +390,36 @@ quint64 DDPClient::hideUnreadStatus(const QString &roomId, bool disabled)
     return method(result, change_notifications_settings, DDPClient::Persistent);
 }
 
+quint64 DDPClient::audioNotifications(const QString &roomId, const QString &value)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->audioNotifications(roomId, value, m_uid);
+    return method(result, change_notifications_settings, DDPClient::Persistent);
+}
+
+quint64 DDPClient::mobilePushNotifications(const QString &roomId, const QString &value)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->mobilePushNotifications(roomId, value, m_uid);
+    return method(result, change_notifications_settings, DDPClient::Persistent);
+}
+
+quint64 DDPClient::desktopNotifications(const QString &roomId, const QString &value)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->desktopNotifications(roomId, value, m_uid);
+    return method(result, change_notifications_settings, DDPClient::Persistent);
+}
+
+quint64 DDPClient::emailNotifications(const QString &roomId, const QString &value)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->emailNotifications(roomId, value, m_uid);
+    return method(result, change_notifications_settings, DDPClient::Persistent);
+}
+
+quint64 DDPClient::unreadAlert(const QString &roomId, const QString &value)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->unreadAlert(roomId, value, m_uid);
+    return method(result, change_notifications_settings, DDPClient::Persistent);
+}
+
 void DDPClient::subscribeRoomMessage(const QString &roomId)
 {
     QJsonArray params;

@@ -94,13 +94,20 @@ public:
     RocketChatMessage::RocketChatMessageResult inputChannelAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
     RocketChatMessage::RocketChatMessageResult inputUserAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
     RocketChatMessage::RocketChatMessageResult loginProvider(const QString &credentialToken, const QString &credentialSecretd, quint64 id);
-    RocketChatMessage::RocketChatMessageResult saveNotificationsSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
+
     RocketChatMessage::RocketChatMessageResult disableNotifications(const QString &roomId, bool disabled, quint64 id);
     RocketChatMessage::RocketChatMessageResult hideUnreadStatus(const QString &roomId, bool disabled, quint64 id);
+
+    RocketChatMessage::RocketChatMessageResult audioNotifications(const QString &roomId, const QString &value, quint64 id);
+    RocketChatMessage::RocketChatMessageResult mobilePushNotifications(const QString &roomId, const QString &value, quint64 id);
+    RocketChatMessage::RocketChatMessageResult desktopNotifications(const QString &roomId, const QString &value, quint64 id);
+    RocketChatMessage::RocketChatMessageResult emailNotifications(const QString &roomId, const QString &value, quint64 id);
+    RocketChatMessage::RocketChatMessageResult unreadAlert(const QString &roomId, const QString &value, quint64 id);
 private:
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
     RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
+    RocketChatMessage::RocketChatMessageResult saveNotificationsSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
     QJsonDocument::JsonFormat mJsonFormat;
 };
 

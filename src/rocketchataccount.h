@@ -84,7 +84,11 @@ public:
     enum NotificationOptionsType {
         DisableNotifications,
         HideUnreadStatus,
-        //TODO add more
+        AudioNotifications,
+        DesktopNotifications,
+        EmailNotifications,
+        MobilePushNotifications,
+        UnreadAlert
     };
     Q_ENUM(NotificationOptionsType)
 

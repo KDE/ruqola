@@ -174,6 +174,11 @@ public:
     quint64 blockUser(const QString &rid, const QString &userId);
     quint64 disableNotifications(const QString &roomId, bool disabled);
     quint64 hideUnreadStatus(const QString &roomId, bool disabled);
+    quint64 audioNotifications(const QString &roomId, const QString &value);
+    quint64 mobilePushNotifications(const QString &roomId, const QString &value);
+    quint64 desktopNotifications(const QString &roomId, const QString &value);
+    quint64 emailNotifications(const QString &roomId, const QString &value);
+    quint64 unreadAlert(const QString &roomId, const QString &value);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

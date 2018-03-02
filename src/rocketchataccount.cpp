@@ -625,8 +625,22 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId, Rocke
     case HideUnreadStatus:
         ddp()->hideUnreadStatus(roomId, newValue.toBool());
         break;
+    case AudioNotifications:
+        ddp()->audioNotifications(roomId, newValue.toString());
+        break;
+    case DesktopNotifications:
+        ddp()->desktopNotifications(roomId, newValue.toString());
+        break;
+    case EmailNotifications:
+        ddp()->emailNotifications(roomId, newValue.toString());
+        break;
+    case MobilePushNotifications:
+        ddp()->mobilePushNotifications(roomId, newValue.toString());
+        break;
+    case UnreadAlert:
+        ddp()->unreadAlert(roomId, newValue.toString());
+        break;
     }
-    //TODO add more
 }
 
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
