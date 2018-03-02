@@ -39,6 +39,6 @@ void NotificationOptionsTest::shouldHaveDefaultValue()
     QVERIFY(w.unreadTrayIconAlert().isEmpty());
     QVERIFY(!w.disableNotifications());
     QVERIFY(!w.hideUnreadStatus());
-    QCOMPARE(w.audioNotificationValue(), 0);
+    QVERIFY(w.audioNotificationValue().isEmpty());
     QCOMPARE(w.desktopNotificationDuration(), 0);
 }

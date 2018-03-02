@@ -173,6 +173,7 @@ void RoomTest::compareFile(const QByteArray &data, const QString &name)
 void RoomTest::shouldParseRoom_data()
 {
     QTest::addColumn<QString>("fileName");
+    //Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
     QTest::newRow("notification-room") << QStringLiteral("notification-room");
 }
 

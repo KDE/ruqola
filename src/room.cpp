@@ -512,6 +512,11 @@ Room *Room::fromJSon(const QJsonObject &o)
         lst <<mutedArray.at(i).toString();
     }
     r->setMutedUsers(lst);
+
+    const QJsonObject notificationsObj = o.value(QLatin1String("notifications")).toObject();
+    const NotificationOptions notifications = NotificationOptions::fromJSon(notificationsObj);
+    r->setNotificationOptions(notifications);
+
     //TODO add notification!
 
     return r;

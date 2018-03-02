@@ -56,8 +56,8 @@ public:
 
     void parseNotificationOptions(const QJsonObject &obj);
 
-    int audioNotificationValue() const;
-    void setAudioNotificationValue(int audioNotificationValue);
+    QString audioNotificationValue() const;
+    void setAudioNotificationValue(const QString &audioNotificationValue);
 
     int desktopNotificationDuration() const;
     void setDesktopNotificationDuration(int desktopNotificationDuration);
@@ -72,7 +72,7 @@ private:
     QString mMobilePushNotification;
     QString mEmailNotifications;
     QString mUnreadTrayIconAlert;
-    int mAudioNotificationValue = 0; //seconds
+    QString mAudioNotificationValue; //Type
     int mDesktopNotificationDuration = 0; //seconds
     bool mDisableNotifications = false;
     bool mHideUnreadStatus = false;
