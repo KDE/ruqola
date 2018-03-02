@@ -1,0 +1,31 @@
+{
+    "alert": false,
+    "announcement": "",
+    "archived": false,
+    "blocker": false,
+    "description": "",
+    "favorite": true,
+    "jitsiTimeout": -1,
+    "name": "foo",
+    "notifications": {
+        "audioNotificationValue": "",
+        "audioNotifications": "",
+        "desktopNotificationDuration": 0,
+        "desktopNotifications": "",
+        "disableNotifications": false,
+        "emailNotifications": "nothing",
+        "hideUnreadStatus": false,
+        "mobilePushNotifications": "",
+        "unreadAlert": ""
+    },
+    "open": true,
+    "rid": "or396aM8g7vXngDZA",
+    "ro": false,
+    "roomCreatorUserID": "uKK39zoeTkdacidH",
+    "roomCreatorUserName": "laurent",
+    "selected": false,
+    "t": "c",
+    "topic": "",
+    "unread": 1,
+    "userMentions": 1
+}
