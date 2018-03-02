@@ -112,6 +112,7 @@ QDebug operator <<(QDebug d, const Room &t)
 bool Room::canBeModify() const
 {
     if (mRocketChatAccount) {
+        //TODO use roles ????? Perhaps it's better. TODO implement it.
         qCDebug(RUQOLA_LOG) <<  "mRoomCreateUserId"<<mRoomCreateUserId << " mRocketChatAccount->userID()"<<mRocketChatAccount->userID();
         return (mRoomCreateUserId == mRocketChatAccount->userID());
     }
