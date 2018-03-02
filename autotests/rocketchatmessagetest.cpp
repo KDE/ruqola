@@ -437,3 +437,14 @@ void RocketChatMessageTest::disableNotifications()
     r = m.disableNotifications(QStringLiteral("rid"), false, 43);
     compareFile(r.result, QStringLiteral("disableNotificationsfalse"));
 }
+
+void RocketChatMessageTest::hideUnreadStatus()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.hideUnreadStatus(QStringLiteral("rid"), true, 43);
+    compareFile(r.result, QStringLiteral("hideUnreadStatus"));
+
+    r = m.hideUnreadStatus(QStringLiteral("rid"), false, 43);
+    compareFile(r.result, QStringLiteral("hideUnreadStatusfalse"));
+}

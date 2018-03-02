@@ -279,6 +279,11 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::disableNotificatio
     return saveNotificationsSettings(QStringLiteral("disableNotifications"), roomId, QJsonValue(disabled ? QLatin1String("1") : QLatin1String("0")), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::hideUnreadStatus(const QString &roomId, bool disabled, quint64 id)
+{
+    return saveNotificationsSettings(QStringLiteral("hideUnreadStatus"), roomId, QJsonValue(disabled ? QLatin1String("1") : QLatin1String("0")), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
 {
     const QJsonArray params{{

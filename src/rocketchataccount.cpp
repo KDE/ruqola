@@ -622,6 +622,9 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId, Rocke
     case DisableNotifications:
         ddp()->disableNotifications(roomId, newValue.toBool());
         break;
+    case HideUnreadStatus:
+        ddp()->hideUnreadStatus(roomId, newValue.toBool());
+        break;
     }
     //TODO add more
 }

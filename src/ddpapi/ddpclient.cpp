@@ -384,6 +384,12 @@ quint64 DDPClient::disableNotifications(const QString &roomId, bool disabled)
     return method(result, change_notifications_settings, DDPClient::Persistent);
 }
 
+quint64 DDPClient::hideUnreadStatus(const QString &roomId, bool disabled)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->hideUnreadStatus(roomId, disabled, m_uid);
+    return method(result, change_notifications_settings, DDPClient::Persistent);
+}
+
 void DDPClient::subscribeRoomMessage(const QString &roomId)
 {
     QJsonArray params;
