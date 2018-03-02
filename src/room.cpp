@@ -74,10 +74,10 @@ bool Room::isEqual(const Room &other) const
            && (mFavorite == other.favorite())
            && (mOpen == other.open())
            && (mBlocker == other.blocker())
-            && (mArchived == other.archived())
-            && (mDescription == other.description())
-            && (mUserMentions == other.userMentions())
-            && (mNotificationOptions == other.notificationOptions());
+           && (mArchived == other.archived())
+           && (mDescription == other.description())
+           && (mUserMentions == other.userMentions())
+           && (mNotificationOptions == other.notificationOptions());
 }
 
 QString Room::name() const
@@ -114,7 +114,7 @@ bool Room::canBeModify() const
     if (mRocketChatAccount) {
         //TODO use roles ????? Perhaps it's better. TODO implement it.
         qCDebug(RUQOLA_LOG) <<  "mRoomCreateUserId"<<mRoomCreateUserId << " mRocketChatAccount->userID()"<<mRocketChatAccount->userID();
-        return (mRoomCreateUserId == mRocketChatAccount->userID());
+        return mRoomCreateUserId == mRocketChatAccount->userID();
     }
     return false;
 }
@@ -477,7 +477,6 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     }
     qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
-
 
     setMutedUsers(lst);
     //TODO add muted

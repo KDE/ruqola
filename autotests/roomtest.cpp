@@ -207,7 +207,5 @@ void RoomTest::shouldParseRoom()
     delete m;
 }
 
-
-
 //TODO add more autotests signal and co.
 // add parseUpdateRoom feature

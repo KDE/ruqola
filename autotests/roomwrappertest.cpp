@@ -70,7 +70,6 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(spyRoomDescriptionChanged.count(), 0);
     QCOMPARE(spyRoomArchivedChanged.count(), 0);
 
-
     spyRoomAnnoucementChanged.clear();
     spyRoomTopicChanged.clear();
     spyRoomNameChanged.clear();

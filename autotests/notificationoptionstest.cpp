@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(NotificationOptionsTest)
 NotificationOptionsTest::NotificationOptionsTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void NotificationOptionsTest::shouldHaveDefaultValue()
@@ -83,5 +82,3 @@ void NotificationOptionsTest::shouldAssignValue()
     QCOMPARE(w.hideUnreadStatus(), hideUnreadStatus);
     QCOMPARE(w.desktopNotificationDuration(), desktopNotificationDuration);
 }
-
-
