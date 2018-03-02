@@ -77,8 +77,8 @@ Component {
                     id: showNotification
                     iconName: "preferences-desktop-notification"
                     onClicked: {
-                        //TODO
-                        console.log("Notification dialog. Not implemented yet.");
+                        //notificationsDialog.rid = appid.selectedRoom
+                        notificationsDialog.open()
                     }
                 }
 
