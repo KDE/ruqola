@@ -77,7 +77,7 @@ Component {
                     id: showNotification
                     iconName: "preferences-desktop-notification"
                     onClicked: {
-                        //notificationsDialog.rid = appid.selectedRoom
+                        notificationsDialog.roomInfo = appid.selectedRoom
                         notificationsDialog.open()
                     }
                 }

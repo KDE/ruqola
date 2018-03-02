@@ -33,9 +33,28 @@ QQC2.Dialog {
     title: i18n("Notifications")
     standardButtons: QQC2.Dialog.Close
 
+    property QtObject roomInfo
+
     signal modifyNotificationsSetting(string roomId, int type, var newVal)
     property string rid
     modal: true
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
+
+    GridLayout {
+        columns: 2
+        QQC2.Label {
+            text: i18n("Disable Notifications:");
+        }
+        QQC2.Switch {
+            id: disableNotification
+            //checked: roomInfo === null ? false : roomInfo.readOnly
+            checked: false
+            onClicked: {
+                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DisableNotifications, checked)
+            }
+        }
+
+
+    }
 }
