@@ -42,3 +42,46 @@ void NotificationOptionsTest::shouldHaveDefaultValue()
     QVERIFY(w.audioNotificationValue().isEmpty());
     QCOMPARE(w.desktopNotificationDuration(), 0);
 }
+
+void NotificationOptionsTest::shouldAssignValue()
+{
+    NotificationOptions w;
+    QString audioNotifications = QStringLiteral("foo");
+    w.setAudioNotifications(audioNotifications);
+
+    QString desktopNotifications = QStringLiteral("bla");
+    w.setDesktopNotifications(desktopNotifications);
+
+    QString mobilePushNotification = QStringLiteral("bli");
+    w.setMobilePushNotification(mobilePushNotification);
+
+    QString emailNotifications = QStringLiteral("blu");
+    w.setEmailNotifications(emailNotifications);
+
+    QString unreadTrayIconAlert = QStringLiteral("Ablu");
+    w.setUnreadTrayIconAlert(unreadTrayIconAlert);
+
+    QString audioNotificationValue = QStringLiteral("ZZZZ");
+    w.setAudioNotificationValue(audioNotificationValue);
+
+    bool disableNotifications = true;
+    w.setDisableNotifications(disableNotifications);
+
+    bool hideUnreadStatus = true;
+    w.setHideUnreadStatus(hideUnreadStatus);
+
+    int desktopNotificationDuration = 15;
+    w.setDesktopNotificationDuration(desktopNotificationDuration);
+
+    QCOMPARE(w.audioNotifications(), audioNotifications);
+    QCOMPARE(w.desktopNotifications(), desktopNotifications);
+    QCOMPARE(w.mobilePushNotification(), mobilePushNotification);
+    QCOMPARE(w.emailNotifications(), emailNotifications);
+    QCOMPARE(w.unreadTrayIconAlert(), unreadTrayIconAlert);
+    QCOMPARE(w.audioNotificationValue(), audioNotificationValue);
+    QCOMPARE(w.disableNotifications(), disableNotifications);
+    QCOMPARE(w.hideUnreadStatus(), hideUnreadStatus);
+    QCOMPARE(w.desktopNotificationDuration(), desktopNotificationDuration);
+}
+
+

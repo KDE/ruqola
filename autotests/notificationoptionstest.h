@@ -31,6 +31,7 @@ public:
     ~NotificationOptionsTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldAssignValue();
 };
 
 #endif // NOTIFICATIONOPTIONSTEST_H
