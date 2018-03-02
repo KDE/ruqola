@@ -97,6 +97,13 @@ void star_message(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
+void change_notifications_settings(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Change Notifications Settings:") + QJsonDocument(root).toJson());
+    }
+}
+
 void change_room_settings(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -369,6 +376,12 @@ quint64 DDPClient::setRoomAnnouncement(const QString &roomId, const QString &ann
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setRoomAnnouncement(roomId, announcement, m_uid);
     return method(result, change_room_settings, DDPClient::Persistent);
+}
+
+quint64 DDPClient::disableNotifications(const QString &roomId, bool disabled)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->disableNotifications(roomId, disabled, m_uid);
+    return method(result, change_notifications_settings, DDPClient::Persistent);
 }
 
 void DDPClient::subscribeRoomMessage(const QString &roomId)

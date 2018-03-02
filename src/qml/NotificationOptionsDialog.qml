@@ -28,11 +28,13 @@ import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.RoomWrapper 1.0
 
 QQC2.Dialog {
-    id: channelInfoDialog
+    id: notificationOptionsDialog
 
     title: i18n("Notifications")
     standardButtons: QQC2.Dialog.Close
 
+    signal modifyNotificationsSetting(string roomId, int type, var newVal)
+    property string rid
     modal: true
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2

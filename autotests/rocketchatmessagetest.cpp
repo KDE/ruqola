@@ -426,3 +426,14 @@ void RocketChatMessageTest::unBlockUser()
     RocketChatMessage::RocketChatMessageResult r = m.unblockUser(QStringLiteral("rid"), QStringLiteral("userId"), 43);
     compareFile(r.result, QStringLiteral("unBlockUser"));
 }
+
+void RocketChatMessageTest::disableNotifications()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.disableNotifications(QStringLiteral("rid"), true, 43);
+    compareFile(r.result, QStringLiteral("disableNotifications"));
+
+    r = m.disableNotifications(QStringLiteral("rid"), false, 43);
+    compareFile(r.result, QStringLiteral("disableNotificationsfalse"));
+}

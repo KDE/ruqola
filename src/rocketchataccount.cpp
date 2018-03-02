@@ -616,6 +616,16 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
     }
 }
 
+void RocketChatAccount::changeNotificationsSettings(const QString &roomId, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue)
+{
+    switch (notificationsType) {
+    case DisableNotifications:
+        ddp()->disableNotifications(roomId, newValue.toBool());
+        break;
+    }
+    //TODO add more
+}
+
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
     QJsonArray configs = obj.value(QLatin1String("result")).toArray();

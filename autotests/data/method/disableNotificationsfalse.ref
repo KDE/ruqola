@@ -1,0 +1,10 @@
+{
+    "id": "43",
+    "method": "saveNotificationSettings",
+    "msg": "method",
+    "params": [
+        "rid",
+        "disableNotifications",
+        "0"
+    ]
+}

@@ -81,6 +81,12 @@ public:
     };
     Q_ENUM(RoomInfoType)
 
+    enum NotificationOptionsType {
+        DisableNotifications,
+        //TODO add more
+    };
+    Q_ENUM(NotificationOptionsType)
+
     Q_INVOKABLE UsersModel *usersModel() const;
 
     Q_INVOKABLE RoomModel *roomModel() const;
@@ -117,6 +123,7 @@ public:
     Q_INVOKABLE void userAutocomplete(const QString &searchText, const QString &exception);
     Q_INVOKABLE void eraseRoom(const QString &roomId);
     Q_INVOKABLE void changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue);
+    Q_INVOKABLE void changeNotificationsSettings(const QString &roomId, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue);
     Q_INVOKABLE QString recordingVideoPath() const;
     Q_INVOKABLE QString recordingImagePath() const;
     Q_INVOKABLE void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);

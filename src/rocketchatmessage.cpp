@@ -274,6 +274,10 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveNotificationsS
     return generateMethod(QStringLiteral("saveNotificationSettings"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::disableNotifications(const QString &roomId, bool disabled, quint64 id)
+{
+    return saveNotificationsSettings(QStringLiteral("disableNotifications"), roomId, QJsonValue(disabled ? QLatin1String("1") : QLatin1String("0")), id);
+}
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id)
 {

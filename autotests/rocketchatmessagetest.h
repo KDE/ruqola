@@ -88,6 +88,7 @@ private Q_SLOTS:
 
     void blockUser();
     void unBlockUser();
+    void disableNotifications();
 private:
     void compareFile(const QString &data, const QString &name);
 };

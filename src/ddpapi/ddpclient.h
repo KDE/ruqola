@@ -172,6 +172,7 @@ public:
     quint64 messageSearch(const QString &rid, const QString &pattern);
     quint64 unBlockUser(const QString &rid, const QString &userId);
     quint64 blockUser(const QString &rid, const QString &userId);
+    quint64 disableNotifications(const QString &roomId, bool disabled);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

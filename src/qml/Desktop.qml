@@ -141,6 +141,14 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    NotificationOptionsDialog {
+        id: notificationsDialog
+        rid: (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""
+        onModifyNotificationsSetting: {
+            rocketChatAccount.changeNotificationsSettings(roomId, type, newVal)
+        }
+    }
+
     ChannelInfoDialog {
         id: channelInfoDialog
         channelName: (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""
