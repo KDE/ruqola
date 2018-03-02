@@ -201,6 +201,10 @@ void RoomTest::shouldParseRoom()
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     compareFile(jsonIndented, fileName);
+
+    Room *m = Room::fromJSon(docSerialized.object());
+    QCOMPARE(r, *m);
+    delete m;
 }
 
 
