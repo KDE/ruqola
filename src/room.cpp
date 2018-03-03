@@ -389,7 +389,7 @@ void Room::setName(const QString &name)
         Q_EMIT nameChanged();
     }
 }
-
+/*
 void Room::parseRoom(const QJsonObject &json)
 {
     //setRoomCreatorUserId(json.value(QLatin1String("_id")).toString());
@@ -421,6 +421,7 @@ void Room::parseRoom(const QJsonObject &json)
         setRoomCreatorUserName(QString());
     }
 }
+*/
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {

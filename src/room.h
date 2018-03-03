@@ -110,7 +110,7 @@ public:
     bool blocker() const;
 
     void parseSubscriptionRoom(const QJsonObject &json);
-    void parseRoom(const QJsonObject &json);
+    //void parseRoom(const QJsonObject &json);
     void parseUpdateRoom(const QJsonObject &json);
 
     /**
