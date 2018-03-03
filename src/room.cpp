@@ -54,12 +54,12 @@ Room::Room(RocketChatAccount *account, QObject *parent)
 bool Room::operator==(const Room &other) const
 {
     //qDebug() << " other.id"<<other.id << " id " << id;
-    return other.mRoomId == id();
+    return other.mRoomId == roomId();
 }
 
 bool Room::isEqual(const Room &other) const
 {
-    return (mRoomId == other.id())
+    return (mRoomId == other.roomId())
            && (mChannelType == other.channelType())
            && (mName == other.name())
            && (mAnnouncement == other.announcement())
@@ -87,7 +87,7 @@ QString Room::name() const
 
 QDebug operator <<(QDebug d, const Room &t)
 {
-    d << "id :" << t.id();
+    d << "id :" << t.roomId();
     d << "type :" << t.channelType();
     d << "name :" << t.name();
     d << "mAnnouncement :" << t.announcement();
@@ -143,7 +143,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 {
     qDebug() << "void Room::parseUpdateRoom(const QJsonObject &json)"<<json;
     if (json.contains(QLatin1String("rid"))) {
-        setId(json.value(QLatin1String("rid")).toString());
+        setRoomId(json.value(QLatin1String("rid")).toString());
     }
     if (json.contains(QLatin1String("alert"))) {
         setAlert(json[QStringLiteral("alert")].toBool());
@@ -267,12 +267,12 @@ void Room::setRoomCreatorUserName(const QString &userName)
     }
 }
 
-QString Room::id() const
+QString Room::roomId() const
 {
     return mRoomId;
 }
 
-void Room::setId(const QString &id)
+void Room::setRoomId(const QString &id)
 {
     if (mRoomId != id) {
         mRoomId = id;
@@ -389,44 +389,11 @@ void Room::setName(const QString &name)
         Q_EMIT nameChanged();
     }
 }
-/*
-void Room::parseRoom(const QJsonObject &json)
-{
-    //setRoomCreatorUserId(json.value(QLatin1String("_id")).toString());
-    setId(json.value(QLatin1String("rid")).toString());
-    setName(json[QStringLiteral("name")].toString());
-    setTopic(json[QStringLiteral("topic")].toString());
-    setAnnouncement(json[QStringLiteral("announcement")].toString());
-    setDescription(json[QStringLiteral("description")].toString());
-    setReadOnly(json[QStringLiteral("ro")].toBool());
-    const QJsonValue archivedValue = json.value(QLatin1String("archived"));
-    if (!archivedValue.isUndefined()) {
-        setArchived(archivedValue.toBool());
-    }
-    const QJsonValue blockerValue = json.value(QLatin1String("blocker"));
-    if (!blockerValue.isUndefined()) {
-        setBlocker(blockerValue.toBool());
-    } else {
-        setBlocker(false);
-    }
-    const QJsonValue ownerValue = json.value(QLatin1String("u"));
-    if (!ownerValue.isUndefined()) {
-        const QJsonObject objOwner = ownerValue.toObject();
-        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
-        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
-    } else {
-        //When room is initialized we are the owner. When we update room we have the real
-        //owner and if it's empty => we need to clear it.
-        setRoomCreatorUserId(QString());
-        setRoomCreatorUserName(QString());
-    }
-}
-*/
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     const QString roomID = json.value(QLatin1String("rid")).toString();
-    setId(roomID);
+    setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
     setTopic(json[QStringLiteral("topic")].toString());
     setAnnouncement(json[QStringLiteral("announcement")].toString());
@@ -488,7 +455,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     //FIXME
     Room *r = new Room(nullptr);
 
-    r->setId(o[QStringLiteral("rid")].toString());
+    r->setRoomId(o[QStringLiteral("rid")].toString());
     r->setChannelType(o[QStringLiteral("t")].toString());
     r->setName(o[QStringLiteral("name")].toString());
     r->setRoomCreatorUserName(o[QStringLiteral("roomCreatorUserName")].toString());
@@ -530,7 +497,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
 
     //todo add timestamp
 
-    o[QStringLiteral("rid")] = r->id();
+    o[QStringLiteral("rid")] = r->roomId();
     o[QStringLiteral("t")] = r->channelType();
     o[QStringLiteral("name")] = r->name();
     o[QStringLiteral("roomCreatorUserName")] = r->roomCreatorUserName();

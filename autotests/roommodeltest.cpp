@@ -422,7 +422,7 @@ void RoomModelTest::shouldReturnData()
     const bool favorite = true;
     const bool open = true;
 
-    input->setId(Id);
+    input->setRoomId(Id);
     input->setName(name);
     input->setSelected(selected);
     input->setChannelType(roomType);

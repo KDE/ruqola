@@ -78,7 +78,7 @@ void RoomModel::clear()
 Room *RoomModel::findRoom(const QString &roomID) const
 {
     foreach (Room *r, qAsConst(mRoomsList)) {
-        if (r->id() == roomID) {
+        if (r->roomId() == roomID) {
             return r;
         }
     }
@@ -88,7 +88,7 @@ Room *RoomModel::findRoom(const QString &roomID) const
 RoomWrapper *RoomModel::findRoomWrapper(const QString &roomID) const
 {
     foreach (Room *r, qAsConst(mRoomsList)) {
-        if (r->id() == roomID) {
+        if (r->roomId() == roomID) {
             RoomWrapper *wrapper = new RoomWrapper(r);
             return wrapper;
         }
@@ -170,7 +170,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomName:
         return r->name();
     case RoomModel::RoomID:
-        return r->id();
+        return r->roomId();
     case RoomModel::RoomSelected:
         return r->selected();
     case RoomModel::RoomType:
@@ -221,7 +221,7 @@ void RoomModel::addRoom(const QString &roomID, const QString &roomName, bool sel
     qCDebug(RUQOLA_LOG) << "Adding room : roomId: " << roomID << " room Name " << roomName << " isSelected : " << selected;
 
     Room *r = createNewRoom();
-    r->setId(roomID);
+    r->setRoomId(roomID);
     r->setName(roomName);
     r->setSelected(selected);
     addRoom(r);
@@ -249,7 +249,7 @@ void RoomModel::addRoom(const QJsonObject &room)
 {
     Room *r = createNewRoom();
     r->parseSubscriptionRoom(room);
-    qCDebug(RUQOLA_LOG) << "Adding room subscription" << r->name() << r->id() << r->topic();
+    qCDebug(RUQOLA_LOG) << "Adding room subscription" << r->name() << r->roomId() << r->topic();
     addRoom(r);
 }
 
@@ -260,7 +260,7 @@ void RoomModel::addRoom(Room *room)
         mRoomsList.count()
     };
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->id() == room->id()) {
+        if (mRoomsList.at(i)->roomId() == room->roomId()) {
             delete mRoomsList.takeAt(i);
             break;
         }
@@ -284,7 +284,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
             mRoomsList.count()
         };
         for (int i = 0; i < roomCount; ++i) {
-            if (mRoomsList.at(i)->id() == id) {
+            if (mRoomsList.at(i)->roomId() == id) {
                 beginRemoveRows(QModelIndex(), i, i);
                 mRoomsList.remove(i);
                 endRemoveRows();
@@ -322,7 +322,7 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
             mRoomsList.size()
         };
         for (int i = 0; i < roomCount; ++i) {
-            if (mRoomsList.at(i)->id() == rId) {
+            if (mRoomsList.at(i)->roomId() == rId) {
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
                 Room *room = mRoomsList.at(i);
                 room->parseUpdateRoom(roomData);
@@ -358,7 +358,7 @@ UsersForRoomModel *RoomModel::usersModelForRoom(const QString &roomId) const
         mRoomsList.count()
     };
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->id() == roomId) {
+        if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->usersModelForRoom();
         }
     }
@@ -371,7 +371,7 @@ UsersForRoomFilterProxyModel *RoomModel::usersForRoomFilterProxyModel(const QStr
         mRoomsList.count()
     };
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->id() == roomId) {
+        if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->usersModelForRoomProxyModel();
         }
     }
@@ -384,7 +384,7 @@ FilesForRoomFilterProxyModel *RoomModel::filesForRoomFilterProxyModel(const QStr
         mRoomsList.count()
     };
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->id() == roomId) {
+        if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->filesForRoomFilterProxyModel();
         }
     }
@@ -397,7 +397,7 @@ MessageModel *RoomModel::messageModel(const QString &roomId) const
         mRoomsList.count()
     };
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->id() == roomId) {
+        if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->messageModel();
         }
     }
@@ -410,7 +410,7 @@ FilesForRoomModel *RoomModel::filesModelForRoom(const QString &roomId) const
         mRoomsList.count()
     };
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->id() == roomId) {
+        if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->filesModelForRoom();
         }
     }
@@ -423,7 +423,7 @@ QString RoomModel::inputMessage(const QString &roomId) const
         mRoomsList.count()
     };
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->id() == roomId) {
+        if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->inputMessage();
         }
     }
@@ -436,7 +436,7 @@ void RoomModel::setInputMessage(const QString &roomId, const QString &inputMessa
         mRoomsList.count()
     };
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->id() == roomId) {
+        if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->setInputMessage(inputMessage);
         }
     }

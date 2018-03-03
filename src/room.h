@@ -103,14 +103,13 @@ public:
     bool alert() const;
     void setAlert(bool alert);
 
-    QString id() const;
-    void setId(const QString &id);
+    QString roomId() const;
+    void setRoomId(const QString &id);
 
     void setBlocker(bool alert);
     bool blocker() const;
 
     void parseSubscriptionRoom(const QJsonObject &json);
-    //void parseRoom(const QJsonObject &json);
     void parseUpdateRoom(const QJsonObject &json);
 
     /**

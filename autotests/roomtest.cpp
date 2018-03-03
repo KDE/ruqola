@@ -63,7 +63,7 @@ void RoomTest::shouldHaveDefaultValue()
 void RoomTest::shouldSerialized()
 {
     Room input(nullptr);
-    input.setId(QStringLiteral("foo"));
+    input.setRoomId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
     input.setAnnouncement(QStringLiteral("AA"));
@@ -101,7 +101,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyblockerChanged(&input, &Room::blockerChanged);
     QSignalSpy spyarchivedChanged(&input, &Room::archivedChanged);
     QSignalSpy spydescriptionChanged(&input, &Room::descriptionChanged);
-    input.setId(QStringLiteral("foo"));
+    input.setRoomId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
     input.setAnnouncement(QStringLiteral("AA"));

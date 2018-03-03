@@ -282,7 +282,7 @@ void RoomWrapperTest::shouldAssignValue()
     QCOMPARE(w.roomCreatorUserId(), userId);
 
     const QString rId = QStringLiteral("foo");
-    room->setId(rId);
+    room->setRoomId(rId);
     QCOMPARE(spyRoomAnnoucementChanged.count(), 0);
     QCOMPARE(spyRoomTopicChanged.count(), 0);
     QCOMPARE(spyRoomNameChanged.count(), 0);
