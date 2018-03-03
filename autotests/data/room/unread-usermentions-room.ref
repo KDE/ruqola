@@ -1,9 +1,7 @@
 {
     "alert": false,
-    "announcement": "",
     "archived": false,
     "blocker": false,
-    "description": "",
     "favorite": true,
     "jitsiTimeout": -1,
     "name": "foo",
@@ -25,7 +23,6 @@
     "roomCreatorUserName": "laurent",
     "selected": false,
     "t": "c",
-    "topic": "",
     "unread": 1,
     "userMentions": 1
 }

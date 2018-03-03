@@ -527,23 +527,31 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     QJsonDocument d;
     QJsonObject o;
 
+    //todo add timestamp
+
     o[QStringLiteral("rid")] = r->id();
     o[QStringLiteral("t")] = r->channelType();
     o[QStringLiteral("name")] = r->name();
     o[QStringLiteral("roomCreatorUserName")] = r->roomCreatorUserName();
     o[QStringLiteral("roomCreatorUserID")] = r->roomCreatorUserId();
-    o[QStringLiteral("topic")] = r->topic();
+    if (!r->topic().isEmpty()) {
+        o[QStringLiteral("topic")] = r->topic();
+    }
     o[QStringLiteral("jitsiTimeout")] = r->jitsiTimeout();
     o[QStringLiteral("ro")] = r->readOnly();
     o[QStringLiteral("unread")] = r->unread();
-    o[QStringLiteral("announcement")] = r->announcement();
+    if (!r->announcement().isEmpty()) {
+        o[QStringLiteral("announcement")] = r->announcement();
+    }
     o[QStringLiteral("selected")] = r->selected();
     o[QStringLiteral("favorite")] = r->favorite();
     o[QStringLiteral("alert")] = r->alert();
     o[QStringLiteral("open")] = r->open();
     o[QStringLiteral("blocker")] = r->blocker();
     o[QStringLiteral("archived")] = r->archived();
-    o[QStringLiteral("description")] = r->description();
+    if (!r->description().isEmpty()) {
+        o[QStringLiteral("description")] = r->description();
+    }
     o[QStringLiteral("userMentions")] = r->userMentions();
 
     //Urls
@@ -560,7 +568,6 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("notifications")] = NotificationOptions::serialize(r->notificationOptions());
 
     d.setObject(o);
-    //TODO add notifications
     if (toBinary) {
         return d.toBinaryData();
     }
