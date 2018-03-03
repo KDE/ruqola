@@ -49,6 +49,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
 private:
+    Q_DISABLE_COPY(FilesForRoomModel)
     QVector<File> mFiles;
 };
 

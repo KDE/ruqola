@@ -49,6 +49,7 @@ public:
 
     RocketChatAccount *account(int index) const;
 private:
+    Q_DISABLE_COPY(RocketChatAccountModel)
     QVector<RocketChatAccount *> mRocketChatAccount;
 };
 

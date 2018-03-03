@@ -27,7 +27,7 @@ SearchMessage::~SearchMessage()
 {
 }
 
-void SearchMessage::parseResult()
+void SearchMessage::parseResult(const QJsonObject &obj)
 {
     //TODO
 }

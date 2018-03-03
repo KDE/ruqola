@@ -22,6 +22,7 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QJsonObject>
 #include "libruqola_private_export.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT SearchMessage
@@ -31,7 +32,7 @@ public:
     SearchMessage();
     ~SearchMessage();
 
-    void parseResult();
+    void parseResult(const QJsonObject &obj);
 };
 Q_DECLARE_METATYPE(SearchMessage)
 Q_DECLARE_TYPEINFO(SearchMessage, Q_MOVABLE_TYPE);

@@ -52,6 +52,7 @@ public:
     void clear();
 
 private:
+    Q_DISABLE_COPY(InputCompleterModel)
     QIcon channelIconName(const Channel &channel) const;
     QString completerName(const Channel &channel) const;
     QString channelName(const Channel &channel) const;

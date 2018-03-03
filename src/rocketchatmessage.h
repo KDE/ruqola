@@ -104,6 +104,7 @@ public:
     RocketChatMessage::RocketChatMessageResult emailNotifications(const QString &roomId, const QString &value, quint64 id);
     RocketChatMessage::RocketChatMessageResult unreadAlert(const QString &roomId, const QString &value, quint64 id);
 private:
+    Q_DISABLE_COPY(RocketChatMessage)
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
     RocketChatMessage::RocketChatMessageResult subscribe(const QString &name, const QJsonDocument &params, quint64 id);
     RocketChatMessage::RocketChatMessageResult saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);

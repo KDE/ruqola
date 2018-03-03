@@ -49,6 +49,7 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 private:
+
     QList<KAboutPerson> mAboutPerson;
 };
 
