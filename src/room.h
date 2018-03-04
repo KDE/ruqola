@@ -169,6 +169,8 @@ private:
     //Room Object Fields
 
     NotificationOptions mNotificationOptions;
+    // muted - collection of muted users by its usernames
+    QStringList mMutedUsers;
 
     QString mInputMessage;
 
@@ -193,18 +195,16 @@ private:
 
     QString mDescription;
 
-    // muted - collection of muted users by its usernames
-    QStringList mMutedUsers;
 
     // jitsiTimeout
     qint64 mJitsiTimeout = -1;
 
-    // ro - read-only chat or not
-    bool mReadOnly = false;
-
     //quint64 ?
     int mUnread = -1;
     int mUserMentions = -1;
+
+    // ro - read-only chat or not
+    bool mReadOnly = false;
     bool mSelected = false;
     bool mFavorite = false;
     //We can hide it or not.
