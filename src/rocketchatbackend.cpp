@@ -191,7 +191,7 @@ void RocketChatBackend::slotLoginStatusChanged()
 
 void RocketChatBackend::parseServerVersionDone(const QString &version)
 {
-    qDebug() << " void RocketChatBackend::parseServerVersionDone(const QString &version)******************";
+    qDebug() << " void RocketChatBackend::parseServerVersionDone(const QString &version)******************" << version;
     mRocketChatAccount->setServerVersion(version);
     mRocketChatAccount->ddp()->login();
 }
