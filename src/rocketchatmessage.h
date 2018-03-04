@@ -83,9 +83,9 @@ public:
     RocketChatMessage::RocketChatMessageResult updateMessage(quint64 id);
     RocketChatMessage::RocketChatMessageResult unsubscribe(quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomAnnouncement(const QString &roomId, const QString &announcement, quint64 id);
-    //TODO add autotest
     RocketChatMessage::RocketChatMessageResult blockUser(const QString &rid, const QString &userId, quint64 id);
     RocketChatMessage::RocketChatMessageResult unblockUser(const QString &rid, const QString &userId, quint64 id);
+
     RocketChatMessage::RocketChatMessageResult channelAndPrivateAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
     RocketChatMessage::RocketChatMessageResult roomFiles(const QString &roomId, quint64 id);
     RocketChatMessage::RocketChatMessageResult searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
@@ -103,6 +103,7 @@ public:
     RocketChatMessage::RocketChatMessageResult desktopNotifications(const QString &roomId, const QString &value, quint64 id);
     RocketChatMessage::RocketChatMessageResult emailNotifications(const QString &roomId, const QString &value, quint64 id);
     RocketChatMessage::RocketChatMessageResult unreadAlert(const QString &roomId, const QString &value, quint64 id);
+    RocketChatMessage::RocketChatMessageResult uploadRequest(const QJsonObject &result, const QString &serviceUploadType, const QString &roomId, quint64 id);
 private:
     Q_DISABLE_COPY(RocketChatMessage)
     QJsonValue toJsonDateTime(const QDateTime &dateTime);
