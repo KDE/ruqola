@@ -175,7 +175,7 @@ private:
     // _id
     QString mRoomId;
 
-    // t (can take values "d" , "c" or "p")
+    // t (can take values "d" , "c" or "p" or "l")
     QString mChannelType;
 
     // name
