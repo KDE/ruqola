@@ -1,0 +1,22 @@
+{
+    "_id": "kGtPa6bu7xHrS5xz6",
+    "_updatedAt": {
+        "$date": 1519989937418
+    },
+    "announcement": "annou!!!!",
+    "customFields": {
+    },
+    "description": "description",
+    "fname": "test3laurent",
+    "jitsiTimeout": {
+        "$date": 1519989707339
+    },
+    "name": "test",
+    "ro": false,
+    "t": "p",
+    "topic": "sdfs",
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "username": "laurent"
+    }
+}

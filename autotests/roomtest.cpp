@@ -210,19 +210,18 @@ void RoomTest::shouldParseRoom()
 void RoomTest::shouldParseRoomAndUpdate_data()
 {
     QTest::addColumn<QString>("fileNameinit");
-    QTest::addColumn<QString>("fileNameupdate");
+    QTest::addColumn<QStringList>("fileNameupdate");
     //Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
-    QTest::newRow("notification-room") << QStringLiteral("notification-room") << QStringLiteral("notification-roomupdate");
+    QTest::newRow("notification-room") << QStringLiteral("notification-room") << (QStringList() <<QStringLiteral("notification-roomupdate1"));
 
 }
 
 void RoomTest::shouldParseRoomAndUpdate()
 {
-    //TODO
     QFETCH(QString, fileNameinit);
-    QFETCH(QString, fileNameupdate);
+    QFETCH(QStringList, fileNameupdate);
 
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/room/") + fileNameinit + QStringLiteral(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/room-updated/") + fileNameinit + QStringLiteral(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -232,6 +231,19 @@ void RoomTest::shouldParseRoomAndUpdate()
 
     Room r;
     r.parseSubscriptionRoom(fields);
+
+    for (const QString &updateFile : fileNameupdate) {
+        const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/room-updated/") + updateFile + QStringLiteral(".json");
+        QFile f(originalUpdateJsonFile);
+        QVERIFY(f.open(QIODevice::ReadOnly));
+        const QByteArray content = f.readAll();
+        f.close();
+        const QJsonDocument doc = QJsonDocument::fromJson(content);
+        const QJsonObject fields = doc.object();
+
+        r.parseUpdateRoom(fields);
+    }
+
     //qDebug() << " fields"<<fields;
 
     const QByteArray ba = Room::serialize(&r, false);
@@ -247,4 +259,3 @@ void RoomTest::shouldParseRoomAndUpdate()
 }
 
 //TODO add more autotests signal and co.
-// add parseUpdateRoom feature

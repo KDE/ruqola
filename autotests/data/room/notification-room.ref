@@ -1,12 +1,14 @@
 {
     "alert": false,
+    "announcement": "annou!!!!",
     "archived": false,
     "blocker": false,
+    "description": "description",
     "favorite": false,
     "jitsiTimeout": -1,
     "name": "test",
     "notifications": {
-        "audioNotificationValue": "",
+        "audioNotificationValue": "chime",
         "audioNotifications": "all",
         "desktopNotificationDuration": 12,
         "desktopNotifications": "mentions",
@@ -17,12 +19,13 @@
         "unreadAlert": "nothing"
     },
     "open": true,
-    "rid": "Pa6bu7xHrS5xz6",
+    "rid": "kGtPa6bu7xHrS5xz6",
     "ro": false,
     "roomCreatorUserID": "uKK39zoewTkdacidH",
     "roomCreatorUserName": "laurent",
     "selected": false,
     "t": "p",
+    "topic": "sdfs",
     "unread": 0,
     "userMentions": 0
 }
