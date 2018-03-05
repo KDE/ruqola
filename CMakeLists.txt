@@ -79,6 +79,8 @@ if (BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
+add_subdirectory(doc)
+
 install(FILES ruqola.categories DESTINATION ${KDE_INSTALL_CONFDIR})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
