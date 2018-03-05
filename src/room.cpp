@@ -181,6 +181,11 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     } else {
         setArchived(false);
     }
+    if (json.contains(QLatin1String("blocker"))) {
+        setBlocker(json[QStringLiteral("blocker")].toBool());
+    } else {
+        setBlocker(false);
+    }
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();
