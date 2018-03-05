@@ -15,7 +15,7 @@
         "disableNotifications": false,
         "emailNotifications": "default",
         "hideUnreadStatus": false,
-        "mobilePushNotifications": "nothing",
+        "mobilePushNotifications": "",
         "unreadAlert": "nothing"
     },
     "open": true,

@@ -148,10 +148,10 @@ void RoomTest::shouldChangeInputMessage()
     QCOMPARE(input.inputMessage(), inputMsg);
 }
 
-void RoomTest::compareFile(const QByteArray &data, const QString &name)
+void RoomTest::compareFile(const QString &repo, const QByteArray &data, const QString &name)
 {
-    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/room/") + name + QStringLiteral(".ref");
-    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/room/") + name + QStringLiteral("-generated.ref");
+    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral(".ref");
+    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral("-generated.ref");
     //Create generated file
     QFile f(generatedFile);
     QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));
@@ -200,7 +200,7 @@ void RoomTest::shouldParseRoom()
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
-    compareFile(jsonIndented, fileName);
+    compareFile(QStringLiteral("/room/"), jsonIndented, fileName);
 
     Room *m = Room::fromJSon(docSerialized.object());
     QCOMPARE(r, *m);
@@ -212,7 +212,7 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::addColumn<QString>("fileNameinit");
     QTest::addColumn<QStringList>("fileNameupdate");
     //Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
-    QTest::newRow("notification-room") << QStringLiteral("notification-room") << (QStringList() <<QStringLiteral("notification-roomupdate1"));
+    QTest::newRow("notification-roomupdate") << QStringLiteral("notification-room") << (QStringList() <<QStringLiteral("notification-roomupdate1"));
 
 }
 
@@ -251,7 +251,75 @@ void RoomTest::shouldParseRoomAndUpdate()
     const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
 
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
-    compareFile(jsonIndented, fileNameinit);
+    compareFile(QStringLiteral("/room-updated/"), jsonIndented, fileNameinit);
+
+    Room *m = Room::fromJSon(docSerialized.object());
+    QCOMPARE(r, *m);
+    delete m;
+}
+
+void RoomTest::shouldParseRoomAndUpdateSubscription_data()
+{
+    QTest::addColumn<QString>("fileNameinit");
+    QTest::addColumn<QStringList>("UpdateRoomfileNames");
+    QTest::addColumn<QStringList>("UpdateSubscriptionFileNames");
+    //Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
+    QTest::newRow("notification-roomupdate")
+            << QStringLiteral("notification-room")
+            << (QStringList() << QStringLiteral("notification-roomupdate1"))
+            << (QStringList() << QStringLiteral("notification-roomsubscription1"));
+
+}
+
+void RoomTest::shouldParseRoomAndUpdateSubscription()
+{
+    QFETCH(QString, fileNameinit);
+    QFETCH(QStringList, UpdateRoomfileNames);
+    QFETCH(QStringList, UpdateSubscriptionFileNames);
+
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/room-updated/") + fileNameinit + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject fields = doc.object();
+
+    Room r;
+    r.parseSubscriptionRoom(fields);
+
+    for (const QString &updateFile : UpdateRoomfileNames) {
+        const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/room-update-subscription/") + updateFile + QStringLiteral(".json");
+        QFile f(originalUpdateJsonFile);
+        QVERIFY(f.open(QIODevice::ReadOnly));
+        const QByteArray content = f.readAll();
+        f.close();
+        const QJsonDocument doc = QJsonDocument::fromJson(content);
+        const QJsonObject fields = doc.object();
+
+        r.parseUpdateRoom(fields);
+    }
+
+    for (const QString &updateFile : UpdateSubscriptionFileNames) {
+        const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/room-update-subscription/") + updateFile + QStringLiteral(".json");
+        QFile f(originalUpdateJsonFile);
+        QVERIFY(f.open(QIODevice::ReadOnly));
+        const QByteArray content = f.readAll();
+        f.close();
+        const QJsonDocument doc = QJsonDocument::fromJson(content);
+        const QJsonObject fields = doc.object();
+
+        r.updateSubscriptionRoom(fields);
+    }
+
+    //qDebug() << " fields"<<fields;
+
+    const QByteArray ba = Room::serialize(&r, false);
+    //qDebug() << " ba " << ba;
+    const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
+
+    const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
+    compareFile(QStringLiteral("/room-update-subscription/"), jsonIndented, fileNameinit);
 
     Room *m = Room::fromJSon(docSerialized.object());
     QCOMPARE(r, *m);
