@@ -245,6 +245,36 @@ void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread)
     }
 }
 
+void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
+{
+    qDebug() << " void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)";
+    //TODO fix me!
+    //Use "_id"
+    QString rId = roomData.value(QLatin1String("rid")).toString();
+    if (rId.isEmpty()) {
+        rId = roomData.value(QLatin1String("_id")).toString();
+    }
+    if (!rId.isEmpty()) {
+        const int roomCount{
+            mRoomsList.size()
+        };
+        for (int i = 0; i < roomCount; ++i) {
+            if (mRoomsList.at(i)->roomId() == rId) {
+                qCDebug(RUQOLA_LOG) << " void RoomModel::updateSubscriptionRoom(const QJsonArray &array) room found";
+                Room *room = mRoomsList.at(i);
+                room->updateSubscriptionRoom(roomData);
+                Q_EMIT dataChanged(createIndex(i, 0), createIndex(i, 0));
+
+                break;
+            }
+        }
+    } else {
+        //qCWarning(RUQOLA_LOG) << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
+        qWarning() << "RoomModel::updateSubscriptionRoom incorrect jsonobject "<< roomData;
+    }
+
+}
+
 void RoomModel::addRoom(const QJsonObject &room)
 {
     Room *r = createNewRoom();
@@ -293,11 +323,12 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         }
     } else if (actionName == QStringLiteral("inserted")) {
         qCDebug(RUQOLA_LOG) << "INSERT ROOM  name " << roomData.value(QLatin1String("name")) << " rid " << roomData.value(QLatin1String("rid"));
+        //TODO fix me!
         addRoom(roomData.value(QLatin1String("rid")).toString(), roomData.value(QLatin1String("name")).toString(), false);
     } else if (actionName == QStringLiteral("updated")) {
         //qCDebug(RUQOLA_LOG) << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
         qDebug() << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
-        updateRoom(roomData);
+        updateSubscriptionRoom(roomData);
     } else if (actionName == QStringLiteral("changed")) {
         qDebug() << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
         qCDebug(RUQOLA_LOG) << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;

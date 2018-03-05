@@ -48,8 +48,8 @@ QQC2.Dialog {
         }
         QQC2.Switch {
             id: disableNotification
-            //checked: roomInfo === null ? false : roomInfo.readOnly
-            checked: false
+            checked: roomInfo === null ? false : roomInfo.notificationOptions.hideUnreadStatus
+            //checked: false
             onClicked: {
                 notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DisableNotifications, checked)
             }

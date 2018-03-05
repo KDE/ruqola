@@ -83,6 +83,7 @@ QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 
 NotificationOptions NotificationOptions::fromJSon(const QJsonObject &o)
 {
+    //TODO
     return {};
 }
 

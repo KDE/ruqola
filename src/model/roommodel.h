@@ -117,6 +117,7 @@ public:
     QString inputMessage(const QString &roomId) const;
     void setInputMessage(const QString &roomId, const QString &inputMessage);
     Room *findRoom(const QString &roomID) const;
+    void updateSubscriptionRoom(const QJsonObject &room);
 Q_SIGNALS:
     void needToUpdateNotification();
 

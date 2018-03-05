@@ -152,6 +152,7 @@ public:
     int userMentions() const;
     void setUserMentions(int userMentions);
 
+    void updateSubscriptionRoom(const QJsonObject &json);
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();

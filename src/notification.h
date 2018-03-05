@@ -45,12 +45,13 @@ private:
         {
         }
 
-        int unreadMessage = 0;
-        bool hasAlert = false;
         bool hasNotification() const
         {
             return (unreadMessage != 0) || hasAlert;
         }
+
+        int unreadMessage = 0;
+        bool hasAlert = false;
     };
     /**
     * @brief Creates tray icon consisting of actions

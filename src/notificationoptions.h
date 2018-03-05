@@ -30,6 +30,7 @@
 class LIBRUQOLACORE_TESTS_EXPORT NotificationOptions
 {
     Q_GADGET
+    Q_PROPERTY(bool hideUnreadStatus READ hideUnreadStatus CONSTANT)
 public:
     NotificationOptions();
 

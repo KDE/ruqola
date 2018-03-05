@@ -349,6 +349,9 @@ Component {
             }
         }
 
+        Keys.onEscapePressed: {
+            appid.rocketChatAccount.clearUnreadMessages(appid.selectedRoomID);
+        }
         footer:
             RowLayout {
             anchors.bottom: mainWidget.bottom

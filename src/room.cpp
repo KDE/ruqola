@@ -139,6 +139,11 @@ void Room::setUserMentions(int userMentions)
     mUserMentions = userMentions;
 }
 
+void Room::updateSubscriptionRoom(const QJsonObject &json)
+{
+    parseSubscriptionRoom(json);
+}
+
 void Room::parseUpdateRoom(const QJsonObject &json)
 {
     qDebug() << "void Room::parseUpdateRoom(const QJsonObject &json)"<<json;
@@ -197,7 +202,6 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setRoomCreatorUserId(QString());
         setRoomCreatorUserName(QString());
     }
-    mNotificationOptions.updateNotificationOptions(json);
 }
 
 bool Room::selected() const
@@ -401,9 +405,10 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     const QString roomID = json.value(QLatin1String("rid")).toString();
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
-    setTopic(json[QStringLiteral("topic")].toString());
-    setAnnouncement(json[QStringLiteral("announcement")].toString());
-    setDescription(json[QStringLiteral("description")].toString());
+    //topic/announcement/description is not part of update subscription
+//    setTopic(json[QStringLiteral("topic")].toString());
+//    setAnnouncement(json[QStringLiteral("announcement")].toString());
+//    setDescription(json[QStringLiteral("description")].toString());
     const QString roomType = json.value(QLatin1String("t")).toString();
     setChannelType(roomType);
     const QJsonValue favoriteValue = json.value(QLatin1String("f"));
@@ -449,7 +454,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
         setRoomCreatorUserId(QString());
         setRoomCreatorUserName(QString());
     }
-    qDebug() << " *thus" << *this;
+    //qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
 
     setMutedUsers(lst);

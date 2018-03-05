@@ -106,7 +106,7 @@ Kirigami.ApplicationWindow {
             },
             Kirigami.Action {
                 text: i18n("Handbook")
-                iconName: "application-exit"
+                iconName: "system-help"
                 onTriggered: {
                     console.log("Not implemented yet. Show handbook")
                     //TODO

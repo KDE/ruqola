@@ -253,8 +253,10 @@ void RoomModelTest::shouldUpdateSubcriptionActionInserted()
 
 void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
 {
+    //TODO rename autotests as it's not updatesubscrition but updateroom
+    //Update subscription doesn't update topic and co
     RoomModel sampleModel;
-    QJsonArray input;
+    //QJsonArray input;
     QJsonObject roomData;
     RoomWrapper *sampleWrapper = nullptr;
 
@@ -267,12 +269,12 @@ void RoomModelTest::shouldUpdateSubcriptionActionUpdated()
     roomData.insert(QStringLiteral("name"), QJsonValue(name));
     roomData.insert(QStringLiteral("announcement"), announcement);
     roomData.insert(QStringLiteral("topic"), topic);
-    input.append(QJsonValue(QLatin1String("updated")));
-    input.append(roomData);
+//    input.append(QJsonValue(QLatin1String("updated")));
+//    input.append(roomData);
 
     QCOMPARE(sampleModel.rowCount(), 1);
     QSignalSpy spy(&sampleModel, &RoomModel::dataChanged);
-    sampleModel.updateSubscription(input);
+    sampleModel.updateRoom(roomData);
     QCOMPARE(sampleModel.rowCount(), 1);
 
     sampleWrapper = sampleModel.findRoomWrapper(QStringLiteral("RA151100ECE"));
@@ -476,3 +478,5 @@ void RoomModelTest::shouldReturnData()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
     QCOMPARE(output, QVariant(QIcon::fromTheme(QStringLiteral("lock"))));
 }
+
+//TODO add autotest for notification update.

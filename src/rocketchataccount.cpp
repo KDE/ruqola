@@ -402,6 +402,7 @@ void RocketChatAccount::logOut()
 
 void RocketChatAccount::clearUnreadMessages(const QString &roomId)
 {
+    //TODO don't send message when we don't have unread message
     ddp()->clearUnreadMessages(roomId);
 }
 

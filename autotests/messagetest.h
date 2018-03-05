@@ -33,6 +33,11 @@ private Q_SLOTS:
     void shouldParseMessage_data();
     void shouldParseMessage();
     void shouldSerializeData();
+
+    void shouldParseJsonMessage_data();
+private:
+    void compareFile(const QString &repo, const QByteArray &data, const QString &name);
+    void shouldParseJsonMessage();
 };
 
 #endif // MESSAGETEST_H
