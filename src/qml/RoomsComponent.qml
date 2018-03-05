@@ -83,17 +83,11 @@ Component {
                             appid.rocketChatAccount.changeDefaultStatus(index)
                         }
                         currentIndex: model.currentStatus
-                        delegate: QQC2.ItemDelegate {
-                            width: statusCombobox.width
 
-                            contentItem: Text {
-                                text: model.statusi18n
-                                font: statusCombobox.font
-                                //TODO fix color.
-                                elide: Text.ElideRight
-                                verticalAlignment: Text.AlignVCenter
-                            }
-                            highlighted: statusCombobox.highlightedIndex === index
+                        delegate: Kirigami.BasicListItem {
+                            icon: model.icon
+
+                            label: model.statusi18n
                         }
                     }
                 }
