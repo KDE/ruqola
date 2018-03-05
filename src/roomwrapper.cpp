@@ -106,3 +106,8 @@ bool RoomWrapper::canBeModify() const
 {
     return mRoom->canBeModify();
 }
+
+NotificationOptions RoomWrapper::notificationOptions() const
+{
+    return mRoom->notificationOptions();
+}

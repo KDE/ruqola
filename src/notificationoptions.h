@@ -22,12 +22,14 @@
 #define NOTIFICATIONOPTIONS_H
 
 #include <QString>
+#include <QObject>
 #include <QDebug>
 #include <QJsonObject>
 #include "libruqola_private_export.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT NotificationOptions
 {
+    Q_GADGET
 public:
     NotificationOptions();
 
