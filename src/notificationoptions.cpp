@@ -24,6 +24,11 @@ NotificationOptions::NotificationOptions()
 {
 }
 
+void NotificationOptions::updateNotificationOptions(const QJsonObject &obj)
+{
+    parseNotificationOptions(obj);
+}
+
 void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
 {
     mHideUnreadStatus = obj.value(QLatin1String("hideUnreadStatus")).toBool();

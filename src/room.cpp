@@ -197,6 +197,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setRoomCreatorUserId(QString());
         setRoomCreatorUserName(QString());
     }
+    mNotificationOptions.updateNotificationOptions(json);
 }
 
 bool Room::selected() const
