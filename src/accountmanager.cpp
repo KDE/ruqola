@@ -80,7 +80,6 @@ RocketChatAccount *AccountManager::firstAccount() const
 {
     //Temporary too
     RocketChatAccount *t = mRocketChatAccountModel->account(0);
-    qDebug() << "RocketChatAccount *AccountManager::firstAccount() const "<<t;
     return t;
 }
 
