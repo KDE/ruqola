@@ -150,12 +150,9 @@ Kirigami.Page {
             text: i18n("Enter your password")
         }
         
-        TextField {
+        PasswordLineEdit {
+            id: passField
             width: parent.width
-            id:passField
-            echoMode: TextInput.Password
-            inputMethodHints: Qt.ImhHiddenText
-            placeholderText: i18n("Enter password")
             onAccepted: {
                 if (acceptingButton.enabled) {
                     acceptingButton.clicked();
