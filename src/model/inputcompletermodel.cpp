@@ -153,7 +153,7 @@ QIcon InputCompleterModel::channelIconName(const Channel &channel) const
         return QIcon::fromTheme(channel.user().iconFromStatus());
     case Channel::ChannelType::Room:
         if (channel.roomType() == QLatin1String("c")) {
-            return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
+            return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
         } else if (channel.roomType() == QLatin1String("p")) {
             return QIcon::fromTheme(QStringLiteral("lock"));
         }

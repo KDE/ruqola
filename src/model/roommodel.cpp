@@ -480,7 +480,11 @@ int RoomModel::order(Room *r) const
 QIcon RoomModel::icon(Room *r) const
 {
     if (r->channelType() == QLatin1String("c")) {
-        return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
+        if (r->unread() > 0 || r->alert()) {
+            return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
+        } else {
+            return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
+        }
     } else if (r->channelType() == QLatin1String("d")) {
         const QString userStatusIconFileName = mRocketChatAccount ? mRocketChatAccount->userStatusIconFileName(r->name()) : QString();
         if (userStatusIconFileName.isEmpty()) {
