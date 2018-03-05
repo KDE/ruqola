@@ -39,6 +39,9 @@ private Q_SLOTS:
     void shouldParseRoom_data();
     void shouldParseRoom();
 
+    void shouldParseRoomAndUpdate_data();
+    void shouldParseRoomAndUpdate();
+
 private:
     void compareFile(const QByteArray &data, const QString &name);
 };
