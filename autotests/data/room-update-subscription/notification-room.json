@@ -1,0 +1,38 @@
+{
+    "_id": "aKxRc3ALW3KzmPJBr",
+    "_updatedAt": {
+        "$date": 1520235698941
+    },
+    "alert": false,
+    "audioNotificationValue": "chime",
+    "audioNotifications": "all",
+    "desktopNotificationDuration": 12,
+    "desktopNotifications": "mentions",
+    "disableNotifications": false,
+    "emailNotifications": "default",
+    "f": false,
+    "groupMentions": 0,
+    "hideUnreadStatus": false,
+    "ls": {
+        "$date": 1519664810617
+    },
+    "mobilePushNotifications": "nothing",
+    "name": "test",
+    "open": true,
+    "rid": "kGtPa6bu7xHrS5xz6",
+    "roles": [
+        "owner"
+    ],
+    "t": "p",
+    "ts": {
+        "$date": 1514309361159
+    },
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "name": null,
+        "username": "laurent"
+    },
+    "unread": 0,
+    "unreadAlert": "nothing",
+    "userMentions": 0
+}
