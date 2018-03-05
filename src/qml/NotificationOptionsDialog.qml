@@ -55,6 +55,17 @@ QQC2.Dialog {
             }
         }
 
+        QQC2.Label {
+            text: i18n("Hide Unread Room Status:");
+        }
+        QQC2.Switch {
+            id: hideUnreadRoomStatus
+            //checked: roomInfo === null ? false : roomInfo.readOnly
+            checked: false
+            onClicked: {
+                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.HideUnreadStatus, checked)
+            }
+        }
 
     }
 }
