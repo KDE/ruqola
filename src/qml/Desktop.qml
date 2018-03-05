@@ -105,6 +105,14 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+                text: i18n("Handbook")
+                iconName: "application-exit"
+                onTriggered: {
+                    console.log("Not implemented yet. Show handbook")
+                    //TODO
+                }
+            },
+            Kirigami.Action {
                 shortcut: StandardKey.Quit
                 text: i18n("Quit")
                 iconName: "application-exit"
