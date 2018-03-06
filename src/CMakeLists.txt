@@ -150,6 +150,7 @@ install(TARGETS ruqola ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 install(PROGRAMS data/org.kde.ruqola.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES data/org.kde.ruqola.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 add_subdirectory(plugins)
 add_subdirectory(icons)

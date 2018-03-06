@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.kde.ruqola.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>Ruqola</name>
+  <summary>Rocket Chat Client</summary>
+  <description>
+    <p>Ruqola is a Rocket Chat client based on QML
+    </p>
+  </description>
+  <url type="bugtracker"><https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=ruqola/url>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>ruqola</binary>
+  </provides>
+</component>
