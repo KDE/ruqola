@@ -19,10 +19,22 @@
 */
 
 #include "searchmessagefilterproxymodeltest.h"
+#include "model/searchmessagefilterproxymodel.h"
+#include "model/searchmessagemodel.h"
 #include <QTest>
 QTEST_MAIN(SearchMessageFilterProxyModelTest)
 
 SearchMessageFilterProxyModelTest::SearchMessageFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void SearchMessageFilterProxyModelTest::shouldHaveDefaultValue()
+{
+    SearchMessageFilterProxyModel w;
+    SearchMessageModel sourceModel;
+    w.setSourceModel(&sourceModel);
+    QCOMPARE(w.rowCount(), 0);
+    QVERIFY(w.sourceModel());
+    QCOMPARE(w.sourceModel(), &sourceModel);
 }

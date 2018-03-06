@@ -41,19 +41,3 @@ QHash<int, QByteArray> SearchMessageFilterProxyModel::roleNames() const
     }
     return QHash<int, QByteArray>();
 }
-
-/*
-bool SearchMessageFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
-{
-    if (!sourceModel()) {
-        return false;
-    }
-    if (left.isValid() && right.isValid()) {
-        const QString leftString = sourceModel()->data(left, UserCompleterModel::UserName).toString();
-        const QString rightString = sourceModel()->data(right, UserCompleterModel::UserName).toString();
-        return QString::localeAwareCompare(leftString, rightString) < 0;
-    } else {
-        return false;
-    }
-}
-*/
