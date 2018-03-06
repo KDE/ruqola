@@ -503,7 +503,7 @@ int RoomModel::order(Room *r) const
     } else if (channelTypeStr == QLatin1String("d")) {
         order += 2;
     } else {
-        qDebug() << r->name() << "has unhandled channel type" << channelTypeStr;
+        qCDebug(RUQOLA_LOG) << r->name() << "has unhandled channel type" << channelTypeStr;
         order += 3;
     }
     return order;
