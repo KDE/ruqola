@@ -546,6 +546,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::uploadRequest(cons
     //TODO
     return {};
 }
+
 //We need to be able to send file for audio/video
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::sendFileMessage(const QJsonObject &result, const QString &serviceUploadType, const QString &roomId, quint64 id)
 {

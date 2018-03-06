@@ -366,7 +366,6 @@ void MessageTest::shouldUpdateJsonMessage()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     compareFile(QStringLiteral("/messages-updated/"), jsonIndented, fileNameinit);
 
-
     Message m = Message::fromJSon(docSerialized.object());
     bool compareMessage = (r == m);
     if (!compareMessage) {

@@ -272,7 +272,6 @@ void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
         //qCWarning(RUQOLA_LOG) << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
         qWarning() << "RoomModel::updateSubscriptionRoom incorrect jsonobject "<< roomData;
     }
-
 }
 
 void RoomModel::addRoom(const QJsonObject &room)

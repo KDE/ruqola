@@ -105,8 +105,6 @@ void UsersModel::removeUser(const QString &userId)
     }
 }
 
-
-
 void UsersModel::addUser(const User &newuser)
 {
     //It can be duplicate as we don't remove user from list when user is disconnected. Otherwise it will not sync with

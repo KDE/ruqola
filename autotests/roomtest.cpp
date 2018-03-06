@@ -264,10 +264,9 @@ void RoomTest::shouldParseRoomAndUpdateSubscription_data()
     QTest::addColumn<QStringList>("UpdateSubscriptionFileNames");
     //Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
     QTest::newRow("notification-roomupdate")
-            << QStringLiteral("notification-room")
-            << (QStringList() << QStringLiteral("notification-roomupdate1"))
-            << (QStringList() << QStringLiteral("notification-roomsubscription1"));
-
+        << QStringLiteral("notification-room")
+        << (QStringList() << QStringLiteral("notification-roomupdate1"))
+        << (QStringList() << QStringLiteral("notification-roomsubscription1"));
 }
 
 void RoomTest::shouldParseRoomAndUpdateSubscription()

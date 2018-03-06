@@ -199,7 +199,6 @@ private:
 
     QString mDescription;
 
-
     // jitsiTimeout
     qint64 mJitsiTimeout = -1;
     qint64 mUpdatedAt = -1;
