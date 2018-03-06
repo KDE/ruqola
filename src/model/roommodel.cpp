@@ -480,9 +480,10 @@ QString RoomModel::sectionName(Room *r) const
     if (r->favorite()) {
         str = i18n("Favorites");
     } else {
-        if (r->channelType() == QLatin1String("c")) {
+        const QString channelTypeStr = r->channelType();
+        if (channelTypeStr == QLatin1String("c") || channelTypeStr == QLatin1String("p")) {
             str = i18n("Rooms");
-        } else if (r->channelType() == QLatin1String("d")) {
+        } else if (channelTypeStr == QLatin1String("d")) {
             str = i18n("Private Message");
         }
     }
@@ -496,14 +497,13 @@ int RoomModel::order(Room *r) const
     if (!r->favorite()) {
         order += 3;
     }
-    const QString channelTypeStr{
-        r->channelType()
-    };
-    if (channelTypeStr == QLatin1String("c")) {
+    const QString channelTypeStr = r->channelType();
+    if (channelTypeStr == QLatin1String("c") || channelTypeStr == QLatin1String("p")) {
         order += 1;
     } else if (channelTypeStr == QLatin1String("d")) {
         order += 2;
     } else {
+        qDebug() << r->name() << "has unhandled channel type" << channelTypeStr;
         order += 3;
     }
     return order;

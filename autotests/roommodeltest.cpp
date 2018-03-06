@@ -474,7 +474,7 @@ void RoomModelTest::shouldReturnData()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSection);
     QCOMPARE(output.toString(), QStringLiteral("Favorites")); //first priority for favrites and then to channels
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOrder);
-    QCOMPARE(output, QVariant(int(3))); // not favorite (0) + no channel selected or 'p' (3) = total order(3)
+    QCOMPARE(output, QVariant(int(1))); // Private room
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
     QCOMPARE(output, QVariant(QIcon::fromTheme(QStringLiteral("lock"))));
 }
