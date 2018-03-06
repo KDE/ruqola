@@ -69,8 +69,8 @@ QString UsersModel::userStatusIconFileName(const QString &name)
         }
     }
 
-    qCWarning(RUQOLA_LOG) << "User for name " << name << " not defined";
-    return {};
+    qCWarning(RUQOLA_LOG) << "User for name " << name << " not defined yet";
+    return QStringLiteral("user-avaliable");
 }
 
 void UsersModel::removeUser(const QString &userId)
