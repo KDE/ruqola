@@ -58,9 +58,8 @@ void RocketChatAccountModel::insertAccounts(const QVector<RocketChatAccount *> &
 
 RocketChatAccount *RocketChatAccountModel::account(int index) const
 {
-    qDebug() << "mRocketChatAccount.count() " << mRocketChatAccount.count();
     if (mRocketChatAccount.isEmpty() || (index > mRocketChatAccount.count() - 1)) {
-        qDebug() << " Empty account";
+        qCWarning(RUQOLA_LOG) << " Empty account";
         return nullptr;
     }
     return mRocketChatAccount.at(index);

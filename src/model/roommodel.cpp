@@ -330,7 +330,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
         qDebug() << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
         updateSubscriptionRoom(roomData);
     } else if (actionName == QStringLiteral("changed")) {
-        qDebug() << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
+        //qDebug() << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
         qCDebug(RUQOLA_LOG) << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
         qCDebug(RUQOLA_LOG) << "RoomModel::updateSubscription Not implementer changed room yet" << array;
         updateRoom(roomData);
@@ -341,7 +341,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
 
 void RoomModel::updateRoom(const QJsonObject &roomData)
 {
-    qDebug() << " void RoomModel::updateRoom(const QJsonObject &roomData)";
+    qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonObject &roomData)";
     //TODO fix me!
     //Use "_id"
     QString rId = roomData.value(QLatin1String("rid")).toString();
