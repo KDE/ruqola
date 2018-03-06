@@ -6,10 +6,13 @@
   <name>Ruqola</name>
   <summary>Rocket Chat Client</summary>
   <description>
-    <p>Ruqola is a Rocket Chat client based on QML
+    <p>
+       Ruqola is a Rocket Chat client based on QML.
+       Connection is activated directly when you launch Ruqola.
+       
     </p>
   </description>
-  <url type="bugtracker"><https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=ruqola/url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=ruqola</url>
   <project_group>KDE</project_group>
   <provides>
     <binary>ruqola</binary>
