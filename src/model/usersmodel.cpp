@@ -60,9 +60,7 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
 
 QString UsersModel::userStatusIconFileName(const QString &name)
 {
-    const int userCount{
-        mUsers.count()
-    };
+    const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i).userName() == name) {
             return mUsers.at(i).iconFromStatus();
@@ -75,9 +73,8 @@ QString UsersModel::userStatusIconFileName(const QString &name)
 
 QString UsersModel::status(const QString &userId) const
 {
-    const int userCount{
-        mUsers.count()
-    };
+    const int userCount = mUsers.count();
+
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i).userId() == userId) {
             return mUsers.at(i).status();
@@ -115,9 +112,7 @@ void UsersModel::addUser(const User &newuser)
     //It can be duplicate as we don't remove user from list when user is disconnected. Otherwise it will not sync with
     // user for room list
     qCDebug(RUQOLA_LOG) << " User added " << newuser;
-    const int userCount{
-        mUsers.count()
-    };
+    const int userCount = mUsers.count();
     bool found = false;
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i).userId() == newuser.userId()) {
@@ -142,9 +137,7 @@ void UsersModel::addUser(const User &newuser)
 void UsersModel::updateUser(const QJsonObject &array)
 {
     const QString id = array.value(QLatin1String("id")).toString();
-    const int userCount{
-        mUsers.count()
-    };
+    const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i).userId() == id) {
             User user = mUsers.at(i);
