@@ -954,9 +954,9 @@ void RocketChatAccount::updateUser(const QJsonObject &object)
 
 void RocketChatAccount::userStatusChanged(const User &user)
 {
-    qDebug() << " void RocketChatAccount::userStatusChanged(const User &user)"<<user.userId() << " userId" << userID();
+    //qDebug() << " void RocketChatAccount::userStatusChanged(const User &user)"<<user.userId() << " userId" << userID();
     if (user.userId() == userID()) {
-        qDebug() << " void RocketChatAccount::userStatusChanged(const User &user) current user !!!!!!!!!!!!" << user;
+        //qDebug() << " void RocketChatAccount::userStatusChanged(const User &user) current user !!!!!!!!!!!!" << user;
         statusModel()->setCurrentPresenceStatus(Utils::presenceStatusFromString(user.status()));
     }
     mRoomModel->userStatusChanged(user);
