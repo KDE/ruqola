@@ -73,6 +73,20 @@ QString UsersModel::userStatusIconFileName(const QString &name)
     return QStringLiteral("user-avaliable");
 }
 
+QString UsersModel::status(const QString &userId) const
+{
+    const int userCount{
+        mUsers.count()
+    };
+    for (int i = 0; i < userCount; ++i) {
+        if (mUsers.at(i).userId() == userId) {
+            return mUsers.at(i).status();
+        }
+    }
+    //Return offline as default;
+    return QStringLiteral("offline");
+}
+
 void UsersModel::removeUser(const QString &userId)
 {
     qCDebug(RUQOLA_LOG) << " User removed " << userId;
@@ -93,6 +107,8 @@ void UsersModel::removeUser(const QString &userId)
         }
     }
 }
+
+
 
 void UsersModel::addUser(const User &newuser)
 {

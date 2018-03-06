@@ -104,9 +104,10 @@ QHash<int, QByteArray> UsersForRoomModel::roleNames() const
     return roles;
 }
 
-void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root)
+void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *model)
 {
     const QJsonObject result = root[QLatin1String("result")].toObject();
+    qDebug() << " void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root)"<<root;
     if (!result.isEmpty()) {
         const QJsonArray records = result[QStringLiteral("records")].toArray();
         const int total = result[QLatin1String("total")].toInt();
@@ -123,6 +124,10 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root)
                 user.setName(name);
                 user.setUserName(userName);
                 user.setUserId(id);
+                if (model) {
+                    user.setStatus(model->status(id));
+                }
+                //Add status!
                 if (user.isValid()) {
                     users.append(user);
                 } else {

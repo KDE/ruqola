@@ -49,6 +49,8 @@ public:
     void updateUser(const QJsonObject &array);
     QString userStatusIconFileName(const QString &name);
 
+    QString status(const QString &userId) const;
+
 Q_SIGNALS:
     void userStatusChanged(const User &user);
 

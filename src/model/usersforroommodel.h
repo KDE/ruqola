@@ -25,7 +25,7 @@
 #include "user.h"
 #include <QVector>
 #include <QAbstractListModel>
-
+class UsersModel;
 class LIBRUQOLACORE_EXPORT UsersForRoomModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -47,7 +47,7 @@ public:
     Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
     QVariant data(const QModelIndex &index, int role) const override;
 
-    void parseUsersForRooms(const QJsonObject &root);
+    void parseUsersForRooms(const QJsonObject &root, UsersModel *model);
     void userStatusChanged(const User &newuser);
     void removeUser(const QString &userId);
     void addUser(const User &users);
