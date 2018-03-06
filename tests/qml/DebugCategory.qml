@@ -18,30 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGETEST_H
-#define MESSAGETEST_H
+pragma Singleton
 
-#include <QObject>
+import QtQml 2.8
 
-class MessageTest : public QObject
-{
-    Q_OBJECT
-public:
-    explicit MessageTest(QObject *parent = nullptr);
-    ~MessageTest() = default;
-private Q_SLOTS:
-    void shouldParseMessage_data();
-    void shouldParseMessage();
-    void shouldSerializeData();
-
-    void shouldParseJsonMessage_data();
-    void shouldParseJsonMessage();
-
-    void shouldUpdateJsonMessage_data();
-    void shouldUpdateJsonMessage();
-
-private:
-    void compareFile(const QString &repo, const QByteArray &data, const QString &name);
-};
-
-#endif // MESSAGETEST_H
+QtObject {
+    readonly property LoggingCategory category : LoggingCategory {
+        id: category
+        name: "org.kde.ruqola.qml"
+    }
+}

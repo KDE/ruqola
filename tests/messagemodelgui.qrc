@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file alias="messagemodelgui.qml">qml/messagemodelgui.qml</file>
         <file alias="ActiveChat.qml">qml/ActiveChat.qml</file>
+        <file alias="DebugCategory.qml">qml/DebugCategory.qml</file>
     </qresource>
 </RCC>

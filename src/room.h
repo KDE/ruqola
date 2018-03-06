@@ -153,6 +153,9 @@ public:
     void setUserMentions(int userMentions);
 
     void updateSubscriptionRoom(const QJsonObject &json);
+    qint64 updatedAt() const;
+    void setUpdatedAt(const qint64 &updatedAt);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -199,6 +202,7 @@ private:
 
     // jitsiTimeout
     qint64 mJitsiTimeout = -1;
+    qint64 mUpdatedAt = -1;
 
     //quint64 ?
     int mUnread = -1;

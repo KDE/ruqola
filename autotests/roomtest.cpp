@@ -213,7 +213,6 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::addColumn<QStringList>("fileNameupdate");
     //Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
     QTest::newRow("notification-roomupdate") << QStringLiteral("notification-room") << (QStringList() <<QStringLiteral("notification-roomupdate1"));
-
 }
 
 void RoomTest::shouldParseRoomAndUpdate()

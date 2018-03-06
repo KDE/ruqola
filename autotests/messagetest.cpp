@@ -321,3 +321,57 @@ void MessageTest::shouldParseJsonMessage()
     QEXPECT_FAIL("attachmentimage", "Message doesn't save/load mentions", Continue);
     QVERIFY(compareMessage);
 }
+
+void MessageTest::shouldUpdateJsonMessage_data()
+{
+    QTest::addColumn<QString>("fileNameinit");
+    QTest::addColumn<QStringList>("fileNameupdate");
+    QTest::newRow("standardmessage") << QStringLiteral("standardmessage") << QStringList();
+    //TODO add more !
+}
+
+void MessageTest::shouldUpdateJsonMessage()
+{
+    QFETCH(QString, fileNameinit);
+    QFETCH(QStringList, fileNameupdate);
+
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/messages-updated/") + fileNameinit + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject fields = doc.object();
+
+    Message r;
+    r.parseMessage(fields);
+
+    for (const QString &updateFile : fileNameupdate) {
+        const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/messages-updated/") + updateFile + QStringLiteral(".json");
+        QFile f(originalUpdateJsonFile);
+        QVERIFY(f.open(QIODevice::ReadOnly));
+        const QByteArray content = f.readAll();
+        f.close();
+        const QJsonDocument doc = QJsonDocument::fromJson(content);
+        const QJsonObject fields = doc.object();
+
+        r.parseMessage(fields);
+    }
+
+    //qDebug() << " fields"<<fields;
+    const QByteArray ba = Message::serialize(r, false);
+    //qDebug() << " ba " << ba;
+    const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
+
+    const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
+    compareFile(QStringLiteral("/messages-updated/"), jsonIndented, fileNameinit);
+
+
+    Message m = Message::fromJSon(docSerialized.object());
+    bool compareMessage = (r == m);
+    if (!compareMessage) {
+        qDebug() << "loaded message" << r;
+        qDebug() << "fromJson " << m;
+    }
+    QVERIFY(compareMessage);
+}

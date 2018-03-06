@@ -22,6 +22,7 @@
 
 #include "rocketchataccount.h"
 #include "room.h"
+#include "utils.h"
 #include "ruqola_debug.h"
 #include "model/usersforroommodel.h"
 #include "model/usersforroomfilterproxymodel.h"
@@ -77,7 +78,8 @@ bool Room::isEqual(const Room &other) const
            && (mArchived == other.archived())
            && (mDescription == other.description())
            && (mUserMentions == other.userMentions())
-           && (mNotificationOptions == other.notificationOptions());
+           && (mNotificationOptions == other.notificationOptions())
+            && (mUpdatedAt == other.updatedAt());
 }
 
 QString Room::name() const
@@ -106,6 +108,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "description: " << t.description();
     d << "userMentions: " << t.userMentions();
     d << "notifications: " << t.notificationOptions();
+    d << "UpdatedAt: " << t.updatedAt();
     return d;
 }
 
@@ -142,6 +145,16 @@ void Room::setUserMentions(int userMentions)
 void Room::updateSubscriptionRoom(const QJsonObject &json)
 {
     parseSubscriptionRoom(json);
+}
+
+qint64 Room::updatedAt() const
+{
+    return mUpdatedAt;
+}
+
+void Room::setUpdatedAt(const qint64 &updatedAt)
+{
+    mUpdatedAt = updatedAt;
 }
 
 void Room::parseUpdateRoom(const QJsonObject &json)
@@ -238,6 +251,7 @@ void Room::setJitsiTimeout(const qint64 &jitsiTimeout)
 {
     if (mJitsiTimeout != jitsiTimeout) {
         mJitsiTimeout = jitsiTimeout;
+        //Add signal otherwise it's not necessary to check value
     }
 }
 
@@ -250,6 +264,7 @@ void Room::setMutedUsers(const QStringList &mutedUsers)
 {
     if (mMutedUsers != mutedUsers) {
         mMutedUsers = mutedUsers;
+        //Add signal otherwise it's not necessary to check value
     }
 }
 
@@ -262,6 +277,7 @@ void Room::setRoomCreatorUserId(const QString &userId)
 {
     if (mRoomCreateUserId != userId) {
         mRoomCreateUserId = userId;
+        //Add signal otherwise it's not necessary to check value
     }
 }
 
@@ -274,6 +290,7 @@ void Room::setRoomCreatorUserName(const QString &userName)
 {
     if (mRoomCreatorUserName != userName) {
         mRoomCreatorUserName = userName;
+        //Add signal otherwise it's not necessary to check value
     }
 }
 
@@ -406,9 +423,6 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
     //topic/announcement/description is not part of update subscription
-//    setTopic(json[QStringLiteral("topic")].toString());
-//    setAnnouncement(json[QStringLiteral("announcement")].toString());
-//    setDescription(json[QStringLiteral("description")].toString());
     const QString roomType = json.value(QLatin1String("t")).toString();
     setChannelType(roomType);
     const QJsonValue favoriteValue = json.value(QLatin1String("f"));
@@ -420,6 +434,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
         setReadOnly(json[QStringLiteral("ro")].toBool());
     }
 
+    setUpdatedAt(Utils::parseDate(QLatin1String("_updatedAt"), json));
     setUnread(json[QStringLiteral("unread")].toInt());
     setUserMentions(json[QStringLiteral("userMentions")].toInt());
     setOpen(json[QStringLiteral("open")].toBool());
@@ -443,6 +458,8 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     for (int i = 0; i < mutedArray.count(); ++i) {
         lst << mutedArray.at(i).toString();
     }
+    setMutedUsers(lst);
+
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();
@@ -457,7 +474,6 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     //qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
 
-    setMutedUsers(lst);
     //TODO add muted
 }
 
@@ -484,6 +500,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setArchived(o[QStringLiteral("archived")].toBool());
     r->setDescription(o[QStringLiteral("description")].toString());
     r->setBlocker(o[QStringLiteral("blocker")].toBool());
+    r->setUpdatedAt(o[QStringLiteral("updatedAt")].toDouble());
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
     QStringList lst;
     lst.reserve(mutedArray.count());
@@ -517,6 +534,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         o[QStringLiteral("topic")] = r->topic();
     }
     o[QStringLiteral("jitsiTimeout")] = r->jitsiTimeout();
+    o[QStringLiteral("updatedAt")] = r->updatedAt();
     o[QStringLiteral("ro")] = r->readOnly();
     o[QStringLiteral("unread")] = r->unread();
     if (!r->announcement().isEmpty()) {

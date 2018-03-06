@@ -19,6 +19,7 @@
 */
 
 #include "message.h"
+#include "utils.h"
 #include "ruqola_debug.h"
 #include <QDebug>
 
@@ -39,11 +40,11 @@ void Message::parseMessage(const QJsonObject &o)
     mMessageId = o.value(QLatin1String("_id")).toString();
     mRoomId = roomId;
     mText = o.value(QLatin1String("msg")).toString();
-    mTimeStamp = (qint64)o.value(QLatin1String("ts")).toObject().value(QLatin1String("$date")).toDouble();
+    mTimeStamp = Utils::parseDate(QLatin1String("ts"), o);
     mUsername = o.value(QLatin1String("u")).toObject().value(QLatin1String("username")).toString();
     mUserId = o.value(QLatin1String("u")).toObject().value(QLatin1String("_id")).toString();
-    mUpdatedAt = o.value(QLatin1String("_updatedAt")).toObject().value(QLatin1String("$date")).toDouble();
-    mEditedAt = o.value(QLatin1String("editedAt")).toObject().value(QLatin1String("$date")).toDouble();
+    mUpdatedAt = Utils::parseDate(QLatin1String("_updatedAt"), o);
+    mEditedAt = Utils::parseDate(QLatin1String("editedAt"), o);
     mEditedByUsername = o.value(QLatin1String("editedBy")).toObject().value(QLatin1String("username")).toString();
     mEditedByUserId = o.value(QLatin1String("editedBy")).toObject().value(QLatin1String("userID")).toString();
     mAlias = o.value(QLatin1String("alias")).toString();

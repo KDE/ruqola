@@ -141,3 +141,8 @@ QString Utils::userIdFromDirectChannel(const QString &rid, const QString &userId
     newUserId.remove(userId);
     return newUserId;
 }
+
+qint64 Utils::parseDate(const QString &key, const QJsonObject &o)
+{
+    return o.value(key).toObject().value(QLatin1String("$date")).toDouble();
+}
