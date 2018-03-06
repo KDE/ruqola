@@ -287,6 +287,7 @@ void MessageTest::shouldParseJsonMessage_data()
     QTest::addColumn<QString>("fileName");
     QTest::newRow("empty") << QStringLiteral("empty");
     QTest::newRow("standardmessage") << QStringLiteral("standardmessage");
+    QTest::newRow("attachmentimage") << QStringLiteral("attachmentimage");
 }
 
 void MessageTest::shouldParseJsonMessage()
@@ -312,5 +313,11 @@ void MessageTest::shouldParseJsonMessage()
     compareFile(QStringLiteral("/messages/"), jsonIndented, fileName);
 
     Message m = Message::fromJSon(docSerialized.object());
-    QCOMPARE(r, m);
+    bool compareMessage = (r == m);
+    if (!compareMessage) {
+        qDebug() << "loaded message" << r;
+        qDebug() << "fromJson " << m;
+    }
+    QEXPECT_FAIL("attachmentimage", "Message doesn't save/load mentions", Continue);
+    QVERIFY(compareMessage);
 }

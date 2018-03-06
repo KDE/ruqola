@@ -1,0 +1,26 @@
+{
+    "alias": "Bla",
+    "avatar": "",
+    "editedAt": 0,
+    "editedByUserID": "",
+    "editedByUsername": "",
+    "groupable": false,
+    "message": "Now you can come and visit me",
+    "messageID": "ME8TT8GcaMsZ5hcsC",
+    "messageType": "NormalText",
+    "parseUrls": false,
+    "roomID": "GENERAL",
+    "starred": false,
+    "timestamp": 1515655872015,
+    "type": "",
+    "updatedAt": 1515655872022,
+    "urls": [
+        {
+            "description": "",
+            "pagetitle": "",
+            "url": "https://www.kde.org/foo.jpg"
+        }
+    ],
+    "userID": "iQ46n4BGacrKvbrXt",
+    "username": "bla"
+}

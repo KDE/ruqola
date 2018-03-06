@@ -488,6 +488,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     o[QStringLiteral("type")] = message.mSystemMessageType;
     o[QStringLiteral("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
+    //TODO add mentions
     //Attachments
     if (!message.mAttachements.isEmpty()) {
         QJsonArray array;
@@ -498,6 +499,11 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
             array.append(MessageAttachment::serialize(message.mAttachements.at(i)));
         }
         o[QStringLiteral("attachments")] = array;
+    }
+    QMapIterator<QString, QString> i(message.mentions());
+    while (i.hasNext()) {
+        i.next();
+        //TODO
     }
     //Urls
     if (!message.mUrls.isEmpty()) {
