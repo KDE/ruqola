@@ -45,7 +45,7 @@ target_link_libraries(messagemodelguitest
 
 ####
 set(roommodelguitest_SRCS roommodelgui.cpp)
-qt5_add_resources(roommodelguitestresources ../src/qml/qml.qrc ) # roommodelgui.qrc)
+qt5_add_resources(roommodelguitestresources ../src/qml/qml.qrc messagemodelgui.qrc) 
 
 add_executable(roommodelguitest ${roommodelguitest_SRCS} ${roommodelguitestresources})
 
