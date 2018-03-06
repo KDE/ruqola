@@ -393,7 +393,8 @@ UsersForRoomModel *RoomModel::usersModelForRoom(const QString &roomId) const
             return mRoomsList.at(i)->usersModelForRoom();
         }
     }
-    return {};
+    qCWarning(RUQOLA_LOG) << " Users model for room undefined !";
+    return nullptr;
 }
 
 UsersForRoomFilterProxyModel *RoomModel::usersForRoomFilterProxyModel(const QString &roomId) const
