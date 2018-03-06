@@ -24,9 +24,6 @@ include(ECMAddTests)
 include(GenerateExportHeader)
 include(FeatureSummary)
 
-set(KF5_VERSION "5.42.0")
-
-
 set(REQUIRED_QT_VERSION "5.9.0")
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" FALSE)
 
