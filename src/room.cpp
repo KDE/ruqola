@@ -146,7 +146,7 @@ void Room::updateSubscriptionRoom(const QJsonObject &json)
 
 void Room::parseUpdateRoom(const QJsonObject &json)
 {
-    qDebug() << "void Room::parseUpdateRoom(const QJsonObject &json)"<<json;
+    qCDebug(RUQOLA_LOG) << "void Room::parseUpdateRoom(const QJsonObject &json)"<<json;
     if (json.contains(QLatin1String("rid"))) {
         setRoomId(json.value(QLatin1String("rid")).toString());
     }
