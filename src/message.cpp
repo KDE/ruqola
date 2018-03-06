@@ -465,7 +465,7 @@ Message Message::fromJSon(const QJsonObject &o)
     return message;
 }
 
-QByteArray Message::serialize(const Message &message)
+QByteArray Message::serialize(const Message &message, bool toBinary)
 {
     QJsonDocument d;
     QJsonObject o;
@@ -512,7 +512,10 @@ QByteArray Message::serialize(const Message &message)
     }
 
     d.setObject(o);
-    return d.toBinaryData();
+    if (toBinary) {
+        return d.toBinaryData();
+    }
+    return d.toJson(QJsonDocument::Indented);
 }
 
 QDebug operator <<(QDebug d, const Message &t)

@@ -284,10 +284,33 @@ void MessageTest::compareFile(const QString &repo, const QByteArray &data, const
 
 void MessageTest::shouldParseJsonMessage_data()
 {
-    //QTest::addColumn<QString>("fileName");
-    //QTest::newRow("notification-room") << QStringLiteral("notification-room");
+    QTest::addColumn<QString>("fileName");
+    QTest::newRow("empty") << QStringLiteral("empty");
+    QTest::newRow("standardmessage") << QStringLiteral("standardmessage");
 }
 
 void MessageTest::shouldParseJsonMessage()
 {
+    QFETCH(QString, fileName);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/messages/") + fileName + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject fields = doc.object();
+
+    Message r;
+    r.parseMessage(fields);
+    //qDebug() << " fields"<<fields;
+
+    const QByteArray ba = Message::serialize(r, false);
+    //qDebug() << " ba " << ba;
+    const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
+
+    const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
+    compareFile(QStringLiteral("/messages/"), jsonIndented, fileName);
+
+    Message m = Message::fromJSon(docSerialized.object());
+    QCOMPARE(r, m);
 }

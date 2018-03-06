@@ -1,0 +1,21 @@
+{
+    "_id": "Co6LnNbu5TYcXPuMG",
+    "_updatedAt": {
+        "$date": 1519115539341
+    },
+    "alias": "john",
+    "channels": [
+    ],
+    "mentions": [
+    ],
+    "msg": "message foo",
+    "rid": "hPseB3qQYPxoXqGkN",
+    "ts": {
+        "$date": 1519115539337
+    },
+    "u": {
+        "_id": "XQv6u7Kyb4pfDhS4w",
+        "name": "john",
+        "username": "Doe"
+    }
+}

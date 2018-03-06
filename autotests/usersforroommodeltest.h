@@ -33,6 +33,9 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAddValues();
     void shouldVerifyData();
+
+    void shouldParseUsers_data();
+    void shouldParseUsers();
 };
 
 #endif // USERSMODELFORROOMTEST_H

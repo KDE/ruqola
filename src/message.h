@@ -71,7 +71,7 @@ public:
     * @param message The Message object
     * @return QByteArray, The Json containing message attributes
     */
-    static QByteArray serialize(const Message &message);
+    static QByteArray serialize(const Message &message, bool toBinary = true);
 
     void parseMessage(const QJsonObject &o);
 
