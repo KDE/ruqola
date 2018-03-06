@@ -105,7 +105,7 @@ void UsersForRoomModelTest::shouldVerifyData()
     for (int i = 0; i < 10; i++) {
         User user;
         user.setName(QStringLiteral("name%1").arg(i));
-        user.setStatus(QStringLiteral("status%1").arg(i));
+        user.setStatus(QStringLiteral("online"));
         user.setUserId(QStringLiteral("userId%1").arg(i));
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
@@ -115,7 +115,7 @@ void UsersForRoomModelTest::shouldVerifyData()
 
     for (int i = 0; i < 10; ++i) {
         QCOMPARE(w.data(w.index(i), UsersForRoomModel::Name).toString(), QStringLiteral("name%1").arg(i));
-        //TODO fix me.QCOMPARE(w.data(w.index(i), UsersForRoomModel::IconStatus).toString(), QStringLiteral("description%1").arg(i));
+        QCOMPARE(w.data(w.index(i), UsersForRoomModel::IconStatus).toString(), QStringLiteral("user-online"));
         QCOMPARE(w.data(w.index(i), UsersForRoomModel::UserId).toString(), QStringLiteral("userId%1").arg(i));
         QCOMPARE(w.data(w.index(i), UsersForRoomModel::UserName).toString(), QStringLiteral("username%1").arg(i));
     }
