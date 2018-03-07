@@ -247,7 +247,6 @@ void RoomModel::getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread)
 
 void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
 {
-    qDebug() << " void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)";
     //TODO fix me!
     //Use "_id"
     QString rId = roomData.value(QLatin1String("rid")).toString();
@@ -285,9 +284,7 @@ void RoomModel::addRoom(const QJsonObject &room)
 void RoomModel::addRoom(Room *room)
 {
     qCDebug(RUQOLA_LOG) << " void RoomModel::addRoom(const Room &room)"<<room->name();
-    int roomCount{
-        mRoomsList.count()
-    };
+    int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == room->roomId()) {
             delete mRoomsList.takeAt(i);
@@ -423,9 +420,7 @@ FilesForRoomFilterProxyModel *RoomModel::filesForRoomFilterProxyModel(const QStr
 
 MessageModel *RoomModel::messageModel(const QString &roomId) const
 {
-    const int roomCount{
-        mRoomsList.count()
-    };
+    const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->messageModel();
@@ -436,9 +431,7 @@ MessageModel *RoomModel::messageModel(const QString &roomId) const
 
 FilesForRoomModel *RoomModel::filesModelForRoom(const QString &roomId) const
 {
-    const int roomCount{
-        mRoomsList.count()
-    };
+    const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->filesModelForRoom();
@@ -449,9 +442,7 @@ FilesForRoomModel *RoomModel::filesModelForRoom(const QString &roomId) const
 
 QString RoomModel::inputMessage(const QString &roomId) const
 {
-    const int roomCount{
-        mRoomsList.count()
-    };
+    const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->inputMessage();
@@ -462,9 +453,7 @@ QString RoomModel::inputMessage(const QString &roomId) const
 
 void RoomModel::setInputMessage(const QString &roomId, const QString &inputMessage)
 {
-    const int roomCount{
-        mRoomsList.count()
-    };
+    const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->setInputMessage(inputMessage);
