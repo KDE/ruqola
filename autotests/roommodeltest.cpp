@@ -29,6 +29,8 @@
 #include <QJsonArray>
 #include <QSignalSpy>
 #include <QTest>
+#include <QJsonDocument>
+#include <QProcess>
 
 QTEST_GUILESS_MAIN(RoomModelTest)
 
@@ -477,6 +479,72 @@ void RoomModelTest::shouldReturnData()
     QCOMPARE(output, QVariant(int(1))); // Private room
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
     QCOMPARE(output, QVariant(QIcon::fromTheme(QStringLiteral("lock"))));
+}
+
+void RoomModelTest::shouldInsertRoom_data()
+{
+    QTest::addColumn<QString>("insertRoomFileName");
+    QTest::addColumn<QString>("roomId");
+    QTest::newRow("insertroom1") << QStringLiteral("insertroom1") << QStringLiteral("fooid");
+
+}
+
+void RoomModelTest::compareFile(const QString &repo, const QByteArray &data, const QString &name)
+{
+    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral(".ref");
+    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral("-generated.ref");
+    //Create generated file
+    QFile f(generatedFile);
+    QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));
+    f.write(data);
+    f.close();
+
+    // compare to reference file
+    QStringList args = QStringList()
+                       << QStringLiteral("-u")
+                       << refFile
+                       << generatedFile;
+    QProcess proc;
+    proc.setProcessChannelMode(QProcess::ForwardedChannels);
+    proc.start(QStringLiteral("diff"), args);
+    QVERIFY(proc.waitForFinished());
+    QCOMPARE(proc.exitCode(), 0);
+}
+
+void RoomModelTest::shouldInsertRoom()
+{
+    QFETCH(QString, insertRoomFileName);
+    QFETCH(QString, roomId);
+
+
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/insert-rooms/") + insertRoomFileName + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject fields = doc.object();
+
+    RoomModel sampleModel;
+    const QString generatedRoomId = sampleModel.addRoom(fields);
+    QCOMPARE(generatedRoomId, roomId);
+    QCOMPARE(sampleModel.rowCount(), 1);
+    Room *r = sampleModel.findRoom(generatedRoomId);
+    QVERIFY(r);
+
+    //qDebug() << " fields"<<fields;
+
+    const QByteArray ba = Room::serialize(r, false);
+    //qDebug() << " ba " << ba;
+    const QJsonDocument docSerialized = QJsonDocument::fromJson(ba);
+
+    const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
+    compareFile(QStringLiteral("/insert-rooms/"), jsonIndented, insertRoomFileName);
+
+    Room *m = Room::fromJSon(docSerialized.object());
+    QCOMPARE(*r, *m);
+    delete m;
+
 }
 
 //TODO add autotest for notification update.

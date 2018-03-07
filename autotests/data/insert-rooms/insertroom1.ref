@@ -1,0 +1,29 @@
+{
+    "alert": false,
+    "archived": false,
+    "blocker": false,
+    "favorite": false,
+    "jitsiTimeout": 1518524726234,
+    "name": "bla1",
+    "notifications": {
+        "audioNotificationValue": "",
+        "audioNotifications": "",
+        "desktopNotificationDuration": 0,
+        "desktopNotifications": "",
+        "disableNotifications": false,
+        "emailNotifications": "",
+        "hideUnreadStatus": false,
+        "mobilePushNotifications": "",
+        "unreadAlert": ""
+    },
+    "open": false,
+    "rid": "fooid",
+    "ro": false,
+    "roomCreatorUserID": "hLTrnA5cEFHrZp4",
+    "roomCreatorUserName": "owner-channel",
+    "selected": false,
+    "t": "c",
+    "unread": 0,
+    "updatedAt": 1520409482126,
+    "userMentions": 0
+}

@@ -44,6 +44,14 @@ private Q_SLOTS:
     void shouldReset();
     void shouldReturnDataDefault();
     void shouldReturnData();
+
+
+    void shouldInsertRoom_data();
+    void shouldInsertRoom();
+
+private:
+    void compareFile(const QString &repo, const QByteArray &data, const QString &name);
+
 };
 
 #endif // ROOMMODELTEST_H

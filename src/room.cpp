@@ -425,6 +425,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     }
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
+    setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     //topic/announcement/description is not part of update subscription
     const QString roomType = json.value(QLatin1String("t")).toString();
     setChannelType(roomType);
