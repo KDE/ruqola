@@ -107,7 +107,6 @@ QHash<int, QByteArray> UsersForRoomModel::roleNames() const
 void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *model)
 {
     const QJsonObject result = root[QLatin1String("result")].toObject();
-    qDebug() << " void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root)"<<root;
     if (!result.isEmpty()) {
         const QJsonArray records = result[QStringLiteral("records")].toArray();
         const int total = result[QLatin1String("total")].toInt();
