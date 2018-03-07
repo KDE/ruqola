@@ -331,6 +331,7 @@ void MessageTest::shouldUpdateJsonMessage_data()
     QTest::newRow("standardmessage") << QStringLiteral("standardmessage") << QStringList();
     QTest::newRow("message1-init") << QStringLiteral("message1-init") << QStringList();
     QTest::newRow("message1") << QStringLiteral("message1") << (QStringList() << QStringLiteral("message1-updated"));
+    QTest::newRow("message2") << QStringLiteral("message2") << (QStringList() << QStringLiteral("message2-updated") << QStringLiteral("message2-updated-stared"));
     //TODO add more !
 }
 

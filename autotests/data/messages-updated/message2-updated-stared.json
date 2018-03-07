@@ -1,0 +1,33 @@
+{
+    "_id": "GvSPogsJ5fMqYvgQe",
+    "_updatedAt": {
+        "$date": 1520405792473
+    },
+    "alias": "Laurent Montel",
+    "channels": [
+    ],
+    "editedAt": {
+        "$date": 1520404004731
+    },
+    "editedBy": {
+        "_id": "uKK39zoewTkdacidH",
+        "username": "laurent"
+    },
+    "mentions": [
+    ],
+    "msg": "Voiture1 lolo",
+    "rid": "kGtPa6bu7xHrS5xz6",
+    "starred": [
+        {
+            "_id": "uKK39zoewTkdacidH"
+        }
+    ],
+    "ts": {
+        "$date": 1520403997425
+    },
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "name": "Laurent Montel",
+        "username": "laurent"
+    }
+}
