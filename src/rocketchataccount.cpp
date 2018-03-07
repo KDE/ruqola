@@ -853,6 +853,7 @@ QUrl RocketChatAccount::attachmentUrl(const QString &url)
 void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
 {
     MessageModel *roomModel = messageModelForRoom(roomID);
+    qDebug() << " void RocketChatAccount::loadHistory(const QString &roomID, bool initial)"<<initial << " roomModel " << roomModel;
     if (roomModel) {
         QJsonArray params;
         params.append(QJsonValue(roomID));
