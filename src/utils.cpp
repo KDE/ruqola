@@ -144,5 +144,5 @@ QString Utils::userIdFromDirectChannel(const QString &rid, const QString &userId
 
 qint64 Utils::parseDate(const QString &key, const QJsonObject &o)
 {
-    return o.value(key).toObject().value(QLatin1String("$date")).toDouble();
+    return o.value(key).toObject().value(QLatin1String("$date")).toDouble(-1);
 }

@@ -44,7 +44,7 @@ void MessageTest::shouldParseMessage_data()
         firstMessageRef.setUserId(QStringLiteral("qt9uNY9FxyL5QT5no"));
         firstMessageRef.setMessageType(Message::File);
         firstMessageRef.setUpdatedAt(1504509615063);
-        firstMessageRef.setEditedAt(0);
+        firstMessageRef.setEditedAt(-1);
         firstMessageRef.setStarred(false);
         firstMessageRef.setRoomId(QStringLiteral("qt9uNY9FxyL5QT5nouKK39zoewTkdacidH"));
         MessageAttachment att;
@@ -63,7 +63,7 @@ void MessageTest::shouldParseMessage_data()
         urlMessageRef.setUserId(QStringLiteral("bjBueJtHsHQECdkmH"));
         urlMessageRef.setMessageType(Message::NormalText);
         urlMessageRef.setUpdatedAt(1504596901803);
-        urlMessageRef.setEditedAt(0);
+        urlMessageRef.setEditedAt(-1);
         urlMessageRef.setStarred(false);
         urlMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
         urlMessageRef.setText(QStringLiteral("https://foo.com/event/whoa"));
@@ -85,7 +85,7 @@ void MessageTest::shouldParseMessage_data()
         imageMessageRef.setUserId(QStringLiteral("FwHz8w8PWWQRqrJjM"));
         imageMessageRef.setMessageType(Message::NormalText);
         imageMessageRef.setUpdatedAt(1505399177846);
-        imageMessageRef.setEditedAt(0);
+        imageMessageRef.setEditedAt(-1);
         imageMessageRef.setStarred(false);
         imageMessageRef.setRoomId(QStringLiteral("dBWXYy4nyBHn8Q7dv"));
 
@@ -109,7 +109,7 @@ void MessageTest::shouldParseMessage_data()
         videoMessageRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
         videoMessageRef.setMessageType(Message::Video);
         videoMessageRef.setUpdatedAt(1515580853102);
-        videoMessageRef.setEditedAt(0);
+        videoMessageRef.setEditedAt(-1);
         videoMessageRef.setStarred(false);
         videoMessageRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
 
@@ -133,7 +133,7 @@ void MessageTest::shouldParseMessage_data()
         audioMessageRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
         audioMessageRef.setMessageType(Message::Audio);
         audioMessageRef.setUpdatedAt(1515588347102);
-        audioMessageRef.setEditedAt(0);
+        audioMessageRef.setEditedAt(-1);
         audioMessageRef.setStarred(false);
         audioMessageRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
 

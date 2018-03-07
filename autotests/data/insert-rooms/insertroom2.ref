@@ -1,18 +1,31 @@
-                {
-                "_id": "bla1",
-                "_updatedAt": {
-                    "$date": 1520426909281
-                },
-                "announcement": "announcement",
-                "archived": false,
-                "customFields": {
-                },
-                "description": "description channel",
-                "name": "channeltest",
-                "ro": false,
-                "t": "c",
-                "topic": "Because we can.",
-                "u": {
-                    "_id": "fZmmHQh",
-                    "username": "goo"
-                }
+{
+    "alert": false,
+    "announcement": "announcement",
+    "archived": false,
+    "blocker": false,
+    "description": "description channel",
+    "favorite": false,
+    "jitsiTimeout": -1,
+    "name": "channeltest",
+    "notifications": {
+        "audioNotificationValue": "",
+        "audioNotifications": "",
+        "desktopNotificationDuration": 0,
+        "desktopNotifications": "",
+        "disableNotifications": false,
+        "emailNotifications": "",
+        "hideUnreadStatus": false,
+        "mobilePushNotifications": "",
+        "unreadAlert": ""
+    },
+    "open": false,
+    "rid": "bla1",
+    "ro": false,
+    "roomCreatorUserID": "fZmmHQh",
+    "roomCreatorUserName": "goo",
+    "selected": false,
+    "t": "c",
+    "unread": 0,
+    "updatedAt": 1520426909281,
+    "userMentions": 0
+}

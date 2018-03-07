@@ -1,7 +1,7 @@
 {
     "alias": "",
     "avatar": "",
-    "editedAt": 0,
+    "editedAt": -1,
     "editedByUserID": "",
     "editedByUsername": "",
     "groupable": false,
@@ -11,9 +11,9 @@
     "parseUrls": false,
     "roomID": "",
     "starred": false,
-    "timestamp": 0,
+    "timestamp": -1,
     "type": "",
-    "updatedAt": 0,
+    "updatedAt": -1,
     "userID": "",
     "username": ""
 }
