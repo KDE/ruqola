@@ -156,6 +156,8 @@ public:
     qint64 updatedAt() const;
     void setUpdatedAt(const qint64 &updatedAt);
 
+    void parseInsertRoom(const QJsonObject &json);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();

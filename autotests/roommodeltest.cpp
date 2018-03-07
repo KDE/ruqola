@@ -486,6 +486,7 @@ void RoomModelTest::shouldInsertRoom_data()
     QTest::addColumn<QString>("insertRoomFileName");
     QTest::addColumn<QString>("roomId");
     QTest::newRow("insertroom1") << QStringLiteral("insertroom1") << QStringLiteral("fooid");
+    QTest::newRow("insertroom2") << QStringLiteral("insertroom2") << QStringLiteral("bla1");
 
 }
 
@@ -526,7 +527,7 @@ void RoomModelTest::shouldInsertRoom()
     const QJsonObject fields = doc.object();
 
     RoomModel sampleModel;
-    const QString generatedRoomId = sampleModel.addRoom(fields);
+    const QString generatedRoomId = sampleModel.insertRoom(fields);
     QCOMPARE(generatedRoomId, roomId);
     QCOMPARE(sampleModel.rowCount(), 1);
     Room *r = sampleModel.findRoom(generatedRoomId);

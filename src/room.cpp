@@ -417,6 +417,77 @@ void Room::setName(const QString &name)
     }
 }
 
+void Room::parseInsertRoom(const QJsonObject &json)
+{
+    QString roomID = json.value(QLatin1String("_id")).toString();
+    setRoomId(roomID);
+    setName(json[QStringLiteral("name")].toString());
+    setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
+    //topic/announcement/description is not part of update subscription
+    const QString roomType = json.value(QLatin1String("t")).toString();
+    setChannelType(roomType);
+    const QJsonValue favoriteValue = json.value(QLatin1String("f"));
+    if (!favoriteValue.isUndefined()) {
+        setFavorite(favoriteValue.toBool());
+    }
+    //Only private room has this settings.
+    if (roomType == QLatin1String("p")) {
+        setReadOnly(json[QStringLiteral("ro")].toBool());
+    }
+    if (json.contains(QLatin1String("userMentions"))) {
+        setUserMentions(json[QStringLiteral("userMentions")].toInt());
+    }
+    if (json.contains(QLatin1String("announcement"))) {
+        setAnnouncement(json[QStringLiteral("announcement")].toString());
+    }
+    if (json.contains(QLatin1String("description"))) {
+        setDescription(json[QStringLiteral("description")].toString());
+    }
+
+    setUpdatedAt(Utils::parseDate(QLatin1String("_updatedAt"), json));
+    setUnread(json[QStringLiteral("unread")].toInt());
+    setUserMentions(json[QStringLiteral("userMentions")].toInt());
+    setOpen(json[QStringLiteral("open")].toBool());
+    setAlert(json[QStringLiteral("alert")].toBool());
+    const QJsonValue blockerValue = json.value(QLatin1String("blocker"));
+    if (!blockerValue.isUndefined()) {
+        setBlocker(blockerValue.toBool());
+    } else {
+        setBlocker(false);
+    }
+    const QJsonValue archivedValue = json.value(QLatin1String("archived"));
+    if (!archivedValue.isUndefined()) {
+        setArchived(archivedValue.toBool());
+    } else {
+        setArchived(false);
+    }
+
+    const QJsonArray mutedArray = json.value(QLatin1String("muted")).toArray();
+    QStringList lst;
+    lst.reserve(mutedArray.count());
+    for (int i = 0; i < mutedArray.count(); ++i) {
+        lst << mutedArray.at(i).toString();
+    }
+    setMutedUsers(lst);
+
+    const QJsonValue ownerValue = json.value(QLatin1String("u"));
+    if (!ownerValue.isUndefined()) {
+        const QJsonObject objOwner = ownerValue.toObject();
+        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
+        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+    } else {
+        //When room is initialized we are the owner. When we update room we have the real
+        //owner and if it's empty => we need to clear it.
+        setRoomCreatorUserId(QString());
+        setRoomCreatorUserName(QString());
+    }
+    //qDebug() << " *thus" << *this;
+    mNotificationOptions.parseNotificationOptions(json);
+
+    //TODO add muted
+
+}
+
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     QString roomID = json.value(QLatin1String("rid")).toString();

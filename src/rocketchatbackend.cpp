@@ -337,7 +337,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else if (actionName == QLatin1String("inserted")) {
                 qDebug() << " insert new Room !!!!!" << lst;
                 const QJsonObject roomData = lst[1].toObject();
-                const QString rid = model->addRoom(roomData);
+                const QString rid = model->insertRoom(roomData);
                 qDebug() << "rid " << rid;
                 mRocketChatAccount->initializeRoom(rid);
             } else {

@@ -1,0 +1,18 @@
+                {
+                "_id": "bla1",
+                "_updatedAt": {
+                    "$date": 1520426909281
+                },
+                "announcement": "announcement",
+                "archived": false,
+                "customFields": {
+                },
+                "description": "description channel",
+                "name": "channeltest",
+                "ro": false,
+                "t": "c",
+                "topic": "Because we can.",
+                "u": {
+                    "_id": "fZmmHQh",
+                    "username": "goo"
+                }
