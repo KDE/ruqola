@@ -159,6 +159,7 @@ void MessageTest::shouldParseMessage_data()
         messageStarredRef.setUpdatedAt(1516721464681);
         messageStarredRef.setEditedAt(1516712012309);
         messageStarredRef.setEditedByUsername(QStringLiteral("laurent"));
+        messageStarredRef.setEditedByUserId(QStringLiteral("uKK39zoewTkdacidH"));
         messageStarredRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
         messageStarredRef.setStarred(true);
         messageStarredRef.setText(QStringLiteral("sefssssdfsefdsdfsd"));
@@ -178,6 +179,7 @@ void MessageTest::shouldParseMessage_data()
         messageStarredRemovedRef.setUpdatedAt(1516721464681);
         messageStarredRemovedRef.setEditedAt(1516712012309);
         messageStarredRemovedRef.setEditedByUsername(QStringLiteral("laurent"));
+        messageStarredRemovedRef.setEditedByUserId(QStringLiteral("uKK39zoewTkdacidH"));
         messageStarredRemovedRef.setRoomId(QStringLiteral("kGtPa6bu7xHrS5xz6"));
         messageStarredRemovedRef.setStarred(false);
         messageStarredRemovedRef.setText(QStringLiteral("sefssssdfsefdsdfsd"));
@@ -327,6 +329,8 @@ void MessageTest::shouldUpdateJsonMessage_data()
     QTest::addColumn<QString>("fileNameinit");
     QTest::addColumn<QStringList>("fileNameupdate");
     QTest::newRow("standardmessage") << QStringLiteral("standardmessage") << QStringList();
+    QTest::newRow("message1-init") << QStringLiteral("message1-init") << QStringList();
+    QTest::newRow("message1") << QStringLiteral("message1") << (QStringList() << QStringLiteral("message1-updated"));
     //TODO add more !
 }
 

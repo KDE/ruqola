@@ -1,0 +1,21 @@
+{
+    "_id": "GvSPogsJ5fMqYvgQe",
+    "_updatedAt": {
+        "$date": 1520403997430
+    },
+    "alias": "Laurent Montel",
+    "channels": [
+    ],
+    "mentions": [
+    ],
+    "msg": "Voiture1",
+    "rid": "kGtPa6bu7xHrS5xz6",
+    "ts": {
+        "$date": 1520403997425
+    },
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "name": "Laurent Montel",
+        "username": "laurent"
+    }
+}
