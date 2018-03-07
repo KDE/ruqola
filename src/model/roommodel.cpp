@@ -273,12 +273,13 @@ void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
     }
 }
 
-void RoomModel::addRoom(const QJsonObject &room)
+QString RoomModel::addRoom(const QJsonObject &room)
 {
     Room *r = createNewRoom();
     r->parseSubscriptionRoom(room);
     qCDebug(RUQOLA_LOG) << "Adding room subscription" << r->name() << r->roomId() << r->topic();
     addRoom(r);
+    return r->roomId();
 }
 
 void RoomModel::addRoom(Room *room)

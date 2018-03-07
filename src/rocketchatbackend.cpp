@@ -106,13 +106,11 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
         if (roomType == QLatin1String("c") //Chat
             || roomType == QLatin1String("p")     /*Private chat*/
             || roomType == QLatin1String("d")) {    //Direct chat) {
-            const QString roomID = room.value(QLatin1String("rid")).toString();
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPClient::LoggedIn) {
-                model->addRoom(room);
+                const QString roomID = model->addRoom(room);
+                account->initializeRoom(roomID);
             }
-
-            account->initializeRoom(roomID);
         } else if (roomType == QLatin1String("l")) { //Live chat
             qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
         }
@@ -338,13 +336,12 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 model->updateRoom(roomData);
             } else if (actionName == QLatin1String("inserted")) {
                 qDebug() << " insert new Room !!!!!" << lst;
-                model->updateSubscription(lst);
                 const QJsonObject roomData = lst[1].toObject();
-                const QString rid = roomData.value(QLatin1String("_id")).toString();
+                const QString rid = model->addRoom(roomData);
                 qDebug() << "rid " << rid;
                 mRocketChatAccount->initializeRoom(rid);
             } else {
-                qCWarning(RUQOLA_LOG) << "rooms-changed invalid actionName " << actionName;
+                qWarning() << "rooms-changed invalid actionName " << actionName;
             }
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
