@@ -112,11 +112,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
                 model->addRoom(room);
             }
 
-            account->ddp()->subscribeRoomMessage(roomID);
-            account->getUsersOfRoom(roomID);
-
-            //Load history
-            account->loadHistory(roomID, true /*initial loading*/);
+            account->initializeRoom(roomID);
         } else if (roomType == QLatin1String("l")) { //Live chat
             qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
         }
@@ -343,6 +339,10 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else if (actionName == QLatin1String("inserted")) {
                 qDebug() << " insert new Room !!!!!" << lst;
                 model->updateSubscription(lst);
+                const QJsonObject roomData = lst[1].toObject();
+                const QString rid = roomData.value(QLatin1String("_id")).toString();
+                qDebug() << "rid " << rid;
+                mRocketChatAccount->initializeRoom(rid);
             } else {
                 qCWarning(RUQOLA_LOG) << "rooms-changed invalid actionName " << actionName;
             }

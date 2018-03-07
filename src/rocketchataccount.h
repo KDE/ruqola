@@ -231,6 +231,7 @@ public:
 
     void initializeSettings(const QString &accountFileName);
 
+    void initializeRoom(const QString &roomId);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
