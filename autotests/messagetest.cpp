@@ -372,7 +372,7 @@ void MessageTest::shouldUpdateJsonMessage()
     compareFile(QStringLiteral("/messages-updated/"), jsonIndented, fileNameinit);
 
     Message m = Message::fromJSon(docSerialized.object());
-    bool compareMessage = (r == m);
+    const bool compareMessage = (r == m);
     if (!compareMessage) {
         qDebug() << "loaded message" << r;
         qDebug() << "fromJson " << m;

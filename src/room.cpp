@@ -485,7 +485,6 @@ void Room::parseInsertRoom(const QJsonObject &json)
     mNotificationOptions.parseNotificationOptions(json);
 
     //TODO add muted
-
 }
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
