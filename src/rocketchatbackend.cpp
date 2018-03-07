@@ -337,8 +337,12 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             const QJsonArray lst = fields.value(QLatin1String("args")).toArray();
             const QString actionName = lst[0].toString();
             if (actionName == QLatin1String("updated")) {
+                qDebug() << " Update room " << lst;
                 const QJsonObject roomData = lst[1].toObject();
                 model->updateRoom(roomData);
+            } else if (actionName == QLatin1String("inserted")) {
+                qDebug() << " insert new Room !!!!!" << lst;
+                model->updateSubscription(lst);
             } else {
                 qCWarning(RUQOLA_LOG) << "rooms-changed invalid actionName " << actionName;
             }

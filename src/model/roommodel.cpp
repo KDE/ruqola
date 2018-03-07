@@ -323,7 +323,8 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     } else if (actionName == QStringLiteral("inserted")) {
         qCDebug(RUQOLA_LOG) << "INSERT ROOM  name " << roomData.value(QLatin1String("name")) << " rid " << roomData.value(QLatin1String("rid"));
         //TODO fix me!
-        addRoom(roomData.value(QLatin1String("rid")).toString(), roomData.value(QLatin1String("name")).toString(), false);
+        addRoom(roomData);
+        //addRoom(roomData.value(QLatin1String("rid")).toString(), roomData.value(QLatin1String("name")).toString(), false);
     } else if (actionName == QStringLiteral("updated")) {
         //qCDebug(RUQOLA_LOG) << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
         qDebug() << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
@@ -348,9 +349,7 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
         rId = roomData.value(QLatin1String("_id")).toString();
     }
     if (!rId.isEmpty()) {
-        const int roomCount{
-            mRoomsList.size()
-        };
+        const int roomCount = mRoomsList.size();
         for (int i = 0; i < roomCount; ++i) {
             if (mRoomsList.at(i)->roomId() == rId) {
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateRoom(const QJsonArray &array) room found";
