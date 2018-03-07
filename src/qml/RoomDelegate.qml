@@ -106,7 +106,7 @@ Kirigami.BasicListItem {
             id: quitAction
 
             //We can leave only channel not private chat
-            visible: d_editingMode && d_type == "c"
+            visible: d_editingMode && (d_type == "c" || d_type == "p")
             source: "dialog-close"
             height: parent.height
             width: height

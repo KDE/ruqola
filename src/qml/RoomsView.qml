@@ -33,6 +33,7 @@ ListView {
     property bool editingMode: false;
 
     signal hideRoom(string roomID)
+    signal leaveRoom(string roomID)
     signal roomSelected(string roomID)
 
     section {
@@ -77,7 +78,7 @@ ListView {
             roomsList.hideRoom(roomID)
         }
         onLeaveRoom: {
-            appid.rocketChatAccount.leaveRoom(d_roomID)
+            roomsList.leaveRoom(roomID)
         }
     }
 }

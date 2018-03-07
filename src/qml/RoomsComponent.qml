@@ -119,6 +119,11 @@ Component {
                 hideChannelDialog.rId = roomID
                 hideChannelDialog.open()
             }
+            onLeaveRoom: {
+                //TODO move to desktop.qml
+                leaveChannelDialog.rId = roomID
+                leaveChannelDialog.open()
+            }
 
             onRoomSelected: {
                 if (roomID == selectedRoomID) {
