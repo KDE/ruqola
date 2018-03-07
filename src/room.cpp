@@ -419,7 +419,10 @@ void Room::setName(const QString &name)
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
-    const QString roomID = json.value(QLatin1String("rid")).toString();
+    QString roomID = json.value(QLatin1String("rid")).toString();
+    if (roomID.isEmpty()) {
+        roomID = json.value(QLatin1String("_id")).toString();
+    }
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
     //topic/announcement/description is not part of update subscription
