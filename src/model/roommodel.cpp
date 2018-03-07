@@ -307,9 +307,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
     if (actionName == QStringLiteral("removed")) {
         qCDebug(RUQOLA_LOG) << "REMOVE ROOM name " << roomData.value(QLatin1String("name")) << " rid " << roomData.value(QLatin1String("rid"));
         const QString id = roomData.value(QLatin1String("rid")).toString();
-        const int roomCount{
-            mRoomsList.count()
-        };
+        const int roomCount = mRoomsList.count();
         for (int i = 0; i < roomCount; ++i) {
             if (mRoomsList.at(i)->roomId() == id) {
                 beginRemoveRows(QModelIndex(), i, i);
@@ -366,9 +364,7 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
 
 void RoomModel::userStatusChanged(const User &user)
 {
-    const int roomCount{
-        mRoomsList.count()
-    };
+    const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         Room *room = mRoomsList.at(i);
         if (room->name() == user.userName()) {
@@ -381,9 +377,7 @@ void RoomModel::userStatusChanged(const User &user)
 
 UsersForRoomModel *RoomModel::usersModelForRoom(const QString &roomId) const
 {
-    const int roomCount{
-        mRoomsList.count()
-    };
+    const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->usersModelForRoom();
@@ -395,9 +389,7 @@ UsersForRoomModel *RoomModel::usersModelForRoom(const QString &roomId) const
 
 UsersForRoomFilterProxyModel *RoomModel::usersForRoomFilterProxyModel(const QString &roomId) const
 {
-    const int roomCount{
-        mRoomsList.count()
-    };
+    const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->usersModelForRoomProxyModel();
@@ -408,9 +400,7 @@ UsersForRoomFilterProxyModel *RoomModel::usersForRoomFilterProxyModel(const QStr
 
 FilesForRoomFilterProxyModel *RoomModel::filesForRoomFilterProxyModel(const QString &roomId) const
 {
-    const int roomCount{
-        mRoomsList.count()
-    };
+    const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == roomId) {
             return mRoomsList.at(i)->filesForRoomFilterProxyModel();
