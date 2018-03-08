@@ -949,7 +949,7 @@ void RocketChatAccount::displaySearchedMessage(const QJsonObject &obj)
 
 void RocketChatAccount::updateUser(const QJsonObject &object)
 {
-    usersModel()->updateUser(object);
+    mUserModel->updateUser(object);
 }
 
 void RocketChatAccount::userStatusChanged(const User &user)
