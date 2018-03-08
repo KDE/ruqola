@@ -43,13 +43,13 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     mUsersModelForRoomProxyModel->setObjectName(QStringLiteral("usersforroommodelproxymodel"));
     mUsersModelForRoomProxyModel->setSourceModel(mUsersModelForRoom);
 
-    mFilesModelForRoom = new FilesForRoomModel(this);
+    mFilesModelForRoom = new FilesForRoomModel(mRocketChatAccount, this);
     mFilesModelForRoom->setObjectName(QStringLiteral("filesmodelforrooms"));
     mFilesForRoomFilterProxyModel = new FilesForRoomFilterProxyModel(this);
     mFilesForRoomFilterProxyModel->setObjectName(QStringLiteral("filesforroomfiltermodelproxy"));
     mFilesForRoomFilterProxyModel->setSourceModel(mFilesModelForRoom);
 
-    mMessageModel = new MessageModel(QString(), account, this);
+    mMessageModel = new MessageModel(QString(), mRocketChatAccount, this);
 }
 
 bool Room::operator==(const Room &other) const

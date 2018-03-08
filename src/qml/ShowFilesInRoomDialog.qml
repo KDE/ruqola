@@ -89,7 +89,10 @@ Dialog {
                     }
                 }
                 DeleteButton {
-
+                    visible: canbedeleted
+                    onDeleteFileButtonClicked: {
+                        //TODO
+                    }
                 }
             }
         }

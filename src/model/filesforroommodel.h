@@ -24,7 +24,7 @@
 #include <QAbstractListModel>
 #include "file.h"
 #include "libruqola_private_export.h"
-
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT FilesForRoomModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -39,7 +39,7 @@ public:
     };
     Q_ENUM(UserRoles)
 
-    explicit FilesForRoomModel(QObject *parent = nullptr);
+    explicit FilesForRoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~FilesForRoomModel() override;
 
     Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -52,6 +52,7 @@ public:
 private:
     Q_DISABLE_COPY(FilesForRoomModel)
     QVector<File> mFiles;
+    RocketChatAccount *mRochetChantAccount = nullptr;
 };
 
 #endif // FILESMODELFORROOM_H

@@ -19,10 +19,13 @@
 */
 
 #include "filesforroommodel.h"
+#include "rocketchataccount.h"
 #include "ruqola_debug.h"
 
-FilesForRoomModel::FilesForRoomModel(QObject *parent)
+
+FilesForRoomModel::FilesForRoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
+    , mRochetChantAccount(account)
 {
 }
 
@@ -69,7 +72,7 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
     case Description:
         return file.description();
     case CanBeDeleted:
-        return false; //TODO
+        return (mRochetChantAccount->userID() == file.userId());
     default:
         qCWarning(RUQOLA_LOG) << "Unknown filesmodel roles: " << role;
     }
