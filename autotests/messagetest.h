@@ -39,9 +39,6 @@ private Q_SLOTS:
 
     void shouldUpdateJsonMessage_data();
     void shouldUpdateJsonMessage();
-
-private:
-    void compareFile(const QString &repo, const QByteArray &data, const QString &name);
 };
 
 #endif // MESSAGETEST_H

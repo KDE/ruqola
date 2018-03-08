@@ -20,6 +20,7 @@
 
 #include "messagetest.h"
 #include "message.h"
+#include "ruqola_autotest_helper.h"
 #include <QTest>
 #include <QJsonDocument>
 #include <QProcess>
@@ -260,28 +261,6 @@ void MessageTest::shouldSerializeData()
     Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QCOMPARE(input, output);
     //TODO add Mentions
-}
-
-void MessageTest::compareFile(const QString &repo, const QByteArray &data, const QString &name)
-{
-    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral(".ref");
-    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral("-generated.ref");
-    //Create generated file
-    QFile f(generatedFile);
-    QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));
-    f.write(data);
-    f.close();
-
-    // compare to reference file
-    QStringList args = QStringList()
-                       << QStringLiteral("-u")
-                       << refFile
-                       << generatedFile;
-    QProcess proc;
-    proc.setProcessChannelMode(QProcess::ForwardedChannels);
-    proc.start(QStringLiteral("diff"), args);
-    QVERIFY(proc.waitForFinished());
-    QCOMPARE(proc.exitCode(), 0);
 }
 
 void MessageTest::shouldParseJsonMessage_data()

@@ -20,6 +20,7 @@
 
 #include "roomtest.h"
 #include "room.h"
+#include "ruqola_autotest_helper.h"
 #include "model/usersforroommodel.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/filesforroomfilterproxymodel.h"
@@ -146,28 +147,6 @@ void RoomTest::shouldChangeInputMessage()
     inputMsg = QStringLiteral("foo");
     input.setInputMessage(inputMsg);
     QCOMPARE(input.inputMessage(), inputMsg);
-}
-
-void RoomTest::compareFile(const QString &repo, const QByteArray &data, const QString &name)
-{
-    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral(".ref");
-    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + repo + name + QStringLiteral("-generated.ref");
-    //Create generated file
-    QFile f(generatedFile);
-    QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));
-    f.write(data);
-    f.close();
-
-    // compare to reference file
-    QStringList args = QStringList()
-                       << QStringLiteral("-u")
-                       << refFile
-                       << generatedFile;
-    QProcess proc;
-    proc.setProcessChannelMode(QProcess::ForwardedChannels);
-    proc.start(QStringLiteral("diff"), args);
-    QVERIFY(proc.waitForFinished());
-    QCOMPARE(proc.exitCode(), 0);
 }
 
 void RoomTest::shouldParseRoom_data()
