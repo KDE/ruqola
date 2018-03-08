@@ -27,15 +27,17 @@
 #include <KStatusNotifierItem>
 #include <QMap>
 
+class UnityServiceManager;
 class LIBRUQOLACORE_TESTS_EXPORT Notification : public KStatusNotifierItem
 {
     Q_OBJECT
 public:
     explicit Notification(QObject *parent = nullptr);
-    ~Notification() = default;
+    ~Notification();
 
     void updateNotification(bool hasAlert, int unreadNumber, const QString &account);
     void clearNotification(const QString &account);
+    UnityServiceManager *unityServiceManager();
 private:
     Q_DISABLE_COPY(Notification)
     struct TrayInfo {
@@ -58,8 +60,10 @@ private:
     */
     void createTrayIcon();
     void createToolTip();
+    void updateUnityService(int unreadMessage);
 
     QMap<QString, TrayInfo> mListTrayIcon;
+    UnityServiceManager *mUnityServiceManager = nullptr;
 };
 
 #endif // NOTIFICATION_H

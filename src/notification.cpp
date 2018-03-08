@@ -24,6 +24,8 @@
 #include "notification.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
+#include "unityservicemanager.h"
+
 #include <KLocalizedString>
 #include <QIcon>
 
@@ -31,6 +33,11 @@ Notification::Notification(QObject *parent)
     : KStatusNotifierItem(parent)
 {
     createTrayIcon();
+}
+
+Notification::~Notification()
+{
+    delete mUnityServiceManager;
 }
 
 void Notification::createTrayIcon()
@@ -64,6 +71,7 @@ void Notification::createToolTip()
     QString str;
     bool firstElement = true;
     bool hasAlert = false;
+    int unreadMessage = 0;
     while (i.hasNext()) {
         i.next();
         if (!firstElement && !str.isEmpty()) {
@@ -79,12 +87,28 @@ void Notification::createToolTip()
         }
         if (trayInfo.unreadMessage != 0) {
             str += i18n("Has %1 Unread Message", trayInfo.unreadMessage);
+            unreadMessage += trayInfo.unreadMessage;
         }
     }
     setToolTipSubTitle(str);
+    updateUnityService(unreadMessage);
     if (status() == KStatusNotifierItem::Passive && (!str.isEmpty() || hasAlert)) {
         setStatus(KStatusNotifierItem::Active);
     } else if (status() == KStatusNotifierItem::Active && (str.isEmpty() && !hasAlert)) {
         setStatus(KStatusNotifierItem::Passive);
     }
 }
+
+void Notification::updateUnityService(int unreadMessage)
+{
+    unityServiceManager()->setCount(unreadMessage);
+}
+
+UnityServiceManager *Notification::unityServiceManager()
+{
+    if (!mUnityServiceManager) {
+        mUnityServiceManager = new UnityServiceManager();
+    }
+    return mUnityServiceManager;
+}
+

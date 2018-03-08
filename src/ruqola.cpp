@@ -64,13 +64,6 @@ AccountManager *Ruqola::accountManager() const
     return mAccountManager;
 }
 
-UnityServiceManager *Ruqola::unityServiceManager()
-{
-    if (!mUnityServiceManager) {
-        mUnityServiceManager = new UnityServiceManager();
-    }
-    return mUnityServiceManager;
-}
 
 QmlAboutData *Ruqola::applicationData() const
 {
@@ -101,11 +94,9 @@ Notification *Ruqola::notification()
 void Ruqola::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)
 {
     notification()->updateNotification(hasAlert, nbUnread, accountName);
-    unityServiceManager()->setCount(nbUnread);
 }
 
 void Ruqola::logout(const QString &accountName)
 {
-    //TODO account name when multi
     notification()->clearNotification(accountName);
 }

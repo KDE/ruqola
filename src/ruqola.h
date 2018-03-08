@@ -31,7 +31,6 @@
 #include "model/roommodel.h"
 #include "model/messagemodel.h"
 #include "notification.h"
-#include "unityservicemanager.h"
 
 class QmlAboutData;
 
@@ -54,7 +53,6 @@ public:
     Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
 
     Q_INVOKABLE QmlAboutData *applicationData() const;
-    UnityServiceManager *unityServiceManager();
 
     Q_INVOKABLE AccountManager *accountManager() const;
 
@@ -66,7 +64,6 @@ private:
     void logout(const QString &accountName);
     Notification *mNotification = nullptr;
     QmlAboutData *mRuqolaAboutData = nullptr;
-    UnityServiceManager *mUnityServiceManager = nullptr;
     AccountManager *mAccountManager = nullptr;
 };
 
