@@ -145,7 +145,7 @@ RocketChatBackend::~RocketChatBackend()
 void RocketChatBackend::slotConnectedChanged()
 {
     mRocketChatAccount->restApi()->serverInfo();
-    connect(mRocketChatAccount->restApi(), &RestApiRequest::getServerInfoDone, this, &RocketChatBackend::parseServerVersionDone);
+    connect(mRocketChatAccount->restApi(), &RestApiRequest::getServerInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
     mRocketChatAccount->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
 }
 
