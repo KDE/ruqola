@@ -64,7 +64,8 @@ Kirigami.BasicListItem {
         if (d_userMentions > 0) {
             str = "@";
         }
-        str += i18n("(%1)", d_unread);
+        //Add space after (...)
+        str += i18n("(%1)", d_unread) + ' ';
         return str;
     }
 
