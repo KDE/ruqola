@@ -1,0 +1,8 @@
+{
+    "id": "43",
+    "method": "deleteFileMessage",
+    "msg": "method",
+    "params": [
+        "fileid"
+    ]
+}

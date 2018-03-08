@@ -43,6 +43,13 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void delete_file_message(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete File:") + QJsonDocument(root).toJson());
+    }
+}
+
 void block_user(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -461,6 +468,12 @@ quint64 DDPClient::deleteMessage(const QString &messageId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteMessage(messageId, m_uid);
     return method(result, delete_message, DDPClient::Persistent);
+}
+
+quint64 DDPClient::deleteFileMessage(const QString &fileid)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteFileMessage(fileid, m_uid);
+    return method(result, delete_file_message, DDPClient::Persistent);
 }
 
 quint64 DDPClient::joinRoom(const QString &roomId, const QString &joinCode)

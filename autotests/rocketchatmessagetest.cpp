@@ -488,3 +488,11 @@ void RocketChatMessageTest::unreadAlert()
     RocketChatMessage::RocketChatMessageResult r = m.unreadAlert(QStringLiteral("rid"), QStringLiteral("bla"), 43);
     compareFile(r.result, QStringLiteral("unreadAlert"));
 }
+
+void RocketChatMessageTest::deleteFileMessage()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.deleteFileMessage(QStringLiteral("fileid"), 43);
+    compareFile(r.result, QStringLiteral("deleteFileMessage"));
+}

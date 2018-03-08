@@ -32,6 +32,7 @@ Dialog {
 
     title: i18n("Show Files In Room")
     signal downloadFile(string file)
+    signal deleteFile(string fileid)
 
     property QtObject filesModel
 
@@ -91,7 +92,7 @@ Dialog {
                 DeleteButton {
                     visible: canbedeleted
                     onDeleteFileButtonClicked: {
-                        //TODO
+                        showFilesInRoomDialog.deleteFile(fileid)
                     }
                 }
             }

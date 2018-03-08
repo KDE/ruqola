@@ -346,6 +346,9 @@ Component {
                     downloadFileDialog.fileToSaveUrl = file
                     downloadFileDialog.open()
                 }
+                onDeleteFile: {
+                    appid.rocketChatAccount.deleteFileMessage(fileid)
+                }
             }
         }
 
