@@ -88,6 +88,9 @@ Dialog {
                         showFilesInRoomDialog.downloadFile(url)
                     }
                 }
+                DeleteButton {
+
+                }
             }
         }
     }

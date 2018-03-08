@@ -43,6 +43,7 @@ void FilesForRoomModelTest::shouldHaveDefaultValue()
     roles[FilesForRoomModel::MimeType] = QByteArrayLiteral("mimetype");
     roles[FilesForRoomModel::Url] = QByteArrayLiteral("url");
     roles[FilesForRoomModel::Description] = QByteArrayLiteral("description");
+    roles[FilesForRoomModel::CanBeDeleted] = QByteArrayLiteral("canbedeleted");
     QCOMPARE(w.roleNames(), roles);
 }
 
