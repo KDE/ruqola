@@ -42,6 +42,7 @@ public:
         Post,
         ServerInfo,
         PrivateInfo,
+        Me,
     };
     Q_ENUM(RestMethod)
 
@@ -72,12 +73,14 @@ public:
 
     void serverInfo();
     void getPrivateSettings();
+    void getOwnInfo();
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
     void loginDone(const QString &authToken, const QString &userId);
     void getDataDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
     void getServerInfoDone(const QString &version);
+    void getOwnInfoDone(const QByteArray &data);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
@@ -90,6 +93,7 @@ private:
     void parseGetAvatar(const QByteArray &data, const QString &userId);
     void parseLogout(const QByteArray &data);
     void parseLogin(const QByteArray &data);
+    void parseOwnInfo(const QByteArray &data);
     void parseChannelList(const QByteArray &data);
     void parseGet(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFile);
     void parsePost(const QByteArray &data);

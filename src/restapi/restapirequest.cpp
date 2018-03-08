@@ -93,6 +93,12 @@ void RestApiRequest::parseLogin(const QByteArray &data)
     }
 }
 
+void RestApiRequest::parseOwnInfo(const QByteArray &data)
+{
+    qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseOwnInfo: " << data;
+    Q_EMIT getOwnInfoDone(data);
+}
+
 void RestApiRequest::parseLogout(const QByteArray &data)
 {
     const QJsonDocument replyJson = QJsonDocument::fromJson(data);
@@ -207,6 +213,9 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             break;
         case ServerInfo:
             parseServerInfo(data);
+            break;
+        case Me:
+            parseOwnInfo(data);
             break;
         case Get:
         {
@@ -354,6 +363,21 @@ void RestApiRequest::getPrivateSettings()
 
         QNetworkReply *reply = mNetworkAccessManager->get(request);
         reply->setProperty("method", QVariant::fromValue(RestMethod::PrivateInfo));
+    }
+}
+
+void RestApiRequest::getOwnInfo()
+{
+    if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getOwnInfo problem with mUserId or mAuthToken";
+    } else {
+        QUrl url = generateUrl(RestApiUtil::RestApiUrlType::Me);
+        QNetworkRequest request(url);
+        request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
+        request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+
+        QNetworkReply *reply = mNetworkAccessManager->get(request);
+        reply->setProperty("method", QVariant::fromValue(RestMethod::Me));
     }
 }
 
