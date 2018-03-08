@@ -58,6 +58,7 @@ void MessageModelTest::shouldHaveDefaultValue()
     roles[MessageModel::Date] = QByteArrayLiteral("date");
     roles[MessageModel::CanEditingMessage] = QByteArrayLiteral("canEditingMessage");
     roles[MessageModel::Starred] = QByteArrayLiteral("starred");
+    roles[MessageModel::UsernameUrl] = QByteArrayLiteral("usernameurl");
 
     QCOMPARE(w.roleNames(), roles);
 }
