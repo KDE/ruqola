@@ -187,6 +187,31 @@ void MessageTest::shouldParseMessage_data()
 
         QTest::addRow("messageremovedstarred") << QStringLiteral("messageremovedstarred") << messageStarredRemovedRef;
     }
+    {
+        //messageattachmentfile
+        Message messageAttachmentFileRef;
+        messageAttachmentFileRef.setMessageId(QStringLiteral("messageid"));
+        messageAttachmentFileRef.setAlias(QStringLiteral("Laurent"));
+        messageAttachmentFileRef.setGroupable(false);
+        messageAttachmentFileRef.setTimeStamp(1520540888833);
+        messageAttachmentFileRef.setUsername(QStringLiteral("laurent"));
+        messageAttachmentFileRef.setUserId(QStringLiteral("39zoewTkdacidH"));
+        messageAttachmentFileRef.setMessageType(Message::File);
+        messageAttachmentFileRef.setUpdatedAt(1520540888836);
+        messageAttachmentFileRef.setEditedAt(-1);
+        messageAttachmentFileRef.setRoomId(QStringLiteral("Pa6bu7xHrS5xz6"));
+        messageAttachmentFileRef.setStarred(false);
+
+        MessageAttachment fileAttachment;
+        fileAttachment.setTitle(QStringLiteral("webkit.txt"));
+        fileAttachment.setLink(QStringLiteral("/file-upload/tmqfdJTCmJ3oqG/webkit.txt"));
+        fileAttachment.setDescription(QStringLiteral("description"));
+        //Add video size/video type etc.
+        messageAttachmentFileRef.setAttachements({fileAttachment});
+
+
+        QTest::addRow("messageattachmentfile") << QStringLiteral("messageattachmentfile") << messageAttachmentFileRef;
+    }
 }
 
 void MessageTest::shouldParseMessage()

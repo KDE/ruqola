@@ -1,0 +1,36 @@
+{
+    "_id": "messageid",
+    "_updatedAt": {
+        "$date": 1520540888836
+    },
+    "alias": "Laurent",
+    "attachments": [
+        {
+            "description": "description",
+            "title": "webkit.txt",
+            "title_link": "/file-upload/tmqfdJTCmJ3oqG/webkit.txt",
+            "title_link_download": true,
+            "type": "file"
+        }
+    ],
+    "channels": [
+    ],
+    "file": {
+        "_id": "tmqfdJTCmJ3oqG",
+        "name": "webkit.txt",
+        "type": "text/plain"
+    },
+    "groupable": false,
+    "mentions": [
+    ],
+    "msg": "",
+    "rid": "Pa6bu7xHrS5xz6",
+    "ts": {
+        "$date": 1520540888833
+    },
+    "u": {
+        "_id": "39zoewTkdacidH",
+        "name": "Laurent Montel",
+        "username": "laurent"
+    }
+}
