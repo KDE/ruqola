@@ -63,11 +63,12 @@ MessageBase {
 
                 level: 5
                 font.bold: true
-                text: i_aliasname + ' @' + i_username + (i_editedByUserName === "" ? "" : " " + i18n("(edited by %1)", i_editedByUserName))
+                text: i_aliasname +  ' ' + i_usernameurl + (i_editedByUserName === "" ? "" : " " + i18n("(edited by %1)", i_editedByUserName))
 
                 anchors.right: parent.right
                 anchors.left: parent.left
                 height: avatarRect.height
+                onLinkActivated: messageMain.linkActivated(link)
                 MouseArea {
                     anchors.fill: parent
                     acceptedButtons: Qt.RightButton

@@ -58,7 +58,8 @@ public:
         Urls,
         Date,
         CanEditingMessage,
-        Starred
+        Starred,
+        UsernameUrl
     };
     Q_ENUM(MessageRoles)
 

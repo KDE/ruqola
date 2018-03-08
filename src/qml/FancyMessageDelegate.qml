@@ -41,6 +41,7 @@ Rectangle {
     property string i_originalMessage
     property string i_messageText
     property string i_username
+    property string i_usernameurl
     property bool i_systemMessage
     property string i_systemMessageType
     property string i_avatar
@@ -114,6 +115,7 @@ Rectangle {
                               i_originalMessage: i_originalMessage,
                               i_messageText: i_messageText,
                               i_username: i_username,
+                              i_usernameurl: i_usernameurl,
                               i_aliasname: i_aliasname,
                               i_timestamp: i_timestamp,
                               i_messageID: i_messageID,
@@ -134,6 +136,7 @@ Rectangle {
                           {
                               i_messageText: i_messageText,
                               i_username: i_username,
+                              i_usernameurl: i_usernameurl,
                               i_aliasname: i_aliasname,
                               i_timestamp: i_timestamp,
                               i_messageID: i_messageID,
@@ -150,6 +153,7 @@ Rectangle {
                           {
                               i_messageText: i_messageText,
                               i_username: i_username,
+                              i_usernameurl: i_usernameurl,
                               i_aliasname: i_aliasname,
                               i_timestamp: i_timestamp,
                               i_messageID: i_messageID,
@@ -166,6 +170,7 @@ Rectangle {
                           {
                               i_messageText: i_messageText,
                               i_username: i_username,
+                              i_usernameurl: i_usernameurl,
                               i_aliasname: i_aliasname,
                               i_timestamp: i_timestamp,
                               i_messageID: i_messageID,

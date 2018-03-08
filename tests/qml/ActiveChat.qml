@@ -48,6 +48,7 @@ ListView {
         width: parent.width
         i_messageText: messageConverted
         i_username: username
+        i_usernameurl: usernameurl
         i_aliasname: alias
         i_systemMessageType: type
         i_timestamp: timestamp
