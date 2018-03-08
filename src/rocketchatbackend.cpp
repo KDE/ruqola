@@ -167,9 +167,27 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
     }
 }
 
+void RocketChatBackend::parseOwnInfoDown(const QByteArray &data)
+{
+    //Move code in rocketchataccount directly ?
+    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+    const QJsonObject replyObject = replyJson.object();
+    //qDebug() << "replyJson " << replyJson;
+    User user;
+    user.setUserId(replyObject.value(QLatin1String("_id")).toString());
+    user.setUserName(replyObject.value(QLatin1String("username")).toString());
+    user.setStatus(replyObject.value(QLatin1String("status")).toString());
+    if (user.isValid()) {
+        mRocketChatAccount->usersModel()->addUser(user);
+    } else {
+        qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyJson;
+    }
+}
+
 void RocketChatBackend::slotLoginStatusChanged()
 {
     if (mRocketChatAccount->loginStatus() == DDPClient::LoggedIn) {
+        connect(mRocketChatAccount->restApi(), &RestApiRequest::getOwnInfoDone, this, &RocketChatBackend::parseOwnInfoDown, Qt::UniqueConnection);
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
