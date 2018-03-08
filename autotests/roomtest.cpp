@@ -56,8 +56,8 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.announcement().isEmpty());
     QVERIFY(!input.readOnly());
     //Add more
-    QCOMPARE(input.userMentions(), -1);
-    QCOMPARE(input.unread(), -1);
+    QCOMPARE(input.userMentions(), 0);
+    QCOMPARE(input.unread(), 0);
 }
 
 //TODO add notification, userMentions too

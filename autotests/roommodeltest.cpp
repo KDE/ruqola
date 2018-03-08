@@ -396,7 +396,7 @@ void RoomModelTest::shouldReturnDataDefault()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomAnnoucement);
     QVERIFY(output.toString().isEmpty());
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomUnread);
-    QCOMPARE(output, QVariant(int(-1))); //quint64 not used in room.cpp???
+    QCOMPARE(output, QVariant(int(0))); //quint64 not used in room.cpp???
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomFavorite);
     QCOMPARE(output.toBool(), false);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOpen);
