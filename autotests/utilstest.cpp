@@ -67,6 +67,8 @@ void UtilsTest::shouldMarkdownToRichText_data()
     QTest::newRow("Remove <br/>") << QStringLiteral("foo<br />") << QStringLiteral("foo");
 
     QTest::newRow("0.6.3") << QStringLiteral("0.6.3") << QStringLiteral("0.6.3");
+    //Bug 391520
+    QTest::newRow("multi-line") << QStringLiteral("These are the options:\n- a\n- b") << QStringLiteral("These are the options:<br />\n- a<br />\n- b");
 }
 
 void UtilsTest::shouldMarkdownToRichText()

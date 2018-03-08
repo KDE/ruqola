@@ -55,7 +55,8 @@ QString Utils::markdownToRichText(const QString &markDown)
 
     const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys;
     str = KTextToHTML::convertToHtml(str, convertFlags);
-    str.remove(QStringLiteral("<br />"));
+    //Bug 391520 I don't remember why I removed <br /> need to investigate
+    //str.remove(QStringLiteral("<br />"));
     //qCDebug(RUQOLA_LOG) << "markdownToRichText "<<str;
     return str;
 }
