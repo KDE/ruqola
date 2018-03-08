@@ -134,12 +134,32 @@ MessageBase {
                         id: repearterAttachments
 
                         model: i_attachments
-                        Text {
-                            width: urlColumn.width
-                            text: model.modelData.title
-                            wrapMode: QQC2.Label.Wrap
-                            anchors.leftMargin: Kirigami.Units.smallSpacing
-                            anchors.rightMargin: Kirigami.Units.smallSpacing
+                        //TODO fixme ?
+                        Column {
+                            Text {
+                                visible: model.modelData.title.length > 0
+                                width: urlColumn.width
+                                text: model.modelData.title
+                                wrapMode: QQC2.Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                            }
+                            Text {
+                                visible: model.modelData.description.length > 0
+                                width: urlColumn.width
+                                text: model.modelData.description
+                                wrapMode: QQC2.Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                            }
+                            Text {
+                                visible: model.modelData.link.length > 0
+                                width: urlColumn.width
+                                text: model.modelData.link
+                                wrapMode: QQC2.Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                            }
                         }
                     }
                 }
