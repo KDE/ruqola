@@ -48,7 +48,6 @@ void Notification::createTrayIcon()
 
 void Notification::clearNotification(const QString &account)
 {
-    //TODO add Account name
     mListTrayIcon.remove(account);
     createToolTip();
 }
