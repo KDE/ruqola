@@ -314,7 +314,6 @@ QString RocketChatAccount::avatarUrlFromDirectChannel(const QString &rid)
 
 void RocketChatAccount::deleteFileMessage(const QString &fileId)
 {
-    qDebug() << "void RocketChatAccount::deleteFile(const QString &fileId) " << fileId;
     ddp()->deleteFileMessage(fileId);
 }
 
