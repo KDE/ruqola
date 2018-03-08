@@ -38,6 +38,7 @@ void File::parseFile(const QJsonObject &object)
     setMimeType(fields.value(QLatin1String("type")).toString());
     setUrl(fields.value(QLatin1String("url")).toString());
     setUploadedAt(Utils::parseDate(QLatin1String("uploadedAt"), fields));
+    setFileId(object.value(QLatin1String("id")).toString());
 }
 
 QString File::name() const
@@ -67,7 +68,8 @@ bool File::operator ==(const File &other) const
            && (url() == other.url())
            && (userId() == other.userId())
            && (mimeType() == other.mimeType())
-           && (uploadedAt() == other.uploadedAt());
+           && (uploadedAt() == other.uploadedAt())
+            && (fileId() == other.fileId());
 }
 
 File &File::operator=(const File &other)
@@ -78,6 +80,7 @@ File &File::operator=(const File &other)
     mUserId = other.userId();
     mMimeType = other.mimeType();
     mUploadedAt = other.uploadedAt();
+    mFileId = other.fileId();
     return *this;
 }
 
@@ -121,6 +124,16 @@ void File::setUploadedAt(const qint64 &uploadedAt)
     mUploadedAt = uploadedAt;
 }
 
+QString File::fileId() const
+{
+    return mFileId;
+}
+
+void File::setFileId(const QString &fileId)
+{
+    mFileId = fileId;
+}
+
 QDebug operator <<(QDebug d, const File &t)
 {
     d << "Name : " << t.name();
@@ -129,5 +142,6 @@ QDebug operator <<(QDebug d, const File &t)
     d << "UserId: " << t.userId();
     d << "Mimetype : "<< t.mimeType();
     d << "Uploaded time: " << t.uploadedAt();
+    d << "File Id: " << t.fileId();
     return d;
 }

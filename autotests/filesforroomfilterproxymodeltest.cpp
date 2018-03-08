@@ -46,6 +46,7 @@ void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValues()
     roles[FilesForRoomModel::Url] = QByteArrayLiteral("url");
     roles[FilesForRoomModel::Description] = QByteArrayLiteral("description");
     roles[FilesForRoomModel::CanBeDeleted] = QByteArrayLiteral("canbedeleted");
+    roles[FilesForRoomModel::FileId] = QByteArrayLiteral("fileid");
     QCOMPARE(proxy.roleNames(), roles);
 }
 

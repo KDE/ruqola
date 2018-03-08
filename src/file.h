@@ -55,12 +55,16 @@ public:
     qint64 uploadedAt() const;
     void setUploadedAt(const qint64 &uploadedAt);
 
+    QString fileId() const;
+    void setFileId(const QString &fileId);
+
 private:
     QString mName;
     QString mDescription;
     QString mUserId;
     QString mUrl;
     QString mMimeType;
+    QString mFileId;
     qint64 mUploadedAt = -1;
 };
 Q_DECLARE_METATYPE(File)

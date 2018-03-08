@@ -35,7 +35,8 @@ public:
         Description,
         Url,
         MimeType,
-        CanBeDeleted
+        CanBeDeleted,
+        FileId
     };
     Q_ENUM(UserRoles)
 

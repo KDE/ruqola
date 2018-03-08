@@ -44,6 +44,7 @@ void FilesForRoomModelTest::shouldHaveDefaultValue()
     roles[FilesForRoomModel::Url] = QByteArrayLiteral("url");
     roles[FilesForRoomModel::Description] = QByteArrayLiteral("description");
     roles[FilesForRoomModel::CanBeDeleted] = QByteArrayLiteral("canbedeleted");
+    roles[FilesForRoomModel::FileId] = QByteArrayLiteral("fileid");
     QCOMPARE(w.roleNames(), roles);
 }
 

@@ -73,6 +73,8 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
         return file.description();
     case CanBeDeleted:
         return (mRochetChantAccount->userID() == file.userId());
+    case FileId:
+        return file.fileId();
     default:
         qCWarning(RUQOLA_LOG) << "Unknown filesmodel roles: " << role;
     }
@@ -88,5 +90,6 @@ QHash<int, QByteArray> FilesForRoomModel::roleNames() const
     roles[Url] = QByteArrayLiteral("url");    
     roles[Description] = QByteArrayLiteral("description");
     roles[CanBeDeleted] = QByteArrayLiteral("canbedeleted");
+    roles[FileId] = QByteArrayLiteral("fileid");
     return roles;
 }
