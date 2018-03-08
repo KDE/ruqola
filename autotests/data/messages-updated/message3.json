@@ -1,0 +1,21 @@
+{
+    "_id": "FJebizEnPcELcRLvv",
+    "_updatedAt": {
+        "$date": 1520507169635
+    },
+    "alias": "Laurent Montel",
+    "channels": [
+    ],
+    "mentions": [
+    ],
+    "msg": "test-rename",
+    "rid": "kGtPa6bu7xHrS5xz6",
+    "ts": {
+        "$date": 1520507169630
+    },
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "name": "Laurent Montel",
+        "username": "laurent"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "_id": "FJebizEnPcELcRLvv",
+    "_updatedAt": {
+        "$date": 1520507193291
+    },
+    "alias": "Laurent Montel",
+    "channels": [
+    ],
+    "editedAt": {
+        "$date": 1520507193288
+    },
+    "editedBy": {
+        "_id": "uKK39zoewTkdacidH",
+        "username": "laurent"
+    },
+    "mentions": [
+    ],
+    "msg": "after-test-rename",
+    "rid": "kGtPa6bu7xHrS5xz6",
+    "ts": {
+        "$date": 1520507169630
+    },
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "name": "Laurent Montel",
+        "username": "laurent"
+    }
+}
