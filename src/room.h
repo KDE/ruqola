@@ -206,8 +206,8 @@ private:
     qint64 mUpdatedAt = -1;
 
     //quint64 ?
-    int mUnread = -1;
-    int mUserMentions = -1;
+    int mUnread = 0;
+    int mUserMentions = 0;
 
     // ro - read-only chat or not
     bool mReadOnly = false;
