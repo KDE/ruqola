@@ -180,6 +180,7 @@ void RocketChatBackend::slotLoginStatusChanged()
         mRocketChatAccount->restApi()->setAuthToken(mRocketChatAccount->settings()->authToken());
         mRocketChatAccount->restApi()->setUserId(mRocketChatAccount->settings()->userId());
         mRocketChatAccount->restApi()->getPrivateSettings();
+        mRocketChatAccount->restApi()->getOwnInfo();
     }
 }
 
