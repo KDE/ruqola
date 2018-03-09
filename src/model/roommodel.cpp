@@ -256,9 +256,7 @@ void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
         rId = roomData.value(QLatin1String("_id")).toString();
     }
     if (!rId.isEmpty()) {
-        const int roomCount{
-            mRoomsList.size()
-        };
+        const int roomCount = mRoomsList.size();
         for (int i = 0; i < roomCount; ++i) {
             if (mRoomsList.at(i)->roomId() == rId) {
                 qCDebug(RUQOLA_LOG) << " void RoomModel::updateSubscriptionRoom(const QJsonArray &array) room found";
