@@ -863,7 +863,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
         params.append(QJsonValue(roomID));
         // Load history
         const qint64 endDateTime = roomModel->lastTimestamp();
-        if (initial) {
+        if (initial || roomModel->isEmpty()) {
             params.append(QJsonValue(QJsonValue::Null));
         } else {
             const qint64 startDateTime = roomModel->generateNewStartTimeStamp(endDateTime);

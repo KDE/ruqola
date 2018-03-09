@@ -96,6 +96,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     void setRoomID(const QString &roomID);
+    bool isEmpty() const;
 
 private:
     Q_DISABLE_COPY(MessageModel)

@@ -275,6 +275,11 @@ void MessageModel::setRoomID(const QString &roomID)
     mRoomID = roomID;
 }
 
+bool MessageModel::isEmpty() const
+{
+    return mAllMessages.isEmpty();
+}
+
 void MessageModel::deleteMessage(const QString &messageId)
 {
     for (int i = 0, total = mAllMessages.count(); i < total; ++i) {
