@@ -232,7 +232,7 @@ public:
 
     void initializeSettings(const QString &accountFileName);
 
-    void initializeRoom(const QString &roomId);
+    void initializeRoom(const QString &roomId, bool loadInitialHistory = true);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

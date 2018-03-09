@@ -983,11 +983,13 @@ void RocketChatAccount::blockUser(const QString &rid, bool block)
     }
 }
 
-void RocketChatAccount::initializeRoom(const QString &roomId)
+void RocketChatAccount::initializeRoom(const QString &roomId, bool loadInitialHistory)
 {
     ddp()->subscribeRoomMessage(roomId);
     getUsersOfRoom(roomId);
 
-    //Load history
-    loadHistory(roomId, true /*initial loading*/);
+    if (loadInitialHistory) {
+        //Load history
+        loadHistory(roomId, true /*initial loading*/);
+    }
 }
