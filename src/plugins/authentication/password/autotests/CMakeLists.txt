@@ -12,3 +12,4 @@ macro(add_ruqola_plugin_unittest _source _additional)
 endmacro ()
 
 add_ruqola_plugin_unittest(passwordpluginauthenticationtest.cpp "../passwordpluginauthentication.cpp;../passwordauthenticationinterface.cpp")
+add_ruqola_plugin_unittest(passwordauthenticationinterfacetest.cpp "../passwordauthenticationinterface.cpp")

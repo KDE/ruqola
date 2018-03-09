@@ -12,3 +12,4 @@ macro(add_ruqola_plugin_unittest _source _additional)
 endmacro ()
 
 add_ruqola_plugin_unittest(googlepluginauthenticationtest.cpp "../googlepluginauthentication.cpp;../googleauthenticationinterface.cpp;../googlejob.cpp")
+add_ruqola_plugin_unittest(googleauthenticationinterfacetest.cpp "../googleauthenticationinterface.cpp;../googlejob.cpp")
