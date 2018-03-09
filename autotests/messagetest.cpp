@@ -209,7 +209,6 @@ void MessageTest::shouldParseMessage_data()
         //Add video size/video type etc.
         messageAttachmentFileRef.setAttachements({fileAttachment});
 
-
         QTest::addRow("messageattachmentfile") << QStringLiteral("messageattachmentfile") << messageAttachmentFileRef;
     }
 }

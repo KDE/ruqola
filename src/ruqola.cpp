@@ -64,7 +64,6 @@ AccountManager *Ruqola::accountManager() const
     return mAccountManager;
 }
 
-
 QmlAboutData *Ruqola::applicationData() const
 {
     return mRuqolaAboutData;

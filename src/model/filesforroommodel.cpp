@@ -22,7 +22,6 @@
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 
-
 FilesForRoomModel::FilesForRoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , mRochetChantAccount(account)
@@ -72,7 +71,7 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
     case Description:
         return file.description();
     case CanBeDeleted:
-        return (mRochetChantAccount->userID() == file.userId());
+        return mRochetChantAccount->userID() == file.userId();
     case FileId:
         return file.fileId();
     default:
@@ -87,7 +86,7 @@ QHash<int, QByteArray> FilesForRoomModel::roleNames() const
     roles[UserName] = QByteArrayLiteral("username");
     roles[UserId] = QByteArrayLiteral("userid");
     roles[MimeType] = QByteArrayLiteral("mimetype");
-    roles[Url] = QByteArrayLiteral("url");    
+    roles[Url] = QByteArrayLiteral("url");
     roles[Description] = QByteArrayLiteral("description");
     roles[CanBeDeleted] = QByteArrayLiteral("canbedeleted");
     roles[FileId] = QByteArrayLiteral("fileid");

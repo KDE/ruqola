@@ -110,4 +110,3 @@ UnityServiceManager *Notification::unityServiceManager()
     }
     return mUnityServiceManager;
 }
-
