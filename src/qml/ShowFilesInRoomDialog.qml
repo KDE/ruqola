@@ -92,10 +92,17 @@ Dialog {
                 DeleteButton {
                     visible: canbedeleted
                     onDeleteButtonClicked: {
-                        showFilesInRoomDialog.deleteFile(fileid)
+                        deleteFileAttachmentDialog.fileId = fileid;
+                        deleteFileAttachmentDialog.open();
                     }
                 }
             }
+        }
+    }
+    DeleteFileAttachmentDialog {
+        id: deleteFileAttachmentDialog
+        onDeleteAttachment: {
+            showFilesInRoomDialog.deleteFile(fileId)
         }
     }
 }
