@@ -45,7 +45,9 @@ ListView {
     preferredHighlightEnd: parent.height
 
     onCountChanged: {
-        currentIndex = count - 1
+        //if (atYEnd) {
+            currentIndex = count - 1
+        //}
     }
 
     Component.onCompleted: positionViewAtEnd()
