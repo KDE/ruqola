@@ -27,7 +27,7 @@ import org.kde.kirigami 2.1 as Kirigami
 Kirigami.Icon {
     id: deleteButton
     source: "edit-delete"
-    signal deleteFileButtonClicked()
+    signal deleteButtonClicked()
 
     //TODO customize size. Avoid to hardcode it.
     width: 24
@@ -36,7 +36,7 @@ Kirigami.Icon {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            deleteButton.deleteFileButtonClicked();
+            deleteButton.deleteButtonClicked();
         }
     }
 }

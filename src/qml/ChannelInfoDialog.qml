@@ -26,7 +26,7 @@ import QtQuick.Window 2.0
 import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.RoomWrapper 1.0
-
+import "common"
 QQC2.Dialog {
     id: channelInfoDialog
 
@@ -126,10 +126,9 @@ QQC2.Dialog {
             }
         }
 
-        ToolButton {
+        DeleteButton {
             //visible if user is owner of room
-            iconName: "edit-delete.svg"
-            onClicked: {
+            onDeleteButtonClicked: {
                 deleteRoomDialog.open();
             }
         }

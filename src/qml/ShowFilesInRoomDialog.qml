@@ -91,7 +91,7 @@ Dialog {
                 }
                 DeleteButton {
                     visible: canbedeleted
-                    onDeleteFileButtonClicked: {
+                    onDeleteButtonClicked: {
                         showFilesInRoomDialog.deleteFile(fileid)
                     }
                 }
