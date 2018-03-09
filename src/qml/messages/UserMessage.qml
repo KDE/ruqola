@@ -147,6 +147,7 @@ MessageBase {
                                 }
                                 DownloadButton {
                                     id: download
+                                    visible: model.modelData.canDownloadAttachment
                                     onDownloadButtonClicked: {
                                         messageMain.downloadAttachment(model.modelData.link)
                                     }

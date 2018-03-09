@@ -111,6 +111,16 @@ bool MessageAttachment::isEmpty() const
     return mLink.isEmpty();
 }
 
+bool MessageAttachment::canDownloadAttachment() const
+{
+    //Improve it !
+    if (mLink.startsWith(QLatin1String("http://")) || mLink.startsWith(QLatin1String("https://"))) {
+        return false;
+    }
+    return true;
+}
+
+
 QString MessageAttachment::description() const
 {
     return mDescription;
