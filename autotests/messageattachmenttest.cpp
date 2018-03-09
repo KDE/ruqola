@@ -80,3 +80,16 @@ void MessageAttachmentTest::shouldSerializeData()
         QCOMPARE(input, output);
     }
 }
+
+void MessageAttachmentTest::shouldAllowToDownloadAttachment()
+{
+    MessageAttachment input;
+    input.setColor(QStringLiteral("foo1"));
+    input.setDescription(QStringLiteral("foo2"));
+    input.setTitle(QStringLiteral("foo3"));
+    input.setLink(QStringLiteral("http://www.kde.org"));
+    input.setAuthorName(QStringLiteral("auth"));
+    QVERIFY(!input.canDownloadAttachment());
+    input.setLink(QStringLiteral("bla"));
+    QVERIFY(input.canDownloadAttachment());
+}
