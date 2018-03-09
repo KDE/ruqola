@@ -30,6 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
     Q_PROPERTY(QString color READ color WRITE setColor)
     Q_PROPERTY(QString title READ title WRITE setTitle)
     Q_PROPERTY(QString link READ link WRITE setLink)
+    Q_PROPERTY(QString authorName READ authorName WRITE setAuthorName)
     Q_PROPERTY(int imageHeight READ imageHeight WRITE setImageHeight)
     Q_PROPERTY(int imageWidth READ imageWidth WRITE setImageWidth)
 public:
@@ -57,12 +58,16 @@ public:
     QString color() const;
     void setColor(const QString &color);
 
+    QString authorName() const;
+    void setAuthorName(const QString &authorName);
+
 private:
     //TODO add fields support ?
     QString mColor;
     QString mDescription;
     QString mTitle;
     QString mLink;
+    QString mAuthorName;
     int mImageHeight = -1;
     int mImageWidth = -1;
 };

@@ -169,6 +169,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
                 //TODO validate image size
             }
 
+            messageAttachement.setAuthorName(attachment.value(QLatin1String("authorname")).toString());
             //Color
             const QJsonValue color = attachment.value(QLatin1String("color"));
             if (!color.isUndefined()) {

@@ -32,6 +32,10 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
     obj[QStringLiteral("description")] = message.description();
     obj[QStringLiteral("title")] = message.title();
     obj[QStringLiteral("url")] = message.link();
+    const QString authorname = message.authorName();
+    if (!authorname.isEmpty()) {
+        obj[QStringLiteral("authorname")] = authorname;
+    }
     if ((message.imageHeight() != -1) && (message.imageWidth() != -1)) {
         obj[QStringLiteral("image_height")] = message.imageHeight();
         obj[QStringLiteral("image_width")] = message.imageWidth();
@@ -49,6 +53,7 @@ MessageAttachment MessageAttachment::fromJSon(const QJsonObject &o)
     att.setDescription(o.value(QLatin1String("description")).toString());
     att.setTitle(o.value(QLatin1String("title")).toString());
     att.setLink(o.value(QLatin1String("url")).toString());
+    att.setAuthorName(o.value(QLatin1String("authorname")).toString());
     const QJsonValue valHeight = o.value(QLatin1String("image_height"));
     if (!valHeight.isUndefined()) {
         att.setImageHeight(valHeight.toInt());
@@ -89,6 +94,16 @@ QString MessageAttachment::color() const
 void MessageAttachment::setColor(const QString &color)
 {
     mColor = color;
+}
+
+QString MessageAttachment::authorName() const
+{
+    return mAuthorName;
+}
+
+void MessageAttachment::setAuthorName(const QString &authorName)
+{
+    mAuthorName = authorName;
 }
 
 bool MessageAttachment::isEmpty() const
@@ -133,7 +148,8 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
            && (mLink == other.link())
            && (mColor == other.color())
            && (mImageHeight == other.imageHeight())
-           && (mImageWidth == other.imageWidth());
+           && (mImageWidth == other.imageWidth())
+            && (mAuthorName == other.authorName());
 }
 
 QDebug operator <<(QDebug d, const MessageAttachment &t)
@@ -143,5 +159,6 @@ QDebug operator <<(QDebug d, const MessageAttachment &t)
     d << "Link: " << t.link();
     d << "image dimension: width: " << t.imageWidth() << " height: " << t.imageHeight();
     d << "color: " << t.color();
+    d << "authorname: " << t.authorName();
     return d;
 }
