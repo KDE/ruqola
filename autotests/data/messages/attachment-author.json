@@ -1,0 +1,47 @@
+{
+    "_id": "pqHKchf4SqGLw",
+    "_updatedAt": {
+        "$date": 1520599013060
+    },
+    "alias": "nli",
+    "attachments": [
+        {
+            "author_name": "Shawn Rutledge",
+            "color": "#FFFFFF",
+            "fields": [
+                {
+                    "short": true,
+                    "title": "Code-Review",
+                    "value": "rejected by Qt Sanity Bot"
+                },
+                {
+                    "short": true,
+                    "title": "Sanity-Review",
+                    "value": "approved by Qt Sanity Bot"
+                }
+            ],
+            "title": "qt/qtbase: WIP Finish deprecating obsolete members of QWheelEvent (NEW)",
+            "title_link": "https://codereview.qt-project.org/222633"
+        }
+    ],
+    "avatar": "https://www.kde.org/favicon.ico",
+    "bot": {
+        "i": "vXYCJHxfwS65CPcgc"
+    },
+    "channels": [
+    ],
+    "groupable": false,
+    "mentions": [
+    ],
+    "msg": "_Change requests_",
+    "parseUrls": false,
+    "rid": "j6Sx9cb6J6mjHoYFs",
+    "ts": {
+        "$date": 1520599013057
+    },
+    "u": {
+        "_id": "CtmbQDdqNNNytdYsX",
+        "name": "boo",
+        "username": "booben"
+    }
+}

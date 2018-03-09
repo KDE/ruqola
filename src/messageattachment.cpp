@@ -19,7 +19,6 @@
 */
 
 #include "messageattachment.h"
-
 #include <QJsonObject>
 
 MessageAttachment::MessageAttachment()
@@ -120,6 +119,13 @@ bool MessageAttachment::canDownloadAttachment() const
     return true;
 }
 
+QString MessageAttachment::displayTitle() const
+{
+    if (canDownloadAttachment()) {
+        return title();
+    }
+    return QStringLiteral("<a href=\'%1'>%2</a>").arg(link()).arg(title());
+}
 
 QString MessageAttachment::description() const
 {

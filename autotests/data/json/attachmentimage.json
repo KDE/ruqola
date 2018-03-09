@@ -1,0 +1,30 @@
+{
+    "_id": "ME8TT8GcaMsZ5hcsC",
+    "_updatedAt": {
+        "$date": 1515655872022
+    },
+    "alias": "Bla",
+    "channels": [
+    ],
+    "mentions": [
+        {
+            "_id": "pcXQwdq5LthgjDLoe",
+            "username": "foo"
+        }
+    ],
+    "msg": "Now you can come and visit me",
+    "rid": "GENERAL",
+    "ts": {
+        "$date": 1515655872015
+    },
+    "u": {
+        "_id": "iQ46n4BGacrKvbrXt",
+        "name": "Bla",
+        "username": "bla"
+    },
+    "urls": [
+        {
+            "url": "https://www.kde.org/foo.jpg"
+        }
+    ]
+}

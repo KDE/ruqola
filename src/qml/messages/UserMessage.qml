@@ -119,6 +119,8 @@ MessageBase {
 
                         model: i_urls
                         Text {
+                            //Display it only if url != text otherwise it's not necessary
+                            visible: model.modelData.url !== i_originalMessage
                             width: urlColumn.width
                             text: model.modelData.description === ""  ?
                                       RuqolaUtils.markdownToRichText(model.modelData.url) :
@@ -134,19 +136,32 @@ MessageBase {
                         id: repearterAttachments
 
                         model: i_attachments
-                        //TODO fixme ?
                         Column {
+                            Text {
+                                visible: model.modelData.authorName !== ""
+                                width: urlColumn.width
+                                text: model.modelData.authorName
+                                wrapMode: QQC2.Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                            }
                             Row {
                                 Text {
+                                    id: attachmentTitle
+                                    renderType: Text.NativeRendering
+                                    textFormat: Text.RichText
                                     visible: model.modelData.title !== ""
                                     width: urlColumn.width
-                                    text: i18n("File send: %1", model.modelData.title)
+                                    text: model.modelData.displayTitle
                                     wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
+                                    onLinkActivated: {
+                                        messageMain.linkActivated(link)
+                                    }
                                 }
                                 DownloadButton {
-                                    id: download
+                                    id: downloadButton
                                     visible: model.modelData.canDownloadAttachment
                                     onDownloadButtonClicked: {
                                         messageMain.downloadAttachment(model.modelData.link)

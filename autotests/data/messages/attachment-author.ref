@@ -1,0 +1,28 @@
+{
+    "alias": "nli",
+    "attachments": [
+        {
+            "authorname": "Shawn Rutledge",
+            "color": "#FFFFFF",
+            "description": "",
+            "title": "qt/qtbase: WIP Finish deprecating obsolete members of QWheelEvent (NEW)",
+            "url": "https://codereview.qt-project.org/222633"
+        }
+    ],
+    "avatar": "https://www.kde.org/favicon.ico",
+    "editedAt": -1,
+    "editedByUserID": "",
+    "editedByUsername": "",
+    "groupable": false,
+    "message": "_Change requests_",
+    "messageID": "pqHKchf4SqGLw",
+    "messageType": "File",
+    "parseUrls": false,
+    "roomID": "j6Sx9cb6J6mjHoYFs",
+    "starred": false,
+    "timestamp": 1520599013057,
+    "type": "",
+    "updatedAt": 1520599013060,
+    "userID": "CtmbQDdqNNNytdYsX",
+    "username": "booben"
+}

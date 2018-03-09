@@ -169,7 +169,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
                 //TODO validate image size
             }
 
-            messageAttachement.setAuthorName(attachment.value(QLatin1String("authorname")).toString());
+            messageAttachement.setAuthorName(attachment.value(QLatin1String("author_name")).toString());
             //Color
             const QJsonValue color = attachment.value(QLatin1String("color"));
             if (!color.isUndefined()) {
@@ -544,10 +544,10 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mGroupable: " << t.groupable();
     d << "mParseUrls: " << t.parseUrls();
     d << "mStarred: " << t.starred();
-    for (int i = 0; i < t.attachements().count(); ++i) {
+    for (int i = 0, total = t.attachements().count(); i < total; ++i) {
         d << "Attachment :" << t.attachements().at(i);
     }
-    for (int i = 0; i < t.urls().count(); ++i) {
+    for (int i = 0, total = t.urls().count(); i < total; ++i) {
         d << "Urls :" << t.urls().at(i);
     }
     d << "Mentions :" << t.mentions();

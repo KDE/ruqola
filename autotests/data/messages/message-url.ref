@@ -1,0 +1,26 @@
+{
+    "alias": "foo",
+    "avatar": "",
+    "editedAt": -1,
+    "editedByUserID": "",
+    "editedByUsername": "",
+    "groupable": false,
+    "message": "https://www.kde.org/bla.zip",
+    "messageID": "NNLTgCTmhZNNDA",
+    "messageType": "NormalText",
+    "parseUrls": false,
+    "roomID": "Pa6bu7xHrS5xz6",
+    "starred": false,
+    "timestamp": 1520598979300,
+    "type": "",
+    "updatedAt": 1520598979308,
+    "urls": [
+        {
+            "description": "",
+            "pagetitle": "",
+            "url": "https://www.kde.org/bla.zip"
+        }
+    ],
+    "userID": "39zoewTkdacidH",
+    "username": "laurent"
+}

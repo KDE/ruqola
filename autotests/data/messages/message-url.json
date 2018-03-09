@@ -1,0 +1,26 @@
+{
+    "_id": "NNLTgCTmhZNNDA",
+    "_updatedAt": {
+        "$date": 1520598979308
+    },
+    "alias": "foo",
+    "channels": [
+    ],
+    "mentions": [
+    ],
+    "msg": "https://www.kde.org/bla.zip",
+    "rid": "Pa6bu7xHrS5xz6",
+    "ts": {
+        "$date": 1520598979300
+    },
+    "u": {
+        "_id": "39zoewTkdacidH",
+        "name": "foo",
+        "username": "laurent"
+    },
+    "urls": [
+        {
+            "url": "https://www.kde.org/bla.zip"
+        }
+    ]
+}
