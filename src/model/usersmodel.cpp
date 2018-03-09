@@ -87,9 +87,7 @@ QString UsersModel::status(const QString &userId) const
 void UsersModel::removeUser(const QString &userId)
 {
     qCDebug(RUQOLA_LOG) << " User removed " << userId;
-    const int userCount{
-        mUsers.count()
-    };
+    const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i).userId() == userId) {
             qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i).name();
