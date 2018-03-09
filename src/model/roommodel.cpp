@@ -311,6 +311,11 @@ void RoomModel::addRoom(Room *room)
     endInsertRows();
 }
 
+void RoomModel::removeRoom(const QString &roomId)
+{
+    //TODO
+}
+
 void RoomModel::updateSubscription(const QJsonArray &array)
 {
     const QString actionName = array[0].toString();

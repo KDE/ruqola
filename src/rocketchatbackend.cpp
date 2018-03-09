@@ -359,6 +359,11 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 const QString rid = model->insertRoom(roomData);
                 qDebug() << "rid " << rid;
                 mRocketChatAccount->initializeRoom(rid);
+            } else if (actionName == QLatin1String("removed")) {
+                qDebug() << "Remove channel" << lst;
+                const QJsonObject roomData = lst[1].toObject();
+                //TODO use rid
+                model->removeRoom(QString());
             } else {
                 qWarning() << "rooms-changed invalid actionName " << actionName;
             }

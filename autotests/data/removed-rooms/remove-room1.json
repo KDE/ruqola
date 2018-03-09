@@ -1,0 +1,17 @@
+{
+                "_id": "sQZDRmMMRZJ2uvfd7",
+                "_updatedAt": {
+                    "$date": 1520581941197
+                },
+                "archived": true,
+                "customFields": {
+                },
+                "fname": "test2",
+                "name": "test2l",
+                "ro": false,
+                "t": "c",
+                "u": {
+                    "_id": "zoewTkdacidH",
+                    "username": "laurent"
+                }
+            }

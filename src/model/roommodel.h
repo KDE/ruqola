@@ -98,6 +98,7 @@ public:
     * @param room The room to be added
     */
     void addRoom(Room *room);
+    void removeRoom(const QString &roomId);
 
     void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread);
     void userStatusChanged(const User &user);
