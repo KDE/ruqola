@@ -136,27 +136,11 @@ MessageBase {
                         model: i_attachments
                         //TODO fixme ?
                         Column {
-                            Text {
-                                visible: model.modelData.title.length > 0
-                                width: urlColumn.width
-                                text: model.modelData.title
-                                wrapMode: QQC2.Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                            }
-                            Text {
-                                visible: model.modelData.description.length > 0
-                                width: urlColumn.width
-                                text: model.modelData.description
-                                wrapMode: QQC2.Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                            }
                             Row {
                                 Text {
-                                    visible: model.modelData.link.length > 0
+                                    visible: model.modelData.title.length > 0
                                     width: urlColumn.width
-                                    text: model.modelData.link
+                                    text: model.modelData.title === "" ? "" :  i18n("File send: %1", model.modelData.title)
                                     wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
@@ -170,6 +154,14 @@ MessageBase {
                                 Item {
                                     Layout.fillWidth: true
                                 }
+                            }
+                            Text {
+                                visible: model.modelData.description.length > 0
+                                width: urlColumn.width
+                                text: model.modelData.description
+                                wrapMode: QQC2.Label.Wrap
+                                anchors.leftMargin: Kirigami.Units.smallSpacing
+                                anchors.rightMargin: Kirigami.Units.smallSpacing
                             }
                         }
                     }
