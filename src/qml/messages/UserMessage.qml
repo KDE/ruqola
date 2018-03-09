@@ -138,9 +138,9 @@ MessageBase {
                         Column {
                             Row {
                                 Text {
-                                    visible: model.modelData.title.length > 0
+                                    visible: model.modelData.title !== ""
                                     width: urlColumn.width
-                                    text: model.modelData.title === "" ? "" :  i18n("File send: %1", model.modelData.title)
+                                    text: i18n("File send: %1", model.modelData.title)
                                     wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
@@ -156,7 +156,7 @@ MessageBase {
                                 }
                             }
                             Text {
-                                visible: model.modelData.description.length > 0
+                                visible: model.modelData.description !== ""
                                 width: urlColumn.width
                                 text: model.modelData.description
                                 wrapMode: QQC2.Label.Wrap
