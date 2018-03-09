@@ -133,7 +133,7 @@ QQC2.Dialog {
         DeleteButton {
             //visible if user is owner of room
             onDeleteButtonClicked: {
-                deleteRoomDialog.rid = roomInfo.rid
+                deleteRoomDialog.rId = roomInfo.rid
                 deleteRoomDialog.open();
             }
         }
