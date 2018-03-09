@@ -37,6 +37,7 @@ void MessageAttachmentTest::shouldHaveDefaultValue()
     QVERIFY(attachment.link().isEmpty());
     QVERIFY(attachment.isEmpty());
     QVERIFY(attachment.color().isEmpty());
+    QVERIFY(attachment.authorName().isEmpty());
     QCOMPARE(attachment.imageHeight(), -1);
     QCOMPARE(attachment.imageWidth(), -1);
 }
@@ -51,6 +52,7 @@ void MessageAttachmentTest::shouldSerializeData()
         input.setLink(QStringLiteral("foo4"));
         input.setImageHeight(53);
         input.setImageWidth(83);
+        input.setAuthorName(QStringLiteral("auth"));
         const QJsonObject ba = MessageAttachment::serialize(input);
         const MessageAttachment output = MessageAttachment::fromJSon(ba);
         QCOMPARE(input, output);
@@ -72,6 +74,7 @@ void MessageAttachmentTest::shouldSerializeData()
         input.setDescription(QStringLiteral("foo2"));
         input.setTitle(QStringLiteral("foo3"));
         input.setLink(QStringLiteral("foo4"));
+        input.setAuthorName(QStringLiteral("auth"));
         const QJsonObject ba = MessageAttachment::serialize(input);
         const MessageAttachment output = MessageAttachment::fromJSon(ba);
         QCOMPARE(input, output);
