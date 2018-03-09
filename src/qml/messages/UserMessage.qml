@@ -167,6 +167,9 @@ MessageBase {
                                         messageMain.downloadAttachment(model.modelData.link)
                                     }
                                 }
+                                Item {
+                                    Layout.fillWidth: true
+                                }
                             }
                         }
                     }
