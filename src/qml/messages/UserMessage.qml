@@ -152,13 +152,21 @@ MessageBase {
                                 anchors.leftMargin: Kirigami.Units.smallSpacing
                                 anchors.rightMargin: Kirigami.Units.smallSpacing
                             }
-                            Text {
-                                visible: model.modelData.link.length > 0
-                                width: urlColumn.width
-                                text: model.modelData.link
-                                wrapMode: QQC2.Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
+                            Row {
+                                Text {
+                                    visible: model.modelData.link.length > 0
+                                    width: urlColumn.width
+                                    text: model.modelData.link
+                                    wrapMode: QQC2.Label.Wrap
+                                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                                }
+                                DownloadButton {
+                                    id: download
+                                    onDownloadButtonClicked: {
+                                        messageMain.downloadAttachment(model.modelData.link)
+                                    }
+                                }
                             }
                         }
                     }
