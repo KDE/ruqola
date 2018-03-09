@@ -126,6 +126,10 @@ QQC2.Dialog {
             }
         }
 
+        QQC2.Label {
+            //visible if user is owner of room
+            text: i18n("Delete Room:");
+        }
         DeleteButton {
             //visible if user is owner of room
             onDeleteButtonClicked: {
