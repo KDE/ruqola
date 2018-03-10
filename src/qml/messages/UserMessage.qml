@@ -114,6 +114,10 @@ MessageBase {
                 Column {
                     id: urlColumn
                     width: parent.width
+                    //TODO
+                    //Reactivate when we have a parsed url !
+                    //see info about bugs
+
 //                    Repeater {
 //                        id: repeaterUrl
 
