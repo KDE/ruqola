@@ -114,24 +114,24 @@ MessageBase {
                 Column {
                     id: urlColumn
                     width: parent.width
-                    Repeater {
-                        id: repeaterUrl
+//                    Repeater {
+//                        id: repeaterUrl
 
-                        model: i_urls
-                        Text {
-                            //Display it only if url != text otherwise it's not necessary
-                            visible: model.modelData.url !== i_originalMessage
-                            width: urlColumn.width
-                            text: model.modelData.description === ""  ?
-                                      RuqolaUtils.markdownToRichText(model.modelData.url) :
-                                      RuqolaUtils.markdownToRichText(model.modelData.description)
-                            wrapMode: QQC2.Label.Wrap
-                            renderType: Text.NativeRendering
-                            textFormat: Text.RichText
+//                        model: i_urls
+//                        Text {
+//                            //Display it only if url != text otherwise it's not necessary
+//                            visible: model.modelData.url !== i_originalMessage
+//                            width: urlColumn.width
+//                            text: model.modelData.description === ""  ?
+//                                      RuqolaUtils.markdownToRichText(model.modelData.url) :
+//                                      RuqolaUtils.markdownToRichText(model.modelData.description)
+//                            wrapMode: QQC2.Label.Wrap
+//                            renderType: Text.NativeRendering
+//                            textFormat: Text.RichText
 
-                            onLinkActivated: messageMain.linkActivated(link)
-                        }
-                    }
+//                            onLinkActivated: messageMain.linkActivated(link)
+//                        }
+//                    }
                     Repeater {
                         id: repearterAttachments
 
