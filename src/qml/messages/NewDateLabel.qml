@@ -33,7 +33,7 @@ Rectangle {
     Layout.alignment: Qt.AlignCenter
     visible: date !== ""
     
-    implicitHeight: date !== "" ? dateLabel.font.pixelSize : 0
+    implicitHeight: date !== "" ? dateLabel.font.pointSize : 0
     
     //TODO fix color
     color: RuqolaSingleton.backgroundColor;

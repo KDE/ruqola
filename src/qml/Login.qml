@@ -58,7 +58,7 @@ Kirigami.Page {
 
             text: i18n("Ruqola Log in")
             color: "#555"
-            font.pixelSize: 40
+            font.pointSize: 40
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
         }
