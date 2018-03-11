@@ -164,6 +164,10 @@ int RoomModel::rowCount(const QModelIndex &parent) const
 
 QVariant RoomModel::data(const QModelIndex &index, int role) const
 {
+    if (index.row() < 0 || index.row() >= mRoomsList.count()) {
+        return QVariant();
+    }
+
     Room *r = mRoomsList.at(index.row());
 
     switch (role) {
