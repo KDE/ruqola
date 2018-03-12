@@ -82,29 +82,29 @@ void Message::parseUrls(const QJsonArray &urls)
     mUrls.clear();
     if (!urls.isEmpty()) {
         qCDebug(RUQOLA_LOG) << " void Message::urls(const QJsonObject &attachements)"<<urls;
-    }
-    for (int i = 0; i < urls.size(); i++) {
-        const QJsonObject url = urls.at(i).toObject();
-        MessageUrl messageUrl;
-        const QJsonValue urlStr = url.value(QLatin1String("url"));
-        if (!urlStr.isUndefined()) {
-            messageUrl.setUrl(urlStr.toString());
-        }
-        const QJsonObject meta = url.value(QLatin1String("meta")).toObject();
-        if (!meta.isEmpty()) {
-            const QJsonValue pageTitleStr = meta.value(QLatin1String("pageTitle"));
-            if (!pageTitleStr.isUndefined()) {
-                messageUrl.setPageTitle(pageTitleStr.toString());
+        for (int i = 0; i < urls.size(); i++) {
+            const QJsonObject url = urls.at(i).toObject();
+            MessageUrl messageUrl;
+            const QJsonValue urlStr = url.value(QLatin1String("url"));
+            if (!urlStr.isUndefined()) {
+                messageUrl.setUrl(urlStr.toString());
             }
-            const QJsonValue descriptionStr = meta.value(QLatin1String("description"));
-            if (!descriptionStr.isUndefined()) {
-                messageUrl.setDescription(descriptionStr.toString());
+            const QJsonObject meta = url.value(QLatin1String("meta")).toObject();
+            if (!meta.isEmpty()) {
+                const QJsonValue pageTitleStr = meta.value(QLatin1String("pageTitle"));
+                if (!pageTitleStr.isUndefined()) {
+                    messageUrl.setPageTitle(pageTitleStr.toString());
+                }
+                const QJsonValue descriptionStr = meta.value(QLatin1String("description"));
+                if (!descriptionStr.isUndefined()) {
+                    messageUrl.setDescription(descriptionStr.toString());
+                }
             }
-        }
-        //TODO add more
+            //TODO add more
 
-        if (!messageUrl.isEmpty()) {
-            mUrls.append(messageUrl);
+            if (!messageUrl.isEmpty()) {
+                mUrls.append(messageUrl);
+            }
         }
     }
 }

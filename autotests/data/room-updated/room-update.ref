@@ -4,6 +4,7 @@
     "blocker": false,
     "favorite": true,
     "jitsiTimeout": 1518112532866,
+    "lastSeeAt": -1,
     "name": "foo",
     "notifications": {
         "audioNotificationValue": "",

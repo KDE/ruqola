@@ -158,6 +158,9 @@ public:
 
     void parseInsertRoom(const QJsonObject &json);
 
+    qint64 lastSeeAt() const;
+    void setLastSeeAt(const qint64 &lastSeeAt);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -204,6 +207,7 @@ private:
     // jitsiTimeout
     qint64 mJitsiTimeout = -1;
     qint64 mUpdatedAt = -1;
+    qint64 mLastSeeAt = -1;
 
     //quint64 ?
     int mUnread = 0;

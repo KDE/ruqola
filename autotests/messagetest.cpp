@@ -295,6 +295,7 @@ void MessageTest::shouldParseJsonMessage_data()
     QTest::newRow("attachmentimage") << QStringLiteral("attachmentimage");
     QTest::newRow("attachment-author") << QStringLiteral("attachment-author");
     QTest::newRow("message-url") << QStringLiteral("message-url");
+    QTest::newRow("message-url-meta-info") << QStringLiteral("message-url-meta-info");
 }
 
 void MessageTest::shouldParseJsonMessage()

@@ -32,6 +32,7 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
     obj[QStringLiteral("pagetitle")] = url.pageTitle();
     obj[QStringLiteral("url")] = url.url();
     obj[QStringLiteral("description")] = url.description();
+    //TODO add more "ogTitle/ogDescription/ogUrl/ogImage/ogSiteName"
     return obj;
 }
 

@@ -1,0 +1,50 @@
+{
+    "_id": "74kLLpYCMXLHGzZj5",
+    "_updatedAt": {
+        "$date": 1519124971491
+    },
+    "alias": "bli",
+    "channels": [
+    ],
+    "mentions": [
+    ],
+    "msg": "https://github.com/magne4000/quassel-webserver looks much better",
+    "rid": "roomId",
+    "ts": {
+        "$date": 1519124970379
+    },
+    "u": {
+        "_id": "_id",
+        "name": "bla",
+        "username": "bli"
+    },
+    "urls": [
+        {
+            "headers": {
+                "contentType": "text/html; charset=utf-8"
+            },
+            "meta": {
+                "description": "quassel-webserver - A web server/client for Quassel",
+                "fbAppId": "1401488693436528",
+                "ogDescription": "quassel-webserver - A web server/client for Quassel",
+                "ogImage": "https://avatars2.githubusercontent.com/u/1098371?s=400&v=4",
+                "ogSiteName": "GitHub",
+                "ogTitle": "magne4000/quassel-webserver",
+                "ogType": "object",
+                "ogUrl": "https://github.com/magne4000/quassel-webserver",
+                "pageTitle": "GitHub - magne4000/quassel-webserver: A web server/client for Quassel"
+            },
+            "parsedUrl": {
+                "hash": null,
+                "host": "github.com",
+                "hostname": "github.com",
+                "pathname": "/magne4000/quassel-webserver",
+                "port": null,
+                "protocol": "https:",
+                "query": null,
+                "search": null
+            },
+            "url": "https://github.com/magne4000/quassel-webserver"
+        }
+    ]
+}

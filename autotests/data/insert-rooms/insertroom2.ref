@@ -6,6 +6,7 @@
     "description": "description channel",
     "favorite": false,
     "jitsiTimeout": -1,
+    "lastSeeAt": -1,
     "name": "channeltest",
     "notifications": {
         "audioNotificationValue": "",

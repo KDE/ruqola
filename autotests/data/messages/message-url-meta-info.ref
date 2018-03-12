@@ -1,0 +1,26 @@
+{
+    "alias": "bli",
+    "avatar": "",
+    "editedAt": -1,
+    "editedByUserID": "",
+    "editedByUsername": "",
+    "groupable": false,
+    "message": "https://github.com/magne4000/quassel-webserver looks much better",
+    "messageID": "74kLLpYCMXLHGzZj5",
+    "messageType": "NormalText",
+    "parseUrls": false,
+    "roomID": "roomId",
+    "starred": false,
+    "timestamp": 1519124970379,
+    "type": "",
+    "updatedAt": 1519124971491,
+    "urls": [
+        {
+            "description": "quassel-webserver - A web server/client for Quassel",
+            "pagetitle": "GitHub - magne4000/quassel-webserver: A web server/client for Quassel",
+            "url": "https://github.com/magne4000/quassel-webserver"
+        }
+    ],
+    "userID": "_id",
+    "username": "bli"
+}

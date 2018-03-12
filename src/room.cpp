@@ -79,7 +79,8 @@ bool Room::isEqual(const Room &other) const
            && (mDescription == other.description())
            && (mUserMentions == other.userMentions())
            && (mNotificationOptions == other.notificationOptions())
-           && (mUpdatedAt == other.updatedAt());
+           && (mUpdatedAt == other.updatedAt())
+            && (mLastSeeAt == other.lastSeeAt());
 }
 
 QString Room::name() const
@@ -109,6 +110,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "userMentions: " << t.userMentions();
     d << "notifications: " << t.notificationOptions();
     d << "UpdatedAt: " << t.updatedAt();
+    d << "LastSeeAt: " << t.lastSeeAt();
     return d;
 }
 
@@ -482,6 +484,17 @@ void Room::parseInsertRoom(const QJsonObject &json)
     //TODO add muted
 }
 
+qint64 Room::lastSeeAt() const
+{
+    return mLastSeeAt;
+}
+
+void Room::setLastSeeAt(const qint64 &lastSeeAt)
+{
+    mLastSeeAt = lastSeeAt;
+    //Add signal otherwise it's not necessary to check value
+}
+
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     QString roomID = json.value(QLatin1String("rid")).toString();
@@ -570,6 +583,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setDescription(o[QStringLiteral("description")].toString());
     r->setBlocker(o[QStringLiteral("blocker")].toBool());
     r->setUpdatedAt(o[QStringLiteral("updatedAt")].toDouble());
+    r->setLastSeeAt(o[QStringLiteral("lastSeeAt")].toDouble());
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
     QStringList lst;
     lst.reserve(mutedArray.count());
@@ -604,6 +618,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     }
     o[QStringLiteral("jitsiTimeout")] = r->jitsiTimeout();
     o[QStringLiteral("updatedAt")] = r->updatedAt();
+    o[QStringLiteral("lastSeeAt")] = r->lastSeeAt();
     o[QStringLiteral("ro")] = r->readOnly();
     o[QStringLiteral("unread")] = r->unread();
     if (!r->announcement().isEmpty()) {
