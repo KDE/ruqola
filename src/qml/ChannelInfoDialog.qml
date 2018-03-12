@@ -47,10 +47,11 @@ QQC2.Dialog {
 
     function initializeAndOpen()
     {
-        channelNameField.setReadOnly(!roomInfo.canBeModify);
-        channelCommentField.setReadOnly(!roomInfo.canBeModify);
-        channelAnnoucementField.setReadOnly(!roomInfo.canBeModify);
-        channelDescriptionField.setReadOnly(!roomInfo.canBeModify);
+        var enabledField = !roomInfo.canBeModify;
+        channelNameField.setReadOnly(enabledField);
+        channelCommentField.setReadOnly(enabledField);
+        channelAnnoucementField.setReadOnly(enabledField);
+        channelDescriptionField.setReadOnly(enabledField);
 
         open();
     }
