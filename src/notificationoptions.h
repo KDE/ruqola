@@ -69,6 +69,7 @@ public:
     static NotificationOptions fromJSon(const QJsonObject &o);
 
     void updateNotificationOptions(const QJsonObject &obj);
+    NotificationOptions &operator =(const NotificationOptions &other);
 private:
     //TODO use enums ????
     QString mAudioNotifications;

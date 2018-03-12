@@ -160,14 +160,14 @@ void NotificationOptions::setAudioNotifications(const QString &audioNotification
 bool NotificationOptions::operator==(const NotificationOptions &other) const
 {
     return (mAudioNotifications == other.audioNotifications())
-           && (mDesktopNotifications == other.desktopNotifications())
-           && (mMobilePushNotification == other.mobilePushNotification())
-           && (mEmailNotifications == other.emailNotifications())
-           && (mUnreadTrayIconAlert == other.unreadTrayIconAlert())
-           && (mDisableNotifications == other.disableNotifications())
-           && (mHideUnreadStatus == other.hideUnreadStatus())
-           && (mAudioNotificationValue == other.audioNotificationValue())
-           && (mDesktopNotificationDuration == other.desktopNotificationDuration());
+            && (mDesktopNotifications == other.desktopNotifications())
+            && (mMobilePushNotification == other.mobilePushNotification())
+            && (mEmailNotifications == other.emailNotifications())
+            && (mUnreadTrayIconAlert == other.unreadTrayIconAlert())
+            && (mDisableNotifications == other.disableNotifications())
+            && (mHideUnreadStatus == other.hideUnreadStatus())
+            && (mAudioNotificationValue == other.audioNotificationValue())
+            && (mDesktopNotificationDuration == other.desktopNotificationDuration());
 }
 
 QDebug operator <<(QDebug d, const NotificationOptions &t)
@@ -182,4 +182,18 @@ QDebug operator <<(QDebug d, const NotificationOptions &t)
     d << "hideUnreadStatus: " << t.hideUnreadStatus();
     d << "unreadTrayIconAlert: " << t.unreadTrayIconAlert();
     return d;
+}
+
+NotificationOptions &NotificationOptions::operator=(const NotificationOptions &other)
+{
+    mAudioNotifications = other.audioNotifications();
+    mDesktopNotifications = other.desktopNotifications();
+    mMobilePushNotification = other.mobilePushNotification();
+    mEmailNotifications = other.emailNotifications();
+    mUnreadTrayIconAlert = other.unreadTrayIconAlert();
+    mAudioNotificationValue = other.audioNotificationValue();
+    mDesktopNotificationDuration = other.desktopNotificationDuration();
+    mDisableNotifications = other.disableNotifications();
+    mHideUnreadStatus = other.hideUnreadStatus();
+    return *this;
 }
