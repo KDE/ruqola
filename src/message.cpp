@@ -419,6 +419,7 @@ void Message::setGroupable(bool groupable)
 Message Message::fromJSon(const QJsonObject &o)
 {
     Message message;
+    //Add reactions ! "reactions"
 
     message.mMessageId = o[QStringLiteral("messageID")].toString();
     message.mRoomId = o[QStringLiteral("roomID")].toString();
