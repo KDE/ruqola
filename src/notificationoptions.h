@@ -55,7 +55,6 @@ public:
     QString audioNotifications() const;
     void setAudioNotifications(const QString &audioNotifications);
 
-    bool operator==(const NotificationOptions &other) const;
 
     void parseNotificationOptions(const QJsonObject &obj);
 
@@ -70,6 +69,7 @@ public:
 
     void updateNotificationOptions(const QJsonObject &obj);
     NotificationOptions &operator =(const NotificationOptions &other);
+    bool operator==(const NotificationOptions &other) const;
 private:
     //TODO use enums ????
     QString mAudioNotifications;
