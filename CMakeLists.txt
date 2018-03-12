@@ -37,6 +37,7 @@ find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
     KIO
     Notifications
     SyntaxHighlighting
+    DocTools
 )
 
 if (WIN32 OR APPLE)
