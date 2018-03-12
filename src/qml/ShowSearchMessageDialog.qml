@@ -79,7 +79,7 @@ Dialog {
                     width: 22
                 }
                 Text {
-                    text: username == "" ? name : username
+                    text: messagetext
                     wrapMode: Label.Wrap
                 }
             }

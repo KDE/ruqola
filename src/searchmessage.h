@@ -24,6 +24,7 @@
 #include <QDebug>
 #include <QJsonObject>
 #include "libruqola_private_export.h"
+#include "message.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT SearchMessage
 {
@@ -33,6 +34,9 @@ public:
     ~SearchMessage();
 
     void parseResult(const QJsonObject &obj);
+    QString text() const;
+private:
+    Message mMessage;
 };
 Q_DECLARE_METATYPE(SearchMessage)
 Q_DECLARE_TYPEINFO(SearchMessage, Q_MOVABLE_TYPE);

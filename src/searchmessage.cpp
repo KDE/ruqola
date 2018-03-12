@@ -29,11 +29,17 @@ SearchMessage::~SearchMessage()
 
 void SearchMessage::parseResult(const QJsonObject &obj)
 {
-    //TODO
+    mMessage.parseMessage(obj);
+    qDebug() << " message " << mMessage;
+}
+
+QString SearchMessage::text() const
+{
+    return mMessage.text();
 }
 
 QDebug operator <<(QDebug d, const SearchMessage &t)
 {
-    //TODO
+    d << t;
     return d;
 }

@@ -40,8 +40,7 @@ QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
     const SearchMessage message = mSearchMessages.at(index.row());
     switch (role) {
     case MessageConvertedText:
-        //TODO
-        break;
+        return message.text();
     case Timestamp:
         break;
     case MessageId:
@@ -80,9 +79,6 @@ void SearchMessageModel::parseResult(const QJsonObject &obj)
         //Verify that it's valid
         messages.append(msg);
     }
-
-    //TODO
-    //qDebug() << " void SearchMessageModel::parseResult(const QJsonObject &obj)"<<obj;
     setMessages(messages);
 }
 
