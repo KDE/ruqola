@@ -51,6 +51,7 @@ public:
     void clear();
 private:
     Q_DISABLE_COPY(SearchMessageModel)
+    void setMessages(const QVector<SearchMessage> &channels);
     QVector<SearchMessage> mSearchMessages;
 };
 

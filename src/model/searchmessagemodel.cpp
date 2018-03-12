@@ -21,6 +21,8 @@
 #include "searchmessagemodel.h"
 #include "ruqola_debug.h"
 
+#include <QJsonArray>
+
 SearchMessageModel::SearchMessageModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -36,6 +38,15 @@ QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
         return {};
     }
     const SearchMessage message = mSearchMessages.at(index.row());
+    switch (role) {
+    case MessageConvertedText:
+        //TODO
+        break;
+    case Timestamp:
+        break;
+    case MessageId:
+        break;
+    }
 
     //TODO
     return {};
@@ -59,8 +70,20 @@ int SearchMessageModel::rowCount(const QModelIndex &parent) const
 
 void SearchMessageModel::parseResult(const QJsonObject &obj)
 {
+    QVector<SearchMessage> messages;
+    const QJsonArray messagesObj = obj.value(QLatin1String("messages")).toArray();
+    for (int i = 0; i < messagesObj.size(); i++) {
+        const QJsonObject o = messagesObj.at(i).toObject();
+        qDebug() << " o " << o;
+        SearchMessage msg;
+        msg.parseResult(o);
+        //Verify that it's valid
+        messages.append(msg);
+    }
+
     //TODO
-    qDebug() << " void SearchMessageModel::parseResult(const QJsonObject &obj)"<<obj;
+    //qDebug() << " void SearchMessageModel::parseResult(const QJsonObject &obj)"<<obj;
+    setMessages(messages);
 }
 
 void SearchMessageModel::clear()
@@ -69,5 +92,19 @@ void SearchMessageModel::clear()
         beginRemoveRows(QModelIndex(), 0, mSearchMessages.count() - 1);
         mSearchMessages.clear();
         endRemoveRows();
+    }
+}
+
+void SearchMessageModel::setMessages(const QVector<SearchMessage> &messages)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mSearchMessages.count() - 1);
+        mSearchMessages.clear();
+        endRemoveRows();
+    }
+    if (!messages.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, messages.count() - 1);
+        mSearchMessages = messages;
+        endInsertRows();
     }
 }

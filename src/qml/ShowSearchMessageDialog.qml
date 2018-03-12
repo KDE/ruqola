@@ -65,7 +65,7 @@ Dialog {
 
         ListView {
             id: listview
-            width: 300;
+            width: 400;
             height: 200
             clip: true
 
@@ -80,6 +80,7 @@ Dialog {
                 }
                 Text {
                     text: username == "" ? name : username
+                    wrapMode: Label.Wrap
                 }
             }
         }
