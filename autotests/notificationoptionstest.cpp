@@ -82,7 +82,6 @@ void NotificationOptionsTest::shouldAssignValue()
     QCOMPARE(w.hideUnreadStatus(), hideUnreadStatus);
     QCOMPARE(w.desktopNotificationDuration(), desktopNotificationDuration);
 
-
     NotificationOptions t;
     t = w;
     QCOMPARE(t, w);

@@ -55,7 +55,6 @@ public:
     QString audioNotifications() const;
     void setAudioNotifications(const QString &audioNotifications);
 
-
     void parseNotificationOptions(const QJsonObject &obj);
 
     QString audioNotificationValue() const;

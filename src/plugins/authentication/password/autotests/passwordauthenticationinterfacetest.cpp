@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(PasswordAuthenticationInterfaceTest)
 PasswordAuthenticationInterfaceTest::PasswordAuthenticationInterfaceTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void PasswordAuthenticationInterfaceTest::shouldHaveDefaultValue()

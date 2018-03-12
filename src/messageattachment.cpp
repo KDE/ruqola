@@ -166,7 +166,7 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
            && (mColor == other.color())
            && (mImageHeight == other.imageHeight())
            && (mImageWidth == other.imageWidth())
-            && (mAuthorName == other.authorName());
+           && (mAuthorName == other.authorName());
 }
 
 QDebug operator <<(QDebug d, const MessageAttachment &t)

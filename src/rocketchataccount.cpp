@@ -994,7 +994,6 @@ void RocketChatAccount::initializeRoom(const QString &roomId, bool loadInitialHi
     }
 }
 
-
 void RocketChatAccount::openDocumentation()
 {
     QDesktopServices::openUrl(QUrl(QStringLiteral("help:/")));

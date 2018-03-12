@@ -27,7 +27,6 @@ QTEST_GUILESS_MAIN(GoogleAuthenticationInterfaceTest)
 GoogleAuthenticationInterfaceTest::GoogleAuthenticationInterfaceTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void GoogleAuthenticationInterfaceTest::shouldHaveDefaultValue()
