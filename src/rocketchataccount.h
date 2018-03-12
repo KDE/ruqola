@@ -163,6 +163,7 @@ public:
     Q_INVOKABLE void blockUser(const QString &userId, bool block);
     Q_INVOKABLE QString avatarUrlFromDirectChannel(const QString &rid);
     Q_INVOKABLE void deleteFileMessage(const QString &fileId);
+    Q_INVOKABLE void openDocumentation();
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
@@ -233,6 +234,7 @@ public:
     void initializeSettings(const QString &accountFileName);
 
     void initializeRoom(const QString &roomId, bool loadInitialHistory = true);
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
