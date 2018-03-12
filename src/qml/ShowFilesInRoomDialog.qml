@@ -70,7 +70,7 @@ Dialog {
         //Add scrollview
         ListView {
             id: listview
-            width: 300
+            width: 400
             height: 200
             clip: true
             // Scrollars
