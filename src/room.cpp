@@ -230,6 +230,7 @@ void Room::setSelected(bool selected)
 {
     if (mSelected != selected) {
         mSelected = selected;
+        //Add signal otherwise it's not necessary to check value
     }
 }
 
