@@ -529,17 +529,17 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     }
     setMutedUsers(lst);
 
-    const QJsonValue ownerValue = json.value(QLatin1String("u"));
-    if (!ownerValue.isUndefined()) {
-        const QJsonObject objOwner = ownerValue.toObject();
-        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
-        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
-    } else {
-        //When room is initialized we are the owner. When we update room we have the real
-        //owner and if it's empty => we need to clear it.
-        setRoomCreatorUserId(QString());
-        setRoomCreatorUserName(QString());
-    }
+//    const QJsonValue ownerValue = json.value(QLatin1String("u"));
+//    if (!ownerValue.isUndefined()) {
+//        const QJsonObject objOwner = ownerValue.toObject();
+//        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
+//        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+//    } else {
+//        //When room is initialized we are the owner. When we update room we have the real
+//        //owner and if it's empty => we need to clear it.
+//        setRoomCreatorUserId(QString());
+//        setRoomCreatorUserName(QString());
+//    }
     //qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
 
