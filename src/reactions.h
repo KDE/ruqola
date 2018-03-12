@@ -21,11 +21,21 @@
 #define REACTIONS_H
 
 #include "libruqola_private_export.h"
+#include "reaction.h"
+#include <QVector>
 class LIBRUQOLACORE_TESTS_EXPORT Reactions
 {
 public:
     Reactions();
     ~Reactions();
+
+    void setReactions(const QVector<Reaction> &reactions);
+    QVector<Reaction> reactions() const;
+
+    void parseReactions(const QJsonObject &obj);
+
+private:
+    QVector<Reaction> mReactions;
 };
 
 #endif // REACTIONS_H

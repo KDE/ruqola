@@ -17,19 +17,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef REACTIONSTEST_H
-#define REACTIONSTEST_H
+#ifndef REACTION_H
+#define REACTION_H
 
+#include "libruqola_private_export.h"
 #include <QObject>
-
-class ReactionsTest : public QObject
+#include <QJsonObject>
+class LIBRUQOLACORE_TESTS_EXPORT Reaction
 {
-    Q_OBJECT
+    Q_GADGET
 public:
-    explicit ReactionsTest(QObject *parent = nullptr);
-    ~ReactionsTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
+    Reaction();
+    ~Reaction();
+    void parseReaction(const QJsonObject &obj);
 };
-
-#endif // REACTIONSTEST_H
+Q_DECLARE_METATYPE(Reaction)
+Q_DECLARE_TYPEINFO(Reaction, Q_MOVABLE_TYPE);
+#endif // REACTION_H

@@ -28,3 +28,9 @@ ReactionsTest::ReactionsTest(QObject *parent)
 {
 
 }
+
+void ReactionsTest::shouldHaveDefaultValue()
+{
+    Reactions reacts;
+    QVERIFY(reacts.reactions().isEmpty());
+}

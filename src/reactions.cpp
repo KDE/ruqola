@@ -28,3 +28,18 @@ Reactions::~Reactions()
 {
 
 }
+
+void Reactions::setReactions(const QVector<Reaction> &reactions)
+{
+    mReactions = reactions;
+}
+
+QVector<Reaction> Reactions::reactions() const
+{
+    return mReactions;
+}
+
+void Reactions::parseReactions(const QJsonObject &obj)
+{
+    //TODO
+}

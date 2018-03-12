@@ -17,19 +17,14 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef REACTIONSTEST_H
-#define REACTIONSTEST_H
 
-#include <QObject>
+#include "reactiontest.h"
 
-class ReactionsTest : public QObject
+#include <QTest>
+QTEST_GUILESS_MAIN(ReactionTest)
+
+ReactionTest::ReactionTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit ReactionsTest(QObject *parent = nullptr);
-    ~ReactionsTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-};
 
-#endif // REACTIONSTEST_H
+}
