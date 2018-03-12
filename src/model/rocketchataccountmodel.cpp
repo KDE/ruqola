@@ -20,6 +20,7 @@
 
 #include "rocketchataccountmodel.h"
 #include "rocketchataccount.h"
+#include "ruqolaserverconfig.h"
 #include "ruqola_debug.h"
 
 RocketChatAccountModel::RocketChatAccountModel(QObject *parent)
@@ -81,6 +82,8 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Name:
         return mRocketChatAccount.at(idx)->accountName();
+    case SiteUrl:
+        return mRocketChatAccount.at(idx)->ruqolaServerConfig()->siteUrl();
     }
     //Add icon ???
 
@@ -105,5 +108,6 @@ QHash<int, QByteArray> RocketChatAccountModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[Name] = QByteArrayLiteral("name");
+    roles[SiteUrl] = QByteArrayLiteral("siteurl");
     return roles;
 }

@@ -117,6 +117,7 @@ bool Room::canBeModify() const
     if (mRocketChatAccount) {
         //TODO use roles ????? Perhaps it's better. TODO implement it.
         qCDebug(RUQOLA_LOG) <<  "mRoomCreateUserId"<<mRoomCreateUserId << " mRocketChatAccount->userID()"<<mRocketChatAccount->userID();
+        qDebug() << " bool Room::canBeModify() const"<< mRoomCreateUserId << " mRocketChatAccount->userID()" << mRocketChatAccount->userID();
         return mRoomCreateUserId == mRocketChatAccount->userID();
     }
     return false;
@@ -163,6 +164,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     if (json.contains(QLatin1String("rid"))) {
         setRoomId(json.value(QLatin1String("rid")).toString());
     }
+    setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     if (json.contains(QLatin1String("alert"))) {
         setAlert(json[QStringLiteral("alert")].toBool());
     }
@@ -275,10 +277,7 @@ QString Room::roomCreatorUserId() const
 
 void Room::setRoomCreatorUserId(const QString &userId)
 {
-    if (mRoomCreateUserId != userId) {
-        mRoomCreateUserId = userId;
-        //Add signal otherwise it's not necessary to check value
-    }
+    mRoomCreateUserId = userId;
 }
 
 QString Room::roomCreatorUserName() const
@@ -288,10 +287,7 @@ QString Room::roomCreatorUserName() const
 
 void Room::setRoomCreatorUserName(const QString &userName)
 {
-    if (mRoomCreatorUserName != userName) {
-        mRoomCreatorUserName = userName;
-        //Add signal otherwise it's not necessary to check value
-    }
+    mRoomCreatorUserName = userName;
 }
 
 QString Room::roomId() const
@@ -342,6 +338,7 @@ void Room::setOpen(bool open)
 {
     if (mOpen != open) {
         mOpen = open;
+        //TODO
     }
 }
 
@@ -391,9 +388,7 @@ QString Room::channelType() const
 
 void Room::setChannelType(const QString &channelType)
 {
-    if (mChannelType != channelType) {
-        mChannelType = channelType;
-    }
+    mChannelType = channelType;
 }
 
 QString Room::announcement() const
