@@ -179,7 +179,7 @@ public:
     quint64 desktopNotifications(const QString &roomId, const QString &value);
     quint64 emailNotifications(const QString &roomId, const QString &value);
     quint64 unreadAlert(const QString &roomId, const QString &value);
-    quint64 deleteFileMessage(const QString &fileid);
+    quint64 deleteFileMessage(const QString &roomId, const QString &fileid);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

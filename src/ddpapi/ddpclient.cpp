@@ -43,13 +43,6 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
-void delete_file_message(const QJsonObject &root, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete File:") + QJsonDocument(root).toJson());
-    }
-}
-
 void block_user(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -470,10 +463,20 @@ quint64 DDPClient::deleteMessage(const QString &messageId)
     return method(result, delete_message, DDPClient::Persistent);
 }
 
-quint64 DDPClient::deleteFileMessage(const QString &fileid)
+quint64 DDPClient::deleteFileMessage(const QString &roomId, const QString &fileid)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteFileMessage(fileid, m_uid);
-    return method(result, delete_file_message, DDPClient::Persistent);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteFileMessage(fileid, m_uid);    
+
+    std::function<void(QJsonObject, RocketChatAccount *)> callback = [ roomId ](const QJsonObject &root, RocketChatAccount *account) {
+        if (account->ruqolaLogger()) {
+            account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Attachment File:") + QJsonDocument(root).toJson());
+        } else {
+            qCDebug(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
+        }
+        account->roomFiles(roomId);
+    };
+
+    return method(result, callback, DDPClient::Persistent);
 }
 
 quint64 DDPClient::joinRoom(const QString &roomId, const QString &joinCode)

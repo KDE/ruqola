@@ -162,7 +162,7 @@ public:
     Q_INVOKABLE QString replaceWord(const QString &newWord, const QString &str, int position);
     Q_INVOKABLE void blockUser(const QString &userId, bool block);
     Q_INVOKABLE QString avatarUrlFromDirectChannel(const QString &rid);
-    Q_INVOKABLE void deleteFileMessage(const QString &fileId);
+    Q_INVOKABLE void deleteFileMessage(const QString &roomId, const QString &fileId);
     Q_INVOKABLE void openDocumentation();
 
     SearchChannelModel *searchChannelModel() const;
