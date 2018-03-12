@@ -180,5 +180,6 @@ QDebug operator <<(QDebug d, const NotificationOptions &t)
     d << "mEmailNotifications: " << t.emailNotifications();
     d << "mDisableNotifications: " << t.disableNotifications();
     d << "hideUnreadStatus: " << t.hideUnreadStatus();
+    d << "unreadTrayIconAlert: " << t.unreadTrayIconAlert();
     return d;
 }
