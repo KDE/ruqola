@@ -44,11 +44,4 @@ Dialog {
             font.pointSize: 15
         }
     }
-
-    onAccepted: {
-        //TODO
-    }
-    onRejected: {
-        //TODO
-    }
 }
