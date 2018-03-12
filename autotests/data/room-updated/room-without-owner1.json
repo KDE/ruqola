@@ -1,0 +1,12 @@
+{
+    "_id": "GENERAL",
+    "_updatedAt": {
+        "$date": 1520849976848
+    },
+    "default": true,
+    "jitsiTimeout": {
+        "$date": 1512990616994
+    },
+    "name": "all",
+    "t": "c"
+}

@@ -5,7 +5,7 @@
     "blocker": false,
     "description": "description",
     "favorite": false,
-    "jitsiTimeout": -1,
+    "jitsiTimeout": 1519989707339,
     "name": "test",
     "notifications": {
         "audioNotificationValue": "chime",

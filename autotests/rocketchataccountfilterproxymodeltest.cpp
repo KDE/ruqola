@@ -19,6 +19,8 @@
 */
 
 #include "rocketchataccountfilterproxymodeltest.h"
+#include "model/rocketchataccountfilterproxymodel.h"
+#include "model/rocketchataccountmodel.h"
 #include <QTest>
 
 QTEST_MAIN(RocketChatAccountFilterProxyModelTest)
@@ -26,4 +28,19 @@ QTEST_MAIN(RocketChatAccountFilterProxyModelTest)
 RocketChatAccountFilterProxyModelTest::RocketChatAccountFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void RocketChatAccountFilterProxyModelTest::shouldHaveDefaultValue()
+{
+    RocketChatAccountFilterProxyModel w;
+    RocketChatAccountModel sourceModel;
+    w.setSourceModel(&sourceModel);
+    QCOMPARE(w.rowCount(), 0);
+    QVERIFY(w.sourceModel());
+    QCOMPARE(w.sourceModel(), &sourceModel);
+
+    QHash<int, QByteArray> roles;
+    roles[RocketChatAccountModel::Name] = QByteArrayLiteral("name");
+    roles[RocketChatAccountModel::SiteUrl] = QByteArrayLiteral("siteurl");
+    QCOMPARE(w.roleNames(), roles);
 }

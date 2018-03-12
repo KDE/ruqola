@@ -192,6 +192,8 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::addColumn<QStringList>("fileNameupdate");
     //Missing _updatedAt/ts/_id/groupMentions/ls/roles (implement roles ! )
     QTest::newRow("notification-roomupdate") << QStringLiteral("notification-room") << (QStringList() <<QStringLiteral("notification-roomupdate1"));
+    QTest::newRow("room-update") << QStringLiteral("room-update") << (QStringList() <<QStringLiteral("room-update1"));
+    QTest::newRow("room-without-owner") << QStringLiteral("room-without-owner") << (QStringList() <<QStringLiteral("room-without-owner1"));
 }
 
 void RoomTest::shouldParseRoomAndUpdate()

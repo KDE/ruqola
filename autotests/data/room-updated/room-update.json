@@ -1,0 +1,25 @@
+{
+    "_id": "qcrZ8FYXJBwgRB",
+    "_updatedAt": {
+        "$date": 1520852385825
+    },
+    "alert": false,
+    "f": true,
+    "groupMentions": 0,
+    "ls": {
+        "$date": 1520852385825
+    },
+    "name": "foo",
+    "open": true,
+    "rid": "Yy4nyBHn8Q7dv",
+    "t": "c",
+    "ts": {
+        "$date": 1493034182680
+    },
+    "u": {
+        "_id": "39zoewTkdacidH",
+        "username": "laurent"
+    },
+    "unread": 0,
+    "userMentions": 0
+}

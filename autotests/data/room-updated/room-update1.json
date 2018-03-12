@@ -1,0 +1,18 @@
+{
+    "_id": "Yy4nyBHn8Q7dv",
+    "_updatedAt": {
+        "$date": 1520852203817
+    },
+    "customFields": {
+    },
+    "jitsiTimeout": {
+        "$date": 1518112532866
+    },
+    "name": "foo",
+    "ro": false,
+    "t": "c",
+    "u": {
+        "_id": "tHsHQECdkmH",
+        "username": "newuser"
+    }
+}
