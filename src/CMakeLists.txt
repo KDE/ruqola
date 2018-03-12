@@ -101,6 +101,8 @@ set (Ruqola_core_srcs
     managerdatapaths.cpp
 
     notificationoptions.cpp
+
+    reactions.cpp
 )
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
