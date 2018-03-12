@@ -19,6 +19,7 @@
 
 
 #include "reactiontest.h"
+#include "reaction.h"
 
 #include <QTest>
 QTEST_GUILESS_MAIN(ReactionTest)
@@ -27,4 +28,11 @@ ReactionTest::ReactionTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void ReactionTest::shouldHaveDefaultValue()
+{
+    Reaction r;
+    QVERIFY(r.userNames().isEmpty());
+    QVERIFY(r.reactionName().isEmpty());
 }

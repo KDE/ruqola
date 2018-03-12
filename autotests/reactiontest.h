@@ -29,6 +29,8 @@ class ReactionTest : public QObject
 public:
     explicit ReactionTest(QObject *parent = nullptr);
     ~ReactionTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // REACTIONTEST_H

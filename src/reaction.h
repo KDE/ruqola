@@ -30,6 +30,16 @@ public:
     Reaction();
     ~Reaction();
     void parseReaction(const QJsonObject &obj);
+
+    QString reactionName() const;
+    void setReactionName(const QString &reactionName);
+
+    QStringList userNames() const;
+    void setUserNames(const QStringList &userNames);
+
+private:
+    QString mReactionName;
+    QStringList mUserNames;
 };
 Q_DECLARE_METATYPE(Reaction)
 Q_DECLARE_TYPEINFO(Reaction, Q_MOVABLE_TYPE);

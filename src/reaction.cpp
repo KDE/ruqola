@@ -33,3 +33,23 @@ void Reaction::parseReaction(const QJsonObject &obj)
 {
 
 }
+
+QString Reaction::reactionName() const
+{
+    return mReactionName;
+}
+
+void Reaction::setReactionName(const QString &reactionName)
+{
+    mReactionName = reactionName;
+}
+
+QStringList Reaction::userNames() const
+{
+    return mUserNames;
+}
+
+void Reaction::setUserNames(const QStringList &userNames)
+{
+    mUserNames = userNames;
+}
