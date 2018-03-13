@@ -865,25 +865,33 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
 {
     MessageModel *roomModel = messageModelForRoom(roomID);
     if (roomModel) {
+        //TODO add autotest for it !
         QJsonArray params;
         params.append(QJsonValue(roomID));
         // Load history
         const qint64 endDateTime = roomModel->lastTimestamp();
         if (initial || roomModel->isEmpty()) {
             params.append(QJsonValue(QJsonValue::Null));
+            params.append(QJsonValue(50)); // Max number of messages to load;
+            QJsonObject dateObject;
+            //qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
+            dateObject[QStringLiteral("$date")] = QJsonValue(endDateTime);
+            params.append(dateObject);
         } else {
             const qint64 startDateTime = roomModel->generateNewStartTimeStamp(endDateTime);
-            QJsonObject dateObject;
-            dateObject[QStringLiteral("$date")] = QJsonValue(startDateTime);
+            QJsonObject dateObjectEnd;
+            dateObjectEnd[QStringLiteral("$date")] = QJsonValue(endDateTime);
 
-            //qDebug() << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  << QDateTime::fromMSecsSinceEpoch(startDateTime);
-            params.append(dateObject);
+            //qDebug() << " QDATE TIME END" << QDateTime::fromMSecsSinceEpoch(endDateTime) << " START "  << QDateTime::fromMSecsSinceEpoch(startDateTime) << " ROOMID" << roomID;
+            params.append(dateObjectEnd);
+
+            params.append(QJsonValue(50)); // Max number of messages to load;
+
+            QJsonObject dateObjectStart;
+            //qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
+            dateObjectStart[QStringLiteral("$date")] = QJsonValue(startDateTime);
+            params.append(dateObjectStart);
         }
-        params.append(QJsonValue(50)); // Max number of messages to load;
-        QJsonObject dateObject;
-        //qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
-        dateObject[QStringLiteral("$date")] = QJsonValue(endDateTime);
-        params.append(dateObject);
         ddp()->loadHistory(params);
     } else {
         qCWarning(RUQOLA_LOG) << "Room is not found " << roomID;
