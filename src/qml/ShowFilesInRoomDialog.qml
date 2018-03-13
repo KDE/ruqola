@@ -81,6 +81,7 @@ Dialog {
             delegate:
                 RowLayout {
                 Label {
+                    Layout.fillWidth: true
                     text: username + description
                     wrapMode: Label.Wrap
                 }
