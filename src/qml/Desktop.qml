@@ -204,6 +204,9 @@ Kirigami.ApplicationWindow {
         onSearchMessage: {
             rocketChatAccount.messageSearch(pattern, rid)
         }
+        onClosed: {
+            rocketChatAccount.messageSearch("", "")
+        }
     }
 
     SearchChannelDialog {
