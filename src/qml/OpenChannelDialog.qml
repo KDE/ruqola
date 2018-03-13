@@ -39,7 +39,7 @@ QQC2.Dialog {
 
     Row {
         QQC2.Label {
-            text: i18n("Open \"%1\"?", channelName)
+            text: channelName === "" ? "" : i18n("Open \"%1\"?", channelName)
             font.bold: true
             font.pointSize: 15
             wrapMode: QQC2.Label.Wrap
