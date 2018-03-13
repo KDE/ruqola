@@ -52,9 +52,8 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
         return user.status();
     case UserIcon:
         return user.iconFromStatus();
-    default:
-        qCWarning(RUQOLA_LOG) << "Unknown usersmodel roles: " << role;
     }
+    qCWarning(RUQOLA_LOG) << "Unknown usersmodel roles: " << role;
     return {};
 }
 

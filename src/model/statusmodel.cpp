@@ -19,6 +19,7 @@
 */
 
 #include "statusmodel.h"
+#include "ruqola_debug.h"
 #include <KLocalizedString>
 
 StatusModel::StatusModel(QObject *parent)
@@ -117,5 +118,7 @@ QVariant StatusModel::data(const QModelIndex &index, int role) const
     case Icon:
         return statusInfo.icon;
     }
+    qCWarning(RUQOLA_LOG) << "Unknown StatusModel roles: " << role;
+
     return {};
 }

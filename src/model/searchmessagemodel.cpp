@@ -42,11 +42,13 @@ QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
     case MessageConvertedText:
         return message.text();
     case Timestamp:
-        break;
+        return message.timeStamp();
     case MessageId:
-        break;
+        //TODO ?
+        return {};
     }
 
+    qCWarning(RUQOLA_LOG) << "Unknown SearchMessageModel roles: " << role;
     //TODO
     return {};
 }

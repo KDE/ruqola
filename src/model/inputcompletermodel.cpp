@@ -102,10 +102,9 @@ QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
         return channelIconName(channel);
     case InputCompleterModel::ChannelType:
         return channel.type();
-    default:
-        qCWarning(RUQOLA_LOG) << "Unknown InputCompleterModel roles: " << role;
     }
 
+    qCWarning(RUQOLA_LOG) << "Unknown InputCompleterModel roles: " << role;
     return {};
 }
 

@@ -82,9 +82,8 @@ QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
         return user.userId();
     case Name:
         return user.name();
-    default:
-        qCWarning(RUQOLA_LOG) << "Unknown usersmodel roles: " << role;
     }
+    qCWarning(RUQOLA_LOG) << "Unknown usersmodel roles: " << role;
     return {};
 }
 
