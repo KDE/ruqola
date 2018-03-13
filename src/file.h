@@ -31,7 +31,6 @@ class LIBRUQOLACORE_TESTS_EXPORT File
     Q_GADGET
 public:
     File();
-    ~File();
 
     void parseFile(const QJsonObject &json);
     QString name() const;

@@ -24,10 +24,6 @@ File::File()
 {
 }
 
-File::~File()
-{
-}
-
 void File::parseFile(const QJsonObject &object)
 {
     const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
