@@ -22,6 +22,7 @@
 
 #include "libruqola_private_export.h"
 #include <QObject>
+#include <QDebug>
 #include <QJsonObject>
 class LIBRUQOLACORE_TESTS_EXPORT Reaction
 {
@@ -43,4 +44,5 @@ private:
 };
 Q_DECLARE_METATYPE(Reaction)
 Q_DECLARE_TYPEINFO(Reaction, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Reaction &t);
 #endif // REACTION_H

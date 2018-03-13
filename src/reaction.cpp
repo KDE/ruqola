@@ -53,3 +53,10 @@ void Reaction::setUserNames(const QStringList &userNames)
 {
     mUserNames = userNames;
 }
+
+QDebug operator <<(QDebug d, const Reaction &t)
+{
+    d << "ReactionName " << t.reactionName();
+    d << "UserNames " << t.userNames();
+    return d;
+}
