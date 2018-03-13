@@ -205,7 +205,7 @@ Kirigami.ApplicationWindow {
             rocketChatAccount.messageSearch(pattern, rid)
         }
         onClosed: {
-            rocketChatAccount.messageSearch("", "")
+            rocketChatAccount.clearSearchModel()
         }
     }
 

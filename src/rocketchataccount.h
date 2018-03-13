@@ -164,6 +164,8 @@ public:
     Q_INVOKABLE QString avatarUrlFromDirectChannel(const QString &rid);
     Q_INVOKABLE void deleteFileMessage(const QString &roomId, const QString &fileId);
     Q_INVOKABLE void openDocumentation();
+    Q_INVOKABLE void clearSearchModel();
+
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;

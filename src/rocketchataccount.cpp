@@ -577,10 +577,16 @@ void RocketChatAccount::addUserToRoom(const QString &username, const QString &ro
     ddp()->addUserToRoom(username, roomId);
 }
 
+
+void RocketChatAccount::clearSearchModel()
+{
+    mSearchMessageModel->clear();
+}
+
 void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid)
 {
     if (pattern.isEmpty()) {
-        mSearchMessageModel->clear();
+        clearSearchModel();
     } else {
         ddp()->messageSearch(rid, pattern);
     }
