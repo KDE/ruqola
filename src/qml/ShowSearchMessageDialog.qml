@@ -20,13 +20,13 @@
 
 
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import QtQuick 2.9
 import KDE.Ruqola.UsersForRoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
-Dialog {
+QQC2.Dialog {
     id: showSearchMessageDialog
 
     title: i18n("Search Message")
@@ -40,7 +40,7 @@ Dialog {
 
     modal: true
 
-    standardButtons: Dialog.Close
+    standardButtons: QQC2.Dialog.Close
 
     function initializeAndOpen()
     {
@@ -49,7 +49,7 @@ Dialog {
     }
 
     ColumnLayout {
-        TextField {
+        QQC2.TextField {
             id: searchField
             focus: true
             selectByMouse: true
@@ -69,8 +69,8 @@ Dialog {
             height: 200
             clip: true
             // Scrollars
-            ScrollIndicator.vertical: ScrollIndicator { }
-            ScrollIndicator.horizontal: ScrollIndicator { }
+            QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
+            QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
 
             model: searchMessageModel
             delegate: Kirigami.BasicListItem {
