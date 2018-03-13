@@ -75,7 +75,6 @@ void SearchMessageModel::parseResult(const QJsonObject &obj)
     const QJsonArray messagesObj = obj.value(QLatin1String("messages")).toArray();
     for (int i = 0; i < messagesObj.size(); i++) {
         const QJsonObject o = messagesObj.at(i).toObject();
-        qDebug() << " o " << o;
         SearchMessage msg;
         msg.parseResult(o);
         //Verify that it's valid
