@@ -402,6 +402,17 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
             mRocketChatAccount->parseOtr(contents);
             qCWarning(RUQOLA_LOG) << "stream-notify-user : OTR ? " << eventname << " contents " << contents;
+        } else if (eventname.endsWith(QLatin1String("/message"))) {
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: message: ") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "Message CHANGED: " << object;
+            }
+            //TODO inform it !
+            qCWarning(RUQOLA_LOG) << "stream-notify-user : Message ? " << eventname << " contents " << contents;
+            //TODO implement it
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
