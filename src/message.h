@@ -24,6 +24,7 @@
 #include "libruqola_private_export.h"
 #include "messageattachment.h"
 #include "messageurl.h"
+#include "reactions.h"
 #include <QJsonObject>
 #include <QString>
 #include <QVector>
@@ -133,6 +134,9 @@ public:
     bool starred() const;
     void setStarred(bool starred);
 
+    Reactions reactions() const;
+    void setReactions(const Reactions &reactions);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -142,6 +146,9 @@ private:
 
     //Message urls object
     QVector<MessageUrl> mUrls;
+
+    //Reactions
+    Reactions mReactions;
 
     //Mentions
     QMap<QString, QString> mMentions;

@@ -109,6 +109,16 @@ void Message::parseUrls(const QJsonArray &urls)
     }
 }
 
+Reactions Message::reactions() const
+{
+    return mReactions;
+}
+
+void Message::setReactions(const Reactions &reactions)
+{
+    mReactions = reactions;
+}
+
 bool Message::starred() const
 {
     return mStarred;
@@ -465,6 +475,8 @@ Message Message::fromJSon(const QJsonObject &o)
 //        }
     }
 
+    //TODO reactions
+
     return message;
 }
 
@@ -519,6 +531,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         }
         o[QStringLiteral("urls")] = array;
     }
+    //TODO reactions
 
     d.setObject(o);
     if (toBinary) {
@@ -553,5 +566,6 @@ QDebug operator <<(QDebug d, const Message &t)
     }
     d << "Mentions :" << t.mentions();
     d << "mMessageType: " << t.messageType();
+    //TODO reactions
     return d;
 }
