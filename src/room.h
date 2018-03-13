@@ -46,6 +46,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(bool alert READ alert WRITE setAlert NOTIFY alertChanged)
     Q_PROPERTY(bool blocker READ blocker WRITE setBlocker NOTIFY blockerChanged)
     Q_PROPERTY(bool archived READ archived WRITE setArchived NOTIFY archivedChanged)
+    Q_PROPERTY(bool blocked READ blocked WRITE setBlocked NOTIFY blockedChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
 public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
@@ -161,6 +162,9 @@ public:
     qint64 lastSeeAt() const;
     void setLastSeeAt(const qint64 &lastSeeAt);
 
+    bool blocked() const;
+    void setBlocked(bool blocked);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -169,7 +173,12 @@ Q_SIGNALS:
     void alertChanged();
     void readOnlyChanged();
     void unreadChanged();
+
+    //Blocker we blocked the channel
     void blockerChanged();
+    //Blocked the channel was blocked
+    void blockedChanged();
+
     void archivedChanged();
     void descriptionChanged();
 
@@ -222,6 +231,7 @@ private:
     bool mAlert = false;
     bool mBlocker = false;
     bool mArchived = false;
+    bool mBlocked = false;
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;

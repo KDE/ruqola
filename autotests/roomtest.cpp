@@ -58,6 +58,8 @@ void RoomTest::shouldHaveDefaultValue()
     //Add more
     QCOMPARE(input.userMentions(), 0);
     QCOMPARE(input.unread(), 0);
+    QCOMPARE(input.blocked(), false);
+    QCOMPARE(input.blocker(), false);
 }
 
 //TODO add notification, userMentions too
@@ -80,6 +82,7 @@ void RoomTest::shouldSerialized()
     input.setAlert(true);
     input.setOpen(true);
     input.setBlocker(true);
+    input.setBlocked(true);
     input.setArchived(true);
     input.setDescription(QStringLiteral("dd"));
     input.setUserMentions(3);
@@ -102,6 +105,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyblockerChanged(&input, &Room::blockerChanged);
     QSignalSpy spyarchivedChanged(&input, &Room::archivedChanged);
     QSignalSpy spydescriptionChanged(&input, &Room::descriptionChanged);
+    QSignalSpy spyblockedChanged(&input, &Room::blockedChanged);
     input.setRoomId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
@@ -118,6 +122,7 @@ void RoomTest::shouldEmitSignals()
     input.setAlert(true);
     input.setOpen(true);
     input.setBlocker(true);
+    input.setBlocked(true);
     input.setArchived(true);
     input.setDescription(QStringLiteral("ddd"));
 
@@ -130,6 +135,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyunreadChanged.count(), 1);
     QCOMPARE(spyblockerChanged.count(), 1);
     QCOMPARE(spyarchivedChanged.count(), 1);
+    QCOMPARE(spyblockedChanged.count(), 1);
     QCOMPARE(spydescriptionChanged.count(), 1);
 }
 
@@ -248,6 +254,12 @@ void RoomTest::shouldParseRoomAndUpdateSubscription_data()
         << QStringLiteral("notification-room")
         << (QStringList() << QStringLiteral("notification-roomupdate1"))
         << (QStringList() << QStringLiteral("notification-roomsubscription1"));
+
+    QTest::newRow("room-blocked")
+        << QStringLiteral("room-blocked")
+        << (QStringList() << QStringLiteral("room-blockedupdate1"))
+        << QStringList();
+
 }
 
 void RoomTest::shouldParseRoomAndUpdateSubscription()

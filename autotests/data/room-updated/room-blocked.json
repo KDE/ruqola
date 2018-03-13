@@ -1,0 +1,18 @@
+        {
+            "_id": "bszTRqZwTWmXtNLME",
+            "_updatedAt": {
+                "$date": 1520957766942
+            },
+            "alert": false,
+            "groupMentions": 0,
+            "name": "user2",
+            "open": false,
+            "rid": "H7Q9djXQ4iShzD9T2cwgFjqGj6QXPsMpBW",
+            "t": "d",
+            "u": {
+                "_id": "H7Q9djXQ4iShzD9T2",
+                "username": "user1"
+            },
+            "unread": 0,
+            "userMentions": 0
+        }

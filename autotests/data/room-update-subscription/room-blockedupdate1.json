@@ -1,0 +1,22 @@
+       {
+            "_id": "bszTRqZwTWmXtNLME",
+            "_updatedAt": {
+                "$date": 1520958526036
+            },
+            "alert": true,
+            "blocked": true,
+            "groupMentions": 0,
+            "ls": {
+                "$date": 1520958500138
+            },
+            "name": "user2",
+            "open": true,
+            "rid": "H7Q9djXQ4iShzD9T2cwgFjqGj6QXPsMpBW",
+            "t": "d",
+            "u": {
+                "_id": "H7Q9djXQ4iShzD9T2",
+                "username": "user1"
+            },
+            "unread": 2,
+            "userMentions": 0
+        }

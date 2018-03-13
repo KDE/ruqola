@@ -1,12 +1,12 @@
 {
-    "alert": false,
+    "alert": true,
     "archived": false,
-    "blocked": false,
+    "blocked": true,
     "blocker": false,
     "favorite": false,
-    "jitsiTimeout": 1518524726234,
+    "jitsiTimeout": -1,
     "lastSeeAt": -1,
-    "name": "bla1",
+    "name": "user2",
     "notifications": {
         "audioNotificationValue": "",
         "audioNotifications": "",
@@ -18,14 +18,14 @@
         "mobilePushNotifications": "",
         "unreadAlert": ""
     },
-    "open": false,
-    "rid": "fooid",
+    "open": true,
+    "rid": "H7Q9djXQ4iShzD9T2cwgFjqGj6QXPsMpBW",
     "ro": false,
-    "roomCreatorUserID": "hLTrnA5cEFHrZp4",
-    "roomCreatorUserName": "owner-channel",
+    "roomCreatorUserID": "H7Q9djXQ4iShzD9T2",
+    "roomCreatorUserName": "user1",
     "selected": false,
-    "t": "c",
-    "unread": 0,
-    "updatedAt": 1520409482126,
+    "t": "d",
+    "unread": 2,
+    "updatedAt": 1520957766942,
     "userMentions": 0
 }

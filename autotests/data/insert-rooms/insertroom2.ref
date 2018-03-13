@@ -2,6 +2,7 @@
     "alert": false,
     "announcement": "announcement",
     "archived": false,
+    "blocked": false,
     "blocker": false,
     "description": "description channel",
     "favorite": false,

@@ -80,7 +80,8 @@ bool Room::isEqual(const Room &other) const
            && (mUserMentions == other.userMentions())
            && (mNotificationOptions == other.notificationOptions())
            && (mUpdatedAt == other.updatedAt())
-            && (mLastSeeAt == other.lastSeeAt());
+            && (mLastSeeAt == other.lastSeeAt())
+            && (mBlocked == other.blocked());
 }
 
 QString Room::name() const
@@ -111,6 +112,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "notifications: " << t.notificationOptions();
     d << "UpdatedAt: " << t.updatedAt();
     d << "LastSeeAt: " << t.lastSeeAt();
+    d << "blocked: " << t.blocked();
     return d;
 }
 
@@ -207,6 +209,11 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setBlocker(json[QStringLiteral("blocker")].toBool());
     } else {
         setBlocker(false);
+    }
+    if (json.contains(QLatin1String("blocked"))) {
+        setBlocked(json[QStringLiteral("blocked")].toBool());
+    } else {
+        setBlocked(false);
     }
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
     if (!ownerValue.isUndefined()) {
@@ -453,6 +460,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     } else {
         setBlocker(false);
     }
+    //Blocked ???
     const QJsonValue archivedValue = json.value(QLatin1String("archived"));
     if (!archivedValue.isUndefined()) {
         setArchived(archivedValue.toBool());
@@ -496,6 +504,19 @@ void Room::setLastSeeAt(const qint64 &lastSeeAt)
     //Add signal otherwise it's not necessary to check value
 }
 
+bool Room::blocked() const
+{
+    return mBlocked;
+}
+
+void Room::setBlocked(bool blocked)
+{
+    if (mBlocked != blocked) {
+        mBlocked = blocked;
+        Q_EMIT blockedChanged();
+    }
+}
+
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     QString roomID = json.value(QLatin1String("rid")).toString();
@@ -528,6 +549,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     } else {
         setBlocker(false);
     }
+    //TODO blocked ?
     const QJsonValue archivedValue = json.value(QLatin1String("archived"));
     if (!archivedValue.isUndefined()) {
         setArchived(archivedValue.toBool());
@@ -583,6 +605,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setArchived(o[QStringLiteral("archived")].toBool());
     r->setDescription(o[QStringLiteral("description")].toString());
     r->setBlocker(o[QStringLiteral("blocker")].toBool());
+    r->setBlocked(o[QStringLiteral("blocked")].toBool());
     r->setUpdatedAt(o[QStringLiteral("updatedAt")].toDouble());
     r->setLastSeeAt(o[QStringLiteral("lastSeeAt")].toDouble());
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
@@ -596,8 +619,6 @@ Room *Room::fromJSon(const QJsonObject &o)
     const QJsonObject notificationsObj = o.value(QLatin1String("notifications")).toObject();
     const NotificationOptions notifications = NotificationOptions::fromJSon(notificationsObj);
     r->setNotificationOptions(notifications);
-
-    //TODO add notification!
 
     return r;
 }
@@ -630,6 +651,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("alert")] = r->alert();
     o[QStringLiteral("open")] = r->open();
     o[QStringLiteral("blocker")] = r->blocker();
+    o[QStringLiteral("blocked")] = r->blocked();
     o[QStringLiteral("archived")] = r->archived();
     if (!r->description().isEmpty()) {
         o[QStringLiteral("description")] = r->description();

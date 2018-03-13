@@ -1,6 +1,7 @@
 {
     "alert": false,
     "archived": false,
+    "blocked": false,
     "blocker": false,
     "favorite": true,
     "jitsiTimeout": 1512990616994,

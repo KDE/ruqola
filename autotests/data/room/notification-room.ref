@@ -1,6 +1,7 @@
 {
     "alert": false,
     "archived": false,
+    "blocked": false,
     "blocker": false,
     "favorite": false,
     "jitsiTimeout": -1,
