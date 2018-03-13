@@ -24,11 +24,6 @@ Reaction::Reaction()
 
 }
 
-Reaction::~Reaction()
-{
-
-}
-
 void Reaction::parseReaction(const QJsonObject &obj)
 {
 
