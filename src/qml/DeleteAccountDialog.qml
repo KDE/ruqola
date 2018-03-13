@@ -39,7 +39,7 @@ Dialog {
 
     Row {
         Label {
-            text: i18n("Do you want to delete '%1' account?", accountName)
+            text: accountName === "" ? "" : i18n("Do you want to delete '%1' account?", accountName)
             font.bold: true
             font.pointSize: 15
         }
