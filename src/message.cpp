@@ -66,7 +66,16 @@ void Message::parseMessage(const QJsonObject &o)
 
     parseAttachment(o.value(QLatin1String("attachments")).toArray());
     parseUrls(o.value(QLatin1String("urls")).toArray());
+    parseReactions(o.value(QLatin1String("reactions")).toObject());
 }
+
+void Message::parseReactions(const QJsonObject &reacts)
+{
+    if (!reacts.isEmpty()) {
+        mReactions.parseReactions(reacts);
+    }
+}
+
 
 void Message::parseMentions(const QJsonArray &mentions)
 {

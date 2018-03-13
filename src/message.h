@@ -141,6 +141,8 @@ private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
     void parseUrls(const QJsonArray &urls);
+    void parseReactions(const QJsonObject &mentions);
+
     //Message Object Fields
     QVector<MessageAttachment> mAttachements;
 

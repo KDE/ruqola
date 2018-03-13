@@ -18,6 +18,7 @@
 */
 
 #include "reactions.h"
+#include <QJsonArray>
 
 Reactions::Reactions()
 {
@@ -39,7 +40,27 @@ QVector<Reaction> Reactions::reactions() const
     return mReactions;
 }
 
-void Reactions::parseReactions(const QJsonObject &obj)
+void Reactions::parseReactions(const QJsonObject &reacts)
 {
-    //TODO
+    const QStringList lst = reacts.keys();
+    QStringList users;
+    for (const QString &str : lst) {
+        const QJsonObject obj = reacts.value(str).toObject();
+        QJsonValue usernames = obj.value(QLatin1String("usernames"));
+        if (!usernames.isUndefined()) {
+            QJsonArray array = usernames.toArray();
+            qDebug() << " ARRAY" << array;
+            for (int i = 0; i < array.count(); ++i) {
+                users.append(array.at(i).toString());
+            }
+
+        }
+        if (!users.isEmpty()) {
+            Reaction r;
+            r.setReactionName(str);
+            r.setUserNames(users);
+            mReactions.append(r);
+        }
+        qDebug() << " obj parse reaction " << obj;
+    }
 }

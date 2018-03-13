@@ -32,7 +32,7 @@ public:
     void setReactions(const QVector<Reaction> &reactions);
     QVector<Reaction> reactions() const;
 
-    void parseReactions(const QJsonObject &obj);
+    void parseReactions(const QJsonObject &array);
 
 private:
     QVector<Reaction> mReactions;
