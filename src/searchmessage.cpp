@@ -23,14 +23,14 @@ SearchMessage::SearchMessage()
 {
 }
 
-SearchMessage::~SearchMessage()
-{
-}
-
 void SearchMessage::parseResult(const QJsonObject &obj)
 {
     mMessage.parseMessage(obj);
-    qDebug() << " message " << mMessage;
+}
+
+qint64 SearchMessage::timeStamp() const
+{
+    return mMessage.timeStamp();
 }
 
 QString SearchMessage::text() const

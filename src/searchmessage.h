@@ -31,10 +31,10 @@ class LIBRUQOLACORE_TESTS_EXPORT SearchMessage
     Q_GADGET
 public:
     SearchMessage();
-    ~SearchMessage();
 
     void parseResult(const QJsonObject &obj);
     QString text() const;
+    qint64 timeStamp() const;
 private:
     Message mMessage;
 };
