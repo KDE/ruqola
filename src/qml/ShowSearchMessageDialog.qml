@@ -73,18 +73,8 @@ Dialog {
             ScrollIndicator.horizontal: ScrollIndicator { }
 
             model: searchMessageModel
-            delegate:
-                RowLayout {
-                Kirigami.Icon {
-                    source: iconstatus
-                    //FIXME
-                    height: 22
-                    width: 22
-                }
-                Text {
-                    text: messagetext
-                    wrapMode: Label.Wrap
-                }
+            delegate: Kirigami.BasicListItem {
+                label: messagetext
             }
         }
     }
