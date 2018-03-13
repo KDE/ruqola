@@ -75,6 +75,7 @@ Dialog {
             model: searchMessageModel
             delegate: Kirigami.BasicListItem {
                 label: messagetext
+                reserveSpaceForIcon: false
             }
         }
     }
