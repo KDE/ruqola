@@ -35,6 +35,7 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
     Q_PROPERTY(int imageWidth READ imageWidth WRITE setImageWidth)
     Q_PROPERTY(bool canDownloadAttachment READ canDownloadAttachment CONSTANT)
     Q_PROPERTY(QString displayTitle READ displayTitle CONSTANT)
+    Q_PROPERTY(QString imageTitle READ imageTitle CONSTANT)
 public:
     MessageAttachment();
     bool isEmpty() const;
@@ -65,6 +66,7 @@ public:
 
     bool canDownloadAttachment() const;
     QString displayTitle() const;
+    QString imageTitle() const;
 private:
     //TODO add fields support ?
     QString mColor;

@@ -45,13 +45,17 @@ MessageBase {
             Row {
                 Column {
                     Text {
-                        id: imageTitle
-                        //TODO make it clickable ?
-                        text: model.modelData.title === "" ? "" :  i18n("File send: %1", model.modelData.title)
+                        id: imageTitle                        
+                        text: model.modelData.title === "" ? "" :  model.modelData.imageTitle
                         visible: model.modelData.title !== ""
                         wrapMode: QQC2.Label.Wrap
                         anchors.leftMargin: Kirigami.Units.smallSpacing
                         anchors.rightMargin: Kirigami.Units.smallSpacing
+                        renderType: Text.NativeRendering
+                        textFormat: Text.RichText
+                        onLinkActivated: {
+                            messageMain.displayImage(imageUrl.source, model.modelData.title)
+                        }
                     }
                     Image {
                         id: imageUrl

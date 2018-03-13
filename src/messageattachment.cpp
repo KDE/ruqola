@@ -120,6 +120,11 @@ bool MessageAttachment::canDownloadAttachment() const
     return true;
 }
 
+QString MessageAttachment::imageTitle() const
+{
+    return QStringLiteral("%1 <a href=\'%2'>%2</a>").arg(i18n("File send:")).arg(title());
+}
+
 QString MessageAttachment::displayTitle() const
 {
     if (canDownloadAttachment()) {
