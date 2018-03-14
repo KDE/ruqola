@@ -455,11 +455,11 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
 
     filePart.setBodyDevice(file);
     file->setParent(multiPart); // we cannot delete the file now, so delete it with the multiPart
-
+    multiPart->append(filePart);
 
     QHttpPart msgPart;
     msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"msg\"")));
-    msgPart.setBody(text.toUtf8());
+    msgPart.setBody("text.toUtf8()");
     multiPart->append(msgPart);
 
     QHttpPart descriptionPart;

@@ -335,7 +335,7 @@ Component {
             UploadFileDialog {
                 id: uploadFileDialog
                 onUploadFile: {
-                    appid.rocketChatAccount.uploadFile(description, filename)
+                    appid.rocketChatAccount.uploadFile(appid.selectedRoomID, description, filename)
                 }
             }
 
