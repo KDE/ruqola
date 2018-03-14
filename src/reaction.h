@@ -29,7 +29,6 @@ class LIBRUQOLACORE_TESTS_EXPORT Reaction
     Q_GADGET
 public:
     Reaction();
-    void parseReaction(const QJsonObject &obj);
 
     QString reactionName() const;
     void setReactionName(const QString &reactionName);

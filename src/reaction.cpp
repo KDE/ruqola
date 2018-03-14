@@ -24,11 +24,6 @@ Reaction::Reaction()
 
 }
 
-void Reaction::parseReaction(const QJsonObject &obj)
-{
-
-}
-
 QString Reaction::reactionName() const
 {
     return mReactionName;
