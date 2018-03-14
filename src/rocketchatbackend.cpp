@@ -408,20 +408,29 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: message: ") + d.toJson());
             } else {
-                qCDebug(RUQOLA_LOG) << "Message CHANGED: " << object;
+                qCDebug(RUQOLA_LOG) << "stream-notify-user : Message: " << object;
             }
-            //TODO inform it !
-            qCWarning(RUQOLA_LOG) << "stream-notify-user : Message ? " << eventname << " contents " << contents;
-            //TODO implement it
+            const QJsonArray lst = fields.value(QLatin1String("args")).toArray();
+            const QJsonObject roomData = lst[1].toObject();
+            QString roomId = roomData.value(QLatin1String("rid")).toString();
+            if (!roomId.isEmpty()) {
+                MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
+                //TODO
+                //messageModel->(contents.at(0).toObject()[QStringLiteral("_id")].toString());
+            } else {
+                qCWarning(RUQOLA_LOG) << "stream-notify-user : Message: ROOMID is empty ";
+            }
+
+            qCWarning(RUQOLA_LOG) << "stream-notify-user : Message  " << eventname << " contents " << contents;
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: Unknown event: ") + d.toJson());
             } else {
-                qCDebug(RUQOLA_LOG) << "Unknow change: " << object;
+                qCDebug(RUQOLA_LOG) << "Unknown change: " << object;
             }
-            qCWarning(RUQOLA_LOG) << "stream-notify-user : Unknown event ? " << eventname << " contents " << contents;
+            qCWarning(RUQOLA_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
         }
     } else if (collection == QLatin1String("stream-notify-room")) {
         qCDebug(RUQOLA_LOG) << " stream-notify-room " << collection << " object "<<object;
