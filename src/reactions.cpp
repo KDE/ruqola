@@ -63,3 +63,16 @@ void Reactions::parseReactions(const QJsonObject &reacts)
         }
     }
 }
+
+bool Reactions::operator ==(const Reactions &other) const
+{
+    return mReactions == other.reactions();
+}
+
+QDebug operator <<(QDebug d, const Reactions &t)
+{
+    for (int i = 0; i < t.reactions().count(); i++) {
+        d << t.reactions().at(i);
+    }
+    return d;
+}

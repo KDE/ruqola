@@ -30,6 +30,8 @@ public:
     ~ReactionsTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldParseReactions_data();
+    void shouldParseReactions();
 };
 
 #endif // REACTIONSTEST_H

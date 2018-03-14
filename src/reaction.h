@@ -37,6 +37,8 @@ public:
     QStringList userNames() const;
     void setUserNames(const QStringList &userNames);
 
+    bool operator ==(const Reaction &other) const;
+
 private:
     QString mReactionName;
     QStringList mUserNames;

@@ -49,6 +49,11 @@ void Reaction::setUserNames(const QStringList &userNames)
     mUserNames = userNames;
 }
 
+bool Reaction::operator ==(const Reaction &other) const
+{
+    return (mUserNames == other.userNames()) && (mReactionName == other.reactionName());
+}
+
 QDebug operator <<(QDebug d, const Reaction &t)
 {
     d << "ReactionName " << t.reactionName();

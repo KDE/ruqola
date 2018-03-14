@@ -34,8 +34,11 @@ public:
 
     void parseReactions(const QJsonObject &array);
 
+    bool operator ==(const Reactions &other) const;
 private:
     QVector<Reaction> mReactions;
 };
+Q_DECLARE_METATYPE(Reactions)
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Reactions &t);
 
 #endif // REACTIONS_H

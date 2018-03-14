@@ -20,7 +20,9 @@
 #include "reactionstest.h"
 #include "reactions.h"
 
+#include <QJsonDocument>
 #include <QTest>
+#include <QDebug>
 QTEST_GUILESS_MAIN(ReactionsTest)
 
 ReactionsTest::ReactionsTest(QObject *parent)
@@ -33,4 +35,40 @@ void ReactionsTest::shouldHaveDefaultValue()
 {
     Reactions reacts;
     QVERIFY(reacts.reactions().isEmpty());
+}
+
+
+void ReactionsTest::shouldParseReactions_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<Reactions>("expectedReactions");
+    {
+        Reactions reactionsRef;
+        Reaction react;
+        react.setReactionName(QStringLiteral(":ok_hand:"));
+        react.setUserNames(QStringList() << QStringLiteral("foo") << QStringLiteral("bla") << QStringLiteral("bli"));
+        reactionsRef.setReactions({react});
+        QTest::addRow("reactions") << QStringLiteral("reactions") << reactionsRef;
+    }
+}
+
+void ReactionsTest::shouldParseReactions()
+{
+    QFETCH(QString, name);
+    QFETCH(Reactions, expectedReactions);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + name + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    Reactions originalReactions;
+    originalReactions.parseReactions(obj);
+    const bool emojiIsEqual = (originalReactions == expectedReactions);
+    if (!emojiIsEqual) {
+        qDebug() << "originalReactions " << originalReactions;
+        qDebug() << "expectedReactions " << expectedReactions;
+    }
+    QVERIFY(emojiIsEqual);
 }
