@@ -27,7 +27,6 @@ class LIBRUQOLACORE_TESTS_EXPORT Reactions
 {
 public:
     Reactions();
-    ~Reactions();
 
     void setReactions(const QVector<Reaction> &reactions);
     QVector<Reaction> reactions() const;
@@ -35,6 +34,10 @@ public:
     void parseReactions(const QJsonObject &array);
 
     bool operator ==(const Reactions &other) const;
+
+    static QJsonObject serialize(const Reactions &message);
+    static Reactions fromJSon(const QJsonObject &o);
+
 private:
     QVector<Reaction> mReactions;
 };

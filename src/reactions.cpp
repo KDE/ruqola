@@ -25,11 +25,6 @@ Reactions::Reactions()
 
 }
 
-Reactions::~Reactions()
-{
-
-}
-
 void Reactions::setReactions(const QVector<Reaction> &reactions)
 {
     mReactions = reactions;
@@ -76,4 +71,15 @@ QDebug operator <<(QDebug d, const Reactions &t)
         d << t.reactions().at(i);
     }
     return d;
+}
+
+QJsonObject Reactions::serialize(const Reactions &message)
+{
+    //TODO
+    return {};
+}
+
+Reactions Reactions::fromJSon(const QJsonObject &o)
+{
+    return {};
 }
