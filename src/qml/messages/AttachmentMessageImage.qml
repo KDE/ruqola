@@ -30,6 +30,12 @@ import "../common"
 MessageBase {
     id: messageMain
 
+    MessageMenu {
+        id: menu
+        can_editing_message: i_can_editing_message
+        starred: i_starred
+    }
+
     RowLayout {
         AvatarImage {
             id: avatarRect
@@ -44,7 +50,7 @@ MessageBase {
             model: i_attachments
             Row {
                 Column {
-                    Text {
+                    QQC2.Label {
                         id: imageTitle                        
                         text: model.modelData.title === "" ? "" :  model.modelData.imageTitle
                         visible: model.modelData.title !== ""
@@ -55,6 +61,18 @@ MessageBase {
                         textFormat: Text.RichText
                         onLinkActivated: {
                             messageMain.displayImage(imageUrl.source, model.modelData.title)
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            acceptedButtons: Qt.RightButton
+
+                            onClicked: {
+                                if (mouse.button === Qt.RightButton) {
+                                    menu.x = mouse.x
+                                    menu.y = mouse.y
+                                    menu.open();
+                                }
+                            }
                         }
                     }
                     Image {
@@ -85,12 +103,24 @@ MessageBase {
                             }
                         }
                     }
-                    Text {
+                    QQC2.Label {
                         text: model.modelData.description
                         wrapMode: QQC2.Label.Wrap
                         anchors.leftMargin: Kirigami.Units.smallSpacing
                         anchors.rightMargin: Kirigami.Units.smallSpacing
                         visible: model.modelData.description !== ""
+                        MouseArea {
+                            anchors.fill: parent
+                            acceptedButtons: Qt.RightButton
+
+                            onClicked: {
+                                if (mouse.button === Qt.RightButton) {
+                                    menu.x = mouse.x
+                                    menu.y = mouse.y
+                                    menu.open();
+                                }
+                            }
+                        }
                     }
                 }
 
