@@ -1,0 +1,31 @@
+{
+    "alias": "foo",
+    "avatar": "",
+    "editedAt": -1,
+    "editedByUserID": "",
+    "editedByUsername": "",
+    "groupable": false,
+    "message": "s",
+    "messageID": "4x2picEqPzAph3dty",
+    "messageType": "NormalText",
+    "parseUrls": false,
+    "reactions": {
+        ":mrs_claus:": {
+            "usernames": [
+                "foo"
+            ]
+        },
+        ":right_facing_fist:": {
+            "usernames": [
+                "bli"
+            ]
+        }
+    },
+    "roomID": "Dic5wZD4Zu9ze5gk3",
+    "starred": false,
+    "timestamp": 1520875602292,
+    "type": "",
+    "updatedAt": 1520875784424,
+    "userID": "uKK39zoewTkdacidH",
+    "username": "laurent"
+}

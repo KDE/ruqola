@@ -1,0 +1,33 @@
+{
+    "_id": "4x2picEqPzAph3dty",
+    "_updatedAt": {
+        "$date": 1520875784424
+    },
+    "alias": "foo",
+    "channels": [
+    ],
+    "mentions": [
+    ],
+    "msg": "s",
+    "reactions": {
+        ":mrs_claus:": {
+            "usernames": [
+                "foo"
+            ]
+        },
+        ":right_facing_fist:": {
+            "usernames": [
+                "bli"
+            ]
+        }
+    },
+    "rid": "Dic5wZD4Zu9ze5gk3",
+    "ts": {
+        "$date": 1520875602292
+    },
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "name": "foo",
+        "username": "laurent"
+    }
+}
