@@ -43,6 +43,7 @@ public:
         ServerInfo,
         PrivateInfo,
         Me,
+        UploadFile,
     };
     Q_ENUM(RestMethod)
 
@@ -66,7 +67,7 @@ public:
     void channelList();
     void getAvatar(const QString &userId);
 
-    QUrl generateUrl(RestApiUtil::RestApiUrlType type);
+    QUrl generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension = QString());
 
     void post(const QUrl &url, const QByteArray &data, const QString &mimeType = QStringLiteral("text/plain"));
     QNetworkReply *get(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"));
@@ -74,6 +75,7 @@ public:
     void serverInfo();
     void getPrivateSettings();
     void getOwnInfo();
+    void uploadFile(const QString &roomId, const QString &description, const QString &text, const QString &filename);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -97,6 +99,7 @@ private:
     void parseChannelList(const QByteArray &data);
     void parseGet(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFile);
     void parsePost(const QByteArray &data);
+    void parseUploadFile(const QByteArray &data);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QNetworkCookieJar *mCookieJar;
     QString mUserId;

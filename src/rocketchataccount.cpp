@@ -599,6 +599,7 @@ void RocketChatAccount::starMessage(const QString &messageId, const QString &rid
 
 void RocketChatAccount::uploadFile(const QString &description, const QUrl &fileUrl)
 {
+    restApi()->uploadFile(QString(), description, QString(), fileUrl.path());
     qDebug() << " void RocketChatAccount::uploadFile(const QString &description, const QUrl &fileUrl)"<<description << " file " << fileUrl;
     //TODO
 }

@@ -30,6 +30,8 @@
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
 #include <QJsonArray>
+#include <QHttpMultiPart>
+#include <QFile>
 
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
@@ -170,6 +172,11 @@ void RestApiRequest::parsePost(const QByteArray &data)
     qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parsePost: " << data;
 }
 
+void RestApiRequest::parseUploadFile(const QByteArray &data)
+{
+    qDebug() << "RestApiRequest::parseUploadFile result " << data;
+}
+
 void RestApiRequest::parsePrivateInfo(const QByteArray &data)
 {
     const QJsonDocument replyJson = QJsonDocument::fromJson(data);
@@ -216,6 +223,9 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             break;
         case Me:
             parseOwnInfo(data);
+            break;
+        case UploadFile:
+            parseUploadFile(data);
             break;
         case Get:
         {
@@ -287,9 +297,13 @@ QString RestApiRequest::userId() const
     return mUserId;
 }
 
-QUrl RestApiRequest::generateUrl(RestApiUtil::RestApiUrlType type)
+QUrl RestApiRequest::generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension)
 {
-    return QUrl(RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(type));
+    QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(type);
+    if (!urlExtension.isEmpty()) {
+        urlStr += QLatin1Char('/') + urlExtension;
+    }
+    return QUrl(urlStr);
 }
 
 void RestApiRequest::login()
@@ -414,4 +428,45 @@ void RestApiRequest::serverInfo()
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     QNetworkReply *reply = mNetworkAccessManager->get(request);
     reply->setProperty("method", QVariant::fromValue(RestMethod::ServerInfo));
+}
+
+void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QString &filename)
+{
+    qDebug() << " void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QString &filename)"<< filename << description;
+    QFile *file = new QFile(filename);
+    if (!file->open(QIODevice::ReadOnly)) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << " Impossible to open filename " << filename;
+        delete file;
+        return;
+    }
+
+    QUrl url = generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, roomId);
+    QNetworkRequest request(url);
+    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
+    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+
+    QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+
+    QHttpPart filePart;
+    filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(QStringLiteral("text/plain")));
+    filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QStringLiteral("form-data; name=\"file\"; filename=\"example.txt\"")));
+
+    filePart.setBodyDevice(file);
+    file->setParent(multiPart); // we cannot delete the file now, so delete it with the multiPart
+
+
+    QHttpPart msgPart;
+    msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"msg\"")));
+    msgPart.setBody(text.toUtf8());
+    multiPart->append(msgPart);
+
+    QHttpPart descriptionPart;
+    descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"description\"")));
+    descriptionPart.setBody(text.toUtf8());
+    multiPart->append(descriptionPart);
+    QNetworkReply *reply = mNetworkAccessManager->post(request, multiPart);
+    reply->setProperty("method", QVariant::fromValue(RestMethod::UploadFile));
+    multiPart->setParent(reply); // delete the multiPart with the reply
 }
