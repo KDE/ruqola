@@ -32,6 +32,7 @@
 #include <QJsonArray>
 #include <QHttpMultiPart>
 #include <QFile>
+#include <QMimeDatabase>
 
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
@@ -430,15 +431,16 @@ void RestApiRequest::serverInfo()
     reply->setProperty("method", QVariant::fromValue(RestMethod::ServerInfo));
 }
 
-void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QString &filename)
+void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename)
 {
-    qDebug() << " void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QString &filename)"<< filename << description;
-    QFile *file = new QFile(filename);
+    QFile *file = new QFile(filename.path());
     if (!file->open(QIODevice::ReadOnly)) {
         qCWarning(RUQOLA_RESTAPI_LOG) << " Impossible to open filename " << filename;
         delete file;
         return;
     }
+    QMimeDatabase db;
+    const QMimeType mimeType = db.mimeTypeForFile(filename.path());
 
     QUrl url = generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, roomId);
     QNetworkRequest request(url);
@@ -450,7 +452,8 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
     QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
     QHttpPart filePart;
-    filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(QStringLiteral("text/plain")));
+    filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
+    QString filePartInfo = QStringLiteral("form-data; name=\"file\"; filename=\"example.txt\"").arg(filename.fileName());
     filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QStringLiteral("form-data; name=\"file\"; filename=\"example.txt\"")));
 
     filePart.setBodyDevice(file);

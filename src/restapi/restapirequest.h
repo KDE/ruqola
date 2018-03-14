@@ -75,7 +75,7 @@ public:
     void serverInfo();
     void getPrivateSettings();
     void getOwnInfo();
-    void uploadFile(const QString &roomId, const QString &description, const QString &text, const QString &filename);
+    void uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
