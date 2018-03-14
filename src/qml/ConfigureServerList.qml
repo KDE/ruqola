@@ -45,7 +45,7 @@ Kirigami.Page {
             model: accountModel
             delegate:
                 RowLayout {
-                Text {
+                QQC2.Label {
                     text: name
                 }
                 Kirigami.Icon {

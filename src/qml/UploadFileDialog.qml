@@ -58,6 +58,7 @@ QQC2.Dialog {
 
             QQC2.TextField {
                 id: selectedFileNameField
+                selectByMouse: true
             }
 
             Kirigami.Icon {

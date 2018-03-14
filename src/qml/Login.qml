@@ -53,7 +53,7 @@ Kirigami.Page {
         anchors.centerIn: parent
         width: 0.8*parent.width
         spacing: 3
-        Text {
+        QQC2.Label {
             id: loginLabel
 
             text: i18n("Ruqola Log in")
@@ -70,34 +70,35 @@ Kirigami.Page {
             height: 30
         }
 
-        Text {
+        QQC2.Label {
             width: parent.width
             text: i18n("Account Name")
         }
 
-        TextField {
+        QQC2.TextField {
             id: nameField
+            selectByMouse: true
             text: originalAccountName
             readOnly: originalAccountName !== ""
             width: parent.width
             placeholderText: i18n("Enter Account Name")
         }
 
-        Text {
+        QQC2.Label {
             width: parent.width
             text: i18n("Rocket Chat Server")    
         }
 
-        TextField {
+        QQC2.TextField {
             id: urlField
-
+            selectByMouse: true
             width: parent.width
             placeholderText: i18n("Enter address of the server")
         }
         
         //
 
-        Text {
+        QQC2.Label {
             width: parent.width
             text: i18n("Authentication Method")
             visible: loginMethodCombobox.visible
@@ -130,20 +131,21 @@ Kirigami.Page {
 
 
 
-        Text {
+        QQC2.Label {
             id:username
 
             width: parent.width
             text: i18n("Enter your username")
         }
 
-        TextField {
+        QQC2.TextField {
+            selectByMouse: true
             width: parent.width
             id: usernameField
             placeholderText: i18n("Enter Username")
         }
         
-        Text {
+        QQC2.Label {
             id: passLabel
 
             width: parent.width
@@ -183,7 +185,7 @@ Kirigami.Page {
             height: 30
         }
 
-        Text {
+        QQC2.Label {
             text: i18n("Login Failed");
             horizontalAlignment: Text.AlignHCenter
             width: parent.width

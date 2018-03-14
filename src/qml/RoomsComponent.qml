@@ -91,7 +91,7 @@ Component {
                         }
                     }
                 }
-                TextField {
+                QQC2.TextField {
                     id: searchField
                     focus: true
                     Layout.minimumHeight: Layout.maximumHeight

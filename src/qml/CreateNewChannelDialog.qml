@@ -20,17 +20,17 @@
 
 import QtQuick 2.9
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import KDE.Ruqola.DebugCategory 1.0
-Dialog {
+QQC2.Dialog {
     id: createNewChannelDialog
 
     signal createNewChannel(string name, bool readOnly, bool privateRoom, string usernames)
 
     title: i18n("Create Channel")
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
+    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
@@ -48,36 +48,36 @@ Dialog {
 
     GridLayout {
         columns: 2
-        Label {
+        QQC2.Label {
             text: i18n("Name:");
         }
-        TextField {
+        QQC2.TextField {
             id: channelName
             selectByMouse: true
             placeholderText: i18n("Channel Name")
         }
 
-        Label {
+        QQC2.Label {
             text: i18n("Users:");
         }
-        TextField {
+        QQC2.TextField {
             id: userList
             selectByMouse: true
             //Add i18n context ?
             placeholderText: i18n("User separate with ','")
         }
 
-        Label {
+        QQC2.Label {
             text: i18n("Read-Only:");
         }
-        Switch {
+        QQC2.Switch {
             id: readOnlyRoom
             checked: false
         }
-        Label {
+        QQC2.Label {
             text: i18n("Private:");
         }
-        Switch {
+        QQC2.Switch {
             id: privateRoom
             checked: false
         }

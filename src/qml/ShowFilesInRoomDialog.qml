@@ -20,14 +20,14 @@
 
 
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import QtQuick 2.9
 import KDE.Ruqola.FilesForRoomFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 import "common"
 
-Dialog {
+QQC2.Dialog {
     id: showFilesInRoomDialog
 
     title: i18n("Show Files In Room")
@@ -41,7 +41,7 @@ Dialog {
 
     modal: true
 
-    standardButtons: Dialog.Close
+    standardButtons: QQC2.Dialog.Close
 
     function initializeAndOpen()
     {
@@ -51,7 +51,7 @@ Dialog {
 
 
     ColumnLayout {
-        TextField {
+        QQC2.TextField {
             id: searchField
             focus: true
             selectByMouse: true
@@ -63,7 +63,7 @@ Dialog {
                 filesModel.setFilterString(text);
             }
         }
-        Label {
+        QQC2.Label {
             text: i18np("%1 attachment in room", "%1 attachments in room", listview.count)
         }
 
@@ -74,16 +74,16 @@ Dialog {
             height: 200
             clip: true
             // Scrollars
-            ScrollIndicator.vertical: ScrollIndicator { }
-            ScrollIndicator.horizontal: ScrollIndicator { }
+            QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
+            QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
 
             model: filesModel
             delegate:
                 RowLayout {
-                Label {
+                QQC2.Label {
                     Layout.fillWidth: true
                     text: username + description
-                    wrapMode: Label.Wrap
+                    wrapMode: QQC2.Label.Wrap
                 }
                 DownloadButton {
                     onDownloadButtonClicked: {

@@ -19,18 +19,18 @@
 */
 import QtQuick 2.9
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import KDE.Ruqola.RuqolaAboutDataAuthorModel 1.0
 import KDE.Ruqola.RuqolaAboutData 1.0
 
 import org.kde.kirigami 2.1 as Kirigami
-Dialog {
+QQC2.Dialog {
     id: aboutDialog
 
     title: i18n("About Ruqola")
 
-    standardButtons: Dialog.Close
+    standardButtons: QQC2.Dialog.Close
 
     signal openurl(string link)
 
@@ -42,24 +42,24 @@ Dialog {
     width: 400
     height: 600
     modal: true
-    TabBar {
+    QQC2.TabBar {
         id: bar
         width: parent.width
 
-        TabButton {
+        QQC2.TabButton {
             text: i18n("About")
         }
-        TabButton {
+        QQC2.TabButton {
             text: i18n("Libraries")
         }
-        TabButton {
+        QQC2.TabButton {
             text: i18n("Author")
         }
-        TabButton {
+        QQC2.TabButton {
             text: i18n("Thanks To")
             visible: applicationData.creditsModel.rowCount() > 0
         }
-        TabButton {
+        QQC2.TabButton {
             text: i18n("Translation")
             visible: applicationData.translatorModel.rowCount() > 0
         }
@@ -77,19 +77,19 @@ Dialog {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                Text {
+                QQC2.Label {
                     text: applicationData.title
                     wrapMode: Text.WordWrap
                     textFormat: Qt.RichText
                 }
-                Text {
+                QQC2.Label {
                     text: applicationData.about
-                    wrapMode: Text.WordWrap
+                    wrapMode: QQC2.Label.Wrap
                     textFormat: Qt.RichText
                 }
-                Text {
+                QQC2.Label {
                     text: applicationData.licenses
-                    wrapMode: Text.WordWrap
+                    wrapMode: QQC2.Label.Wrap
                     textFormat: Qt.RichText
                     onLinkActivated: {
                         licenseDialog.licenseText = applicationData.licenseText(link);
@@ -105,9 +105,9 @@ Dialog {
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
-                Text {
+                QQC2.Label {
                     text: applicationData.libraries
-                    wrapMode: Text.WordWrap
+                    wrapMode: QQC2.Label.Wrap
                     textFormat: Qt.RichText
                 }
             }
@@ -119,16 +119,16 @@ Dialog {
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
-                Text {
+                QQC2.Label {
                     visible: applicationData.reportBugs !== ""
                     text: applicationData.reportBugs
-                    wrapMode: Text.WordWrap
+                    wrapMode: QQC2.Label.Wrap
                     textFormat: Qt.RichText
                     onLinkActivated: {
                         aboutDialog.openurl(link);
                     }
                 }
-                ScrollView {
+                QQC2.ScrollView {
                     id: view
                     width: authorTab.width
                     height: authorTab.height
@@ -140,26 +140,26 @@ Dialog {
                             model: applicationData.authorModel
                             Column {
                                 spacing: 5
-                                Text {
+                                QQC2.Label {
                                     text: username
-                                    wrapMode: Label.Wrap
+                                    wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
                                     renderType: Text.NativeRendering
                                     textFormat: Text.RichText
                                     font.bold: true
                                 }
-                                Text {
+                                QQC2.Label {
                                     text: task
-                                    wrapMode: Label.Wrap
+                                    wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
                                     renderType: Text.NativeRendering
                                     textFormat: Text.RichText
                                 }
-                                Text {
+                                QQC2.Label {
                                     text: email
-                                    wrapMode: Label.Wrap
+                                    wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
                                     renderType: Text.NativeRendering
@@ -181,7 +181,7 @@ Dialog {
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
-                ScrollView {
+                QQC2.ScrollView {
                     id: thanksToTabview
                     width: thanksToTab.width
                     height: thanksToTab.height
@@ -192,26 +192,26 @@ Dialog {
 
                             model: applicationData.creditsModel
                             Column {
-                                Text {
+                                QQC2.Label {
                                     text: username
-                                    wrapMode: Label.Wrap
+                                    wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
                                     renderType: Text.NativeRendering
                                     textFormat: Text.RichText
                                     font.bold: true
                                 }
-                                Text {
+                                QQC2.Label {
                                     text: task
-                                    wrapMode: Label.Wrap
+                                    wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
                                     renderType: Text.NativeRendering
                                     textFormat: Text.RichText
                                 }
-                                Text {
+                                QQC2.Label {
                                     text: email
-                                    wrapMode: Label.Wrap
+                                    wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
                                     renderType: Text.NativeRendering
@@ -234,7 +234,7 @@ Dialog {
                 Layout.fillWidth: true
                 Layout.topMargin: Kirigami.Units.smallSpacing
 
-                ScrollView {
+                QQC2.ScrollView {
                     id: translatorToTabView
                     width: translatorToTab.width
                     height: translatorToTab.height
@@ -245,26 +245,26 @@ Dialog {
 
                             model: applicationData.translatorModel
                             Column {
-                                Text {
+                                QQC2.Label {
                                     text: username
-                                    wrapMode: Label.Wrap
+                                    wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
                                     renderType: Text.NativeRendering
                                     textFormat: Text.RichText
                                     font.bold: true
                                 }
-                                Text {
+                                QQC2.Label {
                                     text: task
-                                    wrapMode: Label.Wrap
+                                    wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
                                     renderType: Text.NativeRendering
                                     textFormat: Text.RichText
                                 }
-                                Text {
+                                QQC2.Label {
                                     text: email
-                                    wrapMode: Label.Wrap
+                                    wrapMode: QQC2.Label.Wrap
                                     anchors.leftMargin: Kirigami.Units.smallSpacing
                                     anchors.rightMargin: Kirigami.Units.smallSpacing
                                     renderType: Text.NativeRendering

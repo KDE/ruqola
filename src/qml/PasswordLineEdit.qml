@@ -24,10 +24,11 @@ import QtQuick.Controls 1.3
 import QtQuick.Controls 2.2 as QQC2
 import org.kde.kirigami 2.1 as Kirigami
 
-TextField {
+QQC2.TextField {
     id: passwordLineEdit
     property bool displayPassword: false
 
+    selectByMouse: true
     echoMode: displayPassword ? TextInput.Normal : TextInput.Password
     inputMethodHints: Qt.ImhHiddenText
     placeholderText: i18n("Enter password")

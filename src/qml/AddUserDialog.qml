@@ -20,14 +20,14 @@
 
 import QtQuick 2.9
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 
 import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.UserCompleterFilterModelProxy 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
-Dialog {
+QQC2.Dialog {
     id: addUserDialog
 
     property QtObject completerModel
@@ -37,7 +37,7 @@ Dialog {
     property string roomId: ""
 
     title: i18n("Add Users")
-    standardButtons: Dialog.Close
+    standardButtons: QQC2.Dialog.Close
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
@@ -51,7 +51,7 @@ Dialog {
     }
 
     ColumnLayout {
-        TextField {
+        QQC2.TextField {
             id: username
             focus: true
             selectByMouse: true
@@ -91,7 +91,7 @@ Dialog {
                     height: 22
                     width: 22
                 }
-                Text {
+                QQC2.Label {
                     text: username
                 }
             }

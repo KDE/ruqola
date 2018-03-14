@@ -20,14 +20,14 @@
 
 import QtQuick 2.9
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 
 import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.SearchChannelFilterProxyModel 1.0
 import org.kde.kirigami 2.1 as Kirigami
 
-Dialog {
+QQC2.Dialog {
     id: searchChannelDialog
 
     property QtObject searchChannelModel
@@ -35,7 +35,7 @@ Dialog {
     signal openChannel(string channelname, var channeltype)
 
     title: i18n("Search Channel")
-    standardButtons: Dialog.Close
+    standardButtons: QQC2.Dialog.Close
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
@@ -49,8 +49,9 @@ Dialog {
     }
 
     ColumnLayout {
-        TextField {
+        QQC2.TextField {
             id: channelname
+            selectByMouse: true
             focus: true
             Layout.minimumHeight: Layout.maximumHeight
             Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
@@ -87,7 +88,7 @@ Dialog {
                     height: 22
                     width: 22
                 }
-                Text {
+                QQC2.Label {
                     text: channelname
                 }
             }
