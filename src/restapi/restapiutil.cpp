@@ -19,6 +19,7 @@
 */
 
 #include "restapiutil.h"
+#include "ruqola_restapi_debug.h"
 
 QString RestApiUtil::adaptUrl(const QString &url)
 {
@@ -188,6 +189,9 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("info");
     case RestApiUtil::RestApiUrlType::Settings:
         return QStringLiteral("settings");
+    case RestApiUtil::RestApiUrlType::RoomsUpload:
+        return QStringLiteral("rooms.upload");
     }
+    qCWarning(RUQOLA_RESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
 }
