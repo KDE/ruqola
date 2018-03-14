@@ -145,7 +145,9 @@ Rectangle {
                               i_attachments: i_attachments,
                               i_date: i_date,
                               i_editedByUserName: i_editedByUserName,
-                              rcAccount: appid.rocketChatAccount
+                              rcAccount: appid.rocketChatAccount,
+                              i_editedByUserName: i_editedByUserName,
+                              i_starred: i_starred
                           })
             } else if (i_messageType === Message.Video) {
                 console.log(RuqolaDebugCategorySingleton.category, "Video");
@@ -162,7 +164,9 @@ Rectangle {
                               i_attachments: i_attachments,
                               i_date: i_date,
                               i_editedByUserName: i_editedByUserName,
-                              rcAccount: appid.rocketChatAccount
+                              rcAccount: appid.rocketChatAccount,
+                              i_editedByUserName: i_editedByUserName,
+                              i_starred: i_starred
                           })
             } else if (i_messageType === Message.Image) {
                 console.log(RuqolaDebugCategorySingleton.category, "Image");
@@ -179,7 +183,9 @@ Rectangle {
                               i_attachments: i_attachments,
                               i_date: i_date,
                               i_editedByUserName: i_editedByUserName,
-                              rcAccount: appid.rocketChatAccount
+                              rcAccount: appid.rocketChatAccount,
+                              i_editedByUserName: i_editedByUserName,
+                              i_starred: i_starred
                           })
 
             } else {

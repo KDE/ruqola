@@ -68,7 +68,7 @@ Kirigami.ApplicationWindow {
         resetMenuOnTriggered: true
         
         topContent: [
-            Text {
+            QQC2.Label {
                 text: rocketChatAccount.userName === "" ? "" : i18n("Hello, %1", rocketChatAccount.userName)
             }
         ]

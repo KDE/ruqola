@@ -217,7 +217,7 @@ Component {
                             height: 22
                             width: 22
                         }
-                        Text {
+                        QQC2.Label {
                             text: model.displayname
                             onLinkActivated: {
                                 openDirectChannelDialog.username = link;

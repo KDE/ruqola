@@ -43,10 +43,12 @@ ColumnLayout {
     property var i_urls
     property var i_attachments
     property string i_editedByUserName
+    property bool i_starred
+    property bool i_can_editing_message
+
 
 
     property QtObject rcAccount
-
 
     NewDateLabel {
         id: newDateRect

@@ -38,8 +38,6 @@ MessageBase {
     property var i_urls
     property var i_attachments
     property string i_own_username
-    property bool i_can_editing_message
-    property bool i_starred
 
     id: messageMain
     Layout.alignment: Qt.AlignTop
@@ -86,7 +84,7 @@ MessageBase {
                 id: fullTextColumn
 
                 Layout.fillWidth: true
-                Text {
+                QQC2.Label {
                     width: parent.width
                     id: textLabel
 
@@ -150,7 +148,7 @@ MessageBase {
                                 anchors.rightMargin: Kirigami.Units.smallSpacing
                             }
                             Row {
-                                Text {
+                                QQC2.Label {
                                     id: attachmentTitle
                                     renderType: Text.NativeRendering
                                     textFormat: Text.RichText
@@ -175,7 +173,7 @@ MessageBase {
                                     Layout.fillWidth: true
                                 }
                             }
-                            Text {
+                            QQC2.Label {
                                 visible: model.modelData.description !== ""
                                 width: urlColumn.width
                                 text: model.modelData.description

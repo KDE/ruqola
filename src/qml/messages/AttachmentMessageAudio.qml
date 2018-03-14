@@ -72,7 +72,7 @@ MessageBase {
             ColumnLayout {
                 Layout.fillWidth: true
 
-                Text {
+                QQC2.Label {
                     text: model.modelData.title === "" ? "" :  i18n("File send: %1", model.modelData.title)
                     visible: model.modelData.title !== ""
                     wrapMode: QQC2.Label.Wrap
@@ -127,7 +127,7 @@ MessageBase {
                         }
                     }
                 }
-                Text {
+                QQC2.Label {
                     text: model.modelData.description
                     visible: model.modelData.description !== ""
                     wrapMode: QQC2.Label.Wrap
