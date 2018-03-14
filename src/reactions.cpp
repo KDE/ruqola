@@ -61,6 +61,7 @@ void Reactions::parseReactions(const QJsonObject &reacts)
             r.setUserNames(users);
             mReactions.append(r);
         }
+        users.clear();
     }
 }
 

@@ -50,6 +50,17 @@ void ReactionsTest::shouldParseReactions_data()
         reactionsRef.setReactions({react});
         QTest::addRow("reactions") << QStringLiteral("reactions") << reactionsRef;
     }
+    {
+        Reactions reactionsRef;
+        Reaction react;
+        react.setReactionName(QStringLiteral(":mrs_claus:"));
+        react.setUserNames(QStringList() << QStringLiteral("bla"));
+        Reaction react2;
+        react2.setReactionName(QStringLiteral(":right_facing_fist:"));
+        react2.setUserNames(QStringList() << QStringLiteral("bli"));
+        reactionsRef.setReactions({react, react2});
+        QTest::addRow("reactions2") << QStringLiteral("reactions2") << reactionsRef;
+    }
 }
 
 void ReactionsTest::shouldParseReactions()
