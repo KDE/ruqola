@@ -133,7 +133,7 @@ public:
     Q_INVOKABLE QString recordingImagePath() const;
     Q_INVOKABLE void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     Q_INVOKABLE void starMessage(const QString &messageId, const QString &rid, bool starred);
-    Q_INVOKABLE void uploadFile(const QString &roomId, const QString &description, const QUrl &fileUrl);
+    Q_INVOKABLE void uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl);
     Q_INVOKABLE QString serverUrl() const;
 
     Q_INVOKABLE QString avatarUrl(const QString &userId);

@@ -597,11 +597,9 @@ void RocketChatAccount::starMessage(const QString &messageId, const QString &rid
     ddp()->starMessage(messageId, rid, starred);
 }
 
-void RocketChatAccount::uploadFile(const QString &roomId, const QString &description, const QUrl &fileUrl)
+void RocketChatAccount::uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl)
 {
-    restApi()->uploadFile(roomId, description, QString(), fileUrl);
-    qDebug() << " void RocketChatAccount::uploadFile(const QString &description, const QUrl &fileUrl)"<<description << " file " << fileUrl;
-    //TODO
+    restApi()->uploadFile(roomId, description, messageText, fileUrl);
 }
 
 void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue)

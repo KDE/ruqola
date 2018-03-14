@@ -36,26 +36,44 @@ QQC2.Dialog {
 
     modal: true
 
-    signal uploadFile(string description, url filename)
+    signal uploadFile(string description, string messageText, url filename)
 
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     function initializeAndOpen()
     {
         description.text = "";
+        message.text = "";
         selectedFileNameField.text = "";
         open();
     }
 
-    Column {
+    ColumnLayout {
+        QQC2.Label {
+            text: i18n("Description")
+        }
+
         QQC2.TextField {
             id: description
             selectByMouse: true
             placeholderText: i18n("Description")
         }
-        RowLayout {
-            id: textFieldEditor
 
+        QQC2.Label {
+            text: i18n("Message")
+        }
+
+        QQC2.TextField {
+            id: message
+            selectByMouse: true
+            placeholderText: i18n("Message")
+        }
+
+        QQC2.Label {
+            text: i18n("Select File")
+        }
+
+        RowLayout {
             QQC2.TextField {
                 id: selectedFileNameField
                 selectByMouse: true
@@ -68,26 +86,26 @@ QQC2.Dialog {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                       selectFileDialog.open()
+                        selectFileDialog.open()
                     }
                 }
             }
-            FileDialog {
-                id: selectFileDialog
-                title: i18n("Please choose a file")
-                folder: shortcuts.documents
-                selectFolder: false
-                selectMultiple: false
-                selectExisting: true
-                onAccepted: {
-                    selectedFileNameField.text = fileUrl
-                }
+        }
+        FileDialog {
+            id: selectFileDialog
+            title: i18n("Please choose a file")
+            folder: shortcuts.documents
+            selectFolder: false
+            selectMultiple: false
+            selectExisting: true
+            onAccepted: {
+                selectedFileNameField.text = fileUrl
             }
         }
     }
     onAccepted: {
         if (selectedFileNameField.text != "") {
-            uploadFileDialog.uploadFile(description.text, selectedFileNameField.text)
+            uploadFileDialog.uploadFile(description.text, message.text, selectedFileNameField.text)
         }
     }
 }
