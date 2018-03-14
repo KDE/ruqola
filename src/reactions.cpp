@@ -73,13 +73,46 @@ QDebug operator <<(QDebug d, const Reactions &t)
     return d;
 }
 
-QJsonObject Reactions::serialize(const Reactions &message)
+QJsonObject Reactions::serialize(const Reactions &reactions)
 {
-    //TODO
-    return {};
+    QJsonObject obj;
+    for (int i = 0; i < reactions.reactions().count(); ++i) {
+        QJsonObject react;
+        react[QLatin1String("usernames")] = QJsonArray::fromStringList(reactions.reactions().at(i).userNames());
+        obj[reactions.reactions().at(i).reactionName()] = react;
+    }
+    return obj;
 }
 
 Reactions Reactions::fromJSon(const QJsonObject &o)
 {
-    return {};
+    QVector<Reaction> reacts;
+    const QStringList lst = o.keys();
+    QStringList users;
+    for (const QString &str : lst) {
+        const QJsonObject obj = o.value(str).toObject();
+        QJsonValue usernames = obj.value(QLatin1String("usernames"));
+        if (!usernames.isUndefined()) {
+            QJsonArray array = usernames.toArray();
+            for (int i = 0; i < array.count(); ++i) {
+                users.append(array.at(i).toString());
+            }
+
+        }
+        if (!users.isEmpty()) {
+            Reaction r;
+            r.setReactionName(str);
+            r.setUserNames(users);
+            reacts.append(r);
+        }
+        users.clear();
+    }
+    Reactions final;
+    final.setReactions(reacts);
+    return final;
+}
+
+bool Reactions::isEmpty() const
+{
+    return mReactions.isEmpty();
 }

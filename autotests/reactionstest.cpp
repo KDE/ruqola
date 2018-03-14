@@ -35,6 +35,7 @@ void ReactionsTest::shouldHaveDefaultValue()
 {
     Reactions reacts;
     QVERIFY(reacts.reactions().isEmpty());
+    QVERIFY(reacts.isEmpty());
 }
 
 

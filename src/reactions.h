@@ -35,8 +35,10 @@ public:
 
     bool operator ==(const Reactions &other) const;
 
-    static QJsonObject serialize(const Reactions &message);
+    static QJsonObject serialize(const Reactions &reactions);
     static Reactions fromJSon(const QJsonObject &o);
+
+    bool isEmpty() const;
 
 private:
     QVector<Reaction> mReactions;

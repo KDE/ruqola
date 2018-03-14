@@ -474,6 +474,9 @@ Message Message::fromJSon(const QJsonObject &o)
             message.mUrls.append(url);
         }
     }
+    const QJsonObject reactionsArray = o.value(QLatin1String("reactions")).toObject();
+    message.setReactions(Reactions::fromJSon(reactionsArray));
+
     const QJsonArray mentionsArray = o.value(QLatin1String("mentions")).toArray();
     for (int i = 0; i < mentionsArray.count(); ++i) {
         const QJsonObject mention = mentionsArray.at(i).toObject();
@@ -516,9 +519,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     //Attachments
     if (!message.mAttachements.isEmpty()) {
         QJsonArray array;
-        const int nbAttachment{
-            message.mAttachements.count()
-        };
+        const int nbAttachment = message.mAttachements.count();
         for (int i = 0; i < nbAttachment; ++i) {
             array.append(MessageAttachment::serialize(message.mAttachements.at(i)));
         }
@@ -540,7 +541,10 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         }
         o[QStringLiteral("urls")] = array;
     }
-    //TODO reactions
+
+    if (!message.reactions().isEmpty()) {
+        o[QStringLiteral("reactions")] = Reactions::serialize(message.reactions());
+    }
 
     d.setObject(o);
     if (toBinary) {
