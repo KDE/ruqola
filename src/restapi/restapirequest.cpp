@@ -175,7 +175,11 @@ void RestApiRequest::parsePost(const QByteArray &data)
 
 void RestApiRequest::parseUploadFile(const QByteArray &data)
 {
-    qDebug() << "RestApiRequest::parseUploadFile result " << data;
+    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+    const QJsonObject replyObject = replyJson.object();
+    if (!replyObject.value(QLatin1String("success")).toBool()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseUploadFile method had a problem " << replyJson;
+    }
 }
 
 void RestApiRequest::parsePrivateInfo(const QByteArray &data)
