@@ -32,6 +32,8 @@ public:
 private Q_SLOTS:
     void shouldAdaptUrl_data();
     void shouldAdaptUrl();
+
+    void shouldUseV1Version();
 };
 
 #endif // RESTAPIUTIL_H

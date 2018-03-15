@@ -185,7 +185,7 @@ void RestApiRequest::parseUploadFile(const QByteArray &data)
 void RestApiRequest::parsePrivateInfo(const QByteArray &data)
 {
     const QJsonDocument replyJson = QJsonDocument::fromJson(data);
-    qDebug() << " replyJson" << replyJson;
+    //qDebug() << " replyJson" << replyJson;
 }
 
 void RestApiRequest::parseServerInfo(const QByteArray &data)

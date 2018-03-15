@@ -45,3 +45,8 @@ void RestApiUtilTest::shouldAdaptUrl()
     QFETCH(QString, output);
     QCOMPARE(RestApiUtil::adaptUrl(input), output);
 }
+
+void RestApiUtilTest::shouldUseV1Version()
+{
+    QCOMPARE(RestApiUtil::apiUri(), QStringLiteral("/api/v1/"));
+}
