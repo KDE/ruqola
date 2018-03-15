@@ -467,7 +467,7 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
 
     QHttpPart descriptionPart;
     descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"description\"")));
-    descriptionPart.setBody(text.toUtf8());
+    descriptionPart.setBody(description.toUtf8());
     multiPart->append(descriptionPart);
     QNetworkReply *reply = mNetworkAccessManager->post(request, multiPart);
     reply->setProperty("method", QVariant::fromValue(RestMethod::UploadFile));
