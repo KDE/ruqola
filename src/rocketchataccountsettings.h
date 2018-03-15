@@ -26,7 +26,7 @@
 #include "libruqola_private_export.h"
 
 namespace QKeychain {
-    class Job;
+class Job;
 }
 
 class QSettings;

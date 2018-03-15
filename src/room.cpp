@@ -82,7 +82,7 @@ bool Room::isEqual(const Room &other) const
            && (mUpdatedAt == other.updatedAt())
            && (mLastSeeAt == other.lastSeeAt())
            && (mBlocked == other.blocked())
-            && (mRoles == other.roles());
+           && (mRoles == other.roles());
 }
 
 QString Room::name() const
@@ -593,7 +593,6 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     }
     setRoles(lstRoles);
 
-
 //    const QJsonValue ownerValue = json.value(QLatin1String("u"));
 //    if (!ownerValue.isUndefined()) {
 //        const QJsonObject objOwner = ownerValue.toObject();
@@ -652,7 +651,6 @@ Room *Room::fromJSon(const QJsonObject &o)
         lstRoles <<rolesArray.at(i).toString();
     }
     r->setRoles(lstRoles);
-
 
     const QJsonObject notificationsObj = o.value(QLatin1String("notifications")).toObject();
     const NotificationOptions notifications = NotificationOptions::fromJSon(notificationsObj);
