@@ -206,7 +206,12 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::OriginalMessage:
         return mAllMessages.at(idx).text();
     case MessageModel::MessageConvertedText:
-        return convertMessageText(mAllMessages.at(idx).text(), mAllMessages.at(idx).mentions());
+        //TODO improve it.
+        if (mAllMessages.at(idx).messageType() == Message::System) {
+            return mAllMessages.at(idx).messageTypeText();
+        } else {
+            return convertMessageText(mAllMessages.at(idx).text(), mAllMessages.at(idx).mentions());
+        }
     case MessageModel::Timestamp:
         return mAllMessages.at(idx).timeStamp();
     case MessageModel::UserId:

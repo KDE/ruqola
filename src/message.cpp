@@ -21,8 +21,7 @@
 #include "message.h"
 #include "utils.h"
 #include "ruqola_debug.h"
-#include <QDebug>
-
+#include <KLocalizedString>
 #include <QJsonArray>
 #include <QJsonDocument>
 
@@ -267,6 +266,58 @@ void Message::setSystemMessageType(const QString &systemMessageType)
 Message::MessageType Message::messageType() const
 {
     return mMessageType;
+}
+
+QString Message::messageTypeText() const
+{
+    if (mSystemMessageType == QLatin1String("uj")) {
+        return i18n("%1 has joined the channel", mUsername);
+    } else if (mSystemMessageType == QLatin1String("ul")) {
+        return i18n("%1 has left the channel", mUsername);
+    } else if (mSystemMessageType == QLatin1String("room_changed_topic")) {
+        if (mText.isEmpty()) {
+            return i18n("Topic was cleared by: %1", mUsername);
+        } else {
+            return i18n("%2 changed topic to: <i>%1</i>", mText, mUsername);
+        }
+    } else if (mSystemMessageType == QLatin1String("au")) {
+        return i18n("%2 added %1 to the conversation", mText, mUsername);
+    } else if (mSystemMessageType == QLatin1String("r")) {
+        return i18n("%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>", mText, mUsername);
+    } else if (mSystemMessageType == QLatin1String("ru")) {
+        return i18n("%2 removed user %1", mText, mUsername);
+    } else if (mSystemMessageType == QLatin1String("room_changed_description")) {
+        if (mText.isEmpty()) {
+            return i18n("Description was cleared by %1", mUsername);
+        } else {
+            return i18n("%2 changed room description to %1", mText, mUsername);
+        }
+    } else if (mSystemMessageType == QLatin1String("room_changed_announcement")) {
+        if (mText.isEmpty()) {
+            return i18n("Announcement was cleared by %1", mUsername);
+        } else {
+            return i18n("%2 changed room announcement to %1", mText, mUsername);
+        }
+    } else if (mSystemMessageType == QLatin1String("room_changed_privacy")) {
+        return i18n("%2 changed room privacy to %1", mText, mUsername);
+    } else if (mSystemMessageType == QLatin1String("jitsi_call_started")) {
+        return i18n("Click to join to video");
+    } else if (mSystemMessageType == QLatin1String("rm")) {
+        return i18n("Message Deleted");
+    } else if (mSystemMessageType == QLatin1String("message_pinned")) {
+        return i18n("Message Pinned");
+    } else if (mSystemMessageType == QLatin1String("otr")) {
+        return i18n("Encrypted Message");
+    } else if (mSystemMessageType == QLatin1String("user-unmuted")) {
+        //TODO improve it
+        return i18n("%1 was unmuted", mUsername);
+    } else if (mSystemMessageType == QLatin1String("user-muted")) {
+        //TODO improve it
+        return i18n("%1 was muted", mUsername);
+    } else {
+        qCWarning(RUQOLA_LOG) << "Unkown type for message: type: " << mSystemMessageType;
+        return i18n("Unknown action!");
+    }
 }
 
 void Message::setMessageType(const MessageType &messageType)

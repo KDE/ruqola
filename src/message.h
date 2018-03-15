@@ -137,6 +137,7 @@ public:
     Reactions reactions() const;
     void setReactions(const Reactions &reactions);
 
+    QString messageTypeText() const;
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);

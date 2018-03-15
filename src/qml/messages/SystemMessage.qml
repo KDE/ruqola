@@ -34,60 +34,6 @@ MessageBase {
 
     property string i_systemMessageType
 
-    //Move to C++ ?
-    function getTextFor(type) {
-        if (type === "uj") {
-            return i18n("%1 has joined the channel", i_username);
-        } else if (type === "ul") {
-            return i18n("%1 has left the channel", i_username);
-        } else if (type === "room_changed_topic") {
-            if (i_messageText == "") {
-                return i18n("Topic was cleared by: %1", i_username)
-            } else {
-                return i18n("%2 changed topic to: <i>%1</i>", i_messageText, i_username)
-            }
-        } else if (type === "au") {
-            return i18n("%2 added %1 to the conversation", i_messageText, i_username)
-        } else if (type === "r") {
-            return i18n("%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>", i_messageText, i_username)
-        } else if (type === "ru") {
-            return i18n("%2 removed user %1", i_messageText, i_username)
-        } else if (type === "room_changed_description") {
-            if (i_messageText == "") {
-                return i18n("Description was cleared by %1", i_username)
-            } else {
-                return i18n("%2 changed room description to %1", i_messageText, i_username)
-            }
-        } else if (type === "room_changed_announcement") {
-            if (i_messageText == "") {
-                return i18n("Announcement was cleared by %1", i_username)
-            } else {
-                return i18n("%2 changed room announcement to %1", i_messageText, i_username)
-            }
-        } else if (type === "room_changed_privacy") {
-            return i18n("%2 changed room privacy to %1", i_messageText, i_username)
-        } else if (type === "jitsi_call_started") {
-            return i18n("Click to join to video")
-        } else if (type === "rm") {
-            return i18n("Message Deleted")
-        } else if (type === "message_pinned") {
-            return i18n("Message Pinned")
-        } else if (type === "otr") {
-            return i18n("Encrypted Message")
-        } else if (type === "user-unmuted") {
-            //TODO improve it
-            return i18n("%1 was unmuted", i_username)
-        } else if (type === "user-muted") {
-            //TODO improve it
-            return i18n("%1 was muted", i_username)
-        } else {
-            console.log(RuqolaDebugCategorySingleton.category, "Unkown type for message");
-            console.log(RuqolaDebugCategorySingleton.category, "type : " + type);
-            console.log(RuqolaDebugCategorySingleton.category, "message: " + i_messageText)
-            return i18n("Unknown action!");
-        }
-    }
-
     RowLayout {
         Item {
             Layout.fillWidth: true
@@ -113,7 +59,7 @@ MessageBase {
 
                 width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
 
-                text: getTextFor(i_systemMessageType)
+                text: i_messageText
 
                 wrapMode: QQC2.Label.Wrap
 
