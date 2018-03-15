@@ -22,7 +22,6 @@
 
 Reactions::Reactions()
 {
-
 }
 
 void Reactions::setReactions(const QVector<Reaction> &reactions)
@@ -48,7 +47,6 @@ void Reactions::parseReactions(const QJsonObject &reacts)
             for (int i = 0; i < array.count(); ++i) {
                 users.append(array.at(i).toString());
             }
-
         }
         if (!users.isEmpty()) {
             Reaction r;
@@ -97,7 +95,6 @@ Reactions Reactions::fromJSon(const QJsonObject &o)
             for (int i = 0; i < array.count(); ++i) {
                 users.append(array.at(i).toString());
             }
-
         }
         if (!users.isEmpty()) {
             Reaction r;

@@ -23,9 +23,7 @@
 
 RestApiMethod::RestApiMethod()
 {
-
 }
-
 
 QString RestApiMethod::serverUrl() const
 {
@@ -45,4 +43,3 @@ QUrl RestApiMethod::generateUrl(RestApiUtil::RestApiUrlType type, const QString 
     }
     return QUrl(urlStr);
 }
-

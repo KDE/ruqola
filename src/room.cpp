@@ -80,8 +80,8 @@ bool Room::isEqual(const Room &other) const
            && (mUserMentions == other.userMentions())
            && (mNotificationOptions == other.notificationOptions())
            && (mUpdatedAt == other.updatedAt())
-            && (mLastSeeAt == other.lastSeeAt())
-            && (mBlocked == other.blocked());
+           && (mLastSeeAt == other.lastSeeAt())
+           && (mBlocked == other.blocked());
 }
 
 QString Room::name() const

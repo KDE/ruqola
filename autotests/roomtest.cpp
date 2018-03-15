@@ -259,7 +259,6 @@ void RoomTest::shouldParseRoomAndUpdateSubscription_data()
         << QStringLiteral("room-blocked")
         << (QStringList() << QStringLiteral("room-blockedupdate1"))
         << QStringList();
-
 }
 
 void RoomTest::shouldParseRoomAndUpdateSubscription()

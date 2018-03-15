@@ -166,7 +166,6 @@ public:
     Q_INVOKABLE void openDocumentation();
     Q_INVOKABLE void clearSearchModel();
 
-
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;

@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "reactiontest.h"
 #include "reaction.h"
 
@@ -27,7 +26,6 @@ QTEST_GUILESS_MAIN(ReactionTest)
 ReactionTest::ReactionTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ReactionTest::shouldHaveDefaultValue()

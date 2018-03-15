@@ -21,7 +21,6 @@
 
 Reaction::Reaction()
 {
-
 }
 
 QString Reaction::reactionName() const

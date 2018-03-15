@@ -76,7 +76,6 @@ void Message::parseReactions(const QJsonObject &reacts)
     }
 }
 
-
 void Message::parseMentions(const QJsonArray &mentions)
 {
     mMentions.clear();

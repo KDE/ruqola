@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef REACTIONTEST_H
 #define REACTIONTEST_H
 

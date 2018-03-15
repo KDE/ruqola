@@ -28,7 +28,6 @@ QTEST_GUILESS_MAIN(ReactionsTest)
 ReactionsTest::ReactionsTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ReactionsTest::shouldHaveDefaultValue()
@@ -37,7 +36,6 @@ void ReactionsTest::shouldHaveDefaultValue()
     QVERIFY(reacts.reactions().isEmpty());
     QVERIFY(reacts.isEmpty());
 }
-
 
 void ReactionsTest::shouldParseReactions_data()
 {

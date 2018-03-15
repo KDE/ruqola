@@ -577,7 +577,6 @@ void RocketChatAccount::addUserToRoom(const QString &username, const QString &ro
     ddp()->addUserToRoom(username, roomId);
 }
 
-
 void RocketChatAccount::clearSearchModel()
 {
     mSearchMessageModel->clear();

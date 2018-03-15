@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(RestApiMethodTest)
 RestApiMethodTest::RestApiMethodTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RestApiMethodTest::shouldHaveDefaultValue()
@@ -41,5 +40,4 @@ void RestApiMethodTest::shouldAssignDefaultValue()
     QString newUrl = QStringLiteral("http://www.kde.org");
     rest.setServerUrl(newUrl);
     QCOMPARE(rest.serverUrl(), newUrl);
-
 }
