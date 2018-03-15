@@ -41,3 +41,10 @@ void RestApiMethodTest::shouldAssignDefaultValue()
     rest.setServerUrl(newUrl);
     QCOMPARE(rest.serverUrl(), newUrl);
 }
+
+void RestApiMethodTest::shouldGenerateUrl()
+{
+    RestApiMethod rest;
+    //If server url is empty return null url
+    QVERIFY(!rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsList).isValid());
+}
