@@ -37,6 +37,10 @@ void RestApiMethod::setServerUrl(const QString &serverUrl)
 
 QUrl RestApiMethod::generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension)
 {
+    if (mServerUrl.isEmpty()) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "Server url is empty";
+        return {};
+    }
     QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(type);
     if (!urlExtension.isEmpty()) {
         urlStr += QLatin1Char('/') + urlExtension;
