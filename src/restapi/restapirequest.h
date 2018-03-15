@@ -28,6 +28,7 @@
 class QNetworkAccessManager;
 class QNetworkReply;
 class QNetworkCookieJar;
+class RestApiMethod;
 class RestApiRequest : public QObject
 {
     Q_OBJECT
@@ -101,7 +102,8 @@ private:
     void parsePost(const QByteArray &data);
     void parseUploadFile(const QByteArray &data);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
-    QNetworkCookieJar *mCookieJar;
+    QNetworkCookieJar *mCookieJar = nullptr;
+    RestApiMethod *mRestApiMethod = nullptr;
     QString mUserId;
     QString mAuthToken;
     QString mServerUrl;

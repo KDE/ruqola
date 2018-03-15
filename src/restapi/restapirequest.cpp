@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "restapimethod.h"
 #include "restapirequest.h"
 #include "ruqola_restapi_debug.h"
 
@@ -37,6 +38,7 @@
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
 {
+    mRestApiMethod = new RestApiMethod;
     mCookieJar = new QNetworkCookieJar;
     mNetworkAccessManager = new QNetworkAccessManager(this);
     mNetworkAccessManager->setCookieJar(mCookieJar);
@@ -46,6 +48,7 @@ RestApiRequest::RestApiRequest(QObject *parent)
 
 RestApiRequest::~RestApiRequest()
 {
+    delete mRestApiMethod;
 }
 
 void RestApiRequest::initializeCookies()
