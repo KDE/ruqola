@@ -39,6 +39,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(bool favorite READ favorite NOTIFY favoriteChanged)
     Q_PROPERTY(bool readOnly READ readOnly NOTIFY readOnlyChanged)
     Q_PROPERTY(bool blocker READ blocker NOTIFY blockerChanged)
+    Q_PROPERTY(bool blocked READ blocked NOTIFY blockedChanged)
     Q_PROPERTY(bool canBeModify READ canBeModify CONSTANT)
     Q_PROPERTY(bool archived READ archived NOTIFY archivedChanged)
     Q_PROPERTY(NotificationOptions notificationOptions READ notificationOptions CONSTANT)
@@ -55,6 +56,7 @@ public:
     bool favorite() const;
     bool readOnly() const;
     bool blocker() const;
+    bool blocked() const;
     QString channelType() const;
     QString roomCreatorUserId() const;
     QString rid() const;
@@ -72,6 +74,7 @@ Q_SIGNALS:
     void blockerChanged();
     void descriptionChanged();
     void archivedChanged();
+    void blockedChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)
