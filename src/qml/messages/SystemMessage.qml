@@ -73,6 +73,12 @@ MessageBase {
             return i18n("Message Pinned")
         } else if (type === "otr") {
             return i18n("Encrypted Message")
+        } else if (type === "user-unmuted") {
+            //TODO improve it
+            return i18n("%1 was unmuted", i_username)
+        } else if (type === "user-muted") {
+            //TODO improve it
+            return i18n("%1 was muted", i_username)
         } else {
             console.log(RuqolaDebugCategorySingleton.category, "Unkown type for message");
             console.log(RuqolaDebugCategorySingleton.category, "type : " + type);
