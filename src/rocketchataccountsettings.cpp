@@ -21,9 +21,15 @@
 #include "rocketchataccountsettings.h"
 #include "managerdatapaths.h"
 #include "ruqola_debug.h"
+#include <config-ruqola.h>
 
 #include <QSettings>
 #include <QStandardPaths>
+
+#if HAVE_QT5KEYCHAIN
+#include <qt5keychain/keychain.h>
+using namespace QKeychain;
+#endif
 
 RocketChatAccountSettings::RocketChatAccountSettings(const QString &accountFileName, QObject *parent)
     : QObject(parent)
@@ -42,6 +48,43 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     delete mSetting;
     mSetting = new QSettings(accountFileName, QSettings::IniFormat);
     qCDebug(RUQOLA_LOG) << "accountFileName "<<accountFileName;
+
+    mServerUrl = mSetting->value(QStringLiteral("serverURL"), QStringLiteral("open.rocket.chat")).toString();
+    mUserName = mSetting->value(QStringLiteral("username")).toString();
+    mUserId = mSetting->value(QStringLiteral("userID")).toString();
+    mAuthToken = mSetting->value(QStringLiteral("authToken")).toString();
+    mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
+
+#if HAVE_QT5KEYCHAIN
+    auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
+    connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
+    readJob->setKey(mAccountName);
+    readJob->start();
+#endif
+}
+
+void RocketChatAccountSettings::slotPasswordRead(QKeychain::Job *baseJob)
+{
+#if HAVE_QT5KEYCHAIN
+    ReadPasswordJob *job = qobject_cast<ReadPasswordJob *>(baseJob);
+    Q_ASSERT(job);
+    if (!job->error()) {
+        mPassword = job->textData();
+        qCDebug(RUQOLA_LOG) << "OK, we have the password now";
+        Q_EMIT passwordChanged();
+    }
+#else
+    Q_UNUSED(baseJob);
+#endif
+}
+
+void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
+{
+#if HAVE_QT5KEYCHAIN
+    if (baseJob->error()) {
+        qCWarning(RUQOLA_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
+    }
+#endif
 }
 
 QString RocketChatAccountSettings::userId() const
@@ -81,15 +124,6 @@ void RocketChatAccountSettings::logout()
     mPassword.clear();
 }
 
-void RocketChatAccountSettings::loadSettings()
-{
-    mServerUrl = mSetting->value(QStringLiteral("serverURL"), QStringLiteral("open.rocket.chat")).toString();
-    mUserName = mSetting->value(QStringLiteral("username")).toString();
-    mUserId = mSetting->value(QStringLiteral("userID")).toString();
-    mAuthToken = mSetting->value(QStringLiteral("authToken")).toString();
-    mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
-}
-
 QString RocketChatAccountSettings::password() const
 {
     return mPassword;
@@ -98,6 +132,16 @@ QString RocketChatAccountSettings::password() const
 void RocketChatAccountSettings::setPassword(const QString &password)
 {
     mPassword = password;
+
+#if HAVE_QT5KEYCHAIN
+    auto writeJob = new WritePasswordJob(QStringLiteral("Ruqola"), this);
+    connect(writeJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordWritten);
+    writeJob->setKey(mAccountName);
+    writeJob->setTextData(mPassword);
+    writeJob->start();
+#endif
+
+    Q_EMIT passwordChanged();
 }
 
 QString RocketChatAccountSettings::userName() const

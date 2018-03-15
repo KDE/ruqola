@@ -46,6 +46,18 @@ if (WIN32 OR APPLE)
     )
 endif()
 
+
+find_package(Qt5Keychain REQUIRED)
+set_package_properties(Qt5Keychain PROPERTIES
+                                   DESCRIPTION "Provides support for secure credentials storage"
+                                   URL "https://github.com/frankosterfeld/qtkeychain"
+                                   TYPE OPTIONAL)
+if (Qt5Keychain_FOUND)
+    set(HAVE_QT5KEYCHAIN 1)
+else()
+    set(HAVE_QT5KEYCHAIN 0)
+endif()
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_definitions("-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII")

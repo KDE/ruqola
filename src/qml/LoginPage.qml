@@ -34,6 +34,7 @@ Login {
     serverUrl: rcAccount.serverUrl
     username: rcAccount.userName
     originalAccountName: rcAccount.accountName
+    password: rcAccount.password
     onAccepted: {
         //TODO ?
         //rcAccount.updateAccountSettings(loginTab.accountName, loginTab.password, loginTab.username, loginTab.serverUrl)

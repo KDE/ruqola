@@ -1,1 +1,3 @@
 #define RUQOLA_VERSION "${RUQOLA_VERSION}"
+
+#cmakedefine01 HAVE_QT5KEYCHAIN

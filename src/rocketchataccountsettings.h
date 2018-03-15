@@ -24,6 +24,11 @@
 #include <QString>
 #include <QObject>
 #include "libruqola_private_export.h"
+
+namespace QKeychain {
+    class Job;
+}
+
 class QSettings;
 class LIBRUQOLACORE_EXPORT RocketChatAccountSettings : public QObject
 {
@@ -52,18 +57,19 @@ public:
     QString password() const;
     void setPassword(const QString &password);
 
-    void loadSettings();
-
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
     void userIDChanged();
-    void loginStatusChanged();
     void accountNameChanged();
+    void passwordChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccountSettings)
     void initializeSettings(const QString &accountFileName);
+    void slotPasswordRead(QKeychain::Job *job);
+    void slotPasswordWritten(QKeychain::Job *job);
+
     QString mUserId;
     QString mAuthToken;
     QString mServerUrl;

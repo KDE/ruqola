@@ -65,7 +65,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(QString userID READ userID WRITE setUserID NOTIFY userIDChanged)
     Q_PROPERTY(QString serverUrl READ serverUrl WRITE setServerUrl NOTIFY serverUrlChanged)
     Q_PROPERTY(QString accountName READ accountName WRITE setAccountName NOTIFY accountNameChanged)
-    Q_PROPERTY(QString password WRITE setPassword)
+    Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
     Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
@@ -232,8 +232,6 @@ public:
 
     void updateUser(const QJsonObject &object);
 
-    void initializeSettings(const QString &accountFileName);
-
     void initializeRoom(const QString &roomId, bool loadInitialHistory = true);
 
 Q_SIGNALS:
@@ -241,6 +239,7 @@ Q_SIGNALS:
     void accountNameChanged();
     void userNameChanged();
     void userIDChanged();
+    void passwordChanged();
     void serverUrlChanged();
     void loginStatusChanged();
     void logoutDone(const QString &accountname);
@@ -255,7 +254,7 @@ private:
     Q_DISABLE_COPY(RocketChatAccount)
     void slotNeedToUpdateNotification();
     void insertAvatarUrl(const QString &userId, const QString &url);
-    void loadSettings();
+    void loadSettings(const QString &accountFileName);
     void clearModels();
     void fillOauthModel();
     void initializeAuthenticationPlugins();

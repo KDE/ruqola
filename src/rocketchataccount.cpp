@@ -77,12 +77,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     initializeAuthenticationPlugins();
 
-    //TODO add account name.
-    initializeSettings(accountFileName);
+    loadSettings(accountFileName);
 
     mRocketChatBackend = new RocketChatBackend(this, this);
-
-    loadSettings();
 
     //After loadSettings
     mEmojiManager = new EmojiManager(this);
@@ -125,14 +122,14 @@ RocketChatAccount::~RocketChatAccount()
     delete mRuqolaLogger;
 }
 
-void RocketChatAccount::initializeSettings(const QString &accountFileName)
+void RocketChatAccount::loadSettings(const QString &accountFileName)
 {
     delete mSettings;
     mSettings = new RocketChatAccountSettings(accountFileName, this);
-    connect(mSettings, &RocketChatAccountSettings::loginStatusChanged, this, &RocketChatAccount::loginStatusChanged);
     connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverUrlChanged);
     connect(mSettings, &RocketChatAccountSettings::userIDChanged, this, &RocketChatAccount::userIDChanged);
     connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
+    connect(mSettings, &RocketChatAccountSettings::passwordChanged, this, &RocketChatAccount::passwordChanged);
 }
 
 void RocketChatAccount::slotNeedToUpdateNotification()
@@ -216,11 +213,6 @@ FilesForRoomFilterProxyModel *RocketChatAccount::filesForRoomFilterProxyModel(co
 RocketChatBackend *RocketChatAccount::rocketChatBackend() const
 {
     return mRocketChatBackend;
-}
-
-void RocketChatAccount::loadSettings()
-{
-    mSettings->loadSettings();
 }
 
 MessageQueue *RocketChatAccount::messageQueue() const
@@ -788,7 +780,7 @@ void RocketChatAccount::setAccountName(const QString &accountname)
     //Initialize new account room
     ManagerDataPaths::self()->initializeAccountPath(accountname);
     qDebug() << "void RocketChatAccount::setAccountName(const QString &servername)"<<accountname;
-    initializeSettings(ManagerDataPaths::self()->accountConfigFileName(accountname));
+    loadSettings(ManagerDataPaths::self()->accountConfigFileName(accountname));
     settings()->setAccountName(accountname);
 }
 
