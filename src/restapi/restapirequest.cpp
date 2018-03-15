@@ -446,7 +446,7 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForFile(filename.path());
 
-    QUrl url = generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, roomId);
+    const QUrl url = generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, roomId);
     QNetworkRequest request(url);
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
