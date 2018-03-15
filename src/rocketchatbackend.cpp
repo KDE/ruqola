@@ -415,6 +415,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             QString roomId = roomData.value(QLatin1String("rid")).toString();
             if (!roomId.isEmpty()) {
                 MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
+                qDebug() << " roomData"<<roomData;
                 //TODO
                 //messageModel->(contents.at(0).toObject()[QStringLiteral("_id")].toString());
             } else {
