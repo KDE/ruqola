@@ -34,6 +34,7 @@ MessageBase {
 
     property string i_systemMessageType
 
+    //Move to C++ ?
     function getTextFor(type) {
         if (type === "uj") {
             return i18n("%1 has joined the channel", i_username);
