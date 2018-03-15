@@ -1,0 +1,22 @@
+{
+                "_id": "Dic5wZD4Zu9ze5gk3",
+                "_updatedAt": {
+                    "$date": 1521115962354
+                },
+                "customFields": {
+                },
+                "description": "d",
+                "fname": "foo",
+                "muted": [
+                    "muteduser"
+                ],
+                "name": "foo",
+                "reactWhenReadOnly": false,
+                "ro": false,
+                "t": "p",
+                "topic": "",
+                "u": {
+                    "_id": "uKK39zoewTkdacidH",
+                    "username": "laurent"
+                }
+            }

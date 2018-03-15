@@ -162,6 +162,7 @@ void RoomTest::shouldParseRoom_data()
     QTest::newRow("notification-room") << QStringLiteral("notification-room");
 
     QTest::newRow("unread-usermentions-room") << QStringLiteral("unread-usermentions-room");
+    QTest::newRow("muted-users") << QStringLiteral("muted-users");
 }
 
 void RoomTest::shouldParseRoom()
@@ -200,6 +201,7 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::newRow("notification-roomupdate") << QStringLiteral("notification-room") << (QStringList() <<QStringLiteral("notification-roomupdate1"));
     QTest::newRow("room-update") << QStringLiteral("room-update") << (QStringList() <<QStringLiteral("room-update1"));
     QTest::newRow("room-without-owner") << QStringLiteral("room-without-owner") << (QStringList() <<QStringLiteral("room-without-owner1"));
+    QTest::newRow("room-mute-unmute") << QStringLiteral("room-mute-unmute") << (QStringList() <<QStringLiteral("muted-users") << QStringLiteral("unmuted-users"));
 }
 
 void RoomTest::shouldParseRoomAndUpdate()

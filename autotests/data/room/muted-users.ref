@@ -1,0 +1,34 @@
+{
+    "alert": false,
+    "archived": false,
+    "blocked": false,
+    "blocker": false,
+    "favorite": false,
+    "jitsiTimeout": -1,
+    "lastSeeAt": -1,
+    "mutedUsers": [
+        "muteduser"
+    ],
+    "name": "foo",
+    "notifications": {
+        "audioNotificationValue": "",
+        "audioNotifications": "",
+        "desktopNotificationDuration": 0,
+        "desktopNotifications": "",
+        "disableNotifications": false,
+        "emailNotifications": "",
+        "hideUnreadStatus": false,
+        "mobilePushNotifications": "",
+        "unreadAlert": ""
+    },
+    "open": false,
+    "rid": "Dic5wZD4Zu9ze5gk3",
+    "ro": false,
+    "roomCreatorUserID": "",
+    "roomCreatorUserName": "",
+    "selected": false,
+    "t": "p",
+    "unread": 0,
+    "updatedAt": 1521115962354,
+    "userMentions": 0
+}

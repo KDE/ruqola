@@ -658,12 +658,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     }
     o[QStringLiteral("userMentions")] = r->userMentions();
 
-    //Urls
     if (!r->mutedUsers().isEmpty()) {
         QJsonArray array;
-        const int nbMuted{
-            r->mutedUsers().count()
-        };
+        const int nbMuted = r->mutedUsers().count();
         for (int i = 0; i < nbMuted; ++i) {
             array.append(r->mutedUsers().at(i));
         }
