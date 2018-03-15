@@ -110,6 +110,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyarchivedChanged(&input, &Room::archivedChanged);
     QSignalSpy spydescriptionChanged(&input, &Room::descriptionChanged);
     QSignalSpy spyblockedChanged(&input, &Room::blockedChanged);
+    QSignalSpy spyrolesChanged(&input, &Room::rolesChanged);
     input.setRoomId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
@@ -129,6 +130,7 @@ void RoomTest::shouldEmitSignals()
     input.setBlocked(true);
     input.setArchived(true);
     input.setDescription(QStringLiteral("ddd"));
+    input.setRoles({QStringLiteral("bla"), QStringLiteral("blu")});
 
     QCOMPARE(spyNameChanged.count(), 1);
     QCOMPARE(spyannouncementChanged.count(), 1);
@@ -141,6 +143,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyarchivedChanged.count(), 1);
     QCOMPARE(spyblockedChanged.count(), 1);
     QCOMPARE(spydescriptionChanged.count(), 1);
+    QCOMPARE(spyrolesChanged.count(), 1);
 }
 
 void RoomTest::shouldChangeInputMessage()

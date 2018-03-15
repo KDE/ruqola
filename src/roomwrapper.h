@@ -40,7 +40,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(bool readOnly READ readOnly NOTIFY readOnlyChanged)
     Q_PROPERTY(bool blocker READ blocker NOTIFY blockerChanged)
     Q_PROPERTY(bool blocked READ blocked NOTIFY blockedChanged)
-    Q_PROPERTY(bool canBeModify READ canBeModify CONSTANT)
+    Q_PROPERTY(bool canBeModify READ canBeModify NOTIFY rolesChanged)
     Q_PROPERTY(bool archived READ archived NOTIFY archivedChanged)
     Q_PROPERTY(NotificationOptions notificationOptions READ notificationOptions CONSTANT)
     Q_OBJECT
@@ -75,6 +75,7 @@ Q_SIGNALS:
     void descriptionChanged();
     void archivedChanged();
     void blockedChanged();
+    void rolesChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)

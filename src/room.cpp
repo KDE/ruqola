@@ -121,10 +121,7 @@ QDebug operator <<(QDebug d, const Room &t)
 bool Room::canBeModify() const
 {
     if (mRocketChatAccount) {
-        //TODO use roles ????? Perhaps it's better. TODO implement it.
-        qCDebug(RUQOLA_LOG) <<  "mRoomCreateUserId"<<mRoomCreateUserId << " mRocketChatAccount->userID()"<<mRocketChatAccount->userID();
-        qDebug() << " bool Room::canBeModify() const"<< mRoomCreateUserId << " mRocketChatAccount->userID()" << mRocketChatAccount->userID();
-        return mRoomCreateUserId == mRocketChatAccount->userID();
+        return mRoles.contains(QLatin1String("owner"));
     }
     return false;
 }
@@ -534,7 +531,10 @@ QStringList Room::roles() const
 
 void Room::setRoles(const QStringList &roles)
 {
-    mRoles = roles;
+    if (mRoles != roles) {
+        mRoles = roles;
+        Q_EMIT rolesChanged();
+    }
 }
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)

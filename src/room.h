@@ -48,6 +48,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(bool archived READ archived WRITE setArchived NOTIFY archivedChanged)
     Q_PROPERTY(bool blocked READ blocked WRITE setBlocked NOTIFY blockedChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
+    Q_PROPERTY(QStringList roles READ roles WRITE setRoles NOTIFY rolesChanged)
 public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
 
@@ -184,6 +185,7 @@ Q_SIGNALS:
 
     void archivedChanged();
     void descriptionChanged();
+    void rolesChanged();
 
 private:
     Q_DISABLE_COPY(Room)
