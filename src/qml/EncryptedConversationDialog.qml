@@ -20,11 +20,11 @@
 
 
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import QtQuick 2.9
 
-Dialog {
+QQC2.Dialog {
     id: deleteRoomDialog
 
     title: i18n("Encrypted Conversation")
@@ -35,10 +35,10 @@ Dialog {
 
     modal: true
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
+    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     Row {
-        Label {
+        QQC2.Label {
             text: i18n("Do you want to accept encrypted conversation?")
             font.bold: true
             font.pointSize: 15

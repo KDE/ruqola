@@ -20,14 +20,14 @@
 
 import QtQuick 2.9
 import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2
+import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import QtMultimedia 5.8
 import KDE.Ruqola.RocketChatAccount 1.0
-Dialog {
+QQC2.Dialog {
     id: takeVideoMessageDialog
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
+    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     property QtObject rcAccount
 
@@ -49,14 +49,14 @@ Dialog {
     }
 
     //TODO align vertical center
-    Label {
+    QQC2.Label {
         visible: isCameraAvailable == false
         text: i18n("Sorry, No camera found.");
         font.bold: true
         font.pointSize: 20
         anchors.fill: parent
         anchors.centerIn: parent
-        wrapMode: Label.Wrap
+        wrapMode: QQC2.Label.Wrap
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
@@ -69,7 +69,7 @@ Dialog {
         visible: isCameraAvailable && (camera.cameraStatus === Camera.ActiveStatus)
         enabled: isCameraAvailable && (camera.cameraStatus === Camera.ActiveStatus)
     }
-    Button {
+    QQC2.Button {
         text: i18n("Video");
         visible: isCameraAvailable
         onPressed: {

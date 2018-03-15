@@ -79,7 +79,7 @@ QQC2.Dialog {
 
                 QQC2.Label {
                     text: applicationData.title
-                    wrapMode: Text.WordWrap
+                    wrapMode: QQC2.Label.Wrap
                     textFormat: Qt.RichText
                 }
                 QQC2.Label {
