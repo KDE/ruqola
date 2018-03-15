@@ -19,11 +19,27 @@
 */
 
 #include "restapimethodtest.h"
+#include "restapi/restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RestApiMethodTest)
 
 RestApiMethodTest::RestApiMethodTest(QObject *parent)
     : QObject(parent)
 {
+
+}
+
+void RestApiMethodTest::shouldHaveDefaultValue()
+{
+    RestApiMethod rest;
+    QVERIFY(rest.serverUrl().isEmpty());
+}
+
+void RestApiMethodTest::shouldAssignDefaultValue()
+{
+    RestApiMethod rest;
+    QString newUrl = QStringLiteral("http://www.kde.org");
+    rest.setServerUrl(newUrl);
+    QCOMPARE(rest.serverUrl(), newUrl);
 
 }

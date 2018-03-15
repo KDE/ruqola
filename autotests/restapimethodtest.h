@@ -29,6 +29,9 @@ class RestApiMethodTest : public QObject
 public:
     explicit RestApiMethodTest(QObject *parent = nullptr);
     ~RestApiMethodTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldAssignDefaultValue();
 };
 
 #endif // RESTAPIMETHODTEST_H
