@@ -37,3 +37,12 @@ void RestApiMethod::setServerUrl(const QString &serverUrl)
     mServerUrl = serverUrl;
 }
 
+QUrl RestApiMethod::generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension)
+{
+    QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(type);
+    if (!urlExtension.isEmpty()) {
+        urlStr += QLatin1Char('/') + urlExtension;
+    }
+    return QUrl(urlStr);
+}
+

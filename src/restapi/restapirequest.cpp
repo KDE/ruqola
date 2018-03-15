@@ -306,19 +306,10 @@ QString RestApiRequest::userId() const
     return mUserId;
 }
 
-QUrl RestApiRequest::generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension)
-{
-    QString urlStr = RestApiUtil::adaptUrl(serverUrl()) + RestApiUtil::apiUri() + RestApiUtil::restUrl(type);
-    if (!urlExtension.isEmpty()) {
-        urlStr += QLatin1Char('/') + urlExtension;
-    }
-    return QUrl(urlStr);
-}
-
 void RestApiRequest::login()
 {
     if (!mUserName.isEmpty() && !mPassword.isEmpty() && !serverUrl().isEmpty()) {
-        QUrl url = generateUrl(RestApiUtil::RestApiUrlType::Login);
+        QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Login);
         QNetworkRequest request(url);
         request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
 
@@ -336,7 +327,7 @@ void RestApiRequest::login()
 
 void RestApiRequest::logout()
 {
-    const QUrl url = generateUrl(RestApiUtil::RestApiUrlType::Logout);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Logout);
     QNetworkRequest request(url);
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
@@ -349,7 +340,7 @@ void RestApiRequest::channelList()
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::channelList problem with mUserId or mAuthToken";
     } else {
-        const QUrl url = generateUrl(RestApiUtil::RestApiUrlType::ChannelsList);
+        const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsList);
         QNetworkRequest request(url);
         request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
         request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
@@ -363,7 +354,7 @@ void RestApiRequest::getAvatar(const QString &userId)
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getAvatar problem with mUserId or mAuthToken";
     } else {
-        QUrl url = generateUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar);
+        QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar);
         QUrlQuery queryUrl;
         queryUrl.addQueryItem(QStringLiteral("userId"), userId);
         url.setQuery(queryUrl);
@@ -379,7 +370,7 @@ void RestApiRequest::getPrivateSettings()
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getPrivateSettings problem with mUserId or mAuthToken";
     } else {
-        QUrl url = generateUrl(RestApiUtil::RestApiUrlType::Settings);
+        QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Settings);
         QNetworkRequest request(url);
         request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
         request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
@@ -394,7 +385,7 @@ void RestApiRequest::getOwnInfo()
     if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getOwnInfo problem with mUserId or mAuthToken";
     } else {
-        QUrl url = generateUrl(RestApiUtil::RestApiUrlType::Me);
+        QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Me);
         QNetworkRequest request(url);
         request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
         request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
@@ -431,7 +422,7 @@ QNetworkReply *RestApiRequest::get(const QUrl &url, const QString &mimeType)
 
 void RestApiRequest::serverInfo()
 {
-    QUrl url = generateUrl(RestApiUtil::RestApiUrlType::ServerInfo);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo);
     QNetworkRequest request(url);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
@@ -450,7 +441,7 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForFile(filename.path());
 
-    const QUrl url = generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, roomId);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, roomId);
     QNetworkRequest request(url);
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());

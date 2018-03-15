@@ -68,8 +68,6 @@ public:
     void channelList();
     void getAvatar(const QString &userId);
 
-    QUrl generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension = QString());
-
     void post(const QUrl &url, const QByteArray &data, const QString &mimeType = QStringLiteral("text/plain"));
     QNetworkReply *get(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"));
 

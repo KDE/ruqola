@@ -22,7 +22,9 @@
 #define RESTAPIMETHOD_H
 
 #include "libruqola_private_export.h"
+#include "restapiutil.h"
 #include <QString>
+#include <QUrl>
 class LIBRUQOLACORE_TESTS_EXPORT RestApiMethod
 {
 public:
@@ -31,6 +33,7 @@ public:
     QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
+    QUrl generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension = QString());
 private:
     QString mServerUrl;
 };
