@@ -165,6 +165,9 @@ public:
     bool blocked() const;
     void setBlocked(bool blocked);
 
+    QStringList roles() const;
+    void setRoles(const QStringList &roles);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -189,6 +192,9 @@ private:
     NotificationOptions mNotificationOptions;
     // muted - collection of muted users by its usernames
     QStringList mMutedUsers;
+
+    //Roles
+    QStringList mRoles;
 
     QString mInputMessage;
 

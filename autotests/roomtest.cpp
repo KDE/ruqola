@@ -60,6 +60,9 @@ void RoomTest::shouldHaveDefaultValue()
     QCOMPARE(input.unread(), 0);
     QCOMPARE(input.blocked(), false);
     QCOMPARE(input.blocker(), false);
+    QVERIFY(input.roles().isEmpty());
+    QVERIFY(!input.archived());
+    QVERIFY(input.name().isEmpty());
 }
 
 //TODO add notification, userMentions too
@@ -86,6 +89,7 @@ void RoomTest::shouldSerialized()
     input.setArchived(true);
     input.setDescription(QStringLiteral("dd"));
     input.setUserMentions(3);
+    input.setRoles({QStringLiteral("foo"), QStringLiteral("bla")});
     const QByteArray ba = Room::serialize(&input);
     Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QVERIFY(input.isEqual(*output));

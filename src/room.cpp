@@ -81,7 +81,8 @@ bool Room::isEqual(const Room &other) const
            && (mNotificationOptions == other.notificationOptions())
            && (mUpdatedAt == other.updatedAt())
            && (mLastSeeAt == other.lastSeeAt())
-           && (mBlocked == other.blocked());
+           && (mBlocked == other.blocked())
+            && (mRoles == other.roles());
 }
 
 QString Room::name() const
@@ -113,6 +114,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "UpdatedAt: " << t.updatedAt();
     d << "LastSeeAt: " << t.lastSeeAt();
     d << "blocked: " << t.blocked();
+    d << "roles: " << t.roles();
     return d;
 }
 
@@ -476,6 +478,14 @@ void Room::parseInsertRoom(const QJsonObject &json)
     }
     setMutedUsers(lst);
 
+    const QJsonArray rolesArray = json.value(QLatin1String("roles")).toArray();
+    QStringList lstRoles;
+    lstRoles.reserve(rolesArray.count());
+    for (int i = 0; i < rolesArray.count(); ++i) {
+        lstRoles << rolesArray.at(i).toString();
+    }
+    setRoles(lstRoles);
+
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();
@@ -515,6 +525,16 @@ void Room::setBlocked(bool blocked)
         mBlocked = blocked;
         Q_EMIT blockedChanged();
     }
+}
+
+QStringList Room::roles() const
+{
+    return mRoles;
+}
+
+void Room::setRoles(const QStringList &roles)
+{
+    mRoles = roles;
 }
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
@@ -564,6 +584,15 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
         lst << mutedArray.at(i).toString();
     }
     setMutedUsers(lst);
+
+    const QJsonArray rolesArray = json.value(QLatin1String("roles")).toArray();
+    QStringList lstRoles;
+    lstRoles.reserve(rolesArray.count());
+    for (int i = 0; i < rolesArray.count(); ++i) {
+        lstRoles << rolesArray.at(i).toString();
+    }
+    setRoles(lstRoles);
+
 
 //    const QJsonValue ownerValue = json.value(QLatin1String("u"));
 //    if (!ownerValue.isUndefined()) {
@@ -616,6 +645,15 @@ Room *Room::fromJSon(const QJsonObject &o)
     }
     r->setMutedUsers(lst);
 
+    const QJsonArray rolesArray = o.value(QLatin1String("roles")).toArray();
+    QStringList lstRoles;
+    lst.reserve(rolesArray.count());
+    for (int i = 0; i < rolesArray.count(); ++i) {
+        lstRoles <<rolesArray.at(i).toString();
+    }
+    r->setRoles(lstRoles);
+
+
     const QJsonObject notificationsObj = o.value(QLatin1String("notifications")).toObject();
     const NotificationOptions notifications = NotificationOptions::fromJSon(notificationsObj);
     r->setNotificationOptions(notifications);
@@ -666,6 +704,16 @@ QByteArray Room::serialize(Room *r, bool toBinary)
         }
         o[QStringLiteral("mutedUsers")] = array;
     }
+
+    if (!r->roles().isEmpty()) {
+        QJsonArray array;
+        const int nbRoles = r->roles().count();
+        for (int i = 0; i < nbRoles; ++i) {
+            array.append(r->roles().at(i));
+        }
+        o[QStringLiteral("roles")] = array;
+    }
+
     o[QStringLiteral("notifications")] = NotificationOptions::serialize(r->notificationOptions());
 
     d.setObject(o);

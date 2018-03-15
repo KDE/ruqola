@@ -1,29 +1,35 @@
 {
-    "_id": "iqTjdRbwrvpe2mjyo",
-    "_updatedAt": {
-        "$date": 1521100746278
-    },
     "alert": false,
-    "f": false,
-    "groupMentions": 0,
-    "ls": {
-        "$date": 1521094705114
-    },
+    "archived": false,
+    "blocked": false,
+    "blocker": false,
+    "description": "d",
+    "favorite": false,
+    "jitsiTimeout": -1,
+    "lastSeeAt": -1,
     "name": "foo",
+    "notifications": {
+        "audioNotificationValue": "",
+        "audioNotifications": "",
+        "desktopNotificationDuration": 0,
+        "desktopNotifications": "",
+        "disableNotifications": false,
+        "emailNotifications": "",
+        "hideUnreadStatus": false,
+        "mobilePushNotifications": "",
+        "unreadAlert": ""
+    },
     "open": true,
     "rid": "Dic5wZD4Zu9ze5gk3",
+    "ro": false,
     "roles": [
         "owner"
     ],
+    "roomCreatorUserID": "uKK39zoewTkdacidH",
+    "roomCreatorUserName": "laurent",
+    "selected": false,
     "t": "p",
-    "ts": {
-        "$date": 1520614525563
-    },
-    "u": {
-        "_id": "uKK39zoewTkdacidH",
-        "name": null,
-        "username": "laurent"
-    },
     "unread": 0,
+    "updatedAt": 1521100746278,
     "userMentions": 0
 }

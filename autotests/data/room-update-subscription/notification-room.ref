@@ -23,6 +23,9 @@
     "open": true,
     "rid": "kGtPa6bu7xHrS5xz6",
     "ro": false,
+    "roles": [
+        "owner"
+    ],
     "roomCreatorUserID": "uKK39zoewTkdacidH",
     "roomCreatorUserName": "laurent",
     "selected": false,

@@ -21,6 +21,9 @@
     "open": true,
     "rid": "Pa6bu7xHrS5xz6",
     "ro": false,
+    "roles": [
+        "owner"
+    ],
     "roomCreatorUserID": "",
     "roomCreatorUserName": "",
     "selected": false,
