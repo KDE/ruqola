@@ -19,8 +19,21 @@
 */
 
 #include "restapimethod.h"
+#include "ruqola_ddpapi_debug.h"
 
 RestApiMethod::RestApiMethod()
 {
 
 }
+
+
+QString RestApiMethod::serverUrl() const
+{
+    return mServerUrl;
+}
+
+void RestApiMethod::setServerUrl(const QString &serverUrl)
+{
+    mServerUrl = serverUrl;
+}
+

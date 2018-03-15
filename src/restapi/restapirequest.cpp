@@ -53,11 +53,12 @@ RestApiRequest::~RestApiRequest()
 
 void RestApiRequest::initializeCookies()
 {
-    if (!mServerUrl.isEmpty()) {
+    QString url = serverUrl();
+    if (!url.isEmpty()) {
         QString host;
-        QStringList lsthost = mServerUrl.split(QStringLiteral("//"));
+        QStringList lsthost = url.split(QStringLiteral("//"));
         if (lsthost.count() < 2) {
-            host = mServerUrl;
+            host = url;
         } else {
             host = lsthost.at(1);
         }
@@ -287,12 +288,12 @@ void RestApiRequest::setUserName(const QString &userName)
 
 QString RestApiRequest::serverUrl() const
 {
-    return mServerUrl;
+    return mRestApiMethod->serverUrl();
 }
 
 void RestApiRequest::setServerUrl(const QString &serverUrl)
 {
-    mServerUrl = serverUrl;
+    mRestApiMethod->setServerUrl(serverUrl);
 }
 
 QString RestApiRequest::authToken() const
@@ -307,7 +308,7 @@ QString RestApiRequest::userId() const
 
 QUrl RestApiRequest::generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension)
 {
-    QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(type);
+    QString urlStr = RestApiUtil::adaptUrl(serverUrl()) + RestApiUtil::apiUri() + RestApiUtil::restUrl(type);
     if (!urlExtension.isEmpty()) {
         urlStr += QLatin1Char('/') + urlExtension;
     }
@@ -316,7 +317,7 @@ QUrl RestApiRequest::generateUrl(RestApiUtil::RestApiUrlType type, const QString
 
 void RestApiRequest::login()
 {
-    if (!mUserName.isEmpty() && !mPassword.isEmpty() && !mServerUrl.isEmpty()) {
+    if (!mUserName.isEmpty() && !mPassword.isEmpty() && !serverUrl().isEmpty()) {
         QUrl url = generateUrl(RestApiUtil::RestApiUrlType::Login);
         QNetworkRequest request(url);
         request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));

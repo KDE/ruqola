@@ -106,7 +106,6 @@ private:
     RestApiMethod *mRestApiMethod = nullptr;
     QString mUserId;
     QString mAuthToken;
-    QString mServerUrl;
     QString mUserName;
     QString mPassword;
 };

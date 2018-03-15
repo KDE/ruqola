@@ -22,11 +22,17 @@
 #define RESTAPIMETHOD_H
 
 #include "libruqola_private_export.h"
-
+#include <QString>
 class LIBRUQOLACORE_TESTS_EXPORT RestApiMethod
 {
 public:
     RestApiMethod();
+
+    QString serverUrl() const;
+    void setServerUrl(const QString &serverUrl);
+
+private:
+    QString mServerUrl;
 };
 
 #endif // RESTAPIMETHOD_H
