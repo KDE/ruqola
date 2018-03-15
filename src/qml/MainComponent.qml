@@ -355,20 +355,36 @@ Component {
         Keys.onEscapePressed: {
             appid.rocketChatAccount.clearUnreadMessages(appid.selectedRoomID);
         }
+        function messageInfo()
+        {
+            if (appid.selectedRoom) {
+                if (appid.selectedRoom.readOnly === true) {
+                    return i18n("Channel is read only.");
+                }
+                if (appid.selectedRoom.blocker === true) {
+                    return i18n("You have blocked this channel.");
+                }
+                if (appid.selectedRoom.blocked === true) {
+                    return i18n("Channel was blocked.");
+                }
+            }
+            return "";
+        }
+
         footer:
             RowLayout {
             anchors.bottom: mainWidget.bottom
             Label {
                 id: channelInfo
                 font.bold: true
-                visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true) || (appid.selectedRoom.blocker === true))
-                text: appid.selectedRoom ? (appid.selectedRoom.readOnly === true ? i18n("Channel is read only") : i18n("Channel is blocked")) : ""
+                visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true) || (appid.selectedRoom.blocker === true) || (appid.selectedRoom.blocked === true))
+                text: messageInfo()
             }
 
             UserInput {
                 id: userInputMessage
                 rcAccount: appid.rocketChatAccount
-                visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false) && (appid.selectedRoom.blocker === false)
+                visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false) && (appid.selectedRoom.blocker === false) && (appid.selectedRoom.blocked === false)
                 messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
                 onTextEditing: {
                     rcAccount.textEditing(appid.selectedRoomID, str)
