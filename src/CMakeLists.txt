@@ -9,6 +9,9 @@ set (Ruqola_restapi_SRCS
     restapi/restapiabstractjob.cpp
     restapi/owninfojob.cpp
     restapi/getavatarjob.cpp
+    restapi/logoutjob.cpp
+    restapi/loginjob.cpp
+    restapi/privateinfojob.cpp
     )
 
 set(Ruqola_ddpapi_SRCS

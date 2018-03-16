@@ -60,10 +60,15 @@ add_ruqola_test(roomwrappertest.cpp)
 add_ruqola_test(notificationoptionstest.cpp)
 add_ruqola_test(reactionstest.cpp)
 add_ruqola_test(reactiontest.cpp)
+
+#RESTAPI
 add_ruqola_test(restapimethodtest.cpp)
 add_ruqola_test(serverinfojobtest.cpp)
 add_ruqola_test(uploadfilejobtest.cpp)
 add_ruqola_test(owninfojobtest.cpp)
 add_ruqola_test(getavatarjobtest.cpp)
+add_ruqola_test(logoutjobtest.cpp)
+add_ruqola_test(loginjobtest.cpp)
+add_ruqola_test(privateinfojobtest.cpp)
 
 add_subdirectory(qml)

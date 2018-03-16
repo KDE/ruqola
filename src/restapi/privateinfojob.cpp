@@ -18,60 +18,59 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "owninfojob.h"
-#include "restapimethod.h"
+#include "privateinfojob.h"
 #include "ruqola_restapi_debug.h"
+#include "restapimethod.h"
 #include "restapirequest.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
-OwnInfoJob::OwnInfoJob(QObject *parent)
+PrivateInfoJob::PrivateInfoJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 
 }
 
-OwnInfoJob::~OwnInfoJob()
+PrivateInfoJob::~PrivateInfoJob()
 {
 
 }
 
-bool OwnInfoJob::requireHttpAuthentication() const
-{
-    return true;
-}
-
-bool OwnInfoJob::start()
+bool PrivateInfoJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start owninfo job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start PrivateInfoJob job";
         deleteLater();
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &OwnInfoJob::slotServerInfoFinished);
-    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::Me));
+    connect(reply, &QNetworkReply::finished, this, &PrivateInfoJob::slotPrivateInfoDone);
+
+    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::PrivateInfo));
     return true;
 }
 
-void OwnInfoJob::slotServerInfoFinished()
+void PrivateInfoJob::slotPrivateInfoDone()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        Q_EMIT ownInfoDone(data);
+        Q_EMIT privateInfoDone(data);
     }
     deleteLater();
 }
 
-QNetworkRequest OwnInfoJob::request() const
+bool PrivateInfoJob::requireHttpAuthentication() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo);
-    QNetworkRequest request(url);
-    addAuthRawHeader(request);
-    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-    return request;
+    return true;
+}
+
+QNetworkRequest PrivateInfoJob::request() const
+{
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Settings);
+    QNetworkRequest req(url);
+    addAuthRawHeader(req);
+    return req;
 }

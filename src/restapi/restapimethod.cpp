@@ -19,7 +19,7 @@
 */
 
 #include "restapimethod.h"
-#include "ruqola_ddpapi_debug.h"
+#include "ruqola_restapi_debug.h"
 
 RestApiMethod::RestApiMethod()
 {
@@ -38,7 +38,7 @@ void RestApiMethod::setServerUrl(const QString &serverUrl)
 QUrl RestApiMethod::generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension)
 {
     if (mServerUrl.isEmpty()) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "Server url is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Server url is empty";
         return {};
     }
     QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(type);

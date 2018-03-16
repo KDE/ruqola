@@ -24,6 +24,9 @@
 #include "serverinfojob.h"
 #include "uploadfilejob.h"
 #include "owninfojob.h"
+#include "getavatarjob.h"
+#include "logoutjob.h"
+#include "privateinfojob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -103,22 +106,6 @@ void RestApiRequest::parseLogin(const QByteArray &data)
     }
 }
 
-void RestApiRequest::parseLogout(const QByteArray &data)
-{
-    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success")) {
-        qCDebug(RUQOLA_RESTAPI_LOG) << " Logout";
-        mUserId.clear();
-        mAuthToken.clear();
-    } else {
-        qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we try to logout";
-    }
-
-    qCDebug(RUQOLA_RESTAPI_LOG) << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
-}
-
 void RestApiRequest::parseChannelList(const QByteArray &data)
 {
     //qDebug() << " void RestApiRequest::parseChannelList(const QByteArray &data)" << data;
@@ -155,14 +142,6 @@ void RestApiRequest::setUserId(const QString &userId)
     }
 }
 
-void RestApiRequest::parseGetAvatar(const QByteArray &data, const QString &userId)
-{
-    //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
-    QString str = QString::fromUtf8(data);
-    str.remove(QLatin1Char('"'));
-    Q_EMIT avatar(userId, str);
-}
-
 void RestApiRequest::parseGet(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl)
 {
     qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGet: url " << url;
@@ -174,18 +153,17 @@ void RestApiRequest::parsePost(const QByteArray &data)
     qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parsePost: " << data;
 }
 
-void RestApiRequest::parsePrivateInfo(const QByteArray &data)
-{
-    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
-    //qDebug() << " replyJson" << replyJson;
-}
-
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError) {
         //Exclude it until we port to new api
         const RestMethod restMethod = reply->property("method").value<RestMethod>();
-        if (restMethod == ServerInfo || restMethod == UploadFile || restMethod == Me) {
+        if (restMethod == ServerInfo ||
+                restMethod == UploadFile ||
+                restMethod == Me ||
+                restMethod == GetAvatar ||
+                restMethod == Logout ||
+                restMethod == PrivateInfo) {
             return;
         }
         const QByteArray data = reply->readAll();
@@ -193,22 +171,14 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
         case Login:
             parseLogin(data);
             break;
-        case Logout:
-            parseLogout(data);
-            break;
         case ChannelList:
             parseChannelList(data);
             break;
         case PrivateInfo:
-            parsePrivateInfo(data);
-            break;
+        case Logout:
         case GetAvatar:
-            parseGetAvatar(data, reply->property("userId").toString());
-            break;
         case ServerInfo:
-            return;
         case Me:
-            return;
         case UploadFile:
             return;
         case Get:
@@ -300,14 +270,22 @@ void RestApiRequest::login()
     }
 }
 
+void RestApiRequest::slotLogout()
+{
+    mUserId.clear();
+    mAuthToken.clear();
+    Q_EMIT logoutDone();
+}
+
 void RestApiRequest::logout()
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Logout);
-    QNetworkRequest request(url);
-    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
-    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-    QNetworkReply *reply = mNetworkAccessManager->get(request);
-    reply->setProperty("method", QVariant::fromValue(RestMethod::Logout));
+    LogoutJob *job = new LogoutJob(this);
+    connect(job, &LogoutJob::logoutDone, this, &RestApiRequest::slotLogout);
+    job->setNetworkAccessManager(mNetworkAccessManager);
+    job->setRestApiMethod(mRestApiMethod);
+    job->setAuthToken(mAuthToken);
+    job->setUserId(mUserId);
+    job->start();
 }
 
 void RestApiRequest::channelList()
@@ -326,33 +304,23 @@ void RestApiRequest::channelList()
 
 void RestApiRequest::getAvatar(const QString &userId)
 {
-    if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getAvatar problem with mUserId or mAuthToken";
-    } else {
-        QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar);
-        QUrlQuery queryUrl;
-        queryUrl.addQueryItem(QStringLiteral("userId"), userId);
-        url.setQuery(queryUrl);
-        QNetworkRequest request(url);
-        QNetworkReply *reply = mNetworkAccessManager->get(request);
-        reply->setProperty("method", QVariant::fromValue(RestMethod::GetAvatar));
-        reply->setProperty("userId", userId);
-    }
+    GetAvatarJob *job = new GetAvatarJob(this);
+    connect(job, &GetAvatarJob::avatar, this, &RestApiRequest::avatar);
+    job->setNetworkAccessManager(mNetworkAccessManager);
+    job->setRestApiMethod(mRestApiMethod);
+    job->setAvatarUserId(userId);
+    job->start();
 }
 
 void RestApiRequest::getPrivateSettings()
 {
-    if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getPrivateSettings problem with mUserId or mAuthToken";
-    } else {
-        QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Settings);
-        QNetworkRequest request(url);
-        request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
-        request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-
-        QNetworkReply *reply = mNetworkAccessManager->get(request);
-        reply->setProperty("method", QVariant::fromValue(RestMethod::PrivateInfo));
-    }
+    PrivateInfoJob *job = new PrivateInfoJob(this);
+    connect(job, &PrivateInfoJob::privateInfoDone, this, &RestApiRequest::privateInfoDone);
+    job->setNetworkAccessManager(mNetworkAccessManager);
+    job->setRestApiMethod(mRestApiMethod);
+    job->setAuthToken(mAuthToken);
+    job->setUserId(mUserId);
+    job->start();
 }
 
 void RestApiRequest::getOwnInfo()

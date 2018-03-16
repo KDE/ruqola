@@ -49,21 +49,41 @@ bool GetAvatarJob::start()
         deleteLater();
         return false;
     }
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar);
-    QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("userId"), mAvatarUserId);
-    url.setQuery(queryUrl);
-    QNetworkRequest request(url);
-    QNetworkReply *reply = mNetworkAccessManager->get(request);
+    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    connect(reply, &QNetworkReply::finished, this, &GetAvatarJob::slotGetAvatarInfo);
     reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::GetAvatar));
     reply->setProperty("userId", mAvatarUserId);
 
     return true;
 }
 
+void GetAvatarJob::slotGetAvatarInfo()
+{
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    if (reply) {
+        const QByteArray data = reply->readAll();
+        //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
+        QString str = QString::fromUtf8(data);
+        str.remove(QLatin1Char('"'));
+        const QString userId = reply->property("userId").toString();
+        Q_EMIT avatar(userId, str);
+    }
+    deleteLater();
+}
+
+QNetworkRequest GetAvatarJob::request() const
+{
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("userId"), mAvatarUserId);
+    url.setQuery(queryUrl);
+    QNetworkRequest request(url);
+    return request;
+}
+
 bool GetAvatarJob::requireHttpAuthentication() const
 {
-    return true;
+    return false;
 }
 
 QString GetAvatarJob::avatarUserId() const

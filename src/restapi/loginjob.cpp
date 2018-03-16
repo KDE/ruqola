@@ -18,20 +18,26 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETAVATARJOBTEST_H
-#define GETAVATARJOBTEST_H
-
-#include <QObject>
-
-class GetAvatarJobTest : public QObject
+#include "loginjob.h"
+#include "ruqola_restapi_debug.h"
+LoginJob::LoginJob(QObject *parent)
+    : RestApiAbstractJob(parent)
 {
-    Q_OBJECT
-public:
-    explicit GetAvatarJobTest(QObject *parent = nullptr);
-    ~GetAvatarJobTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
-};
 
-#endif // GETAVATARJOBTEST_H
+}
+
+LoginJob::~LoginJob()
+{
+
+}
+
+bool LoginJob::start()
+{
+    //TODO
+    return false;
+}
+
+bool LoginJob::requireHttpAuthentication() const
+{
+    return true;
+}

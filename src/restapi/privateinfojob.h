@@ -18,20 +18,30 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETAVATARJOBTEST_H
-#define GETAVATARJOBTEST_H
+#ifndef PRIVATEINFOJOB_H
+#define PRIVATEINFOJOB_H
 
-#include <QObject>
+#include "restapiabstractjob.h"
 
-class GetAvatarJobTest : public QObject
+#include "libruqola_private_export.h"
+
+#include <QNetworkRequest>
+
+class LIBRUQOLACORE_TESTS_EXPORT PrivateInfoJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit GetAvatarJobTest(QObject *parent = nullptr);
-    ~GetAvatarJobTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
+    explicit PrivateInfoJob(QObject *parent = nullptr);
+    ~PrivateInfoJob() override;
+
+    bool start() override;
+    bool requireHttpAuthentication() const override;
+    QNetworkRequest request() const;
+Q_SIGNALS:
+    void privateInfoDone(const QByteArray &data);
+private:
+    Q_DISABLE_COPY(PrivateInfoJob)
+    void slotPrivateInfoDone();
 };
 
-#endif // GETAVATARJOBTEST_H
+#endif // PRIVATEINFOJOB_H

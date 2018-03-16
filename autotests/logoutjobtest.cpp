@@ -18,37 +18,43 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "getavatarjobtest.h"
-#include "restapi/getavatarjob.h"
-#include "restapi/restapimethod.h"
+#include "logoutjobtest.h"
+#include "restapi/logoutjob.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(GetAvatarJobTest)
+#include <restapi/restapimethod.h>
+QTEST_GUILESS_MAIN(LogoutJobTest)
 
-GetAvatarJobTest::GetAvatarJobTest(QObject *parent)
+LogoutJobTest::LogoutJobTest(QObject *parent)
     : QObject(parent)
 {
 
 }
 
-void GetAvatarJobTest::shouldHaveDefaultValue()
+void LogoutJobTest::shouldHaveDefaultValue()
 {
-    GetAvatarJob job;
+    LogoutJob job;
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
-    QVERIFY(!job.requireHttpAuthentication());
-    QVERIFY(job.avatarUserId().isEmpty());
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(job.authToken().isEmpty());
+    QVERIFY(job.userId().isEmpty());
 }
 
-void GetAvatarJobTest::shouldGenerateRequest()
+
+void LogoutJobTest::shouldGenerateRequest()
 {
-    GetAvatarJob job;
+    LogoutJob job;
+    const QString authToken = QStringLiteral("foo");
+    const QString userId = QStringLiteral("user");
+    job.setUserId(userId);
+    job.setAuthToken(authToken);
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
-    const QString avatarUserId = QStringLiteral("avat");
-    job.setAvatarUserId(avatarUserId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getAvatar?userId=avat")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/logout")));
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
     delete method;
 }

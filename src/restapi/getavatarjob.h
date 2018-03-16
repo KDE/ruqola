@@ -39,8 +39,14 @@ public:
     QString avatarUserId() const;
     void setAvatarUserId(const QString &avatarUserId);
 
+    QNetworkRequest request() const;
+
+Q_SIGNALS:
+    void avatar(const QString &userId, const QString &url);
+
 private:
     Q_DISABLE_COPY(GetAvatarJob)
+    void slotGetAvatarInfo();
     QString mAvatarUserId;
 };
 

@@ -24,6 +24,7 @@
 #include <QObject>
 #include "libruqola_private_export.h"
 class QNetworkAccessManager;
+class QNetworkRequest;
 class RestApiMethod;
 class LIBRUQOLACORE_TESTS_EXPORT RestApiAbstractJob : public QObject
 {
@@ -49,6 +50,7 @@ public:
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
     bool canStart() const;
+    void addAuthRawHeader(QNetworkRequest &request) const;
     QString mAuthToken;
     QString mUserId;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;

@@ -21,6 +21,8 @@
 #include "restapiabstractjob.h"
 #include "ruqola_restapi_debug.h"
 
+#include <QNetworkRequest>
+
 RestApiAbstractJob::RestApiAbstractJob(QObject *parent)
     : QObject(parent)
 {
@@ -87,4 +89,10 @@ bool RestApiAbstractJob::canStart() const
         return false;
     }
     return true;
+}
+
+void RestApiAbstractJob::addAuthRawHeader(QNetworkRequest &request) const
+{
+    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
+    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
 }

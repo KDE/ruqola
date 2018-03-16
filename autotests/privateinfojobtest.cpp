@@ -18,20 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETAVATARJOBTEST_H
-#define GETAVATARJOBTEST_H
+#include "privateinfojobtest.h"
+#include <QTest>
+QTEST_GUILESS_MAIN(PrivateInfoJobTest)
 
-#include <QObject>
-
-class GetAvatarJobTest : public QObject
+PrivateInfoJobTest::PrivateInfoJobTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit GetAvatarJobTest(QObject *parent = nullptr);
-    ~GetAvatarJobTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
-};
 
-#endif // GETAVATARJOBTEST_H
+}

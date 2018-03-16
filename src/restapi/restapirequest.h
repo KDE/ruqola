@@ -82,16 +82,15 @@ Q_SIGNALS:
     void getDataDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
     void getServerInfoDone(const QString &version);
     void getOwnInfoDone(const QByteArray &data);
+    void privateInfoDone(const QByteArray &data);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
     void initializeCookies();
     void slotResult(QNetworkReply *reply);
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
+    void slotLogout();
 
-    void parsePrivateInfo(const QByteArray &data);
-    void parseGetAvatar(const QByteArray &data, const QString &userId);
-    void parseLogout(const QByteArray &data);
     void parseLogin(const QByteArray &data);
     void parseChannelList(const QByteArray &data);
     void parseGet(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFile);

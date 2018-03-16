@@ -18,20 +18,31 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETAVATARJOBTEST_H
-#define GETAVATARJOBTEST_H
+#ifndef LOGOUTJOB_H
+#define LOGOUTJOB_H
+#include "libruqola_private_export.h"
+#include "restapiabstractjob.h"
 
-#include <QObject>
+#include <QNetworkRequest>
 
-class GetAvatarJobTest : public QObject
+class LIBRUQOLACORE_TESTS_EXPORT LogoutJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit GetAvatarJobTest(QObject *parent = nullptr);
-    ~GetAvatarJobTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
+    explicit LogoutJob(QObject *parent = nullptr);
+    ~LogoutJob() override;
+
+    bool start() override;
+    bool requireHttpAuthentication() const override;
+
+    QNetworkRequest request() const;
+
+Q_SIGNALS:
+    void logoutDone();
+
+private:
+    Q_DISABLE_COPY(LogoutJob)
+    void slotLogout();
 };
 
-#endif // GETAVATARJOBTEST_H
+#endif // LOGOUTJOB_H

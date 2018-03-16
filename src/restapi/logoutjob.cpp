@@ -18,60 +18,70 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "owninfojob.h"
-#include "restapimethod.h"
+#include "logoutjob.h"
 #include "ruqola_restapi_debug.h"
+#include "restapimethod.h"
 #include "restapirequest.h"
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
-OwnInfoJob::OwnInfoJob(QObject *parent)
+LogoutJob::LogoutJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 
 }
 
-OwnInfoJob::~OwnInfoJob()
+LogoutJob::~LogoutJob()
 {
 
 }
 
-bool OwnInfoJob::requireHttpAuthentication() const
-{
-    return true;
-}
-
-bool OwnInfoJob::start()
+bool LogoutJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start owninfo job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start LogoutJob job";
         deleteLater();
         return false;
     }
+
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &OwnInfoJob::slotServerInfoFinished);
-    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::Me));
-    return true;
+    connect(reply, &QNetworkReply::finished, this, &LogoutJob::slotLogout);
+    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::Logout));
+    return false;
 }
 
-void OwnInfoJob::slotServerInfoFinished()
+void LogoutJob::slotLogout()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        Q_EMIT ownInfoDone(data);
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success")) {
+            qCDebug(RUQOLA_RESTAPI_LOG) << " Logout";
+            Q_EMIT logoutDone();
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we try to logout";
+        }
+
+        qCDebug(RUQOLA_RESTAPI_LOG) << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
     }
     deleteLater();
 }
 
-QNetworkRequest OwnInfoJob::request() const
+QNetworkRequest LogoutJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo);
-    QNetworkRequest request(url);
-    addAuthRawHeader(request);
-    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-    return request;
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Logout);
+    QNetworkRequest req(url);
+    addAuthRawHeader(req);
+    return req;
+}
+
+bool LogoutJob::requireHttpAuthentication() const
+{
+    return true;
 }
