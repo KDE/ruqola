@@ -246,8 +246,7 @@ Kirigami.ApplicationWindow {
     }
 
     onClosing: {
-        console.log(RuqolaDebugCategorySingleton.category, "Minimizing to systray...");
-        hide();
+        Qt.quit();
     }
 
     function toggleShow() {
