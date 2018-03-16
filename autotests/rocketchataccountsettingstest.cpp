@@ -202,11 +202,11 @@ void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
 
     QVERIFY(chat.accountName().isEmpty());
     QVERIFY(chat.authToken().isEmpty());
-    QVERIFY(chat.cacheBasePath().isEmpty());
+    QVERIFY(!chat.cacheBasePath().isEmpty());
     QVERIFY(chat.userId().isEmpty());
     QVERIFY(chat.userName().isEmpty());
     QVERIFY(chat.password().isEmpty());
-    QVERIFY(chat.serverUrl().isEmpty());
+    QVERIFY(!chat.serverUrl().isEmpty());
     QVERIFY(chat.userId().isEmpty());
     QVERIFY(chat.userName().isEmpty());
     QVERIFY(chat.authToken().isEmpty());
