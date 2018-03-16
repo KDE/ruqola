@@ -35,8 +35,13 @@ public:
 
     bool start() override;
     bool requireHttpAuthentication() const override;
+
+    QString avatarUserId() const;
+    void setAvatarUserId(const QString &avatarUserId);
+
 private:
     Q_DISABLE_COPY(GetAvatarJob)
+    QString mAvatarUserId;
 };
 
 #endif // GETAVATARJOB_H

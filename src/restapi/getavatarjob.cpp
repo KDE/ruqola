@@ -20,6 +20,11 @@
 
 #include "getavatarjob.h"
 #include "ruqola_ddpapi_debug.h"
+#include "restapimethod.h"
+#include "restapirequest.h"
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QUrlQuery>
 
 GetAvatarJob::GetAvatarJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -34,16 +39,39 @@ GetAvatarJob::~GetAvatarJob()
 
 bool GetAvatarJob::start()
 {
+    if (mAvatarUserId.isEmpty()) {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "Avatar userid is empty";
+        deleteLater();
+        return false;
+    }
     if (!canStart()) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Impossible to start getavatar job";
         deleteLater();
         return false;
     }
-    //TODO
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("userId"), mAvatarUserId);
+    url.setQuery(queryUrl);
+    QNetworkRequest request(url);
+    QNetworkReply *reply = mNetworkAccessManager->get(request);
+    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::GetAvatar));
+    reply->setProperty("userId", mAvatarUserId);
+
     return true;
 }
 
 bool GetAvatarJob::requireHttpAuthentication() const
 {
     return true;
+}
+
+QString GetAvatarJob::avatarUserId() const
+{
+    return mAvatarUserId;
+}
+
+void GetAvatarJob::setAvatarUserId(const QString &avatarUserId)
+{
+    mAvatarUserId = avatarUserId;
 }
