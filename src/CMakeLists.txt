@@ -4,6 +4,7 @@ set (Ruqola_restapi_SRCS
     restapi/restapirequest.cpp
     restapi/restapiutil.cpp
     restapi/restapimethod.cpp
+    restapi/uploadfilejob.cpp
     )
 
 set(Ruqola_ddpapi_SRCS
