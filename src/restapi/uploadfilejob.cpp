@@ -19,6 +19,7 @@
 */
 
 #include "uploadfilejob.h"
+#include "ruqola_restapi_debug.h"
 
 UploadFileJob::UploadFileJob(QObject *parent)
     : QObject(parent)
@@ -27,6 +28,11 @@ UploadFileJob::UploadFileJob(QObject *parent)
 }
 
 UploadFileJob::~UploadFileJob()
+{
+
+}
+
+void UploadFileJob::start()
 {
 
 }

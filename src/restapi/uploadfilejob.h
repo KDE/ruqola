@@ -23,13 +23,16 @@
 #define UPLOADFILEJOB_H
 
 #include <QObject>
+#include "libruqola_private_export.h"
 
-class UploadFileJob : public QObject
+class LIBRUQOLACORE_TESTS_EXPORT UploadFileJob : public QObject
 {
     Q_OBJECT
 public:
     explicit UploadFileJob(QObject *parent = nullptr);
     ~UploadFileJob();
+
+    void start();
 private:
     Q_DISABLE_COPY(UploadFileJob)
 };
