@@ -193,20 +193,6 @@ void RestApiRequest::parsePrivateInfo(const QByteArray &data)
     //qDebug() << " replyJson" << replyJson;
 }
 
-void RestApiRequest::parseServerInfo(const QByteArray &data)
-{
-    //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseServerInfo: " << data;
-    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
-    const QJsonObject replyObject = replyJson.object();
-    const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
-    const QString versionStr = version.value(QStringLiteral("version")).toString();
-    if (versionStr.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Problem during parsing server version";
-    }
-
-    Q_EMIT getServerInfoDone(versionStr);
-}
-
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError) {

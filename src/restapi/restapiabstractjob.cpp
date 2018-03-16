@@ -18,27 +18,30 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERINFOJOB_H
-#define SERVERINFOJOB_H
-
-#include <QObject>
 #include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
-class LIBRUQOLACORE_TESTS_EXPORT ServerInfoJob : public RestApiAbstractJob
+
+RestApiAbstractJob::RestApiAbstractJob(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit ServerInfoJob(QObject *parent = nullptr);
-    ~ServerInfoJob();
 
-    bool start();
+}
 
-Q_SIGNALS:
-    void serverInfoDone(const QString &versionInfo);
+QNetworkAccessManager *RestApiAbstractJob::networkAccessManager() const
+{
+    return mNetworkAccessManager;
+}
 
-private:
-    Q_DISABLE_COPY(ServerInfoJob)
-    void slotServerInfoFinished();
-};
+void RestApiAbstractJob::setNetworkAccessManager(QNetworkAccessManager *networkAccessManager)
+{
+    mNetworkAccessManager = networkAccessManager;
+}
 
-#endif // SERVERINFOJOB_H
+RestApiMethod *RestApiAbstractJob::restApiMethod() const
+{
+    return mRestApiMethod;
+}
+
+void RestApiAbstractJob::setRestApiMethod(RestApiMethod *restApiMethod)
+{
+    mRestApiMethod = restApiMethod;
+}

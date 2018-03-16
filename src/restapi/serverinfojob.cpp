@@ -28,7 +28,7 @@
 #include <QNetworkReply>
 
 ServerInfoJob::ServerInfoJob(QObject *parent)
-    : QObject(parent)
+    : RestApiAbstractJob(parent)
 {
 
 }
@@ -78,24 +78,4 @@ void ServerInfoJob::slotServerInfoFinished()
     }
     Q_EMIT serverInfoDone(versionStr);
     deleteLater();
-}
-
-QNetworkAccessManager *ServerInfoJob::networkAccessManager() const
-{
-    return mNetworkAccessManager;
-}
-
-void ServerInfoJob::setNetworkAccessManager(QNetworkAccessManager *networkAccessManager)
-{
-    mNetworkAccessManager = networkAccessManager;
-}
-
-RestApiMethod *ServerInfoJob::restApiMethod() const
-{
-    return mRestApiMethod;
-}
-
-void ServerInfoJob::setRestApiMethod(RestApiMethod *restApiMethod)
-{
-    mRestApiMethod = restApiMethod;
 }
