@@ -49,6 +49,10 @@ Kirigami.BasicListItem {
     signal hideRoom(string roomID)
     
     icon: d_icon
+    topPadding: 0
+    bottomPadding: 0
+    implicitHeight: contentItem.implicitHeight
+    separatorVisible: false
     
     visible: !d_name.empty && d_open
 
