@@ -23,15 +23,31 @@
 
 #include <QObject>
 #include "libruqola_private_export.h"
-
+class RestApiMethod;
+class QNetworkAccessManager;
 class LIBRUQOLACORE_TESTS_EXPORT ServerInfoJob : public QObject
 {
     Q_OBJECT
 public:
     explicit ServerInfoJob(QObject *parent = nullptr);
     ~ServerInfoJob();
+
+    bool start();
+
+    QNetworkAccessManager *networkAccessManager() const;
+    void setNetworkAccessManager(QNetworkAccessManager *networkAccessManager);
+
+    RestApiMethod *restApiMethod() const;
+    void setRestApiMethod(RestApiMethod *restApiMethod);
+
+Q_SIGNALS:
+    void getServerInfoDone(const QString &versionInfo);
+
 private:
     Q_DISABLE_COPY(ServerInfoJob)
+    void slotServerInfoFinished();
+    QNetworkAccessManager *mNetworkAccessManager = nullptr;
+    RestApiMethod *mRestApiMethod = nullptr;
 };
 
 #endif // SERVERINFOJOB_H

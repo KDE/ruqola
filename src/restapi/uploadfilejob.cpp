@@ -20,6 +20,8 @@
 
 #include "uploadfilejob.h"
 #include "ruqola_restapi_debug.h"
+#include "restapimethod.h"
+#include <QNetworkAccessManager>
 
 UploadFileJob::UploadFileJob(QObject *parent)
     : QObject(parent)
@@ -32,7 +34,35 @@ UploadFileJob::~UploadFileJob()
 
 }
 
-void UploadFileJob::start()
+bool UploadFileJob::start()
 {
+    if (!mNetworkAccessManager) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Network manager not defined";
+        return false;
+    }
+    if (!mRestApiMethod) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "RestaApiMethod not defined";
+        return false;
+    }
+    return true;
+}
 
+QNetworkAccessManager *UploadFileJob::networkAccessManager() const
+{
+    return mNetworkAccessManager;
+}
+
+void UploadFileJob::setNetworkAccessManager(QNetworkAccessManager *networkAccessManager)
+{
+    mNetworkAccessManager = networkAccessManager;
+}
+
+RestApiMethod *UploadFileJob::restApiMethod() const
+{
+    return mRestApiMethod;
+}
+
+void UploadFileJob::setRestApiMethod(RestApiMethod *restApiMethod)
+{
+    mRestApiMethod = restApiMethod;
 }

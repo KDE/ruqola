@@ -19,6 +19,13 @@
 */
 
 #include "serverinfojob.h"
+#include "ruqola_restapi_debug.h"
+#include "restapimethod.h"
+#include "restapirequest.h"
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 ServerInfoJob::ServerInfoJob(QObject *parent)
     : QObject(parent)
@@ -29,4 +36,67 @@ ServerInfoJob::ServerInfoJob(QObject *parent)
 ServerInfoJob::~ServerInfoJob()
 {
 
+}
+
+bool ServerInfoJob::start()
+{
+    if (!mNetworkAccessManager) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Network manager not defined";
+        return false;
+    }
+    if (!mRestApiMethod) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "RestaApiMethod not defined";
+        return false;
+    }
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo);
+    qDebug() << " url " << url;
+    QNetworkRequest request(url);
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+    QNetworkReply *reply = mNetworkAccessManager->get(request);
+    connect(reply, &QNetworkReply::finished, this, &ServerInfoJob::slotServerInfoFinished);
+    //TODO remove it after porting
+    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::ServerInfo));
+
+    return true;
+}
+
+void ServerInfoJob::slotServerInfoFinished()
+{
+    QString versionStr;
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    if (reply) {
+        const QByteArray data = reply->readAll();
+        qCDebug(RUQOLA_RESTAPI_LOG) << "ServerInfoJob::parseServerInfo: " << data;
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+        const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
+        qDebug() << " version "<< version;
+        versionStr = version.value(QStringLiteral("version")).toString();
+        if (versionStr.isEmpty()) {
+            qCWarning(RUQOLA_RESTAPI_LOG) << "ServerInfoJob::slotServerInfoFinished Problem during parsing server version";
+        }
+    }
+    Q_EMIT getServerInfoDone(versionStr);
+    deleteLater();
+}
+
+QNetworkAccessManager *ServerInfoJob::networkAccessManager() const
+{
+    return mNetworkAccessManager;
+}
+
+void ServerInfoJob::setNetworkAccessManager(QNetworkAccessManager *networkAccessManager)
+{
+    mNetworkAccessManager = networkAccessManager;
+}
+
+RestApiMethod *ServerInfoJob::restApiMethod() const
+{
+    return mRestApiMethod;
+}
+
+void ServerInfoJob::setRestApiMethod(RestApiMethod *restApiMethod)
+{
+    mRestApiMethod = restApiMethod;
 }

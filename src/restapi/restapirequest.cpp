@@ -21,6 +21,7 @@
 #include "restapimethod.h"
 #include "restapirequest.h"
 #include "ruqola_restapi_debug.h"
+#include "serverinfojob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -209,8 +210,12 @@ void RestApiRequest::parseServerInfo(const QByteArray &data)
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError) {
-        const QByteArray data = reply->readAll();
+        //Exclude it until we port to new api
         const RestMethod restMethod = reply->property("method").value<RestMethod>();
+        if (restMethod == ServerInfo) {
+            return;
+        }
+        const QByteArray data = reply->readAll();
         switch (restMethod) {
         case Login:
             parseLogin(data);
@@ -228,8 +233,7 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             parseGetAvatar(data, reply->property("userId").toString());
             break;
         case ServerInfo:
-            parseServerInfo(data);
-            break;
+            return;
         case Me:
             parseOwnInfo(data);
             break;
@@ -422,12 +426,11 @@ QNetworkReply *RestApiRequest::get(const QUrl &url, const QString &mimeType)
 
 void RestApiRequest::serverInfo()
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo);
-    QNetworkRequest request(url);
-    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-    QNetworkReply *reply = mNetworkAccessManager->get(request);
-    reply->setProperty("method", QVariant::fromValue(RestMethod::ServerInfo));
+    ServerInfoJob *job = new ServerInfoJob(this);
+    job->setNetworkAccessManager(mNetworkAccessManager);
+    job->setRestApiMethod(mRestApiMethod);
+    connect(job, &ServerInfoJob::getServerInfoDone, this, &RestApiRequest::getServerInfoDone);
+    job->start();
 }
 
 void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename)

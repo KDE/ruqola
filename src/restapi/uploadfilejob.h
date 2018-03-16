@@ -24,7 +24,8 @@
 
 #include <QObject>
 #include "libruqola_private_export.h"
-
+class QNetworkAccessManager;
+class RestApiMethod;
 class LIBRUQOLACORE_TESTS_EXPORT UploadFileJob : public QObject
 {
     Q_OBJECT
@@ -32,9 +33,17 @@ public:
     explicit UploadFileJob(QObject *parent = nullptr);
     ~UploadFileJob();
 
-    void start();
+    bool start();
+    QNetworkAccessManager *networkAccessManager() const;
+    void setNetworkAccessManager(QNetworkAccessManager *networkAccessManager);
+
+    RestApiMethod *restApiMethod() const;
+    void setRestApiMethod(RestApiMethod *restApiMethod);
+
 private:
     Q_DISABLE_COPY(UploadFileJob)
+    QNetworkAccessManager *mNetworkAccessManager = nullptr;
+    RestApiMethod *mRestApiMethod = nullptr;
 };
 
 #endif // UPLOADFILEJOB_H
