@@ -24,6 +24,7 @@
 #include <QObject>
 #include "restapiabstractjob.h"
 #include "libruqola_private_export.h"
+class QNetworkRequest;
 class LIBRUQOLACORE_TESTS_EXPORT ServerInfoJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -33,6 +34,7 @@ public:
 
     bool start();
 
+    QNetworkRequest request() const;
 Q_SIGNALS:
     void serverInfoDone(const QString &versionInfo);
 

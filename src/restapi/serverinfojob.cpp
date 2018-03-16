@@ -48,16 +48,21 @@ bool ServerInfoJob::start()
         qCWarning(RUQOLA_RESTAPI_LOG) << "RestaApiMethod not defined";
         return false;
     }
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo);
-    QNetworkRequest request(url);
-    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-    QNetworkReply *reply = mNetworkAccessManager->get(request);
+    QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &ServerInfoJob::slotServerInfoFinished);
     //TODO remove it after porting
     reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::ServerInfo));
 
     return true;
+}
+
+QNetworkRequest ServerInfoJob::request() const
+{
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo);
+    QNetworkRequest request(url);
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+    return request;
 }
 
 void ServerInfoJob::slotServerInfoFinished()
