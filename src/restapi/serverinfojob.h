@@ -41,7 +41,7 @@ public:
     void setRestApiMethod(RestApiMethod *restApiMethod);
 
 Q_SIGNALS:
-    void getServerInfoDone(const QString &versionInfo);
+    void serverInfoDone(const QString &versionInfo);
 
 private:
     Q_DISABLE_COPY(ServerInfoJob)

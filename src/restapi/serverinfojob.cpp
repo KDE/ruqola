@@ -71,13 +71,12 @@ void ServerInfoJob::slotServerInfoFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
-        qDebug() << " version "<< version;
         versionStr = version.value(QStringLiteral("version")).toString();
         if (versionStr.isEmpty()) {
             qCWarning(RUQOLA_RESTAPI_LOG) << "ServerInfoJob::slotServerInfoFinished Problem during parsing server version";
         }
     }
-    Q_EMIT getServerInfoDone(versionStr);
+    Q_EMIT serverInfoDone(versionStr);
     deleteLater();
 }
 

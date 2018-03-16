@@ -429,7 +429,7 @@ void RestApiRequest::serverInfo()
     ServerInfoJob *job = new ServerInfoJob(this);
     job->setNetworkAccessManager(mNetworkAccessManager);
     job->setRestApiMethod(mRestApiMethod);
-    connect(job, &ServerInfoJob::getServerInfoDone, this, &RestApiRequest::getServerInfoDone);
+    connect(job, &ServerInfoJob::serverInfoDone, this, &RestApiRequest::getServerInfoDone);
     job->start();
 }
 
