@@ -8,6 +8,7 @@ set (Ruqola_restapi_SRCS
     restapi/serverinfojob.cpp
     restapi/restapiabstractjob.cpp
     restapi/owninfojob.cpp
+    restapi/getavatarjob.cpp
     )
 
 set(Ruqola_ddpapi_SRCS

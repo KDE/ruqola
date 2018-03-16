@@ -64,4 +64,6 @@ add_ruqola_test(restapimethodtest.cpp)
 add_ruqola_test(serverinfojobtest.cpp)
 add_ruqola_test(uploadfilejobtest.cpp)
 add_ruqola_test(owninfojobtest.cpp)
+add_ruqola_test(getavatarjobtest.cpp)
+
 add_subdirectory(qml)
