@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERINFOJOBTEST_H
-#define SERVERINFOJOBTEST_H
+#ifndef OWNINFOJOBTEST_H
+#define OWNINFOJOBTEST_H
 
 #include <QObject>
 
-class ServerInfoJobTest : public QObject
+class OwnInfoJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ServerInfoJobTest(QObject *parent = nullptr);
-    ~ServerInfoJobTest() = default;
+    explicit OwnInfoJobTest(QObject *parent = nullptr);
+    ~OwnInfoJobTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
 };
 
-#endif // SERVERINFOJOBTEST_H
+#endif // OWNINFOJOBTEST_H

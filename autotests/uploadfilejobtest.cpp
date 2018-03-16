@@ -18,38 +18,48 @@
    Boston, MA 02110-1301, USA.
 */
 
-
-#include "serverinfojobtest.h"
-#include "restapi/serverinfojob.h"
+#include "uploadfilejobtest.h"
+#include "restapi/uploadfilejob.h"
 #include "restapi/restapimethod.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(ServerInfoJobTest)
+QTEST_GUILESS_MAIN(UploadFileJobTest)
 
-ServerInfoJobTest::ServerInfoJobTest(QObject *parent)
+UploadFileJobTest::UploadFileJobTest(QObject *parent)
     : QObject(parent)
 {
 
 }
 
-void ServerInfoJobTest::shouldHaveDefaultValue()
+void UploadFileJobTest::shouldHaveDefaultValue()
 {
-    ServerInfoJob job;
-    QVERIFY(!job.restApiMethod());
+    UploadFileJob job;
+    QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.networkAccessManager());
+    QVERIFY(!job.restApiMethod());
     QVERIFY(!job.start());
-    QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(job.description().isEmpty());
+    QVERIFY(job.messageText().isEmpty());
+    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.filenameUrl().isValid());
+    QVERIFY(job.authToken().isEmpty());
+    QVERIFY(job.userId().isEmpty());
 }
 
-void ServerInfoJobTest::shouldGenerateRequest()
+void UploadFileJobTest::shouldGenerateRequest()
 {
-    ServerInfoJob job;
+    UploadFileJob job;
+    const QString authToken = QStringLiteral("foo");
+    const QString userId = QStringLiteral("user");
+    job.setUserId(userId);
+    job.setAuthToken(authToken);
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/info")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.upload")));
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
     QCOMPARE(request.attribute(QNetworkRequest::HTTP2AllowedAttribute).toBool(), true);
-
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
     delete method;
 }

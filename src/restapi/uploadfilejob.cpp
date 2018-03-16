@@ -21,10 +21,17 @@
 #include "uploadfilejob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
+#include "restapirequest.h"
+#include <QFile>
+#include <QHttpMultiPart>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QMimeDatabase>
 #include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 UploadFileJob::UploadFileJob(QObject *parent)
-    : QObject(parent)
+    : RestApiAbstractJob(parent)
 {
 
 }
@@ -36,33 +43,118 @@ UploadFileJob::~UploadFileJob()
 
 bool UploadFileJob::start()
 {
-    if (!mNetworkAccessManager) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Network manager not defined";
+    if (!canStart()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start upload file job";
+        deleteLater();
         return false;
     }
-    if (!mRestApiMethod) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "RestaApiMethod not defined";
+    QFile *file = new QFile(mFilenameUrl.path());
+    if (!file->open(QIODevice::ReadOnly)) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << " Impossible to open filename " << mFilenameUrl;
+        delete file;
+        deleteLater();
         return false;
     }
+    QMimeDatabase db;
+    const QMimeType mimeType = db.mimeTypeForFile(mFilenameUrl.path());
+
+    QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+
+    QHttpPart filePart;
+    filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
+    const QString filePartInfo = QStringLiteral("form-data; name=\"file\"; filename=\"%1\"").arg(mFilenameUrl.fileName());
+    filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
+
+    filePart.setBodyDevice(file);
+    file->setParent(multiPart); // we cannot delete the file now, so delete it with the multiPart
+    multiPart->append(filePart);
+
+    QHttpPart msgPart;
+    msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"msg\"")));
+    msgPart.setBody(mMessageText.toUtf8());
+    multiPart->append(msgPart);
+
+    QHttpPart descriptionPart;
+    descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"description\"")));
+    descriptionPart.setBody(mDescription.toUtf8());
+    multiPart->append(descriptionPart);
+    QNetworkReply *reply = mNetworkAccessManager->post(request(), multiPart);
+    connect(reply, &QNetworkReply::finished, this, &UploadFileJob::slotUploadFinished);
+    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::UploadFile));
+    multiPart->setParent(reply); // delete the multiPart with the reply
+
+    //TODO upload progress ?
+    //TODO signal error ?
+
     return true;
 }
 
-QNetworkAccessManager *UploadFileJob::networkAccessManager() const
+QNetworkRequest UploadFileJob::request() const
 {
-    return mNetworkAccessManager;
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, mRoomId);
+    QNetworkRequest request(url);
+    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
+    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+    return request;
 }
 
-void UploadFileJob::setNetworkAccessManager(QNetworkAccessManager *networkAccessManager)
+void UploadFileJob::slotUploadFinished()
 {
-    mNetworkAccessManager = networkAccessManager;
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    if (reply) {
+        const QByteArray data = reply->readAll();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+        if (!replyObject.value(QLatin1String("success")).toBool()) {
+            qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseUploadFile method had a problem " << replyJson;
+        }
+    }
+    deleteLater();
 }
 
-RestApiMethod *UploadFileJob::restApiMethod() const
+QString UploadFileJob::roomId() const
 {
-    return mRestApiMethod;
+    return mRoomId;
 }
 
-void UploadFileJob::setRestApiMethod(RestApiMethod *restApiMethod)
+void UploadFileJob::setRoomId(const QString &roomId)
 {
-    mRestApiMethod = restApiMethod;
+    mRoomId = roomId;
+}
+
+QString UploadFileJob::description() const
+{
+    return mDescription;
+}
+
+void UploadFileJob::setDescription(const QString &description)
+{
+    mDescription = description;
+}
+
+QString UploadFileJob::messageText() const
+{
+    return mMessageText;
+}
+
+void UploadFileJob::setMessageText(const QString &messageText)
+{
+    mMessageText = messageText;
+}
+
+QUrl UploadFileJob::filenameUrl() const
+{
+    return mFilenameUrl;
+}
+
+void UploadFileJob::setFilenameUrl(const QUrl &filenameUrl)
+{
+    mFilenameUrl = filenameUrl;
+}
+
+bool UploadFileJob::requireHttpAuthentication() const
+{
+    return true;
 }

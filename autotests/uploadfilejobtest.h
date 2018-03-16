@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERINFOJOBTEST_H
-#define SERVERINFOJOBTEST_H
+#ifndef UPLOADFILEJOBTEST_H
+#define UPLOADFILEJOBTEST_H
 
 #include <QObject>
 
-class ServerInfoJobTest : public QObject
+class UploadFileJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ServerInfoJobTest(QObject *parent = nullptr);
-    ~ServerInfoJobTest() = default;
+    explicit UploadFileJobTest(QObject *parent = nullptr);
+    ~UploadFileJobTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
 };
 
-#endif // SERVERINFOJOBTEST_H
+#endif // UPLOADFILEJOBTEST_H

@@ -30,11 +30,14 @@ class LIBRUQOLACORE_TESTS_EXPORT ServerInfoJob : public RestApiAbstractJob
     Q_OBJECT
 public:
     explicit ServerInfoJob(QObject *parent = nullptr);
-    ~ServerInfoJob();
+    ~ServerInfoJob() override;
 
-    bool start();
+    bool start() override;
 
     QNetworkRequest request() const;
+
+    bool requireHttpAuthentication() const override;
+
 Q_SIGNALS:
     void serverInfoDone(const QString &versionInfo);
 

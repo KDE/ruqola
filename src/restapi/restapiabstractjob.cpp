@@ -19,6 +19,7 @@
 */
 
 #include "restapiabstractjob.h"
+#include "ruqola_restapi_debug.h"
 
 RestApiAbstractJob::RestApiAbstractJob(QObject *parent)
     : QObject(parent)
@@ -44,4 +45,46 @@ RestApiMethod *RestApiAbstractJob::restApiMethod() const
 void RestApiAbstractJob::setRestApiMethod(RestApiMethod *restApiMethod)
 {
     mRestApiMethod = restApiMethod;
+}
+
+QString RestApiAbstractJob::authToken() const
+{
+    return mAuthToken;
+}
+
+void RestApiAbstractJob::setAuthToken(const QString &authToken)
+{
+    mAuthToken = authToken;
+}
+
+QString RestApiAbstractJob::userId() const
+{
+    return mUserId;
+}
+
+void RestApiAbstractJob::setUserId(const QString &userId)
+{
+    mUserId = userId;
+}
+
+bool RestApiAbstractJob::hasAuthenticationValue() const
+{
+    return !mAuthToken.isEmpty() && !mUserId.isEmpty();
+}
+
+bool RestApiAbstractJob::canStart() const
+{
+    if (!mNetworkAccessManager) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Network manager not defined";
+        return false;
+    }
+    if (!mRestApiMethod) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "RestaApiMethod not defined";
+        return false;
+    }
+    if (requireHttpAuthentication() && !hasAuthenticationValue()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Auth settings is empty. It's a bug";
+        return false;
+    }
+    return true;
 }

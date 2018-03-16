@@ -22,6 +22,8 @@
 #include "restapirequest.h"
 #include "ruqola_restapi_debug.h"
 #include "serverinfojob.h"
+#include "uploadfilejob.h"
+#include "owninfojob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -101,12 +103,6 @@ void RestApiRequest::parseLogin(const QByteArray &data)
     }
 }
 
-void RestApiRequest::parseOwnInfo(const QByteArray &data)
-{
-    qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseOwnInfo: " << data;
-    Q_EMIT getOwnInfoDone(data);
-}
-
 void RestApiRequest::parseLogout(const QByteArray &data)
 {
     const QJsonDocument replyJson = QJsonDocument::fromJson(data);
@@ -178,15 +174,6 @@ void RestApiRequest::parsePost(const QByteArray &data)
     qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parsePost: " << data;
 }
 
-void RestApiRequest::parseUploadFile(const QByteArray &data)
-{
-    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
-    const QJsonObject replyObject = replyJson.object();
-    if (!replyObject.value(QLatin1String("success")).toBool()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseUploadFile method had a problem " << replyJson;
-    }
-}
-
 void RestApiRequest::parsePrivateInfo(const QByteArray &data)
 {
     const QJsonDocument replyJson = QJsonDocument::fromJson(data);
@@ -198,7 +185,7 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
     if (reply->error() == QNetworkReply::NoError) {
         //Exclude it until we port to new api
         const RestMethod restMethod = reply->property("method").value<RestMethod>();
-        if (restMethod == ServerInfo) {
+        if (restMethod == ServerInfo || restMethod == UploadFile || restMethod == Me) {
             return;
         }
         const QByteArray data = reply->readAll();
@@ -221,11 +208,9 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
         case ServerInfo:
             return;
         case Me:
-            parseOwnInfo(data);
-            break;
+            return;
         case UploadFile:
-            parseUploadFile(data);
-            break;
+            return;
         case Get:
         {
             const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
@@ -372,17 +357,13 @@ void RestApiRequest::getPrivateSettings()
 
 void RestApiRequest::getOwnInfo()
 {
-    if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::getOwnInfo problem with mUserId or mAuthToken";
-    } else {
-        QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Me);
-        QNetworkRequest request(url);
-        request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
-        request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-
-        QNetworkReply *reply = mNetworkAccessManager->get(request);
-        reply->setProperty("method", QVariant::fromValue(RestMethod::Me));
-    }
+    OwnInfoJob *job = new OwnInfoJob(this);
+    connect(job, &OwnInfoJob::ownInfoDone, this, &RestApiRequest::getOwnInfoDone);
+    job->setNetworkAccessManager(mNetworkAccessManager);
+    job->setRestApiMethod(mRestApiMethod);
+    job->setAuthToken(mAuthToken);
+    job->setUserId(mUserId);
+    job->start();
 }
 
 void RestApiRequest::post(const QUrl &url, const QByteArray &data, const QString &mimeType)
@@ -421,43 +402,14 @@ void RestApiRequest::serverInfo()
 
 void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename)
 {
-    QFile *file = new QFile(filename.path());
-    if (!file->open(QIODevice::ReadOnly)) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << " Impossible to open filename " << filename;
-        delete file;
-        return;
-    }
-    QMimeDatabase db;
-    const QMimeType mimeType = db.mimeTypeForFile(filename.path());
-
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload, roomId);
-    QNetworkRequest request(url);
-    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
-    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-
-    QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
-
-    QHttpPart filePart;
-    filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
-    const QString filePartInfo = QStringLiteral("form-data; name=\"file\"; filename=\"%1\"").arg(filename.fileName());
-    filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
-
-    filePart.setBodyDevice(file);
-    file->setParent(multiPart); // we cannot delete the file now, so delete it with the multiPart
-    multiPart->append(filePart);
-
-    QHttpPart msgPart;
-    msgPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"msg\"")));
-    msgPart.setBody(text.toUtf8());
-    multiPart->append(msgPart);
-
-    QHttpPart descriptionPart;
-    descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"description\"")));
-    descriptionPart.setBody(description.toUtf8());
-    multiPart->append(descriptionPart);
-    QNetworkReply *reply = mNetworkAccessManager->post(request, multiPart);
-    reply->setProperty("method", QVariant::fromValue(RestMethod::UploadFile));
-    multiPart->setParent(reply); // delete the multiPart with the reply
+    UploadFileJob *job = new UploadFileJob(this);
+    job->setNetworkAccessManager(mNetworkAccessManager);
+    job->setRestApiMethod(mRestApiMethod);
+    job->setDescription(description);
+    job->setMessageText(text);
+    job->setFilenameUrl(filename);
+    job->setRoomId(roomId);
+    job->setAuthToken(mAuthToken);
+    job->setUserId(mUserId);
+    job->start();
 }

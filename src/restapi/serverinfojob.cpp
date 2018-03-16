@@ -40,14 +40,12 @@ ServerInfoJob::~ServerInfoJob()
 
 bool ServerInfoJob::start()
 {
-    if (!mNetworkAccessManager) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Network manager not defined";
+    if (!canStart()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start server info job";
+        deleteLater();
         return false;
     }
-    if (!mRestApiMethod) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "RestaApiMethod not defined";
-        return false;
-    }
+
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &ServerInfoJob::slotServerInfoFinished);
     //TODO remove it after porting
@@ -63,6 +61,11 @@ QNetworkRequest ServerInfoJob::request() const
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     return request;
+}
+
+bool ServerInfoJob::requireHttpAuthentication() const
+{
+    return false;
 }
 
 void ServerInfoJob::slotServerInfoFinished()

@@ -22,28 +22,42 @@
 #ifndef UPLOADFILEJOB_H
 #define UPLOADFILEJOB_H
 
+#include <QNetworkRequest>
 #include <QObject>
+#include <QUrl>
 #include "libruqola_private_export.h"
-class QNetworkAccessManager;
-class RestApiMethod;
-class LIBRUQOLACORE_TESTS_EXPORT UploadFileJob : public QObject
+#include "restapiabstractjob.h"
+class LIBRUQOLACORE_TESTS_EXPORT UploadFileJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
     explicit UploadFileJob(QObject *parent = nullptr);
-    ~UploadFileJob();
+    ~UploadFileJob() override;
 
-    bool start();
-    QNetworkAccessManager *networkAccessManager() const;
-    void setNetworkAccessManager(QNetworkAccessManager *networkAccessManager);
+    bool start() override;
 
-    RestApiMethod *restApiMethod() const;
-    void setRestApiMethod(RestApiMethod *restApiMethod);
+    QString roomId() const;
+    void setRoomId(const QString &roomId);
 
+    QString description() const;
+    void setDescription(const QString &description);
+
+    QString messageText() const;
+    void setMessageText(const QString &messageText);
+
+    QUrl filenameUrl() const;
+    void setFilenameUrl(const QUrl &filenameUrl);
+
+    bool requireHttpAuthentication() const override final;
+
+    QNetworkRequest request() const;
 private:
     Q_DISABLE_COPY(UploadFileJob)
-    QNetworkAccessManager *mNetworkAccessManager = nullptr;
-    RestApiMethod *mRestApiMethod = nullptr;
+    void slotUploadFinished();
+    QString mRoomId;
+    QString mDescription;
+    QString mMessageText;
+    QUrl mFilenameUrl;
 };
 
 #endif // UPLOADFILEJOB_H

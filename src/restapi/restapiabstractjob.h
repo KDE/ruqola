@@ -22,10 +22,10 @@
 #define RESTAPIABSTRACTJOB_H
 
 #include <QObject>
-
+#include "libruqola_private_export.h"
 class QNetworkAccessManager;
 class RestApiMethod;
-class RestApiAbstractJob : public QObject
+class LIBRUQOLACORE_TESTS_EXPORT RestApiAbstractJob : public QObject
 {
 public:
     explicit RestApiAbstractJob(QObject *parent = nullptr);
@@ -34,7 +34,23 @@ public:
 
     RestApiMethod *restApiMethod() const;
     void setRestApiMethod(RestApiMethod *restApiMethod);
+
+    QString authToken() const;
+    void setAuthToken(const QString &authToken);
+
+    QString userId() const;
+    void setUserId(const QString &userId);
+
+    bool hasAuthenticationValue() const;
+
+    virtual bool start() = 0;
+    virtual bool requireHttpAuthentication() const = 0;
+
 protected:
+    Q_DISABLE_COPY(RestApiAbstractJob)
+    bool canStart() const;
+    QString mAuthToken;
+    QString mUserId;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     RestApiMethod *mRestApiMethod = nullptr;
 };

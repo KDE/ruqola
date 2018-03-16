@@ -18,31 +18,36 @@
    Boston, MA 02110-1301, USA.
 */
 
-
-#include "serverinfojobtest.h"
-#include "restapi/serverinfojob.h"
-#include "restapi/restapimethod.h"
+#include "owninfojobtest.h"
+#include "restapi/owninfojob.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(ServerInfoJobTest)
+#include <restapi/restapimethod.h>
+QTEST_GUILESS_MAIN(OwnInfoJobTest)
 
-ServerInfoJobTest::ServerInfoJobTest(QObject *parent)
+OwnInfoJobTest::OwnInfoJobTest(QObject *parent)
     : QObject(parent)
 {
 
 }
 
-void ServerInfoJobTest::shouldHaveDefaultValue()
+void OwnInfoJobTest::shouldHaveDefaultValue()
 {
-    ServerInfoJob job;
+    OwnInfoJob job;
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
-    QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(job.authToken().isEmpty());
+    QVERIFY(job.userId().isEmpty());
 }
 
-void ServerInfoJobTest::shouldGenerateRequest()
+void OwnInfoJobTest::shouldGenerateRequest()
 {
-    ServerInfoJob job;
+    OwnInfoJob job;
+    const QString authToken = QStringLiteral("foo");
+    const QString userId = QStringLiteral("user");
+    job.setUserId(userId);
+    job.setAuthToken(authToken);
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
@@ -50,6 +55,7 @@ void ServerInfoJobTest::shouldGenerateRequest()
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/info")));
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
     QCOMPARE(request.attribute(QNetworkRequest::HTTP2AllowedAttribute).toBool(), true);
-
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
     delete method;
 }

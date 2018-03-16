@@ -18,20 +18,33 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERINFOJOBTEST_H
-#define SERVERINFOJOBTEST_H
+#ifndef OWNINFOJOB_H
+#define OWNINFOJOB_H
 
-#include <QObject>
+#include "restapiabstractjob.h"
+#include "libruqola_private_export.h"
 
-class ServerInfoJobTest : public QObject
+#include <QNetworkRequest>
+
+class LIBRUQOLACORE_TESTS_EXPORT OwnInfoJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit ServerInfoJobTest(QObject *parent = nullptr);
-    ~ServerInfoJobTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
+    explicit OwnInfoJob(QObject *parent = nullptr);
+    ~OwnInfoJob() override;
+
+    bool requireHttpAuthentication() const override;
+
+    bool start() override;
+
+    QNetworkRequest request() const;
+
+Q_SIGNALS:
+    void ownInfoDone(const QByteArray &data);
+
+private:
+    Q_DISABLE_COPY(OwnInfoJob)
+    void slotServerInfoFinished();
 };
 
-#endif // SERVERINFOJOBTEST_H
+#endif // OWNINFOJOB_H
