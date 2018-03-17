@@ -33,6 +33,11 @@ StarMessageJob::StarMessageJob(QObject *parent)
 
 }
 
+StarMessageJob::~StarMessageJob()
+{
+
+}
+
 
 bool StarMessageJob::start()
 {
