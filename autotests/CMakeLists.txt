@@ -70,5 +70,6 @@ add_ruqola_test(getavatarjobtest.cpp)
 add_ruqola_test(logoutjobtest.cpp)
 add_ruqola_test(loginjobtest.cpp)
 add_ruqola_test(privateinfojobtest.cpp)
+add_ruqola_test(channellistjobtest.cpp)
 
 add_subdirectory(qml)

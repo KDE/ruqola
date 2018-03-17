@@ -12,6 +12,7 @@ set (Ruqola_restapi_SRCS
     restapi/logoutjob.cpp
     restapi/loginjob.cpp
     restapi/privateinfojob.cpp
+    restapi/channellistjob.cpp
     )
 
 set(Ruqola_ddpapi_SRCS

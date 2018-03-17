@@ -18,31 +18,33 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERINFOJOB_H
-#define SERVERINFOJOB_H
+#include "channellistjob.h"
+#include "ruqola_restapi_debug.h"
+#include "restapimethod.h"
+#include "restapirequest.h"
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
-#include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
-class QNetworkRequest;
-class LIBRUQOLACORE_TESTS_EXPORT ServerInfoJob : public RestApiAbstractJob
+
+ChannelListJob::ChannelListJob(QObject *parent)
+    : RestApiAbstractJob(parent)
 {
-    Q_OBJECT
-public:
-    explicit ServerInfoJob(QObject *parent = nullptr);
-    ~ServerInfoJob() override;
+}
 
-    bool start() override;
+ChannelListJob::~ChannelListJob()
+{
+}
 
-    QNetworkRequest request() const;
 
-    bool requireHttpAuthentication() const override;
+bool ChannelListJob::start()
+{
+    //TODO
+    return false;
+}
 
-Q_SIGNALS:
-    void serverInfoDone(const QString &versionInfo);
-
-private:
-    Q_DISABLE_COPY(ServerInfoJob)
-    void slotServerInfoFinished();
-};
-
-#endif // SERVERINFOJOB_H
+bool ChannelListJob::requireHttpAuthentication() const
+{
+    return true;
+}
