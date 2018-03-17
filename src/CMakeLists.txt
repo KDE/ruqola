@@ -13,6 +13,7 @@ set (Ruqola_restapi_SRCS
     restapi/loginjob.cpp
     restapi/privateinfojob.cpp
     restapi/channellistjob.cpp
+    restapi/starmessagejob.cpp
     )
 
 set(Ruqola_ddpapi_SRCS

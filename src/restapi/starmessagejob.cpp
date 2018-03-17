@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "channellistjob.h"
+#include "starmessagejob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
 #include "restapirequest.h"
@@ -27,30 +27,25 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
-
-ChannelListJob::ChannelListJob(QObject *parent)
+StarMessageJob::StarMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-}
 
-ChannelListJob::~ChannelListJob()
-{
 }
 
 
-bool ChannelListJob::start()
+bool StarMessageJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start channel list job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start star message job";
         deleteLater();
         return false;
     }
-
+    return true;
     //TODO
-    return false;
 }
 
-bool ChannelListJob::requireHttpAuthentication() const
+bool StarMessageJob::requireHttpAuthentication() const
 {
     return true;
 }

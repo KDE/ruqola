@@ -18,39 +18,23 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "channellistjob.h"
-#include "ruqola_restapi_debug.h"
-#include "restapimethod.h"
-#include "restapirequest.h"
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
+#ifndef STARMESSAGEJOB_H
+#define STARMESSAGEJOB_H
 
-
-ChannelListJob::ChannelListJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+#include "restapiabstractjob.h"
+#include "libruqola_private_export.h"
+class QNetworkRequest;
+class LIBRUQOLACORE_TESTS_EXPORT StarMessageJob : public RestApiAbstractJob
 {
-}
+    Q_OBJECT
+public:
+    explicit StarMessageJob(QObject *parent = nullptr);
+    ~StarMessageJob() override;
 
-ChannelListJob::~ChannelListJob()
-{
-}
+    bool start() override;
+    bool requireHttpAuthentication() const override;
+private:
+    Q_DISABLE_COPY(StarMessageJob)
+};
 
-
-bool ChannelListJob::start()
-{
-    if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start channel list job";
-        deleteLater();
-        return false;
-    }
-
-    //TODO
-    return false;
-}
-
-bool ChannelListJob::requireHttpAuthentication() const
-{
-    return true;
-}
+#endif // STARMESSAGEJOB_H
