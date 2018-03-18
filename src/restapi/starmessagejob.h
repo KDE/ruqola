@@ -33,8 +33,13 @@ public:
 
     bool start() override;
     bool requireHttpAuthentication() const override;
+
+    QString messageId() const;
+    void setMessageId(const QString &messageId);
+
 private:
     Q_DISABLE_COPY(StarMessageJob)
+    QString mMessageId;
 };
 
 #endif // STARMESSAGEJOB_H

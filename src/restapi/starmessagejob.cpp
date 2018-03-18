@@ -54,3 +54,13 @@ bool StarMessageJob::requireHttpAuthentication() const
 {
     return true;
 }
+
+QString StarMessageJob::messageId() const
+{
+    return mMessageId;
+}
+
+void StarMessageJob::setMessageId(const QString &messageId)
+{
+    mMessageId = messageId;
+}

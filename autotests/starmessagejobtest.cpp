@@ -19,6 +19,7 @@
 */
 
 #include "starmessagejobtest.h"
+#include "restapi/starmessagejob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(StarMessageJobTest)
 
@@ -27,3 +28,17 @@ StarMessageJobTest::StarMessageJobTest(QObject *parent)
 {
 
 }
+
+
+void StarMessageJobTest::shouldHaveDefaultValue()
+{
+    StarMessageJob job;
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.networkAccessManager());
+    QVERIFY(!job.restApiMethod());
+    QVERIFY(!job.start());
+    QVERIFY(job.authToken().isEmpty());
+    QVERIFY(job.userId().isEmpty());
+    QVERIFY(job.messageId().isEmpty());
+}
+
