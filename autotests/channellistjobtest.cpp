@@ -32,5 +32,12 @@ ChannelListJobTest::ChannelListJobTest(QObject *parent)
 
 void ChannelListJobTest::shouldHaveDefaultValue()
 {
-
+    ChannelListJob job;
+    QVERIFY(!job.restApiMethod());
+    QVERIFY(!job.networkAccessManager());
+    QVERIFY(!job.start());
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(job.authToken().isEmpty());
+    QVERIFY(job.userId().isEmpty());
+    QVERIFY(!job.ruqolaLogger());
 }

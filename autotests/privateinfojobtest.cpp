@@ -19,6 +19,7 @@
 */
 
 #include "privateinfojobtest.h"
+#include "restapi/privateinfojob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(PrivateInfoJobTest)
 
@@ -26,4 +27,16 @@ PrivateInfoJobTest::PrivateInfoJobTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void PrivateInfoJobTest::shouldHaveDefaultValue()
+{
+    PrivateInfoJob job;
+    QVERIFY(!job.restApiMethod());
+    QVERIFY(!job.networkAccessManager());
+    QVERIFY(!job.start());
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(job.authToken().isEmpty());
+    QVERIFY(job.userId().isEmpty());
+    QVERIFY(!job.ruqolaLogger());
 }

@@ -30,6 +30,8 @@ public:
     explicit PrivateInfoJobTest(QObject *parent = nullptr);
     ~PrivateInfoJobTest() = default;
 
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // PRIVATEINFOJOBTEST_H
