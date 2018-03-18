@@ -20,6 +20,7 @@
 
 #include "restapiabstractjob.h"
 #include "ruqola_restapi_debug.h"
+#include "ruqolalogger.h"
 
 #include <QNetworkRequest>
 
@@ -105,4 +106,13 @@ RuqolaLogger *RestApiAbstractJob::ruqolaLogger() const
 void RestApiAbstractJob::setRuqolaLogger(RuqolaLogger *ruqolaLogger)
 {
     mRuqolaLogger = ruqolaLogger;
+}
+
+void RestApiAbstractJob::addLoggerInfo(const QByteArray &str)
+{
+    if (mRuqolaLogger) {
+        mRuqolaLogger->dataSent("RESTAPI: " + str);
+    } else {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "RESTAPI: " << str;
+    }
 }

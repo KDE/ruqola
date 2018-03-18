@@ -51,6 +51,8 @@ public:
     RuqolaLogger *ruqolaLogger() const;
     void setRuqolaLogger(RuqolaLogger *ruqolaLogger);
 
+    void addLoggerInfo(const QByteArray &str);
+
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
     bool canStart() const;
