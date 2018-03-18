@@ -41,6 +41,7 @@ void StarMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.userId().isEmpty());
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(!job.ruqolaLogger());
+    QVERIFY(job.starMessage());
 }
 
 void StarMessageJobTest::shouldHaveMessageId()
@@ -48,7 +49,7 @@ void StarMessageJobTest::shouldHaveMessageId()
     //TODO add canStart as virtual
 }
 
-void StarMessageJobTest::shouldGenerateRequest()
+void StarMessageJobTest::shouldGenerateStarMessageRequest()
 {
     StarMessageJob job;
     RestApiMethod *method = new RestApiMethod;
@@ -58,6 +59,24 @@ void StarMessageJobTest::shouldGenerateRequest()
     job.setMessageId(messageId);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.starMessage")));
+    QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
+    QCOMPARE(request.attribute(QNetworkRequest::HTTP2AllowedAttribute).toBool(), true);
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+
+    delete method;
+}
+
+void StarMessageJobTest::shouldGenerateUnStarMessageRequest()
+{
+    StarMessageJob job;
+    job.setStarMessage(false);
+    RestApiMethod *method = new RestApiMethod;
+    method->setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(method);
+    const QString messageId = QStringLiteral("foo");
+    job.setMessageId(messageId);
+    const QNetworkRequest request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.unStarMessage")));
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
     QCOMPARE(request.attribute(QNetworkRequest::HTTP2AllowedAttribute).toBool(), true);
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));

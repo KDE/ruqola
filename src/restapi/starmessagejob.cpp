@@ -72,6 +72,16 @@ void StarMessageJob::slotStarMessageFinished()
     deleteLater();
 }
 
+bool StarMessageJob::starMessage() const
+{
+    return mStarMessage;
+}
+
+void StarMessageJob::setStarMessage(bool starMessage)
+{
+    mStarMessage = starMessage;
+}
+
 QJsonDocument StarMessageJob::json() const
 {
     QJsonObject jsonObj;
@@ -98,7 +108,7 @@ void StarMessageJob::setMessageId(const QString &messageId)
 
 QNetworkRequest StarMessageJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatStarMessage);
+    const QUrl url = mRestApiMethod->generateUrl(mStarMessage ? RestApiUtil::RestApiUrlType::ChatStarMessage : RestApiUtil::RestApiUrlType::ChatUnStarMessage);
     QNetworkRequest request(url);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);

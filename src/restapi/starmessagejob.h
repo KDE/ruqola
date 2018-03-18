@@ -40,6 +40,9 @@ public:
     QNetworkRequest request() const;
     QJsonDocument json() const;
 
+    bool starMessage() const;
+    void setStarMessage(bool starMessage);
+
 Q_SIGNALS:
     void messageStarred();
 
@@ -47,6 +50,7 @@ private:
     Q_DISABLE_COPY(StarMessageJob)
     void slotStarMessageFinished();
     QString mMessageId;
+    bool mStarMessage = true;
 };
 
 #endif // STARMESSAGEJOB_H

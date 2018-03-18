@@ -31,7 +31,8 @@ public:
 private slots:
     void shouldHaveDefaultValue();
     void shouldHaveMessageId();
-    void shouldGenerateRequest();
+    void shouldGenerateStarMessageRequest();
+    void shouldGenerateUnStarMessageRequest();
     void shouldGenerateJson();
 };
 
