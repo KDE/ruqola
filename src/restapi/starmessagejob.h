@@ -37,8 +37,15 @@ public:
     QString messageId() const;
     void setMessageId(const QString &messageId);
 
+    QNetworkRequest request() const;
+    QJsonDocument json() const;
+
+Q_SIGNALS:
+    void messageStarred();
+
 private:
     Q_DISABLE_COPY(StarMessageJob)
+    void slotStarMessageFinished();
     QString mMessageId;
 };
 

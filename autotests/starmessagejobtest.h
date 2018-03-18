@@ -30,6 +30,9 @@ public:
     ~StarMessageJobTest() = default;
 private slots:
     void shouldHaveDefaultValue();
+    void shouldHaveMessageId();
+    void shouldGenerateRequest();
+    void shouldGenerateJson();
 };
 
 #endif // STARMESSAGEJOBTEST_H

@@ -46,8 +46,42 @@ bool StarMessageJob::start()
         deleteLater();
         return false;
     }
+    if (mMessageId.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "MessageId is empty";
+        deleteLater();
+        return false;
+    }
+    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
+    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    connect(reply, &QNetworkReply::finished, this, &StarMessageJob::slotStarMessageFinished);
     return true;
-    //TODO
+}
+
+void StarMessageJob::slotStarMessageFinished()
+{
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    if (reply) {
+        const QByteArray data = reply->readAll();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            qCDebug(RUQOLA_RESTAPI_LOG) << "Message Starred success";
+            Q_EMIT messageStarred();
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to staring message";
+        }
+    }
+    deleteLater();
+}
+
+QJsonDocument StarMessageJob::json() const
+{
+    QJsonObject jsonObj;
+    jsonObj[QLatin1String("messageId")] = mMessageId;
+
+    const QJsonDocument postData = QJsonDocument(jsonObj);
+    return postData;
 }
 
 bool StarMessageJob::requireHttpAuthentication() const
@@ -63,4 +97,14 @@ QString StarMessageJob::messageId() const
 void StarMessageJob::setMessageId(const QString &messageId)
 {
     mMessageId = messageId;
+}
+
+QNetworkRequest StarMessageJob::request() const
+{
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatStarMessage);
+    QNetworkRequest request(url);
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    return request;
 }
