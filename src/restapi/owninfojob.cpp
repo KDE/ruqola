@@ -53,6 +53,7 @@ bool OwnInfoJob::start()
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &OwnInfoJob::slotServerInfoFinished);
     reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::Me));
+    addLoggerInfo(QByteArrayLiteral("OwnInfoJob: Ask info about me"));
     return true;
 }
 
@@ -61,6 +62,7 @@ void OwnInfoJob::slotServerInfoFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
+        addLoggerInfo(QByteArrayLiteral("OwnInfoJob: finished: ") + data);
         Q_EMIT ownInfoDone(data);
     }
     deleteLater();
