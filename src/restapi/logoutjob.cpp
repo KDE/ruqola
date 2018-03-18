@@ -31,12 +31,10 @@
 LogoutJob::LogoutJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 LogoutJob::~LogoutJob()
 {
-
 }
 
 bool LogoutJob::start()

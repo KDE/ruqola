@@ -25,5 +25,4 @@ QTEST_GUILESS_MAIN(LoginJobTest)
 LoginJobTest::LoginJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }

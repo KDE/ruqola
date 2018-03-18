@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(PrivateInfoJobTest)
 PrivateInfoJobTest::PrivateInfoJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void PrivateInfoJobTest::shouldHaveDefaultValue()

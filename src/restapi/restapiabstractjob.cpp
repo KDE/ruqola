@@ -27,7 +27,6 @@
 RestApiAbstractJob::RestApiAbstractJob(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 QNetworkAccessManager *RestApiAbstractJob::networkAccessManager() const

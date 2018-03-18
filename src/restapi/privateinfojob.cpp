@@ -30,12 +30,10 @@
 PrivateInfoJob::PrivateInfoJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 PrivateInfoJob::~PrivateInfoJob()
 {
-
 }
 
 bool PrivateInfoJob::start()

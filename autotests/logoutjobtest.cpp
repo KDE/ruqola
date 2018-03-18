@@ -27,7 +27,6 @@ QTEST_GUILESS_MAIN(LogoutJobTest)
 LogoutJobTest::LogoutJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void LogoutJobTest::shouldHaveDefaultValue()
@@ -41,7 +40,6 @@ void LogoutJobTest::shouldHaveDefaultValue()
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.ruqolaLogger());
 }
-
 
 void LogoutJobTest::shouldGenerateRequest()
 {

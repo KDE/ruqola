@@ -27,7 +27,6 @@ QTEST_GUILESS_MAIN(GetAvatarJobTest)
 GetAvatarJobTest::GetAvatarJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void GetAvatarJobTest::shouldHaveDefaultValue()

@@ -23,12 +23,10 @@
 LoginJob::LoginJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 LoginJob::~LoginJob()
 {
-
 }
 
 bool LoginJob::start()

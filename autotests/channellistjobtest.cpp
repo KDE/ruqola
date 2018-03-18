@@ -27,7 +27,6 @@ QTEST_GUILESS_MAIN(ChannelListJobTest)
 ChannelListJobTest::ChannelListJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ChannelListJobTest::shouldHaveDefaultValue()

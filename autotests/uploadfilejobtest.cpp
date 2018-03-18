@@ -27,7 +27,6 @@ QTEST_GUILESS_MAIN(UploadFileJobTest)
 UploadFileJobTest::UploadFileJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void UploadFileJobTest::shouldHaveDefaultValue()

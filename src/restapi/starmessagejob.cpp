@@ -30,14 +30,11 @@
 StarMessageJob::StarMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 StarMessageJob::~StarMessageJob()
 {
-
 }
-
 
 bool StarMessageJob::start()
 {

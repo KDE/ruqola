@@ -28,9 +28,7 @@ QTEST_GUILESS_MAIN(StarMessageJobTest)
 StarMessageJobTest::StarMessageJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
-
 
 void StarMessageJobTest::shouldHaveDefaultValue()
 {

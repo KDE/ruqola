@@ -30,12 +30,10 @@
 ServerInfoJob::ServerInfoJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 ServerInfoJob::~ServerInfoJob()
 {
-
 }
 
 bool ServerInfoJob::start()

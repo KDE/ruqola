@@ -27,7 +27,6 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
-
 ChannelListJob::ChannelListJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
@@ -36,7 +35,6 @@ ChannelListJob::ChannelListJob(QObject *parent)
 ChannelListJob::~ChannelListJob()
 {
 }
-
 
 bool ChannelListJob::start()
 {

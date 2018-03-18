@@ -29,12 +29,10 @@
 GetAvatarJob::GetAvatarJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 GetAvatarJob::~GetAvatarJob()
 {
-
 }
 
 bool GetAvatarJob::start()

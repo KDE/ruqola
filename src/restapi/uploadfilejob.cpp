@@ -33,12 +33,10 @@
 UploadFileJob::UploadFileJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 UploadFileJob::~UploadFileJob()
 {
-
 }
 
 bool UploadFileJob::start()

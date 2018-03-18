@@ -158,12 +158,12 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
     if (reply->error() == QNetworkReply::NoError) {
         //Exclude it until we port to new api
         const RestMethod restMethod = reply->property("method").value<RestMethod>();
-        if (restMethod == ServerInfo ||
-                restMethod == UploadFile ||
-                restMethod == Me ||
-                restMethod == GetAvatar ||
-                restMethod == Logout ||
-                restMethod == PrivateInfo) {
+        if (restMethod == ServerInfo
+            || restMethod == UploadFile
+            || restMethod == Me
+            || restMethod == GetAvatar
+            || restMethod == Logout
+            || restMethod == PrivateInfo) {
             return;
         }
         const QByteArray data = reply->readAll();

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "serverinfojobtest.h"
 #include "restapi/serverinfojob.h"
 #include "restapi/restapimethod.h"
@@ -28,7 +27,6 @@ QTEST_GUILESS_MAIN(ServerInfoJobTest)
 ServerInfoJobTest::ServerInfoJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ServerInfoJobTest::shouldHaveDefaultValue()

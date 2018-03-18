@@ -30,12 +30,10 @@
 OwnInfoJob::OwnInfoJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 OwnInfoJob::~OwnInfoJob()
 {
-
 }
 
 bool OwnInfoJob::requireHttpAuthentication() const
