@@ -26,6 +26,7 @@
 class QNetworkAccessManager;
 class QNetworkRequest;
 class RestApiMethod;
+class RuqolaLogger;
 class LIBRUQOLACORE_TESTS_EXPORT RestApiAbstractJob : public QObject
 {
 public:
@@ -47,6 +48,9 @@ public:
     virtual bool start() = 0;
     virtual bool requireHttpAuthentication() const = 0;
 
+    RuqolaLogger *ruqolaLogger() const;
+    void setRuqolaLogger(RuqolaLogger *ruqolaLogger);
+
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
     bool canStart() const;
@@ -55,6 +59,7 @@ protected:
     QString mUserId;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     RestApiMethod *mRestApiMethod = nullptr;
+    RuqolaLogger *mRuqolaLogger = nullptr;
 };
 
 #endif // RESTAPIABSTRACTJOB_H

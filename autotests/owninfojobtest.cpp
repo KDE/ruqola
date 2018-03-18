@@ -39,6 +39,7 @@ void OwnInfoJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.userId().isEmpty());
+    QVERIFY(!job.ruqolaLogger());
 }
 
 void OwnInfoJobTest::shouldGenerateRequest()

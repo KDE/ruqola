@@ -38,6 +38,7 @@ void ServerInfoJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
     QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(!job.ruqolaLogger());
 }
 
 void ServerInfoJobTest::shouldGenerateRequest()
