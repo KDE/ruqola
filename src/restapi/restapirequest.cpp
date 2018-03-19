@@ -42,6 +42,7 @@
 #include <QHttpMultiPart>
 #include <QFile>
 #include <QMimeDatabase>
+#include <ruqolalogger.h>
 
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
@@ -57,6 +58,11 @@ RestApiRequest::RestApiRequest(QObject *parent)
 RestApiRequest::~RestApiRequest()
 {
     delete mRestApiMethod;
+}
+
+void RestApiRequest::setRuqolaLogger(RuqolaLogger *logger)
+{
+    mRuqolaLogger = logger;
 }
 
 void RestApiRequest::initializeCookies()
@@ -217,6 +223,7 @@ void RestApiRequest::login()
     LoginJob *job = new LoginJob(this);
     connect(job, &LoginJob::loginDone, this, &RestApiRequest::slotLogin);
     job->setNetworkAccessManager(mNetworkAccessManager);
+    job->setRuqolaLogger(mRuqolaLogger);
     job->setRestApiMethod(mRestApiMethod);
     job->setPassword(mPassword);
     job->setUserName(mUserName);
@@ -236,12 +243,18 @@ void RestApiRequest::slotLogout()
     Q_EMIT logoutDone();
 }
 
+void RestApiRequest::initializeRestApiJob(RestApiAbstractJob *job)
+{
+    job->setNetworkAccessManager(mNetworkAccessManager);
+    job->setRuqolaLogger(mRuqolaLogger);
+    job->setRestApiMethod(mRestApiMethod);
+}
+
 void RestApiRequest::logout()
 {
     LogoutJob *job = new LogoutJob(this);
     connect(job, &LogoutJob::logoutDone, this, &RestApiRequest::slotLogout);
-    job->setNetworkAccessManager(mNetworkAccessManager);
-    job->setRestApiMethod(mRestApiMethod);
+    initializeRestApiJob(job);
     job->setAuthToken(mAuthToken);
     job->setUserId(mUserId);
     job->start();
@@ -251,8 +264,7 @@ void RestApiRequest::channelList()
 {
     ChannelListJob *job = new ChannelListJob(this);
     //TODO connect(job, &ChannelListJob::channelListDone, this, &RestApiRequest::slotLogout);
-    job->setNetworkAccessManager(mNetworkAccessManager);
-    job->setRestApiMethod(mRestApiMethod);
+    initializeRestApiJob(job);
     job->setAuthToken(mAuthToken);
     job->setUserId(mUserId);
     job->start();
@@ -262,8 +274,7 @@ void RestApiRequest::getAvatar(const QString &userId)
 {
     GetAvatarJob *job = new GetAvatarJob(this);
     connect(job, &GetAvatarJob::avatar, this, &RestApiRequest::avatar);
-    job->setNetworkAccessManager(mNetworkAccessManager);
-    job->setRestApiMethod(mRestApiMethod);
+    initializeRestApiJob(job);
     job->setAvatarUserId(userId);
     job->start();
 }
@@ -272,8 +283,7 @@ void RestApiRequest::getPrivateSettings()
 {
     PrivateInfoJob *job = new PrivateInfoJob(this);
     connect(job, &PrivateInfoJob::privateInfoDone, this, &RestApiRequest::privateInfoDone);
-    job->setNetworkAccessManager(mNetworkAccessManager);
-    job->setRestApiMethod(mRestApiMethod);
+    initializeRestApiJob(job);
     job->setAuthToken(mAuthToken);
     job->setUserId(mUserId);
     job->start();
@@ -283,8 +293,7 @@ void RestApiRequest::getOwnInfo()
 {
     OwnInfoJob *job = new OwnInfoJob(this);
     connect(job, &OwnInfoJob::ownInfoDone, this, &RestApiRequest::getOwnInfoDone);
-    job->setNetworkAccessManager(mNetworkAccessManager);
-    job->setRestApiMethod(mRestApiMethod);
+    initializeRestApiJob(job);
     job->setAuthToken(mAuthToken);
     job->setUserId(mUserId);
     job->start();
@@ -315,8 +324,7 @@ void RestApiRequest::serverInfo()
 void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename)
 {
     UploadFileJob *job = new UploadFileJob(this);
-    job->setNetworkAccessManager(mNetworkAccessManager);
-    job->setRestApiMethod(mRestApiMethod);
+    initializeRestApiJob(job);
     job->setDescription(description);
     job->setMessageText(text);
     job->setFilenameUrl(filename);
