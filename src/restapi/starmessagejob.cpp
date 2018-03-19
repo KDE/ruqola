@@ -36,15 +36,22 @@ StarMessageJob::~StarMessageJob()
 {
 }
 
-bool StarMessageJob::start()
+bool StarMessageJob::canStart() const
 {
-    if (!canStart()) {
+    if (!RestApiAbstractJob::canStart()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start star message job";
-        deleteLater();
         return false;
     }
     if (mMessageId.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "MessageId is empty";
+        return false;
+    }
+    return true;
+}
+
+bool StarMessageJob::start()
+{
+    if (!canStart()) {
         deleteLater();
         return false;
     }

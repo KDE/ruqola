@@ -35,15 +35,22 @@ GetAvatarJob::~GetAvatarJob()
 {
 }
 
-bool GetAvatarJob::start()
+bool GetAvatarJob::canStart() const
 {
     if (mAvatarUserId.isEmpty()) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Avatar userid is empty";
-        deleteLater();
         return false;
     }
-    if (!canStart()) {
+    if (!RestApiAbstractJob::canStart()) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Impossible to start getavatar job";
+        return false;
+    }
+    return true;
+}
+
+bool GetAvatarJob::start()
+{
+    if (!canStart()) {
         deleteLater();
         return false;
     }

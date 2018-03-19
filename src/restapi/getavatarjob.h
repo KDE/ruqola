@@ -41,6 +41,7 @@ public:
 
     QNetworkRequest request() const;
 
+    bool canStart() const override;
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
 

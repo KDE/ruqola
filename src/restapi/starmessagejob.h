@@ -43,6 +43,8 @@ public:
     bool starMessage() const;
     void setStarMessage(bool starMessage);
 
+    bool canStart() const override;
+
 Q_SIGNALS:
     void messageStarred();
 

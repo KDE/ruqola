@@ -55,7 +55,7 @@ public:
 
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
-    bool canStart() const;
+    virtual bool canStart() const;
     void addAuthRawHeader(QNetworkRequest &request) const;
     QString mAuthToken;
     QString mUserId;
