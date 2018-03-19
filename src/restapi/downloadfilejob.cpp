@@ -45,6 +45,11 @@ bool DownloadFileJob::start()
     }
 
     QNetworkReply *reply = mNetworkAccessManager->get(request());
+    addLoggerInfo("ChannelListJob: url:" +
+                  mUrl.toEncoded() +
+                  " mimetype " + mMimeType.toLatin1() +
+                  " saveAs " + mLocalFileUrl.toEncoded() +
+                  " store in cache " + (mStoreInCache ? "true" : "false"));
     connect(reply, &QNetworkReply::finished, this, &DownloadFileJob::slotDownloadDone);
     return true;
 }
@@ -56,6 +61,7 @@ void DownloadFileJob::slotDownloadDone()
         const QByteArray data = reply->readAll();
         const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         if (status == 200) {
+            addLoggerInfo("DownloadFileJob::slotDownloadDone finished");
             Q_EMIT downloadFileDone(data, reply->url(), mStoreInCache, mLocalFileUrl);
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) << "Unable to download " << reply->url();

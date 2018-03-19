@@ -62,6 +62,7 @@ bool LoginJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
 
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    addLoggerInfo("LoginJob started ");
     connect(reply, &QNetworkReply::finished, this, &LoginJob::slotLoginDone);
 
     return false;

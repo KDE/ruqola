@@ -18,47 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "pinmessagejob.h"
-#include "restapimethod.h"
-#include "ruqola_restapi_debug.h"
+#include "changechanneltopicjobtest.h"
+#include <QTest>
+QTEST_GUILESS_MAIN(ChangeChannelTopicJobTest)
 
-PinMessageJob::PinMessageJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+ChangeChannelTopicJobTest::ChangeChannelTopicJobTest(QObject *parent)
+    : QObject(parent)
 {
 
 }
-
-PinMessageJob::~PinMessageJob()
-{
-
-}
-
-
-bool PinMessageJob::start()
-{
-    if (!canStart()) {
-        deleteLater();
-        return false;
-    }
-    //TODO
-    return true;
-}
-
-bool PinMessageJob::requireHttpAuthentication() const
-{
-    return true;
-}
-
-bool PinMessageJob::canStart() const
-{
-    if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start PinMessageJob";
-        return false;
-    }
-//    if (!mUrl.isValid()) {
-//        qCWarning(RUQOLA_RESTAPI_LOG) << "PinMessageJob: url is not valid";
-//        return false;
-//    }
-    return true;
-}
-

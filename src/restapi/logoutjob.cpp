@@ -45,6 +45,7 @@ bool LogoutJob::start()
     }
 
     QNetworkReply *reply = mNetworkAccessManager->get(request());
+    addLoggerInfo("LogoutJob::start");
     connect(reply, &QNetworkReply::finished, this, &LogoutJob::slotLogout);
     return false;
 }
@@ -54,6 +55,7 @@ void LogoutJob::slotLogout()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
+        addLoggerInfo("LogoutJob finished: " + data);
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
 

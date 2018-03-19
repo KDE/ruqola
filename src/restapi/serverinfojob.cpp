@@ -44,6 +44,7 @@ bool ServerInfoJob::start()
     }
 
     QNetworkReply *reply = mNetworkAccessManager->get(request());
+    addLoggerInfo("ServerInfoJob::start");
     connect(reply, &QNetworkReply::finished, this, &ServerInfoJob::slotServerInfoFinished);
 
     return true;
