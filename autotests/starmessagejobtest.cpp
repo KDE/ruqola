@@ -46,7 +46,22 @@ void StarMessageJobTest::shouldHaveDefaultValue()
 
 void StarMessageJobTest::shouldHaveMessageId()
 {
-    //TODO add canStart as virtual
+    StarMessageJob job;
+    RestApiMethod *method = new RestApiMethod;
+    method->setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(method);
+    QVERIFY(!job.canStart());
+    QNetworkAccessManager *mNetworkAccessManager = new QNetworkAccessManager;
+    job.setNetworkAccessManager(mNetworkAccessManager);
+    QVERIFY(!job.canStart());
+    const QString auth = QStringLiteral("foo");
+    const QString userId = QStringLiteral("foo");
+    job.setAuthToken(auth);
+    QVERIFY(!job.canStart());
+    job.setUserId(userId);
+    QVERIFY(!job.canStart());
+    job.setMessageId(QStringLiteral("bla"));
+    QVERIFY(job.canStart());
 }
 
 void StarMessageJobTest::shouldGenerateStarMessageRequest()
