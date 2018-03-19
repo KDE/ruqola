@@ -66,8 +66,7 @@ QNetworkRequest ChannelListJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsList);
     QNetworkRequest request(url);
-    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
-    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+    addAuthRawHeader(request);
     return request;
 }
 

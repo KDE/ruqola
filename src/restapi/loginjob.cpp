@@ -20,6 +20,14 @@
 
 #include "loginjob.h"
 #include "ruqola_restapi_debug.h"
+#include "restapimethod.h"
+#include "restapirequest.h"
+
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+
 LoginJob::LoginJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
@@ -29,13 +37,103 @@ LoginJob::~LoginJob()
 {
 }
 
+bool LoginJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start login job";
+        return false;
+    }
+    if (mUserName.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "UserName is empty";
+        return false;
+    }
+    if (mPassword.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Password is empty";
+        return false;
+    }
+    return true;
+}
+
 bool LoginJob::start()
 {
-    //TODO
+    if (!canStart()) {
+        deleteLater();
+        return false;
+    }
+    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
+
+    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    connect(reply, &QNetworkReply::finished, this, &LoginJob::slotLoginDone);
+    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::Login));
+
     return false;
+}
+
+void LoginJob::slotLoginDone()
+{
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    if (reply) {
+        const QByteArray data = reply->readAll();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success") && replyObject.contains(QLatin1String("data"))) {
+            QJsonObject data = replyObject[QStringLiteral("data")].toObject();
+
+            if (data.contains(QLatin1String("authToken")) && data.contains(QLatin1String("userId"))) {
+                const QString authToken = data[QStringLiteral("authToken")].toString();
+                const QString userId = data[QStringLiteral("userId")].toString();
+                Q_EMIT loginDone(authToken, userId);
+            }
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) << "Error during login" << data;
+        }
+    }
+    deleteLater();
+
+}
+
+QJsonDocument LoginJob::json() const
+{
+    QVariantMap loginMap;
+    loginMap.insert(QStringLiteral("user"), mUserName);
+    loginMap.insert(QStringLiteral("password"), mPassword);
+    const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
+    return postData;
+}
+
+
+QNetworkRequest LoginJob::request() const
+{
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Login);
+    QNetworkRequest request(url);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    return request;
 }
 
 bool LoginJob::requireHttpAuthentication() const
 {
-    return true;
+    return false;
 }
+
+QString LoginJob::userName() const
+{
+    return mUserName;
+}
+
+QString LoginJob::password() const
+{
+    return mPassword;
+}
+
+void LoginJob::setPassword(const QString &password)
+{
+    mPassword = password;
+}
+
+void LoginJob::setUserName(const QString &userName)
+{
+    mUserName = userName;
+}
+
+

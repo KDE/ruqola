@@ -34,8 +34,25 @@ public:
 
     bool start() override;
     bool requireHttpAuthentication() const override;
+    QString userName() const;
+    void setUserName(const QString &userName);
+
+    QString password() const;
+    void setPassword(const QString &password);
+
+    bool canStart() const override;
+
+    QNetworkRequest request() const;
+    QJsonDocument json() const;
+
+Q_SIGNALS:
+    void loginDone(const QString &authToken, const QString &userId);
+
 private:
     Q_DISABLE_COPY(LoginJob)
+    void slotLoginDone();
+    QString mUserName;
+    QString mPassword;
 };
 
 #endif // LOGINJOB_H

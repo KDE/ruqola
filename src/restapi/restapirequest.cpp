@@ -28,6 +28,7 @@
 #include "logoutjob.h"
 #include "privateinfojob.h"
 #include "channellistjob.h"
+#include "loginjob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -90,23 +91,6 @@ void RestApiRequest::initializeCookies()
     }
 }
 
-void RestApiRequest::parseLogin(const QByteArray &data)
-{
-    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
-    const QJsonObject replyObject = replyJson.object();
-
-    if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success") && replyObject.contains(QLatin1String("data"))) {
-        QJsonObject data = replyObject[QStringLiteral("data")].toObject();
-
-        if (data.contains(QLatin1String("authToken")) && data.contains(QLatin1String("userId"))) {
-            mAuthToken = data[QStringLiteral("authToken")].toString();
-            mUserId = data[QStringLiteral("userId")].toString();
-        }
-    } else {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Error during login" << data;
-    }
-}
-
 void RestApiRequest::setAuthToken(const QString &authToken)
 {
     const bool isChanged = (mAuthToken != authToken);
@@ -151,14 +135,13 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             || restMethod == GetAvatar
             || restMethod == Logout
             || restMethod == PrivateInfo
-            || restMethod == ChannelList) {
+            || restMethod == ChannelList
+            || restMethod == Login) {
             return;
         }
         const QByteArray data = reply->readAll();
         switch (restMethod) {
         case Login:
-            parseLogin(data);
-            break;
         case ChannelList:
         case PrivateInfo:
         case Logout:
@@ -239,21 +222,19 @@ QString RestApiRequest::userId() const
 
 void RestApiRequest::login()
 {
-    if (!mUserName.isEmpty() && !mPassword.isEmpty() && !serverUrl().isEmpty()) {
-        QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Login);
-        QNetworkRequest request(url);
-        request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    LoginJob *job = new LoginJob(this);
+    connect(job, &LoginJob::loginDone, this, &RestApiRequest::slotLogin);
+    job->setNetworkAccessManager(mNetworkAccessManager);
+    job->setRestApiMethod(mRestApiMethod);
+    job->setPassword(mPassword);
+    job->setUserName(mUserName);
+    job->start();
+}
 
-        QVariantMap loginMap;
-        loginMap.insert(QStringLiteral("user"), mUserName);
-        loginMap.insert(QStringLiteral("password"), mPassword);
-        const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
-        const QByteArray baPostData = postData.toJson(QJsonDocument::Compact);
-        QNetworkReply *reply = mNetworkAccessManager->post(request, baPostData);
-        reply->setProperty("method", QVariant::fromValue(RestMethod::Login));
-    } else {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Password or user or url is empty";
-    }
+void RestApiRequest::slotLogin(const QString &authToken, const QString &userId)
+{
+    mAuthToken = authToken;
+    mUserId = userId;
 }
 
 void RestApiRequest::slotLogout()
