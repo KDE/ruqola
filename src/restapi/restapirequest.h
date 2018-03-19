@@ -40,7 +40,6 @@ public:
         ChannelList,
         GetAvatar,
         Get,
-        Post,
         ServerInfo,
         PrivateInfo,
         Me,
@@ -68,7 +67,6 @@ public:
     void channelList();
     void getAvatar(const QString &userId);
 
-    void post(const QUrl &url, const QByteArray &data, const QString &mimeType = QStringLiteral("text/plain"));
     QNetworkReply *get(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"));
 
     void serverInfo();

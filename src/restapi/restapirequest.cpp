@@ -119,11 +119,6 @@ void RestApiRequest::parseGet(const QByteArray &data, const QUrl &url, bool stor
     Q_EMIT getDataDone(data, url, storeInCache, localFileUrl);
 }
 
-void RestApiRequest::parsePost(const QByteArray &data)
-{
-    qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parsePost: " << data;
-}
-
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
     if (reply->error() == QNetworkReply::NoError) {
@@ -170,9 +165,6 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             }
             break;
         }
-        case Post:
-            parsePost(data);
-            break;
         case Unknown:
             qCWarning(RUQOLA_RESTAPI_LOG) << " Unknown restapi method" << data;
             break;
@@ -296,18 +288,6 @@ void RestApiRequest::getOwnInfo()
     job->setAuthToken(mAuthToken);
     job->setUserId(mUserId);
     job->start();
-}
-
-void RestApiRequest::post(const QUrl &url, const QByteArray &data, const QString &mimeType)
-{
-    QNetworkRequest request(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, mimeType);
-    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
-    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-    QNetworkReply *reply = mNetworkAccessManager->post(request, data);
-    reply->setProperty("method", QVariant::fromValue(RestMethod::Post));
 }
 
 QNetworkReply *RestApiRequest::get(const QUrl &url, const QString &mimeType)
