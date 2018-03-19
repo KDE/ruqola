@@ -26,6 +26,7 @@
 #include <QJsonObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QUrlQuery>
 
 ChannelListJob::ChannelListJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -44,9 +45,32 @@ bool ChannelListJob::start()
         return false;
     }
 
-    //TODO
+    QNetworkReply *reply = mNetworkAccessManager->get(request());
+    connect(reply, &QNetworkReply::finished, this, &ChannelListJob::slotListInfo);
+    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::ChannelList));
     return false;
 }
+
+void ChannelListJob::slotListInfo()
+{
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    if (reply) {
+        const QByteArray data = reply->readAll();
+        //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
+        Q_EMIT channelListDone(data);
+    }
+    deleteLater();
+}
+
+QNetworkRequest ChannelListJob::request() const
+{
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsList);
+    QNetworkRequest request(url);
+    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
+    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+    return request;
+}
+
 
 bool ChannelListJob::requireHttpAuthentication() const
 {

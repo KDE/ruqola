@@ -34,8 +34,14 @@ public:
     bool start() override;
     bool requireHttpAuthentication() const override;
 
+    QNetworkRequest request() const;
+
+Q_SIGNALS:
+    void channelListDone(const QByteArray &data);
+
 private:
     Q_DISABLE_COPY(ChannelListJob)
+    void slotListInfo();
 };
 
 #endif // CHANNELLISTJOB_H

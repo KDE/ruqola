@@ -27,6 +27,7 @@
 #include "getavatarjob.h"
 #include "logoutjob.h"
 #include "privateinfojob.h"
+#include "channellistjob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -106,20 +107,6 @@ void RestApiRequest::parseLogin(const QByteArray &data)
     }
 }
 
-void RestApiRequest::parseChannelList(const QByteArray &data)
-{
-    //qDebug() << " void RestApiRequest::parseChannelList(const QByteArray &data)" << data;
-    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
-    const QJsonObject replyObject = replyJson.object();
-    //qDebug() << " replyObject"<<replyObject;
-    const QVariantList lst = replyObject.value(QLatin1String("channels")).toArray().toVariantList();
-    for (const QVariant &item : lst) {
-        //qDebug() << " item " << item;
-        //qDebug() << " map  ? : "<<item.toMap();
-    }
-    //qDebug() << "*******************************" << ;
-}
-
 void RestApiRequest::setAuthToken(const QString &authToken)
 {
     const bool isChanged = (mAuthToken != authToken);
@@ -163,7 +150,8 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             || restMethod == Me
             || restMethod == GetAvatar
             || restMethod == Logout
-            || restMethod == PrivateInfo) {
+            || restMethod == PrivateInfo
+            || restMethod == ChannelList) {
             return;
         }
         const QByteArray data = reply->readAll();
@@ -172,8 +160,6 @@ void RestApiRequest::slotResult(QNetworkReply *reply)
             parseLogin(data);
             break;
         case ChannelList:
-            parseChannelList(data);
-            break;
         case PrivateInfo:
         case Logout:
         case GetAvatar:
@@ -290,16 +276,13 @@ void RestApiRequest::logout()
 
 void RestApiRequest::channelList()
 {
-    if (mUserId.isEmpty() || mAuthToken.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "RestApiRequest::channelList problem with mUserId or mAuthToken";
-    } else {
-        const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsList);
-        QNetworkRequest request(url);
-        request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
-        request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-        QNetworkReply *reply = mNetworkAccessManager->get(request);
-        reply->setProperty("method", QVariant::fromValue(RestMethod::ChannelList));
-    }
+    ChannelListJob *job = new ChannelListJob(this);
+    //TODO connect(job, &ChannelListJob::channelListDone, this, &RestApiRequest::slotLogout);
+    job->setNetworkAccessManager(mNetworkAccessManager);
+    job->setRestApiMethod(mRestApiMethod);
+    job->setAuthToken(mAuthToken);
+    job->setUserId(mUserId);
+    job->start();
 }
 
 void RestApiRequest::getAvatar(const QString &userId)
