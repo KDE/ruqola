@@ -16,6 +16,7 @@ set (Ruqola_restapi_SRCS
     restapi/starmessagejob.cpp
     restapi/downloadfilejob.cpp
     restapi/pinmessagejob.cpp
+    restapi/postmessagejob.cpp
     )
 
 set(Ruqola_ddpapi_SRCS

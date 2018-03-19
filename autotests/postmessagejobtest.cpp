@@ -18,27 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "postmessagejob.h"
+#include "postmessagejobtest.h"
+#include <QTest>
+QTEST_GUILESS_MAIN(PostMessageJobTest)
 
-PostMessageJob::PostMessageJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+PostMessageJobTest::PostMessageJobTest(QObject *parent)
+    : QObject(parent)
 {
 
-}
-
-PostMessageJob::~PostMessageJob()
-{
-
-}
-
-
-bool PostMessageJob::start()
-{
-    //TODO
-    return false;
-}
-
-bool PostMessageJob::requireHttpAuthentication() const
-{
-    return true;
 }
