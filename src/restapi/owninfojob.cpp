@@ -21,7 +21,6 @@
 #include "owninfojob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_debug.h"
-#include "restapirequest.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkAccessManager>
@@ -50,7 +49,6 @@ bool OwnInfoJob::start()
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &OwnInfoJob::slotServerInfoFinished);
-    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::Me));
     addLoggerInfo(QByteArrayLiteral("OwnInfoJob: Ask info about me"));
     return true;
 }

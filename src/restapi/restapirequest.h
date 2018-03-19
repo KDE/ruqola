@@ -23,6 +23,7 @@
 
 #include <QObject>
 #include <QSslError>
+#include <QUrl>
 #include "restapiutil.h"
 
 class QNetworkAccessManager;
@@ -35,20 +36,6 @@ class RestApiRequest : public QObject
 {
     Q_OBJECT
 public:
-    enum RestMethod {
-        Unknown = 0,
-        Login,
-        Logout,
-        ChannelList,
-        GetAvatar,
-        Get,
-        ServerInfo,
-        PrivateInfo,
-        Me,
-        UploadFile,
-    };
-    Q_ENUM(RestMethod)
-
     explicit RestApiRequest(QObject *parent = nullptr);
     ~RestApiRequest();
 
@@ -71,12 +58,12 @@ public:
     void channelList();
     void getAvatar(const QString &userId);
 
-    QNetworkReply *get(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"));
-
     void serverInfo();
     void getPrivateSettings();
     void getOwnInfo();
+    void starMessage(const QString &messageId, bool starred);
     void uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename);
+    void downloadFile(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"), bool storeInCache = true, const QUrl &localFileUrl = QUrl());
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -94,8 +81,6 @@ private:
     void slotLogout();
     void slotLogin(const QString &authToken, const QString &userId);
 
-    void parseGet(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFile);
-    void parsePost(const QByteArray &data);
     void initializeRestApiJob(RestApiAbstractJob *job);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QNetworkCookieJar *mCookieJar = nullptr;

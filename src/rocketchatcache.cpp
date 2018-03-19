@@ -100,9 +100,7 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bo
         //Redownload it. TODO inform user ?
         //FIXME we don't use localfile!
         const QUrl clickedUrl = generateDownloadFile(url);
-        QNetworkReply *reply = mAccount->restApi()->get(clickedUrl);
-        reply->setProperty("storeInCache", storeInCache);
-        reply->setProperty("localFile", localFile);
+        mAccount->restApi()->downloadFile(clickedUrl, QStringLiteral("text/plain"), storeInCache, localFile);
     }
 }
 
@@ -124,7 +122,7 @@ void RocketChatCache::downloadAvatarFromServer(const QString &userId)
 
 void RocketChatCache::downloadFileFromServer(const QString &filename)
 {
-    mAccount->restApi()->get(generateDownloadFile(filename));
+    mAccount->restApi()->downloadFile(generateDownloadFile(filename));
 }
 
 QUrl RocketChatCache::generateDownloadFile(const QString &url)
@@ -175,7 +173,7 @@ void RocketChatCache::insertAvatarUrl(const QString &userId, const QString &url)
 {
     mUserAvatarUrl.insert(userId, url);
     if (!url.isEmpty()) {
-        mAccount->restApi()->get(QUrl(url));
+        mAccount->restApi()->downloadFile(QUrl(url));
     }
 }
 

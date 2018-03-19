@@ -18,46 +18,48 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UPLOADFILEJOB_H
-#define UPLOADFILEJOB_H
+#ifndef DOWNLOADFILEJOB_H
+#define DOWNLOADFILEJOB_H
 
-#include <QNetworkRequest>
-#include <QObject>
-#include <QUrl>
-#include "libruqola_private_export.h"
 #include "restapiabstractjob.h"
-class LIBRUQOLACORE_TESTS_EXPORT UploadFileJob : public RestApiAbstractJob
+
+#include <QUrl>
+
+class DownloadFileJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit UploadFileJob(QObject *parent = nullptr);
-    ~UploadFileJob() override;
+    explicit DownloadFileJob(QObject *parent = nullptr);
+    ~DownloadFileJob() override;
 
     bool start() override;
+    bool requireHttpAuthentication() const override;
+    bool canStart() const override;
 
-    QString roomId() const;
-    void setRoomId(const QString &roomId);
+    QUrl url() const;
+    void setUrl(const QUrl &url);
 
-    QString description() const;
-    void setDescription(const QString &description);
-
-    QString messageText() const;
-    void setMessageText(const QString &messageText);
-
-    QUrl filenameUrl() const;
-    void setFilenameUrl(const QUrl &filenameUrl);
-
-    bool requireHttpAuthentication() const override final;
+    QString mimeType() const;
+    void setMimeType(const QString &mimeType);
 
     QNetworkRequest request() const;
-    bool canStart() const override;
+
+    bool storeInCache() const;
+    void setStoreInCache(bool storeInCache);
+
+    QUrl localFileUrl() const;
+    void setLocalFileUrl(const QUrl &localFileUrl);
+
+Q_SIGNALS:
+    void downloadFileDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
+
 private:
-    Q_DISABLE_COPY(UploadFileJob)
-    void slotUploadFinished();
-    QString mRoomId;
-    QString mDescription;
-    QString mMessageText;
-    QUrl mFilenameUrl;
+    Q_DISABLE_COPY(DownloadFileJob)
+    void slotDownloadDone();
+    QUrl mUrl;
+    QString mMimeType;
+    QUrl mLocalFileUrl;
+    bool mStoreInCache = true;
 };
 
-#endif // UPLOADFILEJOB_H
+#endif // DOWNLOADFILEJOB_H

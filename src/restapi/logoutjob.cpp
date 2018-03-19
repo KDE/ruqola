@@ -21,7 +21,6 @@
 #include "logoutjob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
-#include "restapirequest.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -47,7 +46,6 @@ bool LogoutJob::start()
 
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &LogoutJob::slotLogout);
-    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::Logout));
     return false;
 }
 

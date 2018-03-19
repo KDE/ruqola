@@ -53,9 +53,10 @@ public:
 
     void addLoggerInfo(const QByteArray &str);
 
+    virtual bool canStart() const;
+
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
-    virtual bool canStart() const;
     void addAuthRawHeader(QNetworkRequest &request) const;
     QString mAuthToken;
     QString mUserId;

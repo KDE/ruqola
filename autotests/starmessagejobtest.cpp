@@ -62,6 +62,8 @@ void StarMessageJobTest::shouldHaveMessageId()
     QVERIFY(!job.canStart());
     job.setMessageId(QStringLiteral("bla"));
     QVERIFY(job.canStart());
+    delete method;
+    delete mNetworkAccessManager;
 }
 
 void StarMessageJobTest::shouldGenerateStarMessageRequest()

@@ -21,7 +21,6 @@
 #include "uploadfilejob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
-#include "restapirequest.h"
 #include <QFile>
 #include <QHttpMultiPart>
 #include <QJsonDocument>
@@ -39,10 +38,22 @@ UploadFileJob::~UploadFileJob()
 {
 }
 
+bool UploadFileJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start upload file job";
+        return false;
+    }
+    if (mRoomId.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "UploadFileJob : RoomId not defined";
+        return false;
+    }
+    return true;
+}
+
 bool UploadFileJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start upload file job";
         deleteLater();
         return false;
     }
@@ -78,7 +89,6 @@ bool UploadFileJob::start()
     multiPart->append(descriptionPart);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), multiPart);
     connect(reply, &QNetworkReply::finished, this, &UploadFileJob::slotUploadFinished);
-    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::UploadFile));
     multiPart->setParent(reply); // delete the multiPart with the reply
 
     //TODO upload progress ?

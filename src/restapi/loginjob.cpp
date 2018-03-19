@@ -21,7 +21,6 @@
 #include "loginjob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
-#include "restapirequest.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -64,7 +63,6 @@ bool LoginJob::start()
 
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     connect(reply, &QNetworkReply::finished, this, &LoginJob::slotLoginDone);
-    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::Login));
 
     return false;
 }

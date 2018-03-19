@@ -21,7 +21,6 @@
 #include "privateinfojob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
-#include "restapirequest.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkAccessManager>
@@ -46,7 +45,6 @@ bool PrivateInfoJob::start()
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &PrivateInfoJob::slotPrivateInfoDone);
 
-    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::PrivateInfo));
     return true;
 }
 

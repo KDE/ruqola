@@ -18,21 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UPLOADFILEJOBTEST_H
-#define UPLOADFILEJOBTEST_H
+#include "downloadfilejobtest.h"
+#include "restapi/downloadfilejob.h"
+#include <QTest>
+QTEST_GUILESS_MAIN(DownloadFileJobTest)
 
-#include <QObject>
-
-class UploadFileJobTest : public QObject
+DownloadFileJobTest::DownloadFileJobTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit UploadFileJobTest(QObject *parent = nullptr);
-    ~UploadFileJobTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
-    void shouldStart();
-};
 
-#endif // UPLOADFILEJOBTEST_H
+}
+
+void DownloadFileJobTest::shouldHaveDefaultValue()
+{
+
+}

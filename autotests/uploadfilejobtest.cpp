@@ -63,3 +63,25 @@ void UploadFileJobTest::shouldGenerateRequest()
     QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
     delete method;
 }
+
+void UploadFileJobTest::shouldStart()
+{
+    UploadFileJob job;
+    RestApiMethod *method = new RestApiMethod;
+    method->setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(method);
+    QVERIFY(!job.canStart());
+    QNetworkAccessManager *mNetworkAccessManager = new QNetworkAccessManager;
+    job.setNetworkAccessManager(mNetworkAccessManager);
+    QVERIFY(!job.canStart());
+    const QString auth = QStringLiteral("foo");
+    const QString userId = QStringLiteral("foo");
+    job.setAuthToken(auth);
+    QVERIFY(!job.canStart());
+    job.setUserId(userId);
+    QVERIFY(!job.canStart());
+    job.setRoomId(QStringLiteral("bla"));
+    QVERIFY(job.canStart());
+    delete method;
+    delete mNetworkAccessManager;
+}

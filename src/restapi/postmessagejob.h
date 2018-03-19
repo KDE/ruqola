@@ -18,21 +18,24 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UPLOADFILEJOBTEST_H
-#define UPLOADFILEJOBTEST_H
+#ifndef POSTMESSAGEJOB_H
+#define POSTMESSAGEJOB_H
 
-#include <QObject>
+#include "restapiabstractjob.h"
+#include "libruqola_private_export.h"
 
-class UploadFileJobTest : public QObject
+
+class LIBRUQOLACORE_TESTS_EXPORT PostMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit UploadFileJobTest(QObject *parent = nullptr);
-    ~UploadFileJobTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
-    void shouldStart();
+    explicit PostMessageJob(QObject *parent = nullptr);
+    ~PostMessageJob() override;
+
+    bool start() override;
+    bool requireHttpAuthentication() const override;
+private:
+    Q_DISABLE_COPY(PostMessageJob)
 };
 
-#endif // UPLOADFILEJOBTEST_H
+#endif // POSTMESSAGEJOB_H

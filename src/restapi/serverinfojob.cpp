@@ -21,7 +21,6 @@
 #include "serverinfojob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
-#include "restapirequest.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkAccessManager>
@@ -46,8 +45,6 @@ bool ServerInfoJob::start()
 
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &ServerInfoJob::slotServerInfoFinished);
-    //TODO remove it after porting
-    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::ServerInfo));
 
     return true;
 }
@@ -72,6 +69,7 @@ void ServerInfoJob::slotServerInfoFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
+        addLoggerInfo(QByteArrayLiteral("ServerInfoJob: finished: ") + data);
         qCDebug(RUQOLA_RESTAPI_LOG) << "ServerInfoJob::parseServerInfo: " << data;
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();

@@ -29,6 +29,8 @@
 #include "privateinfojob.h"
 #include "channellistjob.h"
 #include "loginjob.h"
+#include "downloadfilejob.h"
+#include "starmessagejob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -119,67 +121,11 @@ void RestApiRequest::setUserId(const QString &userId)
     }
 }
 
-void RestApiRequest::parseGet(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl)
-{
-    qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGet: url " << url;
-    Q_EMIT getDataDone(data, url, storeInCache, localFileUrl);
-}
-
 void RestApiRequest::slotResult(QNetworkReply *reply)
 {
-    if (reply->error() == QNetworkReply::NoError) {
-        //Exclude it until we port to new api
-        const RestMethod restMethod = reply->property("method").value<RestMethod>();
-        if (restMethod == ServerInfo
-            || restMethod == UploadFile
-            || restMethod == Me
-            || restMethod == GetAvatar
-            || restMethod == Logout
-            || restMethod == PrivateInfo
-            || restMethod == ChannelList
-            || restMethod == Login) {
-            return;
-        }
-        const QByteArray data = reply->readAll();
-        switch (restMethod) {
-        case Login:
-        case ChannelList:
-        case PrivateInfo:
-        case Logout:
-        case GetAvatar:
-        case ServerInfo:
-        case Me:
-        case UploadFile:
-            return;
-        case Get:
-        {
-            const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-            if (status == 200) {
-                bool storeInCache = true;
-                QUrl localFile;
-                QVariant var = reply->property("storeInCache");
-                if (var.isValid()) {
-                    storeInCache = var.toBool();
-                }
-                var = reply->property("localFile");
-                if (var.isValid()) {
-                    localFile = var.toUrl();
-                }
-                parseGet(data, reply->url(), storeInCache, localFile);
-            } else {
-                qCWarning(RUQOLA_RESTAPI_LOG) << "Unable to download " << reply->url();
-            }
-            break;
-        }
-        case Unknown:
-            qCWarning(RUQOLA_RESTAPI_LOG) << " Unknown restapi method" << data;
-            break;
-        }
-    } else {
-        const RestMethod restMethod = reply->property("method").value<RestMethod>();
-        qCWarning(RUQOLA_RESTAPI_LOG) << " Error reply - "<<reply->errorString() << " restMethod "<<restMethod;
+    if (reply->error() != QNetworkReply::NoError) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << " Error reply - "<<reply->errorString();
     }
-    reply->deleteLater();
 }
 
 void RestApiRequest::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)
@@ -299,17 +245,30 @@ void RestApiRequest::getOwnInfo()
     job->start();
 }
 
-QNetworkReply *RestApiRequest::get(const QUrl &url, const QString &mimeType)
+void RestApiRequest::starMessage(const QString &messageId, bool starred)
 {
-    QNetworkRequest request(url);
-    request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
-    request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-    request.setHeader(QNetworkRequest::ContentTypeHeader, mimeType);
-    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-    QNetworkReply *reply = mNetworkAccessManager->get(request);
-    reply->setProperty("method", QVariant::fromValue(RestMethod::Get));
-    return reply;
+    StarMessageJob *job = new StarMessageJob(this);
+    initializeRestApiJob(job);
+    job->setAuthToken(mAuthToken);
+    job->setUserId(mUserId);
+    job->setMessageId(messageId);
+    job->setStarMessage(starred);
+    job->start();
+}
+
+void RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, bool storeInCache, const QUrl &localFileUrl)
+{
+    DownloadFileJob *job = new DownloadFileJob(this);
+    //Rename signal
+    connect(job, &DownloadFileJob::downloadFileDone, this, &RestApiRequest::getDataDone);
+    job->setUrl(url);
+    job->setMimeType(mimeType);
+    job->setLocalFileUrl(localFileUrl);
+    job->setStoreInCache(storeInCache);
+    initializeRestApiJob(job);
+    job->setAuthToken(mAuthToken);
+    job->setUserId(mUserId);
+    job->start();
 }
 
 void RestApiRequest::serverInfo()

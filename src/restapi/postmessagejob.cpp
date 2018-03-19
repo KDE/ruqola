@@ -18,21 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef UPLOADFILEJOBTEST_H
-#define UPLOADFILEJOBTEST_H
+#include "postmessagejob.h"
 
-#include <QObject>
-
-class UploadFileJobTest : public QObject
+PostMessageJob::PostMessageJob(QObject *parent)
+    : RestApiAbstractJob(parent)
 {
-    Q_OBJECT
-public:
-    explicit UploadFileJobTest(QObject *parent = nullptr);
-    ~UploadFileJobTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
-    void shouldStart();
-};
 
-#endif // UPLOADFILEJOBTEST_H
+}
+
+
+bool PostMessageJob::start()
+{
+    //TODO
+    return false;
+}
+
+bool PostMessageJob::requireHttpAuthentication() const
+{
+    return true;
+}

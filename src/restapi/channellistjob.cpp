@@ -21,7 +21,6 @@
 #include "channellistjob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
-#include "restapirequest.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkAccessManager>
@@ -47,7 +46,6 @@ bool ChannelListJob::start()
 
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &ChannelListJob::slotListInfo);
-    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::ChannelList));
     return false;
 }
 
@@ -56,6 +54,7 @@ void ChannelListJob::slotListInfo()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
+        addLoggerInfo(QByteArrayLiteral("ChannelListJob: finished: ") + data);
         //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
         Q_EMIT channelListDone(data);
     }

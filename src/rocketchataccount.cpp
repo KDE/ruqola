@@ -61,6 +61,8 @@
 #include <plugins/pluginauthentication.h>
 #include <plugins/pluginauthenticationinterface.h>
 
+#define USE_REASTAPI_JOB 1
+
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
 {
@@ -585,7 +587,11 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
 
 void RocketChatAccount::starMessage(const QString &messageId, const QString &rid, bool starred)
 {
+#ifdef USE_REASTAPI_JOB
+    restApi()->starMessage(messageId, starred);
+#else
     ddp()->starMessage(messageId, rid, starred);
+#endif
 }
 
 void RocketChatAccount::uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl)

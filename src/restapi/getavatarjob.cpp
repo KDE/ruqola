@@ -21,7 +21,6 @@
 #include "getavatarjob.h"
 #include "ruqola_ddpapi_debug.h"
 #include "restapimethod.h"
-#include "restapirequest.h"
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrlQuery>
@@ -56,7 +55,6 @@ bool GetAvatarJob::start()
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &GetAvatarJob::slotGetAvatarInfo);
-    reply->setProperty("method", QVariant::fromValue(RestApiRequest::RestMethod::GetAvatar));
     reply->setProperty("userId", mAvatarUserId);
 
     return true;
@@ -68,6 +66,7 @@ void GetAvatarJob::slotGetAvatarInfo()
     if (reply) {
         const QByteArray data = reply->readAll();
         //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
+        addLoggerInfo(QByteArrayLiteral("GetAvatarJob: finished: ") + data);
         QString str = QString::fromUtf8(data);
         str.remove(QLatin1Char('"'));
         const QString userId = reply->property("userId").toString();

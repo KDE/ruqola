@@ -21,6 +21,7 @@
 #include "privateinfojobtest.h"
 #include "restapi/privateinfojob.h"
 #include <QTest>
+#include <restapi/restapimethod.h>
 QTEST_GUILESS_MAIN(PrivateInfoJobTest)
 
 PrivateInfoJobTest::PrivateInfoJobTest(QObject *parent)
@@ -38,4 +39,21 @@ void PrivateInfoJobTest::shouldHaveDefaultValue()
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.ruqolaLogger());
+}
+
+void PrivateInfoJobTest::shouldGenerateRequest()
+{
+    PrivateInfoJob job;
+    const QString authToken = QStringLiteral("foo");
+    const QString userId = QStringLiteral("user");
+    job.setUserId(userId);
+    job.setAuthToken(authToken);
+    RestApiMethod *method = new RestApiMethod;
+    method->setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(method);
+    const QNetworkRequest request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings")));
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
+    delete method;
 }
