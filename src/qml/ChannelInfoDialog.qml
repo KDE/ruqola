@@ -42,8 +42,6 @@ QQC2.Dialog {
 
     signal modifyChannelSetting(string roomId, int type, var newVal)
     signal deleteRoom(string roomId)
-    signal readOnly(bool roomIsReadOnly)
-    signal archive(bool roomIsArchived)
 
     function initializeAndOpen()
     {
@@ -58,6 +56,8 @@ QQC2.Dialog {
         archiveRoom.visible = !enabledField
         labelDeleteButton.visible = !enabledField
         deleteButton.visible = !enabledField
+        labelRoomType.visible = !enabledField
+        roomType.visible = !enabledField
         open();
     }
 
@@ -135,13 +135,23 @@ QQC2.Dialog {
         }
 
         QQC2.Label {
+            id: labelRoomType
+            text: i18n("Private:")
+        }
+        QQC2.Switch {
+            id: roomType
+            checked: roomInfo === null ? false : roomInfo.channelType === "p"
+            onClicked: {
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.RoomType, checked)
+            }
+        }
+
+        QQC2.Label {
             id: labelDeleteButton
-            //visible if user is owner of room
             text: i18n("Delete Room:");
         }
         DeleteButton {
             id: deleteButton
-            //visible if user is owner of room
             onDeleteButtonClicked: {
                 deleteRoomDialog.rId = roomInfo.rid
                 deleteRoomDialog.open();
