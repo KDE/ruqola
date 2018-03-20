@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "changechannelannouncementjob.h"
+#include "changegroupsannouncementjob.h"
 
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
@@ -26,31 +26,31 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 
-ChangeChannelAnnouncementJob::ChangeChannelAnnouncementJob(QObject *parent)
+ChangeGroupsAnnouncementJob::ChangeGroupsAnnouncementJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 
 }
 
-ChangeChannelAnnouncementJob::~ChangeChannelAnnouncementJob()
+ChangeGroupsAnnouncementJob::~ChangeGroupsAnnouncementJob()
 {
 
 }
 
-bool ChangeChannelAnnouncementJob::start()
+bool ChangeGroupsAnnouncementJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("ChangeChannelAnnouncementJob::start: " + baPostData);
+    addLoggerInfo("ChangeGroupsAnnouncementJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &ChangeChannelAnnouncementJob::slotChangeTopicFinished);
+    connect(reply, &QNetworkReply::finished, this, &ChangeGroupsAnnouncementJob::slotChangeTopicFinished);
     return true;
 }
 
-void ChangeChannelAnnouncementJob::slotChangeTopicFinished()
+void ChangeGroupsAnnouncementJob::slotChangeTopicFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -69,29 +69,29 @@ void ChangeChannelAnnouncementJob::slotChangeTopicFinished()
     deleteLater();
 }
 
-bool ChangeChannelAnnouncementJob::requireHttpAuthentication() const
+bool ChangeGroupsAnnouncementJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool ChangeChannelAnnouncementJob::canStart() const
+bool ChangeGroupsAnnouncementJob::canStart() const
 {
     if (mAnnouncement.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeChannelAnnouncementJob: announcement is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeGroupsAnnouncementJob: announcement is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeChannelAnnouncementJob: RoomId is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeGroupsAnnouncementJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChangeChannelAnnouncementJob job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChangeGroupsAnnouncementJob job";
         return false;
     }
     return true;
 }
 
-QJsonDocument ChangeChannelAnnouncementJob::json() const
+QJsonDocument ChangeGroupsAnnouncementJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = roomId();
@@ -101,29 +101,29 @@ QJsonDocument ChangeChannelAnnouncementJob::json() const
     return postData;
 }
 
-QString ChangeChannelAnnouncementJob::roomId() const
+QString ChangeGroupsAnnouncementJob::roomId() const
 {
     return mRoomId;
 }
 
-void ChangeChannelAnnouncementJob::setRoomId(const QString &roomId)
+void ChangeGroupsAnnouncementJob::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
 }
 
-QString ChangeChannelAnnouncementJob::announcement() const
+QString ChangeGroupsAnnouncementJob::announcement() const
 {
     return mAnnouncement;
 }
 
-void ChangeChannelAnnouncementJob::setAnnouncement(const QString &t)
+void ChangeGroupsAnnouncementJob::setAnnouncement(const QString &t)
 {
     mAnnouncement = t;
 }
 
-QNetworkRequest ChangeChannelAnnouncementJob::request() const
+QNetworkRequest ChangeGroupsAnnouncementJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsSetAnnouncement);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsSetAnnouncement);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);

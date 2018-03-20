@@ -18,40 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANGECHANNELANNOUNCEMENTJOB_H
-#define CHANGECHANNELANNOUNCEMENTJOB_H
+#ifndef CHANGEGROUPSANNOUNCEMENTJOBTEST_H
+#define CHANGEGROUPSANNOUNCEMENTJOBTEST_H
 
-#include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
+#include <QObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT ChangeChannelAnnouncementJob : public RestApiAbstractJob
+class ChangeGroupsAnnouncementJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ChangeChannelAnnouncementJob(QObject *parent = nullptr);
-    ~ChangeChannelAnnouncementJob() override;
-
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    bool canStart() const override;
-
-    QString announcement() const;
-    void setAnnouncement(const QString &topic);
-    QNetworkRequest request() const override;
-
-    QJsonDocument json() const;
-
-    QString roomId() const;
-    void setRoomId(const QString &roomId);
-
-Q_SIGNALS:
-    void changeAnnouncementDone();
-
-private:
-    Q_DISABLE_COPY(ChangeChannelAnnouncementJob)
-    void slotChangeTopicFinished();
-    QString mAnnouncement;
-    QString mRoomId;
+    explicit ChangeGroupsAnnouncementJobTest(QObject *parent = nullptr);
+    ~ChangeGroupsAnnouncementJobTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
+    void shouldGenerateJson();
 };
 
-#endif // CHANGECHANNELANNOUNCEMENT_H
+#endif // CHANGEGROUPSANNOUNCEMENTJOBTEST_H

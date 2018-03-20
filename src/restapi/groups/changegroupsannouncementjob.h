@@ -18,18 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANGECHANNELANNOUNCEMENTJOB_H
-#define CHANGECHANNELANNOUNCEMENTJOB_H
+#ifndef CHANGEGROUPSANNOUNCEMENTJOB_H
+#define CHANGEGROUPSANNOUNCEMENTJOB_H
 
 #include "restapiabstractjob.h"
 #include "libruqola_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT ChangeChannelAnnouncementJob : public RestApiAbstractJob
+class LIBRUQOLACORE_TESTS_EXPORT ChangeGroupsAnnouncementJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit ChangeChannelAnnouncementJob(QObject *parent = nullptr);
-    ~ChangeChannelAnnouncementJob() override;
+    explicit ChangeGroupsAnnouncementJob(QObject *parent = nullptr);
+    ~ChangeGroupsAnnouncementJob() override;
 
     bool start() override;
     bool requireHttpAuthentication() const override;
@@ -48,7 +48,7 @@ Q_SIGNALS:
     void changeAnnouncementDone();
 
 private:
-    Q_DISABLE_COPY(ChangeChannelAnnouncementJob)
+    Q_DISABLE_COPY(ChangeGroupsAnnouncementJob)
     void slotChangeTopicFinished();
     QString mAnnouncement;
     QString mRoomId;

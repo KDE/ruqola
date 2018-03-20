@@ -98,6 +98,7 @@ enum class RestApiUrlType {
     GroupsSetTopic,
     GroupsSetType,    
     GroupsUnarchive,
+    GroupsSetAnnouncement,
     ServerInfo,
     Settings,
     RoomsUpload,
