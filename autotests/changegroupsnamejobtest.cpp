@@ -18,38 +18,38 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "changechannelnamejobtest.h"
-#include "restapi/channels/changechannelnamejob.h"
+#include "changegroupsnamejobtest.h"
+#include "restapi/groups/changegroupsnamejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
-QTEST_GUILESS_MAIN(ChangeChannelNameJobTest)
+QTEST_GUILESS_MAIN(ChangeGroupsNameJobTest)
 
-ChangeChannelNameJobTest::ChangeChannelNameJobTest(QObject *parent)
+ChangeGroupsNameJobTest::ChangeGroupsNameJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void ChangeChannelNameJobTest::shouldHaveDefaultValue()
+void ChangeGroupsNameJobTest::shouldHaveDefaultValue()
 {
-    ChangeChannelNameJob job;
+    ChangeGroupsNameJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.name().isEmpty());
     QVERIFY(job.roomId().isEmpty());
 }
 
-void ChangeChannelNameJobTest::shouldGenerateRequest()
+void ChangeGroupsNameJobTest::shouldGenerateRequest()
 {
-    ChangeChannelNameJob job;
+    ChangeGroupsNameJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.rename")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.rename")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void ChangeChannelNameJobTest::shouldGenerateJson()
+void ChangeGroupsNameJobTest::shouldGenerateJson()
 {
-    ChangeChannelNameJob job;
+    ChangeGroupsNameJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString name = QStringLiteral("topic1");
     job.setRoomId(roomId);

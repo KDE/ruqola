@@ -21,6 +21,7 @@ set (Ruqola_restapi_SRCS
     restapi/channels/changechannelnamejob.cpp
     restapi/groups/changegroupstopicjob.cpp
     restapi/groups/changegroupsannouncementjob.cpp
+    restapi/groups/changegroupsnamejob.cpp
     )
 
 set(Ruqola_ddpapi_SRCS
