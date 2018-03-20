@@ -52,7 +52,12 @@ QQC2.Dialog {
         channelCommentField.setReadOnly(enabledField);
         channelAnnoucementField.setReadOnly(enabledField);
         channelDescriptionField.setReadOnly(enabledField);
-
+        labelReadOnlyRoom.visible = !enabledField
+        readOnlyRoom.visible = !enabledField
+        labelArchiveRoom.visible = !enabledField
+        archiveRoom.visible = !enabledField
+        labelDeleteButton.visible = !enabledField
+        deleteButton.visible = !enabledField
         open();
     }
 
@@ -106,6 +111,7 @@ QQC2.Dialog {
         }
 
         QQC2.Label {
+            id: labelReadOnlyRoom
             text: i18n("Read-Only:");
         }
         QQC2.Switch {
@@ -117,6 +123,7 @@ QQC2.Dialog {
         }
 
         QQC2.Label {
+            id: labelArchiveRoom
             text: i18n("Archive:");
         }
         QQC2.Switch {
@@ -128,10 +135,12 @@ QQC2.Dialog {
         }
 
         QQC2.Label {
+            id: labelDeleteButton
             //visible if user is owner of room
             text: i18n("Delete Room:");
         }
         DeleteButton {
+            id: deleteButton
             //visible if user is owner of room
             onDeleteButtonClicked: {
                 deleteRoomDialog.rId = roomInfo.rid
