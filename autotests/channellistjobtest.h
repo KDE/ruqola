@@ -32,6 +32,7 @@ public:
 
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
 };
 
 #endif // CHANNELLISTJOBTEST_H

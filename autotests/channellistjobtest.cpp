@@ -22,6 +22,8 @@
 #include "restapi/channellistjob.h"
 
 #include <QTest>
+
+#include <restapi/restapimethod.h>
 QTEST_GUILESS_MAIN(ChannelListJobTest)
 
 ChannelListJobTest::ChannelListJobTest(QObject *parent)
@@ -40,3 +42,23 @@ void ChannelListJobTest::shouldHaveDefaultValue()
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.ruqolaLogger());
 }
+
+void ChannelListJobTest::shouldGenerateRequest()
+{
+    ChannelListJob job;
+    RestApiMethod *method = new RestApiMethod;
+    const QString authToken = QStringLiteral("foo");
+    const QString userId = QStringLiteral("user");
+    job.setUserId(userId);
+    job.setAuthToken(authToken);
+
+    method->setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(method);
+    const QNetworkRequest request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.list")));
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
+
+    delete method;
+}
+

@@ -70,6 +70,10 @@ void StarMessageJobTest::shouldGenerateStarMessageRequest()
 {
     StarMessageJob job;
     RestApiMethod *method = new RestApiMethod;
+    const QString authToken = QStringLiteral("foo");
+    const QString userId = QStringLiteral("user");
+    job.setUserId(userId);
+    job.setAuthToken(authToken);
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString messageId = QStringLiteral("foo");
@@ -79,6 +83,8 @@ void StarMessageJobTest::shouldGenerateStarMessageRequest()
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
     QCOMPARE(request.attribute(QNetworkRequest::HTTP2AllowedAttribute).toBool(), true);
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
 
     delete method;
 }
