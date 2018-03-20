@@ -31,7 +31,7 @@
 #include "loginjob.h"
 #include "downloadfilejob.h"
 #include "starmessagejob.h"
-#include "changechanneltopicjob.h"
+#include "channels/changechanneltopicjob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>

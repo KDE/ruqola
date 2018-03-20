@@ -135,6 +135,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.setReadOnly");
     case RestApiUtil::RestApiUrlType::ChannelsSetTopic:
         return QStringLiteral("channels.setTopic");
+    case RestApiUtil::RestApiUrlType::ChannelsSetAnnouncement:
+        return QStringLiteral("channels.setAnnouncement");
     case RestApiUtil::RestApiUrlType::ChannelsSetType:
         return QStringLiteral("channels.setType");
     case RestApiUtil::RestApiUrlType::ChannelsUnarchive:

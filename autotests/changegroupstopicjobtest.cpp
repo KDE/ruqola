@@ -18,39 +18,39 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "changechanneltopicjobtest.h"
-#include "restapi/channels/changechanneltopicjob.h"
+#include "changegroupstopicjobtest.h"
+#include "restapi/groups/changegroupstopicjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
-QTEST_GUILESS_MAIN(ChangeChannelTopicJobTest)
+QTEST_GUILESS_MAIN(ChangeGroupsTopicJobTest)
 
-ChangeChannelTopicJobTest::ChangeChannelTopicJobTest(QObject *parent)
+ChangeGroupsTopicJobTest::ChangeGroupsTopicJobTest(QObject *parent)
     : QObject(parent)
 {
 
 }
 
-void ChangeChannelTopicJobTest::shouldHaveDefaultValue()
+void ChangeGroupsTopicJobTest::shouldHaveDefaultValue()
 {
-    ChangeChannelTopicJob job;
+    ChangeGroupsTopicJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.topic().isEmpty());
     QVERIFY(job.roomId().isEmpty());
 }
 
-void ChangeChannelTopicJobTest::shouldGenerateRequest()
+void ChangeGroupsTopicJobTest::shouldGenerateRequest()
 {
-    ChangeChannelTopicJob job;
+    ChangeGroupsTopicJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setTopic")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setTopic")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void ChangeChannelTopicJobTest::shouldGenerateJson()
+void ChangeGroupsTopicJobTest::shouldGenerateJson()
 {
-    ChangeChannelTopicJob job;
+    ChangeGroupsTopicJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString topic = QStringLiteral("topic1");
     job.setRoomId(roomId);

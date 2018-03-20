@@ -18,42 +18,42 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "changechanneltopicjobtest.h"
-#include "restapi/channels/changechanneltopicjob.h"
+#include "changechannelannouncementjobtest.h"
+#include "restapi/channels/changechannelannouncementjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
-QTEST_GUILESS_MAIN(ChangeChannelTopicJobTest)
+QTEST_GUILESS_MAIN(ChangeChannelAnnouncementJobTest)
 
-ChangeChannelTopicJobTest::ChangeChannelTopicJobTest(QObject *parent)
+ChangeChannelAnnouncementJobTest::ChangeChannelAnnouncementJobTest(QObject *parent)
     : QObject(parent)
 {
 
 }
 
-void ChangeChannelTopicJobTest::shouldHaveDefaultValue()
+void ChangeChannelAnnouncementJobTest::shouldHaveDefaultValue()
 {
-    ChangeChannelTopicJob job;
+    ChangeChannelAnnouncementJob job;
     verifyDefaultValue(&job);
-    QVERIFY(job.topic().isEmpty());
+    QVERIFY(job.announcement().isEmpty());
     QVERIFY(job.roomId().isEmpty());
 }
 
-void ChangeChannelTopicJobTest::shouldGenerateRequest()
+void ChangeChannelAnnouncementJobTest::shouldGenerateRequest()
 {
-    ChangeChannelTopicJob job;
+    ChangeChannelAnnouncementJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setTopic")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setAnnouncement")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void ChangeChannelTopicJobTest::shouldGenerateJson()
+void ChangeChannelAnnouncementJobTest::shouldGenerateJson()
 {
-    ChangeChannelTopicJob job;
+    ChangeChannelAnnouncementJob job;
     const QString roomId = QStringLiteral("foo1");
-    const QString topic = QStringLiteral("topic1");
+    const QString announcement = QStringLiteral("topic1");
     job.setRoomId(roomId);
-    job.setTopic(topic);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"topic\":\"%2\"}").arg(roomId).arg(topic).toLatin1());
+    job.setAnnouncement(announcement);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"announcement\":\"%1\",\"roomId\":\"%2\"}").arg(announcement).arg(roomId).toLatin1());
 }

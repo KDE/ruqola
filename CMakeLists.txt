@@ -59,7 +59,7 @@ else()
 endif()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/restapi)
 add_definitions("-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII")
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
