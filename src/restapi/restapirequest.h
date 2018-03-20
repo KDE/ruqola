@@ -66,6 +66,8 @@ public:
     void downloadFile(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"), bool storeInCache = true, const QUrl &localFileUrl = QUrl());
     void changeChannelTopic(const QString &roomId, const QString &topic);
     void changeGroupsTopic(const QString &roomId, const QString &topic);
+    void changeChannelAnnouncement(const QString &roomId, const QString &announcement);
+    void changeGroupsAnnouncement(const QString &roomId, const QString &announcement);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

@@ -34,6 +34,9 @@
 #include "channels/changechanneltopicjob.h"
 #include "groups/changegroupstopicjob.h"
 
+#include "channels/changechannelannouncementjob.h"
+#include "groups/changegroupsannouncementjob.h"
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
@@ -299,5 +302,23 @@ void RestApiRequest::changeGroupsTopic(const QString &roomId, const QString &top
     initializeRestApiJob(job, true);
     job->setRoomId(roomId);
     job->setTopic(topic);
+    job->start();
+}
+
+void RestApiRequest::changeChannelAnnouncement(const QString &roomId, const QString &announcement)
+{
+    ChangeGroupsAnnouncementJob *job = new ChangeGroupsAnnouncementJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->setAnnouncement(announcement);
+    job->start();
+}
+
+void RestApiRequest::changeGroupsAnnouncement(const QString &roomId, const QString &announcement)
+{
+    ChangeGroupsAnnouncementJob *job = new ChangeGroupsAnnouncementJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->setAnnouncement(announcement);
     job->start();
 }
