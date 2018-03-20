@@ -173,9 +173,7 @@ void RestApiRequest::login()
 {
     LoginJob *job = new LoginJob(this);
     connect(job, &LoginJob::loginDone, this, &RestApiRequest::slotLogin);
-    job->setNetworkAccessManager(mNetworkAccessManager);
-    job->setRuqolaLogger(mRuqolaLogger);
-    job->setRestApiMethod(mRestApiMethod);
+    initializeRestApiJob(job, false);
     job->setPassword(mPassword);
     job->setUserName(mUserName);
     job->start();
