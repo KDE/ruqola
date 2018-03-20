@@ -22,9 +22,9 @@
 #define RESTAPIABSTRACTJOB_H
 
 #include <QObject>
+#include <QNetworkRequest>
 #include "libruqola_private_export.h"
 class QNetworkAccessManager;
-class QNetworkRequest;
 class RestApiMethod;
 class RuqolaLogger;
 class LIBRUQOLACORE_TESTS_EXPORT RestApiAbstractJob : public QObject
@@ -55,6 +55,7 @@ public:
 
     virtual bool canStart() const;
 
+    virtual QNetworkRequest request() const = 0;
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
     void addAuthRawHeader(QNetworkRequest &request) const;

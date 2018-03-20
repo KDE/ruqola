@@ -33,7 +33,7 @@ public:
 
     bool start() override;
 
-    QNetworkRequest request() const;
+    QNetworkRequest request() const override;
 
     bool requireHttpAuthentication() const override;
 

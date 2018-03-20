@@ -42,7 +42,7 @@ public:
     QString mimeType() const;
     void setMimeType(const QString &mimeType);
 
-    QNetworkRequest request() const;
+    QNetworkRequest request() const override;
 
     bool storeInCache() const;
     void setStoreInCache(bool storeInCache);

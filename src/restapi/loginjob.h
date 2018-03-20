@@ -42,7 +42,7 @@ public:
 
     bool canStart() const override;
 
-    QNetworkRequest request() const;
+    QNetworkRequest request() const override;
     QJsonDocument json() const;
 
 Q_SIGNALS:

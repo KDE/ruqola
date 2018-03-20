@@ -42,3 +42,9 @@ bool PostMessageJob::requireHttpAuthentication() const
 {
     return true;
 }
+
+
+QNetworkRequest PostMessageJob::request() const
+{
+    return {};
+}

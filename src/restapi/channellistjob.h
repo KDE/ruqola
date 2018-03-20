@@ -34,7 +34,7 @@ public:
     bool start() override;
     bool requireHttpAuthentication() const override;
 
-    QNetworkRequest request() const;
+    QNetworkRequest request() const override;
 
 Q_SIGNALS:
     void channelListDone(const QByteArray &data);

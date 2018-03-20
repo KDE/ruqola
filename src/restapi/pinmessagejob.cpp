@@ -62,3 +62,7 @@ bool PinMessageJob::canStart() const
     return true;
 }
 
+QNetworkRequest PinMessageJob::request() const
+{
+    return {};
+}

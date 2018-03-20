@@ -49,7 +49,7 @@ public:
 
     bool requireHttpAuthentication() const override final;
 
-    QNetworkRequest request() const;
+    QNetworkRequest request() const override;
     bool canStart() const override;
 private:
     Q_DISABLE_COPY(UploadFileJob)

@@ -37,7 +37,7 @@ public:
     QString messageId() const;
     void setMessageId(const QString &messageId);
 
-    QNetworkRequest request() const;
+    QNetworkRequest request() const override;
     QJsonDocument json() const;
 
     bool starMessage() const;

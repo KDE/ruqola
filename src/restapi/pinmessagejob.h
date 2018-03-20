@@ -34,6 +34,7 @@ public:
     bool start() override;
     bool requireHttpAuthentication() const override;
     bool canStart() const override;
+    QNetworkRequest request() const override;
 private:
     Q_DISABLE_COPY(PinMessageJob)
 };

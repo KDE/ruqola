@@ -37,7 +37,7 @@ public:
 
     bool start() override;
 
-    QNetworkRequest request() const;
+    QNetworkRequest request() const override;
 
 Q_SIGNALS:
     void ownInfoDone(const QByteArray &data);

@@ -69,3 +69,9 @@ void ChangeChannelTopicJob::setTopic(const QString &topic)
 {
     mTopic = topic;
 }
+
+
+QNetworkRequest ChangeChannelTopicJob::request() const
+{
+    return {};
+}

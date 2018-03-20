@@ -39,7 +39,7 @@ public:
     QString avatarUserId() const;
     void setAvatarUserId(const QString &avatarUserId);
 
-    QNetworkRequest request() const;
+    QNetworkRequest request() const override;
 
     bool canStart() const override;
 Q_SIGNALS:

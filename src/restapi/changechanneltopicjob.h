@@ -37,10 +37,12 @@ public:
 
     QString topic() const;
     void setTopic(const QString &topic);
+    QNetworkRequest request() const override;
 
 private:
     Q_DISABLE_COPY(ChangeChannelTopicJob)
     QString mTopic;
+
 };
 
 #endif // CHANGECHANNELTOPICJOB_H
