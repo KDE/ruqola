@@ -82,7 +82,7 @@ private:
     void slotLogout();
     void slotLogin(const QString &authToken, const QString &userId);
 
-    void initializeRestApiJob(RestApiAbstractJob *job);
+    void initializeRestApiJob(RestApiAbstractJob *job, bool needAuthentication);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QNetworkCookieJar *mCookieJar = nullptr;
     RestApiMethod *mRestApiMethod = nullptr;

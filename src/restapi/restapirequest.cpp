@@ -190,20 +190,22 @@ void RestApiRequest::slotLogout()
     Q_EMIT logoutDone();
 }
 
-void RestApiRequest::initializeRestApiJob(RestApiAbstractJob *job)
+void RestApiRequest::initializeRestApiJob(RestApiAbstractJob *job, bool needAuthentication)
 {
     job->setNetworkAccessManager(mNetworkAccessManager);
     job->setRuqolaLogger(mRuqolaLogger);
     job->setRestApiMethod(mRestApiMethod);
+    if (needAuthentication) {
+        job->setAuthToken(mAuthToken);
+        job->setUserId(mUserId);
+    }
 }
 
 void RestApiRequest::logout()
 {
     LogoutJob *job = new LogoutJob(this);
     connect(job, &LogoutJob::logoutDone, this, &RestApiRequest::slotLogout);
-    initializeRestApiJob(job);
-    job->setAuthToken(mAuthToken);
-    job->setUserId(mUserId);
+    initializeRestApiJob(job, true);
     job->start();
 }
 
@@ -211,9 +213,7 @@ void RestApiRequest::channelList()
 {
     ChannelListJob *job = new ChannelListJob(this);
     //TODO connect(job, &ChannelListJob::channelListDone, this, &RestApiRequest::slotLogout);
-    initializeRestApiJob(job);
-    job->setAuthToken(mAuthToken);
-    job->setUserId(mUserId);
+    initializeRestApiJob(job, true);
     job->start();
 }
 
@@ -221,7 +221,7 @@ void RestApiRequest::getAvatar(const QString &userId)
 {
     GetAvatarJob *job = new GetAvatarJob(this);
     connect(job, &GetAvatarJob::avatar, this, &RestApiRequest::avatar);
-    initializeRestApiJob(job);
+    initializeRestApiJob(job, false);
     job->setAvatarUserId(userId);
     job->start();
 }
@@ -230,9 +230,7 @@ void RestApiRequest::getPrivateSettings()
 {
     PrivateInfoJob *job = new PrivateInfoJob(this);
     connect(job, &PrivateInfoJob::privateInfoDone, this, &RestApiRequest::privateInfoDone);
-    initializeRestApiJob(job);
-    job->setAuthToken(mAuthToken);
-    job->setUserId(mUserId);
+    initializeRestApiJob(job, true);
     job->start();
 }
 
@@ -240,18 +238,14 @@ void RestApiRequest::getOwnInfo()
 {
     OwnInfoJob *job = new OwnInfoJob(this);
     connect(job, &OwnInfoJob::ownInfoDone, this, &RestApiRequest::getOwnInfoDone);
-    initializeRestApiJob(job);
-    job->setAuthToken(mAuthToken);
-    job->setUserId(mUserId);
+    initializeRestApiJob(job, true);
     job->start();
 }
 
 void RestApiRequest::starMessage(const QString &messageId, bool starred)
 {
     StarMessageJob *job = new StarMessageJob(this);
-    initializeRestApiJob(job);
-    job->setAuthToken(mAuthToken);
-    job->setUserId(mUserId);
+    initializeRestApiJob(job, true);
     job->setMessageId(messageId);
     job->setStarMessage(starred);
     job->start();
@@ -266,17 +260,14 @@ void RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, bool
     job->setMimeType(mimeType);
     job->setLocalFileUrl(localFileUrl);
     job->setStoreInCache(storeInCache);
-    initializeRestApiJob(job);
-    job->setAuthToken(mAuthToken);
-    job->setUserId(mUserId);
+    initializeRestApiJob(job, true);
     job->start();
 }
 
 void RestApiRequest::serverInfo()
 {
     ServerInfoJob *job = new ServerInfoJob(this);
-    job->setNetworkAccessManager(mNetworkAccessManager);
-    job->setRestApiMethod(mRestApiMethod);
+    initializeRestApiJob(job, false);
     connect(job, &ServerInfoJob::serverInfoDone, this, &RestApiRequest::getServerInfoDone);
     job->start();
 }
@@ -284,23 +275,19 @@ void RestApiRequest::serverInfo()
 void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename)
 {
     UploadFileJob *job = new UploadFileJob(this);
-    initializeRestApiJob(job);
+    initializeRestApiJob(job, true);
     job->setDescription(description);
     job->setMessageText(text);
     job->setFilenameUrl(filename);
     job->setRoomId(roomId);
-    job->setAuthToken(mAuthToken);
-    job->setUserId(mUserId);
     job->start();
 }
 
 void RestApiRequest::changeTopic(const QString &roomId, const QString &topic)
 {
     ChangeChannelTopicJob *job = new ChangeChannelTopicJob(this);
-    initializeRestApiJob(job);
+    initializeRestApiJob(job, true);
     job->setRoomId(roomId);
     job->setTopic(topic);
-    job->setAuthToken(mAuthToken);
-    job->setUserId(mUserId);
     job->start();
 }
