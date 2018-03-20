@@ -24,7 +24,6 @@
 #include "restapiabstractjob.h"
 #include "libruqola_private_export.h"
 
-
 class LIBRUQOLACORE_TESTS_EXPORT PostMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT

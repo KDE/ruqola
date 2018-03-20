@@ -26,10 +26,8 @@ QTEST_GUILESS_MAIN(DownloadFileJobTest)
 DownloadFileJobTest::DownloadFileJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void DownloadFileJobTest::shouldHaveDefaultValue()
 {
-
 }

@@ -28,12 +28,10 @@
 ChangeChannelTopicJob::ChangeChannelTopicJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 ChangeChannelTopicJob::~ChangeChannelTopicJob()
 {
-
 }
 
 bool ChangeChannelTopicJob::start()

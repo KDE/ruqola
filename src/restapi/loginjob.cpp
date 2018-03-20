@@ -89,7 +89,6 @@ void LoginJob::slotLoginDone()
         }
     }
     deleteLater();
-
 }
 
 QJsonDocument LoginJob::json() const
@@ -100,7 +99,6 @@ QJsonDocument LoginJob::json() const
     const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
     return postData;
 }
-
 
 QNetworkRequest LoginJob::request() const
 {
@@ -134,5 +132,3 @@ void LoginJob::setUserName(const QString &userName)
 {
     mUserName = userName;
 }
-
-

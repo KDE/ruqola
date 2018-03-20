@@ -28,7 +28,6 @@ QTEST_GUILESS_MAIN(ChangeChannelAnnouncementJobTest)
 ChangeChannelAnnouncementJobTest::ChangeChannelAnnouncementJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ChangeChannelAnnouncementJobTest::shouldHaveDefaultValue()

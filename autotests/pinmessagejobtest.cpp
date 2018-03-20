@@ -25,5 +25,4 @@ QTEST_GUILESS_MAIN(PinMessageJobTest)
 PinMessageJobTest::PinMessageJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }

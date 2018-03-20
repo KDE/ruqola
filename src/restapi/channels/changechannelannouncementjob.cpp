@@ -29,12 +29,10 @@
 ChangeChannelAnnouncementJob::ChangeChannelAnnouncementJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 ChangeChannelAnnouncementJob::~ChangeChannelAnnouncementJob()
 {
-
 }
 
 bool ChangeChannelAnnouncementJob::start()
@@ -131,4 +129,3 @@ QNetworkRequest ChangeChannelAnnouncementJob::request() const
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
     return request;
 }
-

@@ -23,14 +23,11 @@
 PostMessageJob::PostMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 PostMessageJob::~PostMessageJob()
 {
-
 }
-
 
 bool PostMessageJob::start()
 {
@@ -42,7 +39,6 @@ bool PostMessageJob::requireHttpAuthentication() const
 {
     return true;
 }
-
 
 QNetworkRequest PostMessageJob::request() const
 {

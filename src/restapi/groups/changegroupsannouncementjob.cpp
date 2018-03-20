@@ -29,12 +29,10 @@
 ChangeGroupsAnnouncementJob::ChangeGroupsAnnouncementJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 ChangeGroupsAnnouncementJob::~ChangeGroupsAnnouncementJob()
 {
-
 }
 
 bool ChangeGroupsAnnouncementJob::start()
@@ -131,4 +129,3 @@ QNetworkRequest ChangeGroupsAnnouncementJob::request() const
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
     return request;
 }
-

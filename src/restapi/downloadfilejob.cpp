@@ -29,12 +29,10 @@
 DownloadFileJob::DownloadFileJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 DownloadFileJob::~DownloadFileJob()
 {
-
 }
 
 bool DownloadFileJob::start()
@@ -45,11 +43,11 @@ bool DownloadFileJob::start()
     }
 
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    addLoggerInfo("ChannelListJob: url:" +
-                  mUrl.toEncoded() +
-                  " mimetype " + mMimeType.toLatin1() +
-                  " saveAs " + mLocalFileUrl.toEncoded() +
-                  " store in cache " + (mStoreInCache ? "true" : "false"));
+    addLoggerInfo("ChannelListJob: url:"
+                  +mUrl.toEncoded()
+                  +" mimetype " + mMimeType.toLatin1()
+                  +" saveAs " + mLocalFileUrl.toEncoded()
+                  +" store in cache " + (mStoreInCache ? "true" : "false"));
     connect(reply, &QNetworkReply::finished, this, &DownloadFileJob::slotDownloadDone);
     return true;
 }
@@ -99,7 +97,6 @@ void DownloadFileJob::setLocalFileUrl(const QUrl &localFileUrl)
 {
     mLocalFileUrl = localFileUrl;
 }
-
 
 bool DownloadFileJob::requireHttpAuthentication() const
 {

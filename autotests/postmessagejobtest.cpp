@@ -25,5 +25,4 @@ QTEST_GUILESS_MAIN(PostMessageJobTest)
 PostMessageJobTest::PostMessageJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }

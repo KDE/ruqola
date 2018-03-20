@@ -201,7 +201,6 @@ void RocketChatMessageTest::shouldSetRoomIsReadOnly()
     compareFile(r.result, QStringLiteral("roomisreadonly"));
 }
 
-
 void RocketChatMessageTest::shouldSetRoomIsDefault()
 {
     RocketChatMessage m;

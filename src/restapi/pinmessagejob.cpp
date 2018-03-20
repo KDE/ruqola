@@ -25,14 +25,11 @@
 PinMessageJob::PinMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 PinMessageJob::~PinMessageJob()
 {
-
 }
-
 
 bool PinMessageJob::start()
 {

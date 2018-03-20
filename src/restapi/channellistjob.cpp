@@ -70,7 +70,6 @@ QNetworkRequest ChannelListJob::request() const
     return request;
 }
 
-
 bool ChannelListJob::requireHttpAuthentication() const
 {
     return true;

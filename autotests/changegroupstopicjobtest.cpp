@@ -28,7 +28,6 @@ QTEST_GUILESS_MAIN(ChangeGroupsTopicJobTest)
 ChangeGroupsTopicJobTest::ChangeGroupsTopicJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ChangeGroupsTopicJobTest::shouldHaveDefaultValue()
