@@ -283,7 +283,7 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
     job->start();
 }
 
-void RestApiRequest::changeTopic(const QString &roomId, const QString &topic)
+void RestApiRequest::changeChannelTopic(const QString &roomId, const QString &topic)
 {
     ChangeChannelTopicJob *job = new ChangeChannelTopicJob(this);
     initializeRestApiJob(job, true);

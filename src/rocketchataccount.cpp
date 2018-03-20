@@ -615,7 +615,7 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         //rest api doesn't work on private channel !!!!!!! Top stupic restapi
         //https://github.com/RocketChat/Rocket.Chat/issues/10175
 #ifdef USE_REASTAPI_JOB_IMPOSSIBLE
-        restApi()->changeTopic(roomId, newValue.toString());
+        restApi()->changeChannelTopic(roomId, newValue.toString());
 #else
         ddp()->setRoomTopic(roomId, newValue.toString());
 #endif

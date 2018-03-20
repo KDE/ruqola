@@ -64,7 +64,7 @@ public:
     void starMessage(const QString &messageId, bool starred);
     void uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename);
     void downloadFile(const QUrl &url, const QString &mimeType = QStringLiteral("text/plain"), bool storeInCache = true, const QUrl &localFileUrl = QUrl());
-    void changeTopic(const QString &roomId, const QString &topic);
+    void changeChannelTopic(const QString &roomId, const QString &topic);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
