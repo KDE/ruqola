@@ -73,5 +73,5 @@ void ChangeChannelTopicJob::setTopic(const QString &topic)
 
 QNetworkRequest ChangeChannelTopicJob::request() const
 {
-    return {};
+    return QNetworkRequest(QUrl());
 }

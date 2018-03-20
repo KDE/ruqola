@@ -64,5 +64,5 @@ bool PinMessageJob::canStart() const
 
 QNetworkRequest PinMessageJob::request() const
 {
-    return {};
+    return QNetworkRequest(QUrl());
 }
