@@ -77,7 +77,8 @@ public:
         Name,
         Topic,
         ReadOnly,
-        Archive
+        Archive,
+        RoomType
     };
     Q_ENUM(RoomInfoType)
 

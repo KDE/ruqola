@@ -180,6 +180,7 @@ public:
     quint64 emailNotifications(const QString &roomId, const QString &value);
     quint64 unreadAlert(const QString &roomId, const QString &value);
     quint64 deleteFileMessage(const QString &roomId, const QString &fileid);
+    quint64 setRoomType(const QString &roomId, bool privateChannel);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

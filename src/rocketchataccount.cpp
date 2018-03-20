@@ -612,7 +612,12 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         ddp()->setRoomName(roomId, newValue.toString());
         break;
     case Topic:
+        //rest api doesn't work on private channel !!!!!!! Top stupic restapi
+#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
+        restApi()->changeTopic(roomId, newValue.toString());
+#else
         ddp()->setRoomTopic(roomId, newValue.toString());
+#endif
         break;
     case ReadOnly:
         ddp()->setRoomIsReadOnly(roomId, newValue.toBool());
@@ -620,6 +625,9 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
     case Archive:
         //No argument here.
         ddp()->archiveRoom(roomId);
+        break;
+    case RoomType:
+        ddp()->setRoomType(roomId, newValue.toBool());
         break;
     }
 }

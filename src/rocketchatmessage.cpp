@@ -194,18 +194,10 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomAnnouncemen
     return saveRoomSettings(QStringLiteral("roomAnnouncement"), roomId, announcement, id);
 }
 
-/*
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomType(const QString &roomId, QRocketChatRoom::Type type)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomType(const QString &roomId, bool privateChannel, quint64 id)
 {
-    switch(type) {
-    case RocketChatMessage::DirectChat:
-        return saveRoomSettings(roomId, "roomType"_l1, "d"_l1);
-    case RocketChatMessage::MultiUserChat:
-        return saveRoomSettings(roomId, "roomType"_l1, "c"_l1);
-    }
-    return {this, RocketChatMessage{"error-invalid-room-type"_l1, i18n("Unsupported room type")}.toMessage()};
+    return saveRoomSettings(QStringLiteral("roomType"), roomId, privateChannel ? QStringLiteral("p") : QStringLiteral("c"), id);
 }
-*/
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomIsReadOnly(const QString &roomId, bool readOnly, quint64 id)
 {
