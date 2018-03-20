@@ -38,7 +38,7 @@ QQC2.Dialog {
 
     modal: true
 
-    standardButtons: Dialog.Ok | Dialog.Cancel
+    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     Row {
         QQC2.Label {
