@@ -73,7 +73,7 @@ void Notification::createToolTip()
     int unreadMessage = 0;
     while (i.hasNext()) {
         i.next();
-        if (!firstElement && !str.isEmpty()) {
+        if (firstElement && !str.isEmpty()) {
             firstElement = false;
             str += QLatin1Char('\n');
         }
