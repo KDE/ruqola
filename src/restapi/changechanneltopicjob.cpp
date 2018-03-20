@@ -20,6 +20,10 @@
 
 #include "changechanneltopicjob.h"
 #include "ruqola_restapi_debug.h"
+#include "restapimethod.h"
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkReply>
 
 ChangeChannelTopicJob::ChangeChannelTopicJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -38,8 +42,30 @@ bool ChangeChannelTopicJob::start()
         deleteLater();
         return false;
     }
-    //TODO
-    return false;
+    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
+    addLoggerInfo("ChangeChannelTopicJob::start: " + baPostData);
+    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    connect(reply, &QNetworkReply::finished, this, &ChangeChannelTopicJob::slotChangeTopicFinished);
+    return true;
+}
+
+void ChangeChannelTopicJob::slotChangeTopicFinished()
+{
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    if (reply) {
+        const QByteArray data = reply->readAll();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success";
+            Q_EMIT changeTopicDone();
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
+        }
+    }
+    qDebug() << " DONE !";
+    deleteLater();
 }
 
 bool ChangeChannelTopicJob::requireHttpAuthentication() const
@@ -50,7 +76,11 @@ bool ChangeChannelTopicJob::requireHttpAuthentication() const
 bool ChangeChannelTopicJob::canStart() const
 {
     if (mTopic.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Topic is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeChannelTopicJob: Topic is empty";
+        return false;
+    }
+    if (mRoomId.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeChannelTopicJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -58,6 +88,26 @@ bool ChangeChannelTopicJob::canStart() const
         return false;
     }
     return true;
+}
+
+QJsonDocument ChangeChannelTopicJob::json() const
+{
+    QJsonObject jsonObj;
+    jsonObj[QLatin1String("roomId")] = roomId();
+    jsonObj[QLatin1String("topic")] = topic();
+
+    const QJsonDocument postData = QJsonDocument(jsonObj);
+    return postData;
+}
+
+QString ChangeChannelTopicJob::roomId() const
+{
+    return mRoomId;
+}
+
+void ChangeChannelTopicJob::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
 }
 
 QString ChangeChannelTopicJob::topic() const
@@ -70,8 +120,13 @@ void ChangeChannelTopicJob::setTopic(const QString &topic)
     mTopic = topic;
 }
 
-
 QNetworkRequest ChangeChannelTopicJob::request() const
 {
-    return QNetworkRequest(QUrl());
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsSetTopic);
+    QNetworkRequest request(url);
+    addAuthRawHeader(request);
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    return request;
 }

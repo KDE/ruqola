@@ -31,6 +31,7 @@
 #include "loginjob.h"
 #include "downloadfilejob.h"
 #include "starmessagejob.h"
+#include "changechanneltopicjob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -288,6 +289,17 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
     job->setMessageText(text);
     job->setFilenameUrl(filename);
     job->setRoomId(roomId);
+    job->setAuthToken(mAuthToken);
+    job->setUserId(mUserId);
+    job->start();
+}
+
+void RestApiRequest::changeTopic(const QString &roomId, const QString &topic)
+{
+    ChangeChannelTopicJob *job = new ChangeChannelTopicJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setTopic(topic);
     job->setAuthToken(mAuthToken);
     job->setUserId(mUserId);
     job->start();

@@ -25,14 +25,33 @@
 #include <restapi/restapimethod.h>
 
 #include <QNetworkRequest>
+#include <QTest>
 
-
-void setAuthentication(RestApiAbstractJob *job)
+void verifyAuthentication(RestApiAbstractJob *job, QNetworkRequest &request)
 {
     const QString authToken = QStringLiteral("foo");
     const QString userId = QStringLiteral("user");
     job->setUserId(userId);
     job->setAuthToken(authToken);
+    RestApiMethod *method = new RestApiMethod;
+    method->setServerUrl(QStringLiteral("http://www.kde.org"));
+    job->setRestApiMethod(method);
+    request = job->request();
+    QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
+    QCOMPARE(request.attribute(QNetworkRequest::HTTP2AllowedAttribute).toBool(), true);
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
+    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
+    delete method;
+}
+
+void verifyDefaultValue(RestApiAbstractJob *job)
+{
+    QVERIFY(!job->restApiMethod());
+    QVERIFY(!job->networkAccessManager());
+    QVERIFY(!job->start());
+    QVERIFY(job->authToken().isEmpty());
+    QVERIFY(job->userId().isEmpty());
+    QVERIFY(!job->ruqolaLogger());
 }
 
 #endif // RUQOLA_RESTAPI_HELPER_H

@@ -20,6 +20,7 @@
 
 #include "owninfojobtest.h"
 #include "restapi/owninfojob.h"
+#include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <restapi/restapimethod.h>
 QTEST_GUILESS_MAIN(OwnInfoJobTest)
@@ -32,30 +33,14 @@ OwnInfoJobTest::OwnInfoJobTest(QObject *parent)
 void OwnInfoJobTest::shouldHaveDefaultValue()
 {
     OwnInfoJob job;
-    QVERIFY(!job.restApiMethod());
-    QVERIFY(!job.networkAccessManager());
-    QVERIFY(!job.start());
+    verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.authToken().isEmpty());
-    QVERIFY(job.userId().isEmpty());
-    QVERIFY(!job.ruqolaLogger());
 }
 
 void OwnInfoJobTest::shouldGenerateRequest()
 {
     OwnInfoJob job;
-    const QString authToken = QStringLiteral("foo");
-    const QString userId = QStringLiteral("user");
-    job.setUserId(userId);
-    job.setAuthToken(authToken);
-    RestApiMethod *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
-    const QNetworkRequest request = job.request();
+    QNetworkRequest request = QNetworkRequest(QUrl());
+    verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/info")));
-    QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
-    QCOMPARE(request.attribute(QNetworkRequest::HTTP2AllowedAttribute).toBool(), true);
-    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
-    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
-    delete method;
 }

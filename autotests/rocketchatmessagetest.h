@@ -96,6 +96,7 @@ private Q_SLOTS:
     void mobilePushNotifications();
     void unreadAlert();
     void deleteFileMessage();
+    void shouldSetRoomType();
 private:
     void compareFile(const QString &data, const QString &name);
 };

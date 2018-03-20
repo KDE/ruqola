@@ -39,10 +39,19 @@ public:
     void setTopic(const QString &topic);
     QNetworkRequest request() const override;
 
+    QJsonDocument json() const;
+
+    QString roomId() const;
+    void setRoomId(const QString &roomId);
+
+Q_SIGNALS:
+    void changeTopicDone();
+
 private:
     Q_DISABLE_COPY(ChangeChannelTopicJob)
+    void slotChangeTopicFinished();
     QString mTopic;
-
+    QString mRoomId;
 };
 
 #endif // CHANGECHANNELTOPICJOB_H

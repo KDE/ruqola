@@ -21,6 +21,7 @@
 #include "serverinfojobtest.h"
 #include "restapi/serverinfojob.h"
 #include "restapi/restapimethod.h"
+#include "ruqola_restapi_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ServerInfoJobTest)
 
@@ -32,11 +33,8 @@ ServerInfoJobTest::ServerInfoJobTest(QObject *parent)
 void ServerInfoJobTest::shouldHaveDefaultValue()
 {
     ServerInfoJob job;
-    QVERIFY(!job.restApiMethod());
-    QVERIFY(!job.networkAccessManager());
-    QVERIFY(!job.start());
+    verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
-    QVERIFY(!job.ruqolaLogger());
 }
 
 void ServerInfoJobTest::shouldGenerateRequest()

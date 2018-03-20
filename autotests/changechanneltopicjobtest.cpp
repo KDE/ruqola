@@ -20,6 +20,8 @@
 
 #include "changechanneltopicjobtest.h"
 #include "restapi/changechanneltopicjob.h"
+#include "ruqola_restapi_helper.h"
+#include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(ChangeChannelTopicJobTest)
 
@@ -32,12 +34,26 @@ ChangeChannelTopicJobTest::ChangeChannelTopicJobTest(QObject *parent)
 void ChangeChannelTopicJobTest::shouldHaveDefaultValue()
 {
     ChangeChannelTopicJob job;
-    QVERIFY(!job.restApiMethod());
-    QVERIFY(!job.networkAccessManager());
-    QVERIFY(!job.start());
-    QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.authToken().isEmpty());
-    QVERIFY(job.userId().isEmpty());
-    QVERIFY(!job.ruqolaLogger());
+    verifyDefaultValue(&job);
     QVERIFY(job.topic().isEmpty());
+    QVERIFY(job.roomId().isEmpty());
+}
+
+void ChangeChannelTopicJobTest::shouldGenerateRequest()
+{
+    ChangeChannelTopicJob job;
+    QNetworkRequest request = QNetworkRequest(QUrl());
+    verifyAuthentication(&job, request);
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setTopic")));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+}
+
+void ChangeChannelTopicJobTest::shouldGenerateJson()
+{
+    ChangeChannelTopicJob job;
+    const QString roomId = QStringLiteral("foo1");
+    const QString topic = QStringLiteral("topic1");
+    job.setRoomId(roomId);
+    job.setTopic(topic);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"topic\":\"%2\"}").arg(roomId).arg(topic).toLatin1());
 }

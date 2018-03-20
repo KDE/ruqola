@@ -21,6 +21,7 @@
 #include "uploadfilejobtest.h"
 #include "restapi/uploadfilejob.h"
 #include "restapi/restapimethod.h"
+#include "ruqola_restapi_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(UploadFileJobTest)
 
@@ -32,36 +33,21 @@ UploadFileJobTest::UploadFileJobTest(QObject *parent)
 void UploadFileJobTest::shouldHaveDefaultValue()
 {
     UploadFileJob job;
-    QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.networkAccessManager());
-    QVERIFY(!job.restApiMethod());
-    QVERIFY(!job.start());
+    verifyDefaultValue(&job);
     QVERIFY(job.description().isEmpty());
     QVERIFY(job.messageText().isEmpty());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.filenameUrl().isValid());
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.userId().isEmpty());
-    QVERIFY(!job.ruqolaLogger());
 }
 
 void UploadFileJobTest::shouldGenerateRequest()
 {
     UploadFileJob job;
-    const QString authToken = QStringLiteral("foo");
-    const QString userId = QStringLiteral("user");
-    job.setUserId(userId);
-    job.setAuthToken(authToken);
-    RestApiMethod *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
-    const QNetworkRequest request = job.request();
+    QNetworkRequest request = QNetworkRequest(QUrl());
+    verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.upload")));
-    QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
-    QCOMPARE(request.attribute(QNetworkRequest::HTTP2AllowedAttribute).toBool(), true);
-    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
-    QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
-    delete method;
 }
 
 void UploadFileJobTest::shouldStart()

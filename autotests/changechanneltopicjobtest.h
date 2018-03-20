@@ -31,6 +31,8 @@ public:
     ~ChangeChannelTopicJobTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
+    void shouldGenerateJson();
 };
 
 #endif // CHANGECHANNELTOPICJOBTEST_H

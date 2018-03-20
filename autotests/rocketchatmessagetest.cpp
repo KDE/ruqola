@@ -141,6 +141,18 @@ void RocketChatMessageTest::shouldSetRoomTopic()
     compareFile(r.result, QStringLiteral("setRoomTopic"));
 }
 
+void RocketChatMessageTest::shouldSetRoomType()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.setRoomType(QStringLiteral("foo"), true, 42);
+
+    compareFile(r.result, QStringLiteral("setRoomTopicPrivate"));
+
+    r = m.setRoomType(QStringLiteral("foo"), false, 42);
+    compareFile(r.result, QStringLiteral("setRoomTopicPublic"));
+}
+
 void RocketChatMessageTest::shouldToggleFavorite()
 {
     RocketChatMessage m;
@@ -188,6 +200,7 @@ void RocketChatMessageTest::shouldSetRoomIsReadOnly()
     RocketChatMessage::RocketChatMessageResult r = m.setRoomIsReadOnly(QStringLiteral("foo"), true, 43);
     compareFile(r.result, QStringLiteral("roomisreadonly"));
 }
+
 
 void RocketChatMessageTest::shouldSetRoomIsDefault()
 {
