@@ -34,8 +34,24 @@ public:
     bool start() override;
     bool requireHttpAuthentication() const override;
     QNetworkRequest request() const override;
+    bool canStart() const override;
+
+    QString text() const;
+    void setText(const QString &text);
+
+    QString roomId() const;
+    void setRoomId(const QString &roomId);
+
+    QJsonDocument json() const;
+
+Q_SIGNALS:
+    void postMessageDone();
+
 private:
     Q_DISABLE_COPY(PostMessageJob)
+    void slotPostMessageDone();
+    QString mText;
+    QString mRoomId;
 };
 
 #endif // POSTMESSAGEJOB_H
