@@ -19,7 +19,7 @@
 */
 
 #include "getavatarjob.h"
-#include "ruqola_ddpapi_debug.h"
+#include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -37,11 +37,11 @@ GetAvatarJob::~GetAvatarJob()
 bool GetAvatarJob::canStart() const
 {
     if (mAvatarUserId.isEmpty()) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "Avatar userid is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Avatar userid is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "Impossible to start getavatar job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start getavatar job";
         return false;
     }
     return true;

@@ -35,8 +35,12 @@ public:
     bool requireHttpAuthentication() const override;
     bool canStart() const override;
 
+    QString topic() const;
+    void setTopic(const QString &topic);
+
 private:
     Q_DISABLE_COPY(ChangeChannelTopicJob)
+    QString mTopic;
 };
 
 #endif // CHANGECHANNELTOPICJOB_H

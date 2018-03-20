@@ -29,6 +29,8 @@ class ChangeChannelTopicJobTest : public QObject
 public:
     explicit ChangeChannelTopicJobTest(QObject *parent = nullptr);
     ~ChangeChannelTopicJobTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // CHANGECHANNELTOPICJOBTEST_H

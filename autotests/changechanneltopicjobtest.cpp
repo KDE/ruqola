@@ -19,6 +19,7 @@
 */
 
 #include "changechanneltopicjobtest.h"
+#include "restapi/changechanneltopicjob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ChangeChannelTopicJobTest)
 
@@ -26,4 +27,17 @@ ChangeChannelTopicJobTest::ChangeChannelTopicJobTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void ChangeChannelTopicJobTest::shouldHaveDefaultValue()
+{
+    ChangeChannelTopicJob job;
+    QVERIFY(!job.restApiMethod());
+    QVERIFY(!job.networkAccessManager());
+    QVERIFY(!job.start());
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(job.authToken().isEmpty());
+    QVERIFY(job.userId().isEmpty());
+    QVERIFY(!job.ruqolaLogger());
+    QVERIFY(job.topic().isEmpty());
 }

@@ -19,6 +19,7 @@
 */
 
 #include "changechanneltopicjob.h"
+#include "ruqola_restapi_debug.h"
 
 ChangeChannelTopicJob::ChangeChannelTopicJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -33,6 +34,10 @@ ChangeChannelTopicJob::~ChangeChannelTopicJob()
 
 bool ChangeChannelTopicJob::start()
 {
+    if (!canStart()) {
+        deleteLater();
+        return false;
+    }
     //TODO
     return false;
 }
@@ -44,6 +49,23 @@ bool ChangeChannelTopicJob::requireHttpAuthentication() const
 
 bool ChangeChannelTopicJob::canStart() const
 {
-    //TODO
-    return false;
+    if (mTopic.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Topic is empty";
+        return false;
+    }
+    if (!RestApiAbstractJob::canStart()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChangeChannelTopicJob job";
+        return false;
+    }
+    return true;
+}
+
+QString ChangeChannelTopicJob::topic() const
+{
+    return mTopic;
+}
+
+void ChangeChannelTopicJob::setTopic(const QString &topic)
+{
+    mTopic = topic;
 }
