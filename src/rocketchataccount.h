@@ -47,7 +47,6 @@ class EmojiManager;
 class OtrManager;
 class UsersForRoomFilterProxyModel;
 class UsersForRoomModel;
-class FilesForRoomModel;
 class FilesForRoomFilterProxyModel;
 class SearchChannelModel;
 class SearchChannelFilterProxyModel;
