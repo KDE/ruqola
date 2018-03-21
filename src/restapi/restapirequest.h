@@ -70,6 +70,8 @@ public:
     void changeGroupsAnnouncement(const QString &roomId, const QString &announcement);
     void postMessage(const QString &roomId, const QString &text);
     void deleteMessage(const QString &roomId, const QString &messageId);
+    void createChannels(const QString &channelName, bool readOnly, const QStringList &members);
+    void createGroups(const QString &channelName, bool readOnly, const QStringList &members);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

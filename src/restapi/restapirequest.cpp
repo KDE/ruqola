@@ -33,11 +33,14 @@
 #include "chat/starmessagejob.h"
 #include "chat/postmessagejob.h"
 #include "chat/deletemessagejob.h"
-#include "channels/changechanneltopicjob.h"
-#include "groups/changegroupstopicjob.h"
 
+#include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
+#include "channels/createchanneljob.h"
+
 #include "groups/changegroupsannouncementjob.h"
+#include "groups/changegroupstopicjob.h"
+#include "groups/creategroupsjob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -338,5 +341,25 @@ void RestApiRequest::deleteMessage(const QString &roomId, const QString &message
     initializeRestApiJob(job, true);
     job->setRoomId(roomId);
     job->setMessageId(messageId);
+    job->start();
+}
+
+void RestApiRequest::createChannels(const QString &channelName, bool readOnly, const QStringList &members)
+{
+    CreateChannelJob *job = new CreateChannelJob(this);
+    initializeRestApiJob(job, true);
+    job->setChannelName(channelName);
+    job->setReadOnly(readOnly);
+    job->setMembers(members);
+    job->start();
+}
+
+void RestApiRequest::createGroups(const QString &channelName, bool readOnly, const QStringList &members)
+{
+    CreateGroupsJob *job = new CreateGroupsJob(this);
+    initializeRestApiJob(job, true);
+    job->setChannelName(channelName);
+    job->setReadOnly(readOnly);
+    job->setMembers(members);
     job->start();
 }

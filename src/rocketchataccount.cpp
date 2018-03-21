@@ -449,11 +449,19 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
 {
     if (!name.trimmed().isEmpty()) {
         const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
+#ifdef USE_REASTAPI_JOB
+        if (privateRoom) {
+            restApi()->createGroups(name, readOnly, lstUsers);
+        } else {
+            restApi()->createChannels(name, readOnly, lstUsers);
+        }
+#else
         if (privateRoom) {
             ddp()->createPrivateGroup(name, lstUsers);
         } else {
             ddp()->createChannel(name, lstUsers, readOnly);
         }
+#endif
     } else {
         qCDebug(RUQOLA_LOG) << "Channel name can't be empty";
     }
