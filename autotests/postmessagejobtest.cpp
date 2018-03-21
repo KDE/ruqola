@@ -19,7 +19,7 @@
 */
 
 #include "postmessagejobtest.h"
-#include "restapi/postmessagejob.h"
+#include "restapi/chat/postmessagejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

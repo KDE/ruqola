@@ -30,8 +30,8 @@
 #include "channellistjob.h"
 #include "loginjob.h"
 #include "downloadfilejob.h"
-#include "starmessagejob.h"
-#include "postmessagejob.h"
+#include "chat/starmessagejob.h"
+#include "chat/postmessagejob.h"
 #include "channels/changechanneltopicjob.h"
 #include "groups/changegroupstopicjob.h"
 

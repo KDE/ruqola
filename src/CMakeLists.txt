@@ -12,10 +12,10 @@ set (Ruqola_restapi_SRCS
     restapi/loginjob.cpp
     restapi/privateinfojob.cpp
     restapi/channellistjob.cpp
-    restapi/starmessagejob.cpp
     restapi/downloadfilejob.cpp
-    restapi/pinmessagejob.cpp
-    restapi/postmessagejob.cpp
+    restapi/chat/starmessagejob.cpp
+    restapi/chat/pinmessagejob.cpp
+    restapi/chat/postmessagejob.cpp
     restapi/channels/changechanneltopicjob.cpp
     restapi/channels/changechannelannouncementjob.cpp
     restapi/channels/changechannelnamejob.cpp

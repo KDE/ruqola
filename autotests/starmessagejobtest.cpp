@@ -19,7 +19,7 @@
 */
 
 #include "starmessagejobtest.h"
-#include "restapi/starmessagejob.h"
+#include "restapi/chat/starmessagejob.h"
 #include <QTest>
 #include <QJsonDocument>
 #include <restapi/restapimethod.h>
