@@ -13,12 +13,16 @@ set (Ruqola_restapi_SRCS
     restapi/privateinfojob.cpp
     restapi/channellistjob.cpp
     restapi/downloadfilejob.cpp
+
     restapi/chat/starmessagejob.cpp
     restapi/chat/pinmessagejob.cpp
     restapi/chat/postmessagejob.cpp
+    restapi/chat/deletemessagejob.cpp
+
     restapi/channels/changechanneltopicjob.cpp
     restapi/channels/changechannelannouncementjob.cpp
     restapi/channels/changechannelnamejob.cpp
+
     restapi/groups/changegroupstopicjob.cpp
     restapi/groups/changegroupsannouncementjob.cpp
     restapi/groups/changegroupsnamejob.cpp
