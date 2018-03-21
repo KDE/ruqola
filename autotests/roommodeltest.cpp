@@ -31,7 +31,6 @@
 #include <QSignalSpy>
 #include <QTest>
 #include <QJsonDocument>
-#include <QProcess>
 
 QTEST_GUILESS_MAIN(RoomModelTest)
 

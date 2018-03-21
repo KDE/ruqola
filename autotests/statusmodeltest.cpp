@@ -21,7 +21,6 @@
 #include "statusmodeltest.h"
 #include "model/statusmodel.h"
 #include <QTest>
-#include <QModelIndex>
 
 QTEST_GUILESS_MAIN(StatusModelTest)
 

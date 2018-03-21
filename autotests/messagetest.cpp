@@ -23,7 +23,6 @@
 #include "ruqola_autotest_helper.h"
 #include <QTest>
 #include <QJsonDocument>
-#include <QProcess>
 QTEST_GUILESS_MAIN(MessageTest)
 MessageTest::MessageTest(QObject *parent)
     : QObject(parent)

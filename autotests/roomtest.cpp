@@ -28,7 +28,6 @@
 #include <QJsonDocument>
 #include <QTest>
 #include <QSignalSpy>
-#include <QProcess>
 
 QTEST_GUILESS_MAIN(RoomTest)
 
