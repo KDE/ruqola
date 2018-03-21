@@ -120,7 +120,7 @@ void DeleteMessageJob::setMessageId(const QString &t)
 
 QNetworkRequest DeleteMessageJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsRename);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatDelete);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
