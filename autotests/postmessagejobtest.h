@@ -29,6 +29,8 @@ class PostMessageJobTest : public QObject
 public:
     explicit PostMessageJobTest(QObject *parent = nullptr);
     ~PostMessageJobTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // POSTMESSAGEJOBTEST_H

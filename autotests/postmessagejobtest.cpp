@@ -19,10 +19,21 @@
 */
 
 #include "postmessagejobtest.h"
+#include "restapi/postmessagejob.h"
+#include "ruqola_restapi_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(PostMessageJobTest)
 
 PostMessageJobTest::PostMessageJobTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void PostMessageJobTest::shouldHaveDefaultValue()
+{
+    PostMessageJob job;
+    verifyDefaultValue(&job);
+    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(job.text().isEmpty());
 }
