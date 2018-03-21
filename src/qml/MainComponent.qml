@@ -314,7 +314,7 @@ Component {
             DeleteMessageDialog {
                 id: deleteMessageDialog
                 onDeleteMessage: {
-                    appid.rocketChatAccount.deleteMessage(messageId)
+                    appid.rocketChatAccount.deleteMessage(messageId, appid.selectedRoomID)
                 }
             }
 

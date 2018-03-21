@@ -496,9 +496,13 @@ void RocketChatAccount::loadEmoji(const QJsonObject &obj)
     mEmojiManager->loadEmoji(obj);
 }
 
-void RocketChatAccount::deleteMessage(const QString &messageId)
+void RocketChatAccount::deleteMessage(const QString &messageId, const QString &roomId)
 {
+#if USE_REASTAPI_JOB
+    restApi()->deleteMessage(roomId, messageId);
+#else
     ddp()->deleteMessage(messageId);
+#endif
 }
 
 void RocketChatAccount::insertFilesList(const QString &roomId)

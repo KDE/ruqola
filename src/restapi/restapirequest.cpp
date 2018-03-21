@@ -32,6 +32,7 @@
 #include "downloadfilejob.h"
 #include "chat/starmessagejob.h"
 #include "chat/postmessagejob.h"
+#include "chat/deletemessagejob.h"
 #include "channels/changechanneltopicjob.h"
 #include "groups/changegroupstopicjob.h"
 
@@ -328,5 +329,14 @@ void RestApiRequest::postMessage(const QString &roomId, const QString &text)
     initializeRestApiJob(job, true);
     job->setRoomId(roomId);
     job->setText(text);
+    job->start();
+}
+
+void RestApiRequest::deleteMessage(const QString &roomId, const QString &messageId)
+{
+    DeleteMessageJob *job = new DeleteMessageJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->setMessageId(messageId);
     job->start();
 }

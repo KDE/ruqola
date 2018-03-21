@@ -69,6 +69,7 @@ public:
     void changeChannelAnnouncement(const QString &roomId, const QString &announcement);
     void changeGroupsAnnouncement(const QString &roomId, const QString &announcement);
     void postMessage(const QString &roomId, const QString &text);
+    void deleteMessage(const QString &roomId, const QString &messageId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

@@ -125,7 +125,7 @@ public:
     Q_INVOKABLE void setDefaultStatus(User::PresenceStatus status);
     Q_INVOKABLE void changeDefaultStatus(int index);
     Q_INVOKABLE void createJitsiConfCall(const QString &roomId);
-    Q_INVOKABLE void deleteMessage(const QString &messageId);
+    Q_INVOKABLE void deleteMessage(const QString &messageId, const QString &roomId);
     Q_INVOKABLE void userAutocomplete(const QString &searchText, const QString &exception);
     Q_INVOKABLE void eraseRoom(const QString &roomId);
     Q_INVOKABLE void changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue);
