@@ -44,11 +44,11 @@ bool ChangeChannelAnnouncementJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("ChangeChannelAnnouncementJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &ChangeChannelAnnouncementJob::slotChangeTopicFinished);
+    connect(reply, &QNetworkReply::finished, this, &ChangeChannelAnnouncementJob::slotChangeAnnouncementFinished);
     return true;
 }
 
-void ChangeChannelAnnouncementJob::slotChangeTopicFinished()
+void ChangeChannelAnnouncementJob::slotChangeAnnouncementFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
