@@ -31,6 +31,7 @@
 #include "loginjob.h"
 #include "downloadfilejob.h"
 #include "starmessagejob.h"
+#include "postmessagejob.h"
 #include "channels/changechanneltopicjob.h"
 #include "groups/changegroupstopicjob.h"
 
@@ -318,5 +319,14 @@ void RestApiRequest::changeGroupsAnnouncement(const QString &roomId, const QStri
     initializeRestApiJob(job, true);
     job->setRoomId(roomId);
     job->setAnnouncement(announcement);
+    job->start();
+}
+
+void RestApiRequest::postMessage(const QString &roomId, const QString &text)
+{
+    PostMessageJob *job = new PostMessageJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->setText(text);
     job->start();
 }
