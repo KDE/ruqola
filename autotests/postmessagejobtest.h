@@ -33,6 +33,7 @@ private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
     void shouldGenerateJson();
+    void shouldNotStarting();
 };
 
 #endif // POSTMESSAGEJOBTEST_H

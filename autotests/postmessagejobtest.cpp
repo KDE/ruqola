@@ -57,3 +57,31 @@ void PostMessageJobTest::shouldGenerateJson()
     job.setText(text);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"text\":\"%2\"}").arg(roomId).arg(text).toLatin1());
 }
+
+void PostMessageJobTest::shouldNotStarting()
+{
+    PostMessageJob job;
+
+    RestApiMethod *method = new RestApiMethod;
+    method->setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(method);
+
+    QNetworkAccessManager *mNetworkAccessManager = new QNetworkAccessManager;
+    job.setNetworkAccessManager(mNetworkAccessManager);
+    QVERIFY(!job.canStart());
+    const QString auth = QStringLiteral("foo");
+    const QString userId = QStringLiteral("foo");
+    job.setAuthToken(auth);
+    QVERIFY(!job.canStart());
+    job.setUserId(userId);
+    QVERIFY(!job.canStart());
+    const QString roomId = QStringLiteral("foo1");
+    job.setRoomId(roomId);
+    QVERIFY(!job.canStart());
+    const QString text = QStringLiteral("topic1");
+    job.setText(text);
+    QVERIFY(job.canStart());
+
+    delete method;
+    delete mNetworkAccessManager;
+}
