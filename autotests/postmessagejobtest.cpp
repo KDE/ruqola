@@ -22,6 +22,7 @@
 #include "restapi/postmessagejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+#include <QJsonDocument>
 QTEST_GUILESS_MAIN(PostMessageJobTest)
 
 PostMessageJobTest::PostMessageJobTest(QObject *parent)
@@ -36,4 +37,23 @@ void PostMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.text().isEmpty());
+}
+
+void PostMessageJobTest::shouldGenerateRequest()
+{
+    PostMessageJob job;
+    QNetworkRequest request = QNetworkRequest(QUrl());
+    verifyAuthentication(&job, request);
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.postMessage")));
+    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+}
+
+void PostMessageJobTest::shouldGenerateJson()
+{
+    PostMessageJob job;
+    const QString roomId = QStringLiteral("foo1");
+    const QString text = QStringLiteral("topic1");
+    job.setRoomId(roomId);
+    job.setText(text);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"text\":\"%2\"}").arg(roomId).arg(text).toLatin1());
 }

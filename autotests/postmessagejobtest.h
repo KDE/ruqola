@@ -31,6 +31,8 @@ public:
     ~PostMessageJobTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
+    void shouldGenerateJson();
 };
 
 #endif // POSTMESSAGEJOBTEST_H
