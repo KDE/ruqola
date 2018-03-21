@@ -284,11 +284,15 @@ void RocketChatAccount::textEditing(const QString &roomId, const QString &str)
 
 void RocketChatAccount::sendMessage(const QString &roomID, const QString &message)
 {
+#ifdef USE_REASTAPI_JOB
+    restApi()->postMessage(roomID, message);
+#else
     QJsonObject json;
     json[QStringLiteral("rid")] = roomID;
     json[QStringLiteral("msg")] = message;
 
     ddp()->method(QStringLiteral("sendMessage"), QJsonDocument(json), DDPClient::Persistent);
+#endif
 }
 
 void RocketChatAccount::updateMessage(const QString &roomID, const QString &messageId, const QString &message)
