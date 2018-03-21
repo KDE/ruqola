@@ -18,37 +18,38 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "changechannelannouncementjob.h"
+#include "createchanneljob.h"
 
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
 
-ChangeChannelAnnouncementJob::ChangeChannelAnnouncementJob(QObject *parent)
+CreateChannelJob::CreateChannelJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-ChangeChannelAnnouncementJob::~ChangeChannelAnnouncementJob()
+CreateChannelJob::~CreateChannelJob()
 {
 }
 
-bool ChangeChannelAnnouncementJob::start()
+bool CreateChannelJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("ChangeChannelAnnouncementJob::start: " + baPostData);
+    addLoggerInfo("CreateChannelJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &ChangeChannelAnnouncementJob::slotChangeTopicFinished);
+    connect(reply, &QNetworkReply::finished, this, &CreateChannelJob::slotCreateChannelFinished);
     return true;
 }
 
-void ChangeChannelAnnouncementJob::slotChangeTopicFinished()
+void CreateChannelJob::slotCreateChannelFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -58,7 +59,7 @@ void ChangeChannelAnnouncementJob::slotChangeTopicFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success";
-            Q_EMIT changeAnnouncementDone();
+            Q_EMIT createChannelDone();
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
         }
@@ -66,61 +67,72 @@ void ChangeChannelAnnouncementJob::slotChangeTopicFinished()
     deleteLater();
 }
 
-bool ChangeChannelAnnouncementJob::requireHttpAuthentication() const
+QStringList CreateChannelJob::members() const
+{
+    return mMembers;
+}
+
+void CreateChannelJob::setMembers(const QStringList &members)
+{
+    mMembers = members;
+}
+
+QString CreateChannelJob::channelName() const
+{
+    return mChannelName;
+}
+
+void CreateChannelJob::setChannelName(const QString &channelName)
+{
+    mChannelName = channelName;
+}
+
+bool CreateChannelJob::readOnly() const
+{
+    return mReadOnly;
+}
+
+void CreateChannelJob::setReadOnly(bool readOnly)
+{
+    mReadOnly = readOnly;
+}
+
+bool CreateChannelJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool ChangeChannelAnnouncementJob::canStart() const
+bool CreateChannelJob::canStart() const
 {
-    if (mAnnouncement.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeChannelAnnouncementJob: announcement is empty";
-        return false;
-    }
-    if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeChannelAnnouncementJob: RoomId is empty";
+    if (mChannelName.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "CreateChannelJob: channelname is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChangeChannelAnnouncementJob job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start CreateChannelJob job";
         return false;
     }
     return true;
 }
 
-QJsonDocument ChangeChannelAnnouncementJob::json() const
+QJsonDocument CreateChannelJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
-    jsonObj[QLatin1String("announcement")] = announcement();
+    if (!mMembers.isEmpty()) {
+        jsonObj[QLatin1String("members")] = QJsonArray::fromStringList(mMembers);
+    }
+    jsonObj[QLatin1String("name")] = channelName();
+    if (mReadOnly) {
+        jsonObj[QLatin1String("readOnly")] = true;
+    } //Default is false
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
-QString ChangeChannelAnnouncementJob::roomId() const
+QNetworkRequest CreateChannelJob::request() const
 {
-    return mRoomId;
-}
-
-void ChangeChannelAnnouncementJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
-}
-
-QString ChangeChannelAnnouncementJob::announcement() const
-{
-    return mAnnouncement;
-}
-
-void ChangeChannelAnnouncementJob::setAnnouncement(const QString &t)
-{
-    mAnnouncement = t;
-}
-
-QNetworkRequest ChangeChannelAnnouncementJob::request() const
-{
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsSetAnnouncement);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsCreate);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);

@@ -18,29 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "owninfojobtest.h"
-#include "restapi/misc/owninfojob.h"
-#include "ruqola_restapi_helper.h"
-#include <QTest>
-#include <restapi/restapimethod.h>
-QTEST_GUILESS_MAIN(OwnInfoJobTest)
+#ifndef CREATECHANNELJOBTEST_H
+#define CREATECHANNELJOBTEST_H
 
-OwnInfoJobTest::OwnInfoJobTest(QObject *parent)
-    : QObject(parent)
-{
-}
+#include <QObject>
 
-void OwnInfoJobTest::shouldHaveDefaultValue()
+class CreateChannelJobTest : public QObject
 {
-    OwnInfoJob job;
-    verifyDefaultValue(&job);
-    QVERIFY(job.requireHttpAuthentication());
-}
+    Q_OBJECT
+public:
+    explicit CreateChannelJobTest(QObject *parent = nullptr);
+    ~CreateChannelJobTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
+    void shouldGenerateJson();
+    void shouldNotStarting();
+};
 
-void OwnInfoJobTest::shouldGenerateRequest()
-{
-    OwnInfoJob job;
-    QNetworkRequest request = QNetworkRequest(QUrl());
-    verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/info")));
-}
+#endif // CREATECHANNELJOBTEST_H

@@ -63,7 +63,6 @@ void ChangeChannelNameJob::slotChangeTopicFinished()
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
         }
     }
-    qDebug() << " DONE !";
     deleteLater();
 }
 

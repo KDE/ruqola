@@ -6,7 +6,9 @@ set (Ruqola_restapi_SRCS
     restapi/uploadfilejob.cpp
     restapi/serverinfojob.cpp
     restapi/restapiabstractjob.cpp
-    restapi/owninfojob.cpp
+
+    restapi/misc/owninfojob.cpp
+
     restapi/getavatarjob.cpp
     restapi/logoutjob.cpp
     restapi/loginjob.cpp
@@ -22,6 +24,7 @@ set (Ruqola_restapi_SRCS
     restapi/channels/changechanneltopicjob.cpp
     restapi/channels/changechannelannouncementjob.cpp
     restapi/channels/changechannelnamejob.cpp
+    restapi/channels/createchanneljob.cpp
 
     restapi/groups/changegroupstopicjob.cpp
     restapi/groups/changegroupsannouncementjob.cpp

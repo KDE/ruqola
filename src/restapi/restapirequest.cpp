@@ -23,7 +23,7 @@
 #include "ruqola_restapi_debug.h"
 #include "serverinfojob.h"
 #include "uploadfilejob.h"
-#include "owninfojob.h"
+#include "misc/owninfojob.h"
 #include "getavatarjob.h"
 #include "logoutjob.h"
 #include "privateinfojob.h"
