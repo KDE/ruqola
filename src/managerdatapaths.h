@@ -23,7 +23,6 @@
 
 #include <QHash>
 #include <QString>
-#include <QObject>
 #include "libruqola_private_export.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT ManagerDataPaths

@@ -26,7 +26,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QMimeDatabase>
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
 
 UploadFileJob::UploadFileJob(QObject *parent)

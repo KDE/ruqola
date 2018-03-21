@@ -21,9 +21,6 @@
 #include "owninfojob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_debug.h"
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
 
 OwnInfoJob::OwnInfoJob(QObject *parent)

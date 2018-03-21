@@ -24,7 +24,6 @@
 #include "ruqola_debug.h"
 #include <QDir>
 #include <QDirIterator>
-#include <QFileInfoList>
 
 #include "model/rocketchataccountmodel.h"
 #include "model/rocketchataccountfilterproxymodel.h"

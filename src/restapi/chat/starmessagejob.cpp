@@ -24,7 +24,6 @@
 #include "restapirequest.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
 
 StarMessageJob::StarMessageJob(QObject *parent)

@@ -24,7 +24,6 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
 
 LoginJob::LoginJob(QObject *parent)

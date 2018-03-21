@@ -26,7 +26,6 @@
 #include <KIO/CopyJob>
 #include <QDateTime>
 #include <QDir>
-#include <QNetworkReply>
 #include <QSettings>
 
 RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)

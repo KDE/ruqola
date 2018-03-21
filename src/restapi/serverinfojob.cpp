@@ -23,7 +23,6 @@
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
 
 ServerInfoJob::ServerInfoJob(QObject *parent)

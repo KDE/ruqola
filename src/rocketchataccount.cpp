@@ -54,7 +54,6 @@
 #include "restapi/restapirequest.h"
 
 #include <QDesktopServices>
-#include <QFile>
 #include <QRegularExpression>
 #include <QTimer>
 

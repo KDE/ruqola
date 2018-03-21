@@ -45,15 +45,8 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
-#include <QUrlQuery>
-#include <QJsonDocument>
-#include <QJsonObject>
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
-#include <QJsonArray>
-#include <QHttpMultiPart>
-#include <QFile>
-#include <QMimeDatabase>
 #include <ruqolalogger.h>
 
 RestApiRequest::RestApiRequest(QObject *parent)

@@ -19,6 +19,7 @@
 
 #include "reactions.h"
 #include <QJsonArray>
+#include <QJsonObject>
 
 Reactions::Reactions()
 {

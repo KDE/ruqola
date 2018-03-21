@@ -21,9 +21,7 @@
 #define REACTION_H
 
 #include "libruqola_private_export.h"
-#include <QObject>
 #include <QDebug>
-#include <QJsonObject>
 class LIBRUQOLACORE_TESTS_EXPORT Reaction
 {
     Q_GADGET

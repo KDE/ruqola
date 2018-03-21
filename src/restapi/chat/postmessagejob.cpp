@@ -23,7 +23,6 @@
 #include "ruqola_restapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
 
 PostMessageJob::PostMessageJob(QObject *parent)

@@ -29,7 +29,6 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QDesktopServices>
-#include <QMetaEnum>
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QFile>

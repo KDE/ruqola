@@ -23,7 +23,7 @@
 
 #include "user.h"
 #include "libruqola_private_export.h"
-#include <QStringListModel>
+#include <QAbstractListModel>
 
 class LIBRUQOLACORE_TESTS_EXPORT UserCompleterModel : public QAbstractListModel
 {

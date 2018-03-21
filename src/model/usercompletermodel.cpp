@@ -20,6 +20,7 @@
 
 #include "usercompletermodel.h"
 #include "ruqola_debug.h"
+#include <QModelIndex>
 
 UserCompleterModel::UserCompleterModel(QObject *parent)
     : QAbstractListModel(parent)

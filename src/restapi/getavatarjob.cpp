@@ -21,7 +21,6 @@
 #include "getavatarjob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrlQuery>
 

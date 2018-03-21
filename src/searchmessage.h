@@ -20,7 +20,6 @@
 #ifndef SEARCHMESSAGE_H
 #define SEARCHMESSAGE_H
 
-#include <QObject>
 #include <QDebug>
 #include <QJsonObject>
 #include "libruqola_private_export.h"

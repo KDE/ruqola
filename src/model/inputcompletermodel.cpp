@@ -26,6 +26,7 @@
 #include <QIcon>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QModelIndex>
 
 InputCompleterModel::InputCompleterModel(QObject *parent)
     : QAbstractListModel(parent)

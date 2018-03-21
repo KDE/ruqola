@@ -23,7 +23,6 @@
 
 #include "libruqola_private_export.h"
 #include "authenticationmanager.h"
-#include <QObject>
 #include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT AuthenticationInfo
 {

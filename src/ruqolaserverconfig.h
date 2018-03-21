@@ -21,7 +21,6 @@
 #ifndef RUQOLASERVERCONFIG_H
 #define RUQOLASERVERCONFIG_H
 
-#include <QObject>
 #include "libruqola_private_export.h"
 #include "authenticationmanager.h"
 #include <QString>

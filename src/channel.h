@@ -23,7 +23,6 @@
 
 #include "libruqola_private_export.h"
 #include "user.h"
-#include <QObject>
 #include <QDebug>
 //TODO rename it
 class LIBRUQOLACORE_TESTS_EXPORT Channel

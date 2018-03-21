@@ -22,7 +22,6 @@
 #define USER_H
 
 #include <QString>
-#include <QObject>
 #include <QDebug>
 #include "libruqola_private_export.h"
 class LIBRUQOLACORE_TESTS_EXPORT User

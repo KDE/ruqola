@@ -21,9 +21,9 @@
 #ifndef LOGINMETHODMODEL_H
 #define LOGINMETHODMODEL_H
 
-#include <QAbstractItemModel>
 #include "authenticationinfo.h"
 #include "libruqola_private_export.h"
+#include <QAbstractListModel>
 
 class LIBRUQOLACORE_TESTS_EXPORT LoginMethodModel : public QAbstractListModel
 {

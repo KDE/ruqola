@@ -21,11 +21,7 @@
 #include "channellistjob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
-#include <QUrlQuery>
 
 ChannelListJob::ChannelListJob(QObject *parent)
     : RestApiAbstractJob(parent)

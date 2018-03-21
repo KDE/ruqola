@@ -21,10 +21,10 @@
 #ifndef INPUTCOMPLETERMODEL_H
 #define INPUTCOMPLETERMODEL_H
 
-#include <QStringListModel>
 #include "libruqola_private_export.h"
 #include "channel.h"
 #include <QJsonObject>
+#include <QAbstractListModel>
 
 class LIBRUQOLACORE_TESTS_EXPORT InputCompleterModel : public QAbstractListModel
 {

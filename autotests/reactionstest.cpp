@@ -21,6 +21,7 @@
 #include "reactions.h"
 
 #include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
 #include <QDebug>
 QTEST_GUILESS_MAIN(ReactionsTest)

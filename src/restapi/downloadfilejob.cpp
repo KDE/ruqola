@@ -21,9 +21,6 @@
 #include "downloadfilejob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QNetworkAccessManager>
 #include <QNetworkReply>
 
 DownloadFileJob::DownloadFileJob(QObject *parent)
