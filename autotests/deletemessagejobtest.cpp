@@ -61,12 +61,6 @@ void DeleteMessageJobTest::shouldGenerateJson()
 void DeleteMessageJobTest::shouldNotStarting()
 {
     DeleteMessageJob job;
-    const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
-    QVERIFY(!job.canStart());
-    const QString text = QStringLiteral("topic1");
-    job.setMessageId(text);
-    QVERIFY(!job.canStart());
 
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -80,7 +74,14 @@ void DeleteMessageJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
+    QVERIFY(!job.canStart());
+    const QString roomId = QStringLiteral("foo1");
+    job.setRoomId(roomId);
+    QVERIFY(!job.canStart());
+    const QString text = QStringLiteral("topic1");
+    job.setMessageId(text);
     QVERIFY(job.canStart());
+
     delete method;
     delete mNetworkAccessManager;
 }
