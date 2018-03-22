@@ -22,6 +22,10 @@
 #include "restapimethod.h"
 #include "ruqola_restapi_debug.h"
 
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkReply>
+
 PinMessageJob::PinMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
@@ -37,8 +41,27 @@ bool PinMessageJob::start()
         deleteLater();
         return false;
     }
-    //TODO
+    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
+    addLoggerInfo("StarMessageJob::start: " + baPostData);
+    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    connect(reply, &QNetworkReply::finished, this, &PinMessageJob::slotPinMessage);
+    addLoggerInfo(QByteArrayLiteral("PinMessageJob: start"));
     return true;
+}
+
+void PinMessageJob::slotPinMessage()
+{
+    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    if (reply) {
+        const QByteArray data = reply->readAll();
+        addLoggerInfo(QByteArrayLiteral("PinMessageJob: finished: ") + data);
+        if (mPinMessage) {
+            Q_EMIT pinMessageDone();
+        } else {
+            Q_EMIT unPinMessageDone();
+        }
+    }
+    deleteLater();
 }
 
 bool PinMessageJob::requireHttpAuthentication() const
@@ -52,14 +75,49 @@ bool PinMessageJob::canStart() const
         qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start PinMessageJob";
         return false;
     }
-//    if (!mUrl.isValid()) {
-//        qCWarning(RUQOLA_RESTAPI_LOG) << "PinMessageJob: url is not valid";
-//        return false;
-//    }
+    if (mMessageId.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "PinMessageJob: mMessageId is empty";
+        return false;
+    }
     return true;
 }
 
 QNetworkRequest PinMessageJob::request() const
 {
-    return QNetworkRequest(QUrl());
+    const QUrl url = mRestApiMethod->generateUrl(mPinMessage ? RestApiUtil::RestApiUrlType::ChatPinMessage : RestApiUtil::RestApiUrlType::ChatUnPinMessage);
+    QNetworkRequest request(url);
+    addAuthRawHeader(request);
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    return request;
+}
+
+QString PinMessageJob::messageId() const
+{
+    return mMessageId;
+}
+
+void PinMessageJob::setMessageId(const QString &messageId)
+{
+    mMessageId = messageId;
+}
+
+bool PinMessageJob::pinMessage() const
+{
+    return mPinMessage;
+}
+
+void PinMessageJob::setPinMessage(bool pinMessage)
+{
+    mPinMessage = pinMessage;
+}
+
+QJsonDocument PinMessageJob::json() const
+{
+    QJsonObject jsonObj;
+    jsonObj[QLatin1String("messageId")] = mMessageId;
+
+    const QJsonDocument postData = QJsonDocument(jsonObj);
+    return postData;
 }

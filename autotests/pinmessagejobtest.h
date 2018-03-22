@@ -28,6 +28,12 @@ class PinMessageJobTest : public QObject
 public:
     explicit PinMessageJobTest(QObject *parent = nullptr);
     ~PinMessageJobTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldHaveMessageId();
+    void shouldGeneratePinMessageRequest();
+    void shouldGenerateUnPinMessageRequest();
+    void shouldGenerateJson();
 };
 
 #endif // PINMESSAGEJOBTEST_H

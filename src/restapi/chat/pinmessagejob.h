@@ -35,8 +35,23 @@ public:
     bool requireHttpAuthentication() const override;
     bool canStart() const override;
     QNetworkRequest request() const override;
+
+    QString messageId() const;
+    void setMessageId(const QString &messageId);
+
+    bool pinMessage() const;
+    void setPinMessage(bool pinMessage);
+
+    QJsonDocument json() const;
+Q_SIGNALS:
+    void pinMessageDone();
+    void unPinMessageDone();
+
 private:
     Q_DISABLE_COPY(PinMessageJob)
+    void slotPinMessage();
+    QString mMessageId;
+    bool mPinMessage = true;
 };
 
 #endif // PINMESSAGEJOB_H
