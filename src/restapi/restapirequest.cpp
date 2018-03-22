@@ -21,15 +21,19 @@
 #include "restapimethod.h"
 #include "restapirequest.h"
 #include "ruqola_restapi_debug.h"
+
 #include "serverinfojob.h"
 #include "uploadfilejob.h"
-#include "misc/owninfojob.h"
 #include "getavatarjob.h"
-#include "logoutjob.h"
 #include "privateinfojob.h"
 #include "channellistjob.h"
-#include "loginjob.h"
 #include "downloadfilejob.h"
+
+#include "misc/owninfojob.h"
+
+#include "authentication/logoutjob.h"
+#include "authentication/loginjob.h"
+
 #include "chat/starmessagejob.h"
 #include "chat/postmessagejob.h"
 #include "chat/deletemessagejob.h"

@@ -19,7 +19,7 @@
 */
 
 #include "logoutjobtest.h"
-#include "restapi/logoutjob.h"
+#include "restapi/authentication/logoutjob.h"
 #include <QTest>
 #include <restapi/restapimethod.h>
 QTEST_GUILESS_MAIN(LogoutJobTest)

@@ -10,8 +10,10 @@ set (Ruqola_restapi_SRCS
     restapi/misc/owninfojob.cpp
 
     restapi/getavatarjob.cpp
-    restapi/logoutjob.cpp
-    restapi/loginjob.cpp
+
+    restapi/authentication/logoutjob.cpp
+    restapi/authentication/loginjob.cpp
+
     restapi/privateinfojob.cpp
     restapi/channellistjob.cpp
     restapi/downloadfilejob.cpp
