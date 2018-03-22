@@ -63,7 +63,7 @@ void OwnInfoJob::slotServerInfoFinished()
 
 QNetworkRequest OwnInfoJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Me);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
