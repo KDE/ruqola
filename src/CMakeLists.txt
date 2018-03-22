@@ -9,7 +9,7 @@ set (Ruqola_restapi_SRCS
 
     restapi/misc/owninfojob.cpp
 
-    restapi/getavatarjob.cpp
+    restapi/users/getavatarjob.cpp
 
     restapi/authentication/logoutjob.cpp
     restapi/authentication/loginjob.cpp

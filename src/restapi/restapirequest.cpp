@@ -24,10 +24,11 @@
 
 #include "serverinfojob.h"
 #include "uploadfilejob.h"
-#include "getavatarjob.h"
 #include "privateinfojob.h"
 #include "channellistjob.h"
 #include "downloadfilejob.h"
+
+#include "users/getavatarjob.h"
 
 #include "misc/owninfojob.h"
 
