@@ -22,6 +22,7 @@ set (Ruqola_restapi_SRCS
     restapi/chat/pinmessagejob.cpp
     restapi/chat/postmessagejob.cpp
     restapi/chat/deletemessagejob.cpp
+    restapi/chat/updatemessagejob.cpp
 
     restapi/channels/changechanneltopicjob.cpp
     restapi/channels/changechannelannouncementjob.cpp
@@ -33,6 +34,7 @@ set (Ruqola_restapi_SRCS
     restapi/groups/changegroupsannouncementjob.cpp
     restapi/groups/changegroupsnamejob.cpp
     restapi/groups/creategroupsjob.cpp
+    restapi/groups/leavegroupsjob.cpp
     )
 
 set(Ruqola_ddpapi_SRCS
