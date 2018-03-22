@@ -4,8 +4,9 @@ set (Ruqola_restapi_SRCS
     restapi/restapiutil.cpp
     restapi/restapimethod.cpp
     restapi/uploadfilejob.cpp
-    restapi/serverinfojob.cpp
     restapi/restapiabstractjob.cpp
+
+    restapi/serverinfojob.cpp
 
     restapi/misc/owninfojob.cpp
 
@@ -14,7 +15,8 @@ set (Ruqola_restapi_SRCS
     restapi/authentication/logoutjob.cpp
     restapi/authentication/loginjob.cpp
 
-    restapi/privateinfojob.cpp
+    restapi/settings/privateinfojob.cpp
+
     restapi/channellistjob.cpp
     restapi/downloadfilejob.cpp
 
