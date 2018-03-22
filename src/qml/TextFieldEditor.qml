@@ -47,7 +47,11 @@ RowLayout {
         onAccepted: {
             if (enabled) {
                 textFieldEditor.updateValue(text)
-                //TODO disable it.
+            }
+        }
+        onFocusChanged: {
+            if (enabled) {
+                textFieldEditor.updateValue(channelNameField.text)
             }
         }
     }
