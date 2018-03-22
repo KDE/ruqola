@@ -45,11 +45,11 @@ bool CreateGroupsJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("CreateGroupsJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &CreateGroupsJob::slotCreateChannelFinished);
+    connect(reply, &QNetworkReply::finished, this, &CreateGroupsJob::slotCreateGroupsFinished);
     return true;
 }
 
-void CreateGroupsJob::slotCreateChannelFinished()
+void CreateGroupsJob::slotCreateGroupsFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -59,7 +59,7 @@ void CreateGroupsJob::slotCreateChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success";
-            Q_EMIT createChannelDone();
+            Q_EMIT createGroupsDone();
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
         }

@@ -45,11 +45,11 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void changeAnnouncementDone();
+    void changeGroupsnameDone();
 
 private:
     Q_DISABLE_COPY(ChangeGroupsNameJob)
-    void slotChangeTopicFinished();
+    void slotChangeGroupsNameFinished();
     QString mName;
     QString mRoomId;
 };

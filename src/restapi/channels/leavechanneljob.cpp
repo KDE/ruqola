@@ -44,11 +44,11 @@ bool LeaveChannelJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("LeaveChannelJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &LeaveChannelJob::slotChangeTopicFinished);
+    connect(reply, &QNetworkReply::finished, this, &LeaveChannelJob::slotLeaveChannelFinished);
     return true;
 }
 
-void LeaveChannelJob::slotChangeTopicFinished()
+void LeaveChannelJob::slotLeaveChannelFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -58,7 +58,7 @@ void LeaveChannelJob::slotChangeTopicFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success";
-            Q_EMIT changeAnnouncementDone();
+            Q_EMIT leaveChannelDone();
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
         }

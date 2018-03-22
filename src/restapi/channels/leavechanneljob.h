@@ -43,11 +43,11 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void changeAnnouncementDone();
+    void leaveChannelDone();
 
 private:
     Q_DISABLE_COPY(LeaveChannelJob)
-    void slotChangeTopicFinished();
+    void slotLeaveChannelFinished();
     QString mRoomId;
 };
 

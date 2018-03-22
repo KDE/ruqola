@@ -49,11 +49,11 @@ public:
     void setMembers(const QStringList &members);
 
 Q_SIGNALS:
-    void createChannelDone();
+    void createGroupsDone();
 
 private:
     Q_DISABLE_COPY(CreateGroupsJob)
-    void slotCreateChannelFinished();
+    void slotCreateGroupsFinished();
     QString mChannelName;
     QStringList mMembers;
     bool mReadOnly = false;
