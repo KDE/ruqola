@@ -87,7 +87,7 @@ bool SpotlightJob::canStart() const
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start LeaveGroupsJob job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SpotlightJob job";
         return false;
     }
     return true;
