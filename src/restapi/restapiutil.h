@@ -101,6 +101,7 @@ enum class RestApiUrlType {
     GroupsSetAnnouncement,
     ServerInfo,
     Settings,
+    Spotlight,
     RoomsUpload,
 };
 LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);

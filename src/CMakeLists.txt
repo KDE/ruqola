@@ -6,6 +6,8 @@ set (Ruqola_restapi_SRCS
     restapi/uploadfilejob.cpp
     restapi/restapiabstractjob.cpp
 
+    restapi/spotlightjob.cpp
+
     restapi/serverinfojob.cpp
 
     restapi/misc/owninfojob.cpp

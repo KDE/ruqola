@@ -18,54 +18,77 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "privateinfojob.h"
+#include "spotlightjob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
 
-PrivateInfoJob::PrivateInfoJob(QObject *parent)
+SpotlightJob::SpotlightJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-PrivateInfoJob::~PrivateInfoJob()
+SpotlightJob::~SpotlightJob()
 {
 }
 
-bool PrivateInfoJob::start()
+bool SpotlightJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start PrivateInfoJob job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SpotlightJob job";
         deleteLater();
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    addLoggerInfo(QByteArrayLiteral("PrivateInfoJob: Ask private info"));
-    connect(reply, &QNetworkReply::finished, this, &PrivateInfoJob::slotPrivateInfoDone);
+    addLoggerInfo(QByteArrayLiteral("SpotlightJob start"));
+    connect(reply, &QNetworkReply::finished, this, &SpotlightJob::slotSpotlightDone);
 
     return true;
 }
 
-void PrivateInfoJob::slotPrivateInfoDone()
+void SpotlightJob::slotSpotlightDone()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("PrivateInfoJob done: ") + data);
-        Q_EMIT privateInfoDone(data);
+        addLoggerInfo(QByteArrayLiteral("SpotlightJob done") + data);
+        Q_EMIT spotlightDone(data);
     }
     deleteLater();
 }
 
-bool PrivateInfoJob::requireHttpAuthentication() const
+QString SpotlightJob::searchPattern() const
+{
+    return mSearchPattern;
+}
+
+void SpotlightJob::setSearchPattern(const QString &searchPattern)
+{
+    mSearchPattern = searchPattern;
+}
+
+bool SpotlightJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-QNetworkRequest PrivateInfoJob::request() const
+QNetworkRequest SpotlightJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Settings);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Spotlight);
     QNetworkRequest req(url);
     addAuthRawHeader(req);
     return req;
+}
+
+bool SpotlightJob::canStart() const
+{
+    if (mSearchPattern.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "SpotlightJob: searchpattern is empty";
+        return false;
+    }
+    if (!RestApiAbstractJob::canStart()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start LeaveGroupsJob job";
+        return false;
+    }
+    return true;
 }
