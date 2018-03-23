@@ -163,7 +163,11 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         Message m;
         m.parseMessage(o);
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
-        mRocketChatAccount->messageModelForRoom(m.roomId())->addMessage(m);
+        if (MessageModel * messageModel = mRocketChatAccount->messageModelForRoom(m.roomId())) {
+            messageModel->addMessage(m);
+        } else {
+            qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << m.roomId() << " It's a bug for sure.";
+        }
     }
 }
 
@@ -453,7 +457,11 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             QString roomId = eventname;
             roomId.remove(QStringLiteral("/deleteMessage"));
             MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
-            messageModel->deleteMessage(contents.at(0).toObject()[QStringLiteral("_id")].toString());
+            if (messageModel) {
+                messageModel->deleteMessage(contents.at(0).toObject()[QStringLiteral("_id")].toString());
+            } else {
+                qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << roomId << " It's a bug for sure.";
+            }
         } else {
             qCWarning(RUQOLA_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
         }
