@@ -57,7 +57,7 @@ void DeleteMessageJob::slotDeleteMessageFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Delete Message success";
+            qCDebug(RUQOLA_RESTAPI_LOG) << "Delete Message success: " << data;
             Q_EMIT deleteMessageDone();
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to delete message" << data;

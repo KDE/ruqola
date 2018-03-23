@@ -63,10 +63,10 @@ void PostMessageJob::slotPostMessageDone()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "PostMessageJob success";
+            qCDebug(RUQOLA_RESTAPI_LOG) << "PostMessageJob success: " << data;
             Q_EMIT postMessageDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to post message";
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to post message: " << data;
         }
 
     }

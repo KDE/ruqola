@@ -296,12 +296,16 @@ void RocketChatAccount::sendMessage(const QString &roomID, const QString &messag
 
 void RocketChatAccount::updateMessage(const QString &roomID, const QString &messageId, const QString &message)
 {
+#ifdef USE_REASTAPI_JOB
+    restApi()->updateMessage(roomID, messageId, message);
+#else
     QJsonObject json;
     json[QStringLiteral("rid")] = roomID;
     json[QStringLiteral("msg")] = message;
     json[QStringLiteral("_id")] = messageId;
 
     ddp()->method(QStringLiteral("updateMessage"), QJsonDocument(json), DDPClient::Persistent);
+#endif
 }
 
 QString RocketChatAccount::avatarUrlFromDirectChannel(const QString &rid)

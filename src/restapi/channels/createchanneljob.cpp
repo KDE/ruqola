@@ -58,10 +58,10 @@ void CreateChannelJob::slotCreateChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success";
+            qCDebug(RUQOLA_RESTAPI_LOG) << "Create channel success: " << data;
             Q_EMIT createChannelDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to create channel" << data;
         }
     }
     deleteLater();

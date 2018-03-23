@@ -24,7 +24,7 @@
 
 #include "serverinfojob.h"
 #include "uploadfilejob.h"
-#include "privateinfojob.h"
+#include "settings/privateinfojob.h"
 #include "channellistjob.h"
 #include "downloadfilejob.h"
 
@@ -38,14 +38,17 @@
 #include "chat/starmessagejob.h"
 #include "chat/postmessagejob.h"
 #include "chat/deletemessagejob.h"
+#include "chat/updatemessagejob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
 #include "channels/createchanneljob.h"
+#include "channels/leavechanneljob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
 #include "groups/creategroupsjob.h"
+#include "groups/leavegroupsjob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -359,5 +362,31 @@ void RestApiRequest::createGroups(const QString &channelName, bool readOnly, con
     job->setChannelName(channelName);
     job->setReadOnly(readOnly);
     job->setMembers(members);
+    job->start();
+}
+
+void RestApiRequest::leaveChannel(const QString &roomId)
+{
+    LeaveChannelJob *job = new LeaveChannelJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->start();
+}
+
+void RestApiRequest::leaveGroups(const QString &roomId)
+{
+    LeaveGroupsJob *job = new LeaveGroupsJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->start();
+}
+
+void RestApiRequest::updateMessage(const QString &roomId, const QString &messageId, const QString &text)
+{
+    UpdateMessageJob *job = new UpdateMessageJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->setMessageId(messageId);
+    job->setUpdatedText(text);
     job->start();
 }

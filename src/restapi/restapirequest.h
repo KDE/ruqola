@@ -72,6 +72,9 @@ public:
     void deleteMessage(const QString &roomId, const QString &messageId);
     void createChannels(const QString &channelName, bool readOnly, const QStringList &members);
     void createGroups(const QString &channelName, bool readOnly, const QStringList &members);
+    void leaveChannel(const QString &roomId);
+    void leaveGroups(const QString &roomId);
+    void updateMessage(const QString &roomId, const QString &messageId, const QString &text);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

@@ -70,7 +70,7 @@ void StarMessageJob::slotStarMessageFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Message Starred success";
+            qCDebug(RUQOLA_RESTAPI_LOG) << "Message Starred success: " << data;
             Q_EMIT messageStarred();
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to staring message";

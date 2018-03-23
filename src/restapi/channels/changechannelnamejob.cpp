@@ -57,10 +57,10 @@ void ChangeChannelNameJob::slotChangeNameFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success";
+            qCDebug(RUQOLA_RESTAPI_LOG) << "Change name success: " << data;
             Q_EMIT changeNameDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change name: " << data;
         }
     }
     deleteLater();

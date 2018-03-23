@@ -56,7 +56,7 @@ void ChangeGroupsTopicJob::slotChangeTopicFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success";
+            qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success: " << data;
             Q_EMIT changeTopicDone();
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
