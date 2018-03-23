@@ -75,6 +75,7 @@ public:
     void leaveChannel(const QString &roomId);
     void leaveGroups(const QString &roomId);
     void updateMessage(const QString &roomId, const QString &messageId, const QString &text);
+    void reactOnMessage(const QString &messageId, const QString &emoji);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

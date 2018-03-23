@@ -39,6 +39,7 @@
 #include "chat/postmessagejob.h"
 #include "chat/deletemessagejob.h"
 #include "chat/updatemessagejob.h"
+#include "chat/reactonmessagejob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
@@ -388,5 +389,14 @@ void RestApiRequest::updateMessage(const QString &roomId, const QString &message
     job->setRoomId(roomId);
     job->setMessageId(messageId);
     job->setUpdatedText(text);
+    job->start();
+}
+
+void RestApiRequest::reactOnMessage(const QString &messageId, const QString &emoji)
+{
+    ReactOnMessageJob *job = new ReactOnMessageJob(this);
+    initializeRestApiJob(job, true);
+    job->setMessageId(messageId);
+    job->setEmoji(emoji);
     job->start();
 }

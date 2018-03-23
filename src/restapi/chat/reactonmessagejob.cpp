@@ -102,7 +102,7 @@ QJsonDocument ReactOnMessageJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("emoji")] = mEmoji;
-    jsonObj[QLatin1String("msgId")] = mMessageId;
+    jsonObj[QLatin1String("messageId")] = mMessageId;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -120,7 +120,7 @@ void ReactOnMessageJob::setMessageId(const QString &t)
 
 QNetworkRequest ReactOnMessageJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatDelete);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatReact);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
