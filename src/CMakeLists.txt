@@ -25,6 +25,7 @@ set (Ruqola_restapi_SRCS
     restapi/chat/postmessagejob.cpp
     restapi/chat/deletemessagejob.cpp
     restapi/chat/updatemessagejob.cpp
+    restapi/chat/reactonmessagejob.cpp
 
     restapi/channels/changechanneltopicjob.cpp
     restapi/channels/changechannelannouncementjob.cpp
