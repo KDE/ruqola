@@ -186,7 +186,6 @@ void empty_callback(const QJsonObject &obj, RocketChatAccount *account)
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "empty_callback "<< obj;
     }
-    qDebug() << " EMPTY callback ::::::::::::"<<obj;
 }
 
 void create_channel(const QJsonObject &root, RocketChatAccount *account)
