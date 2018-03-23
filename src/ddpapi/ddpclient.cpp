@@ -116,6 +116,7 @@ void erase_room(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Room:") + QJsonDocument(root).toJson());
     }
+    qDebug()<< "void erase_room(const QJsonObject &root, RocketChatAccount *account)"<<root;
 }
 
 void delete_message(const QJsonObject &root, RocketChatAccount *account)
@@ -178,9 +179,14 @@ void list_emoji_custom(const QJsonObject &obj, RocketChatAccount *account)
     }
 }
 
-void empty_callback(const QJsonObject &obj, RocketChatAccount *)
+void empty_callback(const QJsonObject &obj, RocketChatAccount *account)
 {
-    Q_UNUSED(obj);
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Load Emoji Custom :") + QJsonDocument(obj).toJson());
+    } else {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "empty_callback "<< obj;
+    }
+    qDebug() << " EMPTY callback ::::::::::::"<<obj;
 }
 
 void create_channel(const QJsonObject &root, RocketChatAccount *account)
