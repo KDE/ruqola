@@ -66,6 +66,16 @@ void ChannelCloseJob::slotLeaveChannelFinished()
     deleteLater();
 }
 
+ChannelCloseJob::ChannelType ChannelCloseJob::channelType() const
+{
+    return mChannelType;
+}
+
+void ChannelCloseJob::setChannelType(const ChannelType &channelType)
+{
+    mChannelType = channelType;
+}
+
 bool ChannelCloseJob::requireHttpAuthentication() const
 {
     return true;
@@ -75,6 +85,10 @@ bool ChannelCloseJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelCloseJob: RoomId is empty";
+        return false;
+    }
+    if (mChannelType == ChannelCloseJob::Unknown) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelCloseJob: Channel type is unknown.";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -105,7 +119,22 @@ void ChannelCloseJob::setRoomId(const QString &roomId)
 
 QNetworkRequest ChannelCloseJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsClose);
+
+    QUrl url;
+    switch(mChannelType) {
+    case Channel:
+        url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsClose);
+        break;
+    case Groups:
+        url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsClose);
+        break;
+    case Direct:
+        url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ImClose);
+        break;
+    case Unknown:
+        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelCloseJob: Type is not defined";
+        break;
+    }
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);

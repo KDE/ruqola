@@ -28,6 +28,12 @@ class LIBRUQOLACORE_TESTS_EXPORT ChannelCloseJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
+    enum ChannelType {
+        Channel = 0,
+        Groups,
+        Direct,
+        Unknown
+    };
     explicit ChannelCloseJob(QObject *parent = nullptr);
     ~ChannelCloseJob() override;
 
@@ -42,6 +48,9 @@ public:
     QString roomId() const;
     void setRoomId(const QString &roomId);
 
+    ChannelType channelType() const;
+    void setChannelType(const ChannelType &channelType);
+
 Q_SIGNALS:
     void leaveChannelDone();
 
@@ -49,6 +58,7 @@ private:
     Q_DISABLE_COPY(ChannelCloseJob)
     void slotLeaveChannelFinished();
     QString mRoomId;
+    ChannelType mChannelType = Unknown;
 };
 
 #endif // CHANNELCLOSEJOB_H

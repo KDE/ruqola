@@ -126,4 +126,6 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ServerInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/info")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Settings), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsUpload), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.upload")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Spotlight), QUrl(QStringLiteral("http://www.kde.org/api/v1/spotlight")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImClose), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.close")));
 }
