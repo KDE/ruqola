@@ -337,7 +337,7 @@ RestApiRequest *RocketChatAccount::restApi()
     return mRestApi;
 }
 
-void RocketChatAccount::leaveRoom(const QString &roomId)
+void RocketChatAccount::leaveRoom(const QString &roomId, const QString &type)
 {
     ddp()->leaveRoom(roomId);
 }

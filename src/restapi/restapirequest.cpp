@@ -45,6 +45,7 @@
 #include "channels/changechannelannouncementjob.h"
 #include "channels/createchanneljob.h"
 #include "channels/leavechanneljob.h"
+#include "channels/channelclosejob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -366,7 +367,7 @@ void RestApiRequest::createGroups(const QString &channelName, bool readOnly, con
     job->start();
 }
 
-void RestApiRequest::leaveChannel(const QString &roomId)
+void RestApiRequest::leaveChannel(const QString &roomId, const QString &type)
 {
     LeaveChannelJob *job = new LeaveChannelJob(this);
     initializeRestApiJob(job, true);
@@ -399,4 +400,15 @@ void RestApiRequest::reactOnMessage(const QString &messageId, const QString &emo
     job->setMessageId(messageId);
     job->setEmoji(emoji);
     job->start();
+}
+
+void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
+{
+    ChannelCloseJob *job = new ChannelCloseJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    //TODO implement it.
+    //job->setChannelType();
+    job->start();
+
 }
