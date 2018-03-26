@@ -407,8 +407,13 @@ void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
     ChannelCloseJob *job = new ChannelCloseJob(this);
     initializeRestApiJob(job, true);
     job->setRoomId(roomId);
-    //TODO implement it.
-    //job->setChannelType();
+    if (type == QLatin1String("d")) {
+        job->setChannelType(ChannelCloseJob::Direct);
+    } else if (type == QLatin1String("p")) {
+        job->setChannelType(ChannelCloseJob::Groups);
+    } else if (type == QLatin1String("c")) {
+        job->setChannelType(ChannelCloseJob::Channel);
+    }
     job->start();
 
 }

@@ -344,6 +344,7 @@ void RocketChatAccount::leaveRoom(const QString &roomId, const QString &type)
 
 void RocketChatAccount::hideRoom(const QString &roomId)
 {
+    //TODO restApi()->closeChannel(roomId, type);
     ddp()->hideRoom(roomId);
 }
 
