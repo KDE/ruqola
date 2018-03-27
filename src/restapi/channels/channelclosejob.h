@@ -34,6 +34,7 @@ public:
         Direct,
         Unknown
     };
+    Q_ENUM(ChannelType)
     explicit ChannelCloseJob(QObject *parent = nullptr);
     ~ChannelCloseJob() override;
 
