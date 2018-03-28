@@ -46,6 +46,7 @@
 #include "channels/createchanneljob.h"
 #include "channels/leavechanneljob.h"
 #include "channels/channelclosejob.h"
+#include "channels/channelhistoryjob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -415,6 +416,21 @@ void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
         job->setChannelType(ChannelCloseJob::Groups);
     } else if (type == QLatin1String("c")) {
         job->setChannelType(ChannelCloseJob::Channel);
+    }
+    job->start();
+}
+
+void RestApiRequest::historyChannel(const QString &roomId, const QString &type)
+{
+    ChannelHistoryJob *job = new ChannelHistoryJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    if (type == QLatin1String("d")) {
+        job->setChannelType(ChannelHistoryJob::Direct);
+    } else if (type == QLatin1String("p")) {
+        job->setChannelType(ChannelHistoryJob::Groups);
+    } else if (type == QLatin1String("c")) {
+        job->setChannelType(ChannelHistoryJob::Channel);
     }
     job->start();
 }

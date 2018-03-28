@@ -78,6 +78,7 @@ public:
     void reactOnMessage(const QString &messageId, const QString &emoji);
     void closeChannel(const QString &roomId, const QString &type);
     void createDirectMessage(const QString &userName);
+    void historyChannel(const QString &roomId, const QString &type);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
