@@ -446,7 +446,11 @@ void RocketChatAccount::eraseRoom(const QString &roomId)
 
 void RocketChatAccount::openDirectChannel(const QString &username)
 {
+#ifdef USE_REASTAPI_JOB
+    restApi()->createDirectMessage(username);
+#else
     ddp()->openDirectChannel(username);
+#endif
 }
 
 void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames)

@@ -52,6 +52,8 @@
 #include "groups/creategroupsjob.h"
 #include "groups/leavegroupsjob.h"
 
+#include "directmessage/createdmjob.h"
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
@@ -415,5 +417,12 @@ void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
         job->setChannelType(ChannelCloseJob::Channel);
     }
     job->start();
+}
 
+void RestApiRequest::createDirectMessage(const QString &userName)
+{
+    CreateDmJob *job = new CreateDmJob(this);
+    initializeRestApiJob(job, true);
+    job->setUserName(userName);
+    job->start();
 }
