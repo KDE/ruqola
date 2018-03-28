@@ -53,11 +53,11 @@ public:
     void setChannelType(const ChannelType &channelType);
 
 Q_SIGNALS:
-    void leaveChannelDone();
+    void ChannelHistoryDone();
 
 private:
     Q_DISABLE_COPY(ChannelHistoryJob)
-    void slotLeaveChannelFinished();
+    void slotLoadHistoryChannelFinished();
     QString mRoomId;
     ChannelType mChannelType = Unknown;
 };

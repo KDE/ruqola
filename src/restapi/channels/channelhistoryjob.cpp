@@ -44,11 +44,11 @@ bool ChannelHistoryJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("ChannelHistoryJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &ChannelHistoryJob::slotLeaveChannelFinished);
+    connect(reply, &QNetworkReply::finished, this, &ChannelHistoryJob::slotLoadHistoryChannelFinished);
     return true;
 }
 
-void ChannelHistoryJob::slotLeaveChannelFinished()
+void ChannelHistoryJob::slotLoadHistoryChannelFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -57,10 +57,10 @@ void ChannelHistoryJob::slotLeaveChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "close channel success: " << data;
-            Q_EMIT leaveChannelDone();
+            qCDebug(RUQOLA_RESTAPI_LOG) << "load history success: " << data;
+            Q_EMIT ChannelHistoryDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to close channel" << data;
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to load history" << data;
         }
     }
     deleteLater();
