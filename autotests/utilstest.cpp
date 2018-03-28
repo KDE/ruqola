@@ -134,6 +134,29 @@ void UtilsTest::shouldExtractGenerateRichText()
     QCOMPARE(Utils::generateRichText(input, {}, QString()), output);
 }
 
+void UtilsTest::shouldHighlightText_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("username");
+    QTest::addColumn<QString>("output");
+    QTest::newRow("empty") << QString() << QString() << QString();
+    QTest::newRow("word@1") << QStringLiteral("@foo") << QString() << QStringLiteral("<a href='ruqola:/user/foo'>@foo</a>");
+    QTest::newRow("word@1-username") << QStringLiteral("@foo")
+                                     << QStringLiteral("foo")
+                                     << QStringLiteral("<a href='ruqola:/user/foo' style=\"color:#FFFFFF;background-color:#0000FF;\">@foo</a>");
+    QTest::newRow("word@2-username") << QStringLiteral("bla bla @foo")
+                                     << QStringLiteral("foo")
+                                     << QStringLiteral("bla bla <a href='ruqola:/user/foo' style=\"color:#FFFFFF;background-color:#0000FF;\">@foo</a>");
+}
+
+void UtilsTest::shouldHighlightText()
+{
+    QFETCH(QString, input);
+    QFETCH(QString, username);
+    QFETCH(QString, output);
+    QCOMPARE(Utils::generateRichText(input, {}, username), output);
+}
+
 void UtilsTest::shouldParseNotification_data()
 {
     QTest::addColumn<QString>("fileName");

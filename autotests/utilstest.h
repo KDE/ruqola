@@ -42,6 +42,9 @@ private Q_SLOTS:
     void shouldExtractGenerateRichText_data();
     void shouldExtractGenerateRichText();
 
+    void shouldHighlightText_data();
+    void shouldHighlightText();
+
     void shouldParseNotification_data();
     void shouldParseNotification();
 };
