@@ -210,7 +210,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         if (mAllMessages.at(idx).messageType() == Message::System) {
             return mAllMessages.at(idx).messageTypeText();
         } else {
-            return convertMessageText(mAllMessages.at(idx).text(), mAllMessages.at(idx).mentions());
+            const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
+            return convertMessageText(mAllMessages.at(idx).text(), mAllMessages.at(idx).mentions(), userName);
         }
     case MessageModel::Timestamp:
         return mAllMessages.at(idx).timeStamp();
@@ -270,9 +271,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     return QString();
 }
 
-QString MessageModel::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const
+QString MessageModel::convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const
 {
-    return mTextConverter->convertMessageText(str, mentions);
+    return mTextConverter->convertMessageText(str, mentions, userName);
 }
 
 void MessageModel::setRoomID(const QString &roomID)

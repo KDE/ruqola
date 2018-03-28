@@ -40,7 +40,7 @@ TextConverter::TextConverter(EmojiManager *emojiManager)
     }
 }
 
-QString TextConverter::convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const
+QString TextConverter::convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const
 {
     //TODO improve it. Add autotest.
     if (mSyntaxHighlightingInitialized && str.startsWith(QLatin1String("```")) && str.endsWith(QLatin1String("```"))) {
@@ -57,7 +57,7 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
         highLighter.highlight(e);
         return *s.string();
     }
-    QString richText = Utils::generateRichText(str, mentions);
+    QString richText = Utils::generateRichText(str, mentions, userName);
     if (mEmojiManager) {
         static const QRegularExpression regularExpressionUser(QStringLiteral("(:\\w+:)"));
         QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(richText);

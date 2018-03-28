@@ -32,7 +32,7 @@ public:
     explicit TextConverter(EmojiManager *emojiManager = nullptr);
     ~TextConverter() = default;
 
-    QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions) const;
+    QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const;
 private:
     mutable KSyntaxHighlighting::Repository mRepo;
     KSyntaxHighlighting::Definition mDef;

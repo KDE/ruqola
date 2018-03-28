@@ -61,7 +61,7 @@ QString Utils::markdownToRichText(const QString &markDown)
     return str;
 }
 
-QString Utils::generateRichText(const QString &str, const QMap<QString, QString> &mentions)
+QString Utils::generateRichText(const QString &str, const QMap<QString, QString> &mentions, const QString &username)
 {
     //Not using mentions for the moment.
     Q_UNUSED(mentions)
@@ -72,8 +72,12 @@ QString Utils::generateRichText(const QString &str, const QMap<QString, QString>
         const QRegularExpressionMatch match = userIterator.next();
         const QString word = match.captured(2);
         //Highlight only if it's yours
-        //newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\' style=\"color:#FFFFFF;background-color:#0000FF;\">@%1</a>").arg(word));
-        newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
+        if (word == username) {
+            //Improve color
+            newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\' style=\"color:#FFFFFF;background-color:#0000FF;\">@%1</a>").arg(word));
+        } else {
+            newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
+        }
     }
 
     static const QRegularExpression regularExpressionRoom(QStringLiteral("(^|\\s+)#([\\w._-]+)"));
