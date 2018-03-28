@@ -201,6 +201,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("im.close");
     case RestApiUtil::RestApiUrlType::ImCreate:
         return QStringLiteral("im.create");
+    case RestApiUtil::RestApiUrlType::ImHistory:
+        return QStringLiteral("im.history");
     }
     qCWarning(RUQOLA_RESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

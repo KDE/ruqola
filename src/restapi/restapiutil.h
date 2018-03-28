@@ -105,6 +105,7 @@ enum class RestApiUrlType {
     RoomsUpload,
     ImClose,
     ImCreate,
+    ImHistory,
 };
 LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBRUQOLACORE_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
