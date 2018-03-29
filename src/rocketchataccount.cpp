@@ -623,7 +623,7 @@ void RocketChatAccount::uploadFile(const QString &roomId, const QString &descrip
     restApi()->uploadFile(roomId, description, messageText, fileUrl);
 }
 
-void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue)
+void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue, const QString &channelType)
 {
     switch (infoType) {
     case Announcement:
