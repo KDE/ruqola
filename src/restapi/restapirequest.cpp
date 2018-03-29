@@ -47,11 +47,13 @@
 #include "channels/leavechanneljob.h"
 #include "channels/channelclosejob.h"
 #include "channels/channelhistoryjob.h"
+#include "channels/changechanneldescriptionjob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
 #include "groups/creategroupsjob.h"
 #include "groups/leavegroupsjob.h"
+#include "groups/changegroupsdescriptionjob.h"
 
 #include "directmessage/createdmjob.h"
 
@@ -329,6 +331,24 @@ void RestApiRequest::changeGroupsAnnouncement(const QString &roomId, const QStri
     initializeRestApiJob(job, true);
     job->setRoomId(roomId);
     job->setAnnouncement(announcement);
+    job->start();
+}
+
+void RestApiRequest::changeChannelDescription(const QString &roomId, const QString &description)
+{
+    ChangeChannelDescriptionJob *job = new ChangeChannelDescriptionJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->setDescription(description);
+    job->start();
+}
+
+void RestApiRequest::changeGroupsDescription(const QString &roomId, const QString &description)
+{
+    ChangeGroupsDescriptionJob *job = new ChangeGroupsDescriptionJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->setDescription(description);
     job->start();
 }
 

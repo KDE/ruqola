@@ -79,6 +79,8 @@ public:
     void closeChannel(const QString &roomId, const QString &type);
     void createDirectMessage(const QString &userName);
     void historyChannel(const QString &roomId, const QString &type);
+    void changeChannelDescription(const QString &roomId, const QString &description);
+    void changeGroupsDescription(const QString &roomId, const QString &description);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
