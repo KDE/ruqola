@@ -123,8 +123,9 @@ QJsonDocument CreateChannelJob::json() const
     }
     jsonObj[QLatin1String("name")] = channelName();
     if (mReadOnly) {
+        //Default is false
         jsonObj[QLatin1String("readOnly")] = true;
-    } //Default is false
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
