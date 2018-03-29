@@ -628,13 +628,20 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
     switch (infoType) {
     case Announcement:
 #ifdef USE_REASTAPI_JOB_IMPOSSIBLE
+        restApi()->changeChannelAnnouncement(roomId, newValue.toString());
+        restApi()->changeGroupsAnnouncement(roomId, newValue.toString());
         //TODO
 #else
         ddp()->setRoomAnnouncement(roomId, newValue.toString());
 #endif
         break;
     case Description:
+#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
+        restApi()->changeChannelDescription(roomId, newValue.toString());
+        restApi()->changeGroupsDescription(roomId, newValue.toString());
+#else
         ddp()->setRoomDescription(roomId, newValue.toString());
+#endif
         break;
     case Name:
         ddp()->setRoomName(roomId, newValue.toString());
