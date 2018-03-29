@@ -68,7 +68,6 @@ void PostMessageJob::slotPostMessageDone()
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to post message: " << data;
         }
-
     }
     deleteLater();
 }
@@ -130,4 +129,3 @@ QJsonDocument PostMessageJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
-

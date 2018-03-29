@@ -67,7 +67,6 @@ void CreateGroupsJobTest::shouldGenerateJson()
     const QStringList members = {QStringLiteral("foo"), QStringLiteral("bla")};
     job.setMembers(members);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"members\":[\"foo\",\"bla\"],\"name\":\"%1\",\"readOnly\":true}").arg(channelname).toLatin1());
-
 }
 
 void CreateGroupsJobTest::shouldNotStarting()

@@ -28,7 +28,6 @@
 ReactOnMessageJob::ReactOnMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 ReactOnMessageJob::~ReactOnMessageJob()

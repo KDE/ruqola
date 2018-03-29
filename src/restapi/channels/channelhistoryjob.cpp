@@ -120,7 +120,7 @@ void ChannelHistoryJob::setRoomId(const QString &roomId)
 QNetworkRequest ChannelHistoryJob::request() const
 {
     QUrl url;
-    switch(mChannelType) {
+    switch (mChannelType) {
     case Channel:
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsHistory);
         break;

@@ -28,7 +28,6 @@
 DeleteMessageJob::DeleteMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 DeleteMessageJob::~DeleteMessageJob()
@@ -128,4 +127,3 @@ QNetworkRequest DeleteMessageJob::request() const
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
     return request;
 }
-

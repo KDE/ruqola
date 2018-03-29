@@ -28,7 +28,6 @@
 UpdateMessageJob::UpdateMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 UpdateMessageJob::~UpdateMessageJob()
@@ -141,4 +140,3 @@ QNetworkRequest UpdateMessageJob::request() const
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
     return request;
 }
-

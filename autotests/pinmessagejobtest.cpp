@@ -33,7 +33,6 @@ PinMessageJobTest::PinMessageJobTest(QObject *parent)
 {
 }
 
-
 void PinMessageJobTest::shouldHaveDefaultValue()
 {
     PinMessageJob job;

@@ -163,7 +163,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         Message m;
         m.parseMessage(o);
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
-        if (MessageModel * messageModel = mRocketChatAccount->messageModelForRoom(m.roomId())) {
+        if (MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(m.roomId())) {
             messageModel->addMessage(m);
         } else {
             qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << m.roomId() << " It's a bug for sure.";
