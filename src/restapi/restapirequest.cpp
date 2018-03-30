@@ -48,12 +48,14 @@
 #include "channels/channelclosejob.h"
 #include "channels/channelhistoryjob.h"
 #include "channels/changechanneldescriptionjob.h"
+#include "channels/archivechanneljob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
 #include "groups/creategroupsjob.h"
 #include "groups/leavegroupsjob.h"
 #include "groups/changegroupsdescriptionjob.h"
+#include "groups/archivegroupsjob.h"
 
 #include "directmessage/createdmjob.h"
 
@@ -390,7 +392,7 @@ void RestApiRequest::createGroups(const QString &channelName, bool readOnly, con
     job->start();
 }
 
-void RestApiRequest::leaveChannel(const QString &roomId, const QString &type)
+void RestApiRequest::leaveChannel(const QString &roomId)
 {
     LeaveChannelJob *job = new LeaveChannelJob(this);
     initializeRestApiJob(job, true);
@@ -401,6 +403,22 @@ void RestApiRequest::leaveChannel(const QString &roomId, const QString &type)
 void RestApiRequest::leaveGroups(const QString &roomId)
 {
     LeaveGroupsJob *job = new LeaveGroupsJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->start();
+}
+
+void RestApiRequest::archiveChannel(const QString &roomId)
+{
+    ArchiveChannelJob *job = new ArchiveChannelJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->start();
+}
+
+void RestApiRequest::archiveGroups(const QString &roomId)
+{
+    ArchiveGroupsJob *job = new ArchiveGroupsJob(this);
     initializeRestApiJob(job, true);
     job->setRoomId(roomId);
     job->start();

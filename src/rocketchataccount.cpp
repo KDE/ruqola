@@ -657,8 +657,13 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         ddp()->setRoomIsReadOnly(roomId, newValue.toBool());
         break;
     case Archive:
+#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
+        restApi()->archiveChannel(roomId);
+        restApi()->archiveGroups(roomId);
+#else
         //No argument here.
         ddp()->archiveRoom(roomId);
+#endif
         break;
     case RoomType:
         ddp()->setRoomType(roomId, newValue.toBool());
