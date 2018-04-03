@@ -49,6 +49,7 @@
 #include "channels/channelhistoryjob.h"
 #include "channels/changechanneldescriptionjob.h"
 #include "channels/archivechanneljob.h"
+#include "channels/channelfilesjob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -478,5 +479,21 @@ void RestApiRequest::createDirectMessage(const QString &userName)
     CreateDmJob *job = new CreateDmJob(this);
     initializeRestApiJob(job, true);
     job->setUserName(userName);
+    job->start();
+}
+
+void RestApiRequest::filesInRoom(const QString &roomId, const QString &type)
+{
+    ChannelFilesJob *job = new ChannelFilesJob(this);
+    connect(job, &ChannelFilesJob::channelFilesDone, this, &RestApiRequest::channelFilesDone);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    if (type == QLatin1String("d")) {
+        job->setChannelType(ChannelFilesJob::Direct);
+    } else if (type == QLatin1String("p")) {
+        job->setChannelType(ChannelFilesJob::Groups);
+    } else if (type == QLatin1String("c")) {
+        job->setChannelType(ChannelFilesJob::Channel);
+    }
     job->start();
 }

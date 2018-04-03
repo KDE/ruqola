@@ -83,6 +83,7 @@ public:
     void changeGroupsDescription(const QString &roomId, const QString &description);
     void archiveChannel(const QString &roomId);
     void archiveGroups(const QString &roomId);
+    void filesInRoom(const QString &roomId, const QString &type);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -91,6 +92,7 @@ Q_SIGNALS:
     void getServerInfoDone(const QString &version);
     void getOwnInfoDone(const QByteArray &data);
     void privateInfoDone(const QByteArray &data);
+    void channelFilesDone(const QByteArray &data);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
