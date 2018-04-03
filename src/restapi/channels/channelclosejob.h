@@ -53,7 +53,7 @@ public:
     void setChannelType(const ChannelType &channelType);
 
 Q_SIGNALS:
-    void leaveChannelDone();
+    void closeChannelDone();
 
 private:
     Q_DISABLE_COPY(ChannelCloseJob)

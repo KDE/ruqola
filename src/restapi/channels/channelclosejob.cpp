@@ -58,7 +58,7 @@ void ChannelCloseJob::slotLeaveChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             qCDebug(RUQOLA_RESTAPI_LOG) << "close channel success: " << data;
-            Q_EMIT leaveChannelDone();
+            Q_EMIT closeChannelDone();
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to close channel" << data;
         }
