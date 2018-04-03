@@ -57,13 +57,23 @@ void ArchiveChannelJob::slotArchiveChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "archive channel success: " << data;
+            qCDebug(RUQOLA_RESTAPI_LOG) << "archive or unarchive channel success: " << data;
             Q_EMIT archiveChannelDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to archive channel" << data;
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to archive or unarchive a channel" << data;
         }
     }
     deleteLater();
+}
+
+bool ArchiveChannelJob::archive() const
+{
+    return mArchive;
+}
+
+void ArchiveChannelJob::setArchive(bool archive)
+{
+    mArchive = archive;
 }
 
 bool ArchiveChannelJob::requireHttpAuthentication() const
@@ -105,7 +115,7 @@ void ArchiveChannelJob::setRoomId(const QString &roomId)
 
 QNetworkRequest ArchiveChannelJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsArchive);
+    const QUrl url = mRestApiMethod->generateUrl(mArchive ? RestApiUtil::RestApiUrlType::ChannelsArchive : RestApiUtil::RestApiUrlType::ChannelsUnarchive);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);

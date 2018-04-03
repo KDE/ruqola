@@ -57,13 +57,23 @@ void ArchiveGroupsJob::slotArchiveGroupsFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Archive groups success: " << data;
+            qCDebug(RUQOLA_RESTAPI_LOG) << "Archive or unarchive groups success: " << data;
             Q_EMIT archiveGroupsDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to archive groups" << data;
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to archive or unarchive groups" << data;
         }
     }
     deleteLater();
+}
+
+bool ArchiveGroupsJob::archive() const
+{
+    return mArchive;
+}
+
+void ArchiveGroupsJob::setArchive(bool archive)
+{
+    mArchive = archive;
 }
 
 bool ArchiveGroupsJob::requireHttpAuthentication() const
@@ -105,7 +115,7 @@ void ArchiveGroupsJob::setRoomId(const QString &roomId)
 
 QNetworkRequest ArchiveGroupsJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsArchive);
+    const QUrl url = mRestApiMethod->generateUrl(mArchive ? RestApiUtil::RestApiUrlType::GroupsArchive : RestApiUtil::RestApiUrlType::GroupsUnarchive);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);

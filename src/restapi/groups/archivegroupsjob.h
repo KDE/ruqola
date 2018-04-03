@@ -42,6 +42,9 @@ public:
     QString roomId() const;
     void setRoomId(const QString &roomId);
 
+    bool archive() const;
+    void setArchive(bool archive);
+
 Q_SIGNALS:
     void archiveGroupsDone();
 
@@ -49,6 +52,7 @@ private:
     Q_DISABLE_COPY(ArchiveGroupsJob)
     void slotArchiveGroupsFinished();
     QString mRoomId;
+    bool mArchive = true;
 };
 
 #endif // ARCHIVEGROUPSJOB_H
