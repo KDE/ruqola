@@ -137,6 +137,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.setTopic");
     case RestApiUtil::RestApiUrlType::ChannelsSetAnnouncement:
         return QStringLiteral("channels.setAnnouncement");
+    case RestApiUtil::RestApiUrlType::ChannelsFiles:
+        return QStringLiteral("channels.files");
     case RestApiUtil::RestApiUrlType::ChannelsSetType:
         return QStringLiteral("channels.setType");
     case RestApiUtil::RestApiUrlType::ChannelsUnarchive:
@@ -189,6 +191,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("groups.unarchive");
     case RestApiUtil::RestApiUrlType::GroupsSetAnnouncement:
         return QStringLiteral("groups.setAnnouncement");
+    case RestApiUtil::RestApiUrlType::GroupsFiles:
+        return QStringLiteral("groups.files");
     case RestApiUtil::RestApiUrlType::ServerInfo:
         return QStringLiteral("info");
     case RestApiUtil::RestApiUrlType::Settings:
@@ -203,6 +207,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("im.create");
     case RestApiUtil::RestApiUrlType::ImHistory:
         return QStringLiteral("im.history");
+    case RestApiUtil::RestApiUrlType::ImFiles:
+        return QStringLiteral("im.files");
     }
     qCWarning(RUQOLA_RESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

@@ -39,6 +39,7 @@ set (Ruqola_restapi_SRCS
     restapi/channels/changechanneldescriptionjob.cpp
     restapi/channels/changechannelreadonlyjob.cpp
     restapi/channels/archivechanneljob.cpp
+    restapi/channels/channelfilesjob.cpp
 
     restapi/groups/changegroupstopicjob.cpp
     restapi/groups/changegroupsannouncementjob.cpp

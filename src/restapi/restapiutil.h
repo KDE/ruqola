@@ -74,6 +74,7 @@ enum class RestApiUrlType {
     ChannelsSetTopic,
     ChannelsSetType,
     ChannelsSetAnnouncement,
+    ChannelsFiles,
     ChannelsUnarchive,
     GroupsAddAll,
     GroupsAddModerator,
@@ -99,6 +100,7 @@ enum class RestApiUrlType {
     GroupsSetType,
     GroupsUnarchive,
     GroupsSetAnnouncement,
+    GroupsFiles,
     ServerInfo,
     Settings,
     Spotlight,
@@ -106,6 +108,7 @@ enum class RestApiUrlType {
     ImClose,
     ImCreate,
     ImHistory,
+    ImFiles,
 };
 LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBRUQOLACORE_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
