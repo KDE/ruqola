@@ -53,7 +53,7 @@ public:
     void setChannelType(const ChannelType &channelType);
 
 Q_SIGNALS:
-    void channelFilesDone();
+    void channelFilesDone(const QByteArray &data);
 
 private:
     Q_DISABLE_COPY(ChannelFilesJob)

@@ -53,8 +53,7 @@ void ChannelFilesJob::slotFilesinChannelFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
-        //TODO
+        Q_EMIT channelFilesDone(data);
     }
     deleteLater();
 }
