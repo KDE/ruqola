@@ -50,6 +50,7 @@
 #include "channels/changechanneldescriptionjob.h"
 #include "channels/archivechanneljob.h"
 #include "channels/channelfilesjob.h"
+#include "channels/channelinvitejob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -495,5 +496,14 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type)
     } else if (type == QLatin1String("c")) {
         job->setChannelType(ChannelFilesJob::Channel);
     }
+    job->start();
+}
+
+void RestApiRequest::inviteInChannel(const QString &roomId, const QString &userId)
+{
+    ChannelInviteJob *job = new ChannelInviteJob(this);
+    initializeRestApiJob(job, true);
+    job->setRoomId(roomId);
+    job->setUserId(userId);
     job->start();
 }

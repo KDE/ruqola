@@ -40,6 +40,7 @@ set (Ruqola_restapi_SRCS
     restapi/channels/changechannelreadonlyjob.cpp
     restapi/channels/archivechanneljob.cpp
     restapi/channels/channelfilesjob.cpp
+    restapi/channels/channelinvitejob.cpp
 
     restapi/groups/changegroupstopicjob.cpp
     restapi/groups/changegroupsannouncementjob.cpp
@@ -48,6 +49,7 @@ set (Ruqola_restapi_SRCS
     restapi/groups/leavegroupsjob.cpp
     restapi/groups/changegroupsdescriptionjob.cpp
     restapi/groups/archivegroupsjob.cpp
+    restapi/groups/groupsinvitejob.cpp
 
     restapi/directmessage/createdmjob.cpp
     )
