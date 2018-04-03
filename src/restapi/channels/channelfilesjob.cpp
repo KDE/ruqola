@@ -53,7 +53,15 @@ void ChannelFilesJob::slotFilesinChannelFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        Q_EMIT channelFilesDone(data);
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            qCDebug(RUQOLA_RESTAPI_LOG) << "close channel success: " << data;
+            Q_EMIT channelFilesDone(data);
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to find files in channel" << data;
+        }
     }
     deleteLater();
 }
