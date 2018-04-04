@@ -773,7 +773,7 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 void RocketChatAccount::fillOauthModel()
 {
     QVector<AuthenticationInfo> fillModel;
-    for (int i = 0; i < mLstInfos.count(); ++i) {
+    for (int i = 0, total = mLstInfos.count(); i < total; ++i) {
         if (mRuqolaServerConfig->canShowOauthService(mLstInfos.at(i).oauthType())) {
             fillModel.append(mLstInfos.at(i));
         }
@@ -866,7 +866,7 @@ void RocketChatAccount::setAccountName(const QString &accountname)
 {
     //Initialize new account room
     ManagerDataPaths::self()->initializeAccountPath(accountname);
-    qDebug() << "void RocketChatAccount::setAccountName(const QString &servername)"<<accountname;
+    //qDebug() << "void RocketChatAccount::setAccountName(const QString &servername)"<<accountname;
     loadSettings(ManagerDataPaths::self()->accountConfigFileName(accountname));
     settings()->setAccountName(accountname);
 }
