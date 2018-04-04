@@ -514,6 +514,7 @@ void RestApiRequest::listEmojiCustom()
 {
     LoadEmojiCustomJob *job = new LoadEmojiCustomJob(this);
     initializeRestApiJob(job, true);
+    connect(job, &LoadEmojiCustomJob::loadEmojiCustomDone, this, &RestApiRequest::loadEmojiCustomDone);
     //TODO connect !
     job->start();
 }

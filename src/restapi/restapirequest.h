@@ -96,6 +96,7 @@ Q_SIGNALS:
     void getOwnInfoDone(const QByteArray &data);
     void privateInfoDone(const QByteArray &data);
     void channelFilesDone(const QByteArray &data);
+    void loadEmojiCustomDone(const QByteArray &data);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
