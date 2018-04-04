@@ -627,7 +627,7 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
 {
     switch (infoType) {
     case Announcement:
-#ifdef USE_REASTAPI_JOB
+#ifdef USE_REASTAPI_JOB_IMPOSSINLE
         if (channelType == QStringLiteral("c")) {
             restApi()->changeChannelAnnouncement(roomId, newValue.toString());
         } else if (channelType == QStringLiteral("p")) {
