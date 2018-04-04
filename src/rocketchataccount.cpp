@@ -339,13 +339,26 @@ RestApiRequest *RocketChatAccount::restApi()
 
 void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelType)
 {
+#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
+    if (channelType == QStringLiteral("c")) {
+        restApi()->leaveChannel(roomId);
+    } else if (channelType == QStringLiteral("p")) {
+        restApi()->leaveGroups(roomId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " unsupport change announcement for type " << channelType;
+    }
+#else
     ddp()->leaveRoom(roomId);
+#endif
 }
 
 void RocketChatAccount::hideRoom(const QString &roomId, const QString &channelType)
 {
-    //TODO restApi()->closeChannel(roomId, type);
+#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
+    restApi()->closeChannel(roomId, channelType);
+#else
     ddp()->hideRoom(roomId);
+#endif
 }
 
 DDPClient *RocketChatAccount::ddp()
@@ -627,7 +640,7 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
 {
     switch (infoType) {
     case Announcement:
-#ifdef USE_REASTAPI_JOB_IMPOSSINLE
+#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
         if (channelType == QStringLiteral("c")) {
             restApi()->changeChannelAnnouncement(roomId, newValue.toString());
         } else if (channelType == QStringLiteral("p")) {
