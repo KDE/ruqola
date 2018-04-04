@@ -106,8 +106,8 @@ public:
 
     Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
 
-    Q_INVOKABLE void leaveRoom(const QString &roomId, const QString &type = QString());
-    Q_INVOKABLE void hideRoom(const QString &roomId);
+    Q_INVOKABLE void leaveRoom(const QString &roomId, const QString &channelType = QString());
+    Q_INVOKABLE void hideRoom(const QString &roomId, const QString &channelType = QString());
     Q_INVOKABLE void tryLogin();
     Q_INVOKABLE void logOut();
     Q_INVOKABLE void clearUnreadMessages(const QString &roomId);
@@ -146,7 +146,7 @@ public:
     Q_INVOKABLE bool otrEnabled() const;
     Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
     Q_INVOKABLE UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
-    Q_INVOKABLE void roomFiles(const QString &roomId);
+    Q_INVOKABLE void roomFiles(const QString &roomId, const QString &channelType = QString());
     Q_INVOKABLE FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel(const QString &roomId) const;
     Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId);
     Q_INVOKABLE SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;

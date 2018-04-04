@@ -337,12 +337,12 @@ RestApiRequest *RocketChatAccount::restApi()
     return mRestApi;
 }
 
-void RocketChatAccount::leaveRoom(const QString &roomId, const QString &type)
+void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelType)
 {
     ddp()->leaveRoom(roomId);
 }
 
-void RocketChatAccount::hideRoom(const QString &roomId)
+void RocketChatAccount::hideRoom(const QString &roomId, const QString &channelType)
 {
     //TODO restApi()->closeChannel(roomId, type);
     ddp()->hideRoom(roomId);
@@ -578,7 +578,7 @@ UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) c
     return mRoomModel->usersModelForRoom(roomId);
 }
 
-void RocketChatAccount::roomFiles(const QString &roomId)
+void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
     rocketChatBackend()->clearFilesList();
     ddp()->roomFiles(roomId);
