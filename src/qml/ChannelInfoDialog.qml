@@ -40,7 +40,7 @@ QQC2.Dialog {
     property string channelName: ""
     property QtObject roomInfo
 
-    signal modifyChannelSetting(string roomId, int type, var newVal)
+    signal modifyChannelSetting(string roomId, int type, var newVal, string channelType)
     signal deleteRoom(string roomId)
 
     function initializeAndOpen()
@@ -72,7 +72,7 @@ QQC2.Dialog {
 
             onUpdateValue: {
                 if (newVal != "") {
-                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal)
+                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal, roomInfo.channelType)
                 } else {
                     //see https://doc.qt.io/qt-5/qml-qtqml-loggingcategory.html
                     console.log(RuqolaDebugCategorySingleton.category, "New name is empty. We can't rename room name to empty name.")
@@ -86,7 +86,7 @@ QQC2.Dialog {
             id: channelCommentField
             textField: roomInfo === null ? "" : roomInfo.topic
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, newVal)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, newVal, roomInfo.channelType)
             }
         }
         QQC2.Label {
@@ -96,7 +96,7 @@ QQC2.Dialog {
             id: channelAnnoucementField
             textField: roomInfo === null ? "" : roomInfo.announcement;
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Annoucement, newVal)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Annoucement, newVal, roomInfo.channelType)
             }
         }
         QQC2.Label {
@@ -106,7 +106,7 @@ QQC2.Dialog {
             id: channelDescriptionField
             textField: roomInfo === null ? "" : roomInfo.description;
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal, roomInfo.channelType)
             }
         }
 
@@ -118,7 +118,7 @@ QQC2.Dialog {
             id: readOnlyRoom
             checked: roomInfo === null ? false : roomInfo.readOnly
             onClicked: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.ReadOnly, checked)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.ReadOnly, checked, roomInfo.channelType)
             }
         }
 
@@ -142,7 +142,7 @@ QQC2.Dialog {
             id: roomType
             checked: roomInfo === null ? false : roomInfo.channelType === "p"
             onClicked: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.RoomType, checked)
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.RoomType, checked, roomInfo.channelType)
             }
         }
 

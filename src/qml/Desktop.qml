@@ -163,7 +163,7 @@ Kirigami.ApplicationWindow {
             rocketChatAccount.eraseRoom(roomId)
         }
         onModifyChannelSetting: {
-            rocketChatAccount.changeChannelSettings(roomId, type, newVal)
+            rocketChatAccount.changeChannelSettings(roomId, type, newVal, channelType)
         }
     }
 

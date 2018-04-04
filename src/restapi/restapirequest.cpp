@@ -322,7 +322,7 @@ void RestApiRequest::changeGroupsTopic(const QString &roomId, const QString &top
 
 void RestApiRequest::changeChannelAnnouncement(const QString &roomId, const QString &announcement)
 {
-    ChangeGroupsAnnouncementJob *job = new ChangeGroupsAnnouncementJob(this);
+    ChangeChannelAnnouncementJob *job = new ChangeChannelAnnouncementJob(this);
     initializeRestApiJob(job, true);
     job->setRoomId(roomId);
     job->setAnnouncement(announcement);

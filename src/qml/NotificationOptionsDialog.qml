@@ -46,6 +46,7 @@ QQC2.Dialog {
         QQC2.Label {
             text: i18n("Disable Notifications:");
         }
+
         QQC2.Switch {
             id: disableNotification
             checked: roomInfo === null ? false : roomInfo.notificationOptions.hideUnreadStatus
@@ -58,6 +59,7 @@ QQC2.Dialog {
         QQC2.Label {
             text: i18n("Hide Unread Room Status:");
         }
+
         QQC2.Switch {
             id: hideUnreadRoomStatus
             //checked: roomInfo === null ? false : roomInfo.readOnly
@@ -66,6 +68,5 @@ QQC2.Dialog {
                 notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.HideUnreadStatus, checked)
             }
         }
-
     }
 }

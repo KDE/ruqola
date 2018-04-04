@@ -627,18 +627,27 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
 {
     switch (infoType) {
     case Announcement:
-#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
-        restApi()->changeChannelAnnouncement(roomId, newValue.toString());
-        restApi()->changeGroupsAnnouncement(roomId, newValue.toString());
-        //TODO
+#ifdef USE_REASTAPI_JOB
+        if (channelType == QStringLiteral("c")) {
+            restApi()->changeChannelAnnouncement(roomId, newValue.toString());
+        } else if (channelType == QStringLiteral("p")) {
+            restApi()->changeGroupsAnnouncement(roomId, newValue.toString());
+        } else {
+            qCWarning(RUQOLA_LOG) << " unsupport change announcement for type " << channelType;
+        }
 #else
         ddp()->setRoomAnnouncement(roomId, newValue.toString());
 #endif
         break;
     case Description:
-#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
-        restApi()->changeChannelDescription(roomId, newValue.toString());
-        restApi()->changeGroupsDescription(roomId, newValue.toString());
+#ifdef USE_REASTAPI_JOB
+        if (channelType == QStringLiteral("c")) {
+            restApi()->changeChannelDescription(roomId, newValue.toString());
+        } else if (channelType == QStringLiteral("p")) {
+            restApi()->changeGroupsDescription(roomId, newValue.toString());
+        } else {
+            qCWarning(RUQOLA_LOG) << " unsupport change description for type " << channelType;
+        }
 #else
         ddp()->setRoomDescription(roomId, newValue.toString());
 #endif
@@ -647,8 +656,15 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         ddp()->setRoomName(roomId, newValue.toString());
         break;
     case Topic:
-#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
-        restApi()->changeChannelTopic(roomId, newValue.toString());
+#ifdef USE_REASTAPI_JOB
+        if (channelType == QStringLiteral("c")) {
+            restApi()->changeChannelTopic(roomId, newValue.toString());
+        } else if (channelType == QStringLiteral("p")) {
+            restApi()->changeGroupsTopic(roomId, newValue.toString());
+        } else {
+            qCWarning(RUQOLA_LOG) << " unsupport change topic for type " << channelType;
+        }
+
 #else
         ddp()->setRoomTopic(roomId, newValue.toString());
 #endif
@@ -657,9 +673,14 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         ddp()->setRoomIsReadOnly(roomId, newValue.toBool());
         break;
     case Archive:
-#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
-        restApi()->archiveChannel(roomId);
-        restApi()->archiveGroups(roomId);
+#ifdef USE_REASTAPI_JOB
+        if (channelType == QStringLiteral("c")) {
+            restApi()->archiveChannel(roomId);
+        } else if (channelType == QStringLiteral("p")) {
+            restApi()->archiveGroups(roomId);
+        } else {
+            qCWarning(RUQOLA_LOG) << " unsupport archiving for type " << channelType;
+        }
 #else
         //No argument here.
         ddp()->archiveRoom(roomId);
