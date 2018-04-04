@@ -34,7 +34,7 @@ void ChannelInviteJobTest::shouldHaveDefaultValue()
 {
     ChannelInviteJob job;
     verifyDefaultValue(&job);
-    QVERIFY(job.userId().isEmpty());
+    QVERIFY(job.inviteUserId().isEmpty());
     QVERIFY(job.roomId().isEmpty());
 }
 
@@ -53,6 +53,6 @@ void ChannelInviteJobTest::shouldGenerateJson()
     const QString roomId = QStringLiteral("foo1");
     const QString userId = QStringLiteral("topic1");
     job.setRoomId(roomId);
-    job.setUserId(userId);
+    job.setInviteUserId(userId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userId\":\"%1\"}").arg(userId).arg(roomId).toLatin1());
 }

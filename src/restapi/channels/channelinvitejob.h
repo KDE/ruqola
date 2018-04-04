@@ -42,8 +42,8 @@ public:
     QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    QString userId() const;
-    void setUserId(const QString &userId);
+    QString inviteUserId() const;
+    void setInviteUserId(const QString &userId);
 
 Q_SIGNALS:
     void changeAnnouncementDone();
@@ -51,7 +51,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ChannelInviteJob)
     void slotChangeAnnouncementFinished();
-    QString mUserId;
+    QString mInviteUserId;
     QString mRoomId;
 };
 

@@ -506,7 +506,7 @@ void RestApiRequest::inviteInChannel(const QString &roomId, const QString &userI
     ChannelInviteJob *job = new ChannelInviteJob(this);
     initializeRestApiJob(job, true);
     job->setRoomId(roomId);
-    job->setUserId(userId);
+    job->setInviteUserId(userId);
     job->start();
 }
 
