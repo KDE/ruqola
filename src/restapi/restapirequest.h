@@ -86,6 +86,7 @@ public:
     void filesInRoom(const QString &roomId, const QString &type);
     void inviteInChannel(const QString &roomId, const QString &userId);
 
+    void listEmojiCustom();
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

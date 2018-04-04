@@ -32,6 +32,8 @@
 
 #include "misc/owninfojob.h"
 
+#include "emoji/loademojicustomjob.h"
+
 #include "authentication/logoutjob.h"
 #include "authentication/loginjob.h"
 
@@ -505,5 +507,13 @@ void RestApiRequest::inviteInChannel(const QString &roomId, const QString &userI
     initializeRestApiJob(job, true);
     job->setRoomId(roomId);
     job->setUserId(userId);
+    job->start();
+}
+
+void RestApiRequest::listEmojiCustom()
+{
+    LoadEmojiCustomJob *job = new LoadEmojiCustomJob(this);
+    initializeRestApiJob(job, true);
+    //TODO connect !
     job->start();
 }
