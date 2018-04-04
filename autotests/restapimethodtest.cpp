@@ -131,4 +131,5 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImClose), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.close")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.create")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImHistory), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.history")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LoadEmojiCustom), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom")));
 }

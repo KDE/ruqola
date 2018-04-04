@@ -104,6 +104,7 @@ enum class RestApiUrlType {
     ServerInfo,
     Settings,
     Spotlight,
+    LoadEmojiCustom,
     RoomsUpload,
     ImClose,
     ImCreate,

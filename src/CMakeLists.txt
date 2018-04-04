@@ -22,6 +22,8 @@ set (Ruqola_restapi_SRCS
     restapi/channellistjob.cpp
     restapi/downloadfilejob.cpp
 
+    restapi/emoji/loademojicustomjob.cpp
+
     restapi/chat/starmessagejob.cpp
     restapi/chat/pinmessagejob.cpp
     restapi/chat/postmessagejob.cpp
