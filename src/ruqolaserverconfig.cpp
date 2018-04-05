@@ -101,6 +101,11 @@ bool RuqolaServerConfig::needAdaptNewSubscriptionRC60() const
     return mNeedAdaptNewSubscriptionRC60;
 }
 
+bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch)
+{
+    return (major <= mServerVersionMajor) && (minor <= mServerVersionMinor) && (patch <=mServerVersionPatch);
+}
+
 void RuqolaServerConfig::setServerVersion(const QString &version)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::setServerVersion(const QString &version)" << version;
@@ -118,6 +123,8 @@ void RuqolaServerConfig::setServerVersion(const QString &version)
         value = lst.at(2).toInt(&ok);
         if (ok) {
             mServerVersionPatch = value;
+        } else { //Perhaps it has "rc"/"beta" etc.
+            mServerVersionPatch = 0;
         }
     }
     adaptToServerVersion();

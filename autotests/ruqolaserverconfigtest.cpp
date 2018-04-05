@@ -206,3 +206,30 @@ void RuqolaServerConfigTest::shouldAddRuqolaAuthenticationSupport()
     config.addRuqolaAuthenticationSupport(AuthenticationManager::OauthType::Linkedin);
     QVERIFY(config.ruqolaHasSupportForOauthType(AuthenticationManager::OauthType::Linkedin));
 }
+
+void RuqolaServerConfigTest::shouldTestVersion_data()
+{
+    QTest::addColumn<QString>("serverVersion");
+    QTest::addColumn<int>("major");
+    QTest::addColumn<int>("minor");
+    QTest::addColumn<int>("patch");
+    QTest::addColumn<bool>("hasCorrectVersion");
+    QTest::newRow("0.60.0") << QStringLiteral("0.60.0") << 0 << 60 << 0 << true;
+    QTest::newRow("0.59.0-incorrect") << QStringLiteral("0.59.0") << 0 << 60 << 0 << false;
+    QTest::newRow("0.60.0-supperior") << QStringLiteral("0.61.0") << 0 << 60 << 0 << true;
+    QTest::newRow("0.60.0-supperior-2") << QStringLiteral("0.60.1") << 0 << 60 << 0 << true;
+}
+
+
+void RuqolaServerConfigTest::shouldTestVersion()
+{
+    QFETCH(QString, serverVersion);
+    QFETCH(int, major);
+    QFETCH(int, minor);
+    QFETCH(int, patch);
+    QFETCH(bool, hasCorrectVersion);
+
+    RuqolaServerConfig config;
+    config.setServerVersion(serverVersion);
+    QCOMPARE(config.hasAtLeastVersion(major, minor, patch), hasCorrectVersion);
+}

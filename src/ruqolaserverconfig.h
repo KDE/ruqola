@@ -72,6 +72,7 @@ public:
     QString siteName() const;
     void setSiteName(const QString &siteName);
 
+    bool hasAtLeastVersion(int major, int minor, int patch);
 private:
     void adaptToServerVersion();
     QString mUniqueId;
