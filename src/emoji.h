@@ -32,7 +32,7 @@ public:
     Emoji();
     ~Emoji();
 
-    void parseEmoji(const QJsonObject &emoji);
+    void parseEmoji(const QJsonObject &emoji, bool restApi = false);
 
     QString identifier() const;
     void setIdentifier(const QString &identifier);

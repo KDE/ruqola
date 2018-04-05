@@ -33,6 +33,7 @@ public:
     ~EmojiManager();
 
     void loadEmoji(const QJsonObject &obj);
+    void loadEmojiRestApi(const QByteArray &data);
 
     int count() const;
 

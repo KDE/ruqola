@@ -35,6 +35,23 @@ EmojiManager::~EmojiManager()
 {
 }
 
+void EmojiManager::loadEmojiRestApi(const QByteArray &data)
+{
+    mEmojiList.clear();
+#if 0
+    const QJsonArray result = obj.value(QLatin1String("result")).toArray();
+    for (int i = 0; i < result.size(); i++) {
+        const QJsonObject emojiJson = result.at(i).toObject();
+        Emoji emoji;
+        emoji.parseEmoji(emojiJson);
+        if (emoji.isValid()) {
+            mEmojiList.append(emoji);
+        }
+    }
+#endif
+}
+
+
 void EmojiManager::loadEmoji(const QJsonObject &obj)
 {
     mEmojiList.clear();

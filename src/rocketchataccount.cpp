@@ -536,8 +536,7 @@ void RocketChatAccount::changeDefaultStatus(int index)
 void RocketChatAccount::loadEmoji(const QByteArray &data)
 {
     qDebug() << " void RocketChatAccount::loadEmoji(const QByteArray &data)"<<data;
-    //TODO
-    //mEmojiManager->loadEmoji(obj);
+    mEmojiManager->loadEmojiRestApi(data);
 }
 
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)

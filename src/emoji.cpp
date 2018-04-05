@@ -46,13 +46,17 @@ void Emoji::setUpdatedAt(const qint64 &updatedAt)
     mUpdatedAt = updatedAt;
 }
 
-void Emoji::parseEmoji(const QJsonObject &emoji)
+void Emoji::parseEmoji(const QJsonObject &emoji, bool restApi)
 {
     mIdentifier = emoji.value(QLatin1String("_id")).toString();
     mExtension = emoji.value(QLatin1String("extension")).toString();
     mName = emoji.value(QLatin1String("name")).toString();
     mEmojiIdentifier = QLatin1Char(':') + mName + QLatin1Char(':');
-    mUpdatedAt = emoji.value(QLatin1String("_updatedAt")).toObject().value(QLatin1String("$date")).toDouble();
+    if (restApi) {
+        //TODO load it.
+    } else {
+        mUpdatedAt = emoji.value(QLatin1String("_updatedAt")).toObject().value(QLatin1String("$date")).toDouble();
+    }
     const QJsonArray array = emoji.value(QLatin1String("aliases")).toArray();
     const int arrayCount = array.count();
     QStringList lst;
