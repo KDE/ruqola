@@ -40,7 +40,7 @@ bool LoadEmojiCustomJob::start()
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob: Ask private info"));
+    addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob: Load Emoji custom"));
     connect(reply, &QNetworkReply::finished, this, &LoadEmojiCustomJob::slotloadEmojiCustomDone);
 
     return true;
