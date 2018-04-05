@@ -507,7 +507,13 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 
 void RocketChatAccount::listEmojiCustom()
 {
+#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
+    //#ifdef USE_REASTAPI_JOB
+    restApi()->listEmojiCustom();
+    connect(restApi(), &RestApiRequest::loadEmojiCustomDone, this, QOverload<const QByteArray &>::of(&RocketChatAccount::loadEmoji), Qt::UniqueConnection);
+#else
     ddp()->listEmojiCustom();
+#endif
 }
 
 void RocketChatAccount::setDefaultStatus(User::PresenceStatus status)
@@ -518,6 +524,13 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status)
 void RocketChatAccount::changeDefaultStatus(int index)
 {
     setDefaultStatus(mStatusModel->status(index));
+}
+
+void RocketChatAccount::loadEmoji(const QByteArray &data)
+{
+    qDebug() << " void RocketChatAccount::loadEmoji(const QByteArray &data)"<<data;
+    //TODO
+    //mEmojiManager->loadEmoji(obj);
 }
 
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
