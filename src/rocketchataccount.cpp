@@ -540,7 +540,7 @@ void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 
 void RocketChatAccount::deleteMessage(const QString &messageId, const QString &roomId)
 {
-#if USE_REASTAPI_JOB
+#ifdef USE_REASTAPI_JOB
     restApi()->deleteMessage(roomId, messageId);
 #else
     ddp()->deleteMessage(messageId);
