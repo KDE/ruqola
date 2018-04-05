@@ -507,10 +507,17 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 
 void RocketChatAccount::listEmojiCustom()
 {
-#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
-    //#ifdef USE_REASTAPI_JOB
-    restApi()->listEmojiCustom();
-    connect(restApi(), &RestApiRequest::loadEmojiCustomDone, this, QOverload<const QByteArray &>::of(&RocketChatAccount::loadEmoji), Qt::UniqueConnection);
+#ifdef USE_REASTAPI_JOB
+    if (mRuqolaServerConfig->hasAtLeastVersion(0, 63, 0)) {
+#ifdef USE_REASTAPI_JOB
+        restApi()->listEmojiCustom();
+        connect(restApi(), &RestApiRequest::loadEmojiCustomDone, this, QOverload<const QByteArray &>::of(&RocketChatAccount::loadEmoji), Qt::UniqueConnection);
+#else
+        ddp()->listEmojiCustom();
+#endif
+    } else {
+        ddp()->listEmojiCustom();
+    }
 #else
     ddp()->listEmojiCustom();
 #endif
