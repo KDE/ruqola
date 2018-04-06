@@ -27,6 +27,7 @@
 #include "settings/privateinfojob.h"
 #include "channellistjob.h"
 #include "downloadfilejob.h"
+#include "spotlightjob.h"
 
 #include "users/getavatarjob.h"
 
@@ -515,5 +516,14 @@ void RestApiRequest::listEmojiCustom()
     LoadEmojiCustomJob *job = new LoadEmojiCustomJob(this);
     initializeRestApiJob(job, true);
     connect(job, &LoadEmojiCustomJob::loadEmojiCustomDone, this, &RestApiRequest::loadEmojiCustomDone);
+    job->start();
+}
+
+void RestApiRequest::searchRoomUser(const QString &pattern)
+{
+    SpotlightJob *job = new SpotlightJob(this);
+    job->setSearchPattern(pattern);
+    initializeRestApiJob(job, true);
+    //TODO add connect
     job->start();
 }
