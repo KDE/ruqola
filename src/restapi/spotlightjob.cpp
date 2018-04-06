@@ -22,6 +22,7 @@
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
+#include <QUrlQuery>
 
 SpotlightJob::SpotlightJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -74,7 +75,10 @@ bool SpotlightJob::requireHttpAuthentication() const
 
 QNetworkRequest SpotlightJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Spotlight);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Spotlight);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("query"), mSearchPattern);
+    url.setQuery(queryUrl);
     QNetworkRequest req(url);
     addAuthRawHeader(req);
     return req;
@@ -82,7 +86,7 @@ QNetworkRequest SpotlightJob::request() const
 
 bool SpotlightJob::canStart() const
 {
-    if (mSearchPattern.isEmpty()) {
+    if (mSearchPattern.trimmed().isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "SpotlightJob: searchpattern is empty";
         return false;
     }
