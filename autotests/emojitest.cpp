@@ -146,7 +146,7 @@ void EmojiTest::shouldParseEmoji()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
     Emoji originalEmoji;
-    originalEmoji.parseEmoji(obj);
+    originalEmoji.parseEmoji(obj, false);
     const bool emojiIsEqual = (originalEmoji == expectedEmoji);
     if (!emojiIsEqual) {
         qDebug() << "originalEmoji " << originalEmoji;

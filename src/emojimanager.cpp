@@ -43,7 +43,7 @@ void EmojiManager::loadEmojiRestApi(const QByteArray &data)
     for (int i = 0; i < result.size(); i++) {
         const QJsonObject emojiJson = result.at(i).toObject();
         Emoji emoji;
-        emoji.parseEmoji(emojiJson);
+        emoji.parseEmoji(emojiJson, true);
         if (emoji.isValid()) {
             mEmojiList.append(emoji);
         }
@@ -59,7 +59,7 @@ void EmojiManager::loadEmoji(const QJsonObject &obj)
     for (int i = 0; i < result.size(); i++) {
         const QJsonObject emojiJson = result.at(i).toObject();
         Emoji emoji;
-        emoji.parseEmoji(emojiJson);
+        emoji.parseEmoji(emojiJson, false);
         if (emoji.isValid()) {
             mEmojiList.append(emoji);
         }
