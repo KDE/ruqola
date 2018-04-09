@@ -60,7 +60,7 @@ private:
     void slotLoginStatusChanged();
     void slotConnectedChanged();
     void slotUserIDChanged();
-    void parseOwnInfoDown(const QByteArray &data);
+    void parseOwnInfoDown(const QJsonObject &replyObject);
     void parseServerVersionDone(const QString &version);
 
     QVector<User> mUsers;

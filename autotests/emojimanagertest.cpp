@@ -57,9 +57,33 @@ void EmojiManagerTest::shouldParseEmoji()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
     EmojiManager manager;
-    manager.loadEmoji(obj);
+    manager.loadEmoji(obj, false);
     QCOMPARE(manager.count(), number);
 }
+
+void EmojiManagerTest::shouldParseEmojiRestApi_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<int>("number");
+    QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 42;
+}
+
+void EmojiManagerTest::shouldParseEmojiRestApi()
+{
+    QFETCH(QString, name);
+    QFETCH(int, number);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/restapi/") + name + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    EmojiManager manager;
+    manager.loadEmoji(obj, true);
+    QCOMPARE(manager.count(), number);
+}
+
 
 void EmojiManagerTest::shouldGenerateHtml()
 {
@@ -71,7 +95,7 @@ void EmojiManagerTest::shouldGenerateHtml()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
     EmojiManager manager;
-    manager.loadEmoji(obj);
+    manager.loadEmoji(obj, false);
     //No serverUrl set.
     QCOMPARE(manager.html(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
 
@@ -101,7 +125,7 @@ void EmojiManagerTest::shouldChangeServerUrl()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
     EmojiManager manager;
-    manager.loadEmoji(obj);
+    manager.loadEmoji(obj, false);
     QString serverUrl = QStringLiteral("www.kde.org");
     manager.setServerUrl(serverUrl);
 

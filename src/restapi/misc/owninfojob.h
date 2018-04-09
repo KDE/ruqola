@@ -40,7 +40,7 @@ public:
     QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void ownInfoDone(const QByteArray &data);
+    void ownInfoDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(OwnInfoJob)

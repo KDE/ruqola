@@ -43,7 +43,7 @@ public:
     void setSearchPattern(const QString &searchPattern);
 
 Q_SIGNALS:
-    void spotlightDone(const QByteArray &data);
+    void spotlightDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(SpotlightJob)

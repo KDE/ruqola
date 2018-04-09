@@ -512,7 +512,7 @@ void RocketChatAccount::listEmojiCustom()
     if (mRuqolaServerConfig->hasAtLeastVersion(0, 63, 0)) {
 #ifdef USE_REASTAPI_JOB
         restApi()->listEmojiCustom();
-        connect(restApi(), &RestApiRequest::loadEmojiCustomDone, this, QOverload<const QByteArray &>::of(&RocketChatAccount::loadEmoji), Qt::UniqueConnection);
+        connect(restApi(), &RestApiRequest::loadEmojiCustomDone, this, &RocketChatAccount::loadEmojiRestApi, Qt::UniqueConnection);
 #else
         ddp()->listEmojiCustom();
 #endif
@@ -534,15 +534,14 @@ void RocketChatAccount::changeDefaultStatus(int index)
     setDefaultStatus(mStatusModel->status(index));
 }
 
-void RocketChatAccount::loadEmoji(const QByteArray &data)
+void RocketChatAccount::loadEmojiRestApi(const QJsonObject &obj)
 {
-    qDebug() << " void RocketChatAccount::loadEmoji(const QByteArray &data)"<<data;
-    mEmojiManager->loadEmojiRestApi(data);
+    mEmojiManager->loadEmoji(obj, true);
 }
 
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
-    mEmojiManager->loadEmoji(obj);
+    mEmojiManager->loadEmoji(obj, false);
 }
 
 void RocketChatAccount::deleteMessage(const QString &messageId, const QString &roomId)
@@ -614,7 +613,12 @@ UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) c
 void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
     rocketChatBackend()->clearFilesList();
+#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
+    restApi()->filesInRoom(roomId, channelType);
+#else
+    Q_UNUSED(channelType);
     ddp()->roomFiles(roomId);
+#endif
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
@@ -645,6 +649,7 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
 void RocketChatAccount::starMessage(const QString &messageId, const QString &rid, bool starred)
 {
 #ifdef USE_REASTAPI_JOB
+    Q_UNUSED(rid);
     restApi()->starMessage(messageId, starred);
 #else
     ddp()->starMessage(messageId, rid, starred);

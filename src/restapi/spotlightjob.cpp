@@ -21,6 +21,8 @@
 #include "spotlightjob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QNetworkReply>
 #include <QUrlQuery>
 
@@ -52,8 +54,11 @@ void SpotlightJob::slotSpotlightDone()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("SpotlightJob done") + data);
-        Q_EMIT spotlightDone(data);
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+        addLoggerInfo(QByteArrayLiteral("SpotlightJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+        //TODO check error
+        Q_EMIT spotlightDone(replyObject);
     }
     deleteLater();
 }

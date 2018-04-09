@@ -171,11 +171,9 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
     }
 }
 
-void RocketChatBackend::parseOwnInfoDown(const QByteArray &data)
+void RocketChatBackend::parseOwnInfoDown(const QJsonObject &replyObject)
 {
     //Move code in rocketchataccount directly ?
-    const QJsonDocument replyJson = QJsonDocument::fromJson(data);
-    const QJsonObject replyObject = replyJson.object();
     //qDebug() << "replyJson " << replyJson;
     User user;
     user.setUserId(replyObject.value(QLatin1String("_id")).toString());
@@ -184,7 +182,7 @@ void RocketChatBackend::parseOwnInfoDown(const QByteArray &data)
     if (user.isValid()) {
         mRocketChatAccount->usersModel()->addUser(user);
     } else {
-        qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyJson;
+        qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyObject;
     }
 }
 

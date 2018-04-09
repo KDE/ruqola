@@ -524,6 +524,6 @@ void RestApiRequest::searchRoomUser(const QString &pattern)
     SpotlightJob *job = new SpotlightJob(this);
     job->setSearchPattern(pattern);
     initializeRestApiJob(job, true);
-    //TODO add connect
+    connect(job, &SpotlightJob::spotlightDone, this, &RestApiRequest::spotlightDone);
     job->start();
 }

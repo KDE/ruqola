@@ -54,10 +54,9 @@ void LoadEmojiCustomJob::slotloadEmojiCustomDone()
     if (reply) {
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
-        //const QJsonObject replyObject = replyJson.object();
+        const QJsonObject replyObject = replyJson.object();
         addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob done: ") + replyJson.toJson(QJsonDocument::Indented));
-        //TODO convert it ?
-        Q_EMIT loadEmojiCustomDone(data);
+        Q_EMIT loadEmojiCustomDone(replyObject);
     }
     deleteLater();
 }

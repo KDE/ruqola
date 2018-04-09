@@ -37,7 +37,7 @@ public:
     QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void channelListDone(const QByteArray &data);
+    void channelListDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(ChannelListJob)

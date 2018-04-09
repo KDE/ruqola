@@ -92,7 +92,7 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
     EmojiManager manager;
-    manager.loadEmoji(obj);
+    manager.loadEmoji(obj, false);
     manager.setServerUrl(serverUrl);
 
     TextConverter w(&manager);

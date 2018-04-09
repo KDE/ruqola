@@ -21,6 +21,8 @@
 #include "owninfojob.h"
 #include "restapimethod.h"
 #include "ruqola_restapi_debug.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QNetworkReply>
 
 OwnInfoJob::OwnInfoJob(QObject *parent)
@@ -55,8 +57,10 @@ void OwnInfoJob::slotServerInfoFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("OwnInfoJob: finished: ") + data);
-        Q_EMIT ownInfoDone(data);
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+        addLoggerInfo(QByteArrayLiteral("OwnInfoJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT ownInfoDone(replyObject);
     }
     deleteLater();
 }

@@ -38,6 +38,9 @@ private Q_SLOTS:
     void shouldGenerateHtml();
 
     void shouldChangeServerUrl();
+
+    void shouldParseEmojiRestApi_data();
+    void shouldParseEmojiRestApi();
 };
 
 #endif // EMOJIMANAGERTEST_H
