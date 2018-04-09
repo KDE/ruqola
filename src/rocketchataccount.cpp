@@ -333,6 +333,7 @@ RestApiRequest *RocketChatAccount::restApi()
     if (!mRestApi) {
         mRestApi = new RestApiRequest(this);
         mRestApi->setServerUrl(mSettings->serverUrl());
+        mRestApi->setRuqolaLogger(mRuqolaLogger);
     }
     return mRestApi;
 }
