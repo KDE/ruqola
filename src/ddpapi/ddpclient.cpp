@@ -182,7 +182,7 @@ void list_emoji_custom(const QJsonObject &obj, RocketChatAccount *account)
 void empty_callback(const QJsonObject &obj, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Load Emoji Custom :") + QJsonDocument(obj).toJson());
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Empty call back :") + QJsonDocument(obj).toJson());
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "empty_callback "<< obj;
     }
