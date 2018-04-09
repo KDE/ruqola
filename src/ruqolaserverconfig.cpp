@@ -103,7 +103,7 @@ bool RuqolaServerConfig::needAdaptNewSubscriptionRC60() const
 
 bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch)
 {
-    return (major <= mServerVersionMajor) && (minor <= mServerVersionMinor) && (patch <=mServerVersionPatch);
+    return (major <= mServerVersionMajor) && (minor <= mServerVersionMinor) && (patch <= mServerVersionPatch);
 }
 
 void RuqolaServerConfig::setServerVersion(const QString &version)

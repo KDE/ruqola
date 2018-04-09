@@ -51,7 +51,6 @@ void EmojiManager::loadEmojiRestApi(const QByteArray &data)
 #endif
 }
 
-
 void EmojiManager::loadEmoji(const QJsonObject &obj)
 {
     mEmojiList.clear();

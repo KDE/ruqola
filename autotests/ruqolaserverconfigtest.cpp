@@ -220,7 +220,6 @@ void RuqolaServerConfigTest::shouldTestVersion_data()
     QTest::newRow("0.60.0-supperior-2") << QStringLiteral("0.60.1") << 0 << 60 << 0 << true;
 }
 
-
 void RuqolaServerConfigTest::shouldTestVersion()
 {
     QFETCH(QString, serverVersion);
