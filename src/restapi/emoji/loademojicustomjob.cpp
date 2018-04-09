@@ -21,6 +21,8 @@
 #include "loademojicustomjob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QNetworkReply>
 
 LoadEmojiCustomJob::LoadEmojiCustomJob(QObject *parent)
@@ -51,7 +53,10 @@ void LoadEmojiCustomJob::slotloadEmojiCustomDone()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob done: ") + data);
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        //const QJsonObject replyObject = replyJson.object();
+        addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+        //TODO convert it ?
         Q_EMIT loadEmojiCustomDone(data);
     }
     deleteLater();

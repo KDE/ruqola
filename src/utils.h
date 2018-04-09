@@ -34,6 +34,7 @@ LIBRUQOLACORE_TESTS_EXPORT QString extractRoomUserFromUrl(QString url);
 LIBRUQOLACORE_TESTS_EXPORT void parseNotification(const QJsonArray &contents, QString &message, QString &title, QString &sender);
 LIBRUQOLACORE_TESTS_EXPORT QString userIdFromDirectChannel(const QString &rid, const QString &userId);
 LIBRUQOLACORE_TESTS_EXPORT qint64 parseDate(const QString &key, const QJsonObject &o);
+LIBRUQOLACORE_TESTS_EXPORT qint64 parseIsoDate(const QString &key, const QJsonObject &o);
 }
 
 #endif // UTILS_H

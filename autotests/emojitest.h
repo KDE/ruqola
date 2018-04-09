@@ -38,6 +38,9 @@ private Q_SLOTS:
     void shouldParseEmoji_data();
     void shouldParseEmoji();
 
+    void shouldParseEmojiRestAPI_data();
+    void shouldParseEmojiRestAPI();
+
     void shouldGenerateHtml_data();
     void shouldGenerateHtml();
 };

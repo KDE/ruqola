@@ -19,6 +19,7 @@
 */
 
 #include "emoji.h"
+#include "utils.h"
 
 #include <QJsonObject>
 #include <QJsonArray>
@@ -53,9 +54,9 @@ void Emoji::parseEmoji(const QJsonObject &emoji, bool restApi)
     mName = emoji.value(QLatin1String("name")).toString();
     mEmojiIdentifier = QLatin1Char(':') + mName + QLatin1Char(':');
     if (restApi) {
-        //TODO load it.
+        mUpdatedAt = Utils::parseIsoDate(QLatin1String("_updatedAt"), emoji);
     } else {
-        mUpdatedAt = emoji.value(QLatin1String("_updatedAt")).toObject().value(QLatin1String("$date")).toDouble();
+        mUpdatedAt = Utils::parseDate(QLatin1String("_updatedAt"), emoji);
     }
     const QJsonArray array = emoji.value(QLatin1String("aliases")).toArray();
     const int arrayCount = array.count();
@@ -79,6 +80,7 @@ QString Emoji::html(const QString &serverUrl)
         //TODO verify it.
 
         QString url = serverUrl + QStringLiteral("/emoji-custom/%1.%2").arg(mName).arg(mExtension);
+        // ???? http ? not https ???
         if (!url.startsWith(QLatin1String("http://"))) {
             url.prepend(QLatin1String("http://"));
         }
@@ -178,5 +180,6 @@ QDebug operator <<(QDebug d, const Emoji &t)
     d << "extension: " << t.extension();
     d << "aliases: " << t.aliases();
     d << "UpdatedAt: " << t.updatedAt();
+    d << "EmojiIdentifier: " << t.emojiIdentifier();
     return d;
 }

@@ -155,6 +155,45 @@ void EmojiTest::shouldParseEmoji()
     QVERIFY(emojiIsEqual);
 }
 
+void EmojiTest::shouldParseEmojiRestAPI_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<Emoji>("expectedEmoji");
+    {
+        Emoji emojiRef;
+        emojiRef.setExtension(QStringLiteral("jpg"));
+        emojiRef.setName(QStringLiteral("troll"));
+        emojiRef.setIdentifier(QStringLiteral("2cgzHwKP6Cq3iZCob"));
+        emojiRef.setEmojiIdentifier(QStringLiteral(":troll:"));
+        emojiRef.setUpdatedAt(1485546740427);
+
+        QTest::addRow("emoji") << QStringLiteral("emoji") << emojiRef;
+    }
+
+}
+
+void EmojiTest::shouldParseEmojiRestAPI()
+{
+    QFETCH(QString, name);
+    QFETCH(Emoji, expectedEmoji);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/restapi/") + name + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+    Emoji originalEmoji;
+    originalEmoji.parseEmoji(obj, true);
+    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
+    if (!emojiIsEqual) {
+        qDebug() << "originalEmoji " << originalEmoji;
+        qDebug() << "ExpectedEmoji " << expectedEmoji;
+    }
+    QVERIFY(emojiIsEqual);
+
+}
+
 void EmojiTest::shouldGenerateHtml_data()
 {
     QTest::addColumn<Emoji>("emoji");

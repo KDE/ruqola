@@ -21,6 +21,7 @@
 #include "utils.h"
 #include "ruqola_debug.h"
 #include <QJsonObject>
+#include <QDateTime>
 #include <QJsonArray>
 #include <KTextToHTML>
 #include <qregularexpression.h>
@@ -152,4 +153,9 @@ QString Utils::userIdFromDirectChannel(const QString &rid, const QString &userId
 qint64 Utils::parseDate(const QString &key, const QJsonObject &o)
 {
     return o.value(key).toObject().value(QLatin1String("$date")).toDouble(-1);
+}
+
+qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
+{
+    return QDateTime::fromString(o.value(key).toString(), Qt::ISODate).toMSecsSinceEpoch();
 }
