@@ -359,6 +359,7 @@ void RocketChatAccount::hideRoom(const QString &roomId, const QString &channelTy
 #ifdef USE_REASTAPI_JOB_IMPOSSIBLE
     restApi()->closeChannel(roomId, channelType);
 #else
+    Q_UNUSED(channelType)
     ddp()->hideRoom(roomId);
 #endif
 }
@@ -626,6 +627,14 @@ void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelT
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj)
 {
     qDebug() << " void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj)" << obj;
+#if 0
+    FilesForRoomModel *filesForRoomModel = roomModel()->filesModelForRoom(roomId);
+    if (filesForRoomModel) {
+        filesForRoomModel->setFiles(rocketChatBackend()->files());
+    } else {
+        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
+    }
+#endif
     //TODO generate files list.
 }
 
