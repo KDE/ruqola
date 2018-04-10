@@ -349,6 +349,7 @@ void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelT
         qCWarning(RUQOLA_LOG) << " unsupport change announcement for type " << channelType;
     }
 #else
+    Q_UNUSED(channelType)
     ddp()->leaveRoom(roomId);
 #endif
 }
