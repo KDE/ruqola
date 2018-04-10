@@ -57,7 +57,7 @@ void ChannelFilesJob::slotFilesinChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "close channel success: " << data;
+            qCDebug(RUQOLA_RESTAPI_LOG) << "files in channel success: " << data;
             Q_EMIT channelFilesDone(replyObject);
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to find files in channel" << data;
