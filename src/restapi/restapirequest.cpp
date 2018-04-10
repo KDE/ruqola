@@ -234,7 +234,7 @@ void RestApiRequest::logout()
 void RestApiRequest::channelList()
 {
     ChannelListJob *job = new ChannelListJob(this);
-    //TODO connect(job, &ChannelListJob::channelListDone, this, &RestApiRequest::slotLogout);
+    connect(job, &ChannelListJob::channelListDone, this, &RestApiRequest::channelListDone);
     initializeRestApiJob(job, true);
     job->start();
 }

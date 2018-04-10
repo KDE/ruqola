@@ -99,6 +99,7 @@ Q_SIGNALS:
     void channelFilesDone(const QJsonObject &obj);
     void loadEmojiCustomDone(const QJsonObject &obj);
     void spotlightDone(const QJsonObject &obj);
+    void channelListDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
