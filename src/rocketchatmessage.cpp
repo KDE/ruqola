@@ -542,12 +542,6 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::searchRoomUsers(co
     return generateMethod(QStringLiteral("spotlight"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::uploadRequest(const QJsonObject &result, const QString &serviceUploadType, const QString &roomId, quint64 id)
-{
-    //TODO
-    return {};
-}
-
 //We need to be able to send file for audio/video
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::sendFileMessage(const QJsonObject &result, const QString &serviceUploadType, const QString &roomId, quint64 id)
 {

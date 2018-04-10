@@ -103,7 +103,6 @@ public:
     RocketChatMessage::RocketChatMessageResult desktopNotifications(const QString &roomId, const QString &value, quint64 id);
     RocketChatMessage::RocketChatMessageResult emailNotifications(const QString &roomId, const QString &value, quint64 id);
     RocketChatMessage::RocketChatMessageResult unreadAlert(const QString &roomId, const QString &value, quint64 id);
-    RocketChatMessage::RocketChatMessageResult uploadRequest(const QJsonObject &result, const QString &serviceUploadType, const QString &roomId, quint64 id);
     RocketChatMessage::RocketChatMessageResult deleteFileMessage(const QString &fileId, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomType(const QString &roomId, bool privateChannel, quint64 id);
 private:
