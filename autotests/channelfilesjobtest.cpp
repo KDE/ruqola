@@ -43,30 +43,18 @@ void ChannelFilesJobTest::shouldGenerateRequest()
 {
     ChannelFilesJob job;
     job.setChannelType(ChannelFilesJob::Channel);
+    job.setRoomId(QStringLiteral("foo"));
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.files")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.files?roomId=foo")));
 
     job.setChannelType(ChannelFilesJob::Direct);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.files")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.files?roomId=foo")));
 
     job.setChannelType(ChannelFilesJob::Groups);
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.files")));
-    QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
-}
-
-void ChannelFilesJobTest::shouldGenerateJson()
-{
-    ChannelFilesJob job;
-    const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"roomId\":\"%1\"}")
-             .arg(roomId).toLatin1());
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.files?roomId=foo")));
 }
 
 void ChannelFilesJobTest::shouldNotStarting()

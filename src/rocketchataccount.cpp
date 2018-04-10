@@ -613,12 +613,18 @@ UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) c
 void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
     rocketChatBackend()->clearFilesList();
-#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
+#ifdef USE_REASTAPI_JOB
     restApi()->filesInRoom(roomId, channelType);
+    connect(restApi(), &RestApiRequest::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone, Qt::UniqueConnection);
 #else
     Q_UNUSED(channelType);
     ddp()->roomFiles(roomId);
 #endif
+}
+
+void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj)
+{
+    qDebug() << " void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj)" << obj;
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)

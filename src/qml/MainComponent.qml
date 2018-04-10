@@ -163,7 +163,7 @@ Component {
                         QQC2.MenuItem {
                             text: i18n("Show Files Attachment In Room")
                             onTriggered: {
-                                appid.rocketChatAccount.roomFiles(appid.selectedRoomID);
+                                appid.rocketChatAccount.roomFiles(appid.selectedRoomID, appid.selectedRoom.channelType);
                                 showFilesInRoomDialog.initializeAndOpen()
                             }
                         }

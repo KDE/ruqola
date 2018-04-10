@@ -44,8 +44,6 @@ public:
 
     QNetworkRequest request() const override;
 
-    QJsonDocument json() const;
-
     QString roomId() const;
     void setRoomId(const QString &roomId);
 

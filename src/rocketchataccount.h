@@ -252,6 +252,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
+    void slotChannelFilesDone(const QJsonObject &obj);
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotNeedToUpdateNotification();
     void insertAvatarUrl(const QString &userId, const QString &url);

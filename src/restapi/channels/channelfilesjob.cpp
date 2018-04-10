@@ -25,6 +25,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 
 ChannelFilesJob::ChannelFilesJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -41,9 +42,8 @@ bool ChannelFilesJob::start()
         deleteLater();
         return false;
     }
-    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("ChannelFilesJob::start: " + baPostData);
-    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    addLoggerInfo("ChannelFilesJob::start: ");
+    QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &ChannelFilesJob::slotFilesinChannelFinished);
     return true;
 }
@@ -98,15 +98,6 @@ bool ChannelFilesJob::canStart() const
     return true;
 }
 
-QJsonDocument ChannelFilesJob::json() const
-{
-    QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
-
-    const QJsonDocument postData = QJsonDocument(jsonObj);
-    return postData;
-}
-
 QString ChannelFilesJob::roomId() const
 {
     return mRoomId;
@@ -134,10 +125,13 @@ QNetworkRequest ChannelFilesJob::request() const
         qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelFilesJob: Type is not defined";
         break;
     }
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
+
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
     return request;
 }
