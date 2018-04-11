@@ -163,7 +163,7 @@ public:
     Q_INVOKABLE QString replaceWord(const QString &newWord, const QString &str, int position);
     Q_INVOKABLE void blockUser(const QString &userId, bool block);
     Q_INVOKABLE QString avatarUrlFromDirectChannel(const QString &rid);
-    Q_INVOKABLE void deleteFileMessage(const QString &roomId, const QString &fileId);
+    Q_INVOKABLE void deleteFileMessage(const QString &roomId, const QString &fileId, const QString &channelType);
     Q_INVOKABLE void openDocumentation();
     Q_INVOKABLE void clearSearchModel();
 
@@ -253,7 +253,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
-    void slotChannelFilesDone(const QVector<File> &files);
+    void slotChannelFilesDone(const QVector<File> &files, const QString &roomId);
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotNeedToUpdateNotification();
     void insertAvatarUrl(const QString &userId, const QString &url);

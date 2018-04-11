@@ -313,9 +313,9 @@ QString RocketChatAccount::avatarUrlFromDirectChannel(const QString &rid)
     return mCache->avatarUrl(Utils::userIdFromDirectChannel(rid, userID()));
 }
 
-void RocketChatAccount::deleteFileMessage(const QString &roomId, const QString &fileId)
+void RocketChatAccount::deleteFileMessage(const QString &roomId, const QString &fileId, const QString &channelType)
 {
-    ddp()->deleteFileMessage(roomId, fileId);
+    ddp()->deleteFileMessage(roomId, fileId, channelType);
 }
 
 QString RocketChatAccount::avatarUrl(const QString &userId)
@@ -614,26 +614,23 @@ UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) c
 
 void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
-    rocketChatBackend()->clearFilesList();
 #ifdef USE_REASTAPI_JOB
     connect(restApi(), &RestApiRequest::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone, Qt::UniqueConnection);
     restApi()->filesInRoom(roomId, channelType);
 #else
     Q_UNUSED(channelType);
+    rocketChatBackend()->clearFilesList();
     ddp()->roomFiles(roomId);
 #endif
 }
 
-void RocketChatAccount::slotChannelFilesDone(const QVector<File> &files)
+void RocketChatAccount::slotChannelFilesDone(const QVector<File> &files, const QString &roomId)
 {
-    if (!files.isEmpty()) {
-        const QString rid = files.at(0).rid();
-        FilesForRoomModel *filesForRoomModel = roomModel()->filesModelForRoom(rid);
-        if (filesForRoomModel) {
-            filesForRoomModel->setFiles(files);
-        } else {
-            qCWarning(RUQOLA_LOG) << " Impossible to find room " << rid;
-        }
+    FilesForRoomModel *filesForRoomModel = roomModel()->filesModelForRoom(roomId);
+    if (filesForRoomModel) {
+        filesForRoomModel->setFiles(files);
+    } else {
+        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
     }
 }
 

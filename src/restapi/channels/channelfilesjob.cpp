@@ -61,7 +61,7 @@ void ChannelFilesJob::slotFilesinChannelFinished()
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("channelFilesDone done: ") + replyJson.toJson(QJsonDocument::Indented));
             const QVector<File> files = parseFilesInChannel(replyObject);
-            Q_EMIT channelFilesDone(files);
+            Q_EMIT channelFilesDone(files, mRoomId);
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to find files in channel" << data;
         }

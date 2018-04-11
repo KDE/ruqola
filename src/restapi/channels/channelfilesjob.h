@@ -53,7 +53,7 @@ public:
 
     static QVector<File> parseFilesInChannel(const QJsonObject &obj);
 Q_SIGNALS:
-    void channelFilesDone(const QVector<File> &obj);
+    void channelFilesDone(const QVector<File> &obj, const QString &roomId);
 
 private:
     Q_DISABLE_COPY(ChannelFilesJob)

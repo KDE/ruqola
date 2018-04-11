@@ -347,7 +347,7 @@ Component {
                     downloadFileDialog.open()
                 }
                 onDeleteFile: {
-                    appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileid)
+                    appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileid, appid.selectedRoom.channelType)
                 }
             }
         }

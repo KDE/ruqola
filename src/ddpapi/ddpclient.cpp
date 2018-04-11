@@ -474,17 +474,17 @@ quint64 DDPClient::deleteMessage(const QString &messageId)
     return method(result, delete_message, DDPClient::Persistent);
 }
 
-quint64 DDPClient::deleteFileMessage(const QString &roomId, const QString &fileid)
+quint64 DDPClient::deleteFileMessage(const QString &roomId, const QString &fileid, const QString &channelType)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteFileMessage(fileid, m_uid);    
 
-    std::function<void(QJsonObject, RocketChatAccount *)> callback = [ roomId ](const QJsonObject &root, RocketChatAccount *account) {
+    std::function<void(QJsonObject, RocketChatAccount *)> callback = [ roomId, channelType ](const QJsonObject &root, RocketChatAccount *account) {
         if (account->ruqolaLogger()) {
             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Attachment File:") + QJsonDocument(root).toJson());
         } else {
             qCDebug(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
         }
-        account->roomFiles(roomId);
+        account->roomFiles(roomId, channelType);
     };
 
     return method(result, callback, DDPClient::Persistent);

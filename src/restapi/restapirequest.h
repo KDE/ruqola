@@ -97,7 +97,7 @@ Q_SIGNALS:
     void getServerInfoDone(const QString &version);
     void getOwnInfoDone(const QJsonObject &data);
     void privateInfoDone(const QByteArray &data);
-    void channelFilesDone(const QVector<File> &obj);
+    void channelFilesDone(const QVector<File> &obj, const QString &roomId);
     void loadEmojiCustomDone(const QJsonObject &obj);
     void spotlightDone(const QJsonObject &obj);
     void channelListDone(const QJsonObject &obj);
