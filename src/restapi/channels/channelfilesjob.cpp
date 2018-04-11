@@ -23,6 +23,7 @@
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
 #include "file.h"
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -70,7 +71,15 @@ void ChannelFilesJob::slotFilesinChannelFinished()
 
 QVector<File> ChannelFilesJob::parseFilesInChannel(const QJsonObject &obj)
 {
-    return {};
+    QVector<File> files;
+    const QJsonArray filesArray = obj.value(QLatin1String("files")).toArray();
+    for (int i = 0; i < filesArray.count(); ++i) {
+        QJsonObject fileObj = filesArray.at(i).toObject();
+        File f;
+        f.parseFile(fileObj, true);
+        files.append(f);
+    }
+    return files;
 }
 
 ChannelFilesJob::ChannelType ChannelFilesJob::channelType() const
