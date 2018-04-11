@@ -23,6 +23,7 @@
 
 #include "restapiabstractjob.h"
 #include "libruqola_private_export.h"
+#include "file.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT ChannelFilesJob : public RestApiAbstractJob
 {
@@ -50,8 +51,9 @@ public:
     ChannelType channelType() const;
     void setChannelType(const ChannelType &channelType);
 
+    static QVector<File> parseFilesInChannel(const QJsonObject &obj);
 Q_SIGNALS:
-    void channelFilesDone(const QJsonObject &obj);
+    void channelFilesDone(const QVector<File> &obj);
 
 private:
     Q_DISABLE_COPY(ChannelFilesJob)

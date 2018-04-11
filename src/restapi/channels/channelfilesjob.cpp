@@ -22,6 +22,7 @@
 
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
+#include "file.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -58,13 +59,18 @@ void ChannelFilesJob::slotFilesinChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("channelFilesDone done: ") + replyJson.toJson(QJsonDocument::Indented));
-            //TODO parse file!
-            Q_EMIT channelFilesDone(replyObject);
+            const QVector<File> files = parseFilesInChannel(replyObject);
+            Q_EMIT channelFilesDone(files);
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to find files in channel" << data;
         }
     }
     deleteLater();
+}
+
+QVector<File> ChannelFilesJob::parseFilesInChannel(const QJsonObject &obj)
+{
+    return {};
 }
 
 ChannelFilesJob::ChannelType ChannelFilesJob::channelType() const

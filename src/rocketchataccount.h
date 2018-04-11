@@ -27,6 +27,7 @@
 #include "rocketchataccountsettings.h"
 #include "libruqola_private_export.h"
 #include "authenticationinfo.h"
+#include "file.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -252,7 +253,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
-    void slotChannelFilesDone(const QJsonObject &obj);
+    void slotChannelFilesDone(const QVector<File> &files);
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotNeedToUpdateNotification();
     void insertAvatarUrl(const QString &userId, const QString &url);

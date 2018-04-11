@@ -615,27 +615,26 @@ UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) c
 void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
     rocketChatBackend()->clearFilesList();
-#ifdef USE_REASTAPI_JOB_IMPOSSIBLE
-    restApi()->filesInRoom(roomId, channelType);
+#ifdef USE_REASTAPI_JOB
     connect(restApi(), &RestApiRequest::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone, Qt::UniqueConnection);
+    restApi()->filesInRoom(roomId, channelType);
 #else
     Q_UNUSED(channelType);
     ddp()->roomFiles(roomId);
 #endif
 }
 
-void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj)
+void RocketChatAccount::slotChannelFilesDone(const QVector<File> &files)
 {
-    qDebug() << " void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj)" << obj;
-#if 0
-    FilesForRoomModel *filesForRoomModel = roomModel()->filesModelForRoom(roomId);
-    if (filesForRoomModel) {
-        filesForRoomModel->setFiles(rocketChatBackend()->files());
-    } else {
-        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
+    if (!files.isEmpty()) {
+        const QString rid = files.at(0).rid();
+        FilesForRoomModel *filesForRoomModel = roomModel()->filesModelForRoom(rid);
+        if (filesForRoomModel) {
+            filesForRoomModel->setFiles(files);
+        } else {
+            qCWarning(RUQOLA_LOG) << " Impossible to find room " << rid;
+        }
     }
-#endif
-    //TODO generate files list.
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)

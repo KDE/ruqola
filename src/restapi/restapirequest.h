@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
+#include <file.h>
 #include "restapiutil.h"
 
 class QNetworkAccessManager;
@@ -96,7 +97,7 @@ Q_SIGNALS:
     void getServerInfoDone(const QString &version);
     void getOwnInfoDone(const QJsonObject &data);
     void privateInfoDone(const QByteArray &data);
-    void channelFilesDone(const QJsonObject &obj);
+    void channelFilesDone(const QVector<File> &obj);
     void loadEmojiCustomDone(const QJsonObject &obj);
     void spotlightDone(const QJsonObject &obj);
     void channelListDone(const QJsonObject &obj);
