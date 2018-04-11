@@ -71,6 +71,7 @@ void ChannelFilesJob::slotFilesinChannelFinished()
 
 QVector<File> ChannelFilesJob::parseFilesInChannel(const QJsonObject &obj)
 {
+    //TODO add autotests
     QVector<File> files;
     const QJsonArray filesArray = obj.value(QLatin1String("files")).toArray();
     for (int i = 0; i < filesArray.count(); ++i) {
