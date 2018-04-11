@@ -114,6 +114,19 @@ void FileTest::shouldParseFile_data()
         expected.setRid(QStringLiteral("GENERAL"));
         QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected << false;
     }
+    {
+        //RestAPI
+        File expected;
+        expected.setName(QStringLiteral("Clipboard - February 7, 2018 8:59 AM"));
+        expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM"));
+        expected.setUserId(QStringLiteral("vEETYfDxakqpM88Zt"));
+        expected.setDescription(QString());
+        expected.setMimeType(QStringLiteral("image/png"));
+        expected.setUploadedAt(1517990371911);
+        expected.setFileId(QStringLiteral("AoqRSa6GMt3wXCeSo"));
+        expected.setRid(QStringLiteral("GENERAL"));
+        QTest::newRow("roomfile1-restapi") << QStringLiteral("roomfile1") << expected << true;
+    }
 }
 
 void FileTest::shouldParseFile()
@@ -123,9 +136,9 @@ void FileTest::shouldParseFile()
     QFETCH(bool, usingRestApi);
     QString originalJsonFile;
     if (usingRestApi) {
-        originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + fileName + QStringLiteral(".json");
-    } else {
         originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/restapi/") + fileName + QStringLiteral(".json");
+    } else {
+        originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + fileName + QStringLiteral(".json");
     }
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));

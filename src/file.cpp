@@ -26,7 +26,7 @@ File::File()
 
 void File::parseFile(const QJsonObject &object, bool restApi)
 {
-    const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
+    const QJsonObject fields = restApi ? object : object.value(QLatin1String("fields")).toObject();
     setUserId(fields.value(QLatin1String("userId")).toString());
 
     setName(fields.value(QLatin1String("name")).toString());
@@ -38,7 +38,7 @@ void File::parseFile(const QJsonObject &object, bool restApi)
     } else {
         setUploadedAt(Utils::parseDate(QLatin1String("uploadedAt"), fields));
     }
-    setFileId(object.value(QLatin1String("id")).toString());
+    setFileId(restApi ? object.value(QLatin1String("_id")).toString() : object.value(QLatin1String("id")).toString());
 }
 
 QString File::name() const
