@@ -31,7 +31,7 @@ class LIBRUQOLACORE_TESTS_EXPORT File
 public:
     File();
 
-    void parseFile(const QJsonObject &json);
+    void parseFile(const QJsonObject &json, bool restApi = false);
     QString name() const;
     void setName(const QString &name);
 
@@ -56,6 +56,9 @@ public:
     QString fileId() const;
     void setFileId(const QString &fileId);
 
+    QString rid() const;
+    void setRid(const QString &rid);
+
 private:
     QString mName;
     QString mDescription;
@@ -63,6 +66,7 @@ private:
     QString mUrl;
     QString mMimeType;
     QString mFileId;
+    QString mRid;
     qint64 mUploadedAt = -1;
 };
 Q_DECLARE_METATYPE(File)

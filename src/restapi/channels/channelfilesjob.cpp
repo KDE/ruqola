@@ -58,6 +58,7 @@ void ChannelFilesJob::slotFilesinChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             qCDebug(RUQOLA_RESTAPI_LOG) << "files in channel success: " << data;
+            //TODO parse file!
             Q_EMIT channelFilesDone(replyObject);
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to find files in channel" << data;

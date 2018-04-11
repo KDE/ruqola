@@ -24,7 +24,7 @@ File::File()
 {
 }
 
-void File::parseFile(const QJsonObject &object)
+void File::parseFile(const QJsonObject &object, bool restApi)
 {
     const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
     setUserId(fields.value(QLatin1String("userId")).toString());
@@ -33,7 +33,12 @@ void File::parseFile(const QJsonObject &object)
     setName(fields.value(QLatin1String("name")).toString());
     setMimeType(fields.value(QLatin1String("type")).toString());
     setUrl(fields.value(QLatin1String("url")).toString());
-    setUploadedAt(Utils::parseDate(QLatin1String("uploadedAt"), fields));
+    setRid(fields.value(QLatin1String("rid")).toString());
+    if (restApi) {
+        setUploadedAt(Utils::parseIsoDate(QLatin1String("uploadedAt"), fields));
+    } else {
+        setUploadedAt(Utils::parseDate(QLatin1String("uploadedAt"), fields));
+    }
     setFileId(object.value(QLatin1String("id")).toString());
 }
 
@@ -65,7 +70,8 @@ bool File::operator ==(const File &other) const
            && (userId() == other.userId())
            && (mimeType() == other.mimeType())
            && (uploadedAt() == other.uploadedAt())
-           && (fileId() == other.fileId());
+           && (fileId() == other.fileId())
+            && (rid() == other.rid());
 }
 
 File &File::operator=(const File &other)
@@ -77,6 +83,7 @@ File &File::operator=(const File &other)
     mMimeType = other.mimeType();
     mUploadedAt = other.uploadedAt();
     mFileId = other.fileId();
+    mRid = other.rid();
     return *this;
 }
 
@@ -130,6 +137,16 @@ void File::setFileId(const QString &fileId)
     mFileId = fileId;
 }
 
+QString File::rid() const
+{
+    return mRid;
+}
+
+void File::setRid(const QString &rid)
+{
+    mRid = rid;
+}
+
 QDebug operator <<(QDebug d, const File &t)
 {
     d << "Name : " << t.name();
@@ -139,5 +156,6 @@ QDebug operator <<(QDebug d, const File &t)
     d << "Mimetype : "<< t.mimeType();
     d << "Uploaded time: " << t.uploadedAt();
     d << "File Id: " << t.fileId();
+    d << "Rid: " << t.rid();
     return d;
 }
