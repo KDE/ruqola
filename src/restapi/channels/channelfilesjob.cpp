@@ -57,7 +57,7 @@ void ChannelFilesJob::slotFilesinChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "files in channel success: " << data;
+            addLoggerInfo(QByteArrayLiteral("channelFilesDone done: ") + replyJson.toJson(QJsonDocument::Indented));
             //TODO parse file!
             Q_EMIT channelFilesDone(replyObject);
         } else {
