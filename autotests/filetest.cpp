@@ -102,16 +102,18 @@ void FileTest::shouldParseFile_data()
     QTest::addColumn<QString>("fileName");
     QTest::addColumn<File>("expectedFile");
     QTest::addColumn<bool>("usingRestApi");
-    File expected;
-    expected.setName(QStringLiteral("191135.jpg"));
-    expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/ybWLKB4FpCkzQXsa/191135.jpg"));
-    expected.setUserId(QStringLiteral("aX7va58FuNuq4bcti"));
-    expected.setDescription(QString());
-    expected.setMimeType(QStringLiteral("image/jpeg"));
-    expected.setUploadedAt(1507828418338);
-    expected.setFileId(QStringLiteral("ybWLKB4FepCkzQXsa"));
-    expected.setRid(QStringLiteral("GENERAL"));
-    QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected << false;
+    {
+        File expected;
+        expected.setName(QStringLiteral("191135.jpg"));
+        expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/ybWLKB4FpCkzQXsa/191135.jpg"));
+        expected.setUserId(QStringLiteral("aX7va58FuNuq4bcti"));
+        expected.setDescription(QString());
+        expected.setMimeType(QStringLiteral("image/jpeg"));
+        expected.setUploadedAt(1507828418338);
+        expected.setFileId(QStringLiteral("ybWLKB4FepCkzQXsa"));
+        expected.setRid(QStringLiteral("GENERAL"));
+        QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected << false;
+    }
 }
 
 void FileTest::shouldParseFile()
