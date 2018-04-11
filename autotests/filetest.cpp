@@ -101,6 +101,7 @@ void FileTest::shouldParseFile_data()
 {
     QTest::addColumn<QString>("fileName");
     QTest::addColumn<File>("expectedFile");
+    QTest::addColumn<bool>("usingRestApi");
     File expected;
     expected.setName(QStringLiteral("191135.jpg"));
     expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/ybWLKB4FpCkzQXsa/191135.jpg"));
@@ -110,14 +111,20 @@ void FileTest::shouldParseFile_data()
     expected.setUploadedAt(1507828418338);
     expected.setFileId(QStringLiteral("ybWLKB4FepCkzQXsa"));
     expected.setRid(QStringLiteral("GENERAL"));
-    QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected;
+    QTest::newRow("roomfile1") << QStringLiteral("roomfile1") << expected << false;
 }
 
 void FileTest::shouldParseFile()
 {
     QFETCH(QString, fileName);
     QFETCH(File, expectedFile);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + fileName + QStringLiteral(".json");
+    QFETCH(bool, usingRestApi);
+    QString originalJsonFile;
+    if (usingRestApi) {
+        originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + fileName + QStringLiteral(".json");
+    } else {
+        originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/restapi/") + fileName + QStringLiteral(".json");
+    }
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -126,7 +133,7 @@ void FileTest::shouldParseFile()
     const QJsonObject fields = doc.object();
 
     File newFile;
-    newFile.parseFile(fields);
+    newFile.parseFile(fields, usingRestApi);
     const bool equal = (newFile == expectedFile);
     if (!equal) {
         qDebug() << " current value " << newFile;
