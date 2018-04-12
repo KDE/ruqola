@@ -37,6 +37,7 @@ void ChannelHistoryJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QCOMPARE(job.channelType(), ChannelHistoryJob::ChannelType::Unknown);
+    QCOMPARE(job.count(), -1);
 }
 
 void ChannelHistoryJobTest::shouldGenerateRequest()

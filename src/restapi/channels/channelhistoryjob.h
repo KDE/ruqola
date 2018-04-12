@@ -52,6 +52,9 @@ public:
     ChannelType channelType() const;
     void setChannelType(const ChannelType &channelType);
 
+    int count() const;
+    void setCount(int count);
+
 Q_SIGNALS:
     void ChannelHistoryDone();
 
@@ -60,6 +63,8 @@ private:
     void slotLoadHistoryChannelFinished();
     QString mRoomId;
     ChannelType mChannelType = Unknown;
+    int mCount = -1;
+    //TODO add latest/oldest
 };
 
 #endif // CHANNELHISTORYJOB_H

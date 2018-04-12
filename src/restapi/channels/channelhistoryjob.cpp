@@ -66,6 +66,16 @@ void ChannelHistoryJob::slotLoadHistoryChannelFinished()
     deleteLater();
 }
 
+int ChannelHistoryJob::count() const
+{
+    return mCount;
+}
+
+void ChannelHistoryJob::setCount(int count)
+{
+    mCount = count;
+}
+
 ChannelHistoryJob::ChannelType ChannelHistoryJob::channelType() const
 {
     return mChannelType;

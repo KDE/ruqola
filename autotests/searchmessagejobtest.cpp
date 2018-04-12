@@ -35,6 +35,8 @@ void searchMessageJobTest::shouldHaveDefaultValue()
     SearchMessageJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(job.searchText().isEmpty());
+    QVERIFY(job.roomId().isEmpty());
 }
 
 void searchMessageJobTest::shouldGenerateRequest()
