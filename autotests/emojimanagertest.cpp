@@ -84,7 +84,6 @@ void EmojiManagerTest::shouldParseEmojiRestApi()
     QCOMPARE(manager.count(), number);
 }
 
-
 void EmojiManagerTest::shouldGenerateHtml()
 {
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + QStringLiteral("emojiparent") + QStringLiteral(".json");

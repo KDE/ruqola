@@ -70,7 +70,7 @@ bool File::operator ==(const File &other) const
            && (mimeType() == other.mimeType())
            && (uploadedAt() == other.uploadedAt())
            && (fileId() == other.fileId())
-            && (rid() == other.rid());
+           && (rid() == other.rid());
 }
 
 File &File::operator=(const File &other)

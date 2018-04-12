@@ -169,7 +169,6 @@ void EmojiTest::shouldParseEmojiRestAPI_data()
 
         QTest::addRow("emoji") << QStringLiteral("emoji") << emojiRef;
     }
-
 }
 
 void EmojiTest::shouldParseEmojiRestAPI()
@@ -191,7 +190,6 @@ void EmojiTest::shouldParseEmojiRestAPI()
         qDebug() << "ExpectedEmoji " << expectedEmoji;
     }
     QVERIFY(emojiIsEqual);
-
 }
 
 void EmojiTest::shouldGenerateHtml_data()
