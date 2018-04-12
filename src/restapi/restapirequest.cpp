@@ -43,6 +43,7 @@
 #include "chat/deletemessagejob.h"
 #include "chat/updatemessagejob.h"
 #include "chat/reactonmessagejob.h"
+#include "chat/searchmessagejob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
@@ -525,5 +526,15 @@ void RestApiRequest::searchRoomUser(const QString &pattern)
     job->setSearchPattern(pattern);
     initializeRestApiJob(job, true);
     connect(job, &SpotlightJob::spotlightDone, this, &RestApiRequest::spotlightDone);
+    job->start();
+}
+
+void RestApiRequest::searchMessages(const QString &roomId, const QString &pattern)
+{
+    SearchMessageJob *job = new SearchMessageJob(this);
+    job->setRoomId(roomId);
+    job->setSearchText(pattern);
+    initializeRestApiJob(job, true);
+    connect(job, &SearchMessageJob::searchMessageDone, this, &RestApiRequest::searchMessageDone);
     job->start();
 }

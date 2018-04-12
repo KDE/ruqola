@@ -255,6 +255,7 @@ private:
     Q_DISABLE_COPY(RocketChatAccount)
     void slotChannelFilesDone(const QVector<File> &files, const QString &roomId);
     void loadEmojiRestApi(const QJsonObject &obj);
+    void slotSearchMessages(const QJsonObject &obj);
     void slotNeedToUpdateNotification();
     void insertAvatarUrl(const QString &userId, const QString &url);
     void loadSettings(const QString &accountFileName);

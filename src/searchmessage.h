@@ -31,7 +31,7 @@ class LIBRUQOLACORE_TESTS_EXPORT SearchMessage
 public:
     SearchMessage();
 
-    void parseResult(const QJsonObject &obj);
+    void parseResult(const QJsonObject &obj, bool restApi);
     QString text() const;
     qint64 timeStamp() const;
 private:

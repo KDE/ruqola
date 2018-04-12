@@ -23,9 +23,9 @@ SearchMessage::SearchMessage()
 {
 }
 
-void SearchMessage::parseResult(const QJsonObject &obj)
+void SearchMessage::parseResult(const QJsonObject &obj, bool restApi)
 {
-    mMessage.parseMessage(obj);
+    mMessage.parseMessage(obj, restApi);
 }
 
 qint64 SearchMessage::timeStamp() const

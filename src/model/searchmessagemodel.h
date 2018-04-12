@@ -47,7 +47,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     int rowCount(const QModelIndex &parent = {}) const override;
-    void parseResult(const QJsonObject &obj);
+    void parseResult(const QJsonObject &obj, bool restApi = false);
     void clear();
 private:
     Q_DISABLE_COPY(SearchMessageModel)

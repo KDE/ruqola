@@ -655,8 +655,18 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
     if (pattern.isEmpty()) {
         clearSearchModel();
     } else {
+#ifdef USE_REASTAPI_JOB
+        connect(restApi(), &RestApiRequest::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
+        restApi()->searchMessages(rid, pattern);
+#else
         ddp()->messageSearch(rid, pattern);
+#endif
     }
+}
+
+void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
+{
+    mSearchMessageModel->parseResult(obj, true);
 }
 
 void RocketChatAccount::starMessage(const QString &messageId, const QString &rid, bool starred)

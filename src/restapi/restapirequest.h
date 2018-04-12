@@ -89,6 +89,7 @@ public:
 
     void listEmojiCustom();
     void searchRoomUser(const QString &pattern);
+    void searchMessages(const QString &roomId, const QString &pattern);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -101,6 +102,7 @@ Q_SIGNALS:
     void loadEmojiCustomDone(const QJsonObject &obj);
     void spotlightDone(const QJsonObject &obj);
     void channelListDone(const QJsonObject &obj);
+    void searchMessageDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

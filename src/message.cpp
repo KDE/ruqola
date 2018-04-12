@@ -29,7 +29,7 @@ Message::Message()
 {
 }
 
-void Message::parseMessage(const QJsonObject &o)
+void Message::parseMessage(const QJsonObject &o, bool restApi)
 {
     const QString roomId = o.value(QLatin1String("rid")).toString();
 
@@ -39,11 +39,17 @@ void Message::parseMessage(const QJsonObject &o)
     mMessageId = o.value(QLatin1String("_id")).toString();
     mRoomId = roomId;
     mText = o.value(QLatin1String("msg")).toString();
-    mTimeStamp = Utils::parseDate(QLatin1String("ts"), o);
+    if (restApi) {
+        mUpdatedAt = Utils::parseIsoDate(QLatin1String("_updatedAt"), o);
+        mEditedAt = Utils::parseIsoDate(QLatin1String("editedAt"), o);
+        mTimeStamp = Utils::parseIsoDate(QLatin1String("ts"), o);
+    } else {
+        mTimeStamp = Utils::parseDate(QLatin1String("ts"), o);
+        mUpdatedAt = Utils::parseDate(QLatin1String("_updatedAt"), o);
+        mEditedAt = Utils::parseDate(QLatin1String("editedAt"), o);
+    }
     mUsername = o.value(QLatin1String("u")).toObject().value(QLatin1String("username")).toString();
     mUserId = o.value(QLatin1String("u")).toObject().value(QLatin1String("_id")).toString();
-    mUpdatedAt = Utils::parseDate(QLatin1String("_updatedAt"), o);
-    mEditedAt = Utils::parseDate(QLatin1String("editedAt"), o);
     mEditedByUsername = o.value(QLatin1String("editedBy")).toObject().value(QLatin1String("username")).toString();
     mEditedByUserId = o.value(QLatin1String("editedBy")).toObject().value(QLatin1String("_id")).toString();
     mAlias = o.value(QLatin1String("alias")).toString();

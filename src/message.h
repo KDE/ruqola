@@ -74,7 +74,7 @@ public:
     */
     static QByteArray serialize(const Message &message, bool toBinary = true);
 
-    void parseMessage(const QJsonObject &o);
+    void parseMessage(const QJsonObject &o, bool restApi = false);
 
     bool operator==(const Message &other) const;
 
