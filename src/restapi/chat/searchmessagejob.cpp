@@ -42,7 +42,7 @@ bool SearchMessageJob::requireHttpAuthentication() const
 bool SearchMessageJob::start()
 {
     if (!canStart()) {
-	qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start search message job";
+    qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start search message job";
         deleteLater();
         return false;
     }
@@ -59,10 +59,30 @@ void SearchMessageJob::slotSearchMessageFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-	addLoggerInfo(QByteArrayLiteral("SearchMessageJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-	Q_EMIT searchMessageDone(replyObject);
+    addLoggerInfo(QByteArrayLiteral("SearchMessageJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+    Q_EMIT searchMessageDone(replyObject);
     }
     deleteLater();
+}
+
+QString SearchMessageJob::searchText() const
+{
+    return mSearchText;
+}
+
+void SearchMessageJob::setSearchText(const QString &searchText)
+{
+    mSearchText = searchText;
+}
+
+QString SearchMessageJob::roomId() const
+{
+    return mRoomId;
+}
+
+void SearchMessageJob::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
 }
 
 QNetworkRequest SearchMessageJob::request() const

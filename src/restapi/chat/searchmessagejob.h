@@ -39,12 +39,20 @@ public:
 
     QNetworkRequest request() const override;
 
+    QString roomId() const;
+    void setRoomId(const QString &roomId);
+
+    QString searchText() const;
+    void setSearchText(const QString &searchText);
+
 Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(SearchMessageJob)
     void slotSearchMessageFinished();
+    QString mRoomId;
+    QString mSearchText;
 };
 
 #endif // SEARCHMESSAGEJOB_H
