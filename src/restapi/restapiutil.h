@@ -44,6 +44,7 @@ enum class RestApiUrlType {
     ChatPinMessage,
     ChatPostMessage,
     ChatReact,
+    ChatSearch,
     ChatStarMessage,
     ChatUnPinMessage,
     ChatUnStarMessage,

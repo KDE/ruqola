@@ -72,6 +72,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatUnPinMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.unPinMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatUnStarMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.unStarMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.update")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatSearch), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.search")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addAll")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddModerator), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addModerator")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddOwner), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addOwner")));
