@@ -24,6 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 
 SearchMessageJob::SearchMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -42,7 +43,7 @@ bool SearchMessageJob::requireHttpAuthentication() const
 bool SearchMessageJob::start()
 {
     if (!canStart()) {
-    qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start search message job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start search message job";
         deleteLater();
         return false;
     }
@@ -87,10 +88,31 @@ void SearchMessageJob::setRoomId(const QString &roomId)
 
 QNetworkRequest SearchMessageJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatSearch);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatSearch);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("searchText"), mSearchText);
+    url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     return request;
+}
+
+bool SearchMessageJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start star message job";
+        return false;
+    }
+    if (mRoomId.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "RoomId is empty";
+        return false;
+    }
+    if (mSearchText.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "SearchText is empty";
+        return false;
+    }
+    return true;
 }

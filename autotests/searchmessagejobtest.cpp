@@ -41,6 +41,8 @@ void searchMessageJobTest::shouldGenerateRequest()
 {
     SearchMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
+    job.setRoomId(QStringLiteral("foo"));
+    job.setSearchText(QStringLiteral("bla"));
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/me")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.search?roomId=foo&searchText=bla")));
 }
