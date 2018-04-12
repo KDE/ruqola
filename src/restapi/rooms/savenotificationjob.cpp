@@ -54,14 +54,20 @@ void SaveNotificationJob::slotPinMessage()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-	addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: finished: ") + data);
-        if (mPinMessage) {
-            Q_EMIT pinMessageDone();
-        } else {
-            Q_EMIT unPinMessageDone();
-        }
+        addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: finished: ") + data);
+        Q_EMIT pinMessageDone();
     }
     deleteLater();
+}
+
+QString SaveNotificationJob::roomId() const
+{
+    return mRoomId;
+}
+
+void SaveNotificationJob::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
 }
 
 bool SaveNotificationJob::requireHttpAuthentication() const
@@ -72,11 +78,11 @@ bool SaveNotificationJob::requireHttpAuthentication() const
 bool SaveNotificationJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-	qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SaveNotificationJob";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SaveNotificationJob";
         return false;
     }
-    if (mMessageId.isEmpty()) {
-	qCWarning(RUQOLA_RESTAPI_LOG) << "SaveNotificationJob: mMessageId is empty";
+    if (mRoomId.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "SaveNotificationJob: mRoomId is empty";
         return false;
     }
     return true;
@@ -84,7 +90,7 @@ bool SaveNotificationJob::canStart() const
 
 QNetworkRequest SaveNotificationJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(mPinMessage ? RestApiUtil::RestApiUrlType::ChatPinMessage : RestApiUtil::RestApiUrlType::ChatUnPinMessage);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsSaveNotification);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
@@ -93,30 +99,10 @@ QNetworkRequest SaveNotificationJob::request() const
     return request;
 }
 
-QString SaveNotificationJob::messageId() const
-{
-    return mMessageId;
-}
-
-void SaveNotificationJob::setMessageId(const QString &messageId)
-{
-    mMessageId = messageId;
-}
-
-bool SaveNotificationJob::pinMessage() const
-{
-    return mPinMessage;
-}
-
-void SaveNotificationJob::setPinMessage(bool pinMessage)
-{
-    mPinMessage = pinMessage;
-}
-
 QJsonDocument SaveNotificationJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("messageId")] = mMessageId;
+    jsonObj[QLatin1String("roomId")] = mRoomId;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

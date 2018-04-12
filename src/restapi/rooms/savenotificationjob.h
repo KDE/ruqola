@@ -36,22 +36,18 @@ public:
     bool canStart() const override;
     QNetworkRequest request() const override;
 
-    QString messageId() const;
-    void setMessageId(const QString &messageId);
-
-    bool pinMessage() const;
-    void setPinMessage(bool pinMessage);
-
     QJsonDocument json() const;
+
+    QString roomId() const;
+    void setRoomId(const QString &roomId);
+
 Q_SIGNALS:
     void pinMessageDone();
-    void unPinMessageDone();
 
 private:
     Q_DISABLE_COPY(SaveNotificationJob)
     void slotPinMessage();
-    QString mMessageId;
-    bool mPinMessage = true;
+    QString mRoomId;
 };
 
 #endif // SAVENOTIFICATIONJOB_H
