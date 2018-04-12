@@ -55,6 +55,8 @@ set (Ruqola_restapi_SRCS
     restapi/groups/groupsinvitejob.cpp
 
     restapi/directmessage/createdmjob.cpp
+
+    restapi/rooms/savenotificationjob.cpp
     )
 
 set(Ruqola_ddpapi_SRCS
