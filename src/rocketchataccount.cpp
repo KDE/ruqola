@@ -425,8 +425,12 @@ void RocketChatAccount::logOut()
 
 void RocketChatAccount::clearUnreadMessages(const QString &roomId)
 {
+#ifdef USE_REASTAPI_JOB
+    restApi()->markAsRead(roomId);
+#else
     //TODO don't send message when we don't have unread message
     ddp()->clearUnreadMessages(roomId);
+#endif
 }
 
 void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)

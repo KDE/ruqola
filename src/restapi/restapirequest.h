@@ -90,6 +90,7 @@ public:
     void listEmojiCustom();
     void searchRoomUser(const QString &pattern);
     void searchMessages(const QString &roomId, const QString &pattern);
+    void markAsRead(const QString &roomId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

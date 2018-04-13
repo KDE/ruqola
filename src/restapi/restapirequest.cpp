@@ -65,6 +65,8 @@
 
 #include "directmessage/createdmjob.h"
 
+#include "subscriptions/markroomasreadjob.h"
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
@@ -536,5 +538,13 @@ void RestApiRequest::searchMessages(const QString &roomId, const QString &patter
     job->setSearchText(pattern);
     initializeRestApiJob(job, true);
     connect(job, &SearchMessageJob::searchMessageDone, this, &RestApiRequest::searchMessageDone);
+    job->start();
+}
+
+void RestApiRequest::markAsRead(const QString &roomId)
+{
+    MarkRoomAsReadJob *job = new MarkRoomAsReadJob(this);
+    job->setRoomId(roomId);
+    initializeRestApiJob(job, true);
     job->start();
 }

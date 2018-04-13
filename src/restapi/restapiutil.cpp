@@ -215,6 +215,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("im.files");
     case RestApiUtil::RestApiUrlType::LoadEmojiCustom:
         return QStringLiteral("emoji-custom");
+    case RestApiUtil::RestApiUrlType::SubscriptionsRead:
+        return QStringLiteral("subscriptions.read");
     }
     qCWarning(RUQOLA_RESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
