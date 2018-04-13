@@ -42,7 +42,7 @@ bool SaveNotificationJob::start()
         return false;
     }
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("StarMessageJob::start: " + baPostData);
+    addLoggerInfo("SaveNotificationJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     connect(reply, &QNetworkReply::finished, this, &SaveNotificationJob::slotPinMessage);
     addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: start"));
