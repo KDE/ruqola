@@ -60,6 +60,86 @@ void SaveNotificationJob::slotPinMessage()
     deleteLater();
 }
 
+QString SaveNotificationJob::unreadAlert() const
+{
+    return mUnreadAlert;
+}
+
+void SaveNotificationJob::setUnreadAlert(const QString &unreadAlert)
+{
+    mUnreadAlert = unreadAlert;
+}
+
+int SaveNotificationJob::desktopNotificationDuration() const
+{
+    return mDesktopNotificationDuration;
+}
+
+void SaveNotificationJob::setDesktopNotificationDuration(int desktopNotificationDuration)
+{
+    mDesktopNotificationDuration = desktopNotificationDuration;
+}
+
+QString SaveNotificationJob::audioNotificationValue() const
+{
+    return mAudioNotificationValue;
+}
+
+void SaveNotificationJob::setAudioNotificationValue(const QString &audioNotificationValue)
+{
+    mAudioNotificationValue = audioNotificationValue;
+}
+
+QString SaveNotificationJob::mobilePushNotifications() const
+{
+    return mMobilePushNotifications;
+}
+
+void SaveNotificationJob::setMobilePushNotifications(const QString &mobilePushNotifications)
+{
+    mMobilePushNotifications = mobilePushNotifications;
+}
+
+QString SaveNotificationJob::audioNotifications() const
+{
+    return mAudioNotifications;
+}
+
+void SaveNotificationJob::setAudioNotifications(const QString &audioNotifications)
+{
+    mAudioNotifications = audioNotifications;
+}
+
+QString SaveNotificationJob::emailNotifications() const
+{
+    return mEmailNotifications;
+}
+
+void SaveNotificationJob::setEmailNotifications(const QString &emailNotifications)
+{
+    mEmailNotifications = emailNotifications;
+}
+
+bool SaveNotificationJob::hideUnreadStatus() const
+{
+    return mHideUnreadStatus;
+}
+
+void SaveNotificationJob::setHideUnreadStatus(bool hideUnreadStatus)
+{
+    mHideUnreadStatus = hideUnreadStatus;
+}
+
+bool SaveNotificationJob::disableNotifications() const
+{
+    return mDisableNotifications;
+}
+
+void SaveNotificationJob::setDisableNotifications(bool disableNotifications)
+{
+    mDisableNotifications = disableNotifications;
+}
+
 QString SaveNotificationJob::roomId() const
 {
     return mRoomId;

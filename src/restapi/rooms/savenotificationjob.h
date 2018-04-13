@@ -41,6 +41,30 @@ public:
     QString roomId() const;
     void setRoomId(const QString &roomId);
 
+    bool disableNotifications() const;
+    void setDisableNotifications(bool disableNotifications);
+
+    bool hideUnreadStatus() const;
+    void setHideUnreadStatus(bool hideUnreadStatus);
+
+    QString emailNotifications() const;
+    void setEmailNotifications(const QString &emailNotifications);
+
+    QString audioNotifications() const;
+    void setAudioNotifications(const QString &audioNotifications);
+
+    QString mobilePushNotifications() const;
+    void setMobilePushNotifications(const QString &mobilePushNotifications);
+
+    QString audioNotificationValue() const;
+    void setAudioNotificationValue(const QString &audioNotificationValue);
+
+    int desktopNotificationDuration() const;
+    void setDesktopNotificationDuration(int desktopNotificationDuration);
+
+    QString unreadAlert() const;
+    void setUnreadAlert(const QString &unreadAlert);
+
 Q_SIGNALS:
     void pinMessageDone();
 
@@ -48,6 +72,15 @@ private:
     Q_DISABLE_COPY(SaveNotificationJob)
     void slotPinMessage();
     QString mRoomId;
+
+    QString mEmailNotifications;
+    QString mAudioNotifications;
+    QString mMobilePushNotifications;
+    QString mAudioNotificationValue;
+    QString mUnreadAlert;
+    int mDesktopNotificationDuration = 0;
+    bool mDisableNotifications = false;
+    bool mHideUnreadStatus = false;
 };
 
 #endif // SAVENOTIFICATIONJOB_H
