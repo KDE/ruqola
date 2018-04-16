@@ -60,6 +60,7 @@ void SearchMessageJob::slotSearchMessageFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
+        //TODO success ????
         addLoggerInfo(QByteArrayLiteral("SearchMessageJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT searchMessageDone(replyObject);
     }

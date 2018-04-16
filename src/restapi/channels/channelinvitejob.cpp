@@ -44,11 +44,11 @@ bool ChannelInviteJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("ChannelInviteJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &ChannelInviteJob::slotChangeAnnouncementFinished);
+    connect(reply, &QNetworkReply::finished, this, &ChannelInviteJob::slotInvitationFinished);
     return true;
 }
 
-void ChannelInviteJob::slotChangeAnnouncementFinished()
+void ChannelInviteJob::slotInvitationFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -58,7 +58,7 @@ void ChannelInviteJob::slotChangeAnnouncementFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             qCDebug(RUQOLA_RESTAPI_LOG) << "Change announcement success: " << data;
-            Q_EMIT changeAnnouncementDone();
+            Q_EMIT inviteDone();
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
         }

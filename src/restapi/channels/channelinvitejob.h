@@ -46,11 +46,11 @@ public:
     void setInviteUserId(const QString &userId);
 
 Q_SIGNALS:
-    void changeAnnouncementDone();
+    void inviteDone();
 
 private:
     Q_DISABLE_COPY(ChannelInviteJob)
-    void slotChangeAnnouncementFinished();
+    void slotInvitationFinished();
     QString mInviteUserId;
     QString mRoomId;
 };

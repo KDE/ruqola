@@ -45,11 +45,11 @@ bool CreateDmJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("CreateDmJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &CreateDmJob::slotCreateGroupsFinished);
+    connect(reply, &QNetworkReply::finished, this, &CreateDmJob::slotCreateDmFinished);
     return true;
 }
 
-void CreateDmJob::slotCreateGroupsFinished()
+void CreateDmJob::slotCreateDmFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
