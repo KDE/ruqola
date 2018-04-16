@@ -184,6 +184,8 @@ QJsonDocument SaveNotificationJob::json() const
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = mRoomId;
 
+    //TODO add "notifications"
+
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
