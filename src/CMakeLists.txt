@@ -11,6 +11,7 @@ set (Ruqola_restapi_SRCS
     restapi/serverinfojob.cpp
 
     restapi/misc/owninfojob.cpp
+    restapi/misc/settingsoauthjob.cpp
 
     restapi/users/getavatarjob.cpp
 
