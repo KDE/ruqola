@@ -34,7 +34,7 @@ void SettingsOauthJobTest::shouldHaveDefaultValue()
 {
     SettingsOauthJob job;
     verifyDefaultValue(&job);
-    QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.requireHttpAuthentication());
 }
 
 void SettingsOauthJobTest::shouldGenerateRequest()
@@ -42,5 +42,5 @@ void SettingsOauthJobTest::shouldGenerateRequest()
     SettingsOauthJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/me")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings.oauth")));
 }

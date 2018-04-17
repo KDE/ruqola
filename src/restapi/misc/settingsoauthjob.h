@@ -40,11 +40,11 @@ public:
     QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void ownInfoDone(const QJsonObject &obj);
+    void settingsOauthDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(SettingsOauthJob)
-    void slotServerInfoFinished();
+    void slotSettingsOauthFinished();
 };
 
 #endif // SETTINGSOAUTHJOB_H

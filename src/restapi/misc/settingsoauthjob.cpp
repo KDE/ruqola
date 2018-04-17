@@ -42,17 +42,17 @@ bool SettingsOauthJob::requireHttpAuthentication() const
 bool SettingsOauthJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start owninfo job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SettingsOauthJob";
         deleteLater();
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &SettingsOauthJob::slotServerInfoFinished);
-    addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: Ask info about me"));
+    connect(reply, &QNetworkReply::finished, this, &SettingsOauthJob::slotSettingsOauthFinished);
+    addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: Ask settings oauth"));
     return true;
 }
 
-void SettingsOauthJob::slotServerInfoFinished()
+void SettingsOauthJob::slotSettingsOauthFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -60,14 +60,14 @@ void SettingsOauthJob::slotServerInfoFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT ownInfoDone(replyObject);
+        Q_EMIT settingsOauthDone(replyObject);
     }
     deleteLater();
 }
 
 QNetworkRequest SettingsOauthJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Me);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::SettingsOauth);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
