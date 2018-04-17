@@ -59,7 +59,7 @@ void SettingsOauthJob::slotServerInfoFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-	addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+        addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT ownInfoDone(replyObject);
     }
     deleteLater();
