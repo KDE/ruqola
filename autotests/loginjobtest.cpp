@@ -22,7 +22,7 @@
 #include "restapi/authentication/loginjob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(LoginJobTest)
-
+//TODO implement it!
 LoginJobTest::LoginJobTest(QObject *parent)
     : QObject(parent)
 {

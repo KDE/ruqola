@@ -127,8 +127,10 @@ void FacebookAuthJob::setAccessToken(const QString &accessToken)
 QJsonDocument FacebookAuthJob::json() const
 {
     QVariantMap loginMap;
-    //    loginMap.insert(QStringLiteral("user"), mUserName);
-    //    loginMap.insert(QStringLiteral("password"), mPassword);
+    loginMap.insert(QStringLiteral("serviceName"), QStringLiteral("facebook"));
+    loginMap.insert(QStringLiteral("accessToken"), mAccessToken);
+    loginMap.insert(QStringLiteral("secret"), mSecret);
+    loginMap.insert(QStringLiteral("expiresIn"), mExpireTokenInSeconds);
     const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
     return postData;
 }
