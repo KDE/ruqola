@@ -55,6 +55,18 @@ void FacebookAuthJobTest::shouldGenerateRequest()
 void FacebookAuthJobTest::shouldGenerateJson()
 {
     FacebookAuthJob job;
+    const QString secret = QStringLiteral("secret:");
+    job.setSecret(secret);
+
+    const QString accessToken = QStringLiteral("accessToken");
+    job.setAccessToken(accessToken);
+
+    const int expireToken = 300;
+    job.setExpireTokenInSeconds(expireToken);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"accessToken\":\"%1\",\"expiresIn\":300,\"secret\":\"%2\",\"serviceName\":\"facebook\"}")
+             .arg(accessToken).arg(secret).toLatin1());
+
+
 //    const QString channelname = QStringLiteral("foo1");
 //    job.setChannelName(channelname);
 //    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"name\":\"%1\"}").arg(channelname).toLatin1());
