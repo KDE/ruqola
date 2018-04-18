@@ -41,12 +41,16 @@ bool FacebookAuthJob::canStart() const
         qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start login job";
         return false;
     }
-    if (mUserName.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "UserName is empty";
+    if (mAccessToken.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Access Token is empty";
         return false;
     }
-    if (mPassword.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Password is empty";
+    if (mSecret.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Secret is empty";
+        return false;
+    }
+    if (mExpireTokenInSeconds <= 0) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Expire token is not defined";
         return false;
     }
     return true;
@@ -62,12 +66,12 @@ bool FacebookAuthJob::start()
 
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     addLoggerInfo("FacebookAuthJob started ");
-    connect(reply, &QNetworkReply::finished, this, &FacebookAuthJob::slotLoginDone);
+    connect(reply, &QNetworkReply::finished, this, &FacebookAuthJob::slotFacebookauthDone);
 
     return false;
 }
 
-void FacebookAuthJob::slotLoginDone()
+void FacebookAuthJob::slotFacebookauthDone()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -81,7 +85,7 @@ void FacebookAuthJob::slotLoginDone()
             if (data.contains(QLatin1String("authToken")) && data.contains(QLatin1String("userId"))) {
                 const QString authToken = data[QStringLiteral("authToken")].toString();
                 const QString userId = data[QStringLiteral("userId")].toString();
-                Q_EMIT loginDone(authToken, userId);
+                Q_EMIT facebookDone(authToken, userId);
             }
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) << "Error during login" << data;
@@ -90,11 +94,41 @@ void FacebookAuthJob::slotLoginDone()
     deleteLater();
 }
 
+int FacebookAuthJob::expireTokenInSeconds() const
+{
+    return mExpireTokenInSeconds;
+}
+
+void FacebookAuthJob::setExpireTokenInSeconds(int expireTokenInSeconds)
+{
+    mExpireTokenInSeconds = expireTokenInSeconds;
+}
+
+QString FacebookAuthJob::secret() const
+{
+    return mSecret;
+}
+
+void FacebookAuthJob::setSecret(const QString &secret)
+{
+    mSecret = secret;
+}
+
+QString FacebookAuthJob::accessToken() const
+{
+    return mAccessToken;
+}
+
+void FacebookAuthJob::setAccessToken(const QString &accessToken)
+{
+    mAccessToken = accessToken;
+}
+
 QJsonDocument FacebookAuthJob::json() const
 {
     QVariantMap loginMap;
-    loginMap.insert(QStringLiteral("user"), mUserName);
-    loginMap.insert(QStringLiteral("password"), mPassword);
+    //    loginMap.insert(QStringLiteral("user"), mUserName);
+    //    loginMap.insert(QStringLiteral("password"), mPassword);
     const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
     return postData;
 }
@@ -110,24 +144,4 @@ QNetworkRequest FacebookAuthJob::request() const
 bool FacebookAuthJob::requireHttpAuthentication() const
 {
     return false;
-}
-
-QString FacebookAuthJob::userName() const
-{
-    return mUserName;
-}
-
-QString FacebookAuthJob::password() const
-{
-    return mPassword;
-}
-
-void FacebookAuthJob::setPassword(const QString &password)
-{
-    mPassword = password;
-}
-
-void FacebookAuthJob::setUserName(const QString &userName)
-{
-    mUserName = userName;
 }

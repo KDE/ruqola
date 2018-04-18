@@ -34,25 +34,31 @@ public:
 
     bool start() override;
     bool requireHttpAuthentication() const override;
-    QString userName() const;
-    void setUserName(const QString &userName);
-
-    QString password() const;
-    void setPassword(const QString &password);
 
     bool canStart() const override;
 
     QNetworkRequest request() const override;
     QJsonDocument json() const;
 
+    QString accessToken() const;
+    void setAccessToken(const QString &accessToken);
+
+    QString secret() const;
+    void setSecret(const QString &secret);
+
+    int expireTokenInSeconds() const;
+    void setExpireTokenInSeconds(int expireTokenInSeconds);
+
 Q_SIGNALS:
-    void loginDone(const QString &authToken, const QString &userId);
+    void facebookDone(const QString &authToken, const QString &userId);
 
 private:
     Q_DISABLE_COPY(FacebookAuthJob)
-    void slotLoginDone();
-    QString mUserName;
-    QString mPassword;
+    void slotFacebookauthDone();
+    QString mAccessToken;
+    QString mSecret;
+    int mExpireTokenInSeconds = -1;
+    //TODO identity ???? it's optional
 };
 
 #endif // FACEBOOKAUTHJOB_H
