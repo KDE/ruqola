@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "facebookauthjob.h"
+#include "googleauthjob.h"
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
 
@@ -26,27 +26,27 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 
-FacebookAuthJob::FacebookAuthJob(QObject *parent)
+GoogleAuthJob::GoogleAuthJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-FacebookAuthJob::~FacebookAuthJob()
+GoogleAuthJob::~GoogleAuthJob()
 {
 }
 
-bool FacebookAuthJob::canStart() const
+bool GoogleAuthJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start facebook login job";
+	qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start google login job";
         return false;
     }
     if (mAccessToken.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "Access Token is empty";
         return false;
     }
-    if (mSecret.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Secret is empty";
+    if (mIdToken.isEmpty()) {
+	qCWarning(RUQOLA_RESTAPI_LOG) << "IdToken is empty";
         return false;
     }
     if (mExpireTokenInSeconds <= 0) {
@@ -56,7 +56,7 @@ bool FacebookAuthJob::canStart() const
     return true;
 }
 
-bool FacebookAuthJob::start()
+bool GoogleAuthJob::start()
 {
     if (!canStart()) {
         deleteLater();
@@ -65,13 +65,13 @@ bool FacebookAuthJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
 
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    addLoggerInfo("FacebookAuthJob started ");
-    connect(reply, &QNetworkReply::finished, this, &FacebookAuthJob::slotFacebookauthDone);
+    addLoggerInfo("GoogleAuthJob started ");
+    connect(reply, &QNetworkReply::finished, this, &GoogleAuthJob::slotFacebookauthDone);
 
     return false;
 }
 
-void FacebookAuthJob::slotFacebookauthDone()
+void GoogleAuthJob::slotFacebookauthDone()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -85,7 +85,7 @@ void FacebookAuthJob::slotFacebookauthDone()
             if (data.contains(QLatin1String("authToken")) && data.contains(QLatin1String("userId"))) {
                 const QString authToken = data[QStringLiteral("authToken")].toString();
                 const QString userId = data[QStringLiteral("userId")].toString();
-                Q_EMIT facebookDone(authToken, userId);
+		Q_EMIT googleauthDone(authToken, userId);
             }
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) << "Error during login" << data;
@@ -94,48 +94,48 @@ void FacebookAuthJob::slotFacebookauthDone()
     deleteLater();
 }
 
-int FacebookAuthJob::expireTokenInSeconds() const
+QString GoogleAuthJob::idToken() const
+{
+    return mIdToken;
+}
+
+void GoogleAuthJob::setIdToken(const QString &idToken)
+{
+    mIdToken = idToken;
+}
+
+int GoogleAuthJob::expireTokenInSeconds() const
 {
     return mExpireTokenInSeconds;
 }
 
-void FacebookAuthJob::setExpireTokenInSeconds(int expireTokenInSeconds)
+void GoogleAuthJob::setExpireTokenInSeconds(int expireTokenInSeconds)
 {
     mExpireTokenInSeconds = expireTokenInSeconds;
 }
 
-QString FacebookAuthJob::secret() const
-{
-    return mSecret;
-}
-
-void FacebookAuthJob::setSecret(const QString &secret)
-{
-    mSecret = secret;
-}
-
-QString FacebookAuthJob::accessToken() const
+QString GoogleAuthJob::accessToken() const
 {
     return mAccessToken;
 }
 
-void FacebookAuthJob::setAccessToken(const QString &accessToken)
+void GoogleAuthJob::setAccessToken(const QString &accessToken)
 {
     mAccessToken = accessToken;
 }
 
-QJsonDocument FacebookAuthJob::json() const
+QJsonDocument GoogleAuthJob::json() const
 {
     QVariantMap loginMap;
-    loginMap.insert(QStringLiteral("serviceName"), QStringLiteral("facebook"));
+    loginMap.insert(QStringLiteral("serviceName"), QStringLiteral("google"));
     loginMap.insert(QStringLiteral("accessToken"), mAccessToken);
-    loginMap.insert(QStringLiteral("secret"), mSecret);
+    loginMap.insert(QStringLiteral("idToken"), mIdToken);
     loginMap.insert(QStringLiteral("expiresIn"), mExpireTokenInSeconds);
     const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
     return postData;
 }
 
-QNetworkRequest FacebookAuthJob::request() const
+QNetworkRequest GoogleAuthJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Login);
     QNetworkRequest request(url);
@@ -143,7 +143,7 @@ QNetworkRequest FacebookAuthJob::request() const
     return request;
 }
 
-bool FacebookAuthJob::requireHttpAuthentication() const
+bool GoogleAuthJob::requireHttpAuthentication() const
 {
     return false;
 }

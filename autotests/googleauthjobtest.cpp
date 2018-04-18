@@ -18,31 +18,31 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "facebookauthjobtest.h"
-#include "restapi/authentication/facebookauthjob.h"
+#include "googleauthjobtest.h"
+#include "restapi/authentication/googleauthjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>
-QTEST_GUILESS_MAIN(FacebookAuthJobTest)
+QTEST_GUILESS_MAIN(GoogleAuthJobTest)
 
-FacebookAuthJobTest::FacebookAuthJobTest(QObject *parent)
+GoogleAuthJobTest::GoogleAuthJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void FacebookAuthJobTest::shouldHaveDefaultValue()
+void GoogleAuthJobTest::shouldHaveDefaultValue()
 {
-    FacebookAuthJob job;
+    GoogleAuthJob job;
     verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
-    QVERIFY(job.secret().isEmpty());
+    QVERIFY(job.idToken().isEmpty());
     QVERIFY(job.accessToken().isEmpty());
     QCOMPARE(job.expireTokenInSeconds(), -1);
 }
 
-void FacebookAuthJobTest::shouldGenerateRequest()
+void GoogleAuthJobTest::shouldGenerateRequest()
 {
-    FacebookAuthJob job;
+    GoogleAuthJob job;
 
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -52,24 +52,24 @@ void FacebookAuthJobTest::shouldGenerateRequest()
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void FacebookAuthJobTest::shouldGenerateJson()
+void GoogleAuthJobTest::shouldGenerateJson()
 {
-    FacebookAuthJob job;
+    GoogleAuthJob job;
     const QString secret = QStringLiteral("secret:");
-    job.setSecret(secret);
+    job.setIdToken(secret);
 
     const QString accessToken = QStringLiteral("accessToken");
     job.setAccessToken(accessToken);
 
     const int expireToken = 300;
     job.setExpireTokenInSeconds(expireToken);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"accessToken\":\"%1\",\"expiresIn\":300,\"secret\":\"%2\",\"serviceName\":\"facebook\"}")
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"accessToken\":\"%1\",\"expiresIn\":300,\"idToken\":\"%2\",\"serviceName\":\"google\"}")
              .arg(accessToken).arg(secret).toLatin1());
 }
 
-void FacebookAuthJobTest::shouldNotStarting()
+void GoogleAuthJobTest::shouldNotStarting()
 {
-    FacebookAuthJob job;
+    GoogleAuthJob job;
 
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -85,7 +85,7 @@ void FacebookAuthJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString secret = QStringLiteral("secret:");
-    job.setSecret(secret);
+    job.setIdToken(secret);
     QVERIFY(!job.canStart());
 
     const QString accessToken = QStringLiteral("accessToken");
