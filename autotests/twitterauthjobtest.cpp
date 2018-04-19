@@ -61,10 +61,16 @@ void TwitterAuthJobTest::shouldGenerateJson()
     const QString accessToken = QStringLiteral("accessToken");
     job.setAccessToken(accessToken);
 
+    const QString appId = QStringLiteral("appid");
+    job.setAppId(appId);
+
+    const QString appSecret = QStringLiteral("appSecret");
+    job.setAppSecret(appSecret);
+
     const int expireToken = 300;
     job.setExpireTokenInSeconds(expireToken);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"accessToken\":\"%1\",\"expiresIn\":300,\"secret\":\"%2\",\"serviceName\":\"facebook\"}")
-             .arg(accessToken).arg(secret).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"accessToken\":\"%1\",\"accessTokenSecret\":\"%2\",\"appId\":\"%3\",\"appSecret\":\"%4\",\"expiresIn\":300,\"serviceName\":\"twitter\"}")
+             .arg(accessToken).arg(secret).arg(appId).arg(appSecret).toLatin1());
 }
 
 void TwitterAuthJobTest::shouldNotStarting()
@@ -94,6 +100,14 @@ void TwitterAuthJobTest::shouldNotStarting()
 
     const int expireToken = 300;
     job.setExpireTokenInSeconds(expireToken);
+    QVERIFY(!job.canStart());
+
+    const QString appId = QStringLiteral("appid");
+    job.setAppId(appId);
+    QVERIFY(!job.canStart());
+
+    const QString appSecret = QStringLiteral("appSecret");
+    job.setAppSecret(appSecret);
     QVERIFY(job.canStart());
 
     delete method;
