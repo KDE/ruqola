@@ -40,11 +40,11 @@ public:
     QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void ownInfoDone(const QJsonObject &obj);
+    void getRoomsDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(GetRoomsJob)
-    void slotServerInfoFinished();
+    void slotGetRoomsFinished();
 };
 
 #endif // GETROOMSJOB_H

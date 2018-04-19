@@ -47,20 +47,20 @@ bool GetRoomsJob::start()
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &GetRoomsJob::slotServerInfoFinished);
+    connect(reply, &QNetworkReply::finished, this, &GetRoomsJob::slotGetRoomsFinished);
     addLoggerInfo(QByteArrayLiteral("GetRoomsJob: Ask info about rooms"));
     return true;
 }
 
-void GetRoomsJob::slotServerInfoFinished()
+void GetRoomsJob::slotGetRoomsFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-    addLoggerInfo(QByteArrayLiteral("GetRoomsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT ownInfoDone(replyObject);
+        addLoggerInfo(QByteArrayLiteral("GetRoomsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT getRoomsDone(replyObject);
     }
     deleteLater();
 }
