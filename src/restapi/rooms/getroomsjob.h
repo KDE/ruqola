@@ -45,6 +45,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(GetRoomsJob)
     void slotGetRoomsFinished();
+    //TODO add updatedSince
 };
 
 #endif // GETROOMSJOB_H
