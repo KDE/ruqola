@@ -19,6 +19,7 @@ set (Ruqola_restapi_SRCS
     restapi/authentication/loginjob.cpp
     restapi/authentication/facebookauthjob.cpp
     restapi/authentication/googleauthjob.cpp
+    restapi/authentication/twitterauthjob.cpp
 
     restapi/settings/privateinfojob.cpp
 
