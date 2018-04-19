@@ -114,6 +114,7 @@ enum class RestApiUrlType {
     ImFiles,
     SubscriptionsRead,
     SettingsOauth,
+    RoomsGet,
 };
 LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBRUQOLACORE_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

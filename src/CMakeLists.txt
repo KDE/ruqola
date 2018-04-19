@@ -61,6 +61,7 @@ set (Ruqola_restapi_SRCS
     restapi/directmessage/createdmjob.cpp
 
     restapi/rooms/savenotificationjob.cpp
+    restapi/rooms/getroomsjob.cpp
 
     restapi/subscriptions/markroomasreadjob.cpp
     )
