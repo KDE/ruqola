@@ -49,6 +49,12 @@ public:
     int expireTokenInSeconds() const;
     void setExpireTokenInSeconds(int expireTokenInSeconds);
 
+    QString appSecret() const;
+    void setAppSecret(const QString &appSecret);
+
+    QString appId() const;
+    void setAppId(const QString &appId);
+
 Q_SIGNALS:
     void facebookDone(const QString &authToken, const QString &userId);
 
@@ -57,6 +63,8 @@ private:
     void slotFacebookauthDone();
     QString mAccessToken;
     QString mSecret;
+    QString mAppSecret;
+    QString mAppId;
     int mExpireTokenInSeconds = -1;
     //TODO identity ???? it's optional
 };

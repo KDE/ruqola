@@ -49,6 +49,14 @@ bool TwitterAuthJob::canStart() const
         qCWarning(RUQOLA_RESTAPI_LOG) << "Secret is empty";
         return false;
     }
+    if (mAppId.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Appid is empty";
+        return false;
+    }
+    if (mAppSecret.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "App secret is empty";
+        return false;
+    }
     if (mExpireTokenInSeconds <= 0) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "Expire token is not defined";
         return false;
@@ -94,6 +102,26 @@ void TwitterAuthJob::slotFacebookauthDone()
     deleteLater();
 }
 
+QString TwitterAuthJob::appId() const
+{
+    return mAppId;
+}
+
+void TwitterAuthJob::setAppId(const QString &appId)
+{
+    mAppId = appId;
+}
+
+QString TwitterAuthJob::appSecret() const
+{
+    return mAppSecret;
+}
+
+void TwitterAuthJob::setAppSecret(const QString &appSecret)
+{
+    mAppSecret = appSecret;
+}
+
 int TwitterAuthJob::expireTokenInSeconds() const
 {
     return mExpireTokenInSeconds;
@@ -127,9 +155,11 @@ void TwitterAuthJob::setAccessToken(const QString &accessToken)
 QJsonDocument TwitterAuthJob::json() const
 {
     QVariantMap loginMap;
-    loginMap.insert(QStringLiteral("serviceName"), QStringLiteral("facebook"));
+    loginMap.insert(QStringLiteral("serviceName"), QStringLiteral("twitter"));
     loginMap.insert(QStringLiteral("accessToken"), mAccessToken);
-    loginMap.insert(QStringLiteral("secret"), mSecret);
+    loginMap.insert(QStringLiteral("accessTokenSecret"), mSecret);
+    loginMap.insert(QStringLiteral("appSecret"), mAppSecret);
+    loginMap.insert(QStringLiteral("appId"), mAppId);
     loginMap.insert(QStringLiteral("expiresIn"), mExpireTokenInSeconds);
     const QJsonDocument postData = QJsonDocument::fromVariant(loginMap);
     return postData;
