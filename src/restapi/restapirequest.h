@@ -91,6 +91,7 @@ public:
     void searchRoomUser(const QString &pattern);
     void searchMessages(const QString &roomId, const QString &pattern);
     void markAsRead(const QString &roomId);
+    void getRooms();
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -113,7 +114,7 @@ private:
     void slotLogout();
     void slotLogin(const QString &authToken, const QString &userId);
 
-    void initializeRestApiJob(RestApiAbstractJob *job, bool needAuthentication);
+    void initializeRestApiJob(RestApiAbstractJob *job);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QNetworkCookieJar *mCookieJar = nullptr;
     RestApiMethod *mRestApiMethod = nullptr;
