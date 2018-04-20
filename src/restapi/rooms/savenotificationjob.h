@@ -66,11 +66,11 @@ public:
     void setUnreadAlert(const QString &unreadAlert);
 
 Q_SIGNALS:
-    void pinMessageDone();
+    void changeNotificationDone();
 
 private:
     Q_DISABLE_COPY(SaveNotificationJob)
-    void slotPinMessage();
+    void slotChangeNotificationFinished();
     QString mRoomId;
 
     QString mEmailNotifications;

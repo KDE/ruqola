@@ -44,18 +44,18 @@ bool SaveNotificationJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("SaveNotificationJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &SaveNotificationJob::slotPinMessage);
+    connect(reply, &QNetworkReply::finished, this, &SaveNotificationJob::slotChangeNotificationFinished);
     addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: start"));
     return true;
 }
 
-void SaveNotificationJob::slotPinMessage()
+void SaveNotificationJob::slotChangeNotificationFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
         addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: finished: ") + data);
-        Q_EMIT pinMessageDone();
+        Q_EMIT changeNotificationDone();
     }
     deleteLater();
 }
