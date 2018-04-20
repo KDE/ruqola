@@ -38,7 +38,7 @@ GoogleAuthJob::~GoogleAuthJob()
 bool GoogleAuthJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-	qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start google login job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start google login job";
         return false;
     }
     if (mAccessToken.isEmpty()) {
@@ -46,7 +46,7 @@ bool GoogleAuthJob::canStart() const
         return false;
     }
     if (mIdToken.isEmpty()) {
-	qCWarning(RUQOLA_RESTAPI_LOG) << "IdToken is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "IdToken is empty";
         return false;
     }
     if (mExpireTokenInSeconds <= 0) {
@@ -85,7 +85,7 @@ void GoogleAuthJob::slotFacebookauthDone()
             if (data.contains(QLatin1String("authToken")) && data.contains(QLatin1String("userId"))) {
                 const QString authToken = data[QStringLiteral("authToken")].toString();
                 const QString userId = data[QStringLiteral("userId")].toString();
-		Q_EMIT googleauthDone(authToken, userId);
+                Q_EMIT googleauthDone(authToken, userId);
             }
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) << "Error during login" << data;
