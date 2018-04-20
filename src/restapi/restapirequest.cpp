@@ -64,7 +64,7 @@
 #include "groups/archivegroupsjob.h"
 
 #include "rooms/getroomsjob.h"
-
+#include "rooms/roomfavoritejob.h"
 #include "directmessage/createdmjob.h"
 
 #include "subscriptions/markroomasreadjob.h"
@@ -556,5 +556,13 @@ void RestApiRequest::getRooms()
     GetRoomsJob *job = new GetRoomsJob(this);
     initializeRestApiJob(job);
     connect(job, &GetRoomsJob::getRoomsDone, this, &RestApiRequest::getRoomsDone);
+    job->start();
+}
+
+void RestApiRequest::markAsFavorite(bool favorite)
+{
+    RoomFavoriteJob *job = new RoomFavoriteJob(this);
+    initializeRestApiJob(job);
+    job->setFavorite(favorite);
     job->start();
 }

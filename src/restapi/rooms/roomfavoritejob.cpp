@@ -113,8 +113,7 @@ QJsonDocument RoomFavoriteJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = mRoomId;
-
-    //TODO add "notifications"
+    jsonObj[QLatin1String("favorite")] = mFavorite;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
