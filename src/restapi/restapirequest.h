@@ -105,6 +105,7 @@ Q_SIGNALS:
     void spotlightDone(const QJsonObject &obj);
     void channelListDone(const QJsonObject &obj);
     void searchMessageDone(const QJsonObject &obj);
+    void getRoomsDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

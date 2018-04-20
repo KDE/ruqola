@@ -555,6 +555,6 @@ void RestApiRequest::getRooms()
 {
     GetRoomsJob *job = new GetRoomsJob(this);
     initializeRestApiJob(job);
-    //TODO connect
+    connect(job, &GetRoomsJob::getRoomsDone, this, &RestApiRequest::getRoomsDone);
     job->start();
 }
