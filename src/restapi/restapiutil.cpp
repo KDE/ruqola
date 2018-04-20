@@ -221,6 +221,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("settings.oauth");
     case RestApiUtil::RestApiUrlType::RoomsGet:
         return QStringLiteral("rooms.get");
+    case RestApiUtil::RestApiUrlType::RoomsFavorite:
+        return QStringLiteral("rooms.favorite");
     }
     qCWarning(RUQOLA_RESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

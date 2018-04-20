@@ -62,6 +62,7 @@ set (Ruqola_restapi_SRCS
 
     restapi/rooms/savenotificationjob.cpp
     restapi/rooms/getroomsjob.cpp
+    restapi/rooms/roomfavoritejob.cpp
 
     restapi/subscriptions/markroomasreadjob.cpp
     )
