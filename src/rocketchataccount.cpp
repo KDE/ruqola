@@ -435,7 +435,15 @@ void RocketChatAccount::clearUnreadMessages(const QString &roomId)
 
 void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 {
+#ifdef USE_REASTAPI_JOB
+    if (mRuqolaServerConfig->hasAtLeastVersion(0, 64, 0)) {
+        restApi()->markAsFavorite(roomId, checked);
+    } else {
+        ddp()->toggleFavorite(roomId, checked);
+    }
+#else
     ddp()->toggleFavorite(roomId, checked);
+#endif
 }
 
 void RocketChatAccount::openChannel(const QString &url)

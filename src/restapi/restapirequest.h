@@ -92,7 +92,7 @@ public:
     void searchMessages(const QString &roomId, const QString &pattern);
     void markAsRead(const QString &roomId);
     void getRooms();
-    void markAsFavorite(bool favorite);
+    void markAsFavorite(const QString &roomId, bool favorite);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

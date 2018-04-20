@@ -559,10 +559,11 @@ void RestApiRequest::getRooms()
     job->start();
 }
 
-void RestApiRequest::markAsFavorite(bool favorite)
+void RestApiRequest::markAsFavorite(const QString &roomId, bool favorite)
 {
     RoomFavoriteJob *job = new RoomFavoriteJob(this);
     initializeRestApiJob(job);
     job->setFavorite(favorite);
+    job->setRoomId(roomId);
     job->start();
 }
