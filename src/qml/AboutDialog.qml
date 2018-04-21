@@ -39,133 +39,142 @@ QQC2.Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    width: 400
+    width: Math.min(bar.contentWidth + Kirigami.Units.smallSpacing * 2, 500)
     height: 600
     modal: true
-    QQC2.TabBar {
-        id: bar
-        width: parent.width
 
-        QQC2.TabButton {
-            text: i18n("About")
-        }
-        QQC2.TabButton {
-            text: i18n("Libraries")
-        }
-        QQC2.TabButton {
-            text: i18n("Author")
-        }
-        QQC2.TabButton {
-            text: i18n("Thanks To")
-            visible: applicationData.creditsModel.rowCount() > 0
-        }
-        QQC2.TabButton {
-            text: i18n("Translation")
-            visible: applicationData.translatorModel.rowCount() > 0
-        }
-    }
+    Item {
+        id: contentRect
+        anchors.fill: parent
+        anchors.leftMargin: Kirigami.Units.smallSpacing * 2
+        anchors.rightMargin: Kirigami.Units.smallSpacing * 2
+        clip: true
 
-    StackLayout {
-        anchors.top: bar.bottom
-        anchors.bottom: parent.bottom
-        width: parent.width
-        currentIndex: bar.currentIndex
+        QQC2.TabBar {
+            id: bar
+            width: parent.width
 
-        Rectangle {
-            id: aboutTab
-            ColumnLayout {
-                Layout.fillHeight: true
-                Layout.fillWidth: true
+            QQC2.TabButton {
+                text: i18n("About")
+            }
+            QQC2.TabButton {
+                text: i18n("Libraries")
+            }
+            QQC2.TabButton {
+                text: i18n("Author")
+            }
+            QQC2.TabButton {
+                text: i18n("Thanks To")
+                visible: applicationData.creditsModel.rowCount() > 0
+            }
+            QQC2.TabButton {
+                text: i18n("Translation")
+                visible: applicationData.translatorModel.rowCount() > 0
+            }
+        }
 
-                QQC2.Label {
-                    text: applicationData.title
-                    wrapMode: QQC2.Label.Wrap
-                    textFormat: Qt.RichText
-                }
-                QQC2.Label {
-                    text: applicationData.about
-                    wrapMode: QQC2.Label.Wrap
-                    textFormat: Qt.RichText
-                }
-                QQC2.Label {
-                    text: applicationData.licenses
-                    wrapMode: QQC2.Label.Wrap
-                    textFormat: Qt.RichText
-                    onLinkActivated: {
-                        licenseDialog.licenseText = applicationData.licenseText(link);
-                        licenseDialog.open();
+        StackLayout {
+            anchors.top: bar.bottom
+            anchors.bottom: parent.bottom
+            width: parent.width
+            currentIndex: bar.currentIndex
+
+            Item {
+                id: aboutTab
+                ColumnLayout {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+
+                    QQC2.Label {
+                        text: applicationData.title
+                        wrapMode: QQC2.Label.Wrap
+                        textFormat: Qt.RichText
+                    }
+                    QQC2.Label {
+                        text: applicationData.about
+                        wrapMode: QQC2.Label.Wrap
+                        textFormat: Qt.RichText
+                    }
+                    QQC2.Label {
+                        text: applicationData.licenses
+                        wrapMode: QQC2.Label.Wrap
+                        textFormat: Qt.RichText
+                        onLinkActivated: {
+                            licenseDialog.licenseText = applicationData.licenseText(link);
+                            licenseDialog.open();
+                        }
                     }
                 }
             }
-        }
-        Item {
-            id: librariesTab
-            ColumnLayout {
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                Layout.topMargin: Kirigami.Units.smallSpacing
+            Item {
+                id: librariesTab
+                ColumnLayout {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    Layout.topMargin: Kirigami.Units.smallSpacing
 
-                QQC2.Label {
-                    text: applicationData.libraries
-                    wrapMode: QQC2.Label.Wrap
-                    textFormat: Qt.RichText
-                }
-            }
-        }
-        Item {
-            id: authorTab
-            ColumnLayout {
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                Layout.topMargin: Kirigami.Units.smallSpacing
-
-                QQC2.Label {
-                    visible: applicationData.reportBugs !== ""
-                    text: applicationData.reportBugs
-                    wrapMode: QQC2.Label.Wrap
-                    textFormat: Qt.RichText
-                    onLinkActivated: {
-                        aboutDialog.openurl(link);
+                    QQC2.Label {
+                        text: applicationData.libraries
+                        wrapMode: QQC2.Label.Wrap
+                        textFormat: Qt.RichText
                     }
                 }
-                QQC2.ScrollView {
-                    id: view
-                    width: authorTab.width
-                    height: authorTab.height
+            }
+            Item {
+                id: authorTab
+                ColumnLayout {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    Layout.topMargin: Kirigami.Units.smallSpacing
 
-                    Column {
-                        Repeater {
-                            id: authorList
+                    QQC2.Label {
+                        visible: applicationData.reportBugs !== ""
+                        text: applicationData.reportBugs
+                        wrapMode: QQC2.Label.Wrap
+                        textFormat: Qt.RichText
+                        onLinkActivated: {
+                            aboutDialog.openurl(link);
+                        }
+                    }
+                    QQC2.ScrollView {
+                        id: view
+                        width: authorTab.width
+                        height: authorTab.height
 
-                            model: applicationData.authorModel
-                            Column {
-                                spacing: 5
-                                QQC2.Label {
-                                    text: username
-                                    wrapMode: QQC2.Label.Wrap
-                                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                                    renderType: Text.NativeRendering
-                                    textFormat: Text.RichText
-                                    font.bold: true
-                                }
-                                QQC2.Label {
-                                    text: task
-                                    wrapMode: QQC2.Label.Wrap
-                                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                                    renderType: Text.NativeRendering
-                                    textFormat: Text.RichText
-                                }
-                                QQC2.Label {
-                                    text: email
-                                    wrapMode: QQC2.Label.Wrap
-                                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                                    renderType: Text.NativeRendering
-                                    textFormat: Text.RichText
-                                    onLinkActivated: {
-                                        aboutDialog.openurl(link);
+                        Column {
+                            Repeater {
+                                id: authorList
+
+                                model: applicationData.authorModel
+                                Column {
+                                    spacing: 5
+                                    QQC2.Label {
+                                        text: username
+                                        wrapMode: QQC2.Label.Wrap
+                                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                                        renderType: Text.NativeRendering
+                                        textFormat: Text.RichText
+                                        font.bold: true
+                                    }
+                                    QQC2.Label {
+                                        text: task
+                                        wrapMode: QQC2.Label.Wrap
+                                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                                        renderType: Text.NativeRendering
+                                        textFormat: Text.RichText
+                                    }
+                                    QQC2.Label {
+                                        text: email
+                                        wrapMode: QQC2.Label.Wrap
+                                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                                        renderType: Text.NativeRendering
+                                        textFormat: Text.RichText
+                                        onLinkActivated: {
+                                            aboutDialog.openurl(link);
+                                        }
                                     }
                                 }
                             }
@@ -173,104 +182,104 @@ QQC2.Dialog {
                     }
                 }
             }
-        }
-        Item {
-            id: thanksToTab
-            ColumnLayout {
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                Layout.topMargin: Kirigami.Units.smallSpacing
+            Item {
+                id: thanksToTab
+                ColumnLayout {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    Layout.topMargin: Kirigami.Units.smallSpacing
 
-                QQC2.ScrollView {
-                    id: thanksToTabview
-                    width: thanksToTab.width
-                    height: thanksToTab.height
+                    QQC2.ScrollView {
+                        id: thanksToTabview
+                        width: thanksToTab.width
+                        height: thanksToTab.height
 
-                    Column {
-                        Repeater {
-                            id: creditList
+                        Column {
+                            Repeater {
+                                id: creditList
 
-                            model: applicationData.creditsModel
-                            Column {
-                                QQC2.Label {
-                                    text: username
-                                    wrapMode: QQC2.Label.Wrap
-                                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                                    renderType: Text.NativeRendering
-                                    textFormat: Text.RichText
-                                    font.bold: true
-                                }
-                                QQC2.Label {
-                                    text: task
-                                    wrapMode: QQC2.Label.Wrap
-                                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                                    renderType: Text.NativeRendering
-                                    textFormat: Text.RichText
-                                }
-                                QQC2.Label {
-                                    text: email
-                                    wrapMode: QQC2.Label.Wrap
-                                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                                    renderType: Text.NativeRendering
-                                    textFormat: Text.RichText
-                                    onLinkActivated: {
-                                        aboutDialog.openurl(link);
+                                model: applicationData.creditsModel
+                                Column {
+                                    QQC2.Label {
+                                        text: username
+                                        wrapMode: QQC2.Label.Wrap
+                                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                                        renderType: Text.NativeRendering
+                                        textFormat: Text.RichText
+                                        font.bold: true
                                     }
+                                    QQC2.Label {
+                                        text: task
+                                        wrapMode: QQC2.Label.Wrap
+                                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                                        renderType: Text.NativeRendering
+                                        textFormat: Text.RichText
+                                    }
+                                    QQC2.Label {
+                                        text: email
+                                        wrapMode: QQC2.Label.Wrap
+                                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                                        renderType: Text.NativeRendering
+                                        textFormat: Text.RichText
+                                        onLinkActivated: {
+                                            aboutDialog.openurl(link);
+                                        }
 
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-        }
-        Item {
-            id: translatorToTab
-            ColumnLayout {
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-                Layout.topMargin: Kirigami.Units.smallSpacing
+            Item {
+                id: translatorToTab
+                ColumnLayout {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    Layout.topMargin: Kirigami.Units.smallSpacing
 
-                QQC2.ScrollView {
-                    id: translatorToTabView
-                    width: translatorToTab.width
-                    height: translatorToTab.height
+                    QQC2.ScrollView {
+                        id: translatorToTabView
+                        width: translatorToTab.width
+                        height: translatorToTab.height
 
-                    Column {
-                        Repeater {
-                            id: translatorList
+                        Column {
+                            Repeater {
+                                id: translatorList
 
-                            model: applicationData.translatorModel
-                            Column {
-                                QQC2.Label {
-                                    text: username
-                                    wrapMode: QQC2.Label.Wrap
-                                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                                    renderType: Text.NativeRendering
-                                    textFormat: Text.RichText
-                                    font.bold: true
-                                }
-                                QQC2.Label {
-                                    text: task
-                                    wrapMode: QQC2.Label.Wrap
-                                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                                    renderType: Text.NativeRendering
-                                    textFormat: Text.RichText
-                                }
-                                QQC2.Label {
-                                    text: email
-                                    wrapMode: QQC2.Label.Wrap
-                                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                                    renderType: Text.NativeRendering
-                                    textFormat: Text.RichText
-                                    onLinkActivated: {
-                                        aboutDialog.openurl(link);
+                                model: applicationData.translatorModel
+                                Column {
+                                    QQC2.Label {
+                                        text: username
+                                        wrapMode: QQC2.Label.Wrap
+                                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                                        renderType: Text.NativeRendering
+                                        textFormat: Text.RichText
+                                        font.bold: true
+                                    }
+                                    QQC2.Label {
+                                        text: task
+                                        wrapMode: QQC2.Label.Wrap
+                                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                                        renderType: Text.NativeRendering
+                                        textFormat: Text.RichText
+                                    }
+                                    QQC2.Label {
+                                        text: email
+                                        wrapMode: QQC2.Label.Wrap
+                                        anchors.leftMargin: Kirigami.Units.smallSpacing
+                                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                                        renderType: Text.NativeRendering
+                                        textFormat: Text.RichText
+                                        onLinkActivated: {
+                                            aboutDialog.openurl(link);
+                                        }
                                     }
                                 }
                             }
