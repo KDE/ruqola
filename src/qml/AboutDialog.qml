@@ -122,54 +122,67 @@ QQC2.Dialog {
             }
             Item {
                 id: authorTab
-                ColumnLayout {
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.topMargin: Kirigami.Units.smallSpacing
+                anchors.fill: parent
 
-                    QQC2.Label {
-                        visible: applicationData.reportBugs !== ""
-                        text: applicationData.reportBugs
-                        wrapMode: QQC2.Label.Wrap
-                        textFormat: Qt.RichText
-                        onLinkActivated: {
-                            aboutDialog.openurl(link);
-                        }
+                QQC2.Label {
+                    id: reportBugsLink
+                    anchors.top: parent.top
+                    anchors.topMargin: Kirigami.Units.smallSpacing
+                    visible: applicationData.reportBugs !== ""
+                    text: applicationData.reportBugs
+                    wrapMode: QQC2.Label.Wrap
+                    textFormat: Qt.RichText
+                    onLinkActivated: {
+                        aboutDialog.openurl(link);
                     }
-                    QQC2.ScrollView {
-                        id: view
-                        width: authorTab.width
-                        height: authorTab.height
+                }
+                QQC2.ScrollView {
+                    anchors.top: reportBugsLink.bottom
+                    anchors.topMargin: Kirigami.Units.largeSpacing
+                    anchors.bottom: parent.bottom
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: Kirigami.Units.largeSpacing
+                    anchors.rightMargin: Kirigami.Units.largeSpacing
+
+                    contentHeight: authorsColumn.height
+                    contentWidth: width
+
+                    ColumnLayout {
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                        Layout.topMargin: Kirigami.Units.smallSpacing
+                        spacing: Kirigami.Units.largeSpacing
 
                         Column {
+                            id: authorsColumn
+                            spacing: Kirigami.Units.largeSpacing
+                            height: childrenRect.height
+
                             Repeater {
                                 id: authorList
-
                                 model: applicationData.authorModel
+
                                 Column {
-                                    spacing: 5
+                                    id: authorItem
+                                    spacing: Kirigami.Units.smallSpacing
                                     QQC2.Label {
-                                        text: username
+                                        text: "<b>" + model.username + "</b>"
                                         wrapMode: QQC2.Label.Wrap
-                                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                                        anchors.rightMargin: Kirigami.Units.smallSpacing
+                                        horizontalAlignment: Text.AlignHCenter
                                         renderType: Text.NativeRendering
                                         textFormat: Text.RichText
                                         font.bold: true
                                     }
                                     QQC2.Label {
-                                        text: task
+                                        text: "<i>" + model.task + "<i>"
                                         wrapMode: QQC2.Label.Wrap
-                                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                                        anchors.rightMargin: Kirigami.Units.smallSpacing
                                         renderType: Text.NativeRendering
                                         textFormat: Text.RichText
                                     }
                                     QQC2.Label {
-                                        text: email
+                                        text: model.email
                                         wrapMode: QQC2.Label.Wrap
-                                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                                        anchors.rightMargin: Kirigami.Units.smallSpacing
                                         renderType: Text.NativeRendering
                                         textFormat: Text.RichText
                                         onLinkActivated: {
