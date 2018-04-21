@@ -253,9 +253,14 @@ void DDPClient::start()
     connect(mRocketChatAccount, &RocketChatAccount::serverUrlChanged, this, &DDPClient::onServerURLChange);
 
     if (!mUrl.isEmpty()) {
+        qDebug() << " mUrl "<<mUrl;
         const QUrl serverUrl = adaptUrl(mUrl);
-        mWebSocket->openUrl(serverUrl);
-        qCDebug(RUQOLA_DDPAPI_LOG) << "Trying to connect to URL" << serverUrl;
+        if (!serverUrl.isValid()) {
+            setLoginStatus(LoginFailed);
+        } else {
+            mWebSocket->openUrl(serverUrl);
+            qCDebug(RUQOLA_DDPAPI_LOG) << "Trying to connect to URL" << serverUrl;
+        }
     } else {
         qCDebug(RUQOLA_DDPAPI_LOG) << "url is empty";
     }
