@@ -253,7 +253,6 @@ void DDPClient::start()
     connect(mRocketChatAccount, &RocketChatAccount::serverUrlChanged, this, &DDPClient::onServerURLChange);
 
     if (!mUrl.isEmpty()) {
-        qDebug() << " mUrl "<<mUrl;
         const QUrl serverUrl = adaptUrl(mUrl);
         if (!serverUrl.isValid()) {
             setLoginStatus(LoginFailed);
