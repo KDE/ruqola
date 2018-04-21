@@ -43,7 +43,7 @@ void RoomFavoriteJobTest::shouldGenerateRequest()
     RoomFavoriteJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.saveNotification")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.favorite")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
@@ -52,7 +52,7 @@ void RoomFavoriteJobTest::shouldGenerateJson()
     RoomFavoriteJob job;
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"favorite\":true,\"roomId\":\"%1\"}").arg(roomId).toLatin1());
 }
 
 void RoomFavoriteJobTest::shouldNotStarting()
