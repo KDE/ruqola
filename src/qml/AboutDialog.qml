@@ -147,55 +147,12 @@ QQC2.Dialog {
             }
             Item {
                 id: thanksToTab
-                ColumnLayout {
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.topMargin: Kirigami.Units.smallSpacing
+                anchors.fill: parent
 
-                    QQC2.ScrollView {
-                        id: thanksToTabview
-                        width: thanksToTab.width
-                        height: thanksToTab.height
-
-                        Column {
-                            Repeater {
-                                id: creditList
-
-                                model: applicationData.creditsModel
-                                Column {
-                                    QQC2.Label {
-                                        text: username
-                                        wrapMode: QQC2.Label.Wrap
-                                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                                        anchors.rightMargin: Kirigami.Units.smallSpacing
-                                        renderType: Text.NativeRendering
-                                        textFormat: Text.RichText
-                                        font.bold: true
-                                    }
-                                    QQC2.Label {
-                                        text: task
-                                        wrapMode: QQC2.Label.Wrap
-                                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                                        anchors.rightMargin: Kirigami.Units.smallSpacing
-                                        renderType: Text.NativeRendering
-                                        textFormat: Text.RichText
-                                    }
-                                    QQC2.Label {
-                                        text: email
-                                        wrapMode: QQC2.Label.Wrap
-                                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                                        anchors.rightMargin: Kirigami.Units.smallSpacing
-                                        renderType: Text.NativeRendering
-                                        textFormat: Text.RichText
-                                        onLinkActivated: {
-                                            aboutDialog.openurl(link);
-                                        }
-
-                                    }
-                                }
-                            }
-                        }
-                    }
+                PersonsListView {
+                    anchors.fill: parent
+                    anchors.margins: Kirigami.Units.largeSpacing
+                    personsModel: applicationData.creditsModel
                 }
             }
             Item {
