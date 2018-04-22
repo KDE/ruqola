@@ -136,63 +136,13 @@ QQC2.Dialog {
                         aboutDialog.openurl(link);
                     }
                 }
-                QQC2.ScrollView {
+                PersonsListView {
                     anchors.top: reportBugsLink.bottom
-                    anchors.topMargin: Kirigami.Units.largeSpacing
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.leftMargin: Kirigami.Units.largeSpacing
-                    anchors.rightMargin: Kirigami.Units.largeSpacing
-
-                    contentHeight: authorsColumn.height
-                    contentWidth: width
-
-                    ColumnLayout {
-                        Layout.fillHeight: true
-                        Layout.fillWidth: true
-                        Layout.topMargin: Kirigami.Units.smallSpacing
-                        spacing: Kirigami.Units.largeSpacing
-
-                        Column {
-                            id: authorsColumn
-                            spacing: Kirigami.Units.largeSpacing
-                            height: childrenRect.height
-
-                            Repeater {
-                                id: authorList
-                                model: applicationData.authorModel
-
-                                Column {
-                                    id: authorItem
-                                    spacing: Kirigami.Units.smallSpacing
-                                    QQC2.Label {
-                                        text: "<b>" + model.username + "</b>"
-                                        wrapMode: QQC2.Label.Wrap
-                                        horizontalAlignment: Text.AlignHCenter
-                                        renderType: Text.NativeRendering
-                                        textFormat: Text.RichText
-                                        font.bold: true
-                                    }
-                                    QQC2.Label {
-                                        text: "<i>" + model.task + "<i>"
-                                        wrapMode: QQC2.Label.Wrap
-                                        renderType: Text.NativeRendering
-                                        textFormat: Text.RichText
-                                    }
-                                    QQC2.Label {
-                                        text: model.email
-                                        wrapMode: QQC2.Label.Wrap
-                                        renderType: Text.NativeRendering
-                                        textFormat: Text.RichText
-                                        onLinkActivated: {
-                                            aboutDialog.openurl(link);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    anchors.margins: Kirigami.Units.largeSpacing
+                    personsModel: applicationData.authorModel
                 }
             }
             Item {
