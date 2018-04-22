@@ -157,54 +157,12 @@ QQC2.Dialog {
             }
             Item {
                 id: translatorToTab
-                ColumnLayout {
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    Layout.topMargin: Kirigami.Units.smallSpacing
+                anchors.fill: parent
 
-                    QQC2.ScrollView {
-                        id: translatorToTabView
-                        width: translatorToTab.width
-                        height: translatorToTab.height
-
-                        Column {
-                            Repeater {
-                                id: translatorList
-
-                                model: applicationData.translatorModel
-                                Column {
-                                    QQC2.Label {
-                                        text: username
-                                        wrapMode: QQC2.Label.Wrap
-                                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                                        anchors.rightMargin: Kirigami.Units.smallSpacing
-                                        renderType: Text.NativeRendering
-                                        textFormat: Text.RichText
-                                        font.bold: true
-                                    }
-                                    QQC2.Label {
-                                        text: task
-                                        wrapMode: QQC2.Label.Wrap
-                                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                                        anchors.rightMargin: Kirigami.Units.smallSpacing
-                                        renderType: Text.NativeRendering
-                                        textFormat: Text.RichText
-                                    }
-                                    QQC2.Label {
-                                        text: email
-                                        wrapMode: QQC2.Label.Wrap
-                                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                                        anchors.rightMargin: Kirigami.Units.smallSpacing
-                                        renderType: Text.NativeRendering
-                                        textFormat: Text.RichText
-                                        onLinkActivated: {
-                                            aboutDialog.openurl(link);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                PersonsListView {
+                    anchors.fill: parent
+                    anchors.margins: Kirigami.Units.largeSpacing
+                    personsModel: applicationData.translatorModel
                 }
             }
         }
