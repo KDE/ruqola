@@ -186,12 +186,12 @@ void SearchChannelModelTest::shouldLoadValueFromJson()
 
     //Test room
     QCOMPARE(w.data(w.index(2), SearchChannelModel::ChannelName).toString(), QStringLiteral("bal3"));
-    QCOMPARE(w.data(w.index(2), SearchChannelModel::ChannelType), Channel::ChannelType::Room);
+    QCOMPARE(w.data(w.index(2), SearchChannelModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::Room);
     QCOMPARE(w.data(w.index(2), SearchChannelModel::ChannelId).toString(), QStringLiteral("nPzLgDcWxe7KeqGz"));
 
     //Test user
     QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelName).toString(), QStringLiteral("bla.foo4"));
-    QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelType), Channel::ChannelType::PrivateChannel);
+    QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::PrivateChannel);
     //We use for user a channelid == channel name as we use it for opening direct channel
     QCOMPARE(w.data(w.index(6), SearchChannelModel::ChannelId).toString(), QStringLiteral("bla.foo4"));
 

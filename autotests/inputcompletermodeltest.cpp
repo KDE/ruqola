@@ -186,12 +186,12 @@ void InputCompleterModelTest::shouldLoadValueFromJson()
 
     //Test room
     QCOMPARE(w.data(w.index(2), InputCompleterModel::CompleterName).toString(), QStringLiteral("bal3"));
-    QCOMPARE(w.data(w.index(2), InputCompleterModel::ChannelType), Channel::ChannelType::Room);
+    QCOMPARE(w.data(w.index(2), InputCompleterModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::Room);
     QCOMPARE(w.data(w.index(2), InputCompleterModel::DisplayName).toString(), QStringLiteral("bal3"));
 
     //Test user
     QCOMPARE(w.data(w.index(6), InputCompleterModel::CompleterName).toString(), QStringLiteral("bla.foo4"));
-    QCOMPARE(w.data(w.index(6), InputCompleterModel::ChannelType), Channel::ChannelType::PrivateChannel);
+    QCOMPARE(w.data(w.index(6), InputCompleterModel::ChannelType).value<Channel::ChannelType>(), Channel::ChannelType::PrivateChannel);
     //We use for user a channelid == channel name as we use it for opening direct channel
     QCOMPARE(w.data(w.index(6), InputCompleterModel::DisplayName).toString(), QStringLiteral("bla.foo4 (foo4)"));
 
