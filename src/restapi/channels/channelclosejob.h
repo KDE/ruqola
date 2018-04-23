@@ -57,7 +57,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChannelCloseJob)
-    void slotLeaveChannelFinished();
+    void slotCloseChannelFinished();
     QString mRoomId;
     ChannelType mChannelType = Unknown;
 };

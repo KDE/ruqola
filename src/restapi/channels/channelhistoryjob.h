@@ -56,7 +56,7 @@ public:
     void setCount(int count);
 
 Q_SIGNALS:
-    void ChannelHistoryDone();
+    void channelHistoryDone();
 
 private:
     Q_DISABLE_COPY(ChannelHistoryJob)

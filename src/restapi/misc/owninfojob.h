@@ -44,7 +44,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(OwnInfoJob)
-    void slotServerInfoFinished();
+    void slotOwnInfoFinished();
 };
 
 #endif // OWNINFOJOB_H

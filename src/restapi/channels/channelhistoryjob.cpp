@@ -58,7 +58,7 @@ void ChannelHistoryJob::slotLoadHistoryChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             qCDebug(RUQOLA_RESTAPI_LOG) << "load history success: " << data;
-            Q_EMIT ChannelHistoryDone();
+            Q_EMIT channelHistoryDone();
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to load history" << data;
         }

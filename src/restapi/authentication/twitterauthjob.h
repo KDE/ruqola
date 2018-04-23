@@ -56,11 +56,11 @@ public:
     void setAppId(const QString &appId);
 
 Q_SIGNALS:
-    void facebookDone(const QString &authToken, const QString &userId);
+    void twitterDone(const QString &authToken, const QString &userId);
 
 private:
     Q_DISABLE_COPY(TwitterAuthJob)
-    void slotFacebookauthDone();
+    void slotTwitterauthDone();
     QString mAccessToken;
     QString mSecret;
     QString mAppSecret;

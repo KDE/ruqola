@@ -47,12 +47,12 @@ bool OwnInfoJob::start()
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &OwnInfoJob::slotServerInfoFinished);
+    connect(reply, &QNetworkReply::finished, this, &OwnInfoJob::slotOwnInfoFinished);
     addLoggerInfo(QByteArrayLiteral("OwnInfoJob: Ask info about me"));
     return true;
 }
 
-void OwnInfoJob::slotServerInfoFinished()
+void OwnInfoJob::slotOwnInfoFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {

@@ -74,12 +74,12 @@ bool TwitterAuthJob::start()
 
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     addLoggerInfo("TwitterAuthJob started ");
-    connect(reply, &QNetworkReply::finished, this, &TwitterAuthJob::slotFacebookauthDone);
+    connect(reply, &QNetworkReply::finished, this, &TwitterAuthJob::slotTwitterauthDone);
 
     return false;
 }
 
-void TwitterAuthJob::slotFacebookauthDone()
+void TwitterAuthJob::slotTwitterauthDone()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -93,7 +93,7 @@ void TwitterAuthJob::slotFacebookauthDone()
             if (data.contains(QLatin1String("authToken")) && data.contains(QLatin1String("userId"))) {
                 const QString authToken = data[QStringLiteral("authToken")].toString();
                 const QString userId = data[QStringLiteral("userId")].toString();
-                Q_EMIT facebookDone(authToken, userId);
+                Q_EMIT twitterDone(authToken, userId);
             }
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) << "Error during login" << data;

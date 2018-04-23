@@ -44,11 +44,11 @@ bool ChannelCloseJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("ChannelCloseJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &ChannelCloseJob::slotLeaveChannelFinished);
+    connect(reply, &QNetworkReply::finished, this, &ChannelCloseJob::slotCloseChannelFinished);
     return true;
 }
 
-void ChannelCloseJob::slotLeaveChannelFinished()
+void ChannelCloseJob::slotCloseChannelFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
