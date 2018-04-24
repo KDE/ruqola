@@ -55,7 +55,15 @@ void RoomFavoriteJob::slotChangeFavoriteFinished()
     if (reply) {
         const QByteArray data = reply->readAll();
         addLoggerInfo(QByteArrayLiteral("RoomFavoriteJob: finished: ") + data);
-        Q_EMIT changeFavoriteDone();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            qCDebug(RUQOLA_RESTAPI_LOG) << "Change favorite status done: " << data;
+            Q_EMIT changeFavoriteDone();
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change favorite status" << data;
+        }
     }
     deleteLater();
 }
