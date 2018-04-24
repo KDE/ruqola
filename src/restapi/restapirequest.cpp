@@ -62,6 +62,7 @@
 #include "groups/leavegroupsjob.h"
 #include "groups/changegroupsdescriptionjob.h"
 #include "groups/archivegroupsjob.h"
+#include "groups/groupsinvitejob.h"
 
 #include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
@@ -513,6 +514,15 @@ void RestApiRequest::inviteInChannel(const QString &roomId, const QString &userI
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setInviteUserId(userId);
+    job->start();
+}
+
+void RestApiRequest::inviteInGroup(const QString &roomId, const QString &userId)
+{
+    GroupsInviteJob *job = new GroupsInviteJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setUserId(userId);
     job->start();
 }
 

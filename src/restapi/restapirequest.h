@@ -93,6 +93,7 @@ public:
     void markAsRead(const QString &roomId);
     void getRooms();
     void markAsFavorite(const QString &roomId, bool favorite);
+    void inviteInGroup(const QString &roomId, const QString &userId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

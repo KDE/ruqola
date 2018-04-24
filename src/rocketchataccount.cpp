@@ -654,7 +654,12 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 
 void RocketChatAccount::addUserToRoom(const QString &username, const QString &roomId)
 {
+#ifdef USE_REASTAPI_JOB_IMPOSSIBLE_YET
+    restApi()->inviteInChannel(roomId, username);
+    restApi()->inviteInGroup(roomId, username);
+#else
     ddp()->addUserToRoom(username, roomId);
+#endif
 }
 
 void RocketChatAccount::clearSearchModel()
