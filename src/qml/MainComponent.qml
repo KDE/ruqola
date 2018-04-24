@@ -122,6 +122,7 @@ Component {
                                     privateChannelInfoDialog.roomInfo = appid.selectedRoom
                                     privateChannelInfoDialog.initializeAndOpen()
                                 } else {
+                                    //TODO add debug category
                                     console.log("channel type " + appid.selectedRoom.channelType)
                                 }
                             }
@@ -139,8 +140,11 @@ Component {
                         QQC2.MenuItem {
                             text: i18n("Add User In Room")
                             onTriggered: {
-                                addUserDialog.roomId = appid.selectedRoomID
-                                addUserDialog.initializeAndOpen()
+                                var channelType = appid.selectedRoom.channelType;
+                                if (channelType === "c" || channelType === "p") {
+                                    addUserDialog.roomId = appid.selectedRoomID
+                                    addUserDialog.initializeAndOpen()
+                                }
                             }
                         }
                         RuqolaMenuSeparator {
