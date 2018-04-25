@@ -60,9 +60,13 @@ void SearchMessageJob::slotSearchMessageFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        //TODO success ????
-        addLoggerInfo(QByteArrayLiteral("SearchMessageJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT searchMessageDone(replyObject);
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("SearchMessageJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT searchMessageDone(replyObject);
+            qCDebug(RUQOLA_RESTAPI_LOG) << "Search message success: " << data;
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to search message";
+        }
     }
     deleteLater();
 }
