@@ -75,7 +75,7 @@ Rectangle {
         text: {
             //TODO verify if it works with non latin char.
             if (aliasname.length > 0) {
-                var match = aliasname.match(/([a-zA-Z])([a-zA-Z])/);
+                var match = aliasname.match(/([a-zA-Z0-9])([a-zA-Z0-9])/);
                 var abbrev = match[1].toUpperCase();
                 if (match.length > 2) {
                     abbrev += match[2].toLowerCase();
