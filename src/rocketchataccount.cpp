@@ -409,15 +409,15 @@ void RocketChatAccount::logOut()
     mSettings->logout();
 
     mRoomModel->clear();
-
-    //TODO use restapi for it.
-
+#ifdef USE_REASTAPI_JOB
+    restApi()->logout();
+#else
     QJsonObject user;
     user[QStringLiteral("username")] = mSettings->userName();
     QJsonObject json;
     json[QStringLiteral("user")] = user;
     ddp()->method(QStringLiteral("logout"), QJsonDocument(json));
-
+#endif
     delete mDdp;
     mDdp = nullptr;
     Q_EMIT logoutDone(accountName());
