@@ -450,6 +450,7 @@ void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 
 void RocketChatAccount::openChannel(const QString &url)
 {
+    //TODO use restapi
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::openChannel(const QString &url)"<<url;
     ddp()->joinRoom(url, QString());
     //TODO search correct room + select it.
@@ -471,6 +472,7 @@ void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
 
 void RocketChatAccount::eraseRoom(const QString &roomId)
 {
+    //TODO use restapi
     ddp()->eraseRoom(roomId);
 }
 
@@ -507,12 +509,14 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
 
 void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 {
+    //TODO use restapi
     ddp()->joinRoom(roomId, joinCode);
     ddp()->subscribeRoomMessage(roomId);
 }
 
 void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 {
+    //TODO use restapi
     if (pattern.isEmpty()) {
         searchChannelModel()->clear();
     } else {
@@ -542,6 +546,7 @@ void RocketChatAccount::listEmojiCustom()
 
 void RocketChatAccount::setDefaultStatus(User::PresenceStatus status)
 {
+    //TODO use restapi
     ddp()->setDefaultStatus(status);
 }
 
@@ -597,12 +602,14 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
         } else {
             addUserNameToException += QLatin1Char(',') + userName();
         }
+        //TODO use restapi
         ddp()->userAutocomplete(searchText, addUserNameToException);
     }
 }
 
 void RocketChatAccount::getUsersOfRoom(const QString &roomId)
 {
+    //TODO use restapi
     ddp()->getUsersOfRoom(roomId, true);
 }
 
@@ -650,6 +657,7 @@ void RocketChatAccount::slotChannelFilesDone(const QVector<File> &files, const Q
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 {
+    //TODO use restapi
     ddp()->createJitsiConfCall(roomId);
     joinJitsiConfCall(roomId);
 }
@@ -1130,6 +1138,7 @@ void RocketChatAccount::userStatusChanged(const User &user)
 
 void RocketChatAccount::blockUser(const QString &rid, bool block)
 {
+    //TODO use restapi
     if (rid.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " void RocketChatAccount::blockUser EMPTY rid ! block " << block;
     } else {
@@ -1146,6 +1155,7 @@ void RocketChatAccount::blockUser(const QString &rid, bool block)
 
 void RocketChatAccount::initializeRoom(const QString &roomId, bool loadInitialHistory)
 {
+    //TODO use restapi
     ddp()->subscribeRoomMessage(roomId);
     getUsersOfRoom(roomId);
 
