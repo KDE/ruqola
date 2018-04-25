@@ -75,7 +75,7 @@ QQC2.Dialog {
                 RowLayout {
                 Kirigami.Icon {
                     source: "list-add"
-                    //FIXME
+                    //FIXME icon size
                     height: 22
                     width: 22
                     MouseArea {
@@ -88,7 +88,7 @@ QQC2.Dialog {
 
                 Kirigami.Icon {
                     source: iconstatus
-                    //FIXME
+                    //FIXME icon size
                     height: 22
                     width: 22
                 }

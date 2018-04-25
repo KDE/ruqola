@@ -51,7 +51,7 @@ Kirigami.Page {
                 Kirigami.Icon {
                     //Fix icon ??
                     source: "list-remove"
-                    //FIXME
+                    //FIXME icon size
                     height: 22
                     width: 22
                     MouseArea {
@@ -69,7 +69,7 @@ Kirigami.Page {
             //iconName: "list-add"
             text: i18n("Add Account...")
             onClicked: {
-                //TODO
+                //TODO add account! Add verify element etc.
             }
         }
     }

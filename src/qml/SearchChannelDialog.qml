@@ -84,7 +84,7 @@ QQC2.Dialog {
                 }
                 Kirigami.Icon {
                     source: iconname
-                    //FIXME
+                    //FIXME icon size
                     height: 22
                     width: 22
                 }

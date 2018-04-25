@@ -122,8 +122,7 @@ Component {
                                     privateChannelInfoDialog.roomInfo = appid.selectedRoom
                                     privateChannelInfoDialog.initializeAndOpen()
                                 } else {
-                                    //TODO add debug category
-                                    console.log("channel type " + appid.selectedRoom.channelType)
+                                    console.log(RuqolaDebugCategorySingleton.category,"channel type " + appid.selectedRoom.channelType)
                                 }
                             }
                         }

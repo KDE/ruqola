@@ -1016,8 +1016,10 @@ QUrl RocketChatAccount::attachmentUrl(const QString &url)
     return mCache->attachmentUrl(url);
 }
 
-void RocketChatAccount::loadHistory(const QString &roomID, bool initial)
+void RocketChatAccount::loadHistory(const QString &roomID, const QString &channelType, bool initial)
 {
+    //TODO port to restapi
+    Q_UNUSED(channelType);
     MessageModel *roomModel = messageModelForRoom(roomID);
     if (roomModel) {
         //TODO add autotest for it !
@@ -1161,7 +1163,8 @@ void RocketChatAccount::initializeRoom(const QString &roomId, bool loadInitialHi
 
     if (loadInitialHistory) {
         //Load history
-        loadHistory(roomId, true /*initial loading*/);
+        //TODO fix me use channeltype!
+        loadHistory(roomId, QString(), true /*initial loading*/);
     }
 }
 

@@ -102,7 +102,6 @@ void UserCompleterModelTest::shouldVerifyData()
     QCOMPARE(w.rowCount(), 10);
 
     for (int i = 0; i < 10; ++i) {
-        //TODO fix me.QCOMPARE(w.data(w.index(i), UserCompleterModel::IconStatus).toString(), QStringLiteral("description%1").arg(i));
         QCOMPARE(w.data(w.index(i), UserCompleterModel::UserId).toString(), QStringLiteral("userId%1").arg(i));
         QCOMPARE(w.data(w.index(i), UserCompleterModel::UserName).toString(), QStringLiteral("username%1").arg(i));
     }

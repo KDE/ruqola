@@ -581,6 +581,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         }
         o[QStringLiteral("attachments")] = array;
     }
+    //FIXME save mentions
     QMapIterator<QString, QString> i(message.mentions());
     while (i.hasNext()) {
         i.next();

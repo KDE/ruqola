@@ -142,7 +142,7 @@ public:
     Q_INVOKABLE StatusModel *statusModel() const;
 
     Q_INVOKABLE QUrl attachmentUrl(const QString &url);
-    Q_INVOKABLE void loadHistory(const QString &roomID, bool initial = false);
+    Q_INVOKABLE void loadHistory(const QString &roomID, const QString &channelType = QString(), bool initial = false);
     Q_INVOKABLE bool allowEditingMessages() const;
     Q_INVOKABLE bool otrEnabled() const;
     Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
