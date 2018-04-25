@@ -149,7 +149,7 @@ public:
     Q_INVOKABLE UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
     Q_INVOKABLE void roomFiles(const QString &roomId, const QString &channelType = QString());
     Q_INVOKABLE FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel(const QString &roomId) const;
-    Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId);
+    Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId, const QString &channelType);
     Q_INVOKABLE SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
     Q_INVOKABLE InputCompleterModel *inputCompleterModel() const;
     Q_INVOKABLE LoginMethodModel *loginMethodModel() const;

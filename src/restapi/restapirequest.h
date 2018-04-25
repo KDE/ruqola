@@ -85,7 +85,7 @@ public:
     void archiveChannel(const QString &roomId);
     void archiveGroups(const QString &roomId);
     void filesInRoom(const QString &roomId, const QString &type);
-    void inviteInChannel(const QString &roomId, const QString &userId);
+    void addUserInChannel(const QString &roomId, const QString &userId);
 
     void listEmojiCustom();
     void searchRoomUser(const QString &pattern);
@@ -93,7 +93,7 @@ public:
     void markAsRead(const QString &roomId);
     void getRooms();
     void markAsFavorite(const QString &roomId, bool favorite);
-    void inviteInGroup(const QString &roomId, const QString &userId);
+    void addUserInGroup(const QString &roomId, const QString &userId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

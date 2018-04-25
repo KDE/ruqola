@@ -508,7 +508,7 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type)
     job->start();
 }
 
-void RestApiRequest::inviteInChannel(const QString &roomId, const QString &userId)
+void RestApiRequest::addUserInChannel(const QString &roomId, const QString &userId)
 {
     ChannelInviteJob *job = new ChannelInviteJob(this);
     initializeRestApiJob(job);
@@ -517,7 +517,7 @@ void RestApiRequest::inviteInChannel(const QString &roomId, const QString &userI
     job->start();
 }
 
-void RestApiRequest::inviteInGroup(const QString &roomId, const QString &userId)
+void RestApiRequest::addUserInGroup(const QString &roomId, const QString &userId)
 {
     GroupsInviteJob *job = new GroupsInviteJob(this);
     initializeRestApiJob(job);

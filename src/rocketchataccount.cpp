@@ -410,6 +410,8 @@ void RocketChatAccount::logOut()
 
     mRoomModel->clear();
 
+    //TODO use restapi for it.
+
     QJsonObject user;
     user[QStringLiteral("username")] = mSettings->userName();
     QJsonObject json;
@@ -652,12 +654,13 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
     joinJitsiConfCall(roomId);
 }
 
-void RocketChatAccount::addUserToRoom(const QString &username, const QString &roomId)
+void RocketChatAccount::addUserToRoom(const QString &username, const QString &roomId, const QString &channelType)
 {
 #ifdef USE_REASTAPI_JOB_IMPOSSIBLE_YET
-    restApi()->inviteInChannel(roomId, username);
-    restApi()->inviteInGroup(roomId, username);
+    restApi()->addUserInChannel(roomId, username);
+    restApi()->addUserInGroup(roomId, username);
 #else
+    Q_UNUSED(channelType);
     ddp()->addUserToRoom(username, roomId);
 #endif
 }

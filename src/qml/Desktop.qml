@@ -194,7 +194,7 @@ Kirigami.ApplicationWindow {
             rocketChatAccount.userAutocomplete(pattern, "");
         }
         onAddUser: {
-            rocketChatAccount.addUserToRoom(name, rid)
+            rocketChatAccount.addUserToRoom(name, rid, channelType)
         }
     }
 

@@ -142,6 +142,7 @@ Component {
                             onTriggered: {
                                 var channelType = appid.selectedRoom.channelType;
                                 if (channelType === "c" || channelType === "p") {
+                                    addUserDialog.roomInfo = appid.selectedRoom
                                     addUserDialog.roomId = appid.selectedRoomID
                                     addUserDialog.initializeAndOpen()
                                 }
