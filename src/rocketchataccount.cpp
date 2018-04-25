@@ -705,11 +705,13 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
 {
     switch (infoType) {
     case Announcement:
-#ifdef USE_REASTAPI_JOB_NOTSUPPORTED_YET
+#ifdef USE_REASTAPI_JOB
         if (channelType == QStringLiteral("c")) {
             restApi()->changeChannelAnnouncement(roomId, newValue.toString());
         } else if (channelType == QStringLiteral("p")) {
-            restApi()->changeGroupsAnnouncement(roomId, newValue.toString());
+            ddp()->setRoomAnnouncement(roomId, newValue.toString());
+            //FOR the moment we can't change group announcement with restapi
+            //restApi()->changeGroupsAnnouncement(roomId, newValue.toString());
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport change announcement for type " << channelType;
         }
