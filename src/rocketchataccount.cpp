@@ -608,7 +608,7 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
         if (exception.isEmpty()) {
             addUserNameToException = userName();
         } else {
-            addUserNameToException += QLatin1Char(',') + userName();
+            addUserNameToException = exception + QLatin1Char(',') + userName();
         }
         //TODO use restapi
         ddp()->userAutocomplete(searchText, addUserNameToException);
