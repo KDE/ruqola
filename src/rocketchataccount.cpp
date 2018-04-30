@@ -340,13 +340,13 @@ RestApiRequest *RocketChatAccount::restApi()
 
 void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelType)
 {
-#ifdef USE_REASTAPI_JOB_NOTSUPPORTED_YET
+#ifdef USE_REASTAPI_JOB
     if (channelType == QStringLiteral("c")) {
         restApi()->leaveChannel(roomId);
     } else if (channelType == QStringLiteral("p")) {
         restApi()->leaveGroups(roomId);
     } else {
-        qCWarning(RUQOLA_LOG) << " unsupport change announcement for type " << channelType;
+        qCWarning(RUQOLA_LOG) << " unsupport leave room for type " << channelType;
     }
 #else
     Q_UNUSED(channelType)
@@ -357,6 +357,14 @@ void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelT
 void RocketChatAccount::hideRoom(const QString &roomId, const QString &channelType)
 {
 #ifdef USE_REASTAPI_JOB_NOTSUPPORTED_YET
+    if (channelType == QStringLiteral("c")) {
+        restApi()->leaveChannel(roomId);
+    } else if (channelType == QStringLiteral("p")) {
+        restApi()->leaveGroups(roomId);
+    } else if (channelType == QStringLiteral("d")) {
+    } else {
+        qCWarning(RUQOLA_LOG) << " unsupport hide room for type " << channelType;
+    }
     restApi()->closeChannel(roomId, channelType);
 #else
     Q_UNUSED(channelType)

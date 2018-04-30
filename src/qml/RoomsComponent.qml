@@ -122,6 +122,7 @@ Component {
             onLeaveRoom: {
                 //TODO move to desktop.qml
                 leaveChannelDialog.rId = roomID
+                leaveChannelDialog.roomInfo = appid.selectedRoom
                 leaveChannelDialog.open()
             }
 

@@ -183,7 +183,7 @@ Kirigami.ApplicationWindow {
     LeaveChannelDialog {
         id: leaveChannelDialog
         onLeaveChannel:  {
-            rocketChatAccount.leaveRoom(roomId)
+            rocketChatAccount.leaveRoom(roomId, channelType)
         }
     }
 

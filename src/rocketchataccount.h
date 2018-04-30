@@ -107,7 +107,7 @@ public:
 
     Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
 
-    Q_INVOKABLE void leaveRoom(const QString &roomId, const QString &channelType = QString());
+    Q_INVOKABLE void leaveRoom(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void hideRoom(const QString &roomId, const QString &channelType = QString());
     Q_INVOKABLE void tryLogin();
     Q_INVOKABLE void logOut();
