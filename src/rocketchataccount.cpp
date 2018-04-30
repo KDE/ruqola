@@ -578,6 +578,7 @@ void RocketChatAccount::deleteMessage(const QString &messageId, const QString &r
 #ifdef USE_REASTAPI_JOB
     restApi()->deleteMessage(roomId, messageId);
 #else
+    Q_UNUSED(roomId);
     ddp()->deleteMessage(messageId);
 #endif
 }
