@@ -72,7 +72,9 @@ QQC2.Dialog {
 
             onUpdateValue: {
                 if (newVal != "") {
-                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal, roomInfo.channelType)
+                    if (roomInfo.name !== newVal) {
+                        channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal, roomInfo.channelType)
+                    }
                 } else {
                     //see https://doc.qt.io/qt-5/qml-qtqml-loggingcategory.html
                     console.log(RuqolaDebugCategorySingleton.category, "New name is empty. We can't rename room name to empty name.")
@@ -86,7 +88,9 @@ QQC2.Dialog {
             id: channelCommentField
             textField: roomInfo === null ? "" : roomInfo.topic
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, newVal, roomInfo.channelType)
+                if (roomInfo.topic !== newVal) {
+                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, newVal, roomInfo.channelType)
+                }
             }
         }
         QQC2.Label {
@@ -96,7 +100,9 @@ QQC2.Dialog {
             id: channelAnnoucementField
             textField: roomInfo === null ? "" : roomInfo.announcement;
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Annoucement, newVal, roomInfo.channelType)
+                if (roomInfo.announcement !== newVal) {
+                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Annoucement, newVal, roomInfo.channelType)
+                }
             }
         }
         QQC2.Label {
@@ -106,7 +112,9 @@ QQC2.Dialog {
             id: channelDescriptionField
             textField: roomInfo === null ? "" : roomInfo.description;
             onUpdateValue: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal, roomInfo.channelType)
+                if (roomInfo.description !== newVal) {
+                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal, roomInfo.channelType)
+                }
             }
         }
 
