@@ -49,7 +49,7 @@ ColumnLayout {
         inputMethodHints: Qt.ImhMultiLine
 
         Layout.fillWidth: true
-        placeholderText: i18n("Enter message")
+        placeholderText: i18n("Enter Message...")
         onTextChanged: {
             rcAccount.setInputTextChanged(text, cursorPosition);
             if (listView.count > 0) {

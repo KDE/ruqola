@@ -31,7 +31,7 @@ QQC2.TextField {
     selectByMouse: true
     echoMode: displayPassword ? TextInput.Normal : TextInput.Password
     inputMethodHints: Qt.ImhHiddenText
-    placeholderText: i18n("Enter password")
+    placeholderText: i18n("Enter Password...")
 
     Kirigami.Icon {
         source: passwordLineEdit.displayPassword ? "visibility": "hint"

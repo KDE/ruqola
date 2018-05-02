@@ -98,7 +98,7 @@ Component {
                     Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
                     Layout.fillWidth: true
                     //width: parent.width
-                    placeholderText: i18n("Search...")
+                    placeholderText: i18n("Search Room...")
                     onTextChanged: {
                         appid.rocketChatAccount.roomFilterProxyModel().setFilterString(text);
                         //TODO filter list view

@@ -56,7 +56,7 @@ QQC2.Dialog {
             Layout.minimumHeight: Layout.maximumHeight
             Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
             Layout.fillWidth: true
-            placeholderText: i18n("Search channel...")
+            placeholderText: i18n("Search Channel...")
             onTextChanged: {
                 searchChannelDialog.searchChannel(channelname.text)
             }

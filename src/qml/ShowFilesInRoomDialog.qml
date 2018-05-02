@@ -58,7 +58,7 @@ QQC2.Dialog {
             Layout.minimumHeight: Layout.maximumHeight
             Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
             Layout.fillWidth: true
-            placeholderText: i18n("Search file...")
+            placeholderText: i18n("Search File...")
             onTextChanged: {
                 filesModel.setFilterString(text);
             }
