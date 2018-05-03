@@ -198,6 +198,8 @@ void Message::parseAttachment(const QJsonArray &attachments)
             if (!color.isUndefined()) {
                 messageAttachement.setColor(color.toString());
             }
+            //MimeType
+            messageAttachement.setMimeType(attachment.value(QLatin1String("image_type")).toString());
 
             if (!messageAttachement.isEmpty()) {
                 mAttachements.append(messageAttachement);

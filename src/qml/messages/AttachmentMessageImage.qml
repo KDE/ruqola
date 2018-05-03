@@ -77,6 +77,7 @@ MessageBase {
                     }
                     Image {
                         id: imageUrl
+                        visible: model.modelData.mimeType !== "image/gif"
                         readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
                         source: rcAccount.attachmentUrl(model.modelData.link)
                         asynchronous: true
@@ -99,6 +100,35 @@ MessageBase {
                                     console.log(RuqolaDebugCategorySingleton.category, "Image not loaded.");
                                 } else {
                                     messageMain.displayImage(imageUrl.source, imageTitle.text)
+                                }
+                            }
+                        }
+                    }
+                    AnimatedImage {
+                        id: imageAnimatedUrl
+                        visible: model.modelData.mimeType === "image/gif"
+                        readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
+                        source: rcAccount.attachmentUrl(model.modelData.link)
+                        asynchronous: true
+                        fillMode: Image.PreserveAspectFit
+                        //TODO customize it.
+                        width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
+                        height: 200
+                        //sourceSize.width: 200
+                        //sourceSize.height: 200
+
+                        onStatusChanged: {
+                            if(status == Image.Error){
+                                console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. " + source)
+                            }
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                if(status === Image.Error) {
+                                    console.log(RuqolaDebugCategorySingleton.category, "Image not loaded.");
+                                } else {
+                                    messageMain.displayImage(imageAnimatedUrl.source, imageTitle.text)
                                 }
                             }
                         }
