@@ -111,9 +111,8 @@ MessageBase {
                         source: rcAccount.attachmentUrl(model.modelData.link)
                         asynchronous: true
                         fillMode: Image.PreserveAspectFit
-                        //TODO customize it.
                         width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
-                        height: 200
+                        height: 0
                         //sourceSize.width: 200
                         //sourceSize.height: 200
 
@@ -155,8 +154,8 @@ MessageBase {
                 }
 
                 ShowHideButton {
-                    targetAnimation: imageUrl
-                    defaultHeight: imageUrl.imageHeight
+                    targetAnimation: model.modelData.isAnimatedImage ? imageAnimatedUrl : imageUrl
+                    defaultHeight: model.modelData.isAnimatedImage ? imageAnimatedUrl.imageHeight : Url.imageHeight
                 }
 
                 DownloadButton {
@@ -172,6 +171,7 @@ MessageBase {
                         if (filePath === model.modelData.link) {
                             console.log(RuqolaDebugCategorySingleton.category, "Image updated: " + cacheImageUrl)
                             imageUrl.source = cacheImageUrl;
+                            imageAnimatedUrl.source = cacheImageUrl;
                         }
                     }
                 }
