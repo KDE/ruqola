@@ -36,6 +36,10 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
     if (!authorname.isEmpty()) {
         obj[QStringLiteral("authorname")] = authorname;
     }
+    const QString mimeType = message.mimeType();
+    if (!mimeType.isEmpty()) {
+        obj[QStringLiteral("mimetype")] = mimeType;
+    }
     if ((message.imageHeight() != -1) && (message.imageWidth() != -1)) {
         obj[QStringLiteral("image_height")] = message.imageHeight();
         obj[QStringLiteral("image_width")] = message.imageWidth();
@@ -54,6 +58,7 @@ MessageAttachment MessageAttachment::fromJSon(const QJsonObject &o)
     att.setTitle(o.value(QLatin1String("title")).toString());
     att.setLink(o.value(QLatin1String("url")).toString());
     att.setAuthorName(o.value(QLatin1String("authorname")).toString());
+    att.setMimeType(o.value(QLatin1String("image_type")).toString());
     const QJsonValue valHeight = o.value(QLatin1String("image_height"));
     if (!valHeight.isUndefined()) {
         att.setImageHeight(valHeight.toInt());
@@ -125,6 +130,16 @@ QString MessageAttachment::imageTitle() const
     return QStringLiteral("%1 <a href=\'%2'>%2</a>").arg(i18n("File send:")).arg(title());
 }
 
+QString MessageAttachment::mimeType() const
+{
+    return mMimeType;
+}
+
+void MessageAttachment::setMimeType(const QString &type)
+{
+    mMimeType = type;
+}
+
 QString MessageAttachment::displayTitle() const
 {
     if (canDownloadAttachment()) {
@@ -171,7 +186,8 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
            && (mColor == other.color())
            && (mImageHeight == other.imageHeight())
            && (mImageWidth == other.imageWidth())
-           && (mAuthorName == other.authorName());
+           && (mAuthorName == other.authorName())
+            && (mMimeType == other.mimeType());
 }
 
 QDebug operator <<(QDebug d, const MessageAttachment &t)
@@ -182,5 +198,6 @@ QDebug operator <<(QDebug d, const MessageAttachment &t)
     d << "image dimension: width: " << t.imageWidth() << " height: " << t.imageHeight();
     d << "color: " << t.color();
     d << "authorname: " << t.authorName();
+    d << "mimeType: " << t.mimeType();
     return d;
 }

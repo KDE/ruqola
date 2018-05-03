@@ -67,6 +67,10 @@ public:
     bool canDownloadAttachment() const;
     QString displayTitle() const;
     QString imageTitle() const;
+
+    QString mimeType() const;
+    void setMimeType(const QString &type);
+
 private:
     //TODO add fields support ?
     QString mColor;
@@ -74,6 +78,7 @@ private:
     QString mTitle;
     QString mLink;
     QString mAuthorName;
+    QString mMimeType;
     int mImageHeight = -1;
     int mImageWidth = -1;
 };
