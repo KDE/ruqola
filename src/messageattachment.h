@@ -36,6 +36,7 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
     Q_PROPERTY(bool canDownloadAttachment READ canDownloadAttachment CONSTANT)
     Q_PROPERTY(QString displayTitle READ displayTitle CONSTANT)
     Q_PROPERTY(QString imageTitle READ imageTitle CONSTANT)
+    Q_PROPERTY(QString mimeType READ mimeType CONSTANT)
 public:
     MessageAttachment();
     bool isEmpty() const;
