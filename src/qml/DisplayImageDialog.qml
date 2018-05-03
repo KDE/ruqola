@@ -28,6 +28,7 @@ QQC2.Dialog {
     title: i18n("Image")
 
     property url iUrl
+    property bool isAnimatedImage: false
     width: parent.width
     height: parent.height
 
@@ -53,6 +54,7 @@ QQC2.Dialog {
 
         Image {
             id: image
+            visible: !isAnimatedImage
             source: iUrl
             MouseArea {
                 anchors.fill: parent
@@ -62,6 +64,23 @@ QQC2.Dialog {
                         var delta = wheel.angleDelta.y;
                         if ((image.scale > 0.1 && delta < 0) || (image.scale < 5 && delta > 0)) {
                             image.scale += image.scale * delta / 120 / 10;
+                        }
+                    }
+                }
+            }
+        }
+        AnimatedImage {
+            id: imageAnimated
+            visible: isAnimatedImage
+            source: iUrl
+            MouseArea {
+                anchors.fill: parent
+                onWheel: {
+                    if (wheel.modifiers & Qt.ControlModifier) {
+                        var scaleBefore = imageAnimated.scale;
+                        var delta = wheel.angleDelta.y;
+                        if ((imageAnimated.scale > 0.1 && delta < 0) || (imageAnimated.scale < 5 && delta > 0)) {
+                            imageAnimated.scale += imageAnimated.scale * delta / 120 / 10;
                         }
                     }
                 }

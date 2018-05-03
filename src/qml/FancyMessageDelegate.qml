@@ -70,7 +70,7 @@ Rectangle {
     signal copyMessage(string messageId, string messageStr)
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId, bool starred)
-    signal displayImage(url imageUrl, string title)
+    signal displayImage(url imageUrl, string title, bool isAnimatedImage)
 
     Loader {
         id: loaded
@@ -231,7 +231,7 @@ Rectangle {
             messageMain.setFavoriteMessage(messageId, starred)
         }
         onDisplayImage: {
-            messageMain.displayImage(imageUrl, title)
+            messageMain.displayImage(imageUrl, title, isAnimatedImage)
         }
     }
 }

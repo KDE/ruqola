@@ -30,7 +30,7 @@ ColumnLayout {
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId, bool starred)
     signal downloadAttachment(string url)
-    signal displayImage(url imageUrl, string title)
+    signal displayImage(url imageUrl, string title, bool isAnimatedImage)
 
     property string i_date
     property string i_username

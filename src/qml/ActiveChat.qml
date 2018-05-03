@@ -34,7 +34,7 @@ ListView {
     signal copyMessage(string messageId, string messageStr)
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId, bool starred)
-    signal displayImage(url imageUrl, string title)
+    signal displayImage(url imageUrl, string title, bool isAnimatedImage)
 
     property QtObject rcAccount
     property string roomId: ""
@@ -110,7 +110,7 @@ ListView {
             activeChat.setFavoriteMessage(messageId, starred)
         }
         onDisplayImage: {
-            activeChat.displayImage(imageUrl, title)
+            activeChat.displayImage(imageUrl, title, isAnimatedImage)
         }
     }
 }

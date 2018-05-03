@@ -60,7 +60,7 @@ MessageBase {
                         renderType: Text.NativeRendering
                         textFormat: Text.RichText
                         onLinkActivated: {
-                            messageMain.displayImage(imageUrl.source, model.modelData.title)
+                            messageMain.displayImage(imageUrl.source, model.modelData.title, model.modelData.isAnimatedImage)
                         }
                         MouseArea {
                             anchors.fill: parent
@@ -99,7 +99,7 @@ MessageBase {
                                 if(status === Image.Error) {
                                     console.log(RuqolaDebugCategorySingleton.category, "Image not loaded.");
                                 } else {
-                                    messageMain.displayImage(imageUrl.source, imageTitle.text)
+                                    messageMain.displayImage(imageUrl.source, imageTitle.text, model.modelData.isAnimatedImage)
                                 }
                             }
                         }
@@ -127,7 +127,7 @@ MessageBase {
                                 if(status === Image.Error) {
                                     console.log(RuqolaDebugCategorySingleton.category, "Image not loaded.");
                                 } else {
-                                    messageMain.displayImage(imageAnimatedUrl.source, imageTitle.text)
+                                    messageMain.displayImage(imageAnimatedUrl.source, imageTitle.text, model.modelData.isAnimatedImage)
                                 }
                             }
                         }
