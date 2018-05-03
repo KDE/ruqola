@@ -58,7 +58,7 @@ MessageAttachment MessageAttachment::fromJSon(const QJsonObject &o)
     att.setTitle(o.value(QLatin1String("title")).toString());
     att.setLink(o.value(QLatin1String("url")).toString());
     att.setAuthorName(o.value(QLatin1String("authorname")).toString());
-    att.setMimeType(o.value(QLatin1String("image_type")).toString());
+    att.setMimeType(o.value(QLatin1String("mimetype")).toString());
     const QJsonValue valHeight = o.value(QLatin1String("image_height"));
     if (!valHeight.isUndefined()) {
         att.setImageHeight(valHeight.toInt());
