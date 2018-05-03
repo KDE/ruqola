@@ -77,7 +77,7 @@ MessageBase {
                     }
                     Image {
                         id: imageUrl
-                        visible: model.modelData.mimeType !== "image/gif"
+                        visible: model.modelData.isAnimatedImage
                         readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
                         source: rcAccount.attachmentUrl(model.modelData.link)
                         asynchronous: true
@@ -106,14 +106,13 @@ MessageBase {
                     }
                     AnimatedImage {
                         id: imageAnimatedUrl
-                        visible: model.modelData.mimeType === "image/gif"
+                        visible: model.modelData.isAnimatedImage
                         readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
                         source: rcAccount.attachmentUrl(model.modelData.link)
                         asynchronous: true
                         fillMode: Image.PreserveAspectFit
                         //TODO customize it.
                         width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
-                        //TODO
                         height: 200
                         //sourceSize.width: 200
                         //sourceSize.height: 200

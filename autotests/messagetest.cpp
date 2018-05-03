@@ -92,6 +92,7 @@ void MessageTest::shouldParseMessage_data()
         MessageAttachment attImage;
         attImage.setTitle(QStringLiteral("Clipboard"));
         attImage.setLink(QStringLiteral("/file-upload/Kt7DBWPe7pnadXDQH/test file"));
+        attImage.setMimeType(QStringLiteral("image/png"));
         imageMessageRef.setAttachements({attImage});
 
         QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
@@ -296,6 +297,7 @@ void MessageTest::shouldParseJsonMessage_data()
     QTest::newRow("message-url") << QStringLiteral("message-url");
     QTest::newRow("message-url-meta-info") << QStringLiteral("message-url-meta-info");
     QTest::newRow("message-reactions") << QStringLiteral("message-reactions");
+    QTest::newRow("animatedimage") << QStringLiteral("animatedimage");
 }
 
 void MessageTest::shouldParseJsonMessage()

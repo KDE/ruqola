@@ -1,0 +1,27 @@
+{
+    "alias": "foo",
+    "attachments": [
+        {
+            "description": "",
+            "mimetype": "image/gif",
+            "title": "blo.gif",
+            "url": "/file-upload/pp7trWCayLekSquM/blo.gif"
+        }
+    ],
+    "avatar": "",
+    "editedAt": -1,
+    "editedByUserID": "",
+    "editedByUsername": "",
+    "groupable": false,
+    "message": "",
+    "messageID": "ZGdbAFBZsLSrt7SLn",
+    "messageType": "Image",
+    "parseUrls": false,
+    "roomID": "dBWXYy4nyBHn8Q7dv",
+    "starred": false,
+    "timestamp": 1525277394341,
+    "type": "",
+    "updatedAt": 1525277394344,
+    "userID": "hLdKM5PHEfkxSexQe",
+    "username": "foo"
+}

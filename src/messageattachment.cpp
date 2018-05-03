@@ -138,6 +138,12 @@ QString MessageAttachment::mimeType() const
 void MessageAttachment::setMimeType(const QString &type)
 {
     mMimeType = type;
+    mIsAnimatedImage = (mMimeType == QLatin1String("image/gif"));
+}
+
+bool MessageAttachment::isAnimatedImage() const
+{
+    return mIsAnimatedImage;
 }
 
 QString MessageAttachment::displayTitle() const

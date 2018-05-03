@@ -41,6 +41,7 @@ void MessageAttachmentTest::shouldHaveDefaultValue()
     QVERIFY(attachment.authorName().isEmpty());
     QCOMPARE(attachment.imageHeight(), -1);
     QCOMPARE(attachment.imageWidth(), -1);
+    QVERIFY(!attachment.isAnimatedImage());
 }
 
 void MessageAttachmentTest::shouldSerializeData()

@@ -37,6 +37,7 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
     Q_PROPERTY(QString displayTitle READ displayTitle CONSTANT)
     Q_PROPERTY(QString imageTitle READ imageTitle CONSTANT)
     Q_PROPERTY(QString mimeType READ mimeType CONSTANT)
+    Q_PROPERTY(QString isAnimatedImage READ isAnimatedImage CONSTANT)
 public:
     MessageAttachment();
     bool isEmpty() const;
@@ -72,6 +73,8 @@ public:
     QString mimeType() const;
     void setMimeType(const QString &type);
 
+    bool isAnimatedImage() const;
+
 private:
     //TODO add fields support ?
     QString mColor;
@@ -82,6 +85,7 @@ private:
     QString mMimeType;
     int mImageHeight = -1;
     int mImageWidth = -1;
+    bool mIsAnimatedImage = false;
 };
 Q_DECLARE_TYPEINFO(MessageAttachment, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageAttachment &t);

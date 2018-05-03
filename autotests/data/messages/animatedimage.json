@@ -1,0 +1,41 @@
+{
+    "_id": "ZGdbAFBZsLSrt7SLn",
+    "_updatedAt": {
+        "$date": 1525277394344
+    },
+    "alias": "foo",
+    "attachments": [
+        {
+            "description": "",
+            "image_preview": "/9j/2wBDAAgoKCgoKCgoKCj/wAARCAAeACADASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAQBAwIFCP/EACIQAAICAgEDBQAAAAAAAAAAAAABAhEDBAUSE1EUISJBkf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDpXYzSx5X000vov45ueOUpO7f4I7teoaq2x/jYKGFpANUvAUvBIAanaUVsdUrtDui7xtl3bhL3cU2ZRior4qgJAAA//9k=",
+            "image_size": 614429,
+            "image_type": "image/gif",
+            "image_url": "/file-upload/pp7trWCayLekSquM/blo.gif",
+            "title": "blo.gif",
+            "title_link": "/file-upload/pp7trWCayLekSquM/blo.gif",
+            "title_link_download": true,
+            "type": "file"
+        }
+    ],
+    "channels": [
+    ],
+    "file": {
+        "_id": "Rpp7trWCayLekSquM",
+        "name": "blo.gif",
+        "type": "image/gif"
+    },
+    "groupable": false,
+    "mentions": [
+    ],
+    "msg": "",
+    "rid": "dBWXYy4nyBHn8Q7dv",
+    "ts": {
+        "$date": 1525277394341
+    },
+    "u": {
+        "_id": "hLdKM5PHEfkxSexQe",
+        "name": "foo",
+        "username": "foo"
+    },
+    "unread": true
+}
