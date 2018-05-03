@@ -113,6 +113,7 @@ MessageBase {
                         fillMode: Image.PreserveAspectFit
                         //TODO customize it.
                         width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
+                        //TODO
                         height: 200
                         //sourceSize.width: 200
                         //sourceSize.height: 200
