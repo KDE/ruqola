@@ -46,11 +46,11 @@ public:
     void setJoinCode(const QString &joinCode);
 
 Q_SIGNALS:
-    void archiveChannelDone();
+    void setJoinCodeDone();
 
 private:
     Q_DISABLE_COPY(SetJoinCodeChannelJob)
-    void slotArchiveChannelFinished();
+    void slotSetJoinCodeFinished();
     QString mRoomId;
     QString mJoinCode;
 };

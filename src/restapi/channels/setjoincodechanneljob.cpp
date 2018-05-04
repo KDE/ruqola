@@ -44,11 +44,11 @@ bool SetJoinCodeChannelJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("SetJoinCodeChannelJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &SetJoinCodeChannelJob::slotArchiveChannelFinished);
+    connect(reply, &QNetworkReply::finished, this, &SetJoinCodeChannelJob::slotSetJoinCodeFinished);
     return true;
 }
 
-void SetJoinCodeChannelJob::slotArchiveChannelFinished()
+void SetJoinCodeChannelJob::slotSetJoinCodeFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -57,10 +57,10 @@ void SetJoinCodeChannelJob::slotArchiveChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "archive or unarchive channel success: " << data;
-            Q_EMIT archiveChannelDone();
+            qCDebug(RUQOLA_RESTAPI_LOG) << "set join code success: " << data;
+            Q_EMIT setJoinCodeDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to archive or unarchive a channel" << data;
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to assign code to channel" << data;
         }
     }
     deleteLater();
