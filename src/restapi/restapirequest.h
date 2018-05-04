@@ -94,6 +94,13 @@ public:
     void getRooms();
     void markAsFavorite(const QString &roomId, bool favorite);
     void addUserInGroup(const QString &roomId, const QString &userId);
+    void disableNotifications(const QString &roomId, bool value);
+    void hideUnreadStatus(const QString &roomId, bool value);
+    void audioNotifications(const QString &roomId, const QString &value);
+    void desktopNotifications(const QString &roomId, const QString &value);
+    void emailNotifications(const QString &roomId, const QString &value);
+    void mobilePushNotifications(const QString &roomId, const QString &value);
+    void unreadAlert(const QString &roomId, const QString &value);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

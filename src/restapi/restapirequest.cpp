@@ -579,3 +579,38 @@ void RestApiRequest::markAsFavorite(const QString &roomId, bool favorite)
     job->setRoomId(roomId);
     job->start();
 }
+
+void RestApiRequest::disableNotifications(const QString &roomId, bool value)
+{
+
+}
+void RestApiRequest::hideUnreadStatus(const QString &roomId, bool value)
+{
+
+}
+
+void RestApiRequest::audioNotifications(const QString &roomId, const QString &value)
+{
+
+}
+
+void RestApiRequest::desktopNotifications(const QString &roomId, const QString &value)
+{
+
+}
+
+void RestApiRequest::emailNotifications(const QString &roomId, const QString &value)
+{
+
+}
+
+void RestApiRequest::mobilePushNotifications(const QString &roomId, const QString &value)
+{
+
+}
+
+void RestApiRequest::unreadAlert(const QString &roomId, const QString &value)
+{
+
+}
+
