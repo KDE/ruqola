@@ -73,7 +73,8 @@ MessageBase {
                 ColumnLayout {
                     Layout.fillWidth: true
                     QQC2.Label {
-                        text: model.modelData.title === "" ? "" :  i18n("File send: %1", model.modelData.title)
+                        //TODO remove duplicate code
+                        text: model.modelData.title === "" ? "" :  i18n("File Uploaded: %1", model.modelData.title)
                         visible: model.modelData.title !== ""
                         wrapMode: QQC2.Label.Wrap
                         anchors.leftMargin: Kirigami.Units.smallSpacing
