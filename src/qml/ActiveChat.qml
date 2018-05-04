@@ -86,7 +86,9 @@ ListView {
         }
 
         onOpenDirectChannel: {
-            activeChat.openDirectChannel(userName)
+            if (rcAccount.userName !== userName) {
+                activeChat.openDirectChannel(userName)
+            }
         }
         onJitsiCallConfActivated: {
             activeChat.jitsiCallConfActivated()

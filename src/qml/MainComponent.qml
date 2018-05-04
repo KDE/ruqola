@@ -312,7 +312,9 @@ Component {
             OpenDirectChannelDialog {
                 id: openDirectChannelDialog
                 onOpenDirectChannel: {
-                    appid.rocketChatAccount.openDirectChannel(userName);
+                    if (appid.rocketChatAccount.userName !== userName) {
+                        appid.rocketChatAccount.openDirectChannel(userName);
+                    }
                 }
             }
 
