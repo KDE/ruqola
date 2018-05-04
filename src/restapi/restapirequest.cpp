@@ -66,6 +66,8 @@
 
 #include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
+#include "rooms/savenotificationjob.h"
+
 #include "directmessage/createdmjob.h"
 
 #include "subscriptions/markroomasreadjob.h"

@@ -28,6 +28,7 @@ class LIBRUQOLACORE_TESTS_EXPORT SaveNotificationJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
+    //Since 0.63
     explicit SaveNotificationJob(QObject *parent = nullptr);
     ~SaveNotificationJob() override;
 

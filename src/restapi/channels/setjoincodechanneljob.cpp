@@ -83,16 +83,16 @@ bool SetJoinCodeChannelJob::requireHttpAuthentication() const
 
 bool SetJoinCodeChannelJob::canStart() const
 {
+    if (!RestApiAbstractJob::canStart()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SetJoinCodeChannelJob job";
+        return false;
+    }
     if (mRoomId.isEmpty()) {
-	qCWarning(RUQOLA_RESTAPI_LOG) << "SetJoinCodeChannelJob: RoomId is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "SetJoinCodeChannelJob: RoomId is empty";
         return false;
     }
     if (mJoinCode.isEmpty()) {
-	qCWarning(RUQOLA_RESTAPI_LOG) << "SetJoinCodeChannelJob: JoinCode is empty";
-	return false;
-    }
-    if (!RestApiAbstractJob::canStart()) {
-	qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SetJoinCodeChannelJob job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "SetJoinCodeChannelJob: JoinCode is empty";
         return false;
     }
     return true;
