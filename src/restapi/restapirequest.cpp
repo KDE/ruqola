@@ -582,35 +582,63 @@ void RestApiRequest::markAsFavorite(const QString &roomId, bool favorite)
 
 void RestApiRequest::disableNotifications(const QString &roomId, bool value)
 {
-
+    SaveNotificationJob *job = new SaveNotificationJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setDisableNotifications(value);
+    job->start();
 }
 void RestApiRequest::hideUnreadStatus(const QString &roomId, bool value)
 {
-
+    SaveNotificationJob *job = new SaveNotificationJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setHideUnreadStatus(value);
+    job->start();
 }
 
 void RestApiRequest::audioNotifications(const QString &roomId, const QString &value)
 {
-
+    SaveNotificationJob *job = new SaveNotificationJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setAudioNotifications(value);
+    job->start();
 }
 
 void RestApiRequest::desktopNotifications(const QString &roomId, const QString &value)
 {
-
+//    SaveNotificationJob *job = new SaveNotificationJob(this);
+//    initializeRestApiJob(job);
+//    job->setRoomId(roomId);
+//    job->setDesktopNotificationDuration(value);
+//    job->start();
 }
 
 void RestApiRequest::emailNotifications(const QString &roomId, const QString &value)
 {
-
+    SaveNotificationJob *job = new SaveNotificationJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setEmailNotifications(value);
+    job->start();
 }
 
 void RestApiRequest::mobilePushNotifications(const QString &roomId, const QString &value)
 {
-
+    SaveNotificationJob *job = new SaveNotificationJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setMobilePushNotifications(value);
+    job->start();
 }
 
 void RestApiRequest::unreadAlert(const QString &roomId, const QString &value)
 {
-
+    SaveNotificationJob *job = new SaveNotificationJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setUnreadAlert(value);
+    job->start();
 }
 
