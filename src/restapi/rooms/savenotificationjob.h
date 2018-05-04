@@ -85,8 +85,9 @@ private:
         DisableNotifications = 64,
         HideUnreadStatus = 128
     };
+    Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
-    SettingChanged mSettingsWillBeChanged = SettingChanged::Unknown;
+    SettingsChanged mSettingsWillBeChanged = SettingChanged::Unknown;
 
     QString mRoomId;
 

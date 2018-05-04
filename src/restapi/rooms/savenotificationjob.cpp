@@ -67,6 +67,7 @@ QString SaveNotificationJob::unreadAlert() const
 
 void SaveNotificationJob::setUnreadAlert(const QString &unreadAlert)
 {
+    mSettingsWillBeChanged = mSettingsWillBeChanged & UnreadAlert;
     mUnreadAlert = unreadAlert;
 }
 
@@ -77,6 +78,7 @@ int SaveNotificationJob::desktopNotificationDuration() const
 
 void SaveNotificationJob::setDesktopNotificationDuration(int desktopNotificationDuration)
 {
+    mSettingsWillBeChanged |= DesktopNotificationDuration;
     mDesktopNotificationDuration = desktopNotificationDuration;
 }
 
@@ -87,6 +89,7 @@ QString SaveNotificationJob::audioNotificationValue() const
 
 void SaveNotificationJob::setAudioNotificationValue(const QString &audioNotificationValue)
 {
+    mSettingsWillBeChanged |= AudioNotificationValue;
     mAudioNotificationValue = audioNotificationValue;
 }
 
@@ -97,6 +100,7 @@ QString SaveNotificationJob::mobilePushNotifications() const
 
 void SaveNotificationJob::setMobilePushNotifications(const QString &mobilePushNotifications)
 {
+    mSettingsWillBeChanged |= MobilePushNotifications;
     mMobilePushNotifications = mobilePushNotifications;
 }
 
@@ -107,6 +111,7 @@ QString SaveNotificationJob::audioNotifications() const
 
 void SaveNotificationJob::setAudioNotifications(const QString &audioNotifications)
 {
+    mSettingsWillBeChanged |= AudioNotifications;
     mAudioNotifications = audioNotifications;
 }
 
@@ -117,6 +122,7 @@ QString SaveNotificationJob::emailNotifications() const
 
 void SaveNotificationJob::setEmailNotifications(const QString &emailNotifications)
 {
+    mSettingsWillBeChanged |= EmailNotifications;
     mEmailNotifications = emailNotifications;
 }
 
@@ -127,6 +133,7 @@ bool SaveNotificationJob::hideUnreadStatus() const
 
 void SaveNotificationJob::setHideUnreadStatus(bool hideUnreadStatus)
 {
+    mSettingsWillBeChanged |= HideUnreadStatus;
     mHideUnreadStatus = hideUnreadStatus;
 }
 
@@ -137,6 +144,7 @@ bool SaveNotificationJob::disableNotifications() const
 
 void SaveNotificationJob::setDisableNotifications(bool disableNotifications)
 {
+    mSettingsWillBeChanged |= DisableNotifications;
     mDisableNotifications = disableNotifications;
 }
 
@@ -184,6 +192,32 @@ QJsonDocument SaveNotificationJob::json() const
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = mRoomId;
     QJsonObject notificationsJson;
+
+    if (mSettingsWillBeChanged & EmailNotifications) {
+
+    }
+    if (mSettingsWillBeChanged & AudioNotifications) {
+
+    }
+    if (mSettingsWillBeChanged & MobilePushNotifications) {
+
+    }
+    if (mSettingsWillBeChanged & AudioNotificationValue) {
+
+    }
+    if (mSettingsWillBeChanged & UnreadAlert) {
+
+    }
+    if (mSettingsWillBeChanged & DesktopNotificationDuration) {
+
+    }
+    if (mSettingsWillBeChanged & DisableNotifications) {
+
+    }
+    if (mSettingsWillBeChanged & HideUnreadStatus) {
+
+    }
+
     //TODO don't assign all. => todo add enum
     jsonObj[QLatin1String("notifications")] = notificationsJson;
 
