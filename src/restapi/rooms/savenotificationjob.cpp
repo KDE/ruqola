@@ -219,7 +219,7 @@ QJsonDocument SaveNotificationJob::json() const
         notificationsJson[QLatin1String("disableNotifications")] = disableNotifications();
     }
     if (mSettingsWillBeChanged & HideUnreadStatus) {
-        notificationsJson[QLatin1String("hideUnreadStatus")] = hideUnreadStatus();
+        notificationsJson[QLatin1String("hideUnreadStatus")] = hideUnreadStatus() ? QStringLiteral("1") : QStringLiteral("0");
     }
 
     //TODO don't assign all. => todo add enum
