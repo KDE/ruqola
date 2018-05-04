@@ -72,6 +72,22 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(SaveNotificationJob)
     void slotChangeNotificationFinished();
+
+    enum SettingChanged
+    {
+        Unknown = 0,
+        EmailNotifications = 1,
+        AudioNotifications = 2,
+        MobilePushNotifications = 4,
+        AudioNotificationValue = 8,
+        UnreadAlert = 16,
+        DesktopNotificationDuration = 32,
+        DisableNotifications = 64,
+        HideUnreadStatus = 128
+    };
+
+    SettingChanged mSettingsWillBeChanged = SettingChanged::Unknown;
+
     QString mRoomId;
 
     QString mEmailNotifications;
