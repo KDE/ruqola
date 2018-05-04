@@ -185,7 +185,8 @@ QJsonDocument SaveNotificationJob::json() const
     jsonObj[QLatin1String("roomId")] = mRoomId;
     QJsonObject notificationsJson;
     //TODO don't assign all. => todo add enum
-    notificationsJson[QLatin1String("notifications")];
+    jsonObj[QLatin1String("notifications")] = notificationsJson;
+
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

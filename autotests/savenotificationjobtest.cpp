@@ -52,7 +52,7 @@ void SaveNotificationJobTest::shouldGenerateJson()
     SaveNotificationJob job;
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"notifications\":{},\"roomId\":\"%1\"}").arg(roomId).toLatin1());
 }
 
 void SaveNotificationJobTest::shouldNotStarting()
