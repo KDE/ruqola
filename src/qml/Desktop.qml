@@ -219,7 +219,7 @@ Kirigami.ApplicationWindow {
             if (channeltype === Channel.Room) {
                 rocketChatAccount.openChannel(channelname)
             } else if (channeltype === Channel.PrivateChannel) {
-                if (rocketChatAccount.userName !== userName) {
+                if (rocketChatAccount.userName !== channelname) {
                     rocketChatAccount.openDirectChannel(channelname)
                 }
             } else {
