@@ -173,6 +173,10 @@ bool SaveNotificationJob::canStart() const
         qCWarning(RUQOLA_RESTAPI_LOG) << "SaveNotificationJob: mRoomId is empty";
         return false;
     }
+    if (mSettingsWillBeChanged == Unknown) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "SaveNotificationJob: any settings will be changed! it's a bug";
+        return false;
+    }
     return true;
 }
 

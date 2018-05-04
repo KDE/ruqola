@@ -74,6 +74,10 @@ void SaveNotificationJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
+    QVERIFY(!job.canStart());
+
+    //We need to change a settings
+    job.setAudioNotificationValue(QStringLiteral("foo"));
     QVERIFY(job.canStart());
 
     delete method;
