@@ -193,7 +193,7 @@ bool MessageAttachment::operator==(const MessageAttachment &other) const
            && (mImageHeight == other.imageHeight())
            && (mImageWidth == other.imageWidth())
            && (mAuthorName == other.authorName())
-            && (mMimeType == other.mimeType());
+           && (mMimeType == other.mimeType());
 }
 
 QDebug operator <<(QDebug d, const MessageAttachment &t)
