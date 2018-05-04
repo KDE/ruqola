@@ -198,28 +198,28 @@ QJsonDocument SaveNotificationJob::json() const
     QJsonObject notificationsJson;
 
     if (mSettingsWillBeChanged & EmailNotifications) {
-
+        notificationsJson[QLatin1String("emailNotifications")] = emailNotifications();
     }
     if (mSettingsWillBeChanged & AudioNotifications) {
-
+        notificationsJson[QLatin1String("audioNotifications")] = audioNotifications();
     }
     if (mSettingsWillBeChanged & MobilePushNotifications) {
-
+        notificationsJson[QLatin1String("mobilePushNotifications")] = mobilePushNotifications();
     }
     if (mSettingsWillBeChanged & AudioNotificationValue) {
-
+        notificationsJson[QLatin1String("audioNotificationValue")] = audioNotificationValue();
     }
     if (mSettingsWillBeChanged & UnreadAlert) {
-
+        notificationsJson[QLatin1String("unreadAlert")] = unreadAlert();
     }
     if (mSettingsWillBeChanged & DesktopNotificationDuration) {
-
+        notificationsJson[QLatin1String("desktopNotificationDuration")] = desktopNotificationDuration();
     }
     if (mSettingsWillBeChanged & DisableNotifications) {
-
+        notificationsJson[QLatin1String("disableNotifications")] = disableNotifications();
     }
     if (mSettingsWillBeChanged & HideUnreadStatus) {
-
+        notificationsJson[QLatin1String("hideUnreadStatus")] = hideUnreadStatus();
     }
 
     //TODO don't assign all. => todo add enum

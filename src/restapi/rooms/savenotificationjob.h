@@ -91,6 +91,7 @@ private:
 
     QString mRoomId;
 
+    //TODO ? desktopNotifications ????
     QString mEmailNotifications;
     QString mAudioNotifications;
     QString mMobilePushNotifications;
