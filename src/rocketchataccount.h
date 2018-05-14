@@ -127,7 +127,7 @@ public:
     Q_INVOKABLE void createJitsiConfCall(const QString &roomId);
     Q_INVOKABLE void deleteMessage(const QString &messageId, const QString &roomId);
     Q_INVOKABLE void userAutocomplete(const QString &searchText, const QString &exception);
-    Q_INVOKABLE void eraseRoom(const QString &roomId);
+    Q_INVOKABLE void eraseRoom(const QString &roomId, const QString &channelType = QString());
     Q_INVOKABLE void changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue, const QString &channelType = QString());
     Q_INVOKABLE void changeNotificationsSettings(const QString &roomId, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue);
     Q_INVOKABLE QString recordingVideoPath() const;

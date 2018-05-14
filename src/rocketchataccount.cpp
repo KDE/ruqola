@@ -478,10 +478,14 @@ void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
     QDesktopServices::openUrl(clickedUrl);
 }
 
-void RocketChatAccount::eraseRoom(const QString &roomId)
+void RocketChatAccount::eraseRoom(const QString &roomId, const QString &channelType)
 {
-    //TODO use restapi
+#ifdef USE_REASTAPI_JOB_NOT_SUPPORTED_YET
+    restApi()->closeChannel(roomId, channelType);
+#else
+    Q_UNUSED(channelType);
     ddp()->eraseRoom(roomId);
+#endif
 }
 
 void RocketChatAccount::openDirectChannel(const QString &username)
