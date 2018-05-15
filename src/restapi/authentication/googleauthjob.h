@@ -54,7 +54,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GoogleAuthJob)
-    void slotFacebookauthDone();
+    void slotGoogleauthDone();
     QString mAccessToken;
     QString mIdToken;
     int mExpireTokenInSeconds = -1;

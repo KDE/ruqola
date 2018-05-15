@@ -66,12 +66,12 @@ bool GoogleAuthJob::start()
 
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     addLoggerInfo("GoogleAuthJob started ");
-    connect(reply, &QNetworkReply::finished, this, &GoogleAuthJob::slotFacebookauthDone);
+    connect(reply, &QNetworkReply::finished, this, &GoogleAuthJob::slotGoogleauthDone);
 
     return false;
 }
 
-void GoogleAuthJob::slotFacebookauthDone()
+void GoogleAuthJob::slotGoogleauthDone()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {

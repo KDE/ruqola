@@ -37,8 +37,10 @@ public:
     bool start() override;
     bool requireHttpAuthentication() const override;
     QNetworkRequest request() const override;
+
 Q_SIGNALS:
     void loadEmojiCustomDone(const QJsonObject &obj);
+
 private:
     Q_DISABLE_COPY(LoadEmojiCustomJob)
     void slotloadEmojiCustomDone();
