@@ -66,14 +66,14 @@ void GroupsInviteJob::slotInviteGroupsFinished()
     deleteLater();
 }
 
-QString GroupsInviteJob::userId() const
+QString GroupsInviteJob::inviteUserId() const
 {
-    return mUserId;
+    return mInviteUserId;
 }
 
-void GroupsInviteJob::setUserId(const QString &userId)
+void GroupsInviteJob::setInviteUserId(const QString &userId)
 {
-    mUserId = userId;
+    mInviteUserId = userId;
 }
 
 bool GroupsInviteJob::requireHttpAuthentication() const
@@ -102,7 +102,7 @@ QJsonDocument GroupsInviteJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = roomId();
-    jsonObj[QLatin1String("userId")] = userId();
+    jsonObj[QLatin1String("userId")] = inviteUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
