@@ -57,8 +57,12 @@ void SpotlightJob::slotSpotlightDone()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         addLoggerInfo(QByteArrayLiteral("SpotlightJob done: ") + replyJson.toJson(QJsonDocument::Indented));
-        //TODO check error
-        Q_EMIT spotlightDone(replyObject);
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            qCDebug(RUQOLA_RESTAPI_LOG) << "SpotlightJob::slotSpotlightDone: success" << data;
+            Q_EMIT spotlightDone(replyObject);
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried calling spotlight method" << data;
+        }
     }
     deleteLater();
 }
