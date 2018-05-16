@@ -558,6 +558,7 @@ void RocketChatAccount::listEmojiCustom()
 
 void RocketChatAccount::setDefaultStatus(User::PresenceStatus status)
 {
+    //Not implemented yet
     //TODO use restapi
     ddp()->setDefaultStatus(status);
 }
@@ -1141,6 +1142,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
         const bool loaded = pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
         //qDebug() << " load pixmap : "<< loaded;
         //qDebug() << " pix " << pix.isNull();
+        Q_UNUSED(loaded);
     }
     Q_EMIT notification(title, message, pix);
 }
