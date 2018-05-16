@@ -83,8 +83,8 @@ bool GroupsInviteJob::requireHttpAuthentication() const
 
 bool GroupsInviteJob::canStart() const
 {
-    if (mUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "GroupsInviteJob: userId is empty";
+    if (mInviteUserId.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "GroupsInviteJob: mInviteUserId is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
