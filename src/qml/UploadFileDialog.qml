@@ -49,18 +49,10 @@ QQC2.Dialog {
     }
 
     ColumnLayout {
-        QQC2.Label {
-            text: i18n("Description")
-        }
-
         QQC2.TextField {
             id: description
             selectByMouse: true
             placeholderText: i18n("Description")
-        }
-
-        QQC2.Label {
-            text: i18n("Message")
         }
 
         QQC2.TextField {
@@ -69,14 +61,11 @@ QQC2.Dialog {
             placeholderText: i18n("Message")
         }
 
-        QQC2.Label {
-            text: i18n("Select File")
-        }
-
         RowLayout {
             QQC2.TextField {
                 id: selectedFileNameField
                 selectByMouse: true
+                placeholderText: i18n("Select File...")
             }
 
             Kirigami.Icon {
