@@ -77,7 +77,6 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
     case TimeStamp:
         return file.uploadedAt();
     }
-    qCWarning(RUQOLA_LOG) << "Unknown filesmodel roles: " << role;
     return {};
 }
 
