@@ -59,7 +59,7 @@ void AccountManager::loadAccount()
 
     //New account => empty list.
     if (lstAccounts.isEmpty()) {
-        qCDebug(RUQOLA_LOG) << "Empty list. Create a default rocketchataccout";
+        qCDebug(RUQOLA_LOG) << "Empty list. Create a default rocketchataccount";
         RocketChatAccount *account = new RocketChatAccount();
         connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
         connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
