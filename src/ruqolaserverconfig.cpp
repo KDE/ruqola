@@ -167,9 +167,12 @@ void RuqolaServerConfig::addOauthService(const QString &service)
         mServerOauthTypes |= AuthenticationManager::OauthType::Linkedin;
     } else if (serviceLower.endsWith(QLatin1String("wordpress"))) {
         mServerOauthTypes |= AuthenticationManager::OauthType::Wordpress;
-    } else if (serviceLower.endsWith(QLatin1String("_OAuth_Proxy_host"))) {
+    } else if (serviceLower.endsWith(QLatin1String("_oauth_proxy_host"))) {
         //Hide warning as it's not a service
         qCDebug(RUQOLA_LOG) << "_OAuth_Proxy_host found ";
+    } else if (serviceLower.endsWith(QLatin1String("_oauth_meteor"))) {
+        //Hide warning as it's not a service
+        qCDebug(RUQOLA_LOG) << "Accounts_OAuth_Meteor found ";
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown service type: " << service;
     }
