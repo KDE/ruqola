@@ -30,8 +30,6 @@ import org.kde.kirigami 2.1 as Kirigami
 
 RowLayout {
     id: footerItem
-    anchors.left: parent.left
-    anchors.right: parent.right
     property QtObject rcAccount
     property alias messageLineText: messageLine.messageLineText
     property string messageId
@@ -52,10 +50,8 @@ RowLayout {
 
         enabled: selectedRoomID !== ""
         source: "document-send-symbolic"
-        anchors.bottom: parent.bottom
-        anchors.top: parent.top
         width: height
-        height: messageLine.height/2
+        height: messageLine.height
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -69,9 +65,8 @@ RowLayout {
     
     Kirigami.Icon {
         source: "mail-sent"
-        anchors.bottom: parent.bottom
-        anchors.top: parent.top
         width: height
+        height: messageLine.height
         MouseArea {
             anchors.fill: parent
             onClicked: {
