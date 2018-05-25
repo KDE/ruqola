@@ -87,6 +87,7 @@ bool UploadFileJob::start()
     descriptionPart.setBody(mDescription.toUtf8());
     multiPart->append(descriptionPart);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), multiPart);
+    connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::uploadProgress);
     connect(reply, &QNetworkReply::finished, this, &UploadFileJob::slotUploadFinished);
     multiPart->setParent(reply); // delete the multiPart with the reply
 

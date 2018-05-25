@@ -51,6 +51,10 @@ public:
 
     QNetworkRequest request() const override;
     bool canStart() const override;
+
+Q_SIGNALS:
+    void uploadProgress(qint64 bytesSent, qint64 bytesTotal);
+
 private:
     Q_DISABLE_COPY(UploadFileJob)
     void slotUploadFinished();
