@@ -79,7 +79,6 @@ QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
     case Type:
         return info.oauthType();
     }
-    qCWarning(RUQOLA_LOG) << "Unknown LoginMethodModel roles: " << role;
     return {};
 }
 

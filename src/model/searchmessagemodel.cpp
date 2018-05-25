@@ -48,8 +48,6 @@ QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
         return {};
     }
 
-    qCWarning(RUQOLA_LOG) << "Unknown SearchMessageModel roles: " << role;
-    //TODO
     return {};
 }
 

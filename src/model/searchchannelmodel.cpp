@@ -102,7 +102,6 @@ QVariant SearchChannelModel::data(const QModelIndex &index, int role) const
         return channel.type();
     }
 
-    qCWarning(RUQOLA_LOG) << "Unknown SearchChannelRoomModel roles: " << role;
     return {};
 }
 
