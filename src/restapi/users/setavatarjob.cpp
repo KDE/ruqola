@@ -54,8 +54,8 @@ void SetAvatarJob::slotSetAvatar()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-	addLoggerInfo(QByteArrayLiteral("SetAvatarJob: finished: ") + data);
-	Q_EMIT setAvatarDone();
+    addLoggerInfo(QByteArrayLiteral("SetAvatarJob: finished: ") + data);
+    Q_EMIT setAvatarDone();
     }
     deleteLater();
 }
@@ -88,11 +88,11 @@ bool SetAvatarJob::requireHttpAuthentication() const
 bool SetAvatarJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-	qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SetAvatarJob";
+    qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SetAvatarJob";
         return false;
     }
     if (mAvatarUrl.isEmpty()) {
-	qCWarning(RUQOLA_RESTAPI_LOG) << "SetAvatarJob: mAvatarUrl is empty";
+    qCWarning(RUQOLA_RESTAPI_LOG) << "SetAvatarJob: mAvatarUrl is empty";
         return false;
     }
     return true;
@@ -100,7 +100,7 @@ bool SetAvatarJob::canStart() const
 
 QNetworkRequest SetAvatarJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::SubscriptionsRead);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersSetAvatar);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
