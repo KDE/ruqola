@@ -90,8 +90,6 @@ bool UploadFileJob::start()
     connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::uploadProgress);
     connect(reply, &QNetworkReply::finished, this, &UploadFileJob::slotUploadFinished);
     multiPart->setParent(reply); // delete the multiPart with the reply
-
-    //TODO upload progress ?
     //TODO signal error ?
 
     return true;
