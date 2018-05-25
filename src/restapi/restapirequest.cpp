@@ -30,6 +30,7 @@
 #include "spotlightjob.h"
 
 #include "users/getavatarjob.h"
+#include "users/setavatarjob.h"
 
 #include "misc/owninfojob.h"
 
@@ -642,3 +643,10 @@ void RestApiRequest::unreadAlert(const QString &roomId, const QString &value)
     job->start();
 }
 
+void RestApiRequest::setAvatar(const QString &avatarUrl)
+{
+    SetAvatarJob *job = new SetAvatarJob(this);
+    initializeRestApiJob(job);
+    job->setAvatarUrl(avatarUrl);
+    job->start();
+}
