@@ -102,6 +102,8 @@ public:
     void mobilePushNotifications(const QString &roomId, const QString &value);
     void unreadAlert(const QString &roomId, const QString &value);
     void setAvatar(const QString &avatarUrl);
+    void markRoomAsUnRead(const QString &roomId);
+    void markMessageAsUnReadFrom(const QString &messageId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

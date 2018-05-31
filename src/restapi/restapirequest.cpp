@@ -72,6 +72,7 @@
 #include "directmessage/createdmjob.h"
 
 #include "subscriptions/markroomasreadjob.h"
+#include "subscriptions/markroomasunreadjob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -563,6 +564,25 @@ void RestApiRequest::markAsRead(const QString &roomId)
     initializeRestApiJob(job);
     job->start();
 }
+
+void RestApiRequest::markRoomAsUnRead(const QString &roomId)
+{
+    MarkRoomAsUnReadJob *job = new MarkRoomAsUnReadJob(this);
+    job->setObjectId(roomId);
+    job->setUnReadObject(MarkRoomAsUnReadJob::Room);
+    initializeRestApiJob(job);
+    job->start();
+}
+
+void RestApiRequest::markMessageAsUnReadFrom(const QString &messageId)
+{
+    MarkRoomAsUnReadJob *job = new MarkRoomAsUnReadJob(this);
+    job->setObjectId(messageId);
+    job->setUnReadObject(MarkRoomAsUnReadJob::FromMessage);
+    initializeRestApiJob(job);
+    job->start();
+}
+
 
 void RestApiRequest::getRooms()
 {

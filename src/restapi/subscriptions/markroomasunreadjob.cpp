@@ -124,9 +124,9 @@ QNetworkRequest MarkRoomAsUnReadJob::request() const
 QJsonDocument MarkRoomAsUnReadJob::json() const
 {
     QJsonObject jsonObj;
-    if (mObjectId == Room) {
+    if (mUnReadObject == Room) {
         jsonObj[QLatin1String("roomId")] = mObjectId;
-    } else if (mObjectId == FromMessage) {
+    } else if (mUnReadObject == FromMessage) {
         QJsonObject fromMessage;
         fromMessage[QLatin1String("_id")] = mObjectId;
         jsonObj[QLatin1String("firstUnreadMessage")] = fromMessage;
