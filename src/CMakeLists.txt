@@ -67,6 +67,7 @@ set (Ruqola_restapi_SRCS
     restapi/rooms/roomfavoritejob.cpp
 
     restapi/subscriptions/markroomasreadjob.cpp
+    restapi/subscriptions/markroomasunreadjob.cpp
     )
 
 set(Ruqola_ddpapi_SRCS

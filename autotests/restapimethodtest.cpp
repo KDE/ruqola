@@ -135,6 +135,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LoadEmojiCustom), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsSaveNotification), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.saveNotification")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SubscriptionsRead), QUrl(QStringLiteral("http://www.kde.org/api/v1/subscriptions.read")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SubscriptionsUnRead), QUrl(QStringLiteral("http://www.kde.org/api/v1/subscriptions.unread")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsOauth), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings.oauth")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsGet), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.get")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsFavorite), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.favorite")));

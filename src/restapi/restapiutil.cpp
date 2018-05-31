@@ -217,6 +217,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("emoji-custom");
     case RestApiUtil::RestApiUrlType::SubscriptionsRead:
         return QStringLiteral("subscriptions.read");
+    case RestApiUtil::RestApiUrlType::SubscriptionsUnRead:
+        return QStringLiteral("subscriptions.unread");
     case RestApiUtil::RestApiUrlType::SettingsOauth:
         return QStringLiteral("settings.oauth");
     case RestApiUtil::RestApiUrlType::RoomsGet:

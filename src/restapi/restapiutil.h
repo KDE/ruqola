@@ -113,6 +113,7 @@ enum class RestApiUrlType {
     ImHistory,
     ImFiles,
     SubscriptionsRead,
+    SubscriptionsUnRead,
     SettingsOauth,
     RoomsGet,
     RoomsFavorite,
