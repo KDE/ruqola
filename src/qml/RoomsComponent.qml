@@ -115,9 +115,7 @@ Component {
             model: appid.rocketChatAccount.roomFilterProxyModel()
             selectedRoomID: appid.selectedRoomID;
             onHideRoom: {
-                //TODO move to desktop.qml
-                hideChannelDialog.rId = roomID
-                hideChannelDialog.open()
+                rocketChatAccount.hideRoom(roomID)
             }
             onLeaveRoom: {
                 //TODO move to desktop.qml

@@ -26,7 +26,6 @@
         <file>RoomsComponent.qml</file>
         <file>ArchiveRoomDialog.qml</file>
         <file>RuqolaMenuSeparator.qml</file>
-        <file>HideChannelDialog.qml</file>
         <file>DownloadFileDialog.qml</file>
         <file>UploadFileDialog.qml</file>
         <file>DisplayImageDialog.qml</file>

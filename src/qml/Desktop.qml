@@ -174,12 +174,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    HideChannelDialog {
-        id: hideChannelDialog
-        onHideChannel: {
-            rocketChatAccount.hideRoom(roomId)
-        }
-    }
     LeaveChannelDialog {
         id: leaveChannelDialog
         onLeaveChannel:  {
