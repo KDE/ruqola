@@ -117,6 +117,7 @@ enum class RestApiUrlType {
     SettingsOauth,
     RoomsGet,
     RoomsFavorite,
+    RoomscleanHistory
 };
 LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBRUQOLACORE_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
