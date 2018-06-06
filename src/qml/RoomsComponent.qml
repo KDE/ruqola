@@ -64,8 +64,7 @@ Component {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 RowLayout {
-                    anchors.left: parent.left
-                    anchors.right: parent.right
+                    Layout.alignment: Qt.AlignLeft
                     anchors.leftMargin: 2*Kirigami.Units.smallSpacing
                     QQC2.Label {
                         id: comboboxLabel
@@ -75,8 +74,7 @@ Component {
 
                     QQC2.ComboBox {
                         id: statusCombobox
-                        anchors.left: comboboxLabel.right
-                        anchors.right: parent.right
+                        Layout.alignment: Qt.AlignLeft
                         model: appid.rocketChatAccount.statusModel()
                         textRole: "statusi18n"
                         onActivated: {
