@@ -24,7 +24,9 @@
 #include "notification.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
+#ifdef UNITY_SUPPORT
 #include "unityservicemanager.h"
+#endif
 
 #include <KLocalizedString>
 #include <QIcon>
@@ -37,7 +39,9 @@ Notification::Notification(QObject *parent)
 
 Notification::~Notification()
 {
+#ifdef UNITY_SUPPORT
     delete mUnityServiceManager;
+#endif
 }
 
 void Notification::createTrayIcon()
@@ -100,9 +104,13 @@ void Notification::createToolTip()
 
 void Notification::updateUnityService(int unreadMessage)
 {
+#ifdef UNITY_SUPPORT
     unityServiceManager()->setCount(unreadMessage);
+#else
+    Q_UNUSED(unreadMessage);
+#endif
 }
-
+#ifdef UNITY_SUPPORT
 UnityServiceManager *Notification::unityServiceManager()
 {
     if (!mUnityServiceManager) {
@@ -110,3 +118,4 @@ UnityServiceManager *Notification::unityServiceManager()
     }
     return mUnityServiceManager;
 }
+#endif

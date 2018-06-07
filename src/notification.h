@@ -37,7 +37,9 @@ public:
 
     void updateNotification(bool hasAlert, int unreadNumber, const QString &account);
     void clearNotification(const QString &account);
+#ifdef UNITY_SUPPORT
     UnityServiceManager *unityServiceManager();
+#endif
 private:
     Q_DISABLE_COPY(Notification)
     struct TrayInfo {
@@ -63,7 +65,9 @@ private:
     void updateUnityService(int unreadMessage);
 
     QMap<QString, TrayInfo> mListTrayIcon;
+#ifdef UNITY_SUPPORT
     UnityServiceManager *mUnityServiceManager = nullptr;
+#endif
 };
 
 #endif // NOTIFICATION_H

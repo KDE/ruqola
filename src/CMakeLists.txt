@@ -156,7 +156,6 @@ set (Ruqola_core_srcs
     texthighlighter.cpp
     textconverter.cpp
     loadrecenthistorymanager.cpp
-    unityservicemanager.cpp
     file.cpp
     channel.cpp
     inputtextmanager.cpp
@@ -171,6 +170,11 @@ set (Ruqola_core_srcs
     reactions.cpp
     reaction.cpp
 )
+
+if (NOT WIN32)
+    set(Ruqola_core_srcs ${Ruqola_core_srcs} unityservicemanager.cpp)
+endif()
+
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_message_debug.h IDENTIFIER RUQOLA_MESSAGE_LOG CATEGORY_NAME org.kde.ruqola.message)
@@ -191,7 +195,6 @@ target_link_libraries(libruqolacore
     Qt5::WebSockets
     Qt5::Network
     Qt5::NetworkAuth
-    Qt5::DBus
     KF5::CoreAddons
     KF5::I18n
     KF5::Crash
@@ -199,6 +202,10 @@ target_link_libraries(libruqolacore
     KF5::KIOCore
     KF5::SyntaxHighlighting
 )
+
+if (NOT WIN32)
+    target_link_libraries(libruqolacore Qt5::DBus)
+endif()
 
 if (WIN32 OR APPLE)
     target_link_libraries(libruqolacore KF5::IconThemes)

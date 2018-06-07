@@ -26,6 +26,13 @@ include(FeatureSummary)
 
 set(REQUIRED_QT_VERSION "5.9.0")
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" FALSE)
+if (NOT WIN32)
+    option(UNITY_SUPPORT "Build unity support" TRUE)
+endif()
+
+if (UNITY_SUPPORT)
+    add_definitions(-DUNITY_SUPPORT)
+endif()
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth Test)
 
