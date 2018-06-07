@@ -25,7 +25,6 @@ add_executable(simulatortest ${simulatortest_SRCS} ${simulatortestresources})
 
 target_link_libraries(simulatortest
     Qt5::Widgets
-    KF5::KIOWidgets
     Qt5::WebSockets
     libruqolacore
     )
@@ -38,7 +37,6 @@ add_executable(messagemodelguitest ${messagemodelguitest_SRCS} ${messagemodelgui
 
 target_link_libraries(messagemodelguitest
     Qt5::Widgets
-    KF5::KIOWidgets
     Qt5::WebSockets
     libruqolacore
     )
@@ -51,7 +49,6 @@ add_executable(roommodelguitest ${roommodelguitest_SRCS} ${roommodelguitestresou
 
 target_link_libraries(roommodelguitest
     Qt5::Widgets
-    KF5::KIOWidgets
     Qt5::WebSockets
     libruqolacore
     )
@@ -64,7 +61,6 @@ add_executable(aboutdatatest ${aboutdatatest_SRCS} ${aboutdatatestresources})
 
 target_link_libraries(aboutdatatest
     Qt5::Widgets
-    KF5::KIOWidgets
     Qt5::WebSockets
     libruqolacore
     )
