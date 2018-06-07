@@ -106,6 +106,7 @@ ColumnLayout {
                             listView.currentIndex = model.index
                             textSelected(model.completername)
                         }
+                        highlighted: focus && ListView.isCurrentItem
                     }
                     QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
                 }
