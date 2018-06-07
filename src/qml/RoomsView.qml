@@ -37,26 +37,26 @@ ListView {
     signal roomSelected(string roomID)
 
     section {
-         property: "sectionname"
-         delegate: Kirigami.AbstractListItem {
-             enabled: false
-             RowLayout {
-                 anchors {
-                     left: parent.left
-                     right: parent.right
-                     leftMargin: Kirigami.Units.smallSpacing
-                 }
-                 QQC2.Label {
-                     id: sectionLabel
-                     text: section
-                     Layout.minimumHeight: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)
-                     elide: Text.ElideRight
-                     Layout.alignment: Qt.AlignHCenter
-                     Component.onCompleted: font.bold = true
-                 }
-             }
-         }
-     }
+        property: "sectionname"
+        delegate: Kirigami.AbstractListItem {
+            enabled: false
+            RowLayout {
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    leftMargin: Kirigami.Units.smallSpacing
+                }
+                QQC2.Label {
+                    id: sectionLabel
+                    text: section
+                    Layout.minimumHeight: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)
+                    elide: Text.ElideRight
+                    Layout.alignment: Qt.AlignHCenter
+                    Component.onCompleted: font.bold = true
+                }
+            }
+        }
+    }
 
     delegate: RoomDelegate {
         d_name: name
