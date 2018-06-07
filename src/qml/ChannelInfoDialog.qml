@@ -48,7 +48,7 @@ QQC2.Dialog {
         var enabledField = !roomInfo.canBeModify;
         channelNameField.setReadOnly(enabledField);
         channelCommentField.setReadOnly(enabledField);
-        channelAnnoucementField.setReadOnly(enabledField);
+        channelAnnouncementField.setReadOnly(enabledField);
         channelDescriptionField.setReadOnly(enabledField);
         labelReadOnlyRoom.visible = !enabledField
         readOnlyRoom.visible = !enabledField
@@ -94,14 +94,14 @@ QQC2.Dialog {
             }
         }
         QQC2.Label {
-            text: i18n("Annoucement:");
+            text: i18n("Announcement:");
         }
         TextFieldEditor {
-            id: channelAnnoucementField
+            id: channelAnnouncementField
             textField: roomInfo === null ? "" : roomInfo.announcement;
             onUpdateValue: {
                 if (roomInfo.announcement !== newVal) {
-                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Annoucement, newVal, roomInfo.channelType)
+                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Announcement, newVal, roomInfo.channelType)
                 }
             }
         }

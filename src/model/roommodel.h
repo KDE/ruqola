@@ -50,7 +50,7 @@ public:
         RoomMutedUsers,
         RoomJitsiTimeout,
         RoomRo,
-        RoomAnnoucement,
+        RoomAnnouncement,
         RoomOpen,
         RoomAlert,
         RoomOrder,

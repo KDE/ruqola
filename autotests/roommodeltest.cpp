@@ -57,7 +57,7 @@ void RoomModelTest::shouldHaveDefaultValues()
     roles[RoomModel::RoomMutedUsers] = QByteArrayLiteral("mutedUsers");
     roles[RoomModel::RoomJitsiTimeout] = QByteArrayLiteral("jitsiTimeout");
     roles[RoomModel::RoomRo] = QByteArrayLiteral("readOnly");
-    roles[RoomModel::RoomAnnoucement] = QByteArrayLiteral("announcement");
+    roles[RoomModel::RoomAnnouncement] = QByteArrayLiteral("announcement");
     roles[RoomModel::RoomOpen] = QByteArrayLiteral("open");
     roles[RoomModel::RoomAlert] = QByteArrayLiteral("alert");
     roles[RoomModel::RoomOrder] = QByteArrayLiteral("roomorder");
@@ -392,7 +392,7 @@ void RoomModelTest::shouldReturnDataDefault()
     QCOMPARE(output, QVariant(qint64(-1)));
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomRo);
     QCOMPARE(output.toBool(), false);
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomAnnoucement);
+    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomAnnouncement);
     QVERIFY(output.toString().isEmpty());
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomUnread);
     QCOMPARE(output, QVariant(int(0))); //quint64 not used in room.cpp???
@@ -465,7 +465,7 @@ void RoomModelTest::shouldReturnData()
     QCOMPARE(output, QVariant(time));
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomRo);
     QCOMPARE(output.toBool(), readOnly);
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomAnnoucement);
+    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomAnnouncement);
     QCOMPARE(output.toString(), announcement);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomUnread);
     QCOMPARE(output, QVariant(unread)); //quint64 not used in room.cpp???

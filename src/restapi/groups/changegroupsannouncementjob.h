@@ -45,7 +45,7 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void changeGroupsAnnoucement();
+    void changeGroupsAnnouncement();
 
 private:
     Q_DISABLE_COPY(ChangeGroupsAnnouncementJob)

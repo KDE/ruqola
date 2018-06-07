@@ -51,7 +51,7 @@ void RoomFilterProxyModelTest::shouldHaveDefaultValue()
     roles[RoomModel::RoomMutedUsers] = QByteArrayLiteral("mutedUsers");
     roles[RoomModel::RoomJitsiTimeout] = QByteArrayLiteral("jitsiTimeout");
     roles[RoomModel::RoomRo] = QByteArrayLiteral("readOnly");
-    roles[RoomModel::RoomAnnoucement] = QByteArrayLiteral("announcement");
+    roles[RoomModel::RoomAnnouncement] = QByteArrayLiteral("announcement");
     roles[RoomModel::RoomOpen] = QByteArrayLiteral("open");
     roles[RoomModel::RoomAlert] = QByteArrayLiteral("alert");
     roles[RoomModel::RoomOrder] = QByteArrayLiteral("roomorder");

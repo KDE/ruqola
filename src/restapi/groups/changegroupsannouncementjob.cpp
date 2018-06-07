@@ -58,7 +58,7 @@ void ChangeGroupsAnnouncementJob::slotChangeGroupsannouncementFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             qCDebug(RUQOLA_RESTAPI_LOG) << "Change announcement success: " << data;
-            Q_EMIT changeGroupsAnnoucement();
+            Q_EMIT changeGroupsAnnouncement();
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
         }
