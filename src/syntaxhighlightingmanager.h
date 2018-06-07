@@ -18,21 +18,21 @@
 */
 
 
-#ifndef SYNTAXHIGHLITINGMANAGER_H
-#define SYNTAXHIGHLITINGMANAGER_H
+#ifndef SYNTAXHIGHLIGHTINGMANAGER_H
+#define SYNTAXHIGHLIGHTINGMANAGER_H
 
 #include <QObject>
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Definition>
 
-class SyntaxHighlitingManager : public QObject
+class SyntaxHighlightingManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit SyntaxHighlitingManager(QObject *parent = nullptr);
-    ~SyntaxHighlitingManager() = default;
+    explicit SyntaxHighlightingManager(QObject *parent = nullptr);
+    ~SyntaxHighlightingManager() = default;
 
-    static SyntaxHighlitingManager *self();
+    static SyntaxHighlightingManager *self();
 
     bool syntaxHighlightingInitialized() const;
 
@@ -41,7 +41,7 @@ public:
     KSyntaxHighlighting::Repository &repo() const;
 
 private:
-    Q_DISABLE_COPY(SyntaxHighlitingManager)
+    Q_DISABLE_COPY(SyntaxHighlightingManager)
     void initialize();
     mutable KSyntaxHighlighting::Repository mRepo;
     KSyntaxHighlighting::Definition mDef;
@@ -49,4 +49,4 @@ private:
 
 };
 
-#endif // SYNTAXHIGHLITINGMANAGER_H
+#endif // SYNTAXHIGHLIghTINGMANAGER_H

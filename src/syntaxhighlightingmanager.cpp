@@ -18,16 +18,16 @@
 */
 
 
-#include "syntaxhighlitingmanager.h"
+#include "syntaxhighlightingmanager.h"
 #include "ruqola_debug.h"
 
-SyntaxHighlitingManager::SyntaxHighlitingManager(QObject *parent)
+SyntaxHighlightingManager::SyntaxHighlightingManager(QObject *parent)
     : QObject(parent)
 {
     initialize();
 }
 
-void SyntaxHighlitingManager::initialize()
+void SyntaxHighlightingManager::initialize()
 {
     mDef = mRepo.definitionForName(QStringLiteral("C++"));
     if (mDef.isValid()) {
@@ -37,23 +37,23 @@ void SyntaxHighlitingManager::initialize()
     }
 }
 
-KSyntaxHighlighting::Repository &SyntaxHighlitingManager::repo() const
+KSyntaxHighlighting::Repository &SyntaxHighlightingManager::repo() const
 {
     return mRepo;
 }
 
-KSyntaxHighlighting::Definition SyntaxHighlitingManager::def() const
+KSyntaxHighlighting::Definition SyntaxHighlightingManager::def() const
 {
     return mDef;
 }
 
-bool SyntaxHighlitingManager::syntaxHighlightingInitialized() const
+bool SyntaxHighlightingManager::syntaxHighlightingInitialized() const
 {
     return mSyntaxHighlightingInitialized;
 }
 
-SyntaxHighlitingManager *SyntaxHighlitingManager::self()
+SyntaxHighlightingManager *SyntaxHighlightingManager::self()
 {
-    static SyntaxHighlitingManager s_self;
+    static SyntaxHighlightingManager s_self;
     return &s_self;
 }

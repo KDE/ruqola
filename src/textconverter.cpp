@@ -23,7 +23,7 @@
 #include "emojimanager.h"
 
 #include "texthighlighter.h"
-#include "syntaxhighlitingmanager.h"
+#include "syntaxhighlightingmanager.h"
 
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
@@ -33,23 +33,23 @@
 TextConverter::TextConverter(EmojiManager *emojiManager)
     : mEmojiManager(emojiManager)
 {
-    (void)SyntaxHighlitingManager::self();
+    (void)SyntaxHighlightingManager::self();
 }
 
 QString TextConverter::convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const
 {
     //TODO improve it. Add autotest.
-    if (SyntaxHighlitingManager::self()->syntaxHighlightingInitialized() && str.startsWith(QLatin1String("```")) && str.endsWith(QLatin1String("```"))) {
+    if (SyntaxHighlightingManager::self()->syntaxHighlightingInitialized() && str.startsWith(QLatin1String("```")) && str.endsWith(QLatin1String("```"))) {
         QString e = str;
         e = e.remove(QLatin1String("```"));
         QString result;
         QTextStream s(&result);
 
         TextHighlighter highLighter(&s);
-        highLighter.setDefinition(SyntaxHighlitingManager::self()->def());
+        highLighter.setDefinition(SyntaxHighlightingManager::self()->def());
         highLighter.setTheme(/*QGuiApplication::palette().color(QPalette::Base).lightness() < 128
                              ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                             : */SyntaxHighlitingManager::self()->repo().defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
+                             : */SyntaxHighlightingManager::self()->repo().defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
         highLighter.highlight(e);
         return *s.string();
     }
