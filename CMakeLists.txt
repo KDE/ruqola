@@ -41,7 +41,6 @@ find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     Crash
-    KIO
     Notifications
     SyntaxHighlighting
     DocTools

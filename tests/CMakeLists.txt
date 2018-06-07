@@ -8,15 +8,16 @@ target_link_libraries(expandjsontest
 
 ####
 
-set(loadroomcachetest_SRCS loadroomcache.cpp)
+#TODO reactivate it
+#set(loadroomcachetest_SRCS loadroomcache.cpp)
 
-add_executable(loadroomcachetest ${loadroomcachetest_SRCS})
+#add_executable(loadroomcachetest ${loadroomcachetest_SRCS})
 
-target_link_libraries(loadroomcachetest
-    Qt5::Widgets
-    #TODO remove kurlrequester
-    KF5::KIOWidgets
-    )
+#target_link_libraries(loadroomcachetest
+#    Qt5::Widgets
+#    #TODO remove kurlrequester
+#    KF5::KIOWidgets
+#    )
 
 ####
 set(simulatortest_SRCS simulator.cpp fakewebsocket.cpp)

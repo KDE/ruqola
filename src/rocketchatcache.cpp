@@ -23,7 +23,7 @@
 #include "ruqola_debug.h"
 #include "managerdatapaths.h"
 #include "restapi/restapirequest.h"
-#include <KIO/CopyJob>
+#include "copyfilejob.h"
 #include <QDateTime>
 #include <QDir>
 #include <QSettings>
@@ -93,8 +93,10 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bo
 {
     if (fileInCache(QUrl(url))) {
         const QUrl newurl = QUrl::fromLocalFile(fileCachePath(QUrl(url)));
-        KIO::Job *job = KIO::copy(newurl, localFile, KIO::Overwrite | KIO::HideProgressInfo);
-        job->exec();
+        CopyFileJob *job = new CopyFileJob(this);
+        job->setCachedFile(fileCachePath(QUrl(url)));
+        job->setLocalFile(localFile.toString());
+        job->start();
     } else {
         //Redownload it. TODO inform user ?
         //FIXME we don't use localfile!

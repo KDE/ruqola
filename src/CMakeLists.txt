@@ -170,6 +170,7 @@ set (Ruqola_core_srcs
     reactions.cpp
     reaction.cpp
     syntaxhighlightingmanager.cpp
+    copyfilejob.cpp
 )
 
 if (NOT WIN32)
@@ -200,7 +201,6 @@ target_link_libraries(libruqolacore
     KF5::I18n
     KF5::Crash
     KF5::Notifications
-    KF5::KIOCore
     KF5::SyntaxHighlighting
 )
 
