@@ -169,6 +169,7 @@ set (Ruqola_core_srcs
 
     reactions.cpp
     reaction.cpp
+    syntaxhighlitingmanager.cpp
 )
 
 if (NOT WIN32)

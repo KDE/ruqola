@@ -17,24 +17,36 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef TEXTCONVERTER_H
-#define TEXTCONVERTER_H
 
-#include <QString>
-#include <QMap>
-#include "libruqola_private_export.h"
+#ifndef SYNTAXHIGHLITINGMANAGER_H
+#define SYNTAXHIGHLITINGMANAGER_H
+
+#include <QObject>
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Definition>
-class EmojiManager;
-class LIBRUQOLACORE_TESTS_EXPORT TextConverter
-{
-public:
-    explicit TextConverter(EmojiManager *emojiManager = nullptr);
-    ~TextConverter() = default;
 
-    QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const;
+class SyntaxHighlitingManager : public QObject
+{
+    Q_OBJECT
+public:
+    explicit SyntaxHighlitingManager(QObject *parent = nullptr);
+    ~SyntaxHighlitingManager() = default;
+
+    static SyntaxHighlitingManager *self();
+
+    bool syntaxHighlightingInitialized() const;
+
+    KSyntaxHighlighting::Definition def() const;
+
+    KSyntaxHighlighting::Repository &repo() const;
+
 private:
-    EmojiManager *mEmojiManager = nullptr;
+    Q_DISABLE_COPY(SyntaxHighlitingManager)
+    void initialize();
+    mutable KSyntaxHighlighting::Repository mRepo;
+    KSyntaxHighlighting::Definition mDef;
+    bool mSyntaxHighlightingInitialized = false;
+
 };
 
-#endif // TEXTCONVERTER_H
+#endif // SYNTAXHIGHLITINGMANAGER_H
