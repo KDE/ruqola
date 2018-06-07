@@ -14,6 +14,7 @@ add_executable(loadroomcachetest ${loadroomcachetest_SRCS})
 
 target_link_libraries(loadroomcachetest
     Qt5::Widgets
+    #TODO remove kurlrequester
     KF5::KIOWidgets
     )
 
