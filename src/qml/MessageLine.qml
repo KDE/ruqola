@@ -59,6 +59,15 @@ ColumnLayout {
             }
             footerItem.textEditing(text)
         }
+        Keys.onDownPressed: {
+            listView.incrementCurrentIndex()
+        }
+        Keys.onUpPressed: {
+            listView.decrementCurrentIndex()
+        }
+        Keys.onTabPressed: {
+            textSelected(listView.currentItem.myData.completername)
+        }
         onAccepted: {
             if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
                 if (messageId !== "") {
@@ -99,6 +108,8 @@ ColumnLayout {
                     clip: true
                     model: rcAccount.inputCompleterModel()
                     delegate: Kirigami.BasicListItem {
+                        readonly property variant myData: model
+
                         icon: model.iconname
 
                         label: model.displayname
@@ -115,14 +126,14 @@ ColumnLayout {
         function showPopupCompleting() {
             if (!popup.visible) {
                 popup.open()
-                listView.currentIndex = -1
+                listView.currentIndex = 0
             }
         }
     }
 
-    function textSelected(completer) {
+    function textSelected(completerName) {
         if (listView.currentItem) {
-            messageLine.text = rcAccount.replaceWord(completer, messageLine.text, messageLine.cursorPosition)
+            messageLine.text = rcAccount.replaceWord(completerName + " ", messageLine.text, messageLine.cursorPosition)
         }
         popup.close()
     }
@@ -132,12 +143,5 @@ ColumnLayout {
         } else {
             clearUnreadMessages();
         }
-    }
-
-    Keys.onDownPressed: {
-        listView.incrementCurrentIndex()
-    }
-    Keys.onUpPressed: {
-        listView.decrementCurrentIndex()
     }
 }
