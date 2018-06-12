@@ -30,6 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT ForgotPasswordJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
+    //since 0.64
     explicit ForgotPasswordJob(QObject *parent = nullptr);
     ~ForgotPasswordJob() override;
 
