@@ -119,7 +119,6 @@ void User::parseUser(const QJsonObject &object)
 
 QString User::iconFromStatus() const
 {
-    qCDebug(RUQOLA_LOG) << " QString User::iconFromStatus() const" << name() << " mStatus" << mStatus;
     //TODO optimization ?
     const PresenceStatus status = Utils::presenceStatusFromString(mStatus);
     switch (status) {
@@ -134,5 +133,6 @@ QString User::iconFromStatus() const
     case PresenceStatus::Unknown:
         return QStringLiteral("unknown");
     }
+    qCDebug(RUQOLA_LOG) << " QString User::iconFromStatus() const" << name() << " mStatus" << mStatus;
     return {};
 }
