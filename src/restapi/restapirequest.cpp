@@ -31,6 +31,7 @@
 
 #include "users/getavatarjob.h"
 #include "users/setavatarjob.h"
+#include "users/forgotpasswordjob.h"
 
 #include "misc/owninfojob.h"
 
@@ -668,5 +669,13 @@ void RestApiRequest::setAvatar(const QString &avatarUrl)
     SetAvatarJob *job = new SetAvatarJob(this);
     initializeRestApiJob(job);
     job->setAvatarUrl(avatarUrl);
+    job->start();
+}
+
+void RestApiRequest::forgotPassword(const QString &email)
+{
+    ForgotPasswordJob *job = new ForgotPasswordJob(this);
+    initializeRestApiJob(job);
+    job->setEmail(email);
     job->start();
 }

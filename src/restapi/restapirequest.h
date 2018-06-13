@@ -104,6 +104,7 @@ public:
     void setAvatar(const QString &avatarUrl);
     void markRoomAsUnRead(const QString &roomId);
     void markMessageAsUnReadFrom(const QString &messageId);
+    void forgotPassword(const QString &email);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
