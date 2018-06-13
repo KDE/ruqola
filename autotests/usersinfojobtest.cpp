@@ -37,6 +37,8 @@ void UsersInfoJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
 }
 
+//TODO verify when we don't use identifier
+
 void UsersInfoJobTest::shouldGenerateRequest()
 {
     UsersInfoJob job;
