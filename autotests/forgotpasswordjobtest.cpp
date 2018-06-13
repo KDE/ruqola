@@ -22,6 +22,7 @@
 #include "restapi/users/forgotpasswordjob.h"
 #include "restapi/restapimethod.h"
 #include <QTest>
+#include <QJsonDocument>
 QTEST_GUILESS_MAIN(ForgotPasswordJobTest)
 
 ForgotPasswordJobTest::ForgotPasswordJobTest(QObject *parent)
@@ -46,7 +47,16 @@ void ForgotPasswordJobTest::shouldGenerateRequest()
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
+    job.setEmail(QStringLiteral("foo"));
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getAvatar?userId=avat")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.forgotPassword")));
     delete method;
+}
+
+void ForgotPasswordJobTest::shouldGenerateJson()
+{
+    ForgotPasswordJob job;
+    const QString email = QStringLiteral("foo");
+    job.setEmail(email);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"email\":\"%1\"}").arg(email).toLatin1());
 }

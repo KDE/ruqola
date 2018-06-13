@@ -32,6 +32,7 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
+    void shouldGenerateJson();
 };
 
 #endif // FORGOTPASSWORDJOBTEST_H

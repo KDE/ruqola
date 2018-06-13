@@ -23,6 +23,9 @@
 #include "restapimethod.h"
 #include <QNetworkReply>
 #include <QUrlQuery>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QNetworkReply>
 
 ForgotPasswordJob::ForgotPasswordJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -52,13 +55,15 @@ bool ForgotPasswordJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &ForgotPasswordJob::slotGetAvatarInfo);
-    addLoggerInfo("ForgotPasswordJob ask for avatarUserId: " + mEmail.toLatin1());
+    const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
+    addLoggerInfo("SetAvatarJob::start: " + baPostData);
+    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
+    connect(reply, &QNetworkReply::finished, this, &ForgotPasswordJob::slotForgotPassword);
+    addLoggerInfo(QByteArrayLiteral("SetAvatarJob: start"));
     return true;
 }
 
-void ForgotPasswordJob::slotGetAvatarInfo()
+void ForgotPasswordJob::slotForgotPassword()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -89,4 +94,13 @@ QNetworkRequest ForgotPasswordJob::request() const
 bool ForgotPasswordJob::requireHttpAuthentication() const
 {
     return false;
+}
+
+QJsonDocument ForgotPasswordJob::json() const
+{
+    QJsonObject jsonObj;
+    jsonObj[QLatin1String("email")] = mEmail;
+
+    const QJsonDocument postData = QJsonDocument(jsonObj);
+    return postData;
 }

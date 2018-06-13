@@ -44,12 +44,14 @@ public:
     QString email() const;
     void setEmail(const QString &email);
 
+    QJsonDocument json() const;
+
 Q_SIGNALS:
     void forgotPasswordDone();
 
 private:
     Q_DISABLE_COPY(ForgotPasswordJob)
-    void slotGetAvatarInfo();
+    void slotForgotPassword();
     QString mEmail;
 };
 
