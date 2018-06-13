@@ -16,6 +16,7 @@ set (Ruqola_restapi_SRCS
     restapi/users/getavatarjob.cpp
     restapi/users/setavatarjob.cpp
     restapi/users/forgotpasswordjob.cpp
+    restapi/users/usersinfojob.cpp
 
     restapi/authentication/logoutjob.cpp
     restapi/authentication/loginjob.cpp
