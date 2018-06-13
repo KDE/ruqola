@@ -32,6 +32,7 @@
 #include "users/getavatarjob.h"
 #include "users/setavatarjob.h"
 #include "users/forgotpasswordjob.h"
+#include "users/usersinfojob.h"
 
 #include "misc/owninfojob.h"
 
@@ -677,5 +678,14 @@ void RestApiRequest::forgotPassword(const QString &email)
     ForgotPasswordJob *job = new ForgotPasswordJob(this);
     initializeRestApiJob(job);
     job->setEmail(email);
+    job->start();
+}
+
+void RestApiRequest::userInfo(const QString &identifier)
+{
+    UsersInfoJob *job = new UsersInfoJob(this);
+    initializeRestApiJob(job);
+    job->setIdentifier(identifier);
+    //TODO add signal ???
     job->start();
 }
