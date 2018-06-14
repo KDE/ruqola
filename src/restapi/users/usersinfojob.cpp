@@ -79,15 +79,26 @@ void UsersInfoJob::setIdentifier(const QString &identifier)
 QNetworkRequest UsersInfoJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersInfo);
-    if (!mIdentifier.isEmpty()) {
-        QUrlQuery queryUrl;
-        queryUrl.addQueryItem(QStringLiteral("userId"), mIdentifier);
-        url.setQuery(queryUrl);
-    }
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("userId"), mIdentifier);
+    url.setQuery(queryUrl);
 
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     return request;
+}
+
+bool UsersInfoJob::canStart() const
+{
+    if (mIdentifier.trimmed().isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "UsersInfoJob: identifier is empty";
+        return false;
+    }
+    if (!RestApiAbstractJob::canStart()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SpotlightJob job";
+        return false;
+    }
+    return true;
 }

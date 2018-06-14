@@ -30,12 +30,15 @@ class LIBRUQOLACORE_TESTS_EXPORT UsersInfoJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
+    //TODO userId or Username
     explicit UsersInfoJob(QObject *parent = nullptr);
     ~UsersInfoJob() override;
 
     bool requireHttpAuthentication() const override;
 
     bool start() override;
+
+    bool canStart() const override;
 
     QNetworkRequest request() const override;
 

@@ -48,3 +48,4 @@ void UsersInfoJobTest::shouldGenerateRequest()
     const QString identifier = QStringLiteral("avat");
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.info?userId=foo1")));
 }
+
