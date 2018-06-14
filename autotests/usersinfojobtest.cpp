@@ -22,6 +22,7 @@
 #include "restapi/users/usersinfojob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
+#include <QJsonDocument>
 #include <restapi/restapimethod.h>
 QTEST_GUILESS_MAIN(UsersInfoJobTest)
 
@@ -37,12 +38,13 @@ void UsersInfoJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
 }
 
-//TODO verify when we don't use identifier
-
 void UsersInfoJobTest::shouldGenerateRequest()
 {
     UsersInfoJob job;
+    const QString roomId = QStringLiteral("foo1");
+    job.setIdentifier(roomId);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/me")));
+    const QString identifier = QStringLiteral("avat");
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.info?userId=foo1")));
 }

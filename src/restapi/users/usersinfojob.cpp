@@ -23,6 +23,7 @@
 #include "ruqola_restapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QUrlQuery>
 #include <QNetworkReply>
 
 UsersInfoJob::UsersInfoJob(QObject *parent)
@@ -77,7 +78,13 @@ void UsersInfoJob::setIdentifier(const QString &identifier)
 
 QNetworkRequest UsersInfoJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersInfo);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersInfo);
+    if (!mIdentifier.isEmpty()) {
+        QUrlQuery queryUrl;
+        queryUrl.addQueryItem(QStringLiteral("userId"), mIdentifier);
+        url.setQuery(queryUrl);
+    }
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
