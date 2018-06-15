@@ -105,7 +105,7 @@ public:
     void markRoomAsUnRead(const QString &roomId);
     void markMessageAsUnReadFrom(const QString &messageId);
     void forgotPassword(const QString &email);
-    void userInfo(const QString &identifier);
+    void userInfo(const QString &identifier, bool userName = false);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -120,6 +120,7 @@ Q_SIGNALS:
     void channelListDone(const QJsonObject &obj);
     void searchMessageDone(const QJsonObject &obj);
     void getRoomsDone(const QJsonObject &obj);
+    void usersInfoDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

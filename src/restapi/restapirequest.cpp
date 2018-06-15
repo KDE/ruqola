@@ -681,11 +681,12 @@ void RestApiRequest::forgotPassword(const QString &email)
     job->start();
 }
 
-void RestApiRequest::userInfo(const QString &identifier)
+void RestApiRequest::userInfo(const QString &identifier, bool userName)
 {
     UsersInfoJob *job = new UsersInfoJob(this);
     initializeRestApiJob(job);
     job->setIdentifier(identifier);
-    //TODO add signal ???
+    job->setUseUserName(userName);
+    connect(job, &UsersInfoJob::usersInfoDone, this, &RestApiRequest::usersInfoDone);
     job->start();
 }
