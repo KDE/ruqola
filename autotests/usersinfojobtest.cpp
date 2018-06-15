@@ -36,6 +36,8 @@ void UsersInfoJobTest::shouldHaveDefaultValue()
     UsersInfoJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(job.identifier().isEmpty());
+    QVERIFY(!job.useUserName());
 }
 
 void UsersInfoJobTest::shouldGenerateRequest()
@@ -47,5 +49,18 @@ void UsersInfoJobTest::shouldGenerateRequest()
     verifyAuthentication(&job, request);
     const QString identifier = QStringLiteral("avat");
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.info?userId=foo1")));
+}
+
+void UsersInfoJobTest::shouldGenerateRequestUsername()
+{
+    UsersInfoJob job;
+    const QString roomId = QStringLiteral("foo1");
+    job.setIdentifier(roomId);
+    job.setUseUserName(true);
+    QNetworkRequest request = QNetworkRequest(QUrl());
+    verifyAuthentication(&job, request);
+    const QString identifier = QStringLiteral("avat");
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.info?username=foo1")));
+
 }
 

@@ -66,6 +66,16 @@ void UsersInfoJob::slotOwnInfoFinished()
     deleteLater();
 }
 
+bool UsersInfoJob::useUserName() const
+{
+    return mUseUserName;
+}
+
+void UsersInfoJob::setUseUserName(bool useUserName)
+{
+    mUseUserName = useUserName;
+}
+
 QString UsersInfoJob::identifier() const
 {
     return mIdentifier;
@@ -80,7 +90,11 @@ QNetworkRequest UsersInfoJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersInfo);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("userId"), mIdentifier);
+    if (mUseUserName) {
+        queryUrl.addQueryItem(QStringLiteral("username"), mIdentifier);
+    } else {
+        queryUrl.addQueryItem(QStringLiteral("userId"), mIdentifier);
+    }
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

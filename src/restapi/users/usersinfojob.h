@@ -45,6 +45,9 @@ public:
     QString identifier() const;
     void setIdentifier(const QString &identifier);
 
+    bool useUserName() const;
+    void setUseUserName(bool useUserName);
+
 Q_SIGNALS:
     void usersInfoDone(const QJsonObject &obj);
 
@@ -52,6 +55,7 @@ private:
     Q_DISABLE_COPY(UsersInfoJob)
     void slotOwnInfoFinished();
     QString mIdentifier;
+    bool mUseUserName = false;
 };
 
 #endif // USERSINFOJOB_H
