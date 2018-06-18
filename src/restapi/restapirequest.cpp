@@ -47,6 +47,7 @@
 #include "chat/updatemessagejob.h"
 #include "chat/reactonmessagejob.h"
 #include "chat/searchmessagejob.h"
+#include "chat/ignoreuserjob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
@@ -688,5 +689,16 @@ void RestApiRequest::userInfo(const QString &identifier, bool userName)
     job->setIdentifier(identifier);
     job->setUseUserName(userName);
     connect(job, &UsersInfoJob::usersInfoDone, this, &RestApiRequest::usersInfoDone);
+    job->start();
+}
+
+void RestApiRequest::ignoreUser(const QString &roomId, const QString &userId, bool ignore)
+{
+    IgnoreUserJob *job = new IgnoreUserJob(this);
+    initializeRestApiJob(job);
+    job->setIgnoreUserId(userId);
+    job->setRoomId(roomId);
+    job->setIgnore(ignore);
+    //connect(job, &UsersInfoJob::usersInfoDone, this, &RestApiRequest::usersInfoDone);
     job->start();
 }

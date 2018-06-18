@@ -106,6 +106,7 @@ public:
     void markMessageAsUnReadFrom(const QString &messageId);
     void forgotPassword(const QString &email);
     void userInfo(const QString &identifier, bool userName = false);
+    void ignoreUser(const QString &roomId, const QString &userId, bool ignore);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
