@@ -41,6 +41,7 @@
         <file>NotificationOptionsDialog.qml</file>
         <file>LeaveChannelDialog.qml</file>
         <file>DeleteFileAttachmentDialog.qml</file>
+        <file>UserInfoDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
