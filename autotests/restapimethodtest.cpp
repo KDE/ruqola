@@ -68,6 +68,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatPinMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.pinMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatPostMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.postMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatReact), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.react")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatIgnoreUser), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.ignoreUser")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatStarMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.starMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatUnPinMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.unPinMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatUnStarMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.unStarMessage")));

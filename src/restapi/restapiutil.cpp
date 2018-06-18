@@ -89,6 +89,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("chat.update");
     case RestApiUtil::RestApiUrlType::ChatSearch:
         return QStringLiteral("chat.search");
+    case RestApiUtil::RestApiUrlType::ChatIgnoreUser:
+        return QStringLiteral("chat.ignoreUser");
     case RestApiUtil::RestApiUrlType::ChannelsAddAll:
         return QStringLiteral("channels.addAll");
     case RestApiUtil::RestApiUrlType::ChannelsAddModerator:
