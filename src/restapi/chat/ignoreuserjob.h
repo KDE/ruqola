@@ -50,11 +50,11 @@ public:
     void setIgnore(bool ignore);
 
 Q_SIGNALS:
-    void searchMessageDone(const QJsonObject &obj);
+    void ignoreUserDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(IgnoreUserJob)
-    void slotSearchMessageFinished();
+    void slotIgnoreUserFinished();
     QString mRoomId;
     QString mIgnoreUserId;
     bool mIgnore = true;

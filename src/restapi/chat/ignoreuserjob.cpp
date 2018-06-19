@@ -43,17 +43,17 @@ bool IgnoreUserJob::requireHttpAuthentication() const
 bool IgnoreUserJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start search message job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ignore user job";
         deleteLater();
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &IgnoreUserJob::slotSearchMessageFinished);
-    addLoggerInfo(QByteArrayLiteral("IgnoreUserJob: search message starting"));
+    connect(reply, &QNetworkReply::finished, this, &IgnoreUserJob::slotIgnoreUserFinished);
+    addLoggerInfo(QByteArrayLiteral("IgnoreUserJob: ignore user starting"));
     return true;
 }
 
-void IgnoreUserJob::slotSearchMessageFinished()
+void IgnoreUserJob::slotIgnoreUserFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -62,7 +62,7 @@ void IgnoreUserJob::slotSearchMessageFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("IgnoreUserJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT searchMessageDone(replyObject);
+            Q_EMIT ignoreUserDone(replyObject);
             qCDebug(RUQOLA_RESTAPI_LOG) << "Ignore user success: " << data;
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to ignore user message";
@@ -105,7 +105,9 @@ QNetworkRequest IgnoreUserJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatIgnoreUser);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("rid"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("userId"), mIgnoreUserId);
+    queryUrl.addQueryItem(QStringLiteral("ignore"), mIgnore ? QStringLiteral("true") : QStringLiteral("false"));
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
@@ -117,7 +119,7 @@ QNetworkRequest IgnoreUserJob::request() const
 bool IgnoreUserJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start star message job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ignore user job";
         return false;
     }
     if (mRoomId.isEmpty()) {

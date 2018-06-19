@@ -49,5 +49,5 @@ void IgnoreUserJobTest::shouldGenerateRequest()
     verifyAuthentication(&job, request);
     //TODO verify
     //TODO add ignore == false
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.search?roomId=foo&searchText=bla")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.ignoreUser?rid=foo&userId=bla&ignore=true")));
 }
