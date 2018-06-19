@@ -42,8 +42,8 @@ public:
     QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    QString inviteUserId() const;
-    void setInviteUserId(const QString &userId);
+    QString removeUserId() const;
+    void setRemoveUserId(const QString &removeUserId);
 
 Q_SIGNALS:
     void inviteDone();
@@ -51,8 +51,8 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ChannelRemoveOwnerJob)
     void slotInvitationFinished();
-    QString mInviteUserId;
     QString mRoomId;
+    QString mRemoveUserId;
 };
 
 #endif // CHANGECHANNELANNOUNCEMENT_H

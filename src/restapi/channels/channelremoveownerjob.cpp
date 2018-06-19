@@ -66,14 +66,14 @@ void ChannelRemoveOwnerJob::slotInvitationFinished()
     deleteLater();
 }
 
-QString ChannelRemoveOwnerJob::inviteUserId() const
+QString ChannelRemoveOwnerJob::removeUserId() const
 {
-    return mInviteUserId;
+    return mRemoveUserId;
 }
 
-void ChannelRemoveOwnerJob::setInviteUserId(const QString &userId)
+void ChannelRemoveOwnerJob::setRemoveUserId(const QString &removeUserId)
 {
-    mInviteUserId = userId;
+    mRemoveUserId = removeUserId;
 }
 
 bool ChannelRemoveOwnerJob::requireHttpAuthentication() const
@@ -83,8 +83,8 @@ bool ChannelRemoveOwnerJob::requireHttpAuthentication() const
 
 bool ChannelRemoveOwnerJob::canStart() const
 {
-    if (mInviteUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelRemoveOwnerJob: inviteUserId is empty";
+    if (mRemoveUserId.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelRemoveOwnerJob: remove userid is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
@@ -102,7 +102,6 @@ QJsonDocument ChannelRemoveOwnerJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = roomId();
-    jsonObj[QLatin1String("userId")] = inviteUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -120,7 +119,7 @@ void ChannelRemoveOwnerJob::setRoomId(const QString &roomId)
 
 QNetworkRequest ChannelRemoveOwnerJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsInvite);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsRemoveOwner);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
