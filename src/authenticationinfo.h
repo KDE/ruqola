@@ -31,16 +31,16 @@ public:
     AuthenticationInfo();
     ~AuthenticationInfo();
 
-    QString name() const;
+    Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &name);
 
-    QString iconName() const;
+    Q_REQUIRED_RESULT QString iconName() const;
     void setIconName(const QString &iconName);
 
-    AuthenticationManager::OauthType oauthType() const;
+    Q_REQUIRED_RESULT AuthenticationManager::OauthType oauthType() const;
     void setOauthType(const AuthenticationManager::OauthType &oauthType);
 
-    bool isValid() const;
+    Q_REQUIRED_RESULT bool isValid() const;
 
 private:
     QString mName;

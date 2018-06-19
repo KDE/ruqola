@@ -36,10 +36,10 @@ public:
 
     virtual PluginAuthenticationInterface *createInterface(QObject *parent) = 0;
 
-    virtual AuthenticationManager::OauthType type() const = 0;
+    Q_REQUIRED_RESULT virtual AuthenticationManager::OauthType type() const = 0;
 
-    virtual QString name() const = 0;
-    virtual QString iconName() const = 0;
+    Q_REQUIRED_RESULT virtual QString name() const = 0;
+    Q_REQUIRED_RESULT virtual QString iconName() const = 0;
 };
 
 #endif // PLUGINAUTHENTICATION_H

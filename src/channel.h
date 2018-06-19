@@ -40,23 +40,23 @@ public:
     ~Channel();
     void parseChannel(const QJsonObject &object, Channel::ChannelType);
 
-    ChannelType type() const;
+    Q_REQUIRED_RESULT ChannelType type() const;
     void setType(const ChannelType &type);
 
-    User user() const;
+    Q_REQUIRED_RESULT User user() const;
     void setUser(const User &user);
 
-    bool operator==(const Channel &other) const;
+    Q_REQUIRED_RESULT bool operator==(const Channel &other) const;
 
     Channel &operator=(const Channel &other);
 
-    QString roomId() const;
+    Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    QString roomName() const;
+    Q_REQUIRED_RESULT QString roomName() const;
     void setRoomName(const QString &roomName);
 
-    QString roomType() const;
+    Q_REQUIRED_RESULT QString roomType() const;
     void setRoomType(const QString &roomType);
 
 private:

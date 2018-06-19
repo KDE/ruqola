@@ -30,10 +30,10 @@ class LIBRUQOLACORE_TESTS_EXPORT RestApiMethod
 public:
     RestApiMethod();
 
-    QString serverUrl() const;
+    Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
-    QUrl generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension = QString());
+    Q_REQUIRED_RESULT QUrl generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension = QString());
 private:
     QString mServerUrl;
 };

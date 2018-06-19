@@ -41,10 +41,10 @@ public:
     explicit InputCompleterModel(QObject *parent = nullptr);
     ~InputCompleterModel() override;
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
     void setChannels(const QVector<Channel> &channels);
 
     void parseChannels(const QJsonObject &obj);

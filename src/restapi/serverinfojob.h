@@ -31,11 +31,11 @@ public:
     explicit ServerInfoJob(QObject *parent = nullptr);
     ~ServerInfoJob() override;
 
-    bool start() override;
+    Q_REQUIRED_RESULT bool start() override;
 
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
 Q_SIGNALS:
     void serverInfoDone(const QString &versionInfo);

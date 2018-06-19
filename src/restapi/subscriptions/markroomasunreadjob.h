@@ -39,18 +39,18 @@ public:
     };
 
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    bool canStart() const override;
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QJsonDocument json() const;
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 
 
-    MarkAsUnReadObject unReadObject() const;
+    Q_REQUIRED_RESULT MarkAsUnReadObject unReadObject() const;
     void setUnReadObject(MarkAsUnReadObject type);
 
-    QString objectId() const;
+    Q_REQUIRED_RESULT QString objectId() const;
     void setObjectId(const QString &objectId);
 
 Q_SIGNALS:

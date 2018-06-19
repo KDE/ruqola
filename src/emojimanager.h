@@ -34,10 +34,10 @@ public:
 
     void loadEmoji(const QJsonObject &obj, bool restApi);
 
-    int count() const;
+    Q_REQUIRED_RESULT int count() const;
 
-    QString html(const QString &emojiIdentifier);
-    QString serverUrl() const;
+    Q_REQUIRED_RESULT QString html(const QString &emojiIdentifier);
+    Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
 private:

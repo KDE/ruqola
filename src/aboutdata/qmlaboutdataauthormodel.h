@@ -42,12 +42,12 @@ public:
     explicit QmlAboutDataAuthorModel(QObject *parent = nullptr);
     ~QmlAboutDataAuthorModel() override = default;
 
-    Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    Q_REQUIRED_RESULT Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void setAboutPerson(const QList<KAboutPerson> &aboutPerson);
 
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 private:
 
     QList<KAboutPerson> mAboutPerson;

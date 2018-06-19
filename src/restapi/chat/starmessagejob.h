@@ -31,19 +31,19 @@ public:
     explicit StarMessageJob(QObject *parent = nullptr);
     ~StarMessageJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
-    QString messageId() const;
+    Q_REQUIRED_RESULT QString messageId() const;
     void setMessageId(const QString &messageId);
 
-    QNetworkRequest request() const override;
-    QJsonDocument json() const;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    bool starMessage() const;
+    Q_REQUIRED_RESULT bool starMessage() const;
     void setStarMessage(bool starMessage);
 
-    bool canStart() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 
 Q_SIGNALS:
     void messageStarred();

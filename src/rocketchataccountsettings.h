@@ -36,25 +36,25 @@ class LIBRUQOLACORE_EXPORT RocketChatAccountSettings : public QObject
 public:
     explicit RocketChatAccountSettings(const QString &accountFileName = QString(), QObject *parent = nullptr);
     ~RocketChatAccountSettings();
-    QString userId() const;
+    Q_REQUIRED_RESULT QString userId() const;
     void setUserId(const QString &userId);
 
-    QString authToken() const;
+    Q_REQUIRED_RESULT QString authToken() const;
     void setAuthToken(const QString &authToken);
 
-    QString serverUrl() const;
+    Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
-    QString accountName() const;
+    Q_REQUIRED_RESULT QString accountName() const;
     void setAccountName(const QString &accountName);
 
     void logout();
-    QString cacheBasePath();
+    Q_REQUIRED_RESULT QString cacheBasePath();
 
-    QString userName() const;
+    Q_REQUIRED_RESULT QString userName() const;
     void setUserName(const QString &userName);
 
-    QString password() const;
+    Q_REQUIRED_RESULT QString password() const;
     void setPassword(const QString &password);
 
 Q_SIGNALS:

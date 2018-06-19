@@ -31,19 +31,19 @@ class LIBRUQOLACORE_TESTS_EXPORT RestApiAbstractJob : public QObject
 {
 public:
     explicit RestApiAbstractJob(QObject *parent = nullptr);
-    QNetworkAccessManager *networkAccessManager() const;
+    Q_REQUIRED_RESULT QNetworkAccessManager *networkAccessManager() const;
     void setNetworkAccessManager(QNetworkAccessManager *networkAccessManager);
 
-    RestApiMethod *restApiMethod() const;
+    Q_REQUIRED_RESULT RestApiMethod *restApiMethod() const;
     void setRestApiMethod(RestApiMethod *restApiMethod);
 
-    QString authToken() const;
+    Q_REQUIRED_RESULT QString authToken() const;
     void setAuthToken(const QString &authToken);
 
-    QString userId() const;
+    Q_REQUIRED_RESULT QString userId() const;
     void setUserId(const QString &userId);
 
-    bool hasAuthenticationValue() const;
+    Q_REQUIRED_RESULT bool hasAuthenticationValue() const;
 
     virtual bool start() = 0;
     virtual bool requireHttpAuthentication() const = 0;
@@ -53,7 +53,7 @@ public:
 
     void addLoggerInfo(const QByteArray &str);
 
-    virtual bool canStart() const;
+    Q_REQUIRED_RESULT virtual bool canStart() const;
 
     virtual QNetworkRequest request() const = 0;
 protected:

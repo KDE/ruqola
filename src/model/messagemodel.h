@@ -79,24 +79,24 @@ public:
     * @param parent, it is void
     * @return int, The number of messages in QVector mAllMessages
     */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     /**
     * @brief Returns last timestamp of last message in QVector mAllMessages
     *
     * @return qint64 The last timestamp
     */
-    qint64 lastTimestamp() const;
+    Q_REQUIRED_RESULT qint64 lastTimestamp() const;
 
     void deleteMessage(const QString &messageId);
 
-    qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
     void setRoomID(const QString &roomID);
-    bool isEmpty() const;
+    Q_REQUIRED_RESULT bool isEmpty() const;
 
 private:
     Q_DISABLE_COPY(MessageModel)

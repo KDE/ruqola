@@ -42,8 +42,8 @@ public:
 
     void setRuqolaLogger(RuqolaLogger *logger);
 
-    QString userId() const;
-    QString authToken() const;
+    Q_REQUIRED_RESULT QString userId() const;
+    Q_REQUIRED_RESULT QString authToken() const;
     void setUserId(const QString &userId);
     void setAuthToken(const QString &authToken);
 

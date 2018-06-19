@@ -32,31 +32,31 @@ public:
     File();
 
     void parseFile(const QJsonObject &json, bool restApi = false);
-    QString name() const;
+    Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &name);
 
-    QString description() const;
+    Q_REQUIRED_RESULT QString description() const;
     void setDescription(const QString &description);
 
-    bool operator ==(const File &other) const;
+    Q_REQUIRED_RESULT bool operator ==(const File &other) const;
 
     File &operator=(const File &other);
-    QString userId() const;
+    Q_REQUIRED_RESULT QString userId() const;
     void setUserId(const QString &userId);
 
-    QString url() const;
+    Q_REQUIRED_RESULT QString url() const;
     void setUrl(const QString &url);
 
-    QString mimeType() const;
+    Q_REQUIRED_RESULT QString mimeType() const;
     void setMimeType(const QString &mimeType);
 
-    qint64 uploadedAt() const;
+    Q_REQUIRED_RESULT qint64 uploadedAt() const;
     void setUploadedAt(const qint64 &uploadedAt);
 
-    QString fileId() const;
+    Q_REQUIRED_RESULT QString fileId() const;
     void setFileId(const QString &fileId);
 
-    QString rid() const;
+    Q_REQUIRED_RESULT QString rid() const;
     void setRid(const QString &rid);
 
 private:

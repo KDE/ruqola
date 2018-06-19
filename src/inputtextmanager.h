@@ -36,18 +36,18 @@ public:
 
     void setInputText(const QString &word);
 
-    InputCompleterModel *inputCompleterModel() const;
+    Q_REQUIRED_RESULT InputCompleterModel *inputCompleterModel() const;
 
     void inputTextCompleter(const QJsonObject &obj);
 
-    QString replaceWord(const QString &newWord, const QString &str, int position);
+    Q_REQUIRED_RESULT QString replaceWord(const QString &newWord, const QString &str, int position);
 
     void setInputTextChanged(const QString &str, int position);
 
     void clearCompleter();
 
     //Only for autotests
-    QString searchWord(const QString &text, int position);
+    Q_REQUIRED_RESULT QString searchWord(const QString &text, int position);
 private:
     InputCompleterModel *mInputCompleterModel = nullptr;
     RocketChatAccount *mAccount = nullptr;

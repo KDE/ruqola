@@ -32,22 +32,22 @@ public:
     explicit DownloadFileJob(QObject *parent = nullptr);
     ~DownloadFileJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    bool canStart() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 
-    QUrl url() const;
+    Q_REQUIRED_RESULT QUrl url() const;
     void setUrl(const QUrl &url);
 
-    QString mimeType() const;
+    Q_REQUIRED_RESULT QString mimeType() const;
     void setMimeType(const QString &mimeType);
 
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    bool storeInCache() const;
+    Q_REQUIRED_RESULT bool storeInCache() const;
     void setStoreInCache(bool storeInCache);
 
-    QUrl localFileUrl() const;
+    Q_REQUIRED_RESULT QUrl localFileUrl() const;
     void setLocalFileUrl(const QUrl &localFileUrl);
 
 Q_SIGNALS:

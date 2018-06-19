@@ -73,7 +73,7 @@ public:
 
     static AuthenticationManager *self();
 
-    QVector<PluginAuthentication *> pluginsList() const;
+    Q_REQUIRED_RESULT QVector<PluginAuthentication *> pluginsList() const;
 
 private:
     bool initializePluginList();

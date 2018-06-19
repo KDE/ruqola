@@ -30,7 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT SearchChannelFilterProxyModel : public QSortFil
 public:
     explicit SearchChannelFilterProxyModel(QObject *parent = nullptr);
     ~SearchChannelFilterProxyModel() override;
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;

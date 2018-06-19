@@ -29,11 +29,11 @@ public:
     Reactions();
 
     void setReactions(const QVector<Reaction> &reactions);
-    QVector<Reaction> reactions() const;
+    Q_REQUIRED_RESULT QVector<Reaction> reactions() const;
 
     void parseReactions(const QJsonObject &array);
 
-    bool operator ==(const Reactions &other) const;
+    Q_REQUIRED_RESULT bool operator ==(const Reactions &other) const;
 
     static QJsonObject serialize(const Reactions &reactions);
     static Reactions fromJSon(const QJsonObject &o);

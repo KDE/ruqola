@@ -40,16 +40,16 @@ public:
     explicit UsersModel(QObject *parent = nullptr);
     ~UsersModel() override;
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void addUser(const User &userFromUserId);
     void removeUser(const QString &userId);
 
     void updateUser(const QJsonObject &array);
-    QString userStatusIconFileName(const QString &name);
+    Q_REQUIRED_RESULT QString userStatusIconFileName(const QString &name);
 
-    QString status(const QString &userId) const;
+    Q_REQUIRED_RESULT QString status(const QString &userId) const;
 
 Q_SIGNALS:
     void userStatusChanged(const User &user);

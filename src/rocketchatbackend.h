@@ -47,10 +47,10 @@ public:
 
     void clearUsersList();
 
-    QVector<User> users() const;
+    Q_REQUIRED_RESULT QVector<User> users() const;
 
     void clearFilesList();
-    QVector<File> files() const;
+    Q_REQUIRED_RESULT QVector<File> files() const;
 
 private:
     Q_DISABLE_COPY(RocketChatBackend)

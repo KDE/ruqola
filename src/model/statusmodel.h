@@ -48,16 +48,16 @@ public:
     explicit StatusModel(QObject *parent = nullptr);
     ~StatusModel() override;
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    User::PresenceStatus status(int index) const;
+    Q_REQUIRED_RESULT User::PresenceStatus status(int index) const;
 
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
     void setCurrentPresenceStatus(User::PresenceStatus status);
 
-    int currentStatus() const;
+    Q_REQUIRED_RESULT int currentStatus() const;
 
 Q_SIGNALS:
     void currentStatusChanged();

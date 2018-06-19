@@ -34,12 +34,12 @@ public:
     explicit SpotlightJob(QObject *parent = nullptr);
     ~SpotlightJob() override;
 
-    bool canStart() const override;
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QString searchPattern() const;
+    Q_REQUIRED_RESULT QString searchPattern() const;
     void setSearchPattern(const QString &searchPattern);
 
 Q_SIGNALS:

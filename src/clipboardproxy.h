@@ -35,10 +35,10 @@ public:
     ~ClipboardProxy();
 
     void setDataText(const QString &text);
-    QString dataText() const;
+    Q_REQUIRED_RESULT QString dataText() const;
 
     void setSelectionText(const QString &text);
-    QString selectionText() const;
+    Q_REQUIRED_RESULT QString selectionText() const;
 
 Q_SIGNALS:
     void dataChanged();

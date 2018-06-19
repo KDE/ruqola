@@ -31,19 +31,19 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageUrl
     Q_PROPERTY(QString description READ description WRITE setDescription FINAL)
 public:
     MessageUrl();
-    bool operator==(const MessageUrl &other) const;
+    Q_REQUIRED_RESULT bool operator==(const MessageUrl &other) const;
     static QJsonObject serialize(const MessageUrl &url);
     static MessageUrl fromJSon(const QJsonObject &o);
 
-    QString url() const;
+    Q_REQUIRED_RESULT QString url() const;
     void setUrl(const QString &url);
 
-    QString pageTitle() const;
+    Q_REQUIRED_RESULT QString pageTitle() const;
     void setPageTitle(const QString &pageTitle);
 
-    bool isEmpty() const;
+    Q_REQUIRED_RESULT bool isEmpty() const;
 
-    QString description() const;
+    Q_REQUIRED_RESULT QString description() const;
     void setDescription(const QString &description);
 
 private:

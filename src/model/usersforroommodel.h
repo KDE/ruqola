@@ -45,14 +45,14 @@ public:
     void setUsers(const QVector<User> &users);
 
     Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void parseUsersForRooms(const QJsonObject &root, UsersModel *model);
     void userStatusChanged(const User &newuser);
     void removeUser(const QString &userId);
     void addUser(const User &users);
 
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
 private:
     QString generateDisplayName(const User &user) const;

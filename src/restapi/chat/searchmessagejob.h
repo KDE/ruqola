@@ -33,19 +33,19 @@ public:
     explicit SearchMessageJob(QObject *parent = nullptr);
     ~SearchMessageJob() override;
 
-    bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
-    bool start() override;
+    Q_REQUIRED_RESULT bool start() override;
 
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QString roomId() const;
+    Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    QString searchText() const;
+    Q_REQUIRED_RESULT QString searchText() const;
     void setSearchText(const QString &searchText);
 
-    bool canStart() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
 

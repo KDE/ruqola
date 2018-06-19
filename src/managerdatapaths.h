@@ -37,10 +37,10 @@ public:
     ManagerDataPaths();
     static ManagerDataPaths *self();
 
-    QString path(PathType type, const QString &accountName, const QString &subdirectory = QString());
+    Q_REQUIRED_RESULT QString path(PathType type, const QString &accountName, const QString &subdirectory = QString());
 
     void initializeAccountPath(const QString &accountName);
-    QString accountConfigFileName(const QString &accountName);
+    Q_REQUIRED_RESULT QString accountConfigFileName(const QString &accountName);
 private:
     void initializePaths();
     QHash<ManagerDataPaths::PathType, QString> mPathTypeHash;

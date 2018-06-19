@@ -65,8 +65,8 @@ public:
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~RoomModel() override;
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     /**
     * @brief Constructs room object from @param roomID and @param roomName and @param selected, then calls @method addRoom
@@ -113,13 +113,13 @@ public:
 
     MessageModel *messageModel(const QString &roomId) const;
 
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
-    QString inputMessage(const QString &roomId) const;
+    Q_REQUIRED_RESULT QString inputMessage(const QString &roomId) const;
     void setInputMessage(const QString &roomId, const QString &inputMessage);
-    Room *findRoom(const QString &roomID) const;
+    Q_REQUIRED_RESULT Room *findRoom(const QString &roomID) const;
     void updateSubscriptionRoom(const QJsonObject &room);
-    QString insertRoom(const QJsonObject &room);
+    Q_REQUIRED_RESULT QString insertRoom(const QJsonObject &room);
 Q_SIGNALS:
     void needToUpdateNotification();
 

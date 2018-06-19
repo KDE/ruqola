@@ -32,38 +32,38 @@ public:
     explicit SaveNotificationJob(QObject *parent = nullptr);
     ~SaveNotificationJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    bool canStart() const override;
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QJsonDocument json() const;
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    QString roomId() const;
+    Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    bool disableNotifications() const;
+    Q_REQUIRED_RESULT bool disableNotifications() const;
     void setDisableNotifications(bool disableNotifications);
 
-    bool hideUnreadStatus() const;
+    Q_REQUIRED_RESULT bool hideUnreadStatus() const;
     void setHideUnreadStatus(bool hideUnreadStatus);
 
-    QString emailNotifications() const;
+    Q_REQUIRED_RESULT QString emailNotifications() const;
     void setEmailNotifications(const QString &emailNotifications);
 
-    QString audioNotifications() const;
+    Q_REQUIRED_RESULT QString audioNotifications() const;
     void setAudioNotifications(const QString &audioNotifications);
 
-    QString mobilePushNotifications() const;
+    Q_REQUIRED_RESULT QString mobilePushNotifications() const;
     void setMobilePushNotifications(const QString &mobilePushNotifications);
 
-    QString audioNotificationValue() const;
+    Q_REQUIRED_RESULT QString audioNotificationValue() const;
     void setAudioNotificationValue(const QString &audioNotificationValue);
 
-    int desktopNotificationDuration() const;
+    Q_REQUIRED_RESULT int desktopNotificationDuration() const;
     void setDesktopNotificationDuration(int desktopNotificationDuration);
 
-    QString unreadAlert() const;
+    Q_REQUIRED_RESULT QString unreadAlert() const;
     void setUnreadAlert(const QString &unreadAlert);
 
 Q_SIGNALS:

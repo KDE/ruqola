@@ -31,10 +31,10 @@ public:
     explicit ChannelListJob(QObject *parent = nullptr);
     ~ChannelListJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
 Q_SIGNALS:
     void channelListDone(const QJsonObject &obj);

@@ -31,18 +31,18 @@ public:
     explicit PostMessageJob(QObject *parent = nullptr);
     ~PostMessageJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    QNetworkRequest request() const override;
-    bool canStart() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 
-    QString text() const;
+    Q_REQUIRED_RESULT QString text() const;
     void setText(const QString &text);
 
-    QString roomId() const;
+    Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    QJsonDocument json() const;
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 
 Q_SIGNALS:
     void postMessageDone();

@@ -33,7 +33,7 @@ public:
 
     ~RocketChatAccountFilterProxyModel() override;
 
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 };
 
 #endif // ROCKETCHATACCOUNTFILTERPROXYMODEL_H

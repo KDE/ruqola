@@ -31,21 +31,21 @@ public:
     explicit CreateChannelJob(QObject *parent = nullptr);
     ~CreateChannelJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    bool canStart() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QJsonDocument json() const;
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    bool readOnly() const;
+    Q_REQUIRED_RESULT bool readOnly() const;
     void setReadOnly(bool readOnly);
 
-    QString channelName() const;
+    Q_REQUIRED_RESULT QString channelName() const;
     void setChannelName(const QString &channelName);
 
-    QStringList members() const;
+    Q_REQUIRED_RESULT QStringList members() const;
     void setMembers(const QStringList &members);
 
 Q_SIGNALS:

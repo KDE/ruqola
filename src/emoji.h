@@ -34,35 +34,35 @@ public:
 
     void parseEmoji(const QJsonObject &emoji, bool restApi);
 
-    QString identifier() const;
+    Q_REQUIRED_RESULT QString identifier() const;
     void setIdentifier(const QString &identifier);
 
-    QString extension() const;
+    Q_REQUIRED_RESULT QString extension() const;
     void setExtension(const QString &extension);
 
     void setName(const QString &name);
-    QString name() const;
+    Q_REQUIRED_RESULT QString name() const;
 
     bool operator==(const Emoji &other) const;
 
     Emoji &operator=(const Emoji &other);
 
-    bool isValid() const;
+    Q_REQUIRED_RESULT bool isValid() const;
 
-    QString html(const QString &serverUrl);
+    Q_REQUIRED_RESULT QString html(const QString &serverUrl);
 
-    QStringList aliases() const;
+    Q_REQUIRED_RESULT QStringList aliases() const;
     void setAliases(const QStringList &aliases);
 
-    QString emojiIdentifier() const;
+    Q_REQUIRED_RESULT QString emojiIdentifier() const;
     void setEmojiIdentifier(const QString &emojiIdentifier);
 
-    QString cachedHtml() const;
+    Q_REQUIRED_RESULT QString cachedHtml() const;
 
     void clearCachedHtml();
-    bool hasEmoji(const QString &identifier) const;
+    Q_REQUIRED_RESULT bool hasEmoji(const QString &identifier) const;
 
-    qint64 updatedAt() const;
+    Q_REQUIRED_RESULT qint64 updatedAt() const;
     void setUpdatedAt(const qint64 &updatedAt);
 
 private:

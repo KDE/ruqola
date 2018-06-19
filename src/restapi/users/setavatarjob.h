@@ -31,17 +31,17 @@ public:
     explicit SetAvatarJob(QObject *parent = nullptr);
     ~SetAvatarJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    bool canStart() const override;
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QJsonDocument json() const;
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    QString avatarUserId() const;
+    Q_REQUIRED_RESULT QString avatarUserId() const;
     void setAvatarUserId(const QString &avatarUserId);
 
-    QString avatarUrl() const;
+    Q_REQUIRED_RESULT QString avatarUrl() const;
     void setAvatarUrl(const QString &avatarUrl);
 
 Q_SIGNALS:

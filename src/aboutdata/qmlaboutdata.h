@@ -41,18 +41,18 @@ public:
     explicit QmlAboutData(QObject *parent = nullptr);
     ~QmlAboutData();
 
-    QString version() const;
-    QString title() const;
-    QString licenses() const;
-    QString about() const;
-    QString libraries() const;
-    QString reportBugs() const;
+    Q_REQUIRED_RESULT QString version() const;
+    Q_REQUIRED_RESULT QString title() const;
+    Q_REQUIRED_RESULT QString licenses() const;
+    Q_REQUIRED_RESULT QString about() const;
+    Q_REQUIRED_RESULT QString libraries() const;
+    Q_REQUIRED_RESULT QString reportBugs() const;
 
-    Q_INVOKABLE QString licenseText(const QString &val);
+    Q_REQUIRED_RESULT Q_INVOKABLE QString licenseText(const QString &val);
 
-    QmlAboutDataAuthorModel *authorModel() const;
-    QmlAboutDataAuthorModel *creditsModel() const;
-    QmlAboutDataAuthorModel *translatorModel() const;
+    Q_REQUIRED_RESULT QmlAboutDataAuthorModel *authorModel() const;
+    Q_REQUIRED_RESULT QmlAboutDataAuthorModel *creditsModel() const;
+    Q_REQUIRED_RESULT QmlAboutDataAuthorModel *translatorModel() const;
 private:
     Q_DISABLE_COPY(QmlAboutData)
     QmlAboutDataAuthorModel *mAuthorModel = nullptr;

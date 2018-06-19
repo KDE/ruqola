@@ -31,18 +31,18 @@ public:
     explicit PinMessageJob(QObject *parent = nullptr);
     ~PinMessageJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    bool canStart() const override;
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QString messageId() const;
+    Q_REQUIRED_RESULT QString messageId() const;
     void setMessageId(const QString &messageId);
 
-    bool pinMessage() const;
+    Q_REQUIRED_RESULT bool pinMessage() const;
     void setPinMessage(bool pinMessage);
 
-    QJsonDocument json() const;
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 Q_SIGNALS:
     void pinMessageDone();
     void unPinMessageDone();

@@ -34,7 +34,7 @@ public:
 
     virtual void login() = 0;
 
-    RocketChatAccount *account() const;
+    Q_REQUIRED_RESULT RocketChatAccount *account() const;
     void setAccount(RocketChatAccount *account);
 
 Q_SIGNALS:

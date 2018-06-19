@@ -33,24 +33,24 @@ public:
     explicit UploadFileJob(QObject *parent = nullptr);
     ~UploadFileJob() override;
 
-    bool start() override;
+    Q_REQUIRED_RESULT bool start() override;
 
-    QString roomId() const;
+    Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    QString description() const;
+    Q_REQUIRED_RESULT QString description() const;
     void setDescription(const QString &description);
 
-    QString messageText() const;
+    Q_REQUIRED_RESULT QString messageText() const;
     void setMessageText(const QString &messageText);
 
-    QUrl filenameUrl() const;
+    Q_REQUIRED_RESULT QUrl filenameUrl() const;
     void setFilenameUrl(const QUrl &filenameUrl);
 
-    bool requireHttpAuthentication() const override final;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override final;
 
-    QNetworkRequest request() const override;
-    bool canStart() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 
 Q_SIGNALS:
     void uploadProgress(qint64 bytesSent, qint64 bytesTotal);

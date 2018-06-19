@@ -32,21 +32,21 @@ public:
     explicit FacebookAuthJob(QObject *parent = nullptr);
     ~FacebookAuthJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
-    bool canStart() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 
-    QNetworkRequest request() const override;
-    QJsonDocument json() const;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    QString accessToken() const;
+    Q_REQUIRED_RESULT QString accessToken() const;
     void setAccessToken(const QString &accessToken);
 
-    QString secret() const;
+    Q_REQUIRED_RESULT QString secret() const;
     void setSecret(const QString &secret);
 
-    int expireTokenInSeconds() const;
+    Q_REQUIRED_RESULT int expireTokenInSeconds() const;
     void setExpireTokenInSeconds(int expireTokenInSeconds);
 
 Q_SIGNALS:

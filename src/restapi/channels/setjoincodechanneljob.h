@@ -31,18 +31,18 @@ public:
     explicit SetJoinCodeChannelJob(QObject *parent = nullptr);
     ~SetJoinCodeChannelJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    bool canStart() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QJsonDocument json() const;
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    QString roomId() const;
+    Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    QString joinCode() const;
+    Q_REQUIRED_RESULT QString joinCode() const;
     void setJoinCode(const QString &joinCode);
 
 Q_SIGNALS:

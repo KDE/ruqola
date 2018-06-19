@@ -33,15 +33,15 @@ public:
     explicit GetAvatarJob(QObject *parent = nullptr);
     ~GetAvatarJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
-    QString avatarUserId() const;
+    Q_REQUIRED_RESULT QString avatarUserId() const;
     void setAvatarUserId(const QString &avatarUserId);
 
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    bool canStart() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
 

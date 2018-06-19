@@ -31,7 +31,7 @@ public:
     explicit UserCompleterFilterProxyModel(QObject *parent = nullptr);
     ~UserCompleterFilterProxyModel() override;
 
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;

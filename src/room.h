@@ -53,12 +53,12 @@ public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
 
     // To be used in ID find: message ID
-    bool operator==(const Room &other) const;
+    Q_REQUIRED_RESULT bool operator==(const Room &other) const;
 
     //we can't use operator== as it tests only id. We need it for autotest
-    bool isEqual(const Room &other) const;
+    Q_REQUIRED_RESULT bool isEqual(const Room &other) const;
 
-    QString roomCreatorUserName() const;
+    Q_REQUIRED_RESULT QString roomCreatorUserName() const;
     void setRoomCreatorUserName(const QString &userName);
 
     QString roomCreatorUserId() const;

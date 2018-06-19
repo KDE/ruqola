@@ -33,16 +33,16 @@ public:
     explicit RocketChatCache(RocketChatAccount *account, QObject *parent = nullptr);
     ~RocketChatCache();
 
-    QString recordingVideoPath(const QString &accountName) const;
-    QString recordingImagePath(const QString &accountName) const;
-    QString avatarUrl(const QString &userId);
+    Q_REQUIRED_RESULT QString recordingVideoPath(const QString &accountName) const;
+    Q_REQUIRED_RESULT QString recordingImagePath(const QString &accountName) const;
+    Q_REQUIRED_RESULT QString avatarUrl(const QString &userId);
     void insertAvatarUrl(const QString &userId, const QString &url);
 
     void downloadFileFromServer(const QString &filename);
 
-    QUrl attachmentUrl(const QString &url);
+    Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
     void downloadFile(const QString &url, const QUrl &localFile, bool storeInCache);
-    QString avatarUrlFromCacheOnly(const QString &userId);
+    Q_REQUIRED_RESULT QString avatarUrlFromCacheOnly(const QString &userId);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 

@@ -37,18 +37,18 @@ public:
     explicit RocketChatAccountModel(QObject *parent = nullptr);
     ~RocketChatAccountModel() override;
 
-    int rowCount(const QModelIndex &parent = {}) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = {}) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void insertAccount(RocketChatAccount *account);
     void removeAccount(const QString &name);
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
     void clear();
 
     void insertAccounts(const QVector<RocketChatAccount *> &accounts);
 
-    RocketChatAccount *account(int index) const;
+    Q_REQUIRED_RESULT RocketChatAccount *account(int index) const;
 private:
     Q_DISABLE_COPY(RocketChatAccountModel)
     QVector<RocketChatAccount *> mRocketChatAccount;

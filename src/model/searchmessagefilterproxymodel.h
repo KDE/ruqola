@@ -30,7 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT SearchMessageFilterProxyModel : public QSortFil
 public:
     explicit SearchMessageFilterProxyModel(QObject *parent = nullptr);
     ~SearchMessageFilterProxyModel() override;
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 };
 
 #endif // SEARCHMESSAGEFILTERPROXYMODEL_H

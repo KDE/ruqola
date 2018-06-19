@@ -31,9 +31,9 @@ public:
     LoadRecentHistoryManager();
     ~LoadRecentHistoryManager();
 
-    qint64 lastLoadingTimeStamp() const;
+    Q_REQUIRED_RESULT qint64 lastLoadingTimeStamp() const;
 
-    qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
+    Q_REQUIRED_RESULT qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
 
 private:
     qint64 mLastLoadingTimeStamp = QDateTime::currentDateTime().toMSecsSinceEpoch();

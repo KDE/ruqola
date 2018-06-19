@@ -40,17 +40,17 @@ public:
     ~LoginMethodModel() override;
 
     Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void setAuthenticationInfos(const QVector<AuthenticationInfo> &infos);
 
-    QHash<int, QByteArray> roleNames() const override;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
     void clear();
 
-    AuthenticationManager::OauthType loginType(int index);
+    Q_REQUIRED_RESULT AuthenticationManager::OauthType loginType(int index);
 
-    int currentLoginMethod() const;
+    Q_REQUIRED_RESULT int currentLoginMethod() const;
     void setCurrentLoginMethod(int currentLoginMethod);
 
 Q_SIGNALS:

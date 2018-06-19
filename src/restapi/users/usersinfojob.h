@@ -34,18 +34,18 @@ public:
     explicit UsersInfoJob(QObject *parent = nullptr);
     ~UsersInfoJob() override;
 
-    bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
-    bool start() override;
+    Q_REQUIRED_RESULT bool start() override;
 
-    bool canStart() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QString identifier() const;
+    Q_REQUIRED_RESULT QString identifier() const;
     void setIdentifier(const QString &identifier);
 
-    bool useUserName() const;
+    Q_REQUIRED_RESULT bool useUserName() const;
     void setUseUserName(bool useUserName);
 
 Q_SIGNALS:

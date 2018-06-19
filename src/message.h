@@ -46,16 +46,16 @@ public:
 
     Q_ENUM(MessageType)
 
-    QString roomId() const;
+    Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    bool groupable() const;
+    Q_REQUIRED_RESULT bool groupable() const;
     void setGroupable(bool groupable);
 
-    bool parseUrls() const;
+    Q_REQUIRED_RESULT bool parseUrls() const;
     void setParseUrls(bool parseUrls);
 
-    QString avatar() const;
+    Q_REQUIRED_RESULT QString avatar() const;
     void setAvatar(const QString &avatar);
 
     /**
@@ -76,68 +76,68 @@ public:
 
     void parseMessage(const QJsonObject &o, bool restApi = false);
 
-    bool operator==(const Message &other) const;
+    Q_REQUIRED_RESULT bool operator==(const Message &other) const;
 
     Message &operator=(const Message &other);
 
     // To be used in sorted insert: timestamp
     bool operator<(const Message &other) const;
 
-    QString messageId() const;
+    Q_REQUIRED_RESULT QString messageId() const;
     void setMessageId(const QString &messageId);
 
-    QString text() const;
+    Q_REQUIRED_RESULT QString text() const;
     void setText(const QString &text);
 
-    qint64 timeStamp() const;
+    Q_REQUIRED_RESULT qint64 timeStamp() const;
     void setTimeStamp(const qint64 &timeStamp);
 
-    QString username() const;
+    Q_REQUIRED_RESULT QString username() const;
     void setUsername(const QString &username);
 
-    QString userId() const;
+    Q_REQUIRED_RESULT QString userId() const;
     void setUserId(const QString &userId);
 
-    qint64 updatedAt() const;
+    Q_REQUIRED_RESULT qint64 updatedAt() const;
     void setUpdatedAt(const qint64 &updatedAt);
 
-    qint64 editedAt() const;
+    Q_REQUIRED_RESULT qint64 editedAt() const;
     void setEditedAt(const qint64 &editedAt);
 
-    QString editedByUsername() const;
+    Q_REQUIRED_RESULT QString editedByUsername() const;
     void setEditedByUsername(const QString &editedByUsername);
 
-    QString editedByUserId() const;
+    Q_REQUIRED_RESULT QString editedByUserId() const;
     void setEditedByUserId(const QString &editedByUserId);
 
-    QString imageUrl() const;
+    Q_REQUIRED_RESULT QString imageUrl() const;
     void setImageUrl(const QString &imageUrl);
 
-    QString alias() const;
+    Q_REQUIRED_RESULT QString alias() const;
     void setAlias(const QString &alias);
 
-    QString systemMessageType() const;
+    Q_REQUIRED_RESULT QString systemMessageType() const;
     void setSystemMessageType(const QString &systemMessageType);
 
-    MessageType messageType() const;
+    Q_REQUIRED_RESULT MessageType messageType() const;
     void setMessageType(const MessageType &messageType);
 
-    QVector<MessageAttachment> attachements() const;
+    Q_REQUIRED_RESULT QVector<MessageAttachment> attachements() const;
     void setAttachements(const QVector<MessageAttachment> &attachements);
 
-    QVector<MessageUrl> urls() const;
+    Q_REQUIRED_RESULT QVector<MessageUrl> urls() const;
     void setUrls(const QVector<MessageUrl> &urls);
 
-    QMap<QString, QString> mentions() const;
+    Q_REQUIRED_RESULT QMap<QString, QString> mentions() const;
     void setMentions(const QMap<QString, QString> &mentions);
 
-    bool starred() const;
+    Q_REQUIRED_RESULT bool starred() const;
     void setStarred(bool starred);
 
-    Reactions reactions() const;
+    Q_REQUIRED_RESULT Reactions reactions() const;
     void setReactions(const Reactions &reactions);
 
-    QString messageTypeText() const;
+    Q_REQUIRED_RESULT QString messageTypeText() const;
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);

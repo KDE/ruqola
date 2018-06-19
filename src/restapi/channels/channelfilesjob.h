@@ -39,16 +39,16 @@ public:
     explicit ChannelFilesJob(QObject *parent = nullptr);
     ~ChannelFilesJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    bool canStart() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QString roomId() const;
+    Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    ChannelType channelType() const;
+    Q_REQUIRED_RESULT ChannelType channelType() const;
     void setChannelType(const ChannelType &channelType);
 
     static QVector<File> parseFilesInChannel(const QJsonObject &obj);

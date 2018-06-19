@@ -33,20 +33,20 @@ public:
     explicit IgnoreUserJob(QObject *parent = nullptr);
     ~IgnoreUserJob() override;
 
-    bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
-    bool start() override;
+    Q_REQUIRED_RESULT bool start() override;
 
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QString roomId() const;
+    Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    bool canStart() const override;
-    QString ignoreUserId() const;
+    Q_REQUIRED_RESULT bool canStart() const override;
+    Q_REQUIRED_RESULT QString ignoreUserId() const;
     void setIgnoreUserId(const QString &ignoreUserId);
 
-    bool ignore() const;
+    Q_REQUIRED_RESULT bool ignore() const;
     void setIgnore(bool ignore);
 
 Q_SIGNALS:

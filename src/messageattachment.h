@@ -40,40 +40,40 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
     Q_PROPERTY(QString isAnimatedImage READ isAnimatedImage CONSTANT)
 public:
     MessageAttachment();
-    bool isEmpty() const;
-    QString description() const;
+    Q_REQUIRED_RESULT bool isEmpty() const;
+    Q_REQUIRED_RESULT QString description() const;
     void setDescription(const QString &description);
 
-    QString title() const;
+    Q_REQUIRED_RESULT QString title() const;
     void setTitle(const QString &title);
 
-    QString link() const;
+    Q_REQUIRED_RESULT QString link() const;
     void setLink(const QString &link);
 
-    bool operator==(const MessageAttachment &other) const;
+    Q_REQUIRED_RESULT bool operator==(const MessageAttachment &other) const;
 
     static QJsonObject serialize(const MessageAttachment &message);
     static MessageAttachment fromJSon(const QJsonObject &o);
-    int imageWidth() const;
+    Q_REQUIRED_RESULT int imageWidth() const;
     void setImageWidth(int imageWidth);
 
-    int imageHeight() const;
+    Q_REQUIRED_RESULT int imageHeight() const;
     void setImageHeight(int imageHeight);
 
-    QString color() const;
+    Q_REQUIRED_RESULT QString color() const;
     void setColor(const QString &color);
 
-    QString authorName() const;
+    Q_REQUIRED_RESULT QString authorName() const;
     void setAuthorName(const QString &authorName);
 
-    bool canDownloadAttachment() const;
-    QString displayTitle() const;
-    QString imageTitle() const;
+    Q_REQUIRED_RESULT bool canDownloadAttachment() const;
+    Q_REQUIRED_RESULT QString displayTitle() const;
+    Q_REQUIRED_RESULT QString imageTitle() const;
 
-    QString mimeType() const;
+    Q_REQUIRED_RESULT QString mimeType() const;
     void setMimeType(const QString &type);
 
-    bool isAnimatedImage() const;
+    Q_REQUIRED_RESULT bool isAnimatedImage() const;
 
 private:
     //TODO add fields support ?
