@@ -102,6 +102,7 @@ QJsonDocument ChannelRemoveOwnerJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = roomId();
+    jsonObj[QLatin1String("userId")] = removeUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
