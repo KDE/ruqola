@@ -34,9 +34,9 @@ public:
 
     static SyntaxHighlightingManager *self();
 
-    bool syntaxHighlightingInitialized() const;
+    Q_REQUIRED_RESULT bool syntaxHighlightingInitialized() const;
 
-    KSyntaxHighlighting::Definition def() const;
+    Q_REQUIRED_RESULT KSyntaxHighlighting::Definition def() const;
 
     KSyntaxHighlighting::Repository &repo() const;
 

@@ -41,26 +41,26 @@ public:
     User();
     ~User();
 
-    QString name() const;
+    Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &name);
 
-    QString userId() const;
+    Q_REQUIRED_RESULT QString userId() const;
     void setUserId(const QString &userId);
 
-    QString status() const;
+    Q_REQUIRED_RESULT QString status() const;
     void setStatus(const QString &status);
 
     void parseUser(const QJsonObject &json);
-    Q_INVOKABLE QString iconFromStatus() const;
+    Q_REQUIRED_RESULT Q_INVOKABLE QString iconFromStatus() const;
 
-    bool operator ==(const User &other) const;
-    bool operator !=(const User &other) const;
+    Q_REQUIRED_RESULT bool operator ==(const User &other) const;
+    Q_REQUIRED_RESULT bool operator !=(const User &other) const;
 
     User &operator=(const User &other);
-    QString userName() const;
+    Q_REQUIRED_RESULT QString userName() const;
     void setUserName(const QString &userName);
 
-    bool isValid() const;
+    Q_REQUIRED_RESULT bool isValid() const;
 
 private:
     QString mStatus = QStringLiteral("offline");

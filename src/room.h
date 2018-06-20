@@ -61,19 +61,19 @@ public:
     Q_REQUIRED_RESULT QString roomCreatorUserName() const;
     void setRoomCreatorUserName(const QString &userName);
 
-    QString roomCreatorUserId() const;
+    Q_REQUIRED_RESULT QString roomCreatorUserId() const;
     void setRoomCreatorUserId(const QString &userId);
 
-    QStringList mutedUsers() const;
+    Q_REQUIRED_RESULT QStringList mutedUsers() const;
     void setMutedUsers(const QStringList &mutedUsers);
 
-    qint64 jitsiTimeout() const;
+    Q_REQUIRED_RESULT qint64 jitsiTimeout() const;
     void setJitsiTimeout(const qint64 &jitsiTimeout);
 
-    int unread() const;
+    Q_REQUIRED_RESULT int unread() const;
     void setUnread(int unread);
 
-    bool selected() const;
+    Q_REQUIRED_RESULT bool selected() const;
     void setSelected(bool selected);
 
     /**
@@ -81,35 +81,35 @@ public:
     *
     * @return QString, The name of the room
     */
-    QString name() const;
+    Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &name);
 
-    QString announcement() const;
+    Q_REQUIRED_RESULT QString announcement() const;
     void setAnnouncement(const QString &announcement);
 
-    QString channelType() const;
+    Q_REQUIRED_RESULT QString channelType() const;
     void setChannelType(const QString &channelType);
 
-    bool favorite() const;
+    Q_REQUIRED_RESULT bool favorite() const;
     void setFavorite(bool favorite);
 
     QString topic() const;
     void setTopic(const QString &topic);
 
-    bool readOnly() const;
+    Q_REQUIRED_RESULT bool readOnly() const;
     void setReadOnly(bool readOnly);
 
-    bool open() const;
+    Q_REQUIRED_RESULT bool open() const;
     void setOpen(bool open);
 
-    bool alert() const;
+    Q_REQUIRED_RESULT bool alert() const;
     void setAlert(bool alert);
 
-    QString roomId() const;
+    Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &id);
 
     void setBlocker(bool alert);
-    bool blocker() const;
+    Q_REQUIRED_RESULT bool blocker() const;
 
     void parseSubscriptionRoom(const QJsonObject &json);
     void parseUpdateRoom(const QJsonObject &json);
@@ -141,32 +141,32 @@ public:
     QString inputMessage() const;
     void setInputMessage(const QString &inputMessage);
 
-    bool archived() const;
+    Q_REQUIRED_RESULT bool archived() const;
     void setArchived(bool archived);
 
     QString description() const;
     void setDescription(const QString &description);
 
-    bool canBeModify() const;
-    NotificationOptions notificationOptions() const;
+    Q_REQUIRED_RESULT bool canBeModify() const;
+    Q_REQUIRED_RESULT NotificationOptions notificationOptions() const;
     void setNotificationOptions(const NotificationOptions &notificationOptions);
 
-    int userMentions() const;
+    Q_REQUIRED_RESULT int userMentions() const;
     void setUserMentions(int userMentions);
 
     void updateSubscriptionRoom(const QJsonObject &json);
-    qint64 updatedAt() const;
+    Q_REQUIRED_RESULT qint64 updatedAt() const;
     void setUpdatedAt(const qint64 &updatedAt);
 
     void parseInsertRoom(const QJsonObject &json);
 
-    qint64 lastSeeAt() const;
+    Q_REQUIRED_RESULT qint64 lastSeeAt() const;
     void setLastSeeAt(const qint64 &lastSeeAt);
 
-    bool blocked() const;
+    Q_REQUIRED_RESULT bool blocked() const;
     void setBlocked(bool blocked);
 
-    QStringList roles() const;
+    Q_REQUIRED_RESULT QStringList roles() const;
     void setRoles(const QStringList &roles);
 
 Q_SIGNALS:

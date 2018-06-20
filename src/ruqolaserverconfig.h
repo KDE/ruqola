@@ -30,49 +30,49 @@ class LIBRUQOLACORE_TESTS_EXPORT RuqolaServerConfig
 public:
     RuqolaServerConfig();
 
-    QString uniqueId() const;
+    Q_REQUIRED_RESULT QString uniqueId() const;
     void setUniqueId(const QString &uniqueId);
 
-    QString jitsiMeetUrl() const;
+    Q_REQUIRED_RESULT QString jitsiMeetUrl() const;
     void setJitsiMeetUrl(const QString &jitsiMeetUrl);
 
-    QString jitsiMeetPrefix() const;
+    Q_REQUIRED_RESULT QString jitsiMeetPrefix() const;
     void setJitsiMeetPrefix(const QString &jitsiMeetPrefix);
 
-    QString fileUploadStorageType() const;
+    Q_REQUIRED_RESULT QString fileUploadStorageType() const;
     void setFileUploadStorageType(const QString &type);
 
     void setAllowMessageEditing(bool state);
-    bool allowMessageEditing() const;
+    Q_REQUIRED_RESULT bool allowMessageEditing() const;
 
     void setBlockEditingMessageInMinutes(int minutes);
-    int blockEditingMessageInMinutes() const;
+    Q_REQUIRED_RESULT int blockEditingMessageInMinutes() const;
 
-    bool otrEnabled() const;
+    Q_REQUIRED_RESULT bool otrEnabled() const;
     void setOtrEnabled(bool otrEnabled);
 
-    bool needAdaptNewSubscriptionRC60() const;
+    Q_REQUIRED_RESULT bool needAdaptNewSubscriptionRC60() const;
 
     void setServerVersion(const QString &version);
 
     void addOauthService(const QString &service);
 
-    AuthenticationManager::OauthTypes serverOauthTypes() const;
+    Q_REQUIRED_RESULT AuthenticationManager::OauthTypes serverOauthTypes() const;
 
-    bool serverHasSupportForOauthType(AuthenticationManager::OauthType type) const;
+    Q_REQUIRED_RESULT bool serverHasSupportForOauthType(AuthenticationManager::OauthType type) const;
 
-    bool ruqolaHasSupportForOauthType(AuthenticationManager::OauthType type) const;
-    bool canShowOauthService(AuthenticationManager::OauthType type) const;
+    Q_REQUIRED_RESULT bool ruqolaHasSupportForOauthType(AuthenticationManager::OauthType type) const;
+    Q_REQUIRED_RESULT bool canShowOauthService(AuthenticationManager::OauthType type) const;
     void addRuqolaAuthenticationSupport(AuthenticationManager::OauthType type);
-    AuthenticationManager::OauthTypes ruqolaOauthTypes() const;
+    Q_REQUIRED_RESULT AuthenticationManager::OauthTypes ruqolaOauthTypes() const;
 
-    QString siteUrl() const;
+    Q_REQUIRED_RESULT QString siteUrl() const;
     void setSiteUrl(const QString &siteUrl);
 
-    QString siteName() const;
+    Q_REQUIRED_RESULT QString siteName() const;
     void setSiteName(const QString &siteName);
 
-    bool hasAtLeastVersion(int major, int minor, int patch);
+    Q_REQUIRED_RESULT bool hasAtLeastVersion(int major, int minor, int patch);
 private:
     void adaptToServerVersion();
     QString mUniqueId;

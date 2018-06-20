@@ -28,13 +28,13 @@ class LIBRUQOLACORE_TESTS_EXPORT Reaction
 public:
     Reaction();
 
-    QString reactionName() const;
+    Q_REQUIRED_RESULT QString reactionName() const;
     void setReactionName(const QString &reactionName);
 
-    QStringList userNames() const;
+    Q_REQUIRED_RESULT QStringList userNames() const;
     void setUserNames(const QStringList &userNames);
 
-    bool operator ==(const Reaction &other) const;
+    Q_REQUIRED_RESULT bool operator ==(const Reaction &other) const;
 
 private:
     QString mReactionName;

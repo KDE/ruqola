@@ -190,19 +190,19 @@ public:
     RuqolaServerConfig *ruqolaServerConfig() const;
 
     void setUserName(const QString &username);
-    QString userName() const;
+    Q_REQUIRED_RESULT QString userName() const;
 
     void setAccountName(const QString &servername);
-    QString accountName() const;
+    Q_REQUIRED_RESULT QString accountName() const;
 
     void setUserID(const QString &userID);
-    QString userID() const;
+    Q_REQUIRED_RESULT QString userID() const;
 
     void setPassword(const QString &password);
-    QString password() const;
+    Q_REQUIRED_RESULT QString password() const;
 
     void setAuthToken(const QString &token);
-    QString authToken() const;
+    Q_REQUIRED_RESULT QString authToken() const;
 
     void setServerUrl(const QString &serverUrl);
 
@@ -212,7 +212,7 @@ public:
 
     bool needAdaptNewSubscriptionRC60() const;
     EmojiManager *emojiManager() const;
-    QString userStatusIconFileName(const QString &id);
+    Q_REQUIRED_RESULT QString userStatusIconFileName(const QString &id);
 
     void getUsersOfRoom(const QString &roomId);
     void parseUsersForRooms(const QString &roomId, const QJsonObject &root);

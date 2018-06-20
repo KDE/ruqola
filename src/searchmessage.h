@@ -32,8 +32,8 @@ public:
     SearchMessage();
 
     void parseResult(const QJsonObject &obj, bool restApi);
-    QString text() const;
-    qint64 timeStamp() const;
+    Q_REQUIRED_RESULT QString text() const;
+    Q_REQUIRED_RESULT qint64 timeStamp() const;
 private:
     Message mMessage;
 };

@@ -35,10 +35,10 @@ public:
 
     Q_REQUIRED_RESULT bool operator ==(const Reactions &other) const;
 
-    static QJsonObject serialize(const Reactions &reactions);
-    static Reactions fromJSon(const QJsonObject &o);
+    Q_REQUIRED_RESULT static QJsonObject serialize(const Reactions &reactions);
+    Q_REQUIRED_RESULT static Reactions fromJSon(const QJsonObject &o);
 
-    bool isEmpty() const;
+    Q_REQUIRED_RESULT bool isEmpty() const;
 
 private:
     QVector<Reaction> mReactions;

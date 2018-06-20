@@ -47,15 +47,15 @@ public:
 
     void parseOtr(const QJsonArray &contents);
 
-    OtrType type() const;
+    Q_REQUIRED_RESULT OtrType type() const;
 
-    QString roomId() const;
+    Q_REQUIRED_RESULT QString roomId() const;
 
-    QString userId() const;
+    Q_REQUIRED_RESULT QString userId() const;
 
-    bool isValid() const;
+    Q_REQUIRED_RESULT bool isValid() const;
 
-    CryptoSettings crypto() const;
+    Q_REQUIRED_RESULT CryptoSettings crypto() const;
 
 private:
     void parseCryptoSettings(const QString &publicKey);

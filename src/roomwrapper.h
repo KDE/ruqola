@@ -50,20 +50,20 @@ public:
     RoomWrapper(Room *r, QObject *parent = nullptr);
     ~RoomWrapper();
 
-    QString name() const;
-    QString topic() const;
-    QString announcement() const;
-    bool favorite() const;
-    bool readOnly() const;
-    bool blocker() const;
-    bool blocked() const;
-    QString channelType() const;
-    QString roomCreatorUserId() const;
-    QString rid() const;
-    QString description() const;
-    bool archived() const;
-    bool canBeModify() const;
-    NotificationOptions notificationOptions() const;
+    Q_REQUIRED_RESULT QString name() const;
+    Q_REQUIRED_RESULT QString topic() const;
+    Q_REQUIRED_RESULT QString announcement() const;
+    Q_REQUIRED_RESULT bool favorite() const;
+    Q_REQUIRED_RESULT bool readOnly() const;
+    Q_REQUIRED_RESULT bool blocker() const;
+    Q_REQUIRED_RESULT bool blocked() const;
+    Q_REQUIRED_RESULT QString channelType() const;
+    Q_REQUIRED_RESULT QString roomCreatorUserId() const;
+    Q_REQUIRED_RESULT QString rid() const;
+    Q_REQUIRED_RESULT QString description() const;
+    Q_REQUIRED_RESULT bool archived() const;
+    Q_REQUIRED_RESULT bool canBeModify() const;
+    Q_REQUIRED_RESULT NotificationOptions notificationOptions() const;
 
 Q_SIGNALS:
     void nameChanged();
