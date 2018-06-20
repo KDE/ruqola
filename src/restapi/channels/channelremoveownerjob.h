@@ -46,11 +46,11 @@ public:
     void setRemoveUserId(const QString &removeUserId);
 
 Q_SIGNALS:
-    void inviteDone();
+    void removeOwnerDone();
 
 private:
     Q_DISABLE_COPY(ChannelRemoveOwnerJob)
-    void slotInvitationFinished();
+    void slotRemoveOwnerFinished();
     QString mRoomId;
     QString mRemoveUserId;
 };

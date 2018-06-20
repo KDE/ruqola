@@ -44,11 +44,11 @@ bool ChannelRemoveOwnerJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("ChannelRemoveOwnerJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &ChannelRemoveOwnerJob::slotInvitationFinished);
+    connect(reply, &QNetworkReply::finished, this, &ChannelRemoveOwnerJob::slotRemoveOwnerFinished);
     return true;
 }
 
-void ChannelRemoveOwnerJob::slotInvitationFinished()
+void ChannelRemoveOwnerJob::slotRemoveOwnerFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -57,10 +57,10 @@ void ChannelRemoveOwnerJob::slotInvitationFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change announcement success: " << data;
-            Q_EMIT inviteDone();
+            qCDebug(RUQOLA_RESTAPI_LOG) << "Remove owner success: " << data;
+            Q_EMIT removeOwnerDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to remove owner : " << data;
         }
     }
     deleteLater();
