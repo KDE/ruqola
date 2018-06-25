@@ -36,6 +36,8 @@ Rectangle {
     property string aliasname
     property string username
 
+    signal showUserInfo()
+
     Layout.alignment: Qt.AlignTop | Qt.AlignCenter
     Layout.fillHeight: false
     //Customize it.
@@ -58,6 +60,7 @@ Rectangle {
             anchors.fill: parent
             onClicked: {
                 console.log(RuqolaDebugCategorySingleton.category, "Clicked");
+                avatarRect.showUserInfo();
             }
         }
 
