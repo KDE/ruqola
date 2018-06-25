@@ -38,10 +38,6 @@ QQC2.Dialog {
     y: parent.height / 2 - height / 2
 
     property string channelName: ""
-    property QtObject roomInfo
-
-    signal modifyChannelSetting(string roomId, int type, var newVal, string channelType)
-    signal deleteRoom(string roomId)
 
     function initializeAndOpen()
     {
@@ -67,108 +63,6 @@ QQC2.Dialog {
                     console.log(RuqolaDebugCategorySingleton.category, "New name is empty. We can't rename room name to empty name.")
                 }
             }
-        }
-        QQC2.Label {
-            text: i18n("Comment:");
-        }
-        TextFieldEditor {
-            id: channelCommentField
-            textField: roomInfo === null ? "" : roomInfo.topic
-            onUpdateValue: {
-                if (roomInfo.topic !== newVal) {
-                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, newVal, roomInfo.channelType)
-                }
-            }
-        }
-        QQC2.Label {
-            text: i18n("Announcement:");
-        }
-        TextFieldEditor {
-            id: channelAnnouncementField
-            textField: roomInfo === null ? "" : roomInfo.announcement;
-            onUpdateValue: {
-                if (roomInfo.announcement !== newVal) {
-                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Announcement, newVal, roomInfo.channelType)
-                }
-            }
-        }
-        QQC2.Label {
-            text: i18n("Description:");
-        }
-        TextFieldEditor {
-            id: channelDescriptionField
-            textField: roomInfo === null ? "" : roomInfo.description;
-            onUpdateValue: {
-                if (roomInfo.description !== newVal) {
-                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal, roomInfo.channelType)
-                }
-            }
-        }
-
-        QQC2.Label {
-            id: labelReadOnlyRoom
-            text: i18n("Read-Only:");
-        }
-        QQC2.Switch {
-            id: readOnlyRoom
-            checked: roomInfo === null ? false : roomInfo.readOnly
-            onClicked: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.ReadOnly, checked, roomInfo.channelType)
-            }
-        }
-
-        QQC2.Label {
-            id: labelArchiveRoom
-            text: i18n("Archive:");
-        }
-        QQC2.Switch {
-            id: archiveRoom
-            checked: roomInfo === null ? false : roomInfo.archived
-            onClicked: {
-                archiveRoomDialog.open()
-            }
-        }
-
-        QQC2.Label {
-            id: labelRoomType
-            text: i18n("Private:")
-        }
-        QQC2.Switch {
-            id: roomType
-            checked: roomInfo === null ? false : roomInfo.channelType === "p"
-            onClicked: {
-                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.RoomType, checked, roomInfo.channelType)
-            }
-        }
-
-        QQC2.Label {
-            id: labelDeleteButton
-            text: i18n("Delete Room:");
-        }
-        DeleteButton {
-            id: deleteButton
-            onDeleteButtonClicked: {
-                deleteRoomDialog.rId = roomInfo.rid
-                deleteRoomDialog.open();
-            }
-        }
-    }
-
-    ArchiveRoomDialog {
-        id: archiveRoomDialog
-        onAccepted: {
-            channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Archive, true)
-        }
-        onRejected: {
-            archiveRoom.checked = false
-        }
-    }
-
-    DeleteRoomDialog {
-        id: deleteRoomDialog
-        rId: channelName
-        onDeleteRoom: {
-            channelInfoDialog.deleteRoom(roomId)
         }
     }
 }
