@@ -27,7 +27,7 @@ import QtQuick.Layouts 1.1
 import "../js/message.js" as MessageScript;
 import QtQuick.Window 2.2
 import KDE.Ruqola.RocketChatAccount 1.0
-
+import KDE.Ruqola.DebugCategory 1.0
 
 Rectangle {
     id: avatarRect
@@ -54,6 +54,13 @@ Rectangle {
         visible: avatarurl !== ""
         source: avatarurl
         fillMode: Image.PreserveAspectFit
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                console.log(RuqolaDebugCategorySingleton.category, "Clicked");
+            }
+        }
+
     }
     QQC2.Label {
         id: avatarText
