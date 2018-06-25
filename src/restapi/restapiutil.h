@@ -105,6 +105,7 @@ enum class RestApiUrlType {
     GroupsFiles,
     ServerInfo,
     Settings,
+    SettingsPublic,
     Spotlight,
     LoadEmojiCustom,
     RoomsUpload,
