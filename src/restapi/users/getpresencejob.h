@@ -36,19 +36,21 @@ public:
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT QString avatarUserId() const;
-    void setAvatarUserId(const QString &avatarUserId);
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT bool canStart() const override;
+
+    Q_REQUIRED_RESULT QString presenceUserId() const;
+    void setPresenceUserId(const QString &presenceUserId);
+
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
 
 private:
     Q_DISABLE_COPY(GetPresenceJob)
-    void slotGetAvatarInfo();
-    QString mAvatarUserId;
+    void slotGetPresenceUserId();
+    QString mPresenceUserId;
 };
 
 #endif // GETPRESENCEJOB_H

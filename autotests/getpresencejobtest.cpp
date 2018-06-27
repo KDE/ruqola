@@ -36,7 +36,7 @@ void GetPresenceJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
     QVERIFY(!job.requireHttpAuthentication());
-    QVERIFY(job.avatarUserId().isEmpty());
+    QVERIFY(job.presenceUserId().isEmpty());
     QVERIFY(!job.ruqolaLogger());
 }
 
@@ -47,7 +47,7 @@ void GetPresenceJobTest::shouldGenerateRequest()
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString avatarUserId = QStringLiteral("avat");
-    job.setAvatarUserId(avatarUserId);
+    job.setPresenceUserId(avatarUserId);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getAvatar?userId=avat")));
     delete method;

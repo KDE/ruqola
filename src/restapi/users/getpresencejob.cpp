@@ -35,12 +35,12 @@ GetPresenceJob::~GetPresenceJob()
 
 bool GetPresenceJob::canStart() const
 {
-    if (mAvatarUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Avatar userid is empty";
+    if (mPresenceUserId.isEmpty()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "userid is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start getavatar job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start getPresence job";
         return false;
     }
     return true;
@@ -53,18 +53,19 @@ bool GetPresenceJob::start()
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &GetPresenceJob::slotGetAvatarInfo);
-    addLoggerInfo("GetPresenceJob ask for avatarUserId: " + mAvatarUserId.toLatin1());
-    reply->setProperty("userId", mAvatarUserId);
+    connect(reply, &QNetworkReply::finished, this, &GetPresenceJob::slotGetPresenceUserId);
+    addLoggerInfo("GetPresenceJob ask for avatarUserId: " + mPresenceUserId.toLatin1());
 
     return true;
 }
 
-void GetPresenceJob::slotGetAvatarInfo()
+void GetPresenceJob::slotGetPresenceUserId()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
+        //TODO
+
         //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
         addLoggerInfo(QByteArrayLiteral("GetPresenceJob: finished: ") + data);
         QString str = QString::fromUtf8(data);
@@ -75,11 +76,21 @@ void GetPresenceJob::slotGetAvatarInfo()
     deleteLater();
 }
 
+QString GetPresenceJob::presenceUserId() const
+{
+    return mPresenceUserId;
+}
+
+void GetPresenceJob::setPresenceUserId(const QString &presenceUserId)
+{
+    mPresenceUserId = presenceUserId;
+}
+
 QNetworkRequest GetPresenceJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetPresence);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("userId"), mAvatarUserId);
+    queryUrl.addQueryItem(QStringLiteral("userId"), mPresenceUserId);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     return request;
@@ -87,15 +98,6 @@ QNetworkRequest GetPresenceJob::request() const
 
 bool GetPresenceJob::requireHttpAuthentication() const
 {
-    return false;
+    return true;
 }
 
-QString GetPresenceJob::avatarUserId() const
-{
-    return mAvatarUserId;
-}
-
-void GetPresenceJob::setAvatarUserId(const QString &avatarUserId)
-{
-    mAvatarUserId = avatarUserId;
-}
