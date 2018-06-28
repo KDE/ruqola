@@ -54,7 +54,7 @@ bool GetPresenceJob::start()
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &GetPresenceJob::slotGetPresenceUserId);
-    addLoggerInfo("GetPresenceJob ask for avatarUserId: " + mPresenceUserId.toLatin1());
+    addLoggerInfo("GetPresenceJob ask for presenceUserId: " + mPresenceUserId.toLatin1());
 
     return true;
 }
@@ -68,10 +68,7 @@ void GetPresenceJob::slotGetPresenceUserId()
 
         //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
         addLoggerInfo(QByteArrayLiteral("GetPresenceJob: finished: ") + data);
-        QString str = QString::fromUtf8(data);
-        str.remove(QLatin1Char('"'));
-        const QString userId = reply->property("userId").toString();
-        Q_EMIT avatar(userId, str);
+        //Q_EMIT avatar(userId, str);
     }
     deleteLater();
 }

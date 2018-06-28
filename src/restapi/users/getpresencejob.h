@@ -45,7 +45,8 @@ public:
     void setPresenceUserId(const QString &presenceUserId);
 
 Q_SIGNALS:
-    void avatar(const QString &userId, const QString &url);
+    //TODO add info here!
+    void getPresenceDone();
 
 private:
     Q_DISABLE_COPY(GetPresenceJob)
