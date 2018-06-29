@@ -23,6 +23,8 @@
 #include "restapimethod.h"
 #include <QNetworkReply>
 #include <QUrlQuery>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 GetPresenceJob::GetPresenceJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -64,11 +66,10 @@ void GetPresenceJob::slotGetPresenceUserId()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        //TODO
-
-        //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
-        addLoggerInfo(QByteArrayLiteral("GetPresenceJob: finished: ") + data);
-        //Q_EMIT avatar(userId, str);
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+        addLoggerInfo(QByteArrayLiteral("GetPresenceJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT getPresenceDone(replyObject);
     }
     deleteLater();
 }

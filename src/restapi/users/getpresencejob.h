@@ -45,8 +45,7 @@ public:
     void setPresenceUserId(const QString &presenceUserId);
 
 Q_SIGNALS:
-    //TODO add info here!
-    void getPresenceDone();
+    void getPresenceDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(GetPresenceJob)
