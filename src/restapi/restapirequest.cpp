@@ -209,7 +209,9 @@ void RestApiRequest::login()
     initializeRestApiJob(job);
     job->setPassword(mPassword);
     job->setUserName(mUserName);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::slotLogin(const QString &authToken, const QString &userId)
@@ -241,7 +243,9 @@ void RestApiRequest::logout()
     LogoutJob *job = new LogoutJob(this);
     connect(job, &LogoutJob::logoutDone, this, &RestApiRequest::slotLogout);
     initializeRestApiJob(job);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::channelList()
@@ -249,7 +253,9 @@ void RestApiRequest::channelList()
     ChannelListJob *job = new ChannelListJob(this);
     connect(job, &ChannelListJob::channelListDone, this, &RestApiRequest::channelListDone);
     initializeRestApiJob(job);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::getAvatar(const QString &userId)
@@ -258,7 +264,9 @@ void RestApiRequest::getAvatar(const QString &userId)
     connect(job, &GetAvatarJob::avatar, this, &RestApiRequest::avatar);
     initializeRestApiJob(job);
     job->setAvatarUserId(userId);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::getPrivateSettings()
@@ -266,7 +274,9 @@ void RestApiRequest::getPrivateSettings()
     PrivateInfoJob *job = new PrivateInfoJob(this);
     connect(job, &PrivateInfoJob::privateInfoDone, this, &RestApiRequest::privateInfoDone);
     initializeRestApiJob(job);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::getOwnInfo()
@@ -274,7 +284,9 @@ void RestApiRequest::getOwnInfo()
     OwnInfoJob *job = new OwnInfoJob(this);
     connect(job, &OwnInfoJob::ownInfoDone, this, &RestApiRequest::getOwnInfoDone);
     initializeRestApiJob(job);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::starMessage(const QString &messageId, bool starred)
@@ -283,7 +295,9 @@ void RestApiRequest::starMessage(const QString &messageId, bool starred)
     initializeRestApiJob(job);
     job->setMessageId(messageId);
     job->setStarMessage(starred);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, bool storeInCache, const QUrl &localFileUrl)
@@ -296,7 +310,9 @@ void RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, bool
     job->setLocalFileUrl(localFileUrl);
     job->setStoreInCache(storeInCache);
     initializeRestApiJob(job);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::serverInfo()
@@ -304,7 +320,9 @@ void RestApiRequest::serverInfo()
     ServerInfoJob *job = new ServerInfoJob(this);
     initializeRestApiJob(job);
     connect(job, &ServerInfoJob::serverInfoDone, this, &RestApiRequest::getServerInfoDone);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename)
@@ -315,7 +333,9 @@ void RestApiRequest::uploadFile(const QString &roomId, const QString &descriptio
     job->setMessageText(text);
     job->setFilenameUrl(filename);
     job->setRoomId(roomId);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::changeChannelTopic(const QString &roomId, const QString &topic)
@@ -324,7 +344,9 @@ void RestApiRequest::changeChannelTopic(const QString &roomId, const QString &to
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setTopic(topic);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::changeGroupsTopic(const QString &roomId, const QString &topic)
@@ -333,7 +355,9 @@ void RestApiRequest::changeGroupsTopic(const QString &roomId, const QString &top
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setTopic(topic);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::changeChannelAnnouncement(const QString &roomId, const QString &announcement)
@@ -342,7 +366,9 @@ void RestApiRequest::changeChannelAnnouncement(const QString &roomId, const QStr
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setAnnouncement(announcement);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::changeGroupsAnnouncement(const QString &roomId, const QString &announcement)
@@ -351,7 +377,9 @@ void RestApiRequest::changeGroupsAnnouncement(const QString &roomId, const QStri
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setAnnouncement(announcement);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::changeChannelDescription(const QString &roomId, const QString &description)
@@ -360,7 +388,9 @@ void RestApiRequest::changeChannelDescription(const QString &roomId, const QStri
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setDescription(description);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::changeGroupsDescription(const QString &roomId, const QString &description)
@@ -369,7 +399,9 @@ void RestApiRequest::changeGroupsDescription(const QString &roomId, const QStrin
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setDescription(description);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::postMessage(const QString &roomId, const QString &text)
@@ -378,7 +410,9 @@ void RestApiRequest::postMessage(const QString &roomId, const QString &text)
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setText(text);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::deleteMessage(const QString &roomId, const QString &messageId)
@@ -387,7 +421,9 @@ void RestApiRequest::deleteMessage(const QString &roomId, const QString &message
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setMessageId(messageId);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::createChannels(const QString &channelName, bool readOnly, const QStringList &members)
@@ -397,7 +433,9 @@ void RestApiRequest::createChannels(const QString &channelName, bool readOnly, c
     job->setChannelName(channelName);
     job->setReadOnly(readOnly);
     job->setMembers(members);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::createGroups(const QString &channelName, bool readOnly, const QStringList &members)
@@ -407,7 +445,9 @@ void RestApiRequest::createGroups(const QString &channelName, bool readOnly, con
     job->setChannelName(channelName);
     job->setReadOnly(readOnly);
     job->setMembers(members);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::leaveChannel(const QString &roomId)
@@ -415,7 +455,9 @@ void RestApiRequest::leaveChannel(const QString &roomId)
     LeaveChannelJob *job = new LeaveChannelJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::leaveGroups(const QString &roomId)
@@ -423,7 +465,9 @@ void RestApiRequest::leaveGroups(const QString &roomId)
     LeaveGroupsJob *job = new LeaveGroupsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::archiveChannel(const QString &roomId)
@@ -431,7 +475,9 @@ void RestApiRequest::archiveChannel(const QString &roomId)
     ArchiveChannelJob *job = new ArchiveChannelJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::archiveGroups(const QString &roomId)
@@ -439,7 +485,9 @@ void RestApiRequest::archiveGroups(const QString &roomId)
     ArchiveGroupsJob *job = new ArchiveGroupsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::updateMessage(const QString &roomId, const QString &messageId, const QString &text)
@@ -449,7 +497,9 @@ void RestApiRequest::updateMessage(const QString &roomId, const QString &message
     job->setRoomId(roomId);
     job->setMessageId(messageId);
     job->setUpdatedText(text);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::reactOnMessage(const QString &messageId, const QString &emoji)
@@ -458,7 +508,9 @@ void RestApiRequest::reactOnMessage(const QString &messageId, const QString &emo
     initializeRestApiJob(job);
     job->setMessageId(messageId);
     job->setEmoji(emoji);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
@@ -473,7 +525,9 @@ void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
     } else if (type == QLatin1String("c")) {
         job->setChannelType(ChannelCloseJob::Channel);
     }
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::historyChannel(const QString &roomId, const QString &type)
@@ -488,7 +542,9 @@ void RestApiRequest::historyChannel(const QString &roomId, const QString &type)
     } else if (type == QLatin1String("c")) {
         job->setChannelType(ChannelHistoryJob::Channel);
     }
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::createDirectMessage(const QString &userName)
@@ -496,7 +552,9 @@ void RestApiRequest::createDirectMessage(const QString &userName)
     CreateDmJob *job = new CreateDmJob(this);
     initializeRestApiJob(job);
     job->setUserName(userName);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::filesInRoom(const QString &roomId, const QString &type)
@@ -512,7 +570,9 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type)
     } else if (type == QLatin1String("c")) {
         job->setChannelType(ChannelFilesJob::Channel);
     }
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::addUserInChannel(const QString &roomId, const QString &userId)
@@ -521,7 +581,9 @@ void RestApiRequest::addUserInChannel(const QString &roomId, const QString &user
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setInviteUserId(userId);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::addUserInGroup(const QString &roomId, const QString &userId)
@@ -530,7 +592,9 @@ void RestApiRequest::addUserInGroup(const QString &roomId, const QString &userId
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setUserId(userId);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::listEmojiCustom()
@@ -538,7 +602,9 @@ void RestApiRequest::listEmojiCustom()
     LoadEmojiCustomJob *job = new LoadEmojiCustomJob(this);
     initializeRestApiJob(job);
     connect(job, &LoadEmojiCustomJob::loadEmojiCustomDone, this, &RestApiRequest::loadEmojiCustomDone);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::searchRoomUser(const QString &pattern)
@@ -547,7 +613,9 @@ void RestApiRequest::searchRoomUser(const QString &pattern)
     job->setSearchPattern(pattern);
     initializeRestApiJob(job);
     connect(job, &SpotlightJob::spotlightDone, this, &RestApiRequest::spotlightDone);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::searchMessages(const QString &roomId, const QString &pattern)
@@ -557,7 +625,9 @@ void RestApiRequest::searchMessages(const QString &roomId, const QString &patter
     job->setSearchText(pattern);
     initializeRestApiJob(job);
     connect(job, &SearchMessageJob::searchMessageDone, this, &RestApiRequest::searchMessageDone);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::markAsRead(const QString &roomId)
@@ -565,7 +635,9 @@ void RestApiRequest::markAsRead(const QString &roomId)
     MarkRoomAsReadJob *job = new MarkRoomAsReadJob(this);
     job->setRoomId(roomId);
     initializeRestApiJob(job);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::markRoomAsUnRead(const QString &roomId)
@@ -574,7 +646,9 @@ void RestApiRequest::markRoomAsUnRead(const QString &roomId)
     job->setObjectId(roomId);
     job->setUnReadObject(MarkRoomAsUnReadJob::Room);
     initializeRestApiJob(job);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::markMessageAsUnReadFrom(const QString &messageId)
@@ -583,7 +657,9 @@ void RestApiRequest::markMessageAsUnReadFrom(const QString &messageId)
     job->setObjectId(messageId);
     job->setUnReadObject(MarkRoomAsUnReadJob::FromMessage);
     initializeRestApiJob(job);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 
@@ -592,7 +668,9 @@ void RestApiRequest::getRooms()
     GetRoomsJob *job = new GetRoomsJob(this);
     initializeRestApiJob(job);
     connect(job, &GetRoomsJob::getRoomsDone, this, &RestApiRequest::getRoomsDone);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::markAsFavorite(const QString &roomId, bool favorite)
@@ -601,7 +679,9 @@ void RestApiRequest::markAsFavorite(const QString &roomId, bool favorite)
     initializeRestApiJob(job);
     job->setFavorite(favorite);
     job->setRoomId(roomId);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::disableNotifications(const QString &roomId, bool value)
@@ -610,16 +690,22 @@ void RestApiRequest::disableNotifications(const QString &roomId, bool value)
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setDisableNotifications(value);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
+
 void RestApiRequest::hideUnreadStatus(const QString &roomId, bool value)
 {
     SaveNotificationJob *job = new SaveNotificationJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setHideUnreadStatus(value);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
+
 
 void RestApiRequest::audioNotifications(const QString &roomId, const QString &value)
 {
@@ -627,7 +713,9 @@ void RestApiRequest::audioNotifications(const QString &roomId, const QString &va
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setAudioNotifications(value);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::desktopNotifications(const QString &roomId, const QString &value)
@@ -636,7 +724,9 @@ void RestApiRequest::desktopNotifications(const QString &roomId, const QString &
 //    initializeRestApiJob(job);
 //    job->setRoomId(roomId);
 //    job->setDesktopNotificationDuration(value);
-//    job->start();
+//    if (!job->start()) {
+//    qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+//    }
 }
 
 void RestApiRequest::emailNotifications(const QString &roomId, const QString &value)
@@ -645,7 +735,9 @@ void RestApiRequest::emailNotifications(const QString &roomId, const QString &va
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setEmailNotifications(value);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::mobilePushNotifications(const QString &roomId, const QString &value)
@@ -654,7 +746,9 @@ void RestApiRequest::mobilePushNotifications(const QString &roomId, const QStrin
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setMobilePushNotifications(value);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::unreadAlert(const QString &roomId, const QString &value)
@@ -663,7 +757,9 @@ void RestApiRequest::unreadAlert(const QString &roomId, const QString &value)
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setUnreadAlert(value);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::setAvatar(const QString &avatarUrl)
@@ -671,7 +767,9 @@ void RestApiRequest::setAvatar(const QString &avatarUrl)
     SetAvatarJob *job = new SetAvatarJob(this);
     initializeRestApiJob(job);
     job->setAvatarUrl(avatarUrl);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::forgotPassword(const QString &email)
@@ -679,7 +777,9 @@ void RestApiRequest::forgotPassword(const QString &email)
     ForgotPasswordJob *job = new ForgotPasswordJob(this);
     initializeRestApiJob(job);
     job->setEmail(email);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::userInfo(const QString &identifier, bool userName)
@@ -689,7 +789,9 @@ void RestApiRequest::userInfo(const QString &identifier, bool userName)
     job->setIdentifier(identifier);
     job->setUseUserName(userName);
     connect(job, &UsersInfoJob::usersInfoDone, this, &RestApiRequest::usersInfoDone);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::ignoreUser(const QString &roomId, const QString &userId, bool ignore)
@@ -700,5 +802,7 @@ void RestApiRequest::ignoreUser(const QString &roomId, const QString &userId, bo
     job->setRoomId(roomId);
     job->setIgnore(ignore);
     //connect(job, &UsersInfoJob::usersInfoDone, this, &RestApiRequest::usersInfoDone);
-    job->start();
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
 }
