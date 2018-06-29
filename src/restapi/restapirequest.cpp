@@ -33,6 +33,7 @@
 #include "users/setavatarjob.h"
 #include "users/forgotpasswordjob.h"
 #include "users/usersinfojob.h"
+#include "users/getpresencejob.h"
 
 #include "misc/owninfojob.h"
 
@@ -802,6 +803,17 @@ void RestApiRequest::ignoreUser(const QString &roomId, const QString &userId, bo
     job->setRoomId(roomId);
     job->setIgnore(ignore);
     //connect(job, &UsersInfoJob::usersInfoDone, this, &RestApiRequest::usersInfoDone);
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::userPresence(const QString &userId)
+{
+    GetPresenceJob *job = new GetPresenceJob(this);
+    initializeRestApiJob(job);
+    job->setPresenceUserId(userId);
+    //connect(job, &GetPresenceJob::getPresenceDone, this, &RestApiRequest::getPresenceDone);
     if (!job->start()) {
         qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
     }
