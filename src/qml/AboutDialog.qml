@@ -122,47 +122,40 @@ QQC2.Dialog {
             }
             Item {
                 id: authorTab
-                anchors.fill: parent
 
-                QQC2.Label {
-                    id: reportBugsLink
-                    anchors.top: parent.top
-                    anchors.topMargin: Kirigami.Units.smallSpacing
-                    visible: applicationData.reportBugs !== ""
-                    text: applicationData.reportBugs
-                    wrapMode: QQC2.Label.Wrap
-                    textFormat: Qt.RichText
-                    onLinkActivated: {
-                        aboutDialog.openurl(link);
+                ColumnLayout {
+                    Layout.topMargin: Kirigami.Units.smallSpacing
+                    QQC2.Label {
+                        id: reportBugsLink
+                        visible: applicationData.reportBugs !== ""
+                        text: applicationData.reportBugs
+                        wrapMode: QQC2.Label.Wrap
+                        textFormat: Qt.RichText
+                        onLinkActivated: {
+                            aboutDialog.openurl(link);
+                        }
                     }
-                }
-                PersonsListView {
-                    anchors.top: reportBugsLink.bottom
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.margins: Kirigami.Units.largeSpacing
-                    personsModel: applicationData.authorModel
+                    PersonsListView {
+                        personsModel: applicationData.authorModel
+                    }
                 }
             }
             Item {
                 id: thanksToTab
-                anchors.fill: parent
-
-                PersonsListView {
-                    anchors.fill: parent
-                    anchors.margins: Kirigami.Units.largeSpacing
-                    personsModel: applicationData.creditsModel
+                ColumnLayout {
+                    Layout.topMargin: Kirigami.Units.smallSpacing
+                    PersonsListView {
+                        personsModel: applicationData.creditsModel
+                    }
                 }
             }
             Item {
                 id: translatorToTab
-                anchors.fill: parent
-
-                PersonsListView {
-                    anchors.fill: parent
-                    anchors.margins: Kirigami.Units.largeSpacing
-                    personsModel: applicationData.translatorModel
+                ColumnLayout {
+                    Layout.topMargin: Kirigami.Units.largeSpacing
+                    PersonsListView {
+                        personsModel: applicationData.translatorModel
+                    }
                 }
             }
         }
