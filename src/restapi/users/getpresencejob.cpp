@@ -38,7 +38,7 @@ GetPresenceJob::~GetPresenceJob()
 bool GetPresenceJob::canStart() const
 {
     if (mPresenceUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "userid is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "presenceuserid is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
