@@ -107,7 +107,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
     const QJsonObject result = root[QLatin1String("result")].toObject();
     if (!result.isEmpty()) {
         const QJsonArray records = result[QStringLiteral("records")].toArray();
-        const int total = result[QLatin1String("total")].toInt();
+        int total = result[QLatin1String("total")].toInt();
 
         QVector<User> users;
         users.reserve(records.count());
@@ -129,6 +129,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                     users.append(user);
                 } else {
                     qCWarning(RUQOLA_LOG) << "Invalid user" << user;
+                    total--;
                 }
             } else {
                 qCWarning(RUQOLA_LOG) << "Parse records: Error in users for rooms json" << root;
