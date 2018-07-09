@@ -108,6 +108,7 @@ public:
     void userInfo(const QString &identifier, bool userName = false);
     void ignoreUser(const QString &roomId, const QString &userId, bool ignore);
     void userPresence(const QString &userId);
+    void reportMessage(const QString &messageId, const QString &message);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

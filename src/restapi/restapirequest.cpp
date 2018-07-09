@@ -49,6 +49,7 @@
 #include "chat/reactonmessagejob.h"
 #include "chat/searchmessagejob.h"
 #include "chat/ignoreuserjob.h"
+#include "chat/reportmessagejob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
@@ -813,6 +814,18 @@ void RestApiRequest::userPresence(const QString &userId)
     GetPresenceJob *job = new GetPresenceJob(this);
     initializeRestApiJob(job);
     job->setPresenceUserId(userId);
+    //connect(job, &GetPresenceJob::getPresenceDone, this, &RestApiRequest::getPresenceDone);
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::reportMessage(const QString &messageId, const QString &message)
+{
+    ReportMessageJob *job = new ReportMessageJob(this);
+    initializeRestApiJob(job);
+    job->setMessageId(messageId);
+    job->setReportMessage(message);
     //connect(job, &GetPresenceJob::getPresenceDone, this, &RestApiRequest::getPresenceDone);
     if (!job->start()) {
         qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";

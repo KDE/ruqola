@@ -50,6 +50,7 @@ enum class RestApiUrlType {
     ChatUnStarMessage,
     ChatUpdate,
     ChatIgnoreUser,
+    ChatReportMessage,
     ChannelsAddAll,
     ChannelsAddModerator,
     ChannelsAddOwner,
