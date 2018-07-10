@@ -173,6 +173,7 @@ void RoomTest::shouldParseRoom_data()
 
     QTest::newRow("unread-usermentions-room") << QStringLiteral("unread-usermentions-room");
     QTest::newRow("muted-users") << QStringLiteral("muted-users");
+    QTest::newRow("userignored-room") << QStringLiteral("userignored-room");
 }
 
 void RoomTest::shouldParseRoom()

@@ -1,0 +1,27 @@
+{
+    "_id": "PYdLtTwndQGdmNjYt",
+    "_updatedAt": {
+        "$date": 1519924629624
+    },
+    "alert": false,
+    "emailNotifications": "nothing",
+    "f": true,
+    "groupMentions": 0,
+    "ls": {
+        "$date": 1519924629624
+    },
+    "name": "foo",
+    "open": true,
+    "rid": "or396aM8g7vXngDZA",
+    "t": "c",
+    "ts": {
+        "$date": 1504078419839
+    },
+    "u": {
+        "_id": "uKK39zoeTkdacidH",
+        "name": "Laurent Montel",
+        "username": "laurent"
+    },
+    "unread": 1,
+    "userMentions": 1
+}
