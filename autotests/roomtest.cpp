@@ -89,8 +89,11 @@ void RoomTest::shouldSerialized()
     input.setDescription(QStringLiteral("dd"));
     input.setUserMentions(3);
     input.setRoles({QStringLiteral("foo"), QStringLiteral("bla")});
+    input.setIgnoredUsers({QStringLiteral("gg"), QStringLiteral("gg2")});
     const QByteArray ba = Room::serialize(&input);
+    //qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
     Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
+    //qDebug() << "after" << QJsonObject(QJsonDocument::fromBinaryData(Room::serialize(output)).object());
     QVERIFY(input.isEqual(*output));
     delete output;
 }

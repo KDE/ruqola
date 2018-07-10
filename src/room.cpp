@@ -82,7 +82,8 @@ bool Room::isEqual(const Room &other) const
            && (mUpdatedAt == other.updatedAt())
            && (mLastSeeAt == other.lastSeeAt())
            && (mBlocked == other.blocked())
-           && (mRoles == other.roles());
+           && (mRoles == other.roles())
+           && (mIgnoredUsers == other.ignoredUsers());
 }
 
 QString Room::name() const
@@ -448,9 +449,17 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setDescription(json[QStringLiteral("description")].toString());
     }
 
+    const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
+    QStringList lstIgnored;
+    lstIgnored.reserve(ignoredArray.count());
+    for (int i = 0; i < ignoredArray.count(); ++i) {
+        lstIgnored << ignoredArray.at(i).toString();
+    }
+    setIgnoredUsers(lstIgnored);
+
+
     setUpdatedAt(Utils::parseDate(QLatin1String("_updatedAt"), json));
     setUnread(json[QStringLiteral("unread")].toInt());
-    setUserMentions(json[QStringLiteral("userMentions")].toInt());
     setOpen(json[QStringLiteral("open")].toBool());
     setAlert(json[QStringLiteral("alert")].toBool());
     const QJsonValue blockerValue = json.value(QLatin1String("blocker"));
@@ -537,6 +546,16 @@ void Room::setRoles(const QStringList &roles)
     }
 }
 
+QStringList Room::ignoredUsers() const
+{
+    return mIgnoredUsers;
+}
+
+void Room::setIgnoredUsers(const QStringList &ignoredUsers)
+{
+    mIgnoredUsers = ignoredUsers;
+}
+
 void Room::parseSubscriptionRoom(const QJsonObject &json)
 {
     QString roomID = json.value(QLatin1String("rid")).toString();
@@ -584,6 +603,15 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
         lst << mutedArray.at(i).toString();
     }
     setMutedUsers(lst);
+
+    const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
+    QStringList lstIgnored;
+    lstIgnored.reserve(ignoredArray.count());
+    for (int i = 0; i < ignoredArray.count(); ++i) {
+        lstIgnored << ignoredArray.at(i).toString();
+    }
+    setIgnoredUsers(lstIgnored);
+
 
     const QJsonArray rolesArray = json.value(QLatin1String("roles")).toArray();
     QStringList lstRoles;
@@ -644,6 +672,15 @@ Room *Room::fromJSon(const QJsonObject &o)
     }
     r->setMutedUsers(lst);
 
+    const QJsonArray ignoredArray = o.value(QLatin1String("ignored")).toArray();
+    QStringList lstIgnored;
+    lstIgnored.reserve(ignoredArray.count());
+    for (int i = 0; i < ignoredArray.count(); ++i) {
+        lstIgnored <<ignoredArray.at(i).toString();
+    }
+    r->setIgnoredUsers(lstIgnored);
+
+
     const QJsonArray rolesArray = o.value(QLatin1String("roles")).toArray();
     QStringList lstRoles;
     lst.reserve(rolesArray.count());
@@ -701,6 +738,15 @@ QByteArray Room::serialize(Room *r, bool toBinary)
             array.append(r->mutedUsers().at(i));
         }
         o[QStringLiteral("mutedUsers")] = array;
+    }
+
+    if (!r->ignoredUsers().isEmpty()) {
+        QJsonArray array;
+        const int nbIgnoredUsers = r->ignoredUsers().count();
+        for (int i = 0; i < nbIgnoredUsers; ++i) {
+            array.append(r->ignoredUsers().at(i));
+        }
+        o[QStringLiteral("ignored")] = array;
     }
 
     if (!r->roles().isEmpty()) {

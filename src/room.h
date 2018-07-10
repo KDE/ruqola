@@ -169,6 +169,9 @@ public:
     Q_REQUIRED_RESULT QStringList roles() const;
     void setRoles(const QStringList &roles);
 
+    Q_REQUIRED_RESULT QStringList ignoredUsers() const;
+    void setIgnoredUsers(const QStringList &ignoredUsers);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -194,6 +197,8 @@ private:
     NotificationOptions mNotificationOptions;
     // muted - collection of muted users by its usernames
     QStringList mMutedUsers;
+
+    QStringList mIgnoredUsers;
 
     //Roles
     QStringList mRoles;
