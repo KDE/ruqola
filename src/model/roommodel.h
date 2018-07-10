@@ -59,6 +59,7 @@ public:
         RoomIcon,
         RoomOtr,
         RoomUserMentions,
+        RoomIgnoredUsers,
     };
     Q_ENUM(RoomRoles)
 

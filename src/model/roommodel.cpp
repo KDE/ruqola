@@ -212,6 +212,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return {};
     case RoomModel::RoomUserMentions:
         return r->userMentions();
+    case RoomModel::RoomIgnoredUsers:
+        return r->ignoredUsers();
     }
     return {};
 }
