@@ -62,6 +62,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.roles().isEmpty());
     QVERIFY(!input.archived());
     QVERIFY(input.name().isEmpty());
+    QVERIFY(input.ignoredUsers().isEmpty());
 }
 
 //TODO add notification, userMentions too
