@@ -113,7 +113,7 @@ Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
     void loginDone(const QString &authToken, const QString &userId);
-    void getDataDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
+    void downloadFileDone(const QByteArray &data, const QUrl &url, bool useCache, const QUrl &localFileUrl);
     void getServerInfoDone(const QString &version);
     void getOwnInfoDone(const QJsonObject &data);
     void privateInfoDone(const QByteArray &data);

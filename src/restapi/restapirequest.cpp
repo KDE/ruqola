@@ -305,8 +305,7 @@ void RestApiRequest::starMessage(const QString &messageId, bool starred)
 void RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, bool storeInCache, const QUrl &localFileUrl)
 {
     DownloadFileJob *job = new DownloadFileJob(this);
-    //Rename signal
-    connect(job, &DownloadFileJob::downloadFileDone, this, &RestApiRequest::getDataDone);
+    connect(job, &DownloadFileJob::downloadFileDone, this, &RestApiRequest::downloadFileDone);
     job->setUrl(url);
     job->setMimeType(mimeType);
     job->setLocalFileUrl(localFileUrl);
