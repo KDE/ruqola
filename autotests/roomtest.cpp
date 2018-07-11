@@ -137,7 +137,6 @@ void RoomTest::shouldEmitSignals()
     input.setDescription(QStringLiteral("ddd"));
     input.setRoles({QStringLiteral("bla"), QStringLiteral("blu")});
     input.setIgnoredUsers({QStringLiteral("bla"), QStringLiteral("blu3")});
-    input.setMutedUsers({QStringLiteral("bla1"), QStringLiteral("blu2")});
 
     QCOMPARE(spyNameChanged.count(), 1);
     QCOMPARE(spyannouncementChanged.count(), 1);
