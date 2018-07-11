@@ -76,6 +76,7 @@ public:
     Q_REQUIRED_RESULT QVector<PluginAuthentication *> pluginsList() const;
 
 private:
+    Q_DISABLE_COPY(AuthenticationManager)
     bool initializePluginList();
     void loadPlugin(AuthenticationManagerInfo *item);
     PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);

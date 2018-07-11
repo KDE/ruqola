@@ -43,6 +43,8 @@ public:
 Q_SIGNALS:
     void dataChanged();
     void selectionChanged();
+private:
+    Q_DISABLE_COPY(ClipboardProxy)
 };
 
 #endif // CLIPBOARDPROXY_H

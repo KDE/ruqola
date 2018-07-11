@@ -49,6 +49,7 @@ public:
     //Only for autotests
     Q_REQUIRED_RESULT QString searchWord(const QString &text, int position);
 private:
+    Q_DISABLE_COPY(InputTextManager)
     InputCompleterModel *mInputCompleterModel = nullptr;
     RocketChatAccount *mAccount = nullptr;
 };
