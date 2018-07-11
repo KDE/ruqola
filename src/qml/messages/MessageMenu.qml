@@ -84,6 +84,15 @@ QQC2.Menu {
             messageMain.deleteMessage(i_messageID);
         }
     }
+    QQC2.MenuItem {
+        contentItem: QQC2.Label {
+            //TODO update as ignore/unignore
+            text: i18n("Ignore")
+        }
+        onTriggered: {
+            //messageMain.deleteMessage(i_messageID);
+        }
+    }
     onAboutToShow: {
         editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
         favoriteLabel.text = updateFavoriteLabelText()
