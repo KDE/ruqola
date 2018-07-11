@@ -29,12 +29,15 @@
 #include "messagemodel.h"
 #include "ruqolaserverconfig.h"
 #include "message.h"
+#include "room.h"
 #include "ruqola_debug.h"
 #include "utils.h"
 #include "rocketchataccount.h"
 #include "texthighlighter.h"
 #include "textconverter.h"
 #include "loadrecenthistorymanager.h"
+
+#include <KLocalizedString>
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
@@ -42,10 +45,11 @@
 //TODO reactivate when we will able to load message between cache and official server.
 //#define STORE_MESSAGE 1
 
-MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, QObject *parent)
+MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
     : QAbstractListModel(parent)
     , mRoomID(roomID)
     , mRocketChatAccount(account)
+    , mRoom(room)
 {
     mTextConverter = new TextConverter(mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
     mLoadRecentHistoryManager = new LoadRecentHistoryManager;
@@ -210,6 +214,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         if (mAllMessages.at(idx).messageType() == Message::System) {
             return mAllMessages.at(idx).messageTypeText();
         } else {
+            if (mRoom && mRoom->userIsIgnored(mAllMessages.at(idx).userId())) {
+                return i18n("Ignored Message");
+            }
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
             return convertMessageText(mAllMessages.at(idx).text(), mAllMessages.at(idx).mentions(), userName);
         }

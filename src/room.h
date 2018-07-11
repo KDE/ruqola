@@ -172,6 +172,7 @@ public:
     Q_REQUIRED_RESULT QStringList ignoredUsers() const;
     void setIgnoredUsers(const QStringList &ignoredUsers);
 
+    Q_REQUIRED_RESULT bool userIsIgnored(const QString &userId);
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();

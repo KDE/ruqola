@@ -842,3 +842,8 @@ void Room::setDescription(const QString &description)
         Q_EMIT descriptionChanged();
     }
 }
+
+bool Room::userIsIgnored(const QString &userId)
+{
+    return mIgnoredUsers.contains(userId);
+}

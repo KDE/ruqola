@@ -32,6 +32,7 @@
 class RocketChatAccount;
 class TextConverter;
 class LoadRecentHistoryManager;
+class Room;
 class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -63,7 +64,7 @@ public:
     };
     Q_ENUM(MessageRoles)
 
-    explicit MessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, QObject *parent = nullptr);
+    explicit MessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
     ~MessageModel() override;
 
     /**
@@ -105,6 +106,7 @@ private:
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
     TextConverter *mTextConverter = nullptr;
+    Room *mRoom = nullptr;
     LoadRecentHistoryManager *mLoadRecentHistoryManager = nullptr;
 };
 
