@@ -43,6 +43,8 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::descriptionChanged, this, &RoomWrapper::descriptionChanged);
     connect(mRoom, &Room::archivedChanged, this, &RoomWrapper::archivedChanged);
     connect(mRoom, &Room::rolesChanged, this, &RoomWrapper::rolesChanged);
+    connect(mRoom, &Room::ignoredUsersChanged, this, &RoomWrapper::ignoredUsersChanged);
+    connect(mRoom, &Room::mutedUsersChanged, this, &RoomWrapper::mutedUsersChanged);
 }
 
 RoomWrapper::~RoomWrapper()
