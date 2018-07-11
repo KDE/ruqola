@@ -216,6 +216,17 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     } else {
         setBlocked(false);
     }
+
+    const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
+    QStringList lstIgnored;
+    lstIgnored.reserve(ignoredArray.count());
+    for (int i = 0; i < ignoredArray.count(); ++i) {
+        lstIgnored << ignoredArray.at(i).toString();
+    }
+    setIgnoredUsers(lstIgnored);
+
+    //TODO muted ????
+
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
     if (!ownerValue.isUndefined()) {
         const QJsonObject objOwner = ownerValue.toObject();

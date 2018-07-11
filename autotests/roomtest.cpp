@@ -218,6 +218,7 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::newRow("room-update") << QStringLiteral("room-update") << (QStringList() <<QStringLiteral("room-update1"));
     QTest::newRow("room-without-owner") << QStringLiteral("room-without-owner") << (QStringList() <<QStringLiteral("room-without-owner1"));
     QTest::newRow("room-mute-unmute") << QStringLiteral("room-mute-unmute") << (QStringList() <<QStringLiteral("muted-users") << QStringLiteral("unmuted-users"));
+    QTest::newRow("userignored-room") << QStringLiteral("userignored-room") << (QStringList() <<QStringLiteral("userignored-room-update"));
 }
 
 void RoomTest::shouldParseRoomAndUpdate()
