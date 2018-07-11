@@ -1,27 +1,35 @@
 {
-    "_id": "PYdLtTwndQGdmNjYt",
-    "_updatedAt": {
-        "$date": 1519924629624
-    },
     "alert": false,
-    "emailNotifications": "nothing",
-    "f": true,
-    "groupMentions": 0,
-    "ls": {
-        "$date": 1519924629624
+    "archived": false,
+    "blocked": false,
+    "blocker": false,
+    "favorite": false,
+    "ignored": [
+        "CtmbQDdqNNNytdYsX",
+        "FTd3WQRwNXhQfeBvL"
+    ],
+    "jitsiTimeout": -1,
+    "lastSeeAt": -1,
+    "name": "sales",
+    "notifications": {
+        "audioNotificationValue": "",
+        "audioNotifications": "",
+        "desktopNotificationDuration": 0,
+        "desktopNotifications": "",
+        "disableNotifications": false,
+        "emailNotifications": "mentions",
+        "hideUnreadStatus": false,
+        "mobilePushNotifications": "",
+        "unreadAlert": ""
     },
-    "name": "foo",
     "open": true,
-    "rid": "or396aM8g7vXngDZA",
+    "rid": "np9DKhZY3TL3depq4",
+    "ro": false,
+    "roomCreatorUserID": "",
+    "roomCreatorUserName": "",
+    "selected": false,
     "t": "c",
-    "ts": {
-        "$date": 1504078419839
-    },
-    "u": {
-        "_id": "uKK39zoeTkdacidH",
-        "name": "Laurent Montel",
-        "username": "laurent"
-    },
-    "unread": 1,
-    "userMentions": 1
+    "unread": 0,
+    "updatedAt": 1531307532486,
+    "userMentions": 0
 }
