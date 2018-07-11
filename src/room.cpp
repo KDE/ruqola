@@ -116,6 +116,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "LastSeeAt: " << t.lastSeeAt();
     d << "blocked: " << t.blocked();
     d << "roles: " << t.roles();
+    d << "ignoredUsers: " << t.ignoredUsers();
     return d;
 }
 
