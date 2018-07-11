@@ -189,6 +189,8 @@ Q_SIGNALS:
     void archivedChanged();
     void descriptionChanged();
     void rolesChanged();
+    void mutedUsersChanged();
+    void ignoredUsersChanged();
 
 private:
     Q_DISABLE_COPY(Room)

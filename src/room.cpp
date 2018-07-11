@@ -277,7 +277,7 @@ void Room::setMutedUsers(const QStringList &mutedUsers)
 {
     if (mMutedUsers != mutedUsers) {
         mMutedUsers = mutedUsers;
-        //Add signal otherwise it's not necessary to check value
+        Q_EMIT mutedUsersChanged();
     }
 }
 
@@ -554,7 +554,10 @@ QStringList Room::ignoredUsers() const
 
 void Room::setIgnoredUsers(const QStringList &ignoredUsers)
 {
-    mIgnoredUsers = ignoredUsers;
+    if (mIgnoredUsers != ignoredUsers) {
+        mIgnoredUsers = ignoredUsers;
+        Q_EMIT ignoredUsersChanged();
+    }
 }
 
 void Room::parseSubscriptionRoom(const QJsonObject &json)
