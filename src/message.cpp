@@ -81,6 +81,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     }
 }
 
+QString Message::role() const
+{
+    return mRole;
+}
+
+void Message::setRole(const QString &role)
+{
+    mRole = role;
+}
+
 void Message::parseMentions(const QJsonArray &mentions)
 {
     mMentions.clear();
@@ -228,7 +238,8 @@ bool Message::operator==(const Message &other) const
            && (mUrls == other.urls())
            && (mAttachements == other.attachements())
            && (mMentions == other.mentions())
-           && (mStarred == other.starred());
+           && (mStarred == other.starred())
+            && (mRole == other.role());
 }
 
 Message &Message::operator=(const Message &other)
@@ -253,6 +264,7 @@ Message &Message::operator=(const Message &other)
     setMentions(other.mentions());
     setMessageType(other.messageType());
     setStarred(other.starred());
+    setRole(other.role());
     return *this;
 }
 
@@ -519,6 +531,7 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mGroupable = o[QStringLiteral("groupable")].toBool();
     message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
     message.mStarred = o[QStringLiteral("starred")].toBool();
+    //TODO add role !
 
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
     message.mMessageType = o[QStringLiteral("messageType")].toVariant().value<MessageType>();
@@ -561,6 +574,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     QJsonDocument d;
     QJsonObject o;
 
+    //TODO add role !
     o[QStringLiteral("messageID")] = message.mMessageId;
     o[QStringLiteral("roomID")] = message.mRoomId;
     o[QStringLiteral("message")] = message.mText;
@@ -644,6 +658,7 @@ QDebug operator <<(QDebug d, const Message &t)
     }
     d << "Mentions :" << t.mentions();
     d << "mMessageType: " << t.messageType();
+    d << "mRole: " << t.role();
     //TODO reactions
     return d;
 }

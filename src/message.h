@@ -138,6 +138,10 @@ public:
     void setReactions(const Reactions &reactions);
 
     Q_REQUIRED_RESULT QString messageTypeText() const;
+
+    Q_REQUIRED_RESULT QString role() const;
+    void setRole(const QString &role);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -155,6 +159,9 @@ private:
 
     //Mentions
     QMap<QString, QString> mMentions;
+
+    //role
+    QString mRole;
 
     // _id
     QString mMessageId;
