@@ -297,6 +297,31 @@ void MessageModelGui::fillModel()
         mModel->addMessage(m4);
     }
 
+    //Change roles
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QString::number(mIndexMessage++));
+        m4.setText(QStringLiteral("subscription-role-added"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 3, 5), QTime(11, 31, 0)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setRole(QStringLiteral("leader"));
+        mModel->addMessage(m4);
+    }
+    //Remove roles
+    {
+        Message m4;
+        m4.setMessageType(Message::MessageType::System);
+        m4.setMessageId(QString::number(mIndexMessage++));
+        m4.setText(QStringLiteral("subscription-role-removed"));
+        m4.setTimeStamp(QDateTime(QDate(2017, 3, 5), QTime(11, 31, 0)).toMSecsSinceEpoch());
+        m4.setUsername(QStringLiteral("blo"));
+        m4.setAlias(QStringLiteral("bla"));
+        m4.setRole(QStringLiteral("leader"));
+        mModel->addMessage(m4);
+    }
+
     //ADD more
 }
 

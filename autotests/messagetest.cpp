@@ -253,6 +253,8 @@ void MessageTest::shouldSerializeData()
     input.setSystemMessageType(QStringLiteral("type"));
     input.setGroupable(true);
     input.setParseUrls(true);
+    input.setRole(QStringLiteral("leader"));
+    input.setRoles({QStringLiteral("leader"), QStringLiteral("bla")});
     input.setMessageType(Message::MessageType::Audio);
     //It will break as it's not supported yet
     input.setStarred(true);

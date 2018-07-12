@@ -664,7 +664,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setRoomCreatorUserName(o[QStringLiteral("roomCreatorUserName")].toString());
     r->setRoomCreatorUserId(o[QStringLiteral("roomCreatorUserID")].toString());
     r->setTopic(o[QStringLiteral("topic")].toString());
-    r->setJitsiTimeout(o[QStringLiteral("jitsiTimeout")].toDouble());
+    r->setJitsiTimeout(static_cast<qint64>(o[QStringLiteral("jitsiTimeout")].toDouble()));
     r->setReadOnly(o[QStringLiteral("ro")].toBool());
     r->setUnread(o[QStringLiteral("unread")].toInt(0));
     r->setUserMentions(o[QStringLiteral("userMentions")].toInt(0));
@@ -677,8 +677,8 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setDescription(o[QStringLiteral("description")].toString());
     r->setBlocker(o[QStringLiteral("blocker")].toBool());
     r->setBlocked(o[QStringLiteral("blocked")].toBool());
-    r->setUpdatedAt(o[QStringLiteral("updatedAt")].toDouble());
-    r->setLastSeeAt(o[QStringLiteral("lastSeeAt")].toDouble());
+    r->setUpdatedAt(static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble()));
+    r->setLastSeeAt(static_cast<qint64>(o[QStringLiteral("lastSeeAt")].toDouble()));
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
     QStringList lst;
     lst.reserve(mutedArray.count());
@@ -698,7 +698,7 @@ Room *Room::fromJSon(const QJsonObject &o)
 
     const QJsonArray rolesArray = o.value(QLatin1String("roles")).toArray();
     QStringList lstRoles;
-    lst.reserve(rolesArray.count());
+    lstRoles.reserve(rolesArray.count());
     for (int i = 0; i < rolesArray.count(); ++i) {
         lstRoles <<rolesArray.at(i).toString();
     }

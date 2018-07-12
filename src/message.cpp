@@ -56,6 +56,15 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mAvatar = o.value(QLatin1String("avatar")).toString();
     mGroupable = o.value(QLatin1String("groupable")).toBool();
     mParseUrls = o.value(QLatin1String("parseUrls")).toBool();
+    mRole = o.value(QLatin1String("role")).toString();
+    const QJsonArray rolesArray = o.value(QLatin1String("roles")).toArray();
+    QStringList lstRoles;
+    lstRoles.reserve(rolesArray.count());
+    for (int i = 0; i < rolesArray.count(); ++i) {
+        lstRoles << rolesArray.at(i).toString();
+    }
+    mRoles = lstRoles;
+
     if (o.contains(QLatin1String("starred"))) {
         mStarred = !o.value(QStringLiteral("starred")).toArray().isEmpty();
     } else {
@@ -79,6 +88,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     if (!reacts.isEmpty()) {
         mReactions.parseReactions(reacts);
     }
+}
+
+QStringList Message::roles() const
+{
+    return mRoles;
+}
+
+void Message::setRoles(const QStringList &roles)
+{
+    mRoles = roles;
 }
 
 QString Message::role() const
@@ -239,7 +258,8 @@ bool Message::operator==(const Message &other) const
            && (mAttachements == other.attachements())
            && (mMentions == other.mentions())
            && (mStarred == other.starred())
-            && (mRole == other.role());
+            && (mRole == other.role())
+            && (mRoles == other.roles());
 }
 
 Message &Message::operator=(const Message &other)
@@ -265,6 +285,7 @@ Message &Message::operator=(const Message &other)
     setMessageType(other.messageType());
     setStarred(other.starred());
     setRole(other.role());
+    setRoles(other.roles());
     return *this;
 }
 
@@ -335,11 +356,9 @@ QString Message::messageTypeText() const
         //TODO improve it
         return i18n("%1 was muted", mUsername);
     } else if (mSystemMessageType == QLatin1String("subscription-role-added")) {
-        //TODO add type of roles !
-        return i18n("Role was added to %1 from %2", mUsername, mText);
+        return i18n("Role \'%3\' was added to %1 by %2", mUsername, mText, mRole);
     } else if (mSystemMessageType == QLatin1String("subscription-role-removed")) {
-        //TODO add type of roles !
-        return i18n("Role was removed to %1 from %2", mUsername, mText);
+        return i18n("Role \'%3\' was removed to %1 by %2", mUsername, mText, mRole);
     } else {
         qCWarning(RUQOLA_LOG) << "Unkown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
@@ -514,16 +533,14 @@ void Message::setGroupable(bool groupable)
 Message Message::fromJSon(const QJsonObject &o)
 {
     Message message;
-    //Add reactions ! "reactions"
-
     message.mMessageId = o[QStringLiteral("messageID")].toString();
     message.mRoomId = o[QStringLiteral("roomID")].toString();
     message.mText = o[QStringLiteral("message")].toString();
-    message.mTimeStamp = (qint64)o[QStringLiteral("timestamp")].toDouble();
+    message.mTimeStamp = static_cast<qint64>(o[QStringLiteral("timestamp")].toDouble());
     message.mUsername = o[QStringLiteral("username")].toString();
     message.mUserId = o[QStringLiteral("userID")].toString();
-    message.mUpdatedAt = (qint64)o[QStringLiteral("updatedAt")].toDouble();
-    message.mEditedAt = (qint64)o[QStringLiteral("editedAt")].toDouble();
+    message.mUpdatedAt = static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble());
+    message.mEditedAt = static_cast<qint64>(o[QStringLiteral("editedAt")].toDouble());
     message.mEditedByUsername = o[QStringLiteral("editedByUsername")].toString();
     message.mEditedByUserId = o[QStringLiteral("editedByUserID")].toString();
     message.mAlias = o[QStringLiteral("alias")].toString();
@@ -531,8 +548,8 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mGroupable = o[QStringLiteral("groupable")].toBool();
     message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
     message.mStarred = o[QStringLiteral("starred")].toBool();
-    //TODO add role !
-
+    message.mRole = o[QStringLiteral("role")].toString();
+//TODO add roles!
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
     message.mMessageType = o[QStringLiteral("messageType")].toVariant().value<MessageType>();
     const QJsonArray attachmentsArray = o.value(QLatin1String("attachments")).toArray();
@@ -566,6 +583,14 @@ Message Message::fromJSon(const QJsonObject &o)
 
     //TODO reactions
 
+    const QJsonArray rolesArray = o.value(QLatin1String("roles")).toArray();
+    QStringList lstRoles;
+    lstRoles.reserve(rolesArray.count());
+    for (int i = 0; i < rolesArray.count(); ++i) {
+        lstRoles <<rolesArray.at(i).toString();
+    }
+    message.setRoles(lstRoles);
+
     return message;
 }
 
@@ -574,7 +599,6 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     QJsonDocument d;
     QJsonObject o;
 
-    //TODO add role !
     o[QStringLiteral("messageID")] = message.mMessageId;
     o[QStringLiteral("roomID")] = message.mRoomId;
     o[QStringLiteral("message")] = message.mText;
@@ -590,6 +614,18 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("groupable")] = message.mGroupable;
     o[QStringLiteral("parseUrls")] = message.mParseUrls;
     o[QStringLiteral("starred")] = message.mStarred;
+    if (!message.mRole.isEmpty()) {
+        o[QStringLiteral("role")] = message.mRole;
+    }
+    if (!message.mRoles.isEmpty()) {
+        QJsonArray array;
+        const int nbRoles = message.mRoles.count();
+        for (int i = 0; i < nbRoles; ++i) {
+            array.append(message.mRoles.at(i));
+        }
+        o[QStringLiteral("roles")] = array;
+    }
+
 
     o[QStringLiteral("type")] = message.mSystemMessageType;
     o[QStringLiteral("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
@@ -612,9 +648,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     //Urls
     if (!message.mUrls.isEmpty()) {
         QJsonArray array;
-        const int nbUrls{
-            message.mUrls.count()
-        };
+        const int nbUrls = message.mUrls.count();
         for (int i = 0; i < nbUrls; ++i) {
             array.append(MessageUrl::serialize(message.mUrls.at(i)));
         }
@@ -659,6 +693,7 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "Mentions :" << t.mentions();
     d << "mMessageType: " << t.messageType();
     d << "mRole: " << t.role();
-    //TODO reactions
+    d << "mRoles: " << t.roles();
+    d << "mReaction: " << t.reactions();
     return d;
 }
