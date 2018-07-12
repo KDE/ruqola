@@ -322,8 +322,14 @@ QString Message::messageTypeText() const
     } else if (mSystemMessageType == QLatin1String("user-muted")) {
         //TODO improve it
         return i18n("%1 was muted", mUsername);
+    } else if (mSystemMessageType == QLatin1String("subscription-role-added")) {
+        //TODO add type of roles !
+        return i18n("Role was added to %1 from %2", mUsername, mText);
+    } else if (mSystemMessageType == QLatin1String("subscription-role-removed")) {
+        //TODO add type of roles !
+        return i18n("Role was removed to %1 from %2", mUsername, mText);
     } else {
-        qCWarning(RUQOLA_LOG) << "Unkown type for message: type: " << mSystemMessageType;
+        qCWarning(RUQOLA_LOG) << "Unkown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
     }
 }
