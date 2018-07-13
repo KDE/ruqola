@@ -166,6 +166,7 @@ void UserTest::shouldParseJson_data()
     expected.setStatus(QStringLiteral("away"));
     expected.setUserId(QStringLiteral("yi2ucvqkdkxiTkyZ5"));
     expected.setUserName(QStringLiteral("laurent"));
+    expected.setUtcOffset(1);
     QTest::newRow("user1") << QStringLiteral("adduser") << expected;
 }
 
