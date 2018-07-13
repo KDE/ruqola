@@ -65,7 +65,7 @@ bool FacebookAuthJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
 
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    addLoggerInfo("FacebookAuthJob started ");
+    addLoggerInfo("FacebookAuthJob started " + baPostData);
     connect(reply, &QNetworkReply::finished, this, &FacebookAuthJob::slotFacebookauthDone);
 
     return false;

@@ -56,10 +56,9 @@ bool ForgotPasswordJob::start()
         return false;
     }
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("SetAvatarJob::start: " + baPostData);
+    addLoggerInfo("ForgotPasswordJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     connect(reply, &QNetworkReply::finished, this, &ForgotPasswordJob::slotForgotPassword);
-    addLoggerInfo(QByteArrayLiteral("SetAvatarJob: start"));
     return true;
 }
 

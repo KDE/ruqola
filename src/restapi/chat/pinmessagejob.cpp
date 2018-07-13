@@ -45,7 +45,6 @@ bool PinMessageJob::start()
     addLoggerInfo("StarMessageJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     connect(reply, &QNetworkReply::finished, this, &PinMessageJob::slotPinMessage);
-    addLoggerInfo(QByteArrayLiteral("PinMessageJob: start"));
     return true;
 }
 

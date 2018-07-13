@@ -65,7 +65,7 @@ bool GoogleAuthJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
 
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    addLoggerInfo("GoogleAuthJob started ");
+    addLoggerInfo("GoogleAuthJob started " + baPostData);
     connect(reply, &QNetworkReply::finished, this, &GoogleAuthJob::slotGoogleauthDone);
 
     return false;

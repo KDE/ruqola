@@ -45,7 +45,6 @@ bool SaveNotificationJob::start()
     addLoggerInfo("SaveNotificationJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     connect(reply, &QNetworkReply::finished, this, &SaveNotificationJob::slotChangeNotificationFinished);
-    addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: start"));
     return true;
 }
 

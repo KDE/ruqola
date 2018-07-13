@@ -45,7 +45,6 @@ bool RoomFavoriteJob::start()
     addLoggerInfo("RoomFavoriteJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     connect(reply, &QNetworkReply::finished, this, &RoomFavoriteJob::slotChangeFavoriteFinished);
-    addLoggerInfo(QByteArrayLiteral("RoomFavoriteJob: start"));
     return true;
 }
 

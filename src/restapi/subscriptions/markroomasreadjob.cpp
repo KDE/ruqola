@@ -45,7 +45,6 @@ bool MarkRoomAsReadJob::start()
     addLoggerInfo("MarkRoomAsReadJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     connect(reply, &QNetworkReply::finished, this, &MarkRoomAsReadJob::slotMarkAsRead);
-    addLoggerInfo(QByteArrayLiteral("MarkRoomAsReadJob: start"));
     return true;
 }
 

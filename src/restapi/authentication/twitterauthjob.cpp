@@ -73,7 +73,7 @@ bool TwitterAuthJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
 
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    addLoggerInfo("TwitterAuthJob started ");
+    addLoggerInfo("TwitterAuthJob started " + baPostData);
     connect(reply, &QNetworkReply::finished, this, &TwitterAuthJob::slotTwitterauthDone);
 
     return false;

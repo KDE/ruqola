@@ -43,7 +43,7 @@ bool PostMessageJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
 
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    addLoggerInfo("PostMessageJob started ");
+    addLoggerInfo("PostMessageJob started " + baPostData);
     connect(reply, &QNetworkReply::finished, this, &PostMessageJob::slotPostMessageDone);
     return true;
 }

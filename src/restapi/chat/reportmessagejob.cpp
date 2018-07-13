@@ -42,10 +42,9 @@ bool ReportMessageJob::start()
         return false;
     }
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("StarMessageJob::start: " + baPostData);
+    addLoggerInfo("ReportMessageJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     connect(reply, &QNetworkReply::finished, this, &ReportMessageJob::slotPinMessage);
-    addLoggerInfo(QByteArrayLiteral("ReportMessageJob: start"));
     return true;
 }
 

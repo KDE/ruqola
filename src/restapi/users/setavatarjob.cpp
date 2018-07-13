@@ -45,7 +45,6 @@ bool SetAvatarJob::start()
     addLoggerInfo("SetAvatarJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
     connect(reply, &QNetworkReply::finished, this, &SetAvatarJob::slotSetAvatar);
-    addLoggerInfo(QByteArrayLiteral("SetAvatarJob: start"));
     return true;
 }
 
