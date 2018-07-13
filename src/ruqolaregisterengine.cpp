@@ -30,6 +30,7 @@
 #include "clipboardproxy.h"
 #include "authenticationmanager.h"
 #include "accountmanager.h"
+#include "notificationoptionswrapper.h"
 
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
@@ -90,6 +91,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<RocketChatAccountFilterProxyModel>("KDE.Ruqola.RocketChatAccountFilterProxyModel", 1, 0, "RocketChatAccountFilterProxyModel");
     qmlRegisterType<RocketChatAccountModel>("KDE.Ruqola.RocketChatAccountModel", 1, 0, "RocketChatAccountModel");
     qmlRegisterType<ClipboardProxy>("KDE.Ruqola.Clipboard", 1, 0, "Clipboard");
+    qmlRegisterType<NotificationOptionsWrapper>("KDE.Ruqola.NotificationOptionsWrapper", 1, 0, "NotificationOptionsWrapper");
 
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
     qmlRegisterUncreatableType<Channel>("KDE.Ruqola.Channel", 1, 0, "Channel", QStringLiteral("ChannelType is an enum container"));

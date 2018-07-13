@@ -28,42 +28,40 @@
 
 class LIBRUQOLACORE_TESTS_EXPORT NotificationOptions
 {
-    Q_GADGET
-    Q_PROPERTY(bool hideUnreadStatus READ hideUnreadStatus CONSTANT)
 public:
     NotificationOptions();
 
-    bool hideUnreadStatus() const;
+    Q_REQUIRED_RESULT bool hideUnreadStatus() const;
     void setHideUnreadStatus(bool value);
 
-    bool disableNotifications() const;
+    Q_REQUIRED_RESULT bool disableNotifications() const;
     void setDisableNotifications(bool disableNotifications);
 
-    QString unreadTrayIconAlert() const;
+    Q_REQUIRED_RESULT QString unreadTrayIconAlert() const;
     void setUnreadTrayIconAlert(const QString &unreadTrayIconAlert);
 
-    QString emailNotifications() const;
+    Q_REQUIRED_RESULT QString emailNotifications() const;
     void setEmailNotifications(const QString &emailNotifications);
 
-    QString mobilePushNotification() const;
+    Q_REQUIRED_RESULT QString mobilePushNotification() const;
     void setMobilePushNotification(const QString &mobilePushNotification);
 
-    QString desktopNotifications() const;
+    Q_REQUIRED_RESULT QString desktopNotifications() const;
     void setDesktopNotifications(const QString &desktopNotifications);
 
-    QString audioNotifications() const;
+    Q_REQUIRED_RESULT QString audioNotifications() const;
     void setAudioNotifications(const QString &audioNotifications);
 
     void parseNotificationOptions(const QJsonObject &obj);
 
-    QString audioNotificationValue() const;
+    Q_REQUIRED_RESULT QString audioNotificationValue() const;
     void setAudioNotificationValue(const QString &audioNotificationValue);
 
-    int desktopNotificationDuration() const;
+    Q_REQUIRED_RESULT int desktopNotificationDuration() const;
     void setDesktopNotificationDuration(int desktopNotificationDuration);
 
-    static QJsonObject serialize(const NotificationOptions &message);
-    static NotificationOptions fromJSon(const QJsonObject &o);
+    Q_REQUIRED_RESULT static QJsonObject serialize(const NotificationOptions &message);
+    Q_REQUIRED_RESULT static NotificationOptions fromJSon(const QJsonObject &o);
 
     void updateNotificationOptions(const QJsonObject &obj);
     NotificationOptions &operator =(const NotificationOptions &other);

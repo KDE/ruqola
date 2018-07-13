@@ -26,7 +26,59 @@ NotificationOptionsWrapper::NotificationOptionsWrapper(QObject *parent)
 
 }
 
+NotificationOptionsWrapper::NotificationOptionsWrapper(const NotificationOptions &notification, QObject *parent)
+    : QObject(parent)
+    , mNotificationOptions(notification)
+{
+
+}
+
 NotificationOptionsWrapper::~NotificationOptionsWrapper()
 {
 
+}
+
+bool NotificationOptionsWrapper::hideUnreadStatus() const
+{
+    return mNotificationOptions.hideUnreadStatus();
+}
+
+bool NotificationOptionsWrapper::disableNotifications() const
+{
+    return mNotificationOptions.disableNotifications();
+}
+
+QString NotificationOptionsWrapper::unreadTrayIconAlert() const
+{
+    return mNotificationOptions.unreadTrayIconAlert();
+}
+
+QString NotificationOptionsWrapper::emailNotifications() const
+{
+    return mNotificationOptions.emailNotifications();
+}
+
+QString NotificationOptionsWrapper::mobilePushNotification() const
+{
+    return mNotificationOptions.mobilePushNotification();
+}
+
+QString NotificationOptionsWrapper::desktopNotifications() const
+{
+    return mNotificationOptions.desktopNotifications();
+}
+
+QString NotificationOptionsWrapper::audioNotifications() const
+{
+    return mNotificationOptions.audioNotifications();
+}
+
+QString NotificationOptionsWrapper::audioNotificationValue() const
+{
+    return mNotificationOptions.audioNotificationValue();
+}
+
+int NotificationOptionsWrapper::desktopNotificationDuration() const
+{
+    return mNotificationOptions.desktopNotificationDuration();
 }

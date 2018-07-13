@@ -22,13 +22,36 @@
 #define NOTIFICATIONOPTIONSWRAPPER_H
 
 #include <QObject>
+#include "notificationoptions.h"
 
 class NotificationOptionsWrapper : public QObject
 {
     Q_OBJECT
 public:
     explicit NotificationOptionsWrapper(QObject *parent = nullptr);
+    explicit NotificationOptionsWrapper(const NotificationOptions &notification, QObject *parent = nullptr);
     ~NotificationOptionsWrapper();
+
+    bool hideUnreadStatus() const;
+
+    bool disableNotifications() const;
+
+    QString unreadTrayIconAlert() const;
+
+    QString emailNotifications() const;
+
+    QString mobilePushNotification() const;
+
+    QString desktopNotifications() const;
+
+    QString audioNotifications() const;
+
+    QString audioNotificationValue() const;
+
+    int desktopNotificationDuration() const;
+private:
+    Q_DISABLE_COPY(NotificationOptionsWrapper)
+    NotificationOptions mNotificationOptions;
 };
 
 #endif // NOTIFICATIONOPTIONSWRAPPER_H
