@@ -27,6 +27,16 @@
 class NotificationOptionsWrapper : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(bool hideUnreadStatus READ hideUnreadStatus CONSTANT)
+    Q_PROPERTY(bool disableNotifications READ disableNotifications CONSTANT)
+    Q_PROPERTY(QString unreadTrayIconAlert READ unreadTrayIconAlert CONSTANT)
+    Q_PROPERTY(QString emailNotifications READ emailNotifications CONSTANT)
+    Q_PROPERTY(QString mobilePushNotification READ mobilePushNotification CONSTANT)
+    Q_PROPERTY(QString desktopNotifications READ desktopNotifications CONSTANT)
+    Q_PROPERTY(QString audioNotifications READ audioNotifications CONSTANT)
+    Q_PROPERTY(QString audioNotificationValue READ audioNotificationValue CONSTANT)
+    Q_PROPERTY(int desktopNotificationDuration READ desktopNotificationDuration CONSTANT)
+
 public:
     explicit NotificationOptionsWrapper(QObject *parent = nullptr);
     explicit NotificationOptionsWrapper(const NotificationOptions &notification, QObject *parent = nullptr);
