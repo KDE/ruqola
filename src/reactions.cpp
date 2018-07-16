@@ -41,6 +41,7 @@ void Reactions::parseReactions(const QJsonObject &reacts)
     const QStringList lst = reacts.keys();
     QStringList users;
     for (const QString &str : lst) {
+        users.clear();
         const QJsonObject obj = reacts.value(str).toObject();
         QJsonValue usernames = obj.value(QLatin1String("usernames"));
         if (!usernames.isUndefined()) {
@@ -55,7 +56,6 @@ void Reactions::parseReactions(const QJsonObject &reacts)
             r.setUserNames(users);
             mReactions.append(r);
         }
-        users.clear();
     }
 }
 

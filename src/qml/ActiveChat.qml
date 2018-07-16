@@ -75,6 +75,7 @@ ListView {
         i_avatar: avatar == "" ? rcAccount.avatarUrl(userID) : avatar
         i_urls: urls
         i_attachments: attachments
+        i_reactions: reactions
         i_date: date
         i_own_username: rcAccount.userName
         i_can_editing_message: canEditingMessage

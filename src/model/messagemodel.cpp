@@ -140,6 +140,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Starred] = QByteArrayLiteral("starred");
     roles[UsernameUrl] = QByteArrayLiteral("usernameurl");
     roles[Roles] = QByteArrayLiteral("roles");
+    roles[Reactions] = QByteArrayLiteral("reactions");
     return roles;
 }
 
@@ -277,6 +278,16 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(mAllMessages.at(idx).username());
     case MessageModel::Roles:
         return mAllMessages.at(idx).roles();
+    case MessageModel::Reactions:
+    {
+        QVariantList lst;
+        lst.reserve(mAllMessages.at(idx).reactions().reactions().count());
+        for (const Reaction &react : mAllMessages.at(idx).reactions().reactions()) {
+            lst.append(QVariant::fromValue(react));
+        }
+        return lst;
+    }
+
     }
     return QString();
 }

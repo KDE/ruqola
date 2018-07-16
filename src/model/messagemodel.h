@@ -62,6 +62,7 @@ public:
         Starred,
         UsernameUrl,
         Roles,
+        Reactions
     };
     Q_ENUM(MessageRoles)
 
