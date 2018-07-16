@@ -21,6 +21,7 @@
  */
 
 #include "rocketchataccount.h"
+#include "notificationoptionswrapper.h"
 #include "room.h"
 #include "utils.h"
 #include "ruqola_debug.h"
@@ -360,7 +361,7 @@ void Room::setOpen(bool open)
 {
     if (mOpen != open) {
         mOpen = open;
-        //TODO
+        Q_EMIT openChanged();
     }
 }
 

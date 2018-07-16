@@ -47,6 +47,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(bool blocker READ blocker WRITE setBlocker NOTIFY blockerChanged)
     Q_PROPERTY(bool archived READ archived WRITE setArchived NOTIFY archivedChanged)
     Q_PROPERTY(bool blocked READ blocked WRITE setBlocked NOTIFY blockedChanged)
+    Q_PROPERTY(bool open READ open WRITE setOpen NOTIFY openChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
     Q_PROPERTY(QStringList roles READ roles WRITE setRoles NOTIFY rolesChanged)
 public:
@@ -181,6 +182,7 @@ Q_SIGNALS:
     void alertChanged();
     void readOnlyChanged();
     void unreadChanged();
+    void openChanged();
 
     //Blocker we blocked the channel
     void blockerChanged();
