@@ -41,6 +41,7 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
 public:
     MessageAttachment();
     Q_REQUIRED_RESULT bool isEmpty() const;
+
     Q_REQUIRED_RESULT QString description() const;
     void setDescription(const QString &description);
 
