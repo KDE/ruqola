@@ -25,6 +25,7 @@ Reaction::Reaction()
 
 QString Reaction::reactionName() const
 {
+    qDebug() << " QString Reaction::reactionName() const"<<mReactionName;
     return mReactionName;
 }
 
@@ -41,6 +42,11 @@ QStringList Reaction::userNames() const
 void Reaction::setUserNames(const QStringList &userNames)
 {
     mUserNames = userNames;
+}
+
+int Reaction::count() const
+{
+    return mUserNames.count();
 }
 
 bool Reaction::operator ==(const Reaction &other) const
