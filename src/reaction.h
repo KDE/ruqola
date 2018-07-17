@@ -27,6 +27,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Reaction
     Q_GADGET
     Q_PROPERTY(int count READ count CONSTANT)
     Q_PROPERTY(QString reactionName READ reactionName CONSTANT)
+    Q_PROPERTY(QString convertedReactionName READ convertedReactionName CONSTANT)
 public:
     Reaction();
 
@@ -40,6 +41,7 @@ public:
 
     Q_REQUIRED_RESULT bool operator ==(const Reaction &other) const;
 
+    Q_REQUIRED_RESULT QString convertedReactionName() const;
 private:
     QString mReactionName;
     QStringList mUserNames;

@@ -141,7 +141,7 @@ MessageBase {
                                 id: numberOfReact
                                 renderType: Text.NativeRendering
                                 textFormat: Text.RichText
-                                text: model.modelData.reactionName
+                                text: model.modelData.convertedReactionName
                                 wrapMode: QQC2.Label.Wrap
                                 anchors.leftMargin: Kirigami.Units.smallSpacing
                                 anchors.rightMargin: Kirigami.Units.smallSpacing

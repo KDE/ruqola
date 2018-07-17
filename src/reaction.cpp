@@ -18,9 +18,17 @@
 */
 
 #include "reaction.h"
-
+#include <KTextToHTML>
 Reaction::Reaction()
 {
+}
+
+QString Reaction::convertedReactionName() const
+{
+    QString str = mReactionName;
+    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys;
+    str = KTextToHTML::convertToHtml(str, convertFlags);
+    return str;
 }
 
 QString Reaction::reactionName() const
