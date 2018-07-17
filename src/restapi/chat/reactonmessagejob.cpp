@@ -75,6 +75,16 @@ void ReactOnMessageJob::setEmoji(const QString &emoji)
     mEmoji = emoji;
 }
 
+void ReactOnMessageJob::setShouldReact(bool added)
+{
+    mAddReact = added;
+}
+
+bool ReactOnMessageJob::shouldReact() const
+{
+    return mAddReact;
+}
+
 bool ReactOnMessageJob::requireHttpAuthentication() const
 {
     return true;
@@ -102,6 +112,7 @@ QJsonDocument ReactOnMessageJob::json() const
     QJsonObject jsonObj;
     jsonObj[QLatin1String("emoji")] = mEmoji;
     jsonObj[QLatin1String("messageId")] = mMessageId;
+    jsonObj[QLatin1String("shouldReact")] = mAddReact;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

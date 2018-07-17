@@ -36,12 +36,16 @@ public:
 
     Q_REQUIRED_RESULT QString messageId() const;
     void setMessageId(const QString &msgId);
+
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
     Q_REQUIRED_RESULT QString emoji() const;
     void setEmoji(const QString &emoji);
+
+    void setShouldReact(bool added);
+    Q_REQUIRED_RESULT bool shouldReact() const;
 
 Q_SIGNALS:
     void reactOnMessageDone();
@@ -51,6 +55,7 @@ private:
     void slotReactonMessageFinished();
     QString mMessageId;
     QString mEmoji;
+    bool mAddReact = true;
 };
 
 #endif // REACTONMESSAGEJOB_H
