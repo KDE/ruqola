@@ -35,6 +35,14 @@ Repeater {
             wrapMode: QQC2.Label.Wrap
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
+            MouseArea {
+                anchors.fill: parent
+                acceptedButtons: Qt.RightButton | Qt.LeftButton
+
+                onClicked: {
+                    console.log("clicked");
+                }
+            }
         }
     }
 }
