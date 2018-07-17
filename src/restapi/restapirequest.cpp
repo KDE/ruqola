@@ -503,12 +503,13 @@ void RestApiRequest::updateMessage(const QString &roomId, const QString &message
     }
 }
 
-void RestApiRequest::reactOnMessage(const QString &messageId, const QString &emoji)
+void RestApiRequest::reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact)
 {
     ReactOnMessageJob *job = new ReactOnMessageJob(this);
     initializeRestApiJob(job);
     job->setMessageId(messageId);
     job->setEmoji(emoji);
+    job->setShouldReact(shouldReact);
     if (!job->start()) {
         qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
     }

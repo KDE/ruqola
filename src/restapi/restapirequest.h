@@ -76,7 +76,7 @@ public:
     void leaveChannel(const QString &roomId);
     void leaveGroups(const QString &roomId);
     void updateMessage(const QString &roomId, const QString &messageId, const QString &text);
-    void reactOnMessage(const QString &messageId, const QString &emoji);
+    void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
     void closeChannel(const QString &roomId, const QString &type);
     void createDirectMessage(const QString &userName);
     void historyChannel(const QString &roomId, const QString &type);
