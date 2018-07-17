@@ -30,6 +30,7 @@ public:
     ~ReactionTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldReturnCount();
 };
 
 #endif // REACTIONTEST_H

@@ -33,4 +33,15 @@ void ReactionTest::shouldHaveDefaultValue()
     Reaction r;
     QVERIFY(r.userNames().isEmpty());
     QVERIFY(r.reactionName().isEmpty());
+    QCOMPARE(r.count(), 0);
 }
+
+void ReactionTest::shouldReturnCount()
+{
+    Reaction r;
+    r.setReactionName(QStringLiteral("bla"));
+    QCOMPARE(r.reactionName(), QStringLiteral("bla"));
+    r.setUserNames({QStringLiteral("dd"), QStringLiteral("dd2")});
+    QCOMPARE(r.count(), 2);
+}
+
