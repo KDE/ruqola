@@ -42,6 +42,7 @@ MessageBase {
             username: i_username
         }
 
+
         Repeater {
             id: repearterAttachments
             model: i_attachments
@@ -137,20 +138,9 @@ MessageBase {
                 }
             }
         }
-        Repeater {
+        RepeaterReactions {
             id: repearterReactions
             model: i_reactions
-            Row {
-                QQC2.Label {
-                    id: numberOfReact
-                    renderType: Text.NativeRendering
-                    textFormat: Text.RichText
-                    text: model.modelData.convertedReactionName
-                    wrapMode: QQC2.Label.Wrap
-                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                }
-            }
         }
 
         TimestampText {

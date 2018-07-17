@@ -51,7 +51,7 @@ MessageBase {
             Row {
                 Column {
                     QQC2.Label {
-                        id: imageTitle                        
+                        id: imageTitle
                         text: model.modelData.title === "" ? "" :  model.modelData.imageTitle
                         visible: model.modelData.title !== ""
                         wrapMode: QQC2.Label.Wrap
@@ -177,20 +177,9 @@ MessageBase {
                 }
             }
         }
-        Repeater {
+        RepeaterReactions {
             id: repearterReactions
             model: i_reactions
-            Row {
-                QQC2.Label {
-                    id: numberOfReact
-                    renderType: Text.NativeRendering
-                    textFormat: Text.RichText
-                    text: model.modelData.convertedReactionName
-                    wrapMode: QQC2.Label.Wrap
-                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                }
-            }
         }
 
         Item {
