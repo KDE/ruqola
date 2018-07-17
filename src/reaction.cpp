@@ -25,7 +25,6 @@ Reaction::Reaction()
 
 QString Reaction::reactionName() const
 {
-    qDebug() << " QString Reaction::reactionName() const"<<mReactionName;
     return mReactionName;
 }
 
