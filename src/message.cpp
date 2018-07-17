@@ -259,7 +259,8 @@ bool Message::operator==(const Message &other) const
            && (mMentions == other.mentions())
            && (mStarred == other.starred())
             && (mRole == other.role())
-            && (mRoles == other.roles());
+            && (mRoles == other.roles())
+            && (mReactions == other.reactions());
 }
 
 Message &Message::operator=(const Message &other)
@@ -286,6 +287,7 @@ Message &Message::operator=(const Message &other)
     setStarred(other.starred());
     setRole(other.role());
     setRoles(other.roles());
+    setReactions(other.reactions());
     return *this;
 }
 
