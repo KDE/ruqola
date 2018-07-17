@@ -414,6 +414,11 @@ void Room::setChannelType(const QString &channelType)
     mChannelType = channelType;
 }
 
+QString Room::markdownAnnouncement() const
+{
+    return Utils::markdownToRichText(mAnnouncement);
+}
+
 QString Room::announcement() const
 {
     return mAnnouncement;

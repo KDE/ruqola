@@ -63,7 +63,7 @@ QString RoomWrapper::topic() const
 
 QString RoomWrapper::announcement() const
 {
-    return mRoom->announcement();
+    return mRoom->markdownAnnouncement();
 }
 
 bool RoomWrapper::favorite() const

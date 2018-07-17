@@ -191,6 +191,9 @@ Component {
                 anchors.left: parent.left
                 anchors.margins: 2*Kirigami.Units.smallSpacing
                 wrapMode: QQC2.Label.Wrap
+                onLinkActivated: {
+                    RuqolaUtils.openUrl(link);
+                }
             }
 
             Rectangle {
