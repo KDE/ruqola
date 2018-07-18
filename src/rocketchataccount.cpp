@@ -281,6 +281,11 @@ void RocketChatAccount::textEditing(const QString &roomId, const QString &str)
     mTypingNotification->setText(roomId, str);
 }
 
+void RocketChatAccount::reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact)
+{
+    restApi()->reactOnMessage(messageId, emoji, shouldReact);
+}
+
 void RocketChatAccount::sendMessage(const QString &roomID, const QString &message)
 {
 #ifdef USE_REASTAPI_JOB

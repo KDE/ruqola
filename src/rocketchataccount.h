@@ -235,6 +235,7 @@ public:
 
     void initializeRoom(const QString &roomId, bool loadInitialHistory = true);
 
+    Q_INVOKABLE void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
