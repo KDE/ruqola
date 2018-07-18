@@ -18,36 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ResetAvatarJob_H
-#define ResetAvatarJob_H
+#ifndef SETAVATARDONETEST_H
+#define SETAVATARDONETEST_H
 
-#include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
+#include <QObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT ResetAvatarJob : public RestApiAbstractJob
+class ResetAvatarJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ResetAvatarJob(QObject *parent = nullptr);
-    ~ResetAvatarJob() override;
-
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-
-    Q_REQUIRED_RESULT QJsonDocument json() const;
-
-    Q_REQUIRED_RESULT QString avatarUserId() const;
-    void setAvatarUserId(const QString &avatarUserId);
-
-Q_SIGNALS:
-    void setAvatarDone();
-
-private:
-    Q_DISABLE_COPY(ResetAvatarJob)
-    void slotSetAvatar();
-    QString mAvatarUserId;
+    explicit ResetAvatarJobTest(QObject *parent = nullptr);
+    ~ResetAvatarJobTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
+    void shouldGenerateJson();
+    void shouldNotStarting();
 };
 
-#endif // ResetAvatarJob_H
+#endif // SETAVATARDONETEST_H

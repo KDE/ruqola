@@ -26,68 +26,68 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 
-ReSetAvatarJob::ReSetAvatarJob(QObject *parent)
+ResetAvatarJob::ResetAvatarJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-ReSetAvatarJob::~ReSetAvatarJob()
+ResetAvatarJob::~ResetAvatarJob()
 {
 }
 
-bool ReSetAvatarJob::start()
+bool ResetAvatarJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("ReSetAvatarJob::start: " + baPostData);
+    addLoggerInfo("ResetAvatarJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &ReSetAvatarJob::slotSetAvatar);
+    connect(reply, &QNetworkReply::finished, this, &ResetAvatarJob::slotSetAvatar);
     return true;
 }
 
-void ReSetAvatarJob::slotSetAvatar()
+void ResetAvatarJob::slotSetAvatar()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("ReSetAvatarJob: finished: ") + data);
+        addLoggerInfo(QByteArrayLiteral("ResetAvatarJob: finished: ") + data);
         Q_EMIT setAvatarDone();
     }
     deleteLater();
 }
 
-QString ReSetAvatarJob::avatarUserId() const
+QString ResetAvatarJob::avatarUserId() const
 {
     return mAvatarUserId;
 }
 
-void ReSetAvatarJob::setAvatarUserId(const QString &avatarUserId)
+void ResetAvatarJob::setAvatarUserId(const QString &avatarUserId)
 {
     mAvatarUserId = avatarUserId;
 }
 
-bool ReSetAvatarJob::requireHttpAuthentication() const
+bool ResetAvatarJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool ReSetAvatarJob::canStart() const
+bool ResetAvatarJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ReSetAvatarJob";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ResetAvatarJob";
         return false;
     }
     if (mAvatarUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ReSetAvatarJob: mAvatarUserId is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "ResetAvatarJob: mAvatarUserId is empty";
         return false;
     }
     return true;
 }
 
-QNetworkRequest ReSetAvatarJob::request() const
+QNetworkRequest ResetAvatarJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersResetAvatar);
     QNetworkRequest request(url);
@@ -98,7 +98,7 @@ QNetworkRequest ReSetAvatarJob::request() const
     return request;
 }
 
-QJsonDocument ReSetAvatarJob::json() const
+QJsonDocument ResetAvatarJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("userId")] = mAvatarUserId;
