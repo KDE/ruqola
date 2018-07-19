@@ -42,11 +42,11 @@ public:
     void setAvatarUserId(const QString &avatarUserId);
 
 Q_SIGNALS:
-    void setAvatarDone();
+    void resetAvatarDone();
 
 private:
     Q_DISABLE_COPY(ResetAvatarJob)
-    void slotSetAvatar();
+    void slotResetAvatar();
     QString mAvatarUserId;
 };
 

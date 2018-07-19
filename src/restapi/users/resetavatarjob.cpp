@@ -44,17 +44,17 @@ bool ResetAvatarJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("ResetAvatarJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &ResetAvatarJob::slotSetAvatar);
+    connect(reply, &QNetworkReply::finished, this, &ResetAvatarJob::slotResetAvatar);
     return true;
 }
 
-void ResetAvatarJob::slotSetAvatar()
+void ResetAvatarJob::slotResetAvatar()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
         addLoggerInfo(QByteArrayLiteral("ResetAvatarJob: finished: ") + data);
-        Q_EMIT setAvatarDone();
+        Q_EMIT resetAvatarDone();
     }
     deleteLater();
 }
