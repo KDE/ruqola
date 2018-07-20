@@ -31,6 +31,12 @@ public:
     explicit SetGroupTypeJob(QObject *parent = nullptr);
     ~SetGroupTypeJob() override;
 
+    enum GroupType {
+        Unknown = 0,
+        Private,
+        Public,
+    };
+
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
     Q_REQUIRED_RESULT bool canStart() const override;
@@ -42,13 +48,17 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
+    Q_REQUIRED_RESULT GroupType type() const;
+    void setType(const GroupType &type);
+
 Q_SIGNALS:
-    void createGroupsDone();
+    void setGroupTypeDone();
 
 private:
     Q_DISABLE_COPY(SetGroupTypeJob)
-    void slotCreateGroupsFinished();
+    void slotSetGroupTypeFinished();
     QString mRoomId;
+    GroupType mType = Unknown;
 };
 
 #endif

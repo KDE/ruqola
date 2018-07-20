@@ -45,11 +45,11 @@ bool SetGroupTypeJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("SetGroupTypeJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &SetGroupTypeJob::slotCreateGroupsFinished);
+    connect(reply, &QNetworkReply::finished, this, &SetGroupTypeJob::slotSetGroupTypeFinished);
     return true;
 }
 
-void SetGroupTypeJob::slotCreateGroupsFinished()
+void SetGroupTypeJob::slotSetGroupTypeFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -59,12 +59,22 @@ void SetGroupTypeJob::slotCreateGroupsFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success: " << data;
-            Q_EMIT createGroupsDone();
+            Q_EMIT setGroupTypeDone();
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
         }
     }
     deleteLater();
+}
+
+SetGroupTypeJob::GroupType SetGroupTypeJob::type() const
+{
+    return mType;
+}
+
+void SetGroupTypeJob::setType(const GroupType &type)
+{
+    mType = type;
 }
 
 QString SetGroupTypeJob::roomId() const
@@ -88,6 +98,10 @@ bool SetGroupTypeJob::canStart() const
         qCWarning(RUQOLA_RESTAPI_LOG) << "SetGroupTypeJob: mRoomId is empty";
         return false;
     }
+    if (mType == Unknown) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "SetGroupTypeJob: type is not defined";
+        return false;
+    }
     if (!RestApiAbstractJob::canStart()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SetGroupTypeJob job";
         return false;
@@ -99,6 +113,16 @@ QJsonDocument SetGroupTypeJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = roomId();
+    switch (mType) {
+    case Public:
+        jsonObj[QLatin1String("type")] = QStringLiteral("p");
+        break;
+    case Private:
+        jsonObj[QLatin1String("type")] = QStringLiteral("c");
+        break;
+    case Unknown:
+        break;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
