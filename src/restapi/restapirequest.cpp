@@ -61,6 +61,7 @@
 #include "channels/archivechanneljob.h"
 #include "channels/channelfilesjob.h"
 #include "channels/channelinvitejob.h"
+#include "channels/setchanneltypejob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -839,6 +840,17 @@ void RestApiRequest::setGroupType(const QString &roomId, const QString &type)
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setType(type == QLatin1String("c") ? SetGroupTypeJob::Private : SetGroupTypeJob::Public);
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::setChannelType(const QString &roomId, const QString &type)
+{
+    SetChannelTypeJob *job = new SetChannelTypeJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setType(type == QLatin1String("c") ? SetChannelTypeJob::Private : SetChannelTypeJob::Public);
     if (!job->start()) {
         qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
     }

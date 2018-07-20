@@ -110,6 +110,7 @@ public:
     void userPresence(const QString &userId);
     void reportMessage(const QString &messageId, const QString &message);
     void setGroupType(const QString &roomId, const QString &type);
+    void setChannelType(const QString &roomId, const QString &type);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
