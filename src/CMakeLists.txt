@@ -67,6 +67,7 @@ set (Ruqola_restapi_SRCS
     restapi/groups/archivegroupsjob.cpp
     restapi/groups/groupsinvitejob.cpp
     restapi/groups/groupskickjob.cpp
+    restapi/groups/setgrouptypejob.cpp
 
     restapi/directmessage/createdmjob.cpp
 
