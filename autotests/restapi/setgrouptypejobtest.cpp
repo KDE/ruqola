@@ -58,7 +58,6 @@ void SetGroupTypeJobTest::shouldGenerateJson()
 
     job.setType(SetGroupTypeJob::Public);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"type\":\"p\"}").arg(channelname).toLatin1());
-
 }
 
 void SetGroupTypeJobTest::shouldNotStarting()

@@ -69,6 +69,7 @@
 #include "groups/changegroupsdescriptionjob.h"
 #include "groups/archivegroupsjob.h"
 #include "groups/groupsinvitejob.h"
+#include "groups/setgrouptypejob.h"
 
 #include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
@@ -827,6 +828,17 @@ void RestApiRequest::reportMessage(const QString &messageId, const QString &mess
     job->setMessageId(messageId);
     job->setReportMessage(message);
     //connect(job, &GetPresenceJob::getPresenceDone, this, &RestApiRequest::getPresenceDone);
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::setGroupType(const QString &roomId, const QString &type)
+{
+    SetGroupTypeJob *job = new SetGroupTypeJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setType(type == QLatin1String("c") ? SetGroupTypeJob::Private : SetGroupTypeJob::Public);
     if (!job->start()) {
         qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
     }
