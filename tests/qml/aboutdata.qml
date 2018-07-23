@@ -16,7 +16,7 @@ ApplicationWindow {
     visible: true
     title: "About Data Test"
 
-    Label {
+    QQC2.Label {
         text: "click for show aboutdata"
         anchors.fill: parent
         horizontalAlignment: Text.AlignHCenter
