@@ -149,6 +149,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.setType");
     case RestApiUtil::RestApiUrlType::ChannelsUnarchive:
         return QStringLiteral("channels.unarchive");
+    case RestApiUtil::RestApiUrlType::ChannelsRoles:
+        return QStringLiteral("channels.roles");
     case RestApiUtil::RestApiUrlType::GroupsAddAll:
         return QStringLiteral("groups.addAll");
     case RestApiUtil::RestApiUrlType::GroupsAddModerator:
@@ -199,6 +201,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("groups.setAnnouncement");
     case RestApiUtil::RestApiUrlType::GroupsFiles:
         return QStringLiteral("groups.files");
+    case RestApiUtil::RestApiUrlType::GroupsRoles:
+        return QStringLiteral("groups.roles");
     case RestApiUtil::RestApiUrlType::ServerInfo:
         return QStringLiteral("info");
     case RestApiUtil::RestApiUrlType::Settings:

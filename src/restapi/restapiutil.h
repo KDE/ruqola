@@ -79,6 +79,8 @@ enum class RestApiUrlType {
     ChannelsSetAnnouncement,
     ChannelsFiles,
     ChannelsUnarchive,
+    //since 0.65
+    ChannelsRoles,
     GroupsAddAll,
     GroupsAddModerator,
     GroupsAddOwner,
@@ -104,6 +106,8 @@ enum class RestApiUrlType {
     GroupsUnarchive,
     GroupsSetAnnouncement,
     GroupsFiles,
+    //Since 0.65
+    GroupsRoles,
     ServerInfo,
     Settings,
     SettingsPublic,
