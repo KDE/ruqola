@@ -111,6 +111,8 @@ public:
     void reportMessage(const QString &messageId, const QString &message);
     void setGroupType(const QString &roomId, const QString &type);
     void setChannelType(const QString &roomId, const QString &type);
+    void getGroupRoles(const QString &roomId);
+    void getChannelRoles(const QString &roomId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -126,6 +128,8 @@ Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
     void getRoomsDone(const QJsonObject &obj);
     void usersInfoDone(const QJsonObject &obj);
+    void groupRolesDone(const QJsonObject &obj);
+    void channelRolesDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

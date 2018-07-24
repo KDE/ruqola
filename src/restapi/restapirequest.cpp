@@ -62,6 +62,7 @@
 #include "channels/channelfilesjob.h"
 #include "channels/channelinvitejob.h"
 #include "channels/setchanneltypejob.h"
+#include "channels/getchannelrolesjob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -71,6 +72,7 @@
 #include "groups/archivegroupsjob.h"
 #include "groups/groupsinvitejob.h"
 #include "groups/setgrouptypejob.h"
+#include "groups/getgrouprolesjob.h"
 
 #include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
@@ -853,5 +855,27 @@ void RestApiRequest::setChannelType(const QString &roomId, const QString &type)
     job->setType(type == QLatin1String("c") ? SetChannelTypeJob::Private : SetChannelTypeJob::Public);
     if (!job->start()) {
         qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::getGroupRoles(const QString &roomId)
+{
+    GetGroupRolesJob *job = new GetGroupRolesJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    connect(job, &GetGroupRolesJob::groupRolesDone, this, &RestApiRequest::groupRolesDone);
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start getGroupRoles job";
+    }
+}
+
+void RestApiRequest::getChannelRoles(const QString &roomId)
+{
+    GetChannelRolesJob *job = new GetChannelRolesJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    connect(job, &GetChannelRolesJob::channelRolesDone, this, &RestApiRequest::channelRolesDone);
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start GetChannelRolesJob job";
     }
 }
