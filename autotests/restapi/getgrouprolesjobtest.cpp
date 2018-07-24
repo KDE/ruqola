@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "getchannelrolesjobtest.h"
-#include "restapi/channels/getchannelrolesjob.h"
+#include "getgrouprolesjobtest.h"
+#include "restapi/groups/getgrouprolesjob.h"
 #include "restapi/restapimethod.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(GetChannelRolesJobTest)
+QTEST_GUILESS_MAIN(GetGroupRolesJobTest)
 
-GetChannelRolesJobTest::GetChannelRolesJobTest(QObject *parent)
+GetGroupRolesJobTest::GetGroupRolesJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void GetChannelRolesJobTest::shouldHaveDefaultValue()
+void GetGroupRolesJobTest::shouldHaveDefaultValue()
 {
-    GetChannelRolesJob job;
+    GetGroupRolesJob job;
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
@@ -40,15 +40,15 @@ void GetChannelRolesJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.ruqolaLogger());
 }
 
-void GetChannelRolesJobTest::shouldGenerateRequest()
+void GetGroupRolesJobTest::shouldGenerateRequest()
 {
-    GetChannelRolesJob job;
+    GetGroupRolesJob job;
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString roomId = QStringLiteral("avat");
     job.setRoomId(roomId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getPresence?userId=avat")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.roles?roomId=avat")));
     delete method;
 }

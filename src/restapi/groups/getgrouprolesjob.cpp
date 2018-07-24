@@ -24,6 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 
 GetGroupRolesJob::GetGroupRolesJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -64,7 +65,11 @@ bool GetGroupRolesJob::start()
 
 QNetworkRequest GetGroupRolesJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsRoles);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsRoles);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
@@ -73,7 +78,7 @@ QNetworkRequest GetGroupRolesJob::request() const
 
 bool GetGroupRolesJob::requireHttpAuthentication() const
 {
-    return false;
+    return true;
 }
 
 void GetGroupRolesJob::slotGetGroupRolesFinished()

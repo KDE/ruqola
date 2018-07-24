@@ -22,6 +22,7 @@
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
+#include <QUrlQuery>
 #include <QJsonObject>
 #include <QNetworkReply>
 
@@ -64,7 +65,10 @@ bool GetChannelRolesJob::start()
 
 QNetworkRequest GetChannelRolesJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsRoles);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsRoles);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    url.setQuery(queryUrl);
     QNetworkRequest request(url);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
@@ -73,7 +77,7 @@ QNetworkRequest GetChannelRolesJob::request() const
 
 bool GetChannelRolesJob::requireHttpAuthentication() const
 {
-    return false;
+    return true;
 }
 
 void GetChannelRolesJob::slotGetChannelRolesFinished()

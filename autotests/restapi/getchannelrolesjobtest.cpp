@@ -49,6 +49,6 @@ void GetChannelRolesJobTest::shouldGenerateRequest()
     const QString roomId = QStringLiteral("avat");
     job.setRoomId(roomId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getPresence?userId=avat")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.roles?roomId=avat")));
     delete method;
 }

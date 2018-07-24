@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETCHANNELROLESJOBTEST_H
-#define GETCHANNELROLESJOBTEST_H
+#ifndef GETGROUPROLESJOBTEST_H
+#define GETGROUPROLESJOBTEST_H
 
 #include <QObject>
 
-class GetChannelRolesJobTest : public QObject
+class GetGroupRolesJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit GetChannelRolesJobTest(QObject *parent = nullptr);
-    ~GetChannelRolesJobTest() = default;
+    explicit GetGroupRolesJobTest(QObject *parent = nullptr);
+    ~GetGroupRolesJobTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
 };
 
-#endif // GETCHANNELROLESJOBTEST_H
+#endif // GETGROUPROLESJOBTEST_H
