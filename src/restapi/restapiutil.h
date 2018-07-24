@@ -39,6 +39,7 @@ enum class RestApiUrlType {
     UsersResetAvatar,
     UsersSetAvatar,
     UsersUpdate,
+    UsersGetUsernameSuggestion,
     ChatDelete,
     ChatGetMessage,
     ChatPinMessage,

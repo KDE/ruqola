@@ -69,6 +69,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("users.setAvatar");
     case RestApiUtil::RestApiUrlType::UsersUpdate:
         return QStringLiteral("users.update");
+    case RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion:
+        return QStringLiteral("users.getUsernameSuggestion");
     case RestApiUtil::RestApiUrlType::ChatDelete:
         return QStringLiteral("chat.delete");
     case RestApiUtil::RestApiUrlType::ChatGetMessage:

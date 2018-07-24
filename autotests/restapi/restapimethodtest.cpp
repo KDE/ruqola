@@ -63,6 +63,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersResetAvatar), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.resetAvatar")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersSetAvatar), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setAvatar")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.update")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getUsernameSuggestion")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.delete")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatPinMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.pinMessage")));
