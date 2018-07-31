@@ -34,6 +34,7 @@
 #include "users/forgotpasswordjob.h"
 #include "users/usersinfojob.h"
 #include "users/getpresencejob.h"
+#include "users/getusernamesuggestionjob.h"
 
 #include "misc/owninfojob.h"
 
@@ -877,5 +878,15 @@ void RestApiRequest::getChannelRoles(const QString &roomId)
     connect(job, &GetChannelRolesJob::channelRolesDone, this, &RestApiRequest::channelRolesDone);
     if (!job->start()) {
         qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start GetChannelRolesJob job";
+    }
+}
+
+void RestApiRequest::getUsernameSuggestion()
+{
+    GetUsernameSuggestionJob *job = new GetUsernameSuggestionJob(this);
+    initializeRestApiJob(job);
+    connect(job, &GetUsernameSuggestionJob::getUsernameSuggestionDone, this, &RestApiRequest::getUsernameSuggestionDone);
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start getUsernameSuggestion job";
     }
 }
