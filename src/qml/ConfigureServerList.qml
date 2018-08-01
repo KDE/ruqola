@@ -64,12 +64,17 @@ Kirigami.Page {
                 }
             }
         }
-
-        ToolButton {
-            //iconName: "list-add"
-            text: i18n("Add Account...")
-            onClicked: {
-                //TODO add account! Add verify element etc.
+        Kirigami.Icon {
+            //Fix icon ??
+            source: "list-add"
+            //FIXME icon size
+            height: 22
+            width: 22
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    //TODO
+                }
             }
         }
     }
