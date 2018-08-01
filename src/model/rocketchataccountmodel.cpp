@@ -95,7 +95,6 @@ void RocketChatAccountModel::insertAccount(RocketChatAccount *account)
 {
     //Verify that we have it ?
     mRocketChatAccount.append(account);
-    //Add account!
 }
 
 void RocketChatAccountModel::removeAccount(const QString &name)
