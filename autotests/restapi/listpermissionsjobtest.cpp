@@ -18,34 +18,29 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LISTPERMISSIONSJOB_H
-#define LISTPERMISSIONSJOB_H
+#include "listpermissionsjobtest.h"
+#include "restapi/permissions/listpermissionsjob.h"
+#include "ruqola_restapi_helper.h"
+#include <QTest>
+#include <restapi/restapimethod.h>
+QTEST_GUILESS_MAIN(ListPermissionsJobTest)
 
-#include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
-
-#include <QNetworkRequest>
-
-class LIBRUQOLACORE_TESTS_EXPORT ListPermissionsJob : public RestApiAbstractJob
+ListPermissionsJobTest::ListPermissionsJobTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    //since 0.66
-    explicit ListPermissionsJob(QObject *parent = nullptr);
-    ~ListPermissionsJob() override;
+}
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+void ListPermissionsJobTest::shouldHaveDefaultValue()
+{
+    ListPermissionsJob job;
+    verifyDefaultValue(&job);
+    QVERIFY(job.requireHttpAuthentication());
+}
 
-    Q_REQUIRED_RESULT bool start() override;
-
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-
-Q_SIGNALS:
-    void listPermissionDone(const QJsonObject &obj);
-
-private:
-    Q_DISABLE_COPY(ListPermissionsJob)
-    void slotListPermissionFinished();
-};
-
-#endif // LISTPERMISSIONSJOB_H
+void ListPermissionsJobTest::shouldGenerateRequest()
+{
+    ListPermissionsJob job;
+    QNetworkRequest request = QNetworkRequest(QUrl());
+    verifyAuthentication(&job, request);
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/permissions.list")));
+}

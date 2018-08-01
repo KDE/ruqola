@@ -47,20 +47,24 @@ bool ListPermissionsJob::start()
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &ListPermissionsJob::slotOwnInfoFinished);
+    connect(reply, &QNetworkReply::finished, this, &ListPermissionsJob::slotListPermissionFinished);
     addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: Ask info about me"));
     return true;
 }
 
-void ListPermissionsJob::slotOwnInfoFinished()
+void ListPermissionsJob::slotListPermissionFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT ownInfoDone(replyObject);
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT listPermissionDone(replyObject);
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to get list permissions" << data;
+        }
     }
     deleteLater();
 }

@@ -18,34 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef LISTPERMISSIONSJOB_H
-#define LISTPERMISSIONSJOB_H
+#ifndef LISTPERMISSIONSJOBTEST_H
+#define LISTPERMISSIONSJOBTEST_H
 
-#include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
+#include <QObject>
 
-#include <QNetworkRequest>
-
-class LIBRUQOLACORE_TESTS_EXPORT ListPermissionsJob : public RestApiAbstractJob
+class ListPermissionsJobTest : public QObject
 {
     Q_OBJECT
 public:
-    //since 0.66
-    explicit ListPermissionsJob(QObject *parent = nullptr);
-    ~ListPermissionsJob() override;
-
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-
-    Q_REQUIRED_RESULT bool start() override;
-
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-
-Q_SIGNALS:
-    void listPermissionDone(const QJsonObject &obj);
-
-private:
-    Q_DISABLE_COPY(ListPermissionsJob)
-    void slotListPermissionFinished();
+    explicit ListPermissionsJobTest(QObject *parent = nullptr);
+    ~ListPermissionsJobTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
 };
 
-#endif // LISTPERMISSIONSJOB_H
+#endif // LISTPERMISSIONSJOBTEST_H
