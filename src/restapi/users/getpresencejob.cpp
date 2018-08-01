@@ -68,8 +68,13 @@ void GetPresenceJob::slotGetPresenceUserId()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        addLoggerInfo(QByteArrayLiteral("GetPresenceJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getPresenceDone(replyObject);
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("GetPresenceJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT getPresenceDone(replyObject[QStringLiteral("presence")].toString());
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to get username suggestion" << data;
+        }
     }
     deleteLater();
 }

@@ -132,6 +132,7 @@ Q_SIGNALS:
     void groupRolesDone(const QJsonObject &obj);
     void channelRolesDone(const QJsonObject &obj);
     void getUsernameSuggestionDone(const QString &username);
+    void getPresenceDone(const QString &presence);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

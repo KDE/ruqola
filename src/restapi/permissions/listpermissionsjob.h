@@ -18,39 +18,33 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETPRESENCEJOB_H
-#define GETPRESENCEJOB_H
+#ifndef LISTPERMISSIONSJOB_H
+#define LISTPERMISSIONSJOB_H
 
-#include "libruqola_private_export.h"
 #include "restapiabstractjob.h"
+#include "libruqola_private_export.h"
 
 #include <QNetworkRequest>
 
-class LIBRUQOLACORE_TESTS_EXPORT GetPresenceJob : public RestApiAbstractJob
+class LIBRUQOLACORE_TESTS_EXPORT ListPermissionsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit GetPresenceJob(QObject *parent = nullptr);
-    ~GetPresenceJob() override;
+    explicit ListPermissionsJob(QObject *parent = nullptr);
+    ~ListPermissionsJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
+    Q_REQUIRED_RESULT bool start() override;
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
-
-    Q_REQUIRED_RESULT QString presenceUserId() const;
-    void setPresenceUserId(const QString &presenceUserId);
-
 Q_SIGNALS:
-    void getPresenceDone(const QString &presence);
+    void ownInfoDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(GetPresenceJob)
-    void slotGetPresenceUserId();
-    QString mPresenceUserId;
+    Q_DISABLE_COPY(ListPermissionsJob)
+    void slotOwnInfoFinished();
 };
 
-#endif // GETPRESENCEJOB_H
+#endif // LISTPERMISSIONSJOB_H

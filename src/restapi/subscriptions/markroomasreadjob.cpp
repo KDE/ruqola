@@ -53,8 +53,15 @@ void MarkRoomAsReadJob::slotMarkAsRead()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("MarkRoomAsReadJob: finished: ") + data);
-        Q_EMIT markAsReadDone();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("MarkRoomAsReadJob: finished: ") + data);
+            Q_EMIT markAsReadDone();
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to mark as unread" << data;
+        }
     }
     deleteLater();
 }

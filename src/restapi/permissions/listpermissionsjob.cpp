@@ -18,72 +18,59 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "getusernamesuggestionjob.h"
-#include "ruqola_restapi_debug.h"
+#include "listpermissionsjob.h"
 #include "restapimethod.h"
-#include <QNetworkReply>
-#include <QUrlQuery>
+#include "ruqola_restapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QNetworkReply>
 
-GetUsernameSuggestionJob::GetUsernameSuggestionJob(QObject *parent)
+ListPermissionsJob::ListPermissionsJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-GetUsernameSuggestionJob::~GetUsernameSuggestionJob()
+ListPermissionsJob::~ListPermissionsJob()
 {
 }
 
-bool GetUsernameSuggestionJob::canStart() const
+bool ListPermissionsJob::requireHttpAuthentication() const
 {
-    if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start getPresence job";
-        return false;
-    }
     return true;
 }
 
-bool GetUsernameSuggestionJob::start()
+bool ListPermissionsJob::start()
 {
     if (!canStart()) {
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start owninfo job";
         deleteLater();
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &GetUsernameSuggestionJob::slotGetUsernameSuggestion);
-    addLoggerInfo("GetUsernameSuggestionJob start");
-
+    connect(reply, &QNetworkReply::finished, this, &ListPermissionsJob::slotOwnInfoFinished);
+    addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: Ask info about me"));
     return true;
 }
 
-void GetUsernameSuggestionJob::slotGetUsernameSuggestion()
+void ListPermissionsJob::slotOwnInfoFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GetUsernameSuggestionJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT getUsernameSuggestionDone(replyObject[QStringLiteral("result")].toString());
-        } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to get username suggestion" << data;
-        }
+        addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT ownInfoDone(replyObject);
     }
     deleteLater();
 }
 
-
-QNetworkRequest GetUsernameSuggestionJob::request() const
+QNetworkRequest ListPermissionsJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::PermissionsList);
     QNetworkRequest request(url);
+    addAuthRawHeader(request);
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     return request;
 }
-
-bool GetUsernameSuggestionJob::requireHttpAuthentication() const
-{
-    return true;
-}
-

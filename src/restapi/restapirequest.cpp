@@ -819,7 +819,7 @@ void RestApiRequest::userPresence(const QString &userId)
     GetPresenceJob *job = new GetPresenceJob(this);
     initializeRestApiJob(job);
     job->setPresenceUserId(userId);
-    //connect(job, &GetPresenceJob::getPresenceDone, this, &RestApiRequest::getPresenceDone);
+    connect(job, &GetPresenceJob::getPresenceDone, this, &RestApiRequest::getPresenceDone);
     if (!job->start()) {
         qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start job";
     }

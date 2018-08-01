@@ -81,6 +81,8 @@ set (Ruqola_restapi_SRCS
 
     restapi/subscriptions/markroomasreadjob.cpp
     restapi/subscriptions/markroomasunreadjob.cpp
+
+    restapi/permissions/listpermissionsjob.cpp
     )
 
 set(Ruqola_ddpapi_SRCS

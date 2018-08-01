@@ -59,8 +59,12 @@ void GetRoomsJob::slotGetRoomsFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        addLoggerInfo(QByteArrayLiteral("GetRoomsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT getRoomsDone(replyObject);
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("GetRoomsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT getRoomsDone(replyObject);
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to get rooms info" << data;
+        }
     }
     deleteLater();
 }

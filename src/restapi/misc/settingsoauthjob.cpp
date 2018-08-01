@@ -59,8 +59,13 @@ void SettingsOauthJob::slotSettingsOauthFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT settingsOauthDone(replyObject);
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT settingsOauthDone(replyObject);
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to get oauth settings" << data;
+        }
     }
     deleteLater();
 }
