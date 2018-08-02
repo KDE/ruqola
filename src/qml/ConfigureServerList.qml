@@ -36,8 +36,6 @@ Kirigami.Page {
     ColumnLayout {
         ListView {
             id: listview
-            //        anchors.left: parent.left
-            //        anchors.right: parent.right
             width: 300;
             height: 200
             clip: true
@@ -75,6 +73,12 @@ Kirigami.Page {
                 onClicked: {
                     createNewAccountDialog.initializeAndOpen()
                 }
+            }
+        }
+        Button {
+            text: i18n("Close")
+            onClicked: {
+                //TODO
             }
         }
     }
