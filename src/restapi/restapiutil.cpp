@@ -243,6 +243,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("users.forgotPassword");
     case RestApiUtil::RestApiUrlType::PermissionsList:
         return QStringLiteral("permissions.list");
+    case RestApiUtil::RestApiUrlType::CommandsList:
+        return QStringLiteral("commands.list");
     }
     qCWarning(RUQOLA_RESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
