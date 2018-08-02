@@ -73,12 +73,18 @@ Kirigami.Page {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    //TODO
+                    createNewAccountDialog.initializeAndOpen()
                 }
             }
         }
     }
 
+    CreateNewAccountDialog {
+        id: createNewAccountDialog
+        onAccepted: {
+            //appid.accountManager.removeAccount(accountName)
+        }
+    }
 
     DeleteAccountDialog {
         id: deleteAccountDialog
