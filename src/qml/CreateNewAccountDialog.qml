@@ -53,6 +53,14 @@ QQC2.Dialog {
             selectByMouse: true
             placeholderText: i18n("Account Name")
         }
+        QQC2.Label {
+            text: i18n("Server Url:");
+        }
+        QQC2.TextField {
+            id: server
+            selectByMouse: true
+            placeholderText: i18n("Server Url")
+        }
     }
 
 //    onAccepted: {
