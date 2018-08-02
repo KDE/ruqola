@@ -126,6 +126,10 @@ Kirigami.ApplicationWindow {
         id: configureServerList
         accountModel: accountManagerModel
         visible: false
+        onCloseConfigureServer: {
+            configureServerList.visible = false
+            pageStack.visible = true
+        }
     }
 
     LoginPage {

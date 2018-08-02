@@ -33,6 +33,8 @@ Kirigami.Page {
 
     property QtObject accountModel
 
+    signal closeConfigureServer()
+
     ColumnLayout {
         ListView {
             id: listview
@@ -78,7 +80,7 @@ Kirigami.Page {
         Button {
             text: i18n("Close")
             onClicked: {
-                //TODO
+                configureServer.closeConfigureServer()
             }
         }
     }
