@@ -114,6 +114,8 @@ public:
     void getGroupRoles(const QString &roomId);
     void getChannelRoles(const QString &roomId);
     void getUsernameSuggestion();
+    void listPermissions();
+    void listCommands();
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -133,6 +135,8 @@ Q_SIGNALS:
     void channelRolesDone(const QJsonObject &obj);
     void getUsernameSuggestionDone(const QString &username);
     void getPresenceDone(const QString &presence);
+    void listPermissionDone(const QJsonObject &obj);
+    void listCommandsDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

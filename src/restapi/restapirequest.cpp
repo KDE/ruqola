@@ -84,6 +84,10 @@
 #include "subscriptions/markroomasreadjob.h"
 #include "subscriptions/markroomasunreadjob.h"
 
+#include "permissions/listpermissionsjob.h"
+
+#include "commands/listcommandsjob.h"
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
@@ -888,5 +892,25 @@ void RestApiRequest::getUsernameSuggestion()
     connect(job, &GetUsernameSuggestionJob::getUsernameSuggestionDone, this, &RestApiRequest::getUsernameSuggestionDone);
     if (!job->start()) {
         qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start getUsernameSuggestion job";
+    }
+}
+
+void RestApiRequest::listPermissions()
+{
+    ListPermissionsJob *job = new ListPermissionsJob(this);
+    initializeRestApiJob(job);
+    connect(job, &ListPermissionsJob::listPermissionDone, this, &RestApiRequest::listPermissionDone);
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start ListPermissionsJob job";
+    }
+}
+
+void RestApiRequest::listCommands()
+{
+    ListCommandsJob *job = new ListCommandsJob(this);
+    initializeRestApiJob(job);
+    connect(job, &ListCommandsJob::listCommandsDone, this, &RestApiRequest::listCommandsDone);
+    if (!job->start()) {
+        qCDebug(RUQOLA_RESTAPI_LOG) << "Impossible to start ListPermissionsJob job";
     }
 }
