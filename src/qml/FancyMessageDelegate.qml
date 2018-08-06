@@ -72,6 +72,7 @@ Rectangle {
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
+    signal deleteReaction(string messageId, string emoji)
 
     Loader {
         id: loaded
@@ -237,6 +238,9 @@ Rectangle {
         }
         onDisplayImage: {
             messageMain.displayImage(imageUrl, title, isAnimatedImage)
+        }
+        onDeleteReaction: {
+            messageMain.deleteReaction(messageId, emoji)
         }
     }
 }

@@ -35,6 +35,7 @@ ListView {
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
+    signal deleteReaction(string messageId, string emoji)
 
     property QtObject rcAccount
     property string roomId: ""
@@ -114,6 +115,9 @@ ListView {
         }
         onDisplayImage: {
             activeChat.displayImage(imageUrl, title, isAnimatedImage)
+        }
+        onDeleteReaction: {
+            activeChat.deleteReaction(messageId, emoji)
         }
     }
 }

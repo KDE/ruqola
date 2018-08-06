@@ -304,6 +304,9 @@ Component {
                 displayImageDialog.isAnimatedImage = isAnimatedImage
                 displayImageDialog.clearScaleAndOpen();
             }
+            onDeleteReaction: {
+                appid.rocketChatAccount.reactOnMessage(messageId, emoji, false)
+            }
 
             OpenChannelDialog {
                 id: openChannelDialog

@@ -180,6 +180,9 @@ MessageBase {
         RepeaterReactions {
             id: repearterReactions
             model: i_reactions
+            onDeleteReaction: {
+                messageMain.deleteReaction(i_messageID, emoji)
+            }
         }
 
         Item {

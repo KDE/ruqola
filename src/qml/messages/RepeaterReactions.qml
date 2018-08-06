@@ -26,6 +26,7 @@ import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Layouts 1.1
 Repeater {
     id: repearterReactions
+    signal deleteReaction(string emoji)
     Row {
         QQC2.Label {
             id: numberOfReact
@@ -40,6 +41,7 @@ Repeater {
                 acceptedButtons: Qt.RightButton | Qt.LeftButton
 
                 onClicked: {
+                    repearterReactions.deleteReaction(model.modelData.reactionName);
                     console.log("clicked");
                 }
             }

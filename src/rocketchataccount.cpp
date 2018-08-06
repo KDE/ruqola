@@ -283,6 +283,7 @@ void RocketChatAccount::textEditing(const QString &roomId, const QString &str)
 
 void RocketChatAccount::reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact)
 {
+    qDebug() << " void RocketChatAccount::reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact)"<<messageId << " emoji" << emoji;
     restApi()->reactOnMessage(messageId, emoji, shouldReact);
 }
 

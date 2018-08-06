@@ -31,6 +31,8 @@ ColumnLayout {
     signal setFavoriteMessage(string messageId, bool starred)
     signal downloadAttachment(string url)
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
+    signal deleteReaction(string messageId, string emoji)
+
 
     property string i_date
     property string i_username
