@@ -122,6 +122,8 @@ set (Ruqola_model_core_srcs
     model/rocketchataccountmodel.cpp
     model/rocketchataccountfilterproxymodel.cpp
 
+    model/emoticonmodel.cpp
+
     )
 
 set(Ruqola_plugins_srcs
