@@ -42,7 +42,6 @@ Repeater {
 
                 onClicked: {
                     repearterReactions.deleteReaction(model.modelData.reactionName);
-                    console.log("clicked");
                 }
             }
         }
