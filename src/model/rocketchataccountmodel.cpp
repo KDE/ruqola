@@ -102,6 +102,14 @@ void RocketChatAccountModel::removeAccount(const QString &name)
 {
     qDebug() << " void RocketChatAccountModel::removeAccount(const QString &name)"<<name;
     //Search account.
+    for (int i = 0; i < mRocketChatAccount.count(); ++i) {
+        if (mRocketChatAccount.at(i)->accountName() == name) {
+            beginRemoveRows(QModelIndex(), i, i);
+            delete mRocketChatAccount.takeAt(i);
+            endRemoveRows();
+            break;
+        }
+    }
 }
 
 QHash<int, QByteArray> RocketChatAccountModel::roleNames() const
