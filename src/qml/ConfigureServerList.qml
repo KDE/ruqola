@@ -87,8 +87,8 @@ Kirigami.Page {
 
     CreateNewAccountDialog {
         id: createNewAccountDialog
-        onAccepted: {
-            //appid.accountManager.removeAccount(accountName)
+        onCreateNewAccount: {
+            appid.accountManager.addAccount(accountName, username, serverUrl);
         }
     }
 

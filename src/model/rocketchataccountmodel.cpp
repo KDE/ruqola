@@ -43,7 +43,7 @@ void RocketChatAccountModel::clear()
     }
 }
 
-void RocketChatAccountModel::insertAccounts(const QVector<RocketChatAccount *> &accounts)
+void RocketChatAccountModel::setAccounts(const QVector<RocketChatAccount *> &accounts)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mRocketChatAccount.count() - 1);
@@ -86,15 +86,16 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
         return mRocketChatAccount.at(idx)->ruqolaServerConfig()->siteUrl();
     }
     //Add icon ???
-
-    qCWarning(RUQOLA_LOG) << "RocketChatAccountModel: Invalid role name " << role;
     return {};
 }
 
 void RocketChatAccountModel::insertAccount(RocketChatAccount *account)
 {
     //Verify that we have it ?
+    const int accountCount = mRocketChatAccount.count();
+    beginInsertRows(QModelIndex(), accountCount, accountCount);
     mRocketChatAccount.append(account);
+    endInsertRows();
 }
 
 void RocketChatAccountModel::removeAccount(const QString &name)

@@ -67,7 +67,7 @@ void AccountManager::loadAccount()
         lstAccounts.append(account);
     }
 
-    mRocketChatAccountModel->insertAccounts(lstAccounts);
+    mRocketChatAccountModel->setAccounts(lstAccounts);
 }
 
 RocketChatAccountFilterProxyModel *AccountManager::rocketChatAccountProxyModel() const
@@ -84,7 +84,16 @@ RocketChatAccount *AccountManager::firstAccount() const
 
 void AccountManager::addAccount(const QString &accountName, const QString &username, const QString &url)
 {
-    //TODO
+    qDebug() << " void AccountManager::addAccount(const QString &accountName, const QString &username, const QString &url)";
+    //TODO verify if account exist or not ?
+    RocketChatAccount *account = new RocketChatAccount();
+    account->setAccountName(accountName);
+    account->setUserName(username);
+    account->setServerUrl(url);
+    connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
+    connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
+    connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);
+    addAccount(account);
 }
 
 void AccountManager::addAccount(RocketChatAccount *account)

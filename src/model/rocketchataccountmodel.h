@@ -46,7 +46,7 @@ public:
 
     void clear();
 
-    void insertAccounts(const QVector<RocketChatAccount *> &accounts);
+    void setAccounts(const QVector<RocketChatAccount *> &accounts);
 
     Q_REQUIRED_RESULT RocketChatAccount *account(int index) const;
 private:

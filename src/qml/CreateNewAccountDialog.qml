@@ -26,20 +26,22 @@ import KDE.Ruqola.DebugCategory 1.0
 QQC2.Dialog {
     id: createNewChannelDialog
 
-    signal createNewAccount(string name, bool readOnly, bool privateRoom, string usernames)
+    signal createNewAccount(string accountName, string serverUrl, string username)
 
     title: i18n("Create Account")
 
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+    x: parent.width / 2
+    y: parent.height / 2
 
     modal: true
 
     function initializeAndOpen()
     {
         accountName.text = ""
+        usernameField.text = ""
+        server.text = ""
         open()
     }
 
@@ -61,13 +63,21 @@ QQC2.Dialog {
             selectByMouse: true
             placeholderText: i18n("Server Url")
         }
-    }
+        QQC2.Label {
+            id: username
 
-//    onAccepted: {
-//        if (channelName !== "") {
-//            createNewChannelDialog.createNewChannel(channelName.text, readOnlyRoom.checked, privateRoom.checked, userList.text)
-//        } else {
-//            console.log(RuqolaDebugCategorySingleton.category, "Channel name is empty!")
-//        }
-//    }
+            width: parent.width
+            text: i18n("Enter your username")
+        }
+
+        QQC2.TextField {
+            id: usernameField
+            selectByMouse: true
+            width: parent.width
+            placeholderText: i18n("Enter Username")
+        }
+    }
+    onAccepted: {
+        createNewChannelDialog.createNewAccount(accountName.text, server.text, usernameField.text)
+    }
 }
