@@ -204,3 +204,9 @@ QString RocketChatAccountSettings::cacheBasePath()
     }
     return mCachePath;
 }
+
+void RocketChatAccountSettings::removeSettings()
+{
+    //TODO remove settings when we delete account!
+    qDebug() << " void RocketChatAccountSettings::removeSettings() NOT IMPLEMENTED YET";
+}

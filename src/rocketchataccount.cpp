@@ -123,6 +123,11 @@ RocketChatAccount::~RocketChatAccount()
     delete mRuqolaLogger;
 }
 
+void RocketChatAccount::removeSettings()
+{
+    mSettings->removeSettings();
+}
+
 void RocketChatAccount::loadSettings(const QString &accountFileName)
 {
     delete mSettings;

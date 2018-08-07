@@ -57,6 +57,7 @@ public:
     Q_REQUIRED_RESULT QString password() const;
     void setPassword(const QString &password);
 
+    void removeSettings();
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
