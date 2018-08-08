@@ -190,6 +190,7 @@ set (Ruqola_core_srcs
     reaction.cpp
     syntaxhighlightingmanager.cpp
     copyfilejob.cpp
+    emoticon.cpp
 )
 
 if (NOT WIN32)

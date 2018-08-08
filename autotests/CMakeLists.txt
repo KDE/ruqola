@@ -61,6 +61,7 @@ add_ruqola_test(notificationoptionstest.cpp)
 add_ruqola_test(reactionstest.cpp)
 add_ruqola_test(reactiontest.cpp)
 add_ruqola_test(emoticonmodeltest.cpp)
+add_ruqola_test(emoticontest.cpp)
 
 add_subdirectory(restapi)
 add_subdirectory(qml)
