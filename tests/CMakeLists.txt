@@ -20,18 +20,6 @@ target_link_libraries(expandjsontest
 #    )
 
 ####
-set(simulatortest_SRCS simulator.cpp fakewebsocket.cpp)
-qt5_add_resources(simulatortestresources ../src/qml/qml.qrc)
-
-add_executable(simulatortest ${simulatortest_SRCS} ${simulatortestresources})
-
-target_link_libraries(simulatortest
-    Qt5::Widgets
-    Qt5::WebSockets
-    libruqolacore
-    )
-
-####
 set(messagemodelguitest_SRCS messagemodelgui.cpp)
 qt5_add_resources(messagemodelguitestresources ../src/qml/qml.qrc messagemodelgui.qrc)
 
