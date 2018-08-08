@@ -198,6 +198,8 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(Room)
+    void parseCommonData(const QJsonObject &json);
+
     //Room Object Fields
 
     NotificationOptions mNotificationOptions;

@@ -466,16 +466,6 @@ void Room::parseInsertRoom(const QJsonObject &json)
     if (json.contains(QLatin1String("description"))) {
         setDescription(json[QStringLiteral("description")].toString());
     }
-
-    const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
-    QStringList lstIgnored;
-    lstIgnored.reserve(ignoredArray.count());
-    for (int i = 0; i < ignoredArray.count(); ++i) {
-        lstIgnored << ignoredArray.at(i).toString();
-    }
-    setIgnoredUsers(lstIgnored);
-
-
     setUpdatedAt(Utils::parseDate(QLatin1String("_updatedAt"), json));
     setUnread(json[QStringLiteral("unread")].toInt());
     setOpen(json[QStringLiteral("open")].toBool());
@@ -494,21 +484,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setArchived(false);
     }
 
-    const QJsonArray mutedArray = json.value(QLatin1String("muted")).toArray();
-    QStringList lst;
-    lst.reserve(mutedArray.count());
-    for (int i = 0; i < mutedArray.count(); ++i) {
-        lst << mutedArray.at(i).toString();
-    }
-    setMutedUsers(lst);
-
-    const QJsonArray rolesArray = json.value(QLatin1String("roles")).toArray();
-    QStringList lstRoles;
-    lstRoles.reserve(rolesArray.count());
-    for (int i = 0; i < rolesArray.count(); ++i) {
-        lstRoles << rolesArray.at(i).toString();
-    }
-    setRoles(lstRoles);
+    parseCommonData(json);
 
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
     if (!ownerValue.isUndefined()) {
@@ -523,8 +499,6 @@ void Room::parseInsertRoom(const QJsonObject &json)
     }
     //qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
-
-    //TODO add muted
 }
 
 qint64 Room::lastSeeAt() const
@@ -617,6 +591,26 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
         setArchived(false);
     }
 
+    parseCommonData(json);
+//    const QJsonValue ownerValue = json.value(QLatin1String("u"));
+//    if (!ownerValue.isUndefined()) {
+//        const QJsonObject objOwner = ownerValue.toObject();
+//        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
+//        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
+//    } else {
+//        //When room is initialized we are the owner. When we update room we have the real
+//        //owner and if it's empty => we need to clear it.
+//        setRoomCreatorUserId(QString());
+//        setRoomCreatorUserName(QString());
+//    }
+    //qDebug() << " *thus" << *this;
+    mNotificationOptions.parseNotificationOptions(json);
+
+    //TODO add muted
+}
+
+void Room::parseCommonData(const QJsonObject &json)
+{
     const QJsonArray mutedArray = json.value(QLatin1String("muted")).toArray();
     QStringList lst;
     lst.reserve(mutedArray.count());
@@ -642,21 +636,6 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     }
     setRoles(lstRoles);
 
-//    const QJsonValue ownerValue = json.value(QLatin1String("u"));
-//    if (!ownerValue.isUndefined()) {
-//        const QJsonObject objOwner = ownerValue.toObject();
-//        setRoomCreatorUserId(objOwner.value(QLatin1String("_id")).toString());
-//        setRoomCreatorUserName(objOwner.value(QLatin1String("username")).toString());
-//    } else {
-//        //When room is initialized we are the owner. When we update room we have the real
-//        //owner and if it's empty => we need to clear it.
-//        setRoomCreatorUserId(QString());
-//        setRoomCreatorUserName(QString());
-//    }
-    //qDebug() << " *thus" << *this;
-    mNotificationOptions.parseNotificationOptions(json);
-
-    //TODO add muted
 }
 
 Room *Room::fromJSon(const QJsonObject &o)
