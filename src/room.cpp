@@ -65,8 +65,8 @@ bool Room::isEqual(const Room &other) const
            && (mChannelType == other.channelType())
            && (mName == other.name())
            && (mAnnouncement == other.announcement())
-           && (mRoomCreatorUserName == other.roomCreatorUserName())
-           && (mRoomCreateUserId == other.roomCreatorUserId())
+           && (mRoomCreatorUserName == other.roomOwnerUserName())
+           && (mRoomCreateUserId == other.roomOwnerUserId())
            && (mTopic == other.topic())
            && (mMutedUsers == other.mutedUsers())
            && (mJitsiTimeout == other.jitsiTimeout())
@@ -98,8 +98,8 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "type :" << t.channelType();
     d << "name :" << t.name();
     d << "mAnnouncement :" << t.announcement();
-    d << "roomCreaterUserName :" << t.roomCreatorUserName();
-    d << "roomCreaterUserID :" << t.roomCreatorUserId();
+    d << "roomCreaterUserName :" << t.roomOwnerUserName();
+    d << "roomCreaterUserID :" << t.roomOwnerUserId();
     d << "topic :" << t.topic();
     d << "mutedUsers :" << t.mutedUsers();
     d << "jitsiTimeout :" << t.jitsiTimeout();
@@ -293,7 +293,7 @@ void Room::setMutedUsers(const QStringList &mutedUsers)
     }
 }
 
-QString Room::roomCreatorUserId() const
+QString Room::roomOwnerUserId() const
 {
     return mRoomCreateUserId;
 }
@@ -303,7 +303,7 @@ void Room::setRoomCreatorUserId(const QString &userId)
     mRoomCreateUserId = userId;
 }
 
-QString Room::roomCreatorUserName() const
+QString Room::roomOwnerUserName() const
 {
     return mRoomCreatorUserName;
 }
@@ -706,8 +706,8 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("rid")] = r->roomId();
     o[QStringLiteral("t")] = r->channelType();
     o[QStringLiteral("name")] = r->name();
-    o[QStringLiteral("roomCreatorUserName")] = r->roomCreatorUserName();
-    o[QStringLiteral("roomCreatorUserID")] = r->roomCreatorUserId();
+    o[QStringLiteral("roomCreatorUserName")] = r->roomOwnerUserName();
+    o[QStringLiteral("roomCreatorUserID")] = r->roomOwnerUserId();
     if (!r->topic().isEmpty()) {
         o[QStringLiteral("topic")] = r->topic();
     }

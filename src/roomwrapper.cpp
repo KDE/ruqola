@@ -93,7 +93,7 @@ QString RoomWrapper::channelType() const
 
 QString RoomWrapper::roomCreatorUserId() const
 {
-    return mRoom->roomCreatorUserId();
+    return mRoom->roomOwnerUserId();
 }
 
 QString RoomWrapper::rid() const

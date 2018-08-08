@@ -44,8 +44,8 @@ public:
         RoomID,
         RoomUnread,
         RoomType,
-        RoomUserName, //created by UserName
-        RoomUserID,
+        RoomOwnerUserName, //created by UserName
+        RoomOwnerUserID,
         RoomTopic,
         RoomMutedUsers,
         RoomJitsiTimeout,

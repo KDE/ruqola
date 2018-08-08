@@ -59,10 +59,10 @@ public:
     //we can't use operator== as it tests only id. We need it for autotest
     Q_REQUIRED_RESULT bool isEqual(const Room &other) const;
 
-    Q_REQUIRED_RESULT QString roomCreatorUserName() const;
+    Q_REQUIRED_RESULT QString roomOwnerUserName() const;
     void setRoomCreatorUserName(const QString &userName);
 
-    Q_REQUIRED_RESULT QString roomCreatorUserId() const;
+    Q_REQUIRED_RESULT QString roomOwnerUserId() const;
     void setRoomCreatorUserId(const QString &userId);
 
     Q_REQUIRED_RESULT QStringList mutedUsers() const;

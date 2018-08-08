@@ -139,8 +139,8 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomSelected] = QByteArrayLiteral("selected");
     roles[RoomUnread] = QByteArrayLiteral("unread");
     roles[RoomType] = QByteArrayLiteral("type");
-    roles[RoomUserName] = QByteArrayLiteral("username");
-    roles[RoomUserID] = QByteArrayLiteral("userID");
+    roles[RoomOwnerUserName] = QByteArrayLiteral("username");
+    roles[RoomOwnerUserID] = QByteArrayLiteral("userID");
     roles[RoomTopic] = QByteArrayLiteral("topic");
     roles[RoomMutedUsers] = QByteArrayLiteral("mutedUsers");
     roles[RoomJitsiTimeout] = QByteArrayLiteral("jitsiTimeout");
@@ -179,10 +179,10 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->selected();
     case RoomModel::RoomType:
         return r->channelType();
-    case RoomModel::RoomUserID:
-        return r->roomCreatorUserId();
-    case RoomModel::RoomUserName:
-        return r->roomCreatorUserName();
+    case RoomModel::RoomOwnerUserID:
+        return r->roomOwnerUserId();
+    case RoomModel::RoomOwnerUserName:
+        return r->roomOwnerUserName();
     case RoomModel::RoomTopic:
         return r->topic();
     case RoomModel::RoomMutedUsers:
