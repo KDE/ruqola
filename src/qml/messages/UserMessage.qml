@@ -79,6 +79,11 @@ MessageBase {
                     }
                 }
             }
+            RepeaterRoles {
+                id: repearterRoles
+                model: i_roles
+            }
+
             Column {
                 id: fullTextColumn
 

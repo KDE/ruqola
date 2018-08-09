@@ -77,6 +77,7 @@ ListView {
         i_urls: urls
         i_attachments: attachments
         i_reactions: reactions
+        i_roles: roles
         i_date: date
         i_own_username: rcAccount.userName
         i_can_editing_message: canEditingMessage

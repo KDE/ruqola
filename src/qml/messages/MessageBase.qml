@@ -45,6 +45,7 @@ ColumnLayout {
     property var i_urls
     property var i_attachments
     property var i_reactions
+    property var i_roles
     property string i_editedByUserName
     property bool i_starred
     property bool i_can_editing_message

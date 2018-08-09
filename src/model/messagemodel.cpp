@@ -277,7 +277,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::UsernameUrl:
         return QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(mAllMessages.at(idx).username());
     case MessageModel::Roles:
-        return mAllMessages.at(idx).roles();
+        return roomRoles(mAllMessages.at(idx).userId());
     case MessageModel::Reactions:
     {
         QVariantList lst;
@@ -290,6 +290,17 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
     }
     return QString();
+}
+
+QStringList MessageModel::roomRoles(const QString &userId) const
+{
+    if (mRoom) {
+        if (userId == mRocketChatAccount->userID()) {
+            //TODO use translated string
+            return mRoom->roles();
+        }
+    }
+    return QStringList();
 }
 
 QString MessageModel::convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const

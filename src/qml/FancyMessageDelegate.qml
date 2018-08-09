@@ -52,6 +52,7 @@ Rectangle {
     property var i_urls
     property var i_attachments
     property var i_reactions
+    property var i_roles
     property string i_date
     property string i_own_username
     property bool i_can_editing_message
@@ -124,6 +125,7 @@ Rectangle {
                               i_avatar: i_avatar,
                               i_urls: i_urls,
                               i_reactions: i_reactions,
+                              i_roles: i_roles,
                               i_attachments: i_attachments,
                               i_date: i_date,
                               i_own_username: i_own_username,
@@ -145,6 +147,7 @@ Rectangle {
                               i_messageID: i_messageID,
                               i_avatar: i_avatar,
                               i_reactions: i_reactions,
+                              i_roles: i_roles,
                               i_urls: i_urls,
                               i_attachments: i_attachments,
                               i_date: i_date,
@@ -165,6 +168,7 @@ Rectangle {
                               i_messageID: i_messageID,
                               i_avatar: i_avatar,
                               i_reactions: i_reactions,
+                              i_roles: i_roles,
                               i_urls: i_urls,
                               i_attachments: i_attachments,
                               i_date: i_date,
@@ -185,6 +189,7 @@ Rectangle {
                               i_messageID: i_messageID,
                               i_avatar: i_avatar,
                               i_reactions: i_reactions,
+                              i_roles: i_roles,
                               i_urls: i_urls,
                               i_attachments: i_attachments,
                               i_date: i_date,

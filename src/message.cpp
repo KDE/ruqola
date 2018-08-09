@@ -57,14 +57,6 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mGroupable = o.value(QLatin1String("groupable")).toBool();
     mParseUrls = o.value(QLatin1String("parseUrls")).toBool();
     mRole = o.value(QLatin1String("role")).toString();
-    const QJsonArray rolesArray = o.value(QLatin1String("roles")).toArray();
-    QStringList lstRoles;
-    lstRoles.reserve(rolesArray.count());
-    for (int i = 0; i < rolesArray.count(); ++i) {
-        lstRoles << rolesArray.at(i).toString();
-    }
-    mRoles = lstRoles;
-
     if (o.contains(QLatin1String("starred"))) {
         mStarred = !o.value(QStringLiteral("starred")).toArray().isEmpty();
     } else {
@@ -88,16 +80,6 @@ void Message::parseReactions(const QJsonObject &reacts)
     if (!reacts.isEmpty()) {
         mReactions.parseReactions(reacts);
     }
-}
-
-QStringList Message::roles() const
-{
-    return mRoles;
-}
-
-void Message::setRoles(const QStringList &roles)
-{
-    mRoles = roles;
 }
 
 QString Message::role() const
@@ -259,7 +241,6 @@ bool Message::operator==(const Message &other) const
            && (mMentions == other.mentions())
            && (mStarred == other.starred())
             && (mRole == other.role())
-            && (mRoles == other.roles())
             && (mReactions == other.reactions());
 }
 
@@ -286,7 +267,6 @@ Message &Message::operator=(const Message &other)
     setMessageType(other.messageType());
     setStarred(other.starred());
     setRole(other.role());
-    setRoles(other.roles());
     setReactions(other.reactions());
     return *this;
 }
@@ -551,7 +531,6 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
     message.mStarred = o[QStringLiteral("starred")].toBool();
     message.mRole = o[QStringLiteral("role")].toString();
-//TODO add roles!
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
     message.mMessageType = o[QStringLiteral("messageType")].toVariant().value<MessageType>();
     const QJsonArray attachmentsArray = o.value(QLatin1String("attachments")).toArray();
@@ -583,16 +562,6 @@ Message Message::fromJSon(const QJsonObject &o)
 //        }
     }
 
-    //TODO reactions
-
-    const QJsonArray rolesArray = o.value(QLatin1String("roles")).toArray();
-    QStringList lstRoles;
-    lstRoles.reserve(rolesArray.count());
-    for (int i = 0; i < rolesArray.count(); ++i) {
-        lstRoles <<rolesArray.at(i).toString();
-    }
-    message.setRoles(lstRoles);
-
     return message;
 }
 
@@ -618,14 +587,6 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("starred")] = message.mStarred;
     if (!message.mRole.isEmpty()) {
         o[QStringLiteral("role")] = message.mRole;
-    }
-    if (!message.mRoles.isEmpty()) {
-        QJsonArray array;
-        const int nbRoles = message.mRoles.count();
-        for (int i = 0; i < nbRoles; ++i) {
-            array.append(message.mRoles.at(i));
-        }
-        o[QStringLiteral("roles")] = array;
     }
 
 
@@ -695,7 +656,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "Mentions :" << t.mentions();
     d << "mMessageType: " << t.messageType();
     d << "mRole: " << t.role();
-    d << "mRoles: " << t.roles();
     d << "mReaction: " << t.reactions();
     return d;
 }

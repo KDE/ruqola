@@ -57,6 +57,7 @@
         <file alias="TimestampText.qml">messages/TimestampText.qml</file>
         <file alias="ShowHideButton.qml">messages/ShowHideButton.qml</file>
         <file alias="RepeaterReactions.qml">messages/RepeaterReactions.qml</file>
+        <file alias="RepeaterRoles.qml">messages/RepeaterRoles.qml</file>
     </qresource>
     <qresource prefix="/common">
         <file alias="DownloadButton.qml">common/DownloadButton.qml</file>

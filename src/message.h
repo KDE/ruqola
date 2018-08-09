@@ -142,9 +142,6 @@ public:
     Q_REQUIRED_RESULT QString role() const;
     void setRole(const QString &role);
 
-    Q_REQUIRED_RESULT QStringList roles() const;
-    void setRoles(const QStringList &roles);
-
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -162,9 +159,6 @@ private:
 
     //Mentions
     QMap<QString, QString> mMentions;
-
-    //Roles
-    QStringList mRoles;
 
     //role used when we add/remove role. It will displaying in messagesystem
     QString mRole;
