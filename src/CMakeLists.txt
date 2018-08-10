@@ -241,7 +241,11 @@ set_target_properties(libruqolacore
     PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
     )
 
-qt5_add_resources(RuqolaResources qml/qml.qrc)
+if (Qt5QuickCompiler_FOUND)
+    qtquick_compiler_add_resources(RuqolaResources qml/qml.qrc)
+else ()
+    qt5_add_resources(RuqolaResources qml/qml.qrc)
+endif()
 
 add_executable(ruqola main.cpp ${RuqolaResources})
 

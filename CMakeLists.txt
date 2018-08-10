@@ -35,6 +35,7 @@ if (UNITY_SUPPORT)
 endif()
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth Test)
+find_package(Qt5 CONFIG QUIET OPTIONAL_COMPONENTS QuickCompiler)
 
 find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
     Kirigami2
