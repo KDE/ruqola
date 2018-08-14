@@ -53,8 +53,15 @@ void SaveNotificationJob::slotChangeNotificationFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: finished: ") + data);
-        Q_EMIT changeNotificationDone();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: finished: ") + data);
+            Q_EMIT changeNotificationDone();
+        } else {
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change notifications" << data;
+        }
     }
     deleteLater();
 }
