@@ -60,6 +60,8 @@ set (Ruqola_restapi_SRCS
     restapi/channels/channelremoveownerjob.cpp
     restapi/channels/setchanneltypejob.cpp
     restapi/channels/getchannelrolesjob.cpp
+    restapi/channels/channeladdownerjob.cpp
+    restapi/channels/channeladdmoderatorjob.cpp
 
     restapi/groups/changegroupstopicjob.cpp
     restapi/groups/changegroupsannouncementjob.cpp
@@ -72,6 +74,8 @@ set (Ruqola_restapi_SRCS
     restapi/groups/groupskickjob.cpp
     restapi/groups/setgrouptypejob.cpp
     restapi/groups/getgrouprolesjob.cpp
+    restapi/groups/groupaddmoderatorjob.cpp
+    restapi/groups/groupaddownerjob.cpp
 
     restapi/directmessage/createdmjob.cpp
 
