@@ -23,6 +23,7 @@
 #include "ruqola_debug.h"
 #include <config-ruqola.h>
 
+#include <QFile>
 #include <QSettings>
 #include <QStandardPaths>
 
@@ -207,6 +208,15 @@ QString RocketChatAccountSettings::cacheBasePath()
 
 void RocketChatAccountSettings::removeSettings()
 {
-    //TODO remove settings when we delete account!
-    qDebug() << " void RocketChatAccountSettings::removeSettings() NOT IMPLEMENTED YET";
+    //Delete password
+#if HAVE_QT5KEYCHAIN
+    auto deleteJob = new DeletePasswordJob(QStringLiteral("Ruqola"));
+    deleteJob->setKey(mAccountName);
+    deleteJob->setAutoDelete(true);
+    deleteJob->start();
+#endif
+    QFile f(mSetting->fileName());
+    if (!f.remove()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to delete config file: " << mSetting->fileName();
+    }
 }
