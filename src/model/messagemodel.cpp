@@ -81,6 +81,7 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
         }
     }
 #endif
+    connect(mRoom, &Room::rolesChanged, this, &MessageModel::refresh);
 }
 
 MessageModel::~MessageModel()
@@ -112,6 +113,12 @@ MessageModel::~MessageModel()
 #endif
     delete mTextConverter;
     delete mLoadRecentHistoryManager;
+}
+
+void MessageModel::refresh()
+{
+    beginResetModel();
+    endResetModel();
 }
 
 QHash<int, QByteArray> MessageModel::roleNames() const

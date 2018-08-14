@@ -103,6 +103,7 @@ public:
 
 private:
     Q_DISABLE_COPY(MessageModel)
+    void refresh();
     QStringList roomRoles(const QString &userId) const;
     QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const;
     QString mRoomID;
