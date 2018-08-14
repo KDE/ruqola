@@ -45,6 +45,7 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> EmoticonModel::roleNames() const
 {
+    QHash<int, QByteArray> roles;
     //TODO
-    return {};
+    return roles;
 }
