@@ -413,13 +413,15 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_LOG) << "stream-notify-user : Message: " << object;
             }
             const QJsonArray lst = fields.value(QLatin1String("args")).toArray();
-            const QJsonObject roomData = lst[1].toObject();
+            const QJsonObject roomData = lst[0].toObject();
             QString roomId = roomData.value(QLatin1String("rid")).toString();
             if (!roomId.isEmpty()) {
                 MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
-                qDebug() << " roomData"<<roomData;
-                //TODO
-                //messageModel->(contents.at(0).toObject()[QStringLiteral("_id")].toString());
+                Message m;
+                m.parseMessage(roomData);
+                //m.setMessageType(Message::System);
+                //TODO add special element!See roomData QJsonObject({"_id":"u9xnnzaBQoQithsxP","msg":"You have been muted and cannot speak in this room","rid":"Dic5wZD4Zu9ze5gk3","ts":{"$date":1534166745895}})
+                messageModel->addMessage(m);
             } else {
                 qCWarning(RUQOLA_LOG) << "stream-notify-user : Message: ROOMID is empty ";
             }
