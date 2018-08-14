@@ -1,9 +1,11 @@
-set(RUQOLA_VERSION "0.9.2")
+set(RUQOLA_VERSION "0.9.3")
 cmake_minimum_required(VERSION 3.1)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set (CMAKE_CXX_STANDARD 11)
 
 set(KF5_VERSION "5.44.0")
+set(REQUIRED_QT_VERSION "5.9.0")
+
 find_package(ECM ${KF5_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
@@ -24,7 +26,7 @@ include(ECMAddTests)
 include(GenerateExportHeader)
 include(FeatureSummary)
 
-set(REQUIRED_QT_VERSION "5.9.0")
+
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" FALSE)
 if (NOT WIN32)
     option(UNITY_SUPPORT "Build unity support" TRUE)
