@@ -71,6 +71,16 @@ void SearchMessageJob::slotSearchMessageFinished()
     deleteLater();
 }
 
+int SearchMessageJob::count() const
+{
+    return mCount;
+}
+
+void SearchMessageJob::setCount(int count)
+{
+    mCount = count;
+}
+
 QString SearchMessageJob::searchText() const
 {
     return mSearchText;
@@ -97,6 +107,9 @@ QNetworkRequest SearchMessageJob::request() const
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
     queryUrl.addQueryItem(QStringLiteral("searchText"), mSearchText);
+    if (mCount != -1) {
+        queryUrl.addQueryItem(QStringLiteral("count"), QString::number(mCount));
+    }
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

@@ -37,6 +37,7 @@ void searchMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.searchText().isEmpty());
     QVERIFY(job.roomId().isEmpty());
+    QCOMPARE(job.count(), -1);
 }
 
 void searchMessageJobTest::shouldGenerateRequest()
@@ -47,4 +48,15 @@ void searchMessageJobTest::shouldGenerateRequest()
     job.setSearchText(QStringLiteral("bla"));
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.search?roomId=foo&searchText=bla")));
+}
+
+void searchMessageJobTest::shouldGenerateRequestWithLimit()
+{
+    SearchMessageJob job;
+    QNetworkRequest request = QNetworkRequest(QUrl());
+    job.setRoomId(QStringLiteral("foo"));
+    job.setSearchText(QStringLiteral("bla"));
+    job.setCount(5);
+    verifyAuthentication(&job, request);
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.search?roomId=foo&searchText=bla&count=5")));
 }

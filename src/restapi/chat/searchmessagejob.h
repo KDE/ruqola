@@ -46,6 +46,10 @@ public:
     void setSearchText(const QString &searchText);
 
     Q_REQUIRED_RESULT bool canStart() const override;
+
+    Q_REQUIRED_RESULT int count() const;
+    void setCount(int count);
+
 Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
 
@@ -54,7 +58,7 @@ private:
     void slotSearchMessageFinished();
     QString mRoomId;
     QString mSearchText;
-    //TODO add limit
+    int mCount = -1;
 };
 
 #endif // SEARCHMESSAGEJOB_H
