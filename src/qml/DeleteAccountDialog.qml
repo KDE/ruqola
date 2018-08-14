@@ -44,5 +44,4 @@ QQC2.Dialog {
             font.pointSize: 15
         }
     }
-    //Add checkbox for removing data too.
 }
