@@ -105,6 +105,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsUnarchive), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.unarchive")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsSetAnnouncement), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setAnnouncement")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsFiles), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.files")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsMembers), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.members")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsCounters), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.counters")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsAddAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.addAll")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsAddModerator), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.addModerator")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsAddOwner), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.addOwner")));
@@ -130,6 +132,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsUnarchive), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.unarchive")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsSetAnnouncement), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setAnnouncement")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsRoles), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.roles")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsCounters), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.counters")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ServerInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/info")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Settings), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsPublic), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings.public")));
