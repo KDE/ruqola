@@ -63,6 +63,7 @@ set (Ruqola_restapi_SRCS
     restapi/channels/getchannelrolesjob.cpp
     restapi/channels/channeladdownerjob.cpp
     restapi/channels/channeladdmoderatorjob.cpp
+    restapi/channels/channelkickjob.cpp
 
     restapi/groups/changegroupstopicjob.cpp
     restapi/groups/changegroupsannouncementjob.cpp

@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "groupskickjob.h"
+#include "channelkickjob.h"
 
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
@@ -26,29 +26,29 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 
-GroupsKickJob::GroupsKickJob(QObject *parent)
+ChannelKickJob::ChannelKickJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-GroupsKickJob::~GroupsKickJob()
+ChannelKickJob::~ChannelKickJob()
 {
 }
 
-bool GroupsKickJob::start()
+bool ChannelKickJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("GroupsKickJob::start: " + baPostData);
+    addLoggerInfo("ChannelKickJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &GroupsKickJob::slotKickUsersFinished);
+    connect(reply, &QNetworkReply::finished, this, &ChannelKickJob::slotKickUsersFinished);
     return true;
 }
 
-void GroupsKickJob::slotKickUsersFinished()
+void ChannelKickJob::slotKickUsersFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -60,36 +60,36 @@ void GroupsKickJob::slotKickUsersFinished()
             qCDebug(RUQOLA_RESTAPI_LOG) << "Change announcement success: " << data;
             Q_EMIT kickUserDone(replyObject);
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to kick user in group: " << data;
+            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to kick user: " << data;
         }
     }
     deleteLater();
 }
 
 
-bool GroupsKickJob::requireHttpAuthentication() const
+bool ChannelKickJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool GroupsKickJob::canStart() const
+bool ChannelKickJob::canStart() const
 {
     if (mKickUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "GroupsKickJob: mKickUserId is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelKickJob: mKickUserId is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "GroupsKickJob: RoomId is empty";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelKickJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start GroupsKickJob job";
+        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChannelKickJob job";
         return false;
     }
     return true;
 }
 
-QJsonDocument GroupsKickJob::json() const
+QJsonDocument ChannelKickJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = roomId();
@@ -99,19 +99,19 @@ QJsonDocument GroupsKickJob::json() const
     return postData;
 }
 
-QString GroupsKickJob::roomId() const
+QString ChannelKickJob::roomId() const
 {
     return mRoomId;
 }
 
-void GroupsKickJob::setRoomId(const QString &roomId)
+void ChannelKickJob::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
 }
 
-QNetworkRequest GroupsKickJob::request() const
+QNetworkRequest ChannelKickJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsKick);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsKick);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
@@ -120,12 +120,12 @@ QNetworkRequest GroupsKickJob::request() const
     return request;
 }
 
-QString GroupsKickJob::kickUserId() const
+QString ChannelKickJob::kickUserId() const
 {
     return mKickUserId;
 }
 
-void GroupsKickJob::setKickUserId(const QString &kickUserId)
+void ChannelKickJob::setKickUserId(const QString &kickUserId)
 {
     mKickUserId = kickUserId;
 }

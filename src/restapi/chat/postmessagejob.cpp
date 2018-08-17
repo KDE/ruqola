@@ -109,6 +109,7 @@ bool PostMessageJob::canStart() const
         qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start PostMessageJob job";
         return false;
     }
+    //It can be optional!
     if (mText.isEmpty()) {
         qCWarning(RUQOLA_RESTAPI_LOG) << "Text is empty";
         return false;

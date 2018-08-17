@@ -18,18 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GROUPSKICKJOB_H
-#define GROUPSKICKJOB_H
+#ifndef CHANNELKICKJOB_H
+#define CHANNELKICKJOB_H
 
 #include "restapiabstractjob.h"
 #include "libruqola_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT GroupsKickJob : public RestApiAbstractJob
+class LIBRUQOLACORE_TESTS_EXPORT ChannelKickJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit GroupsKickJob(QObject *parent = nullptr);
-    ~GroupsKickJob() override;
+    explicit ChannelKickJob(QObject *parent = nullptr);
+    ~ChannelKickJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -49,7 +49,7 @@ Q_SIGNALS:
     void kickUserDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(GroupsKickJob)
+    Q_DISABLE_COPY(ChannelKickJob)
     void slotKickUsersFinished();
     QString mKickUserId;
     QString mRoomId;
