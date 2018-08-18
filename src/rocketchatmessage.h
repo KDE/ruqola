@@ -105,6 +105,7 @@ public:
     RocketChatMessage::RocketChatMessageResult unreadAlert(const QString &roomId, const QString &value, quint64 id);
     RocketChatMessage::RocketChatMessageResult deleteFileMessage(const QString &fileId, quint64 id);
     RocketChatMessage::RocketChatMessageResult setRoomType(const QString &roomId, bool privateChannel, quint64 id);
+    RocketChatMessage::RocketChatMessageResult ignoreUser(const QString &roomId, const QString &userId, bool ignore, quint64 id);
 private:
     Q_DISABLE_COPY(RocketChatMessage)
     QJsonValue toJsonDateTime(const QDateTime &dateTime);

@@ -27,11 +27,17 @@ import KDE.Ruqola.DebugCategory 1.0
 QQC2.Menu {
     id: menu
     property bool can_editing_message
+    property bool user_ignored
     property bool starred
 
     function updateFavoriteLabelText()
     {
         return (i_starred === true) ? i18n("Remove as Favorite") : i18n("Set as Favorite")
+    }
+
+    function updateIgnoreLabelText()
+    {
+        return (i_user_ignored === true) ? i18n("Unignore") : i18n("Ignore")
     }
 
     QQC2.MenuItem {
@@ -76,7 +82,7 @@ QQC2.Menu {
         }
     }
     QQC2.MenuItem {
-        visible: i_username === i_own_username
+        enabled: i_username === i_own_username
         contentItem: QQC2.Label {
             text: i18n("Delete")
         }
@@ -86,15 +92,17 @@ QQC2.Menu {
     }
     QQC2.MenuItem {
         contentItem: QQC2.Label {
-            //TODO update as ignore/unignore
-            text: i18n("Ignore")
+            id: ignoreLabel
+            text: updateIgnoreLabelText()
         }
         onTriggered: {
-            //messageMain.deleteMessage(i_messageID);
+            console.log(RuqolaDebugCategorySingleton.category, "Ignore", i_messageID);
+            messageMain.ignoreUser(!user_ignored);
         }
     }
     onAboutToShow: {
-        editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
+        editMessageItem.enabled = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
         favoriteLabel.text = updateFavoriteLabelText()
+        ignoreLabel.text = updateIgnoreLabelText()
     }
 }

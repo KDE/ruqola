@@ -1192,6 +1192,12 @@ void RocketChatAccount::userStatusChanged(const User &user)
     mRoomModel->userStatusChanged(user);
 }
 
+void RocketChatAccount::ignoreUser(const QString &rid, const QString &userId, bool ignore)
+{
+    qDebug() << " void RocketChatAccount::ignoreUser(const QString &rid, const QString &userId, bool ignore)"<<rid << " user " << userId << " ignore " << ignore;
+    ddp()->ignoreUser(rid, userId, ignore);
+}
+
 void RocketChatAccount::blockUser(const QString &rid, bool block)
 {
     //TODO use restapi

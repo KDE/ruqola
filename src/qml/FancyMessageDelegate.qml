@@ -57,6 +57,7 @@ Rectangle {
     property string i_own_username
     property bool i_can_editing_message
     property bool i_starred
+    property bool i_user_ignored
 
     color: RuqolaSingleton.backgroundColor
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
@@ -74,6 +75,7 @@ Rectangle {
     signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
     signal deleteReaction(string messageId, string emoji)
+    signal ignoreUser(bool ignored)
 
     Loader {
         id: loaded
@@ -132,7 +134,8 @@ Rectangle {
                               rcAccount: appid.rocketChatAccount,
                               i_can_editing_message: i_can_editing_message,
                               i_editedByUserName: i_editedByUserName,
-                              i_starred: i_starred
+                              i_starred: i_starred,
+                              i_user_ignored : i_user_ignored
                           }
                           )
             } else if (i_messageType === Message.Audio) {
@@ -246,6 +249,9 @@ Rectangle {
         }
         onDeleteReaction: {
             messageMain.deleteReaction(messageId, emoji)
+        }
+        onIgnoreUser: {
+            messageMain.ignoreUser(ignored)
         }
     }
 }

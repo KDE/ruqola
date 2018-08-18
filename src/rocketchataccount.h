@@ -167,6 +167,10 @@ public:
     Q_INVOKABLE void openDocumentation();
     Q_INVOKABLE void clearSearchModel();
 
+    Q_INVOKABLE void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
+    Q_INVOKABLE void ignoreUser(const QString &rid, const QString &userId, bool ignore);
+
+
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
@@ -235,8 +239,9 @@ public:
 
     void initializeRoom(const QString &roomId, bool loadInitialHistory = true);
 
-    Q_INVOKABLE void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
     void removeSettings();
+
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

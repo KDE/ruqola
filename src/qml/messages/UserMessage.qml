@@ -44,6 +44,7 @@ MessageBase {
     MessageMenu {
         id: menu
         can_editing_message: i_can_editing_message
+        user_ignored : i_user_ignored
         starred: i_starred
     }
 

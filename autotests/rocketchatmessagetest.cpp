@@ -508,3 +508,11 @@ void RocketChatMessageTest::deleteFileMessage()
     RocketChatMessage::RocketChatMessageResult r = m.deleteFileMessage(QStringLiteral("fileid"), 43);
     compareFile(r.result, QStringLiteral("deleteFileMessage"));
 }
+
+void RocketChatMessageTest::ignoreUser()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.ignoreUser(QStringLiteral("roomId1"), QStringLiteral("user2"), true, 43);
+    compareFile(r.result, QStringLiteral("ignoreUser"));
+}

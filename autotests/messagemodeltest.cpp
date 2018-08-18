@@ -61,6 +61,7 @@ void MessageModelTest::shouldHaveDefaultValue()
     roles[MessageModel::UsernameUrl] = QByteArrayLiteral("usernameurl");
     roles[MessageModel::Roles] = QByteArrayLiteral("roles");
     roles[MessageModel::Reactions] = QByteArrayLiteral("reactions");
+    roles[MessageModel::Ignored] = QByteArrayLiteral("userIsIgnored");
 
     QCOMPARE(w.roleNames(), roles);
 }

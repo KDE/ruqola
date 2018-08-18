@@ -36,6 +36,7 @@ ListView {
     signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
     signal deleteReaction(string messageId, string emoji)
+    signal ignoreUser(string userId, bool ignored)
 
     property QtObject rcAccount
     property string roomId: ""
@@ -83,6 +84,7 @@ ListView {
         i_can_editing_message: canEditingMessage
         i_starred: starred
         i_editedByUserName: editedByUsername
+        i_user_ignored: userIsIgnored
 
         onOpenChannel: {
             activeChat.openChannel(channel)
@@ -119,6 +121,9 @@ ListView {
         }
         onDeleteReaction: {
             activeChat.deleteReaction(messageId, emoji)
+        }
+        onIgnoreUser: {
+            activeChat.ignoreUser(userID, ignored)
         }
     }
 }

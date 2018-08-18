@@ -236,6 +236,26 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QS
     return generateMethod(QStringLiteral("blockUser"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::ignoreUser(const QString &roomId, const QString &userId, bool ignore, quint64 id)
+{
+    QJsonObject obj{
+        {
+            QStringLiteral("userId"), userId
+        },
+        {
+            QStringLiteral("rid"), roomId
+        },
+        {
+            QStringLiteral("ignore"), ignore
+        }
+    };
+    const QJsonArray params{{
+                                obj
+                            }};
+
+    return generateMethod(QStringLiteral("ignoreUser"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::unblockUser(const QString &rid, const QString &userId, quint64 id)
 {
     QJsonObject obj{

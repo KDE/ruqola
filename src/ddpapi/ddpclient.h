@@ -181,6 +181,7 @@ public:
     Q_REQUIRED_RESULT quint64  unreadAlert(const QString &roomId, const QString &value);
     Q_REQUIRED_RESULT quint64  deleteFileMessage(const QString &roomId, const QString &fileid, const QString &channelType);
     Q_REQUIRED_RESULT quint64  setRoomType(const QString &roomId, bool privateChannel);
+    Q_REQUIRED_RESULT quint64  ignoreUser(const QString &roomId, const QString &userId, bool ignore);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

@@ -276,6 +276,9 @@ Component {
             onSetFavoriteMessage: {
                 appid.rocketChatAccount.starMessage(messageId, roomId, starred)
             }
+            onIgnoreUser: {
+                appid.rocketChatAccount.ignoreUser(roomId, userId, ignored)
+            }
 
             onOpenChannel: {
                 openChannelDialog.channelName = channel

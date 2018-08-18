@@ -43,6 +43,13 @@ namespace RuqolaTestWebSocket {
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void user_ignore(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("User Ignore:") + QJsonDocument(root).toJson());
+    }
+}
+
 void block_user(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -369,6 +376,7 @@ quint64 DDPClient::setRoomType(const QString &roomId, bool privateChannel)
     return method(result, change_room_settings, DDPClient::Persistent);
 }
 
+
 quint64 DDPClient::setRoomDescription(const QString &roomId, const QString &description)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setRoomDescription(roomId, description, m_uid);
@@ -683,6 +691,13 @@ quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const 
     m_uid++;
     return value;
 }
+
+quint64 DDPClient::ignoreUser(const QString &roomId, const QString &userId, bool ignore)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->ignoreUser(roomId, userId, ignore, m_uid);
+    return method(result, user_ignore, DDPClient::Persistent);
+}
+
 
 quint64 DDPClient::method(const RocketChatMessage::RocketChatMessageResult &result, std::function<void(QJsonObject, RocketChatAccount *)> callback, DDPClient::MessageType messageType)
 {

@@ -1,0 +1,12 @@
+{
+    "id": "43",
+    "method": "ignoreUser",
+    "msg": "method",
+    "params": [
+        {
+            "ignore": true,
+            "rid": "roomId1",
+            "userId": "user2"
+        }
+    ]
+}

@@ -82,6 +82,7 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
     }
 #endif
     connect(mRoom, &Room::rolesChanged, this, &MessageModel::refresh);
+    connect(mRoom, &Room::ignoredUsersChanged, this, &MessageModel::refresh);
 }
 
 MessageModel::~MessageModel()
@@ -148,6 +149,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[UsernameUrl] = QByteArrayLiteral("usernameurl");
     roles[Roles] = QByteArrayLiteral("roles");
     roles[Reactions] = QByteArrayLiteral("reactions");
+    roles[Ignored] = QByteArrayLiteral("userIsIgnored");
     return roles;
 }
 
@@ -293,6 +295,10 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             lst.append(QVariant::fromValue(react));
         }
         return lst;
+    }
+    case MessageModel::Ignored:
+    {
+        return (mRoom && mRoom->userIsIgnored(mAllMessages.at(idx).userId()));
     }
 
     }

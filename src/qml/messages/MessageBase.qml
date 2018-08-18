@@ -32,6 +32,7 @@ ColumnLayout {
     signal downloadAttachment(string url)
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
     signal deleteReaction(string messageId, string emoji)
+    signal ignoreUser(bool ignored)
 
 
     property string i_date
@@ -49,6 +50,7 @@ ColumnLayout {
     property string i_editedByUserName
     property bool i_starred
     property bool i_can_editing_message
+    property bool i_user_ignored
 
 
 

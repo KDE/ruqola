@@ -97,6 +97,8 @@ private Q_SLOTS:
     void unreadAlert();
     void deleteFileMessage();
     void shouldSetRoomType();
+
+    void ignoreUser();
 private:
     void compareFile(const QString &data, const QString &name);
 };
