@@ -260,7 +260,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
-    void slotChannelFilesDone(const QVector<File> &files, const QString &roomId);
+    void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);
     void slotNeedToUpdateNotification();
@@ -271,6 +271,7 @@ private:
     void initializeAuthenticationPlugins();
     void setDefaultAuthentication(AuthenticationManager::OauthType type);
     void userStatusChanged(const User &user);
+    QVector<File> parseFilesInChannel(const QJsonObject &obj);
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 

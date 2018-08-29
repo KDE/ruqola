@@ -669,8 +669,24 @@ void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelT
 #endif
 }
 
-void RocketChatAccount::slotChannelFilesDone(const QVector<File> &files, const QString &roomId)
+QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj)
 {
+    //TODO add autotests
+    QVector<File> files;
+    const QJsonArray filesArray = obj.value(QLatin1String("files")).toArray();
+    for (int i = 0; i < filesArray.count(); ++i) {
+        QJsonObject fileObj = filesArray.at(i).toObject();
+        File f;
+        f.parseFile(fileObj, true);
+        files.append(f);
+    }
+    return files;
+}
+
+
+void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)
+{
+    const QVector<File> files = parseFilesInChannel(obj);
     FilesForRoomModel *filesForRoomModel = roomModel()->filesModelForRoom(roomId);
     if (filesForRoomModel) {
         filesForRoomModel->setFiles(files);

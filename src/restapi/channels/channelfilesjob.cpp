@@ -22,7 +22,6 @@
 
 #include "ruqola_restapi_debug.h"
 #include "restapimethod.h"
-#include "file.h"
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -60,27 +59,12 @@ void ChannelFilesJob::slotFilesinChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("channelFilesDone done: ") + replyJson.toJson(QJsonDocument::Indented));
-            const QVector<File> files = parseFilesInChannel(replyObject);
-            Q_EMIT channelFilesDone(files, mRoomId);
+            Q_EMIT channelFilesDone(replyObject, mRoomId);
         } else {
             qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to find files in channel" << data;
         }
     }
     deleteLater();
-}
-
-QVector<File> ChannelFilesJob::parseFilesInChannel(const QJsonObject &obj)
-{
-    //TODO add autotests
-    QVector<File> files;
-    const QJsonArray filesArray = obj.value(QLatin1String("files")).toArray();
-    for (int i = 0; i < filesArray.count(); ++i) {
-        QJsonObject fileObj = filesArray.at(i).toObject();
-        File f;
-        f.parseFile(fileObj, true);
-        files.append(f);
-    }
-    return files;
 }
 
 ChannelFilesJob::ChannelType ChannelFilesJob::channelType() const
