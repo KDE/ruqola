@@ -20,7 +20,7 @@
 
 #include "getmessagejob.h"
 #include "restapimethod.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -43,7 +43,7 @@ bool GetMessageJob::requireHttpAuthentication() const
 bool GetMessageJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start get message job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start get message job";
         deleteLater();
         return false;
     }
@@ -63,9 +63,9 @@ void GetMessageJob::slotIgnoreUserFinished()
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GetMessageJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getMessageDone(replyObject);
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Ignore user success: " << data;
+            qCDebug(RESTAPI_LOG) << "Ignore user success: " << data;
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to get message";
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to get message";
         }
     }
     deleteLater();
@@ -97,11 +97,11 @@ QNetworkRequest GetMessageJob::request() const
 bool GetMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ignore user job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start ignore user job";
         return false;
     }
     if (mMessageId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "MessageId is empty";
+        qCWarning(RESTAPI_LOG) << "MessageId is empty";
         return false;
     }
     return true;

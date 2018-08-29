@@ -20,12 +20,12 @@
 
 #ifndef FACEBOOKAUTHJOB_H
 #define FACEBOOKAUTHJOB_H
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
 
-class LIBRUQOLACORE_TESTS_EXPORT FacebookAuthJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT FacebookAuthJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

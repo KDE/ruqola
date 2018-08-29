@@ -21,11 +21,11 @@
 #ifndef RESTAPIMETHOD_H
 #define RESTAPIMETHOD_H
 
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 #include "restapiutil.h"
 #include <QString>
 #include <QUrl>
-class LIBRUQOLACORE_TESTS_EXPORT RestApiMethod
+class LIBRESTAPI_TESTS_EXPORT RestApiMethod
 {
 public:
     RestApiMethod();

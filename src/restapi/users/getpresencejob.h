@@ -21,12 +21,12 @@
 #ifndef GETPRESENCEJOB_H
 #define GETPRESENCEJOB_H
 
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
 
-class LIBRUQOLACORE_TESTS_EXPORT GetPresenceJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT GetPresenceJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

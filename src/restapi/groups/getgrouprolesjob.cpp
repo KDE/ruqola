@@ -19,7 +19,7 @@
 */
 
 #include "getgrouprolesjob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -38,11 +38,11 @@ GetGroupRolesJob::~GetGroupRolesJob()
 bool GetGroupRolesJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "GetGroupRolesJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "GetGroupRolesJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start GetGroupRolesJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start GetGroupRolesJob job";
         return false;
     }
     return true;
@@ -51,7 +51,7 @@ bool GetGroupRolesJob::canStart() const
 bool GetGroupRolesJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start server info job";
         deleteLater();
         return false;
     }

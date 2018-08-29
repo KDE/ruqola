@@ -20,7 +20,7 @@
 
 #include "listpermissionsjob.h"
 #include "restapimethod.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -42,7 +42,7 @@ bool ListPermissionsJob::requireHttpAuthentication() const
 bool ListPermissionsJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start owninfo job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start owninfo job";
         deleteLater();
         return false;
     }
@@ -63,7 +63,7 @@ void ListPermissionsJob::slotListPermissionFinished()
             addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT listPermissionDone(replyObject);
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to get list permissions" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to get list permissions" << data;
         }
     }
     deleteLater();

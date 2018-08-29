@@ -150,7 +150,6 @@ set (Ruqola_core_srcs
     ${Ruqola_plugins_srcs}
     ${Ruqola_aboutdata_srcs}
     ${Ruqola_ddpapi_SRCS}
-    ${Ruqola_restapi_SRCS}
     authenticationinfo.cpp
     message.cpp
     room.cpp
@@ -233,6 +232,7 @@ target_link_libraries(libruqolacore
     KF5::Crash
     KF5::Notifications
     KF5::SyntaxHighlighting
+    librestapi
 )
 
 if (NOT WIN32)
@@ -252,19 +252,20 @@ set_target_properties(libruqolacore
     PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
     )
 
-#add_library(librestapi ${Ruqola_restapi_SRCS})
-#generate_export_header(librestapi BASE_NAME librestapi)
-#target_link_libraries(librestapi
-#    Qt5::Core
-#    Qt5::Gui
-#    Qt5::WebSockets
-#    Qt5::Network
-#    Qt5::NetworkAuth
-#)
+ecm_qt_declare_logging_category(Ruqola_restapi_SRCS HEADER restapi_debug.h IDENTIFIER RESTAPI_LOG CATEGORY_NAME org.kde.ruqola.restapi)
+add_library(librestapi ${Ruqola_restapi_SRCS})
+generate_export_header(librestapi BASE_NAME librestapi)
+target_link_libraries(librestapi
+    Qt5::Core
+    Qt5::Gui
+    Qt5::WebSockets
+    Qt5::Network
+    Qt5::NetworkAuth
+)
 
-#set_target_properties(librestapi
-#    PROPERTIES OUTPUT_NAME restapi VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
-#    )
+set_target_properties(librestapi
+    PROPERTIES OUTPUT_NAME restapi VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
+    )
 
 
 ##### ruqola main apps.
@@ -276,10 +277,11 @@ endif()
 
 add_executable(ruqola main.cpp ${RuqolaResources})
 
-target_link_libraries(ruqola libruqolacore)
+target_link_libraries(ruqola libruqolacore librestapi)
 
 install(TARGETS ruqola ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS librestapi ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 install(PROGRAMS data/org.kde.ruqola.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES data/org.kde.ruqola.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})

@@ -20,7 +20,7 @@
 
 #include "createchanneljob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -58,10 +58,10 @@ void CreateChannelJob::slotCreateChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Create channel success: " << data;
+            qCDebug(RESTAPI_LOG) << "Create channel success: " << data;
             Q_EMIT createChannelDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to create channel" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to create channel" << data;
         }
     }
     deleteLater();
@@ -105,11 +105,11 @@ bool CreateChannelJob::requireHttpAuthentication() const
 bool CreateChannelJob::canStart() const
 {
     if (mChannelName.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "CreateChannelJob: channelname is empty";
+        qCWarning(RESTAPI_LOG) << "CreateChannelJob: channelname is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start CreateChannelJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start CreateChannelJob job";
         return false;
     }
     return true;

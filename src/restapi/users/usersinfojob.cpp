@@ -20,7 +20,7 @@
 
 #include "usersinfojob.h"
 #include "restapimethod.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUrlQuery>
@@ -43,7 +43,7 @@ bool UsersInfoJob::requireHttpAuthentication() const
 bool UsersInfoJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start usersinfo job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start usersinfo job";
         deleteLater();
         return false;
     }
@@ -107,11 +107,11 @@ QNetworkRequest UsersInfoJob::request() const
 bool UsersInfoJob::canStart() const
 {
     if (mIdentifier.trimmed().isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "UsersInfoJob: identifier is empty";
+        qCWarning(RESTAPI_LOG) << "UsersInfoJob: identifier is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SpotlightJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start SpotlightJob job";
         return false;
     }
     return true;

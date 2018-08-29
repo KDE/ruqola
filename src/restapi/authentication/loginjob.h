@@ -20,12 +20,12 @@
 
 #ifndef LOGINJOB_H
 #define LOGINJOB_H
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
 
-class LIBRUQOLACORE_TESTS_EXPORT LoginJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT LoginJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

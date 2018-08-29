@@ -20,7 +20,7 @@
 
 #include "channelhistoryjob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChannelHistoryJob::slotLoadHistoryChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "load history success: " << data;
+            qCDebug(RESTAPI_LOG) << "load history success: " << data;
             Q_EMIT channelHistoryDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to load history" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to load history" << data;
         }
     }
     deleteLater();
@@ -94,15 +94,15 @@ bool ChannelHistoryJob::requireHttpAuthentication() const
 bool ChannelHistoryJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelHistoryJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "ChannelHistoryJob: RoomId is empty";
         return false;
     }
     if (mChannelType == ChannelHistoryJob::Unknown) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelHistoryJob: Channel type is unknown.";
+        qCWarning(RESTAPI_LOG) << "ChannelHistoryJob: Channel type is unknown.";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChannelHistoryJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start ChannelHistoryJob job";
         return false;
     }
     return true;
@@ -141,7 +141,7 @@ QNetworkRequest ChannelHistoryJob::request() const
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ImHistory);
         break;
     case Unknown:
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelHistoryJob: Type is not defined";
+        qCWarning(RESTAPI_LOG) << "ChannelHistoryJob: Type is not defined";
         break;
     }
     QNetworkRequest request(url);

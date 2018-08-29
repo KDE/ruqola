@@ -20,10 +20,10 @@
 
 #ifndef ABSTRACTLOGGER_H
 #define ABSTRACTLOGGER_H
-
+#include "librestapi_export.h"
 class QByteArray;
 
-class AbstractLogger
+class LIBRESTAPI_EXPORT AbstractLogger
 {
 public:
     AbstractLogger();

@@ -22,11 +22,11 @@
 #define OWNINFOJOB_H
 
 #include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
 
-class LIBRUQOLACORE_TESTS_EXPORT OwnInfoJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT OwnInfoJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

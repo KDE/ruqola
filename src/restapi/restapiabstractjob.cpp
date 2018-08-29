@@ -19,7 +19,7 @@
 */
 
 #include "restapiabstractjob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "ruqolalogger.h"
 
 #include <QNetworkRequest>
@@ -77,15 +77,15 @@ bool RestApiAbstractJob::hasAuthenticationValue() const
 bool RestApiAbstractJob::canStart() const
 {
     if (!mNetworkAccessManager) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Network manager not defined";
+        qCWarning(RESTAPI_LOG) << "Network manager not defined";
         return false;
     }
     if (!mRestApiMethod) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "RestaApiMethod not defined";
+        qCWarning(RESTAPI_LOG) << "RestaApiMethod not defined";
         return false;
     }
     if (requireHttpAuthentication() && !hasAuthenticationValue()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Auth settings is empty. It's a bug";
+        qCWarning(RESTAPI_LOG) << "Auth settings is empty. It's a bug";
         return false;
     }
     return true;
@@ -112,6 +112,6 @@ void RestApiAbstractJob::addLoggerInfo(const QByteArray &str)
     if (mRestApiLogger) {
         mRestApiLogger->dataSent("RESTAPI: " + str);
     } else {
-        qCDebug(RUQOLA_RESTAPI_LOG) << "RESTAPI: " << str;
+        qCDebug(RESTAPI_LOG) << "RESTAPI: " << str;
     }
 }

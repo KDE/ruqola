@@ -20,7 +20,7 @@
 
 #include "groupskickjob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void GroupsKickJob::slotKickUsersFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change announcement success: " << data;
+            qCDebug(RESTAPI_LOG) << "Change announcement success: " << data;
             Q_EMIT kickUserDone(replyObject);
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to kick user in group: " << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to kick user in group: " << data;
         }
     }
     deleteLater();
@@ -75,15 +75,15 @@ bool GroupsKickJob::requireHttpAuthentication() const
 bool GroupsKickJob::canStart() const
 {
     if (mKickUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "GroupsKickJob: mKickUserId is empty";
+        qCWarning(RESTAPI_LOG) << "GroupsKickJob: mKickUserId is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "GroupsKickJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "GroupsKickJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start GroupsKickJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start GroupsKickJob job";
         return false;
     }
     return true;

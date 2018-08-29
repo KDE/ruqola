@@ -19,7 +19,7 @@
 */
 
 #include "privateinfojob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
 
@@ -35,7 +35,7 @@ PrivateInfoJob::~PrivateInfoJob()
 bool PrivateInfoJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start PrivateInfoJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start PrivateInfoJob job";
         deleteLater();
         return false;
     }

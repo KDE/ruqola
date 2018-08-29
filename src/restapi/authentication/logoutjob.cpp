@@ -19,7 +19,7 @@
 */
 
 #include "logoutjob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 
 #include <QJsonDocument>
@@ -38,7 +38,7 @@ LogoutJob::~LogoutJob()
 bool LogoutJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start LogoutJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start LogoutJob job";
         deleteLater();
         return false;
     }
@@ -59,13 +59,13 @@ void LogoutJob::slotLogout()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success")) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << " Logout";
+            qCDebug(RESTAPI_LOG) << " Logout";
             Q_EMIT logoutDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we try to logout";
+            qCWarning(RESTAPI_LOG) <<" Problem when we try to logout";
         }
 
-        qCDebug(RUQOLA_RESTAPI_LOG) << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
+        qCDebug(RESTAPI_LOG) << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
     }
     deleteLater();
 }

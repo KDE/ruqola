@@ -20,7 +20,7 @@
 
 #include "changegroupsannouncementjob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChangeGroupsAnnouncementJob::slotChangeGroupsannouncementFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change announcement success: " << data;
+            qCDebug(RESTAPI_LOG) << "Change announcement success: " << data;
             Q_EMIT changeGroupsAnnouncement();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
         }
     }
     deleteLater();
@@ -74,15 +74,15 @@ bool ChangeGroupsAnnouncementJob::requireHttpAuthentication() const
 bool ChangeGroupsAnnouncementJob::canStart() const
 {
     if (mAnnouncement.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeGroupsAnnouncementJob: announcement is empty";
+        qCWarning(RESTAPI_LOG) << "ChangeGroupsAnnouncementJob: announcement is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeGroupsAnnouncementJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "ChangeGroupsAnnouncementJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChangeGroupsAnnouncementJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start ChangeGroupsAnnouncementJob job";
         return false;
     }
     return true;

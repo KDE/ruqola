@@ -20,7 +20,7 @@
 
 #include "changegroupsdescriptionjob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChangeGroupsDescriptionJob::slotChangeDescriptionFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change description success: " << data;
+            qCDebug(RESTAPI_LOG) << "Change description success: " << data;
             Q_EMIT changeDescriptionDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change description: " << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change description: " << data;
         }
     }
     deleteLater();
@@ -84,15 +84,15 @@ bool ChangeGroupsDescriptionJob::requireHttpAuthentication() const
 bool ChangeGroupsDescriptionJob::canStart() const
 {
     if (mDescription.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeGroupsDescriptionJob: description is empty";
+        qCWarning(RESTAPI_LOG) << "ChangeGroupsDescriptionJob: description is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeGroupsDescriptionJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "ChangeGroupsDescriptionJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChangeGroupsDescriptionJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start ChangeGroupsDescriptionJob job";
         return false;
     }
     return true;

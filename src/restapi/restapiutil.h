@@ -22,7 +22,7 @@
 #define RESTAPIUTIL_H
 
 #include <QString>
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 
 namespace RestApiUtil {
 enum class RestApiUrlType {
@@ -133,9 +133,9 @@ enum class RestApiUrlType {
     PermissionsList,
     CommandsList,
 };
-LIBRUQOLACORE_TESTS_EXPORT QString adaptUrl(const QString &url);
-LIBRUQOLACORE_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
-LIBRUQOLACORE_TESTS_EXPORT QString apiUri();
+LIBRESTAPI_TESTS_EXPORT QString adaptUrl(const QString &url);
+LIBRESTAPI_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
+LIBRESTAPI_TESTS_EXPORT QString apiUri();
 }
 
 #endif // RESTAPIUTIL_H

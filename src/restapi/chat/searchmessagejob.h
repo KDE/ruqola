@@ -22,11 +22,11 @@
 #define SEARCHMESSAGEJOB_H
 
 #include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
 
-class LIBRUQOLACORE_TESTS_EXPORT SearchMessageJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT SearchMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

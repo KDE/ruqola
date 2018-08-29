@@ -21,12 +21,12 @@
 #ifndef GETUSERNAMESUGGESTIONJOB_H
 #define GETUSERNAMESUGGESTIONJOB_H
 
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
 
-class LIBRUQOLACORE_TESTS_EXPORT GetUsernameSuggestionJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT GetUsernameSuggestionJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

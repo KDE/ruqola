@@ -20,7 +20,7 @@
 
 #include "archivegroupsjob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ArchiveGroupsJob::slotArchiveGroupsFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Archive or unarchive groups success: " << data;
+            qCDebug(RESTAPI_LOG) << "Archive or unarchive groups success: " << data;
             Q_EMIT archiveGroupsDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to archive or unarchive groups" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to archive or unarchive groups" << data;
         }
     }
     deleteLater();
@@ -84,11 +84,11 @@ bool ArchiveGroupsJob::requireHttpAuthentication() const
 bool ArchiveGroupsJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ArchiveGroupsJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "ArchiveGroupsJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ArchiveGroupsJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start ArchiveGroupsJob job";
         return false;
     }
     return true;

@@ -22,9 +22,9 @@
 #define CHANGECHANNELREADONLYJOB_H
 
 #include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT ChangeChannelReadonlyJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT ChangeChannelReadonlyJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

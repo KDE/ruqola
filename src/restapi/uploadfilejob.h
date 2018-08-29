@@ -24,9 +24,9 @@
 #include <QNetworkRequest>
 #include <QObject>
 #include <QUrl>
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
-class LIBRUQOLACORE_TESTS_EXPORT UploadFileJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT UploadFileJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

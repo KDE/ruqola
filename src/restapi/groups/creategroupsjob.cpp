@@ -20,7 +20,7 @@
 
 #include "creategroupsjob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -58,10 +58,10 @@ void CreateGroupsJob::slotCreateGroupsFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success: " << data;
+            qCDebug(RESTAPI_LOG) << "Change Topic success: " << data;
             Q_EMIT createGroupsDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
         }
     }
     deleteLater();
@@ -105,11 +105,11 @@ bool CreateGroupsJob::requireHttpAuthentication() const
 bool CreateGroupsJob::canStart() const
 {
     if (mChannelName.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "CreateGroupsJob: channelname is empty";
+        qCWarning(RESTAPI_LOG) << "CreateGroupsJob: channelname is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start CreateGroupsJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start CreateGroupsJob job";
         return false;
     }
     return true;

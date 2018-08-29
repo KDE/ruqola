@@ -20,7 +20,7 @@
 
 #include "channelinvitejob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChannelInviteJob::slotInvitationFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change announcement success: " << data;
+            qCDebug(RESTAPI_LOG) << "Change announcement success: " << data;
             Q_EMIT inviteDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
         }
     }
     deleteLater();
@@ -84,15 +84,15 @@ bool ChannelInviteJob::requireHttpAuthentication() const
 bool ChannelInviteJob::canStart() const
 {
     if (mInviteUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelInviteJob: inviteUserId is empty";
+        qCWarning(RESTAPI_LOG) << "ChannelInviteJob: inviteUserId is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelInviteJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "ChannelInviteJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChannelInviteJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start ChannelInviteJob job";
         return false;
     }
     return true;

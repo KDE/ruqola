@@ -19,7 +19,7 @@
 */
 
 #include "deletemessagejob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -56,10 +56,10 @@ void DeleteMessageJob::slotDeleteMessageFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Delete Message success: " << data;
+            qCDebug(RESTAPI_LOG) << "Delete Message success: " << data;
             Q_EMIT deleteMessageDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to delete message" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to delete message" << data;
         }
     }
     deleteLater();
@@ -73,15 +73,15 @@ bool DeleteMessageJob::requireHttpAuthentication() const
 bool DeleteMessageJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "DeleteMessageJob: roomId is empty";
+        qCWarning(RESTAPI_LOG) << "DeleteMessageJob: roomId is empty";
         return false;
     }
     if (mMessageId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "DeleteMessageJob: messageId is empty";
+        qCWarning(RESTAPI_LOG) << "DeleteMessageJob: messageId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start DeleteMessageJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start DeleteMessageJob job";
         return false;
     }
     return true;

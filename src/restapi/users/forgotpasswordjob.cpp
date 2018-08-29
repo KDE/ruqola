@@ -19,7 +19,7 @@
 */
 
 #include "forgotpasswordjob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
 #include <QUrlQuery>
@@ -39,11 +39,11 @@ ForgotPasswordJob::~ForgotPasswordJob()
 bool ForgotPasswordJob::canStart() const
 {
     if (mEmail.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Avatar email is empty";
+        qCWarning(RESTAPI_LOG) << "Avatar email is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start getavatar job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start getavatar job";
         return false;
     }
     return true;
@@ -67,7 +67,7 @@ void ForgotPasswordJob::slotForgotPassword()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
+        //qCDebug(RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
         addLoggerInfo(QByteArrayLiteral("ForgotPasswordJob: finished: ") + data);
         Q_EMIT forgotPasswordDone();
     }

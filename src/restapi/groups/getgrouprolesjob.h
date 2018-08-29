@@ -22,9 +22,9 @@
 #define GETGROUPROLESJOB_H
 
 #include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 class QNetworkRequest;
-class LIBRUQOLACORE_TESTS_EXPORT GetGroupRolesJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT GetGroupRolesJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

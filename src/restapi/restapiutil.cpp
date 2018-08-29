@@ -19,7 +19,7 @@
 */
 
 #include "restapiutil.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 
 QString RestApiUtil::adaptUrl(const QString &url)
 {
@@ -252,6 +252,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::CommandsList:
         return QStringLiteral("commands.list");
     }
-    qCWarning(RUQOLA_RESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
+    qCWarning(RESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
 }

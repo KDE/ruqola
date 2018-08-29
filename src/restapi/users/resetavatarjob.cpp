@@ -20,7 +20,7 @@
 
 #include "resetavatarjob.h"
 #include "restapimethod.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -77,11 +77,11 @@ bool ResetAvatarJob::requireHttpAuthentication() const
 bool ResetAvatarJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ResetAvatarJob";
+        qCWarning(RESTAPI_LOG) << "Impossible to start ResetAvatarJob";
         return false;
     }
     if (mAvatarUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ResetAvatarJob: mAvatarUserId is empty";
+        qCWarning(RESTAPI_LOG) << "ResetAvatarJob: mAvatarUserId is empty";
         return false;
     }
     return true;

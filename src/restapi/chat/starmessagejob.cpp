@@ -19,7 +19,7 @@
 */
 
 #include "starmessagejob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include "restapirequest.h"
 #include <QJsonDocument>
@@ -38,11 +38,11 @@ StarMessageJob::~StarMessageJob()
 bool StarMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start star message job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start star message job";
         return false;
     }
     if (mMessageId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "MessageId is empty";
+        qCWarning(RESTAPI_LOG) << "MessageId is empty";
         return false;
     }
     return true;
@@ -70,10 +70,10 @@ void StarMessageJob::slotStarMessageFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Message Starred success: " << data;
+            qCDebug(RESTAPI_LOG) << "Message Starred success: " << data;
             Q_EMIT messageStarred();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to staring message";
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to staring message";
         }
     }
     deleteLater();

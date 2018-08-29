@@ -23,11 +23,11 @@
 
 #include <QObject>
 #include <QNetworkRequest>
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 class QNetworkAccessManager;
 class RestApiMethod;
 class AbstractLogger;
-class LIBRUQOLACORE_TESTS_EXPORT RestApiAbstractJob : public QObject
+class LIBRESTAPI_TESTS_EXPORT RestApiAbstractJob : public QObject
 {
 public:
     explicit RestApiAbstractJob(QObject *parent = nullptr);

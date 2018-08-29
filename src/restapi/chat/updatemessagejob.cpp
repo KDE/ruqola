@@ -19,7 +19,7 @@
 */
 
 #include "updatemessagejob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -56,10 +56,10 @@ void UpdateMessageJob::slotUpdateMessageFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Update Message success" << data;
+            qCDebug(RESTAPI_LOG) << "Update Message success" << data;
             Q_EMIT updateMessageDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to update message" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to update message" << data;
         }
     }
     deleteLater();
@@ -83,17 +83,17 @@ bool UpdateMessageJob::requireHttpAuthentication() const
 bool UpdateMessageJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "UpdateMessageJob: roomId is empty";
+        qCWarning(RESTAPI_LOG) << "UpdateMessageJob: roomId is empty";
         return false;
     }
     if (mMessageId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "UpdateMessageJob: messageId is empty";
+        qCWarning(RESTAPI_LOG) << "UpdateMessageJob: messageId is empty";
         return false;
     }
     //Updated text I think can be empty.
 
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start UpdateMessageJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start UpdateMessageJob job";
         return false;
     }
     return true;

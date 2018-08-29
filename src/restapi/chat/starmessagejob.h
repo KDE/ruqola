@@ -22,9 +22,9 @@
 #define STARMESSAGEJOB_H
 
 #include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 class QNetworkRequest;
-class LIBRUQOLACORE_TESTS_EXPORT StarMessageJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT StarMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

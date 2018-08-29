@@ -20,7 +20,7 @@
 
 #include "leavechanneljob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void LeaveChannelJob::slotLeaveChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "leave channel success: " << data;
+            qCDebug(RESTAPI_LOG) << "leave channel success: " << data;
             Q_EMIT leaveChannelDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to leave channel" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to leave channel" << data;
         }
     }
     deleteLater();
@@ -74,11 +74,11 @@ bool LeaveChannelJob::requireHttpAuthentication() const
 bool LeaveChannelJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "LeaveChannelJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "LeaveChannelJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start LeaveChannelJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start LeaveChannelJob job";
         return false;
     }
     return true;

@@ -21,12 +21,12 @@
 #ifndef FORGOTPASSWORDJOB_H
 #define FORGOTPASSWORDJOB_H
 
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
 
-class LIBRUQOLACORE_TESTS_EXPORT ForgotPasswordJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT ForgotPasswordJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

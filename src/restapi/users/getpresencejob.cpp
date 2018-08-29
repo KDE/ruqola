@@ -19,7 +19,7 @@
 */
 
 #include "getpresencejob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
 #include <QUrlQuery>
@@ -38,11 +38,11 @@ GetPresenceJob::~GetPresenceJob()
 bool GetPresenceJob::canStart() const
 {
     if (mPresenceUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "presenceuserid is empty";
+        qCWarning(RESTAPI_LOG) << "presenceuserid is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start getPresence job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start getPresence job";
         return false;
     }
     return true;
@@ -73,7 +73,7 @@ void GetPresenceJob::slotGetPresenceUserId()
             addLoggerInfo(QByteArrayLiteral("GetPresenceJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getPresenceDone(replyObject[QStringLiteral("presence")].toString());
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to get username suggestion" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to get username suggestion" << data;
         }
     }
     deleteLater();

@@ -20,7 +20,7 @@
 
 #include "channelclosejob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChannelCloseJob::slotCloseChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "close channel success: " << data;
+            qCDebug(RESTAPI_LOG) << "close channel success: " << data;
             Q_EMIT closeChannelDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to close channel" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to close channel" << data;
         }
     }
     deleteLater();
@@ -84,15 +84,15 @@ bool ChannelCloseJob::requireHttpAuthentication() const
 bool ChannelCloseJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelCloseJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "ChannelCloseJob: RoomId is empty";
         return false;
     }
     if (mChannelType == ChannelCloseJob::Unknown) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelCloseJob: Channel type is unknown.";
+        qCWarning(RESTAPI_LOG) << "ChannelCloseJob: Channel type is unknown.";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChannelCloseJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start ChannelCloseJob job";
         return false;
     }
     return true;
@@ -131,7 +131,7 @@ QNetworkRequest ChannelCloseJob::request() const
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ImClose);
         break;
     case Unknown:
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelCloseJob: Type is not defined";
+        qCWarning(RESTAPI_LOG) << "ChannelCloseJob: Type is not defined";
         break;
     }
     QNetworkRequest request(url);

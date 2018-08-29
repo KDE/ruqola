@@ -24,8 +24,8 @@
 #include <QObject>
 #include <QSslError>
 #include <QUrl>
-#include <file.h>
 #include "restapiutil.h"
+#include "librestapi_export.h"
 
 class QNetworkAccessManager;
 class QNetworkReply;
@@ -33,7 +33,7 @@ class QNetworkCookieJar;
 class RestApiMethod;
 class AbstractLogger;
 class RestApiAbstractJob;
-class RestApiRequest : public QObject
+class LIBRESTAPI_EXPORT RestApiRequest : public QObject
 {
     Q_OBJECT
 public:

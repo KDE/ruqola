@@ -22,9 +22,9 @@
 #define CHANNELREMOVEOWNERJOB_H
 
 #include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT ChannelRemoveOwnerJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT ChannelRemoveOwnerJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

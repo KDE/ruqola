@@ -20,7 +20,7 @@
 
 #include "markroomasreadjob.h"
 #include "restapimethod.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -60,7 +60,7 @@ void MarkRoomAsReadJob::slotMarkAsRead()
             addLoggerInfo(QByteArrayLiteral("MarkRoomAsReadJob: finished: ") + data);
             Q_EMIT markAsReadDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to mark as unread" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to mark as unread" << data;
         }
     }
     deleteLater();
@@ -84,11 +84,11 @@ bool MarkRoomAsReadJob::requireHttpAuthentication() const
 bool MarkRoomAsReadJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start MarkRoomAsReadJob";
+        qCWarning(RESTAPI_LOG) << "Impossible to start MarkRoomAsReadJob";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "MarkRoomAsReadJob: mRoomId is empty";
+        qCWarning(RESTAPI_LOG) << "MarkRoomAsReadJob: mRoomId is empty";
         return false;
     }
     return true;

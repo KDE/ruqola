@@ -20,7 +20,7 @@
 
 #include "setchanneltypejob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -58,10 +58,10 @@ void SetChannelTypeJob::slotSetGroupTypeFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success: " << data;
+            qCDebug(RESTAPI_LOG) << "Change Topic success: " << data;
             Q_EMIT setGroupTypeDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
         }
     }
     deleteLater();
@@ -95,15 +95,15 @@ bool SetChannelTypeJob::requireHttpAuthentication() const
 bool SetChannelTypeJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "SetChannelTypeJob: mRoomId is empty";
+        qCWarning(RESTAPI_LOG) << "SetChannelTypeJob: mRoomId is empty";
         return false;
     }
     if (mType == Unknown) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "SetChannelTypeJob: type is not defined";
+        qCWarning(RESTAPI_LOG) << "SetChannelTypeJob: type is not defined";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SetChannelTypeJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start SetChannelTypeJob job";
         return false;
     }
     return true;

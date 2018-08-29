@@ -19,7 +19,7 @@
 */
 
 #include "downloadfilejob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
 
@@ -59,7 +59,7 @@ void DownloadFileJob::slotDownloadDone()
             addLoggerInfo("DownloadFileJob::slotDownloadDone finished");
             Q_EMIT downloadFileDone(data, reply->url(), mStoreInCache, mLocalFileUrl);
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) << "Unable to download " << reply->url();
+            qCWarning(RESTAPI_LOG) << "Unable to download " << reply->url();
         }
     }
     deleteLater();
@@ -103,11 +103,11 @@ bool DownloadFileJob::requireHttpAuthentication() const
 bool DownloadFileJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start DownloadFileJob";
+        qCWarning(RESTAPI_LOG) << "Impossible to start DownloadFileJob";
         return false;
     }
     if (!mUrl.isValid()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "DownloadFileJob: url is not valid";
+        qCWarning(RESTAPI_LOG) << "DownloadFileJob: url is not valid";
         return false;
     }
     return true;

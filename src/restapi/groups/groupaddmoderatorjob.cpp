@@ -20,7 +20,7 @@
 
 #include "groupaddmoderatorjob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void GroupAddModeratorJob::slotAddModeratorFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Add owner success: " << data;
+            qCDebug(RESTAPI_LOG) << "Add owner success: " << data;
             Q_EMIT addModeratorDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to add moderator : " << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to add moderator : " << data;
         }
     }
     deleteLater();
@@ -84,15 +84,15 @@ bool GroupAddModeratorJob::requireHttpAuthentication() const
 bool GroupAddModeratorJob::canStart() const
 {
     if (mAddModeratorUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "GroupAddModeratorJob: remove userid is empty";
+        qCWarning(RESTAPI_LOG) << "GroupAddModeratorJob: remove userid is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "GroupAddModeratorJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "GroupAddModeratorJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start GroupAddModeratorJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start GroupAddModeratorJob job";
         return false;
     }
     return true;

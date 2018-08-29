@@ -22,9 +22,9 @@
 #define CHANNELLISTJOB_H
 
 #include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT ChannelListJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT ChannelListJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

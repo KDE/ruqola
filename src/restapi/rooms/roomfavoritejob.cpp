@@ -20,7 +20,7 @@
 
 #include "roomfavoritejob.h"
 #include "restapimethod.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -58,10 +58,10 @@ void RoomFavoriteJob::slotChangeFavoriteFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change favorite status done: " << data;
+            qCDebug(RESTAPI_LOG) << "Change favorite status done: " << data;
             Q_EMIT changeFavoriteDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change favorite status" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change favorite status" << data;
         }
     }
     deleteLater();
@@ -95,11 +95,11 @@ bool RoomFavoriteJob::requireHttpAuthentication() const
 bool RoomFavoriteJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start RoomFavoriteJob";
+        qCWarning(RESTAPI_LOG) << "Impossible to start RoomFavoriteJob";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "RoomFavoriteJob: mRoomId is empty";
+        qCWarning(RESTAPI_LOG) << "RoomFavoriteJob: mRoomId is empty";
         return false;
     }
     return true;

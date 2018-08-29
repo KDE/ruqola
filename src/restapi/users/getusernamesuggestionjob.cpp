@@ -19,7 +19,7 @@
 */
 
 #include "getusernamesuggestionjob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
 #include <QUrlQuery>
@@ -38,7 +38,7 @@ GetUsernameSuggestionJob::~GetUsernameSuggestionJob()
 bool GetUsernameSuggestionJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start getPresence job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start getPresence job";
         return false;
     }
     return true;
@@ -68,7 +68,7 @@ void GetUsernameSuggestionJob::slotGetUsernameSuggestion()
             addLoggerInfo(QByteArrayLiteral("GetUsernameSuggestionJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getUsernameSuggestionDone(replyObject[QStringLiteral("result")].toString());
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to get username suggestion" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to get username suggestion" << data;
         }
     }
     deleteLater();

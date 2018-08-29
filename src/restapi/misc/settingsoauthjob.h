@@ -22,11 +22,11 @@
 #define SETTINGSOAUTHJOB_H
 
 #include "restapiabstractjob.h"
-#include "libruqola_private_export.h"
+#include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
 
-class LIBRUQOLACORE_TESTS_EXPORT SettingsOauthJob : public RestApiAbstractJob
+class LIBRESTAPI_TESTS_EXPORT SettingsOauthJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

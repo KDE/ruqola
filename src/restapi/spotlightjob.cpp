@@ -19,7 +19,7 @@
 */
 
 #include "spotlightjob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -38,7 +38,7 @@ SpotlightJob::~SpotlightJob()
 bool SpotlightJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SpotlightJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start SpotlightJob job";
         deleteLater();
         return false;
     }
@@ -58,10 +58,10 @@ void SpotlightJob::slotSpotlightDone()
         const QJsonObject replyObject = replyJson.object();
         addLoggerInfo(QByteArrayLiteral("SpotlightJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "SpotlightJob::slotSpotlightDone: success" << data;
+            qCDebug(RESTAPI_LOG) << "SpotlightJob::slotSpotlightDone: success" << data;
             Q_EMIT spotlightDone(replyObject);
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried calling spotlight method" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried calling spotlight method" << data;
         }
     }
     deleteLater();
@@ -96,11 +96,11 @@ QNetworkRequest SpotlightJob::request() const
 bool SpotlightJob::canStart() const
 {
     if (mSearchPattern.trimmed().isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "SpotlightJob: searchpattern is empty";
+        qCWarning(RESTAPI_LOG) << "SpotlightJob: searchpattern is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start SpotlightJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start SpotlightJob job";
         return false;
     }
     return true;

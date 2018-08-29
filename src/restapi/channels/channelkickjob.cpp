@@ -20,7 +20,7 @@
 
 #include "channelkickjob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChannelKickJob::slotKickUsersFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change announcement success: " << data;
+            qCDebug(RESTAPI_LOG) << "Change announcement success: " << data;
             Q_EMIT kickUserDone(replyObject);
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to kick user: " << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to kick user: " << data;
         }
     }
     deleteLater();
@@ -75,15 +75,15 @@ bool ChannelKickJob::requireHttpAuthentication() const
 bool ChannelKickJob::canStart() const
 {
     if (mKickUserId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelKickJob: mKickUserId is empty";
+        qCWarning(RESTAPI_LOG) << "ChannelKickJob: mKickUserId is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChannelKickJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "ChannelKickJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChannelKickJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start ChannelKickJob job";
         return false;
     }
     return true;

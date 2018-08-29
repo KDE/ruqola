@@ -20,7 +20,7 @@
 
 #include "changechannelannouncementjob.h"
 
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChangeChannelAnnouncementJob::slotChangeAnnouncementFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change announcement success: " << data;
+            qCDebug(RESTAPI_LOG) << "Change announcement success: " << data;
             Q_EMIT changeAnnouncementDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
         }
     }
     deleteLater();
@@ -74,15 +74,15 @@ bool ChangeChannelAnnouncementJob::requireHttpAuthentication() const
 bool ChangeChannelAnnouncementJob::canStart() const
 {
     if (mAnnouncement.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeChannelAnnouncementJob: announcement is empty";
+        qCWarning(RESTAPI_LOG) << "ChangeChannelAnnouncementJob: announcement is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeChannelAnnouncementJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "ChangeChannelAnnouncementJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChangeChannelAnnouncementJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start ChangeChannelAnnouncementJob job";
         return false;
     }
     return true;

@@ -20,7 +20,7 @@
 
 #include "owninfojob.h"
 #include "restapimethod.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -42,7 +42,7 @@ bool OwnInfoJob::requireHttpAuthentication() const
 bool OwnInfoJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start owninfo job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start owninfo job";
         deleteLater();
         return false;
     }

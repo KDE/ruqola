@@ -19,7 +19,7 @@
 */
 
 #include "changegroupstopicjob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -56,10 +56,10 @@ void ChangeGroupsTopicJob::slotChangeTopicFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RUQOLA_RESTAPI_LOG) << "Change Topic success: " << data;
+            qCDebug(RESTAPI_LOG) << "Change Topic success: " << data;
             Q_EMIT changeTopicDone();
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
         }
     }
     deleteLater();
@@ -73,15 +73,15 @@ bool ChangeGroupsTopicJob::requireHttpAuthentication() const
 bool ChangeGroupsTopicJob::canStart() const
 {
     if (mTopic.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeGroupsTopicJob: Topic is empty";
+        qCWarning(RESTAPI_LOG) << "ChangeGroupsTopicJob: Topic is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "ChangeGroupsTopicJob: RoomId is empty";
+        qCWarning(RESTAPI_LOG) << "ChangeGroupsTopicJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start ChangeGroupsTopicJob job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start ChangeGroupsTopicJob job";
         return false;
     }
     return true;

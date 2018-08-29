@@ -20,7 +20,7 @@
 
 #include "getroomsjob.h"
 #include "restapimethod.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -42,7 +42,7 @@ bool GetRoomsJob::requireHttpAuthentication() const
 bool GetRoomsJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start getrooms job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start getrooms job";
         deleteLater();
         return false;
     }
@@ -63,7 +63,7 @@ void GetRoomsJob::slotGetRoomsFinished()
             addLoggerInfo(QByteArrayLiteral("GetRoomsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getRoomsDone(replyObject);
         } else {
-            qCWarning(RUQOLA_RESTAPI_LOG) <<" Problem when we tried to get rooms info" << data;
+            qCWarning(RESTAPI_LOG) <<" Problem when we tried to get rooms info" << data;
         }
     }
     deleteLater();

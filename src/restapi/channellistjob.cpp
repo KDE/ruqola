@@ -19,7 +19,7 @@
 */
 
 #include "channellistjob.h"
-#include "ruqola_restapi_debug.h"
+#include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -37,7 +37,7 @@ ChannelListJob::~ChannelListJob()
 bool ChannelListJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_RESTAPI_LOG) << "Impossible to start channel list job";
+        qCWarning(RESTAPI_LOG) << "Impossible to start channel list job";
         deleteLater();
         return false;
     }
@@ -56,7 +56,7 @@ void ChannelListJob::slotListInfo()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         addLoggerInfo(QByteArrayLiteral("ChannelListJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        //qCDebug(RUQOLA_RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
+        //qCDebug(RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
         Q_EMIT channelListDone(replyObject);
     }
     deleteLater();
