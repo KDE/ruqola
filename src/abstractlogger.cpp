@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2017-2018 Montel Laurent <montel@kde.org>
+   Copyright (c) 2018 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,23 +18,14 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLALOGGER_H
-#define RUQOLALOGGER_H
 #include "abstractlogger.h"
 
-#include <QFile>
-
-class RuqolaLogger : public AbstractLogger
+AbstractLogger::AbstractLogger()
 {
-public:
-    RuqolaLogger();
-    ~RuqolaLogger() override;
-    void dataSent(const QByteArray &data) override;
-    void dataReceived(const QByteArray &data) override;
-private:
-    Q_DISABLE_COPY(RuqolaLogger)
-    QFile mFile;
-    quint64 mIdentifier = 0;
-};
 
-#endif // RUQOLALOGGER_H
+}
+
+AbstractLogger::~AbstractLogger()
+{
+
+}

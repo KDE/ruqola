@@ -24,6 +24,7 @@
 #include <QFileInfo>
 
 RuqolaLogger::RuqolaLogger()
+    : AbstractLogger()
 {
     static quint64 nextIdentifier = 0;
     mIdentifier = ++nextIdentifier;
