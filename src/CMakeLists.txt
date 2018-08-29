@@ -217,6 +217,8 @@ add_library(libruqolacore ${Ruqola_core_srcs})
 
 generate_export_header(libruqolacore BASE_NAME libruqolacore)
 
+
+
 target_link_libraries(libruqolacore
     Qt5::Core
     Qt5::Gui
@@ -250,6 +252,22 @@ set_target_properties(libruqolacore
     PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
     )
 
+#add_library(librestapi ${Ruqola_restapi_SRCS})
+#generate_export_header(librestapi BASE_NAME librestapi)
+#target_link_libraries(librestapi
+#    Qt5::Core
+#    Qt5::Gui
+#    Qt5::WebSockets
+#    Qt5::Network
+#    Qt5::NetworkAuth
+#)
+
+#set_target_properties(librestapi
+#    PROPERTIES OUTPUT_NAME restapi VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
+#    )
+
+
+##### ruqola main apps.
 if (Qt5QuickCompiler_FOUND)
     qtquick_compiler_add_resources(RuqolaResources qml/qml.qrc)
 else ()
