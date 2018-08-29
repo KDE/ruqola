@@ -40,7 +40,7 @@ void StarMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.userId().isEmpty());
     QVERIFY(job.messageId().isEmpty());
-    QVERIFY(!job.ruqolaLogger());
+    QVERIFY(!job.restApiLogger());
     QVERIFY(job.starMessage());
 }
 

@@ -37,7 +37,7 @@ void GetPresenceJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.start());
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.presenceUserId().isEmpty());
-    QVERIFY(!job.ruqolaLogger());
+    QVERIFY(!job.restApiLogger());
 }
 
 void GetPresenceJobTest::shouldGenerateRequest()

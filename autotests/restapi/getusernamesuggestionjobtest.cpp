@@ -36,7 +36,7 @@ void GetUsernameSuggestionJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(!job.ruqolaLogger());
+    QVERIFY(!job.restApiLogger());
 }
 
 void GetUsernameSuggestionJobTest::shouldGenerateRequest()

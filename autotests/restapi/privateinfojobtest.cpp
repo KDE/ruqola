@@ -38,7 +38,7 @@ void PrivateInfoJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.userId().isEmpty());
-    QVERIFY(!job.ruqolaLogger());
+    QVERIFY(!job.restApiLogger());
 }
 
 void PrivateInfoJobTest::shouldGenerateRequest()

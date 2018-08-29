@@ -91,6 +91,9 @@ set (Ruqola_restapi_SRCS
     restapi/permissions/listpermissionsjob.cpp
 
     restapi/commands/listcommandsjob.cpp
+
+    restapi/abstractlogger.cpp
+
     )
 
 set(Ruqola_ddpapi_SRCS
@@ -197,7 +200,6 @@ set (Ruqola_core_srcs
     syntaxhighlightingmanager.cpp
     copyfilejob.cpp
     emoticon.cpp
-    abstractlogger.cpp
 )
 
 if (NOT WIN32)

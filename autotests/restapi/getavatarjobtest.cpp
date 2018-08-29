@@ -37,7 +37,7 @@ void GetAvatarJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.start());
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(job.avatarUserId().isEmpty());
-    QVERIFY(!job.ruqolaLogger());
+    QVERIFY(!job.restApiLogger());
 }
 
 void GetAvatarJobTest::shouldGenerateRequest()

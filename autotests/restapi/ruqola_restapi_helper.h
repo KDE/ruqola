@@ -51,7 +51,7 @@ void verifyDefaultValue(RestApiAbstractJob *job)
     QVERIFY(!job->start());
     QVERIFY(job->authToken().isEmpty());
     QVERIFY(job->userId().isEmpty());
-    QVERIFY(!job->ruqolaLogger());
+    QVERIFY(!job->restApiLogger());
 }
 
 #endif // RUQOLA_RESTAPI_HELPER_H

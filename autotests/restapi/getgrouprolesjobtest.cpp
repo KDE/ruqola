@@ -37,7 +37,7 @@ void GetGroupRolesJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.start());
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
-    QVERIFY(!job.ruqolaLogger());
+    QVERIFY(!job.restApiLogger());
 }
 
 void GetGroupRolesJobTest::shouldGenerateRequest()

@@ -40,7 +40,7 @@ void ChannelListJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.userId().isEmpty());
-    QVERIFY(!job.ruqolaLogger());
+    QVERIFY(!job.restApiLogger());
 }
 
 void ChannelListJobTest::shouldGenerateRequest()

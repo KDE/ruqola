@@ -38,7 +38,7 @@ void ForgotPasswordJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.start());
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(job.email().isEmpty());
-    QVERIFY(!job.ruqolaLogger());
+    QVERIFY(!job.restApiLogger());
 }
 
 void ForgotPasswordJobTest::shouldGenerateRequest()

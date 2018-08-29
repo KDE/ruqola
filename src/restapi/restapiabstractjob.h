@@ -26,7 +26,7 @@
 #include "libruqola_private_export.h"
 class QNetworkAccessManager;
 class RestApiMethod;
-class RuqolaLogger;
+class AbstractLogger;
 class LIBRUQOLACORE_TESTS_EXPORT RestApiAbstractJob : public QObject
 {
 public:
@@ -48,8 +48,8 @@ public:
     virtual bool start() = 0;
     virtual bool requireHttpAuthentication() const = 0;
 
-    RuqolaLogger *ruqolaLogger() const;
-    void setRuqolaLogger(RuqolaLogger *ruqolaLogger);
+    AbstractLogger *restApiLogger() const;
+    void setRestApiLogger(AbstractLogger *restApiLogger);
 
     void addLoggerInfo(const QByteArray &str);
 
@@ -63,7 +63,7 @@ protected:
     QString mUserId;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     RestApiMethod *mRestApiMethod = nullptr;
-    RuqolaLogger *mRuqolaLogger = nullptr;
+    AbstractLogger *mRestApiLogger = nullptr;
 };
 
 #endif // RESTAPIABSTRACTJOB_H

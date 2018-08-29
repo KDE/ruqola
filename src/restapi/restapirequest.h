@@ -31,7 +31,7 @@ class QNetworkAccessManager;
 class QNetworkReply;
 class QNetworkCookieJar;
 class RestApiMethod;
-class RuqolaLogger;
+class AbstractLogger;
 class RestApiAbstractJob;
 class RestApiRequest : public QObject
 {
@@ -40,7 +40,7 @@ public:
     explicit RestApiRequest(QObject *parent = nullptr);
     ~RestApiRequest();
 
-    void setRuqolaLogger(RuqolaLogger *logger);
+    void setRestApiLogger(AbstractLogger *logger);
 
     Q_REQUIRED_RESULT QString userId() const;
     Q_REQUIRED_RESULT QString authToken() const;
@@ -150,7 +150,7 @@ private:
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QNetworkCookieJar *mCookieJar = nullptr;
     RestApiMethod *mRestApiMethod = nullptr;
-    RuqolaLogger *mRuqolaLogger = nullptr;
+    AbstractLogger *mRuqolaLogger = nullptr;
     QString mUserId;
     QString mAuthToken;
     QString mUserName;

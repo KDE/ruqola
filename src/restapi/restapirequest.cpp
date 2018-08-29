@@ -111,7 +111,7 @@ RestApiRequest::~RestApiRequest()
     delete mRestApiMethod;
 }
 
-void RestApiRequest::setRuqolaLogger(RuqolaLogger *logger)
+void RestApiRequest::setRestApiLogger(AbstractLogger *logger)
 {
     mRuqolaLogger = logger;
 }
@@ -241,7 +241,7 @@ void RestApiRequest::slotLogout()
 void RestApiRequest::initializeRestApiJob(RestApiAbstractJob *job)
 {
     job->setNetworkAccessManager(mNetworkAccessManager);
-    job->setRuqolaLogger(mRuqolaLogger);
+    job->setRestApiLogger(mRuqolaLogger);
     job->setRestApiMethod(mRestApiMethod);
     if (job->requireHttpAuthentication()) {
         job->setAuthToken(mAuthToken);

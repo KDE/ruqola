@@ -97,20 +97,20 @@ void RestApiAbstractJob::addAuthRawHeader(QNetworkRequest &request) const
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
 }
 
-RuqolaLogger *RestApiAbstractJob::ruqolaLogger() const
+AbstractLogger *RestApiAbstractJob::restApiLogger() const
 {
-    return mRuqolaLogger;
+    return mRestApiLogger;
 }
 
-void RestApiAbstractJob::setRuqolaLogger(RuqolaLogger *ruqolaLogger)
+void RestApiAbstractJob::setRestApiLogger(AbstractLogger *ruqolaLogger)
 {
-    mRuqolaLogger = ruqolaLogger;
+    mRestApiLogger = ruqolaLogger;
 }
 
 void RestApiAbstractJob::addLoggerInfo(const QByteArray &str)
 {
-    if (mRuqolaLogger) {
-        mRuqolaLogger->dataSent("RESTAPI: " + str);
+    if (mRestApiLogger) {
+        mRestApiLogger->dataSent("RESTAPI: " + str);
     } else {
         qCDebug(RUQOLA_RESTAPI_LOG) << "RESTAPI: " << str;
     }
