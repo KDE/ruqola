@@ -1,5 +1,5 @@
 
-set (Ruqola_restapi_SRCS
+set (Restapi_SRCS
     restapirequest.cpp
     restapiutil.cpp
     restapimethod.cpp
@@ -97,8 +97,8 @@ set (Ruqola_restapi_SRCS
     )
 
 
-ecm_qt_declare_logging_category(Ruqola_restapi_SRCS HEADER restapi_debug.h IDENTIFIER RESTAPI_LOG CATEGORY_NAME org.kde.ruqola.restapi)
-add_library(librestapi ${Ruqola_restapi_SRCS})
+ecm_qt_declare_logging_category(Restapi_SRCS HEADER restapi_debug.h IDENTIFIER RESTAPI_LOG CATEGORY_NAME org.kde.ruqola.restapi)
+add_library(librestapi ${Restapi_SRCS})
 generate_export_header(librestapi BASE_NAME librestapi)
 target_link_libraries(librestapi
     Qt5::Core
