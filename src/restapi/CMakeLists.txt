@@ -102,7 +102,6 @@ add_library(librestapi ${Ruqola_restapi_SRCS})
 generate_export_header(librestapi BASE_NAME librestapi)
 target_link_libraries(librestapi
     Qt5::Core
-    Qt5::Gui
     Qt5::WebSockets
     Qt5::Network
     Qt5::NetworkAuth
