@@ -21,7 +21,7 @@ target_link_libraries(expandjsontest
 
 ####
 set(messagemodelguitest_SRCS messagemodelgui.cpp)
-qt5_add_resources(messagemodelguitestresources ../src/qml/qml.qrc messagemodelgui.qrc)
+qt5_add_resources(messagemodelguitestresources ../src/apps/qml/qml.qrc messagemodelgui.qrc)
 
 add_executable(messagemodelguitest ${messagemodelguitest_SRCS} ${messagemodelguitestresources})
 
@@ -33,7 +33,7 @@ target_link_libraries(messagemodelguitest
 
 ####
 set(roommodelguitest_SRCS roommodelgui.cpp)
-qt5_add_resources(roommodelguitestresources ../src/qml/qml.qrc messagemodelgui.qrc) 
+qt5_add_resources(roommodelguitestresources ../src/apps/qml/qml.qrc messagemodelgui.qrc)
 
 add_executable(roommodelguitest ${roommodelguitest_SRCS} ${roommodelguitestresources})
 
@@ -45,7 +45,7 @@ target_link_libraries(roommodelguitest
 
 ####
 set(aboutdatatest_SRCS aboutdatatest.cpp)
-qt5_add_resources(aboutdatatestresources  aboutdatatest.qrc ../src/qml/qml.qrc )
+qt5_add_resources(aboutdatatestresources  aboutdatatest.qrc ../src/apps/qml/qml.qrc )
 
 add_executable(aboutdatatest ${aboutdatatest_SRCS} ${aboutdatatestresources})
 
@@ -57,7 +57,7 @@ target_link_libraries(aboutdatatest
 
 ####
 set (qmlfiletest_SRCS qmltest.cpp)
-qt5_add_resources(qmlfiletestResources ../src/qml/qml.qrc)
+qt5_add_resources(qmlfiletestResources ../src/apps/qml/qml.qrc)
 
 add_executable(qmlfiletest ${qmlfiletest_SRCS} ${qmlfiletestResources})
 

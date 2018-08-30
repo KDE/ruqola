@@ -27,7 +27,7 @@
 #include "ruqola_debug.h"
 #include "ruqola_message_debug.h"
 #include "ddpapi/ddpclient.h"
-#include "restapi/restapirequest.h"
+#include "restapirequest.h"
 #include "user.h"
 #include "model/usersmodel.h"
 #include "ruqolalogger.h"

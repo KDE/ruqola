@@ -19,7 +19,7 @@
 */
 
 #include "restapiutiltest.h"
-#include "restapi/restapiutil.h"
+#include "restapiutil.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(RestApiUtilTest)

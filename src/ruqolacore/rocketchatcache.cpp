@@ -22,7 +22,7 @@
 #include "rocketchatcache.h"
 #include "ruqola_debug.h"
 #include "managerdatapaths.h"
-#include "restapi/restapirequest.h"
+#include "restapirequest.h"
 #include "copyfilejob.h"
 #include <QDateTime>
 #include <QDir>

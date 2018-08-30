@@ -51,7 +51,7 @@
 #include "authenticationmanager.h"
 
 #include "ddpapi/ddpclient.h"
-#include "restapi/restapirequest.h"
+#include "restapirequest.h"
 
 #include <QDesktopServices>
 #include <QRegularExpression>

@@ -30,7 +30,7 @@
 #include "accountmanager.h"
 #include "managerdatapaths.h"
 #include "aboutdata/qmlaboutdata.h"
-#include "restapi/restapirequest.h"
+#include "restapirequest.h"
 #include <KNotification>
 
 Ruqola *Ruqola::self()

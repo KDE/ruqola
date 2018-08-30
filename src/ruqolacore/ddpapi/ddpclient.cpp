@@ -22,7 +22,7 @@
  */
 
 #include "ddpclient.h"
-#include "restapi/restapirequest.h"
+#include "restapirequest.h"
 #include "utils.h"
 #include "ruqola_ddpapi_debug.h"
 #include "ruqola_ddpapi_command_debug.h"
