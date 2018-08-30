@@ -19,7 +19,7 @@
 */
 
 #include "changechannelreadonlyjobtest.h"
-#include "restapi/channels/changechannelreadonlyjob.h"
+#include "channels/changechannelreadonlyjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>

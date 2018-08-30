@@ -19,10 +19,10 @@
 */
 
 #include "listcommandsjobtest.h"
-#include "restapi/commands/listcommandsjob.h"
+#include "commands/listcommandsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(ListCommandsJobTest)
 
 ListCommandsJobTest::ListCommandsJobTest(QObject *parent)

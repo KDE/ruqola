@@ -19,7 +19,7 @@
 */
 
 #include "roomfavoritejobtest.h"
-#include "restapi/rooms/roomfavoritejob.h"
+#include "rooms/roomfavoritejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

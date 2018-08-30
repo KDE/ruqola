@@ -19,7 +19,7 @@
 */
 
 #include "markroomasunreadjobtest.h"
-#include "restapi/subscriptions/markroomasunreadjob.h"
+#include "subscriptions/markroomasunreadjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

@@ -19,7 +19,7 @@
 */
 
 #include "archivegroupsjobtest.h"
-#include "restapi/groups/archivegroupsjob.h"
+#include "groups/archivegroupsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

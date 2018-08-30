@@ -19,7 +19,7 @@
 */
 
 #include "groupsinvitejobtest.h"
-#include "restapi/groups/groupsinvitejob.h"
+#include "groups/groupsinvitejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>

@@ -19,7 +19,7 @@
 */
 
 #include "leavechanneljobtest.h"
-#include "restapi/channels/leavechanneljob.h"
+#include "channels/leavechanneljob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

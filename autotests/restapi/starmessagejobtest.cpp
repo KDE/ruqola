@@ -19,10 +19,10 @@
 */
 
 #include "starmessagejobtest.h"
-#include "restapi/chat/starmessagejob.h"
+#include "chat/starmessagejob.h"
 #include <QTest>
 #include <QJsonDocument>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(StarMessageJobTest)
 
 StarMessageJobTest::StarMessageJobTest(QObject *parent)

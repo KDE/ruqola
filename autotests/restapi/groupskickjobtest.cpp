@@ -19,7 +19,7 @@
 */
 
 #include "groupskickjobtest.h"
-#include "restapi/groups/groupskickjob.h"
+#include "groups/groupskickjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

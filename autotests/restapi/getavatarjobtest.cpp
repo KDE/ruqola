@@ -19,8 +19,8 @@
 */
 
 #include "getavatarjobtest.h"
-#include "restapi/users/getavatarjob.h"
-#include "restapi/restapimethod.h"
+#include "users/getavatarjob.h"
+#include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(GetAvatarJobTest)
 

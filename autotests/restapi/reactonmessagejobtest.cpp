@@ -19,7 +19,7 @@
 */
 
 #include "reactonmessagejobtest.h"
-#include "restapi/chat/reactonmessagejob.h"
+#include "chat/reactonmessagejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

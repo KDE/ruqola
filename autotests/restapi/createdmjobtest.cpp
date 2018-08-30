@@ -19,7 +19,7 @@
 */
 
 #include "createdmjobtest.h"
-#include "restapi/directmessage/createdmjob.h"
+#include "directmessage/createdmjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

@@ -19,8 +19,8 @@
 */
 
 #include "forgotpasswordjobtest.h"
-#include "restapi/users/forgotpasswordjob.h"
-#include "restapi/restapimethod.h"
+#include "users/forgotpasswordjob.h"
+#include "restapimethod.h"
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(ForgotPasswordJobTest)

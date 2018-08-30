@@ -19,7 +19,7 @@
 */
 
 #include "groupaddmoderatorjobtest.h"
-#include "restapi/groups/groupaddmoderatorjob.h"
+#include "groups/groupaddmoderatorjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>

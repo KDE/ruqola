@@ -19,10 +19,10 @@
 */
 
 #include "ignoreuserjobtest.h"
-#include "restapi/chat/ignoreuserjob.h"
+#include "chat/ignoreuserjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(IgnoreUserJobTest)
 
 IgnoreUserJobTest::IgnoreUserJobTest(QObject *parent)

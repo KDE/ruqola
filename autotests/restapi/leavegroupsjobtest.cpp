@@ -19,7 +19,7 @@
 */
 
 #include "leavegroupsjobtest.h"
-#include "restapi/groups/leavegroupsjob.h"
+#include "groups/leavegroupsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

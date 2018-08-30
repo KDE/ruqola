@@ -19,10 +19,10 @@
 */
 
 #include "owninfojobtest.h"
-#include "restapi/misc/owninfojob.h"
+#include "misc/owninfojob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(OwnInfoJobTest)
 
 OwnInfoJobTest::OwnInfoJobTest(QObject *parent)

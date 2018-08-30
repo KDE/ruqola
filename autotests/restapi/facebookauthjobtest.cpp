@@ -19,7 +19,7 @@
 */
 
 #include "facebookauthjobtest.h"
-#include "restapi/authentication/facebookauthjob.h"
+#include "authentication/facebookauthjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

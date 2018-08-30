@@ -19,10 +19,10 @@
 */
 
 #include "listpermissionsjobtest.h"
-#include "restapi/permissions/listpermissionsjob.h"
+#include "permissions/listpermissionsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(ListPermissionsJobTest)
 
 ListPermissionsJobTest::ListPermissionsJobTest(QObject *parent)

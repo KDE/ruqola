@@ -19,7 +19,7 @@
 */
 
 #include "archivechanneljobtest.h"
-#include "restapi/channels/archivechanneljob.h"
+#include "channels/archivechanneljob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

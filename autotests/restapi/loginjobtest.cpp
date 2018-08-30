@@ -19,7 +19,7 @@
 */
 
 #include "loginjobtest.h"
-#include "restapi/authentication/loginjob.h"
+#include "authentication/loginjob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(LoginJobTest)
 //TODO implement it!

@@ -19,9 +19,9 @@
 */
 
 #include "logoutjobtest.h"
-#include "restapi/authentication/logoutjob.h"
+#include "authentication/logoutjob.h"
 #include <QTest>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(LogoutJobTest)
 
 LogoutJobTest::LogoutJobTest(QObject *parent)

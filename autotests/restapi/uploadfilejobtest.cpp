@@ -19,8 +19,8 @@
 */
 
 #include "uploadfilejobtest.h"
-#include "restapi/uploadfilejob.h"
-#include "restapi/restapimethod.h"
+#include "uploadfilejob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(UploadFileJobTest)

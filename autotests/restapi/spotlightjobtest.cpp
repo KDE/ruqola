@@ -19,8 +19,8 @@
 */
 
 #include "spotlightjobtest.h"
-#include "restapi/spotlightjob.h"
-#include "restapi/restapimethod.h"
+#include "spotlightjob.h"
+#include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(SpotlightJobTest)
 

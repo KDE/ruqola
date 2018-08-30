@@ -19,8 +19,8 @@
 */
 
 #include "getgrouprolesjobtest.h"
-#include "restapi/groups/getgrouprolesjob.h"
-#include "restapi/restapimethod.h"
+#include "groups/getgrouprolesjob.h"
+#include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(GetGroupRolesJobTest)
 

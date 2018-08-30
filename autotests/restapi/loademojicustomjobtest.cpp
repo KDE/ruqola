@@ -19,9 +19,9 @@
 */
 
 #include "loademojicustomjobtest.h"
-#include "restapi/emoji/loademojicustomjob.h"
+#include "emoji/loademojicustomjob.h"
 #include <QTest>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(LoadEmojiCustomJobTest)
 
 LoadEmojiCustomJobTest::LoadEmojiCustomJobTest(QObject *parent)

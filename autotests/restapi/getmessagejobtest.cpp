@@ -19,10 +19,10 @@
 */
 
 #include "getmessagejobtest.h"
-#include "restapi/chat/getmessagejob.h"
+#include "chat/getmessagejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(GetMessageJobTest)
 
 GetMessageJobTest::GetMessageJobTest(QObject *parent)

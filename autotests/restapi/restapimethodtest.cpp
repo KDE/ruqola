@@ -19,7 +19,7 @@
 */
 
 #include "restapimethodtest.h"
-#include "restapi/restapimethod.h"
+#include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RestApiMethodTest)
 

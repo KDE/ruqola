@@ -19,7 +19,7 @@
 */
 
 #include "savenotificationjobtest.h"
-#include "restapi/rooms/savenotificationjob.h"
+#include "rooms/savenotificationjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

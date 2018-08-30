@@ -19,7 +19,7 @@
 */
 
 #include "googleauthjobtest.h"
-#include "restapi/authentication/googleauthjob.h"
+#include "authentication/googleauthjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

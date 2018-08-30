@@ -20,7 +20,7 @@
 
 #include "restapiabstractjob.h"
 #include "restapi_debug.h"
-#include "ruqolalogger.h"
+#include "abstractlogger.h"
 
 #include <QNetworkRequest>
 

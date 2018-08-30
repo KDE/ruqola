@@ -19,7 +19,7 @@
 */
 
 #include "changegroupsannouncementjobtest.h"
-#include "restapi/groups/changegroupsannouncementjob.h"
+#include "groups/changegroupsannouncementjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>

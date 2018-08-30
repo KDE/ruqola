@@ -19,7 +19,7 @@
 */
 
 #include "channelclosejobtest.h"
-#include "restapi/channels/channelclosejob.h"
+#include "channels/channelclosejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

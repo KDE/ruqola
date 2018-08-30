@@ -19,7 +19,7 @@
 */
 
 #include "channelinvitejobtest.h"
-#include "restapi/channels/channelinvitejob.h"
+#include "channels/channelinvitejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>

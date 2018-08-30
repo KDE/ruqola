@@ -19,7 +19,7 @@
 */
 
 #include "deletemessagejobtest.h"
-#include "restapi/chat/deletemessagejob.h"
+#include "chat/deletemessagejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

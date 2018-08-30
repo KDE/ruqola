@@ -1,100 +1,5 @@
 
-set (Ruqola_restapi_SRCS
-    restapi/restapirequest.cpp
-    restapi/restapiutil.cpp
-    restapi/restapimethod.cpp
-    restapi/uploadfilejob.cpp
-    restapi/restapiabstractjob.cpp
-
-    restapi/spotlightjob.cpp
-
-    restapi/serverinfojob.cpp
-
-    restapi/misc/owninfojob.cpp
-    restapi/misc/settingsoauthjob.cpp
-
-    restapi/users/getavatarjob.cpp
-    restapi/users/setavatarjob.cpp
-    restapi/users/forgotpasswordjob.cpp
-    restapi/users/usersinfojob.cpp
-    restapi/users/getpresencejob.cpp
-    restapi/users/resetavatarjob.cpp
-    restapi/users/getusernamesuggestionjob.cpp
-
-    restapi/authentication/logoutjob.cpp
-    restapi/authentication/loginjob.cpp
-    restapi/authentication/facebookauthjob.cpp
-    restapi/authentication/googleauthjob.cpp
-    restapi/authentication/twitterauthjob.cpp
-
-    restapi/settings/privateinfojob.cpp
-
-    restapi/channellistjob.cpp
-    restapi/downloadfilejob.cpp
-
-    restapi/emoji/loademojicustomjob.cpp
-
-    restapi/chat/starmessagejob.cpp
-    restapi/chat/pinmessagejob.cpp
-    restapi/chat/postmessagejob.cpp
-    restapi/chat/deletemessagejob.cpp
-    restapi/chat/updatemessagejob.cpp
-    restapi/chat/reactonmessagejob.cpp
-    restapi/chat/searchmessagejob.cpp
-    restapi/chat/ignoreuserjob.cpp
-    restapi/chat/reportmessagejob.cpp
-    restapi/chat/getmessagejob.cpp
-
-    restapi/channels/changechanneltopicjob.cpp
-    restapi/channels/changechannelannouncementjob.cpp
-    restapi/channels/changechannelnamejob.cpp
-    restapi/channels/createchanneljob.cpp
-    restapi/channels/leavechanneljob.cpp
-    restapi/channels/channelclosejob.cpp
-    restapi/channels/channelhistoryjob.cpp
-    restapi/channels/changechanneldescriptionjob.cpp
-    restapi/channels/changechannelreadonlyjob.cpp
-    restapi/channels/archivechanneljob.cpp
-    restapi/channels/channelfilesjob.cpp
-    restapi/channels/channelinvitejob.cpp
-    restapi/channels/setjoincodechanneljob.cpp
-    restapi/channels/channelremoveownerjob.cpp
-    restapi/channels/setchanneltypejob.cpp
-    restapi/channels/getchannelrolesjob.cpp
-    restapi/channels/channeladdownerjob.cpp
-    restapi/channels/channeladdmoderatorjob.cpp
-    restapi/channels/channelkickjob.cpp
-
-    restapi/groups/changegroupstopicjob.cpp
-    restapi/groups/changegroupsannouncementjob.cpp
-    restapi/groups/changegroupsnamejob.cpp
-    restapi/groups/creategroupsjob.cpp
-    restapi/groups/leavegroupsjob.cpp
-    restapi/groups/changegroupsdescriptionjob.cpp
-    restapi/groups/archivegroupsjob.cpp
-    restapi/groups/groupsinvitejob.cpp
-    restapi/groups/groupskickjob.cpp
-    restapi/groups/setgrouptypejob.cpp
-    restapi/groups/getgrouprolesjob.cpp
-    restapi/groups/groupaddmoderatorjob.cpp
-    restapi/groups/groupaddownerjob.cpp
-
-    restapi/directmessage/createdmjob.cpp
-
-    restapi/rooms/savenotificationjob.cpp
-    restapi/rooms/getroomsjob.cpp
-    restapi/rooms/roomfavoritejob.cpp
-
-    restapi/subscriptions/markroomasreadjob.cpp
-    restapi/subscriptions/markroomasunreadjob.cpp
-
-    restapi/permissions/listpermissionsjob.cpp
-
-    restapi/commands/listcommandsjob.cpp
-
-    restapi/abstractlogger.cpp
-
-    )
+add_subdirectory(restapi)
 
 set(Ruqola_ddpapi_SRCS
     ddpapi/ddpclient.cpp
@@ -210,7 +115,6 @@ ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIE
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_message_debug.h IDENTIFIER RUQOLA_MESSAGE_LOG CATEGORY_NAME org.kde.ruqola.message)
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_ddpapi_debug.h IDENTIFIER RUQOLA_DDPAPI_LOG CATEGORY_NAME org.kde.ruqola.ddpapi)
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_ddpapi_command_debug.h IDENTIFIER RUQOLA_DDPAPI_COMMAND_LOG CATEGORY_NAME org.kde.ruqola.ddpapi.command)
-ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_restapi_debug.h IDENTIFIER RUQOLA_RESTAPI_LOG CATEGORY_NAME org.kde.ruqola.restapi)
 
 add_library(libruqolacore ${Ruqola_core_srcs})
 
@@ -252,22 +156,6 @@ set_target_properties(libruqolacore
     PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
     )
 
-ecm_qt_declare_logging_category(Ruqola_restapi_SRCS HEADER restapi_debug.h IDENTIFIER RESTAPI_LOG CATEGORY_NAME org.kde.ruqola.restapi)
-add_library(librestapi ${Ruqola_restapi_SRCS})
-generate_export_header(librestapi BASE_NAME librestapi)
-target_link_libraries(librestapi
-    Qt5::Core
-    Qt5::Gui
-    Qt5::WebSockets
-    Qt5::Network
-    Qt5::NetworkAuth
-)
-
-set_target_properties(librestapi
-    PROPERTIES OUTPUT_NAME restapi VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
-    )
-
-
 ##### ruqola main apps.
 if (Qt5QuickCompiler_FOUND)
     qtquick_compiler_add_resources(RuqolaResources qml/qml.qrc)
@@ -281,7 +169,6 @@ target_link_libraries(ruqola libruqolacore librestapi)
 
 install(TARGETS ruqola ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
-install(TARGETS librestapi ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 install(PROGRAMS data/org.kde.ruqola.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 install(FILES data/org.kde.ruqola.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})

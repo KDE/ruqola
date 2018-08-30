@@ -93,7 +93,6 @@
 #include <QUrl>
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
-#include <ruqolalogger.h>
 
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)

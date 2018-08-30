@@ -19,7 +19,7 @@
 */
 
 #include "groupaddownerjobtest.h"
-#include "restapi/groups/groupaddownerjob.h"
+#include "groups/groupaddownerjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>

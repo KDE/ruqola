@@ -19,7 +19,7 @@
 */
 
 #include "setavatarjobtest.h"
-#include "restapi/users/setavatarjob.h"
+#include "users/setavatarjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

@@ -19,8 +19,8 @@
 */
 
 #include "getchannelrolesjobtest.h"
-#include "restapi/channels/getchannelrolesjob.h"
-#include "restapi/restapimethod.h"
+#include "channels/getchannelrolesjob.h"
+#include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(GetChannelRolesJobTest)
 

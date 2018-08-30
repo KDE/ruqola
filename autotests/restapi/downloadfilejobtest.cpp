@@ -19,7 +19,7 @@
 */
 
 #include "downloadfilejobtest.h"
-#include "restapi/downloadfilejob.h"
+#include "downloadfilejob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(DownloadFileJobTest)
 

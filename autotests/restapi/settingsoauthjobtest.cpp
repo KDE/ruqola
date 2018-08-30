@@ -19,10 +19,10 @@
 */
 
 #include "settingsoauthjobtest.h"
-#include "restapi/misc/settingsoauthjob.h"
+#include "misc/settingsoauthjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(SettingsOauthJobTest)
 
 SettingsOauthJobTest::SettingsOauthJobTest(QObject *parent)

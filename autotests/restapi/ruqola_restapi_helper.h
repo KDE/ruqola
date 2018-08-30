@@ -21,8 +21,8 @@
 #ifndef RUQOLA_RESTAPI_HELPER_H
 #define RUQOLA_RESTAPI_HELPER_H
 
-#include <restapi/restapiabstractjob.h>
-#include <restapi/restapimethod.h>
+#include <restapiabstractjob.h>
+#include <restapimethod.h>
 
 #include <QNetworkRequest>
 #include <QTest>

@@ -19,11 +19,11 @@
 */
 
 #include "channellistjobtest.h"
-#include "restapi/channellistjob.h"
+#include "channellistjob.h"
 
 #include <QTest>
 
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(ChannelListJobTest)
 
 ChannelListJobTest::ChannelListJobTest(QObject *parent)

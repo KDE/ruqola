@@ -19,7 +19,7 @@
 */
 
 #include "channelremoveownerjobtest.h"
-#include "restapi/channels/channelremoveownerjob.h"
+#include "channels/channelremoveownerjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>

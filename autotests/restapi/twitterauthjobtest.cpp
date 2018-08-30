@@ -19,7 +19,7 @@
 */
 
 #include "twitterauthjobtest.h"
-#include "restapi/authentication/twitterauthjob.h"
+#include "authentication/twitterauthjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

@@ -20,10 +20,10 @@
 
 #include "pinmessagejobtest.h"
 #include "ruqola_restapi_helper.h"
-#include "restapi/chat/pinmessagejob.h"
+#include "chat/pinmessagejob.h"
 #include <QTest>
 #include <QJsonDocument>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 
 #include <QTest>
 QTEST_GUILESS_MAIN(PinMessageJobTest)

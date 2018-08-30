@@ -19,9 +19,9 @@
 */
 
 #include "privateinfojobtest.h"
-#include "restapi/settings/privateinfojob.h"
+#include "settings/privateinfojob.h"
 #include <QTest>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(PrivateInfoJobTest)
 
 PrivateInfoJobTest::PrivateInfoJobTest(QObject *parent)

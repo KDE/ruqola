@@ -19,8 +19,8 @@
 */
 
 #include "serverinfojobtest.h"
-#include "restapi/serverinfojob.h"
-#include "restapi/restapimethod.h"
+#include "serverinfojob.h"
+#include "restapimethod.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ServerInfoJobTest)

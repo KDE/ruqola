@@ -19,11 +19,11 @@
 */
 
 #include "usersinfojobtest.h"
-#include "restapi/users/usersinfojob.h"
+#include "users/usersinfojob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>
-#include <restapi/restapimethod.h>
+#include <restapimethod.h>
 QTEST_GUILESS_MAIN(UsersInfoJobTest)
 
 UsersInfoJobTest::UsersInfoJobTest(QObject *parent)

@@ -19,7 +19,7 @@
 */
 
 #include "channelkickjobtest.h"
-#include "restapi/channels/channelkickjob.h"
+#include "channels/channelkickjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

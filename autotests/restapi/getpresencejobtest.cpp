@@ -19,8 +19,8 @@
 */
 
 #include "getpresencejobtest.h"
-#include "restapi/users/getpresencejob.h"
-#include "restapi/restapimethod.h"
+#include "users/getpresencejob.h"
+#include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(GetPresenceJobTest)
 

@@ -19,7 +19,7 @@
 */
 
 #include "channelfilesjobtest.h"
-#include "restapi/channels/channelfilesjob.h"
+#include "channels/channelfilesjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ChannelFilesJobTest)

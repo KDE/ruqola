@@ -19,7 +19,7 @@
 */
 
 #include "setjoincodechanneljobtest.h"
-#include "restapi/channels/setjoincodechanneljob.h"
+#include "channels/setjoincodechanneljob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>

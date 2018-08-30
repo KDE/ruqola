@@ -19,7 +19,7 @@
 */
 
 #include "channeladdmoderatorjobtest.h"
-#include "restapi/channels/channeladdmoderatorjob.h"
+#include "channels/channeladdmoderatorjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>

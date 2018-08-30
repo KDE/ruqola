@@ -19,8 +19,8 @@
 */
 
 #include "getusernamesuggestionjobtest.h"
-#include "restapi/users/getusernamesuggestionjob.h"
-#include "restapi/restapimethod.h"
+#include "users/getusernamesuggestionjob.h"
+#include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(GetUsernameSuggestionJobTest)
 
