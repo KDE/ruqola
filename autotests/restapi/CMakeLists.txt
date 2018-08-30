@@ -7,6 +7,7 @@ macro(add_ruqola_test _source)
   target_link_libraries( ${_name} Qt5::Test librestapi)
 endmacro()
 
+add_ruqola_test(restapiutiltest.cpp)
 add_ruqola_test(restapimethodtest.cpp)
 add_ruqola_test(serverinfojobtest.cpp)
 add_ruqola_test(uploadfilejobtest.cpp)
