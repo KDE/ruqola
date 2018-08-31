@@ -2,13 +2,13 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2 as QQC2
 
-import org.kde.kirigami 2.1 as Kirigami
+import org.kde.kirigami 2.4 as Kirigami
 
 QQC2.ScrollView {
     property QtObject personsModel : undefined
 
     contentHeight: authorsColumn.height
-    contentWidth: width
+    contentWidth: 300
 
     ColumnLayout {
         Layout.fillHeight: true
