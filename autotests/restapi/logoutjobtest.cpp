@@ -23,7 +23,7 @@
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(LogoutJobTest)
-
+using namespace RocketChatRestApi;
 LogoutJobTest::LogoutJobTest(QObject *parent)
     : QObject(parent)
 {

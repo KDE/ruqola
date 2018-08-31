@@ -51,6 +51,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("me");
     case RestApiUtil::RestApiUrlType::UsersGetAvatar:
         return QStringLiteral("users.getAvatar");
+    case RestApiUtil::RestApiUrlType::UsersDelete:
+        return QStringLiteral("users.delete");
     case RestApiUtil::RestApiUrlType::UsersCreate:
         return QStringLiteral("users.create");
     case RestApiUtil::RestApiUrlType::UsersCreateToken:

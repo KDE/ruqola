@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(FacebookAuthJobTest)
-
+using namespace RocketChatRestApi;
 FacebookAuthJobTest::FacebookAuthJobTest(QObject *parent)
     : QObject(parent)
 {

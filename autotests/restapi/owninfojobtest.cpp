@@ -24,7 +24,7 @@
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(OwnInfoJobTest)
-
+using namespace RocketChatRestApi;
 OwnInfoJobTest::OwnInfoJobTest(QObject *parent)
     : QObject(parent)
 {

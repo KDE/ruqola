@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(LeaveGroupsJobTest)
-
+using namespace RocketChatRestApi;
 LeaveGroupsJobTest::LeaveGroupsJobTest(QObject *parent)
     : QObject(parent)
 {

@@ -23,6 +23,7 @@
 #include <QTest>
 QTEST_GUILESS_MAIN(LoginJobTest)
 //TODO implement it!
+using namespace RocketChatRestApi;
 LoginJobTest::LoginJobTest(QObject *parent)
     : QObject(parent)
 {

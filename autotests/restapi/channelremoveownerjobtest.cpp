@@ -24,7 +24,7 @@
 #include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(ChannelRemoveOwnerJobTest)
-
+using namespace RocketChatRestApi;
 ChannelRemoveOwnerJobTest::ChannelRemoveOwnerJobTest(QObject *parent)
     : QObject(parent)
 {

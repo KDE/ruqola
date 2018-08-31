@@ -22,7 +22,7 @@
 #include "downloadfilejob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(DownloadFileJobTest)
-
+using namespace RocketChatRestApi;
 DownloadFileJobTest::DownloadFileJobTest(QObject *parent)
     : QObject(parent)
 {

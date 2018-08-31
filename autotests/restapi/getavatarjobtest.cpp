@@ -23,7 +23,7 @@
 #include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(GetAvatarJobTest)
-
+using namespace RocketChatRestApi;
 GetAvatarJobTest::GetAvatarJobTest(QObject *parent)
     : QObject(parent)
 {

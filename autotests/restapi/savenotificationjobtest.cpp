@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(SaveNotificationJobTest)
-
+using namespace RocketChatRestApi;
 SaveNotificationJobTest::SaveNotificationJobTest(QObject *parent)
     : QObject(parent)
 {

@@ -23,7 +23,7 @@
 #include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(GetPresenceJobTest)
-
+using namespace RocketChatRestApi;
 GetPresenceJobTest::GetPresenceJobTest(QObject *parent)
     : QObject(parent)
 {

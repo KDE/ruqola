@@ -24,7 +24,7 @@
 #include <QJsonDocument>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(StarMessageJobTest)
-
+using namespace RocketChatRestApi;
 StarMessageJobTest::StarMessageJobTest(QObject *parent)
     : QObject(parent)
 {

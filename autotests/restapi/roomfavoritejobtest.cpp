@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(RoomFavoriteJobTest)
-
+using namespace RocketChatRestApi;
 RoomFavoriteJobTest::RoomFavoriteJobTest(QObject *parent)
     : QObject(parent)
 {

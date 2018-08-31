@@ -23,7 +23,7 @@
 #include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(SpotlightJobTest)
-
+using namespace RocketChatRestApi;
 SpotlightJobTest::SpotlightJobTest(QObject *parent)
     : QObject(parent)
 {

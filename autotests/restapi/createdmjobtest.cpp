@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(CreateDmJobTest)
-
+using namespace RocketChatRestApi;
 CreateDmJobTest::CreateDmJobTest(QObject *parent)
     : QObject(parent)
 {

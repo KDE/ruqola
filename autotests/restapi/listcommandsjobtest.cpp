@@ -24,7 +24,7 @@
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(ListCommandsJobTest)
-
+using namespace RocketChatRestApi;
 ListCommandsJobTest::ListCommandsJobTest(QObject *parent)
     : QObject(parent)
 {

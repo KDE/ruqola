@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(MarkRoomAsReadJobTest)
-
+using namespace RocketChatRestApi;
 MarkRoomAsReadJobTest::MarkRoomAsReadJobTest(QObject *parent)
     : QObject(parent)
 {

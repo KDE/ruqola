@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(DeleteMessageJobTest)
-
+using namespace RocketChatRestApi;
 DeleteMessageJobTest::DeleteMessageJobTest(QObject *parent)
     : QObject(parent)
 {

@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(ResetAvatarJobTest)
-
+using namespace RocketChatRestApi;
 ResetAvatarJobTest::ResetAvatarJobTest(QObject *parent)
     : QObject(parent)
 {

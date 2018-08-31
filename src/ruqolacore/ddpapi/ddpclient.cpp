@@ -635,14 +635,12 @@ quint64 DDPClient::inputUserAutocomplete(const QString &pattern, const QString &
 
 quint64 DDPClient::loginProvider(const QString &credentialToken, const QString &credentialSecret)
 {
-    qDebug() << " quint64 DDPClient::login(const QString &username, const QString &password)********************************************************";
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->loginProvider(credentialToken, credentialSecret, m_uid);
     return method(result, empty_callback, DDPClient::Ephemeral);
 }
 
 quint64 DDPClient::login(const QString &username, const QString &password)
 {
-    qDebug() << " quint64 DDPClient::login(const QString &username, const QString &password)********************************************************";
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->login(username, password, m_uid);
     return method(result, empty_callback, DDPClient::Ephemeral);
 }

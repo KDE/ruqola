@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(ChannelCloseJobTest)
-
+using namespace RocketChatRestApi;
 ChannelCloseJobTest::ChannelCloseJobTest(QObject *parent)
     : QObject(parent)
 {

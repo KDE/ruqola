@@ -31,10 +31,9 @@ class QNetworkAccessManager;
 class QNetworkReply;
 class QNetworkCookieJar;
 class RestApiMethod;
+class RestApiAbstractJob;
 namespace RocketChatRestApi {
 class AbstractLogger;
-}
-class RestApiAbstractJob;
 class LIBRESTAPI_EXPORT RestApiRequest : public QObject
 {
     Q_OBJECT
@@ -158,5 +157,6 @@ private:
     QString mUserName;
     QString mPassword;
 };
+}
 
 #endif // RESTAPIREQUEST_H

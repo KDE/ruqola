@@ -93,7 +93,7 @@
 #include <QUrl>
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
-
+using namespace RocketChatRestApi;
 RestApiRequest::RestApiRequest(QObject *parent)
     : QObject(parent)
 {

@@ -338,10 +338,10 @@ void RocketChatAccount::insertAvatarUrl(const QString &userId, const QString &ur
     mCache->insertAvatarUrl(userId, url);
 }
 
-RestApiRequest *RocketChatAccount::restApi()
+RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
-        mRestApi = new RestApiRequest(this);
+        mRestApi = new RocketChatRestApi::RestApiRequest(this);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -554,7 +554,7 @@ void RocketChatAccount::listEmojiCustom()
     if (mRuqolaServerConfig->hasAtLeastVersion(0, 63, 0)) {
 #ifdef USE_REASTAPI_JOB
         restApi()->listEmojiCustom();
-        connect(restApi(), &RestApiRequest::loadEmojiCustomDone, this, &RocketChatAccount::loadEmojiRestApi, Qt::UniqueConnection);
+        connect(restApi(), &RocketChatRestApi::RestApiRequest::loadEmojiCustomDone, this, &RocketChatAccount::loadEmojiRestApi, Qt::UniqueConnection);
 #else
         ddp()->listEmojiCustom();
 #endif
@@ -660,7 +660,7 @@ UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) c
 void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
 #ifdef USE_REASTAPI_JOB
-    connect(restApi(), &RestApiRequest::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone, Qt::UniqueConnection);
+    connect(restApi(), &RocketChatRestApi::RestApiRequest::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone, Qt::UniqueConnection);
     restApi()->filesInRoom(roomId, channelType);
 #else
     Q_UNUSED(channelType);
@@ -724,7 +724,7 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
         clearSearchModel();
     } else {
 #ifdef USE_REASTAPI_JOB
-        connect(restApi(), &RestApiRequest::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
+        connect(restApi(), &RocketChatRestApi::RestApiRequest::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
         restApi()->searchMessages(rid, pattern);
 #else
         ddp()->messageSearch(rid, pattern);

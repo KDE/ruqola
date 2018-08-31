@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(GoogleAuthJobTest)
-
+using namespace RocketChatRestApi;
 GoogleAuthJobTest::GoogleAuthJobTest(QObject *parent)
     : QObject(parent)
 {

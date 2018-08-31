@@ -23,7 +23,7 @@
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(LoadEmojiCustomJobTest)
-
+using namespace RocketChatRestApi;
 LoadEmojiCustomJobTest::LoadEmojiCustomJobTest(QObject *parent)
     : QObject(parent)
 {

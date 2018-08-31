@@ -23,7 +23,7 @@
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(PrivateInfoJobTest)
-
+using namespace RocketChatRestApi;
 PrivateInfoJobTest::PrivateInfoJobTest(QObject *parent)
     : QObject(parent)
 {

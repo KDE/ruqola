@@ -30,6 +30,7 @@ enum class RestApiUrlType {
     Logout,
     Me,
     UsersCreate,
+    UsersDelete,
     UsersCreateToken,
     UsersGetPresence,
     UsersInfo,

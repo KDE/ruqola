@@ -23,7 +23,7 @@
 #include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(GetChannelRolesJobTest)
-
+using namespace RocketChatRestApi;
 GetChannelRolesJobTest::GetChannelRolesJobTest(QObject *parent)
     : QObject(parent)
 {

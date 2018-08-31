@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(ForgotPasswordJobTest)
-
+using namespace RocketChatRestApi;
 ForgotPasswordJobTest::ForgotPasswordJobTest(QObject *parent)
     : QObject(parent)
 {

@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(TwitterAuthJobTest)
-
+using namespace RocketChatRestApi;
 TwitterAuthJobTest::TwitterAuthJobTest(QObject *parent)
     : QObject(parent)
 {

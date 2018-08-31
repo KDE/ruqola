@@ -22,7 +22,6 @@
 #include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RestApiMethodTest)
-
 RestApiMethodTest::RestApiMethodTest(QObject *parent)
     : QObject(parent)
 {
@@ -58,6 +57,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGetPresence), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getPresence")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.info")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersList), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.list")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.delete")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRegister), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.register")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGetAvatar), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getAvatar")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersResetAvatar), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.resetAvatar")));

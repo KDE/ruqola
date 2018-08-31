@@ -24,7 +24,7 @@
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(SettingsOauthJobTest)
-
+using namespace RocketChatRestApi;
 SettingsOauthJobTest::SettingsOauthJobTest(QObject *parent)
     : QObject(parent)
 {

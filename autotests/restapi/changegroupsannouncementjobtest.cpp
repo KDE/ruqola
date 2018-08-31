@@ -24,7 +24,7 @@
 #include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(ChangeGroupsAnnouncementJobTest)
-
+using namespace RocketChatRestApi;
 ChangeGroupsAnnouncementJobTest::ChangeGroupsAnnouncementJobTest(QObject *parent)
     : QObject(parent)
 {

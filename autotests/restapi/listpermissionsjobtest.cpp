@@ -24,7 +24,7 @@
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(ListPermissionsJobTest)
-
+using namespace RocketChatRestApi;
 ListPermissionsJobTest::ListPermissionsJobTest(QObject *parent)
     : QObject(parent)
 {

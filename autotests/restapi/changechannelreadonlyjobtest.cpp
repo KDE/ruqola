@@ -24,7 +24,7 @@
 #include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(ChangeChannelReadonlyJobTest)
-
+using namespace RocketChatRestApi;
 ChangeChannelReadonlyJobTest::ChangeChannelReadonlyJobTest(QObject *parent)
     : QObject(parent)
 {

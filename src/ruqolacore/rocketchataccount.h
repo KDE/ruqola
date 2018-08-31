@@ -34,7 +34,6 @@ class RoomModel;
 class RoomWrapper;
 class MessageModel;
 class DDPClient;
-class RestApiRequest;
 class MessageQueue;
 class RocketChatBackend;
 class RoomFilterProxyModel;
@@ -58,6 +57,10 @@ class PluginAuthenticationInterface;
 class Room;
 class SearchMessageModel;
 class SearchMessageFilterProxyModel;
+namespace RocketChatRestApi {
+class RestApiRequest;
+}
+
 class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
 {
     Q_OBJECT
@@ -177,7 +180,7 @@ public:
     DDPClient *ddp();
 
     DDPClient::LoginStatus loginStatus();
-    RestApiRequest *restApi();
+    RocketChatRestApi::RestApiRequest *restApi();
 
     //Make it private in future
     void slotInformTypingStatus(const QString &room, bool typing);
@@ -285,7 +288,7 @@ private:
     RoomModel *mRoomModel = nullptr;
     RoomFilterProxyModel *mRoomFilterProxyModel = nullptr;
     DDPClient *mDdp = nullptr;
-    RestApiRequest *mRestApi = nullptr;
+    RocketChatRestApi::RestApiRequest *mRestApi = nullptr;
     MessageQueue *mMessageQueue = nullptr;
     RocketChatBackend *mRocketChatBackend = nullptr;
     RuqolaLogger *mRuqolaLogger = nullptr;

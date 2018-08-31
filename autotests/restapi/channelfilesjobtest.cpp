@@ -23,7 +23,7 @@
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ChannelFilesJobTest)
-
+using namespace RocketChatRestApi;
 ChannelFilesJobTest::ChannelFilesJobTest(QObject *parent)
     : QObject(parent)
 {

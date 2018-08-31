@@ -24,7 +24,7 @@
 #include <QTest>
 #include <QJsonDocument>
 QTEST_GUILESS_MAIN(UpdateMessageJobTest)
-
+using namespace RocketChatRestApi;
 UpdateMessageJobTest::UpdateMessageJobTest(QObject *parent)
     : QObject(parent)
 {

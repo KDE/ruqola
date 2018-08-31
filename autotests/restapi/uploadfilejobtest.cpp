@@ -24,7 +24,7 @@
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(UploadFileJobTest)
-
+using namespace RocketChatRestApi;
 UploadFileJobTest::UploadFileJobTest(QObject *parent)
     : QObject(parent)
 {

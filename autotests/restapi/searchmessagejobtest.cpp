@@ -24,7 +24,7 @@
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(searchMessageJobTest)
-
+using namespace RocketChatRestApi;
 searchMessageJobTest::searchMessageJobTest(QObject *parent)
     : QObject(parent)
 {

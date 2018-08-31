@@ -145,7 +145,7 @@ RocketChatBackend::~RocketChatBackend()
 void RocketChatBackend::slotConnectedChanged()
 {
     mRocketChatAccount->restApi()->serverInfo();
-    connect(mRocketChatAccount->restApi(), &RestApiRequest::getServerInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
+    connect(mRocketChatAccount->restApi(), &RocketChatRestApi::RestApiRequest::getServerInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
     mRocketChatAccount->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
 }
 
@@ -189,7 +189,7 @@ void RocketChatBackend::parseOwnInfoDown(const QJsonObject &replyObject)
 void RocketChatBackend::slotLoginStatusChanged()
 {
     if (mRocketChatAccount->loginStatus() == DDPClient::LoggedIn) {
-        connect(mRocketChatAccount->restApi(), &RestApiRequest::getOwnInfoDone, this, &RocketChatBackend::parseOwnInfoDown, Qt::UniqueConnection);
+        connect(mRocketChatAccount->restApi(), &RocketChatRestApi::RestApiRequest::getOwnInfoDone, this, &RocketChatBackend::parseOwnInfoDown, Qt::UniqueConnection);
         QJsonObject params;
         params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
 
@@ -206,7 +206,7 @@ void RocketChatBackend::slotLoginStatusChanged()
 
 void RocketChatBackend::parseServerVersionDone(const QString &version)
 {
-    qDebug() << " void RocketChatBackend::parseServerVersionDone(const QString &version)******************" << version;
+    qCDebug(RUQOLA_LOG) << " void RocketChatBackend::parseServerVersionDone(const QString &version)******************" << version;
     mRocketChatAccount->setServerVersion(version);
     mRocketChatAccount->ddp()->login();
 }
@@ -483,7 +483,6 @@ void RocketChatBackend::clearUsersList()
 void RocketChatBackend::slotUserIDChanged()
 {
     //TODO verify if we don"t send two subscription.
-    qDebug() << " void RocketChatBackend::onUserIDChanged()**************************************";
     const QString userId{
         mRocketChatAccount->settings()->userId()
     };

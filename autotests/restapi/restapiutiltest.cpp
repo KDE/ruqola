@@ -23,7 +23,6 @@
 #include <QTest>
 
 QTEST_GUILESS_MAIN(RestApiUtilTest)
-
 RestApiUtilTest::RestApiUtilTest(QObject *parent)
     : QObject(parent)
 {
