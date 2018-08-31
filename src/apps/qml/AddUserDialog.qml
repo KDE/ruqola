@@ -25,7 +25,7 @@ import QtQuick.Window 2.0
 
 import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.UserCompleterFilterModelProxy 1.0
-import org.kde.kirigami 2.1 as Kirigami
+import org.kde.kirigami 2.4 as Kirigami
 
 QQC2.Dialog {
     id: addUserDialog

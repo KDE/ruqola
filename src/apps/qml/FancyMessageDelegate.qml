@@ -28,7 +28,7 @@ import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.Message 1.0
 
 import QtQuick.Controls 2.2
-import org.kde.kirigami 2.1 as Kirigami
+import org.kde.kirigami 2.4 as Kirigami
 import KDE.Ruqola.ExtraColors 1.0
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.RocketChatAccount 1.0

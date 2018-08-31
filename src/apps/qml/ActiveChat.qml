@@ -19,7 +19,7 @@
 */
 
 import QtQuick 2.9
-import org.kde.kirigami 2.1 as Kirigami
+import org.kde.kirigami 2.4 as Kirigami
 
 ListView {
     id: activeChat

@@ -32,7 +32,7 @@ import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.Ruqola 1.0
 import KDE.Ruqola.Clipboard 1.0
 import KDE.Ruqola.RoomFilterProxyModel 1.0
-import org.kde.kirigami 2.1 as Kirigami
+import org.kde.kirigami 2.4 as Kirigami
 import KDE.Ruqola.DebugCategory 1.0
 
 Component {
@@ -371,6 +371,7 @@ Component {
         Keys.onEscapePressed: {
             appid.rocketChatAccount.clearUnreadMessages(appid.selectedRoomID);
         }
+        //TODO move in C++
         function messageInfo()
         {
             if (appid.selectedRoom) {

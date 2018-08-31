@@ -28,7 +28,7 @@ import Qt.labs.settings 1.0
 import QtGraphicalEffects 1.0
 
 import KDE.Ruqola.RoomFilterProxyModel 1.0
-import org.kde.kirigami 2.1 as Kirigami
+import org.kde.kirigami 2.4 as Kirigami
 
 ListView {
     id: activeChat

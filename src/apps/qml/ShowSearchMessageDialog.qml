@@ -24,7 +24,7 @@ import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import QtQuick 2.9
 import KDE.Ruqola.UsersForRoomFilterProxyModel 1.0
-import org.kde.kirigami 2.1 as Kirigami
+import org.kde.kirigami 2.4 as Kirigami
 
 QQC2.Dialog {
     id: showSearchMessageDialog

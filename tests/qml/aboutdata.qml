@@ -6,7 +6,7 @@ import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.2 as QQC2
 
-import org.kde.kirigami 2.1 as Kirigami
+import org.kde.kirigami 2.4 as Kirigami
 
 ApplicationWindow {
     id: window
