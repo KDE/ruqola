@@ -20,6 +20,8 @@
 
 #include "abstractlogger.h"
 
+using namespace RocketChatRestApi;
+
 AbstractLogger::AbstractLogger()
 {
 

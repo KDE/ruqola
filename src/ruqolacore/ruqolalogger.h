@@ -24,7 +24,7 @@
 
 #include <QFile>
 
-class RuqolaLogger : public AbstractLogger
+class RuqolaLogger : public RocketChatRestApi::AbstractLogger
 {
 public:
     RuqolaLogger();

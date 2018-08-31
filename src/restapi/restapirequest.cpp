@@ -110,7 +110,7 @@ RestApiRequest::~RestApiRequest()
     delete mRestApiMethod;
 }
 
-void RestApiRequest::setRestApiLogger(AbstractLogger *logger)
+void RestApiRequest::setRestApiLogger(RocketChatRestApi::AbstractLogger *logger)
 {
     mRuqolaLogger = logger;
 }

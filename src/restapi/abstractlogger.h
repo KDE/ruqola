@@ -23,6 +23,7 @@
 #include "librestapi_export.h"
 class QByteArray;
 
+namespace RocketChatRestApi {
 class LIBRESTAPI_EXPORT AbstractLogger
 {
 public:
@@ -32,5 +33,6 @@ public:
     virtual void dataSent(const QByteArray &data) = 0;
     virtual void dataReceived(const QByteArray &data) = 0;
 };
+}
 
 #endif // ABSTRACTLOGGER_H

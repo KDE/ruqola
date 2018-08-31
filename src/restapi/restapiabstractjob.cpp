@@ -97,12 +97,12 @@ void RestApiAbstractJob::addAuthRawHeader(QNetworkRequest &request) const
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
 }
 
-AbstractLogger *RestApiAbstractJob::restApiLogger() const
+RocketChatRestApi::AbstractLogger *RestApiAbstractJob::restApiLogger() const
 {
     return mRestApiLogger;
 }
 
-void RestApiAbstractJob::setRestApiLogger(AbstractLogger *ruqolaLogger)
+void RestApiAbstractJob::setRestApiLogger(RocketChatRestApi::AbstractLogger *ruqolaLogger)
 {
     mRestApiLogger = ruqolaLogger;
 }

@@ -31,7 +31,9 @@ class QNetworkAccessManager;
 class QNetworkReply;
 class QNetworkCookieJar;
 class RestApiMethod;
+namespace RocketChatRestApi {
 class AbstractLogger;
+}
 class RestApiAbstractJob;
 class LIBRESTAPI_EXPORT RestApiRequest : public QObject
 {
@@ -40,7 +42,7 @@ public:
     explicit RestApiRequest(QObject *parent = nullptr);
     ~RestApiRequest();
 
-    void setRestApiLogger(AbstractLogger *logger);
+    void setRestApiLogger(RocketChatRestApi::AbstractLogger *logger);
 
     Q_REQUIRED_RESULT QString userId() const;
     Q_REQUIRED_RESULT QString authToken() const;
@@ -150,7 +152,7 @@ private:
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     QNetworkCookieJar *mCookieJar = nullptr;
     RestApiMethod *mRestApiMethod = nullptr;
-    AbstractLogger *mRuqolaLogger = nullptr;
+    RocketChatRestApi::AbstractLogger *mRuqolaLogger = nullptr;
     QString mUserId;
     QString mAuthToken;
     QString mUserName;
