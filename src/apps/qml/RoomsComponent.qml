@@ -55,9 +55,8 @@ Component {
             }
         }
         background: Rectangle {
-            color: Kirigami.Theme.viewBackgroundColor
+            color: Kirigami.Theme.backgroundColor
         }
-
         header: Column {
 
             ColumnLayout {
