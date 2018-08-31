@@ -1,5 +1,5 @@
 
-set (Restapi_SRCS
+set (RocketChatRestapi_SRCS
     restapirequest.cpp
     restapiutil.cpp
     restapimethod.cpp
@@ -96,8 +96,8 @@ set (Restapi_SRCS
     )
 
 
-ecm_qt_declare_logging_category(Restapi_SRCS HEADER restapi_debug.h IDENTIFIER RESTAPI_LOG CATEGORY_NAME org.kde.restapi)
-add_library(librestapi ${Restapi_SRCS})
+ecm_qt_declare_logging_category(RocketChatRestapi_SRCS HEADER restapi_debug.h IDENTIFIER RESTAPI_LOG CATEGORY_NAME org.kde.restapi)
+add_library(librestapi ${RocketChatRestapi_SRCS})
 generate_export_header(librestapi BASE_NAME librestapi)
 target_link_libraries(librestapi
     Qt5::Core
