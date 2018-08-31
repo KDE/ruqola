@@ -5,7 +5,9 @@ set (Restapi_SRCS
     restapimethod.cpp
     uploadfilejob.cpp
     restapiabstractjob.cpp
+    abstractlogger.cpp
 
+    # job.
     spotlightjob.cpp
 
     serverinfojob.cpp
@@ -91,9 +93,6 @@ set (Restapi_SRCS
     permissions/listpermissionsjob.cpp
 
     commands/listcommandsjob.cpp
-
-    abstractlogger.cpp
-
     )
 
 
@@ -102,7 +101,6 @@ add_library(librestapi ${Restapi_SRCS})
 generate_export_header(librestapi BASE_NAME librestapi)
 target_link_libraries(librestapi
     Qt5::Core
-    Qt5::WebSockets
     Qt5::Network
     Qt5::NetworkAuth
 )
