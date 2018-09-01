@@ -44,7 +44,7 @@ QString InputTextManager::replaceWord(const QString &newWord, const QString &tex
         qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Empty text";
         return text;
     }
-    //Cursor position can be at the end of word => text.lenght
+    //Cursor position can be at the end of word => text.length
     if ((position > text.length()) || (position < 0)) {
         qCDebug(RUQOLA_LOG) << "InputTextManager::replaceWord Invalid position" << position;
         return text;

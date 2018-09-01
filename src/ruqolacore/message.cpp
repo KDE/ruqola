@@ -342,7 +342,7 @@ QString Message::messageTypeText() const
     } else if (mSystemMessageType == QLatin1String("subscription-role-removed")) {
         return i18n("Role \'%3\' was removed to %1 by %2", mUsername, mText, mRole);
     } else {
-        qCWarning(RUQOLA_LOG) << "Unkown type for message: type: " << mSystemMessageType << " mText " << mText;
+        qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
     }
 }

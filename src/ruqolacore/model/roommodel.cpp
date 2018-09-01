@@ -518,7 +518,7 @@ QIcon RoomModel::icon(Room *r) const
     } else if (r->channelType() == QLatin1String("d")) {
         const QString userStatusIconFileName = mRocketChatAccount ? mRocketChatAccount->userStatusIconFileName(r->name()) : QString();
         if (userStatusIconFileName.isEmpty()) {
-            return QIcon::fromTheme(QStringLiteral("user-avaliable"));
+            return QIcon::fromTheme(QStringLiteral("user-available"));
         } else {
             return QIcon::fromTheme(userStatusIconFileName);
         }
