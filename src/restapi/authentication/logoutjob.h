@@ -24,7 +24,7 @@
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT LogoutJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -44,5 +44,5 @@ private:
     Q_DISABLE_COPY(LogoutJob)
     void slotLogout();
 };
-
+}
 #endif // LOGOUTJOB_H

@@ -25,7 +25,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-
+using namespace RocketChatRestApi;
 ChangeChannelAnnouncementJob::ChangeChannelAnnouncementJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

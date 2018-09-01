@@ -24,7 +24,7 @@
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT LoginJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -54,5 +54,5 @@ private:
     QString mUserName;
     QString mPassword;
 };
-
+}
 #endif // LOGINJOB_H

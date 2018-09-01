@@ -23,7 +23,7 @@
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT ChangeChannelReadonlyJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -54,5 +54,5 @@ private:
     QString mRoomId;
     bool mReadOnly = false;
 };
-
+}
 #endif // CHANGECHANNELANNOUNCEMENT_H
