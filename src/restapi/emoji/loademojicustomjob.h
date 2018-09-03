@@ -26,7 +26,7 @@
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT LoadEmojiCustomJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -45,5 +45,5 @@ private:
     Q_DISABLE_COPY(LoadEmojiCustomJob)
     void slotloadEmojiCustomDone();
 };
-
+}
 #endif // LOADEMOJICUSTOMJOB_H

@@ -25,7 +25,7 @@
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT GetMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -53,5 +53,5 @@ private:
     void slotIgnoreUserFinished();
     QString mMessageId;
 };
-
+}
 #endif // GETMESSAGEJOB_H

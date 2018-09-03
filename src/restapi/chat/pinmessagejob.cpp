@@ -25,7 +25,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-
+using namespace RocketChatRestApi;
 PinMessageJob::PinMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

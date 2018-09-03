@@ -22,7 +22,7 @@
 #define UPDATEMESSAGEJOB_H
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT UpdateMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -57,5 +57,5 @@ private:
     QString mMessageId;
     QString mUpdatedText;
 };
-
+}
 #endif // UPDATEMESSAGEJOB_H

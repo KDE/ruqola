@@ -24,7 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-
+using namespace RocketChatRestApi;
 UpdateMessageJob::UpdateMessageJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

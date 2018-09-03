@@ -22,7 +22,7 @@
 #define REACTONMESSAGEJOB_H
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT ReactOnMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -57,5 +57,5 @@ private:
     QString mEmoji;
     bool mAddReact = true;
 };
-
+}
 #endif // REACTONMESSAGEJOB_H

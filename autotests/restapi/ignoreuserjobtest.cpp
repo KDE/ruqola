@@ -24,7 +24,7 @@
 #include <QTest>
 #include <restapimethod.h>
 QTEST_GUILESS_MAIN(IgnoreUserJobTest)
-
+using namespace RocketChatRestApi;
 IgnoreUserJobTest::IgnoreUserJobTest(QObject *parent)
     : QObject(parent)
 {

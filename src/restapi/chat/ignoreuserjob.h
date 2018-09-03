@@ -25,7 +25,7 @@
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT IgnoreUserJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -59,5 +59,5 @@ private:
     QString mIgnoreUserId;
     bool mIgnore = true;
 };
-
+}
 #endif // IGNOREUSERJOB_H

@@ -25,7 +25,7 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 #include <QUrlQuery>
-
+using namespace RocketChatRestApi;
 IgnoreUserJob::IgnoreUserJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
