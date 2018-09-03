@@ -23,7 +23,7 @@
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT MarkRoomAsReadJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -49,5 +49,5 @@ private:
     void slotMarkAsRead();
     QString mRoomId;
 };
-
+}
 #endif // MARKROOMASREADJOB_H

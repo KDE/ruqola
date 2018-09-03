@@ -25,7 +25,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-
+using namespace RocketChatRestApi;
 GroupsInviteJob::GroupsInviteJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

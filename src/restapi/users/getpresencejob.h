@@ -25,7 +25,7 @@
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT GetPresenceJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -52,5 +52,5 @@ private:
     void slotGetPresenceUserId();
     QString mPresenceUserId;
 };
-
+}
 #endif // GETPRESENCEJOB_H

@@ -25,7 +25,7 @@
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT UsersInfoJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -57,5 +57,5 @@ private:
     QString mIdentifier;
     bool mUseUserName = false;
 };
-
+}
 #endif // USERSINFOJOB_H

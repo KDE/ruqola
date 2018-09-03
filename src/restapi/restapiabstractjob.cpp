@@ -23,7 +23,7 @@
 #include "abstractlogger.h"
 
 #include <QNetworkRequest>
-
+using namespace RocketChatRestApi;
 RestApiAbstractJob::RestApiAbstractJob(QObject *parent)
     : QObject(parent)
 {
@@ -39,12 +39,12 @@ void RestApiAbstractJob::setNetworkAccessManager(QNetworkAccessManager *networkA
     mNetworkAccessManager = networkAccessManager;
 }
 
-RestApiMethod *RestApiAbstractJob::restApiMethod() const
+RocketChatRestApi::RestApiMethod *RestApiAbstractJob::restApiMethod() const
 {
     return mRestApiMethod;
 }
 
-void RestApiAbstractJob::setRestApiMethod(RestApiMethod *restApiMethod)
+void RestApiAbstractJob::setRestApiMethod(RocketChatRestApi::RestApiMethod *restApiMethod)
 {
     mRestApiMethod = restApiMethod;
 }

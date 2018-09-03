@@ -25,6 +25,7 @@
 #include "restapiutil.h"
 #include <QString>
 #include <QUrl>
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT RestApiMethod
 {
 public:
@@ -37,5 +38,5 @@ public:
 private:
     QString mServerUrl;
 };
-
+}
 #endif // RESTAPIMETHOD_H

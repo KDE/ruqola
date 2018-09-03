@@ -23,7 +23,7 @@
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT ChannelHistoryJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -66,5 +66,5 @@ private:
     int mCount = -1;
     //TODO add latest/oldest
 };
-
+}
 #endif // CHANNELHISTORYJOB_H

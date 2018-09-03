@@ -25,7 +25,7 @@
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT GetAvatarJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -50,5 +50,5 @@ private:
     void slotGetAvatarInfo();
     QString mAvatarUserId;
 };
-
+}
 #endif // GETAVATARJOB_H

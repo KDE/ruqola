@@ -25,7 +25,7 @@
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT GetUsernameSuggestionJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -49,5 +49,5 @@ private:
     Q_DISABLE_COPY(GetUsernameSuggestionJob)
     void slotGetUsernameSuggestion();
 };
-
+}
 #endif // GETUSERNAMESUGGESTIONJOB_H

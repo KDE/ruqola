@@ -22,7 +22,7 @@
 #include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
-
+using namespace RocketChatRestApi;
 PrivateInfoJob::PrivateInfoJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

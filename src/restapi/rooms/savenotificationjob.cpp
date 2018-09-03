@@ -25,7 +25,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-
+using namespace RocketChatRestApi;
 SaveNotificationJob::SaveNotificationJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

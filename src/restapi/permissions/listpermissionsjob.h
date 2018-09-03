@@ -25,7 +25,7 @@
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT ListPermissionsJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -47,5 +47,5 @@ private:
     Q_DISABLE_COPY(ListPermissionsJob)
     void slotListPermissionFinished();
 };
-
+}
 #endif // LISTPERMISSIONSJOB_H

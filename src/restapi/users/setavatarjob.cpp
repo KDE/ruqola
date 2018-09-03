@@ -25,7 +25,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-
+using namespace RocketChatRestApi;
 SetAvatarJob::SetAvatarJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

@@ -23,7 +23,7 @@
 #include "restapimethod.h"
 #include <QNetworkReply>
 #include <QUrlQuery>
-
+using namespace RocketChatRestApi;
 GetAvatarJob::GetAvatarJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

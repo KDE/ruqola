@@ -22,7 +22,7 @@
 #include "restapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
-
+using namespace RocketChatRestApi;
 DownloadFileJob::DownloadFileJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

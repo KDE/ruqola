@@ -26,7 +26,7 @@
 
 #include <QNetworkRequest>
 #include <QTest>
-
+using namespace RocketChatRestApi;
 void verifyAuthentication(RestApiAbstractJob *job, QNetworkRequest &request)
 {
     const QString authToken = QStringLiteral("foo");

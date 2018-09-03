@@ -237,7 +237,7 @@ void RestApiRequest::slotLogout()
     Q_EMIT logoutDone();
 }
 
-void RestApiRequest::initializeRestApiJob(RestApiAbstractJob *job)
+void RestApiRequest::initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob *job)
 {
     job->setNetworkAccessManager(mNetworkAccessManager);
     job->setRestApiLogger(mRuqolaLogger);

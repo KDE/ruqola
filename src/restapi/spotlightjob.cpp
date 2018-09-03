@@ -25,7 +25,7 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 #include <QUrlQuery>
-
+using namespace RocketChatRestApi;
 SpotlightJob::SpotlightJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

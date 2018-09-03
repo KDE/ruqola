@@ -23,7 +23,7 @@
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT LeaveChannelJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -50,5 +50,5 @@ private:
     void slotLeaveChannelFinished();
     QString mRoomId;
 };
-
+}
 #endif // LEAVECHANNELJOB_H

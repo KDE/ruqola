@@ -27,7 +27,7 @@
 #include <QJsonObject>
 #include <QMimeDatabase>
 #include <QNetworkReply>
-
+using namespace RocketChatRestApi;
 UploadFileJob::UploadFileJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

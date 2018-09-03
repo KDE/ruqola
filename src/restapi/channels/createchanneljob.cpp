@@ -26,7 +26,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-
+using namespace RocketChatRestApi;
 CreateChannelJob::CreateChannelJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

@@ -24,7 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
-
+using namespace RocketChatRestApi;
 ListPermissionsJob::ListPermissionsJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {

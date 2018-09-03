@@ -24,7 +24,7 @@
 #include "restapiabstractjob.h"
 
 #include <QUrl>
-
+namespace RocketChatRestApi {
 class DownloadFileJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -61,5 +61,5 @@ private:
     QUrl mLocalFileUrl;
     bool mStoreInCache = true;
 };
-
+}
 #endif // DOWNLOADFILEJOB_H

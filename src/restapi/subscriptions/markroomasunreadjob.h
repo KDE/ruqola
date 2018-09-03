@@ -23,7 +23,7 @@
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT MarkRoomAsUnReadJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -62,5 +62,5 @@ private:
     QString mObjectId;
     MarkAsUnReadObject mUnReadObject = Unknown;
 };
-
+}
 #endif // MARKROOMASUnREADJOB_H

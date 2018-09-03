@@ -23,7 +23,7 @@
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT ChannelInviteJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -54,5 +54,6 @@ private:
     QString mInviteUserId;
     QString mRoomId;
 };
+}
 
 #endif // CHANGECHANNELANNOUNCEMENT_H

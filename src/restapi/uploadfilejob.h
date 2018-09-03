@@ -26,6 +26,7 @@
 #include <QUrl>
 #include "librestapi_private_export.h"
 #include "restapiabstractjob.h"
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT UploadFileJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -63,5 +64,5 @@ private:
     QString mMessageText;
     QUrl mFilenameUrl;
 };
-
+}
 #endif // UPLOADFILEJOB_H

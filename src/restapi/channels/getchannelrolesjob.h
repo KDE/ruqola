@@ -24,6 +24,7 @@
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
 class QNetworkRequest;
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT GetChannelRolesJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -50,5 +51,5 @@ private:
     void slotGetChannelRolesFinished();
     QString mRoomId;
 };
-
+}
 #endif // GETCHANNELROLESJOB_H

@@ -23,7 +23,7 @@
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT ChannelListJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -43,5 +43,5 @@ private:
     Q_DISABLE_COPY(ChannelListJob)
     void slotListInfo();
 };
-
+}
 #endif // CHANNELLISTJOB_H

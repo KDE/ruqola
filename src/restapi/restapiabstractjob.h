@@ -25,10 +25,9 @@
 #include <QNetworkRequest>
 #include "librestapi_private_export.h"
 class QNetworkAccessManager;
-class RestApiMethod;
 namespace RocketChatRestApi {
+class RestApiMethod;
 class AbstractLogger;
-}
 class LIBRESTAPI_TESTS_EXPORT RestApiAbstractJob : public QObject
 {
 public:
@@ -36,8 +35,8 @@ public:
     Q_REQUIRED_RESULT QNetworkAccessManager *networkAccessManager() const;
     void setNetworkAccessManager(QNetworkAccessManager *networkAccessManager);
 
-    Q_REQUIRED_RESULT RestApiMethod *restApiMethod() const;
-    void setRestApiMethod(RestApiMethod *restApiMethod);
+    Q_REQUIRED_RESULT RocketChatRestApi::RestApiMethod *restApiMethod() const;
+    void setRestApiMethod(RocketChatRestApi::RestApiMethod *restApiMethod);
 
     Q_REQUIRED_RESULT QString authToken() const;
     void setAuthToken(const QString &authToken);
@@ -64,8 +63,8 @@ protected:
     QString mAuthToken;
     QString mUserId;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
-    RestApiMethod *mRestApiMethod = nullptr;
+    RocketChatRestApi::RestApiMethod *mRestApiMethod = nullptr;
     RocketChatRestApi::AbstractLogger *mRestApiLogger = nullptr;
 };
-
+}
 #endif // RESTAPIABSTRACTJOB_H

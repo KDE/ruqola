@@ -20,7 +20,7 @@
 
 #include "restapimethod.h"
 #include "restapi_debug.h"
-
+using namespace RocketChatRestApi;
 RestApiMethod::RestApiMethod()
 {
 }

@@ -25,7 +25,7 @@
 #include "restapiabstractjob.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT ForgotPasswordJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -54,5 +54,5 @@ private:
     void slotForgotPassword();
     QString mEmail;
 };
-
+}
 #endif // FORGOTPASSWORDJOB_H

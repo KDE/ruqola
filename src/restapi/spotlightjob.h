@@ -26,7 +26,7 @@
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT SpotlightJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -50,5 +50,5 @@ private:
     void slotSpotlightDone();
     QString mSearchPattern;
 };
-
+}
 #endif // SPOTLIGHTJOB_H

@@ -22,6 +22,7 @@
 #include "restapimethod.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RestApiMethodTest)
+using namespace RocketChatRestApi;
 RestApiMethodTest::RestApiMethodTest(QObject *parent)
     : QObject(parent)
 {

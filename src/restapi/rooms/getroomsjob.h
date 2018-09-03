@@ -25,7 +25,7 @@
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
-
+namespace RocketChatRestApi {
 class LIBRESTAPI_TESTS_EXPORT GetRoomsJob : public RestApiAbstractJob
 {
     Q_OBJECT
@@ -47,5 +47,5 @@ private:
     void slotGetRoomsFinished();
     //TODO add updatedSince
 };
-
+}
 #endif // GETROOMSJOB_H

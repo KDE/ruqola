@@ -25,7 +25,7 @@
 #include <QUrlQuery>
 #include <QJsonDocument>
 #include <QJsonObject>
-
+using namespace RocketChatRestApi;
 GetPresenceJob::GetPresenceJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
