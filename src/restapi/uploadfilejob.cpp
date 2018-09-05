@@ -19,7 +19,7 @@
 */
 
 #include "uploadfilejob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QFile>
 #include <QHttpMultiPart>
@@ -40,11 +40,11 @@ UploadFileJob::~UploadFileJob()
 bool UploadFileJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start upload file job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start upload file job";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "UploadFileJob : RoomId not defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UploadFileJob : RoomId not defined";
         return false;
     }
     return true;
@@ -58,7 +58,7 @@ bool UploadFileJob::start()
     }
     QFile *file = new QFile(mFilenameUrl.path());
     if (!file->open(QIODevice::ReadOnly)) {
-        qCWarning(RESTAPI_LOG) << " Impossible to open filename " << mFilenameUrl;
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mFilenameUrl;
         delete file;
         deleteLater();
         return false;
@@ -113,7 +113,7 @@ void UploadFileJob::slotUploadFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (!replyObject.value(QLatin1String("success")).toBool()) {
-            qCWarning(RESTAPI_LOG) << "RestApiRequest::parseUploadFile method had a problem " << replyJson;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RestApiRequest::parseUploadFile method had a problem " << replyJson;
         }
     }
     deleteLater();

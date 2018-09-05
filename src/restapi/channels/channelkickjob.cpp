@@ -20,7 +20,7 @@
 
 #include "channelkickjob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChannelKickJob::slotKickUsersFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "Change announcement success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Change announcement success: " << data;
             Q_EMIT kickUserDone(replyObject);
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to kick user: " << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to kick user: " << data;
         }
     }
     deleteLater();
@@ -75,15 +75,15 @@ bool ChannelKickJob::requireHttpAuthentication() const
 bool ChannelKickJob::canStart() const
 {
     if (mKickUserId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ChannelKickJob: mKickUserId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelKickJob: mKickUserId is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ChannelKickJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelKickJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ChannelKickJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelKickJob job";
         return false;
     }
     return true;

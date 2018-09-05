@@ -19,7 +19,7 @@
 */
 
 #include "loginjob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 
 #include <QJsonDocument>
@@ -38,15 +38,15 @@ LoginJob::~LoginJob()
 bool LoginJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start login job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start login job";
         return false;
     }
     if (mUserName.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "UserName is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UserName is empty";
         return false;
     }
     if (mPassword.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "Password is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Password is empty";
         return false;
     }
     return true;
@@ -84,7 +84,7 @@ void LoginJob::slotLoginDone()
                 Q_EMIT loginDone(authToken, userId);
             }
         } else {
-            qCWarning(RESTAPI_LOG) << "Error during login" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Error during login" << data;
         }
     }
     deleteLater();

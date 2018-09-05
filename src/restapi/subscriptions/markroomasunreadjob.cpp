@@ -20,7 +20,7 @@
 
 #include "markroomasunreadjob.h"
 #include "restapimethod.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -60,7 +60,7 @@ void MarkRoomAsUnReadJob::slotMarkAsUnRead()
             addLoggerInfo(QByteArrayLiteral("MarkRoomAsUnReadJob: finished: ") + data);
             Q_EMIT markAsUnReadDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to mark as unread" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to mark as unread" << data;
         }
     }
     deleteLater();
@@ -94,16 +94,16 @@ bool MarkRoomAsUnReadJob::requireHttpAuthentication() const
 bool MarkRoomAsUnReadJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start MarkRoomAsUnReadJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start MarkRoomAsUnReadJob";
         return false;
     }
     if (mUnReadObject == Unknown) {
-        qCWarning(RESTAPI_LOG) << "MarkRoomAsUnReadJob: object type undefined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "MarkRoomAsUnReadJob: object type undefined";
         return false;
     }
 
     if (mObjectId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "MarkRoomAsUnReadJob: mRoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "MarkRoomAsUnReadJob: mRoomId is empty";
         return false;
     }
     return true;

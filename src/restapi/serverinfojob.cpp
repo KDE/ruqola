@@ -19,7 +19,7 @@
 */
 
 #include "serverinfojob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -37,7 +37,7 @@ ServerInfoJob::~ServerInfoJob()
 bool ServerInfoJob::start()
 {
     if (!canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start server info job";
         deleteLater();
         return false;
     }
@@ -70,13 +70,13 @@ void ServerInfoJob::slotServerInfoFinished()
     if (reply) {
         const QByteArray data = reply->readAll();
         addLoggerInfo(QByteArrayLiteral("ServerInfoJob: finished: ") + data);
-        qCDebug(RESTAPI_LOG) << "ServerInfoJob::parseServerInfo: " << data;
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "ServerInfoJob::parseServerInfo: " << data;
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
         versionStr = version.value(QStringLiteral("version")).toString();
         if (versionStr.isEmpty()) {
-            qCWarning(RESTAPI_LOG) << "ServerInfoJob::slotServerInfoFinished Problem during parsing server version";
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ServerInfoJob::slotServerInfoFinished Problem during parsing server version";
         }
     }
     Q_EMIT serverInfoDone(versionStr);

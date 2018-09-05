@@ -19,7 +19,7 @@
 */
 
 #include "forgotpasswordjob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
 #include <QUrlQuery>
@@ -39,11 +39,11 @@ ForgotPasswordJob::~ForgotPasswordJob()
 bool ForgotPasswordJob::canStart() const
 {
     if (mEmail.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "Avatar email is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Avatar email is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start getavatar job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getavatar job";
         return false;
     }
     return true;
@@ -67,7 +67,7 @@ void ForgotPasswordJob::slotForgotPassword()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        //qCDebug(RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
+        //qCDebug(ROCKETCHATQTRESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
         addLoggerInfo(QByteArrayLiteral("ForgotPasswordJob: finished: ") + data);
         Q_EMIT forgotPasswordDone();
     }

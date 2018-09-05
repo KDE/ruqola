@@ -20,7 +20,7 @@
 
 #include "groupaddownerjob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void GroupAddOwnerJob::slotAddOwnerFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "Add owner success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Add owner success: " << data;
             Q_EMIT addOwnerDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to add owner : " << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to add owner : " << data;
         }
     }
     deleteLater();
@@ -84,15 +84,15 @@ bool GroupAddOwnerJob::requireHttpAuthentication() const
 bool GroupAddOwnerJob::canStart() const
 {
     if (mAddownerUserId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "GroupAddOwnerJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddOwnerJob: remove userid is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "GroupAddOwnerJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupAddOwnerJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start GroupAddOwnerJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GroupAddOwnerJob job";
         return false;
     }
     return true;

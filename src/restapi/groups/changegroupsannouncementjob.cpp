@@ -20,7 +20,7 @@
 
 #include "changegroupsannouncementjob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChangeGroupsAnnouncementJob::slotChangeGroupsannouncementFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "Change announcement success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Change announcement success: " << data;
             Q_EMIT changeGroupsAnnouncement();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
         }
     }
     deleteLater();
@@ -74,15 +74,15 @@ bool ChangeGroupsAnnouncementJob::requireHttpAuthentication() const
 bool ChangeGroupsAnnouncementJob::canStart() const
 {
     if (mAnnouncement.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ChangeGroupsAnnouncementJob: announcement is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsAnnouncementJob: announcement is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ChangeGroupsAnnouncementJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsAnnouncementJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ChangeGroupsAnnouncementJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsAnnouncementJob job";
         return false;
     }
     return true;

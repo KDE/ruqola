@@ -19,7 +19,7 @@
 */
 
 #include "loademojicustomjob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -37,7 +37,7 @@ LoadEmojiCustomJob::~LoadEmojiCustomJob()
 bool LoadEmojiCustomJob::start()
 {
     if (!canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start LoadEmojiCustomJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start LoadEmojiCustomJob job";
         deleteLater();
         return false;
     }

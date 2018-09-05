@@ -20,7 +20,7 @@
 
 #include "postmessagejob.h"
 #include "restapimethod.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -63,10 +63,10 @@ void PostMessageJob::slotPostMessageDone()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "PostMessageJob success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "PostMessageJob success: " << data;
             Q_EMIT postMessageDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to post message: " << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to post message: " << data;
         }
     }
     deleteLater();
@@ -106,16 +106,16 @@ void PostMessageJob::setRoomId(const QString &roomId)
 bool PostMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start PostMessageJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PostMessageJob job";
         return false;
     }
     //It can be optional!
     if (mText.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "Text is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Text is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "roomId is not defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "roomId is not defined";
         return false;
     }
     return true;

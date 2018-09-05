@@ -20,7 +20,7 @@
 
 #include "createdmjob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -58,10 +58,10 @@ void CreateDmJob::slotCreateDmFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "Create direct message success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Create direct message success: " << data;
             Q_EMIT createDmDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to create direct message: " << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to create direct message: " << data;
         }
     }
     deleteLater();
@@ -85,11 +85,11 @@ bool CreateDmJob::requireHttpAuthentication() const
 bool CreateDmJob::canStart() const
 {
     if (mUserName.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "CreateDmJob: username is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CreateDmJob: username is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start CreateDmJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CreateDmJob job";
         return false;
     }
     return true;

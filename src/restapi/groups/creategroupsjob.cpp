@@ -20,7 +20,7 @@
 
 #include "creategroupsjob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -58,10 +58,10 @@ void CreateGroupsJob::slotCreateGroupsFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "Change Topic success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Change Topic success: " << data;
             Q_EMIT createGroupsDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change topic" << data;
         }
     }
     deleteLater();
@@ -105,11 +105,11 @@ bool CreateGroupsJob::requireHttpAuthentication() const
 bool CreateGroupsJob::canStart() const
 {
     if (mChannelName.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "CreateGroupsJob: channelname is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "CreateGroupsJob: channelname is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start CreateGroupsJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CreateGroupsJob job";
         return false;
     }
     return true;

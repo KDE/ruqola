@@ -20,7 +20,7 @@
 
 #include "archivechanneljob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ArchiveChannelJob::slotArchiveChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "archive or unarchive channel success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "archive or unarchive channel success: " << data;
             Q_EMIT archiveChannelDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to archive or unarchive a channel" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to archive or unarchive a channel" << data;
         }
     }
     deleteLater();
@@ -84,11 +84,11 @@ bool ArchiveChannelJob::requireHttpAuthentication() const
 bool ArchiveChannelJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ArchiveChannelJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ArchiveChannelJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ArchiveChannelJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ArchiveChannelJob job";
         return false;
     }
     return true;

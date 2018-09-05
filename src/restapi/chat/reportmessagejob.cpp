@@ -20,7 +20,7 @@
 
 #include "reportmessagejob.h"
 #include "restapimethod.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -77,15 +77,15 @@ bool ReportMessageJob::requireHttpAuthentication() const
 bool ReportMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ReportMessageJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ReportMessageJob";
         return false;
     }
     if (mMessageId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ReportMessageJob: mMessageId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ReportMessageJob: mMessageId is empty";
         return false;
     }
     if (mReportMessage.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ReportMessageJob: mReportMessage is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ReportMessageJob: mReportMessage is empty";
         return false;
     }
     return true;

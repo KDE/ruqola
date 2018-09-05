@@ -19,7 +19,7 @@
 */
 
 #include "reactonmessagejob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -56,10 +56,10 @@ void ReactOnMessageJob::slotReactonMessageFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "React On Message is a success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "React On Message is a success: " << data;
             Q_EMIT reactOnMessageDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to add react on message" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to add react on message" << data;
         }
     }
     deleteLater();
@@ -93,15 +93,15 @@ bool ReactOnMessageJob::requireHttpAuthentication() const
 bool ReactOnMessageJob::canStart() const
 {
     if (mEmoji.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ReactOnMessageJob: emoji is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ReactOnMessageJob: emoji is empty";
         return false;
     }
     if (mMessageId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ReactOnMessageJob: messageId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ReactOnMessageJob: messageId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ReactOnMessageJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ReactOnMessageJob job";
         return false;
     }
     return true;

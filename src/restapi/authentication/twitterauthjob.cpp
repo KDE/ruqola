@@ -19,7 +19,7 @@
 */
 
 #include "twitterauthjob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 
 #include <QJsonDocument>
@@ -38,27 +38,27 @@ TwitterAuthJob::~TwitterAuthJob()
 bool TwitterAuthJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start facebook login job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start facebook login job";
         return false;
     }
     if (mAccessToken.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "Access Token is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Access Token is empty";
         return false;
     }
     if (mSecret.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "Secret is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Secret is empty";
         return false;
     }
     if (mAppId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "Appid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Appid is empty";
         return false;
     }
     if (mAppSecret.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "App secret is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "App secret is empty";
         return false;
     }
     if (mExpireTokenInSeconds <= 0) {
-        qCWarning(RESTAPI_LOG) << "Expire token is not defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Expire token is not defined";
         return false;
     }
     return true;
@@ -96,7 +96,7 @@ void TwitterAuthJob::slotTwitterauthDone()
                 Q_EMIT twitterDone(authToken, userId);
             }
         } else {
-            qCWarning(RESTAPI_LOG) << "Error during login" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Error during login" << data;
         }
     }
     deleteLater();

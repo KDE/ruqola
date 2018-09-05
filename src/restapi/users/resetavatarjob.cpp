@@ -20,7 +20,7 @@
 
 #include "resetavatarjob.h"
 #include "restapimethod.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -77,11 +77,11 @@ bool ResetAvatarJob::requireHttpAuthentication() const
 bool ResetAvatarJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ResetAvatarJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ResetAvatarJob";
         return false;
     }
     if (mAvatarUserId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ResetAvatarJob: mAvatarUserId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ResetAvatarJob: mAvatarUserId is empty";
         return false;
     }
     return true;

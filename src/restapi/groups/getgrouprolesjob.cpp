@@ -19,7 +19,7 @@
 */
 
 #include "getgrouprolesjob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -38,11 +38,11 @@ GetGroupRolesJob::~GetGroupRolesJob()
 bool GetGroupRolesJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "GetGroupRolesJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetGroupRolesJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start GetGroupRolesJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetGroupRolesJob job";
         return false;
     }
     return true;
@@ -51,7 +51,7 @@ bool GetGroupRolesJob::canStart() const
 bool GetGroupRolesJob::start()
 {
     if (!canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start server info job";
         deleteLater();
         return false;
     }

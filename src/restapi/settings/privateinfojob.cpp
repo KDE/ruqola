@@ -19,7 +19,7 @@
 */
 
 #include "privateinfojob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
@@ -35,7 +35,7 @@ PrivateInfoJob::~PrivateInfoJob()
 bool PrivateInfoJob::start()
 {
     if (!canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start PrivateInfoJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PrivateInfoJob job";
         deleteLater();
         return false;
     }

@@ -20,7 +20,7 @@
 
 #include "groupsinvitejob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void GroupsInviteJob::slotInviteGroupsFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "Change announcement success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Change announcement success: " << data;
             Q_EMIT inviteGroupsDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
         }
     }
     deleteLater();
@@ -84,15 +84,15 @@ bool GroupsInviteJob::requireHttpAuthentication() const
 bool GroupsInviteJob::canStart() const
 {
     if (mInviteUserId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "GroupsInviteJob: mInviteUserId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsInviteJob: mInviteUserId is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "GroupsInviteJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsInviteJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start GroupsInviteJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GroupsInviteJob job";
         return false;
     }
     return true;

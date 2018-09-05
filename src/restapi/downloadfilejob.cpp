@@ -19,7 +19,7 @@
 */
 
 #include "downloadfilejob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
@@ -59,7 +59,7 @@ void DownloadFileJob::slotDownloadDone()
             addLoggerInfo("DownloadFileJob::slotDownloadDone finished");
             Q_EMIT downloadFileDone(data, reply->url(), mStoreInCache, mLocalFileUrl);
         } else {
-            qCWarning(RESTAPI_LOG) << "Unable to download " << reply->url();
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unable to download " << reply->url();
         }
     }
     deleteLater();
@@ -103,11 +103,11 @@ bool DownloadFileJob::requireHttpAuthentication() const
 bool DownloadFileJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start DownloadFileJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start DownloadFileJob";
         return false;
     }
     if (!mUrl.isValid()) {
-        qCWarning(RESTAPI_LOG) << "DownloadFileJob: url is not valid";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "DownloadFileJob: url is not valid";
         return false;
     }
     return true;

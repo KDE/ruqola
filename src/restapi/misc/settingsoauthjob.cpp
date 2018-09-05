@@ -20,7 +20,7 @@
 
 #include "settingsoauthjob.h"
 #include "restapimethod.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -42,7 +42,7 @@ bool SettingsOauthJob::requireHttpAuthentication() const
 bool SettingsOauthJob::start()
 {
     if (!canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start SettingsOauthJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SettingsOauthJob";
         deleteLater();
         return false;
     }
@@ -64,7 +64,7 @@ void SettingsOauthJob::slotSettingsOauthFinished()
             addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT settingsOauthDone(replyObject);
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to get oauth settings" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to get oauth settings" << data;
         }
     }
     deleteLater();

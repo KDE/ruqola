@@ -19,7 +19,7 @@
 */
 
 #include "googleauthjob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 
 #include <QJsonDocument>
@@ -38,19 +38,19 @@ GoogleAuthJob::~GoogleAuthJob()
 bool GoogleAuthJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start google login job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start google login job";
         return false;
     }
     if (mAccessToken.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "Access Token is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Access Token is empty";
         return false;
     }
     if (mIdToken.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "IdToken is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "IdToken is empty";
         return false;
     }
     if (mExpireTokenInSeconds <= 0) {
-        qCWarning(RESTAPI_LOG) << "Expire token is not defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Expire token is not defined";
         return false;
     }
     return true;
@@ -88,7 +88,7 @@ void GoogleAuthJob::slotGoogleauthDone()
                 Q_EMIT googleauthDone(authToken, userId);
             }
         } else {
-            qCWarning(RESTAPI_LOG) << "Error during login" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Error during login" << data;
         }
     }
     deleteLater();

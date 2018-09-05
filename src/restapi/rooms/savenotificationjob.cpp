@@ -20,7 +20,7 @@
 
 #include "savenotificationjob.h"
 #include "restapimethod.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -60,7 +60,7 @@ void SaveNotificationJob::slotChangeNotificationFinished()
             addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: finished: ") + data);
             Q_EMIT changeNotificationDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change notifications" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change notifications" << data;
         }
     }
     deleteLater();
@@ -172,15 +172,15 @@ bool SaveNotificationJob::requireHttpAuthentication() const
 bool SaveNotificationJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start SaveNotificationJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SaveNotificationJob";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "SaveNotificationJob: mRoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SaveNotificationJob: mRoomId is empty";
         return false;
     }
     if (mSettingsWillBeChanged == Unknown) {
-        qCWarning(RESTAPI_LOG) << "SaveNotificationJob: any settings will be changed! it's a bug";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SaveNotificationJob: any settings will be changed! it's a bug";
         return false;
     }
     return true;

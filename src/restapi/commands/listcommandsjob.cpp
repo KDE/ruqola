@@ -20,7 +20,7 @@
 
 #include "listcommandsjob.h"
 #include "restapimethod.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -42,7 +42,7 @@ bool ListCommandsJob::requireHttpAuthentication() const
 bool ListCommandsJob::start()
 {
     if (!canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start owninfo job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start owninfo job";
         deleteLater();
         return false;
     }
@@ -63,7 +63,7 @@ void ListCommandsJob::slotListCommandsFinished()
             addLoggerInfo(QByteArrayLiteral("ListCommandsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT listCommandsDone(replyObject);
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to get list permissions" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to get list permissions" << data;
         }
     }
     deleteLater();

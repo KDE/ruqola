@@ -20,7 +20,7 @@
 
 #include "changegroupsnamejob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChangeGroupsNameJob::slotChangeGroupsNameFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "Change name success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Change name success: " << data;
             Q_EMIT changeGroupsnameDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change name" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change name" << data;
         }
     }
     deleteLater();
@@ -74,15 +74,15 @@ bool ChangeGroupsNameJob::requireHttpAuthentication() const
 bool ChangeGroupsNameJob::canStart() const
 {
     if (mName.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ChangeGroupsNameJob: name is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsNameJob: name is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ChangeGroupsNameJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsNameJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ChangeGroupsNameJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsNameJob job";
         return false;
     }
     return true;

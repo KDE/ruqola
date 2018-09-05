@@ -19,7 +19,7 @@
 */
 
 #include "starmessagejob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include "restapirequest.h"
 #include <QJsonDocument>
@@ -38,11 +38,11 @@ StarMessageJob::~StarMessageJob()
 bool StarMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start star message job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start star message job";
         return false;
     }
     if (mMessageId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "MessageId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "MessageId is empty";
         return false;
     }
     return true;
@@ -70,10 +70,10 @@ void StarMessageJob::slotStarMessageFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "Message Starred success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Message Starred success: " << data;
             Q_EMIT messageStarred();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to staring message";
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to staring message";
         }
     }
     deleteLater();

@@ -19,7 +19,7 @@
 */
 
 #include "facebookauthjob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 
 #include <QJsonDocument>
@@ -38,19 +38,19 @@ FacebookAuthJob::~FacebookAuthJob()
 bool FacebookAuthJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start facebook login job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start facebook login job";
         return false;
     }
     if (mAccessToken.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "Access Token is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Access Token is empty";
         return false;
     }
     if (mSecret.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "Secret is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Secret is empty";
         return false;
     }
     if (mExpireTokenInSeconds <= 0) {
-        qCWarning(RESTAPI_LOG) << "Expire token is not defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Expire token is not defined";
         return false;
     }
     return true;
@@ -88,7 +88,7 @@ void FacebookAuthJob::slotFacebookauthDone()
                 Q_EMIT facebookDone(authToken, userId);
             }
         } else {
-            qCWarning(RESTAPI_LOG) << "Error during login" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Error during login" << data;
         }
     }
     deleteLater();

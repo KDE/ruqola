@@ -20,7 +20,7 @@
 
 #include "setjoincodechanneljob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void SetJoinCodeChannelJob::slotSetJoinCodeFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "set join code success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "set join code success: " << data;
             Q_EMIT setJoinCodeDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to assign code to channel" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to assign code to channel" << data;
         }
     }
     deleteLater();
@@ -84,15 +84,15 @@ bool SetJoinCodeChannelJob::requireHttpAuthentication() const
 bool SetJoinCodeChannelJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start SetJoinCodeChannelJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetJoinCodeChannelJob job";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "SetJoinCodeChannelJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetJoinCodeChannelJob: RoomId is empty";
         return false;
     }
     if (mJoinCode.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "SetJoinCodeChannelJob: JoinCode is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetJoinCodeChannelJob: JoinCode is empty";
         return false;
     }
     return true;

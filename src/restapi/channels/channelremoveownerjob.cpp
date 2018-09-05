@@ -20,7 +20,7 @@
 
 #include "channelremoveownerjob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChannelRemoveOwnerJob::slotRemoveOwnerFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "Remove owner success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Remove owner success: " << data;
             Q_EMIT removeOwnerDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to remove owner : " << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to remove owner : " << data;
         }
     }
     deleteLater();
@@ -84,15 +84,15 @@ bool ChannelRemoveOwnerJob::requireHttpAuthentication() const
 bool ChannelRemoveOwnerJob::canStart() const
 {
     if (mRemoveUserId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ChannelRemoveOwnerJob: remove userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelRemoveOwnerJob: remove userid is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ChannelRemoveOwnerJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelRemoveOwnerJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ChannelRemoveOwnerJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelRemoveOwnerJob job";
         return false;
     }
     return true;

@@ -20,7 +20,7 @@
 
 #include "setchanneltypejob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -58,10 +58,10 @@ void SetChannelTypeJob::slotSetGroupTypeFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "Change Topic success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Change Topic success: " << data;
             Q_EMIT setGroupTypeDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change topic" << data;
         }
     }
     deleteLater();
@@ -95,15 +95,15 @@ bool SetChannelTypeJob::requireHttpAuthentication() const
 bool SetChannelTypeJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "SetChannelTypeJob: mRoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetChannelTypeJob: mRoomId is empty";
         return false;
     }
     if (mType == Unknown) {
-        qCWarning(RESTAPI_LOG) << "SetChannelTypeJob: type is not defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetChannelTypeJob: type is not defined";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start SetChannelTypeJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetChannelTypeJob job";
         return false;
     }
     return true;

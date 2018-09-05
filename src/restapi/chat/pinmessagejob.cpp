@@ -20,7 +20,7 @@
 
 #include "pinmessagejob.h"
 #include "restapimethod.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -71,11 +71,11 @@ bool PinMessageJob::requireHttpAuthentication() const
 bool PinMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start PinMessageJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PinMessageJob";
         return false;
     }
     if (mMessageId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "PinMessageJob: mMessageId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "PinMessageJob: mMessageId is empty";
         return false;
     }
     return true;

@@ -20,7 +20,7 @@
 
 #include "searchmessagejob.h"
 #include "restapimethod.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -43,7 +43,7 @@ bool SearchMessageJob::requireHttpAuthentication() const
 bool SearchMessageJob::start()
 {
     if (!canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start search message job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start search message job";
         deleteLater();
         return false;
     }
@@ -63,9 +63,9 @@ void SearchMessageJob::slotSearchMessageFinished()
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("SearchMessageJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT searchMessageDone(replyObject);
-            qCDebug(RESTAPI_LOG) << "Search message success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Search message success: " << data;
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to search message";
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to search message";
         }
     }
     deleteLater();
@@ -121,15 +121,15 @@ QNetworkRequest SearchMessageJob::request() const
 bool SearchMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start star message job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start star message job";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomId is empty";
         return false;
     }
     if (mSearchText.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "SearchText is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SearchText is empty";
         return false;
     }
     return true;

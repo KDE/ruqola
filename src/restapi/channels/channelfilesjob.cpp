@@ -20,7 +20,7 @@
 
 #include "channelfilesjob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -61,7 +61,7 @@ void ChannelFilesJob::slotFilesinChannelFinished()
             addLoggerInfo(QByteArrayLiteral("channelFilesDone done: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT channelFilesDone(replyObject, mRoomId);
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to find files in channel" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to find files in channel" << data;
         }
     }
     deleteLater();
@@ -85,15 +85,15 @@ bool ChannelFilesJob::requireHttpAuthentication() const
 bool ChannelFilesJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ChannelFilesJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelFilesJob: RoomId is empty";
         return false;
     }
     if (mChannelType == ChannelFilesJob::Unknown) {
-        qCWarning(RESTAPI_LOG) << "ChannelFilesJob: Channel type is unknown.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelFilesJob: Channel type is unknown.";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ChannelFilesJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelFilesJob job";
         return false;
     }
     return true;
@@ -123,7 +123,7 @@ QNetworkRequest ChannelFilesJob::request() const
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ImFiles);
         break;
     case Unknown:
-        qCWarning(RESTAPI_LOG) << "ChannelFilesJob: Type is not defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelFilesJob: Type is not defined";
         break;
     }
     QUrlQuery queryUrl;

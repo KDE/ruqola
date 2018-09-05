@@ -20,7 +20,7 @@
 
 #include "ignoreuserjob.h"
 #include "restapimethod.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -43,7 +43,7 @@ bool IgnoreUserJob::requireHttpAuthentication() const
 bool IgnoreUserJob::start()
 {
     if (!canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ignore user job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ignore user job";
         deleteLater();
         return false;
     }
@@ -63,9 +63,9 @@ void IgnoreUserJob::slotIgnoreUserFinished()
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("IgnoreUserJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT ignoreUserDone(replyObject);
-            qCDebug(RESTAPI_LOG) << "Ignore user success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Ignore user success: " << data;
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to ignore user message";
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to ignore user message";
         }
     }
     deleteLater();
@@ -119,15 +119,15 @@ QNetworkRequest IgnoreUserJob::request() const
 bool IgnoreUserJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ignore user job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ignore user job";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomId is empty";
         return false;
     }
     if (mIgnoreUserId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ignore user id is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ignore user id is empty";
         return false;
     }
     return true;

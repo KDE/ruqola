@@ -19,7 +19,7 @@
 */
 
 #include "getchannelrolesjob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QUrlQuery>
@@ -38,11 +38,11 @@ GetChannelRolesJob::~GetChannelRolesJob()
 bool GetChannelRolesJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "GetChannelRolesJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetChannelRolesJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start GetChannelRolesJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetChannelRolesJob job";
         return false;
     }
     return true;
@@ -51,7 +51,7 @@ bool GetChannelRolesJob::canStart() const
 bool GetChannelRolesJob::start()
 {
     if (!canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start server info job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start server info job";
         deleteLater();
         return false;
     }

@@ -19,7 +19,7 @@
 */
 
 #include "restapiutil.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 
 QString RestApiUtil::adaptUrl(const QString &url)
 {
@@ -254,6 +254,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::CommandsList:
         return QStringLiteral("commands.list");
     }
-    qCWarning(RESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
+    qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
 }

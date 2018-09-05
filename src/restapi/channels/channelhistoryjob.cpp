@@ -20,7 +20,7 @@
 
 #include "channelhistoryjob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void ChannelHistoryJob::slotLoadHistoryChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "load history success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "load history success: " << data;
             Q_EMIT channelHistoryDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to load history" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to load history" << data;
         }
     }
     deleteLater();
@@ -94,15 +94,15 @@ bool ChannelHistoryJob::requireHttpAuthentication() const
 bool ChannelHistoryJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "ChannelHistoryJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: RoomId is empty";
         return false;
     }
     if (mChannelType == ChannelHistoryJob::Unknown) {
-        qCWarning(RESTAPI_LOG) << "ChannelHistoryJob: Channel type is unknown.";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: Channel type is unknown.";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start ChannelHistoryJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelHistoryJob job";
         return false;
     }
     return true;
@@ -141,7 +141,7 @@ QNetworkRequest ChannelHistoryJob::request() const
         url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ImHistory);
         break;
     case Unknown:
-        qCWarning(RESTAPI_LOG) << "ChannelHistoryJob: Type is not defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: Type is not defined";
         break;
     }
     QNetworkRequest request(url);

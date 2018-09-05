@@ -19,7 +19,7 @@
 */
 
 #include "getavatarjob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QNetworkReply>
 #include <QUrlQuery>
@@ -36,11 +36,11 @@ GetAvatarJob::~GetAvatarJob()
 bool GetAvatarJob::canStart() const
 {
     if (mAvatarUserId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "Avatar userid is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Avatar userid is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start getavatar job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getavatar job";
         return false;
     }
     return true;
@@ -65,7 +65,7 @@ void GetAvatarJob::slotGetAvatarInfo()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        //qCDebug(RESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
+        //qCDebug(ROCKETCHATQTRESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
         addLoggerInfo(QByteArrayLiteral("GetAvatarJob: finished: ") + data);
         QString str = QString::fromUtf8(data);
         str.remove(QLatin1Char('"'));

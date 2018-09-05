@@ -20,7 +20,7 @@
 
 #include "leavegroupsjob.h"
 
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -57,10 +57,10 @@ void LeaveGroupsJob::slotLeaveGroupsFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(RESTAPI_LOG) << "Change Topic success: " << data;
+            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Change Topic success: " << data;
             Q_EMIT leaveGroupsDone();
         } else {
-            qCWarning(RESTAPI_LOG) <<" Problem when we tried to change topic" << data;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change topic" << data;
         }
     }
     deleteLater();
@@ -74,11 +74,11 @@ bool LeaveGroupsJob::requireHttpAuthentication() const
 bool LeaveGroupsJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "LeaveGroupsJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "LeaveGroupsJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(RESTAPI_LOG) << "Impossible to start LeaveGroupsJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start LeaveGroupsJob job";
         return false;
     }
     return true;

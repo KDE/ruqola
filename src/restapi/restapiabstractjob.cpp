@@ -19,7 +19,7 @@
 */
 
 #include "restapiabstractjob.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 #include "abstractlogger.h"
 
 #include <QNetworkRequest>
@@ -77,15 +77,15 @@ bool RestApiAbstractJob::hasAuthenticationValue() const
 bool RestApiAbstractJob::canStart() const
 {
     if (!mNetworkAccessManager) {
-        qCWarning(RESTAPI_LOG) << "Network manager not defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Network manager not defined";
         return false;
     }
     if (!mRestApiMethod) {
-        qCWarning(RESTAPI_LOG) << "RestaApiMethod not defined";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RestaApiMethod not defined";
         return false;
     }
     if (requireHttpAuthentication() && !hasAuthenticationValue()) {
-        qCWarning(RESTAPI_LOG) << "Auth settings is empty. It's a bug";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Auth settings is empty. It's a bug";
         return false;
     }
     return true;
@@ -112,6 +112,6 @@ void RestApiAbstractJob::addLoggerInfo(const QByteArray &str)
     if (mRestApiLogger) {
         mRestApiLogger->dataSent("RESTAPI: " + str);
     } else {
-        qCDebug(RESTAPI_LOG) << "RESTAPI: " << str;
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "RESTAPI: " << str;
     }
 }

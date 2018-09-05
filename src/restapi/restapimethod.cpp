@@ -19,7 +19,7 @@
 */
 
 #include "restapimethod.h"
-#include "restapi_debug.h"
+#include "rocketchatqtrestapi_debug.h"
 using namespace RocketChatRestApi;
 RestApiMethod::RestApiMethod()
 {
@@ -38,7 +38,7 @@ void RestApiMethod::setServerUrl(const QString &serverUrl)
 QUrl RestApiMethod::generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension)
 {
     if (mServerUrl.isEmpty()) {
-        qCWarning(RESTAPI_LOG) << "Server url is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Server url is empty";
         return {};
     }
     QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(type);
