@@ -23,7 +23,7 @@
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
 namespace RocketChatRestApi {
-class LIBRESTAPI_TESTS_EXPORT ReactOnMessageJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ReactOnMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

@@ -25,7 +25,7 @@
 #include "librestapi_private_export.h"
 class QNetworkRequest;
 namespace RocketChatRestApi {
-class LIBRESTAPI_TESTS_EXPORT GetGroupRolesJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetGroupRolesJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

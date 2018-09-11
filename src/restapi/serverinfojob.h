@@ -25,7 +25,7 @@
 #include "librestapi_private_export.h"
 class QNetworkRequest;
 namespace RocketChatRestApi {
-class LIBRESTAPI_TESTS_EXPORT ServerInfoJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ServerInfoJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

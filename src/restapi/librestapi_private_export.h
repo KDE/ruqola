@@ -20,15 +20,15 @@
 #ifndef LIBRESTAPIPRIVATE_EXPORT_H
 #define LIBRESTAPIPRIVATE_EXPORT_H
 
-#include "librestapi_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 
 /* Classes which are exported only for unit tests */
 #ifdef BUILD_TESTING
-# ifndef LIBRESTAPI_TESTS_EXPORT
-#  define LIBRESTAPI_TESTS_EXPORT LIBRESTAPI_EXPORT
+# ifndef LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT
+#  define LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT LIBROCKETCHATRESTAPI_QT5_EXPORT
 # endif
 #else /* not compiling tests */
-# define LIBRESTAPI_TESTS_EXPORT
+# define LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT
 #endif
 
 #endif

@@ -20,11 +20,11 @@
 
 #ifndef ABSTRACTLOGGER_H
 #define ABSTRACTLOGGER_H
-#include "librestapi_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 class QByteArray;
 
 namespace RocketChatRestApi {
-class LIBRESTAPI_EXPORT AbstractLogger
+class LIBROCKETCHATRESTAPI_QT5_EXPORT AbstractLogger
 {
 public:
     AbstractLogger();

@@ -26,7 +26,7 @@
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi {
-class LIBRESTAPI_TESTS_EXPORT GetPresenceJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetPresenceJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

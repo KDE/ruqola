@@ -28,7 +28,7 @@ class QNetworkAccessManager;
 namespace RocketChatRestApi {
 class RestApiMethod;
 class AbstractLogger;
-class LIBRESTAPI_TESTS_EXPORT RestApiAbstractJob : public QObject
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RestApiAbstractJob : public QObject
 {
 public:
     explicit RestApiAbstractJob(QObject *parent = nullptr);

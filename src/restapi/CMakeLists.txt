@@ -97,18 +97,18 @@ set (RocketChatQtRestApi_SRCS
 
 
 ecm_qt_declare_logging_category(RocketChatQtRestApi_SRCS HEADER rocketchatqtrestapi_debug.h IDENTIFIER ROCKETCHATQTRESTAPI_LOG CATEGORY_NAME org.kde.rocketchatqtrestapi)
-add_library(librestapi ${RocketChatQtRestApi_SRCS})
-generate_export_header(librestapi BASE_NAME librestapi)
-target_link_libraries(librestapi
+add_library(librocketchatrestapi-qt5 ${RocketChatQtRestApi_SRCS})
+generate_export_header(librocketchatrestapi-qt5 BASE_NAME librocketchatrestapi-qt5)
+target_link_libraries(librocketchatrestapi-qt5
     Qt5::Core
     Qt5::Network
     Qt5::NetworkAuth
 )
 
-set_target_properties(librestapi
+set_target_properties(librocketchatrestapi-qt5
     PROPERTIES OUTPUT_NAME restapi VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
     )
 
 
-install(TARGETS librestapi ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS librocketchatrestapi-qt5 ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 

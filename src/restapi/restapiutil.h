@@ -134,9 +134,9 @@ enum class RestApiUrlType {
     PermissionsList,
     CommandsList,
 };
-LIBRESTAPI_TESTS_EXPORT QString adaptUrl(const QString &url);
-LIBRESTAPI_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
-LIBRESTAPI_TESTS_EXPORT QString apiUri();
+LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString adaptUrl(const QString &url);
+LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
+LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString apiUri();
 }
 
 #endif // RESTAPIUTIL_H

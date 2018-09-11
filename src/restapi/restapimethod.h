@@ -26,7 +26,7 @@
 #include <QString>
 #include <QUrl>
 namespace RocketChatRestApi {
-class LIBRESTAPI_TESTS_EXPORT RestApiMethod
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RestApiMethod
 {
 public:
     RestApiMethod();

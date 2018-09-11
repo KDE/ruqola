@@ -24,7 +24,7 @@
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
 namespace RocketChatRestApi {
-class LIBRESTAPI_TESTS_EXPORT CreateGroupsJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT CreateGroupsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:

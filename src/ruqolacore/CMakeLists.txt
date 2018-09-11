@@ -134,7 +134,7 @@ target_link_libraries(libruqolacore
     KF5::Crash
     KF5::Notifications
     KF5::SyntaxHighlighting
-    librestapi
+    librocketchatrestapi-qt5
 )
 
 if (NOT WIN32)

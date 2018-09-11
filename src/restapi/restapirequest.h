@@ -25,7 +25,7 @@
 #include <QSslError>
 #include <QUrl>
 #include "restapiutil.h"
-#include "librestapi_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 
 class QNetworkAccessManager;
 class QNetworkReply;
@@ -34,7 +34,7 @@ class RestApiMethod;
 namespace RocketChatRestApi {
 class RestApiAbstractJob;
 class AbstractLogger;
-class LIBRESTAPI_EXPORT RestApiRequest : public QObject
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RestApiRequest : public QObject
 {
     Q_OBJECT
 public:
