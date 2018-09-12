@@ -51,6 +51,7 @@
 #include "authenticationmanager.h"
 
 #include "ddpapi/ddpclient.h"
+#include "receivetypingnotificationmanager.h"
 #include "restapirequest.h"
 
 #include <QDesktopServices>
@@ -75,6 +76,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mLoginMethodModel = new LoginMethodModel(this);
     mInputTextManager = new InputTextManager(this);
     mRuqolaServerConfig = new RuqolaServerConfig;
+    mReceiveTypingNotificationManager = new ReceiveTypingNotificationManager(this);
 
     initializeAuthenticationPlugins();
 
@@ -681,6 +683,11 @@ QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj)
         files.append(f);
     }
     return files;
+}
+
+ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationManager() const
+{
+    return mReceiveTypingNotificationManager;
 }
 
 

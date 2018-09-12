@@ -57,6 +57,7 @@ class PluginAuthenticationInterface;
 class Room;
 class SearchMessageModel;
 class SearchMessageFilterProxyModel;
+class ReceiveTypingNotificationManager;
 namespace RocketChatRestApi {
 class RestApiRequest;
 }
@@ -245,6 +246,8 @@ public:
     void removeSettings();
 
 
+    ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -305,6 +308,7 @@ private:
 
     SearchMessageModel *mSearchMessageModel = nullptr;
     SearchMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
+    ReceiveTypingNotificationManager *mReceiveTypingNotificationManager = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H
