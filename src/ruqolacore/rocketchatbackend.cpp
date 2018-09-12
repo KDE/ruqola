@@ -32,6 +32,7 @@
 #include "model/usersmodel.h"
 #include "ruqolalogger.h"
 #include "model/messagemodel.h"
+#include "receivetypingnotificationmanager.h"
 #include "file.h"
 #include "user.h"
 
@@ -462,6 +463,9 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << roomId << " It's a bug for sure.";
             }
         } else if (eventname.endsWith(QLatin1String("/typing"))) {
+            QString roomId = eventname;
+            roomId.remove(QStringLiteral("/typing"));
+            //mRocketChatAccount->receiveTypingNotificationManager()->insertTypingNotification(roomId, contents.at(0).toObject()[QStringLiteral("_id")].toString());
             qCWarning(RUQOLA_LOG) << "stream-notify-room:  typing event ? " << eventname << " content  " << contents;
             //TODO show typing info in room
         } else {
