@@ -1,5 +1,5 @@
 
-set (RocketChatQtRestApi_SRCS
+set (RocketChatRestApiQt_SRCS
     restapirequest.cpp
     restapiutil.cpp
     restapimethod.cpp
@@ -96,8 +96,8 @@ set (RocketChatQtRestApi_SRCS
     )
 
 
-ecm_qt_declare_logging_category(RocketChatQtRestApi_SRCS HEADER rocketchatqtrestapi_debug.h IDENTIFIER ROCKETCHATQTRESTAPI_LOG CATEGORY_NAME org.kde.rocketchatqtrestapi)
-add_library(librocketchatrestapi-qt5 ${RocketChatQtRestApi_SRCS})
+ecm_qt_declare_logging_category(RocketChatRestApiQt_SRCS HEADER rocketchatqtrestapi_debug.h IDENTIFIER ROCKETCHATQTRESTAPI_LOG CATEGORY_NAME org.kde.rocketchatqtrestapi)
+add_library(librocketchatrestapi-qt5 ${RocketChatRestApiQt_SRCS})
 generate_export_header(librocketchatrestapi-qt5 BASE_NAME librocketchatrestapi-qt5)
 target_link_libraries(librocketchatrestapi-qt5
     Qt5::Core
@@ -106,7 +106,7 @@ target_link_libraries(librocketchatrestapi-qt5
 )
 
 set_target_properties(librocketchatrestapi-qt5
-    PROPERTIES OUTPUT_NAME restapi VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
+    PROPERTIES OUTPUT_NAME rocketchatrestapi-qt5 VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
     )
 
 add_subdirectory(autotests)
