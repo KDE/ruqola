@@ -454,6 +454,11 @@ void DDPClient::subscribeRoomMessage(const QString &roomId)
                 true
     };
     subscribe(QStringLiteral("stream-notify-room"), params2);
+    const QJsonArray params3{
+        QJsonValue(QStringLiteral("%1/%2").arg(roomId).arg(QStringLiteral("typing"))),
+                true
+    };
+    subscribe(QStringLiteral("stream-notify-room"), params3);
 }
 
 quint64 DDPClient::eraseRoom(const QString &roomID)

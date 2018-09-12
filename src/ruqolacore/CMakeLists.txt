@@ -102,6 +102,8 @@ set (Ruqola_core_srcs
     syntaxhighlightingmanager.cpp
     copyfilejob.cpp
     emoticon.cpp
+
+    receivetypingnotificationmanager.cpp
 )
 
 if (NOT WIN32)

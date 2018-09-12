@@ -348,7 +348,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else if (eventname.endsWith(QLatin1String("/rooms-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();
             //qDebug() << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1String("args")).toArray().toVariantList();
-            //qDebug() << " sssssssssssssssssssssssssssssssssss" << contents;
             const QJsonArray lst = fields.value(QLatin1String("args")).toArray();
             const QString actionName = lst[0].toString();
             if (actionName == QLatin1String("updated")) {
@@ -462,6 +461,9 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else {
                 qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << roomId << " It's a bug for sure.";
             }
+        } else if (eventname.endsWith(QLatin1String("/typing"))) {
+            qCWarning(RUQOLA_LOG) << "stream-notify-room:  typing event ? " << eventname << " content  " << contents;
+            //TODO show typing info in room
         } else {
             qCWarning(RUQOLA_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
         }
@@ -529,9 +531,9 @@ void RocketChatBackend::slotUserIDChanged()
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("activeUsers"), params);
     }
     {
-        //Subscruve users in room ? //TODO verify it.
+        //Subscribe users in room ? //TODO verify it.
         QJsonArray params;
-        params.append(QJsonValue(params));
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("webrtc"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-room-users"), params);
     }
     //stream-notify-all
@@ -582,5 +584,41 @@ void RocketChatBackend::slotUserIDChanged()
             }
         };
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    }
+    //stream-notify-logged
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("updateEmojiCustom")), {
+                true
+            }
+        };
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    //stream-notify-logged
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("deleteEmojiCustom")), {
+                true
+            }
+        };
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    //stream-notify-logged
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("deleteEmojiCustom")), {
+                true
+            }
+        };
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    //stream-notify-logged
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("updateAvatar")), {
+                true
+            }
+        };
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
     }
 }
