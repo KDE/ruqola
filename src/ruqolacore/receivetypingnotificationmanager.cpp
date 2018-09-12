@@ -38,17 +38,20 @@ void ReceiveTypingNotificationManager::insertTypingNotification(const QString &r
         if (onTyping) {
             if (!lst.contains(userName)) {
                 lst.append(userName);
+                mMapTypingNotifications[roomId] = lst;
                 Q_EMIT notificationChanged(roomId, generateNotification(lst));
             }
         } else {
-            lst.removeAll(userName);
-            if (lst.isEmpty()) {
-                //remove roomId
-                mMapTypingNotifications.remove(roomId);
-            } else {
-                mMapTypingNotifications[roomId] = lst;
+            const int removedUserCount = lst.removeAll(userName);
+            if (removedUserCount > 0) {
+                if (lst.isEmpty()) {
+                    //remove roomId
+                    mMapTypingNotifications.remove(roomId);
+                } else {
+                    mMapTypingNotifications[roomId] = lst;
+                }
+                Q_EMIT notificationChanged(roomId, generateNotification(lst));
             }
-            Q_EMIT notificationChanged(roomId, generateNotification(lst));
         }
     } else {
         if (onTyping) {

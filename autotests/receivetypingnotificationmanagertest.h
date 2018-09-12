@@ -28,6 +28,9 @@ class ReceiveTypingNotificationManagerTest : public QObject
 public:
     explicit ReceiveTypingNotificationManagerTest(QObject *parent = nullptr);
     ~ReceiveTypingNotificationManagerTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+    void shouldAddNotifications();
 };
 
 #endif // RECEIVETYPINGNOTIFICATIONMANAGERTEST_H
