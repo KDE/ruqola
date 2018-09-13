@@ -463,11 +463,23 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << roomId << " It's a bug for sure.";
             }
         } else if (eventname.endsWith(QLatin1String("/typing"))) {
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-room: typing:") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "typing message" << object;
+            }
+
             QString roomId = eventname;
             roomId.remove(QStringLiteral("/typing"));
-            //mRocketChatAccount->receiveTypingNotificationManager()->insertTypingNotification(roomId, contents.at(0).toObject()[QStringLiteral("_id")].toString());
-            qCWarning(RUQOLA_LOG) << "stream-notify-room:  typing event ? " << eventname << " content  " << contents;
-            //TODO show typing info in room
+            //TODO Perhaps not necessary to convert to variantlist. Need to investigate
+            qCWarning(RUQOLA_LOG) << "stream-notify-room:  typing event ? " << eventname << " content  " << contents.toVariantList();
+            const QString typingUserName = contents.toVariantList().at(0).toString();
+            if (typingUserName != mRocketChatAccount->settings()->userName()) {
+                const bool status = contents.toVariantList().at(1).toBool();
+                mRocketChatAccount->receiveTypingNotificationManager()->insertTypingNotification(roomId, typingUserName, status);
+            }
         } else {
             qCWarning(RUQOLA_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
         }
