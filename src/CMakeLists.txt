@@ -1,5 +1,5 @@
 
-add_subdirectory(restapi)
+add_subdirectory(rocketchatrestapi-qt5)
 add_subdirectory(ruqolacore)
 add_subdirectory(plugins)
 add_subdirectory(icons)
