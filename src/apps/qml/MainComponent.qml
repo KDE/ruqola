@@ -389,9 +389,9 @@ Component {
         }
 
         footer:
-            RowLayout {
+            ColumnLayout {
             anchors.bottom: mainWidget.bottom
-            Label {
+            QQC2.Label {
                 id: channelInfo
                 font.bold: true
                 visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true) || (appid.selectedRoom.blocker === true) || (appid.selectedRoom.blocked === true))
@@ -413,6 +413,11 @@ Component {
                 onUploadFile: {
                     uploadFileDialog.initializeAndOpen()
                 }
+            }
+            QQC2.Label {
+                id: typingInfo
+                anchors.margins: 2*Kirigami.Units.smallSpacing
+                text: "Typing..." //TODO
             }
         }
     }// mainWidget Item
