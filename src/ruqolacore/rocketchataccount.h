@@ -246,7 +246,7 @@ public:
     void removeSettings();
 
 
-    ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
+    Q_INVOKABLE ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
 
 Q_SIGNALS:
     void connectedChanged();

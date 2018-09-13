@@ -34,6 +34,7 @@ import KDE.Ruqola.Clipboard 1.0
 import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.4 as Kirigami
 import KDE.Ruqola.DebugCategory 1.0
+import KDE.Ruqola.ReceiveTypingNotificationManager 1.0
 
 Component {
     id: mainComponent
@@ -418,6 +419,13 @@ Component {
                 id: typingInfo
                 anchors.margins: 2*Kirigami.Units.smallSpacing
                 text: "Typing..." //TODO
+            }
+
+            Connections {
+                target: appid.rocketChatAccount.receiveTypingNotificationManager()
+                onNotificationChanged: {
+                    console.log("Typing!!!!!!!!!!");
+                }
             }
         }
     }// mainWidget Item
