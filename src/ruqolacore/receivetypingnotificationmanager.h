@@ -32,7 +32,7 @@ public:
 
     void insertTypingNotification(const QString &roomId, const QString &userName, bool onTyping);
 
-    QString typingNotification(const QString &roomId) const;
+    Q_REQUIRED_RESULT QString typingNotification(const QString &roomId) const;
 
 Q_SIGNALS:
     void notificationChanged(const QString &roomId, const QString &notificationStr);

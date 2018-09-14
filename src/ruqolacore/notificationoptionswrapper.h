@@ -42,23 +42,23 @@ public:
     explicit NotificationOptionsWrapper(const NotificationOptions &notification, QObject *parent = nullptr);
     ~NotificationOptionsWrapper();
 
-    bool hideUnreadStatus() const;
+    Q_REQUIRED_RESULT bool hideUnreadStatus() const;
 
-    bool disableNotifications() const;
+    Q_REQUIRED_RESULT bool disableNotifications() const;
 
-    QString unreadTrayIconAlert() const;
+    Q_REQUIRED_RESULT QString unreadTrayIconAlert() const;
 
-    QString emailNotifications() const;
+    Q_REQUIRED_RESULT QString emailNotifications() const;
 
-    QString mobilePushNotification() const;
+    Q_REQUIRED_RESULT QString mobilePushNotification() const;
 
-    QString desktopNotifications() const;
+    Q_REQUIRED_RESULT QString desktopNotifications() const;
 
-    QString audioNotifications() const;
+    Q_REQUIRED_RESULT QString audioNotifications() const;
 
-    QString audioNotificationValue() const;
+    Q_REQUIRED_RESULT QString audioNotificationValue() const;
 
-    int desktopNotificationDuration() const;
+    Q_REQUIRED_RESULT int desktopNotificationDuration() const;
 private:
     Q_DISABLE_COPY(NotificationOptionsWrapper)
     NotificationOptions mNotificationOptions;

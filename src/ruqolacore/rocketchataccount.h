@@ -173,6 +173,7 @@ public:
 
     Q_INVOKABLE void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
     Q_INVOKABLE void ignoreUser(const QString &rid, const QString &userId, bool ignore);
+    Q_INVOKABLE ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
 
 
     SearchChannelModel *searchChannelModel() const;
@@ -218,7 +219,7 @@ public:
     void parseOtr(const QJsonArray &contents);
     void setServerVersion(const QString &version);
 
-    bool needAdaptNewSubscriptionRC60() const;
+    Q_REQUIRED_RESULT bool needAdaptNewSubscriptionRC60() const;
     EmojiManager *emojiManager() const;
     Q_REQUIRED_RESULT QString userStatusIconFileName(const QString &id);
 
@@ -246,7 +247,6 @@ public:
     void removeSettings();
 
 
-    Q_INVOKABLE ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
 
 Q_SIGNALS:
     void connectedChanged();

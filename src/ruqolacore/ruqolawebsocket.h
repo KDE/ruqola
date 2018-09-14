@@ -36,9 +36,9 @@ public:
     void flush() override;
     void close() override;
     QAbstractSocket::SocketError error() const override;
-    QUrl requestUrl() const override;
+    Q_REQUIRED_RESULT QUrl requestUrl() const override;
     QWebSocketProtocol::CloseCode closeCode() const override;
-    QString closeReason() const override;
+    Q_REQUIRED_RESULT QString closeReason() const override;
     qint64 sendBinaryMessage(const QByteArray &data) override;
     void ignoreSslErrors() override;
 

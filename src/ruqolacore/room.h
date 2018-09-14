@@ -139,7 +139,7 @@ public:
 
     MessageModel *messageModel() const;
 
-    QString inputMessage() const;
+    Q_REQUIRED_RESULT QString inputMessage() const;
     void setInputMessage(const QString &inputMessage);
 
     Q_REQUIRED_RESULT bool archived() const;
