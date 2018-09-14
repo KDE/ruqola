@@ -65,8 +65,8 @@ QString UsersModel::userStatusIconFileName(const QString &name)
         }
     }
 
-    qCWarning(RUQOLA_LOG) << "User for name " << name << " not defined yet";
-    return QStringLiteral("user-available");
+    //qCWarning(RUQOLA_LOG) << "User for name " << name << " not defined yet";
+    return QStringLiteral("user-offline");
 }
 
 QString UsersModel::status(const QString &userId) const
