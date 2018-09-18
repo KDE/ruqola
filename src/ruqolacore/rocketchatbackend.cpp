@@ -628,7 +628,7 @@ void RocketChatBackend::slotUserIDChanged()
     //stream-notify-logged
     {
         const QJsonArray params{
-            QJsonValue(QStringLiteral("deleteEmojiCustom")), {
+            QJsonValue(QStringLiteral("roles-change")), {
                 true
             }
         };
@@ -638,6 +638,24 @@ void RocketChatBackend::slotUserIDChanged()
     {
         const QJsonArray params{
             QJsonValue(QStringLiteral("updateAvatar")), {
+                true
+            }
+        };
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    //stream-notify-logged
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("Users:NameChanged")), {
+                true
+            }
+        };
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    //stream-notify-logged
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("Users:Deleted")), {
                 true
             }
         };
