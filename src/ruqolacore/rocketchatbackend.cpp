@@ -481,7 +481,13 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 mRocketChatAccount->receiveTypingNotificationManager()->insertTypingNotification(roomId, typingUserName, status);
             }
         } else {
-            qCWarning(RUQOLA_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-room:  Unknown event ?") + d.toJson());
+            } else {
+                qCWarning(RUQOLA_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
+            }
         }
     } else {
         qCDebug(RUQOLA_LOG) << " Other collection type changed " << collection << " object "<<object;
