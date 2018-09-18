@@ -198,7 +198,7 @@ Q_SIGNALS:
      */
     void result(quint64 id, const QJsonDocument &result);
 
-private slots:
+private Q_SLOTS:
     void onWSConnected();
     void onTextMessageReceived(const QString &message);
     void onWSclosed();

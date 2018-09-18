@@ -17,7 +17,7 @@ if (POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
 
-include(KDECompilerSettings)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(ECMInstallIcons)

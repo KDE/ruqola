@@ -58,7 +58,7 @@ RoomModel::~RoomModel()
             for (Room *m : qAsConst(mRoomsList)) {
                 qCDebug(RUQOLA_LOG) << " save cache for room " << m->name();
                 const QByteArray ms = Room::serialize(m);
-                out.writeBytes(ms, ms.size());
+                out.writeBytes(ms.constData(), ms.size());
             }
         }
     }

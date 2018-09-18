@@ -226,7 +226,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             return mAllMessages.at(idx).messageTypeText();
         } else {
             if (mRoom && mRoom->userIsIgnored(mAllMessages.at(idx).userId())) {
-                return QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>");
+                return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
             }
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
             return convertMessageText(mAllMessages.at(idx).text(), mAllMessages.at(idx).mentions(), userName);

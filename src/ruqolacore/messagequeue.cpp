@@ -53,7 +53,7 @@ MessageQueue::~MessageQueue()
         for (QQueue<QPair<QString, QJsonDocument> >::iterator it = queue.begin(), end = queue.end(); it != end; ++it) {
             const QPair<QString, QJsonDocument> pair = *it;
             const QByteArray ba = serialize(pair);
-            out.writeBytes(ba, ba.size());
+            out.writeBytes(ba.constData(), ba.size());
         }
     }
 }

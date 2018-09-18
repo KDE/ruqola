@@ -28,7 +28,7 @@ class StarMessageJobTest : public QObject
 public:
     explicit StarMessageJobTest(QObject *parent = nullptr);
     ~StarMessageJobTest() = default;
-private slots:
+private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldHaveMessageId();
     void shouldGenerateStarMessageRequest();
