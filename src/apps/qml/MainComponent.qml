@@ -373,22 +373,6 @@ Component {
         Keys.onEscapePressed: {
             appid.rocketChatAccount.clearUnreadMessages(appid.selectedRoomID);
         }
-        //TODO move in C++
-        function messageInfo()
-        {
-            if (appid.selectedRoom) {
-                if (appid.selectedRoom.readOnly === true) {
-                    return i18n("Channel is read only.");
-                }
-                if (appid.selectedRoom.blocker === true) {
-                    return i18n("You have blocked this channel.");
-                }
-                if (appid.selectedRoom.blocked === true) {
-                    return i18n("Channel was blocked.");
-                }
-            }
-            return "";
-        }
 
         footer:
             ColumnLayout {
@@ -397,7 +381,7 @@ Component {
                 id: channelInfo
                 font.bold: true
                 visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true) || (appid.selectedRoom.blocker === true) || (appid.selectedRoom.blocked === true))
-                text: messageInfo()
+                text: appid.selectedRoom ? appid.selectedRoom.roomMessageInfo : ""
             }
 
             UserInput {
@@ -426,7 +410,7 @@ Component {
                 target: appid.rocketChatAccount.receiveTypingNotificationManager()
                 onNotificationChanged: {
                     console.log(RuqolaDebugCategorySingleton.category, "Typing in roomId: " + roomId + " str " + notificationStr);
-                    if (appid.selectedRoomID == roomId) {
+                    if (appid.selectedRoomID === roomId) {
                         typingInfo.text = notificationStr;
                     }
                 }

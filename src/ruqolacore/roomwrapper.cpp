@@ -40,6 +40,12 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::readOnlyChanged, this, &RoomWrapper::readOnlyChanged);
     connect(mRoom, &Room::blockerChanged, this, &RoomWrapper::blockerChanged);
     connect(mRoom, &Room::blockedChanged, this, &RoomWrapper::blockedChanged);
+
+    //Reduce connection ?
+    connect(mRoom, &Room::readOnlyChanged, this, &RoomWrapper::roomMessageInfoChanged);
+    connect(mRoom, &Room::blockerChanged, this, &RoomWrapper::roomMessageInfoChanged);
+    connect(mRoom, &Room::blockedChanged, this, &RoomWrapper::roomMessageInfoChanged);
+
     connect(mRoom, &Room::descriptionChanged, this, &RoomWrapper::descriptionChanged);
     connect(mRoom, &Room::archivedChanged, this, &RoomWrapper::archivedChanged);
     connect(mRoom, &Room::rolesChanged, this, &RoomWrapper::rolesChanged);
@@ -119,4 +125,9 @@ bool RoomWrapper::canBeModify() const
 NotificationOptions RoomWrapper::notificationOptions() const
 {
     return mRoom->notificationOptions();
+}
+
+QString RoomWrapper::roomMessageInfo() const
+{
+    return mRoom->roomMessageInfo();
 }

@@ -31,6 +31,8 @@
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/messagemodel.h"
 
+#include <KLocalizedString>
+
 #include <QJsonArray>
 #include <QJsonDocument>
 
@@ -831,4 +833,18 @@ void Room::setDescription(const QString &description)
 bool Room::userIsIgnored(const QString &userId)
 {
     return mIgnoredUsers.contains(userId);
+}
+
+QString Room::roomMessageInfo() const
+{
+    if (mReadOnly) {
+        return i18n("Channel is read only.");
+    }
+    if (mBlocker) {
+        return i18n("You have blocked this channel.");
+    }
+    if (mBlocked) {
+        return i18n("Channel was blocked.");
+    }
+    return QString();
 }

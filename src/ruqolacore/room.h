@@ -175,6 +175,7 @@ public:
 
     Q_REQUIRED_RESULT bool userIsIgnored(const QString &userId);
     Q_REQUIRED_RESULT QString markdownAnnouncement() const;
+    Q_REQUIRED_RESULT QString roomMessageInfo() const;
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
