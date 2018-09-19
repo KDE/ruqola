@@ -266,14 +266,14 @@ Component {
             onEditMessage: {
                 userInputMessage.messageId = messageId;
                 userInputMessage.setOriginalMessage(messageStr)
-                console.log(RuqolaDebugCategorySingleton.category, "edit! messageId : " + messageId + " messageStr " + messageStr)
+                //console.log(RuqolaDebugCategorySingleton.category, "edit! messageId : " + messageId + " messageStr " + messageStr)
             }
             onCopyMessage: {
                 clipboard.text = messageStr
-                console.log(RuqolaDebugCategorySingleton.category, "copy! messageId : " + messageId + " messageStr " + messageStr)
+                //console.log(RuqolaDebugCategorySingleton.category, "copy! messageId : " + messageId + " messageStr " + messageStr)
             }
             onReplyMessage: {
-                console.log(RuqolaDebugCategorySingleton.category, "Not implemented reply message : " + messageId)
+                //console.log(RuqolaDebugCategorySingleton.category, "Not implemented reply message : " + messageId)
             }
             onSetFavoriteMessage: {
                 appid.rocketChatAccount.starMessage(messageId, roomId, starred)
