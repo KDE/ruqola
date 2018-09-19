@@ -62,7 +62,7 @@ public:
     Q_REQUIRED_RESULT QString roomOwnerUserName() const;
     void setRoomCreatorUserName(const QString &userName);
 
-    Q_REQUIRED_RESULT QString roomOwnerUserId() const;
+    Q_REQUIRED_RESULT QString roomCreatorUserId() const;
     void setRoomCreatorUserId(const QString &userId);
 
     Q_REQUIRED_RESULT QStringList mutedUsers() const;

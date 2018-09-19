@@ -68,7 +68,7 @@ bool Room::isEqual(const Room &other) const
            && (mName == other.name())
            && (mAnnouncement == other.announcement())
            && (mRoomCreatorUserName == other.roomOwnerUserName())
-           && (mRoomCreateUserId == other.roomOwnerUserId())
+           && (mRoomCreateUserId == other.roomCreatorUserId())
            && (mTopic == other.topic())
            && (mMutedUsers == other.mutedUsers())
            && (mJitsiTimeout == other.jitsiTimeout())
@@ -101,7 +101,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "name :" << t.name();
     d << "mAnnouncement :" << t.announcement();
     d << "roomCreaterUserName :" << t.roomOwnerUserName();
-    d << "roomCreaterUserID :" << t.roomOwnerUserId();
+    d << "roomCreaterUserID :" << t.roomCreatorUserId();
     d << "topic :" << t.topic();
     d << "mutedUsers :" << t.mutedUsers();
     d << "jitsiTimeout :" << t.jitsiTimeout();
@@ -295,7 +295,7 @@ void Room::setMutedUsers(const QStringList &mutedUsers)
     }
 }
 
-QString Room::roomOwnerUserId() const
+QString Room::roomCreatorUserId() const
 {
     return mRoomCreateUserId;
 }
@@ -709,7 +709,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("t")] = r->channelType();
     o[QStringLiteral("name")] = r->name();
     o[QStringLiteral("roomCreatorUserName")] = r->roomOwnerUserName();
-    o[QStringLiteral("roomCreatorUserID")] = r->roomOwnerUserId();
+    o[QStringLiteral("roomCreatorUserID")] = r->roomCreatorUserId();
     if (!r->topic().isEmpty()) {
         o[QStringLiteral("topic")] = r->topic();
     }
