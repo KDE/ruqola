@@ -380,6 +380,8 @@ Component {
             QQC2.Label {
                 id: channelInfo
                 font.bold: true
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                anchors.margins: 2*Kirigami.Units.smallSpacing
                 visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true) || (appid.selectedRoom.blocker === true) || (appid.selectedRoom.blocked === true))
                 text: appid.selectedRoom ? appid.selectedRoom.roomMessageInfo : ""
             }
