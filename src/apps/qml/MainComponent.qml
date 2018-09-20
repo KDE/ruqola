@@ -48,6 +48,27 @@ Component {
         rightPadding: Kirigami.Units.smallSpacing
         topPadding: Kirigami.Units.smallSpacing
         bottomPadding: Kirigami.Units.smallSpacing
+        actions {
+            contextualActions: [
+            Kirigami.Action {
+                id: editAction
+                iconName: "list-add"
+                text: i18n("Open room");
+                onTriggered: {
+                    searchChannelDialog.initializeAndOpen();
+                }
+            },
+            Kirigami.Action {
+                iconName: "edit-symbolic"
+                text: i18n("Edit room");
+                checkable: true
+                onToggled: {
+                    roomsList.editingMode = checked
+                    // do stuff
+                }
+            }
+        ]
+        }
 
         header: Column {
 

@@ -37,21 +37,23 @@ Component {
     Kirigami.ScrollablePage {
         id: roomsPage
 
-        actions.main: Kirigami.Action {
-            id: editAction
-            iconName: "list-add"
-            text: i18n("Open room");
-            onTriggered: {
-                searchChannelDialog.initializeAndOpen();
+        actions {
+            main: Kirigami.Action {
+                id: editAction
+                iconName: "list-add"
+                text: i18n("Open room");
+                onTriggered: {
+                    searchChannelDialog.initializeAndOpen();
+                }
             }
-        }
-        actions.left: Kirigami.Action {
-            iconName: "edit-symbolic"
-            text: i18n("Edit room");
-            checkable: true
-            onToggled: {
-                roomsList.editingMode = checked
-                // do stuff
+            left: Kirigami.Action {
+                iconName: "edit-symbolic"
+                text: i18n("Edit room");
+                checkable: true
+                onToggled: {
+                    roomsList.editingMode = checked
+                    // do stuff
+                }
             }
         }
         background: Rectangle {
