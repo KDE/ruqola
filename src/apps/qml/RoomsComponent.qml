@@ -36,26 +36,6 @@ Component {
     id: roomsComponent
     Kirigami.ScrollablePage {
         id: roomsPage
-
-        actions {
-            main: Kirigami.Action {
-                id: editAction
-                iconName: "list-add"
-                text: i18n("Open room");
-                onTriggered: {
-                    searchChannelDialog.initializeAndOpen();
-                }
-            }
-            left: Kirigami.Action {
-                iconName: "edit-symbolic"
-                text: i18n("Edit room");
-                checkable: true
-                onToggled: {
-                    roomsList.editingMode = checked
-                    // do stuff
-                }
-            }
-        }
         background: Rectangle {
             color: Kirigami.Theme.backgroundColor
         }
