@@ -767,12 +767,12 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         if (channelType == QStringLiteral("c")) {
             restApi()->changeChannelAnnouncement(roomId, newValue.toString());
         } else if (channelType == QStringLiteral("p")) {
-#ifdef USE_RESTAPI_NO_IMPLEMENTED_YET
             //FOR the moment we can't change group announcement with restapi
-            //restApi()->changeGroupsAnnouncement(roomId, newValue.toString());
-#else
-            ddp()->setRoomAnnouncement(roomId, newValue.toString());
-#endif
+            if (mRuqolaServerConfig->hasAtLeastVersion(0, 70, 0)) {
+                restApi()->changeGroupsAnnouncement(roomId, newValue.toString());
+            } else {
+                ddp()->setRoomAnnouncement(roomId, newValue.toString());
+            }
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport change announcement for type " << channelType;
         }
