@@ -40,6 +40,7 @@ ListView {
 
     property QtObject rcAccount
     property string roomId: ""
+    property bool enableEditingMode: false
 
     spacing: Kirigami.Units.smallSpacing
     highlightRangeMode: ListView.ApplyRange

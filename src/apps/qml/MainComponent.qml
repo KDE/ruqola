@@ -398,11 +398,14 @@ Component {
         footer:
             ColumnLayout {
             anchors.bottom: mainWidget.bottom
+            //anchors.margins: Kirigami.Units.smallSpacing
             QQC2.Label {
                 id: channelInfo
                 font.bold: true
+                anchors {
+                    margins: Kirigami.Units.smallSpacing
+                }
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-                anchors.margins: 2*Kirigami.Units.smallSpacing
                 visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true) || (appid.selectedRoom.blocker === true) || (appid.selectedRoom.blocked === true))
                 text: appid.selectedRoom ? appid.selectedRoom.roomMessageInfo : ""
             }
