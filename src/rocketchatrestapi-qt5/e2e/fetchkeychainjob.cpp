@@ -37,10 +37,10 @@ FetchKeyChainJob::~FetchKeyChainJob()
 
 bool FetchKeyChainJob::canStart() const
 {
-//    if (mPresenceUserId.isEmpty()) {
-//        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "presenceuserid is empty";
-//        return false;
-//    }
+    if (mUid.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "uid is empty";
+        return false;
+    }
     if (!RestApiAbstractJob::canStart()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start FetchKeyChain job";
         return false;
@@ -80,12 +80,22 @@ void FetchKeyChainJob::slotFetchKeyChain()
     deleteLater();
 }
 
+QString FetchKeyChainJob::uid() const
+{
+    return mUid;
+}
+
+void FetchKeyChainJob::setUid(const QString &uid)
+{
+    mUid = uid;
+}
+
 QNetworkRequest FetchKeyChainJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EfetchKeychain);
-//    QUrlQuery queryUrl;
-//    queryUrl.addQueryItem(QStringLiteral("userId"), mPresenceUserId);
-//    url.setQuery(queryUrl);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("uid"), mUid);
+    url.setQuery(queryUrl);
     QNetworkRequest request(url);
     return request;
 }

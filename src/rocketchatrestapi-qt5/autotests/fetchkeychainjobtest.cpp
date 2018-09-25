@@ -36,7 +36,7 @@ void FetchKeyChainJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
     QVERIFY(job.requireHttpAuthentication());
-    //QVERIFY(job.presenceUserId().isEmpty());
+    QVERIFY(job.uid().isEmpty());
     QVERIFY(!job.restApiLogger());
 }
 
@@ -46,9 +46,9 @@ void FetchKeyChainJobTest::shouldGenerateRequest()
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
-//    const QString avatarUserId = QStringLiteral("avat");
-//    job.setPresenceUserId(avatarUserId);
+    const QString uId = QStringLiteral("foo");
+    job.setUid(uId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.fetchKeychain")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.fetchKeychain?uid=foo")));
     delete method;
 }

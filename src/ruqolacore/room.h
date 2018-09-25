@@ -185,6 +185,9 @@ public:
     Q_REQUIRED_RESULT QString e2EKey() const;
     void setE2EKey(const QString &e2EKey);
 
+    QString e2eKeyId() const;
+    void setE2eKeyId(const QString &e2eKeyId);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -207,6 +210,7 @@ Q_SIGNALS:
     void rolesChanged();
     void mutedUsersChanged();
     void ignoredUsersChanged();
+    void jitsiTimeoutChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -253,6 +257,7 @@ private:
 
     //Encryption Key
     QString mE2EKey;
+    QString mE2eKeyId;
 
     //quint64 ?
     int mUnread = 0;

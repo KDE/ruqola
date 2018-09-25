@@ -88,7 +88,8 @@ bool Room::isEqual(const Room &other) const
            && (mRoles == other.roles())
            && (mIgnoredUsers == other.ignoredUsers())
            && (mEncrypted == other.encrypted())
-           && (mE2EKey == other.e2EKey());
+           && (mE2EKey == other.e2EKey())
+           && (mE2eKeyId == other.e2eKeyId());
 }
 
 QString Room::name() const
@@ -124,6 +125,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "ignoredUsers: " << t.ignoredUsers();
     d << "encrypted room: " << t.encrypted();
     d << "E2E keys: " << t.e2EKey();
+    d << "mE2eKeyId: " << t.e2eKeyId();
     return d;
 }
 
@@ -240,6 +242,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 
     //TODO muted ????
     //TODO E2EKey
+    //TODO mE2eKeyId;
 
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
     if (!ownerValue.isUndefined()) {
@@ -289,7 +292,7 @@ void Room::setJitsiTimeout(const qint64 &jitsiTimeout)
 {
     if (mJitsiTimeout != jitsiTimeout) {
         mJitsiTimeout = jitsiTimeout;
-        //Add signal otherwise it's not necessary to check value
+        Q_EMIT jitsiTimeoutChanged();
     }
 }
 
@@ -490,6 +493,8 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setBlocker(false);
     }
 
+    setE2eKeyId(json[QStringLiteral("e2eKeyId")].toString());
+
     if (json.contains(QLatin1String("encrypted"))) {
         setEncrypted(json[QStringLiteral("encrypted")].toBool());
     } else {
@@ -658,6 +663,16 @@ void Room::parseCommonData(const QJsonObject &json)
     }
     setRoles(lstRoles);
 
+}
+
+QString Room::e2eKeyId() const
+{
+    return mE2eKeyId;
+}
+
+void Room::setE2eKeyId(const QString &e2eKeyId)
+{
+    mE2eKeyId = e2eKeyId;
 }
 
 QString Room::e2EKey() const

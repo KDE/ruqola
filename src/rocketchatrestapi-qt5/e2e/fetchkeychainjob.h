@@ -42,12 +42,16 @@ public:
     Q_REQUIRED_RESULT bool canStart() const override;
 
 
+    Q_REQUIRED_RESULT QString uid() const;
+    void setUid(const QString &uid);
+
 Q_SIGNALS:
     void fetchKeyChainDone();
 
 private:
     Q_DISABLE_COPY(FetchKeyChainJob)
     void slotFetchKeyChain();
+    QString mUid;
 };
 }
 #endif // FETCHKEYCHAINJOB_H
