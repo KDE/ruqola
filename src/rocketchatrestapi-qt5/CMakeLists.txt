@@ -95,6 +95,7 @@ set (RocketChatRestApiQt_SRCS
     commands/listcommandsjob.cpp
 
     e2e/fetchkeychainjob.cpp
+    e2e/fetchmykeysjob.cpp
     )
 
 
