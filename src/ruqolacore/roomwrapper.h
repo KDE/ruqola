@@ -40,6 +40,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(bool readOnly READ readOnly NOTIFY readOnlyChanged)
     Q_PROPERTY(bool blocker READ blocker NOTIFY blockerChanged)
     Q_PROPERTY(bool blocked READ blocked NOTIFY blockedChanged)
+    Q_PROPERTY(bool encrypted READ encrypted NOTIFY encryptedChanged)
     Q_PROPERTY(bool canBeModify READ canBeModify NOTIFY rolesChanged)
     Q_PROPERTY(bool archived READ archived NOTIFY archivedChanged)
     //TODO add Q_PROPERTY for mutedUsersChanged and ignoreUsersChanged
@@ -59,6 +60,7 @@ public:
     Q_REQUIRED_RESULT bool readOnly() const;
     Q_REQUIRED_RESULT bool blocker() const;
     Q_REQUIRED_RESULT bool blocked() const;
+    Q_REQUIRED_RESULT bool encrypted() const;
     Q_REQUIRED_RESULT QString channelType() const;
     Q_REQUIRED_RESULT QString roomCreatorUserId() const;
     Q_REQUIRED_RESULT QString rid() const;
@@ -82,6 +84,7 @@ Q_SIGNALS:
     void ignoredUsersChanged();
     void mutedUsersChanged();
     void roomMessageInfoChanged();
+    void encryptedChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)

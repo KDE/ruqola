@@ -5,6 +5,7 @@
     "blocked": false,
     "blocker": false,
     "description": "description",
+    "encrypted": false,
     "favorite": false,
     "jitsiTimeout": 1519989707339,
     "lastSeeAt": -1,

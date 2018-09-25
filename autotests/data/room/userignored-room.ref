@@ -3,6 +3,7 @@
     "archived": false,
     "blocked": false,
     "blocker": false,
+    "encrypted": false,
     "favorite": false,
     "ignored": [
         "CtmbQDdqNNNytdYsX",

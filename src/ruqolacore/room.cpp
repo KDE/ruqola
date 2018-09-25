@@ -86,7 +86,8 @@ bool Room::isEqual(const Room &other) const
            && (mLastSeeAt == other.lastSeeAt())
            && (mBlocked == other.blocked())
            && (mRoles == other.roles())
-           && (mIgnoredUsers == other.ignoredUsers());
+           && (mIgnoredUsers == other.ignoredUsers())
+           && (mEncrypted == other.encrypted());
 }
 
 QString Room::name() const
@@ -120,6 +121,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "blocked: " << t.blocked();
     d << "roles: " << t.roles();
     d << "ignoredUsers: " << t.ignoredUsers();
+    d << "encrypted room: " << t.encrypted();
     return d;
 }
 
@@ -218,6 +220,12 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setBlocked(json[QStringLiteral("blocked")].toBool());
     } else {
         setBlocked(false);
+    }
+
+    if (json.contains(QLatin1String("encrypted"))) {
+        setEncrypted(json[QStringLiteral("encrypted")].toBool());
+    } else {
+        setEncrypted(false);
     }
 
     const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
@@ -478,6 +486,13 @@ void Room::parseInsertRoom(const QJsonObject &json)
     } else {
         setBlocker(false);
     }
+
+    if (json.contains(QLatin1String("encrypted"))) {
+        setEncrypted(json[QStringLiteral("encrypted")].toBool());
+    } else {
+        setEncrypted(false);
+    }
+
     //Blocked ???
     const QJsonValue archivedValue = json.value(QLatin1String("archived"));
     if (!archivedValue.isUndefined()) {
@@ -608,6 +623,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     //qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
 
+    //TODO encrypted ?
     //TODO add muted
 }
 
@@ -640,6 +656,19 @@ void Room::parseCommonData(const QJsonObject &json)
 
 }
 
+bool Room::encrypted() const
+{
+    return mEncrypted;
+}
+
+void Room::setEncrypted(bool encrypted)
+{
+    if (mEncrypted != encrypted) {
+        mEncrypted = encrypted;
+        Q_EMIT encryptedChanged();
+    }
+}
+
 Room *Room::fromJSon(const QJsonObject &o)
 {
     //FIXME
@@ -664,6 +693,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setDescription(o[QStringLiteral("description")].toString());
     r->setBlocker(o[QStringLiteral("blocker")].toBool());
     r->setBlocked(o[QStringLiteral("blocked")].toBool());
+    r->setEncrypted(o[QStringLiteral("encrypted")].toBool());
     r->setUpdatedAt(static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble()));
     r->setLastSeeAt(static_cast<qint64>(o[QStringLiteral("lastSeeAt")].toDouble()));
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
@@ -727,6 +757,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("open")] = r->open();
     o[QStringLiteral("blocker")] = r->blocker();
     o[QStringLiteral("blocked")] = r->blocked();
+    o[QStringLiteral("encrypted")] = r->encrypted();
     o[QStringLiteral("archived")] = r->archived();
     if (!r->description().isEmpty()) {
         o[QStringLiteral("description")] = r->description();

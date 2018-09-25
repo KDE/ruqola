@@ -48,6 +48,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(bool archived READ archived WRITE setArchived NOTIFY archivedChanged)
     Q_PROPERTY(bool blocked READ blocked WRITE setBlocked NOTIFY blockedChanged)
     Q_PROPERTY(bool open READ open WRITE setOpen NOTIFY openChanged)
+    Q_PROPERTY(bool encrypted READ encrypted WRITE setEncrypted NOTIFY encryptedChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
     Q_PROPERTY(QStringList roles READ roles WRITE setRoles NOTIFY rolesChanged)
 public:
@@ -173,9 +174,14 @@ public:
     Q_REQUIRED_RESULT QStringList ignoredUsers() const;
     void setIgnoredUsers(const QStringList &ignoredUsers);
 
+    Q_REQUIRED_RESULT bool encrypted() const;
+    void setEncrypted(bool encrypted);
+
     Q_REQUIRED_RESULT bool userIsIgnored(const QString &userId);
     Q_REQUIRED_RESULT QString markdownAnnouncement() const;
     Q_REQUIRED_RESULT QString roomMessageInfo() const;
+
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -185,6 +191,7 @@ Q_SIGNALS:
     void readOnlyChanged();
     void unreadChanged();
     void openChanged();
+    void encryptedChanged();
 
     //Blocker we blocked the channel
     void blockerChanged();
@@ -254,6 +261,7 @@ private:
     bool mBlocker = false;
     bool mArchived = false;
     bool mBlocked = false;
+    bool mEncrypted = false;
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;

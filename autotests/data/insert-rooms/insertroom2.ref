@@ -5,6 +5,7 @@
     "blocked": false,
     "blocker": false,
     "description": "description channel",
+    "encrypted": false,
     "favorite": false,
     "jitsiTimeout": -1,
     "lastSeeAt": -1,
