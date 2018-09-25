@@ -341,6 +341,9 @@ QString Message::messageTypeText() const
         return i18n("Role \'%3\' was added to %1 by %2", mUsername, mText, mRole);
     } else if (mSystemMessageType == QLatin1String("subscription-role-removed")) {
         return i18n("Role \'%3\' was removed to %1 by %2", mUsername, mText, mRole);
+    } else if (mSystemMessageType == QLatin1String("e2e")) {
+        //TODO need to unencrypt it
+        return i18n("Encrypted message", mText);
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
