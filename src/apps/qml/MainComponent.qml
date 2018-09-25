@@ -88,8 +88,11 @@ Component {
                         appid.rocketChatAccount.changeFavorite(appid.selectedRoomID, checked)
                     }
                 }
-                ToolButton {
-                    iconName: "encrypted"
+                Kirigami.Icon {
+                    source: "encrypted"
+                    //FIXME
+                    height: 22
+                    width: 22
                     visible: appid.selectedRoom && appid.selectedRoom.encrypted
                 }
                 Kirigami.Heading {
