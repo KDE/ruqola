@@ -93,6 +93,8 @@ set (RocketChatRestApiQt_SRCS
     permissions/listpermissionsjob.cpp
 
     commands/listcommandsjob.cpp
+
+    e2e/fetchkeychainjob.cpp
     )
 
 
