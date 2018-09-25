@@ -253,6 +253,15 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("permissions.list");
     case RestApiUtil::RestApiUrlType::CommandsList:
         return QStringLiteral("commands.list");
+
+    case RestApiUtil::RestApiUrlType::E2EfetchKeychain:
+        return QStringLiteral("e2e.fetchKeychain");
+    case RestApiUtil::RestApiUrlType::E2EfetchMyKeys:
+        return QStringLiteral("e2e.fetchMyKeys");
+    case RestApiUtil::RestApiUrlType::E2EaddKeyToChain:
+        return QStringLiteral("e2e.addKeyToChain");
+    case RestApiUtil::RestApiUrlType::E2EupdateGroupE2EKey:
+        return QStringLiteral("e2e.updateGroupE2EKey");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

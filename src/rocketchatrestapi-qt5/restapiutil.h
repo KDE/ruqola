@@ -133,6 +133,11 @@ enum class RestApiUrlType {
     ForgotPassword,
     PermissionsList,
     CommandsList,
+    //since 0.70
+    E2EfetchKeychain,
+    E2EfetchMyKeys,
+    E2EaddKeyToChain,
+    E2EupdateGroupE2EKey,
 };
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

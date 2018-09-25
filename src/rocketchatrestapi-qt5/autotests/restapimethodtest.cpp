@@ -153,4 +153,9 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ForgotPassword), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.forgotPassword")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::PermissionsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/permissions.list")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CommandsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/commands.list")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2EfetchKeychain), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.fetchKeychain")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2EfetchMyKeys), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.fetchMyKeys")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2EaddKeyToChain), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.addKeyToChain")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2EupdateGroupE2EKey), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.updateGroupE2EKey")));
 }
