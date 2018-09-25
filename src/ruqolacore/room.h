@@ -182,6 +182,9 @@ public:
     Q_REQUIRED_RESULT QString roomMessageInfo() const;
 
 
+    Q_REQUIRED_RESULT QString e2EKey() const;
+    void setE2EKey(const QString &e2EKey);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -192,6 +195,7 @@ Q_SIGNALS:
     void unreadChanged();
     void openChanged();
     void encryptedChanged();
+    void encryptionKeyChanged();
 
     //Blocker we blocked the channel
     void blockerChanged();
@@ -246,6 +250,9 @@ private:
     qint64 mJitsiTimeout = -1;
     qint64 mUpdatedAt = -1;
     qint64 mLastSeeAt = -1;
+
+    //Encryption Key
+    QString mE2EKey;
 
     //quint64 ?
     int mUnread = 0;

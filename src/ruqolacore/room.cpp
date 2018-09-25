@@ -87,7 +87,8 @@ bool Room::isEqual(const Room &other) const
            && (mBlocked == other.blocked())
            && (mRoles == other.roles())
            && (mIgnoredUsers == other.ignoredUsers())
-           && (mEncrypted == other.encrypted());
+           && (mEncrypted == other.encrypted())
+           && (mE2EKey == other.e2EKey());
 }
 
 QString Room::name() const
@@ -122,6 +123,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "roles: " << t.roles();
     d << "ignoredUsers: " << t.ignoredUsers();
     d << "encrypted room: " << t.encrypted();
+    d << "E2E keys: " << t.e2EKey();
     return d;
 }
 
@@ -237,6 +239,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     setIgnoredUsers(lstIgnored);
 
     //TODO muted ????
+    //TODO E2EKey
 
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
     if (!ownerValue.isUndefined()) {
@@ -600,6 +603,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     } else {
         setBlocker(false);
     }
+    //TODO e2ekey
     //TODO blocked ?
     const QJsonValue archivedValue = json.value(QLatin1String("archived"));
     if (!archivedValue.isUndefined()) {
@@ -656,6 +660,19 @@ void Room::parseCommonData(const QJsonObject &json)
 
 }
 
+QString Room::e2EKey() const
+{
+    return mE2EKey;
+}
+
+void Room::setE2EKey(const QString &e2EKey)
+{
+    if (mE2EKey != e2EKey) {
+        mE2EKey = e2EKey;
+        Q_EMIT encryptionKeyChanged();
+    }
+}
+
 bool Room::encrypted() const
 {
     return mEncrypted;
@@ -694,6 +711,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setBlocker(o[QStringLiteral("blocker")].toBool());
     r->setBlocked(o[QStringLiteral("blocked")].toBool());
     r->setEncrypted(o[QStringLiteral("encrypted")].toBool());
+    r->setE2EKey(o[QStringLiteral("E2EKey")].toString());
     r->setUpdatedAt(static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble()));
     r->setLastSeeAt(static_cast<qint64>(o[QStringLiteral("lastSeeAt")].toDouble()));
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
@@ -759,6 +777,10 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("blocked")] = r->blocked();
     o[QStringLiteral("encrypted")] = r->encrypted();
     o[QStringLiteral("archived")] = r->archived();
+    if (!r->e2EKey().isEmpty()) {
+        o[QStringLiteral("e2ekey")] = r->e2EKey();
+    }
+
     if (!r->description().isEmpty()) {
         o[QStringLiteral("description")] = r->description();
     }
