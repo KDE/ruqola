@@ -1,0 +1,51 @@
+            {
+                "_id": "qKRA72oktoCLKMkkf",
+                "_updatedAt": {
+                    "$date": 1537959946933
+                },
+                "customFields": {
+                },
+                "e2eKeyId": "eyJhbGciOiJB",
+                "encrypted": true,
+                "fname": "test-add-user-ruqola",
+                "lastMessage": {
+                    "_id": "jLp6CNMGGD9Cw9q6s",
+                    "_updatedAt": {
+                        "$date": 1537870800768
+                    },
+                    "alias": null,
+                    "attachments": null,
+                    "avatar": null,
+                    "channels": [
+                    ],
+                    "customFields": null,
+                    "e2e": "pending",
+                    "editedAt": null,
+                    "editedBy": null,
+                    "emoji": null,
+                    "groupable": null,
+                    "mentions": [
+                    ],
+                    "msg": "coo",
+                    "reactions": null,
+                    "rid": "qKRA72oktoCLKMkkf",
+                    "sandstormSessionId": null,
+                    "t": "e2e",
+                    "ts": {
+                        "$date": 1537870800739
+                    },
+                    "u": {
+                        "_id": "d5vFGuJrtJy9atD6x",
+                        "name": "laurent",
+                        "username": "laurent"
+                    }
+                },
+                "name": "test-add-user-ruqola",
+                "ro": false,
+                "sysMes": false,
+                "t": "p",
+                "u": {
+                    "_id": "xkNpoB3T98EEPCj2K",
+                    "username": "lili"
+                }
+            }

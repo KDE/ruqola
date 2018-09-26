@@ -242,7 +242,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
 
     //TODO muted ????
     //TODO E2EKey
-    //TODO mE2eKeyId;
+    setE2eKeyId(json[QStringLiteral("e2eKeyId")].toString());
 
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
     if (!ownerValue.isUndefined()) {
@@ -493,7 +493,8 @@ void Room::parseInsertRoom(const QJsonObject &json)
         setBlocker(false);
     }
 
-    setE2eKeyId(json[QStringLiteral("e2eKeyId")].toString());
+    //setE2eKeyId(json[QStringLiteral("e2eKeyId")].toString());
+    setE2EKey(json[QStringLiteral("E2EKey")].toString());
 
     if (json.contains(QLatin1String("encrypted"))) {
         setEncrypted(json[QStringLiteral("encrypted")].toBool());
@@ -592,6 +593,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     if (!favoriteValue.isUndefined()) {
         setFavorite(favoriteValue.toBool());
     }
+    setE2EKey(json[QStringLiteral("E2EKey")].toString());
     //Only private room has this settings.
     if (roomType == QLatin1String("p")) {
         setReadOnly(json[QStringLiteral("ro")].toBool());
@@ -726,7 +728,8 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setBlocker(o[QStringLiteral("blocker")].toBool());
     r->setBlocked(o[QStringLiteral("blocked")].toBool());
     r->setEncrypted(o[QStringLiteral("encrypted")].toBool());
-    r->setE2EKey(o[QStringLiteral("E2EKey")].toString());
+    r->setE2EKey(o[QStringLiteral("e2ekey")].toString());
+    r->setE2eKeyId(o[QStringLiteral("e2ekeyid")].toString());
     r->setUpdatedAt(static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble()));
     r->setLastSeeAt(static_cast<qint64>(o[QStringLiteral("lastSeeAt")].toDouble()));
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
@@ -794,6 +797,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("archived")] = r->archived();
     if (!r->e2EKey().isEmpty()) {
         o[QStringLiteral("e2ekey")] = r->e2EKey();
+    }
+    if (!r->e2eKeyId().isEmpty()) {
+        o[QStringLiteral("e2ekeyid")] = r->e2eKeyId();
     }
 
     if (!r->description().isEmpty()) {

@@ -1,0 +1,27 @@
+{
+    "E2EKey": "KEYS",
+    "_id": "segs5dhGyxvBjwweW",
+    "_updatedAt": {
+        "$date": 1537889519424
+    },
+    "alert": false,
+    "fname": "test-add-user-ruqola",
+    "groupMentions": 0,
+    "ls": {
+        "$date": 1537889519424
+    },
+    "name": "test-add-user-ruqola",
+    "open": true,
+    "rid": "qKRA72oktoCLKMkkf",
+    "t": "p",
+    "ts": {
+        "$date": 1518007267696
+    },
+    "u": {
+        "_id": "d5vFGuJrtJy9atD6x",
+        "name": "laurent",
+        "username": "laurent"
+    },
+    "unread": 0,
+    "userMentions": 0
+}
