@@ -117,6 +117,8 @@ public:
     void getUsernameSuggestion();
     void listPermissions();
     void listCommands();
+    void fetchMyKeys();
+    void fetchKeyChain();
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -138,6 +140,8 @@ Q_SIGNALS:
     void getPresenceDone(const QString &presence);
     void listPermissionDone(const QJsonObject &obj);
     void listCommandsDone(const QJsonObject &obj);
+    void fetchMyKeysDone();
+    void fetchKeyChainDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

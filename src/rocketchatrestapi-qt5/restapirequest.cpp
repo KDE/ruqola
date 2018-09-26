@@ -88,6 +88,9 @@
 
 #include "commands/listcommandsjob.h"
 
+#include "e2e/fetchkeychainjob.h"
+#include "e2e/fetchmykeysjob.h"
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
@@ -911,5 +914,25 @@ void RestApiRequest::listCommands()
     connect(job, &ListCommandsJob::listCommandsDone, this, &RestApiRequest::listCommandsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ListPermissionsJob job";
+    }
+}
+
+void RestApiRequest::fetchMyKeys()
+{
+    FetchMyKeysJob *job = new FetchMyKeysJob(this);
+    initializeRestApiJob(job);
+    connect(job, &FetchMyKeysJob::fetchMyKeysDone, this, &RestApiRequest::fetchMyKeysDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start fetchmykeys job";
+    }
+}
+
+void RestApiRequest::fetchKeyChain()
+{
+    FetchKeyChainJob *job = new FetchKeyChainJob(this);
+    initializeRestApiJob(job);
+    connect(job, &FetchKeyChainJob::fetchKeyChainDone, this, &RestApiRequest::fetchKeyChainDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start fetch key chain job";
     }
 }
