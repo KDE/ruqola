@@ -108,9 +108,9 @@ bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch)
 
 void RuqolaServerConfig::setServerVersion(const QString &version)
 {
-    qCDebug(RUQOLA_LOG) << " void RocketChatAccount::setServerVersion(const QString &version)" << version;
     const QStringList lst = version.split(QLatin1Char('.'));
-    if (lst.count() == 3) {
+    //0.70.0-rc.1 has 4 "."
+    if (lst.count() >= 3) {
         bool ok;
         int value = lst.at(0).toInt(&ok);
         if (ok) {

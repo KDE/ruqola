@@ -546,10 +546,8 @@ quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &excep
                         dataReceived(QByteArrayLiteral(
                                          "Unsubscribe AutoComplete:") + QJsonDocument(root).toJson());
             } else {
-                qDebug()
-                        << " Unsubscribe AutoComplete" << root;
-                qCDebug(RUQOLA_DDPAPI_LOG)
-                        << " Unsubscribe AutoComplete" << root;
+                qDebug() << " Unsubscribe AutoComplete" << root;
+                qCDebug(RUQOLA_DDPAPI_LOG) << " Unsubscribe AutoComplete" << root;
             }
         };
         method(resultUnsubscribe, callbackUnsubscribeAutoComplete, DDPClient::Persistent);
