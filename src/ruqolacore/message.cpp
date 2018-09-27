@@ -73,6 +73,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     parseAttachment(o.value(QLatin1String("attachments")).toArray());
     parseUrls(o.value(QLatin1String("urls")).toArray());
     parseReactions(o.value(QLatin1String("reactions")).toObject());
+    //TODO unread element
 }
 
 void Message::parseReactions(const QJsonObject &reacts)
@@ -80,6 +81,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     if (!reacts.isEmpty()) {
         mReactions.parseReactions(reacts);
     }
+}
+
+bool Message::unread() const
+{
+    return mUnread;
+}
+
+void Message::setUnread(bool unread)
+{
+    mUnread = unread;
 }
 
 QString Message::role() const
@@ -241,7 +252,8 @@ bool Message::operator==(const Message &other) const
            && (mMentions == other.mentions())
            && (mStarred == other.starred())
             && (mRole == other.role())
-            && (mReactions == other.reactions());
+            && (mReactions == other.reactions())
+            && (mUnread == other.unread());
 }
 
 Message &Message::operator=(const Message &other)
@@ -268,6 +280,7 @@ Message &Message::operator=(const Message &other)
     setStarred(other.starred());
     setRole(other.role());
     setReactions(other.reactions());
+    setUnread(other.unread());
     return *this;
 }
 
@@ -660,5 +673,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mMessageType: " << t.messageType();
     d << "mRole: " << t.role();
     d << "mReaction: " << t.reactions();
+    d << "mUnread: " << t.unread();
     return d;
 }

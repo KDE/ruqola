@@ -64,6 +64,7 @@
 #include "channels/channelinvitejob.h"
 #include "channels/setchanneltypejob.h"
 #include "channels/getchannelrolesjob.h"
+#include "channels/setjoincodechanneljob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -934,5 +935,18 @@ void RestApiRequest::fetchKeyChain()
     connect(job, &FetchKeyChainJob::fetchKeyChainDone, this, &RestApiRequest::fetchKeyChainDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start fetch key chain job";
+    }
+}
+
+
+void RestApiRequest::setJoinCodeChannel(const QString &roomId, const QString &joinCode)
+{
+    SetJoinCodeChannelJob *job = new SetJoinCodeChannelJob(this);
+    initializeRestApiJob(job);
+    job->setJoinCode(joinCode);
+    job->setRoomId(roomId);
+    connect(job, &SetJoinCodeChannelJob::setJoinCodeDone, this, &RestApiRequest::setJoinCodeDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setjoincode";
     }
 }

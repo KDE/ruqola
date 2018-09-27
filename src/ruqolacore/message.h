@@ -142,6 +142,9 @@ public:
     Q_REQUIRED_RESULT QString role() const;
     void setRole(const QString &role);
 
+    Q_REQUIRED_RESULT bool unread() const;
+    void setUnread(bool uread);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -205,6 +208,9 @@ private:
 
     //Starred
     bool mStarred = false;
+
+    //Unread Message
+    bool mUnread = false;
 };
 Q_DECLARE_METATYPE(Message)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Message &t);
