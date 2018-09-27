@@ -223,4 +223,20 @@ AuthenticationManager::OauthTypes RuqolaServerConfig::serverOauthTypes() const
     return mServerOauthTypes;
 }
 
-//TODO add qDebug
+QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
+{
+    d << "mUniqueId  " << t.uniqueId();
+    d << "mJitsiMeetUrl " << t.jitsiMeetUrl();
+    d << "mJitsiMeetPrefix " << t.jitsiMeetPrefix();
+    d << "mFileUploadStorageType " << t.fileUploadStorageType();
+    d << "mSiteUrl " << t.siteUrl();
+    d << "mSiteName " << t.siteName();
+    d << "mServerOauthTypes " << t.serverOauthTypes();
+    d << "mRuqolaOauthTypes " << t.ruqolaOauthTypes();
+    d << "mBlockEditingMessageInMinutes " << t.blockEditingMessageInMinutes();
+    d << "mAllowEditingMessage " << t.allowMessageEditing();
+    d << "mOtrEnabled " << t.otrEnabled();
+    d << "mNeedAdaptNewSubscriptionRC60 " << t.needAdaptNewSubscriptionRC60();
+    d << "mEncryptionEnabled " << t.encryptionEnabled();
+    return d;
+}

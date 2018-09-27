@@ -97,4 +97,5 @@ private:
     bool mNeedAdaptNewSubscriptionRC60 = false;
     bool mEncryptionEnabled = true;
 };
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H
