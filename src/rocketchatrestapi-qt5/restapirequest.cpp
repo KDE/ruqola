@@ -959,6 +959,7 @@ void RestApiRequest::channelJoin(const QString &roomId, const QString &joinCode)
     job->setJoinCode(joinCode);
     job->setRoomId(roomId);
     connect(job, &ChannelJoinJob::setChannelJoinDone, this, &RestApiRequest::setChannelJoinDone);
+    connect(job, &ChannelJoinJob::missingChannelPassword, this, &RestApiRequest::missingChannelPassword);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelJoin";
     }

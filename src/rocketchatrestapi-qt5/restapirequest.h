@@ -145,7 +145,8 @@ Q_SIGNALS:
     void fetchMyKeysDone();
     void fetchKeyChainDone();
     void setJoinCodeDone();
-    void setChannelJoinDone();
+    void setChannelJoinDone(const QString &roomId);
+    void missingChannelPassword(const QString &roomId);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

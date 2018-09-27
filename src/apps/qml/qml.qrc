@@ -43,6 +43,7 @@
         <file>DeleteFileAttachmentDialog.qml</file>
         <file>UserInfoDialog.qml</file>
         <file>CreateNewAccountDialog.qml</file>
+        <file>ChannelPasswordDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

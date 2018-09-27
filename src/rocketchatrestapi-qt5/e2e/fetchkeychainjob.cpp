@@ -70,11 +70,11 @@ void FetchKeyChainJob::slotFetchKeyChain()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("FetchKeyChainJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("FetchKeyChainJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             //TODO
             Q_EMIT fetchKeyChainDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to get username suggestion" << data;
+            addLoggerWarning(QByteArrayLiteral("FetchKeyChainJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

@@ -57,11 +57,15 @@ void ChannelJoinJob::slotChannelJoinFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "channel join success: " << data;
-            Q_EMIT setChannelJoinDone();
+            addLoggerInfo(QByteArrayLiteral("channel join success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT setChannelJoinDone(mRoomId);
         } else {
-            //Need password ?
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to join to channel" << data;
+            //Need assword ?
+            addLoggerWarning(QByteArrayLiteral("Problem when we tried to join to channel: ") + replyJson.toJson(QJsonDocument::Indented));
+            //Invalid password
+            if (replyObject[QStringLiteral("errorType")].toString() == QLatin1String("error-code-invalid")) {
+                Q_EMIT missingChannelPassword(mRoomId);
+            }
         }
     }
     deleteLater();

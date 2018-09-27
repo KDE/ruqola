@@ -46,7 +46,8 @@ public:
     void setJoinCode(const QString &joinCode);
 
 Q_SIGNALS:
-    void setChannelJoinDone();
+    void setChannelJoinDone(const QString &roomId);
+    void missingChannelPassword(const QString &roomId);
 
 private:
     Q_DISABLE_COPY(ChannelJoinJob)

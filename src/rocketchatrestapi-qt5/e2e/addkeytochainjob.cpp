@@ -53,15 +53,14 @@ void AddKeyToChainJob::slotAddKeyToChainFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("AddKeyToChainJob: finished: ") + data);
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Change favorite status done: " << data;
+            addLoggerInfo(QByteArrayLiteral("AddKeyToChainJob: sucess: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT addKeyToChainDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change favorite status" << data;
+            addLoggerWarning(QByteArrayLiteral("AddKeyToChainJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

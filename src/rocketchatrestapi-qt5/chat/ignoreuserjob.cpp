@@ -61,11 +61,10 @@ void IgnoreUserJob::slotIgnoreUserFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("IgnoreUserJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("IgnoreUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT ignoreUserDone(replyObject);
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Ignore user success: " << data;
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to ignore user message";
+            addLoggerWarning(QByteArrayLiteral("GProblem when we tried to ignore user message: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

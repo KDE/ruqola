@@ -245,6 +245,22 @@ Kirigami.ApplicationWindow {
         id: mainComponent
     }
 
+    ChannelPasswordDialog {
+        id: channelPasswordDialog
+        onJoinRoom: {
+            rocketChatAccount.joinRoom(roomId, password)
+        }
+    }
+
+    Connections {
+        target: rocketChatAccount
+        onMissingChannelPassword: {
+            channelPasswordDialog.roomId = roomId
+            channelPasswordDialog.visible = true
+        }
+    }
+
+
     onClosing: {
         Qt.quit();
     }

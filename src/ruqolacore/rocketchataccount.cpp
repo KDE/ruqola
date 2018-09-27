@@ -344,6 +344,8 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
         mRestApi = new RocketChatRestApi::RestApiRequest(this);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::setChannelJoinDone, this, &RocketChatAccount::setChannelJoinDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::missingChannelPassword, this, &RocketChatAccount::missingChannelPassword);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -480,6 +482,11 @@ void RocketChatAccount::openChannel(const QString &url)
     //TODO search correct room + select it.
 }
 
+void RocketChatAccount::setChannelJoinDone(const QString &roomId)
+{
+    ddp()->subscribeRoomMessage(roomId);
+}
+
 void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::joinJitsiConfCall(const QString &roomId)"<<roomId;
@@ -543,7 +550,6 @@ void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
     //TODO use restapi
     ddp()->joinRoom(roomId, joinCode);
 #endif
-    ddp()->subscribeRoomMessage(roomId);
 }
 
 void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)

@@ -58,10 +58,10 @@ void CreateDmJob::slotCreateDmFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Create direct message success: " << data;
+            addLoggerInfo(QByteArrayLiteral("Create direct message sucess: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT createDmDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to create direct message: " << data;
+            addLoggerWarning(QByteArrayLiteral("Create direct message Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

@@ -48,12 +48,12 @@ bool GetMessageJob::start()
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &GetMessageJob::slotIgnoreUserFinished);
+    connect(reply, &QNetworkReply::finished, this, &GetMessageJob::slotGetMessageFinished);
     addLoggerInfo(QByteArrayLiteral("GetMessageJob: get message starting"));
     return true;
 }
 
-void GetMessageJob::slotIgnoreUserFinished()
+void GetMessageJob::slotGetMessageFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -61,11 +61,10 @@ void GetMessageJob::slotIgnoreUserFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GetMessageJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("GetMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getMessageDone(replyObject);
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Ignore user success: " << data;
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to get message";
+            addLoggerInfo(QByteArrayLiteral("GetMessageJob: Problem when we tried to get message : ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

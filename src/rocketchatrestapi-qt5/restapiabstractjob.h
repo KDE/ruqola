@@ -53,6 +53,7 @@ public:
     void setRestApiLogger(RocketChatRestApi::AbstractLogger *restApiLogger);
 
     void addLoggerInfo(const QByteArray &str);
+    void addLoggerWarning(const QByteArray &str);
 
     Q_REQUIRED_RESULT virtual bool canStart() const;
 

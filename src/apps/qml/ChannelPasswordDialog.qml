@@ -18,40 +18,50 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETMESSAGEJOB_H
-#define GETMESSAGEJOB_H
+import QtQuick 2.9
+import QtQuick.Layouts 1.3
+import QtQuick.Controls 2.2 as QQC2
+import QtQuick.Window 2.0
+import KDE.Ruqola.DebugCategory 1.0
 
-#include "restapiabstractjob.h"
-#include "librestapi_private_export.h"
+QQC2.Dialog {
+    id: channelPasswordDialog
 
-#include <QNetworkRequest>
-namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetMessageJob : public RestApiAbstractJob
-{
-    Q_OBJECT
-public:
-    explicit GetMessageJob(QObject *parent = nullptr);
-    ~GetMessageJob() override;
+    title: i18n("Channel Password")
 
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-
-    Q_REQUIRED_RESULT bool start() override;
-
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
 
-    Q_REQUIRED_RESULT bool canStart() const override;
+    signal joinRoom(string roomId, string password)
 
-    Q_REQUIRED_RESULT QString getMessageId() const;
-    void setMessageId(const QString &messageId);
+    x: parent.width / 2 - width / 2
+    y: parent.height / 2 - height / 2
 
-Q_SIGNALS:
-    void getMessageDone(const QJsonObject &obj);
+    modal: true
 
-private:
-    Q_DISABLE_COPY(GetMessageJob)
-    void slotGetMessageFinished();
-    QString mMessageId;
-};
+    property string roomId: ""
+
+    function initializeAndOpen()
+    {
+        passwordField.text = "";
+        open()
+    }
+
+    ColumnLayout {
+        QQC2.Label {
+            text: i18n("Channel %1", roomId);
+        }
+
+        QQC2.Label {
+            text: i18n("Password:");
+        }
+        QQC2.TextField {
+            id: passwordField
+            selectByMouse: true
+        }
+    }
+
+    onAccepted: {
+        channelPasswordDialog.joinRoom(roomId, passwordField.text)
+    }
 }
-#endif // GETMESSAGEJOB_H

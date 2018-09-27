@@ -88,6 +88,7 @@ void GoogleAuthJob::slotGoogleauthDone()
                 Q_EMIT googleauthDone(authToken, userId);
             }
         } else {
+            addLoggerWarning("Error during login" + data);
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Error during login" << data;
         }
     }

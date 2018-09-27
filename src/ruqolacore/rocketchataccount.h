@@ -263,6 +263,7 @@ Q_SIGNALS:
     void notification(const QString &title, const QString &message, const QPixmap &pixmap);
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
+    void missingChannelPassword(const QString &roomId);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
@@ -277,6 +278,8 @@ private:
     void initializeAuthenticationPlugins();
     void setDefaultAuthentication(AuthenticationManager::OauthType type);
     void userStatusChanged(const User &user);
+    void setChannelJoinDone(const QString &roomId);
+
     QVector<File> parseFilesInChannel(const QJsonObject &obj);
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
