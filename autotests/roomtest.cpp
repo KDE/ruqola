@@ -66,6 +66,8 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.e2EKey().isEmpty());
     QVERIFY(input.e2eKeyId().isEmpty());
     QVERIFY(!input.encrypted());
+    QVERIFY(!input.alert());
+    QVERIFY(!input.readOnly());
 }
 
 //TODO add notification, userMentions too
