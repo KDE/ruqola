@@ -472,7 +472,11 @@ void RocketChatAccount::openChannel(const QString &url)
 {
     //TODO use restapi
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::openChannel(const QString &url)"<<url;
+#ifdef USE_REASTAPI_JOB
+    restApi()->channelJoin(url, QString());
+#else
     ddp()->joinRoom(url, QString());
+#endif
     //TODO search correct room + select it.
 }
 
@@ -533,8 +537,12 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
 
 void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 {
+#ifdef USE_REASTAPI_JOB
+    restApi()->channelJoin(roomId, joinCode);
+#else
     //TODO use restapi
     ddp()->joinRoom(roomId, joinCode);
+#endif
     ddp()->subscribeRoomMessage(roomId);
 }
 
