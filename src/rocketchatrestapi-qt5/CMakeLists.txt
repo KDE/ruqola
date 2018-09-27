@@ -66,6 +66,7 @@ set (RocketChatRestApiQt_SRCS
     channels/channeladdownerjob.cpp
     channels/channeladdmoderatorjob.cpp
     channels/channelkickjob.cpp
+    channels/channeljoinjob.cpp
 
     groups/changegroupstopicjob.cpp
     groups/changegroupsannouncementjob.cpp

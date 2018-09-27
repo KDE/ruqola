@@ -120,6 +120,7 @@ public:
     void fetchMyKeys();
     void fetchKeyChain();
     void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
+    void channelJoin(const QString &roomId, const QString &joinCode);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -144,6 +145,7 @@ Q_SIGNALS:
     void fetchMyKeysDone();
     void fetchKeyChainDone();
     void setJoinCodeDone();
+    void setChannelJoinDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

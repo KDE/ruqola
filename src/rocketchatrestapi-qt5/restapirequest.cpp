@@ -65,6 +65,7 @@
 #include "channels/setchanneltypejob.h"
 #include "channels/getchannelrolesjob.h"
 #include "channels/setjoincodechanneljob.h"
+#include "channels/channeljoinjob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -948,5 +949,17 @@ void RestApiRequest::setJoinCodeChannel(const QString &roomId, const QString &jo
     connect(job, &SetJoinCodeChannelJob::setJoinCodeDone, this, &RestApiRequest::setJoinCodeDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setjoincode";
+    }
+}
+
+void RestApiRequest::channelJoin(const QString &roomId, const QString &joinCode)
+{
+    ChannelJoinJob *job = new ChannelJoinJob(this);
+    initializeRestApiJob(job);
+    job->setJoinCode(joinCode);
+    job->setRoomId(roomId);
+    connect(job, &ChannelJoinJob::setChannelJoinDone, this, &RestApiRequest::setChannelJoinDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelJoin";
     }
 }
