@@ -917,6 +917,8 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             mRuqolaServerConfig->setSiteUrl(value.toString());
         } else if (id == QLatin1String("Site_Name")) {
             mRuqolaServerConfig->setSiteName(value.toString());
+        } else if (id == QLatin1String("E2E_Enable")) {
+            mRuqolaServerConfig->setEncryptionEnabled(value.toBool());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

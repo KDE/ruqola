@@ -41,6 +41,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.siteUrl().isEmpty());
     QVERIFY(config.allowMessageEditing());
     QVERIFY(config.otrEnabled());
+    QVERIFY(config.encryptionEnabled());
     QVERIFY(!config.needAdaptNewSubscriptionRC60());
     QCOMPARE(config.blockEditingMessageInMinutes(), 5);
     QCOMPARE(config.ruqolaOauthTypes(), AuthenticationManager::OauthType::Password);
@@ -58,6 +59,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const bool otrEnable = false;
     const QString siteName = QStringLiteral("sitename");
     const QString siteUrl = QStringLiteral("siteurl");
+    bool encryptionEnabled = false;
     RuqolaServerConfig config;
     config.setJitsiMeetPrefix(jitsimeetprefix);
     config.setJitsiMeetUrl(jitsimeeturl);
@@ -68,6 +70,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setOtrEnabled(otrEnable);
     config.setSiteName(siteName);
     config.setSiteUrl(siteUrl);
+    config.setEncryptionEnabled(encryptionEnabled);
 
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
@@ -79,6 +82,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
 
     QCOMPARE(config.siteUrl(), siteUrl);
     QCOMPARE(config.siteName(), siteName);
+    QCOMPARE(config.encryptionEnabled(), encryptionEnabled);
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60_data()

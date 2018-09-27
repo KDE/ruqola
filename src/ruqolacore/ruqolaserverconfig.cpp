@@ -183,6 +183,16 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor == 0) && (mServerVersionMinor >= 60);
 }
 
+bool RuqolaServerConfig::encryptionEnabled() const
+{
+    return mEncryptionEnabled;
+}
+
+void RuqolaServerConfig::setEncryptionEnabled(bool encryptionEnabled)
+{
+    mEncryptionEnabled = encryptionEnabled;
+}
+
 QString RuqolaServerConfig::siteName() const
 {
     return mSiteName;
@@ -212,3 +222,5 @@ AuthenticationManager::OauthTypes RuqolaServerConfig::serverOauthTypes() const
 {
     return mServerOauthTypes;
 }
+
+//TODO add qDebug
