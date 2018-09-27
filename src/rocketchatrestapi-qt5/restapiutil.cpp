@@ -157,6 +157,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.roles");
     case RestApiUtil::RestApiUrlType::ChannelsCounters:
         return QStringLiteral("channels.counters");
+    case RestApiUtil::RestApiUrlType::ChannelsJoin:
+        return QStringLiteral("channels.join");
     case RestApiUtil::RestApiUrlType::ChannelsMembers:
         return QStringLiteral("channels.members");
     case RestApiUtil::RestApiUrlType::GroupsAddAll:

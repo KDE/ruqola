@@ -93,6 +93,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.list")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsListJoined), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.list.joined")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsOpen), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.open")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsJoin), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.join")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsRemoveModerator), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.removeModerator")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsRemoveOwner), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.removeOwner")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsRename), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.rename")));
