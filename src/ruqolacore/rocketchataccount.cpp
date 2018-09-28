@@ -370,15 +370,7 @@ void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelT
 
 void RocketChatAccount::hideRoom(const QString &roomId, const QString &channelType)
 {
-#ifdef USE_REASTAPI_JOB_NOTSUPPORTED_YET
-    if (channelType == QStringLiteral("c")) {
-        restApi()->leaveChannel(roomId);
-    } else if (channelType == QStringLiteral("p")) {
-        restApi()->leaveGroups(roomId);
-    } else if (channelType == QStringLiteral("d")) {
-    } else {
-        qCWarning(RUQOLA_LOG) << " unsupport hide room for type " << channelType;
-    }
+#ifdef USE_REASTAPI_JOB
     restApi()->closeChannel(roomId, channelType);
 #else
     Q_UNUSED(channelType)
