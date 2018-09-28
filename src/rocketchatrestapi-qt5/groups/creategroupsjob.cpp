@@ -58,10 +58,10 @@ void CreateGroupsJob::slotCreateGroupsFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Change Topic success: " << data;
+            addLoggerInfo(QByteArrayLiteral("CreateGroupsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT createGroupsDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change topic" << data;
+            addLoggerWarning(QByteArrayLiteral("CreateGroupsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

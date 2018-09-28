@@ -57,10 +57,10 @@ void GroupAddOwnerJob::slotAddOwnerFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Add owner success: " << data;
+            addLoggerInfo(QByteArrayLiteral("GroupAddOwnerJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT addOwnerDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to add owner : " << data;
+            addLoggerWarning(QByteArrayLiteral("GroupAddOwnerJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

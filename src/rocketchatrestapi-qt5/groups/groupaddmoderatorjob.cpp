@@ -57,10 +57,10 @@ void GroupAddModeratorJob::slotAddModeratorFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Add owner success: " << data;
+            addLoggerInfo(QByteArrayLiteral("GroupAddModeratorJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT addModeratorDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to add moderator : " << data;
+            addLoggerWarning(QByteArrayLiteral("GroupAddModeratorJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

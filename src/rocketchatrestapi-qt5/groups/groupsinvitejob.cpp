@@ -57,10 +57,10 @@ void GroupsInviteJob::slotInviteGroupsFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Change announcement success: " << data;
+            addLoggerInfo(QByteArrayLiteral("GroupsInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT inviteGroupsDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change announcement: " << data;
+            addLoggerWarning(QByteArrayLiteral("GroupsInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

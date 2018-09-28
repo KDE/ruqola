@@ -63,7 +63,7 @@ void ListPermissionsJob::slotListPermissionFinished()
             addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT listPermissionDone(replyObject);
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to get list permissions" << data;
+            addLoggerWarning(QByteArrayLiteral("ListPermissionsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

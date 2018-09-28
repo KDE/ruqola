@@ -57,10 +57,10 @@ void ArchiveGroupsJob::slotArchiveGroupsFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Archive or unarchive groups success: " << data;
+            addLoggerInfo(QByteArrayLiteral("ArchiveGroupsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT archiveGroupsDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to archive or unarchive groups" << data;
+            addLoggerWarning(QByteArrayLiteral("ArchiveGroupsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();
