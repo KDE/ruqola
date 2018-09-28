@@ -57,10 +57,10 @@ void MarkRoomAsUnReadJob::slotMarkAsUnRead()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("MarkRoomAsUnReadJob: finished: ") + data);
+            addLoggerInfo(QByteArrayLiteral("MarkRoomAsUnReadJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT markAsUnReadDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to mark as unread" << data;
+            addLoggerWarning(QByteArrayLiteral("MarkRoomAsUnReadJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

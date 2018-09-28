@@ -63,7 +63,7 @@ void GetRoomsJob::slotGetRoomsFinished()
             addLoggerInfo(QByteArrayLiteral("GetRoomsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getRoomsDone(replyObject);
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to get rooms info" << data;
+            addLoggerWarning(QByteArrayLiteral("GetRoomsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

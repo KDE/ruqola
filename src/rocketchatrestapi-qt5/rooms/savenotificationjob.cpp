@@ -57,10 +57,10 @@ void SaveNotificationJob::slotChangeNotificationFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: finished: ") + data);
+            addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT changeNotificationDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change notifications" << data;
+            addLoggerWarning(QByteArrayLiteral("SaveNotificationJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

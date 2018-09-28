@@ -58,10 +58,10 @@ void RoomFavoriteJob::slotChangeFavoriteFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Change favorite status done: " << data;
+            addLoggerInfo(QByteArrayLiteral("RoomFavoriteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT changeFavoriteDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to change favorite status" << data;
+            addLoggerWarning(QByteArrayLiteral("RoomFavoriteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();
