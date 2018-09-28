@@ -49,7 +49,7 @@ QQC2.Dialog {
 
     ColumnLayout {
         QQC2.Label {
-            text: i18n("Channel %1", roomId);
+            text: roomId === "" ? "" : i18n("Channel \'%1\' needs a password", roomId);
         }
 
         QQC2.Label {
@@ -58,6 +58,7 @@ QQC2.Dialog {
         QQC2.TextField {
             id: passwordField
             selectByMouse: true
+            echoMode: TextInput.Password
         }
     }
 
