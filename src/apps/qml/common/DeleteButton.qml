@@ -26,7 +26,7 @@ import org.kde.kirigami 2.4 as Kirigami
 
 Kirigami.Icon {
     id: deleteButton
-    source: "edit-delete"
+    source: "edit-delete-shred"
     signal deleteButtonClicked()
 
     //TODO customize size. Avoid to hardcode it.
