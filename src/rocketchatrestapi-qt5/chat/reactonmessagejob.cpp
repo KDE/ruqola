@@ -56,10 +56,10 @@ void ReactOnMessageJob::slotReactonMessageFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "React On Message is a success: " << data;
+            addLoggerInfo(QByteArrayLiteral("ReactOnMessageJob sucess: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT reactOnMessageDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to add react on message" << data;
+            addLoggerWarning(QByteArrayLiteral("ReactOnMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

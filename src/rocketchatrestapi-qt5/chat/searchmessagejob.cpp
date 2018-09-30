@@ -63,9 +63,8 @@ void SearchMessageJob::slotSearchMessageFinished()
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("SearchMessageJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT searchMessageDone(replyObject);
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Search message success: " << data;
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to search message";
+            addLoggerWarning(QByteArrayLiteral("SearchMessageJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();
