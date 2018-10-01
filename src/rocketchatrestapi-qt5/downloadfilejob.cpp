@@ -59,8 +59,7 @@ void DownloadFileJob::slotDownloadDone()
             addLoggerInfo("DownloadFileJob::slotDownloadDone finished");
             Q_EMIT downloadFileDone(data, reply->url(), mStoreInCache, mLocalFileUrl);
         } else {
-            addLoggerInfo(QByteArrayLiteral("DownloadFileJob problem: ") + data);
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unable to download " << reply->url();
+            addLoggerWarning(QByteArrayLiteral("DownloadFileJob problem: ") + data);
         }
     }
     deleteLater();
