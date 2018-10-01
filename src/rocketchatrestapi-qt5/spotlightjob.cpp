@@ -56,11 +56,11 @@ void SpotlightJob::slotSpotlightDone()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        addLoggerInfo(QByteArrayLiteral("SpotlightJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         if (replyObject[QStringLiteral("success")].toBool()) {
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << "SpotlightJob::slotSpotlightDone: success" << data;
+            addLoggerInfo(QByteArrayLiteral("SpotlightJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT spotlightDone(replyObject);
         } else {
+            addLoggerWarning(QByteArrayLiteral("SpotlightJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
             qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried calling spotlight method" << data;
         }
     }

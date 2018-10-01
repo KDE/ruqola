@@ -73,7 +73,7 @@ void GetPresenceJob::slotGetPresenceUserId()
             addLoggerInfo(QByteArrayLiteral("GetPresenceJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getPresenceDone(replyObject[QStringLiteral("presence")].toString());
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to get username suggestion" << data;
+            addLoggerWarning(QByteArrayLiteral("GetPresenceJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

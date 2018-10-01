@@ -68,7 +68,7 @@ void GetUsernameSuggestionJob::slotGetUsernameSuggestion()
             addLoggerInfo(QByteArrayLiteral("GetUsernameSuggestionJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getUsernameSuggestionDone(replyObject[QStringLiteral("result")].toString());
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried to get username suggestion" << data;
+            addLoggerWarning(QByteArrayLiteral("GetUsernameSuggestionJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

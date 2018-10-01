@@ -76,7 +76,7 @@ void ServerInfoJob::slotServerInfoFinished()
         const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
         versionStr = version.value(QStringLiteral("version")).toString();
         if (versionStr.isEmpty()) {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ServerInfoJob::slotServerInfoFinished Problem during parsing server version";
+            addLoggerWarning(QByteArrayLiteral("ServerInfoJob::slotServerInfoFinished: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     Q_EMIT serverInfoDone(versionStr);

@@ -113,7 +113,7 @@ void UploadFileJob::slotUploadFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (!replyObject.value(QLatin1String("success")).toBool()) {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RestApiRequest::parseUploadFile method had a problem " << replyJson;
+            addLoggerWarning(QByteArrayLiteral("UploadFileJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();
