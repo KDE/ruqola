@@ -38,6 +38,7 @@ QQC2.Dialog {
     height: 500
 
     modal: true
+    focus: true
     readonly property bool isCameraAvailable: QtMultimedia.availableCameras.length > 0
 
     Camera {

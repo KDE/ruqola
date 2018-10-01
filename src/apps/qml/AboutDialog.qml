@@ -42,7 +42,7 @@ QQC2.Dialog {
     width: Math.min(bar.contentWidth + Kirigami.Units.smallSpacing * 2, 500)
     height: 600
     modal: true
-
+    focus: true
     Item {
         id: contentRect
         anchors.fill: parent

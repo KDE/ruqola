@@ -34,6 +34,7 @@ QQC2.Dialog {
     standardButtons: QQC2.Dialog.Close
 
     modal: true
+    focus: true
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 

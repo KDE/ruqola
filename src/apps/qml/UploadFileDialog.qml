@@ -35,6 +35,7 @@ QQC2.Dialog {
     y: parent.height / 2 - height / 2
 
     modal: true
+    focus: true
 
     signal uploadFile(string description, string messageText, url filename)
 

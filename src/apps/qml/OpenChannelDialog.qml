@@ -36,7 +36,7 @@ QQC2.Dialog {
     y: parent.height / 2 - height / 2
 
     modal: true
-
+    focus: true
     Row {
         QQC2.Label {
             text: channelName === "" ? "" : i18n("Open \"%1\"?", channelName)

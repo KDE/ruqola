@@ -33,7 +33,7 @@ QQC2.Dialog {
     height: parent.height
 
     modal: true
-
+    focus: true
     standardButtons: QQC2.Dialog.Close
 
     function clearScaleAndOpen()

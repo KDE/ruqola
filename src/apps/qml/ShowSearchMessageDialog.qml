@@ -39,7 +39,7 @@ QQC2.Dialog {
     y: parent.height / 2 - height / 2
 
     modal: true
-
+    focus: true
     standardButtons: QQC2.Dialog.Close
 
     function initializeAndOpen()

@@ -41,7 +41,7 @@ QQC2.Dialog {
     y: parent.height / 2 - height / 2
 
     modal: true
-
+    focus: true
     function initializeAndOpen()
     {
         channelname.text = "";

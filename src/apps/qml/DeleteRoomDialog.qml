@@ -36,7 +36,7 @@ QQC2.Dialog {
     y: parent.height / 2 - height / 2
 
     modal: true
-
+    focus: true
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     Row {

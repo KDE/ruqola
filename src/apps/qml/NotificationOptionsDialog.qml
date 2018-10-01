@@ -38,6 +38,7 @@ QQC2.Dialog {
     signal modifyNotificationsSetting(string roomId, int type, var newVal)
     property string rid
     modal: true
+    focus: true
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
