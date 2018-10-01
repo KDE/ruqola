@@ -37,7 +37,6 @@ public:
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
-
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT bool canStart() const override;

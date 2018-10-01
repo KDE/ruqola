@@ -297,10 +297,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return lst;
     }
     case MessageModel::Ignored:
-    {
-        return (mRoom && mRoom->userIsIgnored(mAllMessages.at(idx).userId()));
-    }
-
+        return mRoom && mRoom->userIsIgnored(mAllMessages.at(idx).userId());
     }
     return QString();
 }

@@ -23,12 +23,10 @@
 EmoticonModel::EmoticonModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 EmoticonModel::~EmoticonModel()
 {
-
 }
 
 int EmoticonModel::rowCount(const QModelIndex &parent) const

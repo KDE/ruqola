@@ -677,7 +677,6 @@ void RestApiRequest::markMessageAsUnReadFrom(const QString &messageId)
     }
 }
 
-
 void RestApiRequest::getRooms()
 {
     GetRoomsJob *job = new GetRoomsJob(this);
@@ -720,7 +719,6 @@ void RestApiRequest::hideUnreadStatus(const QString &roomId, bool value)
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }
 }
-
 
 void RestApiRequest::audioNotifications(const QString &roomId, const QString &value)
 {
@@ -938,7 +936,6 @@ void RestApiRequest::fetchKeyChain()
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start fetch key chain job";
     }
 }
-
 
 void RestApiRequest::setJoinCodeChannel(const QString &roomId, const QString &joinCode)
 {

@@ -103,4 +103,3 @@ bool GetPresenceJob::requireHttpAuthentication() const
 {
     return true;
 }
-

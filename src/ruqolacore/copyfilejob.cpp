@@ -25,7 +25,6 @@
 CopyFileJob::CopyFileJob(QObject *parent)
     : KJob(parent)
 {
-
 }
 
 void CopyFileJob::start()

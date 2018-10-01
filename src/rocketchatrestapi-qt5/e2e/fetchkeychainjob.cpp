@@ -56,7 +56,7 @@ bool FetchKeyChainJob::start()
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &FetchKeyChainJob::slotFetchKeyChain);
-    addLoggerInfo("FetchKeyChainJob ask for presenceUserId: "/* + mPresenceUserId.toLatin1()*/);
+    addLoggerInfo("FetchKeyChainJob ask for presenceUserId: " /* + mPresenceUserId.toLatin1()*/);
 
     return true;
 }
@@ -104,4 +104,3 @@ bool FetchKeyChainJob::requireHttpAuthentication() const
 {
     return true;
 }
-

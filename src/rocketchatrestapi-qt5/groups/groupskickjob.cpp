@@ -66,7 +66,6 @@ void GroupsKickJob::slotKickUsersFinished()
     deleteLater();
 }
 
-
 bool GroupsKickJob::requireHttpAuthentication() const
 {
     return true;

@@ -112,7 +112,6 @@ void ReportMessageJob::setMessageId(const QString &messageId)
     mMessageId = messageId;
 }
 
-
 QJsonDocument ReportMessageJob::json() const
 {
     QJsonObject jsonObj;

@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef SYNTAXHIGHLIGHTINGMANAGER_H
 #define SYNTAXHIGHLIGHTINGMANAGER_H
 
@@ -46,7 +45,6 @@ private:
     mutable KSyntaxHighlighting::Repository mRepo;
     KSyntaxHighlighting::Definition mDef;
     bool mSyntaxHighlightingInitialized = false;
-
 };
 
 #endif // SYNTAXHIGHLIghTINGMANAGER_H

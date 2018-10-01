@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "syntaxhighlightingmanager.h"
 #include "ruqola_debug.h"
 

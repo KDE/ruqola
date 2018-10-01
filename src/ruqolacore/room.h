@@ -181,7 +181,6 @@ public:
     Q_REQUIRED_RESULT QString markdownAnnouncement() const;
     Q_REQUIRED_RESULT QString roomMessageInfo() const;
 
-
     Q_REQUIRED_RESULT QString e2EKey() const;
     void setE2EKey(const QString &e2EKey);
 

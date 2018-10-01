@@ -61,6 +61,4 @@ void UsersInfoJobTest::shouldGenerateRequestUsername()
     verifyAuthentication(&job, request);
     const QString identifier = QStringLiteral("avat");
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.info?username=foo1")));
-
 }
-

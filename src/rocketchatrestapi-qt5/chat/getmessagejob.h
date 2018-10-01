@@ -39,7 +39,6 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-
     Q_REQUIRED_RESULT bool canStart() const override;
 
     Q_REQUIRED_RESULT QString getMessageId() const;

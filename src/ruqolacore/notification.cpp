@@ -110,6 +110,7 @@ void Notification::updateUnityService(int unreadMessage)
     Q_UNUSED(unreadMessage);
 #endif
 }
+
 #ifdef UNITY_SUPPORT
 UnityServiceManager *Notification::unityServiceManager()
 {
@@ -118,4 +119,5 @@ UnityServiceManager *Notification::unityServiceManager()
     }
     return mUnityServiceManager;
 }
+
 #endif

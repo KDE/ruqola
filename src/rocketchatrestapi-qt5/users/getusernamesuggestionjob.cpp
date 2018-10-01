@@ -74,7 +74,6 @@ void GetUsernameSuggestionJob::slotGetUsernameSuggestion()
     deleteLater();
 }
 
-
 QNetworkRequest GetUsernameSuggestionJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion);
@@ -86,4 +85,3 @@ bool GetUsernameSuggestionJob::requireHttpAuthentication() const
 {
     return true;
 }
-

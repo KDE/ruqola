@@ -251,9 +251,9 @@ bool Message::operator==(const Message &other) const
            && (mAttachements == other.attachements())
            && (mMentions == other.mentions())
            && (mStarred == other.starred())
-            && (mRole == other.role())
-            && (mReactions == other.reactions())
-            && (mUnread == other.unread());
+           && (mRole == other.role())
+           && (mReactions == other.reactions())
+           && (mUnread == other.unread());
 }
 
 Message &Message::operator=(const Message &other)
@@ -604,7 +604,6 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.mRole.isEmpty()) {
         o[QStringLiteral("role")] = message.mRole;
     }
-
 
     o[QStringLiteral("type")] = message.mSystemMessageType;
     o[QStringLiteral("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));

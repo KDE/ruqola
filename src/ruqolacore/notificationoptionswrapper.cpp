@@ -23,19 +23,16 @@
 NotificationOptionsWrapper::NotificationOptionsWrapper(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 NotificationOptionsWrapper::NotificationOptionsWrapper(const NotificationOptions &notification, QObject *parent)
     : QObject(parent)
     , mNotificationOptions(notification)
 {
-
 }
 
 NotificationOptionsWrapper::~NotificationOptionsWrapper()
 {
-
 }
 
 bool NotificationOptionsWrapper::hideUnreadStatus() const

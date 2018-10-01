@@ -22,7 +22,6 @@
 
 Emoticon::Emoticon()
 {
-
 }
 
 QString Emoticon::name() const

@@ -24,10 +24,8 @@ using namespace RocketChatRestApi;
 
 AbstractLogger::AbstractLogger()
 {
-
 }
 
 AbstractLogger::~AbstractLogger()
 {
-
 }

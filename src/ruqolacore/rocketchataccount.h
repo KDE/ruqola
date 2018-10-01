@@ -175,7 +175,6 @@ public:
     Q_INVOKABLE void ignoreUser(const QString &rid, const QString &userId, bool ignore);
     Q_INVOKABLE ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
 
-
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
@@ -245,8 +244,6 @@ public:
     void initializeRoom(const QString &roomId, bool loadInitialHistory = true);
 
     void removeSettings();
-
-
 
 Q_SIGNALS:
     void connectedChanged();

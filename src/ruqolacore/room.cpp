@@ -656,7 +656,6 @@ void Room::parseCommonData(const QJsonObject &json)
     }
     setIgnoredUsers(lstIgnored);
 
-
     const QJsonArray rolesArray = json.value(QLatin1String("roles")).toArray();
     QStringList lstRoles;
     lstRoles.reserve(rolesArray.count());
@@ -664,7 +663,6 @@ void Room::parseCommonData(const QJsonObject &json)
         lstRoles << rolesArray.at(i).toString();
     }
     setRoles(lstRoles);
-
 }
 
 QString Room::e2eKeyId() const
@@ -747,7 +745,6 @@ Room *Room::fromJSon(const QJsonObject &o)
         lstIgnored <<ignoredArray.at(i).toString();
     }
     r->setIgnoredUsers(lstIgnored);
-
 
     const QJsonArray rolesArray = o.value(QLatin1String("roles")).toArray();
     QStringList lstRoles;

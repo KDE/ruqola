@@ -87,4 +87,3 @@ bool FetchMyKeysJob::requireHttpAuthentication() const
 {
     return true;
 }
-

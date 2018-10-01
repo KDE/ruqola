@@ -33,7 +33,6 @@
 #include "notificationoptionswrapper.h"
 #include "receivetypingnotificationmanager.h"
 
-
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
 #include "model/statusmodel.h"

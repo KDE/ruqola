@@ -697,7 +697,6 @@ ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationMa
     return mReceiveTypingNotificationManager;
 }
 
-
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)
 {
     const QVector<File> files = parseFilesInChannel(obj);

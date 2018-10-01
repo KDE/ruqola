@@ -66,7 +66,6 @@ void ChannelKickJob::slotKickUsersFinished()
     deleteLater();
 }
 
-
 bool ChannelKickJob::requireHttpAuthentication() const
 {
     return true;

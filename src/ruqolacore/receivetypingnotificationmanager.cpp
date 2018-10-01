@@ -23,12 +23,10 @@
 ReceiveTypingNotificationManager::ReceiveTypingNotificationManager(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 ReceiveTypingNotificationManager::~ReceiveTypingNotificationManager()
 {
-
 }
 
 void ReceiveTypingNotificationManager::insertTypingNotification(const QString &roomId, const QString &userName, bool onTyping)
