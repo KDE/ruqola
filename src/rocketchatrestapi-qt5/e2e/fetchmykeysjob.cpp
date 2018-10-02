@@ -67,7 +67,6 @@ void FetchMyKeysJob::slotFetchMyKeys()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("FetchMyKeysJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            //TODO
             Q_EMIT fetchMyKeysDone();
         } else {
             addLoggerWarning(QByteArrayLiteral("FetchMyKeysJob: success: ") + replyJson.toJson(QJsonDocument::Indented));

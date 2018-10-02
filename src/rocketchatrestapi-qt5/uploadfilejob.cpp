@@ -112,7 +112,9 @@ void UploadFileJob::slotUploadFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        if (!replyObject.value(QLatin1String("success")).toBool()) {
+        if (replyObject.value(QLatin1String("success")).toBool()) {
+            addLoggerInfo(QByteArrayLiteral("UploadFileJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        } else {
             addLoggerWarning(QByteArrayLiteral("UploadFileJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

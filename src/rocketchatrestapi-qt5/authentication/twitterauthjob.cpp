@@ -88,7 +88,7 @@ void TwitterAuthJob::slotTwitterauthDone()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success") && replyObject.contains(QLatin1String("data"))) {
-            QJsonObject data = replyObject[QStringLiteral("data")].toObject();
+            const QJsonObject data = replyObject[QStringLiteral("data")].toObject();
 
             if (data.contains(QLatin1String("authToken")) && data.contains(QLatin1String("userId"))) {
                 const QString authToken = data[QStringLiteral("authToken")].toString();
