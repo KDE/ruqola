@@ -84,7 +84,7 @@ void LoginJob::slotLoginDone()
                 Q_EMIT loginDone(authToken, userId);
             }
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Error during login" << data;
+            addLoggerWarning("Error during login" + data);
         }
     }
     deleteLater();

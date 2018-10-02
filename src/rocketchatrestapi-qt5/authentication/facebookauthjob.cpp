@@ -88,7 +88,7 @@ void FacebookAuthJob::slotFacebookauthDone()
                 Q_EMIT facebookDone(authToken, userId);
             }
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Error during login" << data;
+            addLoggerWarning("Error during login" + data);
         }
     }
     deleteLater();

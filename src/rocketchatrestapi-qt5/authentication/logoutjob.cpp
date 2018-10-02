@@ -62,7 +62,7 @@ void LogoutJob::slotLogout()
             qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
             Q_EMIT logoutDone();
         } else {
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we try to logout";
+            addLoggerWarning("Error during to logout" + data);
         }
 
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
