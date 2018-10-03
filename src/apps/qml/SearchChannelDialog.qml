@@ -32,7 +32,7 @@ QQC2.Dialog {
 
     property QtObject searchChannelModel
     signal searchChannel(string pattern)
-    signal openChannel(string channelname, var channeltype)
+    signal openChannel(string channelname, string channelid, var channeltype)
 
     title: i18n("Search Channel")
     standardButtons: QQC2.Dialog.Close
@@ -44,13 +44,13 @@ QQC2.Dialog {
     focus: true
     function initializeAndOpen()
     {
-        channelname.text = "";
+        channelnametext.text = "";
         open();
     }
 
     ColumnLayout {
         QQC2.TextField {
-            id: channelname
+            id: channelnametext
             selectByMouse: true
             focus: true
             Layout.minimumHeight: Layout.maximumHeight
@@ -58,7 +58,7 @@ QQC2.Dialog {
             Layout.fillWidth: true
             placeholderText: i18n("Search Channel...")
             onTextChanged: {
-                searchChannelDialog.searchChannel(channelname.text)
+                searchChannelDialog.searchChannel(channelnametext.text)
             }
         }
         ListView {
@@ -78,7 +78,7 @@ QQC2.Dialog {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            searchChannelDialog.openChannel(channelid, channeltype)
+                            searchChannelDialog.openChannel(channelname, channelid, channeltype)
                         }
                     }
                 }

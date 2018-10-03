@@ -215,13 +215,13 @@ Kirigami.ApplicationWindow {
         }
         onOpenChannel: {
             if (channeltype === Channel.Room) {
-                rocketChatAccount.openChannel(channelname)
+                rocketChatAccount.openChannel(channelid)
             } else if (channeltype === Channel.PrivateChannel) {
-                if (rocketChatAccount.userName !== channelname) {
-                    rocketChatAccount.openDirectChannel(channelname)
+                if (rocketChatAccount.userName !== channelid) {
+                    rocketChatAccount.openDirectChannel(channelid)
                 }
             } else {
-                console.log(RuqolaDebugCategorySingleton.category, "Unknown open channel type : "  + channeltype + " name : "  + channelname)
+                console.log(RuqolaDebugCategorySingleton.category, "Unknown open channel type : "  + channeltype + " channelid : "  + channelid + " channelname : "  + channelname)
             }
         }
     }
