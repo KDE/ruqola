@@ -48,6 +48,7 @@ public:
 Q_SIGNALS:
     void setChannelJoinDone(const QString &roomId);
     void missingChannelPassword(const QString &roomId);
+    void openArchivedRoom(const QString &roomId);
 
 private:
     Q_DISABLE_COPY(ChannelJoinJob)

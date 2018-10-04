@@ -147,6 +147,7 @@ Q_SIGNALS:
     void setJoinCodeDone();
     void setChannelJoinDone(const QString &roomId);
     void missingChannelPassword(const QString &roomId);
+    void openArchivedRoom(const QString &roomId);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

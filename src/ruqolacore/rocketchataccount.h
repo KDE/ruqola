@@ -276,6 +276,7 @@ private:
     void setDefaultAuthentication(AuthenticationManager::OauthType type);
     void userStatusChanged(const User &user);
     void setChannelJoinDone(const QString &roomId);
+    void openArchivedRoom(const QString &roomId);
 
     QVector<File> parseFilesInChannel(const QJsonObject &obj);
 

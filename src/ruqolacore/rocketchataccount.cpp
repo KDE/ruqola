@@ -346,6 +346,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         mRestApi = new RocketChatRestApi::RestApiRequest(this);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::setChannelJoinDone, this, &RocketChatAccount::setChannelJoinDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::missingChannelPassword, this, &RocketChatAccount::missingChannelPassword);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::openArchivedRoom, this, &RocketChatAccount::openArchivedRoom);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -477,6 +478,11 @@ void RocketChatAccount::openChannel(const QString &url)
 void RocketChatAccount::setChannelJoinDone(const QString &roomId)
 {
     ddp()->subscribeRoomMessage(roomId);
+}
+
+void RocketChatAccount::openArchivedRoom(const QString &roomId)
+{
+    //TODO
 }
 
 void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
