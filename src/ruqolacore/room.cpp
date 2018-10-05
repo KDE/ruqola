@@ -672,7 +672,10 @@ QString Room::e2eKeyId() const
 
 void Room::setE2eKeyId(const QString &e2eKeyId)
 {
-    mE2eKeyId = e2eKeyId;
+    if (mE2eKeyId != e2eKeyId) {
+        mE2eKeyId = e2eKeyId;
+        Q_EMIT encryptionKeyIdChanged();
+    }
 }
 
 QString Room::e2EKey() const
