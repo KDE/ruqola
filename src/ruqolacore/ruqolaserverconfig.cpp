@@ -101,7 +101,7 @@ bool RuqolaServerConfig::needAdaptNewSubscriptionRC60() const
     return mNeedAdaptNewSubscriptionRC60;
 }
 
-bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch)
+bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch) const
 {
     return (major <= mServerVersionMajor) && (minor <= mServerVersionMinor) && (patch <= mServerVersionPatch);
 }
@@ -185,6 +185,10 @@ void RuqolaServerConfig::adaptToServerVersion()
 
 bool RuqolaServerConfig::encryptionEnabled() const
 {
+    //TODO verify
+    if (!hasAtLeastVersion(0,7,0)) {
+        return false;
+    }
     return mEncryptionEnabled;
 }
 

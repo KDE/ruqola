@@ -72,7 +72,7 @@ public:
     Q_REQUIRED_RESULT QString siteName() const;
     void setSiteName(const QString &siteName);
 
-    Q_REQUIRED_RESULT bool hasAtLeastVersion(int major, int minor, int patch);
+    Q_REQUIRED_RESULT bool hasAtLeastVersion(int major, int minor, int patch) const;
 
     Q_REQUIRED_RESULT bool encryptionEnabled() const;
     void setEncryptionEnabled(bool encryptionEnabled);
@@ -95,7 +95,7 @@ private:
     bool mAllowEditingMessage = true;
     bool mOtrEnabled = true;
     bool mNeedAdaptNewSubscriptionRC60 = false;
-    bool mEncryptionEnabled = true;
+    bool mEncryptionEnabled = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H
