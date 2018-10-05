@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADDKEYTOCHAINJOB_H
-#define ADDKEYTOCHAINJOB_H
+#ifndef SETUSERPUBLICANDPRIVATEKEYSJOB_H
+#define SETUSERPUBLICANDPRIVATEKEYSJOB_H
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT AddKeyToChainJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SetUserPublicAndPrivateKeysJob : public RestApiAbstractJob
 {
     Q_OBJECT
 
     //Since rocketchat 0.70
 public:
-    explicit AddKeyToChainJob(QObject *parent = nullptr);
-    ~AddKeyToChainJob() override;
+    explicit SetUserPublicAndPrivateKeysJob(QObject *parent = nullptr);
+    ~SetUserPublicAndPrivateKeysJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -50,10 +50,10 @@ Q_SIGNALS:
     void addKeyToChainDone();
 
 private:
-    Q_DISABLE_COPY(AddKeyToChainJob)
+    Q_DISABLE_COPY(SetUserPublicAndPrivateKeysJob)
     void slotAddKeyToChainFinished();
     QString mRsaPublicKey;
     QString mRsaPrivateKey;
 };
 }
-#endif // ADDKEYTOCHAINJOB_H
+#endif // SETUSERPUBLICANDPRIVATEKEYSJOB_H

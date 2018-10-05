@@ -90,7 +90,6 @@
 
 #include "commands/listcommandsjob.h"
 
-#include "e2e/fetchkeychainjob.h"
 #include "e2e/fetchmykeysjob.h"
 
 #include <QNetworkAccessManager>
@@ -924,16 +923,6 @@ void RestApiRequest::fetchMyKeys()
     connect(job, &FetchMyKeysJob::fetchMyKeysDone, this, &RestApiRequest::fetchMyKeysDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start fetchmykeys job";
-    }
-}
-
-void RestApiRequest::fetchKeyChain()
-{
-    FetchKeyChainJob *job = new FetchKeyChainJob(this);
-    initializeRestApiJob(job);
-    connect(job, &FetchKeyChainJob::fetchKeyChainDone, this, &RestApiRequest::fetchKeyChainDone);
-    if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start fetch key chain job";
     }
 }
 

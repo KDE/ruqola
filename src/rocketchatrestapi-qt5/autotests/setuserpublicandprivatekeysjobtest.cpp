@@ -18,49 +18,49 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "addkeytochainjobtest.h"
-#include "e2e/addkeytochainjob.h"
+#include "setuserpublicandprivatekeysjobtest.h"
+#include "e2e/setuserpublicandprivatekeysjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <QJsonDocument>
-QTEST_GUILESS_MAIN(AddKeyToChainJobTest)
+QTEST_GUILESS_MAIN(SetUserPublicAndPrivateKeysJobTest)
 using namespace RocketChatRestApi;
-AddKeyToChainJobTest::AddKeyToChainJobTest(QObject *parent)
+SetUserPublicAndPrivateKeysJobTest::SetUserPublicAndPrivateKeysJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void AddKeyToChainJobTest::shouldHaveDefaultValue()
+void SetUserPublicAndPrivateKeysJobTest::shouldHaveDefaultValue()
 {
-    AddKeyToChainJob job;
+    SetUserPublicAndPrivateKeysJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.rsaPrivateKey().isEmpty());
     QVERIFY(job.rsaPublicKey().isEmpty());
 }
 
-void AddKeyToChainJobTest::shouldGenerateRequest()
+void SetUserPublicAndPrivateKeysJobTest::shouldGenerateRequest()
 {
-    AddKeyToChainJob job;
+    SetUserPublicAndPrivateKeysJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.favorite")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.setUserPublicAndPivateKeys")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void AddKeyToChainJobTest::shouldGenerateJson()
+void SetUserPublicAndPrivateKeysJobTest::shouldGenerateJson()
 {
-    AddKeyToChainJob job;
+    SetUserPublicAndPrivateKeysJob job;
     const QString rsapublic = QStringLiteral("foo1");
     job.setRsaPublicKey(rsapublic);
     const QString rsaprivate = QStringLiteral("private");
     job.setRsaPrivateKey(rsaprivate);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"favorite\":true,\"roomId\":\"%1\" %2}").arg(rsapublic).arg(rsaprivate).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"private_key\":\"%2\",\"public_key\":\"%1\"}").arg(rsapublic).arg(rsaprivate).toLatin1());
 }
 
-void AddKeyToChainJobTest::shouldNotStarting()
+void SetUserPublicAndPrivateKeysJobTest::shouldNotStarting()
 {
-    AddKeyToChainJob job;
+    SetUserPublicAndPrivateKeysJob job;
 
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));

@@ -118,7 +118,6 @@ public:
     void listPermissions();
     void listCommands();
     void fetchMyKeys();
-    void fetchKeyChain();
     void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
     void channelJoin(const QString &roomId, const QString &joinCode);
 Q_SIGNALS:
@@ -143,7 +142,6 @@ Q_SIGNALS:
     void listPermissionDone(const QJsonObject &obj);
     void listCommandsDone(const QJsonObject &obj);
     void fetchMyKeysDone();
-    void fetchKeyChainDone();
     void setJoinCodeDone();
     void setChannelJoinDone(const QString &roomId);
     void missingChannelPassword(const QString &roomId);

@@ -18,17 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ADDKEYTOCHAINJOBTEST_H
-#define ADDKEYTOCHAINJOBTEST_H
+#ifndef SETUSERPUBLICANDPRIVATEKEYSJOBTEST_H
+#define SETUSERPUBLICANDPRIVATEKEYSJOBTEST_H
 
 #include <QObject>
 
-class AddKeyToChainJobTest : public QObject
+class SetUserPublicAndPrivateKeysJobTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit AddKeyToChainJobTest(QObject *parent = nullptr);
-    ~AddKeyToChainJobTest() = default;
+    explicit SetUserPublicAndPrivateKeysJobTest(QObject *parent = nullptr);
+    ~SetUserPublicAndPrivateKeysJobTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
@@ -36,4 +36,4 @@ private Q_SLOTS:
     void shouldNotStarting();
 };
 
-#endif // ADDKEYTOCHAINJOBTEST_H
+#endif // SETUSERPUBLICANDPRIVATEKEYSJOBTEST_H

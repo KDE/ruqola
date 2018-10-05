@@ -256,14 +256,17 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::CommandsList:
         return QStringLiteral("commands.list");
 
-    case RestApiUtil::RestApiUrlType::E2EfetchKeychain:
-        return QStringLiteral("e2e.fetchKeychain");
     case RestApiUtil::RestApiUrlType::E2EfetchMyKeys:
         return QStringLiteral("e2e.fetchMyKeys");
-    case RestApiUtil::RestApiUrlType::E2EaddKeyToChain:
-        return QStringLiteral("e2e.addKeyToChain");
-    case RestApiUtil::RestApiUrlType::E2EupdateGroupE2EKey:
+    case RestApiUtil::RestApiUrlType::E2EupdateGroupKey:
         return QStringLiteral("e2e.updateGroupE2EKey");
+
+    case RestApiUtil::RestApiUrlType::E2ESetRoomKeyID:
+        return QStringLiteral("e2e.setRoomKeyID");
+    case RestApiUtil::RestApiUrlType::E2ESetUserPublicAndPrivateKeys:
+        return QStringLiteral("e2e.setUserPublicAndPivateKeys");
+    case RestApiUtil::RestApiUrlType::E2EGetUsersOfRoomWithoutKey:
+        return QStringLiteral("e2e.getUsersOfRoomWithoutKey");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

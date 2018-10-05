@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "addkeytochainjob.h"
+#include "setuserpublicandprivatekeysjob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
@@ -26,29 +26,29 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-AddKeyToChainJob::AddKeyToChainJob(QObject *parent)
+SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-AddKeyToChainJob::~AddKeyToChainJob()
+SetUserPublicAndPrivateKeysJob::~SetUserPublicAndPrivateKeysJob()
 {
 }
 
-bool AddKeyToChainJob::start()
+bool SetUserPublicAndPrivateKeysJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("AddKeyToChainJob::start: " + baPostData);
+    addLoggerInfo("SetUserPublicAndPrivateKeysJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &AddKeyToChainJob::slotAddKeyToChainFinished);
+    connect(reply, &QNetworkReply::finished, this, &SetUserPublicAndPrivateKeysJob::slotAddKeyToChainFinished);
     return true;
 }
 
-void AddKeyToChainJob::slotAddKeyToChainFinished()
+void SetUserPublicAndPrivateKeysJob::slotAddKeyToChainFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -57,60 +57,60 @@ void AddKeyToChainJob::slotAddKeyToChainFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("AddKeyToChainJob: sucess: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("SetUserPublicAndPrivateKeysJob: sucess: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT addKeyToChainDone();
         } else {
-            addLoggerWarning(QByteArrayLiteral("AddKeyToChainJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("SetUserPublicAndPrivateKeysJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();
 }
 
-QString AddKeyToChainJob::rsaPrivateKey() const
+QString SetUserPublicAndPrivateKeysJob::rsaPrivateKey() const
 {
     return mRsaPrivateKey;
 }
 
-void AddKeyToChainJob::setRsaPrivateKey(const QString &rsaPrivateKey)
+void SetUserPublicAndPrivateKeysJob::setRsaPrivateKey(const QString &rsaPrivateKey)
 {
     mRsaPrivateKey = rsaPrivateKey;
 }
 
-QString AddKeyToChainJob::rsaPublicKey() const
+QString SetUserPublicAndPrivateKeysJob::rsaPublicKey() const
 {
     return mRsaPublicKey;
 }
 
-void AddKeyToChainJob::setRsaPublicKey(const QString &rsaPublicKey)
+void SetUserPublicAndPrivateKeysJob::setRsaPublicKey(const QString &rsaPublicKey)
 {
     mRsaPublicKey = rsaPublicKey;
 }
 
-bool AddKeyToChainJob::requireHttpAuthentication() const
+bool SetUserPublicAndPrivateKeysJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool AddKeyToChainJob::canStart() const
+bool SetUserPublicAndPrivateKeysJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start AddKeyToChainJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetUserPublicAndPrivateKeysJob";
         return false;
     }
     if (mRsaPrivateKey.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "AddKeyToChainJob: private key is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetUserPublicAndPrivateKeysJob: private key is empty";
         return false;
     }
     if (mRsaPublicKey.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "AddKeyToChainJob: public key is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetUserPublicAndPrivateKeysJob: public key is empty";
         return false;
     }
     return true;
 }
 
-QNetworkRequest AddKeyToChainJob::request() const
+QNetworkRequest SetUserPublicAndPrivateKeysJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsFavorite);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2ESetUserPublicAndPrivateKeys);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
@@ -119,11 +119,11 @@ QNetworkRequest AddKeyToChainJob::request() const
     return request;
 }
 
-QJsonDocument AddKeyToChainJob::json() const
+QJsonDocument SetUserPublicAndPrivateKeysJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("RSAPubKey")] = mRsaPublicKey;
-    jsonObj[QLatin1String("RSAEPrivKey")] = mRsaPrivateKey;
+    jsonObj[QLatin1String("public_key")] = mRsaPublicKey;
+    jsonObj[QLatin1String("private_key")] = mRsaPrivateKey;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
