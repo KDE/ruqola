@@ -59,6 +59,8 @@ QQC2.Dialog {
         deleteButton.visible = !enabledField
         labelRoomType.visible = !enabledField
         roomType.visible = !enabledField
+        labelEncrypted.visible = !enabledField
+        encrypted.visible = !enabledField
         open();
     }
 
@@ -152,6 +154,19 @@ QQC2.Dialog {
             checked: roomInfo === null ? false : roomInfo.channelType === "p"
             onClicked: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.RoomType, checked, roomInfo.channelType)
+            }
+        }
+
+        //TODO hide it if we don't have this support
+        QQC2.Label {
+            id: labelEncrypted
+            text: i18n("Encrypted:")
+        }
+        QQC2.Switch {
+            id: encrypted
+            //checked: roomInfo === null ? false : roomInfo.channelType === "p"
+            onClicked: {
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Encrypted, checked, roomInfo.channelType)
             }
         }
 
