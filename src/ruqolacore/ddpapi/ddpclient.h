@@ -182,6 +182,7 @@ public:
     Q_REQUIRED_RESULT quint64  deleteFileMessage(const QString &roomId, const QString &fileid, const QString &channelType);
     Q_REQUIRED_RESULT quint64  setRoomType(const QString &roomId, bool privateChannel);
     Q_REQUIRED_RESULT quint64  ignoreUser(const QString &roomId, const QString &userId, bool ignore);
+    Q_REQUIRED_RESULT quint64 setRoomEncrypted(const QString &roomId, bool encrypted);
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();

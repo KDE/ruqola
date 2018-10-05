@@ -376,6 +376,12 @@ quint64 DDPClient::setRoomType(const QString &roomId, bool privateChannel)
     return method(result, change_room_settings, DDPClient::Persistent);
 }
 
+quint64 DDPClient::setRoomEncrypted(const QString &roomId, bool encrypted)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setRoomEncrypted(roomId, encrypted, m_uid);
+    return method(result, change_room_settings, DDPClient::Persistent);
+}
+
 
 quint64 DDPClient::setRoomDescription(const QString &roomId, const QString &description)
 {

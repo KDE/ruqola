@@ -61,6 +61,7 @@ public:
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult setRoomJoinCode(const QString &roomId, const QString &joinCode, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult setRoomTopic(const QString &roomId, const QString &topic, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult setRoomDescription(const QString &roomId, const QString &description, quint64 id);
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult setRoomEncrypted(const QString &roomId, bool encrypted, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult readMessages(const QString &roomID, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult joinRoom(const QString &roomId, const QString &accessCode, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id);

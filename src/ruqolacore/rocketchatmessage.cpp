@@ -184,6 +184,11 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomTopic(const
     return saveRoomSettings(QStringLiteral("roomTopic"), roomId, topic, id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomEncrypted(const QString &roomId, bool encrypted, quint64 id)
+{
+    return saveRoomSettings(QStringLiteral("encrypted"), roomId, encrypted, id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomDescription(const QString &roomId, const QString &description, quint64 id)
 {
     return saveRoomSettings(QStringLiteral("roomDescription"), roomId, description, id);

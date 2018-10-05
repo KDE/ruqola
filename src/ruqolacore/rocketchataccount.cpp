@@ -843,7 +843,8 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         ddp()->setRoomType(roomId, newValue.toBool());
         break;
     case Encrypted:
-        //TODOddp()->setRoomType(roomId, newValue.toBool());
+        //TODO use restApi when there is some api
+        ddp()->setRoomEncrypted(roomId, newValue.toBool());
         break;
     }
 }
