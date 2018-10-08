@@ -37,12 +37,16 @@ QQC2.Dialog {
 
     modal: true
     focus: true
+    property bool encryptedRoomEnabled
     function initializeAndOpen()
     {
         channelName.text = "";
         userList.text = "";
         readOnlyRoom.checked = false
         privateRoom.checked = false
+        encryptedRoom.checked = false
+        encryptedRoom.visible = encryptedRoomEnabled
+        encryptedLabelRoom.visible = encryptedRoomEnabled
         open()
     }
 
@@ -79,6 +83,14 @@ QQC2.Dialog {
         }
         QQC2.Switch {
             id: privateRoom
+            checked: false
+        }
+        QQC2.Label {
+            id: encryptedLabelRoom
+            text: i18n("Encrypted:");
+        }
+        QQC2.Switch {
+            id: encryptedRoom
             checked: false
         }
     }

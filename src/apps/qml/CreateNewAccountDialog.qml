@@ -24,7 +24,7 @@ import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import KDE.Ruqola.DebugCategory 1.0
 QQC2.Dialog {
-    id: createNewChannelDialog
+    id: createNewAccountDialog
 
     signal createNewAccount(string accountName, string serverUrl, string username)
 
@@ -78,6 +78,6 @@ QQC2.Dialog {
         }
     }
     onAccepted: {
-        createNewChannelDialog.createNewAccount(accountName.text, server.text, usernameField.text)
+        createNewAccountDialog.createNewAccount(accountName.text, server.text, usernameField.text)
     }
 }

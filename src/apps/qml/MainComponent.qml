@@ -136,6 +136,7 @@ Component {
                         QQC2.MenuItem {
                             text: i18n("Create New Channel")
                             onTriggered: {
+                                createNewChannelDialog.encryptedRoomEnabled = appid.rocketChatAccount.encryptedEnabled()
                                 createNewChannelDialog.initializeAndOpen()
                             }
                         }
