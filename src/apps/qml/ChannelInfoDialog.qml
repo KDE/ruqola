@@ -59,8 +59,8 @@ QQC2.Dialog {
         deleteButton.visible = !enabledField
         labelRoomType.visible = !enabledField
         roomType.visible = !enabledField
-        labelEncrypted.visible = !enabledField
-        encrypted.visible = !enabledField
+        labelEncrypted.visible = !enabledField && roomInfo.encryptedEnabled
+        encrypted.visible = !enabledField && roomInfo.encryptedEnabled
         open();
     }
 
