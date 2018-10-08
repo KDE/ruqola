@@ -150,6 +150,7 @@ public:
     QString description() const;
     void setDescription(const QString &description);
 
+    Q_REQUIRED_RESULT bool encryptedEnabled() const;
     Q_REQUIRED_RESULT bool canBeModify() const;
     Q_REQUIRED_RESULT NotificationOptions notificationOptions() const;
     void setNotificationOptions(const NotificationOptions &notificationOptions);

@@ -146,10 +146,10 @@ public:
 
     Q_INVOKABLE StatusModel *statusModel() const;
 
-    Q_INVOKABLE QUrl attachmentUrl(const QString &url);
+    Q_INVOKABLE Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
     Q_INVOKABLE void loadHistory(const QString &roomID, const QString &channelType = QString(), bool initial = false);
-    Q_INVOKABLE bool allowEditingMessages() const;
-    Q_INVOKABLE bool otrEnabled() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT bool allowEditingMessages() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT bool otrEnabled() const;
     Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
     Q_INVOKABLE UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
     Q_INVOKABLE void roomFiles(const QString &roomId, const QString &channelType = QString());
@@ -175,6 +175,8 @@ public:
     Q_INVOKABLE void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
     Q_INVOKABLE void ignoreUser(const QString &rid, const QString &userId, bool ignore);
     Q_INVOKABLE ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT bool encryptedEnabled() const;
+
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;

@@ -1165,6 +1165,12 @@ bool RocketChatAccount::otrEnabled() const
     return mRuqolaServerConfig->otrEnabled();
 }
 
+bool RocketChatAccount::encryptedEnabled() const
+{
+    return mRuqolaServerConfig->encryptionEnabled();
+}
+
+
 bool RocketChatAccount::allowEditingMessages() const
 {
     return mRuqolaServerConfig->allowMessageEditing();

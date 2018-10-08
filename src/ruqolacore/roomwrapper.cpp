@@ -137,3 +137,8 @@ QString RoomWrapper::roomMessageInfo() const
 {
     return mRoom->roomMessageInfo();
 }
+
+bool RoomWrapper::encryptedEnabled() const
+{
+    return mRoom->encryptedEnabled();
+}

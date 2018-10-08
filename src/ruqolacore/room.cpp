@@ -904,6 +904,14 @@ void Room::setDescription(const QString &description)
     }
 }
 
+bool Room::encryptedEnabled() const
+{
+    if (mRocketChatAccount) {
+        return mRocketChatAccount->encryptedEnabled();
+    }
+    return false;
+}
+
 bool Room::userIsIgnored(const QString &userId)
 {
     return mIgnoredUsers.contains(userId);
