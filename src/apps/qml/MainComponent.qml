@@ -50,24 +50,32 @@ Component {
         bottomPadding: Kirigami.Units.smallSpacing
         actions {
             contextualActions: [
-            Kirigami.Action {
-                id: editAction
-                iconName: "list-add"
-                text: i18n("Open room");
-                onTriggered: {
-                    searchChannelDialog.initializeAndOpen();
+                Kirigami.Action {
+                    id: editAction
+                    iconName: "list-add"
+                    text: i18n("Open room");
+                    onTriggered: {
+                        searchChannelDialog.initializeAndOpen();
+                    }
+                },
+                Kirigami.Action {
+                    iconName: "edit-symbolic"
+                    text: i18n("Edit room");
+                    checkable: true
+                    onToggled: {
+                        roomsList.editingMode = checked
+                        // do stuff
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Create New Channel")
+                    onTriggered: {
+                        createNewChannelDialog.encryptedRoomEnabled = appid.rocketChatAccount.encryptedEnabled()
+                        createNewChannelDialog.initializeAndOpen()
+                    }
                 }
-            },
-            Kirigami.Action {
-                iconName: "edit-symbolic"
-                text: i18n("Edit room");
-                checkable: true
-                onToggled: {
-                    roomsList.editingMode = checked
-                    // do stuff
-                }
-            }
-        ]
+
+            ]
         }
 
         header: Column {
@@ -133,15 +141,6 @@ Component {
                         id: menu
                         y: parent.height
 
-                        QQC2.MenuItem {
-                            text: i18n("Create New Channel")
-                            onTriggered: {
-                                createNewChannelDialog.encryptedRoomEnabled = appid.rocketChatAccount.encryptedEnabled()
-                                createNewChannelDialog.initializeAndOpen()
-                            }
-                        }
-                        RuqolaMenuSeparator {
-                        }
                         QQC2.MenuItem {
                             text: i18n("Channel Info")
                             onTriggered: {
@@ -395,6 +394,12 @@ Component {
                 }
                 onDeleteFile: {
                     appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileid, appid.selectedRoom.channelType)
+                }
+            }
+            CreateNewChannelDialog {
+                id: createNewChannelDialog
+                onCreateNewChannel: {
+                    rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames, encryptedRoom);
                 }
             }
         }
