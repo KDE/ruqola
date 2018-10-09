@@ -123,7 +123,7 @@ public:
     Q_INVOKABLE void updateMessage(const QString &roomID, const QString &messageId, const QString &message);
     Q_INVOKABLE void openChannel(const QString &url);
     Q_INVOKABLE void joinJitsiConfCall(const QString &roomId);
-    Q_INVOKABLE void createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames);
+    Q_INVOKABLE void createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom);
     Q_INVOKABLE void joinRoom(const QString &roomId, const QString &joinCode = QString());
     Q_INVOKABLE void openDirectChannel(const QString &username);
     Q_INVOKABLE void listEmojiCustom();

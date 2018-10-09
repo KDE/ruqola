@@ -174,7 +174,7 @@ Kirigami.ApplicationWindow {
     CreateNewChannelDialog {
         id: createNewChannelDialog
         onCreateNewChannel: {
-            rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames);
+            rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames, encryptedRoom);
         }
     }
 
