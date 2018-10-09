@@ -108,6 +108,7 @@ bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch) cons
 
 void RuqolaServerConfig::setServerVersion(const QString &version)
 {
+    mServerVersionStr = version;
     const QStringList lst = version.split(QLatin1Char('.'));
     //0.70.0-rc.1 has 4 "."
     if (lst.count() >= 3) {
@@ -181,6 +182,11 @@ void RuqolaServerConfig::addOauthService(const QString &service)
 void RuqolaServerConfig::adaptToServerVersion()
 {
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor == 0) && (mServerVersionMinor >= 60);
+}
+
+QString RuqolaServerConfig::serverVersionStr() const
+{
+    return mServerVersionStr;
 }
 
 bool RuqolaServerConfig::encryptionEnabled() const

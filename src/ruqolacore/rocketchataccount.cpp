@@ -1171,6 +1171,11 @@ bool RocketChatAccount::encryptedEnabled() const
     return mRuqolaServerConfig->encryptionEnabled();
 }
 
+QString RocketChatAccount::serverVersionStr() const
+{
+    return mRuqolaServerConfig->serverVersionStr();
+}
+
 
 bool RocketChatAccount::allowEditingMessages() const
 {

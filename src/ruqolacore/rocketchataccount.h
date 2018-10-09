@@ -176,6 +176,7 @@ public:
     Q_INVOKABLE void ignoreUser(const QString &rid, const QString &userId, bool ignore);
     Q_INVOKABLE ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
     Q_INVOKABLE Q_REQUIRED_RESULT bool encryptedEnabled() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT QString serverVersionStr() const;
 
 
     SearchChannelModel *searchChannelModel() const;

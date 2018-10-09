@@ -77,6 +77,7 @@ public:
     Q_REQUIRED_RESULT bool encryptionEnabled() const;
     void setEncryptionEnabled(bool encryptionEnabled);
 
+    Q_REQUIRED_RESULT QString serverVersionStr() const;
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -85,6 +86,7 @@ private:
     QString mFileUploadStorageType;
     QString mSiteUrl;
     QString mSiteName;
+    QString mServerVersionStr;
     AuthenticationManager::OauthTypes mServerOauthTypes = AuthenticationManager::OauthType::Password;
     AuthenticationManager::OauthTypes mRuqolaOauthTypes = AuthenticationManager::OauthType::Password;
     int mBlockEditingMessageInMinutes = 5;

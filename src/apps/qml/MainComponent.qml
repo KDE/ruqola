@@ -73,6 +73,13 @@ Component {
                         createNewChannelDialog.encryptedRoomEnabled = appid.rocketChatAccount.encryptedEnabled()
                         createNewChannelDialog.initializeAndOpen()
                     }
+                },
+                Kirigami.Action {
+                    text: i18n("Server Info")
+                    onTriggered: {
+                        serverinfodialog.serverversion = appid.rocketChatAccount.serverVersionStr()
+                        serverinfodialog.open();
+                    }
                 }
 
             ]
@@ -401,6 +408,9 @@ Component {
                 onCreateNewChannel: {
                     rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames, encryptedRoom);
                 }
+            }
+            ServerInfoDialog {
+                id: serverinfodialog
             }
         }
 
