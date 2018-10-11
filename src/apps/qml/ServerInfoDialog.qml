@@ -35,8 +35,7 @@ QQC2.Dialog {
     focus: true
     Row {
         QQC2.Label {
-            //TODO add version
-            text: i18n("Server version: %1", serverversion)
+            text: serverversion == "" ? "" : i18n("Server version: %1", serverversion)
             font.bold: true
             font.pointSize: 15
         }
