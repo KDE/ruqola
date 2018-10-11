@@ -104,6 +104,8 @@ set (Ruqola_core_srcs
     emoticon.cpp
 
     receivetypingnotificationmanager.cpp
+
+    serverconfiginfo.cpp
 )
 
 if (NOT WIN32)
