@@ -21,12 +21,14 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
+import KDE.Ruqola.RocketChatAccount 1.0
+import KDE.Ruqola.ServerConfigInfo 1.0
 
 QQC2.Dialog {
     id: serverinfodialog
     title: i18n("Server Info")
     standardButtons: QQC2.Dialog.Close
-    property string serverversion: ""
+    property QtObject rcAccount
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
@@ -35,7 +37,7 @@ QQC2.Dialog {
     focus: true
     Row {
         QQC2.Label {
-            text: serverversion == "" ? "" : i18n("Server version: %1", serverversion)
+            text: rcAccount ? i18n("Server version: %1", rcAccount.serverConfigInfo().serverVersionStr) : ""
             font.bold: true
             font.pointSize: 15
         }

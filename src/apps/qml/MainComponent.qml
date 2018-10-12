@@ -77,7 +77,7 @@ Component {
                 Kirigami.Action {
                     text: i18n("Server Info")
                     onTriggered: {
-                        serverinfodialog.serverversion = appid.rocketChatAccount.serverVersionStr()
+                        serverinfodialog.rcAccount = appid.rocketChatAccount
                         serverinfodialog.open();
                     }
                 }
