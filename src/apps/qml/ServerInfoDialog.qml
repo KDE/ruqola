@@ -19,6 +19,7 @@
 */
 
 import QtQuick 2.9
+import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Window 2.0
 import KDE.Ruqola.RocketChatAccount 1.0
@@ -35,10 +36,17 @@ QQC2.Dialog {
 
     modal: true
     focus: true
-    Row {
+    ColumnLayout {
+        QQC2.Label {
+            text: rcAccount ? i18n("Account name: %1", rcAccount.serverConfigInfo().serverName) : ""
+            font.pointSize: 15
+        }
+        QQC2.Label {
+            text: rcAccount ? i18n("User name: %1", rcAccount.serverConfigInfo().userName) : ""
+            font.pointSize: 15
+        }
         QQC2.Label {
             text: rcAccount ? i18n("Server version: %1", rcAccount.serverConfigInfo().serverVersionStr) : ""
-            font.bold: true
             font.pointSize: 15
         }
     }
