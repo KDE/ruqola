@@ -19,10 +19,12 @@
 */
 
 
+#include "rocketchataccount.h"
 #include "serverconfiginfo.h"
 
-ServerConfigInfo::ServerConfigInfo(QObject *parent)
+ServerConfigInfo::ServerConfigInfo(RocketChatAccount *account, QObject *parent)
     : QObject (parent)
+    , mAccount(account)
 {
 
 }
@@ -34,18 +36,24 @@ ServerConfigInfo::~ServerConfigInfo()
 
 QString ServerConfigInfo::serverVersionStr() const
 {
-    //TODO
+    if (mAccount) {
+        return mAccount->serverVersionStr();
+    }
     return {};
 }
 
 QString ServerConfigInfo::serverName() const
 {
-    //TODO
+    if (mAccount) {
+        return mAccount->settings()->accountName();
+    }
     return {};
 }
 
 QString ServerConfigInfo::userName() const
 {
-    //TODO
+    if (mAccount) {
+        return mAccount->settings()->userName();
+    }
     return {};
 }

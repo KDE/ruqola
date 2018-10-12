@@ -23,7 +23,7 @@
 
 #include <QObject>
 #include "libruqola_private_export.h"
-
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT ServerConfigInfo : public QObject
 {
     Q_OBJECT
@@ -32,13 +32,14 @@ class LIBRUQOLACORE_TESTS_EXPORT ServerConfigInfo : public QObject
     Q_PROPERTY(QString userName READ userName CONSTANT)
 
 public:
-    explicit ServerConfigInfo(QObject *parent = nullptr);
+    explicit ServerConfigInfo(RocketChatAccount *account, QObject *parent = nullptr);
     ~ServerConfigInfo();
     Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_REQUIRED_RESULT QString serverName() const;
     Q_REQUIRED_RESULT QString userName() const;
 private:
     Q_DISABLE_COPY(ServerConfigInfo)
+    RocketChatAccount *mAccount = nullptr;
 };
 
 #endif // SERVERCONFIGINFO_H
