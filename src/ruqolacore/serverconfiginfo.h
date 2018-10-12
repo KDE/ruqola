@@ -32,7 +32,7 @@ class LIBRUQOLACORE_TESTS_EXPORT ServerConfigInfo : public QObject
     Q_PROPERTY(QString userName READ userName CONSTANT)
 
 public:
-    explicit ServerConfigInfo(RocketChatAccount *account, QObject *parent = nullptr);
+    explicit ServerConfigInfo(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~ServerConfigInfo();
     Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_REQUIRED_RESULT QString serverName() const;

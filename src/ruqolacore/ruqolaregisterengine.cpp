@@ -32,6 +32,7 @@
 #include "accountmanager.h"
 #include "notificationoptionswrapper.h"
 #include "receivetypingnotificationmanager.h"
+#include "serverconfiginfo.h"
 
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
@@ -99,7 +100,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
     qmlRegisterUncreatableType<Channel>("KDE.Ruqola.Channel", 1, 0, "Channel", QStringLiteral("ChannelType is an enum container"));
     qmlRegisterUncreatableType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient", QStringLiteral("DDPClient.LoginStatus is an enum container"));
-
+    qmlRegisterType<ServerConfigInfo>("KDE.Ruqola.ServerConfigInfo", 1, 0, "ServerConfigInfo");
     qRegisterMetaType<Message::MessageType>();
     qRegisterMetaType<RocketChatAccount::RoomInfoType>();
     qRegisterMetaType<User::PresenceStatus>();

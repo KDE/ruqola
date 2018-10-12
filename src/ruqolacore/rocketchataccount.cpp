@@ -53,6 +53,7 @@
 #include "ddpapi/ddpclient.h"
 #include "receivetypingnotificationmanager.h"
 #include "restapirequest.h"
+#include "serverconfiginfo.h"
 
 #include <QDesktopServices>
 #include <QRegularExpression>
@@ -72,6 +73,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         mRuqolaLogger = new RuqolaLogger;
     }
 
+    mServerConfigInfo = new ServerConfigInfo(this, this);
     //Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
     mInputTextManager = new InputTextManager(this);
@@ -1176,6 +1178,10 @@ QString RocketChatAccount::serverVersionStr() const
     return mRuqolaServerConfig->serverVersionStr();
 }
 
+ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
+{
+    return mServerConfigInfo;
+}
 
 bool RocketChatAccount::allowEditingMessages() const
 {

@@ -57,6 +57,7 @@ class PluginAuthenticationInterface;
 class Room;
 class SearchMessageModel;
 class SearchMessageFilterProxyModel;
+class ServerConfigInfo;
 class ReceiveTypingNotificationManager;
 namespace RocketChatRestApi {
 class RestApiRequest;
@@ -177,6 +178,7 @@ public:
     Q_INVOKABLE ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
     Q_INVOKABLE Q_REQUIRED_RESULT bool encryptedEnabled() const;
     Q_INVOKABLE Q_REQUIRED_RESULT QString serverVersionStr() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
 
 
     SearchChannelModel *searchChannelModel() const;
@@ -314,6 +316,7 @@ private:
     SearchMessageModel *mSearchMessageModel = nullptr;
     SearchMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
     ReceiveTypingNotificationManager *mReceiveTypingNotificationManager = nullptr;
+    ServerConfigInfo *mServerConfigInfo = nullptr;
 };
 
 #endif // ROCKETCHATACCOUNT_H
