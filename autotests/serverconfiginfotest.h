@@ -29,6 +29,8 @@ class ServerConfigInfoTest : public QObject
 public:
     explicit ServerConfigInfoTest(QObject *parent = nullptr);
     ~ServerConfigInfoTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // SERVERCONFIGINFOTEST_H

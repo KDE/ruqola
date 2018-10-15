@@ -19,6 +19,7 @@
 */
 
 #include "serverconfiginfotest.h"
+#include "serverconfiginfo.h"
 
 #include <QTest>
 QTEST_GUILESS_MAIN(ServerConfigInfoTest)
@@ -27,4 +28,12 @@ ServerConfigInfoTest::ServerConfigInfoTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void ServerConfigInfoTest::shouldHaveDefaultValues()
+{
+    ServerConfigInfo info;
+    QVERIFY(info.serverName().isEmpty());
+    QVERIFY(info.userName().isEmpty());
+    QVERIFY(info.serverVersionStr().isEmpty());
 }
