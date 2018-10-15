@@ -33,6 +33,7 @@ void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
 {
     mHideUnreadStatus = obj.value(QLatin1String("hideUnreadStatus")).toBool();
     mDisableNotifications = obj.value(QLatin1String("disableNotifications")).toBool();
+
     mAudioNotifications = obj.value(QLatin1String("audioNotifications")).toString();
     mAudioNotificationValue = obj.value(QLatin1String("audioNotificationValue")).toString();
     //"desktopNotificationDuration":0,"desktopNotifications":"mentions"

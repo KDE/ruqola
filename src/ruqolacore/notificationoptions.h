@@ -28,6 +28,7 @@
 
 class LIBRUQOLACORE_TESTS_EXPORT NotificationOptions
 {
+    Q_GADGET
 public:
     NotificationOptions();
 
@@ -37,7 +38,7 @@ public:
         Mentions,
         Nothing
     };
-    //Q_ENUM(NotificationType)
+    Q_ENUM(NotificationType)
 
     Q_REQUIRED_RESULT bool hideUnreadStatus() const;
     void setHideUnreadStatus(bool value);
@@ -60,7 +61,6 @@ public:
     Q_REQUIRED_RESULT QString audioNotifications() const;
     void setAudioNotifications(const QString &audioNotifications);
 
-    void parseNotificationOptions(const QJsonObject &obj);
 
     Q_REQUIRED_RESULT QString audioNotificationValue() const;
     void setAudioNotificationValue(const QString &audioNotificationValue);
@@ -71,6 +71,7 @@ public:
     Q_REQUIRED_RESULT static QJsonObject serialize(const NotificationOptions &message);
     Q_REQUIRED_RESULT static NotificationOptions fromJSon(const QJsonObject &o);
 
+    void parseNotificationOptions(const QJsonObject &obj);
     void updateNotificationOptions(const QJsonObject &obj);
     NotificationOptions &operator =(const NotificationOptions &other);
     bool operator==(const NotificationOptions &other) const;
