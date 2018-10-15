@@ -26,6 +26,7 @@ import QtQuick.Window 2.0
 import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.RoomWrapper 1.0
+import KDE.Ruqola.NotificationOptionsWrapper 1.0
 
 QQC2.Dialog {
     id: notificationOptionsDialog
@@ -50,7 +51,7 @@ QQC2.Dialog {
 
         QQC2.Switch {
             id: disableNotification
-            checked: roomInfo === null ? false : roomInfo.notificationOptions.hideUnreadStatus
+            checked: roomInfo === null ? false : roomInfo.notificationOptions().disableNotifications
             //checked: false
             onClicked: {
                 notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DisableNotifications, checked)
@@ -63,8 +64,7 @@ QQC2.Dialog {
 
         QQC2.Switch {
             id: hideUnreadRoomStatus
-            //checked: roomInfo === null ? false : roomInfo.readOnly
-            checked: false
+            checked: roomInfo === null ? false : roomInfo.notificationOptions().hideUnreadStatus
             onClicked: {
                 notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.HideUnreadStatus, checked)
             }

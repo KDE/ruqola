@@ -34,6 +34,7 @@ class FilesForRoomModel;
 class FilesForRoomFilterProxyModel;
 class MessageModel;
 class RocketChatAccount;
+class NotificationOptionsWrapper;
 
 class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
 {
@@ -189,6 +190,7 @@ public:
     QString e2eKeyId() const;
     void setE2eKeyId(const QString &e2eKeyId);
 
+    NotificationOptionsWrapper *getNotificationWrapper();
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
