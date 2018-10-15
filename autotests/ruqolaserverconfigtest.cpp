@@ -41,7 +41,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.siteUrl().isEmpty());
     QVERIFY(config.allowMessageEditing());
     QVERIFY(config.otrEnabled());
-    QVERIFY(config.encryptionEnabled());
+    QVERIFY(!config.encryptionEnabled());
     QVERIFY(!config.needAdaptNewSubscriptionRC60());
     QCOMPARE(config.blockEditingMessageInMinutes(), 5);
     QCOMPARE(config.ruqolaOauthTypes(), AuthenticationManager::OauthType::Password);
