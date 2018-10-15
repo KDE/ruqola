@@ -73,8 +73,9 @@ public:
 
     void parseNotificationOptions(const QJsonObject &obj);
     void updateNotificationOptions(const QJsonObject &obj);
+
     NotificationOptions &operator =(const NotificationOptions &other);
-    bool operator==(const NotificationOptions &other) const;
+    Q_REQUIRED_RESULT bool operator==(const NotificationOptions &other) const;
     //TODO add signal
 private:
     //TODO use enums ????
