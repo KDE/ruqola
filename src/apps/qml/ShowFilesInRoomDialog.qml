@@ -82,7 +82,7 @@ QQC2.Dialog {
                 RowLayout {
                 QQC2.Label {
                     Layout.fillWidth: true
-                    text: username + description
+                    text: filename + description
                     wrapMode: QQC2.Label.Wrap
                 }
                 DownloadButton {

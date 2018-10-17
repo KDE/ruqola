@@ -30,7 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT FilesForRoomModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum UserRoles {
-        UserName = Qt::UserRole + 1,
+        FileName = Qt::UserRole + 1,
         UserId,
         Description,
         Url,

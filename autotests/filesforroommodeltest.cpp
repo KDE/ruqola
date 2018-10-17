@@ -38,7 +38,7 @@ void FilesForRoomModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QHash<int, QByteArray> roles;
-    roles[FilesForRoomModel::UserName] = QByteArrayLiteral("username");
+    roles[FilesForRoomModel::FileName] = QByteArrayLiteral("username");
     roles[FilesForRoomModel::UserId] = QByteArrayLiteral("userid");
     roles[FilesForRoomModel::MimeType] = QByteArrayLiteral("mimetype");
     roles[FilesForRoomModel::Url] = QByteArrayLiteral("url");
@@ -94,7 +94,7 @@ void FilesForRoomModelTest::shouldVerifyData()
     w.setFiles(mFiles);
     QCOMPARE(w.rowCount(), 10);
     for (int i = 0; i < 10; ++i) {
-        QCOMPARE(w.data(w.index(i), FilesForRoomModel::UserName).toString(), QStringLiteral("name%1").arg(i));
+        QCOMPARE(w.data(w.index(i), FilesForRoomModel::FileName).toString(), QStringLiteral("name%1").arg(i));
         QCOMPARE(w.data(w.index(i), FilesForRoomModel::Description).toString(), QStringLiteral("description%1").arg(i));
         QCOMPARE(w.data(w.index(i), FilesForRoomModel::UserId).toString(), QStringLiteral("userid%1").arg(i));
     }
@@ -108,7 +108,7 @@ void FilesForRoomModelTest::shouldVerifyData()
     }
     w.setFiles(mFiles);
     for (int i = 0; i < 3; ++i) {
-        QCOMPARE(w.data(w.index(i), FilesForRoomModel::UserName).toString(), QStringLiteral("name%1").arg(i));
+        QCOMPARE(w.data(w.index(i), FilesForRoomModel::FileName).toString(), QStringLiteral("name%1").arg(i));
         QCOMPARE(w.data(w.index(i), FilesForRoomModel::Description).toString(), QStringLiteral("description%1").arg(i));
         QCOMPARE(w.data(w.index(i), FilesForRoomModel::UserId).toString(), QStringLiteral("userid%1").arg(i));
     }

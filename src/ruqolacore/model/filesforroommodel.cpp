@@ -60,7 +60,7 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
 
     const File file = mFiles.at(index.row());
     switch (role) {
-    case UserName:
+    case FileName:
         return file.name();
     case UserId:
         return file.userId();
@@ -83,7 +83,7 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> FilesForRoomModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[UserName] = QByteArrayLiteral("username");
+    roles[FileName] = QByteArrayLiteral("filename");
     roles[UserId] = QByteArrayLiteral("userid");
     roles[MimeType] = QByteArrayLiteral("mimetype");
     roles[Url] = QByteArrayLiteral("url");
