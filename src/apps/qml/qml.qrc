@@ -65,6 +65,7 @@
         <file alias="DownloadButton.qml">common/DownloadButton.qml</file>
         <file alias="AvatarImage.qml">common/AvatarImage.qml</file>
         <file alias="DeleteButton.qml">common/DeleteButton.qml</file>
+        <file alias="NotificationComboBox.qml">common/NotificationComboBox.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="systray.png">icons/systray.png</file>
