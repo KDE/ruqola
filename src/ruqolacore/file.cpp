@@ -43,12 +43,12 @@ void File::parseFile(const QJsonObject &object, bool restApi)
 
 QString File::fileName() const
 {
-    return mName;
+    return mFileName;
 }
 
 void File::setFileName(const QString &name)
 {
-    mName = name;
+    mFileName = name;
 }
 
 QString File::description() const
@@ -75,7 +75,7 @@ bool File::operator ==(const File &other) const
 
 File &File::operator=(const File &other)
 {
-    mName = other.fileName();
+    mFileName = other.fileName();
     mDescription = other.description();
     mUrl = other.url();
     mUserId = other.userId();

@@ -41,6 +41,7 @@ public:
     Q_REQUIRED_RESULT bool operator ==(const File &other) const;
 
     File &operator=(const File &other);
+
     Q_REQUIRED_RESULT QString userId() const;
     void setUserId(const QString &userId);
 
@@ -60,13 +61,14 @@ public:
     void setRid(const QString &rid);
 
 private:
-    QString mName;
+    QString mFileName;
     QString mDescription;
     QString mUserId;
     QString mUrl;
     QString mMimeType;
     QString mFileId;
     QString mRid;
+
     qint64 mUploadedAt = -1;
 };
 Q_DECLARE_METATYPE(File)
