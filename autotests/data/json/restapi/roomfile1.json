@@ -17,5 +17,10 @@
             "uploadedAt": "2018-02-07T07:59:31.911Z",
             "uploading": false,
             "url": "/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM",
+	    "user": {
+                "_id": "tgrk5CZKgYGiSSq",
+                "name": "bla",
+                "username": "bli"
+            },
             "userId": "vEETYfDxakqpM88Zt"
         }

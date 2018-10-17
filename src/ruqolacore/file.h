@@ -60,6 +60,9 @@ public:
     Q_REQUIRED_RESULT QString rid() const;
     void setRid(const QString &rid);
 
+    Q_REQUIRED_RESULT QString userName() const;
+    void setUserName(const QString &userName);
+
 private:
     QString mFileName;
     QString mDescription;
@@ -68,6 +71,7 @@ private:
     QString mMimeType;
     QString mFileId;
     QString mRid;
+    QString mUserName;
 
     qint64 mUploadedAt = -1;
 };

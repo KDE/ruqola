@@ -125,6 +125,7 @@ void FileTest::shouldParseFile_data()
         expected.setUploadedAt(1517990371911);
         expected.setFileId(QStringLiteral("AoqRSa6GMt3wXCeSo"));
         expected.setRid(QStringLiteral("GENERAL"));
+        expected.setUserName(QStringLiteral("bli"));
         QTest::newRow("roomfile1-restapi") << QStringLiteral("roomfile1") << expected << true;
     }
 }
