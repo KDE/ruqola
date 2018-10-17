@@ -692,6 +692,7 @@ QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj)
     //TODO add autotests
     QVector<File> files;
     const QJsonArray filesArray = obj.value(QLatin1String("files")).toArray();
+    files.reserve(filesArray.count());
     for (int i = 0; i < filesArray.count(); ++i) {
         QJsonObject fileObj = filesArray.at(i).toObject();
         File f;
