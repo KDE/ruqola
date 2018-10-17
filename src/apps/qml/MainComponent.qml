@@ -175,6 +175,7 @@ Component {
                         }
                         QQC2.MenuItem {
                             text: i18n("Add User In Room")
+                            visible: appid.selectedRoom.canBeModify
                             onTriggered: {
                                 var channelType = appid.selectedRoom.channelType;
                                 if (channelType === "c" || channelType === "p") {
