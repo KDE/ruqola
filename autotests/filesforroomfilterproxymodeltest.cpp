@@ -40,7 +40,7 @@ void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValues()
     proxy.setSourceModel(&model);
     QCOMPARE(proxy.rowCount(), 0);
     QHash<int, QByteArray> roles;
-    roles[FilesForRoomModel::FileName] = QByteArrayLiteral("username");
+    roles[FilesForRoomModel::FileName] = QByteArrayLiteral("filename");
     roles[FilesForRoomModel::UserId] = QByteArrayLiteral("userid");
     roles[FilesForRoomModel::MimeType] = QByteArrayLiteral("mimetype");
     roles[FilesForRoomModel::Url] = QByteArrayLiteral("url");
@@ -59,7 +59,7 @@ void FilesForRoomFilterProxyModelTest::shouldAssignValue()
     QVector<File> mFiles;
     for (int i = 0; i < 10; ++i) {
         File f;
-        f.setName(QStringLiteral("name%1").arg(i));
+        f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
         f.setUserId(QStringLiteral("userid%1").arg(i));
         mFiles.append(f);
@@ -71,7 +71,7 @@ void FilesForRoomFilterProxyModelTest::shouldAssignValue()
     mFiles.clear();
     for (int i = 0; i < 3; ++i) {
         File f;
-        f.setName(QStringLiteral("name%1").arg(i));
+        f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
         f.setUserId(QStringLiteral("userid%1").arg(i));
         mFiles.append(f);

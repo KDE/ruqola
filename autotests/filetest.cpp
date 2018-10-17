@@ -33,7 +33,7 @@ FileTest::FileTest(QObject *parent)
 void FileTest::shouldHaveDefaultValue()
 {
     File f;
-    QVERIFY(f.name().isEmpty());
+    QVERIFY(f.fileName().isEmpty());
     QVERIFY(f.description().isEmpty());
     QVERIFY(f.userId().isEmpty());
     QVERIFY(f.url().isEmpty());
@@ -55,7 +55,7 @@ void FileTest::shouldAssignValue()
     const QString fileId = QStringLiteral("blabla");
     const QString rId = QStringLiteral("blabla22");
     f.setUrl(url);
-    f.setName(name);
+    f.setFileName(name);
     f.setDescription(description);
     f.setUserId(userId);
     f.setMimeType(mimetype);
@@ -64,7 +64,7 @@ void FileTest::shouldAssignValue()
     f.setRid(rId);
 
     QCOMPARE(f.url(), url);
-    QCOMPARE(f.name(), name);
+    QCOMPARE(f.fileName(), name);
     QCOMPARE(f.description(), description);
     QCOMPARE(f.userId(), userId);
     QCOMPARE(f.mimeType(), mimetype);
@@ -85,7 +85,7 @@ void FileTest::shouldCopyValue()
     const QString rId = QStringLiteral("blabla22");
     const qint64 timeUploaded = 55;
     f.setUrl(url);
-    f.setName(name);
+    f.setFileName(name);
     f.setDescription(description);
     f.setUserId(userId);
     f.setMimeType(mimetype);
@@ -104,7 +104,7 @@ void FileTest::shouldParseFile_data()
     QTest::addColumn<bool>("usingRestApi");
     {
         File expected;
-        expected.setName(QStringLiteral("191135.jpg"));
+        expected.setFileName(QStringLiteral("191135.jpg"));
         expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/ybWLKB4FpCkzQXsa/191135.jpg"));
         expected.setUserId(QStringLiteral("aX7va58FuNuq4bcti"));
         expected.setDescription(QString());
@@ -117,7 +117,7 @@ void FileTest::shouldParseFile_data()
     {
         //RestAPI
         File expected;
-        expected.setName(QStringLiteral("Clipboard - February 7, 2018 8:59 AM"));
+        expected.setFileName(QStringLiteral("Clipboard - February 7, 2018 8:59 AM"));
         expected.setUrl(QStringLiteral("/ufs/FileSystem:Uploads/AoqRSa6GMt3wXCeSo/Clipboard%20-%20February%207,%202018%208:59%20AM"));
         expected.setUserId(QStringLiteral("vEETYfDxakqpM88Zt"));
         expected.setDescription(QString());

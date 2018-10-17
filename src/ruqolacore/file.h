@@ -32,8 +32,8 @@ public:
     File();
 
     void parseFile(const QJsonObject &json, bool restApi = false);
-    Q_REQUIRED_RESULT QString name() const;
-    void setName(const QString &name);
+    Q_REQUIRED_RESULT QString fileName() const;
+    void setFileName(const QString &fileName);
 
     Q_REQUIRED_RESULT QString description() const;
     void setDescription(const QString &description);

@@ -29,7 +29,7 @@ void File::parseFile(const QJsonObject &object, bool restApi)
     const QJsonObject fields = restApi ? object : object.value(QLatin1String("fields")).toObject();
     setUserId(fields.value(QLatin1String("userId")).toString());
 
-    setName(fields.value(QLatin1String("name")).toString());
+    setFileName(fields.value(QLatin1String("name")).toString());
     setMimeType(fields.value(QLatin1String("type")).toString());
     setUrl(fields.value(QLatin1String("url")).toString());
     setRid(fields.value(QLatin1String("rid")).toString());
@@ -41,12 +41,12 @@ void File::parseFile(const QJsonObject &object, bool restApi)
     setFileId(restApi ? object.value(QLatin1String("_id")).toString() : object.value(QLatin1String("id")).toString());
 }
 
-QString File::name() const
+QString File::fileName() const
 {
     return mName;
 }
 
-void File::setName(const QString &name)
+void File::setFileName(const QString &name)
 {
     mName = name;
 }
@@ -64,7 +64,7 @@ void File::setDescription(const QString &description)
 bool File::operator ==(const File &other) const
 {
     return (description() == other.description())
-           && (name() == other.name())
+           && (fileName() == other.fileName())
            && (url() == other.url())
            && (userId() == other.userId())
            && (mimeType() == other.mimeType())
@@ -75,7 +75,7 @@ bool File::operator ==(const File &other) const
 
 File &File::operator=(const File &other)
 {
-    mName = other.name();
+    mName = other.fileName();
     mDescription = other.description();
     mUrl = other.url();
     mUserId = other.userId();
@@ -148,7 +148,7 @@ void File::setRid(const QString &rid)
 
 QDebug operator <<(QDebug d, const File &t)
 {
-    d << "Name : " << t.name();
+    d << "Name : " << t.fileName();
     d << "Description: " << t.description();
     d << "Url :" << t.url();
     d << "UserId: " << t.userId();

@@ -61,7 +61,7 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
     const File file = mFiles.at(index.row());
     switch (role) {
     case FileName:
-        return file.name();
+        return file.fileName();
     case UserId:
         return file.userId();
     case MimeType:
