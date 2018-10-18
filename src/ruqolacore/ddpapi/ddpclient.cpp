@@ -916,7 +916,6 @@ void DDPClient::executeSubsCallBack(const QJsonObject &root)
     if (!subs.isEmpty()) {
         const quint64 id = subs.at(0).toString().toULongLong();
         if (m_callbackHash.contains(id)) {
-            qDebug() << " has callback ";
             std::function<void(QJsonObject, RocketChatAccount *)> callback = m_callbackHash.take(id);
             callback(root, mRocketChatAccount);
         }
