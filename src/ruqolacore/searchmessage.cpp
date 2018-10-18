@@ -40,6 +40,7 @@ QString SearchMessage::text() const
 
 QDebug operator <<(QDebug d, const SearchMessage &t)
 {
-    d << t;
+    d << "text " <<  t.text();
+    d << "timeStamp " <<  t.timeStamp();
     return d;
 }
