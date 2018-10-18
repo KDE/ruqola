@@ -76,6 +76,8 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
         return file.fileId();
     case TimeStamp:
         return file.uploadedAt();
+    case UserName:
+        return file.userName();
     }
     return {};
 }
@@ -91,5 +93,6 @@ QHash<int, QByteArray> FilesForRoomModel::roleNames() const
     roles[CanBeDeleted] = QByteArrayLiteral("canbedeleted");
     roles[FileId] = QByteArrayLiteral("fileid");
     roles[TimeStamp] = QByteArrayLiteral("timestamp");
+    roles[UserName] = QByteArrayLiteral("username");
     return roles;
 }

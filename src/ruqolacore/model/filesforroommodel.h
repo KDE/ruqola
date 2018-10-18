@@ -37,7 +37,8 @@ public:
         MimeType,
         CanBeDeleted,
         FileId,
-        TimeStamp
+        TimeStamp,
+        UserName
     };
     Q_ENUM(UserRoles)
 
