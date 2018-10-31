@@ -39,19 +39,32 @@ TextConverter::TextConverter(EmojiManager *emojiManager)
 QString TextConverter::convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const
 {
     //TODO improve it. Add autotest.
-    if (SyntaxHighlightingManager::self()->syntaxHighlightingInitialized() && str.startsWith(QLatin1String("```")) && str.endsWith(QLatin1String("```"))) {
-        QString e = str;
-        e = e.remove(QLatin1String("```"));
-        QString result;
-        QTextStream s(&result);
+    if (SyntaxHighlightingManager::self()->syntaxHighlightingInitialized()) {
+        const int startIndex = str.indexOf(QLatin1String("```"));
+        const int endIndex = str.lastIndexOf(QLatin1String("```"));
+        if ((startIndex > -1) && (endIndex > -1) && (startIndex != endIndex)) {
+            QString beginStr;
+            if (startIndex > 0) {
+                beginStr = str.left(startIndex);
+            }
+            //qDebug() << " end " << endIndex << str.length();
+            QString quoteStr = str.mid(startIndex + 3, endIndex - startIndex - 3);
+            QString endStr = str.right(str.length() - endIndex -3 );
+            QString result;
+//            qDebug() << " beginStr" << beginStr;
+//            qDebug() << " endStr" << endStr;
+//            qDebug() << " quoteStr" << quoteStr;
+//            qDebug() << " str " << str;
+            QTextStream s(&result);
 
-        TextHighlighter highLighter(&s);
-        highLighter.setDefinition(SyntaxHighlightingManager::self()->def());
-        highLighter.setTheme(/*QGuiApplication::palette().color(QPalette::Base).lightness() < 128
-                             ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
-                             : */SyntaxHighlightingManager::self()->repo().defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
-        highLighter.highlight(e);
-        return *s.string();
+            TextHighlighter highLighter(&s);
+            highLighter.setDefinition(SyntaxHighlightingManager::self()->def());
+            highLighter.setTheme(/*QGuiApplication::palette().color(QPalette::Base).lightness() < 128
+                                                  ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
+                                                  : */SyntaxHighlightingManager::self()->repo().defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
+            highLighter.highlight(quoteStr);
+            return beginStr + *s.string() + endStr;
+        }
     }
     QString richText = Utils::generateRichText(str, mentions, userName);
     if (mEmojiManager) {
