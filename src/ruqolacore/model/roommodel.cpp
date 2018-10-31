@@ -77,7 +77,7 @@ void RoomModel::clear()
 
 Room *RoomModel::findRoom(const QString &roomID) const
 {
-    foreach (Room *r, qAsConst(mRoomsList)) {
+    for (Room *r : qAsConst(mRoomsList)) {
         if (r->roomId() == roomID) {
             return r;
         }
@@ -87,7 +87,7 @@ Room *RoomModel::findRoom(const QString &roomID) const
 
 RoomWrapper *RoomModel::findRoomWrapper(const QString &roomID) const
 {
-    foreach (Room *r, qAsConst(mRoomsList)) {
+    for (Room *r : qAsConst(mRoomsList)) {
         if (r->roomId() == roomID) {
             RoomWrapper *wrapper = new RoomWrapper(r);
             return wrapper;
