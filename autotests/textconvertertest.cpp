@@ -75,6 +75,11 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
                                                         << QStringLiteral(
         "<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/><img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>")
                                                         << QStringLiteral("http://www.kde.org");
+
+    QTest::newRow("quotedcode1") << QStringLiteral("```foo```") << QStringLiteral("<pre>foo<br></pre>") << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode2") << QStringLiteral("bla\n```foo```bli") << QStringLiteral("bla\n<pre>foo<br></pre>bli") << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode3") << QStringLiteral("bla\n```foo```") << QStringLiteral("bla\n<pre>foo<br></pre>") << QStringLiteral("www.kde.org");
+    QTest::newRow("quotedcode4") << QStringLiteral("```foo```\nff") << QStringLiteral("<pre>foo<br></pre>\nff") << QStringLiteral("www.kde.org");
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji()

@@ -38,7 +38,6 @@ TextConverter::TextConverter(EmojiManager *emojiManager)
 
 QString TextConverter::convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const
 {
-    //TODO improve it. Add autotest.
     if (SyntaxHighlightingManager::self()->syntaxHighlightingInitialized()) {
         const int startIndex = str.indexOf(QLatin1String("```"));
         const int endIndex = str.lastIndexOf(QLatin1String("```"));
