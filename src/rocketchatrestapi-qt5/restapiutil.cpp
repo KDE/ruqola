@@ -267,6 +267,12 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("e2e.setUserPublicAndPivateKeys");
     case RestApiUtil::RestApiUrlType::E2EGetUsersOfRoomWithoutKey:
         return QStringLiteral("e2e.getUsersOfRoomWithoutKey");
+    case RestApiUtil::RestApiUrlType::RolesList:
+        return QStringLiteral("roles.list");
+    case RestApiUtil::RestApiUrlType::RolesCreate:
+        return QStringLiteral("roles.create");
+    case RestApiUtil::RestApiUrlType::RolesAddUserToRole:
+        return QStringLiteral("roles.addUserToRole");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

@@ -161,4 +161,7 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2ESetRoomKeyID), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.setRoomKeyID")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::E2ESetUserPublicAndPrivateKeys), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.setUserPublicAndPivateKeys")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesList), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.list")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.create")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesAddUserToRole), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.addUserToRole")));
 }
