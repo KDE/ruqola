@@ -131,6 +131,8 @@ enum class RestApiUrlType {
     RoomsGet,
     RoomsFavorite,
     RoomscleanHistory,
+    RoomsInfo,
+    RoomsLeave,
     ForgotPassword,
     PermissionsList,
     CommandsList,
