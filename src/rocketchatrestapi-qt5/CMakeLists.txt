@@ -87,6 +87,7 @@ set (RocketChatRestApiQt_SRCS
     rooms/savenotificationjob.cpp
     rooms/getroomsjob.cpp
     rooms/roomfavoritejob.cpp
+    rooms/roomsinfojob.cpp
 
     subscriptions/markroomasreadjob.cpp
     subscriptions/markroomasunreadjob.cpp
