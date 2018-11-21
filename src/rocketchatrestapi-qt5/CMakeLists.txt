@@ -88,6 +88,7 @@ set (RocketChatRestApiQt_SRCS
     rooms/getroomsjob.cpp
     rooms/roomfavoritejob.cpp
     rooms/roomsinfojob.cpp
+    rooms/roomleavejob.cpp
 
     subscriptions/markroomasreadjob.cpp
     subscriptions/markroomasunreadjob.cpp
@@ -114,7 +115,9 @@ set_target_properties(librocketchatrestapi-qt5
     PROPERTIES OUTPUT_NAME rocketchatrestapi-qt5 VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
     )
 
-add_subdirectory(autotests)
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
 
 install(TARGETS librocketchatrestapi-qt5 ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
