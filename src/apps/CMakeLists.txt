@@ -6,6 +6,9 @@ endif()
 
 add_executable(ruqola main.cpp ${RuqolaResources})
 
-target_link_libraries(ruqola libruqolacore librocketchatrestapi-qt5)
+target_link_libraries(ruqola libruqolacore
+    librocketchatrestapi-qt5
+    KF5::Crash
+)
 
 install(TARGETS ruqola ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

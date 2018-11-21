@@ -135,7 +135,6 @@ target_link_libraries(libruqolacore
     Qt5::NetworkAuth
     KF5::CoreAddons
     KF5::I18n
-    KF5::Crash
     KF5::Notifications
     KF5::SyntaxHighlighting
     librocketchatrestapi-qt5
