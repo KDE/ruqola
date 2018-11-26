@@ -142,6 +142,8 @@ enum class RestApiUrlType {
     E2EupdateGroupKey,
     E2ESetUserPublicAndPrivateKeys,
     E2EGetUsersOfRoomWithoutKey,    
+    E2ERequestSubscriptionKeys,
+
     RolesList,
     RolesCreate,
     RolesAddUserToRole,
