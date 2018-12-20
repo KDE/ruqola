@@ -3,10 +3,10 @@ cmake_minimum_required(VERSION 3.5)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set (CMAKE_CXX_STANDARD 11)
 
-set(KF5_VERSION "5.44.0")
+set(KF5_MIN_VERSION "5.44.0")
 set(REQUIRED_QT_VERSION "5.9.0")
 
-find_package(ECM ${KF5_VERSION} CONFIG REQUIRED)
+find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
 if (POLICY CMP0063)
@@ -39,7 +39,7 @@ endif()
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Qml Quick WebSockets Network NetworkAuth Test)
 find_package(Qt5 CONFIG QUIET OPTIONAL_COMPONENTS QuickCompiler)
 
-find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Kirigami2
     CoreAddons
     I18n
@@ -50,7 +50,7 @@ find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
 )
 
 if (WIN32 OR APPLE)
-    find_package(KF5 ${KF5_VERSION} REQUIRED COMPONENTS
+    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
         IconThemes
     )
 endif()
