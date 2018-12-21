@@ -265,7 +265,7 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::E2EfetchMyKeys:
         return QStringLiteral("e2e.fetchMyKeys");
     case RestApiUtil::RestApiUrlType::E2EupdateGroupKey:
-        return QStringLiteral("e2e.updateGroupE2EKey");
+        return QStringLiteral("e2e.updateGroupKey");
 
     case RestApiUtil::RestApiUrlType::E2ESetRoomKeyID:
         return QStringLiteral("e2e.setRoomKeyID");
