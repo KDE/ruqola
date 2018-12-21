@@ -76,7 +76,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mServerConfigInfo = new ServerConfigInfo(this, this);
     //Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
-    mInputTextManager = new InputTextManager(this);
+    mInputTextManager = new InputTextManager(this, this);
     mRuqolaServerConfig = new RuqolaServerConfig;
     mReceiveTypingNotificationManager = new ReceiveTypingNotificationManager(this);
 
@@ -110,7 +110,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
     connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::userStatusChanged);
-    mMessageQueue = new MessageQueue(this);
+    mMessageQueue = new MessageQueue(this); //TODO fix mem leak !
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
     connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
