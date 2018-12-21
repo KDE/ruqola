@@ -80,9 +80,12 @@ MessageBase {
                     }
                 }
             }
-            RepeaterRoles {
-                id: repearterRoles
-                model: i_roles
+            RowLayout {
+                RepeaterRoles {
+                    id: repearterRoles
+                    model: i_roles
+                    Layout.fillWidth: true
+                }
             }
 
             Column {

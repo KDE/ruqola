@@ -26,7 +26,7 @@ import QtQuick.Controls 2.2 as QQC2
 import QtQuick.Layouts 1.1
 Repeater {
     id: repearterRoles
-    Column {
+    Row {
         QQC2.Label {
             id: numberOfReact
             renderType: Text.NativeRendering
