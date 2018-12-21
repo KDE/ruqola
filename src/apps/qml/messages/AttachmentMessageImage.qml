@@ -43,145 +43,146 @@ MessageBase {
             aliasname: i_aliasname
             username: i_username
         }
+        ColumnLayout {
+            Repeater {
+                id: repearterAttachments
 
-        Repeater {
-            id: repearterAttachments
+                model: i_attachments
+                Row {
+                    Column {
+                        QQC2.Label {
+                            id: imageTitle
+                            text: model.modelData.title === "" ? "" :  model.modelData.imageTitle
+                            visible: model.modelData.title !== ""
+                            wrapMode: QQC2.Label.Wrap
+                            anchors.leftMargin: Kirigami.Units.smallSpacing
+                            anchors.rightMargin: Kirigami.Units.smallSpacing
+                            renderType: Text.NativeRendering
+                            textFormat: Text.RichText
+                            onLinkActivated: {
+                                messageMain.displayImage(imageUrl.source, model.modelData.title, model.modelData.isAnimatedImage)
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                acceptedButtons: Qt.RightButton
 
-            model: i_attachments
-            Row {
-                Column {
-                    QQC2.Label {
-                        id: imageTitle
-                        text: model.modelData.title === "" ? "" :  model.modelData.imageTitle
-                        visible: model.modelData.title !== ""
-                        wrapMode: QQC2.Label.Wrap
-                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                        anchors.rightMargin: Kirigami.Units.smallSpacing
-                        renderType: Text.NativeRendering
-                        textFormat: Text.RichText
-                        onLinkActivated: {
-                            messageMain.displayImage(imageUrl.source, model.modelData.title, model.modelData.isAnimatedImage)
+                                onClicked: {
+                                    if (mouse.button === Qt.RightButton) {
+                                        menu.x = mouse.x
+                                        menu.y = mouse.y
+                                        menu.open();
+                                    }
+                                }
+                            }
                         }
-                        MouseArea {
-                            anchors.fill: parent
-                            acceptedButtons: Qt.RightButton
+                        Image {
+                            id: imageUrl
+                            visible: model.modelData.isAnimatedImage
+                            readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
+                            source: rcAccount.attachmentUrl(model.modelData.link)
+                            asynchronous: true
+                            fillMode: Image.PreserveAspectFit
+                            //TODO customize it.
+                            width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
+                            height: 0
+                            sourceSize.width: 200
+                            sourceSize.height: 200
 
-                            onClicked: {
-                                if (mouse.button === Qt.RightButton) {
-                                    menu.x = mouse.x
-                                    menu.y = mouse.y
-                                    menu.open();
+                            onStatusChanged: {
+                                if(status == Image.Error){
+                                    console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. " + source)
+                                }
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    if(status === Image.Error) {
+                                        console.log(RuqolaDebugCategorySingleton.category, "Image not loaded.");
+                                    } else {
+                                        messageMain.displayImage(imageUrl.source, imageTitle.text, model.modelData.isAnimatedImage)
+                                    }
+                                }
+                            }
+                        }
+                        AnimatedImage {
+                            id: imageAnimatedUrl
+                            visible: model.modelData.isAnimatedImage
+                            readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
+                            source: rcAccount.attachmentUrl(model.modelData.link)
+                            asynchronous: true
+                            fillMode: Image.PreserveAspectFit
+                            width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
+                            height: 0
+                            //sourceSize.width: 200
+                            //sourceSize.height: 200
+
+                            onStatusChanged: {
+                                if(status == Image.Error){
+                                    console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. " + source)
+                                }
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    if(status === Image.Error) {
+                                        console.log(RuqolaDebugCategorySingleton.category, "Image not loaded.");
+                                    } else {
+                                        messageMain.displayImage(imageAnimatedUrl.source, imageTitle.text, model.modelData.isAnimatedImage)
+                                    }
+                                }
+                            }
+                        }
+                        QQC2.Label {
+                            text: model.modelData.description
+                            wrapMode: QQC2.Label.Wrap
+                            anchors.leftMargin: Kirigami.Units.smallSpacing
+                            anchors.rightMargin: Kirigami.Units.smallSpacing
+                            visible: model.modelData.description !== ""
+                            MouseArea {
+                                anchors.fill: parent
+                                acceptedButtons: Qt.RightButton
+
+                                onClicked: {
+                                    if (mouse.button === Qt.RightButton) {
+                                        menu.x = mouse.x
+                                        menu.y = mouse.y
+                                        menu.open();
+                                    }
                                 }
                             }
                         }
                     }
-                    Image {
-                        id: imageUrl
-                        visible: model.modelData.isAnimatedImage
-                        readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
-                        source: rcAccount.attachmentUrl(model.modelData.link)
-                        asynchronous: true
-                        fillMode: Image.PreserveAspectFit
-                        //TODO customize it.
-                        width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
-                        height: 0
-                        sourceSize.width: 200
-                        sourceSize.height: 200
 
-                        onStatusChanged: {
-                            if(status == Image.Error){
-                                console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. " + source)
-                            }
-                        }
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                if(status === Image.Error) {
-                                    console.log(RuqolaDebugCategorySingleton.category, "Image not loaded.");
-                                } else {
-                                    messageMain.displayImage(imageUrl.source, imageTitle.text, model.modelData.isAnimatedImage)
-                                }
-                            }
+                    ShowHideButton {
+                        targetAnimation: model.modelData.isAnimatedImage ? imageAnimatedUrl : imageUrl
+                        defaultHeight: model.modelData.isAnimatedImage ? imageAnimatedUrl.imageHeight : Url.imageHeight
+                    }
+
+                    DownloadButton {
+                        id: download
+                        onDownloadButtonClicked: {
+                            messageMain.downloadAttachment(model.modelData.link)
                         }
                     }
-                    AnimatedImage {
-                        id: imageAnimatedUrl
-                        visible: model.modelData.isAnimatedImage
-                        readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
-                        source: rcAccount.attachmentUrl(model.modelData.link)
-                        asynchronous: true
-                        fillMode: Image.PreserveAspectFit
-                        width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
-                        height: 0
-                        //sourceSize.width: 200
-                        //sourceSize.height: 200
-
-                        onStatusChanged: {
-                            if(status == Image.Error){
-                                console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. " + source)
+                    Connections {
+                        target: rcAccount
+                        onFileDownloaded: {
+                            //console.log(RuqolaDebugCategorySingleton.category, " IMAGE SUPPORT: " + filePath + " cacheImageUrl :" + cacheImageUrl + " model.modelData.link: " + model.modelData.link)
+                            if (filePath === model.modelData.link) {
+                                console.log(RuqolaDebugCategorySingleton.category, "Image updated: " + cacheImageUrl)
+                                imageUrl.source = cacheImageUrl;
+                                imageAnimatedUrl.source = cacheImageUrl;
                             }
-                        }
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                if(status === Image.Error) {
-                                    console.log(RuqolaDebugCategorySingleton.category, "Image not loaded.");
-                                } else {
-                                    messageMain.displayImage(imageAnimatedUrl.source, imageTitle.text, model.modelData.isAnimatedImage)
-                                }
-                            }
-                        }
-                    }
-                    QQC2.Label {
-                        text: model.modelData.description
-                        wrapMode: QQC2.Label.Wrap
-                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                        anchors.rightMargin: Kirigami.Units.smallSpacing
-                        visible: model.modelData.description !== ""
-                        MouseArea {
-                            anchors.fill: parent
-                            acceptedButtons: Qt.RightButton
-
-                            onClicked: {
-                                if (mouse.button === Qt.RightButton) {
-                                    menu.x = mouse.x
-                                    menu.y = mouse.y
-                                    menu.open();
-                                }
-                            }
-                        }
-                    }
-                }
-
-                ShowHideButton {
-                    targetAnimation: model.modelData.isAnimatedImage ? imageAnimatedUrl : imageUrl
-                    defaultHeight: model.modelData.isAnimatedImage ? imageAnimatedUrl.imageHeight : Url.imageHeight
-                }
-
-                DownloadButton {
-                    id: download
-                    onDownloadButtonClicked: {
-                        messageMain.downloadAttachment(model.modelData.link)
-                    }
-                }
-                Connections {
-                    target: rcAccount
-                    onFileDownloaded: {
-                        //console.log(RuqolaDebugCategorySingleton.category, " IMAGE SUPPORT: " + filePath + " cacheImageUrl :" + cacheImageUrl + " model.modelData.link: " + model.modelData.link)
-                        if (filePath === model.modelData.link) {
-                            console.log(RuqolaDebugCategorySingleton.category, "Image updated: " + cacheImageUrl)
-                            imageUrl.source = cacheImageUrl;
-                            imageAnimatedUrl.source = cacheImageUrl;
                         }
                     }
                 }
             }
-        }
-        RepeaterReactions {
-            id: repearterReactions
-            model: i_reactions
-            onDeleteReaction: {
-                messageMain.deleteReaction(i_messageID, emoji)
+            RepeaterReactions {
+                id: repearterReactions
+                model: i_reactions
+                onDeleteReaction: {
+                    messageMain.deleteReaction(i_messageID, emoji)
+                }
             }
         }
 
