@@ -154,11 +154,13 @@ MessageBase {
                 }
             }
         }
-        RepeaterReactions {
-            id: repearterReactions
-            model: i_reactions
-            onDeleteReaction: {
-                attachmentVideo.deleteReaction(i_messageID, emoji)
+        RowLayout {
+            RepeaterReactions {
+                id: repearterReactions
+                model: i_reactions
+                onDeleteReaction: {
+                    attachmentVideo.deleteReaction(i_messageID, emoji)
+                }
             }
         }
         TimestampText {

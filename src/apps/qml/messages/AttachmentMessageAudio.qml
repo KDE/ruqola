@@ -138,11 +138,13 @@ MessageBase {
                 }
             }
         }
-        RepeaterReactions {
-            id: repearterReactions
-            model: i_reactions
-            onDeleteReaction: {
-                attachmentAudio.deleteReaction(i_messageID, emoji)
+        RowLayout {
+            RepeaterReactions {
+                id: repearterReactions
+                model: i_reactions
+                onDeleteReaction: {
+                    attachmentAudio.deleteReaction(i_messageID, emoji)
+                }
             }
         }
 
