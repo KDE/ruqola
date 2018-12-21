@@ -52,7 +52,7 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     mFilesForRoomFilterProxyModel->setObjectName(QStringLiteral("filesforroomfiltermodelproxy"));
     mFilesForRoomFilterProxyModel->setSourceModel(mFilesModelForRoom);
 
-    mMessageModel = new MessageModel(QString(), mRocketChatAccount, this);
+    mMessageModel = new MessageModel(QString(), mRocketChatAccount, this, this);
 }
 
 bool Room::operator==(const Room &other) const
