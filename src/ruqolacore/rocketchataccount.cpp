@@ -105,12 +105,12 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mSearchMessageFilterProxyModel->setSourceModel(mSearchMessageModel);
 
     mStatusModel = new StatusModel(this);
-    mRoomModel = new RoomModel(this);
+    mRoomModel = new RoomModel(this, this);
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
     connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::userStatusChanged);
-    mMessageQueue = new MessageQueue(this); //TODO fix mem leak !
+    mMessageQueue = new MessageQueue(this, this); //TODO fix mem leak !
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
     connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
@@ -391,7 +391,9 @@ DDPClient *RocketChatAccount::ddp()
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
         connect(mDdp, &DDPClient::removed, this, &RocketChatAccount::removed);
 
-        mDdp->setServerUrl(mSettings->serverUrl());
+        if (mSettings) {
+            mDdp->setServerUrl(mSettings->serverUrl());
+        }
         mDdp->start();
     }
     return mDdp;

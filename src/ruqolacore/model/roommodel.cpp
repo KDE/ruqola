@@ -40,7 +40,8 @@ RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
 
 RoomModel::~RoomModel()
 {
-    if (mRocketChatAccount) {
+#if 0
+    if (mRocketChatAccount && mRocketChatAccount->settings()) {
         const QString cachePath = mRocketChatAccount->settings()->cacheBasePath();
         if (cachePath.isEmpty()) {
             qCWarning(RUQOLA_LOG) << " Cache Path is not defined";
@@ -62,7 +63,9 @@ RoomModel::~RoomModel()
             }
         }
     }
+#endif
     qDeleteAll(mRoomsList);
+
 }
 
 void RoomModel::clear()

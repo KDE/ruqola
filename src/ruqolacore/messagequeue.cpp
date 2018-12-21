@@ -39,6 +39,7 @@ MessageQueue::MessageQueue(RocketChatAccount *account, QObject *parent)
 
 MessageQueue::~MessageQueue()
 {
+#if 0
     QDir cacheDir(mRocketChatAccount->ddp()->cachePath());
     qCDebug(RUQOLA_LOG) << "Caching Unsent messages to... " << cacheDir.path();
     if (!cacheDir.exists(cacheDir.path())) {
@@ -56,6 +57,7 @@ MessageQueue::~MessageQueue()
             out.writeBytes(ba.constData(), ba.size());
         }
     }
+#endif
 }
 
 void MessageQueue::loadCache()
