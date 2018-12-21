@@ -186,6 +186,7 @@ Component {
                             }
                         }
                         RuqolaMenuSeparator {
+                            visible: appid.selectedRoom ? appid.selectedRoom.canBeModify : true
                         }
                         QQC2.MenuItem {
                             text: i18n("Take a Video Message")

@@ -82,7 +82,7 @@ QQC2.Menu {
         }
     }
     QQC2.MenuItem {
-        enabled: i_username === i_own_username
+        visible: i_username === i_own_username
         contentItem: QQC2.Label {
             text: i18n("Delete")
         }
@@ -101,7 +101,7 @@ QQC2.Menu {
         }
     }
     onAboutToShow: {
-        editMessageItem.enabled = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
+        editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
         favoriteLabel.text = updateFavoriteLabelText()
         ignoreLabel.text = updateIgnoreLabelText()
     }
