@@ -86,7 +86,7 @@ void ForgotPasswordJob::setEmail(const QString &email)
 
 QNetworkRequest ForgotPasswordJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ForgotPassword);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ForgotPassword);
     QNetworkRequest request(url);
     return request;
 }

@@ -77,7 +77,7 @@ void FetchMyKeysJob::slotFetchMyKeys()
 
 QNetworkRequest FetchMyKeysJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EfetchMyKeys);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EfetchMyKeys);
     QNetworkRequest request(url);
     return request;
 }
