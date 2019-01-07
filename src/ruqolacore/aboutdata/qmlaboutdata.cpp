@@ -123,7 +123,7 @@ QString QmlAboutData::reportBugs() const
             } else {
                 QUrl bugUrl(bugAddress);
                 if (bugUrl.scheme().isEmpty()) {
-                    bugUrl.setScheme(QLatin1String("mailto"));
+                    bugUrl.setScheme(QStringLiteral("mailto"));
                 }
                 return i18n("Please report bugs to <a href=\"%1\">%2</a>.\n",
                             bugUrl.toString(), bugAddress);

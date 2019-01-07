@@ -71,7 +71,7 @@ ChannelCloseJob::ChannelType ChannelCloseJob::channelType() const
     return mChannelType;
 }
 
-void ChannelCloseJob::setChannelType(const ChannelType &channelType)
+void ChannelCloseJob::setChannelType(ChannelType channelType)
 {
     mChannelType = channelType;
 }

@@ -54,5 +54,5 @@ void ChangeGroupsDescriptionJobTest::shouldGenerateJson()
     const QString description = QStringLiteral("topic1");
     job.setRoomId(roomId);
     job.setDescription(description);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"description\":\"%1\",\"roomId\":\"%2\"}").arg(description).arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"description\":\"%1\",\"roomId\":\"%2\"}").arg(description, roomId).toLatin1());
 }

@@ -253,7 +253,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     {
         QVariantList lst;
         lst.reserve(mAllMessages.at(idx).attachements().count());
-        for (const MessageAttachment &att : mAllMessages.at(idx).attachements()) {
+        const auto attachs = mAllMessages.at(idx).attachements();
+        for (const MessageAttachment &att : attachs) {
             lst.append(QVariant::fromValue(att));
         }
         return lst;
@@ -262,7 +263,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     {
         QVariantList lst;
         lst.reserve(mAllMessages.at(idx).urls().count());
-        for (const MessageUrl &url : mAllMessages.at(idx).urls()) {
+        const auto urls = mAllMessages.at(idx).urls();
+        for (const MessageUrl &url : urls) {
             lst.append(QVariant::fromValue(url));
         }
         return lst;

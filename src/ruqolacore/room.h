@@ -161,12 +161,12 @@ public:
 
     void updateSubscriptionRoom(const QJsonObject &json);
     Q_REQUIRED_RESULT qint64 updatedAt() const;
-    void setUpdatedAt(const qint64 &updatedAt);
+    void setUpdatedAt(qint64 updatedAt);
 
     void parseInsertRoom(const QJsonObject &json);
 
     Q_REQUIRED_RESULT qint64 lastSeeAt() const;
-    void setLastSeeAt(const qint64 &lastSeeAt);
+    void setLastSeeAt(qint64 lastSeeAt);
 
     Q_REQUIRED_RESULT bool blocked() const;
     void setBlocked(bool blocked);

@@ -55,7 +55,7 @@ void DeleteMessageJobTest::shouldGenerateJson()
     const QString text = QStringLiteral("topic1");
     job.setRoomId(roomId);
     job.setMessageId(text);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"msgId\":\"%2\",\"roomId\":\"%1\"}").arg(roomId).arg(text).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"msgId\":\"%2\",\"roomId\":\"%1\"}").arg(roomId, text).toLatin1());
 }
 
 void DeleteMessageJobTest::shouldNotStarting()

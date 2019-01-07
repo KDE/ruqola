@@ -26,6 +26,7 @@
 class QWebSocket;
 class RuqolaWebSocket : public AbstractWebSocket
 {
+    Q_OBJECT
 public:
     explicit RuqolaWebSocket(QObject *parent = nullptr);
     ~RuqolaWebSocket() override;

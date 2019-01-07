@@ -48,7 +48,7 @@ public:
     void setRoomId(const QString &roomId);
 
     Q_REQUIRED_RESULT ChannelType channelType() const;
-    void setChannelType(const ChannelType &channelType);
+    void setChannelType(RocketChatRestApi::ChannelFilesJob::ChannelType channelType);
 
 Q_SIGNALS:
     void channelFilesDone(const QJsonObject &replyObjectj, const QString &roomId);

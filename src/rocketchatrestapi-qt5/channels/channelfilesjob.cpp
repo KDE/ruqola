@@ -72,7 +72,7 @@ ChannelFilesJob::ChannelType ChannelFilesJob::channelType() const
     return mChannelType;
 }
 
-void ChannelFilesJob::setChannelType(const ChannelType &channelType)
+void ChannelFilesJob::setChannelType(ChannelType channelType)
 {
     mChannelType = channelType;
 }

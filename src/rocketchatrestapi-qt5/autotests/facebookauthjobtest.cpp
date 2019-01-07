@@ -65,7 +65,7 @@ void FacebookAuthJobTest::shouldGenerateJson()
     const int expireToken = 300;
     job.setExpireTokenInSeconds(expireToken);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"accessToken\":\"%1\",\"expiresIn\":300,\"secret\":\"%2\",\"serviceName\":\"facebook\"}")
-             .arg(accessToken).arg(secret).toLatin1());
+             .arg(accessToken, secret).toLatin1());
 }
 
 void FacebookAuthJobTest::shouldNotStarting()

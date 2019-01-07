@@ -40,13 +40,13 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mRoomId = roomId;
     mText = o.value(QLatin1String("msg")).toString();
     if (restApi) {
-        mUpdatedAt = Utils::parseIsoDate(QLatin1String("_updatedAt"), o);
-        mEditedAt = Utils::parseIsoDate(QLatin1String("editedAt"), o);
-        mTimeStamp = Utils::parseIsoDate(QLatin1String("ts"), o);
+        mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), o);
+        mEditedAt = Utils::parseIsoDate(QStringLiteral("editedAt"), o);
+        mTimeStamp = Utils::parseIsoDate(QStringLiteral("ts"), o);
     } else {
-        mTimeStamp = Utils::parseDate(QLatin1String("ts"), o);
-        mUpdatedAt = Utils::parseDate(QLatin1String("_updatedAt"), o);
-        mEditedAt = Utils::parseDate(QLatin1String("editedAt"), o);
+        mTimeStamp = Utils::parseDate(QStringLiteral("ts"), o);
+        mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), o);
+        mEditedAt = Utils::parseDate(QStringLiteral("editedAt"), o);
     }
     mUsername = o.value(QLatin1String("u")).toObject().value(QLatin1String("username")).toString();
     mUserId = o.value(QLatin1String("u")).toObject().value(QLatin1String("_id")).toString();

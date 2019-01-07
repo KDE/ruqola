@@ -72,7 +72,7 @@ SetChannelTypeJob::GroupType SetChannelTypeJob::type() const
     return mType;
 }
 
-void SetChannelTypeJob::setType(const GroupType &type)
+void SetChannelTypeJob::setType(GroupType type)
 {
     mType = type;
 }

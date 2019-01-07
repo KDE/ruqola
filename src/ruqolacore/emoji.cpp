@@ -54,9 +54,9 @@ void Emoji::parseEmoji(const QJsonObject &emoji, bool restApi)
     mName = emoji.value(QLatin1String("name")).toString();
     mEmojiIdentifier = QLatin1Char(':') + mName + QLatin1Char(':');
     if (restApi) {
-        mUpdatedAt = Utils::parseIsoDate(QLatin1String("_updatedAt"), emoji);
+        mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), emoji);
     } else {
-        mUpdatedAt = Utils::parseDate(QLatin1String("_updatedAt"), emoji);
+        mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), emoji);
     }
     const QJsonArray array = emoji.value(QLatin1String("aliases")).toArray();
     const int arrayCount = array.count();

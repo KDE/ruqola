@@ -30,6 +30,7 @@ class RestApiMethod;
 class AbstractLogger;
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RestApiAbstractJob : public QObject
 {
+    Q_OBJECT
 public:
     explicit RestApiAbstractJob(QObject *parent = nullptr);
     Q_REQUIRED_RESULT QNetworkAccessManager *networkAccessManager() const;

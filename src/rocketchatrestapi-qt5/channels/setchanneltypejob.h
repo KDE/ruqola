@@ -49,7 +49,7 @@ public:
     void setRoomId(const QString &roomId);
 
     Q_REQUIRED_RESULT GroupType type() const;
-    void setType(const GroupType &type);
+    void setType(GroupType type);
 
 Q_SIGNALS:
     void setGroupTypeDone();

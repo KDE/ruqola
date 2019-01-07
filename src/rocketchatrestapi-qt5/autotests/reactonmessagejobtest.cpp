@@ -55,10 +55,10 @@ void ReactOnMessageJobTest::shouldGenerateJson()
     const QString emoji = QStringLiteral("topic1");
     job.setMessageId(messageid);
     job.setEmoji(emoji);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"emoji\":\"%1\",\"messageId\":\"%2\",\"shouldReact\":true}").arg(emoji).arg(messageid).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"emoji\":\"%1\",\"messageId\":\"%2\",\"shouldReact\":true}").arg(emoji, messageid).toLatin1());
 
     job.setShouldReact(false);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"emoji\":\"%1\",\"messageId\":\"%2\",\"shouldReact\":false}").arg(emoji).arg(messageid).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"emoji\":\"%1\",\"messageId\":\"%2\",\"shouldReact\":false}").arg(emoji, messageid).toLatin1());
 }
 
 void ReactOnMessageJobTest::shouldNotStarting()

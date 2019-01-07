@@ -34,9 +34,9 @@ void File::parseFile(const QJsonObject &object, bool restApi)
     setUrl(fields.value(QLatin1String("url")).toString());
     setRid(fields.value(QLatin1String("rid")).toString());
     if (restApi) {
-        setUploadedAt(Utils::parseIsoDate(QLatin1String("uploadedAt"), fields));
+        setUploadedAt(Utils::parseIsoDate(QStringLiteral("uploadedAt"), fields));
     } else {
-        setUploadedAt(Utils::parseDate(QLatin1String("uploadedAt"), fields));
+        setUploadedAt(Utils::parseDate(QStringLiteral("uploadedAt"), fields));
     }
 
     const QJsonObject user = object.value(QLatin1String("user")).toObject();

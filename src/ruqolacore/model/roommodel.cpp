@@ -470,7 +470,8 @@ void RoomModel::setInputMessage(const QString &roomId, const QString &inputMessa
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == roomId) {
-            return mRoomsList.at(i)->setInputMessage(inputMessage);
+            mRoomsList.at(i)->setInputMessage(inputMessage);
+            return;
         }
     }
 }

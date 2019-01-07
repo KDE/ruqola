@@ -54,5 +54,5 @@ void GroupAddModeratorJobTest::shouldGenerateJson()
     const QString addUsedId = QStringLiteral("topic1");
     job.setRoomId(roomId);
     job.setAddModeratorUserId(addUsedId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userId\":\"%1\"}").arg(addUsedId).arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userId\":\"%1\"}").arg(addUsedId, roomId).toLatin1());
 }

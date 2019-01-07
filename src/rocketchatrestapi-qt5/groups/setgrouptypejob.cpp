@@ -72,7 +72,7 @@ SetGroupTypeJob::GroupType SetGroupTypeJob::type() const
     return mType;
 }
 
-void SetGroupTypeJob::setType(const GroupType &type)
+void SetGroupTypeJob::setType(GroupType type)
 {
     mType = type;
 }

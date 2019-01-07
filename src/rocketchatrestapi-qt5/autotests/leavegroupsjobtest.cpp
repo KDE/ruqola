@@ -51,7 +51,6 @@ void LeaveGroupsJobTest::shouldGenerateJson()
 {
     LeaveGroupsJob job;
     const QString roomId = QStringLiteral("foo1");
-    const QString text = QStringLiteral("topic1");
     job.setRoomId(roomId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\"}").arg(roomId).toLatin1());
 }

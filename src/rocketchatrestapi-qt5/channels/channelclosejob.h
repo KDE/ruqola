@@ -50,7 +50,7 @@ public:
     void setRoomId(const QString &roomId);
 
     Q_REQUIRED_RESULT ChannelType channelType() const;
-    void setChannelType(const ChannelType &channelType);
+    void setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType channelType);
 
 Q_SIGNALS:
     void closeChannelDone();
