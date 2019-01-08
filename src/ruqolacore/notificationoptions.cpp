@@ -45,6 +45,7 @@ void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
     mEmailNotifications = obj.value(QLatin1String("emailNotifications")).toString();
     //"unreadAlert":"nothing"
     mUnreadTrayIconAlert = obj.value(QLatin1String("unreadAlert")).toString();
+    mMuteGroupMentions = obj.value(QLatin1String("muteGroupMentions")).toBool();
 }
 
 QString NotificationOptions::audioNotificationValue() const
@@ -79,6 +80,7 @@ QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
     obj[QStringLiteral("emailNotifications")] = options.emailNotifications();
     obj[QStringLiteral("unreadAlert")] = options.unreadTrayIconAlert();
     obj[QStringLiteral("hideUnreadStatus")] = options.hideUnreadStatus();
+    obj[QStringLiteral("muteGroupMentions")] = options.muteGroupMentions();
     return obj;
 }
 
@@ -168,7 +170,18 @@ bool NotificationOptions::operator==(const NotificationOptions &other) const
            && (mDisableNotifications == other.disableNotifications())
            && (mHideUnreadStatus == other.hideUnreadStatus())
            && (mAudioNotificationValue == other.audioNotificationValue())
-           && (mDesktopNotificationDuration == other.desktopNotificationDuration());
+           && (mDesktopNotificationDuration == other.desktopNotificationDuration())
+           && (mMuteGroupMentions == other.muteGroupMentions());
+}
+
+bool NotificationOptions::muteGroupMentions() const
+{
+    return mMuteGroupMentions;
+}
+
+void NotificationOptions::setMuteGroupMentions(bool muteGroupMentions)
+{
+    mMuteGroupMentions = muteGroupMentions;
 }
 
 QDebug operator <<(QDebug d, const NotificationOptions &t)
@@ -182,6 +195,7 @@ QDebug operator <<(QDebug d, const NotificationOptions &t)
     d << "mDisableNotifications: " << t.disableNotifications();
     d << "hideUnreadStatus: " << t.hideUnreadStatus();
     d << "unreadTrayIconAlert: " << t.unreadTrayIconAlert();
+    d << "mMuteGroupMentions: " << t.muteGroupMentions();
     return d;
 }
 
@@ -196,5 +210,6 @@ NotificationOptions &NotificationOptions::operator=(const NotificationOptions &o
     mDesktopNotificationDuration = other.desktopNotificationDuration();
     mDisableNotifications = other.disableNotifications();
     mHideUnreadStatus = other.hideUnreadStatus();
+    mMuteGroupMentions = other.muteGroupMentions();
     return *this;
 }

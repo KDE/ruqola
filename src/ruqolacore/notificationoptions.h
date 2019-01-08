@@ -76,7 +76,10 @@ public:
 
     NotificationOptions &operator =(const NotificationOptions &other);
     Q_REQUIRED_RESULT bool operator==(const NotificationOptions &other) const;
-    //TODO add signal
+
+    Q_REQUIRED_RESULT bool muteGroupMentions() const;
+    void setMuteGroupMentions(bool muteGroupMentions);
+
 private:
     //TODO use enums ????
     QString mAudioNotifications;
@@ -88,6 +91,7 @@ private:
     int mDesktopNotificationDuration = 0; //seconds
     bool mDisableNotifications = false;
     bool mHideUnreadStatus = false;
+    bool mMuteGroupMentions = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const NotificationOptions &t);
 
