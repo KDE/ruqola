@@ -72,7 +72,7 @@ void SaveNotificationJobTest::shouldGenerateJson()
              QStringLiteral("{\"notifications\":{\"audioNotifications\":\"%2\","
                             "\"hideUnreadStatus\":\"1\","
                             "\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}")
-             .arg(roomId, audioNotification).arg(mobilePushNotifications).toLatin1());
+             .arg(roomId, audioNotification, mobilePushNotifications).toLatin1());
 
     const bool disableNotifications = true;
     job.setDisableNotifications(disableNotifications);
@@ -81,7 +81,7 @@ void SaveNotificationJobTest::shouldGenerateJson()
                             "\"disableNotifications\":\"1\","
                             "\"hideUnreadStatus\":\"1\","
                             "\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}")
-             .arg(roomId).arg(audioNotification).arg(mobilePushNotifications).toLatin1());
+             .arg(roomId, audioNotification, mobilePushNotifications).toLatin1());
 
     //TODO add more settings
 }

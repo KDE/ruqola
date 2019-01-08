@@ -52,7 +52,7 @@ QString QmlAboutData::version() const
 
 QString QmlAboutData::title() const
 {
-    return QStringLiteral("<html><font size=\"5\">%1</font><br />%2</html>").arg(mAboutData.displayName()).arg(i18n("Version %1", mAboutData.version()));
+    return QStringLiteral("<html><font size=\"5\">%1</font><br />%2</html>").arg(mAboutData.displayName(), i18n("Version %1", mAboutData.version()));
 }
 
 QString QmlAboutData::about() const

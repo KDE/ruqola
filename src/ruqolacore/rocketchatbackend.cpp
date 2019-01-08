@@ -513,37 +513,37 @@ void RocketChatBackend::slotUserIDChanged()
     {
         //Subscribe notification.
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("notification"))));
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("notification"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
         //Subscribe room-changed.
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("rooms-changed"))));
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("rooms-changed"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
         //Subscribe subscriptions-changed
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("subscriptions-changed"))));
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("subscriptions-changed"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
         //Subscribe message
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("message"))));
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("message"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
         //Subscribe message
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("otr"))));
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("otr"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
         //Subscribe message
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("webrtc"))));
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("webrtc"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
@@ -555,7 +555,7 @@ void RocketChatBackend::slotUserIDChanged()
     {
         //Subscribe users in room ? //TODO verify it.
         QJsonArray params;
-        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId).arg(QStringLiteral("webrtc"))));
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("webrtc"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-room-users"), params);
     }
     //stream-notify-all

@@ -292,8 +292,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::Reactions:
     {
         QVariantList lst;
-        lst.reserve(mAllMessages.at(idx).reactions().reactions().count());
-        for (const Reaction &react : mAllMessages.at(idx).reactions().reactions()) {
+        const auto reactions = mAllMessages.at(idx).reactions().reactions();
+        lst.reserve(reactions.count());
+        for (const Reaction &react : reactions) {
             lst.append(QVariant::fromValue(react));
         }
         return lst;

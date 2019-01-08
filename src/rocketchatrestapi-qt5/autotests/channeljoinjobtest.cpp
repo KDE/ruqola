@@ -54,7 +54,7 @@ void ChannelJoinJobTest::shouldGenerateJson()
     job.setRoomId(roomId);
     const QString joinCode = QStringLiteral("bli");
     job.setJoinCode(joinCode);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"joinCode\":\"%2\",\"roomId\":\"%1\"}").arg(roomId).arg(joinCode).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"joinCode\":\"%2\",\"roomId\":\"%1\"}").arg(roomId, joinCode).toLatin1());
 }
 
 void ChannelJoinJobTest::shouldNotStarting()
