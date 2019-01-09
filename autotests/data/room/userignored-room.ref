@@ -21,6 +21,7 @@
         "emailNotifications": "mentions",
         "hideUnreadStatus": false,
         "mobilePushNotifications": "",
+        "muteGroupMentions": false,
         "unreadAlert": ""
     },
     "open": true,

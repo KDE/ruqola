@@ -17,6 +17,7 @@
         "emailNotifications": "",
         "hideUnreadStatus": false,
         "mobilePushNotifications": "",
+        "muteGroupMentions": false,
         "unreadAlert": ""
     },
     "open": false,
