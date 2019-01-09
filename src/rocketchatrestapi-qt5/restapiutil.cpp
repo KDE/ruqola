@@ -161,6 +161,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.join");
     case RestApiUtil::RestApiUrlType::ChannelsMembers:
         return QStringLiteral("channels.members");
+    case RestApiUtil::RestApiUrlType::ChannelsDelete:
+        return QStringLiteral("channels.delete");
     case RestApiUtil::RestApiUrlType::GroupsAddAll:
         return QStringLiteral("groups.addAll");
     case RestApiUtil::RestApiUrlType::GroupsAddModerator:
