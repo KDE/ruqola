@@ -45,6 +45,10 @@ public:
     Q_REQUIRED_RESULT bool disableNotifications() const;
     void setDisableNotifications(bool disableNotifications);
 
+    Q_REQUIRED_RESULT bool muteGroupMentions() const;
+    void setMuteGroupMentions(bool muteGroupMentions);
+
+
     Q_REQUIRED_RESULT bool hideUnreadStatus() const;
     void setHideUnreadStatus(bool hideUnreadStatus);
 
@@ -83,7 +87,8 @@ private:
         UnreadAlert = 16,
         DesktopNotificationDuration = 32,
         DisableNotifications = 64,
-        HideUnreadStatus = 128
+        HideUnreadStatus = 128,
+        MuteGroupMentions = 256
     };
     Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
@@ -100,6 +105,7 @@ private:
     int mDesktopNotificationDuration = 0;
     bool mDisableNotifications = false;
     bool mHideUnreadStatus = false;
+    bool mMuteGroupMentions = false;
 };
 }
 #endif // SAVENOTIFICATIONJOB_H

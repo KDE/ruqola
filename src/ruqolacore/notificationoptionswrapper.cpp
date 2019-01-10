@@ -79,3 +79,8 @@ int NotificationOptionsWrapper::desktopNotificationDuration() const
 {
     return mNotificationOptions.desktopNotificationDuration();
 }
+
+bool NotificationOptionsWrapper::muteGroupMentions() const
+{
+    return mNotificationOptions.muteGroupMentions();
+}

@@ -19,6 +19,7 @@
 */
 
 #include "notificationoptions.h"
+#include "ruqola_debug.h"
 
 NotificationOptions::NotificationOptions()
 {
@@ -86,6 +87,7 @@ QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 
 NotificationOptions NotificationOptions::fromJSon(const QJsonObject &o)
 {
+    qCWarning(RUQOLA_LOG) << "Not implemented yet";
     //TODO
     return {};
 }

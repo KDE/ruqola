@@ -154,6 +154,17 @@ void SaveNotificationJob::setDisableNotifications(bool disableNotifications)
     mDisableNotifications = disableNotifications;
 }
 
+bool SaveNotificationJob::muteGroupMentions() const
+{
+    return mMuteGroupMentions;
+}
+
+void SaveNotificationJob::setMuteGroupMentions(bool muteGroupMentions)
+{
+    mSettingsWillBeChanged |= MuteGroupMentions;
+    mMuteGroupMentions = muteGroupMentions;
+}
+
 QString SaveNotificationJob::roomId() const
 {
     return mRoomId;
@@ -226,6 +237,9 @@ QJsonDocument SaveNotificationJob::json() const
     }
     if (mSettingsWillBeChanged & HideUnreadStatus) {
         notificationsJson[QLatin1String("hideUnreadStatus")] = hideUnreadStatus() ? QStringLiteral("1") : QStringLiteral("0");
+    }
+    if (mSettingsWillBeChanged & MuteGroupMentions) {
+        notificationsJson[QLatin1String("muteGroupMentions")] = muteGroupMentions() ? QStringLiteral("1") : QStringLiteral("0");
     }
     jsonObj[QLatin1String("notifications")] = notificationsJson;
 

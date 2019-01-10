@@ -36,6 +36,7 @@ class NotificationOptionsWrapper : public QObject
     Q_PROPERTY(QString audioNotifications READ audioNotifications CONSTANT)
     Q_PROPERTY(QString audioNotificationValue READ audioNotificationValue CONSTANT)
     Q_PROPERTY(int desktopNotificationDuration READ desktopNotificationDuration CONSTANT)
+    Q_PROPERTY(bool muteGroupMentions READ muteGroupMentions CONSTANT)
 
 public:
     explicit NotificationOptionsWrapper(QObject *parent = nullptr);
@@ -59,6 +60,9 @@ public:
     Q_REQUIRED_RESULT QString audioNotificationValue() const;
 
     Q_REQUIRED_RESULT int desktopNotificationDuration() const;
+
+    Q_REQUIRED_RESULT bool muteGroupMentions() const;
+
 private:
     Q_DISABLE_COPY(NotificationOptionsWrapper)
     NotificationOptions mNotificationOptions;

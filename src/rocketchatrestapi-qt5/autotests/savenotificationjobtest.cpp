@@ -34,6 +34,19 @@ void SaveNotificationJobTest::shouldHaveDefaultValue()
 {
     SaveNotificationJob job;
     verifyDefaultValue(&job);
+
+    QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.disableNotifications());
+    QVERIFY(!job.muteGroupMentions());
+    QVERIFY(!job.hideUnreadStatus());
+    QVERIFY(job.emailNotifications().isEmpty());
+    QVERIFY(job.audioNotifications().isEmpty());
+    QVERIFY(job.mobilePushNotifications().isEmpty());
+    QVERIFY(job.audioNotificationValue().isEmpty());
+    QCOMPARE(job.desktopNotificationDuration(), 0);
+    QVERIFY(job.unreadAlert().isEmpty());
+
+
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
 }
