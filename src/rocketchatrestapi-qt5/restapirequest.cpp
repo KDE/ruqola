@@ -708,6 +708,18 @@ void RestApiRequest::disableNotifications(const QString &roomId, bool value)
     }
 }
 
+
+void RestApiRequest::muteGroupMentions(const QString &roomId, bool value)
+{
+    SaveNotificationJob *job = new SaveNotificationJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setMuteGroupMentions(value);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
 void RestApiRequest::hideUnreadStatus(const QString &roomId, bool value)
 {
     SaveNotificationJob *job = new SaveNotificationJob(this);

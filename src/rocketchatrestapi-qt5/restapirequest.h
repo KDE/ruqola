@@ -120,6 +120,7 @@ public:
     void fetchMyKeys();
     void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
     void channelJoin(const QString &roomId, const QString &joinCode);
+    void muteGroupMentions(const QString &roomId, bool value);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

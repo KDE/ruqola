@@ -69,5 +69,17 @@ QQC2.Dialog {
                 notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.HideUnreadStatus, checked)
             }
         }
+
+        QQC2.Label {
+            text: i18n("Mute Groups Mention:");
+        }
+
+        QQC2.Switch {
+            id: muteGroupMention
+            checked: roomInfo === null ? false : roomInfo.muteGroupMentions().hideUnreadStatus
+            onClicked: {
+                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MuteGroupMentions, checked)
+            }
+        }
     }
 }

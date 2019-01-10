@@ -880,6 +880,9 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId, Rocke
     case UnreadAlert:
         restApi()->unreadAlert(roomId, newValue.toString());
         break;
+    case MuteGroupMentions:
+        restApi()->muteGroupMentions(roomId, newValue.toBool());
+        break;
     }
 #else
     switch (notificationsType) {

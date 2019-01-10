@@ -95,7 +95,8 @@ public:
         DesktopNotifications,
         EmailNotifications,
         MobilePushNotifications,
-        UnreadAlert
+        UnreadAlert,
+        MuteGroupMentions
     };
     Q_ENUM(NotificationOptionsType)
 
