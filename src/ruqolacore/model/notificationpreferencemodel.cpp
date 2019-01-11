@@ -68,25 +68,25 @@ void NotificationPreferenceModel::fillModel()
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Default");
-        preferenceInfo.preference = QStringLiteral("d");
+        preferenceInfo.preference = QString();
         mNotificationPreferenceList.append(preferenceInfo);
     }
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("All Messages");
-        preferenceInfo.preference = QStringLiteral("d");
+        preferenceInfo.preference = QStringLiteral("all");
         mNotificationPreferenceList.append(preferenceInfo);
     }
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Mentions");
-        preferenceInfo.preference = QStringLiteral("d");
+        preferenceInfo.preference = QStringLiteral("mentions");
         mNotificationPreferenceList.append(preferenceInfo);
     }
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Nothing");
-        preferenceInfo.preference = QStringLiteral("d");
+        preferenceInfo.preference = QStringLiteral("nothing");
         mNotificationPreferenceList.append(preferenceInfo);
     }
 }

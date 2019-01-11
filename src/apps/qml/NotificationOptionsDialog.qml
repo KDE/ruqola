@@ -132,7 +132,7 @@ QQC2.Dialog {
             textRole: "preferencei18n"
             currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().emailNotifications)
             onActivated: {
-                console.log(" Change " + NotificationPreferences.emailNotificationsModel().currentPreference)
+                console.log(" Change " + NotificationPreferences.emailNotificationModel().currentPreference)
             }
 //            currentIndex: model.currentStatus
 
