@@ -26,7 +26,7 @@
 NotificationPreferences::NotificationPreferences(QObject *parent)
     : QObject(parent)
 {
-    mAlertNotificationModel = new NotificationPreferenceModel(this);
+    mEmailNotificationModel = new NotificationPreferenceModel(this);
     mMobileNotificationModel = new NotificationPreferenceModel(this);
     mDesktopNotificationModel = new NotificationPreferenceModel(this);
 }
@@ -36,9 +36,9 @@ NotificationPreferences::~NotificationPreferences()
 
 }
 
-NotificationPreferenceModel *NotificationPreferences::alertNotificationModel() const
+NotificationPreferenceModel *NotificationPreferences::emailNotificationModel() const
 {
-    return mAlertNotificationModel;
+    return mEmailNotificationModel;
 }
 
 NotificationPreferenceModel *NotificationPreferences::mobileNotificationModel() const

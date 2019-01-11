@@ -88,11 +88,11 @@ QQC2.Dialog {
         QQC2.ComboBox {
             id: desktopAlertCombobox
             Layout.alignment: Qt.AlignLeft
-            model: NotificationPreferences.alertNotificationModel()
+            model: NotificationPreferences.desktopNotificationModel()
             textRole: "preferencei18n"
-            currentIndex: model.currentPreference.setCurrentNotificationPreference(roomInfo.notificationOptions().desktopNotifications)
+            currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().desktopNotifications)
             onActivated: {
-                console.log(" Change " + NotificationPreferences.alertNotificationModel().currentPreference)
+                console.log(" Change " + NotificationPreferences.desktopNotificationModel().currentPreference)
             }
 //            currentIndex: model.currentStatus
 
@@ -102,5 +102,46 @@ QQC2.Dialog {
 //                label: model.statusi18n
 //            }
         }
+        QQC2.Label {
+            text: i18n("Mobile Alert:");
+        }
+        QQC2.ComboBox {
+            id: mobileAlertCombobox
+            Layout.alignment: Qt.AlignLeft
+            model: NotificationPreferences.mobileNotificationModel()
+            textRole: "preferencei18n"
+            currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().mobileNotifications)
+            onActivated: {
+                console.log(" Change " + NotificationPreferences.mobileNotificationModel().currentPreference)
+            }
+//            currentIndex: model.currentStatus
+
+//            delegate: Kirigami.BasicListItem {
+//                icon: model.icon
+
+//                label: model.statusi18n
+//            }
+        }
+        QQC2.Label {
+            text: i18n("Email Alert:");
+        }
+        QQC2.ComboBox {
+            id: emailAlertCombobox
+            Layout.alignment: Qt.AlignLeft
+            model: NotificationPreferences.emailNotificationModel()
+            textRole: "preferencei18n"
+            currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().emailNotifications)
+            onActivated: {
+                console.log(" Change " + NotificationPreferences.emailNotificationsModel().currentPreference)
+            }
+//            currentIndex: model.currentStatus
+
+//            delegate: Kirigami.BasicListItem {
+//                icon: model.icon
+
+//                label: model.statusi18n
+//            }
+        }
+
     }
 }

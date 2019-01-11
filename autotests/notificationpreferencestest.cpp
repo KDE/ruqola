@@ -32,7 +32,7 @@ NotificationPreferencesTest::NotificationPreferencesTest(QObject *parent)
 void NotificationPreferencesTest::shouldHaveDefaultValues()
 {
     NotificationPreferences w;
-    QVERIFY(w.alertNotificationModel());
+    QVERIFY(w.emailNotificationModel());
     QVERIFY(w.mobileNotificationModel());
     QVERIFY(w.desktopNotificationModel());
 }

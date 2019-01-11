@@ -34,14 +34,14 @@ public:
     explicit NotificationPreferences(QObject *parent = nullptr);
     ~NotificationPreferences();
 
-    Q_INVOKABLE Q_REQUIRED_RESULT NotificationPreferenceModel *alertNotificationModel() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT NotificationPreferenceModel *emailNotificationModel() const;
 
     Q_INVOKABLE Q_REQUIRED_RESULT NotificationPreferenceModel *mobileNotificationModel() const;
 
     Q_INVOKABLE Q_REQUIRED_RESULT NotificationPreferenceModel *desktopNotificationModel() const;
 
 private:
-    NotificationPreferenceModel *mAlertNotificationModel = nullptr;
+    NotificationPreferenceModel *mEmailNotificationModel = nullptr;
     NotificationPreferenceModel *mMobileNotificationModel = nullptr;
     NotificationPreferenceModel *mDesktopNotificationModel = nullptr;
 };
