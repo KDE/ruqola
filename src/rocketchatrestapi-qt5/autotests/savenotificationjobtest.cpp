@@ -96,6 +96,16 @@ void SaveNotificationJobTest::shouldGenerateJson()
                             "\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}")
              .arg(roomId, audioNotification, mobilePushNotifications).toLatin1());
 
+    const bool muteMentionGroups = true;
+    job.setMuteGroupMentions(muteMentionGroups);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
+             QStringLiteral("{\"notifications\":{\"audioNotifications\":\"%2\","
+                            "\"disableNotifications\":\"1\","
+                            "\"hideUnreadStatus\":\"1\","
+                            "\"mobilePushNotifications\":\"%3\","
+                            "\"muteGroupMentions\":\"1\"},\"roomId\":\"%1\"}")
+             .arg(roomId, audioNotification, mobilePushNotifications).toLatin1());
+
     //TODO add more settings
 }
 
