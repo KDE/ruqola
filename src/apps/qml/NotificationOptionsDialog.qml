@@ -27,6 +27,7 @@ import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.RoomWrapper 1.0
 import KDE.Ruqola.NotificationOptionsWrapper 1.0
+import KDE.Ruqola.NotificationPreferences 1.0
 
 QQC2.Dialog {
     id: notificationOptionsDialog
@@ -76,10 +77,30 @@ QQC2.Dialog {
 
         QQC2.Switch {
             id: muteGroupMention
-            checked: roomInfo === null ? false : roomInfo.muteGroupMentions().hideUnreadStatus
+            checked: roomInfo === null ? false : roomInfo.notificationOptions().muteGroupMentions
             onClicked: {
                 notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MuteGroupMentions, checked)
             }
+        }
+        QQC2.Label {
+            text: i18n("Desktop Alert:");
+        }
+        QQC2.ComboBox {
+            id: desktopAlertCombobox
+            Layout.alignment: Qt.AlignLeft
+            model: NotificationPreferences.alertNotificationModel()
+            textRole: "preferencei18n"
+            currentIndex: model.currentPreference.setCurrentNotificationPreference(roomInfo.notificationOptions().desktopNotifications)
+            onActivated: {
+                console.log(" Change " + NotificationPreferences.alertNotificationModel().currentPreference)
+            }
+//            currentIndex: model.currentStatus
+
+//            delegate: Kirigami.BasicListItem {
+//                icon: model.icon
+
+//                label: model.statusi18n
+//            }
         }
     }
 }

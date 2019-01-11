@@ -107,6 +107,7 @@ set (Ruqola_core_srcs
     receivetypingnotificationmanager.cpp
 
     serverconfiginfo.cpp
+    notificationpreferences.cpp
 )
 
 if (NOT WIN32)

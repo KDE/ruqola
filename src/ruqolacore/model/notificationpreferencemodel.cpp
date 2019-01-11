@@ -21,7 +21,7 @@
 
 #include "notificationpreferencemodel.h"
 #include <KLocalizedString>
-
+#include <QDebug>
 NotificationPreferenceModel::NotificationPreferenceModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -50,8 +50,6 @@ QVariant NotificationPreferenceModel::data(const QModelIndex &index, int role) c
         return preferenceInfo.displayText;
     case NotificationPreference:
         return preferenceInfo.preference;
-    case Icon:
-        return preferenceInfo.icon;
     }
     return {};
 }
@@ -61,43 +59,39 @@ QHash<int, QByteArray> NotificationPreferenceModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles[NotificationPreferenceI18n] = QByteArrayLiteral("preferencei18n");
     roles[NotificationPreference] = QByteArrayLiteral("preference");
-    roles[Icon] = QByteArrayLiteral("icon");
     return roles;
 }
 
 void NotificationPreferenceModel::fillModel()
 {
+    mNotificationPreferenceList.reserve(4);
     {
         NotificationPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Online");
-        preferenceInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-online"));
-        //preferenceInfo.preference = User::PresenceStatus::PresenceOnline;
+        preferenceInfo.displayText = i18n("Default");
+        preferenceInfo.preference = QStringLiteral("d");
         mNotificationPreferenceList.append(preferenceInfo);
     }
     {
         NotificationPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Busy");
-        preferenceInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-busy"));
-        //preferenceInfo.preference = User::PresenceStatus::PresenceBusy;
+        preferenceInfo.displayText = i18n("All Messages");
+        preferenceInfo.preference = QStringLiteral("d");
         mNotificationPreferenceList.append(preferenceInfo);
     }
     {
         NotificationPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Away");
-        preferenceInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-away"));
-        //preferenceInfo.preference = User::PresenceStatus::PresenceAway;
+        preferenceInfo.displayText = i18n("Mentions");
+        preferenceInfo.preference = QStringLiteral("d");
         mNotificationPreferenceList.append(preferenceInfo);
     }
     {
         NotificationPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18n("Offline");
-        preferenceInfo.icon = QIcon::fromTheme(QStringLiteral("im-user-offline"));
-        //preferenceInfo.preference = User::PresenceStatus::PresenceOffline;
+        preferenceInfo.displayText = i18n("Nothing");
+        preferenceInfo.preference = QStringLiteral("d");
         mNotificationPreferenceList.append(preferenceInfo);
     }
 }
 
-void NotificationPreferenceModel::setCurrentNotificationPreference(const QString &preference)
+int NotificationPreferenceModel::setCurrentNotificationPreference(const QString &preference)
 {
     int newStatusIndex = 0;
     for (int i = 0; i < mNotificationPreferenceList.count(); ++i) {
@@ -110,9 +104,11 @@ void NotificationPreferenceModel::setCurrentNotificationPreference(const QString
         mCurrentPreference = newStatusIndex;
         Q_EMIT currentNotificationPreferenceChanged();
     }
+    return mCurrentPreference;
 }
 
-int NotificationPreferenceModel::currentPreference() const
+QString NotificationPreferenceModel::currentPreference() const
 {
-    return mCurrentPreference;
+    qDebug() << " mmCurrentPreferenceCurr" << mCurrentPreference;
+    return mNotificationPreferenceList.at(mCurrentPreference).preference;
 }

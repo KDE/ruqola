@@ -50,6 +50,8 @@
 #include "model/rocketchataccountmodel.h"
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/emoticonmodel.h"
+#include "model/notificationpreferencemodel.h"
+#include "notificationpreferences.h"
 
 #include "channel.h"
 #include <KLocalizedContext>
@@ -72,6 +74,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/DebugCategory.qml")), "KDE.Ruqola.DebugCategory", 1, 0, "RuqolaDebugCategorySingleton");
     qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
     qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
+    qmlRegisterSingletonType<NotificationPreferences>("KDE.Ruqola.NotificationPreferences", 1, 0, "NotificationPreferences", notificationpreferences_singletontype_provider);
 
     qmlRegisterType<MessageModel>("KDE.Ruqola.MessageModel", 1, 0, "MessageModel");
     qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
@@ -86,6 +89,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<QmlAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");
     qmlRegisterType<UserCompleterModel>("KDE.Ruqola.UserCompleterModel", 1, 0, "UserCompleterModel");
     qmlRegisterType<StatusModel>("KDE.Ruqola.StatusModel", 1, 0, "StatusModel");
+    qmlRegisterType<NotificationPreferenceModel>("KDE.Ruqola.NotificationPreferenceModel", 1, 0, "NotificationPreferenceModel");
     qmlRegisterType<SearchChannelFilterProxyModel>("KDE.Ruqola.SearchChannelFilterProxyModel", 1, 0, "SearchChannelFilterProxyModel");
     qmlRegisterType<InputCompleterModel>("KDE.Ruqola.InputCompleterModel", 1, 0, "InputCompleterModel");
     qmlRegisterType<LoginMethodModel>("KDE.Ruqola.LoginMethodModel", 1, 0, "LoginMethodModel");

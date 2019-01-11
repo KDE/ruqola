@@ -26,6 +26,7 @@
 #include <QAbstractListModel>
 #include <QIcon>
 
+
 struct NotificationPreferenceInfo {
     QString displayText;
     QIcon icon;
@@ -35,14 +36,13 @@ struct NotificationPreferenceInfo {
 class LIBRUQOLACORE_TESTS_EXPORT NotificationPreferenceModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(int currentPreference READ currentPreference NOTIFY currentNotificationPreferenceChanged)
+    Q_PROPERTY(QString currentPreference READ currentPreference NOTIFY currentNotificationPreferenceChanged)
 public:
-    enum StatusRoles {
+    enum NotificationPreferenceRoles {
         NotificationPreferenceI18n = Qt::UserRole + 1,
-        NotificationPreference,
-        Icon
+        NotificationPreference
     };
-    Q_ENUM(StatusRoles)
+    Q_ENUM(NotificationPreferenceRoles)
 
     explicit NotificationPreferenceModel(QObject *parent = nullptr);
     ~NotificationPreferenceModel() override;
@@ -52,9 +52,9 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
-    void setCurrentNotificationPreference(const QString &preference);
+    Q_INVOKABLE Q_REQUIRED_RESULT int setCurrentNotificationPreference(const QString &preference);
 
-    Q_REQUIRED_RESULT int currentPreference() const;
+    Q_REQUIRED_RESULT QString currentPreference() const;
 
 Q_SIGNALS:
     void currentNotificationPreferenceChanged();
@@ -65,5 +65,6 @@ private:
     QVector<NotificationPreferenceInfo> mNotificationPreferenceList;
     int mCurrentPreference = 0;
 };
+
 
 #endif // NOTIFICATIONPREFERENCEMODEL_H
