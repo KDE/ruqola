@@ -93,7 +93,8 @@ QQC2.Dialog {
             textRole: "preferencei18n"
             currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().desktopNotifications)
             onActivated: {
-                console.log(" Change " + NotificationPreferences.desktopNotificationModel().currentPreference)
+                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DesktopNotifications, NotificationPreferences.desktopNotificationModel().currentPreference)
+                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.desktopNotificationModel().currentPreference)
             }
         }
         QQC2.Label {
@@ -106,7 +107,8 @@ QQC2.Dialog {
             textRole: "preferencei18n"
             currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().mobileNotifications)
             onActivated: {
-                console.log(" Change " + NotificationPreferences.mobileNotificationModel().currentPreference)
+                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MobilePushNotifications, NotificationPreferences.mobileNotificationModel().currentPreference)
+                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.mobileNotificationModel().currentPreference)
             }
         }
         QQC2.Label {
@@ -119,7 +121,8 @@ QQC2.Dialog {
             textRole: "preferencei18n"
             currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().emailNotifications)
             onActivated: {
-                console.log(" Change " + NotificationPreferences.emailNotificationModel().currentPreference)
+                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.EmailNotifications, NotificationPreferences.emailNotificationModel().currentPreference)
+                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.emailNotificationModel().currentPreference)
             }
         }
     }
