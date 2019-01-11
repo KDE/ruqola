@@ -857,7 +857,6 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
 
 void RocketChatAccount::changeNotificationsSettings(const QString &roomId, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue)
 {
-#ifdef USE_REASTAPI_JOB
     switch (notificationsType) {
     case DisableNotifications:
         restApi()->disableNotifications(roomId, newValue.toBool());
@@ -884,31 +883,6 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId, Rocke
         restApi()->muteGroupMentions(roomId, newValue.toBool());
         break;
     }
-#else
-    switch (notificationsType) {
-    case DisableNotifications:
-        ddp()->disableNotifications(roomId, newValue.toBool());
-        break;
-    case HideUnreadStatus:
-        ddp()->hideUnreadStatus(roomId, newValue.toBool());
-        break;
-    case AudioNotifications:
-        ddp()->audioNotifications(roomId, newValue.toString());
-        break;
-    case DesktopNotifications:
-        ddp()->desktopNotifications(roomId, newValue.toString());
-        break;
-    case EmailNotifications:
-        ddp()->emailNotifications(roomId, newValue.toString());
-        break;
-    case MobilePushNotifications:
-        ddp()->mobilePushNotifications(roomId, newValue.toString());
-        break;
-    case UnreadAlert:
-        ddp()->unreadAlert(roomId, newValue.toString());
-        break;
-    }
-#endif
 }
 
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
