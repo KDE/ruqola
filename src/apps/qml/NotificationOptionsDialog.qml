@@ -85,6 +85,7 @@ QQC2.Dialog {
         QQC2.Label {
             text: i18n("Desktop Alert:");
         }
+        //TODO extract to own component
         QQC2.ComboBox {
             id: desktopAlertCombobox
             Layout.alignment: Qt.AlignLeft
@@ -94,13 +95,6 @@ QQC2.Dialog {
             onActivated: {
                 console.log(" Change " + NotificationPreferences.desktopNotificationModel().currentPreference)
             }
-//            currentIndex: model.currentStatus
-
-//            delegate: Kirigami.BasicListItem {
-//                icon: model.icon
-
-//                label: model.statusi18n
-//            }
         }
         QQC2.Label {
             text: i18n("Mobile Alert:");
@@ -114,13 +108,6 @@ QQC2.Dialog {
             onActivated: {
                 console.log(" Change " + NotificationPreferences.mobileNotificationModel().currentPreference)
             }
-//            currentIndex: model.currentStatus
-
-//            delegate: Kirigami.BasicListItem {
-//                icon: model.icon
-
-//                label: model.statusi18n
-//            }
         }
         QQC2.Label {
             text: i18n("Email Alert:");
@@ -134,14 +121,6 @@ QQC2.Dialog {
             onActivated: {
                 console.log(" Change " + NotificationPreferences.emailNotificationModel().currentPreference)
             }
-//            currentIndex: model.currentStatus
-
-//            delegate: Kirigami.BasicListItem {
-//                icon: model.icon
-
-//                label: model.statusi18n
-//            }
         }
-
     }
 }
