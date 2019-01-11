@@ -82,8 +82,8 @@ QString InputTextManager::searchWord(const QString &text, int position)
         return {};
     }
     int start = 0;
-    for (int i = position; i >= 0; i--) {
-        if (!text.at(i).isSpace()) {
+    for (int i = position; i > 0; i--) {
+        if (!text.at(i-1).isSpace()) {
             continue;
         }
         start = i + 1;
