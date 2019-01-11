@@ -36,7 +36,6 @@ struct NotificationPreferenceInfo {
 class LIBRUQOLACORE_TESTS_EXPORT NotificationPreferenceModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(QString currentPreference READ currentPreference NOTIFY currentNotificationPreferenceChanged)
 public:
     enum NotificationPreferenceRoles {
         NotificationPreferenceI18n = Qt::UserRole + 1,
@@ -54,7 +53,7 @@ public:
 
     Q_INVOKABLE Q_REQUIRED_RESULT int setCurrentNotificationPreference(const QString &preference);
 
-    Q_REQUIRED_RESULT QString currentPreference() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT QString currentPreference(int index) const;
 
 Q_SIGNALS:
     void currentNotificationPreferenceChanged();

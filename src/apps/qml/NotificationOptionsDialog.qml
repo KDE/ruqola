@@ -93,8 +93,8 @@ QQC2.Dialog {
             textRole: "preferencei18n"
             currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().desktopNotifications)
             onActivated: {
-                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DesktopNotifications, NotificationPreferences.desktopNotificationModel().currentPreference)
-                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.desktopNotificationModel().currentPreference)
+                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DesktopNotifications, NotificationPreferences.desktopNotificationModel().currentPreference(index))
+                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.desktopNotificationModel().currentPreference(index))
             }
         }
         QQC2.Label {
@@ -107,8 +107,8 @@ QQC2.Dialog {
             textRole: "preferencei18n"
             currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().mobileNotifications)
             onActivated: {
-                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MobilePushNotifications, NotificationPreferences.mobileNotificationModel().currentPreference)
-                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.mobileNotificationModel().currentPreference)
+                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MobilePushNotifications, NotificationPreferences.mobileNotificationModel().currentPreference(index))
+                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.mobileNotificationModel().currentPreference(index))
             }
         }
         QQC2.Label {
@@ -121,8 +121,8 @@ QQC2.Dialog {
             textRole: "preferencei18n"
             currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().emailNotifications)
             onActivated: {
-                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.EmailNotifications, NotificationPreferences.emailNotificationModel().currentPreference)
-                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.emailNotificationModel().currentPreference)
+                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.EmailNotifications, NotificationPreferences.emailNotificationModel().currentPreference(index))
+                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.emailNotificationModel().currentPreference(index))
             }
         }
     }

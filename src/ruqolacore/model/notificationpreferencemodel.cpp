@@ -107,8 +107,8 @@ int NotificationPreferenceModel::setCurrentNotificationPreference(const QString 
     return mCurrentPreference;
 }
 
-QString NotificationPreferenceModel::currentPreference() const
+QString NotificationPreferenceModel::currentPreference(int index) const
 {
-    qDebug() << " mmCurrentPreferenceCurr" << mCurrentPreference;
-    return mNotificationPreferenceList.at(mCurrentPreference).preference;
+    const QString str = mNotificationPreferenceList.at(index).preference;
+    return str;
 }
