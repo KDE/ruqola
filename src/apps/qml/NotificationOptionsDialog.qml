@@ -44,47 +44,48 @@ QQC2.Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    GridLayout {
-        columns: 2
-        QQC2.Label {
-            text: i18n("Disable Notifications:");
-        }
-
-        QQC2.Switch {
-            id: disableNotification
-            checked: roomInfo === null ? false : roomInfo.notificationOptions().disableNotifications
-            //checked: false
-            onClicked: {
-                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DisableNotifications, checked)
+    ColumnLayout {
+        GridLayout {
+            columns: 2
+            QQC2.Label {
+                text: i18n("Disable Notifications:");
             }
-        }
 
-        QQC2.Label {
-            text: i18n("Hide Unread Room Status:");
-        }
-
-        QQC2.Switch {
-            id: hideUnreadRoomStatus
-            checked: roomInfo === null ? false : roomInfo.notificationOptions().hideUnreadStatus
-            onClicked: {
-                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.HideUnreadStatus, checked)
+            QQC2.Switch {
+                id: disableNotification
+                checked: roomInfo === null ? false : roomInfo.notificationOptions().disableNotifications
+                //checked: false
+                onClicked: {
+                    notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DisableNotifications, checked)
+                }
             }
-        }
 
-        QQC2.Label {
-            text: i18n("Mute Groups Mention:");
-        }
+            QQC2.Label {
+                text: i18n("Hide Unread Room Status:");
+            }
 
-        QQC2.Switch {
-            id: muteGroupMention
-            checked: roomInfo === null ? false : roomInfo.notificationOptions().muteGroupMentions
-            onClicked: {
-                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MuteGroupMentions, checked)
+            QQC2.Switch {
+                id: hideUnreadRoomStatus
+                checked: roomInfo === null ? false : roomInfo.notificationOptions().hideUnreadStatus
+                onClicked: {
+                    notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.HideUnreadStatus, checked)
+                }
+            }
+
+            QQC2.Label {
+                text: i18n("Mute Groups Mention:");
+            }
+
+            QQC2.Switch {
+                id: muteGroupMention
+                checked: roomInfo === null ? false : roomInfo.notificationOptions().muteGroupMentions
+                onClicked: {
+                    notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MuteGroupMentions, checked)
+                }
             }
         }
 
         QQC2.GroupBox {
-            Layout.columnSpan: 2
             title: qsTr("Desktop")
             GridLayout {
                 columns: 2
@@ -106,7 +107,7 @@ QQC2.Dialog {
                 NotificationAlertCombobox {
                     id: desktopAudioCombobox
                     model: NotificationPreferences.desktopAudioNotificationModel()
-                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.audioNotifications().desktopNotifications) : 0
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().audioNotifications) : 0
                     onActivated: {
                         notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.AudioNotifications, model.currentPreference(index))
                     }
@@ -115,7 +116,6 @@ QQC2.Dialog {
         }
 
         QQC2.GroupBox {
-            Layout.columnSpan: 2
             title: qsTr("Mobile")
             GridLayout {
                 columns: 2
@@ -136,7 +136,6 @@ QQC2.Dialog {
         }
 
         QQC2.GroupBox {
-            Layout.columnSpan: 2
             title: qsTr("Email")
             GridLayout {
                 columns: 2
