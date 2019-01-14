@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2019 Montel Laurent <montel@kde.org>
+   Copyright (c) 2019 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,30 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-
+import QtQuick 2.9
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
-import QtQuick.Window 2.0
-import QtQuick 2.9
+import KDE.Ruqola.DebugCategory 1.0
 
-QQC2.Dialog {
-    id: deleteRoomDialog
-
-    title: i18n("Encrypted Conversation")
-
-    property string rId: ""
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
-
-    modal: true
-    focus: true
-    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
-
-    Row {
-        QQC2.Label {
-            text: i18n("Do you want to accept encrypted conversation?")
-            font.bold: true
-            font.pointSize: 15
-        }
+QQC2.ComboBox {
+    id: notificationAlertCombobox
+    Layout.alignment: Qt.AlignLeft
+    textRole: "preferencei18n"
+    onActivated: {
+        console.log(RuqolaDebugCategorySingleton.category, " Change " + model.currentPreference(index))
     }
 }

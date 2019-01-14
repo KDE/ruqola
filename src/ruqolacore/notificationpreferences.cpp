@@ -29,6 +29,7 @@ NotificationPreferences::NotificationPreferences(QObject *parent)
     mEmailNotificationModel = new NotificationPreferenceModel(this);
     mMobileNotificationModel = new NotificationPreferenceModel(this);
     mDesktopNotificationModel = new NotificationPreferenceModel(this);
+    mDesktopAudioNotificationModel = new NotificationPreferenceModel(this);
 }
 
 NotificationPreferences::~NotificationPreferences()
@@ -49,4 +50,9 @@ NotificationPreferenceModel *NotificationPreferences::mobileNotificationModel() 
 NotificationPreferenceModel *NotificationPreferences::desktopNotificationModel() const
 {
     return mDesktopNotificationModel;
+}
+
+NotificationPreferenceModel *NotificationPreferences::desktopAudioNotificationModel() const
+{
+    return mDesktopAudioNotificationModel;
 }

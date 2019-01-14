@@ -40,10 +40,13 @@ public:
 
     Q_INVOKABLE Q_REQUIRED_RESULT NotificationPreferenceModel *desktopNotificationModel() const;
 
+    Q_INVOKABLE Q_REQUIRED_RESULT NotificationPreferenceModel *desktopAudioNotificationModel() const;
+
 private:
     NotificationPreferenceModel *mEmailNotificationModel = nullptr;
     NotificationPreferenceModel *mMobileNotificationModel = nullptr;
     NotificationPreferenceModel *mDesktopNotificationModel = nullptr;
+    NotificationPreferenceModel *mDesktopAudioNotificationModel = nullptr;
 };
 
 inline static QObject *notificationpreferences_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

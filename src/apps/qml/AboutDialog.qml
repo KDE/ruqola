@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 import QtQuick 2.9
-import QtQuick.Layouts 1.3
-import QtQuick.Controls 2.2 as QQC2
+import QtQuick.Layouts 1.12
+import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.0
 import KDE.Ruqola.RuqolaAboutDataAuthorModel 1.0
 import KDE.Ruqola.RuqolaAboutData 1.0

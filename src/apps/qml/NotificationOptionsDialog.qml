@@ -19,9 +19,9 @@
 */
 
 import QtQuick 2.9
-import QtQuick.Layouts 1.3
+import QtQuick.Layouts 1.12
 import QtQuick.Controls 1.4
-import QtQuick.Controls 2.2 as QQC2
+import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.0
 import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
@@ -82,47 +82,76 @@ QQC2.Dialog {
                 notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MuteGroupMentions, checked)
             }
         }
-        QQC2.Label {
-            text: i18n("Desktop Alert:");
-        }
-        //TODO extract to own component
-        QQC2.ComboBox {
-            id: desktopAlertCombobox
-            Layout.alignment: Qt.AlignLeft
-            model: NotificationPreferences.desktopNotificationModel()
-            textRole: "preferencei18n"
-            currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().desktopNotifications)
-            onActivated: {
-                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DesktopNotifications, NotificationPreferences.desktopNotificationModel().currentPreference(index))
-                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.desktopNotificationModel().currentPreference(index))
+
+        QQC2.GroupBox {
+            Layout.columnSpan: 2
+            title: qsTr("Desktop")
+            GridLayout {
+                columns: 2
+                anchors.fill: parent
+                QQC2.Label {
+                    text: i18n("Alert:");
+                }
+                NotificationAlertCombobox {
+                    id: desktopAlertCombobox
+                    model: NotificationPreferences.desktopNotificationModel()
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().desktopNotifications) : 0
+                    onActivated: {
+                        notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DesktopNotifications, model.currentPreference(index))
+                    }
+                }
+                QQC2.Label {
+                    text: i18n("Audio:");
+                }
+                NotificationAlertCombobox {
+                    id: desktopAudioCombobox
+                    model: NotificationPreferences.desktopAudioNotificationModel()
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.audioNotifications().desktopNotifications) : 0
+                    onActivated: {
+                        notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.AudioNotifications, model.currentPreference(index))
+                    }
+                }
             }
         }
-        QQC2.Label {
-            text: i18n("Mobile Alert:");
-        }
-        QQC2.ComboBox {
-            id: mobileAlertCombobox
-            Layout.alignment: Qt.AlignLeft
-            model: NotificationPreferences.mobileNotificationModel()
-            textRole: "preferencei18n"
-            currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().mobileNotifications)
-            onActivated: {
-                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MobilePushNotifications, NotificationPreferences.mobileNotificationModel().currentPreference(index))
-                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.mobileNotificationModel().currentPreference(index))
+
+        QQC2.GroupBox {
+            Layout.columnSpan: 2
+            title: qsTr("Mobile")
+            GridLayout {
+                columns: 2
+                anchors.fill: parent
+
+                QQC2.Label {
+                    text: i18n("Alert:");
+                }
+                NotificationAlertCombobox {
+                    id: mobileAlertCombobox
+                    model: NotificationPreferences.mobileNotificationModel()
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().mobileNotifications) : 0
+                    onActivated: {
+                        notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MobilePushNotifications, NotificationPreferences.mobileNotificationModel().currentPreference(index))
+                    }
+                }
             }
         }
-        QQC2.Label {
-            text: i18n("Email Alert:");
-        }
-        QQC2.ComboBox {
-            id: emailAlertCombobox
-            Layout.alignment: Qt.AlignLeft
-            model: NotificationPreferences.emailNotificationModel()
-            textRole: "preferencei18n"
-            currentIndex: model.setCurrentNotificationPreference(roomInfo.notificationOptions().emailNotifications)
-            onActivated: {
-                notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.EmailNotifications, NotificationPreferences.emailNotificationModel().currentPreference(index))
-                console.log(RuqolaDebugCategorySingleton.category, " Change " + NotificationPreferences.emailNotificationModel().currentPreference(index))
+
+        QQC2.GroupBox {
+            Layout.columnSpan: 2
+            title: qsTr("Email")
+            GridLayout {
+                columns: 2
+                anchors.fill: parent
+                QQC2.Label {
+                    text: i18n("Alert:");
+                }
+                NotificationAlertCombobox {
+                    id: emailAlertCombobox
+                    model: NotificationPreferences.emailNotificationModel()
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().emailNotifications) : 0
+                    onActivated: {
+                        notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.EmailNotifications, NotificationPreferences.emailNotificationModel().currentPreference(index))
+                    }
+                }
             }
         }
     }

@@ -35,4 +35,5 @@ void NotificationPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(w.emailNotificationModel());
     QVERIFY(w.mobileNotificationModel());
     QVERIFY(w.desktopNotificationModel());
+    QVERIFY(w.desktopAudioNotificationModel());
 }

@@ -19,9 +19,9 @@
 */
 
 import QtQuick 2.9
-import QtQuick.Controls 2.2 as QQC2
+import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.0
-import QtQuick.Layouts 1.3
+import QtQuick.Layouts 1.12
 
 QQC2.Dialog {
     id: openDirectChannelDialog
