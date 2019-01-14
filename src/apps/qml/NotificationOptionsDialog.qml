@@ -45,6 +45,7 @@ QQC2.Dialog {
     y: parent.height / 2 - height / 2
 
     ColumnLayout {
+        anchors.fill: parent
         GridLayout {
             columns: 2
             QQC2.Label {
