@@ -408,7 +408,7 @@ Component {
             CreateNewChannelDialog {
                 id: createNewChannelDialog
                 onCreateNewChannel: {
-                    rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames, encryptedRoom);
+                    rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames, encryptedRoom, password);
                 }
             }
             ServerInfoDialog {

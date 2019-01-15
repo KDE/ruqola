@@ -26,8 +26,7 @@ import KDE.Ruqola.DebugCategory 1.0
 QQC2.Dialog {
     id: createNewChannelDialog
 
-    //TODO encrypted ? password ?
-    signal createNewChannel(string name, bool readOnly, bool privateRoom, string usernames, bool encryptedRoom)
+    signal createNewChannel(string name, bool readOnly, bool privateRoom, string usernames, bool encryptedRoom, string password)
 
     title: i18n("Create Channel")
 

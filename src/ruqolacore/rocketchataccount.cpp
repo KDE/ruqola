@@ -523,8 +523,9 @@ void RocketChatAccount::openDirectChannel(const QString &username)
 #endif
 }
 
-void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom)
+void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom, const QString &password)
 {
+    //TODO password
     //TODO use encryted room
     if (!name.trimmed().isEmpty()) {
         const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
