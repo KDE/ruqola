@@ -109,7 +109,7 @@ QQC2.Dialog {
 
     onAccepted: {
         if (channelName !== "") {
-            createNewChannelDialog.createNewChannel(channelName.text, readOnlyRoom.checked, privateRoom.checked, userList.text, encryptedRoom.checked)
+            createNewChannelDialog.createNewChannel(channelName.text, readOnlyRoom.checked, privateRoom.checked, userList.text, encryptedRoom.checked, password.text)
         } else {
             console.log(RuqolaDebugCategorySingleton.category, "Channel name is empty!")
         }

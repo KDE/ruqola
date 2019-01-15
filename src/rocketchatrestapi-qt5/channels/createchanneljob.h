@@ -48,14 +48,19 @@ public:
     Q_REQUIRED_RESULT QStringList members() const;
     void setMembers(const QStringList &members);
 
+    Q_REQUIRED_RESULT QString password() const;
+    void setPassword(const QString &password);
+
 Q_SIGNALS:
     void createChannelDone();
+    void addJoinCodeToChannel(const QString &channelId, const QString &password);
 
 private:
     Q_DISABLE_COPY(CreateChannelJob)
     void slotCreateChannelFinished();
     QString mChannelName;
     QStringList mMembers;
+    QString mPassword;
     bool mReadOnly = false;
 };
 }

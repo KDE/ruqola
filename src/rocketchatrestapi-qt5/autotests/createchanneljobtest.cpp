@@ -38,6 +38,7 @@ void CreateChannelJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.readOnly());
     QVERIFY(job.channelName().isEmpty());
     QVERIFY(job.members().isEmpty());
+    QVERIFY(job.password().isEmpty());
 }
 
 void CreateChannelJobTest::shouldGenerateRequest()

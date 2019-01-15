@@ -533,7 +533,7 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
         if (privateRoom) {
             restApi()->createGroups(name, readOnly, lstUsers);
         } else {
-            restApi()->createChannels(name, readOnly, lstUsers);
+            restApi()->createChannels(name, readOnly, lstUsers, password);
         }
 #else
         if (privateRoom) {

@@ -439,13 +439,20 @@ void RestApiRequest::deleteMessage(const QString &roomId, const QString &message
     }
 }
 
-void RestApiRequest::createChannels(const QString &channelName, bool readOnly, const QStringList &members)
+void RestApiRequest::slotAddJoinCodeToChannel(const QString &channelId, const QString &password)
+{
+    setJoinCodeChannel(channelId, password);
+}
+
+void RestApiRequest::createChannels(const QString &channelName, bool readOnly, const QStringList &members, const QString &password)
 {
     CreateChannelJob *job = new CreateChannelJob(this);
+    connect(job, &CreateChannelJob::addJoinCodeToChannel, this, &RestApiRequest::slotAddJoinCodeToChannel);
     initializeRestApiJob(job);
     job->setChannelName(channelName);
     job->setReadOnly(readOnly);
     job->setMembers(members);
+    job->setPassword(password);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }

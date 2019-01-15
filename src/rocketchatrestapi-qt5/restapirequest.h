@@ -72,7 +72,7 @@ public:
     void changeGroupsAnnouncement(const QString &roomId, const QString &announcement);
     void postMessage(const QString &roomId, const QString &text);
     void deleteMessage(const QString &roomId, const QString &messageId);
-    void createChannels(const QString &channelName, bool readOnly, const QStringList &members);
+    void createChannels(const QString &channelName, bool readOnly, const QStringList &members, const QString &password);
     void createGroups(const QString &channelName, bool readOnly, const QStringList &members);
     void leaveChannel(const QString &roomId);
     void leaveGroups(const QString &roomId);
@@ -155,6 +155,7 @@ private:
     void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
     void slotLogout();
     void slotLogin(const QString &authToken, const QString &userId);
+    void slotAddJoinCodeToChannel(const QString &channelId, const QString &password);
 
     void initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob *job);
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
