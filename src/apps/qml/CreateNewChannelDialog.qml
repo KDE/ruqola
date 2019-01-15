@@ -26,6 +26,7 @@ import KDE.Ruqola.DebugCategory 1.0
 QQC2.Dialog {
     id: createNewChannelDialog
 
+    //TODO encrypted ? password ?
     signal createNewChannel(string name, bool readOnly, bool privateRoom, string usernames, bool encryptedRoom)
 
     title: i18n("Create Channel")
@@ -42,6 +43,7 @@ QQC2.Dialog {
     {
         channelName.text = "";
         userList.text = "";
+        password.text = "";
         readOnlyRoom.checked = false
         privateRoom.checked = false
         encryptedRoom.checked = false
@@ -93,6 +95,17 @@ QQC2.Dialog {
             id: encryptedRoom
             checked: false
         }
+
+        QQC2.Label {
+            text: i18n("Password:");
+        }
+        PasswordLineEdit {
+            id: password
+            selectByMouse: true
+            //Add i18n context ?
+            placeholderText: i18n("Add password")
+        }
+
     }
 
     onAccepted: {
