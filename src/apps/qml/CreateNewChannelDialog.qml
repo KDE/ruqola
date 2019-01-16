@@ -104,7 +104,6 @@ QQC2.Dialog {
             //Add i18n context ?
             placeholderText: i18n("Add password")
         }
-
     }
 
     onAccepted: {

@@ -61,6 +61,8 @@ QQC2.Dialog {
         roomType.visible = !enabledField
         labelEncrypted.visible = !enabledField && roomInfo.encryptedEnabled
         encrypted.visible = !enabledField && roomInfo.encryptedEnabled
+        labelPassword.visible = !enabledField
+        password.visible = !enabledField
         open();
     }
 
@@ -119,6 +121,17 @@ QQC2.Dialog {
                     channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal, roomInfo.channelType)
                 }
             }
+        }
+
+        QQC2.Label {
+            id: labelPassword
+            text: i18n("Password:");
+        }
+        PasswordLineEdit {
+            id: password
+            selectByMouse: true
+            //Add i18n context ?
+            placeholderText: i18n("Add password")
         }
 
         QQC2.Label {
