@@ -74,8 +74,9 @@ Component {
                         createNewChannelDialog.initializeAndOpen()
                     }
                 },
-//                Kirigami.Separator {
-//                },
+                Kirigami.Action {
+                   separator: true
+                },
                 Kirigami.Action {
                     text: i18n("Server Info")
                     onTriggered: {

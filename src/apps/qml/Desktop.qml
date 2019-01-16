@@ -112,6 +112,9 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
+               separator: true
+            },
+            Kirigami.Action {
                 shortcut: StandardKey.Quit
                 text: i18n("Quit")
                 iconName: "application-exit"
