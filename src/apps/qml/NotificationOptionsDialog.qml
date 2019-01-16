@@ -113,6 +113,9 @@ QQC2.Dialog {
                         notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.AudioNotifications, model.currentPreference(index))
                     }
                 }
+                QQC2.Label {
+                    text: i18n("Duration:");
+                }
             }
         }
 
