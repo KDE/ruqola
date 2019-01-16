@@ -782,7 +782,6 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
 {
     switch (infoType) {
     case Announcement:
-#ifdef USE_REASTAPI_JOB
         if (channelType == QStringLiteral("c")) {
             restApi()->changeChannelAnnouncement(roomId, newValue.toString());
         } else if (channelType == QStringLiteral("p")) {
@@ -795,12 +794,8 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport change announcement for type " << channelType;
         }
-#else
-        ddp()->setRoomAnnouncement(roomId, newValue.toString());
-#endif
         break;
     case Description:
-#ifdef USE_REASTAPI_JOB
         if (channelType == QStringLiteral("c")) {
             restApi()->changeChannelDescription(roomId, newValue.toString());
         } else if (channelType == QStringLiteral("p")) {
@@ -808,12 +803,19 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport change description for type " << channelType;
         }
-#else
-        ddp()->setRoomDescription(roomId, newValue.toString());
-#endif
         break;
     case Name:
-        ddp()->setRoomName(roomId, newValue.toString());
+        if (channelType == QStringLiteral("c")) {
+#ifdef USE_REASTAPI_JOB
+            restApi()->changeChannelName(roomId, newValue.toString());
+#else
+            ddp()->setRoomName(roomId, newValue.toString());
+#endif
+        } else if (channelType == QStringLiteral("p")) {
+            restApi()->changeGroupName(roomId, newValue.toString());
+        } else {
+            qCWarning(RUQOLA_LOG) << " unsupport change name for type " << channelType;
+        }
         break;
     case Topic:
 #ifdef USE_REASTAPI_JOB

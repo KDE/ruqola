@@ -66,6 +66,8 @@
 #include "channels/getchannelrolesjob.h"
 #include "channels/setjoincodechanneljob.h"
 #include "channels/channeljoinjob.h"
+#include "channels/channelinfojob.h"
+#include "channels/changechannelnamejob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -76,6 +78,7 @@
 #include "groups/groupsinvitejob.h"
 #include "groups/setgrouptypejob.h"
 #include "groups/getgrouprolesjob.h"
+#include "groups/changegroupsnamejob.h"
 
 #include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
@@ -722,6 +725,38 @@ void RestApiRequest::muteGroupMentions(const QString &roomId, bool value)
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     job->setMuteGroupMentions(value);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::changeGroupName(const QString &roomId, const QString &newName)
+{
+    ChangeGroupsNameJob *job = new ChangeGroupsNameJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setName(newName);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::changeChannelName(const QString &roomId, const QString &newName)
+{
+    ChangeChannelNameJob *job = new ChangeChannelNameJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setName(newName);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::channelInfo(const QString &roomId)
+{
+    ChannelInfoJob *job = new ChannelInfoJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }

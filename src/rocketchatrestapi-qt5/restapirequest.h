@@ -121,6 +121,11 @@ public:
     void setJoinCodeChannel(const QString &roomId, const QString &joinCode);
     void channelJoin(const QString &roomId, const QString &joinCode);
     void muteGroupMentions(const QString &roomId, bool value);
+
+    void channelInfo(const QString &roomId);
+
+    void changeChannelName(const QString &roomId, const QString &newName);
+    void changeGroupName(const QString &roomId, const QString &newName);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
