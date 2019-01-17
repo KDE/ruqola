@@ -63,6 +63,8 @@ QQC2.Dialog {
         encrypted.visible = !enabledField && roomInfo.encryptedEnabled
         labelPassword.visible = !enabledField
         password.visible = !enabledField
+        //TODO fix me! Readd password
+        password.text = "";
         open();
     }
 
