@@ -68,6 +68,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(!input.encrypted());
     QVERIFY(!input.alert());
     QVERIFY(!input.readOnly());
+    QVERIFY(!input.joinCodeRequired());
 }
 
 //TODO add notification, userMentions too
@@ -96,6 +97,7 @@ void RoomTest::shouldSerialized()
     input.setUserMentions(3);
     input.setRoles({QStringLiteral("foo"), QStringLiteral("bla")});
     input.setIgnoredUsers({QStringLiteral("gg"), QStringLiteral("gg2")});
+    input.setJoinCodeRequired(true);
     const QByteArray ba = Room::serialize(&input);
     //qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
     Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
@@ -122,6 +124,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyignoredUsersChanged(&input, &Room::ignoredUsersChanged);
     QSignalSpy spymutedUsersChanged(&input, &Room::mutedUsersChanged);
     QSignalSpy spyencryptedChanged(&input, &Room::encryptedChanged);
+    QSignalSpy spyjoinCodeRequiredChanged(&input, &Room::joinCodeRequiredChanged);
     input.setRoomId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
@@ -141,6 +144,7 @@ void RoomTest::shouldEmitSignals()
     input.setBlocked(true);
     input.setArchived(true);
     input.setEncrypted(true);
+    input.setJoinCodeRequired(true);
     input.setDescription(QStringLiteral("ddd"));
     input.setRoles({QStringLiteral("bla"), QStringLiteral("blu")});
     input.setIgnoredUsers({QStringLiteral("bla"), QStringLiteral("blu3")});
@@ -160,6 +164,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyignoredUsersChanged.count(), 1);
     QCOMPARE(spymutedUsersChanged.count(), 1);
     QCOMPARE(spyencryptedChanged.count(), 1);
+    QCOMPARE(spyjoinCodeRequiredChanged.count(), 1);
 }
 
 void RoomTest::shouldChangeInputMessage()

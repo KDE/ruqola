@@ -89,7 +89,8 @@ bool Room::isEqual(const Room &other) const
            && (mIgnoredUsers == other.ignoredUsers())
            && (mEncrypted == other.encrypted())
            && (mE2EKey == other.e2EKey())
-           && (mE2eKeyId == other.e2eKeyId());
+           && (mE2eKeyId == other.e2eKeyId())
+           && (mJoinCodeRequired == other.joinCodeRequired());
 }
 
 QString Room::name() const
@@ -126,6 +127,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "encrypted room: " << t.encrypted();
     d << "E2E keys: " << t.e2EKey();
     d << "mE2eKeyId: " << t.e2eKeyId();
+    d << "mJoinCodeRequired: " << t.joinCodeRequired();
     return d;
 }
 
@@ -671,6 +673,19 @@ void Room::parseCommonData(const QJsonObject &json)
     setRoles(lstRoles);
 }
 
+bool Room::joinCodeRequired() const
+{
+    return mJoinCodeRequired;
+}
+
+void Room::setJoinCodeRequired(bool joinCodeRequired)
+{
+    if (mJoinCodeRequired != joinCodeRequired) {
+        mJoinCodeRequired = joinCodeRequired;
+        Q_EMIT joinCodeRequiredChanged();
+    }
+}
+
 QString Room::e2eKeyId() const
 {
     return mE2eKeyId;
@@ -737,6 +752,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setEncrypted(o[QStringLiteral("encrypted")].toBool());
     r->setE2EKey(o[QStringLiteral("e2ekey")].toString());
     r->setE2eKeyId(o[QStringLiteral("e2ekeyid")].toString());
+    r->setJoinCodeRequired(o[QStringLiteral("joinCodeRequired")].toBool());
     r->setUpdatedAt(static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble()));
     r->setLastSeeAt(static_cast<qint64>(o[QStringLiteral("lastSeeAt")].toDouble()));
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
@@ -801,6 +817,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("blocked")] = r->blocked();
     o[QStringLiteral("encrypted")] = r->encrypted();
     o[QStringLiteral("archived")] = r->archived();
+    if (r->joinCodeRequired()) {
+        o[QStringLiteral("joinCodeRequired")] = true;
+    }
     if (!r->e2EKey().isEmpty()) {
         o[QStringLiteral("e2ekey")] = r->e2EKey();
     }

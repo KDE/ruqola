@@ -191,6 +191,9 @@ public:
     void setE2eKeyId(const QString &e2eKeyId);
 
     NotificationOptionsWrapper *getNotificationWrapper();
+    Q_REQUIRED_RESULT bool joinCodeRequired() const;
+    void setJoinCodeRequired(bool joinCodeRequired);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -215,6 +218,7 @@ Q_SIGNALS:
     void mutedUsersChanged();
     void ignoredUsersChanged();
     void jitsiTimeoutChanged();
+    void joinCodeRequiredChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -278,6 +282,7 @@ private:
     bool mArchived = false;
     bool mBlocked = false;
     bool mEncrypted = false;
+    bool mJoinCodeRequired = false;
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;
