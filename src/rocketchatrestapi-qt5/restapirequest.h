@@ -126,6 +126,7 @@ public:
 
     void changeChannelName(const QString &roomId, const QString &newName);
     void changeGroupName(const QString &roomId, const QString &newName);
+    void groupInfo(const QString &roomId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

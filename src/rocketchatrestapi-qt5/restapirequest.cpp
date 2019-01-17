@@ -79,6 +79,7 @@
 #include "groups/setgrouptypejob.h"
 #include "groups/getgrouprolesjob.h"
 #include "groups/changegroupsnamejob.h"
+#include "groups/groupsinfojob.h"
 
 #include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
@@ -755,6 +756,16 @@ void RestApiRequest::changeChannelName(const QString &roomId, const QString &new
 void RestApiRequest::channelInfo(const QString &roomId)
 {
     ChannelInfoJob *job = new ChannelInfoJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::groupInfo(const QString &roomId)
+{
+    GroupsInfoJob *job = new GroupsInfoJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     if (!job->start()) {

@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "channelinfojob.h"
+#include "groupsinfojob.h"
 
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
@@ -28,28 +28,28 @@
 #include <QNetworkReply>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
-ChannelInfoJob::ChannelInfoJob(QObject *parent)
+GroupsInfoJob::GroupsInfoJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-ChannelInfoJob::~ChannelInfoJob()
+GroupsInfoJob::~GroupsInfoJob()
 {
 }
 
-bool ChannelInfoJob::start()
+bool GroupsInfoJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
-    addLoggerInfo("ChannelInfoJob::start: ");
+    addLoggerInfo("GroupsInfoJob::start: ");
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &ChannelInfoJob::slotFilesinChannelFinished);
+    connect(reply, &QNetworkReply::finished, this, &GroupsInfoJob::slotFilesinChannelFinished);
     return true;
 }
 
-void ChannelInfoJob::slotFilesinChannelFinished()
+void GroupsInfoJob::slotFilesinChannelFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -58,52 +58,51 @@ void ChannelInfoJob::slotFilesinChannelFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("channelInfoDone success: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("groupInfoDone success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT channelInfoDone(replyObject, mRoomId);
         } else {
-            addLoggerWarning(QByteArrayLiteral("channelInfoDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("groupInfoDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();
 }
 
-bool ChannelInfoJob::requireHttpAuthentication() const
+bool GroupsInfoJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool ChannelInfoJob::canStart() const
+bool GroupsInfoJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelInfoJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsInfoJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelInfoJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GroupsInfoJob job";
         return false;
     }
     return true;
 }
 
-QString ChannelInfoJob::roomId() const
+QString GroupsInfoJob::roomId() const
 {
     return mRoomId;
 }
 
-void ChannelInfoJob::setRoomId(const QString &roomId)
+void GroupsInfoJob::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
 }
 
-QNetworkRequest ChannelInfoJob::request() const
+QNetworkRequest GroupsInfoJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsInfo);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsInfo);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    qDebug() << " roomID" << mRoomId;
 
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);

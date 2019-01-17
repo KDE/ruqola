@@ -181,6 +181,9 @@ public:
     Q_INVOKABLE Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_INVOKABLE Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
 
+    Q_INVOKABLE void channelInfo(const QString &roomId);
+    Q_INVOKABLE void groupInfo(const QString &roomId);
+
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;

@@ -82,6 +82,7 @@ set (RocketChatRestApiQt_SRCS
     groups/getgrouprolesjob.cpp
     groups/groupaddmoderatorjob.cpp
     groups/groupaddownerjob.cpp
+    groups/groupsinfojob.cpp
 
     directmessage/createdmjob.cpp
 

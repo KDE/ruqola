@@ -1166,6 +1166,16 @@ ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
     return mServerConfigInfo;
 }
 
+void RocketChatAccount::groupInfo(const QString &roomId)
+{
+    restApi()->groupInfo(roomId);
+}
+
+void RocketChatAccount::channelInfo(const QString &roomId)
+{
+    restApi()->channelInfo(roomId);
+}
+
 bool RocketChatAccount::allowEditingMessages() const
 {
     return mRuqolaServerConfig->allowMessageEditing();
