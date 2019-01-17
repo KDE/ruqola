@@ -45,8 +45,8 @@ Kirigami.BasicListItem {
     
     
     signal roomSelected(string roomID)
-    signal leaveRoom(string roomID)
-    signal hideRoom(string roomID)
+    signal leaveRoom(string roomID, string roomType)
+    signal hideRoom(string roomID, string roomType)
     
     icon: d_icon
     topPadding: 0
@@ -101,7 +101,7 @@ Kirigami.BasicListItem {
                 onEntered: parent.active = true;
                 onExited: parent.active = false;
                 onClicked: {
-                    root.hideRoom(d_roomID)
+                    root.hideRoom(d_roomID, d_type)
                 }
             }
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
@@ -122,7 +122,7 @@ Kirigami.BasicListItem {
                 onEntered: parent.active = true;
                 onExited: parent.active = false;
                 onClicked: {
-                    root.leaveRoom(d_roomID)
+                    root.leaveRoom(d_roomID, d_type)
                 }
             }
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight

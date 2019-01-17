@@ -32,8 +32,8 @@ ListView {
     property string selectedRoomID;
     property bool editingMode: false;
 
-    signal hideRoom(string roomID)
-    signal leaveRoom(string roomID)
+    signal leaveRoom(string roomID, string roomType)
+    signal hideRoom(string roomID, string roomType)
     signal roomSelected(string roomID)
 
     section {
@@ -75,10 +75,10 @@ ListView {
             applicationWindow().pageStack.currentIndex = 1;
         }
         onHideRoom: {
-            roomsList.hideRoom(roomID)
+            roomsList.hideRoom(roomID, roomType)
         }
         onLeaveRoom: {
-            roomsList.leaveRoom(roomID)
+            roomsList.leaveRoom(roomID, roomType)
         }
     }
 }

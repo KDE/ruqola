@@ -33,7 +33,7 @@ QQC2.Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
-    property QtObject roomInfo
+    property string channelType: ""
     property string rId: ""
     modal: true
 
@@ -48,6 +48,6 @@ QQC2.Dialog {
     }
 
     onAccepted: {
-        leaveChannelDialog.leaveChannel(rId, roomInfo.channelType)
+        leaveChannelDialog.leaveChannel(rId, channelType)
     }
 }
