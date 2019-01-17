@@ -34,7 +34,7 @@ class RestApiMethod;
 namespace RocketChatRestApi {
 class RestApiAbstractJob;
 class AbstractLogger;
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RestApiRequest : public QObject
+class LIBROCKETCHATRESTAPI_QT5_EXPORT RestApiRequest : public QObject
 {
     Q_OBJECT
 public:
