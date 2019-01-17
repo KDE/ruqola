@@ -156,11 +156,12 @@ Component {
                             onTriggered: {
                                 var channelType = appid.selectedRoom.channelType;
                                 if (channelType === "c" || channelType === "p") {
-                                    if (channelType === "c") {
-                                        appid.rocketChatAccount.channelInfo(appid.selectedRoom.rid);
-                                    } else {
-                                        appid.rocketChatAccount.groupInfo(appid.selectedRoom.rid);
-                                    }
+                                    //Only for debug
+//                                    if (channelType === "c") {
+//                                        appid.rocketChatAccount.channelInfo(appid.selectedRoom.rid);
+//                                    } else {
+//                                        appid.rocketChatAccount.groupInfo(appid.selectedRoom.rid);
+//                                    }
 
                                     channelInfoDialog.roomInfo = appid.selectedRoom
                                     channelInfoDialog.initializeAndOpen()
