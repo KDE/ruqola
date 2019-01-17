@@ -72,6 +72,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(QString accountName READ accountName WRITE setAccountName NOTIFY accountNameChanged)
     Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
     Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
+    Q_PROPERTY(bool editingMode READ editingMode NOTIFY editingModeChanged)
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
     ~RocketChatAccount();
@@ -184,13 +185,16 @@ public:
     Q_INVOKABLE void channelInfo(const QString &roomId);
     Q_INVOKABLE void groupInfo(const QString &roomId);
 
+    Q_INVOKABLE void switchEditingMode(bool b);
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
     DDPClient *ddp();
 
-    DDPClient::LoginStatus loginStatus();
+    bool editingMode() const;
+
+    DDPClient::LoginStatus loginStatus();    
     RocketChatRestApi::RestApiRequest *restApi();
 
     //Make it private in future
@@ -271,6 +275,7 @@ Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void missingChannelPassword(const QString &roomId);
+    void editingModeChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
@@ -321,6 +326,7 @@ private:
     SearchMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
     ReceiveTypingNotificationManager *mReceiveTypingNotificationManager = nullptr;
     ServerConfigInfo *mServerConfigInfo = nullptr;
+    bool mEditingMode = false;
 };
 
 #endif // ROCKETCHATACCOUNT_H

@@ -399,6 +399,11 @@ DDPClient *RocketChatAccount::ddp()
     return mDdp;
 }
 
+bool RocketChatAccount::editingMode() const
+{
+    return mEditingMode;
+}
+
 DDPClient::LoginStatus RocketChatAccount::loginStatus()
 {
     if (mDdp) {
@@ -1169,6 +1174,14 @@ ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
 void RocketChatAccount::groupInfo(const QString &roomId)
 {
     restApi()->groupInfo(roomId);
+}
+
+void RocketChatAccount::switchEditingMode(bool b)
+{
+    if (mEditingMode != b) {
+        mEditingMode = b;
+        Q_EMIT editingModeChanged();
+    }
 }
 
 void RocketChatAccount::channelInfo(const QString &roomId)

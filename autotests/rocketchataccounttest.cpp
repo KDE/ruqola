@@ -50,4 +50,5 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.searchMessageModel());
     QCOMPARE(w.searchMessageFilterProxyModel()->sourceModel(), w.searchMessageModel());
     QVERIFY(w.receiveTypingNotificationManager());
+    QVERIFY(!w.editingMode());
 }

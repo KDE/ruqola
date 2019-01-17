@@ -121,6 +121,7 @@ public:
     Q_REQUIRED_RESULT Room *findRoom(const QString &roomID) const;
     void updateSubscriptionRoom(const QJsonObject &room);
     Q_REQUIRED_RESULT QString insertRoom(const QJsonObject &room);
+
 Q_SIGNALS:
     void needToUpdateNotification();
 

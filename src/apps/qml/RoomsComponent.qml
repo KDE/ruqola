@@ -89,6 +89,7 @@ Component {
         mainItem:
             RoomsView {
             id: roomsList
+            editingMode: appid.rocketChatAccount.editingMode
             implicitWidth: Kirigami.Units.gridUnit * 10
             anchors.fill: parent
             model: appid.rocketChatAccount.roomFilterProxyModel()

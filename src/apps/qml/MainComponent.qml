@@ -63,7 +63,7 @@ Component {
                     text: i18n("Edit room");
                     checkable: true
                     onToggled: {
-                        roomsList.editingMode = checked
+                        appid.rocketChatAccount.switchEditingMode(checked);
                         // do stuff
                     }
                 },
