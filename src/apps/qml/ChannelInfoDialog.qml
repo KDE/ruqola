@@ -133,7 +133,7 @@ QQC2.Dialog {
             id: password
             selectByMouse: true
             //Add i18n context ?
-            placeholderText: roomInfo === null ? i18n("Add password") : (roomInfo.joinCodeRequired ? i18n("Room has a password") : i18n("Add password"))
+            placeholderText: roomInfo === null ? i18n("Add password") : (roomInfo.joinCodeRequired ? i18n("This Room has a password") : i18n("Add password"))
         }
 
         QQC2.Label {
