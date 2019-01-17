@@ -53,6 +53,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
     Q_PROPERTY(QStringList roles READ roles WRITE setRoles NOTIFY rolesChanged)
     Q_PROPERTY(QString e2eKeyId READ e2eKeyId WRITE setE2eKeyId NOTIFY encryptionKeyIdChanged)
+    Q_PROPERTY(bool joinCodeRequired READ joinCodeRequired WRITE setJoinCodeRequired NOTIFY joinCodeRequiredChanged)
 public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
 

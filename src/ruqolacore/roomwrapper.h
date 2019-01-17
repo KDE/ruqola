@@ -46,8 +46,8 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     //TODO add Q_PROPERTY for mutedUsersChanged and ignoreUsersChanged
     Q_PROPERTY(QString roomMessageInfo READ roomMessageInfo NOTIFY roomMessageInfoChanged)
     Q_PROPERTY(bool encryptedEnabled READ encryptedEnabled CONSTANT)
+    Q_PROPERTY(bool joinCodeRequired READ joinCodeRequired NOTIFY joinCodeRequiredChanged)
     Q_OBJECT
-
 public:
     explicit RoomWrapper(QObject *parent = nullptr);
     explicit RoomWrapper(Room *r, QObject *parent = nullptr);
@@ -70,6 +70,8 @@ public:
     Q_REQUIRED_RESULT QString roomMessageInfo() const;
 
     Q_REQUIRED_RESULT bool encryptedEnabled() const;
+    Q_REQUIRED_RESULT bool joinCodeRequired() const;
+
     Q_REQUIRED_RESULT Q_INVOKABLE NotificationOptionsWrapper *notificationOptions() const;
 Q_SIGNALS:
     void nameChanged();
@@ -86,6 +88,7 @@ Q_SIGNALS:
     void mutedUsersChanged();
     void roomMessageInfoChanged();
     void encryptedChanged();
+    void joinCodeRequiredChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)

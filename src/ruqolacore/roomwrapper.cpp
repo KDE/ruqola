@@ -53,6 +53,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::rolesChanged, this, &RoomWrapper::rolesChanged);
     connect(mRoom, &Room::ignoredUsersChanged, this, &RoomWrapper::ignoredUsersChanged);
     connect(mRoom, &Room::mutedUsersChanged, this, &RoomWrapper::mutedUsersChanged);
+    connect(mRoom, &Room::joinCodeRequiredChanged, this, &RoomWrapper::joinCodeRequiredChanged);
 }
 
 RoomWrapper::~RoomWrapper()
@@ -142,4 +143,9 @@ QString RoomWrapper::roomMessageInfo() const
 bool RoomWrapper::encryptedEnabled() const
 {
     return mRoom->encryptedEnabled();
+}
+
+bool RoomWrapper::joinCodeRequired() const
+{
+    return mRoom->joinCodeRequired();
 }
