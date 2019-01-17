@@ -162,7 +162,6 @@ Component {
                                         appid.rocketChatAccount.groupInfo(appid.selectedRoom.rid);
                                     }
 
-                                    console.log("SSSSSSSSSSSSSs" + appid.selectedRoom.rid)
                                     channelInfoDialog.roomInfo = appid.selectedRoom
                                     channelInfoDialog.initializeAndOpen()
                                 } else if (channelType === "d") {
