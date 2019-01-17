@@ -451,25 +451,16 @@ void RocketChatAccount::logOut()
 
 void RocketChatAccount::clearUnreadMessages(const QString &roomId)
 {
-#ifdef USE_REASTAPI_JOB
     restApi()->markAsRead(roomId);
-#else
-    //TODO don't send message when we don't have unread message
-    ddp()->clearUnreadMessages(roomId);
-#endif
 }
 
 void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 {
-#ifdef USE_REASTAPI_JOB
     if (mRuqolaServerConfig->hasAtLeastVersion(0, 64, 0)) {
         restApi()->markAsFavorite(roomId, checked);
     } else {
         ddp()->toggleFavorite(roomId, checked);
     }
-#else
-    ddp()->toggleFavorite(roomId, checked);
-#endif
 }
 
 void RocketChatAccount::openChannel(const QString &url)
@@ -530,7 +521,6 @@ void RocketChatAccount::openDirectChannel(const QString &username)
 
 void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom, const QString &password)
 {
-    //TODO password
     //TODO use encryted room
     if (!name.trimmed().isEmpty()) {
         const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
@@ -578,12 +568,8 @@ void RocketChatAccount::listEmojiCustom()
 {
 #ifdef USE_REASTAPI_JOB
     if (mRuqolaServerConfig->hasAtLeastVersion(0, 63, 0)) {
-#ifdef USE_REASTAPI_JOB
         restApi()->listEmojiCustom();
         connect(restApi(), &RocketChatRestApi::RestApiRequest::loadEmojiCustomDone, this, &RocketChatAccount::loadEmojiRestApi, Qt::UniqueConnection);
-#else
-        ddp()->listEmojiCustom();
-#endif
     } else {
         ddp()->listEmojiCustom();
     }
@@ -735,9 +721,12 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 
 void RocketChatAccount::addUserToRoom(const QString &username, const QString &roomId, const QString &channelType)
 {
-#ifdef USE_REASTAPI_JOB_IMPOSSIBLE_YET
-    restApi()->addUserInChannel(roomId, username);
-    restApi()->addUserInGroup(roomId, username);
+#ifdef USE_REASTAPI_JOB
+    if (channelType == QStringLiteral("c")) {
+        restApi()->addUserInChannel(roomId, username);
+    } else if (channelType == QStringLiteral("p")) {
+        restApi()->addUserInGroup(roomId, username);
+    }
 #else
     Q_UNUSED(channelType);
     ddp()->addUserToRoom(username, roomId);
@@ -811,11 +800,7 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         break;
     case Name:
         if (channelType == QStringLiteral("c")) {
-#ifdef USE_REASTAPI_JOB
             restApi()->changeChannelName(roomId, newValue.toString());
-#else
-            ddp()->setRoomName(roomId, newValue.toString());
-#endif
         } else if (channelType == QStringLiteral("p")) {
             restApi()->changeGroupName(roomId, newValue.toString());
         } else {
@@ -823,7 +808,6 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         }
         break;
     case Topic:
-#ifdef USE_REASTAPI_JOB
         if (channelType == QStringLiteral("c")) {
             restApi()->changeChannelTopic(roomId, newValue.toString());
         } else if (channelType == QStringLiteral("p")) {
@@ -831,16 +815,11 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport change topic for type " << channelType;
         }
-
-#else
-        ddp()->setRoomTopic(roomId, newValue.toString());
-#endif
         break;
     case ReadOnly:
         ddp()->setRoomIsReadOnly(roomId, newValue.toBool());
         break;
     case Archive:
-#ifdef USE_REASTAPI_JOB
         if (channelType == QStringLiteral("c")) {
             restApi()->archiveChannel(roomId);
         } else if (channelType == QStringLiteral("p")) {
@@ -848,10 +827,6 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport archiving for type " << channelType;
         }
-#else
-        //No argument here.
-        ddp()->archiveRoom(roomId);
-#endif
         break;
     case RoomType:
         ddp()->setRoomType(roomId, newValue.toBool());
