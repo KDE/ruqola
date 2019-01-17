@@ -215,6 +215,12 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     if (json.contains(QLatin1String("name"))) {
         setName(json[QStringLiteral("name")].toString());
     }
+    if (json.contains(QLatin1String("joinCodeRequired"))) {
+        setJoinCodeRequired(json[QStringLiteral("joinCodeRequired")].toBool());
+    } else {
+         setJoinCodeRequired(false);
+    }
+
     if (json.contains(QLatin1String("name"))) {
         setName(json[QStringLiteral("name")].toString());
     }

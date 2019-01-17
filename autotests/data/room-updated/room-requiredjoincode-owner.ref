@@ -1,0 +1,37 @@
+{
+    "alert": false,
+    "archived": false,
+    "blocked": false,
+    "blocker": false,
+    "encrypted": false,
+    "favorite": false,
+    "ignored": [
+        "CtmbQDdqNNNytdYsX"
+    ],
+    "jitsiTimeout": -1,
+    "joinCodeRequired": true,
+    "lastSeeAt": -1,
+    "name": "sales",
+    "notifications": {
+        "audioNotificationValue": "",
+        "audioNotifications": "",
+        "desktopNotificationDuration": 0,
+        "desktopNotifications": "",
+        "disableNotifications": false,
+        "emailNotifications": "",
+        "hideUnreadStatus": false,
+        "mobilePushNotifications": "",
+        "muteGroupMentions": false,
+        "unreadAlert": ""
+    },
+    "open": true,
+    "rid": "np9DKhZY3TL3depq4",
+    "ro": false,
+    "roomCreatorUserID": "uKK39zoewTkdacidH",
+    "roomCreatorUserName": "laurent",
+    "selected": false,
+    "t": "c",
+    "unread": 0,
+    "updatedAt": 1520852615485,
+    "userMentions": 0
+}

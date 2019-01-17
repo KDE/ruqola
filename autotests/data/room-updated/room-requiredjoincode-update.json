@@ -1,0 +1,32 @@
+{
+            "_id": "3zeDXXqAsD5oTooWw",
+            "_updatedAt": {
+                "$date": 1531308099271
+            },
+            "alert": false,
+            "emailNotifications": "mentions",
+            "f": false,
+            "fname": null,
+            "groupMentions": 0,
+	    "joinCodeRequired": true,
+            "ignored": [
+                "CtmbQDdqNNNytdYsX"
+            ],
+            "ls": {
+                "$date": 1531295000410
+            },
+            "name": "sales",
+            "open": true,
+            "rid": "np9DKhZY3TL3depq4",
+            "t": "c",
+            "ts": {
+                "$date": 1530533409332
+            },
+            "u": {
+                "_id": "uKK39zoewTkdacidH",
+                "name": "Laurent Montel",
+                "username": "laurent"
+            },
+            "unread": 0,
+            "userMentions": 0
+}

@@ -1,0 +1,29 @@
+{
+    "_id": "SsXa5Y3zo3pACi8KJ",
+    "_updatedAt": {
+        "$date": 1520852615485
+    },
+    "alert": false,
+    "audioNotificationValue": "",
+    "desktopNotificationDuration": 0,
+    "disableNotifications": false,
+    "f": true,
+    "groupMentions": 0,
+    "hideUnreadStatus": false,
+    "ls": {
+        "$date": 1520852615485
+    },
+    "name": "all",
+    "open": true,
+    "rid": "GENERAL",
+    "t": "c",
+    "ts": {
+        "$date": 1493021674166
+    },
+    "u": {
+        "_id": "39zoewTkdacidH",
+        "username": "laurent"
+    },
+    "unread": 0,
+    "userMentions": 0
+}
