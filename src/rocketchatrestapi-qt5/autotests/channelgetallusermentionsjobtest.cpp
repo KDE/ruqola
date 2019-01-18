@@ -52,3 +52,29 @@ void ChannelGetAllUserMentionsJobTest::shouldGenerateRequest()
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat")));
     delete method;
 }
+
+void ChannelGetAllUserMentionsJobTest::shouldNotStarting()
+{
+    ChannelGetAllUserMentionsJob job;
+
+    RestApiMethod *method = new RestApiMethod;
+    method->setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(method);
+
+    QNetworkAccessManager *mNetworkAccessManager = new QNetworkAccessManager;
+    job.setNetworkAccessManager(mNetworkAccessManager);
+    QVERIFY(!job.canStart());
+    const QString auth = QStringLiteral("foo");
+    const QString userId = QStringLiteral("foo");
+    job.setAuthToken(auth);
+    QVERIFY(!job.canStart());
+    job.setUserId(userId);
+    QVERIFY(!job.canStart());
+    const QString roomId = QStringLiteral("foo1");
+    job.setRoomId(roomId);
+    QVERIFY(job.canStart());
+
+    delete method;
+    delete mNetworkAccessManager;
+}
+
