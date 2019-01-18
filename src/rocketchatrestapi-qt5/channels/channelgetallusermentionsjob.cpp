@@ -88,8 +88,12 @@ void ChannelGetAllUserMentionsJob::slotChannelGetAllUserMentionsFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        addLoggerInfo(QByteArrayLiteral("ChannelGetAllUserMentionsJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelGetAllUserMentionsDone(replyObject);
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("ChannelGetAllUserMentionsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT channelGetAllUserMentionsDone(replyObject);
+        } else {
+            addLoggerWarning(QByteArrayLiteral("ChannelGetAllUserMentionsJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
     }
     deleteLater();
 }
