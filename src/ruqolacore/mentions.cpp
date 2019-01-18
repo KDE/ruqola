@@ -61,9 +61,7 @@ void Mentions::parseMentions(const QJsonObject &reacts)
 
 bool Mentions::operator ==(const Mentions &other) const
 {
-    //return mMentions == other.mentions();
-    //FIXME
-    return false;
+    return mMentions == other.mentions();
 }
 
 QDebug operator <<(QDebug d, const Mentions &t)

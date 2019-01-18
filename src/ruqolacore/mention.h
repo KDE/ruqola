@@ -39,7 +39,7 @@ public:
 
 //    Q_REQUIRED_RESULT int count() const;
 
-//    Q_REQUIRED_RESULT bool operator ==(const Reaction &other) const;
+    Q_REQUIRED_RESULT bool operator ==(const Mention &other) const;
 
 //    Q_REQUIRED_RESULT QString convertedReactionName() const;
 private:

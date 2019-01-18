@@ -29,3 +29,9 @@ QDebug operator <<(QDebug d, const Mention &t)
     //TODO
     return d;
 }
+
+bool Mention::operator ==(const Mention &other) const
+{
+    //return (mUserNames == other.userNames()) && (mReactionName == other.reactionName());
+    return true;
+}
