@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "notificationpreferencemodeltest.h"
 #include "model/notificationpreferencemodel.h"
 #include <QTest>
@@ -28,7 +27,6 @@ QTEST_MAIN(NotificationPreferenceModelTest)
 NotificationPreferenceModelTest::NotificationPreferenceModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void NotificationPreferenceModelTest::shouldHaveDefaultValue()

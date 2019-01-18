@@ -27,7 +27,6 @@ QTEST_GUILESS_MAIN(ServerConfigInfoTest)
 ServerConfigInfoTest::ServerConfigInfoTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ServerConfigInfoTest::shouldHaveDefaultValues()

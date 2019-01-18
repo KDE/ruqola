@@ -719,7 +719,6 @@ void RestApiRequest::disableNotifications(const QString &roomId, bool value)
     }
 }
 
-
 void RestApiRequest::muteGroupMentions(const QString &roomId, bool value)
 {
     SaveNotificationJob *job = new SaveNotificationJob(this);

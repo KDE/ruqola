@@ -61,7 +61,6 @@ public:
     Q_REQUIRED_RESULT QString audioNotifications() const;
     void setAudioNotifications(const QString &audioNotifications);
 
-
     Q_REQUIRED_RESULT QString audioNotificationValue() const;
     void setAudioNotificationValue(const QString &audioNotificationValue);
 

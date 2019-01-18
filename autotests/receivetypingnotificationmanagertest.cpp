@@ -27,7 +27,6 @@ QTEST_GUILESS_MAIN(ReceiveTypingNotificationManagerTest)
 ReceiveTypingNotificationManagerTest::ReceiveTypingNotificationManagerTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ReceiveTypingNotificationManagerTest::shouldHaveDefaultValues()

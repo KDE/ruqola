@@ -41,7 +41,6 @@ void NotificationOptionsTest::shouldHaveDefaultValue()
     QVERIFY(!w.muteGroupMentions());
     QVERIFY(w.audioNotificationValue().isEmpty());
     QCOMPARE(w.desktopNotificationDuration(), 0);
-
 }
 
 void NotificationOptionsTest::shouldAssignValue()
@@ -73,7 +72,6 @@ void NotificationOptionsTest::shouldAssignValue()
 
     bool muteGroupMentions = true;
     w.setMuteGroupMentions(muteGroupMentions);
-
 
     int desktopNotificationDuration = 15;
     w.setDesktopNotificationDuration(desktopNotificationDuration);

@@ -48,7 +48,7 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
             }
             //qDebug() << " end " << endIndex << str.length();
             QString quoteStr = str.mid(startIndex + 3, endIndex - startIndex - 3);
-            QString endStr = str.right(str.length() - endIndex -3 );
+            QString endStr = str.right(str.length() - endIndex -3);
             QString result;
 //            qDebug() << " beginStr" << beginStr;
 //            qDebug() << " endStr" << endStr;

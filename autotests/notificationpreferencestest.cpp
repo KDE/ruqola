@@ -26,7 +26,6 @@ QTEST_MAIN(NotificationPreferencesTest)
 NotificationPreferencesTest::NotificationPreferencesTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void NotificationPreferencesTest::shouldHaveDefaultValues()

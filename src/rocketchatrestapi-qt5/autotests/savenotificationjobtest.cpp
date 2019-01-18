@@ -46,7 +46,6 @@ void SaveNotificationJobTest::shouldHaveDefaultValue()
     QCOMPARE(job.desktopNotificationDuration(), 0);
     QVERIFY(job.unreadAlert().isEmpty());
 
-
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
 }

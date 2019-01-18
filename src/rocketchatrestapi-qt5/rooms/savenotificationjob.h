@@ -48,7 +48,6 @@ public:
     Q_REQUIRED_RESULT bool muteGroupMentions() const;
     void setMuteGroupMentions(bool muteGroupMentions);
 
-
     Q_REQUIRED_RESULT bool hideUnreadStatus() const;
     void setHideUnreadStatus(bool hideUnreadStatus);
 

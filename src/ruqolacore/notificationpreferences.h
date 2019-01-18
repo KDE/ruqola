@@ -56,5 +56,4 @@ inline static QObject *notificationpreferences_singletontype_provider(QQmlEngine
     return new NotificationPreferences();
 }
 
-
 #endif // NOTIFICATIONPREFERENCES_H

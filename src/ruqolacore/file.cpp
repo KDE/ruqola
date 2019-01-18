@@ -75,7 +75,7 @@ bool File::operator ==(const File &other) const
            && (uploadedAt() == other.uploadedAt())
            && (fileId() == other.fileId())
            && (rid() == other.rid())
-            && (userName() == other.userName());
+           && (userName() == other.userName());
 }
 
 File &File::operator=(const File &other)

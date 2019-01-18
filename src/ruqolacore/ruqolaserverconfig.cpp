@@ -192,7 +192,7 @@ QString RuqolaServerConfig::serverVersionStr() const
 bool RuqolaServerConfig::encryptionEnabled() const
 {
     //TODO verify
-    if (!hasAtLeastVersion(0,7,0)) {
+    if (!hasAtLeastVersion(0, 7, 0)) {
         return false;
     }
     return mEncryptionEnabled;

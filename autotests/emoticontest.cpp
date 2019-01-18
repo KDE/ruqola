@@ -25,5 +25,4 @@ QTEST_GUILESS_MAIN(EmoticonTest)
 EmoticonTest::EmoticonTest(QObject *parent)
     : QObject(parent)
 {
-
 }

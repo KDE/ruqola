@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "notificationpreferences.h"
 
 #include "model/notificationpreferencemodel.h"
@@ -34,7 +33,6 @@ NotificationPreferences::NotificationPreferences(QObject *parent)
 
 NotificationPreferences::~NotificationPreferences()
 {
-
 }
 
 NotificationPreferenceModel *NotificationPreferences::emailNotificationModel() const

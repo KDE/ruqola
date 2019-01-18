@@ -18,20 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "rocketchataccount.h"
 #include "serverconfiginfo.h"
 
 ServerConfigInfo::ServerConfigInfo(RocketChatAccount *account, QObject *parent)
-    : QObject (parent)
+    : QObject(parent)
     , mAccount(account)
 {
-
 }
 
 ServerConfigInfo::~ServerConfigInfo()
 {
-
 }
 
 QString ServerConfigInfo::serverVersionStr() const

@@ -44,4 +44,3 @@ void ReactionTest::shouldReturnCount()
     r.setUserNames({QStringLiteral("dd"), QStringLiteral("dd2")});
     QCOMPARE(r.count(), 2);
 }
-

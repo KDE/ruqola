@@ -65,7 +65,6 @@ RoomModel::~RoomModel()
     }
 #endif
     qDeleteAll(mRoomsList);
-
 }
 
 void RoomModel::clear()

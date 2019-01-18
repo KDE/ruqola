@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "notificationpreferencemodel.h"
 #include <KLocalizedString>
 #include <QDebug>
@@ -30,7 +29,6 @@ NotificationPreferenceModel::NotificationPreferenceModel(QObject *parent)
 
 NotificationPreferenceModel::~NotificationPreferenceModel()
 {
-
 }
 
 int NotificationPreferenceModel::rowCount(const QModelIndex &parent) const

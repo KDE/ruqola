@@ -26,7 +26,6 @@
 #include <QAbstractListModel>
 #include <QIcon>
 
-
 struct NotificationPreferenceInfo {
     QString displayText;
     QIcon icon;
@@ -64,6 +63,5 @@ private:
     QVector<NotificationPreferenceInfo> mNotificationPreferenceList;
     int mCurrentPreference = 0;
 };
-
 
 #endif // NOTIFICATIONPREFERENCEMODEL_H

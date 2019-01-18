@@ -194,7 +194,7 @@ public:
 
     bool editingMode() const;
 
-    DDPClient::LoginStatus loginStatus();    
+    DDPClient::LoginStatus loginStatus();
     RocketChatRestApi::RestApiRequest *restApi();
 
     //Make it private in future
