@@ -70,6 +70,7 @@ QNetworkRequest ChannelGetAllUserMentionsJob::request() const
     queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
+    addAuthRawHeader(request);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     return request;
