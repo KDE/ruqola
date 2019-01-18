@@ -201,7 +201,7 @@ QQC2.Dialog {
     ArchiveRoomDialog {
         id: archiveRoomDialog
         onAccepted: {
-            channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Archive, true)
+            channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Archive, true, roomInfo.channelType)
         }
         onRejected: {
             archiveRoom.checked = false
