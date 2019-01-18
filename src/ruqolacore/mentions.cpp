@@ -77,7 +77,7 @@ bool Mentions::operator ==(const Mentions &other) const
 
 QDebug operator <<(QDebug d, const Mentions &t)
 {
-    for (int i = 0; i < t.mentions().count(); i++) {
+    for (int i = 0, total = t.mentions().count(); i < total; ++i) {
         d << t.mentions().at(i);
     }
     return d;
