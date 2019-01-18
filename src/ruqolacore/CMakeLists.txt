@@ -108,6 +108,9 @@ set (Ruqola_core_srcs
 
     serverconfiginfo.cpp
     notificationpreferences.cpp
+
+    mentions.cpp
+    mention.cpp
 )
 
 if (NOT WIN32)
