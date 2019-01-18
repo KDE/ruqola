@@ -442,7 +442,10 @@ QString Room::channelType() const
 
 void Room::setChannelType(const QString &channelType)
 {
-    mChannelType = channelType;
+    if (mChannelType != channelType) {
+        mChannelType = channelType;
+        Q_EMIT channelTypeChanged();
+    }
 }
 
 QString Room::markdownAnnouncement() const

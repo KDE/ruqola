@@ -42,6 +42,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::blockerChanged, this, &RoomWrapper::blockerChanged);
     connect(mRoom, &Room::blockedChanged, this, &RoomWrapper::blockedChanged);
     connect(mRoom, &Room::encryptedChanged, this, &RoomWrapper::encryptedChanged);
+    connect(mRoom, &Room::channelTypeChanged, this, &RoomWrapper::channelTypeChanged);
 
     //Reduce connection ?
     connect(mRoom, &Room::readOnlyChanged, this, &RoomWrapper::roomMessageInfoChanged);

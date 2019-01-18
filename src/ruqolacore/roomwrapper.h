@@ -32,7 +32,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
     Q_PROPERTY(QString topic READ topic NOTIFY topicChanged)
     Q_PROPERTY(QString announcement READ announcement NOTIFY announcementChanged)
-    Q_PROPERTY(QString channelType READ channelType CONSTANT)
+    Q_PROPERTY(QString channelType READ channelType NOTIFY channelTypeChanged)
     Q_PROPERTY(QString roomCreatorUserId READ roomCreatorUserId CONSTANT)
     Q_PROPERTY(QString rid READ rid CONSTANT)
     Q_PROPERTY(QString description READ description NOTIFY descriptionChanged)
@@ -89,6 +89,7 @@ Q_SIGNALS:
     void roomMessageInfoChanged();
     void encryptedChanged();
     void joinCodeRequiredChanged();
+    void channelTypeChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)

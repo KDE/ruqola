@@ -54,6 +54,8 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(QStringList roles READ roles WRITE setRoles NOTIFY rolesChanged)
     Q_PROPERTY(QString e2eKeyId READ e2eKeyId WRITE setE2eKeyId NOTIFY encryptionKeyIdChanged)
     Q_PROPERTY(bool joinCodeRequired READ joinCodeRequired WRITE setJoinCodeRequired NOTIFY joinCodeRequiredChanged)
+    Q_PROPERTY(QString channelType READ channelType WRITE setChannelType NOTIFY channelTypeChanged)
+
 public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
 
@@ -220,6 +222,7 @@ Q_SIGNALS:
     void ignoredUsersChanged();
     void jitsiTimeoutChanged();
     void joinCodeRequiredChanged();
+    void channelTypeChanged();
 
 private:
     Q_DISABLE_COPY(Room)

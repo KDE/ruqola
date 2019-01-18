@@ -125,6 +125,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spymutedUsersChanged(&input, &Room::mutedUsersChanged);
     QSignalSpy spyencryptedChanged(&input, &Room::encryptedChanged);
     QSignalSpy spyjoinCodeRequiredChanged(&input, &Room::joinCodeRequiredChanged);
+    QSignalSpy spychannelTypeChanged(&input, &Room::channelTypeChanged);
     input.setRoomId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
@@ -165,6 +166,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spymutedUsersChanged.count(), 1);
     QCOMPARE(spyencryptedChanged.count(), 1);
     QCOMPARE(spyjoinCodeRequiredChanged.count(), 1);
+    QCOMPARE(spychannelTypeChanged.count(), 1);
 }
 
 void RoomTest::shouldChangeInputMessage()
