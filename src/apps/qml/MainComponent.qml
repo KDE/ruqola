@@ -173,6 +173,15 @@ Component {
                                 }
                             }
                         }
+                        //Hide it if direct channel
+                        RuqolaMenuSeparator {
+                        }
+                        QQC2.MenuItem {
+                            text: i18n("Mentions")
+                            onTriggered: {
+                                appid.rocketChatAccount.channelGetAllUserMentions(appid.selectedRoomID);
+                            }
+                        }
                         RuqolaMenuSeparator {
                         }
                         QQC2.MenuItem {

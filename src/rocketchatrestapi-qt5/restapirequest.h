@@ -127,6 +127,7 @@ public:
     void changeChannelName(const QString &roomId, const QString &newName);
     void changeGroupName(const QString &roomId, const QString &newName);
     void groupInfo(const QString &roomId);
+    void channelGetAllUserMentions(const QString &roomId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -153,6 +154,7 @@ Q_SIGNALS:
     void setChannelJoinDone(const QString &roomId);
     void missingChannelPassword(const QString &roomId);
     void openArchivedRoom(const QString &roomId);
+    void channelGetAllUserMentionsDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

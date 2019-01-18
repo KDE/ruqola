@@ -1270,3 +1270,8 @@ void RocketChatAccount::openDocumentation()
 {
     QDesktopServices::openUrl(QUrl(QStringLiteral("help:/")));
 }
+
+void RocketChatAccount::channelGetAllUserMentions(const QString &roomId)
+{
+    restApi()->channelGetAllUserMentions(roomId);
+}

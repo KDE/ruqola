@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2019 Montel Laurent <montel@kde.org>
+   Copyright (c) 2019 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,42 +18,38 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ARCHIVEGROUPSJOB_H
-#define ARCHIVEGROUPSJOB_H
+#ifndef CHANNELGETALLUSERMENTIONSJOB_H
+#define CHANNELGETALLUSERMENTIONSJOB_H
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+class QNetworkRequest;
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ArchiveGroupsJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelGetAllUserMentionsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit ArchiveGroupsJob(QObject *parent = nullptr);
-    ~ArchiveGroupsJob() override;
+    explicit ChannelGetAllUserMentionsJob(QObject *parent = nullptr);
+    ~ChannelGetAllUserMentionsJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+
     Q_REQUIRED_RESULT bool canStart() const override;
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    Q_REQUIRED_RESULT bool archive() const;
-    void setArchive(bool archive);
-
 Q_SIGNALS:
-    void archiveGroupsDone();
-    void archiveGroupsError(const QString &);
+    void channelGetAllUserMentionsDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(ArchiveGroupsJob)
-    void slotArchiveGroupsFinished();
+    Q_DISABLE_COPY(ChannelGetAllUserMentionsJob)
+    void slotChannelGetAllUserMentionsFinished();
     QString mRoomId;
-    bool mArchive = true;
 };
 }
-#endif // ARCHIVEGROUPSJOB_H
+#endif // CHANNELGETALLUSERMENTIONSJOB_H

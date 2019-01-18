@@ -68,6 +68,7 @@
 #include "channels/channeljoinjob.h"
 #include "channels/channelinfojob.h"
 #include "channels/changechannelnamejob.h"
+#include "channels/channelgetallusermentionsjob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -1011,6 +1012,18 @@ void RestApiRequest::channelJoin(const QString &roomId, const QString &joinCode)
     connect(job, &ChannelJoinJob::setChannelJoinDone, this, &RestApiRequest::setChannelJoinDone);
     connect(job, &ChannelJoinJob::missingChannelPassword, this, &RestApiRequest::missingChannelPassword);
     connect(job, &ChannelJoinJob::openArchivedRoom, this, &RestApiRequest::openArchivedRoom);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelJoin";
+    }
+}
+
+
+void RestApiRequest::channelGetAllUserMentions(const QString &roomId)
+{
+    ChannelGetAllUserMentionsJob *job = new ChannelGetAllUserMentionsJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    connect(job, &ChannelGetAllUserMentionsJob::channelGetAllUserMentionsDone, this, &RestApiRequest::channelGetAllUserMentionsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelJoin";
     }

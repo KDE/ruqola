@@ -69,7 +69,7 @@ void FetchMyKeysJob::slotFetchMyKeys()
             addLoggerInfo(QByteArrayLiteral("FetchMyKeysJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT fetchMyKeysDone();
         } else {
-            addLoggerWarning(QByteArrayLiteral("FetchMyKeysJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("FetchMyKeysJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

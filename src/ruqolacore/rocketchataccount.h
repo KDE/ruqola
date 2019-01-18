@@ -184,6 +184,7 @@ public:
 
     Q_INVOKABLE void channelInfo(const QString &roomId);
     Q_INVOKABLE void groupInfo(const QString &roomId);
+    Q_INVOKABLE void channelGetAllUserMentions(const QString &roomId);
 
     Q_INVOKABLE void switchEditingMode(bool b);
 
