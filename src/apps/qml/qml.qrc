@@ -46,6 +46,7 @@
         <file>ChannelPasswordDialog.qml</file>
         <file>ServerInfoDialog.qml</file>
         <file>NotificationAlertCombobox.qml</file>
+        <file>ShowMentionsInRoomDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

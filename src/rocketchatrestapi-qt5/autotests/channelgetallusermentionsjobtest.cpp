@@ -21,6 +21,7 @@
 #include "channelgetallusermentionsjobtest.h"
 #include "channels/channelgetallusermentionsjob.h"
 #include "restapimethod.h"
+#include "ruqola_restapi_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ChannelGetAllUserMentionsJobTest)
 using namespace RocketChatRestApi;
@@ -47,8 +48,9 @@ void ChannelGetAllUserMentionsJobTest::shouldGenerateRequest()
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString roomId = QStringLiteral("avat");
-    job.setRoomId(roomId);
-    const QNetworkRequest request = job.request();
+    job.setRoomId(roomId);    
+    QNetworkRequest request = job.request();
+    verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat")));
     delete method;
 }

@@ -17,36 +17,29 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MENTIONS_H
-#define MENTIONS_H
 
+#ifndef MENTIONSMODEL_H
+#define MENTIONSMODEL_H
 #include "libruqola_private_export.h"
-#include "mention.h"
-#include <QVector>
+#include "mentions.h"
+#include <QAbstractListModel>
 
-class LIBRUQOLACORE_TESTS_EXPORT Mentions
+class LIBRUQOLACORE_TESTS_EXPORT MentionsModel : public QAbstractListModel
 {
 public:
-    Mentions();
-    void setMentions(const QVector<Mention> &mentions);
-    Q_REQUIRED_RESULT QVector<Mention> mentions() const;
+    explicit MentionsModel(QObject *parent = nullptr);
+    ~MentionsModel() override;
 
-    void parseMentions(const QJsonObject &array);
+    Q_REQUIRED_RESULT Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
-    Q_REQUIRED_RESULT bool operator ==(const Mentions &other) const;
+    void setMentions(const Mentions &mentions);
 
-    Q_REQUIRED_RESULT static QJsonObject serialize(const Mentions &mentions);
-    Q_REQUIRED_RESULT static Mentions fromJSon(const QJsonObject &o);
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
-
-    Mention at(int index) const;
-    void clear();
-    int count() const;
 private:
-    QVector<Mention> mMentions;
+    Q_DISABLE_COPY(MentionsModel)
+    Mentions mMentions;
 };
-Q_DECLARE_METATYPE(Mentions)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Mentions &t);
 
-#endif // MENTIONS_H
+#endif // MENTIONSMODEL_H

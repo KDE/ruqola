@@ -30,6 +30,17 @@ void Mentions::setMentions(const QVector<Mention> &mentions)
     mMentions = mentions;
 }
 
+
+void Mentions::clear()
+{
+    mMentions.clear();
+}
+
+int Mentions::count() const
+{
+    return mMentions.count();
+}
+
 QVector<Mention> Mentions::mentions() const
 {
     return mMentions;
@@ -114,5 +125,10 @@ Mentions Mentions::fromJSon(const QJsonObject &o)
 bool Mentions::isEmpty() const
 {
     return mMentions.isEmpty();
+}
+
+Mention Mentions::at(int index) const
+{
+    return mMentions.at(index);
 }
 

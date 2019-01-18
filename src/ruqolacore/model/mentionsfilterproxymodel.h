@@ -17,36 +17,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MENTIONS_H
-#define MENTIONS_H
+#ifndef MENTIONSFILTERPROXYMODEL_H
+#define MENTIONSFILTERPROXYMODEL_H
 
+#include <QSortFilterProxyModel>
 #include "libruqola_private_export.h"
-#include "mention.h"
-#include <QVector>
 
-class LIBRUQOLACORE_TESTS_EXPORT Mentions
+class LIBRUQOLACORE_TESTS_EXPORT MentionsFilterProxyModel : public QSortFilterProxyModel
 {
+    Q_OBJECT
 public:
-    Mentions();
-    void setMentions(const QVector<Mention> &mentions);
-    Q_REQUIRED_RESULT QVector<Mention> mentions() const;
+    explicit MentionsFilterProxyModel(QObject *parent = nullptr);
+    ~MentionsFilterProxyModel() override;
 
-    void parseMentions(const QJsonObject &array);
-
-    Q_REQUIRED_RESULT bool operator ==(const Mentions &other) const;
-
-    Q_REQUIRED_RESULT static QJsonObject serialize(const Mentions &mentions);
-    Q_REQUIRED_RESULT static Mentions fromJSon(const QJsonObject &o);
-
-    Q_REQUIRED_RESULT bool isEmpty() const;
-
-    Mention at(int index) const;
-    void clear();
-    int count() const;
-private:
-    QVector<Mention> mMentions;
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 };
-Q_DECLARE_METATYPE(Mentions)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Mentions &t);
 
-#endif // MENTIONS_H
+
+#endif // MENTIONSFILTERPROXYMODEL_H

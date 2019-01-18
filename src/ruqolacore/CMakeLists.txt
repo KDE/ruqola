@@ -37,6 +37,8 @@ set (Ruqola_model_core_srcs
     model/emoticonmodel.cpp
     model/notificationpreferencemodel.cpp
 
+    model/mentionsmodel.cpp
+    model/mentionsfilterproxymodel.cpp
     )
 
 set(Ruqola_plugins_srcs
