@@ -245,6 +245,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     } else {
         setEncrypted(false);
     }
+    setReadOnly(json[QStringLiteral("ro")].toBool());
 
     const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();
     QStringList lstIgnored;
@@ -483,10 +484,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     if (!favoriteValue.isUndefined()) {
         setFavorite(favoriteValue.toBool());
     }
-    //Only private room has this settings.
-    if (roomType == QLatin1String("p")) {
-        setReadOnly(json[QStringLiteral("ro")].toBool());
-    }
+    setReadOnly(json[QStringLiteral("ro")].toBool());
     if (json.contains(QLatin1String("userMentions"))) {
         setUserMentions(json[QStringLiteral("userMentions")].toInt());
     }
@@ -608,10 +606,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
         setFavorite(favoriteValue.toBool());
     }
     setE2EKey(json[QStringLiteral("E2EKey")].toString());
-    //Only private room has this settings.
-    if (roomType == QLatin1String("p")) {
-        setReadOnly(json[QStringLiteral("ro")].toBool());
-    }
+    setReadOnly(json[QStringLiteral("ro")].toBool());
 
     setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
     setUnread(json[QStringLiteral("unread")].toInt());
