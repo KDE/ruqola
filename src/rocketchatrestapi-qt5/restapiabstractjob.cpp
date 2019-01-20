@@ -97,6 +97,16 @@ void RestApiAbstractJob::addAuthRawHeader(QNetworkRequest &request) const
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
 }
 
+QueryParameters RestApiAbstractJob::queryParameters() const
+{
+    return mQueryParameters;
+}
+
+void RestApiAbstractJob::setQueryParameters(const QueryParameters &queryParameters)
+{
+    mQueryParameters = queryParameters;
+}
+
 RocketChatRestApi::AbstractLogger *RestApiAbstractJob::restApiLogger() const
 {
     return mRestApiLogger;
@@ -123,4 +133,33 @@ void RestApiAbstractJob::addLoggerWarning(const QByteArray &str)
     } else {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RESTAPI: " << str;
     }
+}
+
+QueryParameters::QueryParameters()
+{
+}
+
+int QueryParameters::offset() const
+{
+    return mOffset;
+}
+
+void QueryParameters::setOffset(int offset)
+{
+    mOffset = offset;
+}
+
+int QueryParameters::count() const
+{
+    return mCount;
+}
+
+void QueryParameters::setCount(int count)
+{
+    mCount = count;
+}
+
+bool QueryParameters::isValid() const
+{
+    return (mCount >= 0) || (mOffset >= 0);
 }

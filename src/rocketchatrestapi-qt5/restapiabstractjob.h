@@ -28,6 +28,25 @@ class QNetworkAccessManager;
 namespace RocketChatRestApi {
 class RestApiMethod;
 class AbstractLogger;
+
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QueryParameters
+{
+public:
+    QueryParameters();
+
+    Q_REQUIRED_RESULT int offset() const;
+    void setOffset(int offset);
+
+    Q_REQUIRED_RESULT int count() const;
+    void setCount(int count);
+
+    bool isValid() const;
+
+private:
+    int mOffset = -1;
+    int mCount = -1;
+};
+
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RestApiAbstractJob : public QObject
 {
     Q_OBJECT
@@ -59,9 +78,14 @@ public:
     Q_REQUIRED_RESULT virtual bool canStart() const;
 
     virtual QNetworkRequest request() const = 0;
+
+    Q_REQUIRED_RESULT QueryParameters queryParameters() const;
+    void setQueryParameters(const QueryParameters &queryParameters);
+
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
     void addAuthRawHeader(QNetworkRequest &request) const;
+    QueryParameters mQueryParameters;
     QString mAuthToken;
     QString mUserId;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
