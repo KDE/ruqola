@@ -112,6 +112,13 @@ void RestApiAbstractJob::setQueryParameters(const QueryParameters &queryParamete
     mQueryParameters = queryParameters;
 }
 
+void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery)
+{
+    if (hasQueryParameterSupport()) {
+        //TODO
+    }
+}
+
 RocketChatRestApi::AbstractLogger *RestApiAbstractJob::restApiLogger() const
 {
     return mRestApiLogger;
