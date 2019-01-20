@@ -74,6 +74,11 @@ bool RestApiAbstractJob::hasAuthenticationValue() const
     return !mAuthToken.isEmpty() && !mUserId.isEmpty();
 }
 
+bool RestApiAbstractJob::hasQueryParameterSupport() const
+{
+    return false;
+}
+
 bool RestApiAbstractJob::canStart() const
 {
     if (!mNetworkAccessManager) {

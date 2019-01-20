@@ -69,6 +69,8 @@ public:
     virtual bool start() = 0;
     virtual bool requireHttpAuthentication() const = 0;
 
+    virtual bool hasQueryParameterSupport() const;
+
     RocketChatRestApi::AbstractLogger *restApiLogger() const;
     void setRestApiLogger(RocketChatRestApi::AbstractLogger *restApiLogger);
 
