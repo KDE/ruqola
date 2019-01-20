@@ -17,7 +17,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef MENTIONSMODEL_H
 #define MENTIONSMODEL_H
 #include "libruqola_private_export.h"

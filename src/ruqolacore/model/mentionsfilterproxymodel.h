@@ -33,5 +33,4 @@ public:
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 };
 
-
 #endif // MENTIONSFILTERPROXYMODEL_H

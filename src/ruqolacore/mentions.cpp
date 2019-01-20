@@ -22,14 +22,12 @@
 #include <QJsonObject>
 Mentions::Mentions()
 {
-
 }
 
 void Mentions::setMentions(const QVector<Mention> &mentions)
 {
     mMentions = mentions;
 }
-
 
 void Mentions::clear()
 {
@@ -131,4 +129,3 @@ Mention Mentions::at(int index) const
 {
     return mMentions.at(index);
 }
-

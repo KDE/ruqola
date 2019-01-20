@@ -25,5 +25,4 @@ QTEST_MAIN(MentionsFilterProxyModelTest)
 MentionsFilterProxyModelTest::MentionsFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

@@ -21,7 +21,6 @@
 
 Mention::Mention()
 {
-
 }
 
 QDebug operator <<(QDebug d, const Mention &t)

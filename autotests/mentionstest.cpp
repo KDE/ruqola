@@ -23,5 +23,4 @@ QTEST_GUILESS_MAIN(MentionsTest)
 MentionsTest::MentionsTest(QObject *parent)
     : QObject(parent)
 {
-
 }

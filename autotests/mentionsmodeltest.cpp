@@ -26,7 +26,6 @@ QTEST_MAIN(MentionsModelTest)
 MentionsModelTest::MentionsModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MentionsModelTest::shouldHaveDefaultValue()

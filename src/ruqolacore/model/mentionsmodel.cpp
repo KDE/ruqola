@@ -17,18 +17,15 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "mentionsmodel.h"
 
 MentionsModel::MentionsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 MentionsModel::~MentionsModel()
 {
-
 }
 
 int MentionsModel::rowCount(const QModelIndex &parent) const

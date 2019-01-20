@@ -1017,7 +1017,6 @@ void RestApiRequest::channelJoin(const QString &roomId, const QString &joinCode)
     }
 }
 
-
 void RestApiRequest::channelGetAllUserMentions(const QString &roomId)
 {
     ChannelGetAllUserMentionsJob *job = new ChannelGetAllUserMentionsJob(this);
