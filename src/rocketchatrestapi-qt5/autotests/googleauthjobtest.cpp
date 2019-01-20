@@ -38,6 +38,7 @@ void GoogleAuthJobTest::shouldHaveDefaultValue()
     QVERIFY(job.idToken().isEmpty());
     QVERIFY(job.accessToken().isEmpty());
     QCOMPARE(job.expireTokenInSeconds(), -1);
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void GoogleAuthJobTest::shouldGenerateRequest()

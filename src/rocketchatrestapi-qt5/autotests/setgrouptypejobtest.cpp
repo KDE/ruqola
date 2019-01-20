@@ -37,6 +37,7 @@ void SetGroupTypeJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QCOMPARE(job.type(), SetGroupTypeJob::Unknown);
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void SetGroupTypeJobTest::shouldGenerateRequest()

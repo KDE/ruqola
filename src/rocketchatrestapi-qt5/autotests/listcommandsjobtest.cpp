@@ -35,6 +35,7 @@ void ListCommandsJobTest::shouldHaveDefaultValue()
     ListCommandsJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ListCommandsJobTest::shouldGenerateRequest()

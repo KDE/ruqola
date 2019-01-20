@@ -36,6 +36,7 @@ void ChannelRemoveOwnerJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.removeUserId().isEmpty());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChannelRemoveOwnerJobTest::shouldGenerateRequest()

@@ -37,6 +37,7 @@ void PostMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.text().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void PostMessageJobTest::shouldGenerateRequest()

@@ -36,6 +36,7 @@ void LeaveGroupsJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void LeaveGroupsJobTest::shouldGenerateRequest()

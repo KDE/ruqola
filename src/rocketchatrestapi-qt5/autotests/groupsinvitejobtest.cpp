@@ -36,6 +36,7 @@ void GroupsInviteJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.inviteUserId().isEmpty());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void GroupsInviteJobTest::shouldGenerateRequest()

@@ -38,6 +38,7 @@ void GetChannelRolesJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.restApiLogger());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void GetChannelRolesJobTest::shouldGenerateRequest()

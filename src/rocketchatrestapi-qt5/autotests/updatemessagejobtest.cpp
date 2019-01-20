@@ -38,6 +38,7 @@ void UpdateMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(job.updatedText().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void UpdateMessageJobTest::shouldGenerateRequest()

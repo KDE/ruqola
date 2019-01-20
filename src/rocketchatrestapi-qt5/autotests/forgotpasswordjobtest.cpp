@@ -39,6 +39,7 @@ void ForgotPasswordJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(job.email().isEmpty());
     QVERIFY(!job.restApiLogger());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ForgotPasswordJobTest::shouldGenerateRequest()

@@ -27,4 +27,5 @@ using namespace RocketChatRestApi;
 LoginJobTest::LoginJobTest(QObject *parent)
     : QObject(parent)
 {
+    //QVERIFY(!job.hasQueryParameterSupport());
 }

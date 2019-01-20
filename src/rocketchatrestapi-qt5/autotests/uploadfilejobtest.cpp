@@ -40,6 +40,7 @@ void UploadFileJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.filenameUrl().isValid());
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.userId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void UploadFileJobTest::shouldGenerateRequest()

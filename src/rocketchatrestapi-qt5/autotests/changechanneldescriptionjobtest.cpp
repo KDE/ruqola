@@ -36,6 +36,7 @@ void ChangeChannelDescriptionJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.description().isEmpty());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChangeChannelDescriptionJobTest::shouldGenerateRequest()

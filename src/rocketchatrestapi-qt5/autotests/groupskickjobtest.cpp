@@ -37,6 +37,7 @@ void GroupsKickJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.kickUserId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void GroupsKickJobTest::shouldGenerateRequest()

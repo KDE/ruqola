@@ -37,6 +37,7 @@ void ChannelCloseJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QCOMPARE(job.channelType(), ChannelCloseJob::ChannelType::Unknown);
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChannelCloseJobTest::shouldGenerateRequest()

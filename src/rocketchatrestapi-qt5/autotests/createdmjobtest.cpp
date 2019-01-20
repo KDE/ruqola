@@ -36,6 +36,7 @@ void CreateDmJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.userName().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void CreateDmJobTest::shouldGenerateRequest()

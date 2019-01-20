@@ -37,6 +37,7 @@ void ReactOnMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(job.emoji().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ReactOnMessageJobTest::shouldGenerateRequest()

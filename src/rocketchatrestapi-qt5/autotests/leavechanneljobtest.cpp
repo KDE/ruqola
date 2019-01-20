@@ -36,6 +36,7 @@ void LeaveChannelJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void LeaveChannelJobTest::shouldGenerateRequest()

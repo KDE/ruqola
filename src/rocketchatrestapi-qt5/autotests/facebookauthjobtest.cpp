@@ -38,6 +38,7 @@ void FacebookAuthJobTest::shouldHaveDefaultValue()
     QVERIFY(job.secret().isEmpty());
     QVERIFY(job.accessToken().isEmpty());
     QCOMPARE(job.expireTokenInSeconds(), -1);
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void FacebookAuthJobTest::shouldGenerateRequest()

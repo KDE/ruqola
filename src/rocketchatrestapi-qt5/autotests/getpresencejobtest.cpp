@@ -38,6 +38,7 @@ void GetPresenceJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.presenceUserId().isEmpty());
     QVERIFY(!job.restApiLogger());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void GetPresenceJobTest::shouldGenerateRequest()

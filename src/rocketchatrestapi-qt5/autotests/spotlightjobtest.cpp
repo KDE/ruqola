@@ -38,6 +38,7 @@ void SpotlightJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.searchPattern().isEmpty());
     QVERIFY(!job.restApiLogger());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void SpotlightJobTest::shouldGenerateRequest()

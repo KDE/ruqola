@@ -36,6 +36,7 @@ void ChangeGroupsDescriptionJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.description().isEmpty());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChangeGroupsDescriptionJobTest::shouldGenerateRequest()

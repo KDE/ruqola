@@ -39,6 +39,7 @@ void ReportMessageJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(job.reportMessage().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ReportMessageJobTest::shouldHaveMessageId()

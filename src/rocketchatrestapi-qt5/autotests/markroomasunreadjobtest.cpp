@@ -37,6 +37,7 @@ void MarkRoomAsUnReadJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.objectId().isEmpty());
     QCOMPARE(job.unReadObject(), MarkRoomAsUnReadJob::Unknown);
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void MarkRoomAsUnReadJobTest::shouldGenerateRequest()

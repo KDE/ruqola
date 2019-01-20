@@ -37,6 +37,7 @@ void GetUsernameSuggestionJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.start());
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void GetUsernameSuggestionJobTest::shouldGenerateRequest()

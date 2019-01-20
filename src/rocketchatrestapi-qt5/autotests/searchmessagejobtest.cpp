@@ -38,6 +38,7 @@ void searchMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.searchText().isEmpty());
     QVERIFY(job.roomId().isEmpty());
     QCOMPARE(job.count(), -1);
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void searchMessageJobTest::shouldGenerateRequest()

@@ -36,6 +36,7 @@ void ChannelAddModeratorJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.addModeratorUserId().isEmpty());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChannelAddModeratorJobTest::shouldGenerateRequest()

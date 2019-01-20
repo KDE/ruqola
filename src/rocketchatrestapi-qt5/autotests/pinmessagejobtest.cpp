@@ -39,6 +39,7 @@ void PinMessageJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(job.pinMessage());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void PinMessageJobTest::shouldHaveMessageId()

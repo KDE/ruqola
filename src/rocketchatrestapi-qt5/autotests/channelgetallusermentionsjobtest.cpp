@@ -39,6 +39,7 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.restApiLogger());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChannelGetAllUserMentionsJobTest::shouldGenerateRequest()

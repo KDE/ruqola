@@ -38,6 +38,7 @@ void ChannelHistoryJobTest::shouldHaveDefaultValue()
     QVERIFY(job.roomId().isEmpty());
     QCOMPARE(job.channelType(), ChannelHistoryJob::ChannelType::Unknown);
     QCOMPARE(job.count(), -1);
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChannelHistoryJobTest::shouldGenerateRequest()

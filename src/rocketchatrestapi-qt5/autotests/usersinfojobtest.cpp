@@ -38,6 +38,7 @@ void UsersInfoJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.identifier().isEmpty());
     QVERIFY(!job.useUserName());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void UsersInfoJobTest::shouldGenerateRequest()

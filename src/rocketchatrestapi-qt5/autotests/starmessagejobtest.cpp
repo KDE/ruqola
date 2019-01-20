@@ -42,6 +42,7 @@ void StarMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.starMessage());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void StarMessageJobTest::shouldHaveMessageId()

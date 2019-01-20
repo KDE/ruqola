@@ -36,6 +36,7 @@ void ChangeChannelReadonlyJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(!job.readOnly());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChangeChannelReadonlyJobTest::shouldGenerateRequest()

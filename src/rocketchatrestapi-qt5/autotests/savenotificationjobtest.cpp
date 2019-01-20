@@ -48,6 +48,7 @@ void SaveNotificationJobTest::shouldHaveDefaultValue()
 
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void SaveNotificationJobTest::shouldGenerateRequest()

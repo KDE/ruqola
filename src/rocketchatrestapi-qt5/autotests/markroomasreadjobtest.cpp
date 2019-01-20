@@ -36,6 +36,7 @@ void MarkRoomAsReadJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void MarkRoomAsReadJobTest::shouldGenerateRequest()

@@ -35,6 +35,7 @@ void OwnInfoJobTest::shouldHaveDefaultValue()
     OwnInfoJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void OwnInfoJobTest::shouldGenerateRequest()

@@ -37,6 +37,7 @@ void DeleteMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.messageId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void DeleteMessageJobTest::shouldGenerateRequest()

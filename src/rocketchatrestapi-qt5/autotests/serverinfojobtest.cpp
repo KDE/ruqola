@@ -35,6 +35,7 @@ void ServerInfoJobTest::shouldHaveDefaultValue()
     ServerInfoJob job;
     verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ServerInfoJobTest::shouldGenerateRequest()

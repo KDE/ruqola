@@ -37,6 +37,7 @@ void GetRoomsJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.start());
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void GetRoomsJobTest::shouldGenerateRequest()

@@ -35,6 +35,7 @@ void SettingsOauthJobTest::shouldHaveDefaultValue()
     SettingsOauthJob job;
     verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void SettingsOauthJobTest::shouldGenerateRequest()

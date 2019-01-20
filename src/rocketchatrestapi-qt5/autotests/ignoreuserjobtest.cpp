@@ -38,6 +38,7 @@ void IgnoreUserJobTest::shouldHaveDefaultValue()
     QVERIFY(job.ignoreUserId().isEmpty());
     QVERIFY(job.ignore());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void IgnoreUserJobTest::shouldGenerateRequest()

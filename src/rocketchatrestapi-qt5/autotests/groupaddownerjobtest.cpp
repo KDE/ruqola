@@ -36,6 +36,7 @@ void GroupAddOwnerJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.addownerUserId().isEmpty());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void GroupAddOwnerJobTest::shouldGenerateRequest()

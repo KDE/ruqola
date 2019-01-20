@@ -36,6 +36,7 @@ void ChangeGroupsTopicJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.topic().isEmpty());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChangeGroupsTopicJobTest::shouldGenerateRequest()

@@ -38,6 +38,7 @@ void CreateGroupsJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.readOnly());
     QVERIFY(job.channelName().isEmpty());
     QVERIFY(job.members().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void CreateGroupsJobTest::shouldGenerateRequest()

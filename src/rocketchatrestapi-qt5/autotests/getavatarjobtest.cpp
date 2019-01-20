@@ -38,6 +38,7 @@ void GetAvatarJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(job.avatarUserId().isEmpty());
     QVERIFY(!job.restApiLogger());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void GetAvatarJobTest::shouldGenerateRequest()

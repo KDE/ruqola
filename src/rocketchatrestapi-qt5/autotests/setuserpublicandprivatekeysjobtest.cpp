@@ -37,6 +37,7 @@ void SetUserPublicAndPrivateKeysJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.rsaPrivateKey().isEmpty());
     QVERIFY(job.rsaPublicKey().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void SetUserPublicAndPrivateKeysJobTest::shouldGenerateRequest()

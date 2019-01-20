@@ -36,6 +36,7 @@ void GetMessageJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.getMessageId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void GetMessageJobTest::shouldGenerateRequest()

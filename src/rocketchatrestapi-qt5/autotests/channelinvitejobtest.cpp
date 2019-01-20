@@ -36,6 +36,7 @@ void ChannelInviteJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.inviteUserId().isEmpty());
     QVERIFY(job.roomId().isEmpty());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ChannelInviteJobTest::shouldGenerateRequest()

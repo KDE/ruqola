@@ -39,6 +39,7 @@ void PrivateInfoJobTest::shouldHaveDefaultValue()
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.restApiLogger());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void PrivateInfoJobTest::shouldGenerateRequest()

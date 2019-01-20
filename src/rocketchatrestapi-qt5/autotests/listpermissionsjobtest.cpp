@@ -35,6 +35,7 @@ void ListPermissionsJobTest::shouldHaveDefaultValue()
     ListPermissionsJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
+    QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ListPermissionsJobTest::shouldGenerateRequest()
