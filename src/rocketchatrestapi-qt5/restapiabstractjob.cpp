@@ -126,7 +126,10 @@ void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
         if (mQueryParameters.count() >= 0) {
             urlQuery.addQueryItem(QStringLiteral("count"), QString::number(mQueryParameters.count()));
         }
-        //TODO
+        if (mQueryParameters.offset() >=0) {
+            urlQuery.addQueryItem(QStringLiteral("offset"), QString::number(mQueryParameters.offset()));
+        }
+        //TODO sorting
     }
 }
 

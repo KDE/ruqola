@@ -52,10 +52,11 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupport()
     job.setRoomId(roomId);
     QueryParameters parameters;
     parameters.setCount(5);
+    parameters.setOffset(12);
     job.setQueryParameters(parameters);
     QNetworkRequest request = job.request();
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12")));
     delete method;
 }
 
