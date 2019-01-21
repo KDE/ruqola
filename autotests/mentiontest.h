@@ -28,6 +28,8 @@ class MentionTest : public QObject
 public:
     explicit MentionTest(QObject *parent = nullptr);
     ~MentionTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // MENTIONTEST_H

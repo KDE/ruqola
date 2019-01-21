@@ -26,3 +26,10 @@ MentionTest::MentionTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+void MentionTest::shouldHaveDefaultValue()
+{
+    Mention m;
+    QVERIFY(m.message().isEmpty());
+    QVERIFY(m.messageId().isEmpty());
+}

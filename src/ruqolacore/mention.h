@@ -25,26 +25,20 @@
 class LIBRUQOLACORE_TESTS_EXPORT Mention
 {
     Q_GADGET
-//    Q_PROPERTY(int count READ count CONSTANT)
-//    Q_PROPERTY(QString reactionName READ reactionName CONSTANT)
-//    Q_PROPERTY(QString convertedReactionName READ convertedReactionName CONSTANT)
 public:
     Mention();
 
-//    Q_REQUIRED_RESULT QString reactionName() const;
-//    void setReactionName(const QString &reactionName);
-
-//    Q_REQUIRED_RESULT QStringList userNames() const;
-//    void setUserNames(const QStringList &userNames);
-
-//    Q_REQUIRED_RESULT int count() const;
-
     Q_REQUIRED_RESULT bool operator ==(const Mention &other) const;
 
-//    Q_REQUIRED_RESULT QString convertedReactionName() const;
+    Q_REQUIRED_RESULT QString message() const;
+    void setMessage(const QString &message);
+
+    Q_REQUIRED_RESULT QString messageId() const;
+    void setMessageId(const QString &messageId);
+
 private:
-//    QString mReactionName;
-//    QStringList mUserNames;
+    QString mMessage;
+    QString mMessageId;
 };
 Q_DECLARE_METATYPE(Mention)
 Q_DECLARE_TYPEINFO(Mention, Q_MOVABLE_TYPE);
