@@ -180,6 +180,7 @@ Component {
                             text: i18n("Mentions")
                             onTriggered: {
                                 appid.rocketChatAccount.channelGetAllUserMentions(appid.selectedRoomID);
+                                showMentionsInRoomDialog.initializeAndOpen()
                             }
                         }
                         RuqolaMenuSeparator {
@@ -411,6 +412,10 @@ Component {
                 onUploadFile: {
                     appid.rocketChatAccount.uploadFile(appid.selectedRoomID, description, messageText, filename)
                 }
+            }
+
+            ShowMentionsInRoomDialog {
+                id: showMentionsInRoomDialog
             }
 
             ShowFilesInRoomDialog {

@@ -125,7 +125,7 @@ QJsonObject Mentions::serialize(const Mentions &mentions)
 
 Mentions Mentions::fromJSon(const QJsonObject &o)
 {
-//    QVector<Mention> reacts;
+//    QVector<Mention> mentions;
 //    const QStringList lst = o.keys();
 //    QStringList users;
 //    for (const QString &str : lst) {
