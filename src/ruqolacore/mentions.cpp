@@ -103,6 +103,9 @@ bool Mentions::operator ==(const Mentions &other) const
 
 QDebug operator <<(QDebug d, const Mentions &t)
 {
+    d << "total " << t.total();
+    d << "offset " << t.offset();
+    d << "mentionsCount " << t.mentionsCount();
     for (int i = 0, total = t.mentions().count(); i < total; ++i) {
         d << t.mentions().at(i);
     }
