@@ -1,2 +1,6 @@
 - Create autotest for reactions (we don't test if copy is ok)
+- Add support for multimedia
+- Add support for reply
+- Add support for removing token when it's too late.
+
 
