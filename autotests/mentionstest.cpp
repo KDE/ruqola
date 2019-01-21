@@ -33,4 +33,5 @@ void MentionsTest::shouldHaveDefaultValues()
     QCOMPARE(m.count(), 0);
     QCOMPARE(m.offset(), 0);
     QCOMPARE(m.mentionsCount(), 0);
+    QCOMPARE(m.total(), 0);
 }

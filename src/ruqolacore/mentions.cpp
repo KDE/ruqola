@@ -59,6 +59,16 @@ void Mentions::setOffset(int offset)
     mOffset = offset;
 }
 
+int Mentions::total() const
+{
+    return mTotal;
+}
+
+void Mentions::setTotal(int total)
+{
+    mTotal = total;
+}
+
 QVector<Mention> Mentions::mentions() const
 {
     return mMentions;
@@ -67,6 +77,9 @@ QVector<Mention> Mentions::mentions() const
 void Mentions::parseMentions(const QJsonObject &mentions)
 {
     mMentions.clear();
+    mMentionsCount = mentions[QStringLiteral("count")].toInt();
+    mOffset = mentions[QStringLiteral("offset")].toInt();
+    mTotal = mentions[QStringLiteral("total")].toInt();
 //    const QStringList lst = reacts.keys();
 //    QStringList users;
 //    for (const QString &str : lst) {

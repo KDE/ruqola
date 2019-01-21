@@ -50,10 +50,14 @@ public:
     Q_REQUIRED_RESULT int offset() const;
     void setOffset(int offset);
 
+    Q_REQUIRED_RESULT int total() const;
+    void setTotal(int total);
+
 private:
     QVector<Mention> mMentions;
     int mMentionsCount = 0;
     int mOffset = 0;
+    int mTotal = 0;
 };
 Q_DECLARE_METATYPE(Mentions)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Mentions &t);
