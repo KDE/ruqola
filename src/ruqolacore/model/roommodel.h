@@ -32,6 +32,8 @@ class RocketChatAccount;
 class FilesForRoomModel;
 class FilesForRoomFilterProxyModel;
 class MessageModel;
+class MentionsFilterProxyModel;
+class MentionsModel;
 
 class LIBRUQOLACORE_EXPORT RoomModel : public QAbstractListModel
 {

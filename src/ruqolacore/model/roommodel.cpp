@@ -401,8 +401,9 @@ UsersForRoomModel *RoomModel::usersModelForRoom(const QString &roomId) const
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->roomId() == roomId) {
-            return mRoomsList.at(i)->usersModelForRoom();
+        Room *room = mRoomsList.at(i);
+        if (room->roomId() == roomId) {
+            return room->usersModelForRoom();
         }
     }
     qCWarning(RUQOLA_LOG) << " Users model for room undefined !";
@@ -413,8 +414,9 @@ UsersForRoomFilterProxyModel *RoomModel::usersForRoomFilterProxyModel(const QStr
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->roomId() == roomId) {
-            return mRoomsList.at(i)->usersModelForRoomProxyModel();
+        Room *room = mRoomsList.at(i);
+        if (room->roomId() == roomId) {
+            return room->usersModelForRoomProxyModel();
         }
     }
     return {};
@@ -424,8 +426,9 @@ FilesForRoomFilterProxyModel *RoomModel::filesForRoomFilterProxyModel(const QStr
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->roomId() == roomId) {
-            return mRoomsList.at(i)->filesForRoomFilterProxyModel();
+        Room *room = mRoomsList.at(i);
+        if (room->roomId() == roomId) {
+            return room->filesForRoomFilterProxyModel();
         }
     }
     return {};
@@ -435,8 +438,9 @@ MessageModel *RoomModel::messageModel(const QString &roomId) const
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->roomId() == roomId) {
-            return mRoomsList.at(i)->messageModel();
+        Room *room = mRoomsList.at(i);
+        if (room->roomId() == roomId) {
+            return room->messageModel();
         }
     }
     return {};
@@ -446,8 +450,9 @@ FilesForRoomModel *RoomModel::filesModelForRoom(const QString &roomId) const
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->roomId() == roomId) {
-            return mRoomsList.at(i)->filesModelForRoom();
+        Room *room = mRoomsList.at(i);
+        if (room->roomId() == roomId) {
+            return room->filesModelForRoom();
         }
     }
     return {};
@@ -457,8 +462,9 @@ QString RoomModel::inputMessage(const QString &roomId) const
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->roomId() == roomId) {
-            return mRoomsList.at(i)->inputMessage();
+        Room *room = mRoomsList.at(i);
+        if (room->roomId() == roomId) {
+            return room->inputMessage();
         }
     }
     return {};
@@ -468,8 +474,9 @@ void RoomModel::setInputMessage(const QString &roomId, const QString &inputMessa
 {
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
-        if (mRoomsList.at(i)->roomId() == roomId) {
-            mRoomsList.at(i)->setInputMessage(inputMessage);
+        Room *room = mRoomsList.at(i);
+        if (room->roomId() == roomId) {
+            room->setInputMessage(inputMessage);
             return;
         }
     }
