@@ -1022,6 +1022,12 @@ void RestApiRequest::channelGetAllUserMentions(const QString &roomId)
     ChannelGetAllUserMentionsJob *job = new ChannelGetAllUserMentionsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
+    QueryParameters parameters;
+    QMap<QString, QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("mentions"), QueryParameters::SortOrder::Descendant);
+    parameters.setSorting(map);
+    parameters.setCount(2);
+    job->setQueryParameters(parameters);
     connect(job, &ChannelGetAllUserMentionsJob::channelGetAllUserMentionsDone, this, &RestApiRequest::channelGetAllUserMentionsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelJoin";
