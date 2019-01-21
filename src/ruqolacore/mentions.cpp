@@ -18,6 +18,7 @@
 */
 
 #include "mentions.h"
+#include "rocketchatqtrestapi_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 Mentions::Mentions()
@@ -80,25 +81,19 @@ void Mentions::parseMentions(const QJsonObject &mentions)
     mMentionsCount = mentions[QStringLiteral("count")].toInt();
     mOffset = mentions[QStringLiteral("offset")].toInt();
     mTotal = mentions[QStringLiteral("total")].toInt();
-//    const QStringList lst = reacts.keys();
-//    QStringList users;
-//    for (const QString &str : lst) {
-//        users.clear();
-//        const QJsonObject obj = reacts.value(str).toObject();
-//        QJsonValue usernames = obj.value(QLatin1String("usernames"));
-//        if (!usernames.isUndefined()) {
-//            QJsonArray array = usernames.toArray();
-//            for (int i = 0; i < array.count(); ++i) {
-//                users.append(array.at(i).toString());
-//            }
-//        }
-//        if (!users.isEmpty()) {
-//            Mention r;
-//            r.setMentionName(str);
-//            r.setUserNames(users);
-//            mMentions.append(r);
-//        }
-//    }
+    const QJsonArray mentionsArray = mentions[QStringLiteral("mentions")].toArray();
+    mMentions.reserve(mentionsArray.count());
+    for (const QJsonValue &current : mentionsArray) {
+        if (current.type() == QJsonValue::Object) {
+            const QJsonObject mentionsObject = current.toObject();
+            Mention m;
+            m.parseMessage(mentionsObject, true);
+            mMentions.append(m);
+        } else {
+            //Reactivate it
+            //qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Problem when parsing mentions" << current;
+        }
+    }
 }
 
 bool Mentions::operator ==(const Mentions &other) const
