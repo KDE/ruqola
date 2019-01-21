@@ -29,7 +29,9 @@ MentionTest::MentionTest(QObject *parent)
 
 void MentionTest::shouldHaveDefaultValue()
 {
+    //Mention is a Message. NEed to create an autotest ?
+
     Mention m;
-    QVERIFY(m.message().isEmpty());
+    QVERIFY(m.text().isEmpty());
     QVERIFY(m.messageId().isEmpty());
 }

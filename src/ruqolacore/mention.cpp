@@ -23,34 +23,3 @@ Mention::Mention()
 {
 }
 
-QDebug operator <<(QDebug d, const Mention &t)
-{
-    d << "Message: " << t.message();
-    //TODO
-    return d;
-}
-
-bool Mention::operator ==(const Mention &other) const
-{
-    return (mMessage == other.message());
-}
-
-QString Mention::message() const
-{
-    return mMessage;
-}
-
-void Mention::setMessage(const QString &message)
-{
-    mMessage = message;
-}
-
-QString Mention::messageId() const
-{
-    return mMessageId;
-}
-
-void Mention::setMessageId(const QString &messageId)
-{
-    mMessageId = messageId;
-}
