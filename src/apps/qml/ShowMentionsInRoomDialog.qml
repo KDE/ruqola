@@ -30,6 +30,8 @@ QQC2.Dialog {
 
     title: i18n("Mentions")
 
+    signal searchMessage(string pattern, string rid)
+
     property QtObject mentionsModel
     property string roomId
     x: parent.width / 2 - width / 2
@@ -56,7 +58,7 @@ QQC2.Dialog {
             placeholderText: i18n("Search Mentions...")
             //onAccepted: or onTextChanged:  ????
             onAccepted: {
-                showSearchMessageDialog.searchMessage(text, roomId)
+                showMentionsInRoomDialog.searchMessage(text, roomId)
             }
         }
 
