@@ -129,6 +129,16 @@ void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
         if (mQueryParameters.offset() >=0) {
             urlQuery.addQueryItem(QStringLiteral("offset"), QString::number(mQueryParameters.offset()));
         }
+        if (!mQueryParameters.sorting().isEmpty()) {
+            //example    sort={"name":-1,"status":1}
+            QMapIterator<QString, QueryParameters::SortOrder> i(mQueryParameters.sorting());
+            while (i.hasNext()) {
+                i.next();
+
+            }
+            //It's ok for getAllMentions....
+            urlQuery.addQueryItem(QStringLiteral("sort"), QStringLiteral("{\"_updatedAt\":-1}"));
+        }
         //TODO sorting
     }
 }
