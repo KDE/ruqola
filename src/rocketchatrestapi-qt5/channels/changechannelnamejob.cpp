@@ -123,8 +123,6 @@ QNetworkRequest ChangeChannelNameJob::request() const
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsRename);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
-    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+    addRequestAttribute(request);
     return request;
 }

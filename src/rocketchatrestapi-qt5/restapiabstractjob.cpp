@@ -97,6 +97,13 @@ bool RestApiAbstractJob::canStart() const
     return true;
 }
 
+void RestApiAbstractJob::addRequestAttribute(QNetworkRequest &request) const
+{
+    request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
+    request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
+}
+
 void RestApiAbstractJob::addAuthRawHeader(QNetworkRequest &request) const
 {
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());

@@ -85,6 +85,7 @@ public:
     void setQueryParameters(const QueryParameters &queryParameters);
 
     void addQueryParameter(QUrlQuery &urlQuery) const;
+    void addRequestAttribute(QNetworkRequest &request) const;
 
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
