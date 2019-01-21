@@ -21,7 +21,6 @@
 #define MENTION_H
 #include "libruqola_private_export.h"
 #include "message.h"
-#include <QDebug>
 
 class LIBRUQOLACORE_TESTS_EXPORT Mention : public Message
 {
