@@ -35,4 +35,5 @@ void QueryParametersTest::shouldHaveDefaultValue()
     QCOMPARE(query.count(), -1);
     QCOMPARE(query.offset(), -1);
     QVERIFY(!query.isValid());
+    QVERIFY(query.sorting().isEmpty());
 }

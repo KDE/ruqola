@@ -184,5 +184,15 @@ void QueryParameters::setCount(int count)
 
 bool QueryParameters::isValid() const
 {
-    return (mCount >= 0) || (mOffset >= 0);
+    return (mCount >= 0) || (mOffset >= 0) || (!mSorting.isEmpty());
+}
+
+QMap<QString, QueryParameters::SortOrder> QueryParameters::sorting() const
+{
+    return mSorting;
+}
+
+void QueryParameters::setSorting(const QMap<QString, QueryParameters::SortOrder> &sorting)
+{
+    mSorting = sorting;
 }

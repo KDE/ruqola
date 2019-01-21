@@ -32,6 +32,11 @@ class AbstractLogger;
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QueryParameters
 {
 public:
+    enum class SortOrder {
+        Ascendant,
+        Descendant,
+        NoSorting
+    };
     QueryParameters();
 
     Q_REQUIRED_RESULT int offset() const;
@@ -42,9 +47,13 @@ public:
 
     bool isValid() const;
 
+    Q_REQUIRED_RESULT QMap<QString, SortOrder> sorting() const;
+    void setSorting(const QMap<QString, SortOrder> &sorting);
+
 private:
     int mOffset = -1;
     int mCount = -1;
+    QMap<QString, SortOrder> mSorting;
 };
 
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RestApiAbstractJob : public QObject
