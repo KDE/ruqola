@@ -34,4 +34,5 @@ void QueryParametersTest::shouldHaveDefaultValue()
     RocketChatRestApi::QueryParameters query;
     QCOMPARE(query.count(), -1);
     QCOMPARE(query.offset(), -1);
+    QVERIFY(!query.isValid());
 }
