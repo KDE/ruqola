@@ -23,6 +23,7 @@
 #include "abstractlogger.h"
 
 #include <QNetworkRequest>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 RestApiAbstractJob::RestApiAbstractJob(QObject *parent)
     : QObject(parent)
@@ -112,9 +113,12 @@ void RestApiAbstractJob::setQueryParameters(const QueryParameters &queryParamete
     mQueryParameters = queryParameters;
 }
 
-void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery)
+void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
 {
-    if (hasQueryParameterSupport()) {
+    if (hasQueryParameterSupport() && mQueryParameters.isValid()) {
+        if (mQueryParameters.count() >= 0) {
+            urlQuery.addQueryItem(QStringLiteral("count"), QString::number(mQueryParameters.count()));
+        }
         //TODO
     }
 }

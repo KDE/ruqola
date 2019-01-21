@@ -43,6 +43,8 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
+    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
+
 Q_SIGNALS:
     void channelGetAllUserMentionsDone(const QJsonObject &obj);
 

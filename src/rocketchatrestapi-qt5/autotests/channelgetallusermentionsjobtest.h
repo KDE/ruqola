@@ -31,6 +31,7 @@ public:
     ~ChannelGetAllUserMentionsJobTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldHaveParameterSupport();
     void shouldGenerateRequest();
     void shouldNotStarting();
 };

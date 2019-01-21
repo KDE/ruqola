@@ -68,6 +68,7 @@ QNetworkRequest ChannelGetAllUserMentionsJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsGetAllUserMentionsByChannel);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
@@ -106,4 +107,10 @@ QString ChannelGetAllUserMentionsJob::roomId() const
 void ChannelGetAllUserMentionsJob::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
+}
+
+
+bool RocketChatRestApi::ChannelGetAllUserMentionsJob::hasQueryParameterSupport() const
+{
+    return true;
 }

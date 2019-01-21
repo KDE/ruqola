@@ -39,7 +39,24 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.restApiLogger());
-    QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.hasQueryParameterSupport());
+}
+
+void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupport()
+{
+    ChannelGetAllUserMentionsJob job;
+    RestApiMethod *method = new RestApiMethod;
+    method->setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(method);
+    const QString roomId = QStringLiteral("avat");
+    job.setRoomId(roomId);
+    QueryParameters parameters;
+    parameters.setCount(5);
+    job.setQueryParameters(parameters);
+    QNetworkRequest request = job.request();
+    verifyAuthentication(&job, request);
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5")));
+    delete method;
 }
 
 void ChannelGetAllUserMentionsJobTest::shouldGenerateRequest()

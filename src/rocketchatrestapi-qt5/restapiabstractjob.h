@@ -84,7 +84,7 @@ public:
     Q_REQUIRED_RESULT QueryParameters queryParameters() const;
     void setQueryParameters(const QueryParameters &queryParameters);
 
-    void addQueryParameter(QUrlQuery &urlQuery);
+    void addQueryParameter(QUrlQuery &urlQuery) const;
 
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
