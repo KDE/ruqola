@@ -39,12 +39,32 @@ int Mentions::count() const
     return mMentions.count();
 }
 
+int Mentions::mentionsCount() const
+{
+    return mMentionsCount;
+}
+
+void Mentions::setMentionsCount(int mentionsCount)
+{
+    mMentionsCount = mentionsCount;
+}
+
+int Mentions::offset() const
+{
+    return mOffset;
+}
+
+void Mentions::setOffset(int offset)
+{
+    mOffset = offset;
+}
+
 QVector<Mention> Mentions::mentions() const
 {
     return mMentions;
 }
 
-void Mentions::parseMentions(const QJsonObject &reacts)
+void Mentions::parseMentions(const QJsonObject &mentions)
 {
     mMentions.clear();
 //    const QStringList lst = reacts.keys();

@@ -42,9 +42,18 @@ public:
 
     Mention at(int index) const;
     void clear();
-    int count() const;
+    Q_REQUIRED_RESULT int count() const;
+
+    Q_REQUIRED_RESULT int mentionsCount() const;
+    void setMentionsCount(int mentionsCount);
+
+    Q_REQUIRED_RESULT int offset() const;
+    void setOffset(int offset);
+
 private:
     QVector<Mention> mMentions;
+    int mMentionsCount = 0;
+    int mOffset = 0;
 };
 Q_DECLARE_METATYPE(Mentions)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Mentions &t);

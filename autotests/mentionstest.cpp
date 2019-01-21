@@ -18,9 +18,19 @@
 */
 
 #include "mentionstest.h"
+#include "mentions.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(MentionsTest)
 MentionsTest::MentionsTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void MentionsTest::shouldHaveDefaultValues()
+{
+    Mentions m;
+    QVERIFY(m.isEmpty());
+    QCOMPARE(m.count(), 0);
+    QCOMPARE(m.offset(), 0);
+    QCOMPARE(m.mentionsCount(), 0);
 }
