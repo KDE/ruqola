@@ -132,14 +132,30 @@ void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
         if (!mQueryParameters.sorting().isEmpty()) {
             //example    sort={"name":-1,"status":1}
             QMapIterator<QString, QueryParameters::SortOrder> i(mQueryParameters.sorting());
+            QString str;
             while (i.hasNext()) {
                 i.next();
-
+                if (!str.isEmpty()) {
+                    str += QLatin1Char(',');
+                }
+                str += QLatin1Char('"') + i.key() + QLatin1Char('"') + QLatin1Char(':');
+                switch(i.value()) {
+                case QueryParameters::SortOrder::Ascendant:
+                    str += QString::number(1);
+                    break;
+                case QueryParameters::SortOrder::Descendant:
+                    str += QString::number(-1);
+                    break;
+                case QueryParameters::SortOrder::NoSorting:
+                    qCWarning(ROCKETCHATQTRESTAPI_LOG) << "It's not a sorting attribute";
+                    break;
+                }
             }
+            str = QStringLiteral("{%1}").arg(str);
+
             //It's ok for getAllMentions....
-            urlQuery.addQueryItem(QStringLiteral("sort"), QStringLiteral("{\"_updatedAt\":-1}"));
+            urlQuery.addQueryItem(QStringLiteral("sort"), str);
         }
-        //TODO sorting
     }
 }
 

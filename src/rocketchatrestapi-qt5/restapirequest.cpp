@@ -1024,7 +1024,7 @@ void RestApiRequest::channelGetAllUserMentions(const QString &roomId)
     job->setRoomId(roomId);
     QueryParameters parameters;
     QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("mentions"), QueryParameters::SortOrder::Descendant);
+    map.insert(QStringLiteral("_updatedAt"), QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
     parameters.setCount(2);
     job->setQueryParameters(parameters);

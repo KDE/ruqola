@@ -34,6 +34,8 @@ private Q_SLOTS:
     void shouldHaveParameterSupport();
     void shouldGenerateRequest();
     void shouldNotStarting();
+    void shouldHaveParameterSupportSorting();
+    void shouldHaveParameterSupportSortingTwoParameters();
 };
 
 #endif // CHANNELGETALLUSERMENTIONSJOBTEST_H

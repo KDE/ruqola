@@ -60,6 +60,53 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupport()
     delete method;
 }
 
+void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSorting()
+{
+    ChannelGetAllUserMentionsJob job;
+    RestApiMethod *method = new RestApiMethod;
+    method->setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(method);
+    const QString roomId = QStringLiteral("avat");
+    job.setRoomId(roomId);
+    QueryParameters parameters;
+    parameters.setCount(5);
+    parameters.setOffset(12);
+
+    QMap<QString, QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("foo"), QueryParameters::SortOrder::Descendant);
+    parameters.setSorting(map);
+
+    job.setQueryParameters(parameters);
+    QNetworkRequest request = job.request();
+    verifyAuthentication(&job, request);
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12")));
+    delete method;
+}
+
+void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSortingTwoParameters()
+{
+    ChannelGetAllUserMentionsJob job;
+    RestApiMethod *method = new RestApiMethod;
+    method->setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(method);
+    const QString roomId = QStringLiteral("avat");
+    job.setRoomId(roomId);
+    QueryParameters parameters;
+    parameters.setCount(5);
+    parameters.setOffset(12);
+
+    QMap<QString, QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("foo"), QueryParameters::SortOrder::Descendant);
+    map.insert(QStringLiteral("bla"), QueryParameters::SortOrder::Ascendant);
+    parameters.setSorting(map);
+
+    job.setQueryParameters(parameters);
+    QNetworkRequest request = job.request();
+    verifyAuthentication(&job, request);
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12")));
+    delete method;
+}
+
 void ChannelGetAllUserMentionsJobTest::shouldGenerateRequest()
 {
     ChannelGetAllUserMentionsJob job;
