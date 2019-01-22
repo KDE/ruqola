@@ -36,7 +36,25 @@ void MentionsModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QHash<int, QByteArray> roles;
-    //roles[FilesForRoomModel::UserName] = QByteArrayLiteral("username");
-    //TODO FIXME
+    roles[MentionsModel::OriginalMessage] = QByteArrayLiteral("originalMessage");
+    roles[MentionsModel::MessageConvertedText] = QByteArrayLiteral("messageConverted");
+    roles[MentionsModel::Username] = QByteArrayLiteral("username");
+    roles[MentionsModel::Timestamp] = QByteArrayLiteral("timestamp");
+    roles[MentionsModel::UserId] = QByteArrayLiteral("userID");
+    roles[MentionsModel::MessageId] = QByteArrayLiteral("messageID");
+    roles[MentionsModel::RoomId] = QByteArrayLiteral("roomID");
+    roles[MentionsModel::UpdatedAt] = QByteArrayLiteral("updatedAt");
+    roles[MentionsModel::EditedAt] = QByteArrayLiteral("editedAt");
+    roles[MentionsModel::EditedByUserName] = QByteArrayLiteral("editedByUsername");
+    roles[MentionsModel::EditedByUserId] = QByteArrayLiteral("editedByUserID");
+    roles[MentionsModel::Alias] = QByteArrayLiteral("alias");
+    roles[MentionsModel::Avatar] = QByteArrayLiteral("avatar");
+    roles[MentionsModel::MessageType] = QByteArrayLiteral("messagetype");
+    roles[MentionsModel::Attachments] = QByteArrayLiteral("attachments");
+    roles[MentionsModel::Urls] = QByteArrayLiteral("urls");
+    roles[MentionsModel::Date] = QByteArrayLiteral("date");
+    roles[MentionsModel::UsernameUrl] = QByteArrayLiteral("usernameurl");
+    roles[MentionsModel::Roles] = QByteArrayLiteral("roles");
+    roles[MentionsModel::Reactions] = QByteArrayLiteral("reactions");
     QCOMPARE(w.roleNames(), roles);
 }

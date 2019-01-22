@@ -26,6 +26,33 @@
 class LIBRUQOLACORE_TESTS_EXPORT MentionsModel : public QAbstractListModel
 {
 public:
+    enum MessageRoles {
+        Username = Qt::UserRole + 1,
+        OriginalMessage,
+        MessageConvertedText,
+        Timestamp,
+        UserId,
+        MessageId,
+        RoomId,
+        UpdatedAt,
+        EditedAt,
+        EditedByUserName,
+        EditedByUserId,
+        Alias,
+        Avatar,
+        Groupable,
+        ParseUrls,
+        MessageType,
+        Attachments,
+        Urls,
+        Date,
+        Starred,
+        UsernameUrl,
+        Roles,
+        Reactions,
+    };
+    Q_ENUM(MessageRoles)
+
     explicit MentionsModel(QObject *parent = nullptr);
     ~MentionsModel() override;
 

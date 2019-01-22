@@ -62,6 +62,25 @@ void MentionsModel::setMentions(const Mentions &mentions)
 QHash<int, QByteArray> MentionsModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    //TODO
+    roles[OriginalMessage] = QByteArrayLiteral("originalMessage");
+    roles[MessageConvertedText] = QByteArrayLiteral("messageConverted");
+    roles[Username] = QByteArrayLiteral("username");
+    roles[Timestamp] = QByteArrayLiteral("timestamp");
+    roles[UserId] = QByteArrayLiteral("userID");
+    roles[MessageId] = QByteArrayLiteral("messageID");
+    roles[RoomId] = QByteArrayLiteral("roomID");
+    roles[UpdatedAt] = QByteArrayLiteral("updatedAt");
+    roles[EditedAt] = QByteArrayLiteral("editedAt");
+    roles[EditedByUserName] = QByteArrayLiteral("editedByUsername");
+    roles[EditedByUserId] = QByteArrayLiteral("editedByUserID");
+    roles[Alias] = QByteArrayLiteral("alias");
+    roles[Avatar] = QByteArrayLiteral("avatar");
+    roles[MessageType] = QByteArrayLiteral("messagetype");
+    roles[Attachments] = QByteArrayLiteral("attachments");
+    roles[Urls] = QByteArrayLiteral("urls");
+    roles[Date] = QByteArrayLiteral("date");
+    roles[UsernameUrl] = QByteArrayLiteral("usernameurl");
+    roles[Roles] = QByteArrayLiteral("roles");
+    roles[Reactions] = QByteArrayLiteral("reactions");
     return roles;
 }
