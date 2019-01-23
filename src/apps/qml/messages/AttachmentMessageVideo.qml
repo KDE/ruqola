@@ -36,23 +36,37 @@ MessageBase {
         id: videoPlayer
 
         autoPlay: false
+
+        function preview()
+        {
+            if (status === MediaPlayer.Loaded && playbackState === MediaPlayer.StoppedState) {
+                seek(duration/2)
+            }
+        }
+
+        onStatusChanged: {
+            preview();
+        }
+        onPlaybackStateChanged: {
+            preview();
+        }
+
         onPaused: {
-            playerButton.source = "media-playback-start"
+            //playerButton.source = "media-playback-start"
         }
         onPlaying: {
-            playerButton.source = "media-playback-pause"
+            //playerButton.source = "media-playback-pause"
         }
         onStopped: {
-            playerButton.source = "media-playback-start"
-            playerSlider.value=0
+            //playerButton.source = "media-playback-start"
+            //playerSlider.value=0
         }
-        onPositionChanged: {
-            playerSlider.sync = true
-            playerSlider.value = videoPlayer.position / videoPlayer.duration
-            playerSlider.sync = false
-            timeLabel.text = ConvertScript.convertTimeString(videoPlayer.position) + "/" + ConvertScript.convertTimeString(videoPlayer.duration)
-        }
-        source: rcAccount.attachmentUrl(model.modelData.link)
+//        onPositionChanged: {
+//            playerSlider.sync = true
+//            playerSlider.value = videoPlayer.position / videoPlayer.duration
+//            playerSlider.sync = false
+//            timeLabel.text = ConvertScript.convertTimeString(videoPlayer.position) + "/" + ConvertScript.convertTimeString(videoPlayer.duration)
+//        }
     }
 
 
@@ -85,7 +99,7 @@ MessageBase {
 
                         property int videoHeight: 100
                         Layout.fillWidth: true
-                        source: attachmentVideo.videoPlayer
+                        source: videoPlayer
                         width: 100
                         height: 0
                     }
@@ -100,15 +114,21 @@ MessageBase {
                             height: 24
                             MouseArea {
                                 anchors.fill: parent
+                                readonly property url link: rcAccount.attachmentUrl(model.modelData.link)
+                                onLinkChanged: {
+
+                                    videoPlayer.source = link
+                                }
                                 onClicked: {
                                     console.log(RuqolaDebugCategorySingleton.category, "Click on video file!");
-                                    if (repearterAttachments.videoPlayer.source !== "") {
-                                        if (repearterAttachments.videoPlayer.playbackState === MediaPlayer.PlayingState) {
-                                            repearterAttachments.videoPlayer.pause()
-                                        } else {
-                                            repearterAttachments.videoPlayer.play()
-                                        }
+
+                                    if (videoPlayer.playbackState === MediaPlayer.PlayingState) {
+                                        videoPlayer.pause()
                                     } else {
+                                        videoPlayer.play()
+                                    }
+
+                                    if (videoPlayer.error !== MediaPlayer.NoError) {
                                         console.log(RuqolaDebugCategorySingleton.category, "Video file no found");
                                     }
                                 }
@@ -117,26 +137,27 @@ MessageBase {
 
                         QQC2.Slider {
                             id: playerSlider
-
+                            enabled: videoPlayer.playbackState === MediaPlayer.PlayingState
                             Layout.fillWidth: true
 
-                            property bool sync: false
+                            from: 0
+                            to: videoPlayer.duration
+                            value: videoPlayer.position
 
-                            onValueChanged: {
-                                if (!sync) {
-                                    videoPlayer.seek(value * videoPlayer.duration)
-                                }
+                            onMoved: {
+                                videoPlayer.seek(value)
                             }
+
                         }
                         QQC2.Label {
                             id: timeLabel
-                            text: "00:00/00:00"
+                            text: ConvertScript.convertTimeString(playerSlider.value) + "/" + ConvertScript.convertTimeString(playerSlider.to)//"00:00/00:00"
                         }
 
                         DownloadButton {
                             id: download
                             onDownloadButtonClicked: {
-                                //TODO messageMain.downloadAttachment(model.modelData.link)
+                                messageMain.downloadAttachment(link)
                             }
                         }
                         ShowHideButton {
