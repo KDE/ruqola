@@ -18,7 +18,7 @@
 */
 
 #include "mentions.h"
-#include "rocketchatqtrestapi_debug.h"
+#include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 Mentions::Mentions()
@@ -90,8 +90,7 @@ void Mentions::parseMentions(const QJsonObject &mentions)
             m.parseMessage(mentionsObject, true);
             mMentions.append(m);
         } else {
-            //Reactivate it
-            //qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Problem when parsing mentions" << current;
+            qCWarning(RUQOLA_LOG) << "Problem when parsing mentions" << current;
         }
     }
 }
