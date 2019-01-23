@@ -1,0 +1,101 @@
+{
+    "count": 3,
+    "mentions": [
+        {
+            "_id": "SgFSaTu4jcuPh33YC",
+            "_updatedAt": "2018-11-22T16:22:10.816Z",
+            "alias": "Foo",
+            "channels": [
+            ],
+            "mentions": [
+                {
+                    "_id": "uKK39zoewTkdacidH",
+                    "name": "Laurent",
+                    "username": "laurent"
+                }
+            ],
+            "msg": "@laurent: hello",
+            "rid": "JMiJ7sqBm9GkjeR9t",
+            "ts": "2018-11-22T16:22:10.100Z",
+            "u": {
+                "_id": "hFfLTrnA5cEFHrZp4",
+                "name": "Foo",
+                "username": "foo"
+            },
+            "unread": true,
+            "urls": [
+                {
+                    "headers": {
+                        "contentLength": "3359",
+                        "contentType": "text/html; charset=UTF-8"
+                    },
+                    "meta": {
+                        "description": "Discover our API to build cool stuff with public transport",
+                        "pageTitle": "navitia.io | The open API for building cool stuff using transport data"
+                    },
+                    "parsedUrl": {
+                        "hash": null,
+                        "host": "www.navitia.io",
+                        "hostname": "www.navitia.io",
+                        "pathname": "/",
+                        "port": null,
+                        "protocol": "https:",
+                        "query": null,
+                        "search": null
+                    },
+                    "url": "https://www.navitia.io/"
+                }
+            ]
+        },
+        {
+            "_id": "FxncvhyRQJYXCGYn9",
+            "_updatedAt": "2018-10-08T11:44:41.530Z",
+            "alias": "foo",
+            "channels": [
+            ],
+            "mentions": [
+                {
+                    "_id": "uKK39zoewTkdacidH",
+                    "name": "Laurent",
+                    "username": "laurent"
+                }
+            ],
+            "msg": "@laurent: ",
+            "rid": "JMiJ7sqBm9GkjeR9t",
+            "ts": "2018-10-08T11:44:41.512Z",
+            "u": {
+                "_id": "hFfLTrnA5cEFHrZp4",
+                "name": "Foo",
+                "username": "foo"
+            },
+            "unread": true
+        },
+        {
+            "_id": "hE62fjx6xmnCmqHvF",
+            "_updatedAt": "2018-07-16T08:52:03.291Z",
+            "alias": "Bli",
+            "channels": [
+            ],
+            "mentions": [
+                {
+                    "_id": "uKK39zoewTkdacidH",
+                    "name": "Laurent",
+                    "username": "laurent"
+                }
+            ],
+            "msg": "@laurent roo.",
+            "rid": "JMiJ7sqBm9GkjeR9t",
+            "ts": "2018-07-16T08:52:03.285Z",
+            "u": {
+                "_id": "tgrk5CZKgYGiSSqXp",
+                "name": "Bli",
+                "username": "bli"
+            },
+            "unread": true
+        }
+    ],
+    "offset": 0,
+    "success": true,
+    "total": 3
+}
+
