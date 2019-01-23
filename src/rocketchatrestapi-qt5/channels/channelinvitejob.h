@@ -45,6 +45,9 @@ public:
     Q_REQUIRED_RESULT QString inviteUserId() const;
     void setInviteUserId(const QString &userId);
 
+    Q_REQUIRED_RESULT QString inviteUserName() const;
+    void setInviteUserName(const QString &userName);
+
 Q_SIGNALS:
     void inviteDone();
 
@@ -52,6 +55,7 @@ private:
     Q_DISABLE_COPY(ChannelInviteJob)
     void slotInvitationFinished();
     QString mInviteUserId;
+    QString mInviteUserName;
     QString mRoomId;
 };
 }

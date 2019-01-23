@@ -66,6 +66,16 @@ void ChannelInviteJob::slotInvitationFinished()
     deleteLater();
 }
 
+QString ChannelInviteJob::inviteUserName() const
+{
+    return mInviteUserName;
+}
+
+void ChannelInviteJob::setInviteUserName(const QString &userName)
+{
+    mInviteUserName = userName;
+}
+
 QString ChannelInviteJob::inviteUserId() const
 {
     return mInviteUserId;
@@ -83,8 +93,8 @@ bool ChannelInviteJob::requireHttpAuthentication() const
 
 bool ChannelInviteJob::canStart() const
 {
-    if (mInviteUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelInviteJob: inviteUserId is empty";
+    if (mInviteUserId.isEmpty() && mInviteUserName.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelInviteJob: inviteUserId is empty or inviteUserName is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
@@ -102,7 +112,11 @@ QJsonDocument ChannelInviteJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = roomId();
-    jsonObj[QLatin1String("userId")] = inviteUserId();
+    if (!inviteUserId().isEmpty()) {
+        jsonObj[QLatin1String("userId")] = inviteUserId();
+    } else if (!inviteUserName().isEmpty()) {
+        jsonObj[QLatin1String("userName")] = inviteUserName();
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

@@ -723,6 +723,7 @@ void RocketChatAccount::addUserToRoom(const QString &username, const QString &ro
 {
 #ifdef USE_REASTAPI_JOB
     if (channelType == QStringLiteral("c")) {
+        qDebug() << " username"<<username << " roomId " << roomId;
         restApi()->addUserInChannel(roomId, username);
     } else if (channelType == QStringLiteral("p")) {
         restApi()->addUserInGroup(roomId, username);
