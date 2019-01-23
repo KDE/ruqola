@@ -32,7 +32,8 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldGenerateRequest();
-    void shouldGenerateJson();
+    void shouldGenerateUsernameJson();
+    void shouldGenerateUserIdJson();
 };
 
 #endif // GROUPSINVITEJOBTEST_H

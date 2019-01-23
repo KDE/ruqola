@@ -66,6 +66,16 @@ void GroupsInviteJob::slotInviteGroupsFinished()
     deleteLater();
 }
 
+QString GroupsInviteJob::inviteUserName() const
+{
+    return mInviteUserName;
+}
+
+void GroupsInviteJob::setInviteUserName(const QString &inviteUserName)
+{
+    mInviteUserName = inviteUserName;
+}
+
 QString GroupsInviteJob::inviteUserId() const
 {
     return mInviteUserId;
@@ -83,8 +93,8 @@ bool GroupsInviteJob::requireHttpAuthentication() const
 
 bool GroupsInviteJob::canStart() const
 {
-    if (mInviteUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsInviteJob: mInviteUserId is empty";
+    if (mInviteUserId.isEmpty() && mInviteUserName.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GroupsInviteJob: mInviteUserId is empty or mInviteUserName is empty";
         return false;
     }
     if (mRoomId.isEmpty()) {
@@ -102,8 +112,11 @@ QJsonDocument GroupsInviteJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = roomId();
-    jsonObj[QLatin1String("userId")] = inviteUserId();
-
+    if (!inviteUserId().isEmpty()) {
+        jsonObj[QLatin1String("userId")] = inviteUserId();
+    } else if (!inviteUserName().isEmpty()) {
+        jsonObj[QLatin1String("userName")] = inviteUserName();
+    }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

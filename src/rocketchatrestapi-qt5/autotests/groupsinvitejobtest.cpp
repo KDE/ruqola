@@ -35,6 +35,7 @@ void GroupsInviteJobTest::shouldHaveDefaultValue()
     GroupsInviteJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.inviteUserId().isEmpty());
+    QVERIFY(job.inviteUserName().isEmpty());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
@@ -48,7 +49,17 @@ void GroupsInviteJobTest::shouldGenerateRequest()
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
-void GroupsInviteJobTest::shouldGenerateJson()
+void GroupsInviteJobTest::shouldGenerateUsernameJson()
+{
+    GroupsInviteJob job;
+    const QString roomId = QStringLiteral("foo1");
+    const QString userId = QStringLiteral("topic1");
+    job.setRoomId(roomId);
+    job.setInviteUserName(userId);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%2\",\"userName\":\"%1\"}").arg(userId, roomId).toLatin1());
+}
+
+void GroupsInviteJobTest::shouldGenerateUserIdJson()
 {
     GroupsInviteJob job;
     const QString roomId = QStringLiteral("foo1");
