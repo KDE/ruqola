@@ -32,7 +32,7 @@ QQC2.Dialog {
 
     property QtObject completerModel
     signal searchUserName(string pattern)
-    signal addUser(string name, string rid, string channelType)
+    signal addUser(string userId, string rid, string channelType)
 
     property QtObject roomInfo
     property string roomId: ""
@@ -82,7 +82,7 @@ QQC2.Dialog {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            addUserDialog.addUser(username, roomId, roomInfo.channelType)
+                            addUserDialog.addUser(userid, roomId, roomInfo.channelType)
                         }
                     }
                 }

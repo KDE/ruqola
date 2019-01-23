@@ -719,14 +719,13 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
     joinJitsiConfCall(roomId);
 }
 
-void RocketChatAccount::addUserToRoom(const QString &username, const QString &roomId, const QString &channelType)
+void RocketChatAccount::addUserToRoom(const QString &userId, const QString &roomId, const QString &channelType)
 {
 #ifdef USE_REASTAPI_JOB
     if (channelType == QStringLiteral("c")) {
-        qDebug() << " username"<<username << " roomId " << roomId;
-        restApi()->addUserInChannel(roomId, username);
+        restApi()->addUserInChannel(roomId, userId);
     } else if (channelType == QStringLiteral("p")) {
-        restApi()->addUserInGroup(roomId, username);
+        restApi()->addUserInGroup(roomId, userId);
     }
 #else
     Q_UNUSED(channelType);
