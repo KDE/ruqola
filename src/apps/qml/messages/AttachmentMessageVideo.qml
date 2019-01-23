@@ -104,7 +104,6 @@ MessageBase {
                         height: 0
                     }
                     RowLayout {
-                        //Verify position.
                         //Add video media
                         Kirigami.Icon {
                             id: playerButton
@@ -116,7 +115,6 @@ MessageBase {
                                 anchors.fill: parent
                                 readonly property url link: rcAccount.attachmentUrl(model.modelData.link)
                                 onLinkChanged: {
-
                                     videoPlayer.source = link
                                 }
                                 onClicked: {
@@ -157,7 +155,8 @@ MessageBase {
                         DownloadButton {
                             id: download
                             onDownloadButtonClicked: {
-                                messageMain.downloadAttachment(link)
+                                //TODO verify it
+                                messageMain.downloadAttachment(videoPlayer.source)
                             }
                         }
                         ShowHideButton {

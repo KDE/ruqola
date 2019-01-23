@@ -119,6 +119,7 @@ MessageBase {
 
                     QQC2.Label {
                         id: timeLabel
+                        //TODO display real value
                         text: "00:00/00:00"
                     }
 
