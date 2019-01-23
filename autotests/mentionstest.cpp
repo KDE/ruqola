@@ -19,6 +19,7 @@
 
 #include "mentionstest.h"
 #include "mentions.h"
+#include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(MentionsTest)
 MentionsTest::MentionsTest(QObject *parent)
@@ -34,4 +35,36 @@ void MentionsTest::shouldHaveDefaultValues()
     QCOMPARE(m.offset(), 0);
     QCOMPARE(m.mentionsCount(), 0);
     QCOMPARE(m.total(), 0);
+}
+
+void MentionsTest::shouldLoadMentions_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<int>("mentionsCount");
+    QTest::addColumn<int>("total");
+    QTest::addColumn<int>("offset");
+
+    QTest::addRow("empty") << QStringLiteral("mentions-empty") << 0 << 0 << 0;
+}
+
+
+void MentionsTest::shouldLoadMentions()
+{
+    QFETCH(QString, name);
+    QFETCH(int, mentionsCount);
+    QFETCH(int, total);
+    QFETCH(int, offset);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/mentions/") + name + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+
+    Mentions m;
+    m.parseMentions(obj);
+    QCOMPARE(m.mentionsCount(), mentionsCount);
+    QCOMPARE(m.total(), total);
+    QCOMPARE(m.offset(), offset);
 }

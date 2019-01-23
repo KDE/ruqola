@@ -30,6 +30,8 @@ public:
     ~MentionsTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadMentions();
+    void shouldLoadMentions_data();
 };
 
 #endif // MENTIONSTEST_H
