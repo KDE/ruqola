@@ -47,6 +47,7 @@ QQC2.Dialog {
         open();
     }
 
+    //Add menu here
     ColumnLayout {
         QQC2.TextField {
             id: searchField
