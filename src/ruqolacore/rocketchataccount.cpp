@@ -721,16 +721,11 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 
 void RocketChatAccount::addUserToRoom(const QString &userId, const QString &roomId, const QString &channelType)
 {
-#ifdef USE_REASTAPI_JOB
     if (channelType == QStringLiteral("c")) {
         restApi()->addUserInChannel(roomId, userId);
     } else if (channelType == QStringLiteral("p")) {
         restApi()->addUserInGroup(roomId, userId);
     }
-#else
-    Q_UNUSED(channelType);
-    ddp()->addUserToRoom(username, roomId);
-#endif
 }
 
 void RocketChatAccount::clearSearchModel()
