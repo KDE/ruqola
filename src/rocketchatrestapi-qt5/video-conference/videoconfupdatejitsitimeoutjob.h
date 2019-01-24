@@ -38,20 +38,16 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString avatarUserId() const;
-    void setAvatarUserId(const QString &avatarUserId);
-
-    Q_REQUIRED_RESULT QString avatarUrl() const;
-    void setAvatarUrl(const QString &avatarUrl);
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void setAvatarDone();
+    void updateJitsiTimeOutDone();
 
 private:
     Q_DISABLE_COPY(VideoConfUpdateJitsiTimeOutJob)
-    void slotSetAvatar();
-    QString mAvatarUserId;
-    QString mAvatarUrl;
+    void slotUpdateJitsiTimeOut();
+    QString mRoomId;
 };
 }
 #endif // VideoConfUpdateJitsiTimeOutJob_H

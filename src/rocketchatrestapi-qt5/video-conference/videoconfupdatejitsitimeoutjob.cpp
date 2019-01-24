@@ -44,40 +44,32 @@ bool VideoConfUpdateJitsiTimeOutJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("VideoConfUpdateJitsiTimeOutJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &VideoConfUpdateJitsiTimeOutJob::slotSetAvatar);
+    connect(reply, &QNetworkReply::finished, this, &VideoConfUpdateJitsiTimeOutJob::slotUpdateJitsiTimeOut);
     return true;
 }
 
-void VideoConfUpdateJitsiTimeOutJob::slotSetAvatar()
+void VideoConfUpdateJitsiTimeOutJob::slotUpdateJitsiTimeOut()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
+        //TODO translate date/time
         addLoggerInfo(QByteArrayLiteral("VideoConfUpdateJitsiTimeOutJob: finished: ") + data);
-        Q_EMIT setAvatarDone();
+        Q_EMIT updateJitsiTimeOutDone();
     }
     deleteLater();
 }
 
-QString VideoConfUpdateJitsiTimeOutJob::avatarUrl() const
+QString VideoConfUpdateJitsiTimeOutJob::roomId() const
 {
-    return mAvatarUrl;
+    return mRoomId;
 }
 
-void VideoConfUpdateJitsiTimeOutJob::setAvatarUrl(const QString &avatarUrl)
+void VideoConfUpdateJitsiTimeOutJob::setRoomId(const QString &roomId)
 {
-    mAvatarUrl = avatarUrl;
+    mRoomId = roomId;
 }
 
-QString VideoConfUpdateJitsiTimeOutJob::avatarUserId() const
-{
-    return mAvatarUserId;
-}
-
-void VideoConfUpdateJitsiTimeOutJob::setAvatarUserId(const QString &avatarUserId)
-{
-    mAvatarUserId = avatarUserId;
-}
 
 bool VideoConfUpdateJitsiTimeOutJob::requireHttpAuthentication() const
 {
@@ -90,7 +82,7 @@ bool VideoConfUpdateJitsiTimeOutJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start VideoConfUpdateJitsiTimeOutJob";
         return false;
     }
-    if (mAvatarUrl.isEmpty()) {
+    if (mRoomId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "VideoConfUpdateJitsiTimeOutJob: mAvatarUrl is empty";
         return false;
     }
@@ -109,7 +101,7 @@ QNetworkRequest VideoConfUpdateJitsiTimeOutJob::request() const
 QJsonDocument VideoConfUpdateJitsiTimeOutJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("avatarUrl")] = mAvatarUrl;
+    jsonObj[QLatin1String("roomId")] = mRoomId;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
