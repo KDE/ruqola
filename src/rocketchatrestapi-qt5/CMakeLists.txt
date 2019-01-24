@@ -102,6 +102,8 @@ set (RocketChatRestApiQt_SRCS
 
     e2e/fetchmykeysjob.cpp
     e2e/setuserpublicandprivatekeysjob.cpp
+
+    video-conference/videoconfupdatejitsitimeoutjob.cpp
     )
 
 
