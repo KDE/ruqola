@@ -126,7 +126,7 @@ MessageBase {
                     DownloadButton {
                         id: download
                         onDownloadButtonClicked: {
-                            //TODO messageMain.downloadAttachment(model.modelData.link)
+                            messageMain.downloadAttachment(model.modelData.link)
                         }
                     }
                 }

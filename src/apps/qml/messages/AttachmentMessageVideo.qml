@@ -155,7 +155,6 @@ MessageBase {
                         DownloadButton {
                             id: download
                             onDownloadButtonClicked: {
-                                //TODO verify it
                                 messageMain.downloadAttachment(videoPlayer.source)
                             }
                         }
