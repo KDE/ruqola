@@ -151,6 +151,8 @@ enum class RestApiUrlType {
     RolesList,
     RolesCreate,
     RolesAddUserToRole,
+    //since 0.74
+    VideoConfJitsi,
 };
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

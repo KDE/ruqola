@@ -286,6 +286,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("roles.create");
     case RestApiUtil::RestApiUrlType::RolesAddUserToRole:
         return QStringLiteral("roles.addUserToRole");
+    case RestApiUtil::RestApiUrlType::VideoConfJitsi:
+        return QStringLiteral("video-conference/jitsi.update-timeout");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
