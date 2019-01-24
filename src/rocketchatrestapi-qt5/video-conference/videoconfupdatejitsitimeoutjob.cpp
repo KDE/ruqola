@@ -53,9 +53,16 @@ void VideoConfUpdateJitsiTimeOutJob::slotUpdateJitsiTimeOut()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("VideoConfUpdateJitsiTimeOutJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT updateJitsiTimeOutDone();
+        } else {
+            addLoggerWarning(QByteArrayLiteral("VideoConfUpdateJitsiTimeOutJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
         //TODO translate date/time
-        addLoggerInfo(QByteArrayLiteral("VideoConfUpdateJitsiTimeOutJob: finished: ") + data);
-        Q_EMIT updateJitsiTimeOutDone();
     }
     deleteLater();
 }
