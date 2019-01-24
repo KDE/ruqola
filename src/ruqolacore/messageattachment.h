@@ -26,13 +26,13 @@
 class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
 {
     Q_GADGET
-    Q_PROPERTY(QString description READ description WRITE setDescription)
-    Q_PROPERTY(QString color READ color WRITE setColor)
-    Q_PROPERTY(QString title READ title WRITE setTitle)
-    Q_PROPERTY(QString link READ link WRITE setLink)
-    Q_PROPERTY(QString authorName READ authorName WRITE setAuthorName)
-    Q_PROPERTY(int imageHeight READ imageHeight WRITE setImageHeight)
-    Q_PROPERTY(int imageWidth READ imageWidth WRITE setImageWidth)
+    Q_PROPERTY(QString description READ description CONSTANT)
+    Q_PROPERTY(QString color READ color CONSTANT)
+    Q_PROPERTY(QString title READ title CONSTANT)
+    Q_PROPERTY(QString link READ link CONSTANT)
+    Q_PROPERTY(QString authorName READ authorName CONSTANT)
+    Q_PROPERTY(int imageHeight READ imageHeight CONSTANT)
+    Q_PROPERTY(int imageWidth READ imageWidth CONSTANT)
     Q_PROPERTY(bool canDownloadAttachment READ canDownloadAttachment CONSTANT)
     Q_PROPERTY(QString displayTitle READ displayTitle CONSTANT)
     Q_PROPERTY(QString imageTitle READ imageTitle CONSTANT)
