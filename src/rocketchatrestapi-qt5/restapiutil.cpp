@@ -235,6 +235,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("im.close");
     case RestApiUtil::RestApiUrlType::ImCreate:
         return QStringLiteral("im.create");
+    case RestApiUtil::RestApiUrlType::ImOpen:
+        return QStringLiteral("im.open");
     case RestApiUtil::RestApiUrlType::ImHistory:
         return QStringLiteral("im.history");
     case RestApiUtil::RestApiUrlType::ImFiles:

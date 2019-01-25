@@ -86,6 +86,7 @@ set (RocketChatRestApiQt_SRCS
     groups/groupsinfojob.cpp
 
     directmessage/createdmjob.cpp
+    directmessage/opendmjob.cpp
 
     rooms/savenotificationjob.cpp
     rooms/getroomsjob.cpp
