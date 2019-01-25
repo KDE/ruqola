@@ -130,6 +130,7 @@ enum class RestApiUrlType {
     ImHistory,
     ImFiles,
     ImOpen,
+    ImSetTopic,
     SubscriptionsRead,
     SubscriptionsUnRead,
     SettingsOauth,
