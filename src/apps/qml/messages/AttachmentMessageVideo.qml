@@ -37,6 +37,7 @@ MessageBase {
 
         autoPlay: false
 
+        //It doesn't work. Perhaps we need to remove it
         function preview()
         {
             if (status === MediaPlayer.Loaded && playbackState === MediaPlayer.StoppedState) {
@@ -50,23 +51,6 @@ MessageBase {
         onPlaybackStateChanged: {
             preview();
         }
-
-        onPaused: {
-            //playerButton.source = "media-playback-start"
-        }
-        onPlaying: {
-            //playerButton.source = "media-playback-pause"
-        }
-        onStopped: {
-            //playerButton.source = "media-playback-start"
-            //playerSlider.value=0
-        }
-//        onPositionChanged: {
-//            playerSlider.sync = true
-//            playerSlider.value = videoPlayer.position / videoPlayer.duration
-//            playerSlider.sync = false
-//            timeLabel.text = ConvertScript.convertTimeString(videoPlayer.position) + "/" + ConvertScript.convertTimeString(videoPlayer.duration)
-//        }
     }
 
 
@@ -122,10 +106,12 @@ MessageBase {
 
                                     if (videoPlayer.playbackState === MediaPlayer.PlayingState) {
                                         videoPlayer.pause()
+                                        source = "media-playback-start"
                                     } else {
                                         videoPlayer.play()
+                                        source = "media-playback-pause"
                                     }
-
+                                    //TODO stop ?
                                     if (videoPlayer.error !== MediaPlayer.NoError) {
                                         console.log(RuqolaDebugCategorySingleton.category, "Video file no found");
                                     }
