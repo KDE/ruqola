@@ -129,6 +129,7 @@ public:
     void groupInfo(const QString &roomId);
     void channelGetAllUserMentions(const QString &roomId);
     void updatejitsiTimeOut(const QString &roomId);
+    void openDirectMessage(const QString &userId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

@@ -87,6 +87,7 @@
 #include "rooms/savenotificationjob.h"
 
 #include "directmessage/createdmjob.h"
+#include "directmessage/opendmjob.h"
 
 #include "subscriptions/markroomasreadjob.h"
 #include "subscriptions/markroomasunreadjob.h"
@@ -580,6 +581,16 @@ void RestApiRequest::createDirectMessage(const QString &userName)
     CreateDmJob *job = new CreateDmJob(this);
     initializeRestApiJob(job);
     job->setUserName(userName);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::openDirectMessage(const QString &userId)
+{
+    OpenDmJob *job = new OpenDmJob(this);
+    initializeRestApiJob(job);
+    job->setDirectUserId(userId);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }
