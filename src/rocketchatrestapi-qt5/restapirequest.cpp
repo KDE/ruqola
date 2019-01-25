@@ -97,6 +97,8 @@
 
 #include "e2e/fetchmykeysjob.h"
 
+#include "video-conference/videoconfupdatejitsitimeoutjob.h"
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
@@ -1000,6 +1002,17 @@ void RestApiRequest::setJoinCodeChannel(const QString &roomId, const QString &jo
     connect(job, &SetJoinCodeChannelJob::setJoinCodeDone, this, &RestApiRequest::setJoinCodeDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setjoincode";
+    }
+}
+
+void RestApiRequest::updatejitsiTimeOut(const QString &roomId)
+{
+    VideoConfUpdateJitsiTimeOutJob *job = new VideoConfUpdateJitsiTimeOutJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    connect(job, &VideoConfUpdateJitsiTimeOutJob::updateJitsiTimeOutDone, this, &RestApiRequest::updateJitsiTimeOutDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start VideoConfUpdateJitsiTimeOutJob";
     }
 }
 

@@ -128,6 +128,7 @@ public:
     void changeGroupName(const QString &roomId, const QString &newName);
     void groupInfo(const QString &roomId);
     void channelGetAllUserMentions(const QString &roomId);
+    void updatejitsiTimeOut(const QString &roomId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -155,6 +156,7 @@ Q_SIGNALS:
     void missingChannelPassword(const QString &roomId);
     void openArchivedRoom(const QString &roomId);
     void channelGetAllUserMentionsDone(const QJsonObject &obj);
+    void updateJitsiTimeOutDone(const QString &datetime);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
