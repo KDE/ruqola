@@ -42,7 +42,7 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void updateJitsiTimeOutDone();
+    void updateJitsiTimeOutDone(const QString &dateTime);
 
 private:
     Q_DISABLE_COPY(VideoConfUpdateJitsiTimeOutJob)

@@ -58,11 +58,10 @@ void VideoConfUpdateJitsiTimeOutJob::slotUpdateJitsiTimeOut()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("VideoConfUpdateJitsiTimeOutJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT updateJitsiTimeOutDone();
+            Q_EMIT updateJitsiTimeOutDone(replyObject[QStringLiteral("jitsiTimeout")].toString());
         } else {
             addLoggerWarning(QByteArrayLiteral("VideoConfUpdateJitsiTimeOutJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
-        //TODO translate date/time
     }
     deleteLater();
 }
