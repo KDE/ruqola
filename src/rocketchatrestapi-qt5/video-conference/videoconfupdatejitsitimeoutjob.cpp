@@ -89,7 +89,7 @@ bool VideoConfUpdateJitsiTimeOutJob::canStart() const
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "VideoConfUpdateJitsiTimeOutJob: mAvatarUrl is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "VideoConfUpdateJitsiTimeOutJob: mRoomid is empty";
         return false;
     }
     return true;
@@ -97,7 +97,7 @@ bool VideoConfUpdateJitsiTimeOutJob::canStart() const
 
 QNetworkRequest VideoConfUpdateJitsiTimeOutJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersSetAvatar);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::VideoConfJitsi);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
