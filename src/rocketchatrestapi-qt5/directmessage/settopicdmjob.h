@@ -18,18 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef OPENDMJOB_H
-#define OPENDMJOB_H
+#ifndef SETTOPICDMJOB_H
+#define SETTOPICDMJOB_H
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT OpenDmJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SetTopicDmJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit OpenDmJob(QObject *parent = nullptr);
-    ~OpenDmJob() override;
+    explicit SetTopicDmJob(QObject *parent = nullptr);
+    ~SetTopicDmJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -43,12 +43,13 @@ public:
     void setDirectUserId(const QString &userId);
 
 Q_SIGNALS:
-    void openDmDone();
+    void setTopicDmDone();
 
 private:
-    Q_DISABLE_COPY(OpenDmJob)
-    void slotOpenDmFinished();
+    Q_DISABLE_COPY(SetTopicDmJob)
+    void slotSetTopicDmFinished();
     QString mDirectUserId;
+    QString mTopic;
 };
 }
 #endif

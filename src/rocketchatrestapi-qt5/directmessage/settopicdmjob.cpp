@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "opendmjob.h"
+#include "settopicdmjob.h"
 
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
@@ -27,29 +27,29 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-OpenDmJob::OpenDmJob(QObject *parent)
+SetTopicDmJob::SetTopicDmJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-OpenDmJob::~OpenDmJob()
+SetTopicDmJob::~SetTopicDmJob()
 {
 }
 
-bool OpenDmJob::start()
+bool SetTopicDmJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("OpenDmJob::start: " + baPostData);
+    addLoggerInfo("SetTopicDmJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &OpenDmJob::slotOpenDmFinished);
+    connect(reply, &QNetworkReply::finished, this, &SetTopicDmJob::slotSetTopicDmFinished);
     return true;
 }
 
-void OpenDmJob::slotOpenDmFinished()
+void SetTopicDmJob::slotSetTopicDmFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -59,7 +59,7 @@ void OpenDmJob::slotOpenDmFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("Create direct message sucess: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT openDmDone();
+            Q_EMIT setTopicDmDone();
         } else {
             addLoggerWarning(QByteArrayLiteral("Create direct message Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
@@ -67,43 +67,44 @@ void OpenDmJob::slotOpenDmFinished()
     deleteLater();
 }
 
-QString OpenDmJob::directUserId() const
+QString SetTopicDmJob::directUserId() const
 {
     return mDirectUserId;
 }
 
-void OpenDmJob::setDirectUserId(const QString &userId)
+void SetTopicDmJob::setDirectUserId(const QString &userId)
 {
     mDirectUserId = userId;
 }
 
-bool OpenDmJob::requireHttpAuthentication() const
+bool SetTopicDmJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool OpenDmJob::canStart() const
+bool SetTopicDmJob::canStart() const
 {
     if (mDirectUserId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "OpenDmJob: mDirectUserId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetTopicDmJob: mDirectUserId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start OpenDmJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetTopicDmJob job";
         return false;
     }
     return true;
 }
 
-QJsonDocument OpenDmJob::json() const
+QJsonDocument SetTopicDmJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("userId")] = mDirectUserId;
+    jsonObj[QLatin1String("topic")] = mTopic;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
-QNetworkRequest OpenDmJob::request() const
+QNetworkRequest SetTopicDmJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ImOpen);
     QNetworkRequest request(url);
