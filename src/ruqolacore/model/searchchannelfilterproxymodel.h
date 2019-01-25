@@ -33,7 +33,7 @@ public:
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
 protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
 
 #endif // SEARCHCHANNELROOMFILTERPROXYMODEL_H
