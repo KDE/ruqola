@@ -2,7 +2,7 @@ org.kde.ruqola ruqola (ruqola)
 org.kde.ruqola.ddpapi ruqola (ddpapi)
 org.kde.ruqola.message ruqola (show message debug)
 org.kde.ruqola.ddpapi.command ruqola (ddpapi command)
-org.kde.rocketchatqtrestapi RocketChatQtRestApi (Rocket Chat Qt Rest API) IDENTIFIER [ROCKETCHATQTRESTAPI_LOG]
+org.kde.rocketchatqtrestapi RocketChatQtRestApi (Rocket Chat Qt Rest API used by ruqola) IDENTIFIER [ROCKETCHATQTRESTAPI_LOG]
 org.kde.ruqola.qml ruqola (qml)
 org.kde.ruqola_googleauthenticationplugin ruqola (google authentication plugin)
 org.kde.ruqola_passwordauthenticationplugin ruqola (password authentication plugin)
