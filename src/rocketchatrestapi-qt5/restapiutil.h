@@ -41,6 +41,8 @@ enum class RestApiUrlType {
     UsersSetAvatar,
     UsersUpdate,
     UsersGetUsernameSuggestion,
+    UsersRemovePersonalAccessToken,
+    UsersGeneratePersonalAccessToken,
     ChatDelete,
     ChatGetMessage,
     ChatPinMessage,
@@ -130,6 +132,9 @@ enum class RestApiUrlType {
     ImHistory,
     ImFiles,
     ImOpen,
+    ImMessages,
+    //Since 0.59
+    ImMembers,
     ImSetTopic,
     SubscriptionsRead,
     SubscriptionsUnRead,

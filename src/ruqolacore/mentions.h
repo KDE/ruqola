@@ -40,7 +40,7 @@ public:
 
     Q_REQUIRED_RESULT bool isEmpty() const;
 
-    Mention at(int index) const;
+    Q_REQUIRED_RESULT Mention at(int index) const;
     void clear();
     Q_REQUIRED_RESULT int count() const;
 

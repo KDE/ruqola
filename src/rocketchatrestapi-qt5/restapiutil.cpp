@@ -72,7 +72,11 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::UsersUpdate:
         return QStringLiteral("users.update");
     case RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion:
-        return QStringLiteral("users.getUsernameSuggestion");
+        return QStringLiteral("users.getUsernameSuggestion");        
+    case RestApiUtil::RestApiUrlType::UsersRemovePersonalAccessToken:
+        return QStringLiteral("users.removePersonalAccessToken");
+    case RestApiUtil::RestApiUrlType::UsersGeneratePersonalAccessToken:
+        return QStringLiteral("users.generatePersonalAccessToken");
     case RestApiUtil::RestApiUrlType::ChatDelete:
         return QStringLiteral("chat.delete");
     case RestApiUtil::RestApiUrlType::ChatGetMessage:
@@ -243,6 +247,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("im.history");
     case RestApiUtil::RestApiUrlType::ImFiles:
         return QStringLiteral("im.files");
+    case RestApiUtil::RestApiUrlType::ImMessages:
+        return QStringLiteral("im.messages");
+    case RestApiUtil::RestApiUrlType::ImMembers:
+        return QStringLiteral("im.members");
     case RestApiUtil::RestApiUrlType::LoadEmojiCustom:
         return QStringLiteral("emoji-custom");
     case RestApiUtil::RestApiUrlType::SubscriptionsRead:

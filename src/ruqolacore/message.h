@@ -64,7 +64,7 @@ public:
     * @param source The Json containing message attributes
     * @return Message object, The message constructed from Json
     */
-    static Message fromJSon(const QJsonObject &source);
+    Q_REQUIRED_RESULT static Message fromJSon(const QJsonObject &source);
 
     /**
     * @brief Constructs QBytearray from Message object
@@ -72,7 +72,7 @@ public:
     * @param message The Message object
     * @return QByteArray, The Json containing message attributes
     */
-    static QByteArray serialize(const Message &message, bool toBinary = true);
+    Q_REQUIRED_RESULT static QByteArray serialize(const Message &message, bool toBinary = true);
 
     void parseMessage(const QJsonObject &o, bool restApi = false);
 

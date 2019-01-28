@@ -190,7 +190,7 @@ public:
     Q_REQUIRED_RESULT QString e2EKey() const;
     void setE2EKey(const QString &e2EKey);
 
-    QString e2eKeyId() const;
+    Q_REQUIRED_RESULT QString e2eKeyId() const;
     void setE2eKeyId(const QString &e2eKeyId);
 
     NotificationOptionsWrapper *getNotificationWrapper();

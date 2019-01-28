@@ -28,7 +28,7 @@ class CopyFileJob : public KJob
     Q_OBJECT
 public:
     explicit CopyFileJob(QObject *parent = nullptr);
-    ~CopyFileJob() = default;
+    ~CopyFileJob() override = default;
 
     void start() override;
 
