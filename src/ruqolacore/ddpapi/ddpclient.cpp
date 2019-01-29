@@ -245,6 +245,7 @@ void DDPClient::initializeWebSocket()
     connect(mWebSocket, &AbstractWebSocket::connected, this, &DDPClient::onWSConnected);
     connect(mWebSocket, &AbstractWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
     connect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
+    connect(mWebSocket, &AbstractWebSocket::sslErrors, this, &DDPClient::onSslErrors);
 }
 
 void DDPClient::start()
@@ -894,6 +895,14 @@ void DDPClient::onWSConnected()
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << mWebSocket->isValid() << mWebSocket->error() << mWebSocket->requestUrl();
     } else {
         qCDebug(RUQOLA_DDPAPI_COMMAND_LOG) << "Successfully sent " << serialize;
+    }
+}
+
+void DDPClient::onSslErrors(const QList<QSslError> &errors)
+{
+    qCDebug(RUQOLA_DDPAPI_LOG) << "SSL error" << errors.count();
+    for (const QSslError &err : errors) {
+        qCDebug(RUQOLA_DDPAPI_LOG) << "error ssl type:" << err.errorString();
     }
 }
 

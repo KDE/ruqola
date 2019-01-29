@@ -27,6 +27,7 @@
 #include "libruqolacore_export.h"
 #include <functional>
 #include <QQueue>
+#include <QSslError>
 
 class QJsonObject;
 class QJsonDocument;
@@ -203,6 +204,7 @@ private Q_SLOTS:
     void onWSConnected();
     void onTextMessageReceived(const QString &message);
     void onWSclosed();
+    void onSslErrors(const QList<QSslError> &errors);
 
 private:
     Q_DISABLE_COPY(DDPClient)

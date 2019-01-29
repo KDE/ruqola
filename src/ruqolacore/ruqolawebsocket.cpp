@@ -30,6 +30,7 @@ RuqolaWebSocket::RuqolaWebSocket(QObject *parent)
     connect(mWebSocket, &QWebSocket::connected, this, &RuqolaWebSocket::connected);
     connect(mWebSocket, &QWebSocket::disconnected, this, &RuqolaWebSocket::disconnected);
     connect(mWebSocket, &QWebSocket::textMessageReceived, this, &RuqolaWebSocket::textMessageReceived);
+    connect(mWebSocket, &QWebSocket::sslErrors, this, &RuqolaWebSocket::sslErrors);
 }
 
 RuqolaWebSocket::~RuqolaWebSocket()

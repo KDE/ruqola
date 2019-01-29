@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QAbstractSocket>
 #include <QWebSocketProtocol>
+#include <QSslError>
 #include "libruqola_private_export.h"
 class LIBRUQOLACORE_TESTS_EXPORT AbstractWebSocket : public QObject
 {
@@ -48,6 +49,7 @@ Q_SIGNALS:
     void disconnected();
     void connected();
     void textMessageReceived(const QString &message);
+    void sslErrors(const QList<QSslError> &errors);
 private:
     Q_DISABLE_COPY(AbstractWebSocket)
 };
