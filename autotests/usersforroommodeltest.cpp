@@ -44,6 +44,7 @@ void UsersForRoomModelTest::shouldHaveDefaultValue()
     QHash<int, QByteArray> roles;
     roles[UsersForRoomModel::UserName] = QByteArrayLiteral("username");
     roles[UsersForRoomModel::Name] = QByteArrayLiteral("name");
+    roles[UsersForRoomModel::UserId] = QByteArrayLiteral("userid");
     roles[UsersForRoomModel::IconStatus] = QByteArrayLiteral("iconstatus");
     roles[UsersForRoomModel::DisplayName] = QByteArrayLiteral("displayname");
     QCOMPARE(w.roleNames(), roles);

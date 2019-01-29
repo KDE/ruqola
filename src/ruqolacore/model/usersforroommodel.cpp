@@ -97,6 +97,7 @@ QHash<int, QByteArray> UsersForRoomModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles[UserName] = QByteArrayLiteral("username");
     roles[Name] = QByteArrayLiteral("name");
+    roles[UserId] = QByteArrayLiteral("userid");
     roles[IconStatus] = QByteArrayLiteral("iconstatus");
     roles[DisplayName] = QByteArrayLiteral("displayname");
     return roles;

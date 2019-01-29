@@ -1155,6 +1155,17 @@ void RocketChatAccount::switchEditingMode(bool b)
     }
 }
 
+void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, const QString &channelType)
+{
+    if (channelType == QStringLiteral("c")) {
+        restApi()->channelKick(roomId, userId);
+    } else if (channelType == QStringLiteral("p")) {
+        restApi()->groupKick(roomId, userId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " unsupport kickUser room for type " << channelType;
+    }
+}
+
 void RocketChatAccount::channelInfo(const QString &roomId)
 {
     restApi()->channelInfo(roomId);

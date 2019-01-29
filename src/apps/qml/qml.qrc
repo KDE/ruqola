@@ -47,6 +47,7 @@
         <file>ServerInfoDialog.qml</file>
         <file>NotificationAlertCombobox.qml</file>
         <file>ShowMentionsInRoomDialog.qml</file>
+        <file>UserMenu.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

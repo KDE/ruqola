@@ -283,13 +283,33 @@ Component {
                             height: 22
                             width: 22
                         }
+                        UserMenu {
+                            id: userMenu
+                            userId: model.userid
+                            onKickUser: {
+                                appid.rocketChatAccount.kickUser(appid.selectedRoomID, userId, appid.selectedRoom.channelType)
+                            }
+                        }
+
                         QQC2.Label {
                             text: model.displayname
                             onLinkActivated: {
                                 openDirectChannelDialog.username = link;
                                 openDirectChannelDialog.open()
                             }
-                        }
+                            MouseArea {
+                                anchors.fill: parent
+                                acceptedButtons: Qt.RightButton
+
+                                onClicked: {
+                                    if (mouse.button === Qt.RightButton) {
+                                        userMenu.x = mouse.x
+                                        userMenu.y = mouse.y
+                                        userMenu.open();
+                                    }
+                                }
+                            }
+                        }                        
                     }
                 }
                 Item {
@@ -330,7 +350,7 @@ Component {
                 //console.log(RuqolaDebugCategorySingleton.category, "copy! messageId : " + messageId + " messageStr " + messageStr)
             }
             onReplyMessage: {
-                //console.log(RuqolaDebugCategorySingleton.category, "Not implemented reply message : " + messageId)
+                console.log(RuqolaDebugCategorySingleton.category, "Not implemented reply message : " + messageId)
             }
             onSetFavoriteMessage: {
                 appid.rocketChatAccount.starMessage(messageId, roomId, starred)

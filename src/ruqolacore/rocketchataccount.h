@@ -187,6 +187,7 @@ public:
     Q_INVOKABLE void channelGetAllUserMentions(const QString &roomId);
 
     Q_INVOKABLE void switchEditingMode(bool b);
+    Q_INVOKABLE void kickUser(const QString &rid, const QString &userId, const QString &channelType);
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
