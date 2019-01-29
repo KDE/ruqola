@@ -26,7 +26,7 @@ import QtQuick.Layouts 1.1
 import KDE.Ruqola.DebugCategory 1.0
 QQC2.Menu {
     id: menu
-    property bool can_manage_users: false
+    property bool can_manage_users: true
     property string userId
 
     signal ignoreUser(string userId)
@@ -82,6 +82,7 @@ QQC2.Menu {
             text: i18n("Remove from Room")
         }
         onTriggered: {
+            menu.kickUser(userId)
         }
     }
 }
