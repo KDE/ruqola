@@ -69,6 +69,7 @@
 #include "channels/channelinfojob.h"
 #include "channels/changechannelnamejob.h"
 #include "channels/channelgetallusermentionsjob.h"
+#include "channels/channelkickjob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -81,6 +82,7 @@
 #include "groups/getgrouprolesjob.h"
 #include "groups/changegroupsnamejob.h"
 #include "groups/groupsinfojob.h"
+#include "groups/groupskickjob.h"
 
 #include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
@@ -1054,5 +1056,30 @@ void RestApiRequest::channelGetAllUserMentions(const QString &roomId)
     connect(job, &ChannelGetAllUserMentionsJob::channelGetAllUserMentionsDone, this, &RestApiRequest::channelGetAllUserMentionsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelJoin";
+    }
+}
+
+
+void RestApiRequest::channelKick(const QString &roomId, const QString &userId)
+{
+    ChannelKickJob *job = new ChannelKickJob(this);
+    initializeRestApiJob(job);
+    job->setKickUserId(userId);
+    job->setRoomId(roomId);
+    connect(job, &ChannelKickJob::kickUserDone, this, &RestApiRequest::channelKickUserDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelKick";
+    }
+}
+
+void RestApiRequest::groupKick(const QString &roomId, const QString &userId)
+{
+    GroupsKickJob *job = new GroupsKickJob(this);
+    initializeRestApiJob(job);
+    job->setKickUserId(userId);
+    job->setRoomId(roomId);
+    connect(job, &GroupsKickJob::kickUserDone, this, &RestApiRequest::groupKickUserDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelKick";
     }
 }

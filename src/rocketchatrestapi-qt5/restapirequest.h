@@ -130,6 +130,8 @@ public:
     void channelGetAllUserMentions(const QString &roomId);
     void updatejitsiTimeOut(const QString &roomId);
     void openDirectMessage(const QString &userId);
+    void channelKick(const QString &roomId, const QString &userId);
+    void groupKick(const QString &roomId, const QString &userId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -158,6 +160,8 @@ Q_SIGNALS:
     void openArchivedRoom(const QString &roomId);
     void channelGetAllUserMentionsDone(const QJsonObject &obj);
     void updateJitsiTimeOutDone(const QString &datetime);
+    void channelKickUserDone(const QJsonObject &obj);
+    void groupKickUserDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
