@@ -904,6 +904,7 @@ void DDPClient::onSslErrors(const QList<QSslError> &errors)
     for (const QSslError &err : errors) {
         qCDebug(RUQOLA_DDPAPI_LOG) << "error ssl type:" << err.errorString();
     }
+    mWebSocket->ignoreSslErrors();
 }
 
 void DDPClient::onWSclosed()
