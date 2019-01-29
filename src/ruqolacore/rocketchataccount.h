@@ -99,7 +99,18 @@ public:
         UnreadAlert,
         MuteGroupMentions
     };
+
     Q_ENUM(NotificationOptionsType)
+
+    enum RoleType {
+        AddOwner,
+        AddLeader,
+        AddModerator,
+        RemoveOwner,
+        RemoveLeader,
+        RemoveModerator
+    };
+    Q_ENUM(RoleType)
 
     Q_INVOKABLE UsersModel *usersModel() const;
 
