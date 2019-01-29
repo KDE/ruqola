@@ -46,11 +46,11 @@ public:
     void setAddLeaderUserId(const QString &addLeaderUserId);
 
 Q_SIGNALS:
-    void addOwnerDone();
+    void addLeaderDone();
 
 private:
     Q_DISABLE_COPY(GroupAddLeaderJob)
-    void slotAddOwnerFinished();
+    void slotAddLeaderFinished();
     QString mRoomId;
     QString mAddLeaderUserId;
 };

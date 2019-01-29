@@ -44,11 +44,11 @@ bool GroupRemoveLeaderJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("GroupRemoveLeaderJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &GroupRemoveLeaderJob::slotRemoveOwnerFinished);
+    connect(reply, &QNetworkReply::finished, this, &GroupRemoveLeaderJob::slotRemoveLeaderFinished);
     return true;
 }
 
-void GroupRemoveLeaderJob::slotRemoveOwnerFinished()
+void GroupRemoveLeaderJob::slotRemoveLeaderFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -58,7 +58,7 @@ void GroupRemoveLeaderJob::slotRemoveOwnerFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GroupRemoveLeaderJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT removeOwnerDone();
+            Q_EMIT removeLeaderDone();
         } else {
             addLoggerWarning(QByteArrayLiteral("GroupRemoveLeaderJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }

@@ -44,11 +44,11 @@ bool GroupRemoveModeratorJob::start()
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
     addLoggerInfo("GroupRemoveModeratorJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &GroupRemoveModeratorJob::slotRemoveOwnerFinished);
+    connect(reply, &QNetworkReply::finished, this, &GroupRemoveModeratorJob::slotRemoveModeratorFinished);
     return true;
 }
 
-void GroupRemoveModeratorJob::slotRemoveOwnerFinished()
+void GroupRemoveModeratorJob::slotRemoveModeratorFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -58,7 +58,7 @@ void GroupRemoveModeratorJob::slotRemoveOwnerFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GroupRemoveModeratorJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT removeOwnerDone();
+            Q_EMIT removeModeratorDone();
         } else {
             addLoggerWarning(QByteArrayLiteral("GroupRemoveModeratorJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
