@@ -84,6 +84,7 @@ set (RocketChatRestApiQt_SRCS
     groups/groupaddmoderatorjob.cpp
     groups/groupaddownerjob.cpp
     groups/groupsinfojob.cpp
+    groups/groupremoveownerjob.cpp
 
     directmessage/createdmjob.cpp
     directmessage/opendmjob.cpp
