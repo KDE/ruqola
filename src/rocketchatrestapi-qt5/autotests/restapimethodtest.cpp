@@ -139,6 +139,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsSetAnnouncement), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setAnnouncement")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsRoles), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.roles")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsCounters), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.counters")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupRemoveLeader), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.removeLeader")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsAddLeader), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.addLeader")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ServerInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/info")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Settings), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsPublic), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings.public")));

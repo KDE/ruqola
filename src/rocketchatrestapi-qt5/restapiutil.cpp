@@ -223,6 +223,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("groups.roles");
     case RestApiUtil::RestApiUrlType::GroupsCounters:
         return QStringLiteral("groups.counters");
+    case RestApiUtil::RestApiUrlType::GroupRemoveLeader:
+        return QStringLiteral("groups.removeLeader");
+    case RestApiUtil::RestApiUrlType::GroupsAddLeader:
+        return QStringLiteral("groups.addLeader");
     case RestApiUtil::RestApiUrlType::ServerInfo:
         return QStringLiteral("info");
     case RestApiUtil::RestApiUrlType::Settings:
