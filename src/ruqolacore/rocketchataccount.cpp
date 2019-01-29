@@ -1166,6 +1166,11 @@ void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, c
     }
 }
 
+void RocketChatAccount::changeRoles(const QString &rid, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType)
+{
+    //TODO implement it.
+}
+
 void RocketChatAccount::channelInfo(const QString &roomId)
 {
     restApi()->channelInfo(roomId);

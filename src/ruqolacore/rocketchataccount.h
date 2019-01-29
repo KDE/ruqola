@@ -199,6 +199,7 @@ public:
 
     Q_INVOKABLE void switchEditingMode(bool b);
     Q_INVOKABLE void kickUser(const QString &rid, const QString &userId, const QString &channelType);
+    Q_INVOKABLE void changeRoles(const QString &rid, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType);
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
