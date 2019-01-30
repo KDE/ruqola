@@ -289,6 +289,9 @@ Component {
                             onKickUser: {
                                 appid.rocketChatAccount.kickUser(appid.selectedRoomID, userId, appid.selectedRoom.channelType)
                             }
+                            onChangeRole: {
+                                appid.rocketChatAccount.changeRoles(appid.selectedRoomID, userId, appid.selectedRoom.channelType, type)
+                            }
                         }
 
                         QQC2.Label {

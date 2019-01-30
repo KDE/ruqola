@@ -1166,9 +1166,55 @@ void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, c
     }
 }
 
-void RocketChatAccount::changeRoles(const QString &rid, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType)
+void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType)
 {
-    //TODO implement it.
+    if (channelType == QStringLiteral("c")) {
+        switch (roleType) {
+        case RocketChatAccount::AddOwner:
+            restApi()->channelAddOwner(roomId, userId);
+            break;
+        case RocketChatAccount::AddLeader:
+            //TODO use ddp here
+            //restApi()->channelAddLeader(roomId, userId);
+            break;
+        case RocketChatAccount::AddModerator:
+            restApi()->channelAddModerator(roomId, userId);
+            break;
+        case RocketChatAccount::RemoveOwner:
+            restApi()->channelRemoveOwner(roomId, userId);
+            break;
+        case RocketChatAccount::RemoveLeader:
+            //TODO use ddp here
+            //restApi()->channelRemoveLeader(roomId, userId);
+            break;
+        case RocketChatAccount::RemoveModerator:
+            restApi()->channelRemoveModerator(roomId, userId);
+            break;
+        }
+    } else if (channelType == QStringLiteral("p")) {
+        switch (roleType) {
+        case RocketChatAccount::AddOwner:
+            restApi()->groupAddOwner(roomId, userId);
+            break;
+        case RocketChatAccount::AddLeader:
+            restApi()->groupAddLeader(roomId, userId);
+            break;
+        case RocketChatAccount::AddModerator:
+            restApi()->groupAddModerator(roomId, userId);
+            break;
+        case RocketChatAccount::RemoveOwner:
+            restApi()->groupRemoveOwner(roomId, userId);
+            break;
+        case RocketChatAccount::RemoveLeader:
+            restApi()->groupRemoveLeader(roomId, userId);
+            break;
+        case RocketChatAccount::RemoveModerator:
+            restApi()->groupRemoveModerator(roomId, userId);
+            break;
+        }
+    } else {
+        qCWarning(RUQOLA_LOG) << " unsupport changeRoles room for type " << channelType;
+    }
 }
 
 void RocketChatAccount::channelInfo(const QString &roomId)

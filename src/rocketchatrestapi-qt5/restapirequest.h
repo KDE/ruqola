@@ -138,6 +138,10 @@ public:
     void groupRemoveLeader(const QString &roomId, const QString &userId);
     void groupAddOwner(const QString &roomId, const QString &userId);
     void groupRemoveOwner(const QString &roomId, const QString &userId);
+    void channelAddModerator(const QString &roomId, const QString &userId);
+    void channelRemoveModerator(const QString &roomId, const QString &userId);
+    void channelAddOwner(const QString &roomId, const QString &userId);
+    void channelRemoveOwner(const QString &roomId, const QString &userId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();

@@ -28,9 +28,13 @@ QQC2.Menu {
     id: menu
     property bool can_manage_users: true
     property string userId
+    property bool hasOwnerRole: true
+    property bool hasModeratorRole: true
+    property bool hasLeaderRole: true
 
     signal ignoreUser(string userId)
     signal kickUser(string userId)
+    signal changeRole(string userId, int type)
 
     QQC2.MenuItem {
         id: conversationItem
@@ -44,27 +48,30 @@ QQC2.Menu {
         id: removeAsOwnerItem
         visible: can_manage_users
         contentItem: QQC2.Label {
-            text: i18n("Remove as Owner")
+            text: hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner")
         }
         onTriggered: {
+            menu.changeRole(userId, hasOwnerRole ? rocketChatAccount.RemoveOwner : rocketChatAccount.AddOwner);
         }
     }
     QQC2.MenuItem {
         id: removeAsLeaderItem
         visible: can_manage_users
         contentItem: QQC2.Label {
-            text: i18n("Remove as Leader")
+            text: hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader")
         }
         onTriggered: {
+            menu.changeRole(userId, hasLeaderRole ? rocketChatAccount.RemoveLeader : rocketChatAccount.AddLeader);
         }
     }
     QQC2.MenuItem {
         id: removeAsModeratorItem
         visible: can_manage_users
         contentItem: QQC2.Label {
-            text: i18n("Remove as Moderator")
+            text: hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator")
         }
         onTriggered: {
+            menu.changeRole(userId, hasModeratorRole ? rocketChatAccount.RemoveModerator : rocketChatAccount.AddModerator);
         }
     }
     QQC2.MenuItem {
