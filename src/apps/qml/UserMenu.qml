@@ -24,6 +24,7 @@ import org.kde.kirigami 2.4 as Kirigami
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.DebugCategory 1.0
+import KDE.Ruqola.RocketChatAccount 1.0
 QQC2.Menu {
     id: menu
     property bool can_manage_users: true
@@ -51,7 +52,7 @@ QQC2.Menu {
             text: hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner")
         }
         onTriggered: {
-            menu.changeRole(userId, hasOwnerRole ? rocketChatAccount.RemoveOwner : rocketChatAccount.AddOwner);
+            menu.changeRole(userId, hasOwnerRole ? RocketChatAccount.RemoveOwner : RocketChatAccount.AddOwner);
         }
     }
     QQC2.MenuItem {
@@ -61,7 +62,7 @@ QQC2.Menu {
             text: hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader")
         }
         onTriggered: {
-            menu.changeRole(userId, hasLeaderRole ? rocketChatAccount.RemoveLeader : rocketChatAccount.AddLeader);
+            menu.changeRole(userId, hasLeaderRole ? RocketChatAccount.RemoveLeader : RocketChatAccount.AddLeader);
         }
     }
     QQC2.MenuItem {
@@ -71,7 +72,7 @@ QQC2.Menu {
             text: hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator")
         }
         onTriggered: {
-            menu.changeRole(userId, hasModeratorRole ? rocketChatAccount.RemoveModerator : rocketChatAccount.AddModerator);
+            menu.changeRole(userId, hasModeratorRole ? RocketChatAccount.RemoveModerator : RocketChatAccount.AddModerator);
         }
     }
     QQC2.MenuItem {
@@ -81,6 +82,9 @@ QQC2.Menu {
         }
         onTriggered: {
         }
+    }
+    //Hide it if direct channel
+    RuqolaMenuSeparator {
     }
     QQC2.MenuItem {
         id: kickItem

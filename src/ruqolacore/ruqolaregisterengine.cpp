@@ -109,6 +109,8 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<ServerConfigInfo>("KDE.Ruqola.ServerConfigInfo", 1, 0, "ServerConfigInfo");
     qRegisterMetaType<Message::MessageType>();
     qRegisterMetaType<RocketChatAccount::RoomInfoType>();
+    qRegisterMetaType<RocketChatAccount::NotificationOptionsType>();
+    qRegisterMetaType<RocketChatAccount::RoleType>();
     qRegisterMetaType<User::PresenceStatus>();
     qRegisterMetaType<AuthenticationManager::OauthType>();
     (void)Ruqola::self();
