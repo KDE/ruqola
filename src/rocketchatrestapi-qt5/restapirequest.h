@@ -132,6 +132,12 @@ public:
     void openDirectMessage(const QString &userId);
     void channelKick(const QString &roomId, const QString &userId);
     void groupKick(const QString &roomId, const QString &userId);
+    void groupAddModerator(const QString &roomId, const QString &userId);
+    void groupRemoveModerator(const QString &roomId, const QString &userId);
+    void groupAddLeader(const QString &roomId, const QString &userId);
+    void groupRemoveLeader(const QString &roomId, const QString &userId);
+    void groupAddOwner(const QString &roomId, const QString &userId);
+    void groupRemoveOwner(const QString &roomId, const QString &userId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -162,6 +168,12 @@ Q_SIGNALS:
     void updateJitsiTimeOutDone(const QString &datetime);
     void channelKickUserDone(const QJsonObject &obj);
     void groupKickUserDone(const QJsonObject &obj);
+    void addModeratorDone();
+    void removeModeratorDone();
+    void addLeaderDone();
+    void removeLeaderDone();
+    void addOwnerDone();
+    void removeOwnerDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)
