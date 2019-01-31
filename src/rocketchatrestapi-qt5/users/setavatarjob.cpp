@@ -53,8 +53,14 @@ void SetAvatarJob::slotSetAvatar()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("SetAvatarJob: finished: ") + data);
-        Q_EMIT setAvatarDone();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("SetAvatarJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT setAvatarDone();
+        } else {
+            addLoggerWarning(QByteArrayLiteral("SetAvatarJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
     }
     deleteLater();
 }

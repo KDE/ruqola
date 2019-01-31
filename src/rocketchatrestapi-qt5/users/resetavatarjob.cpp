@@ -53,8 +53,15 @@ void ResetAvatarJob::slotResetAvatar()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("ResetAvatarJob: finished: ") + data);
-        Q_EMIT resetAvatarDone();
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("ResetAvatarJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT resetAvatarDone();
+        } else {
+            addLoggerWarning(QByteArrayLiteral("ResetAvatarJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
     }
     deleteLater();
 }

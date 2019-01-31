@@ -55,9 +55,12 @@ void ChannelListJob::slotListInfo()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        addLoggerInfo(QByteArrayLiteral("ChannelListJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        //qCDebug(ROCKETCHATQTRESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
-        Q_EMIT channelListDone(replyObject);
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("ChannelListJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT channelListDone(replyObject);
+        } else {
+            addLoggerWarning(QByteArrayLiteral("ChannelListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
     }
     deleteLater();
 }
