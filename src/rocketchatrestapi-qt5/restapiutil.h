@@ -99,6 +99,8 @@ enum class RestApiUrlType {
     GroupsArchive,
     GroupsClose,
     GroupsCreate,
+    //since 0.70
+    GroupsDelete,
     GroupsGetIntegrations,
     GroupsHistory,
     GroupsInfo,
