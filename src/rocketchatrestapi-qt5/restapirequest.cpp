@@ -74,6 +74,7 @@
 #include "channels/channelremoveownerjob.h"
 #include "channels/channeladdmoderatorjob.h"
 #include "channels/channelremovemoderatorjob.h"
+#include "channels/channeldeletejob.h"
 //Not implemented yet
 //#include "channels/channeladdleaderjob.h"
 //#include "channels/channelremoveleaderjob.h"
@@ -96,6 +97,7 @@
 #include "groups/groupremoveownerjob.h"
 #include "groups/groupaddmoderatorjob.h"
 #include "groups/groupremovemoderatorjob.h"
+#include "groups/groupsdeletejob.h"
 
 #include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
@@ -1238,5 +1240,27 @@ void RestApiRequest::channelRemoveOwner(const QString &roomId, const QString &us
     connect(job, &ChannelRemoveOwnerJob::removeOwnerDone, this, &RestApiRequest::removeOwnerDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelRemoveOwnerJob";
+    }
+}
+
+void RestApiRequest::channelDelete(const QString &roomId)
+{
+    ChannelDeleteJob *job = new ChannelDeleteJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    connect(job, &ChannelDeleteJob::deletechannelDone, this, &RestApiRequest::deletechannelDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelDeleteJob";
+    }
+}
+
+void RestApiRequest::groupDelete(const QString &roomId)
+{
+    GroupsDeleteJob *job = new GroupsDeleteJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    connect(job, &GroupsDeleteJob::deleteGroupsDone, this, &RestApiRequest::deleteGroupsDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GroupsDeleteJob";
     }
 }

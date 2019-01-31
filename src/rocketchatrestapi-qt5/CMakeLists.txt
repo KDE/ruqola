@@ -7,7 +7,6 @@ set (RocketChatRestApiQt_SRCS
     restapiabstractjob.cpp
     abstractlogger.cpp
 
-    # job.
     spotlightjob.cpp
 
     serverinfojob.cpp
@@ -90,6 +89,7 @@ set (RocketChatRestApiQt_SRCS
     groups/groupaddleaderjob.cpp
     groups/groupremoveleaderjob.cpp
     groups/groupremovemoderatorjob.cpp
+    groups/groupsdeletejob.cpp
 
     directmessage/createdmjob.cpp
     directmessage/opendmjob.cpp

@@ -21,6 +21,8 @@
 #include "privateinfojob.h"
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 PrivateInfoJob::PrivateInfoJob(QObject *parent)
@@ -51,8 +53,15 @@ void PrivateInfoJob::slotPrivateInfoDone()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("PrivateInfoJob done: ") + data);
-        Q_EMIT privateInfoDone(data);
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("PrivateInfoJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT privateInfoDone(data);
+        } else {
+            addLoggerWarning(QByteArrayLiteral("PrivateInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
     }
     deleteLater();
 }

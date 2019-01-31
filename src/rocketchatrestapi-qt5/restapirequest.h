@@ -142,6 +142,8 @@ public:
     void channelRemoveModerator(const QString &roomId, const QString &userId);
     void channelAddOwner(const QString &roomId, const QString &userId);
     void channelRemoveOwner(const QString &roomId, const QString &userId);
+    void channelDelete(const QString &roomId);
+    void groupDelete(const QString &roomId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -178,6 +180,8 @@ Q_SIGNALS:
     void removeLeaderDone();
     void addOwnerDone();
     void removeOwnerDone();
+    void deletechannelDone();
+    void deleteGroupsDone();
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

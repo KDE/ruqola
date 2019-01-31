@@ -501,10 +501,14 @@ void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
 
 void RocketChatAccount::eraseRoom(const QString &roomId, const QString &channelType)
 {
-#ifdef USE_REASTAPI_JOB_NOT_SUPPORTED_YET
-    //Leave ! or close for direct channel.
-    //restApi()->closeChannel(roomId, channelType);
-    //restApi()->channelDelete(roomId, channelType);
+#ifdef USE_REASTAPI_JOB
+    if (channelType == QStringLiteral("c")) {
+        restApi()->channelDelete(roomId);
+    } else if (channelType == QStringLiteral("p")) {
+        restApi()->groupDelete(roomId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " unsupport delete for type " << channelType;
+    }
 #else
     Q_UNUSED(channelType);
     ddp()->eraseRoom(roomId);
