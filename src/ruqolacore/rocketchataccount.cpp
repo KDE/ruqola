@@ -504,6 +504,7 @@ void RocketChatAccount::eraseRoom(const QString &roomId, const QString &channelT
 #ifdef USE_REASTAPI_JOB_NOT_SUPPORTED_YET
     //Leave ! or close for direct channel.
     //restApi()->closeChannel(roomId, channelType);
+    //restApi()->channelDelete(roomId, channelType);
 #else
     Q_UNUSED(channelType);
     ddp()->eraseRoom(roomId);

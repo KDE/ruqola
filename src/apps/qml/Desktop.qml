@@ -167,7 +167,7 @@ Kirigami.ApplicationWindow {
         id: channelInfoDialog
         channelName: (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""
         onDeleteRoom: {
-            rocketChatAccount.eraseRoom(roomId)
+            rocketChatAccount.eraseRoom(roomId, appid.selectedRoom.channelType)
         }
         onModifyChannelSetting: {
             rocketChatAccount.changeChannelSettings(roomId, type, newVal, channelType)
