@@ -2,7 +2,6 @@
 - Add support for multimedia
 - Add support for reply
 - Add support for removing token when it's too late.
-- Add remove user/ remove owner/add owner etc.
 - Merge some restapi (for example setTopic)
-- 
+- Fix message "typing" when we switch from channel sometime it's not cleared 
 
