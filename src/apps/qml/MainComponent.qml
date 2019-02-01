@@ -292,6 +292,12 @@ Component {
                             onChangeRole: {
                                 appid.rocketChatAccount.changeRoles(appid.selectedRoomID, userId, appid.selectedRoom.channelType, type)
                             }
+                            onIgnoreUser: {
+                                //TODO
+                            }
+                            onOpenConversation: {
+                                //TODO
+                            }
                         }
 
                         QQC2.Label {

@@ -37,6 +37,7 @@ QQC2.Menu {
     signal ignoreUser(string userId, bool ignore)
     signal kickUser(string userId)
     signal changeRole(string userId, int type)
+    signal openConversation(string userId)
     //Hide it if direct channel
 
     function updateIgnoreMenuItemText()
@@ -89,6 +90,7 @@ QQC2.Menu {
             text: i18n("Ignore")
         }
         onTriggered: {
+            menu.ignoreUser(userId, !userIsIgnored)
         }
     }
     RuqolaMenuSeparator {
