@@ -109,6 +109,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.addOwner");
     case RestApiUtil::RestApiUrlType::ChannelsArchive:
         return QStringLiteral("channels.archive");
+    case RestApiUtil::RestApiUrlType::ChannelsModerators:
+        return QStringLiteral("channels.moderators");
     case RestApiUtil::RestApiUrlType::ChannelsCleanHistory:
         return QStringLiteral("channels.cleanHistory");
     case RestApiUtil::RestApiUrlType::ChannelsClose:

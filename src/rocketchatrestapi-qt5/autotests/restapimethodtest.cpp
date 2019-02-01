@@ -84,6 +84,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddOwner), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addOwner")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsArchive), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.archive")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsCleanHistory), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.cleanHistory")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsModerators), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.moderators")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsClose), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.close")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.create")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsGetIntegrations), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getIntegrations")));

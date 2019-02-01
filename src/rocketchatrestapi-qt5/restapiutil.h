@@ -86,6 +86,8 @@ enum class RestApiUrlType {
     ChannelsCounters,
     ChannelsMembers,
     ChannelsJoin,
+    //since 0.70
+    ChannelsModerators,
     //Since 0.71
     ChannelsDelete,
     //since 0.65
