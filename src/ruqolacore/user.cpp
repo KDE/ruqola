@@ -106,6 +106,7 @@ int User::utcOffset() const
     return mUtcOffset;
 }
 
+//TODO use double ??? we can see some -3.5 !
 void User::setUtcOffset(int utcOffset)
 {
     mUtcOffset = utcOffset;
