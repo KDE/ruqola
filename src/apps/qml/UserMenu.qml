@@ -32,10 +32,17 @@ QQC2.Menu {
     property bool hasOwnerRole: true
     property bool hasModeratorRole: true
     property bool hasLeaderRole: true
+    property bool userIsIgnored: false
 
-    signal ignoreUser(string userId)
+    signal ignoreUser(string userId, bool ignore)
     signal kickUser(string userId)
     signal changeRole(string userId, int type)
+    //Hide it if direct channel
+
+    function updateIgnoreMenuItemText()
+    {
+        return userIsIgnored ? i18n("Unignore") : i18n("Ignore")
+    }
 
     QQC2.MenuItem {
         id: conversationItem
@@ -43,6 +50,7 @@ QQC2.Menu {
             text: i18n("Conversation")
         }
         onTriggered: {
+            //TODO open conversation !
         }
     }
     QQC2.MenuItem {
@@ -83,7 +91,6 @@ QQC2.Menu {
         onTriggered: {
         }
     }
-    //Hide it if direct channel
     RuqolaMenuSeparator {
     }
     QQC2.MenuItem {
@@ -95,5 +102,9 @@ QQC2.Menu {
         onTriggered: {
             menu.kickUser(userId)
         }
+    }
+    onAboutToShow: {
+        ignoreItem.text = updateIgnoreMenuItemText();
+        //TODO
     }
 }
