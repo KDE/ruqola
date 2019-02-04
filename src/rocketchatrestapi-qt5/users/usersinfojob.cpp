@@ -60,8 +60,12 @@ void UsersInfoJob::slotOwnInfoFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        addLoggerInfo(QByteArrayLiteral("UsersInfoJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT usersInfoDone(replyObject);
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("UsersInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT usersInfoDone(replyObject);
+        } else {
+            addLoggerWarning(QByteArrayLiteral("UsersInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
     }
     deleteLater();
 }
