@@ -39,7 +39,7 @@ void LoadEmojiCustomJobTest::shouldHaveDefaultValue()
     QVERIFY(job.authToken().isEmpty());
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.restApiLogger());
-    QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.hasQueryParameterSupport());
 }
 
 void LoadEmojiCustomJobTest::shouldGenerateRequest()

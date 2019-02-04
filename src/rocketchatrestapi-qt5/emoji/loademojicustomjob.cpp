@@ -24,6 +24,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 LoadEmojiCustomJob::LoadEmojiCustomJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -55,8 +56,13 @@ void LoadEmojiCustomJob::slotloadEmojiCustomDone()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob done: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT loadEmojiCustomDone(replyObject);
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT loadEmojiCustomDone(replyObject);
+        } else {
+            addLoggerWarning(QByteArrayLiteral("LoadEmojiCustomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
     }
     deleteLater();
 }
@@ -66,10 +72,21 @@ bool LoadEmojiCustomJob::requireHttpAuthentication() const
     return true;
 }
 
+bool LoadEmojiCustomJob::hasQueryParameterSupport() const
+{
+    //Since 0.71
+    return true;
+}
+
 QNetworkRequest LoadEmojiCustomJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::LoadEmojiCustom);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::LoadEmojiCustom);
     QNetworkRequest req(url);
+    QUrlQuery queryUrl;
+    addQueryParameter(queryUrl);
+    if (!queryUrl.isEmpty()) {
+        url.setQuery(queryUrl);
+    }
     addAuthRawHeader(req);
     return req;
 }
