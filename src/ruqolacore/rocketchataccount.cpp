@@ -649,7 +649,7 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
     }
 }
 
-void RocketChatAccount::getUsersOfRoom(const QString &roomId, const QString &roomType)
+void RocketChatAccount::membersInRoom(const QString &roomId, const QString &roomType)
 {
     connect(restApi(), &RocketChatRestApi::RestApiRequest::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms, Qt::UniqueConnection);
     restApi()->membersInRoom(roomId, roomType);
@@ -1335,8 +1335,8 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomID)
     Room *r = mRoomModel->findRoom(roomID);
     if (r && !r->wasInitialized()) {
         r->setWasInitialized(true);
-        getUsersOfRoom(r->roomId(), r->channelType());
-        initializeRoom(r->roomId(), r->channelType(), r->open());
+        membersInRoom(r->roomId(), r->channelType());
+        rolesInRoom(r->roomId(), r->channelType());
         loadHistory(roomID, QString(), true /*initial loading*/);
     }
 }

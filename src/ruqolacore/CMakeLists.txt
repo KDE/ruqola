@@ -115,6 +115,8 @@ set (Ruqola_core_srcs
 
     mentions.cpp
     mention.cpp
+
+    role.cpp
 )
 
 if (NOT WIN32)

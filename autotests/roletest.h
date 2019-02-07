@@ -18,35 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef ROLETEST_H
+#define ROLETEST_H
 
-#include "rolesforroommodel.h"
+#include <QObject>
 
-RolesForRoomModel::RolesForRoomModel(QObject *parent)
-    : QAbstractListModel (parent)
+class RoleTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit RoleTest(QObject *parent = nullptr);
+    ~RoleTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+};
 
-}
-
-RolesForRoomModel::~RolesForRoomModel()
-{
-
-}
-
-int RolesForRoomModel::rowCount(const QModelIndex &parent) const
-{
-    //TODO
-    return -1;
-}
-
-QVariant RolesForRoomModel::data(const QModelIndex &index, int role) const
-{
-    //TODO
-    return {};
-}
-
-QHash<int, QByteArray> RolesForRoomModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    //TODO
-    return roles;
-}
+#endif // ROLETEST_H

@@ -252,7 +252,7 @@ public:
     EmojiManager *emojiManager() const;
     Q_REQUIRED_RESULT QString userStatusIconFileName(const QString &id);
 
-    void getUsersOfRoom(const QString &roomId, const QString &roomType);
+    void membersInRoom(const QString &roomId, const QString &roomType);
     void parseUsersForRooms(const QJsonObject &obj, const QString &roomId);
 
     void loadAutoCompleteChannel(const QJsonObject &obj);

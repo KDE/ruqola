@@ -19,34 +19,23 @@
 */
 
 
-#include "rolesforroommodel.h"
+#include "roletest.h"
+#include "role.h"
+#include <QTest>
 
-RolesForRoomModel::RolesForRoomModel(QObject *parent)
-    : QAbstractListModel (parent)
+QTEST_GUILESS_MAIN(RoleTest)
+
+RoleTest::RoleTest(QObject *parent)
+    : QObject(parent)
 {
 
 }
 
-RolesForRoomModel::~RolesForRoomModel()
+void RoleTest::shouldHaveDefaultValue()
 {
-
-}
-
-int RolesForRoomModel::rowCount(const QModelIndex &parent) const
-{
-    //TODO
-    return -1;
-}
-
-QVariant RolesForRoomModel::data(const QModelIndex &index, int role) const
-{
-    //TODO
-    return {};
-}
-
-QHash<int, QByteArray> RolesForRoomModel::roleNames() const
-{
-    QHash<int, QByteArray> roles;
-    //TODO
-    return roles;
+    Role r;
+    QVERIFY(!r.isOwner());
+    QVERIFY(!r.isModerator());
+    QVERIFY(!r.isLeader());
+    QVERIFY(r.userId().isEmpty());
 }

@@ -69,5 +69,5 @@ add_ruqola_test(mentionstest.cpp)
 add_ruqola_test(mentiontest.cpp)
 add_ruqola_test(mentionsmodeltest.cpp)
 add_ruqola_test(mentionsfilterproxymodeltest.cpp)
-
+add_ruqola_test(roletest.cpp)
 add_subdirectory(qml)
