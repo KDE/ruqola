@@ -96,6 +96,7 @@ QNetworkRequest GetPresenceJob::request() const
     queryUrl.addQueryItem(QStringLiteral("userId"), mPresenceUserId);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
+    addAuthRawHeader(request);
     return request;
 }
 

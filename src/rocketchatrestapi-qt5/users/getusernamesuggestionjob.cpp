@@ -78,6 +78,7 @@ QNetworkRequest GetUsernameSuggestionJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion);
     QNetworkRequest request(url);
+    addAuthRawHeader(request);
     return request;
 }
 

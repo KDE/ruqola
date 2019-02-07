@@ -79,6 +79,7 @@ QNetworkRequest FetchMyKeysJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::E2EfetchMyKeys);
     QNetworkRequest request(url);
+    addAuthRawHeader(request);
     return request;
 }
 

@@ -103,7 +103,6 @@ QNetworkRequest ChannelInfoJob::request() const
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
-    qDebug() << " roomID" << mRoomId;
 
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
