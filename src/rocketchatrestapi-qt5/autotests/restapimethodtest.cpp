@@ -136,6 +136,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsSetReadOnly), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setReadOnly")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsSetTopic), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setTopic")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsSetType), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setType")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsListAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.listAll")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsMembers), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.members")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsUnarchive), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.unarchive")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsSetAnnouncement), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.setAnnouncement")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsRoles), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.roles")));

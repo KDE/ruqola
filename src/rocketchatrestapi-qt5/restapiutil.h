@@ -123,6 +123,8 @@ enum class RestApiUrlType {
     GroupsUnarchive,
     GroupsSetAnnouncement,
     GroupsFiles,
+    GroupsListAll,
+    GroupsMembers,
     //Since 0.65
     GroupsRoles,
     GroupsCounters,
