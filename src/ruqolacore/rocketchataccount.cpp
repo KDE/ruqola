@@ -649,17 +649,21 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
     }
 }
 
-void RocketChatAccount::getUsersOfRoom(const QString &roomId)
+void RocketChatAccount::getUsersOfRoom(const QString &roomId, const QString &roomType)
 {
-    //TODO use restapi
     ddp()->getUsersOfRoom(roomId, true);
+    //TODO move this line in constructor
+#if 0
+    connect(restApi(), &RocketChatRestApi::RestApiRequest::membersInRoom, this, &RocketChatAccount::parseUsersForRooms, Qt::UniqueConnection);
+    restApi()->membersInRoom(roomId, roomType);
+#endif
 }
 
-void RocketChatAccount::parseUsersForRooms(const QString &roomId, const QJsonObject &root)
+void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const QString &roomId)
 {
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
     if (usersModelForRoom) {
-        usersModelForRoom->parseUsersForRooms(root, mUserModel);
+        usersModelForRoom->parseUsersForRooms(obj, mUserModel);
     } else {
         qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
     }
@@ -1330,16 +1334,29 @@ void RocketChatAccount::blockUser(const QString &rid, bool block)
     }
 }
 
-void RocketChatAccount::initializeRoom(const QString &roomId, bool loadInitialHistory)
+void RocketChatAccount::checkInitializedRoom(const QString &roomID)
+{
+    Room *r = mRoomModel->findRoom(roomID);
+    if (r && !r->wasInitialized()) {
+        r->setWasInitialized(true);
+        getUsersOfRoom(r->roomId(), r->channelType());
+        initializeRoom(r->roomId(), r->channelType(), r->open());
+        loadHistory(roomID, QString(), true /*initial loading*/);
+    }
+}
+
+void RocketChatAccount::initializeRoom(const QString &roomId, const QString &roomType, bool loadInitialHistory)
 {
     ddp()->subscribeRoomMessage(roomId);
-    getUsersOfRoom(roomId);
+#if 0
+    getUsersOfRoom(roomId, roomType);
 
     if (loadInitialHistory) {
         //Load history
         //TODO fix me use channeltype!
         loadHistory(roomId, QString(), true /*initial loading*/);
     }
+#endif
 }
 
 void RocketChatAccount::openDocumentation()

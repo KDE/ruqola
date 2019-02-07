@@ -201,6 +201,7 @@ public:
     Q_INVOKABLE void kickUser(const QString &rid, const QString &userId, const QString &channelType);
     Q_INVOKABLE void changeRoles(const QString &rid, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType);
     Q_INVOKABLE void rolesInRoom(const QString &roomId, const QString &channelType);
+    Q_INVOKABLE void checkInitializedRoom(const QString &roomID);
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
@@ -251,8 +252,8 @@ public:
     EmojiManager *emojiManager() const;
     Q_REQUIRED_RESULT QString userStatusIconFileName(const QString &id);
 
-    void getUsersOfRoom(const QString &roomId);
-    void parseUsersForRooms(const QString &roomId, const QJsonObject &root);
+    void getUsersOfRoom(const QString &roomId, const QString &roomType);
+    void parseUsersForRooms(const QJsonObject &obj, const QString &roomId);
 
     void loadAutoCompleteChannel(const QJsonObject &obj);
 
@@ -270,9 +271,10 @@ public:
 
     void updateUser(const QJsonObject &object);
 
-    void initializeRoom(const QString &roomId, bool loadInitialHistory = true);
+    void initializeRoom(const QString &roomId, const QString &roomType, bool loadInitialHistory = true);
 
     void removeSettings();
+
 
 Q_SIGNALS:
     void connectedChanged();

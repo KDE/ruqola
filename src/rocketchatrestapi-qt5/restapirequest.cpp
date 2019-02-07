@@ -75,6 +75,7 @@
 #include "channels/channeladdmoderatorjob.h"
 #include "channels/channelremovemoderatorjob.h"
 #include "channels/channeldeletejob.h"
+#include "channels/channelmembersjob.h"
 //Not implemented yet
 //#include "channels/channeladdleaderjob.h"
 //#include "channels/channelremoveleaderjob.h"
@@ -625,6 +626,24 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type)
         job->setChannelType(ChannelFilesJob::Groups);
     } else if (type == QLatin1String("c")) {
         job->setChannelType(ChannelFilesJob::Channel);
+    }
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::membersInRoom(const QString &roomId, const QString &type)
+{
+    ChannelMembersJob *job = new ChannelMembersJob(this);
+    connect(job, &ChannelMembersJob::channelMembersDone, this, &RestApiRequest::channelMembersDone);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    if (type == QLatin1String("d")) {
+        job->setChannelType(ChannelMembersJob::Direct);
+    } else if (type == QLatin1String("p")) {
+        job->setChannelType(ChannelMembersJob::Groups);
+    } else if (type == QLatin1String("c")) {
+        job->setChannelType(ChannelMembersJob::Channel);
     }
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";

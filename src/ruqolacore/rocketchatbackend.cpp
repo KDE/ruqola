@@ -110,7 +110,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPClient::LoggedIn) {
                 Room *r = model->addRoom(room);
-                account->initializeRoom(r->roomId(), r->open());
+                account->initializeRoom(r->roomId(), roomType, r->open());
             }
         } else if (roomType == QLatin1String("l")) { //Live chat
             qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
@@ -233,10 +233,10 @@ void RocketChatBackend::slotRemoved(const QJsonObject &object)
             d.setObject(object);
             mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("users: Removed user:") + d.toJson());
         } else {
-            qCDebug(RUQOLA_LOG) << "USER REMOVED VALUE" << object;
+            qDebug() << "USER REMOVED VALUE" << object;
         }
     } else {
-        qCDebug(RUQOLA_LOG) << " Other collection type  removed " << collection << " object "<<object;
+        qDebug() << " Other collection type  removed " << collection << " object "<<object;
     }
 }
 
@@ -270,9 +270,10 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
     } else if (collection == QLatin1String("rooms")) {
         qCDebug(RUQOLA_LOG) << "NEW ROOMS ADDED: " << object;
     } else if (collection == QLatin1String("stream-notify-user")) {
-        qCDebug(RUQOLA_LOG) << "stream-notify-user: " << object;
+        qDebug() << "stream-notify-user: " << object;
     } else if (collection == QLatin1String("stream-notify-all")) {
         qCDebug(RUQOLA_LOG) << "stream-notify-user: " << object;
+        qDebug() << "stream-notify-user ********************************************************" << object;
         //TODO verify that all is ok !
     } else if (collection == QLatin1String("autocompleteRecords")) {
         if (mRocketChatAccount->ruqolaLogger()) {
@@ -298,9 +299,9 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         mFiles.append(file);
     } else if (collection == QLatin1String("stream-notify-room")) {
         //TODO
-        qCDebug(RUQOLA_LOG) << "stream-notify-room not implemented: "<< object;
+        qDebug() << "stream-notify-room not implemented: "<< object;
     } else {
-        qCDebug(RUQOLA_LOG) << "Unknown added element: "<< object;
+        qDebug() << "Unknown added element: "<< object;
     }
 }
 
@@ -334,7 +335,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         QJsonObject fields = object.value(QLatin1String("fields")).toObject();
         const QString eventname = fields.value(QLatin1String("eventName")).toString();
         const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
-        qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1String("args")).toArray().toVariantList();
+        qWarning() << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1String("args")).toArray().toVariantList();
 
         if (eventname.endsWith(QLatin1String("/subscriptions-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();
@@ -344,7 +345,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(fields);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: subscriptions-changed:") + d.toJson());
             } else {
-                qCDebug(RUQOLA_LOG) << "stream-notify-user: subscriptions-changed " << object;
+               qWarning() << "stream-notify-user: subscriptions-changed " << object;
             }
         } else if (eventname.endsWith(QLatin1String("/rooms-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();
@@ -356,11 +357,11 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 const QJsonObject roomData = lst[1].toObject();
                 model->updateRoom(roomData);
             } else if (actionName == QLatin1String("inserted")) {
-                qDebug() << " insert new Room !!!!!" << lst;
+                qDebug() << "****************************************** insert new Room !!!!!" << lst;
                 const QJsonObject roomData = lst[1].toObject();
                 const QString rid = model->insertRoom(roomData);
                 qDebug() << "rid " << rid;
-                mRocketChatAccount->initializeRoom(rid);
+                mRocketChatAccount->initializeRoom(rid, QString());
             } else if (actionName == QLatin1String("removed")) {
                 qDebug() << "Remove channel" << lst;
                 const QJsonObject roomData = lst[1].toObject();
@@ -374,7 +375,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: Room Changed:") + d.toJson());
             } else {
-                qCDebug(RUQOLA_LOG) << "ROOMS CHANGED: " << object;
+                qWarning() << "ROOMS CHANGED: " << object;
             }
         } else if (eventname.endsWith(QLatin1String("/notification"))) {
             if (mRocketChatAccount->ruqolaLogger()) {
@@ -382,7 +383,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: notification:") + d.toJson());
             } else {
-                qCDebug(RUQOLA_LOG) << "NOTIFICATION: " << object;
+                qWarning() << "NOTIFICATION: " << object;
             }
             mRocketChatAccount->sendNotification(contents);
         } else if (eventname.endsWith(QLatin1String("/webrtc"))) {
@@ -403,7 +404,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_LOG) << "OTR CHANGED: " << object;
             }
             mRocketChatAccount->parseOtr(contents);
-            qCWarning(RUQOLA_LOG) << "stream-notify-user : OTR ? " << eventname << " contents " << contents;
+            qWarning() << "stream-notify-user : OTR ? " << eventname << " contents " << contents;
         } else if (eventname.endsWith(QLatin1String("/message"))) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -426,7 +427,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCWarning(RUQOLA_LOG) << "stream-notify-user : Message: ROOMID is empty ";
             }
 
-            qCWarning(RUQOLA_LOG) << "stream-notify-user : Message  " << eventname << " contents " << contents;
+            qWarning() << "stream-notify-user : Message  " << eventname << " contents " << contents;
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -435,7 +436,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else {
                 qCDebug(RUQOLA_LOG) << "Unknown change: " << object;
             }
-            qCWarning(RUQOLA_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+            qWarning() << "stream-notify-user : message event " << eventname << " contents " << contents;
         }
     } else if (collection == QLatin1String("stream-notify-room")) {
         qCDebug(RUQOLA_LOG) << " stream-notify-room " << collection << " object "<<object;
@@ -486,11 +487,12 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-room:  Unknown event ?") + d.toJson());
             } else {
-                qCWarning(RUQOLA_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
+               qWarning() << "stream-notify-room:  Unknown event ? " << eventname;
             }
         }
     } else {
-        qCDebug(RUQOLA_LOG) << " Other collection type changed " << collection << " object "<<object;
+        qWarning() << " Other collection type changed " << collection << " object "<<object;
+        //TODO add role-change add/remove here!
     }
 }
 

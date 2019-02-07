@@ -108,6 +108,7 @@ Component {
                 if (roomID == selectedRoomID) {
                     return;
                 }
+                appid.rocketChatAccount.checkInitializedRoom(roomID)
                 appid.rocketChatAccount.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
                 appid.selectedRoomID = roomID;
                 appid.messageModel = appid.rocketChatAccount.messageModelForRoom(roomID)

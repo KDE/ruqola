@@ -55,6 +55,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(QString e2eKeyId READ e2eKeyId WRITE setE2eKeyId NOTIFY encryptionKeyIdChanged)
     Q_PROPERTY(bool joinCodeRequired READ joinCodeRequired WRITE setJoinCodeRequired NOTIFY joinCodeRequiredChanged)
     Q_PROPERTY(QString channelType READ channelType WRITE setChannelType NOTIFY channelTypeChanged)
+    Q_PROPERTY(bool wasInitialized READ wasInitialized CONSTANT)
 
 public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
@@ -197,6 +198,9 @@ public:
     Q_REQUIRED_RESULT bool joinCodeRequired() const;
     void setJoinCodeRequired(bool joinCodeRequired);
 
+    Q_REQUIRED_RESULT bool wasInitialized() const;
+    void setWasInitialized(bool wasInitialized);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -287,6 +291,7 @@ private:
     bool mBlocked = false;
     bool mEncrypted = false;
     bool mJoinCodeRequired = false;
+    bool mWasInitialized = false;
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;

@@ -69,6 +69,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(!input.alert());
     QVERIFY(!input.readOnly());
     QVERIFY(!input.joinCodeRequired());
+    QVERIFY(!input.wasInitialized());
 }
 
 //TODO add notification, userMentions too

@@ -578,7 +578,7 @@ quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
         } else {
             qCDebug(RUQOLA_DDPAPI_LOG) << " parse users for room" << roomId;
         }
-        account->parseUsersForRooms(roomId, root);
+        account->parseUsersForRooms(root, roomId);
     };
 
     return method(result, callback, DDPClient::Persistent);

@@ -677,6 +677,16 @@ void Room::parseCommonData(const QJsonObject &json)
     setRoles(lstRoles);
 }
 
+bool Room::wasInitialized() const
+{
+    return mWasInitialized;
+}
+
+void Room::setWasInitialized(bool wasInitialized)
+{
+    mWasInitialized = wasInitialized;
+}
+
 bool Room::joinCodeRequired() const
 {
     return mJoinCodeRequired;

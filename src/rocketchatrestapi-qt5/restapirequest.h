@@ -144,6 +144,7 @@ public:
     void channelRemoveOwner(const QString &roomId, const QString &userId);
     void channelDelete(const QString &roomId);
     void groupDelete(const QString &roomId);
+    void membersInRoom(const QString &roomId, const QString &type);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -153,6 +154,7 @@ Q_SIGNALS:
     void getOwnInfoDone(const QJsonObject &data);
     void privateInfoDone(const QByteArray &data);
     void channelFilesDone(const QJsonObject &obj, const QString &roomId);
+    void channelMembersDone(const QJsonObject &obj, const QString &roomId);
     void loadEmojiCustomDone(const QJsonObject &obj);
     void spotlightDone(const QJsonObject &obj);
     void channelListDone(const QJsonObject &obj);
