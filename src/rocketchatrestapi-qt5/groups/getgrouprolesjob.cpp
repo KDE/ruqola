@@ -73,6 +73,7 @@ QNetworkRequest GetGroupRolesJob::request() const
     QNetworkRequest request(url);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
+    addAuthRawHeader(request);
     return request;
 }
 

@@ -1171,6 +1171,19 @@ void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, c
     }
 }
 
+
+void RocketChatAccount::rolesInRoom(const QString &roomId, const QString &channelType)
+{
+    if (channelType == QStringLiteral("c")) {
+        restApi()->getChannelRoles(roomId);
+    } else if (channelType == QStringLiteral("p")) {
+        restApi()->getGroupRoles(roomId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " unsupport get roles room for type " << channelType;
+    }
+}
+
+
 void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType)
 {
     if (channelType == QStringLiteral("c")) {
