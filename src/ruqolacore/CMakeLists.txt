@@ -39,6 +39,8 @@ set (Ruqola_model_core_srcs
 
     model/mentionsmodel.cpp
     model/mentionsfilterproxymodel.cpp
+
+    model/rolesforroommodel.cpp
     )
 
 set(Ruqola_plugins_srcs
