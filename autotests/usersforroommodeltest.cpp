@@ -129,8 +129,10 @@ void UsersForRoomModelTest::shouldParseUsers_data()
     QTest::addColumn<QString>("filename");
     QTest::addColumn<int>("numberOfUsers");
     QTest::addColumn<int>("numberOfSignal");
-    QTest::newRow("oneuser") << QStringLiteral("oneuser.json") << 1 << 1;
-    QTest::newRow("severalusers") << QStringLiteral("severalusers.json") << 14 << 1;
+    QTest::addColumn<bool>("restApi");
+    QTest::newRow("oneuser") << QStringLiteral("oneuser.json") << 1 << 1 << false;
+    QTest::newRow("severalusers") << QStringLiteral("severalusers.json") << 14 << 1 << false;
+    QTest::newRow("severalusers1-restapi") << QStringLiteral("severalusers1-restapi.json") << 2 << 1 << true;
 }
 
 QJsonObject loadFile(const QString &file)
@@ -153,10 +155,11 @@ void UsersForRoomModelTest::shouldParseUsers()
     QFETCH(QString, filename);
     QFETCH(int, numberOfUsers);
     QFETCH(int, numberOfSignal);
+    QFETCH(bool, restApi);
     UsersForRoomModel w;
     QSignalSpy rowInsertedSpy(&w, &UsersForRoomModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
-    w.parseUsersForRooms(loadFile(filename), nullptr); //We don't have userstatus model here
+    w.parseUsersForRooms(loadFile(filename), nullptr, restApi); //We don't have userstatus model here
     QCOMPARE(rowInsertedSpy.count(), numberOfSignal);
     QCOMPARE(rowABTInserted.count(), numberOfSignal);
     QCOMPARE(w.rowCount(), numberOfUsers);

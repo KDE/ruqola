@@ -103,29 +103,27 @@ QHash<int, QByteArray> UsersForRoomModel::roleNames() const
     return roles;
 }
 
-void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *model)
+void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi)
 {
-    const QJsonObject result = root[QLatin1String("result")].toObject();
-    if (!result.isEmpty()) {
-        const QJsonArray records = result[QStringLiteral("records")].toArray();
-        int total = result[QLatin1String("total")].toInt();
-
+    if (restapi) {
+        int total = root[QLatin1String("total")].toInt();
+        const QJsonArray members = root[QStringLiteral("members")].toArray();
         QVector<User> users;
-        users.reserve(records.count());
-        for (const QJsonValue &current : records) {
+        users.reserve(members.count());
+        for (const QJsonValue &current : members) {
             if (current.type() == QJsonValue::Object) {
                 const QJsonObject userObject = current.toObject();
                 const QString userName = userObject[QStringLiteral("username")].toString();
                 const QString name = userObject[QStringLiteral("name")].toString();
                 const QString id = userObject[QStringLiteral("_id")].toString();
+                const int utcOffset = userObject[QStringLiteral("utcOffset")].toInt();
+                const QString status = userObject[QStringLiteral("status")].toString();
                 User user;
                 user.setName(name);
                 user.setUserName(userName);
                 user.setUserId(id);
-                if (model) {
-                    user.setStatus(model->status(id));
-                }
-                //Add status!
+                user.setUtcOffset(utcOffset);
+                user.setStatus(status);
                 if (user.isValid()) {
                     users.append(user);
                 } else {
@@ -141,7 +139,44 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
         }
         setUsers(users);
     } else {
-        qCWarning(RUQOLA_LOG) << "Error in users for rooms json" << root;
+        const QJsonObject result = root[QLatin1String("result")].toObject();
+        if (!result.isEmpty()) {
+            const QJsonArray records = result[QStringLiteral("records")].toArray();
+            int total = result[QLatin1String("total")].toInt();
+
+            QVector<User> users;
+            users.reserve(records.count());
+            for (const QJsonValue &current : records) {
+                if (current.type() == QJsonValue::Object) {
+                    const QJsonObject userObject = current.toObject();
+                    const QString userName = userObject[QStringLiteral("username")].toString();
+                    const QString name = userObject[QStringLiteral("name")].toString();
+                    const QString id = userObject[QStringLiteral("_id")].toString();
+                    User user;
+                    user.setName(name);
+                    user.setUserName(userName);
+                    user.setUserId(id);
+                    if (model) {
+                        user.setStatus(model->status(id));
+                    }
+                    //Add status!
+                    if (user.isValid()) {
+                        users.append(user);
+                    } else {
+                        qCWarning(RUQOLA_LOG) << "Invalid user" << user;
+                        total--;
+                    }
+                } else {
+                    qCWarning(RUQOLA_LOG) << "Parse records: Error in users for rooms json" << root;
+                }
+            }
+            if (users.count() != total) {
+                qCWarning(RUQOLA_LOG) << "Users for rooms, parsing error. Parse " << users.count() << " users but json give us a total number : "<< total;
+            }
+            setUsers(users);
+        } else {
+            qCWarning(RUQOLA_LOG) << "Error in users for rooms json" << root;
+        }
     }
 }
 

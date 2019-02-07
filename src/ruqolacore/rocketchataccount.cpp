@@ -651,19 +651,15 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
 
 void RocketChatAccount::getUsersOfRoom(const QString &roomId, const QString &roomType)
 {
-    ddp()->getUsersOfRoom(roomId, true);
-    //TODO move this line in constructor
-#if 0
-    connect(restApi(), &RocketChatRestApi::RestApiRequest::membersInRoom, this, &RocketChatAccount::parseUsersForRooms, Qt::UniqueConnection);
+    connect(restApi(), &RocketChatRestApi::RestApiRequest::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms, Qt::UniqueConnection);
     restApi()->membersInRoom(roomId, roomType);
-#endif
 }
 
 void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const QString &roomId)
 {
     UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
     if (usersModelForRoom) {
-        usersModelForRoom->parseUsersForRooms(obj, mUserModel);
+        usersModelForRoom->parseUsersForRooms(obj, mUserModel, true);
     } else {
         qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
     }
