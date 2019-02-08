@@ -32,14 +32,31 @@ RolesForRoomModel::~RolesForRoomModel()
 
 }
 
+void RolesForRoomModel::setRoles(const QVector<Role> &roles)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mRoles.count() - 1);
+        mRoles.clear();
+        endRemoveRows();
+    }
+    if (!mRoles.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mRoles.count() - 1);
+        mRoles = roles;
+        endInsertRows();
+    }
+}
+
 int RolesForRoomModel::rowCount(const QModelIndex &parent) const
 {
-    //TODO
-    return -1;
+    Q_UNUSED(parent);
+    return mRoles.count();
 }
 
 QVariant RolesForRoomModel::data(const QModelIndex &index, int role) const
 {
+    if (index.row() < 0 || index.row() >= mRoles.count()) {
+        return QVariant();
+    }
     //TODO
     return {};
 }

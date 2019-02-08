@@ -18,27 +18,14 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROLESFORROOMMODEL_H
-#define ROLESFORROOMMODEL_H
+#include "rolesforroommodeltest.h"
+#include "model/rolesforroommodel.h"
 
-#include <QAbstractItemModel>
-#include "libruqola_private_export.h"
-#include "role.h"
-class LIBRUQOLACORE_TESTS_EXPORT RolesForRoomModel : public QAbstractListModel
+#include <QTest>
+
+QTEST_MAIN(RolesForRoomModelTest)
+RolesForRoomModelTest::RolesForRoomModelTest(QObject *parent)
+    : QObject(parent)
 {
-public:
-    explicit RolesForRoomModel(QObject *parent = nullptr);
-    ~RolesForRoomModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
-
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
-    void setRoles(const QVector<Role> &roles);
-private:
-    Q_DISABLE_COPY(RolesForRoomModel)
-    QVector<Role> mRoles;
-};
-
-#endif // ROLESFORROOMMODEL_H
+}
