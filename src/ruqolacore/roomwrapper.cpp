@@ -155,3 +155,11 @@ bool RoomWrapper::canChangeRoles() const
 {
     return mRoom->canChangeRoles();
 }
+
+bool RoomWrapper::userHasOwnerRole(const QString &userId) const
+{
+    bool b =  mRoom->userHasOwnerRole(userId);
+    qDebug() << " bool RoomWrapper::userHasOwnerRole(const QString &userId) const" << userId << " n " << b;
+
+    return b;
+}

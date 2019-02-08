@@ -161,8 +161,7 @@ Q_SIGNALS:
     void searchMessageDone(const QJsonObject &obj);
     void getRoomsDone(const QJsonObject &obj);
     void usersInfoDone(const QJsonObject &obj);
-    void groupRolesDone(const QJsonObject &obj);
-    void channelRolesDone(const QJsonObject &obj);
+    void channelRolesDone(const QJsonObject &obj, const QString &roomId);
     void getUsernameSuggestionDone(const QString &username);
     void getPresenceDone(const QString &presence);
     void listPermissionDone(const QJsonObject &obj);

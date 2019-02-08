@@ -984,3 +984,12 @@ bool Room::canChangeRoles() const
 {
     return mRoles.contains(QStringLiteral("owner"));
 }
+
+bool Room::userHasOwnerRole(const QString &userId) const
+{
+    Role r = mRolesForRooms.findRoleByUserId(userId);
+    if (r.isValid()) {
+        return r.isOwner();
+    }
+    return false;
+}

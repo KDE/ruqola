@@ -89,8 +89,15 @@ void GetGroupRolesJob::slotGetGroupRolesFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        addLoggerInfo(QByteArrayLiteral("GetGroupRolesJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT groupRolesDone(replyObject);
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("GetGroupRolesJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT groupRolesDone(replyObject, mRoomId);
+        } else {
+            addLoggerWarning(QByteArrayLiteral("GetGroupRolesJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
+
+
+
     }
     deleteLater();
 }

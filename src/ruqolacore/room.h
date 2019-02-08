@@ -206,6 +206,7 @@ public:
     void setRolesForRooms(const Roles &rolesForRooms);
 
     Q_REQUIRED_RESULT bool canChangeRoles() const;
+    Q_REQUIRED_RESULT bool userHasOwnerRole(const QString &userId) const;
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();

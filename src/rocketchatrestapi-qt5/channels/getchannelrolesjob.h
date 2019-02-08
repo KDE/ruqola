@@ -44,7 +44,7 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void channelRolesDone(const QJsonObject &obj);
+    void channelRolesDone(const QJsonObject &obj, const QString &roomId);
 
 private:
     Q_DISABLE_COPY(GetChannelRolesJob)

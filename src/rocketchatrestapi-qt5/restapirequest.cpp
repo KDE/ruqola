@@ -983,7 +983,7 @@ void RestApiRequest::getGroupRoles(const QString &roomId)
     GetGroupRolesJob *job = new GetGroupRolesJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
-    connect(job, &GetGroupRolesJob::groupRolesDone, this, &RestApiRequest::groupRolesDone);
+    connect(job, &GetGroupRolesJob::groupRolesDone, this, &RestApiRequest::channelRolesDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getGroupRoles job";
     }

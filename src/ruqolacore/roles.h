@@ -34,7 +34,7 @@ public:
     void setRoles(const QVector<Role> &roles);
 
     void parseRole(const QJsonObject &obj);
-    Role findRoleByUserId(const QString &userId);
+    Role findRoleByUserId(const QString &userId) const;
     bool isEmpty() const;
 private:
     QVector<Role> mRoles;

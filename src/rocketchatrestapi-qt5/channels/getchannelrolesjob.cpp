@@ -88,8 +88,12 @@ void GetChannelRolesJob::slotGetChannelRolesFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        addLoggerInfo(QByteArrayLiteral("GetChannelRolesJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT channelRolesDone(replyObject);
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("GetChannelRolesJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT channelRolesDone(replyObject, mRoomId);
+        } else {
+            addLoggerWarning(QByteArrayLiteral("GetChannelRolesJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
     }
     deleteLater();
 }
