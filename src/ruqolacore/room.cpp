@@ -979,3 +979,8 @@ QString Room::roomMessageInfo() const
     }
     return QString();
 }
+
+bool Room::canChangeRoles() const
+{
+    return mRoles.contains(QStringLiteral("owner"));
+}

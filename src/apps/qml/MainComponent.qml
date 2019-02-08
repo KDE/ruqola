@@ -287,6 +287,7 @@ Component {
                         UserMenu {
                             id: userMenu
                             userId: model.userid
+                            can_manage_users: appid.selectedRoom.canChangeRoles
                             onKickUser: {
                                 appid.rocketChatAccount.kickUser(appid.selectedRoomID, userId, appid.selectedRoom.channelType)
                             }

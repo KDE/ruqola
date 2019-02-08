@@ -205,6 +205,7 @@ public:
     Q_REQUIRED_RESULT Roles getRolesForRooms() const;
     void setRolesForRooms(const Roles &rolesForRooms);
 
+    Q_REQUIRED_RESULT bool canChangeRoles() const;
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();

@@ -150,3 +150,8 @@ bool RoomWrapper::joinCodeRequired() const
 {
     return mRoom->joinCodeRequired();
 }
+
+bool RoomWrapper::canChangeRoles() const
+{
+    return mRoom->canChangeRoles();
+}
