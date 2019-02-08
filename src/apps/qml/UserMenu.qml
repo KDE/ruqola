@@ -94,6 +94,7 @@ QQC2.Menu {
         }
     }
     RuqolaMenuSeparator {
+        visible: can_manage_users
     }
     QQC2.MenuItem {
         id: kickItem
