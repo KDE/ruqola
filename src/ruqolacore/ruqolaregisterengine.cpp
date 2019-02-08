@@ -52,6 +52,7 @@
 #include "model/emoticonmodel.h"
 #include "model/notificationpreferencemodel.h"
 #include "model/mentionsfilterproxymodel.h"
+#include "model/rolesforroommodel.h"
 #include "notificationpreferences.h"
 
 #include "channel.h"
@@ -98,6 +99,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<SearchMessageFilterProxyModel>("KDE.Ruqola.SearchMessageFilterProxyModel", 1, 0, "SearchMessageFilterProxyModel");
     qmlRegisterType<AccountManager>("KDE.Ruqola.AccountManager", 1, 0, "AccountManager");
     qmlRegisterType<RocketChatAccountFilterProxyModel>("KDE.Ruqola.RocketChatAccountFilterProxyModel", 1, 0, "RocketChatAccountFilterProxyModel");
+    qmlRegisterType<RolesForRoomModel>("KDE.Ruqola.RolesForRoomModel", 1, 0, "RolesForRoomModel");
     qmlRegisterType<RocketChatAccountModel>("KDE.Ruqola.RocketChatAccountModel", 1, 0, "RocketChatAccountModel");
     qmlRegisterType<ClipboardProxy>("KDE.Ruqola.Clipboard", 1, 0, "Clipboard");
     qmlRegisterType<NotificationOptionsWrapper>("KDE.Ruqola.NotificationOptionsWrapper", 1, 0, "NotificationOptionsWrapper");
