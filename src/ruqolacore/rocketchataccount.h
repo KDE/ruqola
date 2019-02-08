@@ -275,7 +275,7 @@ public:
 
     void removeSettings();
 
-
+    void rolesChanged(const QJsonArray &contents);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

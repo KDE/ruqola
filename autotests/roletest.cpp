@@ -40,6 +40,7 @@ void RoleTest::shouldHaveDefaultValue()
     QVERIFY(!r.isLeader());
     QVERIFY(r.userId().isEmpty());
     QVERIFY(!r.isValid());
+    QVERIFY(!r.hasARole());
 }
 
 void RoleTest::shouldBeValid()
@@ -61,7 +62,7 @@ void RoleTest::shouldBeValid()
     r.setUserId(QStringLiteral("foo"));
     QVERIFY(r.isValid());
     r.setUserId(QString());
-    QVERIFY(!r.isValid());
+    QVERIFY(!r.isValid());    
 }
 
 
@@ -100,3 +101,24 @@ void RoleTest::shouldLoadRoles()
     r.parseRole(obj);
     QCOMPARE(r, role);
 }
+
+void RoleTest::shouldVerifyHasRoles()
+{
+    Role r;
+    r.setUserId(QStringLiteral("foo"));
+    QVERIFY(!r.hasARole());
+    r.setIsOwner(true);
+    QVERIFY(r.hasARole());
+    r.setIsLeader(true);
+    QVERIFY(r.hasARole());
+    r.setIsModerator(true);
+    QVERIFY(r.hasARole());
+    r.setIsOwner(false);
+    QVERIFY(r.hasARole());
+    r.setIsLeader(false);
+    QVERIFY(r.hasARole());
+    r.setIsModerator(false);
+    QVERIFY(!r.hasARole());
+}
+
+//Create autotest for updateRoless

@@ -927,7 +927,7 @@ void RestApiRequest::ignoreUser(const QString &roomId, const QString &userId, bo
     job->setIgnoreUserId(userId);
     job->setRoomId(roomId);
     job->setIgnore(ignore);
-    //connect(job, &UsersInfoJob::usersInfoDone, this, &RestApiRequest::usersInfoDone);
+    connect(job, &IgnoreUserJob::ignoreUserDone, this, &RestApiRequest::ignoreUserDone);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }

@@ -183,6 +183,7 @@ Q_SIGNALS:
     void removeOwnerDone();
     void deletechannelDone();
     void deleteGroupsDone();
+    void ignoreUserDone(const QJsonObject &obj, const QString &roomId);
 
 private:
     Q_DISABLE_COPY(RestApiRequest)

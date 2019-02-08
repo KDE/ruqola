@@ -288,7 +288,6 @@ Component {
                             id: userMenu
                             userId: model.userid
                             can_manage_users: appid.selectedRoom.canChangeRoles
-                            hasOwnerRole: appid.selectedRoom.userHasOwnerRole(model.userid)
                             onKickUser: {
                                 appid.rocketChatAccount.kickUser(appid.selectedRoomID, userId, appid.selectedRoom.channelType)
                             }
@@ -302,7 +301,9 @@ Component {
                                 //TODO
                             }
                             onAboutToShow: {
-                                hasOwnerRole: appid.selectedRoom.userHasOwnerRole(model.userid)
+                                hasLeaderRole = appid.selectedRoom.userHasLeaderRole(model.userid)
+                                hasModeratorRole = appid.selectedRoom.userHasModeratorRole(model.userid)
+                                hasOwnerRole = appid.selectedRoom.userHasOwnerRole(model.userid)
                             }
                         }
 

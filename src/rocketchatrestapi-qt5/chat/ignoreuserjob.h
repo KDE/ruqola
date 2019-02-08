@@ -50,7 +50,7 @@ public:
     void setIgnore(bool ignore);
 
 Q_SIGNALS:
-    void ignoreUserDone(const QJsonObject &obj);
+    void ignoreUserDone(const QJsonObject &obj, const QString &roomId);
 
 private:
     Q_DISABLE_COPY(IgnoreUserJob)

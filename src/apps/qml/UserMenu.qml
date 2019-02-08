@@ -44,6 +44,21 @@ QQC2.Menu {
     {
         return userIsIgnored ? i18n("Unignore") : i18n("Ignore")
     }
+    function updateOwnerMenuItemText()
+    {
+        return hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner")
+    }
+
+    function updateLeaderMenuItemText()
+    {
+        return hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader")
+    }
+
+    function updateModeratorMenuItemText()
+    {
+        return hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator")
+    }
+
 
     QQC2.MenuItem {
         id: conversationItem
@@ -58,7 +73,7 @@ QQC2.Menu {
         id: removeAsOwnerItem
         visible: can_manage_users
         contentItem: QQC2.Label {
-            text: hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner")
+            text: updateOwnerMenuItemText()
         }
         onTriggered: {
             menu.changeRole(userId, hasOwnerRole ? RocketChatAccount.RemoveOwner : RocketChatAccount.AddOwner);
@@ -68,7 +83,7 @@ QQC2.Menu {
         id: removeAsLeaderItem
         visible: can_manage_users
         contentItem: QQC2.Label {
-            text: hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader")
+            text: updateLeaderMenuItemText()
         }
         onTriggered: {
             menu.changeRole(userId, hasLeaderRole ? RocketChatAccount.RemoveLeader : RocketChatAccount.AddLeader);
@@ -78,7 +93,7 @@ QQC2.Menu {
         id: removeAsModeratorItem
         visible: can_manage_users
         contentItem: QQC2.Label {
-            text: hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator")
+            text: updateModeratorMenuItemText()
         }
         onTriggered: {
             menu.changeRole(userId, hasModeratorRole ? RocketChatAccount.RemoveModerator : RocketChatAccount.AddModerator);
@@ -108,6 +123,8 @@ QQC2.Menu {
     }
     onAboutToShow: {
         ignoreItem.text = updateIgnoreMenuItemText();
-        //TODO
+        removeAsOwnerItem.text = updateOwnerMenuItemText();
+        removeAsLeaderItem.text = updateLeaderMenuItemText();
+        removeAsModeratorItem.text = updateModeratorMenuItemText();
     }
 }

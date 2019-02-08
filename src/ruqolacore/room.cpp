@@ -993,3 +993,27 @@ bool Room::userHasOwnerRole(const QString &userId) const
     }
     return false;
 }
+
+bool Room::userHasLeaderRole(const QString &userId) const
+{
+    Role r = mRolesForRooms.findRoleByUserId(userId);
+    if (r.isValid()) {
+        return r.isLeader();
+    }
+    return false;
+}
+
+bool Room::userHasModeratorRole(const QString &userId) const
+{
+    Role r = mRolesForRooms.findRoleByUserId(userId);
+
+    if (r.isValid()) {
+        return r.isModerator();
+    }
+    return false;
+}
+
+void Room::updateRoles(const QJsonObject &obj)
+{
+    mRolesForRooms.updateRoles(obj);
+}

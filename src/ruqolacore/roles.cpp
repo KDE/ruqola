@@ -45,6 +45,49 @@ void Roles::setRoles(const QVector<Role> &roles)
     mRoles = roles;
 }
 
+void Roles::updateRoles(const QJsonObject &obj)
+{
+    const QString type = obj[QLatin1String("type")].toString();
+    const QString id = obj[QLatin1String("_id")].toString();
+    const QString userId = obj[QLatin1String("u")].toObject().value(QLatin1String("_id")).toString();
+    bool foundUser = false;
+    qDebug() << " type " << type << " id " << id << " userId" << userId;
+    if (type == QLatin1String("added")) {
+        for (int i = 0; i < mRoles.count(); ++i) {
+            if (mRoles.at(i).userId() == userId) {
+                Role r = mRoles.takeAt(i);
+                r.updateRole(id, true);
+                mRoles.append(r);
+                foundUser = true;
+                break;
+            }
+        }
+        if (!foundUser) {
+            Role r;
+            r.setUserId(userId);
+            r.updateRole(id, true);
+            mRoles.append(r);
+        }
+    } else if (type == QLatin1String("removed")) {
+        for (int i = 0; i < mRoles.count(); ++i) {
+            if (mRoles.at(i).userId() == userId) {
+                Role r = mRoles.takeAt(i);
+                r.updateRole(id, false);
+                if (r.hasARole()) {
+                    mRoles.append(r);
+                }
+                foundUser = true;
+                break;
+            }
+        }
+        if (!foundUser) {
+            qCWarning(RUQOLA_LOG) << "Problem you want to remove role for an not existing role! it seems to be a bug ";
+        }
+    } else {
+        qCWarning(RUQOLA_LOG) << "Unknown change role type " << type;
+    }
+}
+
 void Roles::parseRole(const QJsonObject &obj)
 {
     mRoles.clear();

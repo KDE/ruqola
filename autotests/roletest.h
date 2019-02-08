@@ -34,6 +34,7 @@ private Q_SLOTS:
     void shouldBeValid();
     void shouldLoadRoles_data();
     void shouldLoadRoles();
+    void shouldVerifyHasRoles();
 };
 
 #endif // ROLETEST_H

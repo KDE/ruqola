@@ -62,9 +62,9 @@ void IgnoreUserJob::slotIgnoreUserFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("IgnoreUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT ignoreUserDone(replyObject);
+            Q_EMIT ignoreUserDone(replyObject, mRoomId);
         } else {
-            addLoggerWarning(QByteArrayLiteral("GProblem when we tried to ignore user message: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("Problem when we tried to ignore user message: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();

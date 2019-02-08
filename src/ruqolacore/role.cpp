@@ -81,6 +81,24 @@ bool Role::isValid() const
     return !mUserId.isEmpty();
 }
 
+void Role::updateRole(const QString &str, bool b)
+{
+    if (str == QLatin1String("moderator")) {
+        mIsModerator = b;
+    } else if (str == QLatin1String("leader")) {
+        mIsLeader = b;
+    } else if (str == QLatin1String("owner")) {
+        mIsOwner = b;
+    } else {
+        qCWarning(RUQOLA_LOG) << "Unknown role" << str;
+    }
+}
+
+bool Role::hasARole() const
+{
+    return mIsOwner || mIsModerator || mIsLeader;
+}
+
 void Role::parseRole(const QJsonObject &obj)
 {
     mUserId = obj.value(QLatin1String("u")).toObject().value(QLatin1String("_id")).toString();

@@ -207,6 +207,12 @@ public:
 
     Q_REQUIRED_RESULT bool canChangeRoles() const;
     Q_REQUIRED_RESULT bool userHasOwnerRole(const QString &userId) const;
+    Q_REQUIRED_RESULT bool userHasLeaderRole(const QString &userId) const;
+    Q_REQUIRED_RESULT bool userHasModeratorRole(const QString &userId) const;
+
+
+    void updateRoles(const QJsonObject &obj);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();

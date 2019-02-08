@@ -1319,7 +1319,11 @@ void RocketChatAccount::userStatusChanged(const User &user)
 
 void RocketChatAccount::ignoreUser(const QString &rid, const QString &userId, bool ignore)
 {
+#ifdef USE_REASTAPI_JOB
+    restApi()->ignoreUser(rid, userId, ignore);
+#else
     ddp()->ignoreUser(rid, userId, ignore);
+#endif
 }
 
 void RocketChatAccount::blockUser(const QString &rid, bool block)
@@ -1372,4 +1376,16 @@ void RocketChatAccount::openDocumentation()
 void RocketChatAccount::channelGetAllUserMentions(const QString &roomId)
 {
     restApi()->channelGetAllUserMentions(roomId);
+}
+
+void RocketChatAccount::rolesChanged(const QJsonArray &contents)
+{
+    for (int i = 0; i < contents.count(); ++i) {
+        const QJsonObject obj = contents.at(i).toObject();
+        const QString scope = obj[QLatin1String("scope")].toString();
+        Room *room = mRoomModel->findRoom(scope);
+        if (room) {
+            room->updateRoles(obj);
+        }
+    }
 }

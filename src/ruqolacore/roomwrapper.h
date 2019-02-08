@@ -76,6 +76,9 @@ public:
     Q_REQUIRED_RESULT Q_INVOKABLE NotificationOptionsWrapper *notificationOptions() const;
     Q_REQUIRED_RESULT bool canChangeRoles() const;
     Q_REQUIRED_RESULT Q_INVOKABLE bool userHasOwnerRole(const QString &userId) const;
+    Q_REQUIRED_RESULT Q_INVOKABLE bool userHasLeaderRole(const QString &userId) const;
+    Q_REQUIRED_RESULT Q_INVOKABLE bool userHasModeratorRole(const QString &userId) const;
+
 Q_SIGNALS:
     void nameChanged();
     void topicChanged();

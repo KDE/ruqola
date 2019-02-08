@@ -490,9 +490,16 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                qWarning() << "stream-notify-room:  Unknown event ? " << eventname;
             }
         }
+    } else if (collection == QLatin1String("stream-notify-logged")) {
+        QJsonObject fields = object.value(QLatin1String("fields")).toObject();
+        const QString eventname = fields.value(QLatin1String("eventName")).toString();
+        const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
+        qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1String("args")).toArray().toVariantList();
+        if (eventname == QLatin1String("roles-change")) {
+            mRocketChatAccount->rolesChanged(contents);
+        }
     } else {
         qWarning() << " Other collection type changed " << collection << " object "<<object;
-        //TODO add role-change add/remove here!
     }
 }
 
