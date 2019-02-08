@@ -19,6 +19,7 @@
 */
 
 #include "rolestest.h"
+#include "roles.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(RolesTest)
 
@@ -30,5 +31,6 @@ RolesTest::RolesTest(QObject *parent)
 
 void RolesTest::shouldHaveDefaultValue()
 {
-
+    Roles r;
+    QVERIFY(r.roles().isEmpty());
 }
