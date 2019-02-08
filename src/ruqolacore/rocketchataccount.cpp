@@ -348,7 +348,11 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         mRestApi = new RocketChatRestApi::RestApiRequest(this);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::setChannelJoinDone, this, &RocketChatAccount::setChannelJoinDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::missingChannelPassword, this, &RocketChatAccount::missingChannelPassword);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::loadEmojiCustomDone, this, &RocketChatAccount::loadEmojiRestApi);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::openArchivedRoom, this, &RocketChatAccount::openArchivedRoom);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -465,8 +469,7 @@ void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 
 void RocketChatAccount::openChannel(const QString &url)
 {
-    //TODO use restapi
-    qCDebug(RUQOLA_LOG) << " void RocketChatAccount::openChannel(const QString &url)"<<url;
+    //qCDebug(RUQOLA_LOG) << " void RocketChatAccount::openChannel(const QString &url)"<<url;
 #ifdef USE_REASTAPI_JOB
     restApi()->channelJoin(url, QString());
 #else
@@ -553,7 +556,6 @@ void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 #ifdef USE_REASTAPI_JOB
     restApi()->channelJoin(roomId, joinCode);
 #else
-    //TODO use restapi
     ddp()->joinRoom(roomId, joinCode);
 #endif
 }
@@ -575,7 +577,6 @@ void RocketChatAccount::listEmojiCustom()
 #ifdef USE_REASTAPI_JOB
     if (mRuqolaServerConfig->hasAtLeastVersion(0, 63, 0)) {
         restApi()->listEmojiCustom();
-        connect(restApi(), &RocketChatRestApi::RestApiRequest::loadEmojiCustomDone, this, &RocketChatAccount::loadEmojiRestApi, Qt::UniqueConnection);
     } else {
         ddp()->listEmojiCustom();
     }
@@ -651,7 +652,6 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
 
 void RocketChatAccount::membersInRoom(const QString &roomId, const QString &roomType)
 {
-    connect(restApi(), &RocketChatRestApi::RestApiRequest::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms, Qt::UniqueConnection);
     restApi()->membersInRoom(roomId, roomType);
 }
 
@@ -678,7 +678,6 @@ UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) c
 void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
 #ifdef USE_REASTAPI_JOB
-    connect(restApi(), &RocketChatRestApi::RestApiRequest::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone, Qt::UniqueConnection);
     restApi()->filesInRoom(roomId, channelType);
 #else
     Q_UNUSED(channelType);
@@ -745,7 +744,6 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
         clearSearchModel();
     } else {
 #ifdef USE_REASTAPI_JOB
-        connect(restApi(), &RocketChatRestApi::RestApiRequest::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
         restApi()->searchMessages(rid, pattern);
 #else
         ddp()->messageSearch(rid, pattern);
@@ -1337,7 +1335,7 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomID)
         r->setWasInitialized(true);
         membersInRoom(r->roomId(), r->channelType());
         rolesInRoom(r->roomId(), r->channelType());
-        loadHistory(roomID, QString(), true /*initial loading*/);
+        loadHistory(r->roomId(), QString(), true /*initial loading*/);
     }
 }
 
