@@ -57,6 +57,7 @@ QVariant RolesForRoomModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mRoles.count()) {
         return QVariant();
     }
+    const Role file = mRoles.at(index.row());
     //TODO
     return {};
 }

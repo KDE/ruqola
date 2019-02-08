@@ -26,7 +26,16 @@
 #include "role.h"
 class LIBRUQOLACORE_TESTS_EXPORT RolesForRoomModel : public QAbstractListModel
 {
+    Q_OBJECT
 public:
+    enum Roles {
+        UserId = Qt::UserRole + 1,
+        Leader,
+        Moderator,
+        Owner
+    };
+    Q_ENUM(Roles)
+
     explicit RolesForRoomModel(QObject *parent = nullptr);
     ~RolesForRoomModel() override;
 
