@@ -29,6 +29,8 @@ class RolesForRoomModelTest : public QObject
 public:
     explicit RolesForRoomModelTest(QObject *parent = nullptr);
     ~RolesForRoomModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // ROLESFORROOMMODELTEST_H

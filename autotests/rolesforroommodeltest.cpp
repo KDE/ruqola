@@ -21,6 +21,7 @@
 #include "rolesforroommodeltest.h"
 #include "model/rolesforroommodel.h"
 
+#include <QSignalSpy>
 #include <QTest>
 
 QTEST_MAIN(RolesForRoomModelTest)
@@ -28,4 +29,16 @@ RolesForRoomModelTest::RolesForRoomModelTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void RolesForRoomModelTest::shouldHaveDefaultValue()
+{
+    RolesForRoomModel w;
+    QSignalSpy rowInsertedSpy(&w, &RolesForRoomModel::rowsInserted);
+    // (if it had 0 columns, it would have to emit column insertions, too much trouble)
+    QCOMPARE(w.rowCount(), 0);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QHash<int, QByteArray> roles;
+    //roles[FilesForRoomModel::FileName] = QByteArrayLiteral("filename");
+    QCOMPARE(w.roleNames(), roles);
 }
