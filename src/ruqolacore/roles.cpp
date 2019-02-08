@@ -19,6 +19,10 @@
 */
 
 #include "roles.h"
+#include "ruqola_debug.h"
+
+#include <QJsonArray>
+#include <QJsonObject>
 
 Roles::Roles()
 {
@@ -30,7 +34,41 @@ QVector<Role> Roles::roles() const
     return mRoles;
 }
 
+bool Roles::isEmpty() const
+{
+    return mRoles.isEmpty();
+}
+
+
 void Roles::setRoles(const QVector<Role> &roles)
 {
     mRoles = roles;
+}
+
+void Roles::parseRole(const QJsonObject &obj)
+{
+    mRoles.clear();
+
+    const QJsonArray roleArray = obj[QStringLiteral("roles")].toArray();
+    const int roleArrayCount = roleArray.count();
+    mRoles.reserve(roleArrayCount);
+    for (int i = 0; i < roleArrayCount; ++i) {
+        Role r;
+        r.parseRole(roleArray.at(i).toObject());
+        if (r.isValid()) {
+            mRoles.append(r);
+        } else {
+            qCWarning(RUQOLA_LOG) << "Invalid role" << roleArray.at(i).toObject();
+        }
+    }
+}
+
+Role Roles::findRoleByUserId(const QString &userId)
+{
+    for (const Role &r : qAsConst(mRoles)) {
+        if (r.userId() == userId) {
+            return r;
+        }
+    }
+    return {};
 }

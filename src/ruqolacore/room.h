@@ -26,7 +26,7 @@
 #include <QJsonObject>
 #include <QObject>
 #include "notificationoptions.h"
-#include "role.h"
+#include "roles.h"
 
 #include "libruqola_private_export.h"
 class UsersForRoomModel;
@@ -202,6 +202,9 @@ public:
     Q_REQUIRED_RESULT bool wasInitialized() const;
     void setWasInitialized(bool wasInitialized);
 
+    Q_REQUIRED_RESULT Roles getRolesForRooms() const;
+    void setRolesForRooms(const Roles &rolesForRooms);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -277,7 +280,7 @@ private:
     QString mE2eKeyId;
 
     //Roles In Room
-    QVector<Role> mRoleForRooms;
+    Roles mRolesForRooms;
 
     //quint64 ?
     int mUnread = 0;

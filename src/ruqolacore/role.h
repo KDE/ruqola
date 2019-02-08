@@ -42,15 +42,18 @@ public:
     Q_REQUIRED_RESULT bool isOwner() const;
     void setIsOwner(bool isOwner);
 
-     void parseRole(const QJsonObject &json);
+     void parseRole(const QJsonObject &obj);
 
      Q_REQUIRED_RESULT bool operator ==(const Role &other) const;
+
+     Q_REQUIRED_RESULT bool isValid() const;
 private:
     QString mUserId;
     bool mIsModerator = false;
     bool mIsLeader = false;
     bool mIsOwner = false;
 };
+Q_DECLARE_METATYPE(Role)
 Q_DECLARE_TYPEINFO(Role, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Role &t);
 #endif // ROLE_H

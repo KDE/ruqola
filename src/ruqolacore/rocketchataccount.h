@@ -293,10 +293,11 @@ Q_SIGNALS:
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void missingChannelPassword(const QString &roomId);
     void editingModeChanged();
-
 private:
     Q_DISABLE_COPY(RocketChatAccount)
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);
+    void slotChannelMembersDone(const QJsonObject &obj, const QString &roomId);
+
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);
     void slotNeedToUpdateNotification();

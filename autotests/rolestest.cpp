@@ -20,6 +20,7 @@
 
 #include "rolestest.h"
 #include "roles.h"
+#include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(RolesTest)
 
@@ -33,4 +34,61 @@ void RolesTest::shouldHaveDefaultValue()
 {
     Roles r;
     QVERIFY(r.roles().isEmpty());
+    QVERIFY(r.isEmpty());
+}
+
+void RolesTest::shouldFindRoles()
+{
+    Roles r;
+
+    QVector<Role> v;
+
+    Role r1;
+    r1.setIsOwner(true);
+    r1.setIsLeader(true);
+    r1.setUserId(QStringLiteral("r1"));
+    v.append(r1);
+
+    Role r2;
+    r2.setIsOwner(true);
+    r2.setIsLeader(false);
+    r2.setUserId(QStringLiteral("r2"));
+    v.append(r2);
+
+    r.setRoles(v);
+
+    Role result = r.findRoleByUserId(QStringLiteral("r1"));
+    QVERIFY(result.isValid());
+    QVERIFY(result.isOwner());
+    QVERIFY(result.isLeader());
+    QVERIFY(!result.isModerator());
+
+    result = r.findRoleByUserId(QStringLiteral("r7"));
+    QVERIFY(!result.isValid());
+}
+
+void RolesTest::shouldLoadRoles_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<int>("rolesCount");
+
+    QTest::addRow("roles1") << QStringLiteral("roles1") << 3;
+}
+
+
+void RolesTest::shouldLoadRoles()
+{
+    QFETCH(QString, name);
+    QFETCH(int, rolesCount);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/rolesforroom/") + name + QStringLiteral(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject obj = doc.object();
+
+    Roles r;
+    r.parseRole(obj);
+    QCOMPARE(r.roles().count(), rolesCount);
 }

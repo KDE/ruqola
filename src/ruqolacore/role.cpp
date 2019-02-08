@@ -73,13 +73,18 @@ bool Role::operator ==(const Role &other) const
     return (mIsOwner == other.isOwner())
            && (mIsModerator == other.isModerator())
            && (mIsLeader == other.isLeader())
-           && (mUserId == other.userId());
+            && (mUserId == other.userId());
 }
 
-void Role::parseRole(const QJsonObject &json)
+bool Role::isValid() const
 {
-    mUserId = json[QStringLiteral("_id")].toString();
-    const QJsonArray roleArray = json[QStringLiteral("roles")].toArray();
+    return !mUserId.isEmpty();
+}
+
+void Role::parseRole(const QJsonObject &obj)
+{
+    mUserId = obj.value(QLatin1String("u")).toObject().value(QLatin1String("_id")).toString();
+    const QJsonArray roleArray = obj[QStringLiteral("roles")].toArray();
     for (int i = 0; i < roleArray.count(); ++i) {
         const QString str = roleArray.at(i).toString();
         if (str == QLatin1String("moderator")) {

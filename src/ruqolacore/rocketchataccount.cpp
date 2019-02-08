@@ -352,6 +352,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::openArchivedRoom, this, &RocketChatAccount::openArchivedRoom);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelMembersDone, this, &RocketChatAccount::slotChannelMembersDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
@@ -704,6 +705,16 @@ QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj)
 ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationManager() const
 {
     return mReceiveTypingNotificationManager;
+}
+
+void RocketChatAccount::slotChannelMembersDone(const QJsonObject &obj, const QString &roomId)
+{
+    Roles r;
+    r.parseRole(obj);
+    Room *room = mRoomModel->findRoom(roomId);
+    if (room) {
+        room->setRolesForRooms(r);
+    }
 }
 
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)

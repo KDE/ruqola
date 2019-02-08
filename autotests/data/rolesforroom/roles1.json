@@ -1,0 +1,41 @@
+{
+    "roles": [
+        {
+            "_id": "KAk32vvWdSK49XvB3",
+            "rid": "bLtuj7osQtpSdnC8T",
+            "roles": [
+                "moderator",
+                "owner",
+                "leader"
+            ],
+            "u": {
+                "_id": "id1",
+                "username": "bla"
+            }
+        },
+        {
+            "_id": "X7o8oiWXSQ4aqvjGN",
+            "rid": "bLtuj7osQtpSdnC8T",
+            "roles": [
+                "owner",
+                "leader"
+            ],
+            "u": {
+                "_id": "id2",
+                "username": "laurent"
+            }
+        },
+        {
+            "_id": "WJNQ63wcAFyYrQFmE",
+            "rid": "bLtuj7osQtpSdnC8T",
+            "roles": [
+                "owner"
+            ],
+            "u": {
+                "_id": "id3",
+                "username": "bla"
+            }
+        }
+    ],
+    "success": true
+}

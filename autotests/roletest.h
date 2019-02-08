@@ -31,6 +31,9 @@ public:
     ~RoleTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldBeValid();
+    void shouldLoadRoles_data();
+    void shouldLoadRoles();
 };
 
 #endif // ROLETEST_H

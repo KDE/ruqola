@@ -1,0 +1,12 @@
+        {
+            "_id": "KAk32vvWdSK49XvB3",
+            "rid": "bLtuj7osQtpSdnC8T",
+            "roles": [
+                "owner",
+                "leader"
+            ],
+            "u": {
+                "_id": "id2",
+                "username": "bla"
+            }
+        }
