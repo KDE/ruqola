@@ -18,39 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROLE_H
-#define ROLE_H
+#ifndef ROLES_H
+#define ROLES_H
 #include "libruqola_private_export.h"
-#include <QString>
-#include <QDebug>
-#include <QJsonObject>
+#include "role.h"
+#include <QVector>
 
-class LIBRUQOLACORE_TESTS_EXPORT Role
+class LIBRUQOLACORE_TESTS_EXPORT Roles
 {
 public:
-    Role();
+    Roles();
 
-    Q_REQUIRED_RESULT QString userId() const;
-    void setUserId(const QString &userId);
+    Q_REQUIRED_RESULT QVector<Role> roles() const;
+    void setRoles(const QVector<Role> &roles);
 
-    Q_REQUIRED_RESULT bool isModerator() const;
-    void setIsModerator(bool isModerator);
-
-    Q_REQUIRED_RESULT bool isLeader() const;
-    void setIsLeader(bool isLeader);
-
-    Q_REQUIRED_RESULT bool isOwner() const;
-    void setIsOwner(bool isOwner);
-
-     void parseRole(const QJsonObject &json);
-
-     Q_REQUIRED_RESULT bool operator ==(const Role &other) const;
 private:
-    QString mUserId;
-    bool mIsModerator = false;
-    bool mIsLeader = false;
-    bool mIsOwner = false;
+    QVector<Role> mRoles;
 };
-Q_DECLARE_TYPEINFO(Role, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Role &t);
-#endif // ROLE_H
+
+#endif // ROLES_H

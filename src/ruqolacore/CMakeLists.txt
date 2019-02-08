@@ -114,6 +114,7 @@ set (Ruqola_core_srcs
     mentions.cpp
     mention.cpp
 
+    roles.cpp
     role.cpp
 )
 
