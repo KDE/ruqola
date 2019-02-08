@@ -26,6 +26,7 @@
 #include <QJsonObject>
 #include <QObject>
 #include "notificationoptions.h"
+#include "role.h"
 
 #include "libruqola_private_export.h"
 class UsersForRoomModel;
@@ -274,6 +275,9 @@ private:
     //Encryption Key
     QString mE2EKey;
     QString mE2eKeyId;
+
+    //Roles In Room
+    QVector<Role> mRoleForRooms;
 
     //quint64 ?
     int mUnread = 0;
