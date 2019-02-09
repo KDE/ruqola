@@ -32,7 +32,6 @@ Repeater {
             renderType: Text.NativeRendering
             textFormat: Text.RichText
             text: model.modelData
-            //font.bold: true
             wrapMode: QQC2.Label.Wrap
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
