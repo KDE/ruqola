@@ -104,15 +104,7 @@ void Role::parseRole(const QJsonObject &obj)
     const QJsonArray roleArray = obj[QStringLiteral("roles")].toArray();
     for (int i = 0; i < roleArray.count(); ++i) {
         const QString str = roleArray.at(i).toString();
-        if (str == QLatin1String("moderator")) {
-            mIsModerator = true;
-        } else if (str == QLatin1String("leader")) {
-            mIsLeader = true;
-        } else if (str == QLatin1String("owner")) {
-            mIsOwner = true;
-        } else {
-            qCWarning(RUQOLA_LOG) << "Unknown role" << str;
-        }
+        updateRole(str, true);
     }
 }
 
