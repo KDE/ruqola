@@ -308,10 +308,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 QStringList MessageModel::roomRoles(const QString &userId) const
 {
     if (mRoom) {
-        if (userId == mRocketChatAccount->userID()) {
-            //TODO use translated string
-            return mRoom->roles();
-        }
+        return mRoom->rolesForUserId(userId);
     }
     return QStringList();
 }

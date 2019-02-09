@@ -202,8 +202,10 @@ public:
     Q_REQUIRED_RESULT bool wasInitialized() const;
     void setWasInitialized(bool wasInitialized);
 
-    Q_REQUIRED_RESULT Roles getRolesForRooms() const;
+    Q_REQUIRED_RESULT Roles rolesForRooms() const;
     void setRolesForRooms(const Roles &rolesForRooms);
+
+    Q_REQUIRED_RESULT QStringList rolesForUserId(const QString &userId);
 
     Q_REQUIRED_RESULT bool canChangeRoles() const;
     Q_REQUIRED_RESULT bool userHasOwnerRole(const QString &userId) const;

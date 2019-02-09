@@ -677,7 +677,7 @@ void Room::parseCommonData(const QJsonObject &json)
     setRoles(lstRoles);
 }
 
-Roles Room::getRolesForRooms() const
+Roles Room::rolesForRooms() const
 {
     return mRolesForRooms;
 }
@@ -685,6 +685,24 @@ Roles Room::getRolesForRooms() const
 void Room::setRolesForRooms(const Roles &rolesForRooms)
 {
     mRolesForRooms = rolesForRooms;
+}
+
+QStringList Room::rolesForUserId(const QString &userId)
+{
+    QStringList lstRoles;
+    const Role r = mRolesForRooms.findRoleByUserId(userId);
+    if (r.isValid()) {
+        if (r.isOwner()) {
+            lstRoles.append(i18n("Owner"));
+        }
+        if (r.isLeader()) {
+            lstRoles.append(i18n("Leader"));
+        }
+        if (r.isModerator()) {
+            lstRoles.append(i18n("Moderator"));
+        }
+    }
+    return lstRoles;
 }
 
 bool Room::wasInitialized() const
