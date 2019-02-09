@@ -66,7 +66,7 @@ QQC2.Menu {
             text: i18n("Conversation")
         }
         onTriggered: {
-            //TODO open conversation !
+            menu.openConversation(userId)
         }
     }
     QQC2.MenuItem {
@@ -102,7 +102,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         id: ignoreItem
         contentItem: QQC2.Label {
-            text: i18n("Ignore")
+            text: updateIgnoreMenuItemText();
         }
         onTriggered: {
             menu.ignoreUser(userId, !userIsIgnored)
