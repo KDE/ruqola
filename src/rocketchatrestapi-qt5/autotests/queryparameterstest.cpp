@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(QueryParametersTest)
 QueryParametersTest::QueryParametersTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void QueryParametersTest::shouldHaveDefaultValue()

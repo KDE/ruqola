@@ -345,7 +345,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(fields);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: subscriptions-changed:") + d.toJson());
             } else {
-               qWarning() << "stream-notify-user: subscriptions-changed " << object;
+                qWarning() << "stream-notify-user: subscriptions-changed " << object;
             }
         } else if (eventname.endsWith(QLatin1String("/rooms-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();
@@ -487,7 +487,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-room:  Unknown event ?") + d.toJson());
             } else {
-               qWarning() << "stream-notify-room:  Unknown event ? " << eventname;
+                qWarning() << "stream-notify-room:  Unknown event ? " << eventname;
             }
         }
     } else if (collection == QLatin1String("stream-notify-logged")) {

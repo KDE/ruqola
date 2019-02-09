@@ -42,13 +42,13 @@ public:
     Q_REQUIRED_RESULT bool isOwner() const;
     void setIsOwner(bool isOwner);
 
-     void parseRole(const QJsonObject &obj);
+    void parseRole(const QJsonObject &obj);
 
-     Q_REQUIRED_RESULT bool operator ==(const Role &other) const;
+    Q_REQUIRED_RESULT bool operator ==(const Role &other) const;
 
-     Q_REQUIRED_RESULT bool isValid() const;
-     void updateRole(const QString &str, bool b);
-     Q_REQUIRED_RESULT bool hasARole() const;
+    Q_REQUIRED_RESULT bool isValid() const;
+    void updateRole(const QString &str, bool b);
+    Q_REQUIRED_RESULT bool hasARole() const;
 private:
     QString mUserId;
     bool mIsModerator = false;

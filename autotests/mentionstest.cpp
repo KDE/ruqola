@@ -47,7 +47,6 @@ void MentionsTest::shouldLoadMentions_data()
     QTest::addRow("empty") << QStringLiteral("mentions-empty") << 0 << 0 << 0;
 }
 
-
 void MentionsTest::shouldLoadMentions()
 {
     QFETCH(QString, name);

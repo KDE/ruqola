@@ -126,7 +126,7 @@ void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
         if (mQueryParameters.count() >= 0) {
             urlQuery.addQueryItem(QStringLiteral("count"), QString::number(mQueryParameters.count()));
         }
-        if (mQueryParameters.offset() >=0) {
+        if (mQueryParameters.offset() >= 0) {
             urlQuery.addQueryItem(QStringLiteral("offset"), QString::number(mQueryParameters.offset()));
         }
         if (!mQueryParameters.sorting().isEmpty()) {
@@ -139,7 +139,7 @@ void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
                     str += QLatin1Char(',');
                 }
                 str += QLatin1Char('"') + i.key() + QLatin1Char('"') + QLatin1Char(':');
-                switch(i.value()) {
+                switch (i.value()) {
                 case QueryParameters::SortOrder::Ascendant:
                     str += QString::number(1);
                     break;

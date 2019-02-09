@@ -72,7 +72,7 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::UsersUpdate:
         return QStringLiteral("users.update");
     case RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion:
-        return QStringLiteral("users.getUsernameSuggestion");        
+        return QStringLiteral("users.getUsernameSuggestion");
     case RestApiUtil::RestApiUrlType::UsersRemovePersonalAccessToken:
         return QStringLiteral("users.removePersonalAccessToken");
     case RestApiUtil::RestApiUrlType::UsersGeneratePersonalAccessToken:
@@ -236,7 +236,7 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::GroupsMembers:
         return QStringLiteral("groups.members");
     case RestApiUtil::RestApiUrlType::ServerInfo:
-        return QStringLiteral("info");        
+        return QStringLiteral("info");
     case RestApiUtil::RestApiUrlType::Settings:
         return QStringLiteral("settings");
     case RestApiUtil::RestApiUrlType::SettingsPublic:

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "roletest.h"
 #include "role.h"
 #include <QJsonDocument>
@@ -29,7 +28,6 @@ QTEST_GUILESS_MAIN(RoleTest)
 RoleTest::RoleTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RoleTest::shouldHaveDefaultValue()
@@ -62,9 +60,8 @@ void RoleTest::shouldBeValid()
     r.setUserId(QStringLiteral("foo"));
     QVERIFY(r.isValid());
     r.setUserId(QString());
-    QVERIFY(!r.isValid());    
+    QVERIFY(!r.isValid());
 }
-
 
 void RoleTest::shouldLoadRoles_data()
 {
@@ -83,7 +80,6 @@ void RoleTest::shouldLoadRoles_data()
     r2.setIsLeader(true);
     QTest::addRow("role2") << QStringLiteral("role2") << r2;
 }
-
 
 void RoleTest::shouldLoadRoles()
 {

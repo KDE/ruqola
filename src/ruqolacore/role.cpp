@@ -25,7 +25,6 @@
 
 Role::Role()
 {
-
 }
 
 QString Role::userId() const
@@ -73,7 +72,7 @@ bool Role::operator ==(const Role &other) const
     return (mIsOwner == other.isOwner())
            && (mIsModerator == other.isModerator())
            && (mIsLeader == other.isLeader())
-            && (mUserId == other.userId());
+           && (mUserId == other.userId());
 }
 
 bool Role::isValid() const

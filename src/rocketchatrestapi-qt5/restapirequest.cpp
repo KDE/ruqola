@@ -1093,7 +1093,6 @@ void RestApiRequest::channelGetAllUserMentions(const QString &roomId)
     }
 }
 
-
 void RestApiRequest::channelKick(const QString &roomId, const QString &userId)
 {
     ChannelKickJob *job = new ChannelKickJob(this);

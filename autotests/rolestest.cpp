@@ -27,7 +27,6 @@ QTEST_GUILESS_MAIN(RolesTest)
 RolesTest::RolesTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RolesTest::shouldHaveDefaultValue()
@@ -74,7 +73,6 @@ void RolesTest::shouldLoadRoles_data()
 
     QTest::addRow("roles1") << QStringLiteral("roles1") << 3;
 }
-
 
 void RolesTest::shouldLoadRoles()
 {

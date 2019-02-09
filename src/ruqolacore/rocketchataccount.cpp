@@ -1180,7 +1180,6 @@ void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, c
     }
 }
 
-
 void RocketChatAccount::rolesInRoom(const QString &roomId, const QString &channelType)
 {
     if (channelType == QStringLiteral("c")) {
@@ -1191,7 +1190,6 @@ void RocketChatAccount::rolesInRoom(const QString &roomId, const QString &channe
         qCWarning(RUQOLA_LOG) << " unsupport get roles room for type " << channelType;
     }
 }
-
 
 void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType)
 {

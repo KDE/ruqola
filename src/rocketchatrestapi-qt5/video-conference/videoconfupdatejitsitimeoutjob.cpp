@@ -76,7 +76,6 @@ void VideoConfUpdateJitsiTimeOutJob::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-
 bool VideoConfUpdateJitsiTimeOutJob::requireHttpAuthentication() const
 {
     return true;

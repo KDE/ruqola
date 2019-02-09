@@ -26,7 +26,6 @@
 
 Roles::Roles()
 {
-
 }
 
 QVector<Role> Roles::roles() const
@@ -39,7 +38,6 @@ bool Roles::isEmpty() const
     return mRoles.isEmpty();
 }
 
-
 void Roles::setRoles(const QVector<Role> &roles)
 {
     mRoles = roles;
@@ -51,9 +49,9 @@ void Roles::updateRoles(const QJsonObject &obj)
     const QString id = obj[QLatin1String("_id")].toString();
     const QString userId = obj[QLatin1String("u")].toObject().value(QLatin1String("_id")).toString();
     bool foundUser = false;
-    qDebug() << " type " << type << " id " << id << " userId" << userId;
+    //qDebug() << " type " << type << " id " << id << " userId" << userId;
     if (type == QLatin1String("added")) {
-        for (int i = 0; i < mRoles.count(); ++i) {
+        for (int i = 0, total = mRoles.count(); i < total; ++i) {
             if (mRoles.at(i).userId() == userId) {
                 Role r = mRoles.takeAt(i);
                 r.updateRole(id, true);
@@ -69,7 +67,7 @@ void Roles::updateRoles(const QJsonObject &obj)
             mRoles.append(r);
         }
     } else if (type == QLatin1String("removed")) {
-        for (int i = 0; i < mRoles.count(); ++i) {
+        for (int i = 0, total = mRoles.count(); i < total; ++i) {
             if (mRoles.at(i).userId() == userId) {
                 Role r = mRoles.takeAt(i);
                 r.updateRole(id, false);
