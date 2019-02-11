@@ -53,7 +53,6 @@ void RoomFavoriteJob::slotChangeFavoriteFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("RoomFavoriteJob: finished: ") + data);
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
 

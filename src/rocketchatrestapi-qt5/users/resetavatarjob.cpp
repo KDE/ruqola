@@ -57,7 +57,7 @@ void ResetAvatarJob::slotResetAvatar()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ResetAvatarJob: finished: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("ResetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT resetAvatarDone();
         } else {
             addLoggerWarning(QByteArrayLiteral("ResetAvatarJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

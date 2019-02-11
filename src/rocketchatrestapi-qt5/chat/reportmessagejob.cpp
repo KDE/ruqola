@@ -53,7 +53,7 @@ void ReportMessageJob::slotPinMessage()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("ReportMessageJob: finished: ") + data);
+        addLoggerInfo(QByteArrayLiteral("ReportMessageJob: success: ") + data);
         Q_EMIT reportMessageDone();
     }
     deleteLater();

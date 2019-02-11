@@ -65,7 +65,7 @@ void GetAvatarJob::slotGetAvatarInfo()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("GetAvatarJob: finished: ") + data);
+        addLoggerInfo(QByteArrayLiteral("GetAvatarJob: success: ") + data);
         QString str = QString::fromUtf8(data);
         str.remove(QLatin1Char('"'));
         const QString userId = reply->property("userId").toString();

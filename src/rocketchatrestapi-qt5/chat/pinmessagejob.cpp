@@ -53,7 +53,7 @@ void PinMessageJob::slotPinMessage()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("PinMessageJob: finished: ") + data);
+        addLoggerInfo(QByteArrayLiteral("PinMessageJob: success: ") + data);
         if (mPinMessage) {
             Q_EMIT pinMessageDone();
         } else {

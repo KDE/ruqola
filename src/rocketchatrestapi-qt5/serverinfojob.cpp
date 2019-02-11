@@ -69,7 +69,7 @@ void ServerInfoJob::slotServerInfoFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("ServerInfoJob: finished: ") + data);
+        addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + data);
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "ServerInfoJob::parseServerInfo: " << data;
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();

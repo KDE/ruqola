@@ -68,7 +68,7 @@ void ForgotPasswordJob::slotForgotPassword()
     if (reply) {
         const QByteArray data = reply->readAll();
         //qCDebug(ROCKETCHATQTRESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
-        addLoggerInfo(QByteArrayLiteral("ForgotPasswordJob: finished: ") + data);
+        addLoggerInfo(QByteArrayLiteral("ForgotPasswordJob: success: ") + data);
         Q_EMIT forgotPasswordDone();
     }
     deleteLater();
