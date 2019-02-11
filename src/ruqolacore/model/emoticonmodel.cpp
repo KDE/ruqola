@@ -31,12 +31,15 @@ EmoticonModel::~EmoticonModel()
 
 int EmoticonModel::rowCount(const QModelIndex &parent) const
 {
-    //TODO
-    return 0;
+    Q_UNUSED(parent);
+    return mEmoticons.count();
 }
 
 QVariant EmoticonModel::data(const QModelIndex &index, int role) const
 {
+    if (index.row() < 0 || index.row() >= mEmoticons.count()) {
+        return {};
+    }
     //TODO
     return {};
 }
@@ -46,4 +49,23 @@ QHash<int, QByteArray> EmoticonModel::roleNames() const
     QHash<int, QByteArray> roles;
     //TODO
     return roles;
+}
+
+QVector<Emoticon> EmoticonModel::emoticons() const
+{
+    return mEmoticons;
+}
+
+void EmoticonModel::setEmoticons(const QVector<Emoticon> &emoticons)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mEmoticons.count() - 1);
+        mEmoticons.clear();
+        endRemoveRows();
+    }
+    if (!mEmoticons.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mEmoticons.count() - 1);
+        mEmoticons = emoticons;
+        endInsertRows();
+    }
 }
