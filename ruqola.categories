@@ -1,8 +1,9 @@
-org.kde.ruqola ruqola (ruqola)
-org.kde.ruqola.ddpapi ruqola (ddpapi)
-org.kde.ruqola.message ruqola (show message debug)
-org.kde.ruqola.ddpapi.command ruqola (ddpapi command)
+org.kde.ruqola ruqola (ruqola) IDENTIFIER [RUQOLA_LOG]
+org.kde.ruqola.ddpapi ruqola (ddpapi) IDENTIFIER [RUQOLA_DDPAPI_LOG]
+org.kde.ruqola.message ruqola (show message debug) IDENTIFIER [RUQOLA_MESSAGE_LOG]
+org.kde.ruqola.ddpapi.command ruqola (ddpapi command) IDENTIFIER [RUQOLA_DDPAPI_COMMAND_LOG]
 org.kde.rocketchatqtrestapi RocketChatQtRestApi (Rocket Chat Qt Rest API used by ruqola) IDENTIFIER [ROCKETCHATQTRESTAPI_LOG]
 org.kde.ruqola.qml ruqola (qml)
-org.kde.ruqola_googleauthenticationplugin ruqola (google authentication plugin)
-org.kde.ruqola_passwordauthenticationplugin ruqola (password authentication plugin)
+org.kde.ruqola_googleauthenticationplugin ruqola (google authentication plugin) IDENTIFIER [RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG]
+org.kde.ruqola_passwordauthenticationplugin ruqola (password authentication plugin) IDENTIFIER [RUQOLA_PASSWORDAUTHENTICATION_PLUGIN_LOG]
+org.kde.ruqola.ddp.collectiontype ruqola ddp unknown collection type IDENTIFIER [RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG]
