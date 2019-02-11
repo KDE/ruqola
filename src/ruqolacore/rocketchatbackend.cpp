@@ -300,6 +300,8 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
     } else if (collection == QLatin1String("stream-notify-room")) {
         //TODO
         qDebug() << "stream-notify-room not implemented: "<< object;
+    } else if (collection == QLatin1String("stream-notify-logged")) {
+        qDebug() << "stream-notify-logged not implemented: "<< object;
     } else {
         qDebug() << "Unknown added element: "<< object;
     }
