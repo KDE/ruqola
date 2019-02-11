@@ -789,6 +789,7 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
 void DDPClient::onTextMessageReceived(const QString &message)
 {
     QJsonDocument response = QJsonDocument::fromJson(message.toUtf8());
+    qDebug() << " response"<<response;
     if (!response.isNull() && response.isObject()) {
         QJsonObject root = response.object();
 

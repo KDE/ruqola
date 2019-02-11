@@ -224,6 +224,7 @@ QVector<User> RocketChatBackend::users() const
 
 void RocketChatBackend::slotRemoved(const QJsonObject &object)
 {
+    qDebug() << "RocketChatBackend::slotRemoved "<<object;
     const QString collection = object.value(QLatin1String("collection")).toString();
     if (collection == QLatin1String("users")) {
         const QString id = object.value(QLatin1String("id")).toString();
@@ -243,7 +244,7 @@ void RocketChatBackend::slotRemoved(const QJsonObject &object)
 void RocketChatBackend::slotAdded(const QJsonObject &object)
 {
     const QString collection = object.value(QLatin1String("collection")).toString();
-
+    qDebug() << " void RocketChatBackend::slotAdded(const QJsonObject &object)" << object;
     if (collection == QLatin1String("stream-room-messages")) {
         qCDebug(RUQOLA_LOG) << "stream-room-messages : " << object;
     } else if (collection == QLatin1String("users")) {
@@ -263,7 +264,6 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
             } else {
                 qCDebug(RUQOLA_LOG) << "USER ADDED VALUE" << object;
             }
-
             mRocketChatAccount->usersModel()->addUser(user);
         }
         qCDebug(RUQOLA_LOG) << "NEW USER ADDED: " << username << fields;
@@ -307,7 +307,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
 
 void RocketChatBackend::slotChanged(const QJsonObject &object)
 {
-    //qDebug() << " void RocketChatBackend::onChanged(const QJsonObject &object)"<<object;
+    qDebug() << " void RocketChatBackend::onChanged(const QJsonObject &object)"<<object;
     const QString collection = object[QStringLiteral("collection")].toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
