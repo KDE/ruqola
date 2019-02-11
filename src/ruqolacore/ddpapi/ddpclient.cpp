@@ -789,11 +789,10 @@ void DDPClient::subscribe(const QString &collection, const QJsonArray &params)
 void DDPClient::onTextMessageReceived(const QString &message)
 {
     QJsonDocument response = QJsonDocument::fromJson(message.toUtf8());
-    qDebug() << " response"<<response;
     if (!response.isNull() && response.isObject()) {
         QJsonObject root = response.object();
 
-        QString messageType = root.value(QLatin1String("msg")).toString();
+        const QString messageType = root.value(QLatin1String("msg")).toString();
 
         if (messageType == QLatin1String("updated")) {
             //nothing to do.
@@ -828,7 +827,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             setLoginStatus(DDPClient::LoggingIn);
             Q_EMIT connectedChanged();
         } else if (messageType == QLatin1String("error")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << "ERROR!!" << message;
+            qWarning() << "ERROR!!" << message;
         } else if (messageType == QLatin1String("ping")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << "Ping - Pong";
             pong();
@@ -846,6 +845,12 @@ void DDPClient::onTextMessageReceived(const QString &message)
             Q_EMIT removed(root);
         } else if (messageType == QLatin1String("nosub")) {
             qCDebug(RUQOLA_DDPAPI_LOG) << "Unsubscribe element" <<message;
+            const QJsonObject errorObj = root[QStringLiteral("error")].toObject();
+            qWarning() << "Error found start:";
+            qWarning() << "ERRROR: " << errorObj[QStringLiteral("error")].toString();
+            qWarning() << "Message: " << errorObj[QStringLiteral("message")].toString();
+            qWarning() << "Reason: " << errorObj[QStringLiteral("reason")].toString();
+            qWarning() << "-- Error found END --";
         } else {
             qCDebug(RUQOLA_DDPAPI_LOG) << "received something unhandled:" << message;
         }

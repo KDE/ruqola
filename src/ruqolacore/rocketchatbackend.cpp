@@ -26,6 +26,7 @@
 #include "model/usercompletermodel.h"
 #include "ruqola_debug.h"
 #include "ruqola_message_debug.h"
+#include "ruqola_unknown_collectiontype_debug.h"
 #include "ddpapi/ddpclient.h"
 #include "restapirequest.h"
 #include "user.h"
@@ -224,7 +225,6 @@ QVector<User> RocketChatBackend::users() const
 
 void RocketChatBackend::slotRemoved(const QJsonObject &object)
 {
-    qDebug() << "RocketChatBackend::slotRemoved "<<object;
     const QString collection = object.value(QLatin1String("collection")).toString();
     if (collection == QLatin1String("users")) {
         const QString id = object.value(QLatin1String("id")).toString();
@@ -237,7 +237,7 @@ void RocketChatBackend::slotRemoved(const QJsonObject &object)
             qDebug() << "USER REMOVED VALUE" << object;
         }
     } else {
-        qDebug() << " Other collection type  removed " << collection << " object "<<object;
+        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type  removed " << collection << " object "<<object;
     }
 }
 
@@ -272,8 +272,7 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
     } else if (collection == QLatin1String("stream-notify-user")) {
         qDebug() << "stream-notify-user: " << object;
     } else if (collection == QLatin1String("stream-notify-all")) {
-        qCDebug(RUQOLA_LOG) << "stream-notify-user: " << object;
-        qDebug() << "stream-notify-user ********************************************************" << object;
+        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-user: " << object;
         //TODO verify that all is ok !
     } else if (collection == QLatin1String("autocompleteRecords")) {
         if (mRocketChatAccount->ruqolaLogger()) {
@@ -299,17 +298,16 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         mFiles.append(file);
     } else if (collection == QLatin1String("stream-notify-room")) {
         //TODO
-        qDebug() << "stream-notify-room not implemented: "<< object;
+        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-room not implemented: "<< object;
     } else if (collection == QLatin1String("stream-notify-logged")) {
-        qDebug() << "stream-notify-logged not implemented: "<< object;
+        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-logged not implemented: "<< object;
     } else {
-        qDebug() << "Unknown added element: "<< object;
+        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "Unknown added element: "<< object;
     }
 }
 
 void RocketChatBackend::slotChanged(const QJsonObject &object)
 {
-    qDebug() << " void RocketChatBackend::onChanged(const QJsonObject &object)"<<object;
     const QString collection = object[QStringLiteral("collection")].toString();
 
     if (collection == QLatin1String("stream-room-messages")) {
@@ -362,7 +360,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qDebug() << "****************************************** insert new Room !!!!!" << lst;
                 const QJsonObject roomData = lst[1].toObject();
                 const QString rid = model->insertRoom(roomData);
-                qDebug() << "rid " << rid;
                 mRocketChatAccount->initializeRoom(rid, QString());
             } else if (actionName == QLatin1String("removed")) {
                 qDebug() << "Remove channel" << lst;
@@ -385,7 +382,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: notification:") + d.toJson());
             } else {
-                qWarning() << "NOTIFICATION: " << object;
+                qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "NOTIFICATION: " << object;
             }
             mRocketChatAccount->sendNotification(contents);
         } else if (eventname.endsWith(QLatin1String("/webrtc"))) {
@@ -406,7 +403,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_LOG) << "OTR CHANGED: " << object;
             }
             mRocketChatAccount->parseOtr(contents);
-            qWarning() << "stream-notify-user : OTR ? " << eventname << " contents " << contents;
+            qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-user : OTR ? " << eventname << " contents " << contents;
         } else if (eventname.endsWith(QLatin1String("/message"))) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -436,7 +433,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: Unknown event: ") + d.toJson());
             } else {
-                qCDebug(RUQOLA_LOG) << "Unknown change: " << object;
+                qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "Unknown change: " << object;
             }
             qWarning() << "stream-notify-user : message event " << eventname << " contents " << contents;
         }
@@ -489,7 +486,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-room:  Unknown event ?") + d.toJson());
             } else {
-                qWarning() << "stream-notify-room:  Unknown event ? " << eventname;
+                qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "stream-notify-room:  Unknown event ? " << eventname;
             }
         }
     } else if (collection == QLatin1String("stream-notify-logged")) {
@@ -501,7 +498,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             mRocketChatAccount->rolesChanged(contents);
         }
     } else {
-        qWarning() << " Other collection type changed " << collection << " object "<<object;
+        qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type changed " << collection << " object "<<object;
     }
 }
 
