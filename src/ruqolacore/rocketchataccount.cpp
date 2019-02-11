@@ -1341,11 +1341,12 @@ void RocketChatAccount::blockUser(const QString &rid, bool block)
     }
 }
 
-void RocketChatAccount::checkInitializedRoom(const QString &roomID)
+void RocketChatAccount::checkInitializedRoom(const QString &roomId)
 {
-    Room *r = mRoomModel->findRoom(roomID);
+    Room *r = mRoomModel->findRoom(roomId);
     if (r && !r->wasInitialized()) {
         r->setWasInitialized(true);
+        ddp()->subscribeRoomMessage(roomId);
         membersInRoom(r->roomId(), r->channelType());
         rolesInRoom(r->roomId(), r->channelType());
         loadHistory(r->roomId(), QString(), true /*initial loading*/);
@@ -1354,7 +1355,7 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomID)
 
 void RocketChatAccount::initializeRoom(const QString &roomId, const QString &roomType, bool loadInitialHistory)
 {
-    ddp()->subscribeRoomMessage(roomId);
+    //ddp()->subscribeRoomMessage(roomId);
 #if 0
     getUsersOfRoom(roomId, roomType);
 
