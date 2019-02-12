@@ -844,7 +844,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             qCDebug(RUQOLA_DDPAPI_LOG) << "REMOVED element" <<response;
             Q_EMIT removed(root);
         } else if (messageType == QLatin1String("nosub")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << "Unsubscribe element" <<message;
+            qDebug() << "Unsubscribe element" <<message;
             const QJsonObject errorObj = root[QStringLiteral("error")].toObject();
             qWarning() << "Error found start:";
             qWarning() << "ERRROR: " << errorObj[QStringLiteral("error")].toString();
@@ -852,8 +852,11 @@ void DDPClient::onTextMessageReceived(const QString &message)
             qWarning() << "Reason: " << errorObj[QStringLiteral("reason")].toString();
             qWarning() << "-- Error found END --";
         } else {
+            qWarning() << "received something unhandled:" << message;
             qCDebug(RUQOLA_DDPAPI_LOG) << "received something unhandled:" << message;
         }
+    } else {
+        qWarning() << "received something unhandled unknown " << message;
     }
 }
 
