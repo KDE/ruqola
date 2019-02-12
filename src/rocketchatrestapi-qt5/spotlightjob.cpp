@@ -61,7 +61,6 @@ void SpotlightJob::slotSpotlightDone()
             Q_EMIT spotlightDone(replyObject);
         } else {
             addLoggerWarning(QByteArrayLiteral("SpotlightJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-            qCWarning(ROCKETCHATQTRESTAPI_LOG) <<" Problem when we tried calling spotlight method" << data;
         }
     }
     deleteLater();

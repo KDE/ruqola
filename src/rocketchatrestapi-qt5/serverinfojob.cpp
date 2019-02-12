@@ -69,16 +69,16 @@ void ServerInfoJob::slotServerInfoFinished()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + data);
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "ServerInfoJob::parseServerInfo: " << data;
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
-        const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
-        versionStr = version.value(QStringLiteral("version")).toString();
-        if (versionStr.isEmpty()) {
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
+            versionStr = version.value(QStringLiteral("version")).toString();
+            addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT serverInfoDone(versionStr);
+        } else {
             addLoggerWarning(QByteArrayLiteral("ServerInfoJob::slotServerInfoFinished: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
-    Q_EMIT serverInfoDone(versionStr);
     deleteLater();
 }
