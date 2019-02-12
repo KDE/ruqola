@@ -203,6 +203,9 @@ public:
     Q_INVOKABLE void rolesInRoom(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void checkInitializedRoom(const QString &roomID);
 
+    Q_INVOKABLE void clearTypingNotification();
+
+
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
@@ -271,8 +274,6 @@ public:
 
     void updateUser(const QJsonObject &object);
 
-    void initializeRoom(const QString &roomId, const QString &roomType, bool loadInitialHistory = true);
-
     void removeSettings();
 
     void rolesChanged(const QJsonArray &contents);
@@ -295,6 +296,8 @@ Q_SIGNALS:
     void editingModeChanged();
 private:
     Q_DISABLE_COPY(RocketChatAccount)
+    void slotJobFailed(const QString &str);
+
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);
     void slotChannelRolesDone(const QJsonObject &obj, const QString &roomId);
 

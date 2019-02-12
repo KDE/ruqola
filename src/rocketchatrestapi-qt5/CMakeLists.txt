@@ -124,6 +124,7 @@ target_link_libraries(librocketchatrestapi-qt5
     Qt5::Core
     Qt5::Network
     Qt5::NetworkAuth
+    KF5::I18n
 )
 
 set_target_properties(librocketchatrestapi-qt5

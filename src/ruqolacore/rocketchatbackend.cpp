@@ -110,8 +110,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
             || roomType == QLatin1String("d")) {    //Direct chat) {
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPClient::LoggedIn) {
-                Room *r = model->addRoom(room);
-                account->initializeRoom(r->roomId(), roomType, r->open());
+                model->addRoom(room);
             }
         } else if (roomType == QLatin1String("l")) { //Live chat
             qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
@@ -359,8 +358,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else if (actionName == QLatin1String("inserted")) {
                 qDebug() << "****************************************** insert new Room !!!!!" << lst;
                 const QJsonObject roomData = lst[1].toObject();
-                const QString rid = model->insertRoom(roomData);
-                mRocketChatAccount->initializeRoom(rid, QString());
+                model->insertRoom(roomData);
             } else if (actionName == QLatin1String("removed")) {
                 qDebug() << "Remove channel" << lst;
                 const QJsonObject roomData = lst[1].toObject();

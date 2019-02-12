@@ -29,6 +29,11 @@ ReceiveTypingNotificationManager::~ReceiveTypingNotificationManager()
 {
 }
 
+void ReceiveTypingNotificationManager::clearTypingNotification()
+{
+    Q_EMIT clearNotification();
+}
+
 void ReceiveTypingNotificationManager::insertTypingNotification(const QString &roomId, const QString &userName, bool onTyping)
 {
     if (mMapTypingNotifications.contains(roomId)) {

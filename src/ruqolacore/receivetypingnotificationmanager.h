@@ -34,8 +34,10 @@ public:
 
     Q_REQUIRED_RESULT QString typingNotification(const QString &roomId) const;
 
+    void clearTypingNotification();
 Q_SIGNALS:
     void notificationChanged(const QString &roomId, const QString &notificationStr);
+    void clearNotification();
 
 private:
     Q_DISABLE_COPY(ReceiveTypingNotificationManager)

@@ -986,7 +986,7 @@ bool Room::userIsIgnored(const QString &userId)
 
 QString Room::roomMessageInfo() const
 {
-    if (mReadOnly) {
+    if (mReadOnly && !canChangeRoles()) {
         return i18n("Channel is read only.");
     }
     if (mBlocker) {

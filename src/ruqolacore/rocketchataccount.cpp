@@ -354,10 +354,16 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelRolesDone, this, &RocketChatAccount::slotChannelRolesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::failed, this, &RocketChatAccount::slotJobFailed);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
     return mRestApi;
+}
+
+void RocketChatAccount::slotJobFailed(const QString &str)
+{
+
 }
 
 void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelType)
@@ -709,11 +715,13 @@ ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationMa
 
 void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const QString &roomId)
 {
-    Roles r;
-    r.parseRole(obj);
     Room *room = mRoomModel->findRoom(roomId);
     if (room) {
+        Roles r;
+        r.parseRole(obj);
         room->setRolesForRooms(r);
+    } else {
+        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
     }
 }
 
@@ -1341,6 +1349,12 @@ void RocketChatAccount::blockUser(const QString &rid, bool block)
     }
 }
 
+
+void RocketChatAccount::clearTypingNotification()
+{
+    mReceiveTypingNotificationManager->clearTypingNotification();
+}
+
 void RocketChatAccount::checkInitializedRoom(const QString &roomId)
 {
     Room *r = mRoomModel->findRoom(roomId);
@@ -1351,20 +1365,6 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomId)
         rolesInRoom(r->roomId(), r->channelType());
         loadHistory(r->roomId(), QString(), true /*initial loading*/);
     }
-}
-
-void RocketChatAccount::initializeRoom(const QString &roomId, const QString &roomType, bool loadInitialHistory)
-{
-    //ddp()->subscribeRoomMessage(roomId);
-#if 0
-    getUsersOfRoom(roomId, roomType);
-
-    if (loadInitialHistory) {
-        //Load history
-        //TODO fix me use channeltype!
-        loadHistory(roomId, QString(), true /*initial loading*/);
-    }
-#endif
 }
 
 void RocketChatAccount::openDocumentation()

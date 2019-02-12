@@ -491,7 +491,10 @@ Component {
                     margins: Kirigami.Units.smallSpacing
                 }
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-                visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true) || (appid.selectedRoom.blocker === true) || (appid.selectedRoom.blocked === true))
+                //FIXME
+                visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true && !appid.selectedRoom.canChangeRoles)
+                                                 || (appid.selectedRoom.blocker === true)
+                                                 || (appid.selectedRoom.blocked === true))
                 text: appid.selectedRoom ? appid.selectedRoom.roomMessageInfo : ""
             }
 
@@ -524,6 +527,9 @@ Component {
                     if (appid.selectedRoomID === roomId) {
                         typingInfo.text = notificationStr;
                     }
+                }
+                onClearNotification: {
+                    typingInfo.text = "";
                 }
             }
         }

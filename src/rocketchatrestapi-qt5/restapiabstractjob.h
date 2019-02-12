@@ -96,6 +96,9 @@ public:
     void addQueryParameter(QUrlQuery &urlQuery) const;
     void addRequestAttribute(QNetworkRequest &request) const;
 
+Q_SIGNALS:
+    void failed(const QString &str);
+
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
     void addAuthRawHeader(QNetworkRequest &request) const;

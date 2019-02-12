@@ -47,7 +47,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(QString roomMessageInfo READ roomMessageInfo NOTIFY roomMessageInfoChanged)
     Q_PROPERTY(bool encryptedEnabled READ encryptedEnabled CONSTANT)
     Q_PROPERTY(bool joinCodeRequired READ joinCodeRequired NOTIFY joinCodeRequiredChanged)
-    Q_PROPERTY(bool canChangeRoles READ canChangeRoles CONSTANT)
+    Q_PROPERTY(bool canChangeRoles READ canChangeRoles NOTIFY rolesChanged)
     Q_OBJECT
 public:
     explicit RoomWrapper(QObject *parent = nullptr);

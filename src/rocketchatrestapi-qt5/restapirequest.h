@@ -185,6 +185,8 @@ Q_SIGNALS:
     void deleteGroupsDone();
     void ignoreUserDone(const QJsonObject &obj, const QString &roomId);
 
+    void failed(const QString &str);
+
 private:
     Q_DISABLE_COPY(RestApiRequest)
     void initializeCookies();
