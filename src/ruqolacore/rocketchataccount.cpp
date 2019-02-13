@@ -831,11 +831,19 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         } else if (channelType == QStringLiteral("p")) {
             restApi()->changeGroupsTopic(roomId, newValue.toString());
         } else {
+            //TODO : change topic in direct channel
             qCWarning(RUQOLA_LOG) << " unsupport change topic for type " << channelType;
         }
         break;
     case ReadOnly:
-        ddp()->setRoomIsReadOnly(roomId, newValue.toBool());
+        if (channelType == QStringLiteral("c")) {
+            restApi()->changeChannelReadOnly(roomId, newValue.toBool());
+        } else if (channelType == QStringLiteral("p")) {
+            restApi()->changeGroupsReadOnly(roomId, newValue.toBool());
+        } else {
+            qCWarning(RUQOLA_LOG) << " unsupport change readonly for type " << channelType;
+        }
+        //ddp()->setRoomIsReadOnly(roomId, newValue.toBool());
         break;
     case Archive:
         if (channelType == QStringLiteral("c")) {
@@ -847,7 +855,14 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         }
         break;
     case RoomType:
-        ddp()->setRoomType(roomId, newValue.toBool());
+        if (channelType == QStringLiteral("c")) {
+            restApi()->setChannelType(roomId, channelType);
+        } else if (channelType == QStringLiteral("p")) {
+            restApi()->setGroupType(roomId, channelType);
+        } else {
+            qCWarning(RUQOLA_LOG) << " unsupport roomtype for type " << channelType;
+        }
+        //ddp()->setRoomType(roomId, newValue.toBool());
         break;
     case Encrypted:
         //TODO use restApi when there is some api

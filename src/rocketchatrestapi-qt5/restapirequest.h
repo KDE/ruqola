@@ -145,6 +145,8 @@ public:
     void channelDelete(const QString &roomId);
     void groupDelete(const QString &roomId);
     void membersInRoom(const QString &roomId, const QString &type);
+    void changeChannelReadOnly(const QString &roomId, bool b);
+    void changeGroupsReadOnly(const QString &roomId, bool b);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
