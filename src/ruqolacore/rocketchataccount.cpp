@@ -1199,6 +1199,12 @@ void RocketChatAccount::rolesInRoom(const QString &roomId, const QString &channe
     }
 }
 
+void RocketChatAccount::switchingToRoom(const QString &roomID)
+{
+    clearTypingNotification();
+    checkInitializedRoom(roomID);
+}
+
 void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType)
 {
     if (channelType == QStringLiteral("c")) {

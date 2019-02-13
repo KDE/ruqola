@@ -201,10 +201,8 @@ public:
     Q_INVOKABLE void kickUser(const QString &rid, const QString &userId, const QString &channelType);
     Q_INVOKABLE void changeRoles(const QString &rid, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType);
     Q_INVOKABLE void rolesInRoom(const QString &roomId, const QString &channelType);
-    Q_INVOKABLE void checkInitializedRoom(const QString &roomID);
 
-    Q_INVOKABLE void clearTypingNotification();
-
+    Q_INVOKABLE void switchingToRoom(const QString &roomID);
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
@@ -313,6 +311,9 @@ private:
     void userStatusChanged(const User &user);
     void setChannelJoinDone(const QString &roomId);
     void openArchivedRoom(const QString &roomId);
+
+    void checkInitializedRoom(const QString &roomId);
+    void clearTypingNotification();
 
     QVector<File> parseFilesInChannel(const QJsonObject &obj);
 
