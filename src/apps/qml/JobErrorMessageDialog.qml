@@ -27,5 +27,19 @@ QQC2.Dialog {
     id: jobErrorMessageDialog
     title: i18n("Error")
 
+    property string jobMessageError
+
+    x: parent.width / 2
+    y: parent.height / 2
+
+    modal: true
+
     //TODO add timer for hidding it.
+    ColumnLayout {
+        QQC2.Label {
+            id: messageError
+            text: jobMessageError
+        }
+    }
+
 }

@@ -203,6 +203,10 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    JobErrorMessageDialog {
+        id: jobErrorMessageDialog
+    }
+
     SearchChannelDialog {
         id: searchChannelDialog
         searchChannelModel: rocketChatAccount.searchChannelFilterProxyModel()
@@ -253,6 +257,10 @@ Kirigami.ApplicationWindow {
         onMissingChannelPassword: {
             channelPasswordDialog.roomId = roomId
             channelPasswordDialog.visible = true
+        }
+        onJobFailed: {
+            jobErrorMessageDialog.jobMessageError = message
+            jobErrorMessageDialog.open()
         }
     }
 

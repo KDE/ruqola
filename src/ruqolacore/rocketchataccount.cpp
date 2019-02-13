@@ -354,16 +354,11 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelRolesDone, this, &RocketChatAccount::slotChannelRolesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::failed, this, &RocketChatAccount::slotJobFailed);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::failed, this, &RocketChatAccount::jobFailed);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
     return mRestApi;
-}
-
-void RocketChatAccount::slotJobFailed(const QString &str)
-{
-
 }
 
 void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelType)
