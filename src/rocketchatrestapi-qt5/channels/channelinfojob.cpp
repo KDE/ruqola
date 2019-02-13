@@ -61,6 +61,7 @@ void ChannelInfoJob::slotFilesinChannelFinished()
             addLoggerInfo(QByteArrayLiteral("channelInfoDone success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT channelInfoDone(replyObject, mRoomId);
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("channelInfoDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

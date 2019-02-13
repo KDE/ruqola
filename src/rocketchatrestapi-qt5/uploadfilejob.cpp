@@ -115,6 +115,7 @@ void UploadFileJob::slotUploadFinished()
         if (replyObject.value(QLatin1String("success")).toBool()) {
             addLoggerInfo(QByteArrayLiteral("UploadFileJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("UploadFileJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

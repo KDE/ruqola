@@ -63,6 +63,7 @@ void RoomsInfoJob::slotRoomsInfoFinished()
             addLoggerInfo(QByteArrayLiteral("RoomsInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT roomsInfoDone(replyObject);
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("RoomsInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

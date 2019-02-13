@@ -73,6 +73,7 @@ void StarMessageJob::slotStarMessageFinished()
             addLoggerInfo(QByteArrayLiteral("StarMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT messageStarred();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("StarMessageJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

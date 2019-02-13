@@ -61,6 +61,7 @@ void CreateDmJob::slotCreateDmFinished()
             addLoggerInfo(QByteArrayLiteral("Create direct message sucess: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT createDmDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("Create direct message Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

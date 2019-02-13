@@ -59,6 +59,8 @@ void DownloadFileJob::slotDownloadDone()
             addLoggerInfo("DownloadFileJob::slotDownloadDone finished");
             Q_EMIT downloadFileDone(data, reply->url(), mStoreInCache, mLocalFileUrl);
         } else {
+            //FIXME
+            //emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("DownloadFileJob problem: ") + data);
         }
     }

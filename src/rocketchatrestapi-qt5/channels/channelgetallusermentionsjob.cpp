@@ -93,6 +93,7 @@ void ChannelGetAllUserMentionsJob::slotChannelGetAllUserMentionsFinished()
             addLoggerInfo(QByteArrayLiteral("ChannelGetAllUserMentionsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT channelGetAllUserMentionsDone(replyObject);
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelGetAllUserMentionsJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

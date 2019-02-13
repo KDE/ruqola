@@ -61,6 +61,7 @@ void LoadEmojiCustomJob::slotloadEmojiCustomDone()
             addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob done: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT loadEmojiCustomDone(replyObject);
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("LoadEmojiCustomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

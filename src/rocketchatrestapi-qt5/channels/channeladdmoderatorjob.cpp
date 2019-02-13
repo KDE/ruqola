@@ -60,6 +60,7 @@ void ChannelAddModeratorJob::slotAddModeratorFinished()
             addLoggerInfo(QByteArrayLiteral("Add moderator success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT addModeratorDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("Problem when we tried to add moderator: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

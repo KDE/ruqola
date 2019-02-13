@@ -60,6 +60,7 @@ void GroupsDeleteJob::slotDeleteGroupsFinished()
             addLoggerInfo(QByteArrayLiteral("GroupsDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT deleteGroupsDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GroupsDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

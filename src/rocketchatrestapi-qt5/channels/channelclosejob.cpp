@@ -60,6 +60,7 @@ void ChannelCloseJob::slotCloseChannelFinished()
             addLoggerInfo(QByteArrayLiteral("ChannelCloseJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT closeChannelDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelCloseJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

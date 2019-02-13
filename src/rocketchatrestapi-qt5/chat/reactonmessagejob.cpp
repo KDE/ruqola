@@ -59,6 +59,7 @@ void ReactOnMessageJob::slotReactonMessageFinished()
             addLoggerInfo(QByteArrayLiteral("ReactOnMessageJob sucess: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT reactOnMessageDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ReactOnMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

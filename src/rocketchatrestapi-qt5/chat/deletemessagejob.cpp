@@ -59,6 +59,7 @@ void DeleteMessageJob::slotDeleteMessageFinished()
             addLoggerInfo(QByteArrayLiteral("DeleteMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT deleteMessageDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("DeleteMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

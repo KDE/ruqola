@@ -68,6 +68,7 @@ void GetUsernameSuggestionJob::slotGetUsernameSuggestion()
             addLoggerInfo(QByteArrayLiteral("GetUsernameSuggestionJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getUsernameSuggestionDone(replyObject[QStringLiteral("result")].toString());
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GetUsernameSuggestionJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

@@ -59,6 +59,7 @@ void ChannelListJob::slotListInfo()
             addLoggerInfo(QByteArrayLiteral("ChannelListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT channelListDone(replyObject);
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

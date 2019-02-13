@@ -60,6 +60,7 @@ void ChangeGroupsDescriptionJob::slotChangeDescriptionFinished()
             addLoggerInfo(QByteArrayLiteral("ChangeGroupsDescriptionJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT changeDescriptionDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChangeGroupsDescriptionJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

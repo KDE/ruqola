@@ -60,6 +60,7 @@ void ChannelKickJob::slotKickUsersFinished()
             addLoggerInfo(QByteArrayLiteral("ChannelKickJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT kickUserDone(replyObject);
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelKickJob Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

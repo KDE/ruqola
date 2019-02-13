@@ -60,6 +60,7 @@ void ChangeGroupsNameJob::slotChangeGroupsNameFinished()
             addLoggerInfo(QByteArrayLiteral("ChangeGroupsNameJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT changeGroupsnameDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChangeGroupsNameJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

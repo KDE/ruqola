@@ -61,6 +61,7 @@ void GroupsInfoJob::slotFilesinChannelFinished()
             addLoggerInfo(QByteArrayLiteral("groupInfoDone success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT channelInfoDone(replyObject, mRoomId);
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("groupInfoDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

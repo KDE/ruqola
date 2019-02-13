@@ -271,6 +271,7 @@ void RestApiRequest::slotLogout()
 
 void RestApiRequest::initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob *job)
 {
+    connect(job, &RocketChatRestApi::RestApiAbstractJob::failed, this, &RestApiRequest::failed);
     job->setNetworkAccessManager(mNetworkAccessManager);
     job->setRestApiLogger(mRuqolaLogger);
     job->setRestApiMethod(mRestApiMethod);
@@ -422,7 +423,6 @@ void RestApiRequest::changeGroupsReadOnly(const QString &roomId, bool b)
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }
 }
-
 
 void RestApiRequest::changeChannelAnnouncement(const QString &roomId, const QString &announcement)
 {
@@ -1209,7 +1209,6 @@ void RestApiRequest::groupRemoveOwner(const QString &roomId, const QString &user
     job->setRemoveUserId(userId);
     job->setRoomId(roomId);
     connect(job, &GroupRemoveOwnerJob::removeOwnerDone, this, &RestApiRequest::removeOwnerDone);
-    connect(job, &GroupRemoveOwnerJob::failed, this, &RestApiRequest::failed);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupRemoveOwner";
     }
@@ -1239,8 +1238,8 @@ void RestApiRequest::channelRemoveModerator(const QString &roomId, const QString
     }
 }
 
-//void RestApiRequest::channelAddLeader(const QString &roomId, const QString &userId)
-//{
+void RestApiRequest::channelAddLeader(const QString &roomId, const QString &userId)
+{
 //    GroupAddLeaderJob *job = new GroupAddLeaderJob(this);
 //    initializeRestApiJob(job);
 //    job->setAddLeaderUserId(userId);
@@ -1249,10 +1248,10 @@ void RestApiRequest::channelRemoveModerator(const QString &roomId, const QString
 //    if (!job->start()) {
 //        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupAddLeader";
 //    }
-//}
+}
 
-//void RestApiRequest::channelRemoveLeader(const QString &roomId, const QString &userId)
-//{
+void RestApiRequest::channelRemoveLeader(const QString &roomId, const QString &userId)
+{
 //    GroupRemoveLeaderJob *job = new GroupRemoveLeaderJob(this);
 //    initializeRestApiJob(job);
 //    job->setRemoveUserId(userId);
@@ -1261,7 +1260,7 @@ void RestApiRequest::channelRemoveModerator(const QString &roomId, const QString
 //    if (!job->start()) {
 //        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupRemoveLeader";
 //    }
-//}
+}
 
 void RestApiRequest::channelAddOwner(const QString &roomId, const QString &userId)
 {
@@ -1282,7 +1281,6 @@ void RestApiRequest::channelRemoveOwner(const QString &roomId, const QString &us
     job->setRemoveUserId(userId);
     job->setRoomId(roomId);
     connect(job, &ChannelRemoveOwnerJob::removeOwnerDone, this, &RestApiRequest::removeOwnerDone);
-    connect(job, &ChannelRemoveOwnerJob::failed, this, &RestApiRequest::failed);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelRemoveOwnerJob";
     }

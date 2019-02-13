@@ -59,6 +59,7 @@ void ChangeGroupsTopicJob::slotChangeTopicFinished()
             addLoggerInfo(QByteArrayLiteral("ChangeGroupsTopicJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT changeTopicDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChangeGroupsTopicJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

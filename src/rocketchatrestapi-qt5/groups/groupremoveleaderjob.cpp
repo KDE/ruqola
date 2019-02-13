@@ -60,6 +60,7 @@ void GroupRemoveLeaderJob::slotRemoveLeaderFinished()
             addLoggerInfo(QByteArrayLiteral("GroupRemoveLeaderJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT removeLeaderDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GroupRemoveLeaderJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

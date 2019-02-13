@@ -60,6 +60,7 @@ void ChannelDeleteJob::slotChanneldeleteFinished()
             addLoggerInfo(QByteArrayLiteral("ChannelDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT deletechannelDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelDeleteJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

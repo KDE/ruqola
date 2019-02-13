@@ -60,6 +60,7 @@ void ChannelInviteJob::slotInvitationFinished()
             addLoggerInfo(QByteArrayLiteral("ChannelInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT inviteDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelInviteJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

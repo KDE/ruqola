@@ -77,6 +77,7 @@ void ServerInfoJob::slotServerInfoFinished()
             addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT serverInfoDone(versionStr);
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ServerInfoJob::slotServerInfoFinished: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

@@ -60,6 +60,7 @@ void SetJoinCodeChannelJob::slotSetJoinCodeFinished()
             addLoggerInfo(QByteArrayLiteral("SetJoinCodeChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT setJoinCodeDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("SetJoinCodeChannelJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

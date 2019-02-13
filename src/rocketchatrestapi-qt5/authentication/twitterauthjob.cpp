@@ -96,6 +96,7 @@ void TwitterAuthJob::slotTwitterauthDone()
                 Q_EMIT twitterDone(authToken, userId);
             }
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning("Error during login" + data);
         }
     }

@@ -64,6 +64,7 @@ void SettingsOauthJob::slotSettingsOauthFinished()
             addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT settingsOauthDone(replyObject);
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("SettingsOauthJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

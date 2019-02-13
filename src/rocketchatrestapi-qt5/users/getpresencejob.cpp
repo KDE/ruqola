@@ -73,6 +73,7 @@ void GetPresenceJob::slotGetPresenceUserId()
             addLoggerInfo(QByteArrayLiteral("GetPresenceJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT getPresenceDone(replyObject[QStringLiteral("presence")].toString());
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GetPresenceJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

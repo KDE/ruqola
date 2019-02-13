@@ -60,6 +60,7 @@ void ChannelRemoveModeratorJob::slotRemoveModeratorFinished()
             addLoggerInfo(QByteArrayLiteral("ChannelRemoveModeratorJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT removeModeratorDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelRemoveModeratorJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

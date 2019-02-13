@@ -61,6 +61,7 @@ void GroupRemoveOwnerJob::slotRemoveOwnerFinished()
             addLoggerInfo(QByteArrayLiteral("GroupRemoveOwnerJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT removeOwnerDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GroupRemoveOwnerJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
             if (replyObject[QStringLiteral("errorType")].toString() == QLatin1String("error-remove-last-owner")) {
                 Q_EMIT failed(i18n("This is the last owner. Please set a new owner before removing this one."));

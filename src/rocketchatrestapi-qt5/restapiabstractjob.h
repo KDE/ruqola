@@ -101,7 +101,9 @@ Q_SIGNALS:
 
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
+    void emitFailedMessage(const QJsonObject &replyObject);
     void addAuthRawHeader(QNetworkRequest &request) const;
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str);
     QueryParameters mQueryParameters;
     QString mAuthToken;
     QString mUserId;

@@ -60,6 +60,7 @@ void GroupRemoveModeratorJob::slotRemoveModeratorFinished()
             addLoggerInfo(QByteArrayLiteral("GroupRemoveModeratorJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT removeModeratorDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GroupRemoveModeratorJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

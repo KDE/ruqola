@@ -60,6 +60,7 @@ void GroupAddOwnerJob::slotAddOwnerFinished()
             addLoggerInfo(QByteArrayLiteral("GroupAddOwnerJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT addOwnerDone();
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GroupAddOwnerJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

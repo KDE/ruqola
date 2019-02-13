@@ -64,6 +64,7 @@ void UsersInfoJob::slotOwnInfoFinished()
             addLoggerInfo(QByteArrayLiteral("UsersInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT usersInfoDone(replyObject);
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("UsersInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

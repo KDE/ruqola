@@ -64,12 +64,14 @@ void CreateChannelJob::slotCreateChannelFinished()
                 const QJsonObject channelObj = replyObject[QStringLiteral("channel")].toObject();
                 const QString channelId = channelObj[QStringLiteral("_id")].toString();
                 if (channelId.isEmpty()) {
+                    emitFailedMessage(replyObject);
                     addLoggerWarning(QByteArrayLiteral("CreateChannelJob Impossible to extract channel id: ") + replyJson.toJson(QJsonDocument::Indented));
                 } else {
                     Q_EMIT addJoinCodeToChannel(channelId, mPassword);
                 }
             }
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("CreateChannelJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }

@@ -64,6 +64,7 @@ void SearchMessageJob::slotSearchMessageFinished()
             addLoggerInfo(QByteArrayLiteral("SearchMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT searchMessageDone(replyObject);
         } else {
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("SearchMessageJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
