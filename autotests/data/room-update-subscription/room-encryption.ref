@@ -3,6 +3,7 @@
     "archived": false,
     "blocked": false,
     "blocker": false,
+    "broadcast": false,
     "e2ekey": "KEYS",
     "e2ekeyid": "eyJhbGciOiJB",
     "encrypted": true,

@@ -1,0 +1,19 @@
+{
+    "_id": "zMHhMfsEPvKjgFuyE",
+    "_updatedAt": {
+        "$date": 1550143647727
+    },
+    "broadcast": true,
+    "customFields": {
+    },
+    "encrypted": false,
+    "fname": "ruqola-broadcast",
+    "name": "ruqola-broadcast",
+    "ro": true,
+    "sysMes": false,
+    "t": "p",
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "username": "laurent"
+    }
+}

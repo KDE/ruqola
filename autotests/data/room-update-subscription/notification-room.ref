@@ -4,6 +4,7 @@
     "archived": false,
     "blocked": false,
     "blocker": false,
+    "broadcast": false,
     "description": "description",
     "encrypted": false,
     "favorite": false,

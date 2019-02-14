@@ -247,6 +247,12 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     } else {
         setEncrypted(false);
     }
+    //TODO verify it. add autotest
+    if (json.contains(QLatin1String("broadcast"))) {
+        setBroadcast(json[QStringLiteral("broadcast")].toBool());
+    } else {
+        setBroadcast(false);
+    }
     setReadOnly(json[QStringLiteral("ro")].toBool());
 
     const QJsonArray ignoredArray = json.value(QLatin1String("ignored")).toArray();

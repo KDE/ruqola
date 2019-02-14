@@ -1,0 +1,30 @@
+{
+    "_id": "DYaMmrQmbk65JqkBs",
+    "_updatedAt": {
+        "$date": 1550160508264
+    },
+    "alert": false,
+    "emailNotifications": "mentions",
+    "f": false,
+    "fname": "ruqola-broadcast",
+    "groupMentions": 0,
+    "ls": {
+        "$date": 1550143648425
+    },
+    "name": "ruqola-broadcast",
+    "open": true,
+    "rid": "zMHhMfsEPvKjgFuyE",
+    "roles": [
+        "owner"
+    ],
+    "t": "p",
+    "ts": {
+        "$date": 1550143092206
+    },
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "username": "laurent"
+    },
+    "unread": 0,
+    "userMentions": 0
+}

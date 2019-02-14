@@ -48,6 +48,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(bool encryptedEnabled READ encryptedEnabled CONSTANT)
     Q_PROPERTY(bool joinCodeRequired READ joinCodeRequired NOTIFY joinCodeRequiredChanged)
     Q_PROPERTY(bool canChangeRoles READ canChangeRoles NOTIFY rolesChanged)
+    Q_PROPERTY(bool broadcast READ broadcast NOTIFY broadcastChanged)
     Q_OBJECT
 public:
     explicit RoomWrapper(QObject *parent = nullptr);
@@ -62,6 +63,7 @@ public:
     Q_REQUIRED_RESULT bool blocker() const;
     Q_REQUIRED_RESULT bool blocked() const;
     Q_REQUIRED_RESULT bool encrypted() const;
+    Q_REQUIRED_RESULT bool broadcast() const;
     Q_REQUIRED_RESULT QString channelType() const;
     Q_REQUIRED_RESULT QString roomCreatorUserId() const;
     Q_REQUIRED_RESULT QString rid() const;
@@ -96,6 +98,7 @@ Q_SIGNALS:
     void encryptedChanged();
     void joinCodeRequiredChanged();
     void channelTypeChanged();
+    void broadcastChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)

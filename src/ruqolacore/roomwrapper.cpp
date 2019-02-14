@@ -39,6 +39,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::announcementChanged, this, &RoomWrapper::announcementChanged);
     connect(mRoom, &Room::nameChanged, this, &RoomWrapper::nameChanged);
     connect(mRoom, &Room::readOnlyChanged, this, &RoomWrapper::readOnlyChanged);
+    connect(mRoom, &Room::broadcastChanged, this, &RoomWrapper::broadcastChanged);
     connect(mRoom, &Room::blockerChanged, this, &RoomWrapper::blockerChanged);
     connect(mRoom, &Room::blockedChanged, this, &RoomWrapper::blockedChanged);
     connect(mRoom, &Room::encryptedChanged, this, &RoomWrapper::encryptedChanged);
@@ -99,6 +100,11 @@ bool RoomWrapper::blocked() const
 bool RoomWrapper::encrypted() const
 {
     return mRoom->encrypted();
+}
+
+bool RoomWrapper::broadcast() const
+{
+    return mRoom->broadcast();
 }
 
 QString RoomWrapper::channelType() const

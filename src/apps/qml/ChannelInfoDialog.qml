@@ -63,6 +63,8 @@ QQC2.Dialog {
         encrypted.visible = !enabledField && roomInfo.encryptedEnabled
         labelPassword.visible = !enabledField
         password.visible = !enabledField
+        labelBroadcast.visible = !enabledField
+        broadcast.visible = !enabledField
         //TODO fix me! Readd password
         password.text = "";
         open();
@@ -145,6 +147,18 @@ QQC2.Dialog {
             checked: roomInfo === null ? false : roomInfo.readOnly
             onClicked: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.ReadOnly, checked, roomInfo.channelType)
+            }
+        }
+
+        QQC2.Label {
+            id: labelBroadcast
+            text: i18n("Broadcast:");
+        }
+        QQC2.Switch {
+            id: broadcast
+            checked: roomInfo === null ? false : roomInfo.broadcast
+            onClicked: {
+                //TODO
             }
         }
 
