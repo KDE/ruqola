@@ -1375,8 +1375,10 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomId)
     if (r && !r->wasInitialized()) {
         r->setWasInitialized(true);
         ddp()->subscribeRoomMessage(roomId);
-        membersInRoom(r->roomId(), r->channelType());
-        rolesInRoom(r->roomId(), r->channelType());
+        if (!r->archived()) {
+            membersInRoom(r->roomId(), r->channelType());
+            rolesInRoom(r->roomId(), r->channelType());
+        }
         loadHistory(r->roomId(), QString(), true /*initial loading*/);
     }
 }
