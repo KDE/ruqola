@@ -72,6 +72,7 @@ set (RocketChatRestApiQt_SRCS
     channels/channeldeletejob.cpp
     channels/channelsmoderatorsjob.cpp
     channels/channelmembersjob.cpp
+    channels/changechannelencryptedjob.cpp
 
     groups/changegroupstopicjob.cpp
     groups/changegroupsannouncementjob.cpp
