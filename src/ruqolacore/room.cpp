@@ -90,7 +90,8 @@ bool Room::isEqual(const Room &other) const
            && (mEncrypted == other.encrypted())
            && (mE2EKey == other.e2EKey())
            && (mE2eKeyId == other.e2eKeyId())
-           && (mJoinCodeRequired == other.joinCodeRequired());
+           && (mJoinCodeRequired == other.joinCodeRequired())
+            && (mBroadcast == other.broadcast());
 }
 
 QString Room::name() const
@@ -128,6 +129,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "E2E keys: " << t.e2EKey();
     d << "mE2eKeyId: " << t.e2eKeyId();
     d << "mJoinCodeRequired: " << t.joinCodeRequired();
+    d << "broadcast: " << t.broadcast();
     return d;
 }
 
@@ -270,6 +272,7 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setRoomCreatorUserId(QString());
         setRoomCreatorUserName(QString());
     }
+    //TODO broadcast
 }
 
 bool Room::selected() const
@@ -677,6 +680,19 @@ void Room::parseCommonData(const QJsonObject &json)
     setRoles(lstRoles);
 }
 
+bool Room::broadcast() const
+{
+    return mBroadcast;
+}
+
+void Room::setBroadcast(bool broadcast)
+{
+    if (mBroadcast != broadcast) {
+        mBroadcast = broadcast;
+        Q_EMIT broadcastChanged();
+    }
+}
+
 Roles Room::rolesForRooms() const
 {
     return mRolesForRooms;
@@ -792,6 +808,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setBlocker(o[QStringLiteral("blocker")].toBool());
     r->setBlocked(o[QStringLiteral("blocked")].toBool());
     r->setEncrypted(o[QStringLiteral("encrypted")].toBool());
+    r->setBroadcast(o[QStringLiteral("broadcast")].toBool());
     r->setE2EKey(o[QStringLiteral("e2ekey")].toString());
     r->setE2eKeyId(o[QStringLiteral("e2ekeyid")].toString());
     r->setJoinCodeRequired(o[QStringLiteral("joinCodeRequired")].toBool());
@@ -859,6 +876,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("blocked")] = r->blocked();
     o[QStringLiteral("encrypted")] = r->encrypted();
     o[QStringLiteral("archived")] = r->archived();
+    o[QStringLiteral("broadcast")] = r->broadcast();
     if (r->joinCodeRequired()) {
         o[QStringLiteral("joinCodeRequired")] = true;
     }
@@ -1024,7 +1042,6 @@ bool Room::userHasLeaderRole(const QString &userId) const
 bool Room::userHasModeratorRole(const QString &userId) const
 {
     Role r = mRolesForRooms.findRoleByUserId(userId);
-
     if (r.isValid()) {
         return r.isModerator();
     }

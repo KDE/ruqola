@@ -51,6 +51,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(bool blocked READ blocked WRITE setBlocked NOTIFY blockedChanged)
     Q_PROPERTY(bool open READ open WRITE setOpen NOTIFY openChanged)
     Q_PROPERTY(bool encrypted READ encrypted WRITE setEncrypted NOTIFY encryptedChanged)
+    Q_PROPERTY(bool broadcast READ broadcast WRITE setBroadcast NOTIFY broadcastChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
     Q_PROPERTY(QStringList roles READ roles WRITE setRoles NOTIFY rolesChanged)
     Q_PROPERTY(QString e2eKeyId READ e2eKeyId WRITE setE2eKeyId NOTIFY encryptionKeyIdChanged)
@@ -214,6 +215,9 @@ public:
 
     void updateRoles(const QJsonObject &obj);
 
+    Q_REQUIRED_RESULT bool broadcast() const;
+    void setBroadcast(bool broadcast);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -240,6 +244,8 @@ Q_SIGNALS:
     void jitsiTimeoutChanged();
     void joinCodeRequiredChanged();
     void channelTypeChanged();
+
+    void broadcastChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -308,6 +314,7 @@ private:
     bool mEncrypted = false;
     bool mJoinCodeRequired = false;
     bool mWasInitialized = false;
+    bool mBroadcast = false;
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;

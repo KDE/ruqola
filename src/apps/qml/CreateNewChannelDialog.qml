@@ -26,7 +26,7 @@ import KDE.Ruqola.DebugCategory 1.0
 QQC2.Dialog {
     id: createNewChannelDialog
 
-    signal createNewChannel(string name, bool readOnly, bool privateRoom, string usernames, bool encryptedRoom, string password)
+    signal createNewChannel(string name, bool readOnly, bool privateRoom, string usernames, bool encryptedRoom, string password, bool broadcast)
 
     title: i18n("Create Channel")
 
@@ -46,6 +46,7 @@ QQC2.Dialog {
         readOnlyRoom.checked = false
         privateRoom.checked = false
         encryptedRoom.checked = false
+        broadcast.checked = false
         encryptedRoom.visible = encryptedRoomEnabled
         encryptedLabelRoom.visible = encryptedRoomEnabled
         open()
@@ -80,6 +81,13 @@ QQC2.Dialog {
             checked: false
         }
         QQC2.Label {
+            text: i18n("Broadcast:");
+        }
+        QQC2.Switch {
+            id: broadcast
+            checked: false
+        }
+        QQC2.Label {
             text: i18n("Private:");
         }
         QQC2.Switch {
@@ -108,7 +116,7 @@ QQC2.Dialog {
 
     onAccepted: {
         if (channelName !== "") {
-            createNewChannelDialog.createNewChannel(channelName.text, readOnlyRoom.checked, privateRoom.checked, userList.text, encryptedRoom.checked, password.text)
+            createNewChannelDialog.createNewChannel(channelName.text, readOnlyRoom.checked, privateRoom.checked, userList.text, encryptedRoom.checked, password.text, broadcast.checked)
         } else {
             console.log(RuqolaDebugCategorySingleton.category, "Channel name is empty!")
         }

@@ -530,9 +530,10 @@ void RocketChatAccount::openDirectChannel(const QString &username)
 #endif
 }
 
-void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom, const QString &password)
+void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom, const QString &password, bool broadcast)
 {
     //TODO use encryted room
+    //TODO use broadcast
     if (!name.trimmed().isEmpty()) {
         const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
 #ifdef USE_REASTAPI_JOB
