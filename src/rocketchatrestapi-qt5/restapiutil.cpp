@@ -171,6 +171,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.delete");
     case RestApiUtil::RestApiUrlType::ChannelsGetAllUserMentionsByChannel:
         return QStringLiteral("channels.getAllUserMentionsByChannel");
+    case RestApiUtil::RestApiUrlType::ChannelsSetEncrypted:
+        return QStringLiteral("channels.setEncrypted");
     case RestApiUtil::RestApiUrlType::GroupsAddAll:
         return QStringLiteral("groups.addAll");
     case RestApiUtil::RestApiUrlType::GroupsAddModerator:
@@ -235,6 +237,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("groups.listAll");
     case RestApiUtil::RestApiUrlType::GroupsMembers:
         return QStringLiteral("groups.members");
+    case RestApiUtil::RestApiUrlType::GroupsSetEncrypted:
+        return QStringLiteral("groups.setEncrypted");
     case RestApiUtil::RestApiUrlType::ServerInfo:
         return QStringLiteral("info");
     case RestApiUtil::RestApiUrlType::Settings:

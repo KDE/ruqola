@@ -94,6 +94,7 @@ enum class RestApiUrlType {
     ChannelsRoles,
     //since 0.63
     ChannelsGetAllUserMentionsByChannel,
+    ChannelsSetEncrypted,
     GroupsAddAll,
     GroupsAddModerator,
     GroupsAddOwner,
@@ -128,6 +129,7 @@ enum class RestApiUrlType {
     //Since 0.65
     GroupsRoles,
     GroupsCounters,
+    GroupsSetEncrypted,
     ServerInfo,
     Settings,
     SettingsPublic,
