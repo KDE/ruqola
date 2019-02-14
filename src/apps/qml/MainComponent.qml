@@ -163,7 +163,6 @@ Component {
 //                                        appid.rocketChatAccount.groupInfo(appid.selectedRoom.rid);
 //                                    }
                                     //For testing
-                                    appid.rocketChatAccount.rolesInRoom(appid.selectedRoom.rid, channelType)
                                     channelInfoDialog.roomInfo = appid.selectedRoom
                                     channelInfoDialog.initializeAndOpen()
                                 } else if (channelType === "d") {
