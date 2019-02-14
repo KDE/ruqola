@@ -196,13 +196,14 @@ void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject)
         if (!trStr.isEmpty()) {
             Q_EMIT failed(trStr);
         } else {
-            qDebug() << " errorType************************" << errorType << " translate " << trStr;
+            qWarning() << " errorType************************" << errorType << " translate " << trStr;
         }
     }
 }
 
 QString RestApiAbstractJob::errorMessage(const QString &str)
 {
+    //TODO fix me
     if (str == QLatin1String("error-action-not-allowed")) {
         return i18n("__action__ is not allowed");
     } else if (str == QLatin1String("error-application-not-found")) {
