@@ -103,6 +103,12 @@ bool RuqolaServerConfig::needAdaptNewSubscriptionRC60() const
 
 bool RuqolaServerConfig::hasAtLeastVersion(int major, int minor, int patch) const
 {
+//    qDebug() << " major " << major << " mServerVersionMajor " << mServerVersionMajor << " (major <= mServerVersionMajor) " << (major <= mServerVersionMajor) <<
+//                " minor " << minor << " mServerVersionMinor  " << mServerVersionMinor << " (minor <= mServerVersionMinor) " << (minor <= mServerVersionMinor) <<
+//                " patch " << patch << " mServerVersionPatch " << mServerVersionPatch << " (patch <= mServerVersionPatch) " << (patch <= mServerVersionPatch);
+    if (mServerVersionMajor > major) {
+        return true;
+    }
     return (major <= mServerVersionMajor) && (minor <= mServerVersionMinor) && (patch <= mServerVersionPatch);
 }
 
@@ -206,7 +212,6 @@ QString RuqolaServerConfig::serverVersionStr() const
 
 bool RuqolaServerConfig::encryptionEnabled() const
 {
-    //TODO verify
     if (!hasAtLeastVersion(0, 7, 0)) {
         return false;
     }
