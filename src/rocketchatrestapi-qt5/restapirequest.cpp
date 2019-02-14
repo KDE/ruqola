@@ -77,6 +77,7 @@
 #include "channels/channeldeletejob.h"
 #include "channels/channelmembersjob.h"
 #include "channels/changechannelreadonlyjob.h"
+#include "channels/changechannelencryptedjob.h"
 //Not implemented yet
 //#include "channels/channeladdleaderjob.h"
 //#include "channels/channelremoveleaderjob.h"
@@ -101,6 +102,7 @@
 #include "groups/groupremovemoderatorjob.h"
 #include "groups/groupsdeletejob.h"
 #include "groups/changegroupsreadonlyjob.h"
+#include "groups/changegroupsencryptedjob.h"
 
 #include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
@@ -423,6 +425,29 @@ void RestApiRequest::changeGroupsReadOnly(const QString &roomId, bool b)
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }
 }
+
+void RestApiRequest::changeChannelEncrypted(const QString &roomId, bool b)
+{
+    ChangeChannelEncryptedJob *job = new ChangeChannelEncryptedJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setEncrypted(b);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::changeGroupsEncrypted(const QString &roomId, bool b)
+{
+    ChangeGroupsEncryptedJob *job = new ChangeGroupsEncryptedJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setEncrypted(b);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
 
 void RestApiRequest::changeChannelAnnouncement(const QString &roomId, const QString &announcement)
 {

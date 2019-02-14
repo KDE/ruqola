@@ -149,6 +149,8 @@ public:
     void changeGroupsReadOnly(const QString &roomId, bool b);
     void channelAddLeader(const QString &roomId, const QString &userId);
     void channelRemoveLeader(const QString &roomId, const QString &userId);
+    void changeChannelEncrypted(const QString &roomId, bool b);
+    void changeGroupsEncrypted(const QString &roomId, bool b);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
