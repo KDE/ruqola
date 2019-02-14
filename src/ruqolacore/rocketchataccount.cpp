@@ -1223,8 +1223,7 @@ void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId
             restApi()->channelAddOwner(roomId, userId);
             break;
         case RocketChatAccount::AddLeader:
-            //TODO use ddp here
-            //restApi()->channelAddLeader(roomId, userId);
+            restApi()->channelAddLeader(roomId, userId);
             break;
         case RocketChatAccount::AddModerator:
             restApi()->channelAddModerator(roomId, userId);
@@ -1233,8 +1232,7 @@ void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId
             restApi()->channelRemoveOwner(roomId, userId);
             break;
         case RocketChatAccount::RemoveLeader:
-            //TODO use ddp here
-            //restApi()->channelRemoveLeader(roomId, userId);
+            restApi()->channelRemoveLeader(roomId, userId);
             break;
         case RocketChatAccount::RemoveModerator:
             restApi()->channelRemoveModerator(roomId, userId);
