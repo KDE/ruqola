@@ -339,6 +339,7 @@ QString Message::messageTypeText() const
     } else if (mSystemMessageType == QLatin1String("jitsi_call_started")) {
         return i18n("Click to join to video");
     } else if (mSystemMessageType == QLatin1String("rm")) {
+        //TODO encrypted message
         return i18n("Message Deleted");
     } else if (mSystemMessageType == QLatin1String("message_pinned")) {
         return i18n("Message Pinned");
