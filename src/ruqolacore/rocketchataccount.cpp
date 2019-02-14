@@ -538,6 +538,7 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
         const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
 #ifdef USE_REASTAPI_JOB
         if (privateRoom) {
+            //TODO add password ???
             restApi()->createGroups(name, readOnly, lstUsers);
         } else {
             restApi()->createChannels(name, readOnly, lstUsers, password);
