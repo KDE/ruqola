@@ -78,6 +78,13 @@ public:
     void setEncryptionEnabled(bool encryptionEnabled);
 
     Q_REQUIRED_RESULT QString serverVersionStr() const;
+
+    Q_REQUIRED_RESULT int serverVersionMajor() const;
+
+    Q_REQUIRED_RESULT int serverVersionMinor() const;
+
+    Q_REQUIRED_RESULT int serverVersionPatch() const;
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;

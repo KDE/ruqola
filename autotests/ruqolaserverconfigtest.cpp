@@ -94,6 +94,7 @@ void RuqolaServerConfigTest::shouldEnabledRc60_data()
     QTest::newRow("0.70.0") << QStringLiteral("0.70.0") << true;
     QTest::newRow("invalid") << QStringLiteral("foo") << false;
     QTest::newRow("invalid-2") << QStringLiteral("0.6foo") << false;
+    QTest::newRow("1.0.0-develop") << QStringLiteral("1.0.0") << true;
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60()
@@ -102,6 +103,7 @@ void RuqolaServerConfigTest::shouldEnabledRc60()
     QFETCH(bool, needRc60);
     RuqolaServerConfig config;
     config.setServerVersion(serverVersion);
+    //qDebug() << " config " << config;
     QCOMPARE(config.needAdaptNewSubscriptionRC60(), needRc60);
 }
 

@@ -181,7 +181,22 @@ void RuqolaServerConfig::addOauthService(const QString &service)
 
 void RuqolaServerConfig::adaptToServerVersion()
 {
-    mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor == 0) && (mServerVersionMinor >= 60);
+    mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
+}
+
+int RuqolaServerConfig::serverVersionPatch() const
+{
+    return mServerVersionPatch;
+}
+
+int RuqolaServerConfig::serverVersionMinor() const
+{
+    return mServerVersionMinor;
+}
+
+int RuqolaServerConfig::serverVersionMajor() const
+{
+    return mServerVersionMajor;
 }
 
 QString RuqolaServerConfig::serverVersionStr() const
@@ -248,5 +263,6 @@ QDebug operator <<(QDebug d, const RuqolaServerConfig &t)
     d << "mOtrEnabled " << t.otrEnabled();
     d << "mNeedAdaptNewSubscriptionRC60 " << t.needAdaptNewSubscriptionRC60();
     d << "mEncryptionEnabled " << t.encryptionEnabled();
+    d << "mServerVersionMajor " << t.serverVersionMajor() << " mServerVersionMinor " << t.serverVersionMinor() << " mServerVersionPatch " << t.serverVersionPatch();
     return d;
 }
