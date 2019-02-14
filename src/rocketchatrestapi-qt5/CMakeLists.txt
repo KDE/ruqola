@@ -94,6 +94,7 @@ set (RocketChatRestApiQt_SRCS
     groups/groupremovemoderatorjob.cpp
     groups/groupsdeletejob.cpp
     groups/changegroupsreadonlyjob.cpp
+    groups/changegroupsencryptedjob.cpp
 
     directmessage/createdmjob.cpp
     directmessage/opendmjob.cpp

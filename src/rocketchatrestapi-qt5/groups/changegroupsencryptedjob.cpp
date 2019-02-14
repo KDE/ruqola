@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "changegroupsreadonlyjob.h"
+#include "changegroupsencryptedjob.h"
 
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
@@ -26,29 +26,29 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-ChangeGroupsReadonlyJob::ChangeGroupsReadonlyJob(QObject *parent)
+ChangeGroupsEncryptedJob::ChangeGroupsEncryptedJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-ChangeGroupsReadonlyJob::~ChangeGroupsReadonlyJob()
+ChangeGroupsEncryptedJob::~ChangeGroupsEncryptedJob()
 {
 }
 
-bool ChangeGroupsReadonlyJob::start()
+bool ChangeGroupsEncryptedJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("ChangeGroupsReadonlyJob::start: " + baPostData);
+    addLoggerInfo("ChangeGroupsEncryptedJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &ChangeGroupsReadonlyJob::slotChangeReadonlyFinished);
+    connect(reply, &QNetworkReply::finished, this, &ChangeGroupsEncryptedJob::slotChangeEncryptedFinished);
     return true;
 }
 
-void ChangeGroupsReadonlyJob::slotChangeReadonlyFinished()
+void ChangeGroupsEncryptedJob::slotChangeEncryptedFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -57,67 +57,67 @@ void ChangeGroupsReadonlyJob::slotChangeReadonlyFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("Change read only success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT changeReadonlyDone();
+            addLoggerInfo(QByteArrayLiteral("Change encrypted success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT changeEncryptedDone();
         } else {
             emitFailedMessage(replyObject);
-            addLoggerWarning(QByteArrayLiteral("Problem when we tried to change read only status: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("Problem when we tried to change encrypted status: ") + replyJson.toJson(QJsonDocument::Indented));
         }
     }
     deleteLater();
 }
 
-bool ChangeGroupsReadonlyJob::readOnly() const
+bool ChangeGroupsEncryptedJob::encrypted() const
 {
-    return mReadOnly;
+    return mEncrypted;
 }
 
-void ChangeGroupsReadonlyJob::setReadOnly(bool readOnly)
+void ChangeGroupsEncryptedJob::setEncrypted(bool encrypted)
 {
-    mReadOnly = readOnly;
+    mEncrypted = encrypted;
 }
 
-bool ChangeGroupsReadonlyJob::requireHttpAuthentication() const
+bool ChangeGroupsEncryptedJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool ChangeGroupsReadonlyJob::canStart() const
+bool ChangeGroupsEncryptedJob::canStart() const
 {
     if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsReadonlyJob: RoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChangeGroupsEncryptedJob: RoomId is empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsReadonlyJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChangeGroupsEncryptedJob job";
         return false;
     }
     return true;
 }
 
-QJsonDocument ChangeGroupsReadonlyJob::json() const
+QJsonDocument ChangeGroupsEncryptedJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = roomId();
-    jsonObj[QLatin1String("readOnly")] = readOnly();
+    jsonObj[QLatin1String("encrypted")] = encrypted();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
-QString ChangeGroupsReadonlyJob::roomId() const
+QString ChangeGroupsEncryptedJob::roomId() const
 {
     return mRoomId;
 }
 
-void ChangeGroupsReadonlyJob::setRoomId(const QString &roomId)
+void ChangeGroupsEncryptedJob::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
 }
 
-QNetworkRequest ChangeGroupsReadonlyJob::request() const
+QNetworkRequest ChangeGroupsEncryptedJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsSetReadOnly);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::GroupsSetEncrypted);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
