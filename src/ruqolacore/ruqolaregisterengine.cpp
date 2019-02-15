@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "message.h"
+#include "messages/message.h"
 #include "rocketchataccount.h"
 #include "roomwrapper.h"
 #include "ruqola.h"

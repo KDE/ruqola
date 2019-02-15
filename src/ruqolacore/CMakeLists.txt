@@ -51,13 +51,23 @@ set(Ruqola_aboutdata_srcs
     aboutdata/qmlaboutdataauthormodel.cpp
     )
 
+set(Ruqola_messages_srcs  
+    messages/message.cpp
+    messages/messageattachment.cpp
+    messages/messageurl.cpp
+    messages/messagestarred.cpp
+    messages/reactions.cpp
+    messages/reaction.cpp
+    messages/messagepinned.cpp
+    )
+    
 set (Ruqola_core_srcs
+    ${Ruqola_messages_srcs}
     ${Ruqola_model_core_srcs}
     ${Ruqola_plugins_srcs}
     ${Ruqola_aboutdata_srcs}
     ${Ruqola_ddpapi_SRCS}
     authenticationinfo.cpp
-    message.cpp
     room.cpp
     roomwrapper.cpp
     notificationoptionswrapper.cpp
@@ -78,8 +88,6 @@ set (Ruqola_core_srcs
     otrmanager.cpp
     abstractwebsocket.cpp
     ruqolawebsocket.cpp
-    messageattachment.cpp
-    messageurl.cpp
     rocketchataccount.cpp
     rocketchataccountsettings.cpp
     ruqolalogger.cpp
@@ -100,8 +108,6 @@ set (Ruqola_core_srcs
 
     notificationoptions.cpp
 
-    reactions.cpp
-    reaction.cpp
     syntaxhighlightingmanager.cpp
     copyfilejob.cpp
     emoticon.cpp

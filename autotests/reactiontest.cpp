@@ -18,7 +18,7 @@
 */
 
 #include "reactiontest.h"
-#include "reaction.h"
+#include "messages/reaction.h"
 
 #include <QTest>
 QTEST_GUILESS_MAIN(ReactionTest)

@@ -24,6 +24,7 @@
 #include "libruqola_private_export.h"
 #include "messageattachment.h"
 #include "messageurl.h"
+#include "messagepinned.h"
 #include "reactions.h"
 #include <QJsonObject>
 #include <QString>
@@ -145,11 +146,17 @@ public:
     Q_REQUIRED_RESULT bool unread() const;
     void setUnread(bool uread);
 
+    Q_REQUIRED_RESULT MessagePinned messagePinned() const;
+    void setMessagePinned(const MessagePinned &messagePinned);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
     void parseUrls(const QJsonArray &urls);
     void parseReactions(const QJsonObject &mentions);
+
+    //Message Pinned
+    MessagePinned mMessagePinned;
 
     //Message Object Fields
     QVector<MessageAttachment> mAttachements;

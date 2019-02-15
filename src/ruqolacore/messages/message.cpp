@@ -83,6 +83,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     }
 }
 
+MessagePinned Message::messagePinned() const
+{
+    return mMessagePinned;
+}
+
+void Message::setMessagePinned(const MessagePinned &messagePinned)
+{
+    mMessagePinned = messagePinned;
+}
+
 bool Message::unread() const
 {
     return mUnread;
@@ -178,7 +188,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
 {
     mAttachements.clear();
     if (!attachments.isEmpty()) {
-        qCDebug(RUQOLA_LOG) << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
+        //qCDebug(RUQOLA_LOG) << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
         for (int i = 0; i < attachments.size(); i++) {
             const QJsonObject attachment = attachments.at(i).toObject();
             MessageAttachment messageAttachement;

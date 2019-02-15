@@ -20,7 +20,7 @@
 #ifndef MENTION_H
 #define MENTION_H
 #include "libruqola_private_export.h"
-#include "message.h"
+#include "messages/message.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT Mention : public Message
 {

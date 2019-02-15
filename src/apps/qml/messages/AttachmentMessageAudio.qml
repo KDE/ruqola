@@ -95,8 +95,10 @@ MessageBase {
                                 if (repearterAttachments.audioPlayer.source !== "") {
                                     if (repearterAttachments.audioPlayer.playbackState === MediaPlayer.PlayingState) {
                                         repearterAttachments.audioPlayer.pause()
+                                        playerButton.source = "media-playback-start"
                                     } else {
                                         repearterAttachments.audioPlayer.play()
+                                        playerButton.source = "media-playback-pause"
                                     }
                                 } else {
                                     console.log(RuqolaDebugCategorySingleton.category, "Audio file no found");

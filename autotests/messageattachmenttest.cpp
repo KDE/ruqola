@@ -19,7 +19,7 @@
 */
 
 #include "messageattachmenttest.h"
-#include "messageattachment.h"
+#include "messages/messageattachment.h"
 #include <QJsonObject>
 #include <QTest>
 QTEST_GUILESS_MAIN(MessageAttachmentTest)

@@ -23,7 +23,7 @@
 #include <QDebug>
 #include <QJsonObject>
 #include "libruqola_private_export.h"
-#include "message.h"
+#include "messages/message.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT SearchMessage
 {

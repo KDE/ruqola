@@ -18,7 +18,7 @@
 */
 
 #include "reactionstest.h"
-#include "reactions.h"
+#include "messages/reactions.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>

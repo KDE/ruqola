@@ -19,7 +19,7 @@
 */
 
 #include "messageurltest.h"
-#include "messageurl.h"
+#include "messages/messageurl.h"
 #include <QJsonObject>
 #include <QTest>
 QTEST_GUILESS_MAIN(MessageUrlTest)

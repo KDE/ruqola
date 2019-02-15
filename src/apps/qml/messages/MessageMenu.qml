@@ -29,15 +29,21 @@ QQC2.Menu {
     property bool can_editing_message
     property bool user_ignored
     property bool starred
+    property bool pinned_message
 
     function updateFavoriteLabelText()
     {
-        return (i_starred === true) ? i18n("Remove as Favorite") : i18n("Set as Favorite")
+        return (starred === true) ? i18n("Remove as Favorite") : i18n("Set as Favorite")
     }
 
     function updateIgnoreLabelText()
     {
-        return (i_user_ignored === true) ? i18n("Unignore") : i18n("Ignore")
+        return (user_ignored === true) ? i18n("Unignore") : i18n("Ignore")
+    }
+
+    function updatePinnedMessageLabelText()
+    {
+        return (pinned_message === true) ?  i18n("Unpin Message") : i18n("Pin Message")
     }
 
     QQC2.MenuItem {
@@ -86,12 +92,11 @@ QQC2.Menu {
     QQC2.MenuItem {
         id: pinnedMessageItem
         contentItem: QQC2.Label {
-            id: pinnedLabel
-            text: i18n("Pinned Message")
-            //text: updateFavoriteLabelText()
+            id: pinnedMessageLabel
+            text: updatePinnedMessageLabelText()
         }
         onTriggered: {
-            //TODO
+            messageMain.pinMessage(i_messageID, !pinned_message);
         }
     }
 
@@ -119,6 +124,10 @@ QQC2.Menu {
         starredMessageItem.visible = rcAccount.allowMessageStarringEnabled()
         if (starredMessageItem.visible) {
             favoriteLabel.text = updateFavoriteLabelText()
+        }
+        pinnedMessageItem.visible = rcAccount.allowMessagePinningEnabled()
+        if (pinnedMessageItem.visible) {
+            pinnedMessageLabel.text = updatePinnedMessageLabelText();
         }
 
         editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message

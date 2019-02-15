@@ -106,10 +106,10 @@ MessageBase {
 
                                     if (videoPlayer.playbackState === MediaPlayer.PlayingState) {
                                         videoPlayer.pause()
-                                        source = "media-playback-start"
+                                        playerButton.source = "media-playback-start"
                                     } else {
                                         videoPlayer.play()
-                                        source = "media-playback-pause"
+                                        playerButton.source = "media-playback-pause"
                                     }
                                     //TODO stop ?
                                     if (videoPlayer.error !== MediaPlayer.NoError) {

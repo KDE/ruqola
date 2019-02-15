@@ -28,7 +28,6 @@
 
 #include "messagemodel.h"
 #include "ruqolaserverconfig.h"
-#include "message.h"
 #include "room.h"
 #include "ruqola_debug.h"
 #include "utils.h"

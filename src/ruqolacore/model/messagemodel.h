@@ -24,7 +24,7 @@
 #define MESSAGEMODEL_H
 
 #include "libruqola_private_export.h"
-#include "message.h"
+#include "messages/message.h"
 #include <QAbstractListModel>
 #include <QObject>
 #include <QByteArray>

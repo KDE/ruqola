@@ -19,7 +19,7 @@
 */
 
 #include "messagetest.h"
-#include "message.h"
+#include "messages/message.h"
 #include "ruqola_autotest_helper.h"
 #include <QTest>
 #include <QJsonDocument>
