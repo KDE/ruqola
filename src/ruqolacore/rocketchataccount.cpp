@@ -363,7 +363,6 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
 
 void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelType)
 {
-#ifdef USE_REASTAPI_JOB
     if (channelType == QStringLiteral("c")) {
         restApi()->leaveChannel(roomId);
     } else if (channelType == QStringLiteral("p")) {
@@ -371,20 +370,11 @@ void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelT
     } else {
         qCWarning(RUQOLA_LOG) << " unsupport leave room for type " << channelType;
     }
-#else
-    Q_UNUSED(channelType)
-    ddp()->leaveRoom(roomId);
-#endif
 }
 
 void RocketChatAccount::hideRoom(const QString &roomId, const QString &channelType)
 {
-#ifdef USE_REASTAPI_JOB
     restApi()->closeChannel(roomId, channelType);
-#else
-    Q_UNUSED(channelType)
-    ddp()->hideRoom(roomId);
-#endif
 }
 
 DDPClient *RocketChatAccount::ddp()
@@ -472,11 +462,7 @@ void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 void RocketChatAccount::openChannel(const QString &url)
 {
     //qCDebug(RUQOLA_LOG) << " void RocketChatAccount::openChannel(const QString &url)"<<url;
-#ifdef USE_REASTAPI_JOB
     restApi()->channelJoin(url, QString());
-#else
-    ddp()->joinRoom(url, QString());
-#endif
     //TODO search correct room + select it.
 }
 
@@ -506,7 +492,6 @@ void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
 
 void RocketChatAccount::eraseRoom(const QString &roomId, const QString &channelType)
 {
-#ifdef USE_REASTAPI_JOB
     if (channelType == QStringLiteral("c")) {
         restApi()->channelDelete(roomId);
     } else if (channelType == QStringLiteral("p")) {
@@ -514,10 +499,6 @@ void RocketChatAccount::eraseRoom(const QString &roomId, const QString &channelT
     } else {
         qCWarning(RUQOLA_LOG) << " unsupport delete for type " << channelType;
     }
-#else
-    Q_UNUSED(channelType);
-    ddp()->eraseRoom(roomId);
-#endif
 }
 
 void RocketChatAccount::openDirectChannel(const QString &username)
@@ -557,11 +538,7 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
 
 void RocketChatAccount::joinRoom(const QString &roomId, const QString &joinCode)
 {
-#ifdef USE_REASTAPI_JOB
     restApi()->channelJoin(roomId, joinCode);
-#else
-    ddp()->joinRoom(roomId, joinCode);
-#endif
 }
 
 void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
@@ -578,15 +555,11 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 
 void RocketChatAccount::listEmojiCustom()
 {
-#ifdef USE_REASTAPI_JOB
     if (mRuqolaServerConfig->hasAtLeastVersion(0, 63, 0)) {
         restApi()->listEmojiCustom();
     } else {
         ddp()->listEmojiCustom();
     }
-#else
-    ddp()->listEmojiCustom();
-#endif
 }
 
 void RocketChatAccount::setDefaultStatus(User::PresenceStatus status)
@@ -613,12 +586,7 @@ void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 
 void RocketChatAccount::deleteMessage(const QString &messageId, const QString &roomId)
 {
-#ifdef USE_REASTAPI_JOB
     restApi()->deleteMessage(roomId, messageId);
-#else
-    Q_UNUSED(roomId);
-    ddp()->deleteMessage(messageId);
-#endif
 }
 
 void RocketChatAccount::insertFilesList(const QString &roomId)
@@ -759,11 +727,7 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
     if (pattern.isEmpty()) {
         clearSearchModel();
     } else {
-#ifdef USE_REASTAPI_JOB
         restApi()->searchMessages(rid, pattern);
-#else
-        ddp()->messageSearch(rid, pattern);
-#endif
     }
 }
 
