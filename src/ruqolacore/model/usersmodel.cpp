@@ -137,11 +137,27 @@ void UsersModel::updateUser(const QJsonObject &array)
             User user = mUsers.at(i);
             const QJsonObject fields = array.value(QLatin1String("fields")).toObject();
             const QString newStatus = fields.value(QLatin1String("status")).toString();
-            user.setStatus(newStatus);
-            mUsers.replace(i, user);
-            const QModelIndex idx = createIndex(i, 0);
-            Q_EMIT dataChanged(idx, idx);
-            Q_EMIT userStatusChanged(user);
+            bool userDataChanged = false;
+            if (!newStatus.isEmpty()) {
+                user.setStatus(newStatus);
+                mUsers.replace(i, user);
+                const QModelIndex idx = createIndex(i, 0);
+                Q_EMIT dataChanged(idx, idx);
+                Q_EMIT userStatusChanged(user);
+                userDataChanged = true;
+            }
+            const QString newName = fields.value(QLatin1String("name")).toString();
+            if (!newName.isEmpty()) {
+                user.setName(newName);
+                mUsers.replace(i, user);
+                const QModelIndex idx = createIndex(i, 0);
+                Q_EMIT dataChanged(idx, idx);
+                Q_EMIT userStatusChanged(user);
+                userDataChanged = true;
+            }
+            if (!userDataChanged) {
+                qCWarning(RUQOLA_LOG) << " Unsupported yet user data modification " << array;
+            }
             break;
         }
     }
