@@ -152,8 +152,7 @@ void UsersModel::updateUser(const QJsonObject &array)
                 mUsers.replace(i, user);
                 const QModelIndex idx = createIndex(i, 0);
                 Q_EMIT dataChanged(idx, idx);
-                //TODO add signal
-                //Q_EMIT userStatusChanged(user);
+                Q_EMIT userNameChanged(user);
                 userDataChanged = true;
             }
             const QString newuserName = fields.value(QLatin1String("username")).toString();
@@ -162,8 +161,7 @@ void UsersModel::updateUser(const QJsonObject &array)
                 mUsers.replace(i, user);
                 const QModelIndex idx = createIndex(i, 0);
                 Q_EMIT dataChanged(idx, idx);
-                //TODO add signal
-                //Q_EMIT userStatusChanged(user);
+                Q_EMIT nameChanged(user);
                 userDataChanged = true;
             }
             if (!userDataChanged) {

@@ -53,6 +53,8 @@ public:
 
 Q_SIGNALS:
     void userStatusChanged(const User &user);
+    void userNameChanged(const User &user);
+    void nameChanged(const User &user);
 
 private:
     Q_DISABLE_COPY(UsersModel)
