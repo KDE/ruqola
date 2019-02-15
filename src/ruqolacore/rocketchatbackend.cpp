@@ -235,6 +235,8 @@ void RocketChatBackend::slotRemoved(const QJsonObject &object)
         } else {
             qDebug() << "USER REMOVED VALUE" << object;
         }
+    } else if (collection == QLatin1String("stream-notify-logged")) {
+        qDebug() << "removed stream-notify-logged " << object;
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type  removed " << collection << " object "<<object;
     }
@@ -494,6 +496,14 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         qCDebug(RUQOLA_LOG) << " EVENT " << eventname << " contents " << contents << fields.value(QLatin1String("args")).toArray().toVariantList();
         if (eventname == QLatin1String("roles-change")) {
             mRocketChatAccount->rolesChanged(contents);
+        } else if (eventname == QLatin1String("updateAvatar")) {
+            //TODO update it.
+            //Update list of avatar !
+            qCWarning(RUQOLA_LOG) << " updateAvatar :" << fields;
+        } else if (eventname == QLatin1String("updateEmojiCustom")) {
+            qCWarning(RUQOLA_LOG) << " updateEmojiCustom :" << fields;
+        } else {
+            qWarning() << "stream-notify-logged not supported " << fields;
         }
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type changed " << collection << " object "<<object;
