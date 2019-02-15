@@ -193,7 +193,7 @@ QQC2.Dialog {
         }
         QQC2.Switch {
             id: encrypted
-            //checked: roomInfo === null ? false : roomInfo.channelType === "p"
+            checked: roomInfo === null ? false : roomInfo.encrypted
             onClicked: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Encrypted, checked, roomInfo.channelType)
             }
