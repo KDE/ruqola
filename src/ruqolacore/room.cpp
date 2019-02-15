@@ -828,8 +828,9 @@ Room *Room::fromJSon(const QJsonObject &o)
 
     const QJsonArray ignoredArray = o.value(QLatin1String("ignored")).toArray();
     QStringList lstIgnored;
-    lstIgnored.reserve(ignoredArray.count());
-    for (int i = 0; i < ignoredArray.count(); ++i) {
+    const int ignoredArrayCount = ignoredArray.count();
+    lstIgnored.reserve(ignoredArrayCount);
+    for (int i = 0; i < ignoredArrayCount; ++i) {
         lstIgnored <<ignoredArray.at(i).toString();
     }
     r->setIgnoredUsers(lstIgnored);
