@@ -898,6 +898,14 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             mRuqolaServerConfig->setSiteName(value.toString());
         } else if (id == QLatin1String("E2E_Enable")) {
             mRuqolaServerConfig->setEncryptionEnabled(value.toBool());
+        } else if (id == QLatin1String("Message_AllowPinning")) {
+            mRuqolaServerConfig->setAllowMessagePinningEnabled(value.toBool());
+        } else if (id == QLatin1String("Message_AllowSnippeting")) {
+            mRuqolaServerConfig->setAllowMessageSnippetingEnabled(value.toBool());
+        } else if (id == QLatin1String("Message_AllowStarring")) {
+            mRuqolaServerConfig->setAllowMessageStarringEnabled(value.toBool());
+        } else if (id == QLatin1String("Message_AllowDeleting")) {
+            mRuqolaServerConfig->setAllowMessageDeletingEnabled(value.toBool());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

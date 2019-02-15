@@ -190,6 +190,46 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+bool RuqolaServerConfig::allowMessageDeletingEnabled() const
+{
+    return mAllowMessageDeletingEnabled;
+}
+
+void RuqolaServerConfig::setAllowMessageDeletingEnabled(bool allowMessageDeletingEnabled)
+{
+    mAllowMessageDeletingEnabled = allowMessageDeletingEnabled;
+}
+
+bool RuqolaServerConfig::allowMessageStarringEnabled() const
+{
+    return mAllowMessageStarringEnabled;
+}
+
+void RuqolaServerConfig::setAllowMessageStarringEnabled(bool allowMessageStarringEnabled)
+{
+    mAllowMessageStarringEnabled = allowMessageStarringEnabled;
+}
+
+bool RuqolaServerConfig::allowMessageSnippetingEnabled() const
+{
+    return mAllowMessageSnippetingEnabled;
+}
+
+void RuqolaServerConfig::setAllowMessageSnippetingEnabled(bool allowMessageSnippetingEnabled)
+{
+    mAllowMessageSnippetingEnabled = allowMessageSnippetingEnabled;
+}
+
+bool RuqolaServerConfig::allowMessagePinningEnabled() const
+{
+    return mAllowMessagePinningEnabled;
+}
+
+void RuqolaServerConfig::setAllowMessagePinningEnabled(bool allowMessagePinningEnabled)
+{
+    mAllowMessagePinningEnabled = allowMessagePinningEnabled;
+}
+
 int RuqolaServerConfig::serverVersionPatch() const
 {
     return mServerVersionPatch;

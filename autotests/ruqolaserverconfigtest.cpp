@@ -46,6 +46,10 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QCOMPARE(config.blockEditingMessageInMinutes(), 5);
     QCOMPARE(config.ruqolaOauthTypes(), AuthenticationManager::OauthType::Password);
     QCOMPARE(config.serverOauthTypes(), AuthenticationManager::OauthType::Password);
+    QVERIFY(!config.allowMessagePinningEnabled());
+    QVERIFY(!config.allowMessageSnippetingEnabled());
+    QVERIFY(!config.allowMessageStarringEnabled());
+    QVERIFY(!config.allowMessageDeletingEnabled());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -72,6 +76,15 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setSiteUrl(siteUrl);
     config.setEncryptionEnabled(encryptionEnabled);
 
+    bool pinning = true;
+    bool snippeting = true;
+    bool starring = true;
+    bool deleting = true;
+    config.setAllowMessagePinningEnabled(pinning);
+    config.setAllowMessageSnippetingEnabled(snippeting);
+    config.setAllowMessageStarringEnabled(starring);
+    config.setAllowMessageDeletingEnabled(deleting);
+
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
     QCOMPARE(config.uniqueId(), uniqueId);
@@ -83,6 +96,11 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.siteUrl(), siteUrl);
     QCOMPARE(config.siteName(), siteName);
     QCOMPARE(config.encryptionEnabled(), encryptionEnabled);
+
+    QCOMPARE(config.allowMessagePinningEnabled(), pinning);
+    QCOMPARE(config.allowMessageSnippetingEnabled(), snippeting);
+    QCOMPARE(config.allowMessageStarringEnabled(), starring);
+    QCOMPARE(config.allowMessageDeletingEnabled(), deleting);
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60_data()

@@ -85,6 +85,18 @@ public:
 
     Q_REQUIRED_RESULT int serverVersionPatch() const;
 
+    Q_REQUIRED_RESULT bool allowMessagePinningEnabled() const;
+    void setAllowMessagePinningEnabled(bool allowMessagePinningEnabled);
+
+    Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
+    void setAllowMessageSnippetingEnabled(bool allowMessageSnippetingEnabled);
+
+    Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
+    void setAllowMessageStarringEnabled(bool allowMessageStarringEnabled);
+
+    Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
+    void setAllowMessageDeletingEnabled(bool allowMessageDeletingEnabled);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -105,6 +117,10 @@ private:
     bool mOtrEnabled = true;
     bool mNeedAdaptNewSubscriptionRC60 = false;
     bool mEncryptionEnabled = false;
+    bool mAllowMessagePinningEnabled = false;
+    bool mAllowMessageSnippetingEnabled = false;
+    bool mAllowMessageStarringEnabled = false;
+    bool mAllowMessageDeletingEnabled = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H
