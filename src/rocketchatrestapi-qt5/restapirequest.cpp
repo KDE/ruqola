@@ -51,6 +51,7 @@
 #include "chat/searchmessagejob.h"
 #include "chat/ignoreuserjob.h"
 #include "chat/reportmessagejob.h"
+#include "chat/pinmessagejob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
@@ -1330,5 +1331,17 @@ void RestApiRequest::groupDelete(const QString &roomId)
     connect(job, &GroupsDeleteJob::deleteGroupsDone, this, &RestApiRequest::deleteGroupsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GroupsDeleteJob";
+    }
+}
+
+void RestApiRequest::pinMessage(const QString &messageId, bool pinned)
+{
+    PinMessageJob *job = new PinMessageJob(this);
+    initializeRestApiJob(job);
+    job->setMessageId(messageId);
+    job->setPinMessage(pinned);
+    connect(job, &PinMessageJob::pinMessageDone, this, &RestApiRequest::pinMessageDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PinMessageJob";
     }
 }

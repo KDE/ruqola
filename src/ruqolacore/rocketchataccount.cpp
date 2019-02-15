@@ -746,6 +746,11 @@ void RocketChatAccount::starMessage(const QString &messageId, const QString &rid
 #endif
 }
 
+void RocketChatAccount::pinMessage(const QString &messageId, bool pinned)
+{
+    restApi()->pinMessage(messageId, pinned);
+}
+
 void RocketChatAccount::uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl)
 {
     restApi()->uploadFile(roomId, description, messageText, fileUrl);

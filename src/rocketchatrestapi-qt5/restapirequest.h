@@ -151,6 +151,7 @@ public:
     void channelRemoveLeader(const QString &roomId, const QString &userId);
     void changeChannelEncrypted(const QString &roomId, bool b);
     void changeGroupsEncrypted(const QString &roomId, bool b);
+    void pinMessage(const QString &messageId, bool pinned);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void logoutDone();
@@ -189,6 +190,7 @@ Q_SIGNALS:
     void removeOwnerDone();
     void deletechannelDone();
     void deleteGroupsDone();
+    void pinMessageDone();
     void ignoreUserDone(const QJsonObject &obj, const QString &roomId);
 
     void failed(const QString &str);

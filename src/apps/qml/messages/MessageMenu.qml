@@ -82,6 +82,19 @@ QQC2.Menu {
             messageMain.setFavoriteMessage(i_messageID, !starred);
         }
     }
+
+    QQC2.MenuItem {
+        id: pinnedMessageItem
+        contentItem: QQC2.Label {
+            id: pinnedLabel
+            text: i18n("Pinned Message")
+            //text: updateFavoriteLabelText()
+        }
+        onTriggered: {
+            //TODO
+        }
+    }
+
     QQC2.MenuItem {
         id: deleteMessageItem
         visible: i_username === i_own_username && rcAccount.allowMessageDeletingEnabled()
