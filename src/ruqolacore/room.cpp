@@ -278,7 +278,6 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setRoomCreatorUserId(QString());
         setRoomCreatorUserName(QString());
     }
-    //TODO broadcast
 }
 
 bool Room::selected() const
@@ -655,7 +654,6 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     //qDebug() << " *thus" << *this;
     mNotificationOptions.parseNotificationOptions(json);
 
-    //TODO encrypted ?
     //TODO add muted
 }
 
