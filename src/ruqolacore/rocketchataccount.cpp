@@ -1141,6 +1141,27 @@ bool RocketChatAccount::encryptedEnabled() const
     return mRuqolaServerConfig->encryptionEnabled();
 }
 
+bool RocketChatAccount::allowMessagePinningEnabled() const
+{
+    return mRuqolaServerConfig->allowMessagePinningEnabled();
+}
+
+bool RocketChatAccount::allowMessageSnippetingEnabled() const
+{
+    return mRuqolaServerConfig->allowMessageSnippetingEnabled();
+}
+
+bool RocketChatAccount::allowMessageStarringEnabled() const
+{
+    return mRuqolaServerConfig->allowMessageStarringEnabled();
+}
+
+bool RocketChatAccount::allowMessageDeletingEnabled() const
+{
+    return mRuqolaServerConfig->allowMessageDeletingEnabled();
+}
+
+
 QString RocketChatAccount::serverVersionStr() const
 {
     return mRuqolaServerConfig->serverVersionStr();

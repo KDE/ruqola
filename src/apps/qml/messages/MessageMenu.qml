@@ -72,6 +72,7 @@ QQC2.Menu {
         }
     }
     QQC2.MenuItem {
+        id: starredMessageItem
         contentItem: QQC2.Label {
             id: favoriteLabel
             text: updateFavoriteLabelText()
@@ -82,7 +83,8 @@ QQC2.Menu {
         }
     }
     QQC2.MenuItem {
-        visible: i_username === i_own_username
+        id: deleteMessageItem
+        visible: i_username === i_own_username && rcAccount.allowMessageDeletingEnabled()
         contentItem: QQC2.Label {
             text: i18n("Delete")
         }
@@ -101,8 +103,12 @@ QQC2.Menu {
         }
     }
     onAboutToShow: {
+        starredMessageItem.visible = rcAccount.allowMessageStarringEnabled()
+        if (starredMessageItem.visible) {
+            favoriteLabel.text = updateFavoriteLabelText()
+        }
+
         editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
-        favoriteLabel.text = updateFavoriteLabelText()
         ignoreLabel.text = updateIgnoreLabelText()
     }
 }

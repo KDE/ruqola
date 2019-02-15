@@ -193,6 +193,13 @@ public:
     Q_INVOKABLE Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_INVOKABLE Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
 
+    //TODO implement it in UI
+    Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessagePinningEnabled() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
+
+
     Q_INVOKABLE void channelInfo(const QString &roomId);
     Q_INVOKABLE void groupInfo(const QString &roomId);
     Q_INVOKABLE void channelGetAllUserMentions(const QString &roomId);
