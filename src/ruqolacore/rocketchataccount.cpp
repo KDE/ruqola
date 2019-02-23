@@ -1226,7 +1226,11 @@ void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId
             restApi()->channelAddOwner(roomId, userId);
             break;
         case RocketChatAccount::AddLeader:
-            restApi()->channelAddLeader(roomId, userId);
+            if (mRuqolaServerConfig->hasAtLeastVersion(0, 75, 0)) {
+                restApi()->channelAddLeader(roomId, userId);
+            } else {
+                qCWarning(RUQOLA_LOG) << " RocketChatAccount::AddLeader is not supported before server 0.75";
+            }
             break;
         case RocketChatAccount::AddModerator:
             restApi()->channelAddModerator(roomId, userId);
@@ -1235,7 +1239,11 @@ void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId
             restApi()->channelRemoveOwner(roomId, userId);
             break;
         case RocketChatAccount::RemoveLeader:
-            restApi()->channelRemoveLeader(roomId, userId);
+            if (mRuqolaServerConfig->hasAtLeastVersion(0, 75, 0)) {
+                restApi()->channelRemoveLeader(roomId, userId);
+            } else {
+                qCWarning(RUQOLA_LOG) << " RocketChatAccount::RemoveLeader is not supported before server 0.75";
+            }
             break;
         case RocketChatAccount::RemoveModerator:
             restApi()->channelRemoveModerator(roomId, userId);
