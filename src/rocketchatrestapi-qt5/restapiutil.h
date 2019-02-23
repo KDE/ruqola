@@ -56,6 +56,7 @@ enum class RestApiUrlType {
     ChatIgnoreUser,
     ChatReportMessage,
     ChannelsAddAll,
+    //@since 0.75
     ChannelsAddLeader,
     ChannelsAddModerator,
     ChannelsAddOwner,
@@ -74,6 +75,7 @@ enum class RestApiUrlType {
     ChannelsOpen,
     ChannelsRemoveModerator,
     ChannelsRemoveOwner,
+    //@since 0.75
     ChannelsRemoveLeader,
     ChannelsRename,
     ChannelsSetDescription,
