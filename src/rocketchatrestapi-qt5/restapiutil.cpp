@@ -107,6 +107,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.addModerator");
     case RestApiUtil::RestApiUrlType::ChannelsAddOwner:
         return QStringLiteral("channels.addOwner");
+    case RestApiUtil::RestApiUrlType::ChannelsAddLeader:
+        return QStringLiteral("channels.addLeader");
     case RestApiUtil::RestApiUrlType::ChannelsArchive:
         return QStringLiteral("channels.archive");
     case RestApiUtil::RestApiUrlType::ChannelsModerators:
@@ -139,6 +141,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("channels.removeModerator");
     case RestApiUtil::RestApiUrlType::ChannelsRemoveOwner:
         return QStringLiteral("channels.removeOwner");
+    case RestApiUtil::RestApiUrlType::ChannelsRemoveLeader:
+        return QStringLiteral("channels.removeLeader");
     case RestApiUtil::RestApiUrlType::ChannelsRename:
         return QStringLiteral("channels.rename");
     case RestApiUtil::RestApiUrlType::ChannelsSetDescription:
