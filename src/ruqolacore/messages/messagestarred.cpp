@@ -20,6 +20,7 @@
 
 
 #include "messagestarred.h"
+#include <QJsonObject>
 
 MessageStarred::MessageStarred()
 {
@@ -29,6 +30,12 @@ MessageStarred::MessageStarred()
 bool MessageStarred::isStarred() const
 {
     return mIsStarred;
+}
+
+
+void MessageStarred::parse(const QJsonObject &o)
+{
+    //TODO
 }
 
 void MessageStarred::setIsStarred(bool isStarred)

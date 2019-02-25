@@ -32,6 +32,7 @@ public:
     void setIsStarred(bool isStarred);
 
     Q_REQUIRED_RESULT bool operator==(const MessageStarred &other) const;
+    void parse(const QJsonObject &o);
 private:
     bool mIsStarred = false;
 };

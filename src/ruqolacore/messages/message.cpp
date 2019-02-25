@@ -63,6 +63,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     } else {
         mMessageStarred.setIsStarred(false);
     }
+    //TODO pinned message
 
     mMessageType = Message::MessageType::NormalText;
     if (!type.isEmpty()) {
