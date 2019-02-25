@@ -35,3 +35,8 @@ void MessageStarred::setIsStarred(bool isStarred)
 {
     mIsStarred = isStarred;
 }
+
+bool MessageStarred::operator==(const MessageStarred &other) const
+{
+    return (mIsStarred == other.isStarred());
+}

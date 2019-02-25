@@ -45,3 +45,8 @@ void MessagePinned::setPinnedBy(const QString &pinnedBy)
 {
     mPinnedBy = pinnedBy;
 }
+
+bool MessagePinned::operator==(const MessagePinned &other) const
+{
+    return (mPinned == other.pinned()) && (mPinnedBy == other.pinnedBy());
+}

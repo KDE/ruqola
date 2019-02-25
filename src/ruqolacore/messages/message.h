@@ -25,6 +25,7 @@
 #include "messageattachment.h"
 #include "messageurl.h"
 #include "messagepinned.h"
+#include "messagestarred.h"
 #include "reactions.h"
 #include <QJsonObject>
 #include <QString>
@@ -149,6 +150,9 @@ public:
     Q_REQUIRED_RESULT MessagePinned messagePinned() const;
     void setMessagePinned(const MessagePinned &messagePinned);
 
+    Q_REQUIRED_RESULT MessageStarred messageStarred() const;
+    void setMessageStarred(const MessageStarred &messageStarred);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -157,6 +161,9 @@ private:
 
     //Message Pinned
     MessagePinned mMessagePinned;
+
+    //Message Starred
+    MessageStarred mMessageStarred;
 
     //Message Object Fields
     QVector<MessageAttachment> mAttachements;

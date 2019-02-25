@@ -34,6 +34,7 @@ public:
     Q_REQUIRED_RESULT QString pinnedBy() const;
     void setPinnedBy(const QString &pinnedBy);
 
+    Q_REQUIRED_RESULT bool operator==(const MessagePinned &other) const;
 private:
     QString mPinnedBy;
     bool mPinned = false;

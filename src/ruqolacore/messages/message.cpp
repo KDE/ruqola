@@ -83,6 +83,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     }
 }
 
+MessageStarred Message::messageStarred() const
+{
+    return mMessageStarred;
+}
+
+void Message::setMessageStarred(const MessageStarred &messageStarred)
+{
+    mMessageStarred = messageStarred;
+}
+
 MessagePinned Message::messagePinned() const
 {
     return mMessagePinned;
@@ -263,7 +273,9 @@ bool Message::operator==(const Message &other) const
            && (mStarred == other.starred())
            && (mRole == other.role())
            && (mReactions == other.reactions())
-           && (mUnread == other.unread());
+           && (mUnread == other.unread())
+            && (mMessagePinned == other.messagePinned())
+            && (mMessageStarred == other.messageStarred());
 }
 
 Message &Message::operator=(const Message &other)

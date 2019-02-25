@@ -31,6 +31,7 @@ public:
     Q_REQUIRED_RESULT bool isStarred() const;
     void setIsStarred(bool isStarred);
 
+    Q_REQUIRED_RESULT bool operator==(const MessageStarred &other) const;
 private:
     bool mIsStarred = false;
 };
