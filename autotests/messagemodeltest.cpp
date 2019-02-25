@@ -62,6 +62,7 @@ void MessageModelTest::shouldHaveDefaultValue()
     roles[MessageModel::Roles] = QByteArrayLiteral("roles");
     roles[MessageModel::Reactions] = QByteArrayLiteral("reactions");
     roles[MessageModel::Ignored] = QByteArrayLiteral("userIsIgnored");
+    roles[MessageModel::Pinned] = QByteArrayLiteral("pinned");
 
     QCOMPARE(w.roleNames(), roles);
 }

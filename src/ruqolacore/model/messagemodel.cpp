@@ -149,6 +149,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Roles] = QByteArrayLiteral("roles");
     roles[Reactions] = QByteArrayLiteral("reactions");
     roles[Ignored] = QByteArrayLiteral("userIsIgnored");
+    roles[Pinned] = QByteArrayLiteral("pinned");
     return roles;
 }
 
@@ -300,6 +301,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     }
     case MessageModel::Ignored:
         return mRoom && mRoom->userIsIgnored(mAllMessages.at(idx).userId());
+    case MessageModel::Pinned:
+        return mAllMessages.at(idx).messagePinned().pinned();
     }
     return QString();
 }

@@ -63,7 +63,8 @@ public:
         UsernameUrl,
         Roles,
         Reactions,
-        Ignored
+        Ignored,
+        Pinned
     };
     Q_ENUM(MessageRoles)
 
