@@ -50,3 +50,10 @@ bool MessagePinned::operator==(const MessagePinned &other) const
 {
     return (mPinned == other.pinned()) && (mPinnedBy == other.pinnedBy());
 }
+
+QDebug operator <<(QDebug d, const MessagePinned &t)
+{
+    d << "isPinned " << t.pinned();
+    d << "pinnedby " << t.pinnedBy();
+    return d;
+}

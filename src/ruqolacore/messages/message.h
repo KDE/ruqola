@@ -220,9 +220,6 @@ private:
     // parseUrls
     bool mParseUrls = false;
 
-    //Starred
-    bool mStarred = false;
-
     //Unread Message
     bool mUnread = false;
 };

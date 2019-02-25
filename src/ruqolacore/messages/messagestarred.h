@@ -23,7 +23,7 @@
 #define MESSAGESTARRED_H
 
 #include "libruqola_private_export.h"
-#include <QObject>
+#include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT MessageStarred
 {
 public:
@@ -35,5 +35,5 @@ public:
 private:
     bool mIsStarred = false;
 };
-
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessageStarred &t);
 #endif // MESSAGESTARRED_H

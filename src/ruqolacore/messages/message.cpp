@@ -57,10 +57,11 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mGroupable = o.value(QLatin1String("groupable")).toBool();
     mParseUrls = o.value(QLatin1String("parseUrls")).toBool();
     mRole = o.value(QLatin1String("role")).toString();
+    //TODO move in own class ?
     if (o.contains(QLatin1String("starred"))) {
-        mStarred = !o.value(QStringLiteral("starred")).toArray().isEmpty();
+        mMessageStarred.setIsStarred(!o.value(QStringLiteral("starred")).toArray().isEmpty());
     } else {
-        mStarred = false;
+        mMessageStarred.setIsStarred(false);
     }
 
     mMessageType = Message::MessageType::NormalText;
@@ -176,12 +177,12 @@ void Message::setReactions(const Reactions &reactions)
 
 bool Message::starred() const
 {
-    return mStarred;
+    return mMessageStarred.isStarred();
 }
 
 void Message::setStarred(bool starred)
 {
-    mStarred = starred;
+    mMessageStarred.setIsStarred(starred);
 }
 
 QMap<QString, QString> Message::mentions() const
@@ -270,7 +271,6 @@ bool Message::operator==(const Message &other) const
            && (mUrls == other.urls())
            && (mAttachements == other.attachements())
            && (mMentions == other.mentions())
-           && (mStarred == other.starred())
            && (mRole == other.role())
            && (mReactions == other.reactions())
            && (mUnread == other.unread())
@@ -568,7 +568,7 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mAvatar = o[QStringLiteral("avatar")].toString();
     message.mGroupable = o[QStringLiteral("groupable")].toBool();
     message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
-    message.mStarred = o[QStringLiteral("starred")].toBool();
+    message.mMessageStarred.setIsStarred(o[QStringLiteral("starred")].toBool());
     message.mRole = o[QStringLiteral("role")].toString();
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
     message.mMessageType = o[QStringLiteral("messageType")].toVariant().value<MessageType>();
@@ -623,7 +623,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("avatar")] = message.mAvatar;
     o[QStringLiteral("groupable")] = message.mGroupable;
     o[QStringLiteral("parseUrls")] = message.mParseUrls;
-    o[QStringLiteral("starred")] = message.mStarred;
+    o[QStringLiteral("starred")] = message.mMessageStarred.isStarred();
     if (!message.mRole.isEmpty()) {
         o[QStringLiteral("role")] = message.mRole;
     }
@@ -684,7 +684,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mAvatar: " << t.avatar();
     d << "mGroupable: " << t.groupable();
     d << "mParseUrls: " << t.parseUrls();
-    d << "mStarred: " << t.starred();
     for (int i = 0, total = t.attachements().count(); i < total; ++i) {
         d << "Attachment :" << t.attachements().at(i);
     }
@@ -696,5 +695,7 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mRole: " << t.role();
     d << "mReaction: " << t.reactions();
     d << "mUnread: " << t.unread();
+    d << "starred " << t.messageStarred();
+    d << "pinned " << t.messagePinned();
     return d;
 }

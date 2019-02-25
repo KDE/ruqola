@@ -22,7 +22,7 @@
 #define MESSAGEPINNED_H
 
 #include "libruqola_private_export.h"
-#include <QString>
+#include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT MessagePinned
 {
 public:
@@ -39,5 +39,5 @@ private:
     QString mPinnedBy;
     bool mPinned = false;
 };
-
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const MessagePinned &t);
 #endif // MESSAGEPINNED_H
