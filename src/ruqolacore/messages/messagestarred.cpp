@@ -25,3 +25,13 @@ MessageStarred::MessageStarred()
 {
 
 }
+
+bool MessageStarred::isStarred() const
+{
+    return mIsStarred;
+}
+
+void MessageStarred::setIsStarred(bool isStarred)
+{
+    mIsStarred = isStarred;
+}

@@ -23,10 +23,16 @@
 #define MESSAGESTARRED_H
 
 #include "libruqola_private_export.h"
+#include <QObject>
 class LIBRUQOLACORE_TESTS_EXPORT MessageStarred
 {
 public:
     MessageStarred();
+    Q_REQUIRED_RESULT bool isStarred() const;
+    void setIsStarred(bool isStarred);
+
+private:
+    bool mIsStarred = false;
 };
 
 #endif // MESSAGESTARRED_H

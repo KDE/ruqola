@@ -29,6 +29,8 @@ class MessageStarredTest : public QObject
 public:
     explicit MessageStarredTest(QObject *parent = nullptr);
     ~MessageStarredTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // MESSAGESTARREDTEST_H
