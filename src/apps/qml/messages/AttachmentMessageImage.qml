@@ -34,6 +34,7 @@ MessageBase {
         id: menu
         can_editing_message: i_can_editing_message
         starred: i_starred
+        pinned_message: i_pinned
     }
 
     RowLayout {

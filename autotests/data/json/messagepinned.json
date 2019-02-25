@@ -1,0 +1,29 @@
+{
+    "_id": "4eawfwyFnt7L8wTwE",
+    "_updatedAt": {
+        "$date": 1550240994061
+    },
+    "alias": "Laurent",
+    "channels": [
+    ],
+    "mentions": [
+    ],
+    "msg": "sdfgsdfg",
+    "pinned": true,
+    "pinnedAt": {
+        "$date": 1550240994061
+    },
+    "pinnedBy": {
+        "_id": "uKK39zoewTkdacidH",
+        "username": "laurent"
+    },
+    "rid": "zMHhMfsEPvKjgFuyE",
+    "ts": {
+        "$date": 1550240990669
+    },
+    "u": {
+        "_id": "uKK39zoewTkdacidH",
+        "name": "Laurent Montel",
+        "username": "laurent"
+    }
+}

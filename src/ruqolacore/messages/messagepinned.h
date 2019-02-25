@@ -35,6 +35,7 @@ public:
     void setPinnedBy(const QString &pinnedBy);
 
     Q_REQUIRED_RESULT bool operator==(const MessagePinned &other) const;
+    void parse(const QJsonObject &o);
 private:
     QString mPinnedBy;
     bool mPinned = false;

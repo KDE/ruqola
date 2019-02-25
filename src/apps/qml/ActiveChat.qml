@@ -84,6 +84,7 @@ ListView {
         i_own_username: rcAccount.userName
         i_can_editing_message: canEditingMessage
         i_starred: starred
+        i_pinned: pinned
         i_editedByUserName: editedByUsername
         i_user_ignored: userIsIgnored
 

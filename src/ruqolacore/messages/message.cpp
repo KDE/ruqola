@@ -57,12 +57,8 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mGroupable = o.value(QLatin1String("groupable")).toBool();
     mParseUrls = o.value(QLatin1String("parseUrls")).toBool();
     mRole = o.value(QLatin1String("role")).toString();
-    //TODO move in own class ?
-    if (o.contains(QLatin1String("starred"))) {
-        mMessageStarred.setIsStarred(!o.value(QStringLiteral("starred")).toArray().isEmpty());
-    } else {
-        mMessageStarred.setIsStarred(false);
-    }
+    mMessageStarred.parse(o);
+    mMessagePinned.parse(o);
     //TODO pinned message
 
     mMessageType = Message::MessageType::NormalText;
@@ -304,6 +300,8 @@ Message &Message::operator=(const Message &other)
     setRole(other.role());
     setReactions(other.reactions());
     setUnread(other.unread());
+    setMessagePinned(other.messagePinned());
+    setMessageStarred(other.messageStarred());
     return *this;
 }
 
@@ -570,6 +568,7 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mGroupable = o[QStringLiteral("groupable")].toBool();
     message.mParseUrls = o[QStringLiteral("parseUrls")].toBool();
     message.mMessageStarred.setIsStarred(o[QStringLiteral("starred")].toBool());
+    //TODO add pinned
     message.mRole = o[QStringLiteral("role")].toString();
     message.mSystemMessageType = o[QStringLiteral("type")].toString();
     message.mMessageType = o[QStringLiteral("messageType")].toVariant().value<MessageType>();
@@ -625,6 +624,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("groupable")] = message.mGroupable;
     o[QStringLiteral("parseUrls")] = message.mParseUrls;
     o[QStringLiteral("starred")] = message.mMessageStarred.isStarred();
+    //TODO add pinned
     if (!message.mRole.isEmpty()) {
         o[QStringLiteral("role")] = message.mRole;
     }

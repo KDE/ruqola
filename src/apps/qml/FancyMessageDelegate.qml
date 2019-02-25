@@ -58,6 +58,7 @@ Rectangle {
     property bool i_can_editing_message
     property bool i_starred
     property bool i_user_ignored
+    property bool i_pinned
 
     color: RuqolaSingleton.backgroundColor
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
@@ -136,6 +137,7 @@ Rectangle {
                               i_can_editing_message: i_can_editing_message,
                               i_editedByUserName: i_editedByUserName,
                               i_starred: i_starred,
+                              i_pinned: i_pinned,
                               i_user_ignored : i_user_ignored
                           }
                           )
@@ -158,7 +160,8 @@ Rectangle {
                               i_editedByUserName: i_editedByUserName,
                               rcAccount: appid.rocketChatAccount,
                               i_editedByUserName: i_editedByUserName,
-                              i_starred: i_starred
+                              i_starred: i_starred,
+                              i_pinned: i_pinned
                           })
             } else if (i_messageType === Message.Video) {
                 console.log(RuqolaDebugCategorySingleton.category, "Video");
@@ -179,7 +182,8 @@ Rectangle {
                               i_editedByUserName: i_editedByUserName,
                               rcAccount: appid.rocketChatAccount,
                               i_editedByUserName: i_editedByUserName,
-                              i_starred: i_starred
+                              i_starred: i_starred,
+                              i_pinned: i_pinned
                           })
             } else if (i_messageType === Message.Image) {
                 console.log(RuqolaDebugCategorySingleton.category, "Image");
@@ -200,7 +204,8 @@ Rectangle {
                               i_editedByUserName: i_editedByUserName,
                               rcAccount: appid.rocketChatAccount,
                               i_editedByUserName: i_editedByUserName,
-                              i_starred: i_starred
+                              i_starred: i_starred,
+                              i_pinned: i_pinned
                           })
 
             } else {

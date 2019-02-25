@@ -168,6 +168,27 @@ void MessageTest::shouldParseMessage_data()
         QTest::addRow("messagestarred") << QStringLiteral("messagestarred") << messageStarredRef;
     }
     {
+        //Message Starred
+        Message messagePinnedRef;
+        messagePinnedRef.setMessageId(QStringLiteral("4eawfwyFnt7L8wTwE"));
+        messagePinnedRef.setAlias(QStringLiteral("Laurent"));
+        messagePinnedRef.setGroupable(false);
+        messagePinnedRef.setTimeStamp(1550240990669);
+        messagePinnedRef.setUsername(QStringLiteral("laurent"));
+        messagePinnedRef.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        messagePinnedRef.setMessageType(Message::NormalText);
+        messagePinnedRef.setUpdatedAt(1550240994061);
+        messagePinnedRef.setRoomId(QStringLiteral("zMHhMfsEPvKjgFuyE"));
+        messagePinnedRef.setStarred(false);
+        MessagePinned pinned;
+        pinned.setPinned(true);
+        messagePinnedRef.setMessagePinned(pinned);
+        messagePinnedRef.setText(QStringLiteral("sdfgsdfg"));
+
+        QTest::addRow("messagepinned") << QStringLiteral("messagepinned") << messagePinnedRef;
+    }
+
+    {
         //Message Remove Starred status
         Message messageStarredRemovedRef;
         messageStarredRemovedRef.setMessageId(QStringLiteral("R6AkSJ7orEkYHNcZJ"));

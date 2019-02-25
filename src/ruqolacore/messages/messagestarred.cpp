@@ -21,7 +21,7 @@
 
 #include "messagestarred.h"
 #include <QJsonObject>
-
+#include <QJsonArray>
 MessageStarred::MessageStarred()
 {
 
@@ -35,7 +35,11 @@ bool MessageStarred::isStarred() const
 
 void MessageStarred::parse(const QJsonObject &o)
 {
-    //TODO
+    if (o.contains(QLatin1String("starred"))) {
+        mIsStarred = !o.value(QStringLiteral("starred")).toArray().isEmpty();
+    } else {
+        mIsStarred = false;
+    }
 }
 
 void MessageStarred::setIsStarred(bool isStarred)

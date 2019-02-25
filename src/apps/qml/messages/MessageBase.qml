@@ -51,6 +51,7 @@ ColumnLayout {
     property bool i_starred
     property bool i_can_editing_message
     property bool i_user_ignored
+    property bool i_pinned
 
 
 

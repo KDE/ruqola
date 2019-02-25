@@ -20,7 +20,7 @@
 
 
 #include "messagepinned.h"
-
+#include <QJsonObject>
 MessagePinned::MessagePinned()
 {
 
@@ -49,6 +49,12 @@ void MessagePinned::setPinnedBy(const QString &pinnedBy)
 bool MessagePinned::operator==(const MessagePinned &other) const
 {
     return (mPinned == other.pinned()) && (mPinnedBy == other.pinnedBy());
+}
+
+void MessagePinned::parse(const QJsonObject &o)
+{
+    mPinned = o.value(QLatin1String("pinned")).toBool();
+    //TODO pinnedBy
 }
 
 QDebug operator <<(QDebug d, const MessagePinned &t)
