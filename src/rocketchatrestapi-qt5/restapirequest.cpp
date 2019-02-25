@@ -79,9 +79,8 @@
 #include "channels/channelmembersjob.h"
 #include "channels/changechannelreadonlyjob.h"
 #include "channels/changechannelencryptedjob.h"
-//Not implemented yet
-//#include "channels/channeladdleaderjob.h"
-//#include "channels/channelremoveleaderjob.h"
+#include "channels/channeladdleaderjob.h"
+#include "channels/channelremoveleaderjob.h"
 
 #include "groups/changegroupsannouncementjob.h"
 #include "groups/changegroupstopicjob.h"
@@ -1266,26 +1265,26 @@ void RestApiRequest::channelRemoveModerator(const QString &roomId, const QString
 
 void RestApiRequest::channelAddLeader(const QString &roomId, const QString &userId)
 {
-//    GroupAddLeaderJob *job = new GroupAddLeaderJob(this);
-//    initializeRestApiJob(job);
-//    job->setAddLeaderUserId(userId);
-//    job->setRoomId(roomId);
-//    connect(job, &GroupAddLeaderJob::addLeaderDone, this, &RestApiRequest::addLeaderDone);
-//    if (!job->start()) {
-//        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupAddLeader";
-//    }
+    ChannelAddLeaderJob *job = new ChannelAddLeaderJob(this);
+    initializeRestApiJob(job);
+    job->setAddLeaderUserId(userId);
+    job->setRoomId(roomId);
+    connect(job, &ChannelAddLeaderJob::addLeaderDone, this, &RestApiRequest::addLeaderDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelAddLeader";
+    }
 }
 
 void RestApiRequest::channelRemoveLeader(const QString &roomId, const QString &userId)
 {
-//    GroupRemoveLeaderJob *job = new GroupRemoveLeaderJob(this);
-//    initializeRestApiJob(job);
-//    job->setRemoveUserId(userId);
-//    job->setRoomId(roomId);
-//    connect(job, &GroupRemoveLeaderJob::removeLeaderDone, this, &RestApiRequest::removeLeaderDone);
-//    if (!job->start()) {
-//        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start groupRemoveLeader";
-//    }
+    ChannelRemoveLeaderJob *job = new ChannelRemoveLeaderJob(this);
+    initializeRestApiJob(job);
+    job->setRemoveUserId(userId);
+    job->setRoomId(roomId);
+    connect(job, &ChannelRemoveLeaderJob::removeLeaderDone, this, &RestApiRequest::removeLeaderDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start channelRemoveLeader";
+    }
 }
 
 void RestApiRequest::channelAddOwner(const QString &roomId, const QString &userId)
