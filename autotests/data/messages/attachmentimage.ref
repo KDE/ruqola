@@ -9,6 +9,7 @@
     "messageID": "ME8TT8GcaMsZ5hcsC",
     "messageType": "NormalText",
     "parseUrls": false,
+    "pinned": false,
     "roomID": "GENERAL",
     "starred": false,
     "timestamp": 1515655872015,

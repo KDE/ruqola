@@ -9,6 +9,7 @@
     "messageID": "4x2picEqPzAph3dty",
     "messageType": "NormalText",
     "parseUrls": false,
+    "pinned": false,
     "reactions": {
         ":mrs_claus:": {
             "usernames": [
