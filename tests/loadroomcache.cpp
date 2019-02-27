@@ -38,7 +38,7 @@ LoadRoomCache::LoadRoomCache(QWidget *parent)
 
     QHBoxLayout *hbox = new QHBoxLayout;
     mainLayout->addLayout(hbox);
-    hbox->setMargin(0);
+    hbox->setContentsMargins(0, 0, 0, 0);
 
     QLabel *lab = new QLabel(QStringLiteral("Select cache file:"), this);
     hbox->addWidget(lab);
