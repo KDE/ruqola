@@ -736,14 +736,9 @@ void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
     mSearchMessageModel->parseResult(obj, true);
 }
 
-void RocketChatAccount::starMessage(const QString &messageId, const QString &rid, bool starred)
+void RocketChatAccount::starMessage(const QString &messageId, bool starred)
 {
-#ifdef USE_REASTAPI_JOB
-    Q_UNUSED(rid);
     restApi()->starMessage(messageId, starred);
-#else
-    ddp()->starMessage(messageId, rid, starred);
-#endif
 }
 
 void RocketChatAccount::pinMessage(const QString &messageId, bool pinned)
@@ -1350,11 +1345,7 @@ void RocketChatAccount::userStatusChanged(const User &user)
 
 void RocketChatAccount::ignoreUser(const QString &rid, const QString &userId, bool ignore)
 {
-#ifdef USE_REASTAPI_JOB
     restApi()->ignoreUser(rid, userId, ignore);
-#else
-    ddp()->ignoreUser(rid, userId, ignore);
-#endif
 }
 
 void RocketChatAccount::blockUser(const QString &rid, bool block)

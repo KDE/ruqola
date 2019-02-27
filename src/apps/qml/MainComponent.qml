@@ -368,7 +368,7 @@ Component {
                 console.log(RuqolaDebugCategorySingleton.category, "Not implemented reply message : " + messageId)
             }
             onSetFavoriteMessage: {
-                appid.rocketChatAccount.starMessage(messageId, roomId, starred)
+                appid.rocketChatAccount.starMessage(messageId, starred)
             }
             onIgnoreUser: {
                 appid.rocketChatAccount.ignoreUser(roomId, userId, ignored)
