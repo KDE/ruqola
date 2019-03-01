@@ -517,20 +517,12 @@ void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, boo
     //TODO use broadcast
     if (!name.trimmed().isEmpty()) {
         const QStringList lstUsers = userNames.split(QLatin1Char(','), QString::SkipEmptyParts);
-#ifdef USE_REASTAPI_JOB
         if (privateRoom) {
             //TODO add password ???
             restApi()->createGroups(name, readOnly, lstUsers);
         } else {
             restApi()->createChannels(name, readOnly, lstUsers, password);
         }
-#else
-        if (privateRoom) {
-            ddp()->createPrivateGroup(name, lstUsers);
-        } else {
-            ddp()->createChannel(name, lstUsers, readOnly);
-        }
-#endif
     } else {
         qCDebug(RUQOLA_LOG) << "Channel name can't be empty";
     }
@@ -649,13 +641,7 @@ UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) c
 
 void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
-#ifdef USE_REASTAPI_JOB
     restApi()->filesInRoom(roomId, channelType);
-#else
-    Q_UNUSED(channelType);
-    rocketChatBackend()->clearFilesList();
-    ddp()->roomFiles(roomId);
-#endif
 }
 
 QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj)
