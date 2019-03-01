@@ -186,12 +186,14 @@ Component {
                         RuqolaMenuSeparator {
                         }
                         QQC2.MenuItem {
+                            id: menuVideoChat
                             text: i18n("Video Chat")
                             onTriggered: {
                                 appid.rocketChatAccount.createJitsiConfCall(appid.selectedRoomID);
                             }
                         }
                         RuqolaMenuSeparator {
+                            id: menuVideoChatSeparator
                         }
                         QQC2.MenuItem {
                             text: i18n("Add User In Room")
@@ -229,6 +231,10 @@ Component {
                                 appid.rocketChatAccount.roomFiles(appid.selectedRoomID, appid.selectedRoom.channelType);
                                 showFilesInRoomDialog.initializeAndOpen()
                             }
+                        }
+                        onAboutToShow: {
+                            menuVideoChat.visible = appid.rocketChatAccount.jitsiEnabled()
+                            menuVideoChatSeparator.visible = appid.rocketChatAccount.jitsiEnabled()
                         }
                     }
                 }

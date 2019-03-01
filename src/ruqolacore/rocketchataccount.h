@@ -194,8 +194,8 @@ public:
     Q_INVOKABLE Q_REQUIRED_RESULT bool encryptedEnabled() const;
     Q_INVOKABLE Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_INVOKABLE Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT bool jitsiEnabled() const;
 
-    //TODO implement it in UI
     Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessagePinningEnabled() const;
     Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
     Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;

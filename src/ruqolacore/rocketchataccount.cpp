@@ -1160,6 +1160,11 @@ ServerConfigInfo *RocketChatAccount::serverConfigInfo() const
     return mServerConfigInfo;
 }
 
+bool RocketChatAccount::jitsiEnabled() const
+{
+    return mRuqolaServerConfig->jitsiEnabled();
+}
+
 void RocketChatAccount::groupInfo(const QString &roomId)
 {
     restApi()->groupInfo(roomId);
