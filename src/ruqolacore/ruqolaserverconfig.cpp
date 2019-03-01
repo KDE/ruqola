@@ -190,6 +190,16 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+bool RuqolaServerConfig::jitsiEnabled() const
+{
+    return mJitsiEnabled;
+}
+
+void RuqolaServerConfig::setJitsiEnabled(bool jitsiEnabled)
+{
+    mJitsiEnabled = jitsiEnabled;
+}
+
 bool RuqolaServerConfig::allowMessageDeletingEnabled() const
 {
     return mAllowMessageDeletingEnabled;

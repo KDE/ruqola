@@ -97,6 +97,9 @@ public:
     Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
     void setAllowMessageDeletingEnabled(bool allowMessageDeletingEnabled);
 
+    Q_REQUIRED_RESULT bool jitsiEnabled() const;
+    void setJitsiEnabled(bool jitsiEnabled);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -121,6 +124,7 @@ private:
     bool mAllowMessageSnippetingEnabled = false;
     bool mAllowMessageStarringEnabled = false;
     bool mAllowMessageDeletingEnabled = false;
+    bool mJitsiEnabled = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H

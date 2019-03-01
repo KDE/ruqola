@@ -862,6 +862,8 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 
         if (id == QLatin1String("uniqueID")) {
             mRuqolaServerConfig->setUniqueId(value.toString());
+        } else if (id == QLatin1String("Jitsi_Enabled")) {
+            mRuqolaServerConfig->setJitsiEnabled(value.toBool());
         } else if (id == QLatin1String("Jitsi_Domain")) {
             mRuqolaServerConfig->setJitsiMeetUrl(value.toString());
         } else if (id == QLatin1String("Jitsi_URL_Room_Prefix")) {

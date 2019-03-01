@@ -35,6 +35,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     RuqolaServerConfig config;
     QVERIFY(config.jitsiMeetPrefix().isEmpty());
     QVERIFY(config.jitsiMeetUrl().isEmpty());
+    QVERIFY(!config.jitsiEnabled());
     QVERIFY(config.uniqueId().isEmpty());
     QVERIFY(config.fileUploadStorageType().isEmpty());
     QVERIFY(config.siteName().isEmpty());
@@ -58,6 +59,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const QString jitsimeeturl = QStringLiteral("test 2");
     const QString uniqueId = QStringLiteral("test 3");
     const QString filestoragetype = QStringLiteral("test 4");
+    const bool jistsiEnabled = true;
     const bool allowEditing = false;
     const int minutes = 12;
     const bool otrEnable = false;
@@ -75,6 +77,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setSiteName(siteName);
     config.setSiteUrl(siteUrl);
     config.setEncryptionEnabled(encryptionEnabled);
+    config.setJitsiEnabled(jistsiEnabled);
 
     bool pinning = true;
     bool snippeting = true;
@@ -87,6 +90,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
 
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
+    QCOMPARE(config.jitsiEnabled(), jistsiEnabled);
     QCOMPARE(config.uniqueId(), uniqueId);
     QCOMPARE(config.fileUploadStorageType(), filestoragetype);
     QCOMPARE(config.allowMessageEditing(), allowEditing);
