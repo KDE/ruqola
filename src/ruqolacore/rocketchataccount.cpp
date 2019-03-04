@@ -439,6 +439,11 @@ bool RocketChatAccount::editingMode() const
     return mEditingMode;
 }
 
+bool RocketChatAccount::sortUnreadOnTop() const
+{
+    return mUnreadOnTop;
+}
+
 DDPClient::LoginStatus RocketChatAccount::loginStatus()
 {
     if (mDdp) {
@@ -1306,6 +1311,14 @@ void RocketChatAccount::switchEditingMode(bool b)
     if (mEditingMode != b) {
         mEditingMode = b;
         Q_EMIT editingModeChanged();
+    }
+}
+
+void RocketChatAccount::setSortUnreadOnTop(bool b)
+{
+    if (mUnreadOnTop != b) {
+        mUnreadOnTop = b;
+        mRoomFilterProxyModel->invalidate();
     }
 }
 

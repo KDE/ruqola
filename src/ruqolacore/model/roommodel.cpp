@@ -469,16 +469,30 @@ QString RoomModel::sectionName(Room *r) const
         str = i18n("Favorites");
     } else {
         const QString channelTypeStr = r->channelType();
-        if (channelTypeStr == QLatin1String("p")) {
-            if (r->parentRid().isEmpty()) {
-                str = i18n("Rooms");
-            } else {
-                str = i18n("Discussions");
+        if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
+            if (channelTypeStr == QLatin1String("p")) {
+                if (r->parentRid().isEmpty()) {
+                    str = i18n("Unread Rooms");
+                } else {
+                    str = i18n("Unread Discussions");
+                }
+            } else if (channelTypeStr == QLatin1String("c")) {
+                str = i18n("Unread Rooms");
+            } else if (channelTypeStr == QLatin1String("d")) {
+                str = i18n("Unread Private Messages");
             }
-        } else if (channelTypeStr == QLatin1String("c")) {
-            str = i18n("Rooms");
-        } else if (channelTypeStr == QLatin1String("d")) {
-            str = i18n("Private Message");
+        } else {
+            if (channelTypeStr == QLatin1String("p")) {
+                if (r->parentRid().isEmpty()) {
+                    str = i18n("Rooms");
+                } else {
+                    str = i18n("Discussions");
+                }
+            } else if (channelTypeStr == QLatin1String("c")) {
+                str = i18n("Rooms");
+            } else if (channelTypeStr == QLatin1String("d")) {
+                str = i18n("Private Messages");
+            }
         }
     }
     return str;
@@ -487,7 +501,12 @@ QString RoomModel::sectionName(Room *r) const
 int RoomModel::order(Room *r) const
 {
     int order = 0;
-    //First item are favorites channels
+    // Unread on top: push down everything that isn't unread
+    if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && r->unread() == 0 && !r->alert()) {
+        order += 20;
+    }
+
+    // Then we have favorites channels, push down everything else
     if (!r->favorite()) {
         order += 10;
     }

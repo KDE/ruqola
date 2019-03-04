@@ -49,6 +49,14 @@ Component {
                 },
                 Kirigami.Action {
                     iconName: "edit-symbolic"
+                    text: i18n("Unread on Top");
+                    checkable: true
+                    onToggled: {
+                        appid.rocketChatAccount.setSortUnreadOnTop(checked);
+                    }
+                },
+                Kirigami.Action {
+                    iconName: "edit-symbolic"
                     text: i18n("Show Close Icons");
                     checkable: true
                     onToggled: {

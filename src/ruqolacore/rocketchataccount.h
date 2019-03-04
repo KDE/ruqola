@@ -220,6 +220,7 @@ public:
     Q_INVOKABLE void channelGetAllUserMentions(const QString &roomId);
 
     Q_INVOKABLE void switchEditingMode(bool b);
+    Q_INVOKABLE void setSortUnreadOnTop(bool b);
     Q_INVOKABLE void kickUser(const QString &rid, const QString &userId, const QString &channelType);
     Q_INVOKABLE void changeRoles(const QString &rid, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType);
     Q_INVOKABLE void rolesInRoom(const QString &roomId, const QString &channelType);
@@ -243,6 +244,7 @@ public:
     DDPClient *ddp();
 
     Q_REQUIRED_RESULT bool editingMode() const;
+    Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
 
     Q_REQUIRED_RESULT DDPClient::LoginStatus loginStatus();
     RocketChatRestApi::RestApiRequest *restApi();
@@ -407,6 +409,7 @@ private:
     MentionsFilterProxyModel *mMentionsFilterProxyModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
     bool mEditingMode = false;
+    bool mUnreadOnTop = false;
 };
 
 #endif // ROCKETCHATACCOUNT_H
