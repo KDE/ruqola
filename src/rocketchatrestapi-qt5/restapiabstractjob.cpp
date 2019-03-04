@@ -199,6 +199,9 @@ void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject)
             qWarning() << " errorType************************" << errorType << " translate " << trStr;
             Q_EMIT failed(i18n("Unauthorized"));
         }
+    } else {
+        const QString error = replyObject[QStringLiteral("error")].toString();
+        Q_EMIT failed(error);
     }
 }
 
