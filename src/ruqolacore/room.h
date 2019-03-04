@@ -94,6 +94,8 @@ public:
     Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &name);
 
+    Q_REQUIRED_RESULT QString displayRoomName() const;
+
     Q_REQUIRED_RESULT QString announcement() const;
     void setAnnouncement(const QString &announcement);
 
@@ -217,6 +219,7 @@ public:
 
     Q_REQUIRED_RESULT bool broadcast() const;
     void setBroadcast(bool broadcast);
+
 
 Q_SIGNALS:
     void nameChanged();

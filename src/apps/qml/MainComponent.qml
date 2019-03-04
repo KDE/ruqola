@@ -114,7 +114,7 @@ Component {
                     visible: appid.selectedRoom && appid.selectedRoom.encrypted
                 }
                 Kirigami.Heading {
-                    text: "#" + (appid.selectedRoom ? appid.selectedRoom.name : "")
+                    text: appid.selectedRoom ? appid.selectedRoom.displayRoomName : ""
                     level: 3
                     font.bold: true
                 }

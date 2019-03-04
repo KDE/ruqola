@@ -30,6 +30,7 @@ class Room;
 class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
 {
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
+    Q_PROPERTY(QString displayRoomName READ displayRoomName NOTIFY nameChanged)
     Q_PROPERTY(QString topic READ topic NOTIFY topicChanged)
     Q_PROPERTY(QString announcement READ announcement NOTIFY announcementChanged)
     Q_PROPERTY(QString channelType READ channelType NOTIFY channelTypeChanged)
@@ -56,6 +57,7 @@ public:
     ~RoomWrapper();
 
     Q_REQUIRED_RESULT QString name() const;
+    Q_REQUIRED_RESULT QString displayRoomName() const;
     Q_REQUIRED_RESULT QString topic() const;
     Q_REQUIRED_RESULT QString announcement() const;
     Q_REQUIRED_RESULT bool favorite() const;

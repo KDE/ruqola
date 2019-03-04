@@ -67,6 +67,11 @@ QString RoomWrapper::name() const
     return mRoom->name();
 }
 
+QString RoomWrapper::displayRoomName() const
+{
+    return mRoom->displayRoomName();
+}
+
 QString RoomWrapper::topic() const
 {
     return mRoom->topic();

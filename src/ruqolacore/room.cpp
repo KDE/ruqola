@@ -94,6 +94,16 @@ bool Room::isEqual(const Room &other) const
             && (mBroadcast == other.broadcast());
 }
 
+QString Room::displayRoomName() const
+{
+    if (channelType() == QLatin1Char('d')) {
+        return QLatin1Char('@') + mName;
+    } else {
+        return QLatin1Char('#') + mName;
+    }
+}
+
+
 QString Room::name() const
 {
     return mName;
