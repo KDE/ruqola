@@ -64,7 +64,6 @@ Component {
                     checkable: true
                     onToggled: {
                         appid.rocketChatAccount.switchEditingMode(checked);
-                        // do stuff
                     }
                 },
                 Kirigami.Action {
