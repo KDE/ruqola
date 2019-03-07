@@ -547,7 +547,9 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status)
 {
     //Not implemented yet
     //TODO use restapi
-    ddp()->setDefaultStatus(status);
+    if (statusModel()->currentUserStatus() != status) {
+        ddp()->setDefaultStatus(status);
+    }
 }
 
 void RocketChatAccount::changeDefaultStatus(int index)

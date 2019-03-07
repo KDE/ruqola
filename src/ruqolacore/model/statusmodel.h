@@ -59,6 +59,8 @@ public:
 
     Q_REQUIRED_RESULT int currentStatus() const;
 
+    Q_REQUIRED_RESULT User::PresenceStatus currentUserStatus() const;
+
 Q_SIGNALS:
     void currentStatusChanged();
 
