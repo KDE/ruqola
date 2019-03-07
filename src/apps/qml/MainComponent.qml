@@ -42,203 +42,152 @@ Component {
 
 
     Kirigami.Page {
-
         id: mainWidget
-        leftPadding: Kirigami.Units.smallSpacing
-        rightPadding: Kirigami.Units.smallSpacing
-        topPadding: Kirigami.Units.smallSpacing
-        bottomPadding: Kirigami.Units.smallSpacing
+
+        title: appid.selectedRoom ? appid.selectedRoom.displayRoomName : ""
+        leftPadding: 0
+        rightPadding: 0
+        topPadding: 0
+        bottomPadding: 0
+
         actions {
+            left: Kirigami.Action {
+                icon.name: "preferences-desktop-notification"
+                icon.color: "transparent"
+                visible: appid.selectedRoom
+                onTriggered: {
+                    notificationsDialog.roomInfo = appid.selectedRoom
+                    notificationsDialog.open()
+                }
+            }
+            main: Kirigami.Action {
+                id: showUsersAction
+                icon.name: "system-users"
+                visible: appid.selectedRoom
+                checkable: true
+            }
+            right: Kirigami.Action {
+                icon.name: "edit-find"
+                visible: appid.selectedRoom
+                onTriggered: {
+                    searchMessageDialog.roomId = appid.selectedRoomID
+                    searchMessageDialog.initializeAndOpen();
+                }
+            }
             contextualActions: [
                 Kirigami.Action {
-                    id: editAction
-                    iconName: "list-add"
-                    text: i18n("Open room");
+                    visible: appid.selectedRoom
+                    text: i18n("Channel Info")
                     onTriggered: {
-                        searchChannelDialog.initializeAndOpen();
-                    }
-                },
-                Kirigami.Action {
-                    iconName: "edit-symbolic"
-                    text: i18n("Edit room");
-                    checkable: true
-                    onToggled: {
-                        appid.rocketChatAccount.switchEditingMode(checked);
-                    }
-                },
-                Kirigami.Action {
-                    text: i18n("Create New Channel")
-                    onTriggered: {
-                        createNewChannelDialog.encryptedRoomEnabled = appid.rocketChatAccount.encryptedEnabled()
-                        createNewChannelDialog.initializeAndOpen()
-                    }
-                },
-                Kirigami.Action {
-                   separator: true
-                },
-                Kirigami.Action {
-                    text: i18n("Server Info")
-                    onTriggered: {
-                        serverinfodialog.rcAccount = appid.rocketChatAccount
-                        serverinfodialog.open();
-                    }
-                }
-
-            ]
-        }
-
-        header: Column {
-
-            RowLayout {
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.leftMargin: 2*Kirigami.Units.smallSpacing
-                visible: appid.selectedRoom
-
-                ToolButton {
-                    iconName: "favorite"
-                    checkable: true
-                    Binding on checked {
-                        value: appid.selectedRoom && appid.selectedRoom.favorite
-                    }
-                    onCheckedChanged: {
-                        appid.rocketChatAccount.changeFavorite(appid.selectedRoomID, checked)
-                    }
-                }
-                Kirigami.Icon {
-                    source: "encrypted"
-                    //FIXME
-                    height: 22
-                    width: 22
-                    visible: appid.selectedRoom && appid.selectedRoom.encrypted
-                }
-                Kirigami.Heading {
-                    text: appid.selectedRoom ? appid.selectedRoom.displayRoomName : ""
-                    level: 3
-                    font.bold: true
-                }
-                Item {
-                    Layout.fillWidth: true
-                }
-                ToolButton {
-                    id: showNotification
-                    iconName: "preferences-desktop-notification"
-                    onClicked: {
-                        notificationsDialog.roomInfo = appid.selectedRoom
-                        notificationsDialog.open()
-                    }
-                }
-
-                ToolButton {
-                    id: showUsersButton
-                    iconName: "system-users"
-                    checkable: true
-                }
-
-                ToolButton {
-                    id: searchMessage
-                    iconName: "edit-find"
-                    onClicked: {
-                        searchMessageDialog.roomId = appid.selectedRoomID
-                        searchMessageDialog.initializeAndOpen();
-                    }
-                }
-                ToolButton {
-                    iconName: "settings-configure"
-                    onClicked: menu.open();
-                    QQC2.Menu {
-                        id: menu
-                        y: parent.height
-
-                        QQC2.MenuItem {
-                            text: i18n("Channel Info")
-                            onTriggered: {
-                                var channelType = appid.selectedRoom.channelType;
-                                if (channelType === "c" || channelType === "p") {
-                                    //Only for debug
+                        var channelType = appid.selectedRoom.channelType;
+                        if (channelType === "c" || channelType === "p") {
+                            //Only for debug
 //                                    if (channelType === "c") {
 //                                        appid.rocketChatAccount.channelInfo(appid.selectedRoom.rid);
 //                                    } else {
 //                                        appid.rocketChatAccount.groupInfo(appid.selectedRoom.rid);
 //                                    }
-                                    //For testing
-                                    channelInfoDialog.roomInfo = appid.selectedRoom
-                                    channelInfoDialog.initializeAndOpen()
-                                } else if (channelType === "d") {
-                                    privateChannelInfoDialog.roomInfo = appid.selectedRoom
-                                    privateChannelInfoDialog.initializeAndOpen()
-                                } else {
-                                    console.log(RuqolaDebugCategorySingleton.category,"channel type " + appid.selectedRoom.channelType)
-                                }
-                            }
-                        }
-                        //Hide it if direct channel
-                        RuqolaMenuSeparator {
-                        }
-                        QQC2.MenuItem {
-                            text: i18n("Mentions")
-                            onTriggered: {
-                                appid.rocketChatAccount.channelGetAllUserMentions(appid.selectedRoomID);
-                                showMentionsInRoomDialog.initializeAndOpen()
-                            }
-                        }
-                        RuqolaMenuSeparator {
-                        }
-                        QQC2.MenuItem {
-                            id: menuVideoChat
-                            text: i18n("Video Chat")
-                            onTriggered: {
-                                appid.rocketChatAccount.createJitsiConfCall(appid.selectedRoomID);
-                            }
-                        }
-                        RuqolaMenuSeparator {
-                            id: menuVideoChatSeparator
-                        }
-                        QQC2.MenuItem {
-                            text: i18n("Add User In Room")
-                            visible: appid.selectedRoom ? appid.selectedRoom.canBeModify : true
-                            onTriggered: {
-                                var channelType = appid.selectedRoom.channelType;
-                                if (channelType === "c" || channelType === "p") {
-                                    addUserDialog.roomInfo = appid.selectedRoom
-                                    addUserDialog.roomId = appid.selectedRoomID
-                                    addUserDialog.initializeAndOpen()
-                                }
-                            }
-                        }
-                        RuqolaMenuSeparator {
-                            visible: appid.selectedRoom ? appid.selectedRoom.canBeModify : true
-                        }
-                        QQC2.MenuItem {
-                            text: i18n("Take a Video Message")
-                            onTriggered: {
-                                takeVideoMessage.open();
-                            }
-                        }
-                        RuqolaMenuSeparator {}
-                        QQC2.MenuItem {
-                            text: i18n("Load Recent History")
-                            onTriggered: {
-                                appid.rocketChatAccount.loadHistory(appid.selectedRoomID);
-                            }
-                        }
-                        RuqolaMenuSeparator {
-                        }
-                        QQC2.MenuItem {
-                            text: i18n("Show Files Attachment In Room")
-                            onTriggered: {
-                                appid.rocketChatAccount.roomFiles(appid.selectedRoomID, appid.selectedRoom.channelType);
-                                showFilesInRoomDialog.initializeAndOpen()
-                            }
-                        }
-                        onAboutToShow: {
-                            menuVideoChat.visible = appid.rocketChatAccount.jitsiEnabled()
-                            menuVideoChatSeparator.visible = appid.rocketChatAccount.jitsiEnabled()
+                            //For testing
+                            channelInfoDialog.roomInfo = appid.selectedRoom
+                            channelInfoDialog.initializeAndOpen()
+                        } else if (channelType === "d") {
+                            privateChannelInfoDialog.roomInfo = appid.selectedRoom
+                            privateChannelInfoDialog.initializeAndOpen()
+                        } else {
+                            console.log(RuqolaDebugCategorySingleton.category,"channel type " + appid.selectedRoom.channelType)
                         }
                     }
+                },
+                Kirigami.Action {
+                    visible: appid.selectedRoom
+                    text: i18n("Mentions")
+                    onTriggered: {
+                        appid.rocketChatAccount.channelGetAllUserMentions(appid.selectedRoomID);
+                        showMentionsInRoomDialog.initializeAndOpen()
+                    }
+                },
+                Kirigami.Action {
+                    id: menuVideoChatAction
+                    property bool shouldBeVisible: false
+                    visible: shouldBeVisible && appid.selectedRoom
+                    text: i18n("Video Chat")
+                    onTriggered: {
+                        appid.rocketChatAccount.createJitsiConfCall(appid.selectedRoomID);
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Add User In Room")
+                    visible: appid.selectedRoom ? appid.selectedRoom.canBeModify : false
+                    onTriggered: {
+                        var channelType = appid.selectedRoom.channelType;
+                        if (channelType === "c" || channelType === "p") {
+                            addUserDialog.roomInfo = appid.selectedRoom
+                            addUserDialog.roomId = appid.selectedRoomID
+                            addUserDialog.initializeAndOpen()
+                        }
+                    }
+                },
+                Kirigami.Action {
+                    visible: appid.selectedRoom
+                    text: i18n("Take a Video Message")
+                    onTriggered: {
+                        takeVideoMessage.open();
+                    }
+                },
+                Kirigami.Action {
+                    visible: appid.selectedRoom
+                    text: i18n("Load Recent History")
+                    onTriggered: {
+                        appid.rocketChatAccount.loadHistory(appid.selectedRoomID);
+                    }
+                },
+                Kirigami.Action {
+                    visible: appid.selectedRoom
+                    text: i18n("Show Files Attachment In Room")
+                    onTriggered: {
+                        appid.rocketChatAccount.roomFiles(appid.selectedRoomID, appid.selectedRoom.channelType);
+                        showFilesInRoomDialog.initializeAndOpen()
+                    }
+                }
+            ]
+        }
+        
+        onContextualActionsAboutToShow: {
+            menuVideoChatAction.shouldBeVisible = appid.rocketChatAccount.jitsiEnabled()
+        }
+
+        globalToolBarStyle: Kirigami.ApplicationHeaderStyle.ToolBar
+        titleDelegate: RowLayout {
+            ToolButton {
+                iconName: "favorite"
+                checkable: true
+                visible: appid.selectedRoom
+                Binding on checked {
+                    value: appid.selectedRoom && appid.selectedRoom.favorite
+                }
+                onCheckedChanged: {
+                    appid.rocketChatAccount.changeFavorite(appid.selectedRoomID, checked)
                 }
             }
+            Kirigami.Icon {
+                source: "encrypted"
+                //FIXME
+                height: 22
+                width: 22
+                visible: appid.selectedRoom && appid.selectedRoom.encrypted
+            }
+            Kirigami.Heading {
+                text: appid.selectedRoom ? appid.selectedRoom.displayRoomName : ""
+                level: 3
+                font.bold: true
+            }
+            Item {
+                Layout.fillWidth: true
+            }
+        }
 
+        header: Column {
+            spacing: Kirigami.Units.smallSpacing
             QQC2.Label {
                 visible: appid.selectedRoom && (appid.selectedRoom.topic !== "")
                 text: appid.selectedRoom ? appid.selectedRoom.topic : ""
@@ -260,17 +209,14 @@ Component {
                 }
             }
 
-            Rectangle {
-                color: Kirigami.Theme.textColor
-                height:1
+            Kirigami.Separator {
                 anchors.right: parent.right
                 anchors.left: parent.left
-                opacity: .5
                 visible: appid.selectedRoom
             }
             Flow {
                 id: topBarUserList
-                readonly property bool isActive: showUsersButton.checked
+                readonly property bool isActive: showUsersAction.checked
                 anchors {
                     left: parent.left
                     right: parent.right
@@ -335,12 +281,11 @@ Component {
                 Item {
                     width: parent.width
                     height: topBarUserList.isActive ? 1 : 0
-                    Rectangle {
+                    Kirigami.Separator {
                         height: parent.height
                         width: height > 0 ? parent.width : 0
                         anchors.centerIn: parent
                         Behavior on width { NumberAnimation { duration: 650; easing.type: Easing.InOutQuad } }
-                        color: Kirigami.Theme.textColor
                     }
                 }
             }
@@ -484,56 +429,55 @@ Component {
             appid.rocketChatAccount.clearUnreadMessages(appid.selectedRoomID);
         }
 
-        footer:
+        footer: QQC2.ToolBar {
+            position: QQC2.ToolBar.Footer
+            visible: appid.selectedRoom
             ColumnLayout {
-            anchors.bottom: mainWidget.bottom
-            //anchors.margins: Kirigami.Units.smallSpacing
-            QQC2.Label {
-                id: channelInfo
-                font.bold: true
-                anchors {
-                    margins: Kirigami.Units.smallSpacing
+                anchors.fill: parent
+                QQC2.Label {
+                    id: channelInfo
+                    font.bold: true
+                    Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+                    //FIXME
+                    visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true && !appid.selectedRoom.canChangeRoles)
+                                                    || (appid.selectedRoom.blocker === true)
+                                                    || (appid.selectedRoom.blocked === true))
+                    text: appid.selectedRoom ? appid.selectedRoom.roomMessageInfo : ""
                 }
-                Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-                //FIXME
-                visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true && !appid.selectedRoom.canChangeRoles)
-                                                 || (appid.selectedRoom.blocker === true)
-                                                 || (appid.selectedRoom.blocked === true))
-                text: appid.selectedRoom ? appid.selectedRoom.roomMessageInfo : ""
-            }
 
-            UserInput {
-                id: userInputMessage
-                rcAccount: appid.rocketChatAccount
-                visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false) && (appid.selectedRoom.blocker === false) && (appid.selectedRoom.blocked === false)
-                messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
-                onTextEditing: {
-                    rcAccount.textEditing(appid.selectedRoomID, str)
-                    appid.userInputMessageText = str;
+                QQC2.Label {
+                    id: typingInfo
+                    visible: text.length > 0
                 }
-                onClearUnreadMessages: {
-                    rcAccount.clearUnreadMessages(appid.selectedRoomID)
-                }
-                onUploadFile: {
-                    uploadFileDialog.initializeAndOpen()
-                }
-            }
-            QQC2.Label {
-                id: typingInfo
-                anchors.margins: 2*Kirigami.Units.smallSpacing
-                text: ""
-            }
 
-            Connections {
-                target: appid.rocketChatAccount.receiveTypingNotificationManager()
-                onNotificationChanged: {
-                    //console.log(RuqolaDebugCategorySingleton.category, "Typing in roomId: " + roomId + " str " + notificationStr);
-                    if (appid.selectedRoomID === roomId) {
-                        typingInfo.text = notificationStr;
+                UserInput {
+                    id: userInputMessage
+                    rcAccount: appid.rocketChatAccount
+                    visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false) && (appid.selectedRoom.blocker === false) && (appid.selectedRoom.blocked === false)
+                    messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
+                    onTextEditing: {
+                        rcAccount.textEditing(appid.selectedRoomID, str)
+                        appid.userInputMessageText = str;
+                    }
+                    onClearUnreadMessages: {
+                        rcAccount.clearUnreadMessages(appid.selectedRoomID)
+                    }
+                    onUploadFile: {
+                        uploadFileDialog.initializeAndOpen()
                     }
                 }
-                onClearNotification: {
-                    typingInfo.text = "";
+
+                Connections {
+                    target: appid.rocketChatAccount.receiveTypingNotificationManager()
+                    onNotificationChanged: {
+                        //console.log(RuqolaDebugCategorySingleton.category, "Typing in roomId: " + roomId + " str " + notificationStr);
+                        if (appid.selectedRoomID === roomId) {
+                            typingInfo.text = notificationStr;
+                        }
+                    }
+                    onClearNotification: {
+                        typingInfo.text = "";
+                    }
                 }
             }
         }

@@ -36,55 +36,126 @@ Component {
     id: roomsComponent
     Kirigami.ScrollablePage {
         id: roomsPage
+
+        title: i18n("Rooms")
+        actions {
+            contextualActions: [
+                Kirigami.Action {
+                    id: editAction
+                    iconName: "list-add"
+                    text: i18n("Open room");
+                    onTriggered: {
+                        searchChannelDialog.initializeAndOpen();
+                    }
+                },
+                Kirigami.Action {
+                    iconName: "edit-symbolic"
+                    text: i18n("Edit room");
+                    checkable: true
+                    onToggled: {
+                        appid.rocketChatAccount.switchEditingMode(checked);
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Create New Channel")
+                    onTriggered: {
+                        createNewChannelDialog.encryptedRoomEnabled = appid.rocketChatAccount.encryptedEnabled()
+                        createNewChannelDialog.initializeAndOpen()
+                    }
+                },
+                Kirigami.Action {
+                   separator: true
+                },
+                Kirigami.Action {
+                    text: i18n("Server Info")
+                    onTriggered: {
+                        serverinfodialog.rcAccount = appid.rocketChatAccount
+                        serverinfodialog.open();
+                    }
+                }
+
+            ]
+        }
+
+        // Since we can't have actions at the bottom on mobile, force always toolbar mode
+        globalToolBarStyle: Kirigami.ApplicationHeaderStyle.ToolBar
+        titleDelegate: QQC2.TextField {
+            id: searchField
+            focus: true
+            Layout.minimumHeight: Layout.maximumHeight
+            Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
+            Layout.fillWidth: true
+            //width: parent.width
+            placeholderText: i18n("Search room...")
+            onTextChanged: {
+                appid.rocketChatAccount.roomFilterProxyModel().setFilterString(text);
+                //TODO filter list view
+            }
+        }
+
         background: Rectangle {
             color: Kirigami.Theme.backgroundColor
         }
-        header: Column {
-
-            ColumnLayout {
-                anchors.left: parent.left
-                anchors.right: parent.right
-                RowLayout {
-                    Layout.alignment: Qt.AlignLeft
-                    anchors.leftMargin: 2*Kirigami.Units.smallSpacing
-                    QQC2.Label {
-                        id: comboboxLabel
-
-                        text: i18n("Status:")
-                    }
-
-                    QQC2.ComboBox {
-                        id: statusCombobox
-                        Layout.alignment: Qt.AlignLeft
-                        model: appid.rocketChatAccount.statusModel()
-                        textRole: "statusi18n"
-                        onActivated: {
-                            appid.rocketChatAccount.changeDefaultStatus(index)
-                        }
-                        currentIndex: model.currentStatus
-
-                        delegate: Kirigami.BasicListItem {
-                            icon: model.icon
-
-                            label: model.statusi18n
-                        }
-                    }
+        footer: QQC2.ToolBar {
+            Kirigami.Theme.inherit: false
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            position: QQC2.ToolBar.Footer
+            RowLayout {
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                    left: parent.left
                 }
-                QQC2.TextField {
-                    id: searchField
-                    focus: true
-                    Layout.minimumHeight: Layout.maximumHeight
-                    Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
-                    Layout.fillWidth: true
-                    //width: parent.width
-                    placeholderText: i18n("Search room...")
-                    onTextChanged: {
-                        appid.rocketChatAccount.roomFilterProxyModel().setFilterString(text);
-                        //TODO filter list view
+                QQC2.Label {
+                    id: comboboxLabel
+
+                    text: i18n("Status:")
+                }
+
+                QQC2.ComboBox {
+                    id: statusCombobox
+                    Layout.alignment: Qt.AlignLeft
+                    model: appid.rocketChatAccount.statusModel()
+                    //textRole is removed as a workaround for now to draw our own text
+                    //textRole: "statusi18n"
+                    property variant icon
+                    property string text
+                    onActivated: {
+                        appid.rocketChatAccount.changeDefaultStatus(index)
+                    }
+                    currentIndex: model.currentStatus
+
+                    delegate: Kirigami.BasicListItem {
+                        property bool current: index === statusCombobox.currentIndex
+                        separatorVisible: false
+                        onCurrentChanged: {
+                            if (current) {
+                                statusCombobox.text = model.statusi18n
+                                statusCombobox.icon = model.icon
+                            }
+                        }
+                        icon: model.icon
+                        label: model.statusi18n
+                    }
+                    //FIXME: QQC2 combibix really, really needs icons support
+                    contentItem: RowLayout {
+                        Kirigami.Icon {
+                            Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+                            Layout.fillHeight: true
+                            source: statusCombobox.icon
+                        }
+                        QQC2.Label {
+                            text: statusCombobox.text
+                            verticalAlignment: Text.AlignVCenter
+                            Layout.fillHeight: true
+                        }
+                        Item {
+                            Layout.fillWidth: true
+                        }
                     }
                 }
             }
         }
+
 
         mainItem:
             RoomsView {

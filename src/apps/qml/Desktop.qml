@@ -59,6 +59,7 @@ Kirigami.ApplicationWindow {
 
     title: i18n("Ruqola")
 
+    pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
     pageStack.initialPage: [roomsComponent, mainComponent]
     pageStack.visible: rocketChatAccount.loginStatus === DDPClient.LoggedIn
 
