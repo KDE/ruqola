@@ -297,29 +297,12 @@ void RocketChatAccount::reactOnMessage(const QString &messageId, const QString &
 
 void RocketChatAccount::sendMessage(const QString &roomID, const QString &message)
 {
-#ifdef USE_REASTAPI_JOB
     restApi()->postMessage(roomID, message);
-#else
-    QJsonObject json;
-    json[QStringLiteral("rid")] = roomID;
-    json[QStringLiteral("msg")] = message;
-
-    ddp()->method(QStringLiteral("sendMessage"), QJsonDocument(json), DDPClient::Persistent);
-#endif
 }
 
 void RocketChatAccount::updateMessage(const QString &roomID, const QString &messageId, const QString &message)
 {
-#ifdef USE_REASTAPI_JOB
     restApi()->updateMessage(roomID, messageId, message);
-#else
-    QJsonObject json;
-    json[QStringLiteral("rid")] = roomID;
-    json[QStringLiteral("msg")] = message;
-    json[QStringLiteral("_id")] = messageId;
-
-    ddp()->method(QStringLiteral("updateMessage"), QJsonDocument(json), DDPClient::Persistent);
-#endif
 }
 
 QString RocketChatAccount::avatarUrlFromDirectChannel(const QString &rid)
@@ -355,6 +338,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelRolesDone, this, &RocketChatAccount::slotChannelRolesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::failed, this, &RocketChatAccount::jobFailed);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::spotlightDone, this, &RocketChatAccount::slotSplotLightDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -539,9 +523,14 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
     if (pattern.isEmpty()) {
         searchChannelModel()->clear();
     } else {
+        //Use restapi
         //Avoid to show own user
+#ifdef USE_REASTAPI_JOB
+        restApi()->searchRoomUser(pattern);
+#else
         const QString addUserNameToException = userName();
         ddp()->channelAndPrivateAutocomplete(pattern, addUserNameToException);
+#endif
     }
 }
 
@@ -674,6 +663,13 @@ void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const QStri
     } else {
         qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
     }
+}
+
+void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
+{
+    qDebug() << " void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)"<<obj;
+    //If empty ! show empty list
+    loadAutoCompleteChannel(obj);
 }
 
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)

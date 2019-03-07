@@ -306,6 +306,7 @@ private:
     Q_DISABLE_COPY(RocketChatAccount)
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);
     void slotChannelRolesDone(const QJsonObject &obj, const QString &roomId);
+    void slotSplotLightDone(const QJsonObject &obj);
 
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);
