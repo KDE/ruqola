@@ -192,22 +192,23 @@ void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject)
 {
     const QString errorType = replyObject[QStringLiteral("errorType")].toString();
     if (!errorType.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "errorType" << errorType;
         const QString trStr = errorMessage(errorType);
         if (!trStr.isEmpty()) {
             Q_EMIT failed(trStr);
         } else {
-            qWarning() << " errorType************************" << errorType << " translate " << trStr;
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << " errorType not defined as translated message: " << errorType;
             Q_EMIT failed(i18n("Unauthorized"));
         }
     } else {
         const QString error = replyObject[QStringLiteral("error")].toString();
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "error " << error;
         Q_EMIT failed(error);
     }
 }
 
 QString RestApiAbstractJob::errorMessage(const QString &str)
 {
-    //TODO fix me
     if (str == QLatin1String("error-action-not-allowed")) {
         return i18n("__action__ is not allowed");
     } else if (str == QLatin1String("error-application-not-found")) {
