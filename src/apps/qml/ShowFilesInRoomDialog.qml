@@ -72,6 +72,10 @@ QQC2.Dialog {
         }
         QQC2.Label {
             text: i18np("%1 attachment in room", "%1 attachments in room", listview.count)
+            Component.onCompleted: {
+                font.italic = true
+                font.bold = true
+            }
         }
 
         //Add scrollview
@@ -87,8 +91,8 @@ QQC2.Dialog {
             model: filesModel
             delegate:
                 RowLayout {
+                Layout.fillWidth: true
                 QQC2.Label {
-                    Layout.fillWidth: true
                     //TODO improve it
                     text: filename + '\n' + (description !== "" ? description + '\n' : "") + username + '\n'
                     wrapMode: QQC2.Label.Wrap
