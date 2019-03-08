@@ -207,7 +207,15 @@ Kirigami.ApplicationWindow {
     JobErrorMessageDialog {
         id: jobErrorMessageDialog
     }
-
+    CreateNewChannelDialog {
+        id: createNewChannelDialog
+        onCreateNewChannel: {
+            rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames, encryptedRoom, password, broadcast);
+        }
+    }
+    ServerInfoDialog {
+        id: serverinfodialog
+    }
     SearchChannelDialog {
         id: searchChannelDialog
         searchChannelModel: rocketChatAccount.searchChannelFilterProxyModel()

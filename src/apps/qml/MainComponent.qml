@@ -414,15 +414,6 @@ Component {
                     appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileid, appid.selectedRoom.channelType)
                 }
             }
-            CreateNewChannelDialog {
-                id: createNewChannelDialog
-                onCreateNewChannel: {
-                    rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames, encryptedRoom, password, broadcast);
-                }
-            }
-            ServerInfoDialog {
-                id: serverinfodialog
-            }
         }
 
         Keys.onEscapePressed: {
