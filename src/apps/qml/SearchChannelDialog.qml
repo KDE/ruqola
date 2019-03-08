@@ -53,8 +53,6 @@ QQC2.Dialog {
             id: channelnametext
             selectByMouse: true
             focus: true
-            Layout.minimumHeight: Layout.maximumHeight
-            Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
             Layout.fillWidth: true
             placeholderText: i18n("Search Channel...")
             onAccepted: {

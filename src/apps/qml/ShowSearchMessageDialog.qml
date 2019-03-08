@@ -53,8 +53,6 @@ QQC2.Dialog {
             id: searchField
             focus: true
             selectByMouse: true
-            Layout.minimumHeight: Layout.maximumHeight
-            Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
             Layout.fillWidth: true
             placeholderText: i18n("Search Word...")
             //onAccepted: or onTextChanged:  ????
