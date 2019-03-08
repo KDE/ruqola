@@ -189,7 +189,7 @@ Kirigami.Page {
             text: i18n("Login Failed");
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
-            color: "#FF0000"
+            color: Kirigami.Theme.negativeTextColor
             font.bold: true
             visible: rcAccount.loginStatus === DDPClient.LoginFailed
         }
