@@ -25,7 +25,7 @@ import QtQuick.Window 2.0
 
 import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.UserCompleterFilterModelProxy 1.0
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.7 as Kirigami
 
 QQC2.Dialog {
     id: addUserDialog
@@ -53,7 +53,7 @@ QQC2.Dialog {
     }
 
     ColumnLayout {
-        QQC2.TextField {
+        Kirigami.ActionTextField {
             id: username
             focus: true
             selectByMouse: true
@@ -61,6 +61,16 @@ QQC2.Dialog {
             Layout.maximumHeight: Kirigami.Units.iconSizes.smallMedium + Kirigami.Units.smallSpacing * 2
             Layout.fillWidth: true
             placeholderText: i18n("Search User...")
+            rightActions: [
+                Kirigami.Action {
+                    iconName: "edit-clear"
+                    visible: username.text !== ""
+                    onTriggered: {
+                        username.text = ""
+                        username.textChanged()
+                    }
+                }
+            ]
             onTextChanged: {
                 addUserDialog.searchUserName(username.text)
             }
