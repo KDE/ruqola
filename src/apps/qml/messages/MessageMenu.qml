@@ -20,7 +20,7 @@
 
 import QtQuick 2.9
 
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.7 as Kirigami
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.DebugCategory 1.0

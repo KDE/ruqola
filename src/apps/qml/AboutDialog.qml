@@ -24,7 +24,7 @@ import QtQuick.Window 2.0
 import KDE.Ruqola.RuqolaAboutDataAuthorModel 1.0
 import KDE.Ruqola.RuqolaAboutData 1.0
 
-import org.kde.kirigami 2.4 as Kirigami
+import org.kde.kirigami 2.7 as Kirigami
 QQC2.Dialog {
     id: aboutDialog
 
