@@ -22,7 +22,7 @@
 import QtQuick 2.9
 
 import QtQuick.Controls 2.5 as QQC2
-
+import org.kde.kirigami 2.7 as Kirigami
 import QtQuick.Layouts 1.1
 import KDE.Ruqola.ExtraColors 1.0
 
@@ -42,7 +42,7 @@ Rectangle {
         text: date
         font.bold: true
         font.italic: true
-        color: "#FF0000"
+        color: Kirigami.Theme.disabledTextColor
         anchors.centerIn: parent
     }
 }
