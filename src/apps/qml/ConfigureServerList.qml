@@ -52,8 +52,8 @@ Kirigami.Page {
                     //Fix icon ??
                     source: "list-remove"
                     //FIXME icon size
-                    height: 22
-                    width: 22
+                    height: Kirigami.Units.iconSizes.medium
+                    width: height
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
@@ -68,8 +68,8 @@ Kirigami.Page {
             //Fix icon ??
             source: "list-add"
             //FIXME icon size
-            height: 22
-            width: 22
+            height: Kirigami.Units.iconSizes.medium
+            width: height
             MouseArea {
                 anchors.fill: parent
                 onClicked: {

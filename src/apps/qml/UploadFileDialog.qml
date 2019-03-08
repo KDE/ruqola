@@ -71,8 +71,8 @@ QQC2.Dialog {
 
             Kirigami.Icon {
                 source: "folder"
-                width: 24
-                height: 24
+                width: height
+                height: Kirigami.Units.iconSizes.medium
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {

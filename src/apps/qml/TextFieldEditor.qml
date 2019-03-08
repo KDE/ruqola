@@ -59,8 +59,8 @@ RowLayout {
     Kirigami.Icon {
         id: channelIcon
         source: "document-edit"
-        width: 24
-        height: 24
+        height: Kirigami.Units.iconSizes.medium
+        width: height
         MouseArea {
             anchors.fill: parent
             onClicked: {

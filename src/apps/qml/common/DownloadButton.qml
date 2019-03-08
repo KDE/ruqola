@@ -30,8 +30,8 @@ Kirigami.Icon {
     signal downloadButtonClicked()
 
     //TODO customize size. Avoid to hardcode it.
-    width: 24
-    height: 24
+    width: height
+    height: Kirigami.Units.iconSizes.medium
     MouseArea {
         anchors.fill: parent
         onClicked: {

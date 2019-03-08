@@ -172,8 +172,8 @@ Component {
             Kirigami.Icon {
                 source: "encrypted"
                 //FIXME
-                height: 22
-                width: 22
+                height: Kirigami.Units.iconSizes.medium
+                width: height
                 visible: appid.selectedRoom && appid.selectedRoom.encrypted
             }
             Kirigami.Heading {
@@ -231,8 +231,8 @@ Component {
                         Kirigami.Icon {
                             source: model.iconstatus
                             //FIXME
-                            height: 22
-                            width: 22
+                            height: kirigami.units.iconsizes.medium
+                            width: height
                         }
                         UserMenu {
                             id: userMenu

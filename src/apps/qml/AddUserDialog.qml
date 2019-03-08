@@ -85,8 +85,8 @@ QQC2.Dialog {
                 Kirigami.Icon {
                     source: "list-add"
                     //FIXME icon size
-                    height: 22
-                    width: 22
+                    height: Kirigami.Units.iconSizes.medium
+                    width: height
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
@@ -98,8 +98,8 @@ QQC2.Dialog {
                 Kirigami.Icon {
                     source: iconstatus
                     //FIXME icon size
-                    height: 22
-                    width: 22
+                    height: Kirigami.Units.iconSizes.medium
+                    width: height
                 }
                 QQC2.Label {
                     text: username

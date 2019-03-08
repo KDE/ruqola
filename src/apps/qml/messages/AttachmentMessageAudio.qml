@@ -86,8 +86,8 @@ MessageBase {
                     Kirigami.Icon {
                         id: playerButton
                         source: "media-playback-start"
-                        width: 24
-                        height: 24
+                        width: height
+                        height: Kirigami.Units.iconSizes.huge
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
