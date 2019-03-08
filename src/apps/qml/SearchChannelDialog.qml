@@ -82,8 +82,7 @@ QQC2.Dialog {
                 }
                 Kirigami.Icon {
                     source: iconname
-                    //FIXME icon size
-                    height: 22
+                    height: Kirigami.Units.iconSizes.medium
                     width: height
                 }
                 QQC2.Label {

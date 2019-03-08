@@ -51,7 +51,6 @@ Kirigami.Page {
                 Kirigami.Icon {
                     //Fix icon ??
                     source: "list-remove"
-                    //FIXME icon size
                     height: Kirigami.Units.iconSizes.medium
                     width: height
                     MouseArea {
@@ -67,7 +66,6 @@ Kirigami.Page {
         Kirigami.Icon {
             //Fix icon ??
             source: "list-add"
-            //FIXME icon size
             height: Kirigami.Units.iconSizes.medium
             width: height
             MouseArea {
