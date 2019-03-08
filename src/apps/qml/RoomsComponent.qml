@@ -134,7 +134,7 @@ Component {
                         icon: model.icon
                         label: model.statusi18n
                     }
-                    //FIXME: QQC2 combibix really, really needs icons support
+                    //FIXME: QQC2 combobox really, really needs icons support
                     contentItem: RowLayout {
                         Kirigami.Icon {
                             Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
