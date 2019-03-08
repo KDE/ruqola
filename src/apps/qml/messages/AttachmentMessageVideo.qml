@@ -94,7 +94,7 @@ MessageBase {
 
                             source: "media-playback-start"
                             width: height
-                            height: kirigami.units.iconsizes.medium
+                            height: Kirigami.Units.iconSizes.medium
                             MouseArea {
                                 anchors.fill: parent
                                 readonly property url link: rcAccount.attachmentUrl(model.modelData.link)

@@ -231,7 +231,7 @@ Component {
                         Kirigami.Icon {
                             source: model.iconstatus
                             //FIXME
-                            height: kirigami.units.iconsizes.medium
+                            height: Kirigami.Units.iconSizes.medium
                             width: height
                         }
                         UserMenu {
