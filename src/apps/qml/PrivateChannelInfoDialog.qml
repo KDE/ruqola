@@ -19,7 +19,6 @@
 */
 import QtQuick 2.9
 import QtQuick.Layouts 1.12
-import QtQuick.Controls 1.4
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.0
 import KDE.Ruqola.DebugCategory 1.0
@@ -53,7 +52,7 @@ QQC2.Dialog {
             implicitWidth: 160
         }
 
-        Button {
+        QQC2.Button {
             id: blockUnblockUser
             Layout.fillWidth: true
             text: roomInfo === null ? "" : (roomInfo.blocker ? i18n("Unblock user") : i18n("Block user"))

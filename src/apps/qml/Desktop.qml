@@ -22,7 +22,6 @@
  */
 
 import QtQuick 2.9
-import QtQuick.Controls 1.4
 import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
@@ -240,7 +239,7 @@ Kirigami.ApplicationWindow {
         rcAccount: rocketChatAccount
     }
 
-    BusyIndicator {
+    QQC2.BusyIndicator {
         id: busy
         anchors.centerIn: parent
         visible: rocketChatAccount.loginStatus === DDPClient.LoggingIn

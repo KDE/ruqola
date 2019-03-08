@@ -83,7 +83,7 @@ Kirigami.BasicListItem {
             width: height
             font.bold: true
             //FIX COLOR
-            color: (d_unread != 0) ? "#FF0000" : "#FFFFFF"
+            color: Kirigami.Theme.negativeTextColor
             text: generateText()
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
         }

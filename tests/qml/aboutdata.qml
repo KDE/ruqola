@@ -19,7 +19,6 @@
 */
 
 import QtQuick 2.9
-import QtQuick.Controls 1.4
 import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
@@ -27,7 +26,7 @@ import QtQuick.Controls 2.5 as QQC2
 
 import org.kde.kirigami 2.7 as Kirigami
 
-ApplicationWindow {
+QQC2.ApplicationWindow {
     id: window
 
     width: 600

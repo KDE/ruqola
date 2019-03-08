@@ -22,7 +22,6 @@
 
 
 import QtQuick 2.9
-import QtQuick.Controls 1.4
 import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
@@ -158,8 +157,8 @@ Component {
 
         globalToolBarStyle: Kirigami.ApplicationHeaderStyle.ToolBar
         titleDelegate: RowLayout {
-            ToolButton {
-                iconName: "favorite"
+            QQC2.ToolButton {
+                icon.name: "favorite"
                 checkable: true
                 visible: appid.selectedRoom
                 Binding on checked {
