@@ -35,35 +35,25 @@ MessageBase {
     property string i_systemMessageType
 
     RowLayout {
-        Item {
-            Layout.fillWidth: true
-        }
-
-        Rectangle {
-            Layout.alignment: Qt.AlignCenter
-            width: textLabel.implicitWidth + 6*Kirigami.Units.smallSpacing
-            height: textLabel.height
-
+        QQC2.Label {
+            id: textLabel
             color: Kirigami.Theme.disabledTextColor
-            radius: 4*Kirigami.Units.smallSpacing
+            opacity: 1
 
-            QQC2.Label {
-                id: textLabel
+            Layout.alignment: Qt.AlignLeft
+            //anchors.centerIn: parent
+            anchors.leftMargin: Kirigami.Units.smallSpacing
+            anchors.rightMargin: Kirigami.Units.smallSpacing
 
-                color: Kirigami.Theme.textColor
-                opacity: 1
+            width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
 
-                anchors.centerIn: parent
-                anchors.leftMargin: Kirigami.Units.smallSpacing
-                anchors.rightMargin: Kirigami.Units.smallSpacing
+            text: i_messageText
 
-                width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
+            wrapMode: QQC2.Label.Wrap
 
-                text: i_messageText
-
-                wrapMode: QQC2.Label.Wrap
-
-                renderType: Text.NativeRendering
+            renderType: Text.NativeRendering
+            Component.onCompleted: {
+                font.italic = true
             }
         }
         Item {
