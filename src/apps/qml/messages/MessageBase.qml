@@ -20,7 +20,7 @@
 
 import QtQuick 2.9
 
-import QtQuick.Layouts 1.1
+import QtQuick.Layouts 1.12
 ColumnLayout {
     signal linkActivated(string link)
     signal jitsiCallConfActivated()

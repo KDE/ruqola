@@ -23,7 +23,7 @@
 
 import QtQuick 2.9
 import org.kde.kirigami 2.7 as Kirigami
-import QtQuick.Layouts 1.1
+import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
 import KDE.Ruqola.RocketChatAccount 1.0
 
