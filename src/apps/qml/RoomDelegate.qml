@@ -82,7 +82,6 @@ Kirigami.BasicListItem {
             height: parent.height
             width: height
             font.bold: true
-            //FIX COLOR
             color: Kirigami.Theme.negativeTextColor
             text: generateText()
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
@@ -92,7 +91,7 @@ Kirigami.BasicListItem {
 
             visible: d_editingMode
             source: "hide_table_row"
-            height: parent.height
+            height: Kirigami.Units.iconSizes.smallMedium
             width: height
             opacity: d_selected ? 1 : .5
             MouseArea {
@@ -113,7 +112,7 @@ Kirigami.BasicListItem {
             //We can leave only channel not private chat
             visible: d_editingMode && (d_type == "c" || d_type == "p")
             source: "dialog-close"
-            height: parent.height
+            height: Kirigami.Units.iconSizes.smallMedium
             width: height
             opacity: d_selected ? 1 : .5
             MouseArea {
