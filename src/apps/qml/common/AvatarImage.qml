@@ -41,8 +41,8 @@ Rectangle {
     Layout.alignment: Qt.AlignTop | Qt.AlignCenter
     Layout.fillHeight: false
     //Customize it.
-    implicitWidth: /*textLabel.font.pixelSize * 3*/ 12 * 3
-    implicitHeight: /*textLabel.font.pixelSize * 3*/ 12 * 3
+    implicitWidth: Kirigami.Units.iconSizes.large
+    implicitHeight: implicitWidth
     
     radius: 3
     
@@ -74,14 +74,14 @@ Rectangle {
         
         renderType: Text.QtRendering
         color: "white"
-        
+
         font.weight: Font.Bold
         font.pointSize: 100
         fontSizeMode: Text.Fit
         
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        
+
         text: {
             //TODO verify if it works with non latin char.
             if (aliasname.length > 0) {
