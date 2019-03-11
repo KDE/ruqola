@@ -26,6 +26,7 @@
 #include <QSet>
 #include "libruqola_private_export.h"
 class RocketChatAccount;
+class AvatarManager;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatCache : public QObject
 {
     Q_OBJECT
@@ -57,6 +58,7 @@ private:
     QHash<QString, QString> mUserAvatarUrl;
     QSet<QString> mFileInDownload;
     RocketChatAccount *mAccount = nullptr;
+    AvatarManager *mAvatarManager = nullptr;
 };
 
 #endif // ROCKETCHATCACHE_H

@@ -23,6 +23,7 @@
 #include "ruqola_debug.h"
 #include "managerdatapaths.h"
 #include "restapirequest.h"
+#include "avatarmanager.h"
 #include "copyfilejob.h"
 #include <QDateTime>
 #include <QDir>
@@ -32,8 +33,9 @@ RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mAccount(account)
 {
+    mAvatarManager = new AvatarManager(mAccount, this);
+    connect(mAvatarManager, &AvatarManager::insertAvatarUrl, this, &RocketChatCache::insertAvatarUrl);
     loadAvatarCache();
-    connect(mAccount->restApi(), &RocketChatRestApi::RestApiRequest::avatar, this, &RocketChatCache::insertAvatarUrl);
     connect(mAccount->restApi(), &RocketChatRestApi::RestApiRequest::downloadFileDone, this, &RocketChatCache::slotDataDownloaded);
 }
 
@@ -118,7 +120,7 @@ QUrl RocketChatCache::attachmentUrl(const QString &url)
 
 void RocketChatCache::downloadAvatarFromServer(const QString &userId)
 {
-    mAccount->restApi()->getAvatar(userId);
+    mAvatarManager->insertInDownloadQueue(userId);
 }
 
 void RocketChatCache::downloadFileFromServer(const QString &filename)
@@ -161,7 +163,8 @@ QString RocketChatCache::avatarUrl(const QString &userId)
         const QString valueId = mUserAvatarUrl.value(userId);
         if (!valueId.isEmpty() && fileInCache(QUrl::fromUserInput(valueId))) {
             const QString url = QUrl::fromLocalFile(fileCachePath(QUrl::fromUserInput(valueId))).toString();
-            qCDebug(RUQOLA_LOG) << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
+            //qDebug() << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
+
             return url;
         } else {
             downloadAvatarFromServer(userId);

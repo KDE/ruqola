@@ -122,6 +122,8 @@ set (Ruqola_core_srcs
 
     roles.cpp
     role.cpp
+
+    avatarmanager.cpp
 )
 
 if (NOT WIN32)

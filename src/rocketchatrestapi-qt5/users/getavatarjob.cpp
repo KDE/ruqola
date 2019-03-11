@@ -21,6 +21,8 @@
 #include "getavatarjob.h"
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QNetworkReply>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
@@ -65,11 +67,23 @@ void GetAvatarJob::slotGetAvatarInfo()
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
-        addLoggerInfo(QByteArrayLiteral("GetAvatarJob: success: ") + data);
-        QString str = QString::fromUtf8(data);
-        str.remove(QLatin1Char('"'));
-        const QString userId = reply->property("userId").toString();
-        Q_EMIT avatar(userId, str);
+        const QJsonDocument replyJson = QJsonDocument::fromJson(data);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject.contains(QStringLiteral("success"))) {
+            if (!replyObject[QStringLiteral("success")].toBool()) {
+                addLoggerWarning(QByteArrayLiteral("GetAvatarJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            } else {
+                addLoggerInfo(QByteArrayLiteral("GetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+                qCWarning(ROCKETCHATQTRESTAPI_LOG) << " not implemented ! API changed !";
+            }
+        } else {
+            QString str = QString::fromUtf8(data);
+            str.remove(QLatin1Char('"'));
+            const QString userId = reply->property("userId").toString();
+            addLoggerWarning(QByteArrayLiteral("GetAvatarJob success: ") + data);
+            Q_EMIT avatar(userId, str);
+        }
     }
     deleteLater();
 }

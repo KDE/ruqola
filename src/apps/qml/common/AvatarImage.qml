@@ -98,6 +98,7 @@ Rectangle {
     Connections {
         target: appid.rocketChatAccount
         onFileDownloaded: {
+            console.log(" filePath " + filePath + " username: " + username)
             if (filePath === "/avatar/" + username) {
                 avatarurl = cacheImageUrl
             }
