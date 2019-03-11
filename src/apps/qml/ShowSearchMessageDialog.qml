@@ -49,13 +49,22 @@ QQC2.Dialog {
     }
 
     ColumnLayout {
-        QQC2.TextField {
+        Kirigami.ActionTextField {
             id: searchField
             focus: true
             selectByMouse: true
             Layout.fillWidth: true
             placeholderText: i18n("Search Word...")
-            //onAccepted: or onTextChanged:  ????
+            rightActions: [
+                Kirigami.Action {
+                    iconName: "edit-clear"
+                    visible: searchField.text !== ""
+                    onTriggered: {
+                        searchField.text = ""
+                        searchField.accepted()
+                    }
+                }
+            ]
             onAccepted: {
                 showSearchMessageDialog.searchMessage(text, roomId)
             }
