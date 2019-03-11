@@ -78,15 +78,13 @@ Component {
 
         // Since we can't have actions at the bottom on mobile, force always toolbar mode
         globalToolBarStyle: Kirigami.ApplicationHeaderStyle.ToolBar
-        titleDelegate: QQC2.TextField {
+        titleDelegate:
+            LineEditWithClearButton {
             id: searchField
-            focus: true
+            placeholderText: i18n("Search Room...")
             Layout.fillWidth: true
-            //width: parent.width
-            placeholderText: i18n("Search room...")
             onTextChanged: {
                 appid.rocketChatAccount.roomFilterProxyModel().setFilterString(text);
-                //TODO filter list view
             }
         }
 

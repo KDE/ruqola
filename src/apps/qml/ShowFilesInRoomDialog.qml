@@ -54,7 +54,7 @@ QQC2.Dialog {
             id: searchField
             placeholderText: i18n("Search File...")
             Layout.fillWidth: true
-            onAccepted: {
+            onTextChanged: {
                 filesModel.setFilterString(text);
             }
         }

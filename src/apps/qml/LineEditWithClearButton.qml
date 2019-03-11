@@ -30,6 +30,7 @@ Kirigami.ActionTextField {
             onTriggered: {
                 __searchField.text = ""
                 __searchField.accepted()
+                __searchField.textChanged()
             }
         }
     ]

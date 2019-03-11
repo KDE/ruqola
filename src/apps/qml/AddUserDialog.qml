@@ -57,7 +57,7 @@ QQC2.Dialog {
             id: username
             placeholderText: i18n("Search User...")
             Layout.fillWidth: true
-            onAccepted: {
+            onTextChanged: {
                 addUserDialog.searchUserName(username.text)
             }
         }
