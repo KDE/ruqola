@@ -50,24 +50,12 @@ QQC2.Dialog {
 
 
     ColumnLayout {
-        Kirigami.ActionTextField {
+        LineEditWithClearButton {
             id: searchField
-            focus: true
-            selectByMouse: true
-            Layout.fillWidth: true
             placeholderText: i18n("Search File...")
-            rightActions: [
-                Kirigami.Action {
-                    iconName: "edit-clear"
-                    visible: searchField.text !== ""
-                    onTriggered: {
-                        searchField.text = ""
-                        searchField.textChanged()
-                    }
-                }
-            ]
-            onTextChanged: {
-                 filesModel.setFilterString(text);
+            Layout.fillWidth: true
+            onAccepted: {
+                filesModel.setFilterString(text);
             }
         }
         QQC2.Label {

@@ -53,23 +53,11 @@ QQC2.Dialog {
     }
 
     ColumnLayout {
-        Kirigami.ActionTextField {
+        LineEditWithClearButton {
             id: username
-            focus: true
-            selectByMouse: true
-            Layout.fillWidth: true
             placeholderText: i18n("Search User...")
-            rightActions: [
-                Kirigami.Action {
-                    iconName: "edit-clear"
-                    visible: username.text !== ""
-                    onTriggered: {
-                        username.text = ""
-                        username.textChanged()
-                    }
-                }
-            ]
-            onTextChanged: {
+            Layout.fillWidth: true
+            onAccepted: {
                 addUserDialog.searchUserName(username.text)
             }
         }
