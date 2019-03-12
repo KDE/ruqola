@@ -73,7 +73,7 @@ Rectangle {
         anchors.margins: Kirigami.Units.smallSpacing
         
         renderType: Text.QtRendering
-        color: "white"
+        color: Kirigami.Theme.backgroundColor
 
         font.weight: Font.Bold
         font.pointSize: 100
