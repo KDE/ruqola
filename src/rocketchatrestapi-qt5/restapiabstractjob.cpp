@@ -203,8 +203,16 @@ void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject)
     } else {
         const QString error = replyObject[QStringLiteral("error")].toString();
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "error " << error;
-        Q_EMIT failed(error);
+        Q_EMIT failed(generateErrorMessage(error));
     }
+}
+
+QString RestApiAbstractJob::generateErrorMessage(const QString &errorStr)
+{
+    if (jobName().isEmpty()) {
+        return errorStr;
+    }
+    return i18n("%1:%2", jobName(), errorStr);
 }
 
 QString RestApiAbstractJob::errorMessage(const QString &str)
@@ -403,6 +411,11 @@ QString RestApiAbstractJob::errorMessage(const QString &str)
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " unknown error type " << str;
         return {};
     }
+}
+
+QString RestApiAbstractJob::jobName() const
+{
+    return {};
 }
 
 QueryParameters::QueryParameters()

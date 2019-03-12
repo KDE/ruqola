@@ -104,12 +104,16 @@ protected:
     void emitFailedMessage(const QJsonObject &replyObject);
     void addAuthRawHeader(QNetworkRequest &request) const;
     Q_REQUIRED_RESULT QString errorMessage(const QString &str);
+    virtual Q_REQUIRED_RESULT QString jobName() const;
     QueryParameters mQueryParameters;
     QString mAuthToken;
     QString mUserId;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     RocketChatRestApi::RestApiMethod *mRestApiMethod = nullptr;
     RocketChatRestApi::AbstractLogger *mRestApiLogger = nullptr;
+
+private:
+    QString generateErrorMessage(const QString &errorStr);
 };
 }
 #endif // RESTAPIABSTRACTJOB_H

@@ -21,6 +21,8 @@
 #include "getavatarjob.h"
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+#include <KLocalizedString>
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -112,4 +114,10 @@ QString GetAvatarJob::avatarUserId() const
 void GetAvatarJob::setAvatarUserId(const QString &avatarUserId)
 {
     mAvatarUserId = avatarUserId;
+}
+
+
+QString RocketChatRestApi::GetAvatarJob::jobName() const
+{
+    return i18n("Get Avatar");
 }

@@ -42,6 +42,10 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT bool canStart() const override;
+
+protected:
+    QString jobName() const override;
+
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
 
@@ -49,6 +53,7 @@ private:
     Q_DISABLE_COPY(GetAvatarJob)
     void slotGetAvatarInfo();
     QString mAvatarUserId;
+
 };
 }
 #endif // GETAVATARJOB_H
