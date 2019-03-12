@@ -66,7 +66,6 @@ void AvatarManager::insertInDownloadQueue(const QString &userId)
         mAvatarDownloadUserIds.append(userId);
     }
     if (startDownload) {
-        qDebug() << "AvatarManager::insertInDownloadQueue startdownload " << userId;
         mTimer->start();
     }
 }
@@ -80,7 +79,7 @@ void AvatarManager::slotInsertAvatarUrl(const QString &userId, const QString &ur
 {
     Q_EMIT insertAvatarUrl(userId, url);
     mAvatarDownloadUserIds.removeAll(userId);
-    qDebug() << " mAvatarDownloadUserIds" << mAvatarDownloadUserIds;
+    //qDebug() << " mAvatarDownloadUserIds" << mAvatarDownloadUserIds;
     if (!mAvatarDownloadUserIds.isEmpty()) {
         mTimer->start();
     }
