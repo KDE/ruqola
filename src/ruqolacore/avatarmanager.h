@@ -23,6 +23,7 @@
 
 #include <QObject>
 #include "libruqola_private_export.h"
+class QTimer;
 class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT AvatarManager : public QObject
 {
@@ -40,8 +41,11 @@ Q_SIGNALS:
 
 private:
     void slotInsertAvatarUrl(const QString &userId, const QString &url);
+    void slotLoadNextAvatar();
+    void slotRescheduleDownload();
     QStringList mAvatarDownloadUserIds;
     RocketChatAccount *mAccount = nullptr;
+    QTimer *mTimer = nullptr;
 };
 
 #endif // AVATARMANAGER_H

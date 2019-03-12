@@ -80,6 +80,7 @@ void GetAvatarJob::slotGetAvatarInfo()
                 addLoggerInfo(QByteArrayLiteral("GetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
                 qCWarning(ROCKETCHATQTRESTAPI_LOG) << " not implemented ! API changed !";
             }
+            Q_EMIT redownloadAvatar();
         } else {
             QString str = QString::fromUtf8(data);
             str.remove(QLatin1Char('"'));

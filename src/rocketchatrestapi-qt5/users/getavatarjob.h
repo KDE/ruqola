@@ -48,6 +48,7 @@ protected:
 
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
+    void redownloadAvatar();
 
 private:
     Q_DISABLE_COPY(GetAvatarJob)

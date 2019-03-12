@@ -307,6 +307,7 @@ void RestApiRequest::getAvatar(const QString &userId)
 {
     GetAvatarJob *job = new GetAvatarJob(this);
     connect(job, &GetAvatarJob::avatar, this, &RestApiRequest::avatar);
+    connect(job, &GetAvatarJob::redownloadAvatar, this, &RestApiRequest::redownloadAvatar);
     initializeRestApiJob(job);
     job->setAvatarUserId(userId);
     if (!job->start()) {

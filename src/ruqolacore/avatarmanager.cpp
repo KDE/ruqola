@@ -22,17 +22,34 @@
 #include "rocketchataccount.h"
 #include "restapirequest.h"
 #include "ruqola_debug.h"
+#include <QTimer>
 
 AvatarManager::AvatarManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mAccount(account)
 {
+    mTimer = new QTimer(this);
+    mTimer->setSingleShot(true);
+    mTimer->setInterval(1000);
+    connect(mTimer, &QTimer::timeout, this, &AvatarManager::slotLoadNextAvatar);
     connect(mAccount->restApi(), &RocketChatRestApi::RestApiRequest::avatar, this, &AvatarManager::slotInsertAvatarUrl);
+    connect(mAccount->restApi(), &RocketChatRestApi::RestApiRequest::redownloadAvatar, this, &AvatarManager::slotRescheduleDownload);
 }
 
 AvatarManager::~AvatarManager()
 {
 
+}
+
+void AvatarManager::slotLoadNextAvatar()
+{
+    mAccount->restApi()->getAvatar(mAvatarDownloadUserIds.first());
+}
+
+void AvatarManager::slotRescheduleDownload()
+{
+    //if problem we need to reschedule after several seconds
+    QTimer::singleShot(20000, this, &AvatarManager::slotLoadNextAvatar);
 }
 
 void AvatarManager::insertInDownloadQueue(const QString &userId)
@@ -50,7 +67,7 @@ void AvatarManager::insertInDownloadQueue(const QString &userId)
     }
     if (startDownload) {
         qDebug() << "AvatarManager::insertInDownloadQueue startdownload " << userId;
-        mAccount->restApi()->getAvatar(userId);
+        mTimer->start();
     }
 }
 
@@ -65,6 +82,6 @@ void AvatarManager::slotInsertAvatarUrl(const QString &userId, const QString &ur
     mAvatarDownloadUserIds.removeAll(userId);
     qDebug() << " mAvatarDownloadUserIds" << mAvatarDownloadUserIds;
     if (!mAvatarDownloadUserIds.isEmpty()) {
-        mAccount->restApi()->getAvatar(mAvatarDownloadUserIds.first());
+        mTimer->start();
     }
 }
