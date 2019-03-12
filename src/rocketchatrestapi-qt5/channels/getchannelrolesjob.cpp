@@ -21,10 +21,14 @@
 #include "getchannelrolesjob.h"
 #include "rocketchatqtrestapi_debug.h"
 #include "restapimethod.h"
+
+#include <KLocalizedString>
+
 #include <QJsonDocument>
 #include <QUrlQuery>
 #include <QJsonObject>
 #include <QNetworkReply>
+
 using namespace RocketChatRestApi;
 GetChannelRolesJob::GetChannelRolesJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -107,4 +111,10 @@ QString GetChannelRolesJob::roomId() const
 void GetChannelRolesJob::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
+}
+
+
+QString RocketChatRestApi::GetChannelRolesJob::jobName() const
+{
+    return i18n("Extract Roles");
 }

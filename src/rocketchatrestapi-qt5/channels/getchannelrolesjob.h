@@ -43,6 +43,9 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
+protected:
+    QString jobName() const override;
+
 Q_SIGNALS:
     void channelRolesDone(const QJsonObject &obj, const QString &roomId);
 
@@ -50,6 +53,7 @@ private:
     Q_DISABLE_COPY(GetChannelRolesJob)
     void slotGetChannelRolesFinished();
     QString mRoomId;
+
 };
 }
 #endif // GETCHANNELROLESJOB_H
