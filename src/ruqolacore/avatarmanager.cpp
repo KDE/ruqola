@@ -49,9 +49,9 @@ void AvatarManager::insertInDownloadQueue(const QString &userId)
         mAvatarDownloadUserIds.append(userId);
     }
     if (startDownload) {
+        qDebug() << "AvatarManager::insertInDownloadQueue startdownload " << userId;
         mAccount->restApi()->getAvatar(userId);
     }
-    qDebug() << " on downalod " << mAvatarDownloadUserIds;
 }
 
 RocketChatAccount *AvatarManager::account() const
