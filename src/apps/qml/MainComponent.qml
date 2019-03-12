@@ -164,7 +164,7 @@ Component {
                 Binding on checked {
                     value: appid.selectedRoom && appid.selectedRoom.favorite
                 }
-                onCheckedChanged: {
+                onToggled: {
                     appid.rocketChatAccount.changeFavorite(appid.selectedRoomID, checked)
                 }
             }
