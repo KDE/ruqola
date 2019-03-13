@@ -121,6 +121,10 @@ MessageBase {
                                     console.log(RuqolaDebugCategorySingleton.category, "Image load error! Trying to reload. " + source)
                                 }
                             }
+                            onHeightChanged: {
+                                playing = height > 0;
+                            }
+
                             MouseArea {
                                 anchors.fill: parent
                                 onClicked: {
