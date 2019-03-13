@@ -79,12 +79,12 @@ MessageBase {
                         Image {
                             id: imageUrl
                             visible: model.modelData.isAnimatedImage
-                            readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
+                            readonly property int imageHeight: 200//model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
                             source: rcAccount.attachmentUrl(model.modelData.link)
                             asynchronous: true
                             fillMode: Image.PreserveAspectFit
-                            //TODO customize it.
-                            width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
+                            //Don't use really imageWidth otherwise it will be too big
+                            width: 200 //model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
                             height: 0
                             sourceSize.width: 200
                             sourceSize.height: 200
@@ -108,14 +108,13 @@ MessageBase {
                         AnimatedImage {
                             id: imageAnimatedUrl
                             visible: model.modelData.isAnimatedImage
-                            readonly property int imageHeight: model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
+                            readonly property int imageHeight: 200//model.modelData.imageHeight === -1 ? 200 : model.modelData.imageHeight
                             source: rcAccount.attachmentUrl(model.modelData.link)
                             asynchronous: true
                             fillMode: Image.PreserveAspectFit
-                            width: model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
+                            //Don't use really imageWidth otherwise it will be too big
+                            width: 200 //model.modelData.imageWidth === -1 ? 200 : model.modelData.imageWidth
                             height: 0
-                            //sourceSize.width: 200
-                            //sourceSize.height: 200
 
                             onStatusChanged: {
                                 if(status == Image.Error){
