@@ -79,11 +79,13 @@ QQC2.Dialog {
             model: filesModel
             delegate:
                 RowLayout {
-                Layout.fillWidth: true
+                width: ListView.view.width
                 QQC2.Label {
-                    //TODO improve it
                     text: filename + '\n' + (description !== "" ? description + '\n' : "") + username + '\n'
                     wrapMode: QQC2.Label.Wrap
+                }
+                Item {
+                    Layout.fillWidth: true
                 }
                 DownloadButton {
                     onDownloadButtonClicked: {
