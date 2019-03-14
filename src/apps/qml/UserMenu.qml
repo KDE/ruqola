@@ -108,9 +108,6 @@ QQC2.Menu {
             menu.ignoreUser(userId, !userIsIgnored)
         }
     }
-    RuqolaMenuSeparator {
-        visible: can_manage_users
-    }
     QQC2.MenuItem {
         id: kickItem
         visible: can_manage_users
