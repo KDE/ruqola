@@ -21,7 +21,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
-import QtQuick.Window 2.0
+import QtQuick.Window 2.2
 
 import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.UserCompleterFilterModelProxy 1.0
