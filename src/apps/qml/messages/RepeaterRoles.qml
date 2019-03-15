@@ -33,7 +33,7 @@ Repeater {
             textFormat: Text.RichText
             text: model.modelData
             color: Kirigami.Theme.disabledTextColor
-            wrapMode: QQC2.Label.Wrap
+            wrapMode: QQC2.Label.NoWrap
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
             Component.onCompleted: {
