@@ -67,6 +67,7 @@ void IgnoreUserJob::slotIgnoreUserFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("Problem when we tried to ignore user message: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

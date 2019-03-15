@@ -63,6 +63,7 @@ void GroupsKickJob::slotKickUsersFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GroupsKickJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

@@ -63,6 +63,7 @@ void MarkRoomAsReadJob::slotMarkAsRead()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("MarkRoomAsReadJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

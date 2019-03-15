@@ -70,6 +70,7 @@ void ChannelJoinJob::slotChannelJoinFinished()
                 Q_EMIT openArchivedRoom(mRoomId);
             }
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

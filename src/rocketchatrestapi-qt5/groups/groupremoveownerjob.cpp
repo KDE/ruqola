@@ -67,6 +67,7 @@ void GroupRemoveOwnerJob::slotRemoveOwnerFinished()
                 Q_EMIT failed(i18n("This is the last owner. Please set a new owner before removing this one."));
             }
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

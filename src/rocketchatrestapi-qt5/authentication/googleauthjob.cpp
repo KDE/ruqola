@@ -91,6 +91,7 @@ void GoogleAuthJob::slotGoogleauthDone()
             emitFailedMessage(replyObject);
             addLoggerWarning("Error during login" + data);
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

@@ -96,6 +96,7 @@ void GetGroupRolesJob::slotGetGroupRolesFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GetGroupRolesJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

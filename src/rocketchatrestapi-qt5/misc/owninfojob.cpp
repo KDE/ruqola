@@ -61,6 +61,7 @@ void OwnInfoJob::slotOwnInfoFinished()
         const QJsonObject replyObject = replyJson.object();
         addLoggerInfo(QByteArrayLiteral("OwnInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT ownInfoDone(replyObject);
+        reply->deleteLater();
     }
     deleteLater();
 }

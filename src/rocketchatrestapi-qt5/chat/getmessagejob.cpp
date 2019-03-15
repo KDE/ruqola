@@ -67,6 +67,7 @@ void GetMessageJob::slotGetMessageFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GetMessageJob: Problem when we tried to get message : ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

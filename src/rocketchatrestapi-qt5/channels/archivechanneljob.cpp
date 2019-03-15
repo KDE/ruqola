@@ -63,6 +63,7 @@ void ArchiveChannelJob::slotArchiveChannelFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("Problem when we tried to archive or unarchive a channel: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

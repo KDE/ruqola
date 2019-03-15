@@ -63,6 +63,7 @@ void ChannelHistoryJob::slotLoadHistoryChannelFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelHistoryJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

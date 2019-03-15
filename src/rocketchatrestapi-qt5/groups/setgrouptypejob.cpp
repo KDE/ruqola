@@ -64,6 +64,7 @@ void SetGroupTypeJob::slotSetGroupTypeFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("SetGroupTypeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

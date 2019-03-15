@@ -63,6 +63,7 @@ void ChannelRemoveLeaderJob::slotRemoveLeaderFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelRemoveLeaderJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

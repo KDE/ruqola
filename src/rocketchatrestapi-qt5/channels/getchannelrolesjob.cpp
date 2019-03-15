@@ -99,6 +99,7 @@ void GetChannelRolesJob::slotGetChannelRolesFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GetChannelRolesJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

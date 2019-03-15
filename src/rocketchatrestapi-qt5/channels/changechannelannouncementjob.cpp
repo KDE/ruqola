@@ -63,6 +63,7 @@ void ChangeChannelAnnouncementJob::slotChangeAnnouncementFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("Problem when we tried to change announcement: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

@@ -64,6 +64,7 @@ void ChannelMembersJob::slotChannelMembersFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("channelMembersDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

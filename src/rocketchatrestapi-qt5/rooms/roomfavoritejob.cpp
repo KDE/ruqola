@@ -63,6 +63,7 @@ void RoomFavoriteJob::slotChangeFavoriteFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("RoomFavoriteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

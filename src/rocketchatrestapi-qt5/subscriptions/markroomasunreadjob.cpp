@@ -63,6 +63,7 @@ void MarkRoomAsUnReadJob::slotMarkAsUnRead()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("MarkRoomAsUnReadJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

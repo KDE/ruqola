@@ -64,6 +64,7 @@ void ChannelInfoJob::slotFilesinChannelFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("channelInfoDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

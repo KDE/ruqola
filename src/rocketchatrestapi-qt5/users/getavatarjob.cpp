@@ -88,6 +88,7 @@ void GetAvatarJob::slotGetAvatarInfo()
             addLoggerWarning(QByteArrayLiteral("GetAvatarJob success: ") + data);
             Q_EMIT avatar(userId, str);
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

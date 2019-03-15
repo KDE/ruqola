@@ -63,6 +63,7 @@ void PrivateInfoJob::slotPrivateInfoDone()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("PrivateInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

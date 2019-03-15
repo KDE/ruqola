@@ -55,6 +55,7 @@ void ReportMessageJob::slotPinMessage()
         const QByteArray data = reply->readAll();
         addLoggerInfo(QByteArrayLiteral("ReportMessageJob: success: ") + data);
         Q_EMIT reportMessageDone();
+        reply->deleteLater();
     }
     deleteLater();
 }

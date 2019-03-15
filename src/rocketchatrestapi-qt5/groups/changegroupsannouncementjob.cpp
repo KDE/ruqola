@@ -63,6 +63,7 @@ void ChangeGroupsAnnouncementJob::slotChangeGroupsannouncementFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChangeGroupsDescriptionJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

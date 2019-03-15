@@ -64,6 +64,7 @@ void GroupsInfoJob::slotFilesinChannelFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("groupInfoDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

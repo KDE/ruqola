@@ -66,6 +66,7 @@ void GetRoomsJob::slotGetRoomsFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GetRoomsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

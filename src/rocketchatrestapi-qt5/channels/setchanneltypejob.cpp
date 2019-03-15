@@ -64,6 +64,7 @@ void SetChannelTypeJob::slotSetGroupTypeFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("SetChannelTypeJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

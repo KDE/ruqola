@@ -76,6 +76,7 @@ void StarMessageJob::slotStarMessageFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("StarMessageJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

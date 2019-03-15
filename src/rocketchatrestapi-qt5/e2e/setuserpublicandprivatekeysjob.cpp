@@ -63,6 +63,7 @@ void SetUserPublicAndPrivateKeysJob::slotAddKeyToChainFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("SetUserPublicAndPrivateKeysJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

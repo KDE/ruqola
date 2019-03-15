@@ -62,6 +62,7 @@ void SetAvatarJob::slotSetAvatar()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("SetAvatarJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

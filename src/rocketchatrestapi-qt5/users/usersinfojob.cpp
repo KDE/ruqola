@@ -67,6 +67,7 @@ void UsersInfoJob::slotOwnInfoFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("UsersInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

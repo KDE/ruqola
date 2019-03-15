@@ -70,6 +70,7 @@ void ForgotPasswordJob::slotForgotPassword()
         //qCDebug(ROCKETCHATQTRESTAPI_LOG) << "RestApiRequest::parseGetAvatar: " << data << " userId "<<userId;
         addLoggerInfo(QByteArrayLiteral("ForgotPasswordJob: success: ") + data);
         Q_EMIT forgotPasswordDone();
+        reply->deleteLater();
     }
     deleteLater();
 }

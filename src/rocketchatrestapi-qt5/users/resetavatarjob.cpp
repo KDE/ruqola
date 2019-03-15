@@ -63,6 +63,7 @@ void ResetAvatarJob::slotResetAvatar()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ResetAvatarJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

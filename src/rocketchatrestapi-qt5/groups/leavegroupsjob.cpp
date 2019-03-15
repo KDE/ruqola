@@ -63,6 +63,7 @@ void LeaveGroupsJob::slotLeaveGroupsFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("LeaveGroupsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

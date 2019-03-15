@@ -118,6 +118,7 @@ void UploadFileJob::slotUploadFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("UploadFileJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

@@ -65,6 +65,7 @@ void ArchiveGroupsJob::slotArchiveGroupsFinished()
             //FIXME report error
             Q_EMIT archiveGroupsError(QString());
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

@@ -64,6 +64,7 @@ void CreateGroupsJob::slotCreateGroupsFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("CreateGroupsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

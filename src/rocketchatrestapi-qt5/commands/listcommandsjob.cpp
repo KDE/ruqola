@@ -66,6 +66,7 @@ void ListCommandsJob::slotListCommandsFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ListCommandsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

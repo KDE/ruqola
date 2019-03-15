@@ -63,6 +63,7 @@ void GroupAddModeratorJob::slotAddModeratorFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GroupAddModeratorJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

@@ -67,6 +67,7 @@ void LogoutJob::slotLogout()
         }
 
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << " void RestApiRequest::parseLogout(const QByteArray &data)" << data;
+        reply->deleteLater();
     }
     deleteLater();
 }

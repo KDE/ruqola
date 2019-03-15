@@ -63,6 +63,7 @@ void SpotlightJob::slotSpotlightDone()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("SpotlightJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

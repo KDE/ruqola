@@ -66,6 +66,7 @@ void ListPermissionsJob::slotListPermissionFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ListPermissionsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

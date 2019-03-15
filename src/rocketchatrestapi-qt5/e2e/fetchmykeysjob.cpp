@@ -72,6 +72,7 @@ void FetchMyKeysJob::slotFetchMyKeys()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("FetchMyKeysJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

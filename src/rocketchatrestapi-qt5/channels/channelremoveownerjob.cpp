@@ -64,6 +64,7 @@ void ChannelRemoveOwnerJob::slotRemoveOwnerFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelRemoveOwnerJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

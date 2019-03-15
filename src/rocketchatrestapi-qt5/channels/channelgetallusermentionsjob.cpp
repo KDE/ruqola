@@ -96,6 +96,7 @@ void ChannelGetAllUserMentionsJob::slotChannelGetAllUserMentionsFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelGetAllUserMentionsJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

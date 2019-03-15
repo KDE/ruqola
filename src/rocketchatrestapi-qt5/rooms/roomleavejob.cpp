@@ -63,6 +63,7 @@ void RoomLeaveJob::slotLeaveRoomFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("RoomLeaveJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

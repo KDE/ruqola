@@ -63,6 +63,7 @@ void SaveNotificationJob::slotChangeNotificationFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("SaveNotificationJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

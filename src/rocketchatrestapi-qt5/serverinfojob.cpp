@@ -80,6 +80,7 @@ void ServerInfoJob::slotServerInfoFinished()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ServerInfoJob::slotServerInfoFinished: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

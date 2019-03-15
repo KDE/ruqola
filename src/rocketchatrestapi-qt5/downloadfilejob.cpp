@@ -63,6 +63,7 @@ void DownloadFileJob::slotDownloadDone()
             //emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("DownloadFileJob problem: ") + data);
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

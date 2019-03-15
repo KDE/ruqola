@@ -63,6 +63,7 @@ void VideoConfUpdateJitsiTimeOutJob::slotUpdateJitsiTimeOut()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("VideoConfUpdateJitsiTimeOutJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

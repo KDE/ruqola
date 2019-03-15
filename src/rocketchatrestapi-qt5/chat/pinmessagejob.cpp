@@ -59,6 +59,7 @@ void PinMessageJob::slotPinMessage()
         } else {
             Q_EMIT unPinMessageDone();
         }
+        reply->deleteLater();
     }
     deleteLater();
 }

@@ -76,6 +76,7 @@ void GetPresenceJob::slotGetPresenceUserId()
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GetPresenceJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
+        reply->deleteLater();
     }
     deleteLater();
 }
