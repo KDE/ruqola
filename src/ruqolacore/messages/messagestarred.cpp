@@ -18,20 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "messagestarred.h"
 #include <QJsonObject>
 #include <QJsonArray>
 MessageStarred::MessageStarred()
 {
-
 }
 
 bool MessageStarred::isStarred() const
 {
     return mIsStarred;
 }
-
 
 void MessageStarred::parse(const QJsonObject &o)
 {
@@ -49,7 +46,7 @@ void MessageStarred::setIsStarred(bool isStarred)
 
 bool MessageStarred::operator==(const MessageStarred &other) const
 {
-    return (mIsStarred == other.isStarred());
+    return mIsStarred == other.isStarred();
 }
 
 QDebug operator <<(QDebug d, const MessageStarred &t)

@@ -220,7 +220,6 @@ public:
     Q_REQUIRED_RESULT bool broadcast() const;
     void setBroadcast(bool broadcast);
 
-
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();

@@ -91,7 +91,7 @@ bool Room::isEqual(const Room &other) const
            && (mE2EKey == other.e2EKey())
            && (mE2eKeyId == other.e2eKeyId())
            && (mJoinCodeRequired == other.joinCodeRequired())
-            && (mBroadcast == other.broadcast());
+           && (mBroadcast == other.broadcast());
 }
 
 QString Room::displayRoomName() const
@@ -102,7 +102,6 @@ QString Room::displayRoomName() const
         return QLatin1Char('#') + mName;
     }
 }
-
 
 QString Room::name() const
 {

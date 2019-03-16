@@ -449,7 +449,6 @@ void RestApiRequest::changeGroupsEncrypted(const QString &roomId, bool b)
     }
 }
 
-
 void RestApiRequest::changeChannelAnnouncement(const QString &roomId, const QString &announcement)
 {
     ChangeChannelAnnouncementJob *job = new ChangeChannelAnnouncementJob(this);

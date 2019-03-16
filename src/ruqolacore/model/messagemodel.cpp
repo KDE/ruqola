@@ -285,7 +285,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
                > QDateTime::currentMSecsSinceEpoch();
     case MessageModel::Starred:
         return mAllMessages.at(idx).starred();
-    case MessageModel::UsernameUrl: {
+    case MessageModel::UsernameUrl:
+    {
         const QString username = mAllMessages.at(idx).username();
         if (username.isEmpty()) {
             return {};

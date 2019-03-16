@@ -53,7 +53,6 @@ private:
     Q_DISABLE_COPY(GetChannelRolesJob)
     void slotGetChannelRolesFinished();
     QString mRoomId;
-
 };
 }
 #endif // GETCHANNELROLESJOB_H

@@ -270,8 +270,8 @@ bool Message::operator==(const Message &other) const
            && (mRole == other.role())
            && (mReactions == other.reactions())
            && (mUnread == other.unread())
-            && (mMessagePinned == other.messagePinned())
-            && (mMessageStarred == other.messageStarred());
+           && (mMessagePinned == other.messagePinned())
+           && (mMessageStarred == other.messageStarred());
 }
 
 Message &Message::operator=(const Message &other)

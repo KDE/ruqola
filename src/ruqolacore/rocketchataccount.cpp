@@ -1147,7 +1147,6 @@ bool RocketChatAccount::allowMessageDeletingEnabled() const
     return mRuqolaServerConfig->allowMessageDeletingEnabled();
 }
 
-
 QString RocketChatAccount::serverVersionStr() const
 {
     return mRuqolaServerConfig->serverVersionStr();
@@ -1355,7 +1354,6 @@ void RocketChatAccount::blockUser(const QString &rid, bool block)
         }
     }
 }
-
 
 void RocketChatAccount::clearTypingNotification()
 {

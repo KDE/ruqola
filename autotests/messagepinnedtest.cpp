@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(MessagePinnedTest)
 MessagePinnedTest::MessagePinnedTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MessagePinnedTest::shouldHaveDefaultValue()

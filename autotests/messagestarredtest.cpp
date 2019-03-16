@@ -25,7 +25,6 @@ QTEST_GUILESS_MAIN(MessageStarredTest)
 MessageStarredTest::MessageStarredTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MessageStarredTest::shouldHaveDefaultValue()

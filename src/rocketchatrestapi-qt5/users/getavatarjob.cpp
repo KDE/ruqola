@@ -118,7 +118,6 @@ void GetAvatarJob::setAvatarUserId(const QString &avatarUserId)
     mAvatarUserId = avatarUserId;
 }
 
-
 QString RocketChatRestApi::GetAvatarJob::jobName() const
 {
     return i18n("Get Avatar");

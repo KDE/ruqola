@@ -38,7 +38,6 @@ AvatarManager::AvatarManager(RocketChatAccount *account, QObject *parent)
 
 AvatarManager::~AvatarManager()
 {
-
 }
 
 void AvatarManager::slotLoadNextAvatar()

@@ -54,7 +54,6 @@ private:
     Q_DISABLE_COPY(GetAvatarJob)
     void slotGetAvatarInfo();
     QString mAvatarUserId;
-
 };
 }
 #endif // GETAVATARJOB_H

@@ -18,12 +18,10 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "messagepinned.h"
 #include <QJsonObject>
 MessagePinned::MessagePinned()
 {
-
 }
 
 bool MessagePinned::pinned() const

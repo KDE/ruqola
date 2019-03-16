@@ -114,7 +114,6 @@ void GetChannelRolesJob::setRoomId(const QString &roomId)
     mRoomId = roomId;
 }
 
-
 QString RocketChatRestApi::GetChannelRolesJob::jobName() const
 {
     return i18n("Extract Roles");
