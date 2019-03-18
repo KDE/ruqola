@@ -59,7 +59,7 @@ QQC2.Dialog {
             }
         }
         QQC2.Label {
-            text: i18np("%1 attachment in room", "%1 attachments in room", listview.count)
+            text: listview.count === 0 ? i18n("No Attachment found") : i18np("%1 attachment in room", "%1 attachments in room", listview.count)
             Component.onCompleted: {
                 font.italic = true
                 font.bold = true
