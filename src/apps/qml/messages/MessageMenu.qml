@@ -111,6 +111,7 @@ QQC2.Menu {
         }
     }
     QQC2.MenuItem {
+        id: ignoreUserItem
         contentItem: QQC2.Label {
             id: ignoreLabel
             text: updateIgnoreLabelText()
@@ -132,5 +133,6 @@ QQC2.Menu {
 
         editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
         ignoreLabel.text = updateIgnoreLabelText()
+        ignoreUserItem.visible = (i_username != i_own_username)
     }
 }
