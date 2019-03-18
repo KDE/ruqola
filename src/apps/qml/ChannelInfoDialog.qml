@@ -226,6 +226,7 @@ QQC2.Dialog {
         rId: channelName
         onDeleteRoom: {
             channelInfoDialog.deleteRoom(roomId)
+            channelInfoDialog.close()
         }
     }
 }
