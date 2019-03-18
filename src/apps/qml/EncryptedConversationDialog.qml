@@ -25,7 +25,7 @@ import QtQuick.Window 2.2
 import QtQuick 2.9
 
 QQC2.Dialog {
-    id: deleteRoomDialog
+    id: encryptedConversationDialog
 
     title: i18n("Encrypted Conversation")
 
