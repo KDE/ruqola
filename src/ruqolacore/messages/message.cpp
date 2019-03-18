@@ -193,9 +193,10 @@ void Message::setMentions(const QMap<QString, QString> &mentions)
 
 void Message::parseAttachment(const QJsonArray &attachments)
 {
+    //TODO add support de support
     mAttachements.clear();
     if (!attachments.isEmpty()) {
-        //qCDebug(RUQOLA_LOG) << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
+        //qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
         for (int i = 0; i < attachments.size(); i++) {
             const QJsonObject attachment = attachments.at(i).toObject();
             MessageAttachment messageAttachement;
