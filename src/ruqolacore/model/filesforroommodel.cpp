@@ -75,7 +75,7 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
     case FileId:
         return file.fileId();
     case TimeStamp:
-        return file.uploadedAt();
+        return file.uploadedDateTimeStr();
     case UserName:
         return file.userName();
     }

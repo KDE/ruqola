@@ -26,7 +26,6 @@ import QtQuick 2.9
 import KDE.Ruqola.FilesForRoomFilterProxyModel 1.0
 import org.kde.kirigami 2.7 as Kirigami
 import "common"
-import "js/message.js" as MessageScript;
 
 QQC2.Dialog {
     id: showFilesInRoomDialog
@@ -103,7 +102,7 @@ QQC2.Dialog {
                         }
                     }
                     QQC2.Label {
-                        text: MessageScript.displayDateTime(timestamp)
+                        text: timestamp
                         wrapMode: QQC2.Label.NoWrap
                         color: Kirigami.Theme.disabledTextColor
                         Component.onCompleted: {

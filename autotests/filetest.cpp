@@ -40,6 +40,7 @@ void FileTest::shouldHaveDefaultValue()
     QVERIFY(f.mimeType().isEmpty());
     QVERIFY(f.fileId().isEmpty());
     QVERIFY(f.rid().isEmpty());
+    QVERIFY(f.uploadedDateTimeStr().isEmpty());
     QCOMPARE(f.uploadedAt(), -1);
 }
 

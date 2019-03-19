@@ -19,6 +19,7 @@
 
 #include "file.h"
 #include "utils.h"
+#include <QDateTime>
 
 File::File()
 {
@@ -130,6 +131,7 @@ qint64 File::uploadedAt() const
 void File::setUploadedAt(const qint64 &uploadedAt)
 {
     mUploadedAt = uploadedAt;
+    mUploadedDateTimeStr = QDateTime::fromMSecsSinceEpoch(mUploadedAt).toString();
 }
 
 QString File::fileId() const
@@ -160,6 +162,11 @@ QString File::userName() const
 void File::setUserName(const QString &userName)
 {
     mUserName = userName;
+}
+
+QString File::uploadedDateTimeStr() const
+{
+    return mUploadedDateTimeStr;
 }
 
 QDebug operator <<(QDebug d, const File &t)

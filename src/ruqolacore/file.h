@@ -63,6 +63,8 @@ public:
     Q_REQUIRED_RESULT QString userName() const;
     void setUserName(const QString &userName);
 
+    Q_REQUIRED_RESULT QString uploadedDateTimeStr() const;
+
 private:
     QString mFileName;
     QString mDescription;
@@ -72,6 +74,7 @@ private:
     QString mFileId;
     QString mRid;
     QString mUserName;
+    QString mUploadedDateTimeStr;
 
     qint64 mUploadedAt = -1;
 };
