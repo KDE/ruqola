@@ -26,6 +26,7 @@ import QtQuick 2.9
 import KDE.Ruqola.FilesForRoomFilterProxyModel 1.0
 import org.kde.kirigami 2.7 as Kirigami
 import "common"
+import "js/message.js" as MessageScript;
 
 QQC2.Dialog {
     id: showFilesInRoomDialog
@@ -81,7 +82,7 @@ QQC2.Dialog {
                 RowLayout {
                 width: ListView.view.width
                 QQC2.Label {
-                    text: filename + '\n' + (description !== "" ? description + '\n' : "") + username + '\n'
+                    text: filename + '\n' + (description !== "" ? description + '\n' : "") + username + '\n' + MessageScript.displayDateTime(timestamp)
                     wrapMode: QQC2.Label.Wrap
                 }
                 Item {
