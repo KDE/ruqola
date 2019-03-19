@@ -81,9 +81,35 @@ QQC2.Dialog {
             delegate:
                 RowLayout {
                 width: ListView.view.width
-                QQC2.Label {
-                    text: filename + '\n' + (description !== "" ? description + '\n' : "") + username + '\n' + MessageScript.displayDateTime(timestamp)
-                    wrapMode: QQC2.Label.Wrap
+                ColumnLayout {
+                    QQC2.Label {
+                        text: filename
+                        wrapMode: QQC2.Label.Wrap
+                    }
+                    QQC2.Label {
+                        text: (description !== "" ? description : "")
+                        visible: description !== ""
+                        wrapMode: QQC2.Label.Wrap
+                        Component.onCompleted: {
+                            font.italic = true
+                        }
+                    }
+                    QQC2.Label {
+                        text: username
+                        wrapMode: QQC2.Label.NoWrap
+                        color: Kirigami.Theme.disabledTextColor
+                        Component.onCompleted: {
+                            font.italic = true
+                        }
+                    }
+                    QQC2.Label {
+                        text: MessageScript.displayDateTime(timestamp)
+                        wrapMode: QQC2.Label.NoWrap
+                        color: Kirigami.Theme.disabledTextColor
+                        Component.onCompleted: {
+                            font.italic = true
+                        }
+                    }
                 }
                 Item {
                     Layout.fillWidth: true
