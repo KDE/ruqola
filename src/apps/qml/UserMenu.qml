@@ -29,6 +29,7 @@ QQC2.Menu {
     id: menu
     property bool can_manage_users: true
     property string userId
+    property string ownUserId
     property bool hasOwnerRole: true
     property bool hasModeratorRole: true
     property bool hasLeaderRole: true
@@ -107,6 +108,7 @@ QQC2.Menu {
         onTriggered: {
             menu.ignoreUser(userId, !userIsIgnored)
         }
+        visible: userId != ownUserId
     }
     QQC2.MenuItem {
         id: kickItem

@@ -237,6 +237,7 @@ Component {
                             id: userMenu
                             userId: model.userid
                             can_manage_users: appid.selectedRoom.canChangeRoles
+                            ownUserId: appid.rocketChatAccount.userID
                             onKickUser: {
                                 appid.rocketChatAccount.kickUser(appid.selectedRoomID, userId, appid.selectedRoom.channelType)
                             }
@@ -244,7 +245,8 @@ Component {
                                 appid.rocketChatAccount.changeRoles(appid.selectedRoomID, userId, appid.selectedRoom.channelType, type)
                             }
                             onIgnoreUser: {
-                                //TODO
+                                //TODO verify ignored
+                                //appid.rocketChatAccount.ignoreUser(appid.selectedRoomID, userId, ignored)
                             }
                             onOpenConversation: {
                                 //TODO
