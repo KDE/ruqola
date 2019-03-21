@@ -238,6 +238,7 @@ Component {
                             userId: model.userid
                             can_manage_users: appid.selectedRoom.canChangeRoles
                             ownUserId: appid.rocketChatAccount.userID
+                            isAdirectChannel: appid.selectedRoom.channelType === "d"
                             onKickUser: {
                                 appid.rocketChatAccount.kickUser(appid.selectedRoomID, userId, appid.selectedRoom.channelType)
                             }

@@ -34,7 +34,7 @@ QQC2.Menu {
     property bool hasModeratorRole: true
     property bool hasLeaderRole: true
     property bool userIsIgnored: false
-
+    property bool isAdirectChannel: false
     signal ignoreUser(string userId, bool ignore)
     signal kickUser(string userId)
     signal changeRole(string userId, int type)
@@ -69,10 +69,11 @@ QQC2.Menu {
         onTriggered: {
             menu.openConversation(userId)
         }
+        visible: !isAdirectChannel
     }
     QQC2.MenuItem {
         id: removeAsOwnerItem
-        visible: can_manage_users
+        visible: can_manage_users && !isAdirectChannel
         contentItem: QQC2.Label {
             text: updateOwnerMenuItemText()
         }
@@ -82,7 +83,7 @@ QQC2.Menu {
     }
     QQC2.MenuItem {
         id: removeAsLeaderItem
-        visible: can_manage_users
+        visible: can_manage_users && !isAdirectChannel
         contentItem: QQC2.Label {
             text: updateLeaderMenuItemText()
         }
@@ -92,7 +93,7 @@ QQC2.Menu {
     }
     QQC2.MenuItem {
         id: removeAsModeratorItem
-        visible: can_manage_users
+        visible: can_manage_users && !isAdirectChannel
         contentItem: QQC2.Label {
             text: updateModeratorMenuItemText()
         }
@@ -108,11 +109,11 @@ QQC2.Menu {
         onTriggered: {
             menu.ignoreUser(userId, !userIsIgnored)
         }
-        visible: userId != ownUserId
+        visible: userId != ownUserId  && !isAdirectChannel
     }
     QQC2.MenuItem {
         id: kickItem
-        visible: can_manage_users
+        visible: can_manage_users && !isAdirectChannel
         contentItem: QQC2.Label {
             text: i18n("Remove from Room")
         }
