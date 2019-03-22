@@ -307,6 +307,10 @@ Component {
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
 
+            onPinMessage: {
+                appid.rocketChatAccount.pinMessage(messageId, pinned)
+            }
+
             onEditMessage: {
                 userInputMessage.messageId = messageId;
                 userInputMessage.setOriginalMessage(messageStr)

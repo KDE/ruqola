@@ -33,7 +33,7 @@ ColumnLayout {
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
     signal deleteReaction(string messageId, string emoji)
     signal ignoreUser(bool ignored)
-
+    signal pinMessage(string messageId, bool pinned)
 
     property string i_date
     property string i_username

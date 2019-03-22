@@ -37,6 +37,7 @@ ListView {
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
     signal deleteReaction(string messageId, string emoji)
     signal ignoreUser(string userId, bool ignored)
+    signal pinMessage(string messageId, bool pinned)
 
     property QtObject rcAccount
     property string roomId: ""
@@ -90,6 +91,10 @@ ListView {
 
         onOpenChannel: {
             activeChat.openChannel(channel)
+        }
+
+        onPinMessage: {
+            activeChat.pinMessage(messageId, pinned)
         }
 
         onOpenDirectChannel: {

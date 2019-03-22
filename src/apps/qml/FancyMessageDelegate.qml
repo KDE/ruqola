@@ -230,6 +230,9 @@ Rectangle {
         onJitsiCallConfActivated: {
             messageMain.jitsiCallConfActivated()
         }
+        onPinMessage: {
+            messageMain.pinMessage(messageId, pinned)
+        }
         onDeleteMessage: {
             messageMain.deleteMessage(messageId)
         }
