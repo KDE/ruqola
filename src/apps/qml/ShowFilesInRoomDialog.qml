@@ -83,6 +83,7 @@ QQC2.Dialog {
                 ColumnLayout {
                     QQC2.Label {
                         text: filename
+                        elide: Text.ElideRight
                         wrapMode: QQC2.Label.Wrap
                     }
                     QQC2.Label {
@@ -96,6 +97,7 @@ QQC2.Dialog {
                     QQC2.Label {
                         text: username
                         wrapMode: QQC2.Label.NoWrap
+                        elide: Text.ElideRight
                         color: Kirigami.Theme.disabledTextColor
                         Component.onCompleted: {
                             font.italic = true

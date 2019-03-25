@@ -57,6 +57,7 @@ QQC2.Dialog {
                 //checked: false
                 onClicked: {
                     notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DisableNotifications, checked)
+                    //TODO disable other actions!
                 }
             }
 
