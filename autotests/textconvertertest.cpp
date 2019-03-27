@@ -54,6 +54,10 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
     QTest::addColumn<QString>("output");
     QTest::addColumn<QString>("serverUrl");
     QTest::newRow("empty") << QString() << QString() << QStringLiteral("www.kde.org");
+    QTest::newRow("bold") << QStringLiteral("*foo*") << QStringLiteral("<b>*foo*</b>") << QStringLiteral("www.kde.org");
+    QTest::newRow("underline") << QStringLiteral("_foo_") << QStringLiteral("<u>_foo_</u>") << QStringLiteral("www.kde.org");
+    //TODO error
+    QTest::newRow("underline2") << QStringLiteral("_personal theming related tasks_") << QStringLiteral("_personal: theming related tasks_") << QStringLiteral("www.kde.org");
     QTest::newRow("simpletext") << QStringLiteral("foo") << QStringLiteral("foo") << QStringLiteral("www.kde.org");
     QTest::newRow("customemojiwithmanager") << QStringLiteral(":foo:") << QStringLiteral(":foo:") << QStringLiteral("www.kde.org");
     QTest::newRow("customemojiwithmanager1") << QStringLiteral(":totoro:")
