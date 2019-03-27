@@ -33,7 +33,7 @@ Repeater {
             renderType: Text.NativeRendering
             textFormat: Text.RichText
             text: model.modelData.convertedReactionName
-            wrapMode: QQC2.Label.Wrap
+            wrapMode: QQC2.Label.NoWrap
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
             MouseArea {

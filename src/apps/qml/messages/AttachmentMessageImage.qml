@@ -55,7 +55,7 @@ MessageBase {
                             id: imageTitle
                             text: model.modelData.title === "" ? "" :  model.modelData.imageTitle
                             visible: model.modelData.title !== ""
-                            wrapMode: QQC2.Label.Wrap
+                            wrapMode: QQC2.Label.NoWrap
                             anchors.leftMargin: Kirigami.Units.smallSpacing
                             anchors.rightMargin: Kirigami.Units.smallSpacing
                             renderType: Text.NativeRendering
