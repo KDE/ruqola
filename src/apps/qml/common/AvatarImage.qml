@@ -63,6 +63,11 @@ Rectangle {
                 avatarRect.showUserInfo();
             }
         }
+        onStatusChanged: {
+            if (avatarImage.status === Image.Error) {
+                console.log(RuqolaDebugCategorySingleton.category, "An error occured when we try to load image");
+            }
+        }
 
     }
     QQC2.Label {
