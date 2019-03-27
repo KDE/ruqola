@@ -28,7 +28,7 @@ Repeater {
     id: repearterRoles
     Row {
         QQC2.Label {
-            id: numberOfReact
+            id: numberOfRoles
             renderType: Text.NativeRendering
             textFormat: Text.RichText
             text: model.modelData
