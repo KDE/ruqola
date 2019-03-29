@@ -39,6 +39,9 @@ MessageBase {
             avatarurl: i_avatar
             aliasname: i_aliasname
             username: i_username
+            onShowUserInfo: {
+                //TODO
+            }
         }
 
         Item {
