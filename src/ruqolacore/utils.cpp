@@ -24,7 +24,7 @@
 #include <QDateTime>
 #include <QJsonArray>
 #include <KTextToHTML>
-#include <qregularexpression.h>
+#include <QRegularExpression>
 
 QUrl Utils::generateServerUrl(const QString &url)
 {

@@ -23,7 +23,7 @@
 #include <QStandardPaths>
 #include <QHBoxLayout>
 #include <QQmlContext>
-#include <qqmlapplicationengine.h>
+#include <QQmlApplicationEngine>
 #include <ruqolautils.h>
 #include <ruqola.h>
 #include <rocketchataccount.h>

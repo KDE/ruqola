@@ -22,7 +22,7 @@
 #include "emoji.h"
 #include <QJsonObject>
 #include <QTest>
-#include <qjsondocument.h>
+#include <QJsonDocument>
 
 QTEST_GUILESS_MAIN(EmojiTest)
 
