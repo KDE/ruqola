@@ -829,6 +829,7 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId, Rocke
         restApi()->hideUnreadStatus(roomId, newValue.toBool());
         break;
     case AudioNotifications:
+        qDebug() << "case AudioNotifications: " << newValue.toString() << " room " << roomId;
         restApi()->audioNotifications(roomId, newValue.toString());
         break;
     case DesktopNotifications:

@@ -896,13 +896,13 @@ void RestApiRequest::audioNotifications(const QString &roomId, const QString &va
 
 void RestApiRequest::desktopNotifications(const QString &roomId, const QString &value)
 {
-//    SaveNotificationJob *job = new SaveNotificationJob(this);
-//    initializeRestApiJob(job);
-//    job->setRoomId(roomId);
-//    job->setDesktopNotificationDuration(value);
-//    if (!job->start()) {
-//    qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
-//    }
+    SaveNotificationJob *job = new SaveNotificationJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setDesktopNotifications(value);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
 }
 
 void RestApiRequest::emailNotifications(const QString &roomId, const QString &value)

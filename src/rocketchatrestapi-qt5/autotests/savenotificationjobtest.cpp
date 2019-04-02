@@ -41,6 +41,7 @@ void SaveNotificationJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hideUnreadStatus());
     QVERIFY(job.emailNotifications().isEmpty());
     QVERIFY(job.audioNotifications().isEmpty());
+    QVERIFY(job.desktopNotifications().isEmpty());
     QVERIFY(job.mobilePushNotifications().isEmpty());
     QVERIFY(job.audioNotificationValue().isEmpty());
     QCOMPARE(job.desktopNotificationDuration(), 0);

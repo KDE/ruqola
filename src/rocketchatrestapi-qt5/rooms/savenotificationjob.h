@@ -69,6 +69,9 @@ public:
     Q_REQUIRED_RESULT QString unreadAlert() const;
     void setUnreadAlert(const QString &unreadAlert);
 
+    Q_REQUIRED_RESULT QString desktopNotifications() const;
+    void setDesktopNotifications(const QString &desktopNotifications);
+
 Q_SIGNALS:
     void changeNotificationDone();
 
@@ -87,7 +90,8 @@ private:
         DesktopNotificationDuration = 32,
         DisableNotifications = 64,
         HideUnreadStatus = 128,
-        MuteGroupMentions = 256
+        MuteGroupMentions = 256,
+        DesktopNotification = 512,
     };
     Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
@@ -95,7 +99,7 @@ private:
 
     QString mRoomId;
 
-    //TODO ? desktopNotifications ????
+    QString mDesktopNotifications;
     QString mEmailNotifications;
     QString mAudioNotifications;
     QString mMobilePushNotifications;

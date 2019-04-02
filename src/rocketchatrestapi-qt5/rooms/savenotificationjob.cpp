@@ -68,6 +68,17 @@ void SaveNotificationJob::slotChangeNotificationFinished()
     deleteLater();
 }
 
+QString SaveNotificationJob::desktopNotifications() const
+{
+    return mDesktopNotifications;
+}
+
+void SaveNotificationJob::setDesktopNotifications(const QString &desktopNotifications)
+{
+    mSettingsWillBeChanged |= DesktopNotification;
+    mDesktopNotifications = desktopNotifications;
+}
+
 QString SaveNotificationJob::unreadAlert() const
 {
     return mUnreadAlert;
@@ -240,6 +251,9 @@ QJsonDocument SaveNotificationJob::json() const
     }
     if (mSettingsWillBeChanged & MuteGroupMentions) {
         notificationsJson[QLatin1String("muteGroupMentions")] = muteGroupMentions() ? QStringLiteral("1") : QStringLiteral("0");
+    }
+    if (mSettingsWillBeChanged & DesktopNotification) {
+        notificationsJson[QLatin1String("desktopNotifications")] = desktopNotifications();
     }
     jsonObj[QLatin1String("notifications")] = notificationsJson;
 
