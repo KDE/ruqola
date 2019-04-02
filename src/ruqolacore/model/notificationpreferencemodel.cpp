@@ -66,7 +66,7 @@ void NotificationPreferenceModel::fillModel()
     {
         NotificationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Default");
-        preferenceInfo.preference = QString();
+        preferenceInfo.preference = QStringLiteral("default");
         mNotificationPreferenceList.append(preferenceInfo);
     }
     {
