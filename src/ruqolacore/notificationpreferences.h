@@ -27,6 +27,7 @@ class QQmlEngine;
 class QJSEngine;
 
 class NotificationPreferenceModel;
+class NotificationDesktopDurationPreferenceModel;
 class LIBRUQOLACORE_TESTS_EXPORT NotificationPreferences : public QObject
 {
     Q_OBJECT
@@ -42,11 +43,14 @@ public:
 
     Q_INVOKABLE Q_REQUIRED_RESULT NotificationPreferenceModel *desktopAudioNotificationModel() const;
 
+    Q_INVOKABLE Q_REQUIRED_RESULT NotificationDesktopDurationPreferenceModel *desktopDurationNotificationModel() const;
+
 private:
     NotificationPreferenceModel *mEmailNotificationModel = nullptr;
     NotificationPreferenceModel *mMobileNotificationModel = nullptr;
     NotificationPreferenceModel *mDesktopNotificationModel = nullptr;
     NotificationPreferenceModel *mDesktopAudioNotificationModel = nullptr;
+    NotificationDesktopDurationPreferenceModel *mDesktopDurationNotificationModel = nullptr;
 };
 
 inline static QObject *notificationpreferences_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

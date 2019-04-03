@@ -18,22 +18,28 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "notificationpreferencestest.h"
-#include "notificationpreferences.h"
+#include "notificationdesktopdurationpreferencemodeltest.h"
+#include "model/notificationdesktopdurationpreferencemodel.h"
 #include <QTest>
-QTEST_MAIN(NotificationPreferencesTest)
 
-NotificationPreferencesTest::NotificationPreferencesTest(QObject *parent)
+QTEST_MAIN(NotificationDesktopDurationPreferenceModelTest)
+
+NotificationDesktopDurationPreferenceModelTest::NotificationDesktopDurationPreferenceModelTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void NotificationPreferencesTest::shouldHaveDefaultValues()
+void NotificationDesktopDurationPreferenceModelTest::shouldHaveDefaultValue()
 {
-    NotificationPreferences w;
-    QVERIFY(w.emailNotificationModel());
-    QVERIFY(w.mobileNotificationModel());
-    QVERIFY(w.desktopNotificationModel());
-    QVERIFY(w.desktopAudioNotificationModel());
-    QVERIFY(w.desktopDurationNotificationModel());
+    NotificationDesktopDurationPreferenceModel w;
+    QCOMPARE(w.rowCount(), 4);
+
+    QHash<int, QByteArray> roles;
+    roles[NotificationDesktopDurationPreferenceModel::NotificationPreferenceI18n] = QByteArrayLiteral("preferencei18n");
+    roles[NotificationDesktopDurationPreferenceModel::NotificationPreference] = QByteArrayLiteral("preference");
+
+    QCOMPARE(w.roleNames(), roles);
+    //FIXME QCOMPARE(w.currentPreference(), 0);
 }
+
+//TODO add autotest about currentStatus changed !

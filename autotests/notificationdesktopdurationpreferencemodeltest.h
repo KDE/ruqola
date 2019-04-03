@@ -18,22 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "notificationpreferencestest.h"
-#include "notificationpreferences.h"
-#include <QTest>
-QTEST_MAIN(NotificationPreferencesTest)
+#ifndef NOTIFICATIONDESKTOPDURATIONPREFERENCEMODELTEST_H
+#define NOTIFICATIONDESKTOPDURATIONPREFERENCEMODELTEST_H
 
-NotificationPreferencesTest::NotificationPreferencesTest(QObject *parent)
-    : QObject(parent)
-{
-}
+#include <QObject>
 
-void NotificationPreferencesTest::shouldHaveDefaultValues()
+class NotificationDesktopDurationPreferenceModelTest : public QObject
 {
-    NotificationPreferences w;
-    QVERIFY(w.emailNotificationModel());
-    QVERIFY(w.mobileNotificationModel());
-    QVERIFY(w.desktopNotificationModel());
-    QVERIFY(w.desktopAudioNotificationModel());
-    QVERIFY(w.desktopDurationNotificationModel());
-}
+    Q_OBJECT
+public:
+    explicit NotificationDesktopDurationPreferenceModelTest(QObject *parent = nullptr);
+    ~NotificationDesktopDurationPreferenceModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+};
+
+#endif // NOTIFICATIONDESKTOPDURATIONPREFERENCEMODELTEST_H

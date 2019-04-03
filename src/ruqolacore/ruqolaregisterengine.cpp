@@ -52,6 +52,7 @@
 #include "model/emoticonmodel.h"
 #include "model/notificationpreferencemodel.h"
 #include "model/mentionsfilterproxymodel.h"
+#include "model/notificationdesktopdurationpreferencemodel.h"
 #include "notificationpreferences.h"
 
 #include "channel.h"
@@ -92,6 +93,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<UserCompleterModel>("KDE.Ruqola.UserCompleterModel", 1, 0, "UserCompleterModel");
     qmlRegisterType<StatusModel>("KDE.Ruqola.StatusModel", 1, 0, "StatusModel");
     qmlRegisterType<NotificationPreferenceModel>("KDE.Ruqola.NotificationPreferenceModel", 1, 0, "NotificationPreferenceModel");
+    qmlRegisterType<NotificationDesktopDurationPreferenceModel>("KDE.Ruqola.NotificationDesktopDurationPreferenceModel", 1, 0, "NotificationDesktopDurationPreferenceModel");
     qmlRegisterType<SearchChannelFilterProxyModel>("KDE.Ruqola.SearchChannelFilterProxyModel", 1, 0, "SearchChannelFilterProxyModel");
     qmlRegisterType<InputCompleterModel>("KDE.Ruqola.InputCompleterModel", 1, 0, "InputCompleterModel");
     qmlRegisterType<LoginMethodModel>("KDE.Ruqola.LoginMethodModel", 1, 0, "LoginMethodModel");

@@ -116,6 +116,14 @@ QQC2.Dialog {
                 QQC2.Label {
                     text: i18n("Duration:");
                 }
+                NotificationAlertCombobox {
+                    id: desktopDurationCombobox
+                    model: NotificationPreferences.desktopDurationNotificationModel()
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().desktopNotificationDuration) : 0
+                    onActivated: {
+                        //notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.AudioNotifications, model.currentPreference(index))
+                    }
+                }
             }
         }
 

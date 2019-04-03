@@ -18,20 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef NOTIFICATIONPREFERENCEMODEL_H
-#define NOTIFICATIONPREFERENCEMODEL_H
 
+#ifndef NOTIFICATIONDESKTOPDURATIONPREFERENCEMODEL_H
+#define NOTIFICATIONDESKTOPDURATIONPREFERENCEMODEL_H
+
+#include <QAbstractListModel>
 #include "libruqola_private_export.h"
 
 #include <QAbstractListModel>
 #include <QIcon>
 
-struct NotificationPreferenceInfo {
+struct NotificationDesktopDurationPreferenceInfo {
     QString displayText;
     QString preference;
 };
 
-class LIBRUQOLACORE_TESTS_EXPORT NotificationPreferenceModel : public QAbstractListModel
+class LIBRUQOLACORE_TESTS_EXPORT NotificationDesktopDurationPreferenceModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
@@ -41,8 +43,8 @@ public:
     };
     Q_ENUM(NotificationPreferenceRoles)
 
-    explicit NotificationPreferenceModel(QObject *parent = nullptr);
-    ~NotificationPreferenceModel() override;
+    explicit NotificationDesktopDurationPreferenceModel(QObject *parent = nullptr);
+    ~NotificationDesktopDurationPreferenceModel() override;
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -57,10 +59,10 @@ Q_SIGNALS:
     void currentNotificationPreferenceChanged();
 
 private:
-    Q_DISABLE_COPY(NotificationPreferenceModel)
+    Q_DISABLE_COPY(NotificationDesktopDurationPreferenceModel)
     void fillModel();
-    QVector<NotificationPreferenceInfo> mNotificationPreferenceList;
+    QVector<NotificationDesktopDurationPreferenceInfo> mNotificationDestktopDurationPreferenceList;
     int mCurrentPreference = 0;
 };
 
-#endif // NOTIFICATIONPREFERENCEMODEL_H
+#endif // NOTIFICATIONDESKTOPDURATIONPREFERENCEMODEL_H

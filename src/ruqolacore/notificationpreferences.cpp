@@ -19,8 +19,8 @@
 */
 
 #include "notificationpreferences.h"
-
 #include "model/notificationpreferencemodel.h"
+#include "model/notificationdesktopdurationpreferencemodel.h"
 
 NotificationPreferences::NotificationPreferences(QObject *parent)
     : QObject(parent)
@@ -29,6 +29,7 @@ NotificationPreferences::NotificationPreferences(QObject *parent)
     mMobileNotificationModel = new NotificationPreferenceModel(this);
     mDesktopNotificationModel = new NotificationPreferenceModel(this);
     mDesktopAudioNotificationModel = new NotificationPreferenceModel(this);
+    mDesktopDurationNotificationModel = new NotificationDesktopDurationPreferenceModel(this);
 }
 
 NotificationPreferences::~NotificationPreferences()
@@ -53,4 +54,9 @@ NotificationPreferenceModel *NotificationPreferences::desktopNotificationModel()
 NotificationPreferenceModel *NotificationPreferences::desktopAudioNotificationModel() const
 {
     return mDesktopAudioNotificationModel;
+}
+
+NotificationDesktopDurationPreferenceModel *NotificationPreferences::desktopDurationNotificationModel() const
+{
+    return mDesktopDurationNotificationModel;
 }
