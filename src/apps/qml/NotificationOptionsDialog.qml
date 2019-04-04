@@ -121,7 +121,7 @@ QQC2.Dialog {
                     model: NotificationPreferences.desktopDurationNotificationModel()
                     currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().desktopNotificationDuration) : 0
                     onActivated: {
-                        //notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.AudioNotifications, model.currentPreference(index))
+                        notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DesktopDurationNotifications, model.currentPreference(index))
                     }
                 }
             }

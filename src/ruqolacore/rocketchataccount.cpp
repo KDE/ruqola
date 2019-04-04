@@ -847,6 +847,9 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId, Rocke
     case MuteGroupMentions:
         restApi()->muteGroupMentions(roomId, newValue.toBool());
         break;
+    case DesktopDurationNotifications:
+        //TODO add desktop notification duration
+        break;
     }
 }
 

@@ -94,6 +94,7 @@ public:
         HideUnreadStatus,
         AudioNotifications,
         DesktopNotifications,
+        DesktopDurationNotifications,
         EmailNotifications,
         MobilePushNotifications,
         UnreadAlert,
