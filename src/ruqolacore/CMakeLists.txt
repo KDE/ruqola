@@ -40,6 +40,7 @@ set (Ruqola_model_core_srcs
     model/mentionsmodel.cpp
     model/mentionsfilterproxymodel.cpp
     model/notificationdesktopdurationpreferencemodel.cpp
+    model/notificationdesktopsoundpreferencemodel.cpp
     )
 
 set(Ruqola_plugins_srcs

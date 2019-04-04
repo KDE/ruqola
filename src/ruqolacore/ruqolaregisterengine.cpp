@@ -53,6 +53,7 @@
 #include "model/notificationpreferencemodel.h"
 #include "model/mentionsfilterproxymodel.h"
 #include "model/notificationdesktopdurationpreferencemodel.h"
+#include "model/notificationdesktopsoundpreferencemodel.h"
 #include "notificationpreferences.h"
 
 #include "channel.h"
@@ -94,6 +95,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<StatusModel>("KDE.Ruqola.StatusModel", 1, 0, "StatusModel");
     qmlRegisterType<NotificationPreferenceModel>("KDE.Ruqola.NotificationPreferenceModel", 1, 0, "NotificationPreferenceModel");
     qmlRegisterType<NotificationDesktopDurationPreferenceModel>("KDE.Ruqola.NotificationDesktopDurationPreferenceModel", 1, 0, "NotificationDesktopDurationPreferenceModel");
+    qmlRegisterType<NotificationDesktopSoundPreferenceModel>("KDE.Ruqola.NotificationDesktopSoundPreferenceModel", 1, 0, "NotificationDesktopSoundPreferenceModel");
     qmlRegisterType<SearchChannelFilterProxyModel>("KDE.Ruqola.SearchChannelFilterProxyModel", 1, 0, "SearchChannelFilterProxyModel");
     qmlRegisterType<InputCompleterModel>("KDE.Ruqola.InputCompleterModel", 1, 0, "InputCompleterModel");
     qmlRegisterType<LoginMethodModel>("KDE.Ruqola.LoginMethodModel", 1, 0, "LoginMethodModel");

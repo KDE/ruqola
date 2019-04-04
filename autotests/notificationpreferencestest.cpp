@@ -36,4 +36,5 @@ void NotificationPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(w.desktopNotificationModel());
     QVERIFY(w.desktopAudioNotificationModel());
     QVERIFY(w.desktopDurationNotificationModel());
+    QVERIFY(w.desktopSoundNotificationModel());
 }

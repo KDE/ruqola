@@ -19,31 +19,31 @@
 */
 
 
-#include "notificationdesktopdurationpreferencemodel.h"
+#include "notificationdesktopsoundpreferencemodel.h"
 #include <KLocalizedString>
 
-NotificationDesktopDurationPreferenceModel::NotificationDesktopDurationPreferenceModel(QObject *parent)
+NotificationDesktopSoundPreferenceModel::NotificationDesktopSoundPreferenceModel(QObject *parent)
     : QAbstractListModel(parent)
 {
     fillModel();
 }
 
-NotificationDesktopDurationPreferenceModel::~NotificationDesktopDurationPreferenceModel()
+NotificationDesktopSoundPreferenceModel::~NotificationDesktopSoundPreferenceModel()
 {
 }
 
-int NotificationDesktopDurationPreferenceModel::rowCount(const QModelIndex &parent) const
+int NotificationDesktopSoundPreferenceModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return mNotificationDestktopDurationPreferenceList.count();
 }
 
-QVariant NotificationDesktopDurationPreferenceModel::data(const QModelIndex &index, int role) const
+QVariant NotificationDesktopSoundPreferenceModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mNotificationDestktopDurationPreferenceList.count()) {
         return {};
     }
-    NotificationDesktopDurationPreferenceInfo preferenceInfo = mNotificationDestktopDurationPreferenceList.at(index.row());
+    NotificationDesktopSoundPreferenceInfo preferenceInfo = mNotificationDestktopDurationPreferenceList.at(index.row());
     switch (role) {
     case NotificationPreferenceI18n:
         return preferenceInfo.displayText;
@@ -53,7 +53,7 @@ QVariant NotificationDesktopDurationPreferenceModel::data(const QModelIndex &ind
     return {};
 }
 
-QHash<int, QByteArray> NotificationDesktopDurationPreferenceModel::roleNames() const
+QHash<int, QByteArray> NotificationDesktopSoundPreferenceModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[NotificationPreferenceI18n] = QByteArrayLiteral("preferencei18n");
@@ -61,25 +61,20 @@ QHash<int, QByteArray> NotificationDesktopDurationPreferenceModel::roleNames() c
     return roles;
 }
 
-void NotificationDesktopDurationPreferenceModel::fillModel()
+void NotificationDesktopSoundPreferenceModel::fillModel()
 {
-    mNotificationDestktopDurationPreferenceList.reserve(6);
+    mNotificationDestktopDurationPreferenceList.reserve(4);
+    //TODO
     {
         //Default ???? Verify it. Perhaps 0 ? Don't know
-        NotificationDesktopDurationPreferenceInfo preferenceInfo;
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Default");
         preferenceInfo.preference = QStringLiteral("default");
         mNotificationDestktopDurationPreferenceList.append(preferenceInfo);
     }
-    for (int i = 1; i <=5; ++i) {
-        NotificationDesktopDurationPreferenceInfo preferenceInfo;
-        preferenceInfo.displayText = i18np("1 second", "%1 seconds", i);
-        preferenceInfo.preference = QString::number(i);
-        mNotificationDestktopDurationPreferenceList.append(preferenceInfo);
-    }
 }
 
-int NotificationDesktopDurationPreferenceModel::setCurrentNotificationPreference(const QString &preference)
+int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(const QString &preference)
 {
     int newStatusIndex = 0;
     for (int i = 0; i < mNotificationDestktopDurationPreferenceList.count(); ++i) {
@@ -95,7 +90,7 @@ int NotificationDesktopDurationPreferenceModel::setCurrentNotificationPreference
     return mCurrentPreference;
 }
 
-QString NotificationDesktopDurationPreferenceModel::currentPreference(int index) const
+QString NotificationDesktopSoundPreferenceModel::currentPreference(int index) const
 {
     const QString str = mNotificationDestktopDurationPreferenceList.at(index).preference;
     return str;

@@ -114,6 +114,17 @@ QQC2.Dialog {
                     }
                 }
                 QQC2.Label {
+                    text: i18n("Sound:");
+                }
+                NotificationAlertCombobox {
+                    id: desktopSoundCombobox
+                    model: NotificationPreferences.desktopSoundNotificationModel()
+                    //currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().audioNotifications) : 0
+                    onActivated: {
+                        //notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.AudioNotifications, model.currentPreference(index))
+                    }
+                }
+                QQC2.Label {
                     text: i18n("Duration:");
                 }
                 NotificationAlertCombobox {

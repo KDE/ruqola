@@ -18,25 +18,25 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "notificationdesktopdurationpreferencemodeltest.h"
-#include "model/notificationdesktopdurationpreferencemodel.h"
+#include "notificationdesktopsoundpreferencemodeltest.h"
+#include "model/notificationdesktopsoundpreferencemodel.h"
 #include <QTest>
 
-QTEST_MAIN(NotificationDesktopDurationPreferenceModelTest)
+QTEST_MAIN(NotificationDesktopSoundPreferenceModelTest)
 
-NotificationDesktopDurationPreferenceModelTest::NotificationDesktopDurationPreferenceModelTest(QObject *parent)
+NotificationDesktopSoundPreferenceModelTest::NotificationDesktopSoundPreferenceModelTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void NotificationDesktopDurationPreferenceModelTest::shouldHaveDefaultValue()
+void NotificationDesktopSoundPreferenceModelTest::shouldHaveDefaultValue()
 {
-    NotificationDesktopDurationPreferenceModel w;
+    NotificationDesktopSoundPreferenceModel w;
     QCOMPARE(w.rowCount(), 6);
 
     QHash<int, QByteArray> roles;
-    roles[NotificationDesktopDurationPreferenceModel::NotificationPreferenceI18n] = QByteArrayLiteral("preferencei18n");
-    roles[NotificationDesktopDurationPreferenceModel::NotificationPreference] = QByteArrayLiteral("preference");
+    roles[NotificationDesktopSoundPreferenceModel::NotificationPreferenceI18n] = QByteArrayLiteral("preferencei18n");
+    roles[NotificationDesktopSoundPreferenceModel::NotificationPreference] = QByteArrayLiteral("preference");
 
     QCOMPARE(w.roleNames(), roles);
     //FIXME QCOMPARE(w.currentPreference(), 0);
