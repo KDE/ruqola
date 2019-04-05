@@ -50,7 +50,7 @@ QQC2.ScrollView {
                     spacing: Kirigami.Units.smallSpacing
                     QQC2.Label {
                         text: "<b>" + model.username + "</b>"
-                        wrapMode: QQC2.Label.Wrap
+                        wrapMode: QQC2.Label.NoWrap
                         horizontalAlignment: Text.AlignHCenter
                         renderType: Text.NativeRendering
                         textFormat: Text.RichText
@@ -58,13 +58,13 @@ QQC2.ScrollView {
                     }
                     QQC2.Label {
                         text: "<i>" + model.task + "<i>"
-                        wrapMode: QQC2.Label.Wrap
+                        wrapMode: QQC2.Label.NoWrap
                         renderType: Text.NativeRendering
                         textFormat: Text.RichText
                     }
                     QQC2.Label {
                         text: model.email
-                        wrapMode: QQC2.Label.Wrap
+                        wrapMode: QQC2.Label.NoWrap
                         horizontalAlignment: Text.AlignHCenter
                         renderType: Text.NativeRendering
                         textFormat: Text.RichText

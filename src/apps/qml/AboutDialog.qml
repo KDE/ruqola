@@ -87,17 +87,17 @@ QQC2.Dialog {
 
                     QQC2.Label {
                         text: applicationData.title
-                        wrapMode: QQC2.Label.Wrap
+                        wrapMode: QQC2.Label.NoWrap
                         textFormat: Qt.RichText
                     }
                     QQC2.Label {
                         text: applicationData.about
-                        wrapMode: QQC2.Label.Wrap
+                        wrapMode: QQC2.Label.NoWrap
                         textFormat: Qt.RichText
                     }
                     QQC2.Label {
                         text: applicationData.licenses
-                        wrapMode: QQC2.Label.Wrap
+                        wrapMode: QQC2.Label.NoWrap
                         textFormat: Qt.RichText
                         onLinkActivated: {
                             licenseDialog.licenseText = applicationData.licenseText(link);
@@ -129,7 +129,7 @@ QQC2.Dialog {
                         id: reportBugsLink
                         visible: applicationData.reportBugs !== ""
                         text: applicationData.reportBugs
-                        wrapMode: QQC2.Label.Wrap
+                        wrapMode: QQC2.Label.NoWrap
                         textFormat: Qt.RichText
                         onLinkActivated: {
                             aboutDialog.openurl(link);
