@@ -54,7 +54,6 @@ QQC2.Dialog {
             QQC2.Switch {
                 id: disableNotification
                 checked: roomInfo === null ? false : roomInfo.notificationOptions().disableNotifications
-                //checked: false
                 onClicked: {
                     notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DisableNotifications, checked)
                     //TODO disable other actions!
@@ -161,8 +160,8 @@ QQC2.Dialog {
         QQC2.GroupBox {
             title: qsTr("Email")
             GridLayout {
-                columns: 2
                 anchors.fill: parent
+                columns: 2
                 QQC2.Label {
                     text: i18n("Alert:");
                 }
