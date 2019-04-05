@@ -62,15 +62,26 @@ Kirigami.Page {
                 }
             }
         }
-        Kirigami.Icon {
-            //Fix icon ??
-            source: "list-add"
-            height: Kirigami.Units.iconSizes.medium
-            width: height
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    createNewAccountDialog.initializeAndOpen()
+        RowLayout {
+            Kirigami.Icon {
+                //Fix icon ??
+                source: "list-add"
+                height: Kirigami.Units.iconSizes.medium
+                width: height
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        createNewAccountDialog.initializeAndOpen()
+                    }
+                }
+            }
+            QQC2.Label {
+                text: i18n("Add Account");
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        createNewAccountDialog.initializeAndOpen()
+                    }
                 }
             }
         }
