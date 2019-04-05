@@ -830,6 +830,28 @@ void RestApiRequest::muteGroupMentions(const QString &roomId, bool value)
     }
 }
 
+void RestApiRequest::desktopDurationNotifications(const QString &roomId, int value)
+{
+    SaveNotificationJob *job = new SaveNotificationJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setDesktopNotificationDuration(value);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::desktopSoundNotifications(const QString &roomId, const QString &value)
+{
+    SaveNotificationJob *job = new SaveNotificationJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setAudioNotificationValue(value);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
 void RestApiRequest::changeGroupName(const QString &roomId, const QString &newName)
 {
     ChangeGroupsNameJob *job = new ChangeGroupsNameJob(this);

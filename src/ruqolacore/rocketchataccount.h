@@ -95,6 +95,7 @@ public:
         AudioNotifications,
         DesktopNotifications,
         DesktopDurationNotifications,
+        DesktopSoundNotifications,
         EmailNotifications,
         MobilePushNotifications,
         UnreadAlert,

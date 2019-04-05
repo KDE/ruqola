@@ -119,9 +119,9 @@ QQC2.Dialog {
                 NotificationAlertCombobox {
                     id: desktopSoundCombobox
                     model: NotificationPreferences.desktopSoundNotificationModel()
-                    //currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().audioNotifications) : 0
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().audioNotificationValue) : 0
                     onActivated: {
-                        //notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.AudioNotifications, model.currentPreference(index))
+                        notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DesktopSoundNotifications, model.currentPreference(index))
                     }
                 }
                 QQC2.Label {

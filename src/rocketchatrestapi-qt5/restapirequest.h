@@ -152,6 +152,8 @@ public:
     void changeChannelEncrypted(const QString &roomId, bool b);
     void changeGroupsEncrypted(const QString &roomId, bool b);
     void pinMessage(const QString &messageId, bool pinned);
+    void desktopDurationNotifications(const QString &roomId, int value);
+    void desktopSoundNotifications(const QString &roomId, const QString &value);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();

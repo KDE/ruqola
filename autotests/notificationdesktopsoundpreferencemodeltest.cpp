@@ -32,7 +32,7 @@ NotificationDesktopSoundPreferenceModelTest::NotificationDesktopSoundPreferenceM
 void NotificationDesktopSoundPreferenceModelTest::shouldHaveDefaultValue()
 {
     NotificationDesktopSoundPreferenceModel w;
-    QCOMPARE(w.rowCount(), 6);
+    QCOMPARE(w.rowCount(), 8);
 
     QHash<int, QByteArray> roles;
     roles[NotificationDesktopSoundPreferenceModel::NotificationPreferenceI18n] = QByteArrayLiteral("preferencei18n");

@@ -829,7 +829,6 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId, Rocke
         restApi()->hideUnreadStatus(roomId, newValue.toBool());
         break;
     case AudioNotifications:
-        qDebug() << "case AudioNotifications: " << newValue.toString() << " room " << roomId;
         restApi()->audioNotifications(roomId, newValue.toString());
         break;
     case DesktopNotifications:
@@ -848,7 +847,10 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId, Rocke
         restApi()->muteGroupMentions(roomId, newValue.toBool());
         break;
     case DesktopDurationNotifications:
-        //TODO add desktop notification duration
+        restApi()->desktopDurationNotifications(roomId, newValue.toInt());
+        break;
+    case DesktopSoundNotifications:
+        restApi()->desktopSoundNotifications(roomId, newValue.toString());
         break;
     }
 }

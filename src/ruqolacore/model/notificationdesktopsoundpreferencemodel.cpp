@@ -63,15 +63,57 @@ QHash<int, QByteArray> NotificationDesktopSoundPreferenceModel::roleNames() cons
 
 void NotificationDesktopSoundPreferenceModel::fillModel()
 {
-    mNotificationDestktopSoundPreferenceList.reserve(4);
-    //TODO
+    mNotificationDestktopSoundPreferenceList.reserve(8);
+    //This one must be first one.
     {
-        //Default ???? Verify it. Perhaps 0 ? Don't know
         NotificationDesktopSoundPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Default");
         preferenceInfo.preference = QStringLiteral("default");
         mNotificationDestktopSoundPreferenceList.append(preferenceInfo);
     }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Nothing");
+        preferenceInfo.preference = QStringLiteral("none");
+        mNotificationDestktopSoundPreferenceList.append(preferenceInfo);
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Beep");
+        preferenceInfo.preference = QStringLiteral("beep");
+        mNotificationDestktopSoundPreferenceList.append(preferenceInfo);
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Chelle");
+        preferenceInfo.preference = QStringLiteral("chelle");
+        mNotificationDestktopSoundPreferenceList.append(preferenceInfo);
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Ding");
+        preferenceInfo.preference = QStringLiteral("ding");
+        mNotificationDestktopSoundPreferenceList.append(preferenceInfo);
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Droplet");
+        preferenceInfo.preference = QStringLiteral("droplet");
+        mNotificationDestktopSoundPreferenceList.append(preferenceInfo);
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Highbell");
+        preferenceInfo.preference = QStringLiteral("highbell");
+        mNotificationDestktopSoundPreferenceList.append(preferenceInfo);
+    }
+    {
+        NotificationDesktopSoundPreferenceInfo preferenceInfo;
+        preferenceInfo.displayText = i18n("Seasons");
+        preferenceInfo.preference = QStringLiteral("seasons");
+        mNotificationDestktopSoundPreferenceList.append(preferenceInfo);
+    }
+
 }
 
 int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(const QString &preference)
