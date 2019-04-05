@@ -35,15 +35,15 @@ NotificationDesktopSoundPreferenceModel::~NotificationDesktopSoundPreferenceMode
 int NotificationDesktopSoundPreferenceModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return mNotificationDestktopDurationPreferenceList.count();
+    return mNotificationDestktopSoundPreferenceList.count();
 }
 
 QVariant NotificationDesktopSoundPreferenceModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mNotificationDestktopDurationPreferenceList.count()) {
+    if (index.row() < 0 || index.row() >= mNotificationDestktopSoundPreferenceList.count()) {
         return {};
     }
-    NotificationDesktopSoundPreferenceInfo preferenceInfo = mNotificationDestktopDurationPreferenceList.at(index.row());
+    NotificationDesktopSoundPreferenceInfo preferenceInfo = mNotificationDestktopSoundPreferenceList.at(index.row());
     switch (role) {
     case NotificationPreferenceI18n:
         return preferenceInfo.displayText;
@@ -63,22 +63,22 @@ QHash<int, QByteArray> NotificationDesktopSoundPreferenceModel::roleNames() cons
 
 void NotificationDesktopSoundPreferenceModel::fillModel()
 {
-    mNotificationDestktopDurationPreferenceList.reserve(4);
+    mNotificationDestktopSoundPreferenceList.reserve(4);
     //TODO
     {
         //Default ???? Verify it. Perhaps 0 ? Don't know
         NotificationDesktopSoundPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Default");
         preferenceInfo.preference = QStringLiteral("default");
-        mNotificationDestktopDurationPreferenceList.append(preferenceInfo);
+        mNotificationDestktopSoundPreferenceList.append(preferenceInfo);
     }
 }
 
 int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(const QString &preference)
 {
     int newStatusIndex = 0;
-    for (int i = 0; i < mNotificationDestktopDurationPreferenceList.count(); ++i) {
-        if (mNotificationDestktopDurationPreferenceList.at(i).preference == preference) {
+    for (int i = 0; i < mNotificationDestktopSoundPreferenceList.count(); ++i) {
+        if (mNotificationDestktopSoundPreferenceList.at(i).preference == preference) {
             newStatusIndex = i;
             break;
         }
@@ -92,6 +92,6 @@ int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(co
 
 QString NotificationDesktopSoundPreferenceModel::currentPreference(int index) const
 {
-    const QString str = mNotificationDestktopDurationPreferenceList.at(index).preference;
+    const QString str = mNotificationDestktopSoundPreferenceList.at(index).preference;
     return str;
 }
