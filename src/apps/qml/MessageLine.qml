@@ -43,7 +43,6 @@ ColumnLayout {
 
     QQC2.TextField {
         id: messageLine
-        //TODO add background style.
         //FIXME add multiline !!!
         inputMethodHints: Qt.ImhMultiLine
 
