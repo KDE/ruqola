@@ -43,6 +43,20 @@ QQC2.Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
+    function updateStatus(check)
+    {
+        desktopNotificationGroupBox.enabled = !check;
+        mobileNotificationGroupBox.enabled = !check;
+        emailNotificationGroupBox.enabled = !check;
+    }
+
+    function initializeAndOpen()
+    {
+        //Enable groupbox
+        updateStatus(disableNotification.checked);
+        open();
+    }
+
     ColumnLayout {
         anchors.fill: parent
         GridLayout {
@@ -56,7 +70,7 @@ QQC2.Dialog {
                 checked: roomInfo === null ? false : roomInfo.notificationOptions().disableNotifications
                 onClicked: {
                     notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DisableNotifications, checked)
-                    //TODO disable other actions!
+                    updateStatus(checked)
                 }
             }
 
@@ -86,6 +100,7 @@ QQC2.Dialog {
         }
 
         QQC2.GroupBox {
+            id: desktopNotificationGroupBox
             title: qsTr("Desktop")
             GridLayout {
                 columns: 2
@@ -138,6 +153,7 @@ QQC2.Dialog {
         }
 
         QQC2.GroupBox {
+            id: mobileNotificationGroupBox
             title: qsTr("Mobile")
             GridLayout {
                 columns: 2
@@ -158,6 +174,7 @@ QQC2.Dialog {
         }
 
         QQC2.GroupBox {
+            id: emailNotificationGroupBox
             title: qsTr("Email")
             GridLayout {
                 anchors.fill: parent

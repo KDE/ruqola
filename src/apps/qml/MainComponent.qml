@@ -56,7 +56,7 @@ Component {
                 visible: appid.selectedRoom
                 onTriggered: {
                     notificationsDialog.roomInfo = appid.selectedRoom
-                    notificationsDialog.open()
+                    notificationsDialog.initializeAndOpen()
                 }
             }
             main: Kirigami.Action {
