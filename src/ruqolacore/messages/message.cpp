@@ -223,17 +223,19 @@ void Message::parseAttachment(const QJsonArray &attachments)
                 mMessageType = Message::MessageType::File;
             }
             //Add image dimension
-            const QJsonValue imageDimensions = attachment.value(QLatin1String("image_dimensions"));
-            if (!imageDimensions.isUndefined()) {
-                const QJsonObject imageDimensionsParams = imageDimensions.toObject();
+            if (mMessageType == Message::MessageType::Image) {
+                const QJsonValue imageDimensions = attachment.value(QLatin1String("image_dimensions"));
+                if (!imageDimensions.isUndefined()) {
+                    const QJsonObject imageDimensionsParams = imageDimensions.toObject();
 
-                messageAttachement.setImageHeight(imageDimensionsParams.value(QLatin1String("height")).toInt());
-                messageAttachement.setImageWidth(imageDimensionsParams.value(QLatin1String("width")).toInt());
-                //TODO validate image size
-            } else {
-                //We don't have dimension so we can't load it.
-                //=>convert to normaltext
-                mMessageType = Message::MessageType::NormalText;
+                    messageAttachement.setImageHeight(imageDimensionsParams.value(QLatin1String("height")).toInt());
+                    messageAttachement.setImageWidth(imageDimensionsParams.value(QLatin1String("width")).toInt());
+                    //TODO validate image size
+                } else {
+                    //We don't have dimension so we can't load it.
+                    //=>convert to normaltext
+                    mMessageType = Message::MessageType::NormalText;
+                }
             }
 
             messageAttachement.setAuthorName(attachment.value(QLatin1String("author_name")).toString());
