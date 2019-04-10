@@ -82,14 +82,6 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-                text: i18n("Log out")
-                iconName: "system-log-out"
-                onTriggered: {
-                    rocketChatAccount.logOut();
-                    appid.globalDrawer.drawerOpen = false;
-                }
-            },
-            Kirigami.Action {
                 text: i18n("Report a Bug")
                 iconName: "tools-report-bug"
                 onTriggered: {
@@ -109,6 +101,17 @@ Kirigami.ApplicationWindow {
                 iconName: "system-help"
                 onTriggered: {
                     rocketChatAccount.openDocumentation();
+                }
+            },
+            Kirigami.Action {
+               separator: true
+            },
+            Kirigami.Action {
+                text: i18n("Log out")
+                iconName: "system-log-out"
+                onTriggered: {
+                    rocketChatAccount.logOut();
+                    appid.globalDrawer.drawerOpen = false;
                 }
             },
             Kirigami.Action {
