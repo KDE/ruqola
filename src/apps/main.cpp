@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     aboutData.setProductName(QByteArrayLiteral("ruqola"));
     aboutData.addCredit(i18n("David Faure"), i18n("Bug fixing"), QStringLiteral("faure@kde.org"));
     aboutData.addCredit(i18n("Paul Lemire"), i18n("Help for debugging QML"), QStringLiteral("paul.lemire@kdab.com"));
-    aboutData.addCredit(i18n("Veluri Mithun"), i18n("Autotest Improvment and created some tests apps"), QStringLiteral("velurimithun38@gmail.com"));
+    aboutData.addCredit(i18n("Veluri Mithun"), i18n("Autotest improvement and created some tests apps"), QStringLiteral("velurimithun38@gmail.com"));
     aboutData.addCredit(i18n("Franck Arrecot"), i18n("Fix some QML bugs"), QStringLiteral("franck.arrecot@kdab.com"));
 
     KAboutData::setApplicationData(aboutData);

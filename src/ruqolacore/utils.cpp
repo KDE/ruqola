@@ -136,10 +136,10 @@ void Utils::parseNotification(const QJsonArray &contents, QString &message, QStr
         if (!obj.isEmpty()) {
             sender = obj.value(QLatin1String("_id")).toString();
         } else {
-            qCDebug(RUQOLA_LOG) << "Problem with notication json: missing sender";
+            qCDebug(RUQOLA_LOG) << "Problem with notification json: missing sender";
         }
     } else {
-        qCDebug(RUQOLA_LOG) << "Problem with notication json: missing payload";
+        qCDebug(RUQOLA_LOG) << "Problem with notification json: missing payload";
     }
 }
 

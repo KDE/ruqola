@@ -65,7 +65,7 @@ Rectangle {
         }
         onStatusChanged: {
             if (avatarImage.status === Image.Error) {
-                console.log(RuqolaDebugCategorySingleton.category, "An error occured when we try to load image");
+                console.log(RuqolaDebugCategorySingleton.category, "An error occurred when we try to load image");
             }
         }
 

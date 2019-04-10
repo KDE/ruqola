@@ -368,7 +368,7 @@ QString RestApiAbstractJob::errorMessage(const QString &str)
     } else if (str == QLatin1String("error-password-policy-not-met-oneUppercase")) {
         return i18n("Password does not meet the server's policy of at least one uppercase character");
     } else if (str == QLatin1String("error-password-policy-not-met-repeatingCharacters")) {
-        return i18n("Password not not meet the server's policy of forbidden repeating characters (you have too many of the same characters next to each other)");
+        return i18n("Password does not meet the server's policy of forbidden repeating characters (you have too many of the same characters next to each other)");
     } else if (str == QLatin1String("error-push-disabled")) {
         return i18n("Push is disabled");
     } else if (str == QLatin1String("error-remove-last-owner")) {

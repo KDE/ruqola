@@ -474,7 +474,7 @@ void RoomModelTest::shouldReturnData()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOpen);
     QCOMPARE(output.toBool(), open);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSection);
-    QCOMPARE(output.toString(), QStringLiteral("Favorites")); //first priority for favrites and then to channels
+    QCOMPARE(output.toString(), QStringLiteral("Favorites")); //first priority for favorites and then to channels
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOrder);
     QCOMPARE(output, QVariant(int(1))); // Private room
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);

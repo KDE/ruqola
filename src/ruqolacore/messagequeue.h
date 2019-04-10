@@ -34,7 +34,7 @@ public:
     ~MessageQueue();
 
     /**
-    * @brief Retry to send unsent messages in DDPClient's abtract message queue
+    * @brief Retry to send unsent messages in DDPClient's abstract message queue
     */
     void processQueue();
 

@@ -145,7 +145,7 @@ public:
     void setRole(const QString &role);
 
     Q_REQUIRED_RESULT bool unread() const;
-    void setUnread(bool uread);
+    void setUnread(bool unread);
 
     Q_REQUIRED_RESULT MessagePinned messagePinned() const;
     void setMessagePinned(const MessagePinned &messagePinned);
