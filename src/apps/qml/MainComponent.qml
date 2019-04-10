@@ -262,8 +262,10 @@ Component {
                         QQC2.Label {
                             text: model.displayname
                             onLinkActivated: {
-                                openDirectChannelDialog.username = link;
-                                openDirectChannelDialog.open()
+                                if (model.userid !== appid.rocketChatAccount.userID) {
+                                    openDirectChannelDialog.username = link;
+                                    openDirectChannelDialog.open()
+                                }
                             }
                             MouseArea {
                                 anchors.fill: parent
