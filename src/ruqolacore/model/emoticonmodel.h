@@ -40,6 +40,7 @@ public:
     void setEmoticons(const QVector<Emoticon> &emoticons);
 
 private:
+    Q_DISABLE_COPY(EmoticonModel)
     QVector<Emoticon> mEmoticons;
 };
 

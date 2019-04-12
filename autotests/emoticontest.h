@@ -28,6 +28,8 @@ class EmoticonTest : public QObject
 public:
     explicit EmoticonTest(QObject *parent = nullptr);
     ~EmoticonTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // EMOTICONTEST_H

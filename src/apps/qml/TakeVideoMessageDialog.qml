@@ -27,7 +27,6 @@ import KDE.Ruqola.RocketChatAccount 1.0
 QQC2.Dialog {
     id: takeVideoMessageDialog
 
-    standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     property QtObject rcAccount
 
@@ -40,6 +39,7 @@ QQC2.Dialog {
     modal: true
     focus: true
     readonly property bool isCameraAvailable: QtMultimedia.availableCameras.length > 0
+    standardButtons: isCameraAvailable == true ? QQC2.Dialog.Ok | QQC2.Dialog.Cancel : QQC2.Dialog.Close
 
     Camera {
         id: camera

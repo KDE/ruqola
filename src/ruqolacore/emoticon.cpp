@@ -19,7 +19,7 @@
 */
 
 #include "emoticon.h"
-
+#include <QString>
 Emoticon::Emoticon()
 {
 }
@@ -34,8 +34,30 @@ void Emoticon::setName(const QString &name)
     mName = name;
 }
 
+QString Emoticon::unicode() const
+{
+    return mUnicode;
+}
+
+void Emoticon::setUnicode(uint unicode)
+{
+    mUnicode = QString::fromUcs4(&unicode, 1);
+}
+
+QString Emoticon::category() const
+{
+    return mCategory;
+}
+
+void Emoticon::setCategory(const QString &category)
+{
+    mCategory = category;
+}
+
 QDebug operator <<(QDebug d, const Emoticon &t)
 {
     d << "Name : " << t.name();
+    d << "Unicode: " << t.unicode();
+    d << "Category: " << t.category();
     return d;
 }

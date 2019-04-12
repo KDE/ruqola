@@ -35,8 +35,16 @@ public:
     Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &name);
 
+    Q_REQUIRED_RESULT QString unicode() const;
+    void setUnicode(uint unicode);
+
+    Q_REQUIRED_RESULT QString category() const;
+    void setCategory(const QString &category);
+
 private:
     QString mName;
+    QString mUnicode;
+    QString mCategory;
 };
 Q_DECLARE_METATYPE(Emoticon)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Emoticon &t);

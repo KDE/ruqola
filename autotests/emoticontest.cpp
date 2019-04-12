@@ -19,10 +19,19 @@
 */
 
 #include "emoticontest.h"
+#include "emoticon.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(EmoticonTest)
 
 EmoticonTest::EmoticonTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void EmoticonTest::shouldHaveDefaultValue()
+{
+    Emoticon w;
+    QVERIFY(w.name().isEmpty());
+    QVERIFY(w.category().isEmpty());
+    QVERIFY(w.unicode().isEmpty());
 }
