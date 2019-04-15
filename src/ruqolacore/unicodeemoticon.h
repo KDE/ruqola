@@ -18,19 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICON_H
-#define EMOTICON_H
+#ifndef UNICODEEMOTICON_H
+#define UNICODEEMOTICON_H
 
 #include <QObject>
 #include <QDebug>
 #include <QString>
 #include "libruqola_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT Emoticon
+class LIBRUQOLACORE_TESTS_EXPORT UnicodeEmoticon
 {
     Q_GADGET
 public:
-    Emoticon();
+    UnicodeEmoticon();
 
     Q_REQUIRED_RESULT QString identifier() const;
     void setIdentifier(const QString &identifier);
@@ -46,7 +46,7 @@ private:
     QString mUnicode;
     QString mCategory;
 };
-Q_DECLARE_METATYPE(Emoticon)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Emoticon &t);
+Q_DECLARE_METATYPE(UnicodeEmoticon)
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const UnicodeEmoticon &t);
 
-#endif // EMOTICON_H
+#endif // UNICODEEMOTICON_H

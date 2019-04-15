@@ -23,7 +23,7 @@
 
 #include <QAbstractListModel>
 #include "libruqola_private_export.h"
-#include "emoticon.h"
+#include "unicodeemoticon.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT EmoticonModel : public QAbstractListModel
 {
@@ -36,12 +36,12 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-    Q_REQUIRED_RESULT QVector<Emoticon> emoticons() const;
-    void setEmoticons(const QVector<Emoticon> &emoticons);
+    Q_REQUIRED_RESULT QVector<UnicodeEmoticon> emoticons() const;
+    void setEmoticons(const QVector<UnicodeEmoticon> &emoticons);
 
 private:
     Q_DISABLE_COPY(EmoticonModel)
-    QVector<Emoticon> mEmoticons;
+    QVector<UnicodeEmoticon> mEmoticons;
 };
 
 #endif // EMOTICONMODEL_H

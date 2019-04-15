@@ -51,12 +51,12 @@ QHash<int, QByteArray> EmoticonModel::roleNames() const
     return roles;
 }
 
-QVector<Emoticon> EmoticonModel::emoticons() const
+QVector<UnicodeEmoticon> EmoticonModel::emoticons() const
 {
     return mEmoticons;
 }
 
-void EmoticonModel::setEmoticons(const QVector<Emoticon> &emoticons)
+void EmoticonModel::setEmoticons(const QVector<UnicodeEmoticon> &emoticons)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mEmoticons.count() - 1);

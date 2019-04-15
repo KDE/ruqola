@@ -18,43 +18,43 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "emoticon.h"
+#include "unicodeemoticon.h"
 #include <QString>
-Emoticon::Emoticon()
+UnicodeEmoticon::UnicodeEmoticon()
 {
 }
 
-QString Emoticon::identifier() const
+QString UnicodeEmoticon::identifier() const
 {
     return mIdentifier;
 }
 
-void Emoticon::setIdentifier(const QString &name)
+void UnicodeEmoticon::setIdentifier(const QString &name)
 {
     mIdentifier = name;
 }
 
-QString Emoticon::unicode() const
+QString UnicodeEmoticon::unicode() const
 {
     return mUnicode;
 }
 
-void Emoticon::setUnicode(uint unicode)
+void UnicodeEmoticon::setUnicode(uint unicode)
 {
     mUnicode = QString::fromUcs4(&unicode, 1);
 }
 
-QString Emoticon::category() const
+QString UnicodeEmoticon::category() const
 {
     return mCategory;
 }
 
-void Emoticon::setCategory(const QString &category)
+void UnicodeEmoticon::setCategory(const QString &category)
 {
     mCategory = category;
 }
 
-QDebug operator <<(QDebug d, const Emoticon &t)
+QDebug operator <<(QDebug d, const UnicodeEmoticon &t)
 {
     d << "Name : " << t.identifier();
     d << "Unicode: " << t.unicode();

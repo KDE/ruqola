@@ -19,7 +19,7 @@
 */
 
 #include "emoticontest.h"
-#include "emoticon.h"
+#include "unicodeemoticon.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(EmoticonTest)
 
@@ -30,7 +30,7 @@ EmoticonTest::EmoticonTest(QObject *parent)
 
 void EmoticonTest::shouldHaveDefaultValue()
 {
-    Emoticon w;
+    UnicodeEmoticon w;
     QVERIFY(w.identifier().isEmpty());
     QVERIFY(w.category().isEmpty());
     QVERIFY(w.unicode().isEmpty());

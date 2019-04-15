@@ -112,7 +112,7 @@ set (Ruqola_core_srcs
 
     syntaxhighlightingmanager.cpp
     copyfilejob.cpp
-    emoticon.cpp
+    unicodeemoticon.cpp
 
     receivetypingnotificationmanager.cpp
 

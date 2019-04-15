@@ -23,7 +23,7 @@
 
 #include <QObject>
 #include "emoji.h"
-#include "emoticon.h"
+#include "unicodeemoticon.h"
 #include "libruqola_private_export.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT EmojiManager : public QObject
@@ -47,7 +47,7 @@ private:
     void loadUnicodeEmoji();
     //Use identifier in a QMap ???
     QVector<Emoji> mCustomEmojiList;
-    QVector<Emoticon> mUnicodeEmojiList;
+    QVector<UnicodeEmoticon> mUnicodeEmojiList;
     QString mServerUrl;
 };
 
