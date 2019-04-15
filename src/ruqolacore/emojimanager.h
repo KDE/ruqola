@@ -42,9 +42,10 @@ public:
 
 private:
     Q_DISABLE_COPY(EmojiManager)
-    void clearEmojiCachedHtml();
+    void clearCustomEmojiCachedHtml();
+    void loadUnicodeEmoji();
     //Use identifier in a QMap ???
-    QVector<Emoji> mEmojiList;
+    QVector<Emoji> mCustomEmojiList;
     QString mServerUrl;
 };
 

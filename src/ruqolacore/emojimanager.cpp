@@ -35,23 +35,29 @@ EmojiManager::~EmojiManager()
 {
 }
 
+
+void EmojiManager::loadUnicodeEmoji()
+{
+    //TODO
+}
+
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)
 {
-    mEmojiList.clear();
+    mCustomEmojiList.clear();
     const QJsonArray result = obj.value(restApi ? QLatin1String("emojis") : QLatin1String("result")).toArray();
     for (int i = 0; i < result.size(); i++) {
         const QJsonObject emojiJson = result.at(i).toObject();
         Emoji emoji;
         emoji.parseEmoji(emojiJson, restApi);
         if (emoji.isValid()) {
-            mEmojiList.append(emoji);
+            mCustomEmojiList.append(emoji);
         }
     }
 }
 
 int EmojiManager::count() const
 {
-    return mEmojiList.count();
+    return mCustomEmojiList.count();
 }
 
 QString EmojiManager::html(const QString &emojiIdentifier)
@@ -61,13 +67,13 @@ QString EmojiManager::html(const QString &emojiIdentifier)
         return emojiIdentifier;
     }
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
-        for (int i = 0, total = mEmojiList.size(); i < total; ++i) {
-            if (mEmojiList.at(i).hasEmoji(emojiIdentifier)) {
-                QString cachedHtml = mEmojiList.at(i).cachedHtml();
+        for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
+            if (mCustomEmojiList.at(i).hasEmoji(emojiIdentifier)) {
+                QString cachedHtml = mCustomEmojiList.at(i).cachedHtml();
                 if (cachedHtml.isEmpty()) {
-                    Emoji emoji = mEmojiList[i];
+                    Emoji emoji = mCustomEmojiList[i];
                     cachedHtml = emoji.html(mServerUrl);
-                    mEmojiList.replace(i, emoji);
+                    mCustomEmojiList.replace(i, emoji);
                 }
                 return cachedHtml;
             }
@@ -87,18 +93,18 @@ void EmojiManager::setServerUrl(const QString &serverUrl)
 {
     if (mServerUrl != serverUrl) {
         mServerUrl = serverUrl;
-        clearEmojiCachedHtml();
+        clearCustomEmojiCachedHtml();
     }
 }
 
-void EmojiManager::clearEmojiCachedHtml()
+void EmojiManager::clearCustomEmojiCachedHtml()
 {
-    for (int i = 0, total = mEmojiList.size(); i < total; ++i) {
-        const QString &cachedHtml = mEmojiList.at(i).cachedHtml();
+    for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
+        const QString &cachedHtml = mCustomEmojiList.at(i).cachedHtml();
         if (!cachedHtml.isEmpty()) {
-            Emoji emoji = mEmojiList[i];
+            Emoji emoji = mCustomEmojiList[i];
             emoji.clearCachedHtml();
-            mEmojiList.replace(i, emoji);
+            mCustomEmojiList.replace(i, emoji);
         }
     }
 }
