@@ -46,6 +46,7 @@ private:
     void loadUnicodeEmoji();
     //Use identifier in a QMap ???
     QVector<Emoji> mCustomEmojiList;
+    QVector<Emoji> mUnicodeEmojiList;
     QString mServerUrl;
 };
 

@@ -57,7 +57,7 @@ void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)
 
 int EmojiManager::count() const
 {
-    return mCustomEmojiList.count();
+    return mCustomEmojiList.count() + mUnicodeEmojiList.count();
 }
 
 QString EmojiManager::html(const QString &emojiIdentifier)
@@ -78,6 +78,7 @@ QString EmojiManager::html(const QString &emojiIdentifier)
                 return cachedHtml;
             }
         }
+        //TODO search in unicode emoji
     } else {
         qCWarning(RUQOLA_LOG) << "Emoji identifier is not correct :" << emojiIdentifier;
     }
