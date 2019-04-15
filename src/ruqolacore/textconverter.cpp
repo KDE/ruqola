@@ -72,7 +72,7 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
         while (userIterator.hasNext()) {
             const QRegularExpressionMatch match = userIterator.next();
             const QString word = match.captured(1);
-            const QString replaceWord = mEmojiManager->html(word);
+            const QString replaceWord = mEmojiManager->replaceEmojiIdentifier(word);
             if (!replaceWord.isEmpty()) {
                 richText.replace(word, replaceWord);
             }

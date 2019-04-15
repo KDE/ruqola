@@ -64,10 +64,16 @@ void UnicodeEmoticon::setAliases(const QStringList &aliases)
     mAliases = aliases;
 }
 
+bool UnicodeEmoticon::hasEmoji(const QString &identifier) const
+{
+    return (mIdentifier == identifier) || mAliases.contains(identifier);
+}
+
 QDebug operator <<(QDebug d, const UnicodeEmoticon &t)
 {
     d << "Name : " << t.identifier();
     d << "Unicode: " << t.unicode();
     d << "Category: " << t.category();
+    d << "Aliases: " << t.aliases();
     return d;
 }

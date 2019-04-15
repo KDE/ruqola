@@ -61,7 +61,7 @@ int EmojiManager::count() const
     return mCustomEmojiList.count() + mUnicodeEmojiList.count();
 }
 
-QString EmojiManager::html(const QString &emojiIdentifier)
+QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier)
 {
     if (mServerUrl.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "Server Url not defined";
@@ -79,20 +79,11 @@ QString EmojiManager::html(const QString &emojiIdentifier)
                 return cachedHtml;
             }
         }
-        /*
         for (int i = 0, total = mUnicodeEmojiList.size(); i < total; ++i) {
             if (mUnicodeEmojiList.at(i).hasEmoji(emojiIdentifier)) {
-                QString cachedHtml = mUnicodeEmojiList.at(i).cachedHtml();
-                if (cachedHtml.isEmpty()) {
-                    Emoji emoji = mUnicodeEmojiList[i];
-                    cachedHtml = emoji.html(mServerUrl);
-                    mUnicodeEmojiList.replace(i, emoji);
-                }
-                return cachedHtml;
+                return mUnicodeEmojiList.at(i).unicode();
             }
         }
-        */
-        //TODO search in unicode emoji
     } else {
         qCWarning(RUQOLA_LOG) << "Emoji identifier is not correct :" << emojiIdentifier;
     }

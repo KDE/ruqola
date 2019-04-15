@@ -44,6 +44,7 @@ public:
     Q_REQUIRED_RESULT QStringList aliases() const;
     void setAliases(const QStringList &aliases);
 
+    Q_REQUIRED_RESULT bool hasEmoji(const QString &identifier) const;
 private:
     QString mIdentifier;
     QString mUnicode;
