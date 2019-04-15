@@ -31,7 +31,7 @@ EmoticonTest::EmoticonTest(QObject *parent)
 void EmoticonTest::shouldHaveDefaultValue()
 {
     Emoticon w;
-    QVERIFY(w.name().isEmpty());
+    QVERIFY(w.identifier().isEmpty());
     QVERIFY(w.category().isEmpty());
     QVERIFY(w.unicode().isEmpty());
 }

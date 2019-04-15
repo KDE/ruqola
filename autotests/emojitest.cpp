@@ -99,12 +99,12 @@ void EmojiTest::shouldClearCachedHtml()
     emojiRef.setEmojiIdentifier(QStringLiteral(":clapping:"));
     emojiRef.setUpdatedAt(50);
 
-    const QString cachedHtml = emojiRef.html(QStringLiteral("www.kde.org"));
+    const QString cachedHtml = emojiRef.generateHtmlFromCustomEmoji(QStringLiteral("www.kde.org"));
     QVERIFY(!cachedHtml.isEmpty());
     QCOMPARE(emojiRef.cachedHtml(), cachedHtml);
     emojiRef.clearCachedHtml();
     QVERIFY(emojiRef.cachedHtml().isEmpty());
-    QCOMPARE(emojiRef.html(QStringLiteral("www.kde.org")), cachedHtml);
+    QCOMPARE(emojiRef.generateHtmlFromCustomEmoji(QStringLiteral("www.kde.org")), cachedHtml);
     QCOMPARE(emojiRef.cachedHtml(), cachedHtml);
 }
 
@@ -215,6 +215,6 @@ void EmojiTest::shouldGenerateHtml()
     QFETCH(Emoji, emoji);
     QFETCH(QString, serverUrl);
     QFETCH(QString, html);
-    QCOMPARE(emoji.html(serverUrl), html);
+    QCOMPARE(emoji.generateHtmlFromCustomEmoji(serverUrl), html);
     QCOMPARE(emoji.cachedHtml(), html);
 }

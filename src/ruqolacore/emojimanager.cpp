@@ -29,6 +29,7 @@
 EmojiManager::EmojiManager(QObject *parent)
     : QObject(parent)
 {
+    loadUnicodeEmoji();
 }
 
 EmojiManager::~EmojiManager()
@@ -72,12 +73,25 @@ QString EmojiManager::html(const QString &emojiIdentifier)
                 QString cachedHtml = mCustomEmojiList.at(i).cachedHtml();
                 if (cachedHtml.isEmpty()) {
                     Emoji emoji = mCustomEmojiList[i];
-                    cachedHtml = emoji.html(mServerUrl);
+                    cachedHtml = emoji.generateHtmlFromCustomEmoji(mServerUrl);
                     mCustomEmojiList.replace(i, emoji);
                 }
                 return cachedHtml;
             }
         }
+        /*
+        for (int i = 0, total = mUnicodeEmojiList.size(); i < total; ++i) {
+            if (mUnicodeEmojiList.at(i).hasEmoji(emojiIdentifier)) {
+                QString cachedHtml = mUnicodeEmojiList.at(i).cachedHtml();
+                if (cachedHtml.isEmpty()) {
+                    Emoji emoji = mUnicodeEmojiList[i];
+                    cachedHtml = emoji.html(mServerUrl);
+                    mUnicodeEmojiList.replace(i, emoji);
+                }
+                return cachedHtml;
+            }
+        }
+        */
         //TODO search in unicode emoji
     } else {
         qCWarning(RUQOLA_LOG) << "Emoji identifier is not correct :" << emojiIdentifier;

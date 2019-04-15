@@ -49,7 +49,7 @@ public:
 
     Q_REQUIRED_RESULT bool isValid() const;
 
-    Q_REQUIRED_RESULT QString html(const QString &serverUrl);
+    Q_REQUIRED_RESULT QString generateHtmlFromCustomEmoji(const QString &serverUrl);
 
     Q_REQUIRED_RESULT QStringList aliases() const;
     void setAliases(const QStringList &aliases);

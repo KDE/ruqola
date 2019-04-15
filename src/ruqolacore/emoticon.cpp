@@ -24,14 +24,14 @@ Emoticon::Emoticon()
 {
 }
 
-QString Emoticon::name() const
+QString Emoticon::identifier() const
 {
-    return mName;
+    return mIdentifier;
 }
 
-void Emoticon::setName(const QString &name)
+void Emoticon::setIdentifier(const QString &name)
 {
-    mName = name;
+    mIdentifier = name;
 }
 
 QString Emoticon::unicode() const
@@ -56,7 +56,7 @@ void Emoticon::setCategory(const QString &category)
 
 QDebug operator <<(QDebug d, const Emoticon &t)
 {
-    d << "Name : " << t.name();
+    d << "Name : " << t.identifier();
     d << "Unicode: " << t.unicode();
     d << "Category: " << t.category();
     return d;

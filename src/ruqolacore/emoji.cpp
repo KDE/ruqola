@@ -74,7 +74,7 @@ bool Emoji::isValid() const
     return !mIdentifier.isEmpty() && !mName.isEmpty();
 }
 
-QString Emoji::html(const QString &serverUrl)
+QString Emoji::generateHtmlFromCustomEmoji(const QString &serverUrl)
 {
     if (mCachedHtml.isEmpty()) {
         //TODO verify it.

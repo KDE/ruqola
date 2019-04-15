@@ -32,8 +32,8 @@ class LIBRUQOLACORE_TESTS_EXPORT Emoticon
 public:
     Emoticon();
 
-    Q_REQUIRED_RESULT QString name() const;
-    void setName(const QString &name);
+    Q_REQUIRED_RESULT QString identifier() const;
+    void setIdentifier(const QString &identifier);
 
     Q_REQUIRED_RESULT QString unicode() const;
     void setUnicode(uint unicode);
@@ -42,7 +42,7 @@ public:
     void setCategory(const QString &category);
 
 private:
-    QString mName;
+    QString mIdentifier;
     QString mUnicode;
     QString mCategory;
 };
