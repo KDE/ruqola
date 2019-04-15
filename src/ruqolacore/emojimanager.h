@@ -32,7 +32,7 @@ public:
     explicit EmojiManager(QObject *parent = nullptr);
     ~EmojiManager();
 
-    void loadEmoji(const QJsonObject &obj, bool restApi);
+    void loadCustomEmoji(const QJsonObject &obj, bool restApi);
 
     Q_REQUIRED_RESULT int count() const;
 

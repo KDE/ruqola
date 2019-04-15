@@ -559,12 +559,12 @@ void RocketChatAccount::changeDefaultStatus(int index)
 
 void RocketChatAccount::loadEmojiRestApi(const QJsonObject &obj)
 {
-    mEmojiManager->loadEmoji(obj, true);
+    mEmojiManager->loadCustomEmoji(obj, true);
 }
 
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
-    mEmojiManager->loadEmoji(obj, false);
+    mEmojiManager->loadCustomEmoji(obj, false);
 }
 
 void RocketChatAccount::deleteMessage(const QString &messageId, const QString &roomId)

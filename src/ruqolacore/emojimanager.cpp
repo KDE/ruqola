@@ -35,7 +35,7 @@ EmojiManager::~EmojiManager()
 {
 }
 
-void EmojiManager::loadEmoji(const QJsonObject &obj, bool restApi)
+void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)
 {
     mEmojiList.clear();
     const QJsonArray result = obj.value(restApi ? QLatin1String("emojis") : QLatin1String("result")).toArray();
@@ -95,7 +95,7 @@ void EmojiManager::setServerUrl(const QString &serverUrl)
 void EmojiManager::clearEmojiCachedHtml()
 {
     for (int i = 0, total = mEmojiList.size(); i < total; ++i) {
-        QString cachedHtml = mEmojiList.at(i).cachedHtml();
+        const QString &cachedHtml = mEmojiList.at(i).cachedHtml();
         if (!cachedHtml.isEmpty()) {
             Emoji emoji = mEmojiList[i];
             emoji.clearCachedHtml();
