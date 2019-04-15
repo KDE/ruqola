@@ -54,6 +54,16 @@ void UnicodeEmoticon::setCategory(const QString &category)
     mCategory = category;
 }
 
+QStringList UnicodeEmoticon::aliases() const
+{
+    return mAliases;
+}
+
+void UnicodeEmoticon::setAliases(const QStringList &aliases)
+{
+    mAliases = aliases;
+}
+
 QDebug operator <<(QDebug d, const UnicodeEmoticon &t)
 {
     d << "Name : " << t.identifier();

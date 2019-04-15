@@ -22,12 +22,12 @@
 
 #include <QObject>
 
-class EmoticonTest : public QObject
+class UnicodeEmoticonTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit EmoticonTest(QObject *parent = nullptr);
-    ~EmoticonTest() = default;
+    explicit UnicodeEmoticonTest(QObject *parent = nullptr);
+    ~UnicodeEmoticonTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 };

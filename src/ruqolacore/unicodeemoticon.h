@@ -41,10 +41,14 @@ public:
     Q_REQUIRED_RESULT QString category() const;
     void setCategory(const QString &category);
 
+    Q_REQUIRED_RESULT QStringList aliases() const;
+    void setAliases(const QStringList &aliases);
+
 private:
     QString mIdentifier;
     QString mUnicode;
     QString mCategory;
+    QStringList mAliases;
 };
 Q_DECLARE_METATYPE(UnicodeEmoticon)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const UnicodeEmoticon &t);

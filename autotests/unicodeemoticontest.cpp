@@ -18,20 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "emoticontest.h"
+#include "unicodeemoticontest.h"
 #include "unicodeemoticon.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(EmoticonTest)
+QTEST_GUILESS_MAIN(UnicodeEmoticonTest)
 
-EmoticonTest::EmoticonTest(QObject *parent)
+UnicodeEmoticonTest::UnicodeEmoticonTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void EmoticonTest::shouldHaveDefaultValue()
+void UnicodeEmoticonTest::shouldHaveDefaultValue()
 {
     UnicodeEmoticon w;
     QVERIFY(w.identifier().isEmpty());
     QVERIFY(w.category().isEmpty());
     QVERIFY(w.unicode().isEmpty());
+    QVERIFY(w.aliases().isEmpty());
 }
