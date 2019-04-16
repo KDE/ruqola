@@ -36,7 +36,7 @@
 #include "model/statusmodel.h"
 #include "utils.h"
 #include "rocketchatcache.h"
-#include "emojimanager.h"
+#include "emoticons/emojimanager.h"
 #include "otrmanager.h"
 #include "inputtextmanager.h"
 #include "model/usersforroommodel.h"

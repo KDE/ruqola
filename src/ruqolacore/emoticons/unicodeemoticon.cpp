@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "unicodeemoticon.h"
+#include "emoticons/unicodeemoticon.h"
 #include <QString>
 UnicodeEmoticon::UnicodeEmoticon()
 {

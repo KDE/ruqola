@@ -19,7 +19,7 @@
 */
 
 #include "unicodeemoticontest.h"
-#include "unicodeemoticon.h"
+#include "emoticons/unicodeemoticon.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(UnicodeEmoticonTest)
 

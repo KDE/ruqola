@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "emojimanager.h"
+#include "emoticons/emojimanager.h"
 
 #include <QJsonObject>
 #include <QJsonArray>

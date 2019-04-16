@@ -20,7 +20,7 @@
 #include "textconverter.h"
 #include "utils.h"
 #include "ruqola_debug.h"
-#include "emojimanager.h"
+#include "emoticons/emojimanager.h"
 
 #include "texthighlighter.h"
 #include "syntaxhighlightingmanager.h"

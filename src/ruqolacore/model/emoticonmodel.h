@@ -23,7 +23,7 @@
 
 #include <QAbstractListModel>
 #include "libruqola_private_export.h"
-#include "unicodeemoticon.h"
+#include "emoticons/unicodeemoticon.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT EmoticonModel : public QAbstractListModel
 {

@@ -19,10 +19,10 @@
 
 #include "textconvertertest.h"
 #include "textconverter.h"
+#include "emoticons/emojimanager.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
-#include <emojimanager.h>
 
 QTEST_GUILESS_MAIN(TextConverterTest)
 

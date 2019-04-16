@@ -19,8 +19,8 @@
 */
 
 #include "emojimanagertest.h"
-#include "emojimanager.h"
-#include "emoji.h"
+#include "emoticons/emojimanager.h"
+#include "emoticons/emoji.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>

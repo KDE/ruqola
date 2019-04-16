@@ -19,7 +19,7 @@
 */
 
 #include "emojitest.h"
-#include "emoji.h"
+#include "emoticons/emoji.h"
 #include <QJsonObject>
 #include <QTest>
 #include <QJsonDocument>

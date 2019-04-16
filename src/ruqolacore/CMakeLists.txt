@@ -53,6 +53,12 @@ set(Ruqola_aboutdata_srcs
     aboutdata/qmlaboutdataauthormodel.cpp
     )
 
+set(Ruqola_emoticons_srcs 
+    emoticons/emoji.cpp
+    emoticons/emojimanager.cpp
+    emoticons/unicodeemoticon.cpp
+)
+    
 set(Ruqola_messages_srcs  
     messages/message.cpp
     messages/messageattachment.cpp
@@ -64,6 +70,7 @@ set(Ruqola_messages_srcs
     )
     
 set (Ruqola_core_srcs
+    ${Ruqola_emoticons_srcs}
     ${Ruqola_messages_srcs}
     ${Ruqola_model_core_srcs}
     ${Ruqola_plugins_srcs}
@@ -83,8 +90,6 @@ set (Ruqola_core_srcs
     changetemporarystatus.cpp
     user.cpp
     utils.cpp
-    emoji.cpp
-    emojimanager.cpp
     clipboardproxy.cpp
     otr.cpp
     otrmanager.cpp
@@ -112,7 +117,6 @@ set (Ruqola_core_srcs
 
     syntaxhighlightingmanager.cpp
     copyfilejob.cpp
-    unicodeemoticon.cpp
 
     receivetypingnotificationmanager.cpp
 
