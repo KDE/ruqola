@@ -22,12 +22,16 @@
 #define UNICODEEMOTICONPARSER_H
 
 #include "libruqola_private_export.h"
+#include "unicodeemoticon.h"
+#include <QVector>
 
 class LIBRUQOLACORE_TESTS_EXPORT UnicodeEmoticonParser
 {
 public:
     UnicodeEmoticonParser();
     ~UnicodeEmoticonParser();
+
+    QVector<UnicodeEmoticon> parse(const QJsonObject &o) const;
 };
 
 #endif // UNICODEEMOTICONPARSER_H

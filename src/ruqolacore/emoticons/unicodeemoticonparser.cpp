@@ -19,6 +19,7 @@
 */
 
 #include "unicodeemoticonparser.h"
+#include <QJsonObject>
 
 UnicodeEmoticonParser::UnicodeEmoticonParser()
 {
@@ -28,4 +29,9 @@ UnicodeEmoticonParser::UnicodeEmoticonParser()
 UnicodeEmoticonParser::~UnicodeEmoticonParser()
 {
 
+}
+
+QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) const
+{
+    return {};
 }

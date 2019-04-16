@@ -19,7 +19,7 @@
 */
 
 #include "emoticons/emojimanager.h"
-
+#include "emoticons/unicodeemoticonparser.h"
 #include <QJsonObject>
 #include <QJsonArray>
 #include "ruqola_debug.h"
@@ -39,7 +39,7 @@ EmojiManager::~EmojiManager()
 
 void EmojiManager::loadUnicodeEmoji()
 {
-    //TODO
+    //TODO use UnicodeEmoticonParser
 }
 
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)
