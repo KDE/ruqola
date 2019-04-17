@@ -36,7 +36,7 @@ public:
     void setIdentifier(const QString &identifier);
 
     Q_REQUIRED_RESULT QString unicode() const;
-    void setUnicode(uint unicode);
+    void setUnicode(const QString &unicode);
 
     Q_REQUIRED_RESULT QString category() const;
     void setCategory(const QString &category);
@@ -45,7 +45,10 @@ public:
     void setAliases(const QStringList &aliases);
 
     Q_REQUIRED_RESULT bool hasEmoji(const QString &identifier) const;
+
+    Q_REQUIRED_RESULT bool isValid() const;
 private:
+    QString escapeUnicodeEmoji(const QString &pString);
     QString mIdentifier;
     QString mUnicode;
     QString mCategory;

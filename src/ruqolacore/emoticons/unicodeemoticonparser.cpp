@@ -33,5 +33,17 @@ UnicodeEmoticonParser::~UnicodeEmoticonParser()
 
 QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) const
 {
-    return {};
+    QVector<UnicodeEmoticon> lstEmoticons;
+    for (const QString &key: o.keys()) {
+        UnicodeEmoticon emoticon;
+        QJsonObject emojiObj = o[key].toObject();
+        emoticon.setUnicode(emojiObj[QStringLiteral("unicode")].toString());
+        emoticon.setCategory(emojiObj[QStringLiteral("category")].toString());
+        emoticon.setIdentifier(emojiObj[QStringLiteral("shortname")].toString());
+        //TODO add alias
+        if (emoticon.isValid()) {
+            lstEmoticons.append(emoticon);
+        }
+     }
+    return lstEmoticons;
 }
