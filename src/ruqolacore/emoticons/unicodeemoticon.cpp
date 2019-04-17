@@ -57,7 +57,7 @@ QString UnicodeEmoticon::escapeUnicodeEmoji(const QString &pString)
     QString retString;
 
     if (pString.contains(QLatin1Char('-'))) {
-        QStringList parts = pString.split(QLatin1Char('-'));
+        const QStringList parts = pString.split(QLatin1Char('-'));
 
         for (const auto &item : parts) {
             int part;
@@ -66,8 +66,8 @@ QString UnicodeEmoticon::escapeUnicodeEmoji(const QString &pString)
             ss >> part;
 
             if (part >= 0x10000 && part <= 0x10FFFF) {
-                int hi = ((part - 0x10000) / 0x400) + 0xD800;
-                int lo = ((part - 0x10000) % 0x400) + 0xDC00;
+                const int hi = ((part - 0x10000) / 0x400) + 0xD800;
+                const int lo = ((part - 0x10000) % 0x400) + 0xDC00;
                 retString += QChar(hi);
                 retString += QChar(lo);
             } else {
@@ -81,8 +81,8 @@ QString UnicodeEmoticon::escapeUnicodeEmoji(const QString &pString)
         ss >> part;
 
         if (part >= 0x10000 && part <= 0x10FFFF) {
-            int hi = ((part - 0x10000) / 0x400) + 0xD800;
-            int lo = ((part - 0x10000) % 0x400) + 0xDC00;
+            const int hi = ((part - 0x10000) / 0x400) + 0xD800;
+            const int lo = ((part - 0x10000) % 0x400) + 0xDC00;
             retString += QChar(hi);
             retString += QChar(lo);
         } else {
