@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "notificationdesktopsoundpreferencemodel.h"
 #include <KLocalizedString>
 
@@ -113,7 +112,6 @@ void NotificationDesktopSoundPreferenceModel::fillModel()
         preferenceInfo.preference = QStringLiteral("seasons");
         mNotificationDestktopSoundPreferenceList.append(preferenceInfo);
     }
-
 }
 
 int NotificationDesktopSoundPreferenceModel::setCurrentNotificationPreference(const QString &preference)

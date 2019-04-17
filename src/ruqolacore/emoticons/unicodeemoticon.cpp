@@ -26,7 +26,6 @@ UnicodeEmoticon::UnicodeEmoticon()
 {
 }
 
-
 bool UnicodeEmoticon::isValid() const
 {
     return !mIdentifier.isEmpty() && !mUnicode.isEmpty();
@@ -49,30 +48,30 @@ QString UnicodeEmoticon::unicode() const
 
 //Code from fairchat
 //Reimplement it ?
-QString UnicodeEmoticon::escapeUnicodeEmoji( const QString &pString )
+QString UnicodeEmoticon::escapeUnicodeEmoji(const QString &pString)
 {
     qDebug() << pString;
-    static const QRegularExpression reg{ QStringLiteral( "(\\b[A-Fa-f0-9]{2,6}\\b)" ) };
-    QRegularExpressionMatchIterator iter = reg.globalMatch( pString );
+    static const QRegularExpression reg{ QStringLiteral("(\\b[A-Fa-f0-9]{2,6}\\b)") };
+    QRegularExpressionMatchIterator iter = reg.globalMatch(pString);
 
     QString retString;
 
-    if ( pString.contains( QLatin1Char('-') ) ) {
-        QStringList parts = pString.split( QLatin1Char('-') );
+    if (pString.contains(QLatin1Char('-'))) {
+        QStringList parts = pString.split(QLatin1Char('-'));
 
-        for ( const auto &item : parts ) {
+        for (const auto &item : parts) {
             int part;
             std::stringstream ss;
             ss << std::hex << item.toStdString();
             ss >> part;
 
-            if ( part >= 0x10000 && part <= 0x10FFFF ) {
-                int hi = ( ( part - 0x10000 ) / 0x400 ) + 0xD800;
-                int lo = ( ( part - 0x10000 ) % 0x400 ) + 0xDC00;
-                retString += QChar( hi );
-                retString += QChar( lo );
+            if (part >= 0x10000 && part <= 0x10FFFF) {
+                int hi = ((part - 0x10000) / 0x400) + 0xD800;
+                int lo = ((part - 0x10000) % 0x400) + 0xDC00;
+                retString += QChar(hi);
+                retString += QChar(lo);
             } else {
-                retString = QChar( part );
+                retString = QChar(part);
             }
         }
     } else {
@@ -81,19 +80,18 @@ QString UnicodeEmoticon::escapeUnicodeEmoji( const QString &pString )
         ss << std::hex << pString.toStdString();
         ss >> part;
 
-        if ( part >= 0x10000 && part <= 0x10FFFF ) {
-            int hi = ( ( part - 0x10000 ) / 0x400 ) + 0xD800;
-            int lo = ( ( part - 0x10000 ) % 0x400 ) + 0xDC00;
-            retString += QChar( hi );
-            retString += QChar( lo );
+        if (part >= 0x10000 && part <= 0x10FFFF) {
+            int hi = ((part - 0x10000) / 0x400) + 0xD800;
+            int lo = ((part - 0x10000) % 0x400) + 0xDC00;
+            retString += QChar(hi);
+            retString += QChar(lo);
         } else {
-            retString = QChar( part );
+            retString = QChar(part);
         }
     }
 
     return retString;
 }
-
 
 void UnicodeEmoticon::setUnicode(const QString &unicode)
 {

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "notificationdesktopdurationpreferencemodel.h"
 #include <KLocalizedString>
 
@@ -71,7 +70,7 @@ void NotificationDesktopDurationPreferenceModel::fillModel()
         preferenceInfo.preference = QStringLiteral("default");
         mNotificationDestktopDurationPreferenceList.append(preferenceInfo);
     }
-    for (int i = 1; i <=5; ++i) {
+    for (int i = 1; i <= 5; ++i) {
         NotificationDesktopDurationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18np("1 second", "%1 seconds", i);
         preferenceInfo.preference = QString::number(i);

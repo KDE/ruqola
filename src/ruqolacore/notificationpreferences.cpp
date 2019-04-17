@@ -23,7 +23,6 @@
 #include "model/notificationdesktopdurationpreferencemodel.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
 
-
 NotificationPreferences::NotificationPreferences(QObject *parent)
     : QObject(parent)
 {

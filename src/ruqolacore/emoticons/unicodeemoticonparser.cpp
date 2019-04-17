@@ -23,12 +23,10 @@
 
 UnicodeEmoticonParser::UnicodeEmoticonParser()
 {
-
 }
 
 UnicodeEmoticonParser::~UnicodeEmoticonParser()
 {
-
 }
 
 QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) const
@@ -44,6 +42,6 @@ QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) cons
         if (emoticon.isValid()) {
             lstEmoticons.append(emoticon);
         }
-     }
+    }
     return lstEmoticons;
 }

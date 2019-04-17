@@ -38,7 +38,6 @@ EmojiManager::~EmojiManager()
 {
 }
 
-
 void EmojiManager::loadUnicodeEmoji()
 {
     UnicodeEmoticonParser unicodeParser;

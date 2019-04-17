@@ -26,5 +26,4 @@ QTEST_GUILESS_MAIN(UnicodeEmoticonParserTest)
 UnicodeEmoticonParserTest::UnicodeEmoticonParserTest(QObject *parent)
     : QObject(parent)
 {
-
 }
