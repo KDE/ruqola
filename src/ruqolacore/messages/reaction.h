@@ -44,6 +44,7 @@ public:
     Q_REQUIRED_RESULT QString convertedReactionName() const;
 private:
     QString mReactionName;
+    QString mCacheConvertedReactionName;
     QStringList mUserNames;
 };
 Q_DECLARE_METATYPE(Reaction)

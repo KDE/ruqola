@@ -25,10 +25,7 @@ Reaction::Reaction()
 
 QString Reaction::convertedReactionName() const
 {
-    QString str = mReactionName;
-    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys;
-    str = KTextToHTML::convertToHtml(str, convertFlags);
-    return str;
+    return mCacheConvertedReactionName;
 }
 
 QString Reaction::reactionName() const
@@ -39,6 +36,8 @@ QString Reaction::reactionName() const
 void Reaction::setReactionName(const QString &reactionName)
 {
     mReactionName = reactionName;
+    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys;
+    mCacheConvertedReactionName = KTextToHTML::convertToHtml(mReactionName, convertFlags);
 }
 
 QStringList Reaction::userNames() const
