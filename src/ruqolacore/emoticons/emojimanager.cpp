@@ -39,7 +39,9 @@ EmojiManager::~EmojiManager()
 
 void EmojiManager::loadUnicodeEmoji()
 {
-    //TODO use UnicodeEmoticonParser
+    UnicodeEmoticonParser unicodeParser;
+    QJsonObject o; //TODO
+    mUnicodeEmojiList = unicodeParser.parse(o);
 }
 
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)
