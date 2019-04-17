@@ -22,6 +22,8 @@
 #include "emoticons/unicodeemoticonparser.h"
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QJsonDocument>
+#include <QFile>
 #include "ruqola_debug.h"
 
 //TODO cache emoji ?
@@ -40,8 +42,15 @@ EmojiManager::~EmojiManager()
 void EmojiManager::loadUnicodeEmoji()
 {
     UnicodeEmoticonParser unicodeParser;
-    QJsonObject o; //TODO
-    mUnicodeEmojiList = unicodeParser.parse(o);
+    QFile file(QStringLiteral(":/emoji.json"));
+    if (!file.open(QFile::ReadOnly)) {
+        qCWarning(RUQOLA_LOG) << "Impossible to open file: " << file.errorString();
+        return;
+    }
+    const QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+
+    const QJsonObject obj = doc.object();
+    mUnicodeEmojiList = unicodeParser.parse(obj);
 }
 
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="emoji.json">emoticons/emoji.json</file>
+    </qresource>
+</RCC>
