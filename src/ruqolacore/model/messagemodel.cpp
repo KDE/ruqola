@@ -37,9 +37,6 @@
 #include "loadrecenthistorymanager.h"
 
 #include <KLocalizedString>
-#include <KSyntaxHighlighting/Definition>
-#include <KSyntaxHighlighting/Repository>
-#include <KSyntaxHighlighting/Theme>
 
 //TODO reactivate when we will able to load message between cache and official server.
 //#define STORE_MESSAGE 1
@@ -301,6 +298,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         const auto reactions = mAllMessages.at(idx).reactions().reactions();
         lst.reserve(reactions.count());
         for (const Reaction &react : reactions) {
+            //Convert reactions
             lst.append(QVariant::fromValue(react));
         }
         return lst;

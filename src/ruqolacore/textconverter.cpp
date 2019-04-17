@@ -47,8 +47,8 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
                 beginStr = str.left(startIndex);
             }
             //qDebug() << " end " << endIndex << str.length();
-            QString quoteStr = str.mid(startIndex + 3, endIndex - startIndex - 3);
-            QString endStr = str.right(str.length() - endIndex -3);
+            const QString quoteStr = str.mid(startIndex + 3, endIndex - startIndex - 3);
+            const QString endStr = str.right(str.length() - endIndex -3);
             QString result;
 //            qDebug() << " beginStr" << beginStr;
 //            qDebug() << " endStr" << endStr;
@@ -81,4 +81,10 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
         qCWarning(RUQOLA_LOG) << "Emojimanager was not setted";
     }
     return richText;
+}
+
+QString TextConverter::convertReactions(const QString &str) const
+{
+    //TODO
+    return {};
 }
