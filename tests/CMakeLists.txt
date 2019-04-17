@@ -6,7 +6,7 @@ target_link_libraries(expandjsontest
     Qt5::Widgets
     )
 
-####
+# ==================================================================== #
 
 #TODO reactivate it
 #set(loadroomcachetest_SRCS loadroomcache.cpp)
@@ -19,7 +19,7 @@ target_link_libraries(expandjsontest
 #    KF5::KIOWidgets
 #    )
 
-####
+# ==================================================================== #
 set(messagemodelguitest_SRCS messagemodelgui.cpp)
 qt5_add_resources(messagemodelguitestresources ../src/apps/qml/qml.qrc messagemodelgui.qrc)
 
@@ -31,7 +31,7 @@ target_link_libraries(messagemodelguitest
     libruqolacore
     )
 
-####
+# ==================================================================== #
 set(roommodelguitest_SRCS roommodelgui.cpp)
 qt5_add_resources(roommodelguitestresources ../src/apps/qml/qml.qrc messagemodelgui.qrc)
 
@@ -43,7 +43,7 @@ target_link_libraries(roommodelguitest
     libruqolacore
     )
 
-####
+# ==================================================================== #
 set(aboutdatatest_SRCS aboutdatatest.cpp)
 qt5_add_resources(aboutdatatestresources  aboutdatatest.qrc ../src/apps/qml/qml.qrc )
 
@@ -55,12 +55,12 @@ target_link_libraries(aboutdatatest
     libruqolacore
     )
 
-####
-set (qmlfiletest_SRCS qmltest.cpp)
-qt5_add_resources(qmlfiletestResources ../src/apps/qml/qml.qrc)
+# ==================================================================== #
+set(unicodeemoticongui_SRCS unicodeemoticongui.cpp)
 
-add_executable(qmlfiletest ${qmlfiletest_SRCS} ${qmlfiletestResources})
+add_executable(unicodeemoticongui ${unicodeemoticongui_SRCS})
 
-target_link_libraries(qmlfiletest
+target_link_libraries(unicodeemoticongui
+    Qt5::Widgets
     libruqolacore
     )
