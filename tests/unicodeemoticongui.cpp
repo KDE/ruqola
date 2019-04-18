@@ -28,6 +28,7 @@
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QListWidget>
 
 #include <emoticons/unicodeemoticonparser.h>
 
@@ -35,7 +36,10 @@ UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     : QWidget(parent)
 {
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    mListWidget = new QListWidget(this);
+    mainLayout->addWidget(mListWidget);
 
+    load();
 }
 
 UnicodeEmoticonGui::~UnicodeEmoticonGui()
@@ -54,6 +58,9 @@ void UnicodeEmoticonGui::load()
 
     const QJsonObject obj = doc.object();
     const QVector<UnicodeEmoticon> unicodeEmojiList = unicodeParser.parse(obj);
+    for (int i = 0; i < unicodeEmojiList.count(); ++i) {
+        new QListWidgetItem(unicodeEmojiList.at(i).identifier(), mListWidget);
+    }
 }
 
 void UnicodeEmoticonGui::save()

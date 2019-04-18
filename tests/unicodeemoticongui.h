@@ -23,7 +23,7 @@
 #define UNICODEEMOTICONGUI_H
 
 #include <QWidget>
-
+class QListWidget;
 class UnicodeEmoticonGui : public QWidget
 {
     Q_OBJECT
@@ -33,6 +33,7 @@ public:
 private:
     void save();
     void load();
+    QListWidget *mListWidget = nullptr;
 };
 
 #endif // UnicodeEmoticonGui_H
