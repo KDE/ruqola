@@ -22,6 +22,7 @@
 #include <sstream>
 #include <QRegularExpression>
 #include <QString>
+
 UnicodeEmoticon::UnicodeEmoticon()
 {
 }
