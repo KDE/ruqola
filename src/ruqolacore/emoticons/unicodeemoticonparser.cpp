@@ -20,6 +20,7 @@
 
 #include "unicodeemoticonparser.h"
 #include <QJsonObject>
+#include <QJsonArray>
 
 UnicodeEmoticonParser::UnicodeEmoticonParser()
 {
@@ -39,6 +40,15 @@ QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) cons
         emoticon.setCategory(emojiObj[QStringLiteral("category")].toString());
         emoticon.setIdentifier(emojiObj[QStringLiteral("shortname")].toString());
         emoticon.setOrder(emojiObj[QStringLiteral("emoji_order")].toInt());
+        const QJsonArray aliasArray = emojiObj[QStringLiteral("aliases_ascii")].toArray();
+        if (!aliasArray.isEmpty()) {
+            QStringList lst;
+            lst.reserve(aliasArray.count());
+            for (int i = 0; i < aliasArray.count(); ++i) {
+                lst.append(aliasArray.at(i).toString());
+            }
+            emoticon.setAliases(lst);
+        }
         //TODO add alias
         if (emoticon.isValid()) {
             lstEmoticons.append(emoticon);
