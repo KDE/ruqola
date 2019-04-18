@@ -93,6 +93,16 @@ QString UnicodeEmoticon::escapeUnicodeEmoji(const QString &pString)
     return retString;
 }
 
+int UnicodeEmoticon::order() const
+{
+    return mOrder;
+}
+
+void UnicodeEmoticon::setOrder(int order)
+{
+    mOrder = order;
+}
+
 void UnicodeEmoticon::setUnicode(const QString &unicode)
 {
     mUnicode = escapeUnicodeEmoji(unicode);
@@ -125,9 +135,10 @@ bool UnicodeEmoticon::hasEmoji(const QString &identifier) const
 
 QDebug operator <<(QDebug d, const UnicodeEmoticon &t)
 {
-    d << "Name : " << t.identifier();
+    d << "Identifier : " << t.identifier();
     d << "Unicode: " << t.unicode();
     d << "Category: " << t.category();
     d << "Aliases: " << t.aliases();
+    d << "Order: " << t.order();
     return d;
 }

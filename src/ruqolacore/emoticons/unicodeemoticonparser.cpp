@@ -39,6 +39,7 @@ QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) cons
         emoticon.setCategory(emojiObj[QStringLiteral("category")].toString());
         emoticon.setIdentifier(emojiObj[QStringLiteral("shortname")].toString());
         //TODO add alias
+        //TODO add order
         if (emoticon.isValid()) {
             lstEmoticons.append(emoticon);
         }

@@ -47,12 +47,17 @@ public:
     Q_REQUIRED_RESULT bool hasEmoji(const QString &identifier) const;
 
     Q_REQUIRED_RESULT bool isValid() const;
+
+    Q_REQUIRED_RESULT int order() const;
+    void setOrder(int order);
+
 private:
     QString escapeUnicodeEmoji(const QString &pString);
     QString mIdentifier;
     QString mUnicode;
     QString mCategory;
     QStringList mAliases;
+    int mOrder = -1;
 };
 Q_DECLARE_METATYPE(UnicodeEmoticon)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const UnicodeEmoticon &t);
