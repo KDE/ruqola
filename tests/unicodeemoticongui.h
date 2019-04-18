@@ -32,6 +32,7 @@ public:
     ~UnicodeEmoticonGui();
 private:
     void save();
+    void load();
 };
 
 #endif // UnicodeEmoticonGui_H

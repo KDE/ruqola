@@ -25,6 +25,11 @@
 #include <QApplication>
 #include <QStandardPaths>
 #include <QPushButton>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
+
+#include <emoticons/unicodeemoticonparser.h>
 
 UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     : QWidget(parent)
@@ -35,6 +40,20 @@ UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
 
 UnicodeEmoticonGui::~UnicodeEmoticonGui()
 {
+}
+
+void UnicodeEmoticonGui::load()
+{
+    UnicodeEmoticonParser unicodeParser;
+    QFile file(QStringLiteral(":/emoji.json"));
+    if (!file.open(QFile::ReadOnly)) {
+        qWarning() << "Impossible to open file: " << file.errorString();
+        return;
+    }
+    const QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+
+    const QJsonObject obj = doc.object();
+    const QVector<UnicodeEmoticon> unicodeEmojiList = unicodeParser.parse(obj);
 }
 
 void UnicodeEmoticonGui::save()

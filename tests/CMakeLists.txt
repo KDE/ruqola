@@ -58,6 +58,8 @@ target_link_libraries(aboutdatatest
 # ==================================================================== #
 set(unicodeemoticongui_SRCS unicodeemoticongui.cpp)
 
+qt5_add_resources(unicodeemoticongui_SRCS ../src/ruqolacore/ruqolacore.qrc)
+
 add_executable(unicodeemoticongui ${unicodeemoticongui_SRCS})
 
 target_link_libraries(unicodeemoticongui
