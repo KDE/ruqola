@@ -4,4 +4,4 @@
 - Add support for removing token when it's too late.
 - Merge some restapi (for example setTopic)
 - Fix message "typing" when we switch from channel sometime it's not cleared 
-
+- Add emoticon unicode support
