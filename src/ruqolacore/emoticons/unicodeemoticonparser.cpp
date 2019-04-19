@@ -43,13 +43,13 @@ QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) cons
         const QJsonArray aliasArray = emojiObj[QStringLiteral("aliases_ascii")].toArray();
         if (!aliasArray.isEmpty()) {
             QStringList lst;
-            lst.reserve(aliasArray.count());
-            for (int i = 0; i < aliasArray.count(); ++i) {
+            const int aliasArrayCount = aliasArray.count();
+            lst.reserve(aliasArrayCount);
+            for (int i = 0; i < aliasArrayCount; ++i) {
                 lst.append(aliasArray.at(i).toString());
             }
             emoticon.setAliases(lst);
         }
-        //TODO add alias
         if (emoticon.isValid()) {
             lstEmoticons.append(emoticon);
         }
