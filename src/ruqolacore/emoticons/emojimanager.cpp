@@ -28,10 +28,12 @@
 
 //TODO cache emoji ?
 
-EmojiManager::EmojiManager(QObject *parent)
+EmojiManager::EmojiManager(QObject *parent, bool loadUnicode)
     : QObject(parent)
 {
-    loadUnicodeEmoji();
+    if (loadUnicode) {
+        loadUnicodeEmoji();
+    }
 }
 
 EmojiManager::~EmojiManager()

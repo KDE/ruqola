@@ -33,7 +33,7 @@ EmojiManagerTest::EmojiManagerTest(QObject *parent)
 
 void EmojiManagerTest::shouldHaveDefaultValue()
 {
-    EmojiManager manager;
+    EmojiManager manager(nullptr, false);
     QVERIFY(manager.serverUrl().isEmpty());
     QCOMPARE(manager.count(), 0);
 }
@@ -56,7 +56,7 @@ void EmojiManagerTest::shouldParseEmoji()
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
-    EmojiManager manager;
+    EmojiManager manager(nullptr, false);
     manager.loadCustomEmoji(obj, false);
     QCOMPARE(manager.count(), number);
 }
@@ -79,7 +79,7 @@ void EmojiManagerTest::shouldParseEmojiRestApi()
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
-    EmojiManager manager;
+    EmojiManager manager(nullptr, false);
     manager.loadCustomEmoji(obj, true);
     QCOMPARE(manager.count(), number);
 }
@@ -123,7 +123,7 @@ void EmojiManagerTest::shouldChangeServerUrl()
     f.close();
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
-    EmojiManager manager;
+    EmojiManager manager(nullptr, false);
     manager.loadCustomEmoji(obj, false);
     QString serverUrl = QStringLiteral("www.kde.org");
     manager.setServerUrl(serverUrl);
