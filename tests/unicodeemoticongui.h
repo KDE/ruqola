@@ -22,7 +22,43 @@
 #ifndef UNICODEEMOTICONGUI_H
 #define UNICODEEMOTICONGUI_H
 
+#include <QListWidgetItem>
 #include <QWidget>
+
+#include <emoticons/unicodeemoticon.h>
+
+class QLineEdit;
+class UnicodeEmoticonInfo : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit UnicodeEmoticonInfo(QWidget *parent = nullptr);
+    ~UnicodeEmoticonInfo();
+
+    Q_REQUIRED_RESULT UnicodeEmoticon info() const;
+    void setInfo(const UnicodeEmoticon &info);
+
+private:
+    QLineEdit *mIdentifier = nullptr;
+    QLineEdit *mUnicode = nullptr;
+    QLineEdit *mAliases = nullptr;
+    QLineEdit *mCategory = nullptr;
+    QLineEdit *mOrder = nullptr;
+    UnicodeEmoticon mInfo;
+};
+
+class UnicodeEmoticonListWidgetItem : public QListWidgetItem
+{
+public:
+    explicit UnicodeEmoticonListWidgetItem(const QString &str, QListWidget *parent);
+
+    Q_REQUIRED_RESULT UnicodeEmoticon info() const;
+    void setInfo(const UnicodeEmoticon &info);
+
+private:
+    UnicodeEmoticon mInfo;
+};
+
 class QListWidget;
 class UnicodeEmoticonGui : public QWidget
 {
@@ -33,7 +69,9 @@ public:
 private:
     void save();
     void load();
+    void slotItemChanged(QListWidgetItem *item);
     QListWidget *mListWidget = nullptr;
+    UnicodeEmoticonInfo *mWidgetInfo = nullptr;
 };
 
 #endif // UnicodeEmoticonGui_H

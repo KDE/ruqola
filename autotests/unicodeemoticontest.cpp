@@ -35,5 +35,6 @@ void UnicodeEmoticonTest::shouldHaveDefaultValue()
     QVERIFY(w.category().isEmpty());
     QVERIFY(w.unicode().isEmpty());
     QVERIFY(w.aliases().isEmpty());
+    QVERIFY(w.key().isEmpty());
     QVERIFY(!w.isValid());
 }

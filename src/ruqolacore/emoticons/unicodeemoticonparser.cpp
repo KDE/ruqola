@@ -36,10 +36,11 @@ QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) cons
     for (const QString &key: o.keys()) {
         UnicodeEmoticon emoticon;
         QJsonObject emojiObj = o[key].toObject();
+        emoticon.setKey(key);
         emoticon.setUnicode(emojiObj[QStringLiteral("unicode")].toString());
         emoticon.setCategory(emojiObj[QStringLiteral("category")].toString());
         emoticon.setIdentifier(emojiObj[QStringLiteral("shortname")].toString());
-        emoticon.setOrder(emojiObj[QStringLiteral("emoji_order")].toInt());
+        emoticon.setOrder(emojiObj[QStringLiteral("emoji_order")].toString().toInt());
         const QJsonArray aliasArray = emojiObj[QStringLiteral("aliases_ascii")].toArray();
         if (!aliasArray.isEmpty()) {
             QStringList lst;

@@ -19,6 +19,7 @@
 */
 
 #include "unicodeemoticonparsertest.h"
+#include "emoticons/unicodeemoticonparser.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(UnicodeEmoticonParserTest)
@@ -27,3 +28,5 @@ UnicodeEmoticonParserTest::UnicodeEmoticonParserTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+//TODO add test parser

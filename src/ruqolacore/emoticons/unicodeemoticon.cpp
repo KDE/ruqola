@@ -93,6 +93,16 @@ QString UnicodeEmoticon::escapeUnicodeEmoji(const QString &pString)
     return retString;
 }
 
+QString UnicodeEmoticon::key() const
+{
+    return mKey;
+}
+
+void UnicodeEmoticon::setKey(const QString &key)
+{
+    mKey = key;
+}
+
 int UnicodeEmoticon::order() const
 {
     return mOrder;
@@ -140,5 +150,6 @@ QDebug operator <<(QDebug d, const UnicodeEmoticon &t)
     d << "Category: " << t.category();
     d << "Aliases: " << t.aliases();
     d << "Order: " << t.order();
+    d << "Key:" << t.key();
     return d;
 }

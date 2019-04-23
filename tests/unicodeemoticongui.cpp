@@ -29,16 +29,29 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QListWidget>
+#include <QFormLayout>
+#include <QLineEdit>
 
 #include <emoticons/unicodeemoticonparser.h>
 
 UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     : QWidget(parent)
 {
-    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    QHBoxLayout *hboxLayout = new QHBoxLayout;
+    hboxLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addLayout(hboxLayout);
     mListWidget = new QListWidget(this);
-    mainLayout->addWidget(mListWidget);
+    hboxLayout->addWidget(mListWidget);
 
+    mWidgetInfo = new UnicodeEmoticonInfo(this);
+    hboxLayout->addWidget(mWidgetInfo);
+
+    QPushButton *save = new QPushButton(QStringLiteral("Save"), this);
+    mainLayout->addWidget(save);
+    connect(save, &QPushButton::clicked, this, &UnicodeEmoticonGui::save);
+
+    connect(mListWidget, &QListWidget::itemClicked, this, &UnicodeEmoticonGui::slotItemChanged);
     load();
 }
 
@@ -46,6 +59,14 @@ UnicodeEmoticonGui::~UnicodeEmoticonGui()
 {
 }
 
+void UnicodeEmoticonGui::slotItemChanged(QListWidgetItem *item)
+{
+    if (item) {
+        UnicodeEmoticonListWidgetItem *itemResult = static_cast<UnicodeEmoticonListWidgetItem *>(item);
+        UnicodeEmoticon info = itemResult->info();
+        mWidgetInfo->setInfo(info);
+    }
+}
 void UnicodeEmoticonGui::load()
 {
     UnicodeEmoticonParser unicodeParser;
@@ -59,12 +80,17 @@ void UnicodeEmoticonGui::load()
     const QJsonObject obj = doc.object();
     const QVector<UnicodeEmoticon> unicodeEmojiList = unicodeParser.parse(obj);
     for (int i = 0; i < unicodeEmojiList.count(); ++i) {
-        new QListWidgetItem(unicodeEmojiList.at(i).identifier(), mListWidget);
+        UnicodeEmoticonListWidgetItem *item = new UnicodeEmoticonListWidgetItem(unicodeEmojiList.at(i).identifier(), mListWidget);
+        item->setInfo(unicodeEmojiList.at(i));
+        //Allow to update it.
     }
 }
 
 void UnicodeEmoticonGui::save()
 {
+    QJsonDocument doc;
+    QJsonObject o;
+    doc.setObject(o);
     //TODO
 }
 
@@ -79,3 +105,56 @@ int main(int argc, char *argv[])
     return app.exec();
 }
 
+
+UnicodeEmoticonInfo::UnicodeEmoticonInfo(QWidget *parent)
+    : QWidget(parent)
+{
+    QFormLayout *mainLayout = new QFormLayout(this);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mIdentifier = new QLineEdit(this);
+    mainLayout->addRow(QStringLiteral("identifier:"), mIdentifier);
+    mUnicode = new QLineEdit(this);
+    mainLayout->addRow(QStringLiteral("unicode:"), mUnicode);
+    mAliases = new QLineEdit(this);
+    mainLayout->addRow(QStringLiteral("aliases:"), mAliases);
+    mCategory = new QLineEdit(this);
+    mainLayout->addRow(QStringLiteral("category:"), mCategory);
+    mOrder = new QLineEdit(this);
+    mainLayout->addRow(QStringLiteral("order:"), mOrder);
+}
+
+UnicodeEmoticonInfo::~UnicodeEmoticonInfo()
+{
+
+}
+
+UnicodeEmoticon UnicodeEmoticonInfo::info() const
+{
+    return mInfo;
+}
+
+void UnicodeEmoticonInfo::setInfo(const UnicodeEmoticon &info)
+{
+    mIdentifier->setText(info.identifier());
+    mUnicode->setText(info.unicode());
+    mAliases->setText(info.aliases().join(QLatin1Char(',')));
+    mCategory->setText(info.category());
+    mOrder->setText(QString::number(info.order()));
+    mInfo = info;
+}
+
+UnicodeEmoticonListWidgetItem::UnicodeEmoticonListWidgetItem(const QString &str, QListWidget *parent)
+    : QListWidgetItem (str, parent)
+{
+
+}
+
+UnicodeEmoticon UnicodeEmoticonListWidgetItem::info() const
+{
+    return mInfo;
+}
+
+void UnicodeEmoticonListWidgetItem::setInfo(const UnicodeEmoticon &info)
+{
+    mInfo = info;
+}

@@ -51,11 +51,15 @@ public:
     Q_REQUIRED_RESULT int order() const;
     void setOrder(int order);
 
+    Q_REQUIRED_RESULT QString key() const;
+    void setKey(const QString &key);
+
 private:
     QString escapeUnicodeEmoji(const QString &pString);
     QString mIdentifier;
     QString mUnicode;
     QString mCategory;
+    QString mKey;
     QStringList mAliases;
     int mOrder = -1;
 };
