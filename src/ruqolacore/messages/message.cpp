@@ -25,7 +25,8 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-Message::Message()
+Message::Message(EmojiManager *emojiManager)
+    : mEmojiManager(emojiManager)
 {
 }
 
@@ -76,7 +77,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
 void Message::parseReactions(const QJsonObject &reacts)
 {
     if (!reacts.isEmpty()) {
-        mReactions.parseReactions(reacts);
+        mReactions.parseReactions(reacts, mEmojiManager);
     }
 }
 

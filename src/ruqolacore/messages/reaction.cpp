@@ -18,6 +18,7 @@
 */
 
 #include "reaction.h"
+#include "emoticons/emojimanager.h"
 #include <KTextToHTML>
 Reaction::Reaction()
 {
@@ -33,12 +34,16 @@ QString Reaction::reactionName() const
     return mReactionName;
 }
 
-void Reaction::setReactionName(const QString &reactionName)
+void Reaction::setReactionName(const QString &reactionName, EmojiManager *emojiManager)
 {
     if (mReactionName != reactionName) {
         mReactionName = reactionName;
-        const KTextToHTML::Options convertFlags = KTextToHTML::ReplaceSmileys;
-        mCacheConvertedReactionName = KTextToHTML::convertToHtml(mReactionName, convertFlags);
+        if (emojiManager) {
+            mCacheConvertedReactionName = emojiManager->replaceEmojiIdentifier(mReactionName);
+        } else {
+            const KTextToHTML::Options convertFlags = KTextToHTML::ReplaceSmileys;
+            mCacheConvertedReactionName = KTextToHTML::convertToHtml(mReactionName, convertFlags);
+        }
     }
 }
 

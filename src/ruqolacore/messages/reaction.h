@@ -22,6 +22,7 @@
 
 #include "libruqola_private_export.h"
 #include <QDebug>
+class EmojiManager;
 class LIBRUQOLACORE_TESTS_EXPORT Reaction
 {
     Q_GADGET
@@ -32,7 +33,7 @@ public:
     Reaction();
 
     Q_REQUIRED_RESULT QString reactionName() const;
-    void setReactionName(const QString &reactionName);
+    void setReactionName(const QString &reactionName, EmojiManager *emojiManager = nullptr);
 
     Q_REQUIRED_RESULT QStringList userNames() const;
     void setUserNames(const QStringList &userNames);

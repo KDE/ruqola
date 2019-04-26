@@ -35,7 +35,7 @@ QVector<Reaction> Reactions::reactions() const
     return mReactions;
 }
 
-void Reactions::parseReactions(const QJsonObject &reacts)
+void Reactions::parseReactions(const QJsonObject &reacts, EmojiManager *emojiManager)
 {
     mReactions.clear();
     const QStringList lst = reacts.keys();
@@ -52,7 +52,7 @@ void Reactions::parseReactions(const QJsonObject &reacts)
         }
         if (!users.isEmpty()) {
             Reaction r;
-            r.setReactionName(str);
+            r.setReactionName(str, emojiManager);
             r.setUserNames(users);
             mReactions.append(r);
         }

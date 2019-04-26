@@ -30,12 +30,12 @@
 #include <QJsonObject>
 #include <QString>
 #include <QVector>
-
+class EmojiManager;
 class LIBRUQOLACORE_TESTS_EXPORT Message
 {
     Q_GADGET
 public:
-    Message();
+    explicit Message(EmojiManager *emojiManager = nullptr);
 
     enum MessageType {
         System,
@@ -222,6 +222,8 @@ private:
 
     //Unread Message
     bool mUnread = false;
+
+    EmojiManager *mEmojiManager = nullptr;
 };
 Q_DECLARE_METATYPE(Message)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Message &t);

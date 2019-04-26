@@ -23,6 +23,7 @@
 #include "libruqola_private_export.h"
 #include "reaction.h"
 #include <QVector>
+class EmojiManager;
 class LIBRUQOLACORE_TESTS_EXPORT Reactions
 {
 public:
@@ -31,7 +32,7 @@ public:
     void setReactions(const QVector<Reaction> &reactions);
     Q_REQUIRED_RESULT QVector<Reaction> reactions() const;
 
-    void parseReactions(const QJsonObject &array);
+    void parseReactions(const QJsonObject &array, EmojiManager *emojiManager = nullptr);
 
     Q_REQUIRED_RESULT bool operator ==(const Reactions &other) const;
 
