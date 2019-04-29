@@ -29,13 +29,14 @@ Repeater {
     signal deleteReaction(string emoji)
     Row {
         QQC2.Label {
-            id: numberOfReact
+            id: reactionsType
             renderType: Text.NativeRendering
             textFormat: Text.RichText
             text: model.modelData.convertedReactionName
             wrapMode: QQC2.Label.NoWrap
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
+            font.pixelSize: 26
             MouseArea {
                 anchors.fill: parent
                 acceptedButtons: Qt.RightButton | Qt.LeftButton
@@ -54,6 +55,9 @@ Repeater {
             wrapMode: QQC2.Label.NoWrap
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
+            Component.onCompleted: {
+                font.italic = true
+            }
         }
     }
 }
