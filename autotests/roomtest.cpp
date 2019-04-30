@@ -71,6 +71,9 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(!input.joinCodeRequired());
     QVERIFY(!input.wasInitialized());
     QVERIFY(input.rolesForRooms().isEmpty());
+    QVERIFY(input.parentRid().isEmpty());
+    QVERIFY(!input.broadcast());
+
 }
 
 //TODO add notification, userMentions too
@@ -128,6 +131,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyencryptedChanged(&input, &Room::encryptedChanged);
     QSignalSpy spyjoinCodeRequiredChanged(&input, &Room::joinCodeRequiredChanged);
     QSignalSpy spychannelTypeChanged(&input, &Room::channelTypeChanged);
+    QSignalSpy spyparentRidChanged(&input, &Room::parentRidChanged);
     input.setRoomId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
@@ -151,6 +155,7 @@ void RoomTest::shouldEmitSignals()
     input.setDescription(QStringLiteral("ddd"));
     input.setRoles({QStringLiteral("bla"), QStringLiteral("blu")});
     input.setIgnoredUsers({QStringLiteral("bla"), QStringLiteral("blu3")});
+    input.setParentRid(QStringLiteral("bla"));
 
     QCOMPARE(spyNameChanged.count(), 1);
     QCOMPARE(spyannouncementChanged.count(), 1);
@@ -169,6 +174,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyencryptedChanged.count(), 1);
     QCOMPARE(spyjoinCodeRequiredChanged.count(), 1);
     QCOMPARE(spychannelTypeChanged.count(), 1);
+    QCOMPARE(spyparentRidChanged.count(), 1);
 }
 
 void RoomTest::shouldChangeInputMessage()

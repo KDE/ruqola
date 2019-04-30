@@ -489,7 +489,13 @@ QString RoomModel::sectionName(Room *r) const
         str = i18n("Favorites");
     } else {
         const QString channelTypeStr = r->channelType();
-        if (channelTypeStr == QLatin1String("c") || channelTypeStr == QLatin1String("p")) {
+        if (channelTypeStr == QLatin1String("p")) {
+            if (r->parentRid().isEmpty()) {
+                str = i18n("Rooms");
+            } else {
+                str = i18n("Discussions");
+            }
+        } else if (channelTypeStr == QLatin1String("c")) {
             str = i18n("Rooms");
         } else if (channelTypeStr == QLatin1String("d")) {
             str = i18n("Private Message");
@@ -503,16 +509,22 @@ int RoomModel::order(Room *r) const
     int order = 0;
     //First item are favorites channels
     if (!r->favorite()) {
-        order += 3;
+        order += 10;
     }
     const QString channelTypeStr = r->channelType();
-    if (channelTypeStr == QLatin1String("c") || channelTypeStr == QLatin1String("p")) {
+    if (channelTypeStr == QLatin1String("c")) {
         order += 1;
     } else if (channelTypeStr == QLatin1String("d")) {
         order += 2;
+    } else if (channelTypeStr == QLatin1String("p")) {
+        if (r->parentRid().isEmpty()) {
+            order += 1;
+        } else {
+            order += 4;
+        }
     } else {
         qCDebug(RUQOLA_LOG) << r->name() << "has unhandled channel type" << channelTypeStr;
-        order += 3;
+        order += 5;
     }
     return order;
 }

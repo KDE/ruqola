@@ -91,7 +91,8 @@ bool Room::isEqual(const Room &other) const
            && (mE2EKey == other.e2EKey())
            && (mE2eKeyId == other.e2eKeyId())
            && (mJoinCodeRequired == other.joinCodeRequired())
-           && (mBroadcast == other.broadcast());
+           && (mBroadcast == other.broadcast())
+           && (mParentRid == other.parentRid());
 }
 
 QString Room::displayRoomName() const
@@ -139,6 +140,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "mE2eKeyId: " << t.e2eKeyId();
     d << "mJoinCodeRequired: " << t.joinCodeRequired();
     d << "broadcast: " << t.broadcast();
+    d << "ParentRid: " << t.parentRid();
     return d;
 }
 
@@ -286,6 +288,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         //owner and if it's empty => we need to clear it.
         setRoomCreatorUserId(QString());
         setRoomCreatorUserName(QString());
+    }
+    if (json.contains(QLatin1String("prid"))) {
+        setParentRid(json[QStringLiteral("prid")].toString());
     }
 }
 
@@ -693,6 +698,19 @@ void Room::parseCommonData(const QJsonObject &json)
     setRoles(lstRoles);
 }
 
+QString Room::parentRid() const
+{
+    return mParentRid;
+}
+
+void Room::setParentRid(const QString &parentRid)
+{
+    if (mParentRid != parentRid) {
+        mParentRid = parentRid;
+        Q_EMIT parentRidChanged();
+    }
+}
+
 bool Room::broadcast() const
 {
     return mBroadcast;
@@ -855,6 +873,8 @@ Room *Room::fromJSon(const QJsonObject &o)
     const QJsonObject notificationsObj = o.value(QLatin1String("notifications")).toObject();
     const NotificationOptions notifications = NotificationOptions::fromJSon(notificationsObj);
     r->setNotificationOptions(notifications);
+
+    //TODO add parent RID
 
     return r;
 }

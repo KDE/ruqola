@@ -220,6 +220,9 @@ public:
     Q_REQUIRED_RESULT bool broadcast() const;
     void setBroadcast(bool broadcast);
 
+    Q_REQUIRED_RESULT QString parentRid() const;
+    void setParentRid(const QString &parentRid);
+
 Q_SIGNALS:
     void nameChanged();
     void announcementChanged();
@@ -248,6 +251,7 @@ Q_SIGNALS:
     void channelTypeChanged();
 
     void broadcastChanged();
+    void parentRidChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -271,6 +275,9 @@ private:
 
     // t (can take values "d" , "c" or "p" or "l")
     QString mChannelType;
+
+    // Parent Rid when we have a discussion.
+    QString mParentRid;
 
     // name
     QString mName;
