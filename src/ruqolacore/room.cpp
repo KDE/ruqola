@@ -53,6 +53,8 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     mFilesForRoomFilterProxyModel->setSourceModel(mFilesModelForRoom);
 
     mMessageModel = new MessageModel(QString(), mRocketChatAccount, this, this);
+
+    //TODO necessary to define mChannelType
 }
 
 bool Room::operator==(const Room &other) const
