@@ -94,15 +94,16 @@ bool Room::isEqual(const Room &other) const
            && (mE2eKeyId == other.e2eKeyId())
            && (mJoinCodeRequired == other.joinCodeRequired())
            && (mBroadcast == other.broadcast())
-           && (mParentRid == other.parentRid());
+           && (mParentRid == other.parentRid())
+           && (mFName == other.fName());
 }
 
 QString Room::displayRoomName() const
 {
     if (channelType() == QLatin1Char('d')) {
-        return QLatin1Char('@') + mName;
+        return QLatin1Char('@') + mFName;
     } else {
-        return QLatin1Char('#') + mName;
+        return QLatin1Char('#') + mFName;
     }
 }
 
@@ -143,6 +144,7 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "mJoinCodeRequired: " << t.joinCodeRequired();
     d << "broadcast: " << t.broadcast();
     d << "ParentRid: " << t.parentRid();
+    d << "Fname: " << t.fName();
     return d;
 }
 
@@ -236,8 +238,8 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setJoinCodeRequired(false);
     }
 
-    if (json.contains(QLatin1String("name"))) {
-        setName(json[QStringLiteral("name")].toString());
+    if (json.contains(QLatin1String("fname"))) {
+        setFName(json[QStringLiteral("fname")].toString());
     }
     if (json.contains(QLatin1String("archived"))) {
         setArchived(json[QStringLiteral("archived")].toBool());
@@ -698,6 +700,19 @@ void Room::parseCommonData(const QJsonObject &json)
         lstRoles << rolesArray.at(i).toString();
     }
     setRoles(lstRoles);
+}
+
+QString Room::fName() const
+{
+    return mFName;
+}
+
+void Room::setFName(const QString &value)
+{
+    if (mFName != value) {
+        mFName = value;
+        Q_EMIT fnameChanged();
+    }
 }
 
 QString Room::parentRid() const

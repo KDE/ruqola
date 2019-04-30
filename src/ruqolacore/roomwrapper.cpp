@@ -38,6 +38,7 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::topicChanged, this, &RoomWrapper::topicChanged);
     connect(mRoom, &Room::announcementChanged, this, &RoomWrapper::announcementChanged);
     connect(mRoom, &Room::nameChanged, this, &RoomWrapper::nameChanged);
+    connect(mRoom, &Room::fnameChanged, this, &RoomWrapper::fnameChanged);
     connect(mRoom, &Room::readOnlyChanged, this, &RoomWrapper::readOnlyChanged);
     connect(mRoom, &Room::broadcastChanged, this, &RoomWrapper::broadcastChanged);
     connect(mRoom, &Room::blockerChanged, this, &RoomWrapper::blockerChanged);
@@ -65,6 +66,11 @@ RoomWrapper::~RoomWrapper()
 QString RoomWrapper::name() const
 {
     return mRoom->name();
+}
+
+QString RoomWrapper::fname() const
+{
+    return mRoom->fName();
 }
 
 QString RoomWrapper::displayRoomName() const

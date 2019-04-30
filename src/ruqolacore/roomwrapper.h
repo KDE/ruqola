@@ -30,6 +30,7 @@ class Room;
 class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
 {
     Q_PROPERTY(QString name READ name NOTIFY nameChanged)
+    Q_PROPERTY(QString fname READ fname NOTIFY fnameChanged)
     Q_PROPERTY(QString displayRoomName READ displayRoomName NOTIFY nameChanged)
     Q_PROPERTY(QString topic READ topic NOTIFY topicChanged)
     Q_PROPERTY(QString announcement READ announcement NOTIFY announcementChanged)
@@ -57,6 +58,7 @@ public:
     ~RoomWrapper();
 
     Q_REQUIRED_RESULT QString name() const;
+    Q_REQUIRED_RESULT QString fname() const;
     Q_REQUIRED_RESULT QString displayRoomName() const;
     Q_REQUIRED_RESULT QString topic() const;
     Q_REQUIRED_RESULT QString announcement() const;
@@ -101,6 +103,7 @@ Q_SIGNALS:
     void joinCodeRequiredChanged();
     void channelTypeChanged();
     void broadcastChanged();
+    void fnameChanged();
 
 private:
     Q_DISABLE_COPY(RoomWrapper)

@@ -41,6 +41,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(QString fname READ fName WRITE setFName NOTIFY fnameChanged)
     Q_PROPERTY(QString announcement READ announcement WRITE setAnnouncement NOTIFY announcementChanged)
     Q_PROPERTY(QString topic READ topic WRITE setTopic NOTIFY topicChanged)
     Q_PROPERTY(bool favorite READ favorite WRITE setFavorite NOTIFY favoriteChanged)
@@ -223,8 +224,12 @@ public:
     Q_REQUIRED_RESULT QString parentRid() const;
     void setParentRid(const QString &parentRid);
 
+    Q_REQUIRED_RESULT QString fName() const;
+    void setFName(const QString &value);
+
 Q_SIGNALS:
     void nameChanged();
+    void fnameChanged();
     void announcementChanged();
     void topicChanged();
     void favoriteChanged();
@@ -281,6 +286,8 @@ private:
 
     // name
     QString mName;
+
+    QString mFName;
 
     // Announcement
     QString mAnnouncement;
