@@ -29,6 +29,7 @@ ListView {
     signal openChannel(string channel)
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
+    signal reportMessage(string messageId)
     signal downloadAttachment(string url)
     signal editMessage(string messageId, string messageStr)
     signal copyMessage(string messageId, string messageStr)
@@ -107,6 +108,9 @@ ListView {
         }
         onDeleteMessage: {
             activeChat.deleteMessage(messageId)
+        }
+        onReportMessage: {
+            activeChat.reportMessage(messageId)
         }
         onDownloadAttachment: {
             activeChat.downloadAttachment(url)

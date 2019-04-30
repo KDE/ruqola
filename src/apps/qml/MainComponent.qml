@@ -344,6 +344,11 @@ Component {
             onJitsiCallConfActivated: {
                 appid.rocketChatAccount.joinJitsiConfCall(roomId)
             }
+            onReportMessage: {
+                reportMessageDialog.msgId = messageId
+                reportMessageDialog.open();
+            }
+
             onDeleteMessage: {
                 deleteMessageDialog.msgId = messageId
                 deleteMessageDialog.open()
@@ -376,6 +381,13 @@ Component {
                     if (appid.rocketChatAccount.userName !== userName) {
                         appid.rocketChatAccount.openDirectChannel(userName);
                     }
+                }
+            }
+
+            ReportMessageDialog {
+                id: reportMessageDialog
+                onReportMessage: {
+                    appid.rocketChatAccount.deleteMessage(messageId, message)
                 }
             }
 

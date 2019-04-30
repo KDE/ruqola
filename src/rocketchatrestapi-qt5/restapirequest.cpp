@@ -1022,7 +1022,6 @@ void RestApiRequest::reportMessage(const QString &messageId, const QString &mess
     initializeRestApiJob(job);
     job->setMessageId(messageId);
     job->setReportMessage(message);
-    //connect(job, &GetPresenceJob::getPresenceDone, this, &RestApiRequest::getPresenceDone);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }

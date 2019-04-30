@@ -25,6 +25,7 @@ ColumnLayout {
     signal linkActivated(string link)
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
+    signal reportMessage(string messageId)
     signal copyMessage(string messageId, string messageStr)
     signal editMessage(string messageId, string messageStr)
     signal replyMessage(string messageId)

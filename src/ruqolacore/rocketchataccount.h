@@ -213,6 +213,7 @@ public:
     Q_INVOKABLE void rolesInRoom(const QString &roomId, const QString &channelType);
 
     Q_INVOKABLE void switchingToRoom(const QString &roomID);
+    Q_INVOKABLE void reportMessage(const QString &messageId, const QString &message);
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;

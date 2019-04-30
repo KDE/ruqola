@@ -819,6 +819,15 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
     }
 }
 
+void RocketChatAccount::reportMessage(const QString &messageId, const QString &message)
+{
+    if (mRuqolaServerConfig->hasAtLeastVersion(0, 64, 0)) {
+        restApi()->reportMessage(messageId, message);
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::reportMessage is not supported before server 0.64";
+    }
+}
+
 void RocketChatAccount::changeNotificationsSettings(const QString &roomId, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue)
 {
     switch (notificationsType) {

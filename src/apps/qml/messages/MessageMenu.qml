@@ -111,6 +111,15 @@ QQC2.Menu {
         }
     }
     QQC2.MenuItem {
+        id: reportMessageItem
+        contentItem: QQC2.Label {
+            text: i18n("Report Message")
+        }
+        onTriggered: {
+            messageMain.reportMessage(i_messageID);
+        }
+    }
+    QQC2.MenuItem {
         id: ignoreUserItem
         contentItem: QQC2.Label {
             id: ignoreLabel

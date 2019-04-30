@@ -69,6 +69,7 @@ Rectangle {
     signal openChannel(string channel)
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
+    signal reportMessage(string messageId)
     signal downloadAttachment(string url)
     signal editMessage(string messageId, string messageStr)
     signal copyMessage(string messageId, string messageStr)
@@ -232,6 +233,9 @@ Rectangle {
         }
         onPinMessage: {
             messageMain.pinMessage(messageId, pinned)
+        }
+        onReportMessage: {
+            messageMain.reportMessage(messageId)
         }
         onDeleteMessage: {
             messageMain.deleteMessage(messageId)
