@@ -386,6 +386,8 @@ QString Message::messageTypeText() const
     } else if (mSystemMessageType == QLatin1String("e2e")) {
         //TODO need to unencrypt it
         return i18n("Encrypted message: %1", mText);
+    } else if (mSystemMessageType == QLatin1String("discussion-created")) {
+        return i18n("Discussion created about \"%1\"", mText);
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
