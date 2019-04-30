@@ -403,7 +403,9 @@ void RoomModelTest::shouldReturnDataDefault()
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSection);
     QVERIFY(output.toString().isEmpty());
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOrder);
-    QCOMPARE(output, QVariant(int(6))); // not favorite (3) + no channel selected or 'p' (3) = total order(6)
+
+    //Verify it.
+    QCOMPARE(output, QVariant(int(15))); // not favorite (10) + no channel selected or 'p' (3) = total order(6) => undefined here.
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
     QCOMPARE(output, QVariant(QIcon()));
 }
