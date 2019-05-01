@@ -289,7 +289,8 @@ bool Message::operator==(const Message &other) const
            && (mReactions == other.reactions())
            && (mUnread == other.unread())
            && (mMessagePinned == other.messagePinned())
-           && (mMessageStarred == other.messageStarred());
+           && (mMessageStarred == other.messageStarred())
+           && (mThreadCount == other.threadCount());
 }
 
 Message &Message::operator=(const Message &other)
@@ -319,6 +320,7 @@ Message &Message::operator=(const Message &other)
     setUnread(other.unread());
     setMessagePinned(other.messagePinned());
     setMessageStarred(other.messageStarred());
+    setThreadCount(other.threadCount());
     return *this;
 }
 
@@ -718,5 +720,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "mUnread: " << t.unread();
     d << "starred " << t.messageStarred();
     d << "pinned " << t.messagePinned();
+    d << "threadcount " << t.threadCount();
     return d;
 }
