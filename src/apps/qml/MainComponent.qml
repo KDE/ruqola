@@ -207,6 +207,15 @@ Component {
                     RuqolaUtils.openUrl(link);
                 }
             }
+            QQC2.Label {
+                visible: appid.selectedRoom && (appid.selectedRoom.description !== "")
+                text: appid.selectedRoom ? appid.selectedRoom.description : ""
+                font.italic: true
+                anchors.right: parent.right
+                anchors.left: parent.left
+                anchors.margins: 2*Kirigami.Units.smallSpacing
+                wrapMode: QQC2.Label.Wrap
+            }
 
             Kirigami.Separator {
                 anchors.right: parent.right
