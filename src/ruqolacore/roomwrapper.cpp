@@ -168,6 +168,11 @@ bool RoomWrapper::joinCodeRequired() const
     return mRoom->joinCodeRequired();
 }
 
+int RoomWrapper::threadCount() const
+{
+    return mRoom->threadCount();
+}
+
 bool RoomWrapper::canChangeRoles() const
 {
     return mRoom->canChangeRoles();
