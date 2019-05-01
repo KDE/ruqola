@@ -58,7 +58,6 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(QString e2eKeyId READ e2eKeyId WRITE setE2eKeyId NOTIFY encryptionKeyIdChanged)
     Q_PROPERTY(bool joinCodeRequired READ joinCodeRequired WRITE setJoinCodeRequired NOTIFY joinCodeRequiredChanged)
     Q_PROPERTY(QString channelType READ channelType WRITE setChannelType NOTIFY channelTypeChanged)
-    Q_PROPERTY(int threadCount READ threadCount WRITE setThreadCount NOTIFY threadCountChanged)
     Q_PROPERTY(bool wasInitialized READ wasInitialized CONSTANT)
 
 public:
@@ -230,8 +229,6 @@ public:
 
     Q_REQUIRED_RESULT QString displayFName() const;
     Q_REQUIRED_RESULT bool isDiscussionRoom() const;
-    Q_REQUIRED_RESULT int threadCount() const;
-    void setThreadCount(int tcount);
 
 Q_SIGNALS:
     void nameChanged();
@@ -263,7 +260,6 @@ Q_SIGNALS:
 
     void broadcastChanged();
     void parentRidChanged();
-    void threadCountChanged();
 
 private:
     Q_DISABLE_COPY(Room)

@@ -95,8 +95,7 @@ bool Room::isEqual(const Room &other) const
            && (mJoinCodeRequired == other.joinCodeRequired())
            && (mBroadcast == other.broadcast())
            && (mParentRid == other.parentRid())
-           && (mFName == other.fName())
-           && (mThreadCount == other.threadCount());
+           && (mFName == other.fName());
 }
 
 QString Room::displayRoomName() const
@@ -147,7 +146,6 @@ QDebug operator <<(QDebug d, const Room &t)
     d << "broadcast: " << t.broadcast();
     d << "ParentRid: " << t.parentRid();
     d << "Fname: " << t.fName();
-    d << "TheadCount: " << t.threadCount();
     return d;
 }
 
@@ -705,19 +703,6 @@ void Room::parseCommonData(const QJsonObject &json)
         lstRoles << rolesArray.at(i).toString();
     }
     setRoles(lstRoles);
-}
-
-int Room::threadCount() const
-{
-    return mThreadCount;
-}
-
-void Room::setThreadCount(int tcount)
-{
-    if (mThreadCount != tcount) {
-        mThreadCount = tcount;
-        Q_EMIT threadCountChanged();
-    }
 }
 
 QString Room::displayFName() const

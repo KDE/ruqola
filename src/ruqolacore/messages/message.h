@@ -153,6 +153,9 @@ public:
     Q_REQUIRED_RESULT MessageStarred messageStarred() const;
     void setMessageStarred(const MessageStarred &messageStarred);
 
+    Q_REQUIRED_RESULT int threadCount() const;
+    void setThreadCount(int threadCount);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -212,6 +215,8 @@ private:
 
     // editedAt
     qint64 mEditedAt = -1;
+
+    int mThreadCount = 0;
 
     MessageType mMessageType = MessageType::NormalText;
     // groupable

@@ -81,6 +81,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     }
 }
 
+int Message::threadCount() const
+{
+    return mThreadCount;
+}
+
+void Message::setThreadCount(int threadCount)
+{
+    mThreadCount = threadCount;
+}
+
 MessageStarred Message::messageStarred() const
 {
     return mMessageStarred;
