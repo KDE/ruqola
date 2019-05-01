@@ -74,6 +74,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.parentRid().isEmpty());
     QVERIFY(!input.broadcast());
     QVERIFY(input.fName().isEmpty());
+    QCOMPARE(input.threadCount(), 0);
 }
 
 //TODO add notification, userMentions too
