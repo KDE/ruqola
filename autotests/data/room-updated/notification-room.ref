@@ -8,6 +8,7 @@
     "description": "description",
     "encrypted": false,
     "favorite": false,
+    "fname": "test",
     "jitsiTimeout": 1519989707339,
     "lastSeeAt": -1,
     "name": "test",

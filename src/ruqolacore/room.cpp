@@ -505,6 +505,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     QString roomID = json.value(QLatin1String("_id")).toString();
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
+    setFName(json[QStringLiteral("fname")].toString());
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     //topic/announcement/description is not part of update subscription
     const QString roomType = json.value(QLatin1String("t")).toString();
@@ -626,6 +627,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     }
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
+    setFName(json[QStringLiteral("fname")].toString());
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     //topic/announcement/description is not part of update subscription
     const QString roomType = json.value(QLatin1String("t")).toString();
@@ -839,6 +841,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setRoomId(o[QStringLiteral("rid")].toString());
     r->setChannelType(o[QStringLiteral("t")].toString());
     r->setName(o[QStringLiteral("name")].toString());
+    r->setFName(o[QStringLiteral("fname")].toString());
     r->setRoomCreatorUserName(o[QStringLiteral("roomCreatorUserName")].toString());
     r->setRoomCreatorUserId(o[QStringLiteral("roomCreatorUserID")].toString());
     r->setTopic(o[QStringLiteral("topic")].toString());
@@ -906,6 +909,7 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("rid")] = r->roomId();
     o[QStringLiteral("t")] = r->channelType();
     o[QStringLiteral("name")] = r->name();
+    o[QStringLiteral("fname")] = r->fName();
     o[QStringLiteral("roomCreatorUserName")] = r->roomOwnerUserName();
     o[QStringLiteral("roomCreatorUserID")] = r->roomCreatorUserId();
     if (!r->topic().isEmpty()) {

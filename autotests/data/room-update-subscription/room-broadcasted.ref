@@ -6,6 +6,7 @@
     "broadcast": true,
     "encrypted": false,
     "favorite": false,
+    "fname": "ruqola-broadcast",
     "jitsiTimeout": -1,
     "lastSeeAt": -1,
     "name": "ruqola-broadcast",

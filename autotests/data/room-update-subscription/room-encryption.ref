@@ -8,6 +8,7 @@
     "e2ekeyid": "eyJhbGciOiJB",
     "encrypted": true,
     "favorite": false,
+    "fname": "test-add-user-ruqola",
     "jitsiTimeout": -1,
     "lastSeeAt": -1,
     "name": "test-add-user-ruqola",

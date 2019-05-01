@@ -6,6 +6,7 @@
     "broadcast": false,
     "encrypted": false,
     "favorite": false,
+    "fname": "foo",
     "jitsiTimeout": -1,
     "lastSeeAt": -1,
     "mutedUsers": [

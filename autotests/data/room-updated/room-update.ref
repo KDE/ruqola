@@ -6,6 +6,7 @@
     "broadcast": false,
     "encrypted": false,
     "favorite": true,
+    "fname": "",
     "jitsiTimeout": 1518112532866,
     "lastSeeAt": -1,
     "name": "foo",
