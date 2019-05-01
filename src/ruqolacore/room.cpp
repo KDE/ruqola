@@ -726,6 +726,11 @@ void Room::setFName(const QString &value)
     }
 }
 
+bool Room::isDiscussionRoom() const
+{
+    return !mParentRid.isEmpty();
+}
+
 QString Room::parentRid() const
 {
     return mParentRid;

@@ -228,6 +228,7 @@ public:
     void setFName(const QString &value);
 
     Q_REQUIRED_RESULT QString displayFName() const;
+    Q_REQUIRED_RESULT bool isDiscussionRoom() const;
 Q_SIGNALS:
     void nameChanged();
     void fnameChanged();
