@@ -8,6 +8,7 @@
     "description": "description channel",
     "encrypted": false,
     "favorite": false,
+    "fname": "",
     "jitsiTimeout": -1,
     "lastSeeAt": -1,
     "name": "channeltest",

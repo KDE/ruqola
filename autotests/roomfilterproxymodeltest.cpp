@@ -41,6 +41,7 @@ void RoomFilterProxyModelTest::shouldHaveDefaultValue()
 
     QHash<int, QByteArray> roles;
     roles[RoomModel::RoomName] = QByteArrayLiteral("name");
+    roles[RoomModel::RoomFName] = QByteArrayLiteral("fname");
     roles[RoomModel::RoomID] = QByteArrayLiteral("room_id");
     roles[RoomModel::RoomSelected] = QByteArrayLiteral("selected");
     roles[RoomModel::RoomUnread] = QByteArrayLiteral("unread");

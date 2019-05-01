@@ -70,7 +70,7 @@ QString RoomWrapper::name() const
 
 QString RoomWrapper::fname() const
 {
-    return mRoom->fName();
+    return mRoom->displayFName();
 }
 
 QString RoomWrapper::displayRoomName() const

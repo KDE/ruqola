@@ -705,11 +705,16 @@ void Room::parseCommonData(const QJsonObject &json)
     setRoles(lstRoles);
 }
 
-QString Room::fName() const
+QString Room::displayFName() const
 {
     if (mFName.isEmpty()) {
         return mName;
     }
+    return mFName;
+}
+
+QString Room::fName() const
+{
     return mFName;
 }
 

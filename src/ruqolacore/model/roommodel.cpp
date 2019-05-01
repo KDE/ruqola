@@ -177,7 +177,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomName:
         return r->name();
     case RoomModel::RoomFName:
-        return r->fName();
+        return r->displayFName();
     case RoomModel::RoomID:
         return r->roomId();
     case RoomModel::RoomSelected:
