@@ -40,6 +40,7 @@ public:
 
     enum RoomRoles {
         RoomName = Qt::UserRole + 1,
+        RoomFName,
         RoomSelected,
         RoomID,
         RoomUnread,

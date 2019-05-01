@@ -137,6 +137,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[RoomName] = QByteArrayLiteral("name");
+    roles[RoomFName] = QByteArrayLiteral("fname");
     roles[RoomID] = QByteArrayLiteral("room_id");
     roles[RoomSelected] = QByteArrayLiteral("selected");
     roles[RoomUnread] = QByteArrayLiteral("unread");
@@ -175,6 +176,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case RoomModel::RoomName:
         return r->name();
+    case RoomModel::RoomFName:
+        return r->fName();
     case RoomModel::RoomID:
         return r->roomId();
     case RoomModel::RoomSelected:

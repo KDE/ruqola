@@ -100,10 +100,11 @@ bool Room::isEqual(const Room &other) const
 
 QString Room::displayRoomName() const
 {
+    const QString displayName = mFName.isEmpty() ? mName : mFName;
     if (channelType() == QLatin1Char('d')) {
-        return QLatin1Char('@') + mFName;
+        return QLatin1Char('@') + displayName;
     } else {
-        return QLatin1Char('#') + mFName;
+        return QLatin1Char('#') + displayName;
     }
 }
 
@@ -706,6 +707,9 @@ void Room::parseCommonData(const QJsonObject &json)
 
 QString Room::fName() const
 {
+    if (mFName.isEmpty()) {
+        return mName;
+    }
     return mFName;
 }
 
