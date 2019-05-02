@@ -158,5 +158,9 @@ qint64 Utils::parseDate(const QString &key, const QJsonObject &o)
 
 qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
 {
-    return QDateTime::fromString(o.value(key).toString(), Qt::ISODate).toMSecsSinceEpoch();
+    if (o.contains(key)) {
+        return QDateTime::fromString(o.value(key).toString(), Qt::ISODate).toMSecsSinceEpoch();
+    } else {
+        return -1;
+    }
 }
