@@ -156,6 +156,9 @@ public:
     Q_REQUIRED_RESULT int threadCount() const;
     void setThreadCount(int threadCount);
 
+    qint64 threadLastMessage() const;
+    void setThreadLastMessage(const qint64 &threadLastMessage);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -215,6 +218,9 @@ private:
 
     // editedAt
     qint64 mEditedAt = -1;
+
+    //Thread last message
+    qint64 mThreadLastMessage = -1;
 
     int mThreadCount = 0;
 

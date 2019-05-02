@@ -44,10 +44,13 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
         mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), o);
         mEditedAt = Utils::parseIsoDate(QStringLiteral("editedAt"), o);
         mTimeStamp = Utils::parseIsoDate(QStringLiteral("ts"), o);
+        mThreadLastMessage = Utils::parseIsoDate(QStringLiteral("tlm"), o);
     } else {
         mTimeStamp = Utils::parseDate(QStringLiteral("ts"), o);
         mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), o);
         mEditedAt = Utils::parseDate(QStringLiteral("editedAt"), o);
+        //Verify if a day we will use not restapi for it.
+        mThreadLastMessage = Utils::parseDate(QStringLiteral("tlm"), o);
     }
     mUsername = o.value(QLatin1String("u")).toObject().value(QLatin1String("username")).toString();
     mUserId = o.value(QLatin1String("u")).toObject().value(QLatin1String("_id")).toString();
@@ -81,6 +84,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     if (!reacts.isEmpty()) {
         mReactions.parseReactions(reacts, mEmojiManager);
     }
+}
+
+qint64 Message::threadLastMessage() const
+{
+    return mThreadLastMessage;
+}
+
+void Message::setThreadLastMessage(const qint64 &threadLastMessage)
+{
+    mThreadLastMessage = threadLastMessage;
 }
 
 int Message::threadCount() const
@@ -292,7 +305,8 @@ bool Message::operator==(const Message &other) const
            && (mUnread == other.unread())
            && (mMessagePinned == other.messagePinned())
            && (mMessageStarred == other.messageStarred())
-           && (mThreadCount == other.threadCount());
+           && (mThreadCount == other.threadCount())
+           && (mThreadLastMessage == other.threadLastMessage());
 }
 
 Message &Message::operator=(const Message &other)
@@ -323,6 +337,7 @@ Message &Message::operator=(const Message &other)
     setMessagePinned(other.messagePinned());
     setMessageStarred(other.messageStarred());
     setThreadCount(other.threadCount());
+    setThreadLastMessage(other.threadLastMessage());
     return *this;
 }
 
@@ -723,5 +738,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "starred " << t.messageStarred();
     d << "pinned " << t.messagePinned();
     d << "threadcount " << t.threadCount();
+    d << "threadlastmessage " << t.threadLastMessage();
     return d;
 }
