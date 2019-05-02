@@ -190,6 +190,26 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+bool RuqolaServerConfig::discussionEnabled() const
+{
+    return mDiscussionEnabled;
+}
+
+void RuqolaServerConfig::setDiscussionEnabled(bool discussionEnabled)
+{
+    mDiscussionEnabled = discussionEnabled;
+}
+
+bool RuqolaServerConfig::threadsEnabled() const
+{
+    return mThreadsEnabled;
+}
+
+void RuqolaServerConfig::setThreadsEnabled(bool threadsEnabled)
+{
+    mThreadsEnabled = threadsEnabled;
+}
+
 bool RuqolaServerConfig::jitsiEnabled() const
 {
     return mJitsiEnabled;

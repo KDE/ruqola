@@ -51,6 +51,8 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.allowMessageSnippetingEnabled());
     QVERIFY(!config.allowMessageStarringEnabled());
     QVERIFY(!config.allowMessageDeletingEnabled());
+    QVERIFY(!config.threadsEnabled());
+    QVERIFY(!config.discussionEnabled());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -83,10 +85,14 @@ void RuqolaServerConfigTest::shouldAssignValues()
     bool snippeting = true;
     bool starring = true;
     bool deleting = true;
+    bool threadsEnabled = true;
+    bool discussionEnabled = true;
     config.setAllowMessagePinningEnabled(pinning);
     config.setAllowMessageSnippetingEnabled(snippeting);
     config.setAllowMessageStarringEnabled(starring);
     config.setAllowMessageDeletingEnabled(deleting);
+    config.setThreadsEnabled(threadsEnabled);
+    config.setDiscussionEnabled(discussionEnabled);
 
     QCOMPARE(config.jitsiMeetPrefix(), jitsimeetprefix);
     QCOMPARE(config.jitsiMeetUrl(), jitsimeeturl);
@@ -105,6 +111,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.allowMessageSnippetingEnabled(), snippeting);
     QCOMPARE(config.allowMessageStarringEnabled(), starring);
     QCOMPARE(config.allowMessageDeletingEnabled(), deleting);
+    QCOMPARE(config.threadsEnabled(), threadsEnabled);
+    QCOMPARE(config.discussionEnabled(), discussionEnabled);
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60_data()

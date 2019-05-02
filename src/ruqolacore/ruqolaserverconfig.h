@@ -100,6 +100,12 @@ public:
     Q_REQUIRED_RESULT bool jitsiEnabled() const;
     void setJitsiEnabled(bool jitsiEnabled);
 
+    Q_REQUIRED_RESULT bool threadsEnabled() const;
+    void setThreadsEnabled(bool threadEnabled);
+
+    Q_REQUIRED_RESULT bool discussionEnabled() const;
+    void setDiscussionEnabled(bool discussionEnabled);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -125,6 +131,8 @@ private:
     bool mAllowMessageStarringEnabled = false;
     bool mAllowMessageDeletingEnabled = false;
     bool mJitsiEnabled = false;
+    bool mThreadsEnabled = false;
+    bool mDiscussionEnabled = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H

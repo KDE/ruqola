@@ -907,6 +907,10 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             mRuqolaServerConfig->setAllowMessageStarringEnabled(value.toBool());
         } else if (id == QLatin1String("Message_AllowDeleting")) {
             mRuqolaServerConfig->setAllowMessageDeletingEnabled(value.toBool());
+        } else if (id == QLatin1String("Threads_enabled")) {
+            mRuqolaServerConfig->setThreadsEnabled(value.toBool());
+        } else if (id == QLatin1String("Discussion_enabled")) {
+            mRuqolaServerConfig->setDiscussionEnabled(value.toBool());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
