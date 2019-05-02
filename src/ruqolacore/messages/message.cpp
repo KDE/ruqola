@@ -76,7 +76,6 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     parseUrls(o.value(QLatin1String("urls")).toArray());
     parseReactions(o.value(QLatin1String("reactions")).toObject());
     //TODO unread element
-    //TODO mThreadCount
 }
 
 void Message::parseReactions(const QJsonObject &reacts)
@@ -591,6 +590,7 @@ void Message::setGroupable(bool groupable)
 Message Message::fromJSon(const QJsonObject &o)
 {
     Message message;
+    message.mThreadCount = o[QStringLiteral("tcount")].toString().toInt();
     message.mMessageId = o[QStringLiteral("messageID")].toString();
     message.mRoomId = o[QStringLiteral("roomID")].toString();
     message.mText = o[QStringLiteral("message")].toString();
@@ -698,6 +698,10 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     if (!message.reactions().isEmpty()) {
         o[QStringLiteral("reactions")] = Reactions::serialize(message.reactions());
+    }
+
+    if (message.mThreadCount > 0) {
+        o[QStringLiteral("tcount")] = message.mThreadCount;
     }
 
     d.setObject(o);
