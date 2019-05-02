@@ -58,6 +58,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mGroupable = o.value(QLatin1String("groupable")).toBool();
     mParseUrls = o.value(QLatin1String("parseUrls")).toBool();
     mRole = o.value(QLatin1String("role")).toString();
+    mThreadCount = o.value(QLatin1String("tcount")).toString().toInt();
     mMessageStarred.parse(o);
     mMessagePinned.parse(o);
 
@@ -72,6 +73,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     parseUrls(o.value(QLatin1String("urls")).toArray());
     parseReactions(o.value(QLatin1String("reactions")).toObject());
     //TODO unread element
+    //TODO mThreadCount
 }
 
 void Message::parseReactions(const QJsonObject &reacts)
