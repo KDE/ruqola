@@ -81,6 +81,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatReportMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.reportMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatFollowMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.followMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatUnFollowMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.unfollowMessage")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadsList")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addAll")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddLeader), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addLeader")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsRemoveLeader), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.removeLeader")));
