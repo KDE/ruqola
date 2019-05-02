@@ -215,6 +215,10 @@ public:
     Q_INVOKABLE void switchingToRoom(const QString &roomID);
     Q_INVOKABLE void reportMessage(const QString &messageId, const QString &message);
 
+    Q_INVOKABLE Q_REQUIRED_RESULT bool threadsEnabled() const;
+
+    Q_INVOKABLE Q_REQUIRED_RESULT bool discussionEnabled() const;
+
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;

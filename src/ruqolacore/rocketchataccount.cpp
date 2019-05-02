@@ -1166,6 +1166,16 @@ bool RocketChatAccount::allowMessageDeletingEnabled() const
     return mRuqolaServerConfig->allowMessageDeletingEnabled();
 }
 
+bool RocketChatAccount::threadsEnabled() const
+{
+    return mRuqolaServerConfig->threadsEnabled();
+}
+
+bool RocketChatAccount::discussionEnabled() const
+{
+    return mRuqolaServerConfig->discussionEnabled();
+}
+
 QString RocketChatAccount::serverVersionStr() const
 {
     return mRuqolaServerConfig->serverVersionStr();
