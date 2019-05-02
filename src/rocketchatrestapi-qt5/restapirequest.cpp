@@ -52,6 +52,7 @@
 #include "chat/ignoreuserjob.h"
 #include "chat/reportmessagejob.h"
 #include "chat/pinmessagejob.h"
+#include "chat/followmessagejob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
@@ -1363,5 +1364,16 @@ void RestApiRequest::pinMessage(const QString &messageId, bool pinned)
     connect(job, &PinMessageJob::pinMessageDone, this, &RestApiRequest::pinMessageDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start PinMessageJob";
+    }
+}
+
+void RestApiRequest::followMessage(const QString &messageId)
+{
+    FollowMessageJob *job = new FollowMessageJob(this);
+    initializeRestApiJob(job);
+    job->setMessageId(messageId);
+    connect(job, &FollowMessageJob::followMessageDone, this, &RestApiRequest::followMessageDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start FollowMessageJob";
     }
 }

@@ -154,6 +154,7 @@ public:
     void pinMessage(const QString &messageId, bool pinned);
     void desktopDurationNotifications(const QString &roomId, int value);
     void desktopSoundNotifications(const QString &roomId, const QString &value);
+    void followMessage(const QString &messageId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -195,6 +196,7 @@ Q_SIGNALS:
     void deleteGroupsDone();
     void pinMessageDone();
     void ignoreUserDone(const QJsonObject &obj, const QString &roomId);
+    void followMessageDone();
 
     void failed(const QString &str);
 
