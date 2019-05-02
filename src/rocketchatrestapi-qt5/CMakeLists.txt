@@ -46,6 +46,7 @@ set (RocketChatRestApiQt_SRCS
     chat/reportmessagejob.cpp
     chat/getmessagejob.cpp
     chat/followmessagejob.cpp
+    chat/unfollowmessagejob.cpp
 
     channels/changechanneltopicjob.cpp
     channels/changechannelannouncementjob.cpp
