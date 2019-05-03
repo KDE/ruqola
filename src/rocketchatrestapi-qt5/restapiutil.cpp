@@ -105,8 +105,19 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("chat.followMessage");
     case RestApiUtil::RestApiUrlType::ChatUnFollowMessage:
         return QStringLiteral("chat.unfollowMessage");
+    case RestApiUtil::RestApiUrlType::ChatGetDeletedMessage:
+        return QStringLiteral("chat.getDeletedMessages");
+
+
+
+    case RestApiUtil::RestApiUrlType::ChatSyncThreadsList:
+        return QStringLiteral("chat.syncThreadsList");
     case RestApiUtil::RestApiUrlType::ChatGetThreadsList:
         return QStringLiteral("chat.getThreadsList");
+    case RestApiUtil::RestApiUrlType::ChatSyncThreadMessages:
+        return QStringLiteral("chat.syncThreadMessages");
+    case RestApiUtil::RestApiUrlType::ChatGetThreadMessages:
+        return QStringLiteral("chat.getThreadMessages");
     case RestApiUtil::RestApiUrlType::ChannelsAddAll:
         return QStringLiteral("channels.addAll");
     case RestApiUtil::RestApiUrlType::ChannelsAddModerator:

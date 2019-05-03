@@ -55,9 +55,16 @@ enum class RestApiUrlType {
     ChatUpdate,
     ChatIgnoreUser,
     ChatReportMessage,
+    //Since 1.0.0
     ChatFollowMessage,
     ChatUnFollowMessage,
     ChatGetThreadsList,
+    ChatSyncThreadMessages,
+    ChatGetThreadMessages,
+    ChatSyncThreadsList,
+    ChatGetDeletedMessage,
+
+
     ChannelsAddAll,
     //@since 0.75
     ChannelsAddLeader,

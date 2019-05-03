@@ -82,6 +82,11 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatFollowMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.followMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatUnFollowMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.unfollowMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadsList")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatSyncThreadMessages), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncThreadMessages")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadMessages), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadMessages")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatSyncThreadsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncThreadsList")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetDeletedMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getDeletedMessages")));
+
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addAll")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddLeader), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addLeader")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsRemoveLeader), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.removeLeader")));
