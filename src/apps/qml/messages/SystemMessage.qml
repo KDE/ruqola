@@ -64,9 +64,9 @@ MessageBase {
             textFormat: Text.RichText
 
 
-            text: i18n("%1 message",i_dcount)
+            text: i_dcount > 0 ? i18np("1 message", "%1 messages",i_dcount) : i18n("Any message yet")
             wrapMode: QQC2.Label.Wrap
-            visible: i_dcount > 0
+            visible: i_drid != ""
         }
         Item {
             Layout.fillWidth: true
