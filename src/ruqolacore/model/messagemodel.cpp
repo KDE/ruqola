@@ -149,8 +149,9 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Pinned] = QByteArrayLiteral("pinned");
     roles[DiscussionCount] = QByteArrayLiteral("discussionCount");
     roles[DiscussionRoomId] = QByteArrayLiteral("discussionRoomId");
+    roles[DiscussionLastMessage] = QByteArrayLiteral("discussionLastMessage");
     roles[ThreadCount] = QByteArrayLiteral("threadCount");
-
+    roles[ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
     return roles;
 }
 
@@ -315,8 +316,12 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mAllMessages.at(idx).discussionCount();
     case MessageModel::DiscussionRoomId:
         return mAllMessages.at(idx).discussionRoomId();
+    case MessageModel::DiscussionLastMessage:
+        return mAllMessages.at(idx).discussionLastMessage();
     case MessageModel::ThreadCount:
         return mAllMessages.at(idx).threadCount();
+    case MessageModel::ThreadLastMessage:
+        return mAllMessages.at(idx).threadLastMessage();
     }
     return QString();
 }

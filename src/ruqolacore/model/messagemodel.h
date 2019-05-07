@@ -67,7 +67,9 @@ public:
         Pinned,
         DiscussionCount,
         DiscussionRoomId,
-        ThreadCount
+        DiscussionLastMessage,
+        ThreadCount,
+        ThreadLastMessage
     };
     Q_ENUM(MessageRoles)
 

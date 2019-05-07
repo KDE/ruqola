@@ -635,7 +635,9 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mThreadCount = o[QStringLiteral("tcount")].toString().toInt();
     message.mDiscussionCount = o[QStringLiteral("dcount")].toString().toInt();
     message.mDiscussionRoomId = o[QStringLiteral("drid")].toString();
-    //TODO add threadLastMEssage + discussionLastMessage
+
+    message.mThreadLastMessage = static_cast<qint64>(o[QStringLiteral("tlm")].toDouble());
+    message.mDiscussionLastMessage = static_cast<qint64>(o[QStringLiteral("dlm")].toDouble());
 
     message.mMessageId = o[QStringLiteral("messageID")].toString();
     message.mRoomId = o[QStringLiteral("roomID")].toString();
@@ -701,6 +703,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("userID")] = message.mUserId;
     o[QStringLiteral("updatedAt")] = message.mUpdatedAt;
     o[QStringLiteral("editedAt")] = message.mEditedAt;
+    o[QStringLiteral("tlm")] = message.mThreadLastMessage;
+    o[QStringLiteral("dlm")] = message.mDiscussionLastMessage;
+
     o[QStringLiteral("editedByUsername")] = message.mEditedByUsername;
     o[QStringLiteral("editedByUserID")] = message.mEditedByUserId;
     o[QStringLiteral("alias")] = message.mAlias;
@@ -748,10 +753,12 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     if (message.mThreadCount > 0) {
         o[QStringLiteral("tcount")] = message.mThreadCount;
+        o[QStringLiteral("tlm")] = message.mThreadLastMessage;
     }
 
     if (message.mDiscussionCount > 0) {
         o[QStringLiteral("dcount")] = message.mDiscussionCount;
+        o[QStringLiteral("dlm")] = message.mDiscussionLastMessage;
     }
     if (!message.mDiscussionRoomId.isEmpty()) {
         o[QStringLiteral("drid")] = message.mDiscussionRoomId;
