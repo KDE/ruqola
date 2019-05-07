@@ -109,6 +109,7 @@
 #include "rooms/getroomsjob.h"
 #include "rooms/roomfavoritejob.h"
 #include "rooms/savenotificationjob.h"
+#include "rooms/roomstartdiscussionjob.h"
 
 #include "directmessage/createdmjob.h"
 #include "directmessage/opendmjob.h"
@@ -1387,5 +1388,20 @@ void RestApiRequest::unFollowMessage(const QString &messageId)
     connect(job, &UnFollowMessageJob::unFollowMessageDone, this, &RestApiRequest::unFollowMessageDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start unFollowMessageDone";
+    }
+}
+
+//TODO add more arguments
+void RestApiRequest::roomStartDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &parentMessageId)
+{
+    RoomStartDiscussionJob *job = new RoomStartDiscussionJob(this);
+    initializeRestApiJob(job);
+    job->setParentRoomId(parentRoomId);
+
+    job->setDiscussionName(discussionName);
+    job->setParentMessageId(parentMessageId);
+    connect(job, &RoomStartDiscussionJob::startDiscussionDone, this, &RestApiRequest::startDiscussionDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start roomStartDiscussion";
     }
 }
