@@ -53,8 +53,8 @@ QQC2.Menu {
             text: i18n("Start a Discussion")
         }
         onTriggered: {
-//            messageMain.copyMessage(i_messageID, i_originalMessage);
-//            console.log(RuqolaDebugCategorySingleton.category, "Copy", i_messageID, i_originalMessage);
+            messageMain.createDiscussion(i_messageID);
+            console.log(RuqolaDebugCategorySingleton.category, "Create discussion: messageId: ", i_messageID);
         }
     }
     QQC2.MenuItem {

@@ -84,6 +84,7 @@ Rectangle {
     signal deleteReaction(string messageId, string emoji)
     signal ignoreUser(bool ignored)
     signal pinMessage(string messageId, bool pinned)
+    signal createDiscussion(string messageId)
 
     Loader {
         id: loaded
@@ -286,6 +287,9 @@ Rectangle {
         }
         onIgnoreUser: {
             messageMain.ignoreUser(ignored)
+        }
+        onCreateDiscussion: {
+            messageMain.createDiscussion(messageId)
         }
     }
 }

@@ -340,6 +340,10 @@ Component {
             onIgnoreUser: {
                 appid.rocketChatAccount.ignoreUser(roomId, userId, ignored)
             }
+            onCreateDiscussion: {
+                //TODO clear it ?
+                createDiscussionDialog.open()
+            }
 
             onOpenChannel: {
                 openChannelDialog.channelName = channel
@@ -390,6 +394,13 @@ Component {
                     if (appid.rocketChatAccount.userName !== userName) {
                         appid.rocketChatAccount.openDirectChannel(userName);
                     }
+                }
+            }
+
+            CreateDiscussionDialog {
+                id: createDiscussionDialog
+                onCreateNewDiscussion: {
+                    //TODO
                 }
             }
 

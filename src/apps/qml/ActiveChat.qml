@@ -39,6 +39,7 @@ ListView {
     signal deleteReaction(string messageId, string emoji)
     signal ignoreUser(string userId, bool ignored)
     signal pinMessage(string messageId, bool pinned)
+    signal createDiscussion(string messageId)
 
     property QtObject rcAccount
     property string roomId: ""
@@ -140,6 +141,9 @@ ListView {
         }
         onIgnoreUser: {
             activeChat.ignoreUser(userID, ignored)
+        }
+        onCreateDiscussion: {
+            activeChat.createDiscussion(messageId)
         }
     }
 }

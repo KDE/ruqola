@@ -28,6 +28,8 @@ QQC2.Dialog {
 
     title: i18n("Create Discussion")
 
+    signal createNewDiscussion(string parentRoomName, string discussionTitle)
+
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     x: parent.width / 2 - width / 2
@@ -35,5 +37,29 @@ QQC2.Dialog {
 
     modal: true
     focus: true
+    ColumnLayout {
+        QQC2.Label {
+            text: i18n("Parent Channel or Group:");
+        }
+        //Make it readonly
+        QQC2.TextField {
+            id: parentRoom
+            selectByMouse: true
+        }
+
+        QQC2.Label {
+            text: i18n("Discussion Name:");
+        }
+        QQC2.TextField {
+            id: discussionName
+            selectByMouse: true
+        }
+        //Add message + users
+
+    }
+
+    onAccepted: {
+        createDiscussionDialog.createNewDiscussion(parentRoom.text, discussionName.text)
+    }
 }
 
