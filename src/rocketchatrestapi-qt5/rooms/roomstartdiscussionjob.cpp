@@ -88,14 +88,14 @@ void RoomStartDiscussionJob::setDiscussionName(const QString &discussionName)
     mDiscussionName = discussionName;
 }
 
-QString RoomStartDiscussionJob::parentId() const
+QString RoomStartDiscussionJob::parentRoomId() const
 {
-    return mParentId;
+    return mParentRoomId;
 }
 
-void RoomStartDiscussionJob::setParentId(const QString &parentId)
+void RoomStartDiscussionJob::setParentRoomId(const QString &parentId)
 {
-    mParentId = parentId;
+    mParentRoomId = parentId;
 }
 
 bool RoomStartDiscussionJob::requireHttpAuthentication() const
@@ -109,7 +109,7 @@ bool RoomStartDiscussionJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomStartDiscussionJob";
         return false;
     }
-    if (mParentId.isEmpty()) {
+    if (mParentRoomId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomStartDiscussionJob: mParentId is empty";
         return false;
     }
@@ -122,7 +122,7 @@ bool RoomStartDiscussionJob::canStart() const
 
 QNetworkRequest RoomStartDiscussionJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsFavorite);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsCreateDiscussion);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
@@ -132,7 +132,7 @@ QNetworkRequest RoomStartDiscussionJob::request() const
 QJsonDocument RoomStartDiscussionJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("prid")] = mParentId;
+    jsonObj[QLatin1String("prid")] = mParentRoomId;
     jsonObj[QLatin1String("t_name")] = mDiscussionName;
     if (!mParentMessageId.isEmpty()) {
         jsonObj[QLatin1String("pmid")] = mParentMessageId;

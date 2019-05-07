@@ -40,8 +40,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString parentId() const;
-    void setParentId(const QString &parentId);
+    Q_REQUIRED_RESULT QString parentRoomId() const;
+    void setParentRoomId(const QString &parentRoomId);
 
     Q_REQUIRED_RESULT QString discussionName() const;
     void setDiscussionName(const QString &discussionName);
@@ -55,7 +55,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RoomStartDiscussionJob)
     void slotStartDiscussionFinished();
-    QString mParentId;
+    QString mParentRoomId;
     QString mDiscussionName;
     QString mParentMessageId;
     //TODO users

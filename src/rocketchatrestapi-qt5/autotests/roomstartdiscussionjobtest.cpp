@@ -35,7 +35,9 @@ void RoomStartDiscussionJobTest::shouldHaveDefaultValue()
     RoomStartDiscussionJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    //QVERIFY(job.roomId().isEmpty());
+    QVERIFY(job.parentRoomId().isEmpty());
+    QVERIFY(job.parentMessageId().isEmpty());
+    QVERIFY(job.discussionName().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -44,16 +46,18 @@ void RoomStartDiscussionJobTest::shouldGenerateRequest()
     RoomStartDiscussionJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.favorite")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.createDiscussion")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void RoomStartDiscussionJobTest::shouldGenerateJson()
 {
     RoomStartDiscussionJob job;
-    const QString roomId = QStringLiteral("foo1");
-    //job.setRoomId(roomId);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"favorite\":true,\"roomId\":\"%1\"}").arg(roomId).toLatin1());
+    const QString pRid = QStringLiteral("foo1");
+    job.setParentRoomId(pRid);
+    const QString discussionName = QStringLiteral("bla");
+    job.setDiscussionName(discussionName);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"t_name\":\"%2\"}").arg(pRid).arg(discussionName).toLatin1());
 }
 
 void RoomStartDiscussionJobTest::shouldNotStarting()
@@ -73,8 +77,11 @@ void RoomStartDiscussionJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
-    //job.setRoomId(roomId);
+    const QString pRid = QStringLiteral("foo1");
+    job.setParentRoomId(pRid);
+    QVERIFY(!job.canStart());
+    const QString discussionName = QStringLiteral("bla");
+    job.setDiscussionName(discussionName);
     QVERIFY(job.canStart());
 
     delete method;
