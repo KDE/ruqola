@@ -63,6 +63,9 @@ void MessageModelTest::shouldHaveDefaultValue()
     roles[MessageModel::Reactions] = QByteArrayLiteral("reactions");
     roles[MessageModel::Ignored] = QByteArrayLiteral("userIsIgnored");
     roles[MessageModel::Pinned] = QByteArrayLiteral("pinned");
+    roles[MessageModel::DiscussionCount] = QByteArrayLiteral("discussionCount");
+    roles[MessageModel::DiscussionRoomId] = QByteArrayLiteral("discussionRoomId");
+    roles[MessageModel::ThreadCount] = QByteArrayLiteral("threadCount");
 
     QCOMPARE(w.roleNames(), roles);
 }

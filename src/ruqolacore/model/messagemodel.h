@@ -64,7 +64,10 @@ public:
         Roles,
         Reactions,
         Ignored,
-        Pinned
+        Pinned,
+        DiscussionCount,
+        DiscussionRoomId,
+        ThreadCount
     };
     Q_ENUM(MessageRoles)
 

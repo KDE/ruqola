@@ -156,8 +156,17 @@ public:
     Q_REQUIRED_RESULT int threadCount() const;
     void setThreadCount(int threadCount);
 
-    qint64 threadLastMessage() const;
+    Q_REQUIRED_RESULT qint64 threadLastMessage() const;
     void setThreadLastMessage(const qint64 &threadLastMessage);
+
+    Q_REQUIRED_RESULT qint64 discussionLastMessage() const;
+    void setDiscussionLastMessage(const qint64 &discussionLastMessage);
+
+    Q_REQUIRED_RESULT int discussionCount() const;
+    void setDiscussionCount(int discussionCount);
+
+    Q_REQUIRED_RESULT QString discussionRoomId() const;
+    void setDiscussionRoomId(const QString &discussionRoomId);
 
 private:
     void parseMentions(const QJsonArray &mentions);
@@ -211,6 +220,9 @@ private:
     // avatar
     QString mAvatar;
 
+    //drid discussion room id
+    QString mDiscussionRoomId;
+
     // ts
     qint64 mTimeStamp = -1;
     // _updatedAt
@@ -221,8 +233,15 @@ private:
 
     //Thread last message
     qint64 mThreadLastMessage = -1;
-
+    //Thread count
     int mThreadCount = 0;
+
+    //Thread last message
+    qint64 mDiscussionLastMessage = -1;
+    //Thread count
+    int mDiscussionCount = 0;
+
+
 
     MessageType mMessageType = MessageType::NormalText;
     // groupable

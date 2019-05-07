@@ -147,6 +147,10 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Reactions] = QByteArrayLiteral("reactions");
     roles[Ignored] = QByteArrayLiteral("userIsIgnored");
     roles[Pinned] = QByteArrayLiteral("pinned");
+    roles[DiscussionCount] = QByteArrayLiteral("discussionCount");
+    roles[DiscussionRoomId] = QByteArrayLiteral("discussionRoomId");
+    roles[ThreadCount] = QByteArrayLiteral("threadCount");
+
     return roles;
 }
 
@@ -307,6 +311,12 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mRoom && mRoom->userIsIgnored(mAllMessages.at(idx).userId());
     case MessageModel::Pinned:
         return mAllMessages.at(idx).messagePinned().pinned();
+    case MessageModel::DiscussionCount:
+        return mAllMessages.at(idx).discussionCount();
+    case MessageModel::DiscussionRoomId:
+        return mAllMessages.at(idx).discussionRoomId();
+    case MessageModel::ThreadCount:
+        return mAllMessages.at(idx).threadCount();
     }
     return QString();
 }

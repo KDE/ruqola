@@ -59,6 +59,11 @@ Rectangle {
     property bool i_starred
     property bool i_user_ignored
     property bool i_pinned
+    property int i_dcount
+    property string i_drid
+    property int i_tcount
+
+
 
     color: RuqolaSingleton.backgroundColor
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
@@ -139,7 +144,11 @@ Rectangle {
                               i_editedByUserName: i_editedByUserName,
                               i_starred: i_starred,
                               i_pinned: i_pinned,
-                              i_user_ignored : i_user_ignored
+                              i_user_ignored : i_user_ignored,
+                              i_dcount: i_dcount,
+                              i_drid: i_drid,
+                              i_tcount: i_tcount
+
                           }
                           )
             } else if (i_messageType === Message.Audio) {
@@ -162,7 +171,10 @@ Rectangle {
                               rcAccount: appid.rocketChatAccount,
                               i_editedByUserName: i_editedByUserName,
                               i_starred: i_starred,
-                              i_pinned: i_pinned
+                              i_pinned: i_pinned,
+                              i_dcount: i_dcount,
+                              i_drid: i_drid,
+                              i_tcount: i_tcount
                           })
             } else if (i_messageType === Message.Video) {
                 console.log(RuqolaDebugCategorySingleton.category, "Video");
@@ -184,7 +196,10 @@ Rectangle {
                               rcAccount: appid.rocketChatAccount,
                               i_editedByUserName: i_editedByUserName,
                               i_starred: i_starred,
-                              i_pinned: i_pinned
+                              i_pinned: i_pinned,
+                              i_dcount: i_dcount,
+                              i_drid: i_drid,
+                              i_tcount: i_tcount
                           })
             } else if (i_messageType === Message.Image) {
                 console.log(RuqolaDebugCategorySingleton.category, "Image");
@@ -206,7 +221,10 @@ Rectangle {
                               rcAccount: appid.rocketChatAccount,
                               i_editedByUserName: i_editedByUserName,
                               i_starred: i_starred,
-                              i_pinned: i_pinned
+                              i_pinned: i_pinned,
+                              i_dcount: i_dcount,
+                              i_drid: i_drid,
+                              i_tcount: i_tcount
                           })
 
             } else {

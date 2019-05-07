@@ -45,12 +45,15 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
         mEditedAt = Utils::parseIsoDate(QStringLiteral("editedAt"), o);
         mTimeStamp = Utils::parseIsoDate(QStringLiteral("ts"), o);
         mThreadLastMessage = Utils::parseIsoDate(QStringLiteral("tlm"), o);
+        mDiscussionLastMessage = Utils::parseIsoDate(QStringLiteral("dlm"), o);
     } else {
         mTimeStamp = Utils::parseDate(QStringLiteral("ts"), o);
         mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), o);
         mEditedAt = Utils::parseDate(QStringLiteral("editedAt"), o);
         //Verify if a day we will use not restapi for it.
         mThreadLastMessage = Utils::parseDate(QStringLiteral("tlm"), o);
+        //Verify if a day we will use not restapi for it.
+        mDiscussionLastMessage = Utils::parseDate(QStringLiteral("dlm"), o);
     }
     mUsername = o.value(QLatin1String("u")).toObject().value(QLatin1String("username")).toString();
     mUserId = o.value(QLatin1String("u")).toObject().value(QLatin1String("_id")).toString();
@@ -62,6 +65,8 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mParseUrls = o.value(QLatin1String("parseUrls")).toBool();
     mRole = o.value(QLatin1String("role")).toString();
     mThreadCount = o.value(QLatin1String("tcount")).toString().toInt();
+    mDiscussionCount = o.value(QLatin1String("dcount")).toString().toInt();
+    mDiscussionRoomId = o.value(QLatin1String("drid")).toString();
     mMessageStarred.parse(o);
     mMessagePinned.parse(o);
 
@@ -83,6 +88,36 @@ void Message::parseReactions(const QJsonObject &reacts)
     if (!reacts.isEmpty()) {
         mReactions.parseReactions(reacts, mEmojiManager);
     }
+}
+
+QString Message::discussionRoomId() const
+{
+    return mDiscussionRoomId;
+}
+
+void Message::setDiscussionRoomId(const QString &discussionRoomId)
+{
+    mDiscussionRoomId = discussionRoomId;
+}
+
+int Message::discussionCount() const
+{
+    return mDiscussionCount;
+}
+
+void Message::setDiscussionCount(int discussionCount)
+{
+    mDiscussionCount = discussionCount;
+}
+
+qint64 Message::discussionLastMessage() const
+{
+    return mDiscussionLastMessage;
+}
+
+void Message::setDiscussionLastMessage(const qint64 &discussionLastMessage)
+{
+    mDiscussionLastMessage = discussionLastMessage;
 }
 
 qint64 Message::threadLastMessage() const
@@ -305,7 +340,11 @@ bool Message::operator==(const Message &other) const
            && (mMessagePinned == other.messagePinned())
            && (mMessageStarred == other.messageStarred())
            && (mThreadCount == other.threadCount())
-           && (mThreadLastMessage == other.threadLastMessage());
+           && (mThreadLastMessage == other.threadLastMessage())
+           && (mDiscussionCount == other.discussionCount())
+           && (mDiscussionLastMessage == other.discussionLastMessage())
+           && (mDiscussionRoomId == other.discussionRoomId());
+
 }
 
 Message &Message::operator=(const Message &other)
@@ -337,6 +376,9 @@ Message &Message::operator=(const Message &other)
     setMessageStarred(other.messageStarred());
     setThreadCount(other.threadCount());
     setThreadLastMessage(other.threadLastMessage());
+    setDiscussionCount(other.discussionCount());
+    setDiscussionLastMessage(other.discussionLastMessage());
+    setDiscussionRoomId(other.discussionRoomId());
     return *this;
 }
 
@@ -591,6 +633,10 @@ Message Message::fromJSon(const QJsonObject &o)
 {
     Message message;
     message.mThreadCount = o[QStringLiteral("tcount")].toString().toInt();
+    message.mDiscussionCount = o[QStringLiteral("dcount")].toString().toInt();
+    message.mDiscussionRoomId = o[QStringLiteral("drid")].toString();
+    //TODO add threadLastMEssage + discussionLastMessage
+
     message.mMessageId = o[QStringLiteral("messageID")].toString();
     message.mRoomId = o[QStringLiteral("roomID")].toString();
     message.mText = o[QStringLiteral("message")].toString();
@@ -704,6 +750,13 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o[QStringLiteral("tcount")] = message.mThreadCount;
     }
 
+    if (message.mDiscussionCount > 0) {
+        o[QStringLiteral("dcount")] = message.mDiscussionCount;
+    }
+    if (!message.mDiscussionRoomId.isEmpty()) {
+        o[QStringLiteral("drid")] = message.mDiscussionRoomId;
+    }
+
     d.setObject(o);
     if (toBinary) {
         return d.toBinaryData();
@@ -743,5 +796,8 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "pinned " << t.messagePinned();
     d << "threadcount " << t.threadCount();
     d << "threadlastmessage " << t.threadLastMessage();
+    d << "discussioncount " << t.discussionCount();
+    d << "discussionlastmessage " << t.discussionLastMessage();
+    d << "discussionRoomId " << t.discussionRoomId();
     return d;
 }

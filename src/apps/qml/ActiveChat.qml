@@ -90,6 +90,11 @@ ListView {
         i_editedByUserName: editedByUsername
         i_user_ignored: userIsIgnored
 
+        i_dcount: discussionCount
+        i_drid: discussionRoomId
+        i_tcount: threadCount
+
+
         onOpenChannel: {
             activeChat.openChannel(channel)
         }

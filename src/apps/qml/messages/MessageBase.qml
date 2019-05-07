@@ -54,6 +54,12 @@ ColumnLayout {
     property bool i_user_ignored
     property bool i_pinned
 
+    property int i_dcount
+    property string i_drid
+
+    property int i_tcount
+
+
 
 
     property QtObject rcAccount
