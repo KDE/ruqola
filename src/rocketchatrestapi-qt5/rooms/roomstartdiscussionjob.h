@@ -24,14 +24,14 @@
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomStartdiscussionJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT RoomStartDiscussionJob : public RestApiAbstractJob
 {
     Q_OBJECT
 
     //Since rocketchat 1.0.0
 public:
-    explicit RoomStartdiscussionJob(QObject *parent = nullptr);
-    ~RoomStartdiscussionJob() override;
+    explicit RoomStartDiscussionJob(QObject *parent = nullptr);
+    ~RoomStartDiscussionJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -50,11 +50,11 @@ public:
     void setParentMessageId(const QString &parentMessageId);
 
 Q_SIGNALS:
-    void changeFavoriteDone();
+    void startDiscussionDone();
 
 private:
-    Q_DISABLE_COPY(RoomStartdiscussionJob)
-    void slotChangeFavoriteFinished();
+    Q_DISABLE_COPY(RoomStartDiscussionJob)
+    void slotStartDiscussionFinished();
     QString mParentId;
     QString mDiscussionName;
     QString mParentMessageId;

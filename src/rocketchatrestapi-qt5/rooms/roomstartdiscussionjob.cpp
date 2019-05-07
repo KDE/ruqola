@@ -26,29 +26,29 @@
 #include <QJsonObject>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-RoomStartdiscussionJob::RoomStartdiscussionJob(QObject *parent)
+RoomStartDiscussionJob::RoomStartDiscussionJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-RoomStartdiscussionJob::~RoomStartdiscussionJob()
+RoomStartDiscussionJob::~RoomStartDiscussionJob()
 {
 }
 
-bool RoomStartdiscussionJob::start()
+bool RoomStartDiscussionJob::start()
 {
     if (!canStart()) {
         deleteLater();
         return false;
     }
     const QByteArray baPostData = json().toJson(QJsonDocument::Compact);
-    addLoggerInfo("RoomStartdiscussionJob::start: " + baPostData);
+    addLoggerInfo("RoomStartDiscussionJob::start: " + baPostData);
     QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    connect(reply, &QNetworkReply::finished, this, &RoomStartdiscussionJob::slotChangeFavoriteFinished);
+    connect(reply, &QNetworkReply::finished, this, &RoomStartDiscussionJob::slotStartDiscussionFinished);
     return true;
 }
 
-void RoomStartdiscussionJob::slotChangeFavoriteFinished()
+void RoomStartDiscussionJob::slotStartDiscussionFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -57,70 +57,70 @@ void RoomStartdiscussionJob::slotChangeFavoriteFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("RoomStartdiscussionJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT changeFavoriteDone();
+            addLoggerInfo(QByteArrayLiteral("RoomStartDiscussionJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT startDiscussionDone();
         } else {
             emitFailedMessage(replyObject);
-            addLoggerWarning(QByteArrayLiteral("RoomStartdiscussionJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("RoomStartDiscussionJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
     deleteLater();
 }
 
-QString RoomStartdiscussionJob::parentMessageId() const
+QString RoomStartDiscussionJob::parentMessageId() const
 {
     return mParentMessageId;
 }
 
-void RoomStartdiscussionJob::setParentMessageId(const QString &parentMessageId)
+void RoomStartDiscussionJob::setParentMessageId(const QString &parentMessageId)
 {
     mParentMessageId = parentMessageId;
 }
 
-QString RoomStartdiscussionJob::discussionName() const
+QString RoomStartDiscussionJob::discussionName() const
 {
     return mDiscussionName;
 }
 
-void RoomStartdiscussionJob::setDiscussionName(const QString &discussionName)
+void RoomStartDiscussionJob::setDiscussionName(const QString &discussionName)
 {
     mDiscussionName = discussionName;
 }
 
-QString RoomStartdiscussionJob::parentId() const
+QString RoomStartDiscussionJob::parentId() const
 {
     return mParentId;
 }
 
-void RoomStartdiscussionJob::setParentId(const QString &parentId)
+void RoomStartDiscussionJob::setParentId(const QString &parentId)
 {
     mParentId = parentId;
 }
 
-bool RoomStartdiscussionJob::requireHttpAuthentication() const
+bool RoomStartDiscussionJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool RoomStartdiscussionJob::canStart() const
+bool RoomStartDiscussionJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomStartdiscussionJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomStartDiscussionJob";
         return false;
     }
     if (mParentId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomStartdiscussionJob: mParentId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomStartDiscussionJob: mParentId is empty";
         return false;
     }
     if (mDiscussionName.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomStartdiscussionJob: mDiscussionName is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RoomStartDiscussionJob: mDiscussionName is empty";
         return false;
     }
     return true;
 }
 
-QNetworkRequest RoomStartdiscussionJob::request() const
+QNetworkRequest RoomStartDiscussionJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsFavorite);
     QNetworkRequest request(url);
@@ -129,7 +129,7 @@ QNetworkRequest RoomStartdiscussionJob::request() const
     return request;
 }
 
-QJsonDocument RoomStartdiscussionJob::json() const
+QJsonDocument RoomStartDiscussionJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("prid")] = mParentId;
