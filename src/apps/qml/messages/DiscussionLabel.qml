@@ -23,14 +23,22 @@ import QtQuick 2.9
 
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.12
-QQC2.Label {
-    width: parent.width
+QQC2.Label {    
     id: discussionLabel
+    signal goToDiscussionRoom()
     
+    width: parent.width
+
     renderType: Text.NativeRendering
     textFormat: Text.RichText
     
     text: i_dcount > 0 ? i18np("1 message", "%1 messages",i_dcount) : i18n("Any message yet")
     wrapMode: QQC2.Label.Wrap
     visible: i_drid != ""
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+            discussionLabel.goToDiscussionRoom()
+        }
+    }
 }

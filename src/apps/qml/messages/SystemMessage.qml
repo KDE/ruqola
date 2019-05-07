@@ -58,6 +58,9 @@ MessageBase {
         }
         DiscussionLabel {
             id: discussionLabel
+            onGoToDiscussionRoom: {
+                console.log("Click to go to sub room")
+            }
         }
         Item {
             Layout.fillWidth: true

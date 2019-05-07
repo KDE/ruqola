@@ -342,7 +342,7 @@ Component {
             }
             onCreateDiscussion: {
                 //TODO clear it ?
-                createDiscussionDialog.open()
+                createDiscussionDialog.clearAndOpen()
             }
 
             onOpenChannel: {

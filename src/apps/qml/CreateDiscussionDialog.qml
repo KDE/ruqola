@@ -37,14 +37,22 @@ QQC2.Dialog {
 
     modal: true
     focus: true
+
+    function clearAndOpen()
+    {
+        parentRoom.text = ""
+        discussionName.text = ""
+        open();
+    }
+
     ColumnLayout {
         QQC2.Label {
             text: i18n("Parent Channel or Group:");
         }
-        //Make it readonly
         QQC2.TextField {
             id: parentRoom
             selectByMouse: true
+            readOnly: true
         }
 
         QQC2.Label {
