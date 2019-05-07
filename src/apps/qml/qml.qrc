@@ -50,6 +50,7 @@
         <file>JobErrorMessageDialog.qml</file>
         <file>LineEditWithClearButton.qml</file>
         <file>ReportMessageDialog.qml</file>
+        <file>CreateDiscussionDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
