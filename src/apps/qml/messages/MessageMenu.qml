@@ -46,6 +46,7 @@ QQC2.Menu {
         return (pinned_message === true) ?  i18n("Unpin Message") : i18n("Pin Message")
     }
 
+    //Need to hidding them when server is not 1.0.0
     QQC2.MenuItem {
         id: startADiscussionItem
         contentItem: QQC2.Label {
