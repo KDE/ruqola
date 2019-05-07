@@ -215,6 +215,9 @@ public:
     Q_INVOKABLE void switchingToRoom(const QString &roomID);
     Q_INVOKABLE void reportMessage(const QString &messageId, const QString &message);
 
+    Q_INVOKABLE void createDiscussion(const QString &parentRoomName, const QString &discussionName);
+
+
     Q_INVOKABLE Q_REQUIRED_RESULT bool threadsEnabled() const;
 
     Q_INVOKABLE Q_REQUIRED_RESULT bool discussionEnabled() const;

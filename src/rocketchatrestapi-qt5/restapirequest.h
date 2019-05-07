@@ -156,7 +156,7 @@ public:
     void desktopSoundNotifications(const QString &roomId, const QString &value);
     void followMessage(const QString &messageId);
     void unFollowMessage(const QString &messageId);
-    void roomStartDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &parentMessageId);
+    void createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &parentMessageId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();

@@ -341,7 +341,9 @@ Component {
                 appid.rocketChatAccount.ignoreUser(roomId, userId, ignored)
             }
             onCreateDiscussion: {
-                //TODO clear it ?
+                createDiscussionDialog.roomName = appid.selectedRoom.displayRoomName
+                createDiscussionDialog.roomId = roomId
+                createDiscussionDialog.messageId = messageId
                 createDiscussionDialog.clearAndOpen()
             }
 
@@ -400,7 +402,7 @@ Component {
             CreateDiscussionDialog {
                 id: createDiscussionDialog
                 onCreateNewDiscussion: {
-                    //TODO
+                    appid.rocketChatAccount.createDiscussion(parentRoomName, discussionTitle);
                 }
             }
 

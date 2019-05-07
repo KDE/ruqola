@@ -28,6 +28,11 @@ QQC2.Dialog {
 
     title: i18n("Create Discussion")
 
+    property string roomId
+    property string messageId
+    property string roomName
+
+
     signal createNewDiscussion(string parentRoomName, string discussionTitle)
 
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
@@ -40,7 +45,6 @@ QQC2.Dialog {
 
     function clearAndOpen()
     {
-        parentRoom.text = ""
         discussionName.text = ""
         open();
     }
@@ -51,6 +55,7 @@ QQC2.Dialog {
         }
         QQC2.TextField {
             id: parentRoom
+            text: roomName
             selectByMouse: true
             readOnly: true
         }
@@ -67,7 +72,7 @@ QQC2.Dialog {
     }
 
     onAccepted: {
-        createDiscussionDialog.createNewDiscussion(parentRoom.text, discussionName.text)
+        createDiscussionDialog.createNewDiscussion(roomId, discussionName.text)
     }
 }
 

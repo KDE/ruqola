@@ -1392,7 +1392,7 @@ void RestApiRequest::unFollowMessage(const QString &messageId)
 }
 
 //TODO add more arguments
-void RestApiRequest::roomStartDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &parentMessageId)
+void RestApiRequest::createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &parentMessageId)
 {
     RoomStartDiscussionJob *job = new RoomStartDiscussionJob(this);
     initializeRestApiJob(job);
