@@ -56,17 +56,8 @@ MessageBase {
                 font.italic = true
             }
         }
-        QQC2.Label {
-            width: parent.width
+        DiscussionLabel {
             id: discussionLabel
-
-            renderType: Text.NativeRendering
-            textFormat: Text.RichText
-
-
-            text: i_dcount > 0 ? i18np("1 message", "%1 messages",i_dcount) : i18n("Any message yet")
-            wrapMode: QQC2.Label.Wrap
-            visible: i_drid != ""
         }
         Item {
             Layout.fillWidth: true
