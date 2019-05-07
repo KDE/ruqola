@@ -109,6 +109,7 @@ set (RocketChatRestApiQt_SRCS
     rooms/roomfavoritejob.cpp
     rooms/roomsinfojob.cpp
     rooms/roomleavejob.cpp
+    rooms/roomstartdiscussionjob.cpp
 
     subscriptions/markroomasreadjob.cpp
     subscriptions/markroomasunreadjob.cpp
