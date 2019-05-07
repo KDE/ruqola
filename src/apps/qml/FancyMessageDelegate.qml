@@ -117,7 +117,10 @@ Rectangle {
                                   i_systemMessageType: i_systemMessageType,
                                   i_messageID: i_messageID,
                                   i_date: i_date,
-                                  rcAccount: appid.rocketChatAccount
+                                  rcAccount: appid.rocketChatAccount,
+                                  i_dcount: i_dcount,
+                                  i_drid: i_drid,
+                                  i_tcount: i_tcount
                               }
                               )
                 }
