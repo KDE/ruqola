@@ -147,20 +147,6 @@ MessageBase {
 //                        }
 //                    }
 
-                    QQC2.Label {
-                        width: parent.width
-                        id: discussionLabel
-
-                        renderType: Text.NativeRendering
-                        textFormat: Text.RichText
-
-
-                        text: i18n("%1 message",i_dcount)
-                        wrapMode: QQC2.Label.Wrap
-                        visible: i_dcount > 0
-                    }
-
-
                     RepeaterReactions {
                         id: repearterReactions
                         model: i_reactions
