@@ -173,6 +173,11 @@ bool RoomWrapper::isDiscussionRoom() const
     return mRoom->isDiscussionRoom();
 }
 
+QString RoomWrapper::parentRid() const
+{
+    return mRoom->parentRid();
+}
+
 bool RoomWrapper::canChangeRoles() const
 {
     return mRoom->canChangeRoles();

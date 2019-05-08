@@ -172,7 +172,7 @@ Component {
                 icon.name: "draw-arrow-back"
                 visible: appid.selectedRoom && appid.selectedRoom.isDiscussionRoom
                 onToggled: {
-                    //appid.rocketChatAccount.changeFavorite(appid.selectedRoomID, checked)
+                    //TODO use appid.rocketChatAccount.switchToRoom(appid.selectedRoom.parentRid)
                 }
             }
             Kirigami.Icon {
