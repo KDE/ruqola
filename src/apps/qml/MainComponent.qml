@@ -160,7 +160,7 @@ Component {
             QQC2.ToolButton {
                 icon.name: "favorite"
                 checkable: true
-                visible: appid.selectedRoom
+                visible: appid.selectedRoom && !appid.selectedRoom.isDiscussionRoom
                 Binding on checked {
                     value: appid.selectedRoom && appid.selectedRoom.favorite
                 }

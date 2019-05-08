@@ -168,6 +168,11 @@ bool RoomWrapper::joinCodeRequired() const
     return mRoom->joinCodeRequired();
 }
 
+bool RoomWrapper::isDiscussionRoom() const
+{
+    return mRoom->isDiscussionRoom();
+}
+
 bool RoomWrapper::canChangeRoles() const
 {
     return mRoom->canChangeRoles();
