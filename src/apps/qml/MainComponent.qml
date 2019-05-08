@@ -168,6 +168,13 @@ Component {
                     appid.rocketChatAccount.changeFavorite(appid.selectedRoomID, checked)
                 }
             }
+            QQC2.ToolButton {
+                icon.name: "draw-arrow-back"
+                visible: appid.selectedRoom && appid.selectedRoom.isDiscussionRoom
+                onToggled: {
+                    //appid.rocketChatAccount.changeFavorite(appid.selectedRoomID, checked)
+                }
+            }
             Kirigami.Icon {
                 source: "encrypted"
                 //FIXME
