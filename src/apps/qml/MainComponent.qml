@@ -409,7 +409,7 @@ Component {
             CreateDiscussionDialog {
                 id: createDiscussionDialog
                 onCreateNewDiscussion: {
-                    appid.rocketChatAccount.createDiscussion(parentRoomName, discussionTitle);
+                    appid.rocketChatAccount.createDiscussion(parentRoomName, discussionTitle, msgId);
                 }
             }
 

@@ -33,7 +33,7 @@ QQC2.Dialog {
     property string roomName
 
 
-    signal createNewDiscussion(string parentRoomName, string discussionTitle)
+    signal createNewDiscussion(string parentRoomName, string discussionTitle, string msgId)
 
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
@@ -72,7 +72,7 @@ QQC2.Dialog {
     }
 
     onAccepted: {
-        createDiscussionDialog.createNewDiscussion(roomId, discussionName.text)
+        createDiscussionDialog.createNewDiscussion(roomId, discussionName.text, messageId)
     }
 }
 
