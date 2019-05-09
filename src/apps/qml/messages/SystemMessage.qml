@@ -34,6 +34,7 @@ MessageBase {
 
     property string i_systemMessageType
 
+
     RowLayout {
         QQC2.Label {
             id: textLabel
@@ -59,7 +60,8 @@ MessageBase {
         DiscussionLabel {
             id: discussionLabel
             onGoToDiscussionRoom: {
-                console.log("Click to go to sub room")
+                messageMain.goToDiscussionRoom(i_drid)
+                console.log("Click to go to sub room: " + i_drid)
             }
         }
         Item {

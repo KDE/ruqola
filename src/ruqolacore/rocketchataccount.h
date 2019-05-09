@@ -221,9 +221,6 @@ public:
 
     Q_INVOKABLE Q_REQUIRED_RESULT bool discussionEnabled() const;
 
-    Q_INVOKABLE void switchToRoom(const QString &rid);
-
-
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;

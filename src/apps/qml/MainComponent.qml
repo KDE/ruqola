@@ -49,6 +49,20 @@ Component {
         topPadding: 0
         bottomPadding: 0
 
+        function switchToDiscussionRoom(discussionRoomId)
+        {
+            if (discussionRoomId === selectedRoomID) {
+                return;
+            }
+            appid.rocketChatAccount.switchingToRoom(discussionRoomId)
+            appid.rocketChatAccount.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
+            appid.selectedRoomID = discussionRoomId;
+            appid.messageModel = appid.rocketChatAccount.messageModelForRoom(discussionRoomId)
+            appid.selectedRoom = appid.rocketChatAccount.getRoomWrapper(discussionRoomId)
+            appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(discussionRoomId)
+            appid.filesModel = appid.rocketChatAccount.filesForRoomFilterProxyModel(discussionRoomId)
+        }
+
         actions {
             left: Kirigami.Action {
                 icon.name: "preferences-desktop-notification"
@@ -171,8 +185,8 @@ Component {
             QQC2.ToolButton {
                 icon.name: "draw-arrow-back"
                 visible: appid.selectedRoom && appid.selectedRoom.isDiscussionRoom
-                onToggled: {
-                    appid.rocketChatAccount.switchToRoom(appid.selectedRoom.parentRid)
+                onClicked: {
+                    switchToDiscussionRoom(appid.selectedRoom.parentRid)
                 }
             }
             Kirigami.Icon {
@@ -390,6 +404,10 @@ Component {
                 appid.rocketChatAccount.reactOnMessage(messageId, emoji, false)
             }
 
+            onGoToDiscussionRoom: {
+                console.log("Open discussion " + discussionRoomId)
+                switchToDiscussionRoom(discussionRoomId)
+            }
             OpenChannelDialog {
                 id: openChannelDialog
                 onOpenChannel: {

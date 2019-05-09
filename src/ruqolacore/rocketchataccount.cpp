@@ -1430,7 +1430,3 @@ void RocketChatAccount::createDiscussion(const QString &parentRoomId, const QStr
     restApi()->createDiscussion(parentRoomId, discussionName, messageId);
 }
 
-void RocketChatAccount::switchToRoom(const QString &rid)
-{
-    //TODO
-}

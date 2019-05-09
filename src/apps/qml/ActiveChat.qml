@@ -40,6 +40,7 @@ ListView {
     signal ignoreUser(string userId, bool ignored)
     signal pinMessage(string messageId, bool pinned)
     signal createDiscussion(string messageId)
+    signal goToDiscussionRoom(string discussionRoomId)
 
     property QtObject rcAccount
     property string roomId: ""
@@ -144,6 +145,9 @@ ListView {
         }
         onCreateDiscussion: {
             activeChat.createDiscussion(messageId)
+        }
+        onGoToDiscussionRoom: {
+            activeChat.goToDiscussionRoom(discussionRoomId)
         }
     }
 }

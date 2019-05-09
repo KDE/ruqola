@@ -36,6 +36,7 @@ ColumnLayout {
     signal ignoreUser(bool ignored)
     signal pinMessage(string messageId, bool pinned)
     signal createDiscussion(string messageId)
+    signal goToDiscussionRoom(string discussionRoomId)
 
     property string i_date
     property string i_username
