@@ -217,7 +217,6 @@ public:
 
     Q_INVOKABLE void createDiscussion(const QString &parentRoomName, const QString &discussionName, const QString &messageId);
 
-
     Q_INVOKABLE Q_REQUIRED_RESULT bool threadsEnabled() const;
 
     Q_INVOKABLE Q_REQUIRED_RESULT bool discussionEnabled() const;

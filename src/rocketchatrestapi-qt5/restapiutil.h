@@ -64,7 +64,6 @@ enum class RestApiUrlType {
     ChatSyncThreadsList,
     ChatGetDeletedMessage,
 
-
     ChannelsAddAll,
     //@since 0.75
     ChannelsAddLeader,

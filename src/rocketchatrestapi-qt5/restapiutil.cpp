@@ -108,8 +108,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::ChatGetDeletedMessage:
         return QStringLiteral("chat.getDeletedMessages");
 
-
-
     case RestApiUtil::RestApiUrlType::ChatSyncThreadsList:
         return QStringLiteral("chat.syncThreadsList");
     case RestApiUtil::RestApiUrlType::ChatGetThreadsList:

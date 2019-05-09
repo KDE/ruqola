@@ -241,8 +241,6 @@ private:
     //Thread count
     int mDiscussionCount = 0;
 
-
-
     MessageType mMessageType = MessageType::NormalText;
     // groupable
     bool mGroupable = false;

@@ -344,7 +344,6 @@ bool Message::operator==(const Message &other) const
            && (mDiscussionCount == other.discussionCount())
            && (mDiscussionLastMessage == other.discussionLastMessage())
            && (mDiscussionRoomId == other.discussionRoomId());
-
 }
 
 Message &Message::operator=(const Message &other)

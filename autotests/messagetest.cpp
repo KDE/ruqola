@@ -29,9 +29,7 @@ MessageTest::MessageTest(QObject *parent)
 {
 }
 
-
 //TODO add check for default value ???
-
 
 void MessageTest::shouldParseMessage_data()
 {

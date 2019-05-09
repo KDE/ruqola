@@ -67,6 +67,7 @@ void UnicodeEmoticonGui::slotItemChanged(QListWidgetItem *item)
         mWidgetInfo->setInfo(info);
     }
 }
+
 void UnicodeEmoticonGui::load()
 {
     UnicodeEmoticonParser unicodeParser;
@@ -94,7 +95,6 @@ void UnicodeEmoticonGui::save()
     //TODO
 }
 
-
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -104,7 +104,6 @@ int main(int argc, char *argv[])
     w.show();
     return app.exec();
 }
-
 
 UnicodeEmoticonInfo::UnicodeEmoticonInfo(QWidget *parent)
     : QWidget(parent)
@@ -125,7 +124,6 @@ UnicodeEmoticonInfo::UnicodeEmoticonInfo(QWidget *parent)
 
 UnicodeEmoticonInfo::~UnicodeEmoticonInfo()
 {
-
 }
 
 UnicodeEmoticon UnicodeEmoticonInfo::info() const
@@ -144,9 +142,8 @@ void UnicodeEmoticonInfo::setInfo(const UnicodeEmoticon &info)
 }
 
 UnicodeEmoticonListWidgetItem::UnicodeEmoticonListWidgetItem(const QString &str, QListWidget *parent)
-    : QListWidgetItem (str, parent)
+    : QListWidgetItem(str, parent)
 {
-
 }
 
 UnicodeEmoticon UnicodeEmoticonListWidgetItem::info() const
