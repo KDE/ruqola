@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETDISCUSSIONSJOB_H
-#define GETDISCUSSIONSJOB_H
+#ifndef GETTHREADMESSAGESJOB_H
+#define GETTHREADMESSAGESJOB_H
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetDiscussionsJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetThreadMessagesJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit GetDiscussionsJob(QObject *parent = nullptr);
-    ~GetDiscussionsJob() override;
+    explicit GetThreadMessagesJob(QObject *parent = nullptr);
+    ~GetThreadMessagesJob() override;
 
     Q_REQUIRED_RESULT bool canStart() const override;
 
@@ -41,16 +41,16 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
+    Q_REQUIRED_RESULT QString threadMessageId() const;
+    void setThreadMessageId(const QString &threadMessageId);
 
 Q_SIGNALS:
-    void getDiscussionsDone(const QJsonObject &obj);
+    void getThreadMessagesDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(GetDiscussionsJob)
-    void slotGetDiscussionsFinished();
-    QString mRoomId;
+    Q_DISABLE_COPY(GetThreadMessagesJob)
+    void slotGetThreadMessagesFinished();
+    QString mThreadMessageId;
 };
 }
-#endif // GETDISCUSSIONSJOB_H
+#endif // GETTHREADMESSAGESJOB_H

@@ -54,6 +54,8 @@
 #include "chat/pinmessagejob.h"
 #include "chat/followmessagejob.h"
 #include "chat/unfollowmessagejob.h"
+#include "chat/getthreadsjob.h"
+#include "chat/getthreadmessagesjob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
@@ -110,6 +112,7 @@
 #include "rooms/roomfavoritejob.h"
 #include "rooms/savenotificationjob.h"
 #include "rooms/roomstartdiscussionjob.h"
+#include "rooms/getdiscussionsjob.h"
 
 #include "directmessage/createdmjob.h"
 #include "directmessage/opendmjob.h"
@@ -1406,3 +1409,37 @@ void RestApiRequest::createDiscussion(const QString &parentRoomId, const QString
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start roomStartDiscussion";
     }
 }
+
+void RestApiRequest::getDiscussions(const QString &roomId)
+{
+    GetDiscussionsJob *job = new GetDiscussionsJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    connect(job, &GetDiscussionsJob::getDiscussionsDone, this, &RestApiRequest::getDiscussionsDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getDiscussions";
+    }
+}
+
+void RestApiRequest::getThreadsList(const QString &roomId)
+{
+    GetThreadsJob *job = new GetThreadsJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    connect(job, &GetThreadsJob::getThreadsDone, this, &RestApiRequest::getThreadsDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getThreadsList";
+    }
+}
+
+void RestApiRequest::getThreadMessages(const QString &threadMessageId)
+{
+    GetThreadMessagesJob *job = new GetThreadMessagesJob(this);
+    initializeRestApiJob(job);
+    job->setThreadMessageId(threadMessageId);
+    connect(job, &GetThreadMessagesJob::getThreadMessagesDone, this, &RestApiRequest::getThreadMessagesDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getThreadMessages";
+    }
+}
+

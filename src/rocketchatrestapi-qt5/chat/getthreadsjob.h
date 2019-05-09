@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETDISCUSSIONSJOB_H
-#define GETDISCUSSIONSJOB_H
+#ifndef GETTHREADSJOB_H
+#define GETTHREADSJOB_H
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetDiscussionsJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetThreadsJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit GetDiscussionsJob(QObject *parent = nullptr);
-    ~GetDiscussionsJob() override;
+    explicit GetThreadsJob(QObject *parent = nullptr);
+    ~GetThreadsJob() override;
 
     Q_REQUIRED_RESULT bool canStart() const override;
 
@@ -45,12 +45,12 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void getDiscussionsDone(const QJsonObject &obj);
+    void getThreadsDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(GetDiscussionsJob)
-    void slotGetDiscussionsFinished();
+    Q_DISABLE_COPY(GetThreadsJob)
+    void slotGetThreadsFinished();
     QString mRoomId;
 };
 }
-#endif // GETDISCUSSIONSJOB_H
+#endif // GETTHREADSJOB_H

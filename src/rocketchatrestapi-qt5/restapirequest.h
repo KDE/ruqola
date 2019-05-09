@@ -157,6 +157,9 @@ public:
     void followMessage(const QString &messageId);
     void unFollowMessage(const QString &messageId);
     void createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &replyMessage, const QString &parentMessageId);
+    void getDiscussions(const QString &roomId);
+    void getThreadsList(const QString &roomId);
+    void getThreadMessages(const QString &threadMessageId);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -201,6 +204,9 @@ Q_SIGNALS:
     void followMessageDone();
     void unFollowMessageDone();
     void startDiscussionDone();
+    void getDiscussionsDone(const QJsonObject &obj);
+    void getThreadsDone(const QJsonObject &obj);
+    void getThreadMessagesDone(const QJsonObject &obj);
 
     void failed(const QString &str);
 

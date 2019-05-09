@@ -18,20 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "getdiscussionsjobtest.h"
-#include "rooms/getdiscussionsjob.h"
+#include "GetThreadsJobtest.h"
+#include "chat/getthreadsjob.h"
 #include "restapimethod.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(GetDiscussionsJobTest)
+QTEST_GUILESS_MAIN(GetThreadsJobTest)
 using namespace RocketChatRestApi;
-GetDiscussionsJobTest::GetDiscussionsJobTest(QObject *parent)
+GetThreadsJobTest::GetThreadsJobTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void GetDiscussionsJobTest::shouldHaveDefaultValue()
+void GetThreadsJobTest::shouldHaveDefaultValue()
 {
-    GetDiscussionsJob job;
+    GetThreadsJob job;
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
@@ -41,22 +41,22 @@ void GetDiscussionsJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
-void GetDiscussionsJobTest::shouldGenerateRequest()
+void GetThreadsJobTest::shouldGenerateRequest()
 {
-    GetDiscussionsJob job;
+    GetThreadsJob job;
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString roomId = QStringLiteral("bla");
     job.setRoomId(roomId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.getdiscussions?roomId=%1").arg(roomId)));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.getthreads?roomId=%1").arg(roomId)));
     delete method;
 }
 
-void GetDiscussionsJobTest::shouldNotStarting()
+void GetThreadsJobTest::shouldNotStarting()
 {
-    GetDiscussionsJob job;
+    GetThreadsJob job;
 
     RestApiMethod *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));

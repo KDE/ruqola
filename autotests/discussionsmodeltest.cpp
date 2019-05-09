@@ -18,39 +18,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETDISCUSSIONSJOB_H
-#define GETDISCUSSIONSJOB_H
-
-#include "restapiabstractjob.h"
-#include "librestapi_private_export.h"
-
-#include <QNetworkRequest>
-namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetDiscussionsJob : public RestApiAbstractJob
+#include "discussionsmodeltest.h"
+#include <QTest>
+QTEST_GUILESS_MAIN(DiscussionsModelTest)
+DiscussionsModelTest::DiscussionsModelTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit GetDiscussionsJob(QObject *parent = nullptr);
-    ~GetDiscussionsJob() override;
 
-    Q_REQUIRED_RESULT bool canStart() const override;
-
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-
-    Q_REQUIRED_RESULT bool start() override;
-
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
-
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
-Q_SIGNALS:
-    void getDiscussionsDone(const QJsonObject &obj);
-
-private:
-    Q_DISABLE_COPY(GetDiscussionsJob)
-    void slotGetDiscussionsFinished();
-    QString mRoomId;
-};
 }
-#endif // GETDISCUSSIONSJOB_H

@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "getdiscussionsjob.h"
+#include "getthreadmessagesjob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
@@ -26,47 +26,47 @@
 #include <QNetworkReply>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
-GetDiscussionsJob::GetDiscussionsJob(QObject *parent)
+GetThreadMessagesJob::GetThreadMessagesJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-GetDiscussionsJob::~GetDiscussionsJob()
+GetThreadMessagesJob::~GetThreadMessagesJob()
 {
 }
 
-bool GetDiscussionsJob::requireHttpAuthentication() const
+bool GetThreadMessagesJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool GetDiscussionsJob::canStart() const
+bool GetThreadMessagesJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetDiscussionsJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetThreadMessagesJob";
         return false;
     }
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetDiscussionsJob: mRoomId is empty";
+    if (mThreadMessageId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetThreadMessagesJob: mThreadMessageId is empty";
         return false;
     }
     return true;
 }
 
-bool GetDiscussionsJob::start()
+bool GetThreadMessagesJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetDiscussionsJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetThreadMessagesJob job";
         deleteLater();
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &GetDiscussionsJob::slotGetDiscussionsFinished);
-    addLoggerInfo(QByteArrayLiteral("GetDiscussionsJob: Ask info about rooms"));
+    connect(reply, &QNetworkReply::finished, this, &GetThreadMessagesJob::slotGetThreadMessagesFinished);
+    addLoggerInfo(QByteArrayLiteral("GetThreadMessagesJob: Ask info about rooms"));
     return true;
 }
 
-void GetDiscussionsJob::slotGetDiscussionsFinished()
+void GetThreadMessagesJob::slotGetThreadMessagesFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -74,32 +74,32 @@ void GetDiscussionsJob::slotGetDiscussionsFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GetDiscussionsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT getDiscussionsDone(replyObject);
+            addLoggerInfo(QByteArrayLiteral("GetThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT getThreadMessagesDone(replyObject);
         } else {
             emitFailedMessage(replyObject);
-            addLoggerWarning(QByteArrayLiteral("GetDiscussionsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("GetThreadMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
     deleteLater();
 }
 
-QString GetDiscussionsJob::roomId() const
+QString GetThreadMessagesJob::threadMessageId() const
 {
-    return mRoomId;
+    return mThreadMessageId;
 }
 
-void GetDiscussionsJob::setRoomId(const QString &roomId)
+void GetThreadMessagesJob::setThreadMessageId(const QString &threadMessageId)
 {
-    mRoomId = roomId;
+    mThreadMessageId = threadMessageId;
 }
 
-QNetworkRequest GetDiscussionsJob::request() const
+QNetworkRequest GetThreadMessagesJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsGetDiscussions);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadMessages);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("tmid"), mThreadMessageId);
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

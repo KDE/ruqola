@@ -41,6 +41,8 @@ set (Ruqola_model_core_srcs
     model/mentionsfilterproxymodel.cpp
     model/notificationdesktopdurationpreferencemodel.cpp
     model/notificationdesktopsoundpreferencemodel.cpp
+
+    model/discussionsmodel.cpp
     )
 
 set(Ruqola_plugins_srcs

@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "getdiscussionsjob.h"
+#include "getthreadsjob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
@@ -26,47 +26,47 @@
 #include <QNetworkReply>
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
-GetDiscussionsJob::GetDiscussionsJob(QObject *parent)
+GetThreadsJob::GetThreadsJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-GetDiscussionsJob::~GetDiscussionsJob()
+GetThreadsJob::~GetThreadsJob()
 {
 }
 
-bool GetDiscussionsJob::requireHttpAuthentication() const
+bool GetThreadsJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool GetDiscussionsJob::canStart() const
+bool GetThreadsJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetDiscussionsJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetThreadsJob";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetDiscussionsJob: mRoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetThreadsJob: mRoomId is empty";
         return false;
     }
     return true;
 }
 
-bool GetDiscussionsJob::start()
+bool GetThreadsJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetDiscussionsJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetThreadsJob job";
         deleteLater();
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &GetDiscussionsJob::slotGetDiscussionsFinished);
-    addLoggerInfo(QByteArrayLiteral("GetDiscussionsJob: Ask info about rooms"));
+    connect(reply, &QNetworkReply::finished, this, &GetThreadsJob::slotGetThreadsFinished);
+    addLoggerInfo(QByteArrayLiteral("GetThreadsJob: Ask info about rooms"));
     return true;
 }
 
-void GetDiscussionsJob::slotGetDiscussionsFinished()
+void GetThreadsJob::slotGetThreadsFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -74,30 +74,30 @@ void GetDiscussionsJob::slotGetDiscussionsFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GetDiscussionsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT getDiscussionsDone(replyObject);
+            addLoggerInfo(QByteArrayLiteral("GetThreadsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT getThreadsDone(replyObject);
         } else {
             emitFailedMessage(replyObject);
-            addLoggerWarning(QByteArrayLiteral("GetDiscussionsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("GetThreadsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
     deleteLater();
 }
 
-QString GetDiscussionsJob::roomId() const
+QString GetThreadsJob::roomId() const
 {
     return mRoomId;
 }
 
-void GetDiscussionsJob::setRoomId(const QString &roomId)
+void GetThreadsJob::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
 }
 
-QNetworkRequest GetDiscussionsJob::request() const
+QNetworkRequest GetThreadsJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsGetDiscussions);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadsList);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
     url.setQuery(queryUrl);
