@@ -1391,8 +1391,8 @@ void RestApiRequest::unFollowMessage(const QString &messageId)
     }
 }
 
-//TODO add more arguments
-void RestApiRequest::createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &parentMessageId)
+//TODO add users arguments!
+void RestApiRequest::createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &replyMessage, const QString &parentMessageId)
 {
     RoomStartDiscussionJob *job = new RoomStartDiscussionJob(this);
     initializeRestApiJob(job);
@@ -1400,6 +1400,7 @@ void RestApiRequest::createDiscussion(const QString &parentRoomId, const QString
 
     job->setDiscussionName(discussionName);
     job->setParentMessageId(parentMessageId);
+    job->setReplyMessage(replyMessage);
     connect(job, &RoomStartDiscussionJob::startDiscussionDone, this, &RestApiRequest::startDiscussionDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start roomStartDiscussion";

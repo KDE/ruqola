@@ -38,6 +38,8 @@ void RoomStartDiscussionJobTest::shouldHaveDefaultValue()
     QVERIFY(job.parentRoomId().isEmpty());
     QVERIFY(job.parentMessageId().isEmpty());
     QVERIFY(job.discussionName().isEmpty());
+    QVERIFY(job.replyMessage().isEmpty());
+    QVERIFY(job.users().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -58,6 +60,7 @@ void RoomStartDiscussionJobTest::shouldGenerateJson()
     const QString discussionName = QStringLiteral("bla");
     job.setDiscussionName(discussionName);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"t_name\":\"%2\"}").arg(pRid).arg(discussionName).toLatin1());
+    //ADD replyMessage + users
 }
 
 void RoomStartDiscussionJobTest::shouldNotStarting()

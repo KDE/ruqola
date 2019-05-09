@@ -68,6 +68,26 @@ void RoomStartDiscussionJob::slotStartDiscussionFinished()
     deleteLater();
 }
 
+QString RoomStartDiscussionJob::replyMessage() const
+{
+    return mReplyMessage;
+}
+
+void RoomStartDiscussionJob::setReplyMessage(const QString &reply)
+{
+    mReplyMessage = reply;
+}
+
+QStringList RoomStartDiscussionJob::users() const
+{
+    return mUsers;
+}
+
+void RoomStartDiscussionJob::setUsers(const QStringList &value)
+{
+    mUsers = value;
+}
+
 QString RoomStartDiscussionJob::parentMessageId() const
 {
     return mParentMessageId;
@@ -137,6 +157,10 @@ QJsonDocument RoomStartDiscussionJob::json() const
     if (!mParentMessageId.isEmpty()) {
         jsonObj[QLatin1String("pmid")] = mParentMessageId;
     }
+    if (!mReplyMessage.isEmpty()) {
+        jsonObj[QLatin1String("reply")] = mReplyMessage;
+    }
+    //TODO users !
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

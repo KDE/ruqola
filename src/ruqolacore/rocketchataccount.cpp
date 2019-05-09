@@ -1425,8 +1425,8 @@ void RocketChatAccount::rolesChanged(const QJsonArray &contents)
     }
 }
 
-void RocketChatAccount::createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &messageId)
+void RocketChatAccount::createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &replyMessage, const QString &messageId)
 {
-    restApi()->createDiscussion(parentRoomId, discussionName, messageId);
+    restApi()->createDiscussion(parentRoomId, discussionName, replyMessage, messageId);
 }
 

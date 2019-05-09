@@ -362,10 +362,11 @@ Component {
                 appid.rocketChatAccount.ignoreUser(roomId, userId, ignored)
             }
             onCreateDiscussion: {
+                createDiscussionDialog.clearAndOpen()
                 createDiscussionDialog.roomName = appid.selectedRoom.displayRoomName
                 createDiscussionDialog.roomId = roomId
                 createDiscussionDialog.messageId = messageId
-                createDiscussionDialog.clearAndOpen()
+                //TODO add message text too
             }
 
             onOpenChannel: {
@@ -427,7 +428,7 @@ Component {
             CreateDiscussionDialog {
                 id: createDiscussionDialog
                 onCreateNewDiscussion: {
-                    appid.rocketChatAccount.createDiscussion(parentRoomName, discussionTitle, msgId);
+                    appid.rocketChatAccount.createDiscussion(parentRoomName, discussionTitle, replyMessage, msgId);
                 }
             }
 

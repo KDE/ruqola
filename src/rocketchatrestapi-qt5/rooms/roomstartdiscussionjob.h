@@ -49,17 +49,23 @@ public:
     Q_REQUIRED_RESULT QString parentMessageId() const;
     void setParentMessageId(const QString &parentMessageId);
 
+    Q_REQUIRED_RESULT QStringList users() const;
+    void setUsers(const QStringList &value);
+
+    Q_REQUIRED_RESULT QString replyMessage() const;
+    void setReplyMessage(const QString &reply);
+
 Q_SIGNALS:
     void startDiscussionDone();
 
 private:
     Q_DISABLE_COPY(RoomStartDiscussionJob)
     void slotStartDiscussionFinished();
+    QStringList mUsers;
     QString mParentRoomId;
     QString mDiscussionName;
     QString mParentMessageId;
-    //TODO users
-    //TODO reply
+    QString mReplyMessage;
 };
 }
 #endif // ROOMSTARTDISCUSSIONJOB_H
