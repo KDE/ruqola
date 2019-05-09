@@ -635,8 +635,12 @@ Message Message::fromJSon(const QJsonObject &o)
     message.mDiscussionCount = o[QStringLiteral("dcount")].toString().toInt();
     message.mDiscussionRoomId = o[QStringLiteral("drid")].toString();
 
-    message.mThreadLastMessage = static_cast<qint64>(o[QStringLiteral("tlm")].toDouble());
-    message.mDiscussionLastMessage = static_cast<qint64>(o[QStringLiteral("dlm")].toDouble());
+    if (o.contains(QLatin1String("tlm"))) {
+        message.mThreadLastMessage = static_cast<qint64>(o[QStringLiteral("tlm")].toDouble());
+    }
+    if (o.contains(QLatin1String("dlm"))) {
+        message.mDiscussionLastMessage = static_cast<qint64>(o[QStringLiteral("dlm")].toDouble());
+    }
 
     message.mMessageId = o[QStringLiteral("messageID")].toString();
     message.mRoomId = o[QStringLiteral("roomID")].toString();
@@ -702,8 +706,12 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("userID")] = message.mUserId;
     o[QStringLiteral("updatedAt")] = message.mUpdatedAt;
     o[QStringLiteral("editedAt")] = message.mEditedAt;
-    o[QStringLiteral("tlm")] = message.mThreadLastMessage;
-    o[QStringLiteral("dlm")] = message.mDiscussionLastMessage;
+    if (message.mThreadLastMessage > -1) {
+        o[QStringLiteral("tlm")] = message.mThreadLastMessage;
+    }
+    if (message.mDiscussionLastMessage > -1) {
+        o[QStringLiteral("dlm")] = message.mDiscussionLastMessage;
+    }
 
     o[QStringLiteral("editedByUsername")] = message.mEditedByUsername;
     o[QStringLiteral("editedByUserID")] = message.mEditedByUserId;
