@@ -49,6 +49,7 @@ QQC2.Menu {
     //Need to hidding them when server is not 1.0.0
     QQC2.MenuItem {
         id: startADiscussionItem
+        visible: rcAccount.discussionEnabled()
         contentItem: QQC2.Label {
             text: i18n("Start a Discussion")
         }
@@ -59,6 +60,7 @@ QQC2.Menu {
     }
     QQC2.MenuItem {
         id: startAThreadItem
+        visible: rcAccount.threadsEnabled()
         contentItem: QQC2.Label {
             text: i18n("Reply in Thread")
         }
