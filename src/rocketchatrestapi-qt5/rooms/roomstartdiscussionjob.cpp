@@ -22,6 +22,7 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -160,7 +161,10 @@ QJsonDocument RoomStartDiscussionJob::json() const
     if (!mReplyMessage.isEmpty()) {
         jsonObj[QLatin1String("reply")] = mReplyMessage;
     }
-    //TODO users !
+    if (!mUsers.isEmpty()) {
+        const QJsonArray usersJson = QJsonArray::fromStringList(mUsers);
+        jsonObj[QLatin1String("users")] = usersJson;
+    }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

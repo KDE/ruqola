@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2019 Montel Laurent <montel@kde.org>
+   Copyright (c) 2019 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -60,7 +60,14 @@ void RoomStartDiscussionJobTest::shouldGenerateJson()
     const QString discussionName = QStringLiteral("bla");
     job.setDiscussionName(discussionName);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"t_name\":\"%2\"}").arg(pRid).arg(discussionName).toLatin1());
-    //ADD replyMessage + users
+    const QString replyMessage = QStringLiteral("Bli");
+    job.setReplyMessage(replyMessage);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"reply\":\"%2\",\"t_name\":\"%3\"}").arg(pRid).arg(replyMessage).arg(discussionName).toLatin1());
+
+    const QStringList users{QStringLiteral("aaa"), QStringLiteral("bbb"), QStringLiteral("ddd")};
+    job.setUsers(users);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"prid\":\"%1\",\"reply\":\"%2\",\"t_name\":\"%3\",\"users\":[\"aaa\",\"bbb\",\"ddd\"]}")
+             .arg(pRid).arg(replyMessage).arg(discussionName).arg(QStringLiteral("bla")).toLatin1());
 }
 
 void RoomStartDiscussionJobTest::shouldNotStarting()

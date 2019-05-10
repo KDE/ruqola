@@ -17,25 +17,27 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "mentionsfilterproxymodel.h"
-#include "mentionsmodel.h"
-MentionsFilterProxyModel::MentionsFilterProxyModel(QObject *parent)
+#include "discussionsfilterproxymodel.h"
+#include "discussionsmodel.h"
+DiscussionsFilterProxyModel::DiscussionsFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(MentionsModel::Timestamp);
+    //FIXME setFilterRole(DiscussionsModel::Timestamp);
     sort(0);
 }
 
-MentionsFilterProxyModel::~MentionsFilterProxyModel()
+DiscussionsFilterProxyModel::~DiscussionsFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> MentionsFilterProxyModel::roleNames() const
+QHash<int, QByteArray> DiscussionsFilterProxyModel::roleNames() const
 {
     if (QAbstractItemModel *source = sourceModel()) {
         return source->roleNames();
     }
     return QHash<int, QByteArray>();
 }
+
+#include "discussionsfilterproxymodel.h"

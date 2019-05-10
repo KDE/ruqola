@@ -18,22 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMSTARTDISCUSSIONJOBTEST_H
-#define ROOMSTARTDISCUSSIONJOBTEST_H
 
-#include <QObject>
-
-class RoomStartDiscussionJobTest : public QObject
+#include "discussionsfilterproxymodeltest.h"
+#include <QTest>
+QTEST_MAIN(DiscussionsFilterProxyModelTest)
+DiscussionsFilterProxyModelTest::DiscussionsFilterProxyModelTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit RoomStartDiscussionJobTest(QObject *parent = nullptr);
-    ~RoomStartDiscussionJobTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValue();
-    void shouldGenerateRequest();
-    void shouldGenerateJson();
-    void shouldNotStarting();
-};
 
-#endif // ROOMSTARTDISCUSSIONJOBTEST_H
+}

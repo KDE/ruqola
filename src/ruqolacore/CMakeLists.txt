@@ -43,6 +43,7 @@ set (Ruqola_model_core_srcs
     model/notificationdesktopsoundpreferencemodel.cpp
 
     model/discussionsmodel.cpp
+    model/discussionsfilterproxymodel.cpp
     )
 
 set(Ruqola_plugins_srcs

@@ -339,6 +339,8 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::failed, this, &RocketChatAccount::jobFailed);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::spotlightDone, this, &RocketChatAccount::slotSplotLightDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, &RocketChatAccount::slotGetThreadsListDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -667,6 +669,16 @@ void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const QStri
     }
 }
 
+void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj)
+{
+    //TODO
+}
+
+void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj)
+{
+    //TODO
+}
+
 void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
 {
     qDebug() << " void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)"<<obj;
@@ -825,6 +837,24 @@ void RocketChatAccount::reportMessage(const QString &messageId, const QString &m
         restApi()->reportMessage(messageId, message);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::reportMessage is not supported before server 0.64";
+    }
+}
+
+void RocketChatAccount::getThreadMessages(const QString &threadMessageId)
+{
+    if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
+        restApi()->getThreadMessages(threadMessageId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getThreadMessages is not supported before server 1.0.0";
+    }
+}
+
+void RocketChatAccount::getThreadsList(const QString &roomId)
+{
+    if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
+        restApi()->getThreadsList(roomId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getThreadsList is not supported before server 1.0.0";
     }
 }
 

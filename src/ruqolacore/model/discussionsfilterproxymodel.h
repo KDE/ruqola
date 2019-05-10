@@ -17,25 +17,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "mentionsfilterproxymodel.h"
-#include "mentionsmodel.h"
-MentionsFilterProxyModel::MentionsFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel(parent)
-{
-    setDynamicSortFilter(true);
-    setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(MentionsModel::Timestamp);
-    sort(0);
-}
+#ifndef DISCUSSIONSFILTERPROXYMODEL_H
+#define DISCUSSIONSFILTERPROXYMODEL_H
 
-MentionsFilterProxyModel::~MentionsFilterProxyModel()
-{
-}
+#include <QSortFilterProxyModel>
+#include "libruqola_private_export.h"
 
-QHash<int, QByteArray> MentionsFilterProxyModel::roleNames() const
+class LIBRUQOLACORE_TESTS_EXPORT DiscussionsFilterProxyModel : public QSortFilterProxyModel
 {
-    if (QAbstractItemModel *source = sourceModel()) {
-        return source->roleNames();
-    }
-    return QHash<int, QByteArray>();
-}
+    Q_OBJECT
+public:
+    explicit DiscussionsFilterProxyModel(QObject *parent = nullptr);
+    ~DiscussionsFilterProxyModel() override;
+
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
+};
+
+#endif // DISCUSSIONSFILTERPROXYMODEL_H
