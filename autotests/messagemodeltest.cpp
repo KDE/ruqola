@@ -69,6 +69,7 @@ void MessageModelTest::shouldHaveDefaultValue()
     roles[MessageModel::DiscussionLastMessage] = QByteArrayLiteral("discussionLastMessage");
     roles[MessageModel::ThreadCount] = QByteArrayLiteral("threadCount");
     roles[MessageModel::ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
+    roles[MessageModel::ThreadMessageId] = QByteArrayLiteral("threadMessageId");
     QCOMPARE(w.roleNames(), roles);
 }
 

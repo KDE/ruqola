@@ -69,7 +69,8 @@ public:
         DiscussionRoomId,
         DiscussionLastMessage,
         ThreadCount,
-        ThreadLastMessage
+        ThreadLastMessage,
+        ThreadMessageId
     };
     Q_ENUM(MessageRoles)
 

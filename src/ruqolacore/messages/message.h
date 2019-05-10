@@ -168,6 +168,9 @@ public:
     Q_REQUIRED_RESULT QString discussionRoomId() const;
     void setDiscussionRoomId(const QString &discussionRoomId);
 
+    Q_REQUIRED_RESULT QString threadMessageId() const;
+    void setThreadMessageId(const QString &threadMessageId);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -222,6 +225,9 @@ private:
 
     //drid discussion room id
     QString mDiscussionRoomId;
+
+    //tmid
+    QString mThreadMessageId;
 
     // ts
     qint64 mTimeStamp = -1;
