@@ -91,6 +91,9 @@ MessageBase {
                     Layout.fillWidth: true
                 }
             }
+            ThreadLabel {
+
+            }
 
             Column {
                 id: fullTextColumn
