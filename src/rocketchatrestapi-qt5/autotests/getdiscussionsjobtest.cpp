@@ -50,7 +50,7 @@ void GetDiscussionsJobTest::shouldGenerateRequest()
     const QString roomId = QStringLiteral("bla");
     job.setRoomId(roomId);
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.getdiscussions?roomId=%1").arg(roomId)));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.getDiscussions?roomId=%1").arg(roomId)));
     delete method;
 }
 
