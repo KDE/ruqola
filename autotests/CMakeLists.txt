@@ -78,5 +78,6 @@ add_ruqola_test(notificationdesktopsoundpreferencemodeltest.cpp)
 add_ruqola_test(unicodeemoticonparsertest.cpp)
 add_ruqola_test(discussionsmodeltest.cpp)
 add_ruqola_test(discussionsfilterproxymodeltest.cpp)
+add_ruqola_test(discussiontest.cpp)
 
 add_subdirectory(qml)
