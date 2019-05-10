@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "GetThreadsJobtest.h"
+#include "getthreadsjobtest.h"
 #include "chat/getthreadsjob.h"
 #include "restapimethod.h"
 #include <QTest>
