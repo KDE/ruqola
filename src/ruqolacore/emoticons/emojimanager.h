@@ -41,13 +41,15 @@ public:
     Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
+    Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon> > unicodeEmojiList() const;
+
 private:
     Q_DISABLE_COPY(EmojiManager)
     void clearCustomEmojiCachedHtml();
     void loadUnicodeEmoji();
     //Use identifier in a QMap ???
     QVector<Emoji> mCustomEmojiList;
-    QVector<UnicodeEmoticon> mUnicodeEmojiList;
+    QMap<QString, QVector<UnicodeEmoticon>> mUnicodeEmojiList;
     QString mServerUrl;
 };
 

@@ -79,5 +79,7 @@ add_ruqola_test(unicodeemoticonparsertest.cpp)
 add_ruqola_test(discussionsmodeltest.cpp)
 add_ruqola_test(discussionsfilterproxymodeltest.cpp)
 add_ruqola_test(discussiontest.cpp)
+add_ruqola_test(discussionstest.cpp)
+add_ruqola_test(threadtest.cpp)
 
 add_subdirectory(qml)

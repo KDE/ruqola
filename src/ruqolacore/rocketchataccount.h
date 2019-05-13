@@ -59,6 +59,7 @@ class SearchMessageModel;
 class SearchMessageFilterProxyModel;
 class ServerConfigInfo;
 class ReceiveTypingNotificationManager;
+class EmoticonModel;
 namespace RocketChatRestApi {
 class RestApiRequest;
 }
@@ -294,6 +295,10 @@ public:
     void removeSettings();
 
     void rolesChanged(const QJsonArray &contents);
+
+    Q_INVOKABLE EmoticonModel *emoticonModel() const;
+    void setEmoticonModel(EmoticonModel *emoticonModel);
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -369,6 +374,7 @@ private:
     SearchMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
     ReceiveTypingNotificationManager *mReceiveTypingNotificationManager = nullptr;
     ServerConfigInfo *mServerConfigInfo = nullptr;
+    EmoticonModel *mEmoticonModel = nullptr;
     bool mEditingMode = false;
 };
 

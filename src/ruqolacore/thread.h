@@ -17,33 +17,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-
-#ifndef DISCUSSIONS_H
-#define DISCUSSIONS_H
-
+#ifndef THREAD_H
+#define THREAD_H
 #include "libruqola_private_export.h"
-#include "discussion.h"
-#include <QVector>
-#include <QDebug>
-
-class LIBRUQOLACORE_TESTS_EXPORT Discussions
+#include <QObject>
+class LIBRUQOLACORE_TESTS_EXPORT Thread
 {
 public:
-    Discussions();
+    Thread();
 
-    Q_REQUIRED_RESULT QVector<Discussion> discussions() const;
-    void setDiscussions(const QVector<Discussion> &discussions);
-
-    void parseDiscussions(const QJsonObject &array);
-
-    Q_REQUIRED_RESULT bool isEmpty() const;
-    void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT Discussion at(int index) const;
-private:
-    QVector<Discussion> mDiscussion;
 };
-Q_DECLARE_METATYPE(Discussions)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Discussions &t);
-
-#endif // DISCUSSIONS_H
+Q_DECLARE_METATYPE(Thread)
+Q_DECLARE_TYPEINFO(Thread, Q_MOVABLE_TYPE);
+#endif // THREAD_H

@@ -33,4 +33,13 @@ void EmoticonModelTest::shouldHaveDefaultValue()
     EmoticonModel w;
     QVERIFY(w.currentCategory().isEmpty());
     QVERIFY(w.emoticons().isEmpty());
+
+    QHash<int, QByteArray> roles;
+    roles[EmoticonModel::Identifier] = QByteArrayLiteral("identifier");
+    roles[EmoticonModel::EmoticonModel::Text] = QByteArrayLiteral("text");
+    roles[EmoticonModel::UnicodeEmoji] = QByteArrayLiteral("unicodeEmoji");
+    roles[EmoticonModel::Order] = QByteArrayLiteral("order");
+    QCOMPARE(w.roleNames(), roles);
 }
+
+//TODO add more check

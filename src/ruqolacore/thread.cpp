@@ -18,32 +18,9 @@
 */
 
 
-#ifndef DISCUSSIONS_H
-#define DISCUSSIONS_H
+#include "thread.h"
 
-#include "libruqola_private_export.h"
-#include "discussion.h"
-#include <QVector>
-#include <QDebug>
-
-class LIBRUQOLACORE_TESTS_EXPORT Discussions
+Thread::Thread()
 {
-public:
-    Discussions();
 
-    Q_REQUIRED_RESULT QVector<Discussion> discussions() const;
-    void setDiscussions(const QVector<Discussion> &discussions);
-
-    void parseDiscussions(const QJsonObject &array);
-
-    Q_REQUIRED_RESULT bool isEmpty() const;
-    void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT Discussion at(int index) const;
-private:
-    QVector<Discussion> mDiscussion;
-};
-Q_DECLARE_METATYPE(Discussions)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Discussions &t);
-
-#endif // DISCUSSIONS_H
+}

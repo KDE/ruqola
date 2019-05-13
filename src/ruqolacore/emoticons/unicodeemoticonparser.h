@@ -31,7 +31,7 @@ public:
     UnicodeEmoticonParser();
     ~UnicodeEmoticonParser();
 
-    QVector<UnicodeEmoticon> parse(const QJsonObject &o) const;
+    QMap<QString, QVector<UnicodeEmoticon> > parse(const QJsonObject &o) const;
 };
 
 #endif // UNICODEEMOTICONPARSER_H

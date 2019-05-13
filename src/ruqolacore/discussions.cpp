@@ -18,10 +18,46 @@
 */
 
 #include "discussions.h"
+#include <QJsonObject>
 
 Discussions::Discussions()
 {
 
+}
+
+QVector<Discussion> Discussions::discussions() const
+{
+    return mDiscussion;
+}
+
+void Discussions::setDiscussions(const QVector<Discussion> &discussion)
+{
+    mDiscussion = discussion;
+}
+
+void Discussions::parseDiscussions(const QJsonObject &array)
+{
+    //TODO
+}
+
+bool Discussions::isEmpty() const
+{
+    return mDiscussion.isEmpty();
+}
+
+void Discussions::clear()
+{
+    mDiscussion.clear();
+}
+
+int Discussions::count() const
+{
+    return mDiscussion.count();
+}
+
+Discussion Discussions::at(int index) const
+{
+    return mDiscussion.at(index);
 }
 
 QDebug operator <<(QDebug d, const Discussions &t)

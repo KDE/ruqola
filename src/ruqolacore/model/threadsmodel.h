@@ -17,33 +17,27 @@
    Boston, MA 02110-1301, USA.
 */
 
-
-#ifndef DISCUSSIONS_H
-#define DISCUSSIONS_H
+#ifndef THREADSMODEL_H
+#define THREADSMODEL_H
 
 #include "libruqola_private_export.h"
 #include "discussion.h"
-#include <QVector>
-#include <QDebug>
+#include <QAbstractListModel>
 
-class LIBRUQOLACORE_TESTS_EXPORT Discussions
+class LIBRUQOLACORE_TESTS_EXPORT ThreadsModel : public QAbstractListModel
 {
+    Q_OBJECT
 public:
-    Discussions();
+    explicit ThreadsModel(QObject *parent = nullptr);
+    ~ThreadsModel() override;
 
-    Q_REQUIRED_RESULT QVector<Discussion> discussions() const;
-    void setDiscussions(const QVector<Discussion> &discussions);
+    Q_REQUIRED_RESULT Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
-    void parseDiscussions(const QJsonObject &array);
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
-    void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT Discussion at(int index) const;
 private:
-    QVector<Discussion> mDiscussion;
+    Q_DISABLE_COPY(ThreadsModel)
 };
-Q_DECLARE_METATYPE(Discussions)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Discussions &t);
 
-#endif // DISCUSSIONS_H
+#endif // DISCUSSIONSMODEL_H

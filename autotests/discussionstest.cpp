@@ -16,34 +16,12 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+#include "discussionstest.h"
+#include <QTest>
+QTEST_GUILESS_MAIN(DiscussionsTest)
 
-
-#ifndef DISCUSSIONS_H
-#define DISCUSSIONS_H
-
-#include "libruqola_private_export.h"
-#include "discussion.h"
-#include <QVector>
-#include <QDebug>
-
-class LIBRUQOLACORE_TESTS_EXPORT Discussions
+DiscussionsTest::DiscussionsTest(QObject *parent)
+    : QObject(parent)
 {
-public:
-    Discussions();
 
-    Q_REQUIRED_RESULT QVector<Discussion> discussions() const;
-    void setDiscussions(const QVector<Discussion> &discussions);
-
-    void parseDiscussions(const QJsonObject &array);
-
-    Q_REQUIRED_RESULT bool isEmpty() const;
-    void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT Discussion at(int index) const;
-private:
-    QVector<Discussion> mDiscussion;
-};
-Q_DECLARE_METATYPE(Discussions)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Discussions &t);
-
-#endif // DISCUSSIONS_H
+}

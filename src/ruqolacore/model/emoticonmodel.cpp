@@ -40,17 +40,31 @@ int EmoticonModel::rowCount(const QModelIndex &parent) const
 
 QVariant EmoticonModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mEmoticons.count()) {
+    const QVector<UnicodeEmoticon> emoticonsFromCategoryList = mEmoticons.value(mCurrentCategory);
+    if (index.row() < 0 || index.row() >= emoticonsFromCategoryList.count()) {
         return {};
     }
-    //TODO
+    const UnicodeEmoticon unicodeEmoti = emoticonsFromCategoryList.at(index.row());
+    switch (role) {
+    case Identifier:
+        return unicodeEmoti.identifier();
+    case Text:
+        return unicodeEmoti.key();
+    case UnicodeEmoji:
+        return unicodeEmoti.unicode();
+    case Order:
+        return unicodeEmoti.order();
+    }
     return {};
 }
 
 QHash<int, QByteArray> EmoticonModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    //TODO
+    roles[Identifier] = QByteArrayLiteral("identifier");
+    roles[Text] = QByteArrayLiteral("text");
+    roles[UnicodeEmoji] = QByteArrayLiteral("unicodeEmoji");
+    roles[Order] = QByteArrayLiteral("order");
     return roles;
 }
 
@@ -71,6 +85,9 @@ void EmoticonModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > 
         mEmoticons = emoticons;
         endInsertRows();
     }
+    if (!mEmoticons.isEmpty()) {
+        mCurrentCategory = mEmoticons.keys().at(0);
+    }
 }
 
 void EmoticonModel::setCurrentCategory(const QString &category)
@@ -84,6 +101,5 @@ void EmoticonModel::setCurrentCategory(const QString &category)
 
 QString EmoticonModel::currentCategory() const
 {
-    //TODO
     return mCurrentCategory;
 }

@@ -39,7 +39,7 @@ QVariant MentionsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mMentions.count()) {
         return {};
     }
-    Mention mention = mMentions.at(index.row());
+    const Mention mention = mMentions.at(index.row());
 
     //TODO
     return {};

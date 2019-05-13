@@ -44,6 +44,8 @@ set (Ruqola_model_core_srcs
 
     model/discussionsmodel.cpp
     model/discussionsfilterproxymodel.cpp
+
+    model/threadsmodel.cpp
     )
 
 set(Ruqola_plugins_srcs
@@ -137,6 +139,9 @@ set (Ruqola_core_srcs
 
     discussion.cpp
     discussions.cpp
+
+    thread.cpp
+    threads.cpp
 )
 
 if (NOT WIN32)

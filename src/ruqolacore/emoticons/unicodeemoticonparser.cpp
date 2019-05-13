@@ -30,9 +30,9 @@ UnicodeEmoticonParser::~UnicodeEmoticonParser()
 {
 }
 
-QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) const
+QMap<QString, QVector<UnicodeEmoticon>> UnicodeEmoticonParser::parse(const QJsonObject &o) const
 {
-    QVector<UnicodeEmoticon> lstEmoticons;
+    QMap<QString, QVector<UnicodeEmoticon>> lstEmoticons;
     for (const QString &key: o.keys()) {
         UnicodeEmoticon emoticon;
         QJsonObject emojiObj = o[key].toObject();
@@ -53,7 +53,14 @@ QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) cons
             emoticon.setAliases(lst);
         }
         if (emoticon.isValid()) {
-            lstEmoticons.append(emoticon);
+            if (lstEmoticons.contains(category)) {
+                QVector<UnicodeEmoticon> lst = lstEmoticons.take(category);
+                lst.append(emoticon);
+                lstEmoticons[category] = lst;
+            } else {
+                const QVector<UnicodeEmoticon> lst{emoticon};
+                lstEmoticons.insert(category, lst);
+            }
         }
     }
     return lstEmoticons;

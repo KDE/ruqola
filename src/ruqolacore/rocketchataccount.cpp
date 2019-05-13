@@ -37,6 +37,7 @@
 #include "utils.h"
 #include "rocketchatcache.h"
 #include "emoticons/emojimanager.h"
+#include "model/emoticonmodel.h"
 #include "otrmanager.h"
 #include "inputtextmanager.h"
 #include "model/usersforroommodel.h"
@@ -86,9 +87,15 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mRocketChatBackend = new RocketChatBackend(this, this);
 
+    mEmoticonModel = new EmoticonModel(this);
+    //TODO
+
     //After loadSettings
     mEmojiManager = new EmojiManager(this);
     mEmojiManager->setServerUrl(mSettings->serverUrl());
+
+    mEmoticonModel->setEmoticons(mEmojiManager->unicodeEmojiList());
+
     mOtrManager = new OtrManager(this);
     mRoomFilterProxyModel = new RoomFilterProxyModel(this);
 
@@ -103,6 +110,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mSearchMessageModel = new SearchMessageModel(this);
     mSearchMessageFilterProxyModel = new SearchMessageFilterProxyModel(this);
     mSearchMessageFilterProxyModel->setSourceModel(mSearchMessageModel);
+
+
 
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this, this);
@@ -650,6 +659,16 @@ QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj)
         files.append(f);
     }
     return files;
+}
+
+EmoticonModel *RocketChatAccount::emoticonModel() const
+{
+    return mEmoticonModel;
+}
+
+void RocketChatAccount::setEmoticonModel(EmoticonModel *emoticonModel)
+{
+    mEmoticonModel = emoticonModel;
 }
 
 ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationManager() const

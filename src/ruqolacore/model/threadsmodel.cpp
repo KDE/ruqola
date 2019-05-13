@@ -17,33 +17,40 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "threadsmodel.h"
 
-#ifndef DISCUSSIONS_H
-#define DISCUSSIONS_H
-
-#include "libruqola_private_export.h"
-#include "discussion.h"
-#include <QVector>
-#include <QDebug>
-
-class LIBRUQOLACORE_TESTS_EXPORT Discussions
+ThreadsModel::ThreadsModel(QObject *parent)
+    : QAbstractListModel(parent)
 {
-public:
-    Discussions();
 
-    Q_REQUIRED_RESULT QVector<Discussion> discussions() const;
-    void setDiscussions(const QVector<Discussion> &discussions);
+}
 
-    void parseDiscussions(const QJsonObject &array);
+ThreadsModel::~ThreadsModel()
+{
+}
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
-    void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT Discussion at(int index) const;
-private:
-    QVector<Discussion> mDiscussion;
-};
-Q_DECLARE_METATYPE(Discussions)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Discussions &t);
+int ThreadsModel::rowCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+    //return mMentions.count();
+    return {};
+}
 
-#endif // DISCUSSIONS_H
+QVariant ThreadsModel::data(const QModelIndex &index, int role) const
+{
+#if 0
+    if (index.row() < 0 || index.row() >= mMentions.count()) {
+        return {};
+    }
+    Mention mention = mMentions.at(index.row());
+
+#endif
+    //TODO
+    return {};
+}
+
+QHash<int, QByteArray> ThreadsModel::roleNames() const
+{
+    QHash<int, QByteArray> roles;
+    return roles;
+}

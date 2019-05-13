@@ -16,34 +16,50 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+#include "threads.h"
 
-
-#ifndef DISCUSSIONS_H
-#define DISCUSSIONS_H
-
-#include "libruqola_private_export.h"
-#include "discussion.h"
-#include <QVector>
-#include <QDebug>
-
-class LIBRUQOLACORE_TESTS_EXPORT Discussions
+Threads::Threads()
 {
-public:
-    Discussions();
 
-    Q_REQUIRED_RESULT QVector<Discussion> discussions() const;
-    void setDiscussions(const QVector<Discussion> &discussions);
+}
 
-    void parseDiscussions(const QJsonObject &array);
+QVector<Thread> Threads::threads() const
+{
+    return mThreads;
+}
 
-    Q_REQUIRED_RESULT bool isEmpty() const;
-    void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT Discussion at(int index) const;
-private:
-    QVector<Discussion> mDiscussion;
-};
-Q_DECLARE_METATYPE(Discussions)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Discussions &t);
+void Threads::setDiscussions(const QVector<Thread> &threads)
+{
+    mThreads = threads;
+}
 
-#endif // DISCUSSIONS_H
+void Threads::parseThreads(const QJsonObject &array)
+{
+    //TODO
+}
+
+bool Threads::isEmpty() const
+{
+    return mThreads.isEmpty();
+}
+
+void Threads::clear()
+{
+    mThreads.clear();
+}
+
+int Threads::count() const
+{
+    return mThreads.count();
+}
+
+Thread Threads::at(int index) const
+{
+    return mThreads.at(index);
+}
+
+QDebug operator <<(QDebug d, const Threads &t)
+{
+    //TODO
+    return d;
+}

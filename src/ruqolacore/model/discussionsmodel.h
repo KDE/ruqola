@@ -21,7 +21,7 @@
 #define DISCUSSIONSMODEL_H
 
 #include "libruqola_private_export.h"
-#include "discussion.h"
+#include "discussions.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_TESTS_EXPORT DiscussionsModel : public QAbstractListModel
@@ -36,8 +36,11 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
+    void setDiscussions(const Discussions &mentions);
+
 private:
     Q_DISABLE_COPY(DiscussionsModel)
+    Discussions mDiscussions;
 };
 
 #endif // DISCUSSIONSMODEL_H

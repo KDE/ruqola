@@ -32,11 +32,10 @@ public:
     enum EmoticonsRoles {
         Identifier = Qt::UserRole + 1,
         Text,
-        //TODO add more
+        UnicodeEmoji,
+        Order
     };
     Q_ENUM(EmoticonsRoles)
-
-
 
     explicit EmoticonModel(QObject *parent = nullptr);
     ~EmoticonModel() override;
@@ -46,8 +45,11 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
     Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon>> emoticons() const;
+
     void setEmoticons(const QMap<QString, QVector<UnicodeEmoticon>> &emoticons);
-    void setCurrentCategory(const QString &category);
+
+    Q_INVOKABLE void setCurrentCategory(const QString &category);
+
     Q_REQUIRED_RESULT QString currentCategory() const;
 private:
     Q_DISABLE_COPY(EmoticonModel)

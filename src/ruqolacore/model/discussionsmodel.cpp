@@ -32,19 +32,16 @@ DiscussionsModel::~DiscussionsModel()
 int DiscussionsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    //return mMentions.count();
-    return {};
+    return mDiscussions.count();
 }
 
 QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
 {
-#if 0
-    if (index.row() < 0 || index.row() >= mMentions.count()) {
+    if (index.row() < 0 || index.row() >= mDiscussions.count()) {
         return {};
     }
-    Mention mention = mMentions.at(index.row());
+    const Discussion mention = mDiscussions.at(index.row());
 
-#endif
     //TODO
     return {};
 }
@@ -53,4 +50,18 @@ QHash<int, QByteArray> DiscussionsModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     return roles;
+}
+
+void DiscussionsModel::setDiscussions(const Discussions &mentions)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mDiscussions.count() - 1);
+        mDiscussions.clear();
+        endRemoveRows();
+    }
+    if (!mDiscussions.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mDiscussions.count() - 1);
+        mDiscussions = mentions;
+        endInsertRows();
+    }
 }

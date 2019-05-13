@@ -54,6 +54,11 @@ void EmojiManager::loadUnicodeEmoji()
     mUnicodeEmojiList = unicodeParser.parse(obj);
 }
 
+QMap<QString, QVector<UnicodeEmoticon> > EmojiManager::unicodeEmojiList() const
+{
+    return mUnicodeEmojiList;
+}
+
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)
 {
     mCustomEmojiList.clear();
@@ -91,10 +96,15 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier)
                 return cachedHtml;
             }
         }
-        for (int i = 0, total = mUnicodeEmojiList.size(); i < total; ++i) {
-            if (mUnicodeEmojiList.at(i).hasEmoji(emojiIdentifier)) {
-                return mUnicodeEmojiList.at(i).unicode();
+        QMap<QString, QVector<UnicodeEmoticon>>::const_iterator emojiId = mUnicodeEmojiList.constBegin();
+        while (emojiId != mUnicodeEmojiList.constEnd()) {
+            const QVector<UnicodeEmoticon> lst = emojiId.value();
+            for (int i = 0, total = lst.size(); i < total; ++i) {
+                if (lst.at(i).hasEmoji(emojiIdentifier)) {
+                    return lst.at(i).unicode();
+                }
             }
+            ++emojiId;
         }
     } else {
         qCWarning(RUQOLA_LOG) << "Emoji identifier is not correct :" << emojiIdentifier;
