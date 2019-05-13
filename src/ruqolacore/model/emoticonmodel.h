@@ -29,6 +29,15 @@ class LIBRUQOLACORE_TESTS_EXPORT EmoticonModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum EmoticonsRoles {
+        Identifier = Qt::UserRole + 1,
+        Text,
+        //TODO add more
+    };
+    Q_ENUM(EmoticonsRoles)
+
+
+
     explicit EmoticonModel(QObject *parent = nullptr);
     ~EmoticonModel() override;
 
