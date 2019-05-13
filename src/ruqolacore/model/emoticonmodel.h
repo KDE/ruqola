@@ -36,12 +36,14 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-    Q_REQUIRED_RESULT QVector<UnicodeEmoticon> emoticons() const;
-    void setEmoticons(const QVector<UnicodeEmoticon> &emoticons);
-
+    Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon>> emoticons() const;
+    void setEmoticons(const QMap<QString, QVector<UnicodeEmoticon>> &emoticons);
+    void setCurrentCategory(const QString &category);
+    Q_REQUIRED_RESULT QString currentCategory() const;
 private:
     Q_DISABLE_COPY(EmoticonModel)
-    QVector<UnicodeEmoticon> mEmoticons;
+    QString mCurrentCategory;
+    QMap<QString, QVector<UnicodeEmoticon>> mEmoticons;
 };
 
 #endif // EMOTICONMODEL_H

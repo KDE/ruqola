@@ -27,3 +27,10 @@ EmoticonModelTest::EmoticonModelTest(QObject *parent)
     : QObject(parent)
 {
 }
+
+void EmoticonModelTest::shouldHaveDefaultValue()
+{
+    EmoticonModel w;
+    QVERIFY(w.currentCategory().isEmpty());
+    QVERIFY(w.emoticons().isEmpty());
+}

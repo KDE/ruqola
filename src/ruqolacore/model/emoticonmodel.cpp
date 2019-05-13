@@ -32,7 +32,10 @@ EmoticonModel::~EmoticonModel()
 int EmoticonModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return mEmoticons.count();
+    if (mEmoticons.contains(mCurrentCategory)) {
+        return mEmoticons[mCurrentCategory].count();
+    }
+    return 0;
 }
 
 QVariant EmoticonModel::data(const QModelIndex &index, int role) const
@@ -51,12 +54,12 @@ QHash<int, QByteArray> EmoticonModel::roleNames() const
     return roles;
 }
 
-QVector<UnicodeEmoticon> EmoticonModel::emoticons() const
+QMap<QString, QVector<UnicodeEmoticon> > EmoticonModel::emoticons() const
 {
     return mEmoticons;
 }
 
-void EmoticonModel::setEmoticons(const QVector<UnicodeEmoticon> &emoticons)
+void EmoticonModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > &emoticons)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mEmoticons.count() - 1);
@@ -68,4 +71,19 @@ void EmoticonModel::setEmoticons(const QVector<UnicodeEmoticon> &emoticons)
         mEmoticons = emoticons;
         endInsertRows();
     }
+}
+
+void EmoticonModel::setCurrentCategory(const QString &category)
+{
+    if (mCurrentCategory != category) {
+        beginResetModel();
+        mCurrentCategory = category;
+        endResetModel();
+    }
+}
+
+QString EmoticonModel::currentCategory() const
+{
+    //TODO
+    return mCurrentCategory;
 }
