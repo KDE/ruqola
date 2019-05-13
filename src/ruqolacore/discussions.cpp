@@ -17,27 +17,15 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef DISCUSSIONSMODEL_H
-#define DISCUSSIONSMODEL_H
+#include "discussions.h"
 
-#include "libruqola_private_export.h"
-#include "discussion.h"
-#include <QAbstractListModel>
-
-class LIBRUQOLACORE_TESTS_EXPORT DiscussionsModel : public QAbstractListModel
+Discussions::Discussions()
 {
-    Q_OBJECT
-public:
-    explicit DiscussionsModel(QObject *parent = nullptr);
-    ~DiscussionsModel() override;
 
-    Q_REQUIRED_RESULT Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+}
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
-private:
-    Q_DISABLE_COPY(DiscussionsModel)
-};
-
-#endif // DISCUSSIONSMODEL_H
+QDebug operator <<(QDebug d, const Discussions &t)
+{
+    //TODO
+    return d;
+}
