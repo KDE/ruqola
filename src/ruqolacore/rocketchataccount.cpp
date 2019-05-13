@@ -48,10 +48,13 @@
 #include "model/inputcompletermodel.h"
 #include "model/searchmessagemodel.h"
 #include "model/searchmessagefilterproxymodel.h"
+#include "model/discussionsmodel.h"
+#include "model/threadsmodel.h"
 #include "managerdatapaths.h"
 #include "authenticationmanager.h"
 
 #include "ddpapi/ddpclient.h"
+#include "discussions.h"
 #include "receivetypingnotificationmanager.h"
 #include "restapirequest.h"
 #include "serverconfiginfo.h"
@@ -350,6 +353,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::spotlightDone, this, &RocketChatAccount::slotSplotLightDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, &RocketChatAccount::slotGetThreadsListDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -690,12 +694,30 @@ void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const QStri
 
 void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj)
 {
-    //TODO
 }
 
-void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj)
+void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId)
 {
-    //TODO
+    Room *room = mRoomModel->findRoom(roomId);
+    if (room) {
+        Discussions discussions;
+        discussions.parseDiscussions(obj);
+        room->discussionsModelForRoom()->setDiscussions(discussions);
+    } else {
+        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
+    }
+}
+
+void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId)
+{
+    Room *room = mRoomModel->findRoom(roomId);
+    if (room) {
+        Threads threads;
+        threads.parseThreads(obj);
+        room->threadsModelForRoom()->setThreads(threads);
+    } else {
+        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
+    }
 }
 
 void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)

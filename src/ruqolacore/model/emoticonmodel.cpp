@@ -103,3 +103,5 @@ QString EmoticonModel::currentCategory() const
 {
     return mCurrentCategory;
 }
+
+//TODO return list of categories

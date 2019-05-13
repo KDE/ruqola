@@ -45,7 +45,7 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void getThreadsDone(const QJsonObject &obj);
+    void getThreadsDone(const QJsonObject &obj, const QString &roomId);
 
 private:
     Q_DISABLE_COPY(GetThreadsJob)

@@ -51,6 +51,7 @@ Kirigami.ApplicationWindow {
     property QtObject rocketChatAccount: accountManager.firstAccount()
     property QtObject inputCompleterModel: rocketChatAccount.inputCompleterModel()
     property QtObject searchMessageModel: rocketChatAccount.searchMessageFilterProxyModel()
+    property QtObject emojiModel: rocketChatAccount.emoticonModel()
     property string userInputMessageText: "";
 
     width: Kirigami.Units.gridUnit * 55

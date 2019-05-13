@@ -26,7 +26,7 @@ import QtQuick.Layouts 1.12
 
 import KDE.Ruqola.RocketChatAccount 1.0
 import org.kde.kirigami 2.7 as Kirigami
-
+import "common"
 RowLayout {
     id: footerItem
     property QtObject rcAccount
@@ -62,6 +62,29 @@ RowLayout {
         id: messageLine
     }
     
+    EmoticonMenu {
+        id: emoticonMenu
+        model: appid.emojiModel
+        width: Kirigami.Units.gridUnit * 20
+        height: Kirigami.Units.gridUnit * 15
+        x: -width + parent.width
+        y: -height - 10
+        onInsertEmoticon: {
+            //TODO
+        }
+    }
+    Kirigami.Icon {
+        source: "face-smile"
+        width: height
+        height: messageLine.height
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                emoticonMenu.visible ? emoticonMenu.close() : emoticonMenu.open()
+            }
+        }
+    }
+
     Kirigami.Icon {
         source: "mail-sent"
         width: height

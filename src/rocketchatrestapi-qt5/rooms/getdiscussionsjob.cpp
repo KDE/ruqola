@@ -75,7 +75,7 @@ void GetDiscussionsJob::slotGetDiscussionsFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GetDiscussionsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT getDiscussionsDone(replyObject);
+            Q_EMIT getDiscussionsDone(replyObject, mRoomId);
         } else {
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GetDiscussionsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

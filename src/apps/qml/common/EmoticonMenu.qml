@@ -19,7 +19,55 @@
 */
 
 import QtQuick 2.0
+import QtQuick.Controls 2.5 as QQC2
+import org.kde.kirigami 2.7 as Kirigami
+import QtQuick.Layouts 1.12
+QQC2.Popup {
+    id: emojiPopup
+    property var model
+    property string categoryName
+    signal insertEmoticon(string emoti)
 
-Item {
+    ColumnLayout {
+        anchors.fill: parent
+
+        GridView {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
+            cellWidth: Kirigami.Units.gridUnit * 2.5
+            cellHeight: Kirigami.Units.gridUnit * 2.5
+
+            boundsBehavior: Flickable.DragOverBounds
+
+            clip: true
+
+            model: emojiModel
+
+            delegate: QQC2.ItemDelegate {
+                width: Kirigami.Units.gridUnit * 2
+                height: Kirigami.Units.gridUnit * 2
+
+                contentItem: Text {
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+
+                    font.pointSize: 20
+                    font.family: "NotoColorEmoji"
+                    text: modelData.unicode
+                }
+
+                hoverEnabled: true
+                QQC2.ToolTip.text: modelData.shortname
+                QQC2.ToolTip.visible: hovered
+
+                onClicked: {
+                    //TODO
+                }
+            }
+
+            QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
+        }
+    }
 
 }

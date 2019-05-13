@@ -32,20 +32,16 @@ ThreadsModel::~ThreadsModel()
 int ThreadsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    //return mMentions.count();
-    return {};
+    return mThreads.count();
 }
 
 QVariant ThreadsModel::data(const QModelIndex &index, int role) const
 {
-#if 0
-    if (index.row() < 0 || index.row() >= mMentions.count()) {
+    if (index.row() < 0 || index.row() >= mThreads.count()) {
         return {};
     }
-    Mention mention = mMentions.at(index.row());
+    const Thread thread = mThreads.at(index.row());
 
-#endif
-    //TODO
     return {};
 }
 
@@ -54,3 +50,18 @@ QHash<int, QByteArray> ThreadsModel::roleNames() const
     QHash<int, QByteArray> roles;
     return roles;
 }
+
+void ThreadsModel::setThreads(const Threads &threads)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mThreads.count() - 1);
+        mThreads.clear();
+        endRemoveRows();
+    }
+    if (!mThreads.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mThreads.count() - 1);
+        mThreads = threads;
+        endInsertRows();
+    }
+}
+

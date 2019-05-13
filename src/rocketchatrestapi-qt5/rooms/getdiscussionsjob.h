@@ -45,7 +45,7 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void getDiscussionsDone(const QJsonObject &obj);
+    void getDiscussionsDone(const QJsonObject &obj, const QString &roomId);
 
 private:
     Q_DISABLE_COPY(GetDiscussionsJob)

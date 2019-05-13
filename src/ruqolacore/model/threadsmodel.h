@@ -21,7 +21,7 @@
 #define THREADSMODEL_H
 
 #include "libruqola_private_export.h"
-#include "discussion.h"
+#include "threads.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_TESTS_EXPORT ThreadsModel : public QAbstractListModel
@@ -36,8 +36,10 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
+    void setThreads(const Threads &threads);
 private:
     Q_DISABLE_COPY(ThreadsModel)
+    Threads mThreads;
 };
 
 #endif // DISCUSSIONSMODEL_H

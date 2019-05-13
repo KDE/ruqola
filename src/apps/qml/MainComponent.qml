@@ -120,6 +120,22 @@ Component {
                     }
                 },
                 Kirigami.Action {
+                    visible: appid.selectedRoom && appid.rocketChatAccount.discussionEnabled()
+                    text: i18n("Discussions")
+                    onTriggered: {
+//                        appid.rocketChatAccount.channelGetAllUserMentions(appid.selectedRoomID);
+//                        showMentionsInRoomDialog.initializeAndOpen()
+                    }
+                },
+                Kirigami.Action {
+                    visible: appid.selectedRoom && appid.rocketChatAccount.threadsEnabled()
+                    text: i18n("Threads")
+                    onTriggered: {
+//                        appid.rocketChatAccount.channelGetAllUserMentions(appid.selectedRoomID);
+//                        showMentionsInRoomDialog.initializeAndOpen()
+                    }
+                },
+                Kirigami.Action {
                     id: menuVideoChatAction
                     property bool shouldBeVisible: false
                     visible: shouldBeVisible && appid.selectedRoom

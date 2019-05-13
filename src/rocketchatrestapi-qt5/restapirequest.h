@@ -204,8 +204,8 @@ Q_SIGNALS:
     void followMessageDone();
     void unFollowMessageDone();
     void startDiscussionDone();
-    void getDiscussionsDone(const QJsonObject &obj);
-    void getThreadsDone(const QJsonObject &obj);
+    void getDiscussionsDone(const QJsonObject &obj, const QString &roomId);
+    void getThreadsDone(const QJsonObject &obj, const QString &roomId);
     void getThreadMessagesDone(const QJsonObject &obj);
 
     void failed(const QString &str);

@@ -50,7 +50,7 @@ public:
 
     Q_INVOKABLE void setCurrentCategory(const QString &category);
 
-    Q_REQUIRED_RESULT QString currentCategory() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT QString currentCategory() const;
 private:
     Q_DISABLE_COPY(EmoticonModel)
     QString mCurrentCategory;
