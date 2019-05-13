@@ -27,6 +27,7 @@
 #include <emoticons/unicodeemoticon.h>
 
 class QLineEdit;
+class KListWidgetSearchLine;
 class UnicodeEmoticonInfo : public QWidget
 {
     Q_OBJECT
@@ -72,6 +73,7 @@ private:
     void slotItemSelectionChanged();
     QListWidget *mListWidget = nullptr;
     UnicodeEmoticonInfo *mWidgetInfo = nullptr;
+    KListWidgetSearchLine *mSearchEmoticon = nullptr;
 };
 
 #endif // UnicodeEmoticonGui_H

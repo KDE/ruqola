@@ -31,6 +31,7 @@
 #include <QListWidget>
 #include <QFormLayout>
 #include <QLineEdit>
+#include <KListWidgetSearchLine>
 
 #include <emoticons/unicodeemoticonparser.h>
 
@@ -41,8 +42,16 @@ UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     QHBoxLayout *hboxLayout = new QHBoxLayout;
     hboxLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addLayout(hboxLayout);
+
+    QVBoxLayout *mainComponentLayout = new QVBoxLayout;
+    mainComponentLayout->setContentsMargins(0, 0, 0, 0);
+
+    mSearchEmoticon = new KListWidgetSearchLine(this);
     mListWidget = new QListWidget(this);
-    hboxLayout->addWidget(mListWidget);
+    mSearchEmoticon->setListWidget(mListWidget);
+    mainComponentLayout->addWidget(mSearchEmoticon);
+    mainComponentLayout->addWidget(mListWidget);
+    hboxLayout->addLayout(mainComponentLayout);
 
     mWidgetInfo = new UnicodeEmoticonInfo(this);
     hboxLayout->addWidget(mWidgetInfo);
