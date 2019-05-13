@@ -69,6 +69,7 @@ private:
     void save();
     void load();
     void slotItemChanged(QListWidgetItem *item);
+    void slotItemSelectionChanged();
     QListWidget *mListWidget = nullptr;
     UnicodeEmoticonInfo *mWidgetInfo = nullptr;
 };

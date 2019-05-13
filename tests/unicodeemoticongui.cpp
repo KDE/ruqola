@@ -52,11 +52,18 @@ UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     connect(save, &QPushButton::clicked, this, &UnicodeEmoticonGui::save);
 
     connect(mListWidget, &QListWidget::itemClicked, this, &UnicodeEmoticonGui::slotItemChanged);
+    connect(mListWidget, &QListWidget::itemSelectionChanged, this, &UnicodeEmoticonGui::slotItemSelectionChanged);
     load();
 }
 
 UnicodeEmoticonGui::~UnicodeEmoticonGui()
 {
+}
+
+void UnicodeEmoticonGui::slotItemSelectionChanged()
+{
+    QListWidgetItem *item = mListWidget->currentItem();
+    slotItemChanged(item);
 }
 
 void UnicodeEmoticonGui::slotItemChanged(QListWidgetItem *item)
