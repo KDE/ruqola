@@ -52,7 +52,7 @@ QHash<int, QByteArray> DiscussionsModel::roleNames() const
     return roles;
 }
 
-void DiscussionsModel::setDiscussions(const Discussions &mentions)
+void DiscussionsModel::setDiscussions(const Discussions &discussions)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mDiscussions.count() - 1);
@@ -60,8 +60,8 @@ void DiscussionsModel::setDiscussions(const Discussions &mentions)
         endRemoveRows();
     }
     if (!mDiscussions.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mDiscussions.count() - 1);
-        mDiscussions = mentions;
+        beginInsertRows(QModelIndex(), 0, discussions.count() - 1);
+        mDiscussions = discussions;
         endInsertRows();
     }
 }

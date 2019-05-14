@@ -67,7 +67,7 @@ void EmoticonCategoriesModel::setEmoticons(const QMap<QString, QVector<UnicodeEm
         endRemoveRows();
     }
     if (!emoticons.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mCategories.count() - 1);
+        beginInsertRows(QModelIndex(), 0, emoticons.count() - 1);
         QMap<QString, QVector<UnicodeEmoticon>>::const_iterator i = emoticons.constBegin();
         while (i != emoticons.constEnd()) {
             EmoticonCategory cat;

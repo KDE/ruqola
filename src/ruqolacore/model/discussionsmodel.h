@@ -36,7 +36,7 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
-    void setDiscussions(const Discussions &mentions);
+    void setDiscussions(const Discussions &discussions);
 
 private:
     Q_DISABLE_COPY(DiscussionsModel)

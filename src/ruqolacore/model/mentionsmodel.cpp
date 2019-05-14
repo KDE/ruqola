@@ -53,7 +53,7 @@ void MentionsModel::setMentions(const Mentions &mentions)
         endRemoveRows();
     }
     if (!mMentions.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mMentions.count() - 1);
+        beginInsertRows(QModelIndex(), 0, mentions.count() - 1);
         mMentions = mentions;
         endInsertRows();
     }
