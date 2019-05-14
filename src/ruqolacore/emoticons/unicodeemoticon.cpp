@@ -44,7 +44,7 @@ void UnicodeEmoticon::setIdentifier(const QString &name)
 
 QString UnicodeEmoticon::unicode() const
 {
-    return mUnicode;
+    return QStringLiteral("<font face=\"NotoColorEmoji\" size=\"20\">%1</font>").arg(mUnicode);
 }
 
 //Code from fairchat
