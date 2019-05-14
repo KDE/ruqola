@@ -64,7 +64,7 @@ RowLayout {
     
     EmoticonMenu {
         id: emoticonMenu
-        model: appid.emojiModel
+        emojiPopupModel: appid.emojiModel
         width: Kirigami.Units.gridUnit * 20
         height: Kirigami.Units.gridUnit * 15
         x: -width + parent.width

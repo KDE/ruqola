@@ -24,7 +24,7 @@ import org.kde.kirigami 2.7 as Kirigami
 import QtQuick.Layouts 1.12
 QQC2.Popup {
     id: emojiPopup
-    property var model
+    property var emojiPopupModel
     property string categoryName
     signal insertEmoticon(string emoti)
 
@@ -42,7 +42,7 @@ QQC2.Popup {
 
             clip: true
 
-            model: emojiModel
+            model: emojiPopupModel
 
             delegate: QQC2.ItemDelegate {
                 width: Kirigami.Units.gridUnit * 2
@@ -62,11 +62,40 @@ QQC2.Popup {
                 QQC2.ToolTip.visible: hovered
 
                 onClicked: {
+                    console.log("Clicked " + identifier)
                     //TODO
                 }
             }
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
+        }
+        Row {
+            Repeater {
+                model: emojiPopupModel.categories()
+
+                delegate: QQC2.ItemDelegate {
+                    width: Kirigami.Units.gridUnit * 2
+                    height: Kirigami.Units.gridUnit * 2
+
+                    contentItem: Text {
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+
+                        font.pointSize: 20
+                        font.family: "NotoColorEmoji"
+                        text: modelData
+                    }
+
+                    hoverEnabled: true
+                    QQC2.ToolTip.text: category
+                    QQC2.ToolTip.visible: hovered
+
+                    onClicked: {
+
+                        //emojiCategory = category
+                    }
+                }
+            }
         }
     }
 
