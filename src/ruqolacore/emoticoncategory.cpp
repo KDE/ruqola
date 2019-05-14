@@ -18,33 +18,36 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONCATEGORIESMODEL_H
-#define EMOTICONCATEGORIESMODEL_H
-
-#include <QAbstractListModel>
-#include <QVector>
-#include "libruqola_private_export.h"
 #include "emoticoncategory.h"
-class LIBRUQOLACORE_TESTS_EXPORT EmoticonCategoriesModel : public QAbstractListModel
+
+EmoticonCategory::EmoticonCategory()
 {
-    Q_OBJECT
-public:
-    enum EmoticonCategoryRoles {
-        Name = Qt::UserRole + 1,
-        Category
-    };
-    Q_ENUM(EmoticonCategoryRoles)
 
-    explicit EmoticonCategoriesModel(QObject *parent = nullptr);
-    ~EmoticonCategoriesModel() override;
+}
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+QString EmoticonCategory::name() const
+{
+    return mName;
+}
 
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-private:
-    Q_DISABLE_COPY(EmoticonCategoriesModel)
-    QVector<EmoticonCategory> mCategories;
-};
-//Q_DECLARE_METATYPE(Category)
-#endif // EMOTICONCATEGORIESMODEL_H
+void EmoticonCategory::setName(const QString &name)
+{
+    mName = name;
+}
+
+QString EmoticonCategory::category() const
+{
+    return mCategory;
+}
+
+void EmoticonCategory::setCategory(const QString &category)
+{
+    mCategory = category;
+}
+
+QDebug operator <<(QDebug d, const EmoticonCategory &t)
+{
+    d << "Name " << t.name();
+    d << "Category " << t.category();
+    return d;
+}

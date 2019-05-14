@@ -144,6 +144,8 @@ set (Ruqola_core_srcs
 
     thread.cpp
     threads.cpp
+
+    emoticoncategory.cpp
 )
 
 if (NOT WIN32)

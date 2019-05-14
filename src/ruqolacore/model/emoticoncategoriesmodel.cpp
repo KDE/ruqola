@@ -32,24 +32,18 @@ EmoticonCategoriesModel::~EmoticonCategoriesModel()
 int EmoticonCategoriesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    //return mCategories.count();
-    return 0;
+    return mCategories.count();
 }
 
 QVariant EmoticonCategoriesModel::data(const QModelIndex &index, int role) const
 {
-//    if (index.row() < 0 || index.row() >= mCategories.count()) {
-//        return {};
-//    }
-//    const Category cat = mCategories.at(index.row());
+    if (index.row() < 0 || index.row() >= mCategories.count()) {
+        return {};
+    }
+    const EmoticonCategory cat = mCategories.at(index.row());
 
     //TODO
     return {};
-
-//    const QVector<UnicodeEmoticon> emoticonsFromCategoryList = mEmoticons.value(mCurrentCategory);
-//    if (index.row() < 0 || index.row() >= emoticonsFromCategoryList.count()) {
-//        return {};
-//    }
 }
 
 QHash<int, QByteArray> EmoticonCategoriesModel::roleNames() const
@@ -59,22 +53,3 @@ QHash<int, QByteArray> EmoticonCategoriesModel::roleNames() const
     roles[Category] = QByteArrayLiteral("category");
     return roles;
 }
-
-//void EmoticonCategoriesModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > &emoticons)
-//{
-////    if (rowCount() != 0) {
-////        beginRemoveRows(QModelIndex(), 0, mEmoticons.count() - 1);
-////        mEmoticons.clear();
-////        endRemoveRows();
-////    }
-////    if (!emoticons.isEmpty()) {
-////        beginInsertRows(QModelIndex(), 0, mEmoticons.count() - 1);
-////        mEmoticons = emoticons;
-////        endInsertRows();
-////    }
-////    if (!mEmoticons.isEmpty()) {
-////        mCurrentCategory = mEmoticons.keys().at(0);
-////        mCategories = mEmoticons.keys();
-////    }
-//}
-

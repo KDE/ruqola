@@ -55,13 +55,13 @@ public:
     void setKey(const QString &key);
 
 private:
+    QStringList mAliases;
     QString escapeUnicodeEmoji(const QString &pString);
     QString mIdentifier;
     QString mUnicode;
     QString mCategory;
     QString mKey;
     mutable QString mCachedHtml;
-    QStringList mAliases;
     int mOrder = -1;
 };
 Q_DECLARE_METATYPE(UnicodeEmoticon)
