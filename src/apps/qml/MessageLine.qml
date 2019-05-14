@@ -41,6 +41,11 @@ ColumnLayout {
         messageLine.selectAll()
     }
 
+    function insertEmoticon(emotiStr)
+    {
+        messageLine.insert(messageLine.cursorPosition, emotiStr)
+    }
+
     QQC2.TextField {
         id: messageLine
         //FIXME add multiline !!!

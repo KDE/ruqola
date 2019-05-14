@@ -70,7 +70,7 @@ RowLayout {
         x: -width + parent.width
         y: -height - 10
         onInsertEmoticon: {
-            //TODO
+            messageLine.insertEmoticon(emoti)
         }
     }
     Kirigami.Icon {
