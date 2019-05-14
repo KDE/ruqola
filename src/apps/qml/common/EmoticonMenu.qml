@@ -67,6 +67,12 @@ QQC2.Popup {
             }
             QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
         }
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.preferredHeight: 2
+
+            color: Kirigami.Theme.highlightColor
+        }
         Grid {
             columns: 8
             Repeater {
