@@ -1501,3 +1501,12 @@ void RocketChatAccount::createDiscussion(const QString &parentRoomId, const QStr
     restApi()->createDiscussion(parentRoomId, discussionName, replyMessage, messageId);
 }
 
+void RocketChatAccount::discussionsInRoom(const QString &roomId)
+{
+    //TODO
+}
+
+void RocketChatAccount::threadsInRoom(const QString &roomId)
+{
+    //TODO
+}

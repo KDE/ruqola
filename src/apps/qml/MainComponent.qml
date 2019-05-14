@@ -123,16 +123,16 @@ Component {
                     visible: appid.selectedRoom && appid.rocketChatAccount.discussionEnabled()
                     text: i18n("Discussions")
                     onTriggered: {
-//                        appid.rocketChatAccount.channelGetAllUserMentions(appid.selectedRoomID);
-//                        showMentionsInRoomDialog.initializeAndOpen()
+                        appid.rocketChatAccount.discussionsInRoom(appid.selectedRoomID);
+                        showDiscussionsInRoomDialog.initializeAndOpen()
                     }
                 },
                 Kirigami.Action {
                     visible: appid.selectedRoom && appid.rocketChatAccount.threadsEnabled()
                     text: i18n("Threads")
                     onTriggered: {
-//                        appid.rocketChatAccount.channelGetAllUserMentions(appid.selectedRoomID);
-//                        showMentionsInRoomDialog.initializeAndOpen()
+                        appid.rocketChatAccount.threadsInRoom(appid.selectedRoomID);
+                        showThreadsInRoomDialog.initializeAndOpen()
                     }
                 },
                 Kirigami.Action {
@@ -485,6 +485,15 @@ Component {
 
             ShowMentionsInRoomDialog {
                 id: showMentionsInRoomDialog
+                //mentionsModel: a
+            }
+            ShowDiscussionsInRoomDialog {
+                id: showDiscussionsInRoomDialog
+                //discussionsModel: appid.
+            }
+
+            ShowThreadsInRoomDialog {
+                id: showThreadsInRoomDialog
             }
 
             ShowFilesInRoomDialog {

@@ -224,6 +224,9 @@ public:
 
     Q_INVOKABLE Q_REQUIRED_RESULT bool discussionEnabled() const;
 
+    Q_INVOKABLE void discussionsInRoom(const QString &roomId);
+    Q_INVOKABLE void threadsInRoom(const QString &roomId);
+
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
@@ -298,6 +301,7 @@ public:
 
     Q_INVOKABLE EmoticonModel *emoticonModel() const;
     void setEmoticonModel(EmoticonModel *emoticonModel);
+
 
 Q_SIGNALS:
     void connectedChanged();
