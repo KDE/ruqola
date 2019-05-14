@@ -78,7 +78,7 @@ QQC2.Popup {
                 boundsBehavior: Flickable.DragOverBounds
 
                 clip: true
-                model: emojiPopupModel.categories()
+                model: emojiPopupModel.emoticonCategoriesModel()
 
                 delegate: QQC2.ItemDelegate {
                     width: Kirigami.Units.gridUnit * 2
@@ -90,7 +90,7 @@ QQC2.Popup {
 
                         font.pointSize: 20
                         font.family: "NotoColorEmoji"
-                        text: modelData
+                        text: name
                     }
 
                     //hoverEnabled: true
@@ -98,7 +98,7 @@ QQC2.Popup {
                     //QQC2.ToolTip.visible: hovered
 
                     onClicked: {
-                        emojiPopupModel.setCurrentCategory(modelData)
+                        emojiPopupModel.setCurrentCategory(category)
                     }
                 }
             }

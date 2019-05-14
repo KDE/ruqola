@@ -40,6 +40,7 @@ void EmoticonModelTest::shouldHaveDefaultValue()
     roles[EmoticonModel::UnicodeEmoji] = QByteArrayLiteral("unicodeEmoji");
     roles[EmoticonModel::Order] = QByteArrayLiteral("order");
     QCOMPARE(w.roleNames(), roles);
+    QVERIFY(w.emoticonCategoriesModel());
 }
 
 //TODO add more check

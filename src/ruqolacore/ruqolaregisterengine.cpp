@@ -56,6 +56,7 @@
 #include "model/notificationdesktopsoundpreferencemodel.h"
 #include "model/threadsmodel.h"
 #include "model/discussionsmodel.h"
+#include "model/emoticoncategoriesmodel.h"
 #include "notificationpreferences.h"
 
 #include "channel.h"
@@ -110,6 +111,8 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<EmoticonModel>("KDE.Ruqola.EmoticonModel", 1, 0, "EmoticonModel");
     qmlRegisterType<ThreadsModel>("KDE.Ruqola.ThreadsModel", 1, 0, "ThreadsModel");
     qmlRegisterType<DiscussionsModel>("KDE.Ruqola.DiscussionsModel", 1, 0, "DiscussionsModel");
+    qmlRegisterType<EmoticonCategoriesModel>("KDE.Ruqola.EmoticonCategoriesModel", 1, 0, "EmoticonCategoriesModel");
+
     qmlRegisterType<ReceiveTypingNotificationManager>("KDE.Ruqola.ReceiveTypingNotificationManager", 1, 0, "ReceiveTypingNotificationManager");
     qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
     qmlRegisterUncreatableType<Channel>("KDE.Ruqola.Channel", 1, 0, "Channel", QStringLiteral("ChannelType is an enum container"));

@@ -41,8 +41,13 @@ QVariant EmoticonCategoriesModel::data(const QModelIndex &index, int role) const
         return {};
     }
     const EmoticonCategory cat = mCategories.at(index.row());
-
-    //TODO
+    switch(role) {
+    case Name:
+        return cat.name();
+    case Category:
+        return cat.category();
+    }
+    Q_UNREACHABLE();
     return {};
 }
 
@@ -52,4 +57,25 @@ QHash<int, QByteArray> EmoticonCategoriesModel::roleNames() const
     roles[Name] = QByteArrayLiteral("name");
     roles[Category] = QByteArrayLiteral("category");
     return roles;
+}
+
+void EmoticonCategoriesModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > &emoticons)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mCategories.count() - 1);
+        mCategories.clear();
+        endRemoveRows();
+    }
+    if (!emoticons.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mCategories.count() - 1);
+        QMap<QString, QVector<UnicodeEmoticon>>::const_iterator i = emoticons.constBegin();
+        while (i != emoticons.constEnd()) {
+            EmoticonCategory cat;
+            cat.setCategory(i.key());
+            cat.setName(i.value().at(0).unicode());
+            ++i;
+            mCategories.append(cat);
+        }
+        endInsertRows();
+    }
 }

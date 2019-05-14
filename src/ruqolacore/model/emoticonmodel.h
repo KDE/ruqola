@@ -24,6 +24,7 @@
 #include <QAbstractListModel>
 #include "libruqola_private_export.h"
 #include "emoticons/unicodeemoticon.h"
+#include "emoticoncategoriesmodel.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT EmoticonModel : public QAbstractListModel
 {
@@ -52,13 +53,13 @@ public:
 
     Q_INVOKABLE Q_REQUIRED_RESULT QString currentCategory() const;
 
-    Q_INVOKABLE QStringList categories() const;
+    Q_INVOKABLE EmoticonCategoriesModel *emoticonCategoriesModel() const;
 
 private:
     Q_DISABLE_COPY(EmoticonModel)
-    QStringList mCategories;
-    QString mCurrentCategory;
     QMap<QString, QVector<UnicodeEmoticon>> mEmoticons;
+    QString mCurrentCategory;
+    EmoticonCategoriesModel *mEmoticonCategoriesModel = nullptr;
 };
 
 #endif // EMOTICONMODEL_H

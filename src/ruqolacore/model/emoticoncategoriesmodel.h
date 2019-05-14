@@ -23,6 +23,7 @@
 
 #include <QAbstractListModel>
 #include <QVector>
+#include "emoticons/unicodeemoticon.h"
 #include "libruqola_private_export.h"
 #include "emoticoncategory.h"
 class LIBRUQOLACORE_TESTS_EXPORT EmoticonCategoriesModel : public QAbstractListModel
@@ -42,6 +43,7 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
+    void setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > &emoticons);
 private:
     Q_DISABLE_COPY(EmoticonCategoriesModel)
     QVector<EmoticonCategory> mCategories;

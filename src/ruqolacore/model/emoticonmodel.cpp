@@ -23,6 +23,7 @@
 EmoticonModel::EmoticonModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    mEmoticonCategoriesModel = new EmoticonCategoriesModel(this);
 }
 
 EmoticonModel::~EmoticonModel()
@@ -88,7 +89,7 @@ void EmoticonModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > 
     }
     if (!mEmoticons.isEmpty()) {
         mCurrentCategory = mEmoticons.keys().at(0);
-        mCategories = mEmoticons.keys();
+        mEmoticonCategoriesModel->setEmoticons(emoticons);
     }
 }
 
@@ -106,9 +107,7 @@ QString EmoticonModel::currentCategory() const
     return mCurrentCategory;
 }
 
-QStringList EmoticonModel::categories() const
+EmoticonCategoriesModel *EmoticonModel::emoticonCategoriesModel() const
 {
-    return mCategories;
+    return mEmoticonCategoriesModel;
 }
-
-//TODO return list of categories
