@@ -60,6 +60,7 @@ private:
     QString mUnicode;
     QString mCategory;
     QString mKey;
+    mutable QString mCachedHtml;
     QStringList mAliases;
     int mOrder = -1;
 };
