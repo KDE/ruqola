@@ -67,15 +67,12 @@ QQC2.Popup {
             }
             QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
         }
-        //Row {
-            GridView {
+        Grid {
+            columns: 8
+            Repeater {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
 
-                cellWidth: Kirigami.Units.gridUnit * 2.5
-                cellHeight: Kirigami.Units.gridUnit * 2.5
-
-                boundsBehavior: Flickable.DragOverBounds
 
                 clip: true
                 model: emojiPopupModel.emoticonCategoriesModel()
@@ -103,5 +100,5 @@ QQC2.Popup {
                 }
             }
         }
-   // }
+    }
 }
