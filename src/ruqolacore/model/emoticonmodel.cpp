@@ -80,7 +80,7 @@ void EmoticonModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > 
         mEmoticons.clear();
         endRemoveRows();
     }
-    if (!mEmoticons.isEmpty()) {
+    if (!emoticons.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mEmoticons.count() - 1);
         mEmoticons = emoticons;
         endInsertRows();

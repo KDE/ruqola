@@ -54,11 +54,11 @@ QQC2.Popup {
 
                     font.pointSize: 20
                     font.family: "NotoColorEmoji"
-                    text: modelData.unicode
+                    text: unicodeEmoji
                 }
 
                 hoverEnabled: true
-                QQC2.ToolTip.text: modelData.shortname
+                QQC2.ToolTip.text: text
                 QQC2.ToolTip.visible: hovered
 
                 onClicked: {

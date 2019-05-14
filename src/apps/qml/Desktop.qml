@@ -46,6 +46,8 @@ Kirigami.ApplicationWindow {
     property QtObject messageModel
     property QtObject userModel
     property QtObject filesModel
+    property QtObject threadsModel
+    property QtObject discussionsModel
     property QtObject accountManager: Ruqola.accountManager()
     property QtObject accountManagerModel: accountManager.rocketChatAccountModel()
     property QtObject rocketChatAccount: accountManager.firstAccount()
