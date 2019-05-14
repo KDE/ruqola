@@ -36,13 +36,22 @@ Repeater {
             wrapMode: QQC2.Label.NoWrap
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
-            font.pixelSize: 26
+            font.pixelSize: 20
             MouseArea {
                 anchors.fill: parent
                 acceptedButtons: Qt.RightButton | Qt.LeftButton
 
                 onClicked: {
                     repearterReactions.deleteReaction(model.modelData.reactionName);
+                }
+            }
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+
+                QQC2.ToolTip {
+                    id: tooltipReact
+                    text: "TODO"
                 }
             }
         }
