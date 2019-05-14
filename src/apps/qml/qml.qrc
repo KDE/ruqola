@@ -70,6 +70,7 @@
         <file alias="RepeaterRoles.qml">messages/RepeaterRoles.qml</file>
         <file alias="DiscussionLabel.qml">messages/DiscussionLabel.qml</file>
         <file alias="ThreadLabel.qml">messages/ThreadLabel.qml</file>
+        <file alias="ReactionsPopup.qml">messages/ReactionsPopup.qml</file>
     </qresource>
     <qresource prefix="/common">
         <file alias="DownloadButton.qml">common/DownloadButton.qml</file>
