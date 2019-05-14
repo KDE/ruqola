@@ -58,7 +58,7 @@ QQC2.Popup {
                 }
 
                 hoverEnabled: true
-                QQC2.ToolTip.text: text
+                QQC2.ToolTip.text: identifier
                 QQC2.ToolTip.visible: hovered
 
                 onClicked: {

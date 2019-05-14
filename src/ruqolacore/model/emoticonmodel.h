@@ -51,8 +51,12 @@ public:
     Q_INVOKABLE void setCurrentCategory(const QString &category);
 
     Q_INVOKABLE Q_REQUIRED_RESULT QString currentCategory() const;
+
+    Q_INVOKABLE QStringList categories() const;
+
 private:
     Q_DISABLE_COPY(EmoticonModel)
+    QStringList mCategories;
     QString mCurrentCategory;
     QMap<QString, QVector<UnicodeEmoticon>> mEmoticons;
 };

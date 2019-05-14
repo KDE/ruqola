@@ -87,6 +87,7 @@ void EmoticonModel::setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > 
     }
     if (!mEmoticons.isEmpty()) {
         mCurrentCategory = mEmoticons.keys().at(0);
+        mCategories = mEmoticons.keys();
     }
 }
 
@@ -102,6 +103,11 @@ void EmoticonModel::setCurrentCategory(const QString &category)
 QString EmoticonModel::currentCategory() const
 {
     return mCurrentCategory;
+}
+
+QStringList EmoticonModel::categories() const
+{
+    return mCategories;
 }
 
 //TODO return list of categories
