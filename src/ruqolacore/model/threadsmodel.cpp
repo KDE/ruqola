@@ -59,7 +59,7 @@ void ThreadsModel::setThreads(const Threads &threads)
         endRemoveRows();
     }
     if (!mThreads.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mThreads.count() - 1);
+        beginInsertRows(QModelIndex(), 0, threads.count() - 1);
         mThreads = threads;
         endInsertRows();
     }
