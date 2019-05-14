@@ -49,6 +49,7 @@ QVariant NotificationDesktopDurationPreferenceModel::data(const QModelIndex &ind
     case NotificationPreference:
         return preferenceInfo.preference;
     }
+    Q_UNREACHABLE();
     return {};
 }
 

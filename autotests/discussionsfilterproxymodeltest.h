@@ -29,6 +29,8 @@ class DiscussionsFilterProxyModelTest : public QObject
 public:
     explicit DiscussionsFilterProxyModelTest(QObject *parent = nullptr);
     ~DiscussionsFilterProxyModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // DISCUSSIONSFILTERPROXYMODELTEST_H

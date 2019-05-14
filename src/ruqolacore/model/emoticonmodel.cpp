@@ -55,6 +55,7 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
     case Order:
         return unicodeEmoti.order();
     }
+    Q_UNREACHABLE();
     return {};
 }
 

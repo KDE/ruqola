@@ -47,7 +47,7 @@ QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
         //TODO ?
         return {};
     }
-
+    Q_UNREACHABLE();
     return {};
 }
 

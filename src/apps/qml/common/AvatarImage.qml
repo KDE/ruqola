@@ -81,7 +81,7 @@ Rectangle {
         color: Kirigami.Theme.backgroundColor
 
         font.weight: Font.Bold
-        font.pointSize: 100
+        font.pointSize: 40
         fontSizeMode: Text.Fit
         
         horizontalAlignment: Text.AlignHCenter

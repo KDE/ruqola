@@ -17,6 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 #include "discussionstest.h"
+#include "discussions.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(DiscussionsTest)
 
@@ -24,4 +25,10 @@ DiscussionsTest::DiscussionsTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void DiscussionsTest::shouldHaveDefaultValues()
+{
+    Discussions w;
+    QVERIFY(w.isEmpty());
 }

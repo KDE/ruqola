@@ -326,7 +326,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::ThreadMessageId:
         return mAllMessages.at(idx).threadMessageId();
     }
-    return QString();
+    Q_UNREACHABLE();
+    return {};
 }
 
 QStringList MessageModel::roomRoles(const QString &userId) const

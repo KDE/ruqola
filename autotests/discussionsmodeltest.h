@@ -29,6 +29,8 @@ class DiscussionsModelTest : public QObject
 public:
     explicit DiscussionsModelTest(QObject *parent = nullptr);
     ~DiscussionsModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // DISCUSSIONSMODELTEST_H

@@ -22,18 +22,17 @@
 #define EMOTICONCATEGORIESMODEL_H
 
 #include <QAbstractListModel>
+#include <QVector>
 #include "libruqola_private_export.h"
 class LIBRUQOLACORE_TESTS_EXPORT EmoticonCategoriesModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
-//    enum EmoticonsRoles {
-//        Identifier = Qt::UserRole + 1,
-//        Text,
-//        UnicodeEmoji,
-//        Order
-//    };
-//    Q_ENUM(EmoticonsRoles)
+    enum EmoticonCategoryRoles {
+        Name = Qt::UserRole + 1,
+        Category
+    };
+    Q_ENUM(EmoticonCategoryRoles)
 
     explicit EmoticonCategoriesModel(QObject *parent = nullptr);
     ~EmoticonCategoriesModel() override;
@@ -44,6 +43,13 @@ public:
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 private:
     Q_DISABLE_COPY(EmoticonCategoriesModel)
+//    class Category {
+//    public:
+//        Category() {}
+//        QString name;
+//        QString category;
+//    };
+    //QVector<EmoticonCategoriesModel::Category> mCategories;
 };
-
+//Q_DECLARE_METATYPE(Category)
 #endif // EMOTICONCATEGORIESMODEL_H

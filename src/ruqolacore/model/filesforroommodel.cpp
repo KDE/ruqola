@@ -79,6 +79,7 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
     case UserName:
         return file.userName();
     }
+    Q_UNREACHABLE();
     return {};
 }
 

@@ -20,10 +20,23 @@
 
 
 #include "discussionsfilterproxymodeltest.h"
+#include "model/discussionsfilterproxymodel.h"
+#include "model/discussionsmodel.h"
 #include <QTest>
 QTEST_MAIN(DiscussionsFilterProxyModelTest)
 DiscussionsFilterProxyModelTest::DiscussionsFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void DiscussionsFilterProxyModelTest::shouldHaveDefaultValues()
+{
+    DiscussionsFilterProxyModel proxy;
+    DiscussionsModel model;
+    proxy.setSourceModel(&model);
+    QCOMPARE(proxy.rowCount(), 0);
+    QHash<int, QByteArray> roles;
+    //TODO
+    QCOMPARE(proxy.roleNames(), roles);
 }

@@ -32,22 +32,31 @@ EmoticonCategoriesModel::~EmoticonCategoriesModel()
 int EmoticonCategoriesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
+    //return mCategories.count();
     return 0;
 }
 
 QVariant EmoticonCategoriesModel::data(const QModelIndex &index, int role) const
 {
+//    if (index.row() < 0 || index.row() >= mCategories.count()) {
+//        return {};
+//    }
+//    const Category cat = mCategories.at(index.row());
+
+    //TODO
+    return {};
+
 //    const QVector<UnicodeEmoticon> emoticonsFromCategoryList = mEmoticons.value(mCurrentCategory);
 //    if (index.row() < 0 || index.row() >= emoticonsFromCategoryList.count()) {
 //        return {};
 //    }
-    return {};
 }
 
 QHash<int, QByteArray> EmoticonCategoriesModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-//    roles[Identifier] = QByteArrayLiteral("identifier");
+    roles[Name] = QByteArrayLiteral("name");
+    roles[Category] = QByteArrayLiteral("category");
     return roles;
 }
 

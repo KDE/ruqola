@@ -51,9 +51,6 @@ QString UnicodeEmoticon::unicode() const
 //Reimplement it ?
 QString UnicodeEmoticon::escapeUnicodeEmoji(const QString &pString)
 {
-//    static const QRegularExpression reg{ QStringLiteral("(\\b[A-Fa-f0-9]{2,6}\\b)") };
-//    QRegularExpressionMatchIterator iter = reg.globalMatch(pString);
-
     QString retString;
 
     if (pString.contains(QLatin1Char('-'))) {

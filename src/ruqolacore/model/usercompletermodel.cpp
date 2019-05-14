@@ -74,6 +74,7 @@ QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
     case UserIconStatus:
         return user.iconFromStatus();
     }
+    Q_UNREACHABLE();
     return {};
 }
 
