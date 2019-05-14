@@ -62,15 +62,22 @@ QQC2.Popup {
                 QQC2.ToolTip.visible: hovered
 
                 onClicked: {
-                    console.log("Clicked " + identifier)
-                    //TODO
+                    emojiPopup.insertEmoticon(identifier)
                 }
             }
-
             QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
         }
-        Row {
-            Repeater {
+        //Row {
+            GridView {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                cellWidth: Kirigami.Units.gridUnit * 2.5
+                cellHeight: Kirigami.Units.gridUnit * 2.5
+
+                boundsBehavior: Flickable.DragOverBounds
+
+                clip: true
                 model: emojiPopupModel.categories()
 
                 delegate: QQC2.ItemDelegate {
@@ -86,17 +93,15 @@ QQC2.Popup {
                         text: modelData
                     }
 
-                    hoverEnabled: true
-                    QQC2.ToolTip.text: category
-                    QQC2.ToolTip.visible: hovered
+                    //hoverEnabled: true
+                    //QQC2.ToolTip.text: category
+                    //QQC2.ToolTip.visible: hovered
 
                     onClicked: {
-
-                        //emojiCategory = category
+                        emojiPopupModel.setCurrentCategory(modelData)
                     }
                 }
             }
         }
-    }
-
+   // }
 }
