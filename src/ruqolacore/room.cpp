@@ -32,6 +32,7 @@
 #include "model/messagemodel.h"
 #include "model/threadsmodel.h"
 #include "model/discussionsmodel.h"
+#include "model/discussionsfilterproxymodel.h"
 
 #include <KLocalizedString>
 
@@ -61,6 +62,9 @@ Room::Room(RocketChatAccount *account, QObject *parent)
 
     mDiscussionsModel = new DiscussionsModel(this);
     mDiscussionsModel->setObjectName(QStringLiteral("discussionsmodel"));
+    mDiscussionsFilterProxyModel = new DiscussionsFilterProxyModel(this);
+    mDiscussionsFilterProxyModel->setObjectName(QStringLiteral("discussionsfilterproxymodel"));;
+    mDiscussionsFilterProxyModel->setSourceModel(mDiscussionsModel);
 
     //TODO necessary to define mChannelType
 }
@@ -1024,6 +1028,11 @@ FilesForRoomModel *Room::filesModelForRoom() const
 FilesForRoomFilterProxyModel *Room::filesForRoomFilterProxyModel() const
 {
     return mFilesForRoomFilterProxyModel;
+}
+
+DiscussionsFilterProxyModel *Room::discussionsModelForRoomFilterProxyModel() const
+{
+    return mDiscussionsFilterProxyModel;
 }
 
 DiscussionsModel *Room::discussionsModelForRoom() const

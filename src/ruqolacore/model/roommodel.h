@@ -126,6 +126,7 @@ public:
     Q_REQUIRED_RESULT QString insertRoom(const QJsonObject &room);
 
     DiscussionsModel *discussionsModelForRoom(const QString &roomId) const;
+    DiscussionsFilterProxyModel *discussionsModelForRoomProxyModel(const QString &roomId) const;
     ThreadsModel *threadsModelForRoom(const QString &roomId) const;
 Q_SIGNALS:
     void needToUpdateNotification();

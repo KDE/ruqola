@@ -57,6 +57,7 @@ class PluginAuthenticationInterface;
 class Room;
 class SearchMessageModel;
 class SearchMessageFilterProxyModel;
+class DiscussionsFilterProxyModel;
 class ServerConfigInfo;
 class ReceiveTypingNotificationManager;
 class EmoticonModel;
@@ -179,6 +180,8 @@ public:
     Q_INVOKABLE LoginMethodModel *loginMethodModel() const;
     Q_INVOKABLE Room *getRoom(const QString &roomId);
 
+    Q_INVOKABLE DiscussionsFilterProxyModel *discussionsFilterProxyModel(const QString &roomId) const;
+
     Q_INVOKABLE void changeDefaultAuthentication(int index);
     Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid);
 
@@ -224,7 +227,6 @@ public:
 
     Q_INVOKABLE Q_REQUIRED_RESULT bool discussionEnabled() const;
 
-    Q_INVOKABLE void discussionsInRoom(const QString &roomId);
     Q_INVOKABLE void threadsInRoom(const QString &roomId);
 
     SearchChannelModel *searchChannelModel() const;

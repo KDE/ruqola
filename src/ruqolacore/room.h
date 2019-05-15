@@ -38,6 +38,7 @@ class RocketChatAccount;
 class NotificationOptionsWrapper;
 class ThreadsModel;
 class DiscussionsModel;
+class DiscussionsFilterProxyModel;
 class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
 {
     Q_OBJECT
@@ -150,6 +151,7 @@ public:
     FilesForRoomModel *filesModelForRoom() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
 
+    DiscussionsFilterProxyModel *discussionsModelForRoomFilterProxyModel() const;
     DiscussionsModel *discussionsModelForRoom() const;
     ThreadsModel *threadsModelForRoom() const;
 
@@ -346,6 +348,7 @@ private:
     FilesForRoomModel *mFilesModelForRoom = nullptr;
     FilesForRoomFilterProxyModel *mFilesForRoomFilterProxyModel = nullptr;
     ThreadsModel *mThreadsModel = nullptr;
+    DiscussionsFilterProxyModel *mDiscussionsFilterProxyModel = nullptr;
     DiscussionsModel *mDiscussionsModel = nullptr;
     MessageModel *mMessageModel = nullptr;
     RocketChatAccount *mRocketChatAccount = nullptr;

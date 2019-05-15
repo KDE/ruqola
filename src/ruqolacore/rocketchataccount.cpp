@@ -267,6 +267,11 @@ Room *RocketChatAccount::getRoom(const QString &roomId)
     return mRoomModel->findRoom(roomId);
 }
 
+DiscussionsFilterProxyModel *RocketChatAccount::discussionsFilterProxyModel(const QString &roomId) const
+{
+    return mRoomModel->discussionsModelForRoomProxyModel(roomId);
+}
+
 RoomWrapper *RocketChatAccount::getRoomWrapper(const QString &roomId)
 {
     return mRoomModel->findRoomWrapper(roomId);
@@ -1499,11 +1504,6 @@ void RocketChatAccount::rolesChanged(const QJsonArray &contents)
 void RocketChatAccount::createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &replyMessage, const QString &messageId)
 {
     restApi()->createDiscussion(parentRoomId, discussionName, replyMessage, messageId);
-}
-
-void RocketChatAccount::discussionsInRoom(const QString &roomId)
-{
-    //TODO
 }
 
 void RocketChatAccount::threadsInRoom(const QString &roomId)

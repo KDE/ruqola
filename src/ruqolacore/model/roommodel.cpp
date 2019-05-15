@@ -475,6 +475,18 @@ DiscussionsModel *RoomModel::discussionsModelForRoom(const QString &roomId) cons
     return {};
 }
 
+DiscussionsFilterProxyModel *RoomModel::discussionsModelForRoomProxyModel(const QString &roomId) const
+{
+    const int roomCount = mRoomsList.count();
+    for (int i = 0; i < roomCount; ++i) {
+        Room *room = mRoomsList.at(i);
+        if (room->roomId() == roomId) {
+            return room->discussionsModelForRoomFilterProxyModel();
+        }
+    }
+    return {};
+}
+
 ThreadsModel *RoomModel::threadsModelForRoom(const QString &roomId) const
 {
     const int roomCount = mRoomsList.count();
