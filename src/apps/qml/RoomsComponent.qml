@@ -174,6 +174,7 @@ Component {
                 if (roomID == selectedRoomID) {
                     return;
                 }
+                //TODO remove duplicate code !!!!
                 appid.rocketChatAccount.switchingToRoom(roomID)
                 appid.rocketChatAccount.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
                 appid.selectedRoomID = roomID;
@@ -181,6 +182,9 @@ Component {
                 appid.selectedRoom = appid.rocketChatAccount.getRoomWrapper(roomID)
                 appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(roomID)
                 appid.filesModel = appid.rocketChatAccount.filesForRoomFilterProxyModel(roomID)
+                appid.threadsModel = appid.rocketChatAccount.threadsFilterProxyModel(roomID)
+                appid.discussionsModel = appid.rocketChatAccount.discussionsFilterProxyModel(roomID)
+
             }
         } //RoomsView
     }
