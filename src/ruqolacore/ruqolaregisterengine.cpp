@@ -55,6 +55,7 @@
 #include "model/notificationdesktopdurationpreferencemodel.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
 #include "model/threadsmodel.h"
+#include "model/threadsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/emoticoncategoriesmodel.h"
@@ -111,6 +112,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<NotificationOptionsWrapper>("KDE.Ruqola.NotificationOptionsWrapper", 1, 0, "NotificationOptionsWrapper");
     qmlRegisterType<EmoticonModel>("KDE.Ruqola.EmoticonModel", 1, 0, "EmoticonModel");
     qmlRegisterType<ThreadsModel>("KDE.Ruqola.ThreadsModel", 1, 0, "ThreadsModel");
+    qmlRegisterType<ThreadsFilterProxyModel>("KDE.Ruqola.ThreadsFilterProxyModel", 1, 0, "ThreadsFilterProxyModel");
     qmlRegisterType<DiscussionsModel>("KDE.Ruqola.DiscussionsModel", 1, 0, "DiscussionsModel");
     qmlRegisterType<DiscussionsFilterProxyModel>("KDE.Ruqola.DiscussionsFilterProxyModel", 1, 0, "DiscussionsFilterProxyModel");
     qmlRegisterType<EmoticonCategoriesModel>("KDE.Ruqola.EmoticonCategoriesModel", 1, 0, "EmoticonCategoriesModel");

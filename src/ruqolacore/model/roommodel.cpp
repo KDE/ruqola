@@ -499,6 +499,18 @@ ThreadsModel *RoomModel::threadsModelForRoom(const QString &roomId) const
     return {};
 }
 
+ThreadsFilterProxyModel *RoomModel::threadsModelForRoomProxyModel(const QString &roomId) const
+{
+    const int roomCount = mRoomsList.count();
+    for (int i = 0; i < roomCount; ++i) {
+        Room *room = mRoomsList.at(i);
+        if (room->roomId() == roomId) {
+            return room->threadsModelForRoomFilterProxyModel();
+        }
+    }
+    return {};
+}
+
 QString RoomModel::inputMessage(const QString &roomId) const
 {
     const int roomCount = mRoomsList.count();

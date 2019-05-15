@@ -61,8 +61,8 @@ Component {
             appid.selectedRoom = appid.rocketChatAccount.getRoomWrapper(discussionRoomId)
             appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(discussionRoomId)
             appid.filesModel = appid.rocketChatAccount.filesForRoomFilterProxyModel(discussionRoomId)
-            //appid.threadsModel = appid.rocketChatAccount.th(discussionRoomId)
-            //appid.discussionsModel = appid.rocketChatAccount.th(discussionRoomId)
+            appid.threadsModel = appid.rocketChatAccount.threadsFilterProxyModel(discussionRoomId)
+            appid.discussionsModel = appid.rocketChatAccount.discussionsFilterProxyModel(discussionRoomId)
         }
 
         actions {

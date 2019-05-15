@@ -272,6 +272,11 @@ DiscussionsFilterProxyModel *RocketChatAccount::discussionsFilterProxyModel(cons
     return mRoomModel->discussionsModelForRoomProxyModel(roomId);
 }
 
+ThreadsFilterProxyModel *RocketChatAccount::threadsFilterProxyModel(const QString &roomId) const
+{
+    return mRoomModel->threadsModelForRoomProxyModel(roomId);
+}
+
 RoomWrapper *RocketChatAccount::getRoomWrapper(const QString &roomId)
 {
     return mRoomModel->findRoomWrapper(roomId);

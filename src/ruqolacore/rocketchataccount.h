@@ -58,6 +58,7 @@ class Room;
 class SearchMessageModel;
 class SearchMessageFilterProxyModel;
 class DiscussionsFilterProxyModel;
+class ThreadsFilterProxyModel;
 class ServerConfigInfo;
 class ReceiveTypingNotificationManager;
 class EmoticonModel;
@@ -181,6 +182,8 @@ public:
     Q_INVOKABLE Room *getRoom(const QString &roomId);
 
     Q_INVOKABLE DiscussionsFilterProxyModel *discussionsFilterProxyModel(const QString &roomId) const;
+
+    Q_INVOKABLE ThreadsFilterProxyModel *threadsFilterProxyModel(const QString &roomId) const;
 
     Q_INVOKABLE void changeDefaultAuthentication(int index);
     Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid);

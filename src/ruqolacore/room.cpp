@@ -31,6 +31,7 @@
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/messagemodel.h"
 #include "model/threadsmodel.h"
+#include "model/threadsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
 #include "model/discussionsfilterproxymodel.h"
 
@@ -59,6 +60,11 @@ Room::Room(RocketChatAccount *account, QObject *parent)
 
     mThreadsModel = new ThreadsModel(this);
     mThreadsModel->setObjectName(QStringLiteral("threadsmodel"));
+
+    mThreadsFilterProxyModel = new ThreadsFilterProxyModel(this);
+    mThreadsFilterProxyModel->setObjectName(QStringLiteral("threadsfiltermodelproxy"));
+    mThreadsFilterProxyModel->setSourceModel(mThreadsModel);
+
 
     mDiscussionsModel = new DiscussionsModel(this);
     mDiscussionsModel->setObjectName(QStringLiteral("discussionsmodel"));
@@ -1038,6 +1044,11 @@ DiscussionsFilterProxyModel *Room::discussionsModelForRoomFilterProxyModel() con
 DiscussionsModel *Room::discussionsModelForRoom() const
 {
     return mDiscussionsModel;
+}
+
+ThreadsFilterProxyModel *Room::threadsModelForRoomFilterProxyModel() const
+{
+    return mThreadsFilterProxyModel;
 }
 
 ThreadsModel *Room::threadsModelForRoom() const
