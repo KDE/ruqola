@@ -33,7 +33,6 @@ public:
     ~TextConverter() = default;
 
     Q_REQUIRED_RESULT QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const;
-    Q_REQUIRED_RESULT QString convertReactions(const QString &str) const;
 private:
     EmojiManager *mEmojiManager = nullptr;
 };

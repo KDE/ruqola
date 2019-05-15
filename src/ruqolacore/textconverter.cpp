@@ -82,9 +82,3 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
     }
     return richText;
 }
-
-QString TextConverter::convertReactions(const QString &str) const
-{
-    //TODO
-    return {};
-}
