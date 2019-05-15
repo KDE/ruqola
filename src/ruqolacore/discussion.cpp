@@ -24,8 +24,51 @@ Discussion::Discussion()
 
 }
 
+QString Discussion::description() const
+{
+    return mDescription;
+}
+
+void Discussion::setDescription(const QString &description)
+{
+    mDescription = description;
+}
+
+QString Discussion::parentRoomId() const
+{
+    return mParentRoomId;
+}
+
+void Discussion::setParentRoomId(const QString &parentRoomId)
+{
+    mParentRoomId = parentRoomId;
+}
+
+int Discussion::numberMessages() const
+{
+    return mNumberMessages;
+}
+
+void Discussion::setNumberMessages(int numberMessages)
+{
+    mNumberMessages = numberMessages;
+}
+
+qint64 Discussion::lastMessage() const
+{
+    return mLastMessage;
+}
+
+void Discussion::setLastMessage(const qint64 &lastMessage)
+{
+    mLastMessage = lastMessage;
+}
+
 QDebug operator <<(QDebug d, const Discussion &t)
 {
-    //TODO
+    d << "Parent Id " << t.parentRoomId();
+    d << "Last Message " << t.lastMessage();
+    d << "Number of Messages " << t.numberMessages();
+    d << "Description " << t.description();
     return d;
 }

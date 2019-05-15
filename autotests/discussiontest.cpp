@@ -30,5 +30,10 @@ DiscussionTest::DiscussionTest(QObject *parent)
 
 void DiscussionTest::shouldHaveDefaultValue()
 {
+    Discussion w;
+    QVERIFY(w.description().isEmpty());
+    QVERIFY(w.parentRoomId().isEmpty());
+    QCOMPARE(w.numberMessages(), 0);
+    QCOMPARE(w.lastMessage(), -1);
     //TODO
 }
