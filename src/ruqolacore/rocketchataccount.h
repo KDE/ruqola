@@ -330,7 +330,7 @@ private:
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);
     void slotChannelRolesDone(const QJsonObject &obj, const QString &roomId);
     void slotSplotLightDone(const QJsonObject &obj);
-    void slotGetThreadMessagesDone(const QJsonObject &obj);
+    void slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
     void slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId);
     void slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId);
 

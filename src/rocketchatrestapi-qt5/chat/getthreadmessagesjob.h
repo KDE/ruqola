@@ -45,7 +45,7 @@ public:
     void setThreadMessageId(const QString &threadMessageId);
 
 Q_SIGNALS:
-    void getThreadMessagesDone(const QJsonObject &obj);
+    void getThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
 
 private:
     Q_DISABLE_COPY(GetThreadMessagesJob)

@@ -75,7 +75,7 @@ void GetThreadMessagesJob::slotGetThreadMessagesFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GetThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT getThreadMessagesDone(replyObject);
+            Q_EMIT getThreadMessagesDone(replyObject, mThreadMessageId);
         } else {
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GetThreadMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

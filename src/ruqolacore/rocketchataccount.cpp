@@ -697,7 +697,7 @@ void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const QStri
     }
 }
 
-void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj)
+void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)
 {
 }
 
