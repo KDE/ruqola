@@ -491,7 +491,7 @@ Component {
             }
             ShowDiscussionsInRoomDialog {
                 id: showDiscussionsInRoomDialog
-                //discussionsModel: appid.
+                discussionsModel: appid.discussionsModel
             }
 
             ShowThreadsInRoomDialog {
