@@ -28,6 +28,14 @@ class LIBRUQOLACORE_TESTS_EXPORT DiscussionsModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum DiscussionRoles {
+        ParentId = Qt::UserRole + 1,
+        Description,
+        NumberOfMessages,
+        LastMessage
+    };
+    Q_ENUM(DiscussionRoles)
+
     explicit DiscussionsModel(QObject *parent = nullptr);
     ~DiscussionsModel() override;
 

@@ -72,3 +72,21 @@ QDebug operator <<(QDebug d, const Discussion &t)
     d << "Description " << t.description();
     return d;
 }
+
+
+bool Discussion::operator ==(const Discussion &other) const
+{
+    return (description() == other.description())
+           && (parentRoomId() == other.parentRoomId())
+           && (numberMessages() == other.numberMessages())
+           && (lastMessage() == other.lastMessage());
+}
+
+Discussion &Discussion::operator=(const Discussion &other)
+{
+    mParentRoomId = other.parentRoomId();
+    mDescription = other.description();
+    mNumberMessages = other.numberMessages();
+    mLastMessage = other.lastMessage();
+    return *this;
+}

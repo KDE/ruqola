@@ -37,6 +37,9 @@ void DiscussionsFilterProxyModelTest::shouldHaveDefaultValues()
     proxy.setSourceModel(&model);
     QCOMPARE(proxy.rowCount(), 0);
     QHash<int, QByteArray> roles;
-    //TODO
+    roles[DiscussionsModel::ParentId] = QByteArrayLiteral("parentid");
+    roles[DiscussionsModel::Description] = QByteArrayLiteral("description");
+    roles[DiscussionsModel::NumberOfMessages] = QByteArrayLiteral("numberofmessages");
+    roles[DiscussionsModel::LastMessage] = QByteArrayLiteral("lastmessage");
     QCOMPARE(proxy.roleNames(), roles);
 }

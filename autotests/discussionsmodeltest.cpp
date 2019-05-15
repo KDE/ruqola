@@ -30,5 +30,11 @@ DiscussionsModelTest::DiscussionsModelTest(QObject *parent)
 
 void DiscussionsModelTest::shouldHaveDefaultValues()
 {
-
+    DiscussionsModel model;
+    QHash<int, QByteArray> roles;
+    roles[DiscussionsModel::ParentId] = QByteArrayLiteral("parentid");
+    roles[DiscussionsModel::Description] = QByteArrayLiteral("description");
+    roles[DiscussionsModel::NumberOfMessages] = QByteArrayLiteral("numberofmessages");
+    roles[DiscussionsModel::LastMessage] = QByteArrayLiteral("lastmessage");
+    QCOMPARE(model.roleNames(), roles);
 }

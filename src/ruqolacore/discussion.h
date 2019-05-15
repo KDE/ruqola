@@ -41,6 +41,8 @@ public:
     Q_REQUIRED_RESULT qint64 lastMessage() const;
     void setLastMessage(const qint64 &lastMessage);
 
+    Q_REQUIRED_RESULT bool operator ==(const Discussion &other) const;
+    Discussion &operator =(const Discussion &other);
 private:
     QString mDescription;
     QString mParentRoomId;

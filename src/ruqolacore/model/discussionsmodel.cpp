@@ -40,15 +40,28 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mDiscussions.count()) {
         return {};
     }
-    const Discussion mention = mDiscussions.at(index.row());
-
-    //TODO
+    const Discussion discussion = mDiscussions.at(index.row());
+    switch(role) {
+    case ParentId:
+        return discussion.parentRoomId();
+    case Description:
+        return discussion.description();
+    case NumberOfMessages:
+        return discussion.numberMessages();
+    case LastMessage:
+        //TODO convert as date!
+        return discussion.lastMessage();
+    }
     return {};
 }
 
 QHash<int, QByteArray> DiscussionsModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
+    roles[ParentId] = QByteArrayLiteral("parentid");
+    roles[Description] = QByteArrayLiteral("description");
+    roles[NumberOfMessages] = QByteArrayLiteral("numberofmessages");
+    roles[LastMessage] = QByteArrayLiteral("lastmessage");
     return roles;
 }
 

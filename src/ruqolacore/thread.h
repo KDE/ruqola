@@ -20,9 +20,10 @@
 #ifndef THREAD_H
 #define THREAD_H
 #include "libruqola_private_export.h"
+#include "messages/message.h"
 #include <QObject>
 #include <QDebug>
-class LIBRUQOLACORE_TESTS_EXPORT Thread
+class LIBRUQOLACORE_TESTS_EXPORT Thread : public Message
 {
 public:
     Thread();
