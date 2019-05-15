@@ -125,7 +125,7 @@ Component {
                     visible: appid.selectedRoom && appid.rocketChatAccount.discussionEnabled()
                     text: i18n("Discussions")
                     onTriggered: {
-                        appid.rocketChatAccount.discussionsFilterProxyModel(appid.selectedRoomID);
+                        appid.rocketChatAccount.discussionsInRoom(appid.selectedRoomID);
                         showDiscussionsInRoomDialog.initializeAndOpen()
                     }
                 },

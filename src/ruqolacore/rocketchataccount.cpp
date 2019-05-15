@@ -1508,5 +1508,10 @@ void RocketChatAccount::createDiscussion(const QString &parentRoomId, const QStr
 
 void RocketChatAccount::threadsInRoom(const QString &roomId)
 {
-    //TODO
+    restApi()->getThreadsList(roomId);
+}
+
+void RocketChatAccount::discussionsInRoom(const QString &roomId)
+{
+    restApi()->getDiscussions(roomId);
 }

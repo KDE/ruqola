@@ -99,7 +99,7 @@ QNetworkRequest GetThreadsJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadsList);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    queryUrl.addQueryItem(QStringLiteral("rid"), mRoomId);
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);
