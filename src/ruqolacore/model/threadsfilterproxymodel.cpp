@@ -17,9 +17,10 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "discussionsfilterproxymodel.h"
-#include "discussionsmodel.h"
-DiscussionsFilterProxyModel::DiscussionsFilterProxyModel(QObject *parent)
+#include "threadsfilterproxymodel.h"
+#include "threadsmodel.h"
+
+ThreadsFilterProxyModel::ThreadsFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
@@ -28,11 +29,11 @@ DiscussionsFilterProxyModel::DiscussionsFilterProxyModel(QObject *parent)
     sort(0);
 }
 
-DiscussionsFilterProxyModel::~DiscussionsFilterProxyModel()
+ThreadsFilterProxyModel::~ThreadsFilterProxyModel()
 {
 }
 
-QHash<int, QByteArray> DiscussionsFilterProxyModel::roleNames() const
+QHash<int, QByteArray> ThreadsFilterProxyModel::roleNames() const
 {
     if (QAbstractItemModel *source = sourceModel()) {
         return source->roleNames();
