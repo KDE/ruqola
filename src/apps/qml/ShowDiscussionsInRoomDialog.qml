@@ -68,9 +68,16 @@ QQC2.Dialog {
             QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
 
             model: discussionsModel
-            delegate: Kirigami.BasicListItem {
-                label: description
-                reserveSpaceForIcon: false
+            delegate:
+                RowLayout {
+                width: ListView.view.width
+                ColumnLayout {
+                    QQC2.Label {
+                        text: description
+                        elide: Text.ElideRight
+                        wrapMode: QQC2.Label.Wrap
+                    }
+                }
             }
         }
     }

@@ -52,7 +52,7 @@ void MentionsModel::setMentions(const Mentions &mentions)
         mMentions.clear();
         endRemoveRows();
     }
-    if (!mMentions.isEmpty()) {
+    if (!mentions.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mentions.count() - 1);
         mMentions = mentions;
         endInsertRows();

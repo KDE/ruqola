@@ -57,7 +57,7 @@ void ThreadsModel::setThreads(const Threads &threads)
         mThreads.clear();
         endRemoveRows();
     }
-    if (!mThreads.isEmpty()) {
+    if (!threads.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, threads.count() - 1);
         mThreads = threads;
         endInsertRows();

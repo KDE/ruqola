@@ -71,7 +71,7 @@ void DiscussionsModel::setDiscussions(const Discussions &discussions)
         mDiscussions.clear();
         endRemoveRows();
     }
-    if (!mDiscussions.isEmpty()) {
+    if (!discussions.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, discussions.count() - 1);
         mDiscussions = discussions;
         endInsertRows();
