@@ -81,6 +81,7 @@ add_ruqola_test(discussionsfilterproxymodeltest.cpp)
 add_ruqola_test(discussiontest.cpp)
 add_ruqola_test(discussionstest.cpp)
 add_ruqola_test(threadtest.cpp)
+add_ruqola_test(threadsfilterproxymodeltest.cpp)
 add_ruqola_test(emoticoncategoriesmodeltest.cpp)
 add_ruqola_test(emoticoncategorytest.cpp)
 
