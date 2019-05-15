@@ -32,6 +32,7 @@ QQC2.Label {
     renderType: Text.NativeRendering
     textFormat: Text.RichText
 
+    color: "red"
     text: i18np("1 reply", "%1 replies", i_tcount)
     wrapMode: QQC2.Label.Wrap
     visible: i_tcount > 0
