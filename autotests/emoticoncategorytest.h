@@ -31,7 +31,6 @@ public:
     ~EmoticonCategoryTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
-
 };
 
 #endif // EMOTICONCATEGORYTEST_H

@@ -22,7 +22,6 @@
 DiscussionsModel::DiscussionsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 DiscussionsModel::~DiscussionsModel()
@@ -41,7 +40,7 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
         return {};
     }
     const Discussion discussion = mDiscussions.at(index.row());
-    switch(role) {
+    switch (role) {
     case ParentId:
         return discussion.parentRoomId();
     case Description:

@@ -27,7 +27,6 @@ class LIBRUQOLACORE_TESTS_EXPORT Thread : public Message
 {
 public:
     Thread();
-
 };
 Q_DECLARE_METATYPE(Thread)
 Q_DECLARE_TYPEINFO(Thread, Q_MOVABLE_TYPE);

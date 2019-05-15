@@ -25,7 +25,6 @@ QTEST_GUILESS_MAIN(EmoticonCategoriesModelTest)
 EmoticonCategoriesModelTest::EmoticonCategoriesModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void EmoticonCategoriesModelTest::shouldHaveDefaultValues()

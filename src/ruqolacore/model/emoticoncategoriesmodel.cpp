@@ -41,7 +41,7 @@ QVariant EmoticonCategoriesModel::data(const QModelIndex &index, int role) const
         return {};
     }
     const EmoticonCategory cat = mCategories.at(index.row());
-    switch(role) {
+    switch (role) {
     case Name:
         return cat.name();
     case Category:
@@ -68,7 +68,7 @@ void EmoticonCategoriesModel::setEmoticons(const QMap<QString, QVector<UnicodeEm
     }
     if (!emoticons.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, emoticons.count() - 1);
-        QMap<QString, QVector<UnicodeEmoticon>>::const_iterator i = emoticons.constBegin();
+        QMap<QString, QVector<UnicodeEmoticon> >::const_iterator i = emoticons.constBegin();
         while (i != emoticons.constEnd()) {
             EmoticonCategory cat;
             cat.setCategory(i.key());

@@ -27,7 +27,6 @@ QTEST_GUILESS_MAIN(DiscussionsTest)
 DiscussionsTest::DiscussionsTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void DiscussionsTest::shouldHaveDefaultValues()

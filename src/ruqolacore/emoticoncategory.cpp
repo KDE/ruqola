@@ -22,7 +22,6 @@
 
 EmoticonCategory::EmoticonCategory()
 {
-
 }
 
 QString EmoticonCategory::name() const

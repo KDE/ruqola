@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "discussionsfilterproxymodeltest.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
@@ -27,7 +26,6 @@ QTEST_MAIN(DiscussionsFilterProxyModelTest)
 DiscussionsFilterProxyModelTest::DiscussionsFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void DiscussionsFilterProxyModelTest::shouldHaveDefaultValues()

@@ -24,5 +24,4 @@ QTEST_GUILESS_MAIN(ThreadsFilterProxyModelTest)
 ThreadsFilterProxyModelTest::ThreadsFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

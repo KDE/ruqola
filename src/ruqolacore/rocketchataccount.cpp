@@ -114,8 +114,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mSearchMessageFilterProxyModel = new SearchMessageFilterProxyModel(this);
     mSearchMessageFilterProxyModel->setSourceModel(mSearchMessageModel);
 
-
-
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this, this);
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);

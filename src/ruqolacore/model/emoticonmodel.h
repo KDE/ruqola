@@ -45,9 +45,9 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-    Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon>> emoticons() const;
+    Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon> > emoticons() const;
 
-    void setEmoticons(const QMap<QString, QVector<UnicodeEmoticon>> &emoticons);
+    void setEmoticons(const QMap<QString, QVector<UnicodeEmoticon> > &emoticons);
 
     Q_INVOKABLE void setCurrentCategory(const QString &category);
 
@@ -57,7 +57,7 @@ public:
 
 private:
     Q_DISABLE_COPY(EmoticonModel)
-    QMap<QString, QVector<UnicodeEmoticon>> mEmoticons;
+    QMap<QString, QVector<UnicodeEmoticon> > mEmoticons;
     QString mCurrentCategory;
     EmoticonCategoriesModel *mEmoticonCategoriesModel = nullptr;
 };

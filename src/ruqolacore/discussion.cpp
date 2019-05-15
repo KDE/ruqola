@@ -23,7 +23,6 @@
 
 Discussion::Discussion()
 {
-
 }
 
 QString Discussion::description() const
@@ -74,7 +73,6 @@ QDebug operator <<(QDebug d, const Discussion &t)
     d << "Description " << t.description();
     return d;
 }
-
 
 bool Discussion::operator ==(const Discussion &other) const
 {

@@ -30,9 +30,9 @@ UnicodeEmoticonParser::~UnicodeEmoticonParser()
 {
 }
 
-QMap<QString, QVector<UnicodeEmoticon>> UnicodeEmoticonParser::parse(const QJsonObject &o) const
+QMap<QString, QVector<UnicodeEmoticon> > UnicodeEmoticonParser::parse(const QJsonObject &o) const
 {
-    QMap<QString, QVector<UnicodeEmoticon>> lstEmoticons;
+    QMap<QString, QVector<UnicodeEmoticon> > lstEmoticons;
     for (const QString &key: o.keys()) {
         UnicodeEmoticon emoticon;
         QJsonObject emojiObj = o[key].toObject();

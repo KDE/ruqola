@@ -308,8 +308,6 @@ public:
     Q_INVOKABLE EmoticonModel *emoticonModel() const;
     void setEmoticonModel(EmoticonModel *emoticonModel);
 
-
-
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

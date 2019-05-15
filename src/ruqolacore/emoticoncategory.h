@@ -38,7 +38,6 @@ public:
 private:
     QString mName;
     QString mCategory;
-
 };
 Q_DECLARE_METATYPE(EmoticonCategory)
 Q_DECLARE_TYPEINFO(EmoticonCategory, Q_MOVABLE_TYPE);

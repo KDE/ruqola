@@ -1442,4 +1442,3 @@ void RestApiRequest::getThreadMessages(const QString &threadMessageId)
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getThreadMessages";
     }
 }
-

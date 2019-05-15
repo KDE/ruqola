@@ -17,12 +17,10 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "thread.h"
 
 Thread::Thread()
 {
-
 }
 
 QDebug operator <<(QDebug d, const Thread &t)

@@ -24,7 +24,6 @@
 
 Discussions::Discussions()
 {
-
 }
 
 QVector<Discussion> Discussions::discussions() const

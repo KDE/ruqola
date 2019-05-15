@@ -27,7 +27,6 @@ using namespace RocketChatRestApi;
 GetThreadMessagesJobTest::GetThreadMessagesJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void GetThreadMessagesJobTest::shouldHaveDefaultValue()
@@ -79,4 +78,3 @@ void GetThreadMessagesJobTest::shouldNotStarting()
     delete method;
     delete mNetworkAccessManager;
 }
-

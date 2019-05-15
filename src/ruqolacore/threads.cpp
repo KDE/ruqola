@@ -23,7 +23,6 @@
 
 Threads::Threads()
 {
-
 }
 
 QVector<Thread> Threads::threads() const

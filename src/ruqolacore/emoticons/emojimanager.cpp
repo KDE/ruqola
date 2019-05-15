@@ -96,7 +96,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier)
                 return cachedHtml;
             }
         }
-        QMap<QString, QVector<UnicodeEmoticon>>::const_iterator emojiId = mUnicodeEmojiList.constBegin();
+        QMap<QString, QVector<UnicodeEmoticon> >::const_iterator emojiId = mUnicodeEmojiList.constBegin();
         while (emojiId != mUnicodeEmojiList.constEnd()) {
             const QVector<UnicodeEmoticon> lst = emojiId.value();
             for (int i = 0, total = lst.size(); i < total; ++i) {

@@ -26,7 +26,7 @@ class ThreadsFilterProxyModelTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ThreadsFilterProxyModelTest(QObject *parent = nullptr);    
+    explicit ThreadsFilterProxyModelTest(QObject *parent = nullptr);
     ~ThreadsFilterProxyModelTest() = default;
 };
 

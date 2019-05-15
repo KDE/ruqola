@@ -65,11 +65,10 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     mThreadsFilterProxyModel->setObjectName(QStringLiteral("threadsfiltermodelproxy"));
     mThreadsFilterProxyModel->setSourceModel(mThreadsModel);
 
-
     mDiscussionsModel = new DiscussionsModel(this);
     mDiscussionsModel->setObjectName(QStringLiteral("discussionsmodel"));
     mDiscussionsFilterProxyModel = new DiscussionsFilterProxyModel(this);
-    mDiscussionsFilterProxyModel->setObjectName(QStringLiteral("discussionsfilterproxymodel"));;
+    mDiscussionsFilterProxyModel->setObjectName(QStringLiteral("discussionsfilterproxymodel"));
     mDiscussionsFilterProxyModel->setSourceModel(mDiscussionsModel);
 
     //TODO necessary to define mChannelType

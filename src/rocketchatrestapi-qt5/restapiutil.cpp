@@ -300,7 +300,7 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("rooms.favorite");
     case RestApiUtil::RestApiUrlType::RoomscleanHistory:
         return QStringLiteral("rooms.cleanHistory");
-        //since 1.0.0
+    //since 1.0.0
     case RestApiUtil::RestApiUrlType::RoomsCreateDiscussion:
         return QStringLiteral("rooms.createDiscussion");
     case RestApiUtil::RestApiUrlType::RoomsGetDiscussions:

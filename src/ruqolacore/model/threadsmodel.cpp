@@ -22,7 +22,6 @@
 ThreadsModel::ThreadsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 ThreadsModel::~ThreadsModel()
@@ -64,4 +63,3 @@ void ThreadsModel::setThreads(const Threads &threads)
         endInsertRows();
     }
 }
-
