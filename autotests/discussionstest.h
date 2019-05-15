@@ -30,6 +30,8 @@ public:
     ~DiscussionsTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadDiscussions_data();
+    void shouldLoadDiscussions();
 };
 
 #endif // DISCUSSIONSTEST_H

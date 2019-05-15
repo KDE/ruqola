@@ -18,6 +18,9 @@
 */
 #include "threads.h"
 
+#include <QJsonArray>
+#include <QJsonObject>
+
 Threads::Threads()
 {
 
@@ -28,13 +31,18 @@ QVector<Thread> Threads::threads() const
     return mThreads;
 }
 
-void Threads::setDiscussions(const QVector<Thread> &threads)
+void Threads::setThreads(const QVector<Thread> &threads)
 {
     mThreads = threads;
 }
 
-void Threads::parseThreads(const QJsonObject &array)
+void Threads::parseThreads(const QJsonObject &threadsObj)
 {
+    mThreadsCount = threadsObj[QStringLiteral("count")].toInt();
+    mOffset = threadsObj[QStringLiteral("offset")].toInt();
+    mTotal = threadsObj[QStringLiteral("total")].toInt();
+    const QJsonArray threadsArray = threadsObj[QStringLiteral("threads")].toArray();
+
     //TODO
 }
 
@@ -58,8 +66,43 @@ Thread Threads::at(int index) const
     return mThreads.at(index);
 }
 
+int Threads::threadsCount() const
+{
+    return mThreadsCount;
+}
+
+void Threads::setThreadsCount(int threadsCount)
+{
+    mThreadsCount = threadsCount;
+}
+
+int Threads::offset() const
+{
+    return mOffset;
+}
+
+void Threads::setOffset(int offset)
+{
+    mOffset = offset;
+}
+
+int Threads::total() const
+{
+    return mTotal;
+}
+
+void Threads::setTotal(int total)
+{
+    mTotal = total;
+}
+
 QDebug operator <<(QDebug d, const Threads &t)
 {
-    //TODO
+    d << "total " << t.total();
+    d << "offset " << t.offset();
+    d << "threadsCount " << t.threadsCount();
+    for (int i = 0, total = t.threads().count(); i < total; ++i) {
+        d << t.threads().at(i);
+    }
     return d;
 }

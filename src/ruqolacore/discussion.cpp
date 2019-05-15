@@ -23,3 +23,9 @@ Discussion::Discussion()
 {
 
 }
+
+QDebug operator <<(QDebug d, const Discussion &t)
+{
+    //TODO
+    return d;
+}

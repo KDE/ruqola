@@ -16,47 +16,45 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#include "discussionstest.h"
-#include "discussions.h"
-#include "discussion.h"
+
+#include "threadstest.h"
+#include "threads.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QTest>
-QTEST_GUILESS_MAIN(DiscussionsTest)
-
-DiscussionsTest::DiscussionsTest(QObject *parent)
+QTEST_GUILESS_MAIN(ThreadsTest)
+ThreadsTest::ThreadsTest(QObject *parent)
     : QObject(parent)
 {
 
 }
 
-void DiscussionsTest::shouldHaveDefaultValues()
+void ThreadsTest::shouldHaveDefaultValues()
 {
-    Discussions w;
+    Threads w;
     QVERIFY(w.isEmpty());
     QCOMPARE(w.offset(), 0);
     QCOMPARE(w.total(), 0);
-    QCOMPARE(w.discussionsCount(), 0);
+    QCOMPARE(w.threadsCount(), 0);
 }
 
-void DiscussionsTest::shouldLoadDiscussions_data()
+void ThreadsTest::shouldLoadThreads_data()
 {
     QTest::addColumn<QString>("name");
-    QTest::addColumn<int>("discussionsCount");
+    QTest::addColumn<int>("threadsCount");
     QTest::addColumn<int>("total");
     QTest::addColumn<int>("offset");
 
-    QTest::addRow("empty") << QStringLiteral("discussions-empty") << 0 << 0 << 0;
-    QTest::addRow("1-element") << QStringLiteral("discussions-1-element") << 0 << 1 << 1;
+    QTest::addRow("empty") << QStringLiteral("threads-empty") << 0 << 0 << 0;
 }
 
-void DiscussionsTest::shouldLoadDiscussions()
+void ThreadsTest::shouldLoadThreads()
 {
     QFETCH(QString, name);
-    QFETCH(int, discussionsCount);
+    QFETCH(int, threadsCount);
     QFETCH(int, total);
     QFETCH(int, offset);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/discussions/") + name + QStringLiteral(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/threads/") + name + QStringLiteral(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -64,9 +62,9 @@ void DiscussionsTest::shouldLoadDiscussions()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
 
-    Discussions m;
-    m.parseDiscussions(obj);
-    QCOMPARE(m.discussionsCount(), discussionsCount);
+    Threads m;
+    m.parseThreads(obj);
+    QCOMPARE(m.threadsCount(), threadsCount);
     QCOMPARE(m.total(), total);
     QCOMPARE(m.offset(), offset);
 }

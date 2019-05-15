@@ -18,6 +18,7 @@
 */
 
 #include "discussions.h"
+#include <QJsonArray>
 #include <QJsonObject>
 
 Discussions::Discussions()
@@ -35,8 +36,13 @@ void Discussions::setDiscussions(const QVector<Discussion> &discussion)
     mDiscussion = discussion;
 }
 
-void Discussions::parseDiscussions(const QJsonObject &array)
+void Discussions::parseDiscussions(const QJsonObject &discussionsObj)
 {
+    mDiscussionsCount = discussionsObj[QStringLiteral("count")].toInt();
+    mOffset = discussionsObj[QStringLiteral("offset")].toInt();
+    mTotal = discussionsObj[QStringLiteral("total")].toInt();
+    const QJsonArray discussionsArray = discussionsObj[QStringLiteral("discussions")].toArray();
+
     //TODO
 }
 
@@ -60,8 +66,43 @@ Discussion Discussions::at(int index) const
     return mDiscussion.at(index);
 }
 
+int Discussions::discussionsCount() const
+{
+    return mDiscussionsCount;
+}
+
+void Discussions::setDiscussionsCount(int discussionsCount)
+{
+    mDiscussionsCount = discussionsCount;
+}
+
+int Discussions::offset() const
+{
+    return mOffset;
+}
+
+void Discussions::setOffset(int offset)
+{
+    mOffset = offset;
+}
+
+int Discussions::total() const
+{
+    return mTotal;
+}
+
+void Discussions::setTotal(int total)
+{
+    mTotal = total;
+}
+
 QDebug operator <<(QDebug d, const Discussions &t)
 {
-    //TODO
+    d << "total " << t.total();
+    d << "offset " << t.offset();
+    d << "discussionsCount " << t.discussionsCount();
+    for (int i = 0, total = t.discussions().count(); i < total; ++i) {
+        d << t.discussions().at(i);
+    }
     return d;
 }

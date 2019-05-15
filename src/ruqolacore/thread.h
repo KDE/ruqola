@@ -21,6 +21,7 @@
 #define THREAD_H
 #include "libruqola_private_export.h"
 #include <QObject>
+#include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT Thread
 {
 public:
@@ -29,4 +30,5 @@ public:
 };
 Q_DECLARE_METATYPE(Thread)
 Q_DECLARE_TYPEINFO(Thread, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Thread &t);
 #endif // THREAD_H

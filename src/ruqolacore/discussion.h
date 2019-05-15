@@ -22,13 +22,14 @@
 
 #include "libruqola_private_export.h"
 #include <QObject>
+#include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT Discussion
 {
     Q_GADGET
 public:
     Discussion();
 };
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Discussion &t);
 Q_DECLARE_METATYPE(Discussion)
 Q_DECLARE_TYPEINFO(Discussion, Q_MOVABLE_TYPE);
-
 #endif // DISCUSSION_H

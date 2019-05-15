@@ -30,16 +30,29 @@ public:
     Threads();
 
     Q_REQUIRED_RESULT QVector<Thread> threads() const;
-    void setDiscussions(const QVector<Thread> &threads);
+    void setThreads(const QVector<Thread> &threads);
 
-    void parseThreads(const QJsonObject &array);
+    void parseThreads(const QJsonObject &threadsObj);
 
     Q_REQUIRED_RESULT bool isEmpty() const;
     void clear();
     Q_REQUIRED_RESULT int count() const;
     Q_REQUIRED_RESULT Thread at(int index) const;
+
+    Q_REQUIRED_RESULT int threadsCount() const;
+    void setThreadsCount(int threadsCount);
+
+    Q_REQUIRED_RESULT int offset() const;
+    void setOffset(int offset);
+
+    Q_REQUIRED_RESULT int total() const;
+    void setTotal(int total);
+
 private:
     QVector<Thread> mThreads;
+    int mThreadsCount = 0;
+    int mOffset = 0;
+    int mTotal = 0;
 };
 Q_DECLARE_METATYPE(Threads)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Threads &t);

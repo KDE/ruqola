@@ -1,0 +1,30 @@
+{
+    "count": 1,
+    "discussions": [
+        {
+            "_id": "4cKHXEyT7wBgN8MMT",
+            "_updatedAt": "2019-04-30T07:00:01.207Z",
+            "default": false,
+            "description": "There's a new discussion item at the top... wonder how it works",
+            "fname": "There's a new discussion item at the top... wonder how it works",
+            "lm": "2019-04-30T07:00:01.105Z",
+            "msgs": 19,
+            "name": "aJ",
+            "prid": "GENERAL",
+            "ro": false,
+            "sysMes": true,
+            "t": "p",
+            "topic": "all",
+            "ts": "2019-04-30T06:57:16.003Z",
+            "u": {
+                "_id": "zoewTkdacidH",
+                "username": "laurent"
+            },
+            "usersCount": 1
+        }
+    ],
+    "offset": 0,
+    "success": true,
+    "total": 1
+}
+

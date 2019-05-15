@@ -40,8 +40,20 @@ public:
     void clear();
     Q_REQUIRED_RESULT int count() const;
     Q_REQUIRED_RESULT Discussion at(int index) const;
+    Q_REQUIRED_RESULT int discussionsCount() const;
+    void setDiscussionsCount(int discussionsCount);
+
+    Q_REQUIRED_RESULT int offset() const;
+    void setOffset(int offset);
+
+    Q_REQUIRED_RESULT int total() const;
+    void setTotal(int total);
+
 private:
     QVector<Discussion> mDiscussion;
+    int mDiscussionsCount = 0;
+    int mOffset = 0;
+    int mTotal = 0;
 };
 Q_DECLARE_METATYPE(Discussions)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Discussions &t);
