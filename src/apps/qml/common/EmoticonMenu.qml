@@ -95,11 +95,6 @@ QQC2.Popup {
                         font.family: "NotoColorEmoji"
                         text: name
                     }
-
-                    //hoverEnabled: true
-                    //QQC2.ToolTip.text: category
-                    //QQC2.ToolTip.visible: hovered
-
                     onClicked: {
                         emojiPopupModel.setCurrentCategory(category)
                     }
