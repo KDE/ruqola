@@ -43,6 +43,9 @@ public:
 
     Q_REQUIRED_RESULT bool operator ==(const Discussion &other) const;
     Discussion &operator =(const Discussion &other);
+
+    void parseDiscussion(const QJsonObject &o);
+
 private:
     QString mDescription;
     QString mParentRoomId;

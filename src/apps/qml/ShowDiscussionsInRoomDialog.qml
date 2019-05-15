@@ -69,7 +69,7 @@ QQC2.Dialog {
 
             model: discussionsModel
             delegate: Kirigami.BasicListItem {
-                label: messagetext
+                label: description
                 reserveSpaceForIcon: false
             }
         }

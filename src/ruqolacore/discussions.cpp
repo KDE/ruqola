@@ -18,6 +18,7 @@
 */
 
 #include "discussions.h"
+#include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -38,12 +39,22 @@ void Discussions::setDiscussions(const QVector<Discussion> &discussion)
 
 void Discussions::parseDiscussions(const QJsonObject &discussionsObj)
 {
+    mDiscussion.clear();
     mDiscussionsCount = discussionsObj[QStringLiteral("count")].toInt();
     mOffset = discussionsObj[QStringLiteral("offset")].toInt();
     mTotal = discussionsObj[QStringLiteral("total")].toInt();
     const QJsonArray discussionsArray = discussionsObj[QStringLiteral("discussions")].toArray();
-
-    //TODO
+    mDiscussion.reserve(discussionsArray.count());
+    for (const QJsonValue &current : discussionsArray) {
+        if (current.type() == QJsonValue::Object) {
+            const QJsonObject discussionObject = current.toObject();
+            Discussion m;
+            m.parseDiscussion(discussionObject);
+            mDiscussion.append(m);
+        } else {
+            qCWarning(RUQOLA_LOG) << "Problem when parsing mentions" << current;
+        }
+    }
 }
 
 bool Discussions::isEmpty() const

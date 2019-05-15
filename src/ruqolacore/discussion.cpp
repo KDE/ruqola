@@ -19,6 +19,8 @@
 
 #include "discussion.h"
 
+#include <QJsonObject>
+
 Discussion::Discussion()
 {
 
@@ -89,4 +91,12 @@ Discussion &Discussion::operator=(const Discussion &other)
     mNumberMessages = other.numberMessages();
     mLastMessage = other.lastMessage();
     return *this;
+}
+
+void Discussion::parseDiscussion(const QJsonObject &o)
+{
+    mParentRoomId = o.value(QLatin1String("prid")).toString();
+    mDescription = o.value(QLatin1String("description")).toString();
+    mNumberMessages = o.value(QLatin1String("msgs")).toInt();
+    //TODO mLastMessage =
 }
