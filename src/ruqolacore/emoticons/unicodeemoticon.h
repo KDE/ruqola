@@ -36,6 +36,7 @@ public:
     void setIdentifier(const QString &identifier);
 
     Q_REQUIRED_RESULT QString unicode() const;
+    Q_REQUIRED_RESULT QString unicodeDisplay() const;
     void setUnicode(const QString &unicode);
 
     Q_REQUIRED_RESULT QString category() const;

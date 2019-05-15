@@ -101,7 +101,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier)
             const QVector<UnicodeEmoticon> lst = emojiId.value();
             for (int i = 0, total = lst.size(); i < total; ++i) {
                 if (lst.at(i).hasEmoji(emojiIdentifier)) {
-                    return lst.at(i).unicode();
+                    return lst.at(i).unicodeDisplay();
                 }
             }
             ++emojiId;
