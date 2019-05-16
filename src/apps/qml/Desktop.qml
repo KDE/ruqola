@@ -61,6 +61,24 @@ Kirigami.ApplicationWindow {
 
     title: i18n("Ruqola")
 
+
+    function switchToRoom(roomID)
+    {
+        if (roomID === selectedRoomID) {
+            return;
+        }
+        //TODO remove duplicate code !!!!
+        appid.rocketChatAccount.switchingToRoom(roomID)
+        appid.rocketChatAccount.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
+        appid.selectedRoomID = roomID;
+        appid.messageModel = appid.rocketChatAccount.messageModelForRoom(roomID)
+        appid.selectedRoom = appid.rocketChatAccount.getRoomWrapper(roomID)
+        appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(roomID)
+        appid.filesModel = appid.rocketChatAccount.filesForRoomFilterProxyModel(roomID)
+        appid.threadsModel = appid.rocketChatAccount.threadsFilterProxyModel(roomID)
+        appid.discussionsModel = appid.rocketChatAccount.discussionsFilterProxyModel(roomID)
+    }
+
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
     pageStack.initialPage: [roomsComponent, mainComponent]
     pageStack.visible: rocketChatAccount.loginStatus === DDPClient.LoggedIn
