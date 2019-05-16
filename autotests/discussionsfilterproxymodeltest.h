@@ -30,6 +30,7 @@ public:
     explicit DiscussionsFilterProxyModelTest(QObject *parent = nullptr);
     ~DiscussionsFilterProxyModelTest() = default;
 private Q_SLOTS:
+    void shouldAssignValue();
     void shouldHaveDefaultValues();
 };
 

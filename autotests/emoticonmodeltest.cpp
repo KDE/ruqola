@@ -43,4 +43,12 @@ void EmoticonModelTest::shouldHaveDefaultValue()
     QVERIFY(w.emoticonCategoriesModel());
 }
 
+void EmoticonModelTest::shouldAssignCategory()
+{
+    EmoticonModel w;
+    const QString category = QStringLiteral("bla");
+    w.setCurrentCategory(category);
+    QCOMPARE(w.currentCategory(), category);
+}
+
 //TODO add more check

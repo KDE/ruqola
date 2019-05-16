@@ -41,3 +41,35 @@ void DiscussionsFilterProxyModelTest::shouldHaveDefaultValues()
     roles[DiscussionsModel::LastMessage] = QByteArrayLiteral("lastmessage");
     QCOMPARE(proxy.roleNames(), roles);
 }
+
+void DiscussionsFilterProxyModelTest::shouldAssignValue()
+{
+    DiscussionsFilterProxyModel proxy;
+    DiscussionsModel model;
+    proxy.setSourceModel(&model);
+
+    Discussions discussionList;
+    for (int i = 0; i < 10; ++i) {
+        Discussion c;
+        c.setDescription(QStringLiteral("roomid%1").arg(i));
+        c.setNumberMessages(i);
+        c.setParentRoomId(QStringLiteral("online"));
+        discussionList.append(c);
+    }
+    model.setDiscussions(discussionList);
+
+    QCOMPARE(model.rowCount(), 10);
+    QCOMPARE(proxy.rowCount(), 10);
+
+    discussionList.clear();
+    for (int i = 0; i < 3; ++i) {
+        Discussion c;
+        c.setDescription(QStringLiteral("roomid%1").arg(i));
+        c.setNumberMessages(i);
+        c.setParentRoomId(QStringLiteral("online"));
+        discussionList.append(c);
+    }
+    model.setDiscussions(discussionList);
+    QCOMPARE(model.rowCount(), 3);
+    QCOMPARE(proxy.rowCount(), 3);
+}

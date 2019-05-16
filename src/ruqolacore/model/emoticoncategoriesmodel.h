@@ -48,5 +48,4 @@ private:
     Q_DISABLE_COPY(EmoticonCategoriesModel)
     QVector<EmoticonCategory> mCategories;
 };
-//Q_DECLARE_METATYPE(Category)
 #endif // EMOTICONCATEGORIESMODEL_H

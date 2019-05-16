@@ -46,7 +46,7 @@ void DiscussionsTest::shouldLoadDiscussions_data()
     QTest::addColumn<int>("offset");
 
     QTest::addRow("empty") << QStringLiteral("discussions-empty") << 0 << 0 << 0;
-    QTest::addRow("1-element") << QStringLiteral("discussions-1-element") << 0 << 1 << 1;
+    QTest::addRow("1-element") << QStringLiteral("discussions-1-element") << 1 << 1 << 0;
 }
 
 void DiscussionsTest::shouldLoadDiscussions()
