@@ -31,6 +31,7 @@ public:
     ~DiscussionsModelTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldAssignValues();
 };
 
 #endif // DISCUSSIONSMODELTEST_H
