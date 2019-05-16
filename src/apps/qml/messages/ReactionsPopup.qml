@@ -19,8 +19,47 @@
  *
  */
 
-import QtQuick 2.0
+import QtQuick 2.9
+import QtQuick.Layouts 1.12
 
-Item {
+import KDE.Ruqola.RocketChatAccount 1.0
+import org.kde.kirigami 2.7 as Kirigami
+import "../common"
 
+Kirigami.Icon {
+    id: reactIcon
+
+    property var opacityDefaultValue: 0.5
+    signal insertReaction(string emoji)
+    source: "face-smile"
+    width: height
+    height: 18
+    opacity: opacityDefaultValue
+
+    MouseArea {
+        hoverEnabled: true
+        onEntered: {
+           reactIcon.opacity = 1.0
+        }
+
+        onExited: {
+            reactIcon.opacity = opacityDefaultValue
+        }
+
+        anchors.fill: parent
+        onClicked: {
+            emoticonMenu.visible ? emoticonMenu.close() : emoticonMenu.open()
+        }
+    }
+    EmoticonMenu {
+        id: emoticonMenu
+        emojiPopupModel: appid.emojiModel
+        width: Kirigami.Units.gridUnit * 20
+        height: Kirigami.Units.gridUnit * 15
+        x: -width + parent.width
+        y: -height - 10
+        onInsertEmoticon: {
+            reactIcon.insertReaction(emoti)
+        }
+    }
 }

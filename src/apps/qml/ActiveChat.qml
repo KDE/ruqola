@@ -37,6 +37,7 @@ ListView {
     signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
     signal deleteReaction(string messageId, string emoji)
+    signal addReaction(string messageId, string emoji)
     signal ignoreUser(string userId, bool ignored)
     signal pinMessage(string messageId, bool pinned)
     signal createDiscussion(string messageId)
@@ -139,6 +140,9 @@ ListView {
         }
         onDeleteReaction: {
             activeChat.deleteReaction(messageId, emoji)
+        }
+        onAddReaction: {
+            activeChat.addReaction(messageId, emoji)
         }
         onIgnoreUser: {
             activeChat.ignoreUser(userID, ignored)

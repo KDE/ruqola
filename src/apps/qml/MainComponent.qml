@@ -406,6 +406,9 @@ Component {
             onDeleteReaction: {
                 appid.rocketChatAccount.reactOnMessage(messageId, emoji, false)
             }
+            onAddReaction: {
+                appid.rocketChatAccount.reactOnMessage(messageId, emoji, true)
+            }
 
             onGoToDiscussionRoom: {
                 console.log("Open discussion " + discussionRoomId)

@@ -27,7 +27,7 @@ import QtQuick.Layouts 1.12
 Repeater {
     id: repearterReactions
     signal deleteReaction(string emoji)
-    Row {
+    Column {
         QQC2.Label {
             id: reactionsType
             renderType: Text.NativeRendering
@@ -36,26 +36,21 @@ Repeater {
             wrapMode: QQC2.Label.NoWrap
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
-            font.pixelSize: 20
+            font.pixelSize: 12
             MouseArea {
                 anchors.fill: parent
                 acceptedButtons: Qt.RightButton | Qt.LeftButton
-
+                hoverEnabled: true
                 onClicked: {
                     repearterReactions.deleteReaction(model.modelData.reactionName);
                 }
-            }
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
 
                 QQC2.ToolTip {
                     id: tooltipReact
-                    text: "TODO"
+                    text: model.modelData.convertedUsersNameAtToolTip
                 }
             }
         }
-        //TODO fix me. Add tooltip
         QQC2.Label {
             id: count
             renderType: Text.NativeRendering

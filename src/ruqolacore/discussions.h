@@ -48,6 +48,8 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
+    void append(const Discussion &discussion);
+
 private:
     QVector<Discussion> mDiscussion;
     int mDiscussionsCount = 0;

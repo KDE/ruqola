@@ -33,6 +33,7 @@ ColumnLayout {
     signal downloadAttachment(string url)
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
     signal deleteReaction(string messageId, string emoji)
+    signal addReaction(string messageId, string emoji)
     signal ignoreUser(bool ignored)
     signal pinMessage(string messageId, bool pinned)
     signal createDiscussion(string messageId)

@@ -29,6 +29,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Reaction
     Q_PROPERTY(int count READ count CONSTANT)
     Q_PROPERTY(QString reactionName READ reactionName CONSTANT)
     Q_PROPERTY(QString convertedReactionName READ convertedReactionName CONSTANT)
+    Q_PROPERTY(QString convertedUsersNameAtToolTip READ convertedUsersNameAtToolTip CONSTANT)
 public:
     Reaction();
 
@@ -43,6 +44,7 @@ public:
     Q_REQUIRED_RESULT bool operator ==(const Reaction &other) const;
 
     Q_REQUIRED_RESULT QString convertedReactionName() const;
+    Q_REQUIRED_RESULT QString convertedUsersNameAtToolTip() const;
 private:
     QString mReactionName;
     QString mCacheConvertedReactionName;

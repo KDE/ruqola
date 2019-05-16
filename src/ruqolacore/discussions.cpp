@@ -31,6 +31,11 @@ QVector<Discussion> Discussions::discussions() const
     return mDiscussion;
 }
 
+void Discussions::append(const Discussion &discussion)
+{
+    mDiscussion.append(discussion);
+}
+
 void Discussions::setDiscussions(const QVector<Discussion> &discussion)
 {
     mDiscussion = discussion;

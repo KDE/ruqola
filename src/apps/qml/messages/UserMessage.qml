@@ -56,6 +56,7 @@ MessageBase {
             aliasname: i_aliasname
             username: i_username
             onShowUserInfo: {
+                console.log("show user info not implemented yet")
                 //TODO
             }
         }
@@ -84,6 +85,7 @@ MessageBase {
                     }
                 }
             }
+
             RowLayout {
                 RepeaterRoles {
                     id: repearterRoles
@@ -209,6 +211,12 @@ MessageBase {
                 }
             }
         }
+        ReactionsPopup {
+            onInsertReaction: {
+                messageMain.addReaction(i_messageID, emoji)
+            }
+        }
+
         TimestampText {
             id: timestampText
             timestamp: i_timestamp

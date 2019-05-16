@@ -20,6 +20,7 @@
 #include "reaction.h"
 #include "emoticons/emojimanager.h"
 #include <KTextToHTML>
+#include <KLocalizedString>
 Reaction::Reaction()
 {
 }
@@ -27,6 +28,16 @@ Reaction::Reaction()
 QString Reaction::convertedReactionName() const
 {
     return mCacheConvertedReactionName;
+}
+
+QString Reaction::convertedUsersNameAtToolTip() const
+{
+    if (mUserNames.count() == 1) {
+        return i18n("%1 has reacted with %2", mUserNames.at(0), mReactionName);
+    } else {
+        const QString users = mUserNames.join(QLatin1Char(','));
+        return i18n("%1 has reacted with %2", users, mReactionName);
+    }
 }
 
 QString Reaction::reactionName() const

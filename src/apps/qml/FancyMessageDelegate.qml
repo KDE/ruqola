@@ -82,6 +82,7 @@ Rectangle {
     signal setFavoriteMessage(string messageId, bool starred)
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
     signal deleteReaction(string messageId, string emoji)
+    signal addReaction(string messageId, string emoji)
     signal ignoreUser(bool ignored)
     signal pinMessage(string messageId, bool pinned)
     signal createDiscussion(string messageId)
@@ -284,6 +285,9 @@ Rectangle {
         }
         onDeleteReaction: {
             messageMain.deleteReaction(messageId, emoji)
+        }
+        onAddReaction: {
+            messageMain.addReaction(messageId, emoji)
         }
         onIgnoreUser: {
             messageMain.ignoreUser(ignored)
