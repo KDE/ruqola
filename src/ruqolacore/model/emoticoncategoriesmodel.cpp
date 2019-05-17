@@ -56,6 +56,7 @@ QHash<int, QByteArray> EmoticonCategoriesModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles[Name] = QByteArrayLiteral("name");
     roles[Category] = QByteArrayLiteral("category");
+    //Add tooltip ? we need to extract info from json file.
     return roles;
 }
 

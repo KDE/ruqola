@@ -39,10 +39,11 @@ int NotificationDesktopSoundPreferenceModel::rowCount(const QModelIndex &parent)
 
 QVariant NotificationDesktopSoundPreferenceModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mNotificationDestktopSoundPreferenceList.count()) {
+    const int rowIndex = index.row();
+    if (rowIndex < 0 || rowIndex >= mNotificationDestktopSoundPreferenceList.count()) {
         return {};
     }
-    NotificationDesktopSoundPreferenceInfo preferenceInfo = mNotificationDestktopSoundPreferenceList.at(index.row());
+    NotificationDesktopSoundPreferenceInfo preferenceInfo = mNotificationDestktopSoundPreferenceList.at(rowIndex);
     switch (role) {
     case NotificationPreferenceI18n:
         return preferenceInfo.displayText;

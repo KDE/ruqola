@@ -24,7 +24,8 @@ import QtQuick.Window 2.2
 import QtQuick 2.9
 import KDE.Ruqola.UsersForRoomFilterProxyModel 1.0
 import org.kde.kirigami 2.7 as Kirigami
-
+//If we use it move TimestampText in common
+import "messages"
 QQC2.Dialog {
     id: showDiscussionsInRoomDialog
 
@@ -89,9 +90,15 @@ QQC2.Dialog {
                             }
                         }
                     }
+                    TimestampText {
+                        timestamp: lastmessage
+                    }
+                    QQC2.Label {
+                        text: numberofmessages
+                        elide: Text.ElideRight
+                        wrapMode: QQC2.Label.Wrap
+                    }
                 }
-                //TODO add number of Message
-                //TODO add last message date !
             }
         }
     }

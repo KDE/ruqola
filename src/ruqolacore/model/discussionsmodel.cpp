@@ -51,7 +51,6 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
         //TODO convert as date!
         return discussion.lastMessage();
     case DiscussionRoomId:
-        //TODO convert as date!
         return discussion.discussionRoomId();
     }
     return {};

@@ -39,10 +39,11 @@ int NotificationDesktopDurationPreferenceModel::rowCount(const QModelIndex &pare
 
 QVariant NotificationDesktopDurationPreferenceModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mNotificationDestktopDurationPreferenceList.count()) {
+    const int rowIndex = index.row();
+    if (rowIndex < 0 || rowIndex >= mNotificationDestktopDurationPreferenceList.count()) {
         return {};
     }
-    NotificationDesktopDurationPreferenceInfo preferenceInfo = mNotificationDestktopDurationPreferenceList.at(index.row());
+    NotificationDesktopDurationPreferenceInfo preferenceInfo = mNotificationDestktopDurationPreferenceList.at(rowIndex);
     switch (role) {
     case NotificationPreferenceI18n:
         return preferenceInfo.displayText;
