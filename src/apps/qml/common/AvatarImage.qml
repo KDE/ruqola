@@ -59,7 +59,6 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                console.log(RuqolaDebugCategorySingleton.category, "Clicked");
                 avatarRect.showUserInfo();
             }
         }
