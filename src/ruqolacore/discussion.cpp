@@ -18,7 +18,7 @@
 */
 
 #include "discussion.h"
-
+#include "utils.h"
 #include <QJsonObject>
 
 Discussion::Discussion()
@@ -100,7 +100,7 @@ void Discussion::parseDiscussion(const QJsonObject &o)
     mDescription = o.value(QLatin1String("description")).toString();
     mNumberMessages = o.value(QLatin1String("msgs")).toInt();
     mDiscussionRoomId = o.value(QLatin1String("_id")).toString();
-    //TODO mLastMessage =
+    mLastMessage = Utils::parseIsoDate(QStringLiteral("lm"), o);
 }
 
 QString Discussion::discussionRoomId() const
