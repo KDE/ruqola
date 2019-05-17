@@ -34,6 +34,12 @@ ColumnLayout {
     property alias messageLineText: messageLine.text
     property string savePreviousMessage
     readonly property int popupheight: 100
+
+    function sendMessage()
+    {
+        messageLine.accepted();
+    }
+
     function setOriginalMessage(messageStr)
     {
         messageLine.text = messageStr

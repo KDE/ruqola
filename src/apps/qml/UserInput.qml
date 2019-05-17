@@ -92,7 +92,7 @@ RowLayout {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                messageLine.accepted()
+                messageLine.sendMessage()
             }
         }
     }
