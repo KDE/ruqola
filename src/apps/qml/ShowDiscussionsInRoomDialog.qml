@@ -47,7 +47,6 @@ QQC2.Dialog {
         open();
     }
 
-    //Add menu here
     ColumnLayout {
         LineEditWithClearButton {
             id: searchField
@@ -85,12 +84,14 @@ QQC2.Dialog {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                console.log( "OPN DDD " + discussionid)
                                 showDiscussionsInRoomDialog.openDiscussion(discussionid)
+                                //Allow to close it.
                             }
                         }
                     }
                 }
+                //TODO add number of Message
+                //TODO add last message date !
             }
         }
     }
