@@ -46,9 +46,13 @@ public:
 
     void parseDiscussion(const QJsonObject &o);
 
+    Q_REQUIRED_RESULT QString discussionRoomId() const;
+    void setDiscussionRoomId(const QString &discussionRoomId);
+
 private:
     QString mDescription;
     QString mParentRoomId;
+    QString mDiscussionRoomId;
     int mNumberMessages = 0;
     qint64 mLastMessage = -1;
 };

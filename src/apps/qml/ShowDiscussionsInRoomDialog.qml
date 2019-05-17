@@ -30,6 +30,8 @@ QQC2.Dialog {
 
     title: i18n("Discussions")
 
+    signal openDiscussion(string discussionId)
+
     property QtObject discussionsModel
     property string roomId
     x: parent.width / 2 - width / 2
@@ -74,6 +76,19 @@ QQC2.Dialog {
                         text: description
                         elide: Text.ElideRight
                         wrapMode: QQC2.Label.Wrap
+                    }
+                    QQC2.Label {
+                        text: i18n("Open Discussion")
+                        elide: Text.ElideRight
+                        wrapMode: QQC2.Label.Wrap
+                        color: Kirigami.Theme.negativeTextColor
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                console.log( "OPN DDD " + discussionid)
+                                showDiscussionsInRoomDialog.openDiscussion(discussionid)
+                            }
+                        }
                     }
                 }
             }

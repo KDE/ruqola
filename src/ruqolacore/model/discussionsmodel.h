@@ -32,7 +32,8 @@ public:
         ParentId = Qt::UserRole + 1,
         Description,
         NumberOfMessages,
-        LastMessage
+        LastMessage,
+        DiscussionRoomId
     };
     Q_ENUM(DiscussionRoles)
 

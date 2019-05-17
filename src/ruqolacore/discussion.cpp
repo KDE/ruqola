@@ -71,6 +71,7 @@ QDebug operator <<(QDebug d, const Discussion &t)
     d << "Last Message " << t.lastMessage();
     d << "Number of Messages " << t.numberMessages();
     d << "Description " << t.description();
+    d << "Room Id " << t.discussionRoomId();
     return d;
 }
 
@@ -79,7 +80,8 @@ bool Discussion::operator ==(const Discussion &other) const
     return (description() == other.description())
            && (parentRoomId() == other.parentRoomId())
            && (numberMessages() == other.numberMessages())
-           && (lastMessage() == other.lastMessage());
+           && (lastMessage() == other.lastMessage())
+            && (discussionRoomId() == other.discussionRoomId());
 }
 
 Discussion &Discussion::operator=(const Discussion &other)
@@ -88,6 +90,7 @@ Discussion &Discussion::operator=(const Discussion &other)
     mDescription = other.description();
     mNumberMessages = other.numberMessages();
     mLastMessage = other.lastMessage();
+    mDiscussionRoomId = other.discussionRoomId();
     return *this;
 }
 
@@ -96,5 +99,16 @@ void Discussion::parseDiscussion(const QJsonObject &o)
     mParentRoomId = o.value(QLatin1String("prid")).toString();
     mDescription = o.value(QLatin1String("description")).toString();
     mNumberMessages = o.value(QLatin1String("msgs")).toInt();
+    mDiscussionRoomId = o.value(QLatin1String("_id")).toString();
     //TODO mLastMessage =
+}
+
+QString Discussion::discussionRoomId() const
+{
+    return mDiscussionRoomId;
+}
+
+void Discussion::setDiscussionRoomId(const QString &discussionRoomId)
+{
+    mDiscussionRoomId = discussionRoomId;
 }

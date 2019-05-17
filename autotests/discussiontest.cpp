@@ -34,5 +34,6 @@ void DiscussionTest::shouldHaveDefaultValue()
     QVERIFY(w.parentRoomId().isEmpty());
     QCOMPARE(w.numberMessages(), 0);
     QCOMPARE(w.lastMessage(), -1);
+    QVERIFY(w.discussionRoomId().isEmpty());
     //TODO
 }

@@ -36,6 +36,7 @@ void DiscussionsModelTest::shouldHaveDefaultValues()
     roles[DiscussionsModel::Description] = QByteArrayLiteral("description");
     roles[DiscussionsModel::NumberOfMessages] = QByteArrayLiteral("numberofmessages");
     roles[DiscussionsModel::LastMessage] = QByteArrayLiteral("lastmessage");
+    roles[DiscussionsModel::DiscussionRoomId] = QByteArrayLiteral("discussionid");
     QCOMPARE(model.roleNames(), roles);
 }
 

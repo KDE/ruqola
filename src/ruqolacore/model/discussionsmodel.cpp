@@ -50,6 +50,9 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
     case LastMessage:
         //TODO convert as date!
         return discussion.lastMessage();
+    case DiscussionRoomId:
+        //TODO convert as date!
+        return discussion.discussionRoomId();
     }
     return {};
 }
@@ -61,6 +64,7 @@ QHash<int, QByteArray> DiscussionsModel::roleNames() const
     roles[Description] = QByteArrayLiteral("description");
     roles[NumberOfMessages] = QByteArrayLiteral("numberofmessages");
     roles[LastMessage] = QByteArrayLiteral("lastmessage");
+    roles[DiscussionRoomId] = QByteArrayLiteral("discussionid");
     return roles;
 }
 
