@@ -25,7 +25,7 @@ import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.12
 QQC2.Label {    
     id: discussionLabel
-    signal goToDiscussionRoom()
+    signal openDiscussion()
     
     width: parent.width
 
@@ -38,7 +38,7 @@ QQC2.Label {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            discussionLabel.goToDiscussionRoom()
+            discussionLabel.openDiscussion()
         }
     }
 }

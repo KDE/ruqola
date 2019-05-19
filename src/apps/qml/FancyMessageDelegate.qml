@@ -86,7 +86,7 @@ Rectangle {
     signal ignoreUser(bool ignored)
     signal pinMessage(string messageId, bool pinned)
     signal createDiscussion(string messageId)
-    signal goToDiscussionRoom(string discussionRoomId)
+    signal openDiscussion(string discussionRoomId)
     Loader {
         id: loaded
         anchors.fill: parent
@@ -295,8 +295,8 @@ Rectangle {
         onCreateDiscussion: {
             messageMain.createDiscussion(messageId)
         }
-        onGoToDiscussionRoom: {
-            messageMain.goToDiscussionRoom(discussionRoomId)
+        onOpenDiscussion: {
+            messageMain.openDiscussion(discussionRoomId)
         }
     }
 }

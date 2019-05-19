@@ -59,8 +59,8 @@ MessageBase {
         }
         DiscussionLabel {
             id: discussionLabel
-            onGoToDiscussionRoom: {
-                messageMain.goToDiscussionRoom(i_drid)
+            onOpenDiscussion: {
+                messageMain.openDiscussion(i_drid)
                 console.log("Click to go to sub room: " + i_drid)
             }
         }

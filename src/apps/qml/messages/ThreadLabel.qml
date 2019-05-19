@@ -39,8 +39,7 @@ QQC2.Label {
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            console.log("Click on Thread. Not implemented yet");
-            //TODO
+            threadLabel.openThread();
         }
     }
 }
