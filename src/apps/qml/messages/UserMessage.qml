@@ -93,9 +93,6 @@ MessageBase {
                     Layout.fillWidth: true
                 }
             }
-            ThreadLabel {
-
-            }
 
             Column {
                 id: fullTextColumn
@@ -208,6 +205,11 @@ MessageBase {
                             }
                         }
                     }
+                }
+            }
+            ThreadLabel {
+                onOpenThread: {
+                    console.log("Not implemented yet")
                 }
             }
         }
