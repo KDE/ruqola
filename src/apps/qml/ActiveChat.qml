@@ -42,6 +42,7 @@ ListView {
     signal pinMessage(string messageId, bool pinned)
     signal createDiscussion(string messageId)
     signal openDiscussion(string discussionRoomId)
+    signal openThread(string threadMessageId)
 
     property QtObject rcAccount
     property string roomId: ""
@@ -153,5 +154,6 @@ ListView {
         onOpenDiscussion: {
             activeChat.openDiscussion(discussionRoomId)
         }
+
     }
 }

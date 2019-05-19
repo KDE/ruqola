@@ -480,7 +480,6 @@ Component {
                 id: showDiscussionsInRoomDialog
                 discussionsModel: appid.discussionsModel
                 onOpenDiscussion: {
-                    console.log(" open discussion :::: " + discussionId)
                     appid.switchToRoom(discussionId)
                 }
             }

@@ -31,7 +31,7 @@ QQC2.Dialog {
 
     title: i18n("Discussions")
 
-    signal openDiscussion(string discussionId)
+    signal openDiscussion(string discussionId)    
 
     property QtObject discussionsModel
     property string roomId

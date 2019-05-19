@@ -38,6 +38,7 @@ ColumnLayout {
     signal pinMessage(string messageId, bool pinned)
     signal createDiscussion(string messageId)
     signal openDiscussion(string discussionRoomId)
+    signal openThread(string threadMessageId)
 
     property string i_date
     property string i_username

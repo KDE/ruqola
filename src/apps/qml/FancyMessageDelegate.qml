@@ -87,6 +87,7 @@ Rectangle {
     signal pinMessage(string messageId, bool pinned)
     signal createDiscussion(string messageId)
     signal openDiscussion(string discussionRoomId)
+    signal openThread(string threadMessageId)
     Loader {
         id: loaded
         anchors.fill: parent
@@ -297,6 +298,9 @@ Rectangle {
         }
         onOpenDiscussion: {
             messageMain.openDiscussion(discussionRoomId)
+        }
+        onOpenThread: {
+            messageMain.openThread(threadMessageId)
         }
     }
 }
