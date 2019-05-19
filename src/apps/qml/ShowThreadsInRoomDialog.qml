@@ -57,6 +57,13 @@ QQC2.Dialog {
                 showThreadsInRoomDialog.searchThreads(text, roomId)
             }
         }
+        QQC2.Label {
+            text: listview.count === 0 ? i18n("No Discussion found") : ""
+            Component.onCompleted: {
+                font.italic = true
+                font.bold = true
+            }
+        }
 
         ListView {
             id: listview

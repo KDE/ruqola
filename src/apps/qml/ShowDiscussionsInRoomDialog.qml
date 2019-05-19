@@ -101,7 +101,7 @@ QQC2.Dialog {
                         timestamp: lastmessage
                     }
                     QQC2.Label {
-                        text: numberofmessages
+                        text: i18np("1 message", "%1 messages", numberofmessages)
                         elide: Text.ElideRight
                         wrapMode: QQC2.Label.Wrap
                     }
