@@ -412,6 +412,7 @@ Component {
 
             onOpenThread: {
                 console.log("Open thread messageid" + threadMessageId)
+                appid.rocketChatAccount.getThreadMessages(threadMessageId)
             }
 
             onOpenDiscussion: {

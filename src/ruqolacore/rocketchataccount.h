@@ -222,7 +222,6 @@ public:
     Q_INVOKABLE void switchingToRoom(const QString &roomID);
     Q_INVOKABLE void reportMessage(const QString &messageId, const QString &message);
     Q_INVOKABLE void getThreadMessages(const QString &threadMessageId);
-    Q_INVOKABLE void getThreadsList(const QString &roomId);
 
     Q_INVOKABLE void createDiscussion(const QString &parentRoomName, const QString &discussionName, const QString &replyMessage, const QString &messageId);
 

@@ -898,15 +898,6 @@ void RocketChatAccount::getThreadMessages(const QString &threadMessageId)
     }
 }
 
-void RocketChatAccount::getThreadsList(const QString &roomId)
-{
-    if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
-        restApi()->getThreadsList(roomId);
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getThreadsList is not supported before server 1.0.0";
-    }
-}
-
 void RocketChatAccount::changeNotificationsSettings(const QString &roomId, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue)
 {
     switch (notificationsType) {
@@ -1511,10 +1502,18 @@ void RocketChatAccount::createDiscussion(const QString &parentRoomId, const QStr
 
 void RocketChatAccount::threadsInRoom(const QString &roomId)
 {
-    restApi()->getThreadsList(roomId);
+    if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
+        restApi()->getThreadsList(roomId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::threadsInRoom is not supported before server 1.0.0";
+    }
 }
 
 void RocketChatAccount::discussionsInRoom(const QString &roomId)
 {
-    restApi()->getDiscussions(roomId);
+    if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
+        restApi()->getDiscussions(roomId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::discussionsInRoom is not supported before server 1.0.0";
+    }
 }
