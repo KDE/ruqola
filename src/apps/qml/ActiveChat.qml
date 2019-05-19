@@ -155,6 +155,8 @@ ListView {
         onOpenDiscussion: {
             activeChat.openDiscussion(discussionRoomId)
         }
-
+        onOpenThread: {
+            activeChat.openThread(threadMessageId)
+        }
     }
 }

@@ -410,6 +410,10 @@ Component {
                 appid.rocketChatAccount.reactOnMessage(messageId, emoji, true)
             }
 
+            onOpenThread: {
+                console.log("Open thread messageid" + threadMessageId)
+            }
+
             onOpenDiscussion: {
                 console.log("Open discussion " + discussionRoomId)
                 appid.switchToRoom(discussionRoomId)

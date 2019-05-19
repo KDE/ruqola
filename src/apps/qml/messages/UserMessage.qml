@@ -209,7 +209,7 @@ MessageBase {
             }
             ThreadLabel {
                 onOpenThread: {
-                    console.log("Not implemented yet")
+                    messageMain.openThread(i_tmid)
                 }
             }
         }
