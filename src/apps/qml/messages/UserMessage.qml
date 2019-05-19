@@ -209,6 +209,7 @@ MessageBase {
             }
             ThreadLabel {
                 onOpenThread: {
+                    console.log( " OPen thread " + i_tmid)
                     messageMain.openThread(i_tmid)
                 }
             }
