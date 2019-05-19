@@ -61,6 +61,7 @@ Rectangle {
     property bool i_pinned
     property int i_dcount
     property string i_drid
+    property string i_tmid
     property int i_tcount
 
 
@@ -123,7 +124,8 @@ Rectangle {
                                   rcAccount: appid.rocketChatAccount,
                                   i_dcount: i_dcount,
                                   i_drid: i_drid,
-                                  i_tcount: i_tcount
+                                  i_tcount: i_tcount,
+                                  i_tmid: i_tmid
                               }
                               )
                 }
@@ -153,7 +155,8 @@ Rectangle {
                               i_user_ignored : i_user_ignored,
                               i_dcount: i_dcount,
                               i_drid: i_drid,
-                              i_tcount: i_tcount
+                              i_tcount: i_tcount,
+                              i_tmid: i_tmid
 
                           }
                           )
@@ -180,7 +183,8 @@ Rectangle {
                               i_pinned: i_pinned,
                               i_dcount: i_dcount,
                               i_drid: i_drid,
-                              i_tcount: i_tcount
+                              i_tcount: i_tcount,
+                              i_tmid: i_tmid
                           })
             } else if (i_messageType === Message.Video) {
                 console.log(RuqolaDebugCategorySingleton.category, "Video");
@@ -205,7 +209,8 @@ Rectangle {
                               i_pinned: i_pinned,
                               i_dcount: i_dcount,
                               i_drid: i_drid,
-                              i_tcount: i_tcount
+                              i_tcount: i_tcount,
+                              i_tmid: i_tmid
                           })
             } else if (i_messageType === Message.Image) {
                 console.log(RuqolaDebugCategorySingleton.category, "Image");
@@ -230,7 +235,8 @@ Rectangle {
                               i_pinned: i_pinned,
                               i_dcount: i_dcount,
                               i_drid: i_drid,
-                              i_tcount: i_tcount
+                              i_tcount: i_tcount,
+                              i_tmid: i_tmid
                           })
 
             } else {

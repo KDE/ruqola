@@ -97,6 +97,7 @@ ListView {
         i_dcount: discussionCount
         i_drid: discussionRoomId
         i_tcount: threadCount
+        i_tmid: threadMessageId
 
 
         onOpenChannel: {

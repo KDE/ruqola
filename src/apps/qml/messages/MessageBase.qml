@@ -62,8 +62,7 @@ ColumnLayout {
     property string i_drid
 
     property int i_tcount
-
-
+    property string i_tmid
 
 
     property QtObject rcAccount
