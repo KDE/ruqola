@@ -84,26 +84,28 @@ QQC2.Dialog {
                         elide: Text.ElideRight
                         wrapMode: QQC2.Label.Wrap
                     }
-                    QQC2.Label {
-                        text: i18n("Open Discussion")
-                        elide: Text.ElideRight
-                        wrapMode: QQC2.Label.Wrap
-                        color: Kirigami.Theme.negativeTextColor
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                showDiscussionsInRoomDialog.openDiscussion(discussionid)
-                                //Allow to close it.
+                    RowLayout {
+                        QQC2.Label {
+                            text: i18n("Open Discussion")
+                            elide: Text.ElideRight
+                            wrapMode: QQC2.Label.Wrap
+                            color: Kirigami.Theme.negativeTextColor
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    showDiscussionsInRoomDialog.openDiscussion(discussionid)
+                                    //Allow to close it.
+                                }
                             }
                         }
-                    }
-                    TimestampText {
-                        timestamp: lastmessage
-                    }
-                    QQC2.Label {
-                        text: i18np("1 message", "%1 messages", numberofmessages)
-                        elide: Text.ElideRight
-                        wrapMode: QQC2.Label.Wrap
+                        QQC2.Label {
+                            text: i18np("1 message", "%1 messages", numberofmessages)
+                            elide: Text.ElideRight
+                            wrapMode: QQC2.Label.Wrap
+                        }
+                        TimestampText {
+                            timestamp: lastmessage
+                        }
                     }
                 }
             }
