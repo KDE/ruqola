@@ -58,7 +58,7 @@ QQC2.Dialog {
             }
         }
         QQC2.Label {
-            text: listview.count === 0 ? i18n("No Discussion found") : ""
+            text: listview.count === 0 ? i18n("No Thread found") : ""
             Component.onCompleted: {
                 font.italic = true
                 font.bold = true
