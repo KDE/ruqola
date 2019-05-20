@@ -57,6 +57,13 @@ QQC2.Dialog {
                 showMentionsInRoomDialog.searchMessage(text, roomId)
             }
         }
+        QQC2.Label {
+            text: listview.count === 0 ? i18n("No Mention found") : ""
+            Component.onCompleted: {
+                font.italic = true
+                font.bold = true
+            }
+        }
 
         ListView {
             id: listview
