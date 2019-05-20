@@ -94,6 +94,7 @@ QQC2.Dialog {
                                 anchors.fill: parent
                                 onClicked: {
                                     showDiscussionsInRoomDialog.openDiscussion(discussionid)
+                                    showDiscussionsInRoomDialog.close()
                                     //Allow to close it.
                                 }
                             }
