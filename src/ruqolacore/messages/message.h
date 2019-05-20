@@ -249,7 +249,7 @@ private:
 
     MessageType mMessageType = MessageType::NormalText;
     // groupable
-    bool mGroupable = false;
+    bool mGroupable = true;
 
     // parseUrls
     bool mParseUrls = false;
