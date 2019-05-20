@@ -123,7 +123,6 @@ public:
 
     Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
     Q_INVOKABLE UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
-    Q_INVOKABLE UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
     Q_INVOKABLE RoomWrapper *getRoomWrapper(const QString &roomId);
     Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);
     Q_INVOKABLE QString getUserCurrentMessage(const QString &roomId);

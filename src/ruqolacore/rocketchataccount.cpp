@@ -648,11 +648,6 @@ void RocketChatAccount::loadAutoCompleteChannel(const QJsonObject &obj)
     mSearchChannelModel->parseChannels(obj);
 }
 
-UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) const
-{
-    return mRoomModel->usersModelForRoom(roomId);
-}
-
 void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
     restApi()->filesInRoom(roomId, channelType);
