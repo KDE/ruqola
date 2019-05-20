@@ -59,6 +59,7 @@ MessageBase {
                 console.log("show user info not implemented yet")
                 //TODO
             }
+            visible: !i_groupable
         }
         ColumnLayout {
             Layout.fillHeight: true
@@ -84,6 +85,8 @@ MessageBase {
                         }
                     }
                 }
+                visible: !i_groupable
+
             }
 
             RowLayout {
@@ -223,6 +226,7 @@ MessageBase {
         TimestampText {
             id: timestampText
             timestamp: i_timestamp
+            visible: !i_groupable
         }
     }
 }

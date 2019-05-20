@@ -39,6 +39,7 @@ Repeater {
             Component.onCompleted: {
                 font.italic = true
             }
+            visible: !i_groupable
         }
     }
 }
