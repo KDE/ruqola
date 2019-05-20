@@ -31,7 +31,7 @@ QQC2.Dialog {
 
     title: i18n("Discussions")
 
-    signal openDiscussion(string discussionId)    
+    signal openDiscussion(string discussionId)
 
     property QtObject discussionsModel
     property string roomId
@@ -75,36 +75,37 @@ QQC2.Dialog {
             QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
 
             model: discussionsModel
-            delegate:
+            delegate: Kirigami.BasicListItem {
                 RowLayout {
-                width: ListView.view.width
-                ColumnLayout {
-                    QQC2.Label {
-                        text: description
-                        elide: Text.ElideRight
-                        wrapMode: QQC2.Label.Wrap
-                    }
-                    RowLayout {
+                    width: ListView.view.width
+                    ColumnLayout {
                         QQC2.Label {
-                            text: i18np("1 message", "%1 messages", numberofmessages)
+                            text: description
                             elide: Text.ElideRight
                             wrapMode: QQC2.Label.Wrap
                         }
-                        TimestampText {
-                            timestamp: lastmessage
+                        RowLayout {
+                            QQC2.Label {
+                                text: i18np("1 message", "%1 messages", numberofmessages)
+                                elide: Text.ElideRight
+                                wrapMode: QQC2.Label.Wrap
+                            }
+                            TimestampText {
+                                timestamp: lastmessage
+                            }
                         }
-                    }
-                    QQC2.Label {
-                        text: i18n("Open Discussion")
-                        elide: Text.ElideRight
-                        wrapMode: QQC2.Label.Wrap
-                        color: Kirigami.Theme.negativeTextColor
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                showDiscussionsInRoomDialog.openDiscussion(discussionid)
-                                showDiscussionsInRoomDialog.close()
-                                //Allow to close it.
+                        QQC2.Label {
+                            text: i18n("Open Discussion")
+                            elide: Text.ElideRight
+                            wrapMode: QQC2.Label.Wrap
+                            color: Kirigami.Theme.negativeTextColor
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    showDiscussionsInRoomDialog.openDiscussion(discussionid)
+                                    showDiscussionsInRoomDialog.close()
+                                    //Allow to close it.
+                                }
                             }
                         }
                     }

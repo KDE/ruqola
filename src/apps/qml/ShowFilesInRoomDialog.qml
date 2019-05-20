@@ -77,54 +77,55 @@ QQC2.Dialog {
             QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
 
             model: filesModel
-            delegate:
+            delegate: Kirigami.BasicListItem {
                 RowLayout {
-                width: ListView.view.width
-                ColumnLayout {
-                    QQC2.Label {
-                        text: filename
-                        elide: Text.ElideRight
-                        wrapMode: QQC2.Label.Wrap
-                    }
-                    QQC2.Label {
-                        text: (description !== "" ? description : "")
-                        visible: description !== ""
-                        wrapMode: QQC2.Label.Wrap
-                        Component.onCompleted: {
-                            font.italic = true
+                    //width: ListView.view.width
+                    ColumnLayout {
+                        QQC2.Label {
+                            text: filename
+                            elide: Text.ElideRight
+                            wrapMode: QQC2.Label.Wrap
+                        }
+                        QQC2.Label {
+                            text: (description !== "" ? description : "")
+                            visible: description !== ""
+                            wrapMode: QQC2.Label.Wrap
+                            Component.onCompleted: {
+                                font.italic = true
+                            }
+                        }
+                        QQC2.Label {
+                            text: username
+                            wrapMode: QQC2.Label.NoWrap
+                            elide: Text.ElideRight
+                            color: Kirigami.Theme.disabledTextColor
+                            Component.onCompleted: {
+                                font.italic = true
+                            }
+                        }
+                        QQC2.Label {
+                            text: timestamp
+                            wrapMode: QQC2.Label.NoWrap
+                            color: Kirigami.Theme.disabledTextColor
+                            Component.onCompleted: {
+                                font.italic = true
+                            }
                         }
                     }
-                    QQC2.Label {
-                        text: username
-                        wrapMode: QQC2.Label.NoWrap
-                        elide: Text.ElideRight
-                        color: Kirigami.Theme.disabledTextColor
-                        Component.onCompleted: {
-                            font.italic = true
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                    DownloadButton {
+                        onDownloadButtonClicked: {
+                            showFilesInRoomDialog.downloadFile(url)
                         }
                     }
-                    QQC2.Label {
-                        text: timestamp
-                        wrapMode: QQC2.Label.NoWrap
-                        color: Kirigami.Theme.disabledTextColor
-                        Component.onCompleted: {
-                            font.italic = true
+                    DeleteButton {
+                        visible: canbedeleted
+                        onDeleteButtonClicked: {
+                            deleteFileAttachmentDialog.fileId = fileid;
+                            deleteFileAttachmentDialog.open();
                         }
-                    }
-                }
-                Item {
-                    Layout.fillWidth: true
-                }
-                DownloadButton {
-                    onDownloadButtonClicked: {
-                        showFilesInRoomDialog.downloadFile(url)
-                    }
-                }
-                DeleteButton {
-                    visible: canbedeleted
-                    onDeleteButtonClicked: {
-                        deleteFileAttachmentDialog.fileId = fileid;
-                        deleteFileAttachmentDialog.open();
                     }
                 }
             }

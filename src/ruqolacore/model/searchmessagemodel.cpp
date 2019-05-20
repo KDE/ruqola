@@ -46,8 +46,13 @@ QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
     case MessageId:
         //TODO ?
         return {};
+    case UserId:
+        //TODO ?
+        return {};
+    case SystemMessageType:
+        //TODO ?
+        return {};
     }
-    Q_UNREACHABLE();
     return {};
 }
 
