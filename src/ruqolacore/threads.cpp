@@ -17,7 +17,7 @@
    Boston, MA 02110-1301, USA.
 */
 #include "threads.h"
-
+#include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -41,8 +41,18 @@ void Threads::parseThreads(const QJsonObject &threadsObj)
     mOffset = threadsObj[QStringLiteral("offset")].toInt();
     mTotal = threadsObj[QStringLiteral("total")].toInt();
     const QJsonArray threadsArray = threadsObj[QStringLiteral("threads")].toArray();
-
-    //TODO
+    mThreads.clear();
+    mThreads.reserve(threadsArray.count());
+    for (const QJsonValue &current : threadsArray) {
+        if (current.type() == QJsonValue::Object) {
+            const QJsonObject discussionObject = current.toObject();
+            Thread m;
+            m.parseMessage(discussionObject);
+            mThreads.append(m);
+        } else {
+            qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
+        }
+    }
 }
 
 bool Threads::isEmpty() const

@@ -56,7 +56,7 @@ void Discussions::parseDiscussions(const QJsonObject &discussionsObj)
             m.parseDiscussion(discussionObject);
             mDiscussion.append(m);
         } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing mentions" << current;
+            qCWarning(RUQOLA_LOG) << "Problem when parsing discussions" << current;
         }
     }
 }
