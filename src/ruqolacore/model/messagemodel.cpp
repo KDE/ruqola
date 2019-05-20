@@ -325,6 +325,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return mAllMessages.at(idx).threadLastMessage();
     case MessageModel::ThreadMessageId:
         return mAllMessages.at(idx).threadMessageId();
+    case MessageModel::Groupable:
+        return mAllMessages.at(idx).groupable();
     }
     Q_UNREACHABLE();
     return {};

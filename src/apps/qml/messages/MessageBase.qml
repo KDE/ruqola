@@ -63,6 +63,7 @@ ColumnLayout {
 
     property int i_tcount
     property string i_tmid
+    property bool i_groupable
 
 
     property QtObject rcAccount

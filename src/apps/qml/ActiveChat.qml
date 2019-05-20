@@ -98,7 +98,7 @@ ListView {
         i_drid: discussionRoomId
         i_tcount: threadCount
         i_tmid: threadMessageId
-
+        i_groupable: groupable
 
         onOpenChannel: {
             activeChat.openChannel(channel)

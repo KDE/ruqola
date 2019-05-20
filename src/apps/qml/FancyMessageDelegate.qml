@@ -63,6 +63,7 @@ Rectangle {
     property string i_drid
     property string i_tmid
     property int i_tcount
+    property bool i_groupable
 
 
 
@@ -125,6 +126,7 @@ Rectangle {
                                   i_dcount: i_dcount,
                                   i_drid: i_drid,
                                   i_tcount: i_tcount,
+                                  i_groupable: i_groupable,
                                   i_tmid: i_tmid
                               }
                               )
@@ -156,6 +158,7 @@ Rectangle {
                               i_dcount: i_dcount,
                               i_drid: i_drid,
                               i_tcount: i_tcount,
+                              i_groupable: i_groupable,
                               i_tmid: i_tmid
 
                           }
@@ -184,6 +187,7 @@ Rectangle {
                               i_dcount: i_dcount,
                               i_drid: i_drid,
                               i_tcount: i_tcount,
+                              i_groupable: i_groupable,
                               i_tmid: i_tmid
                           })
             } else if (i_messageType === Message.Video) {
@@ -210,6 +214,7 @@ Rectangle {
                               i_dcount: i_dcount,
                               i_drid: i_drid,
                               i_tcount: i_tcount,
+                              i_groupable: i_groupable,
                               i_tmid: i_tmid
                           })
             } else if (i_messageType === Message.Image) {
@@ -236,6 +241,7 @@ Rectangle {
                               i_dcount: i_dcount,
                               i_drid: i_drid,
                               i_tcount: i_tcount,
+                              i_groupable: i_groupable,
                               i_tmid: i_tmid
                           })
 
