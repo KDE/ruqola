@@ -86,26 +86,26 @@ QQC2.Dialog {
                     }
                     RowLayout {
                         QQC2.Label {
-                            text: i18n("Open Discussion")
-                            elide: Text.ElideRight
-                            wrapMode: QQC2.Label.Wrap
-                            color: Kirigami.Theme.negativeTextColor
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    showDiscussionsInRoomDialog.openDiscussion(discussionid)
-                                    showDiscussionsInRoomDialog.close()
-                                    //Allow to close it.
-                                }
-                            }
-                        }
-                        QQC2.Label {
                             text: i18np("1 message", "%1 messages", numberofmessages)
                             elide: Text.ElideRight
                             wrapMode: QQC2.Label.Wrap
                         }
                         TimestampText {
                             timestamp: lastmessage
+                        }
+                    }
+                    QQC2.Label {
+                        text: i18n("Open Discussion")
+                        elide: Text.ElideRight
+                        wrapMode: QQC2.Label.Wrap
+                        color: Kirigami.Theme.negativeTextColor
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                showDiscussionsInRoomDialog.openDiscussion(discussionid)
+                                showDiscussionsInRoomDialog.close()
+                                //Allow to close it.
+                            }
                         }
                     }
                 }
