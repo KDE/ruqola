@@ -24,8 +24,6 @@ import QtQuick.Window 2.2
 import QtQuick 2.9
 import KDE.Ruqola.UsersForRoomFilterProxyModel 1.0
 import org.kde.kirigami 2.7 as Kirigami
-//If we use it move TimestampText in common
-import "messages"
 QQC2.Dialog {
     id: showDiscussionsInRoomDialog
 
@@ -77,7 +75,6 @@ QQC2.Dialog {
             model: discussionsModel
             delegate: Kirigami.BasicListItem {
                 RowLayout {
-                    width: ListView.view.width
                     ColumnLayout {
                         QQC2.Label {
                             text: description
@@ -90,8 +87,11 @@ QQC2.Dialog {
                                 elide: Text.ElideRight
                                 wrapMode: QQC2.Label.Wrap
                             }
-                            TimestampText {
-                                timestamp: lastmessage
+                            QQC2.Label {
+                                id: timestampText
+                                Layout.alignment: Qt.AlignTop | Qt.AlignRight
+                                text: lastmessage
+                                opacity: .5
                             }
                         }
                         QQC2.Label {

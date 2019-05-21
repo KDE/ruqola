@@ -49,10 +49,12 @@ public:
     Q_REQUIRED_RESULT QString discussionRoomId() const;
     void setDiscussionRoomId(const QString &discussionRoomId);
 
+    Q_REQUIRED_RESULT QString lastMessageDisplay() const;
 private:
     QString mDescription;
     QString mParentRoomId;
     QString mDiscussionRoomId;
+    QString mLastMessageDateTimeStr;
     int mNumberMessages = 0;
     qint64 mLastMessage = -1;
 };

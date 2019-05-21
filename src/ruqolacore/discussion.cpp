@@ -19,6 +19,7 @@
 
 #include "discussion.h"
 #include "utils.h"
+#include <QDateTime>
 #include <QJsonObject>
 
 Discussion::Discussion()
@@ -63,6 +64,12 @@ qint64 Discussion::lastMessage() const
 void Discussion::setLastMessage(const qint64 &lastMessage)
 {
     mLastMessage = lastMessage;
+    mLastMessageDateTimeStr = QDateTime::fromMSecsSinceEpoch(mLastMessage).toString(Qt::SystemLocaleLongDate);
+}
+
+QString Discussion::lastMessageDisplay() const
+{
+    return mLastMessageDateTimeStr;
 }
 
 QDebug operator <<(QDebug d, const Discussion &t)
@@ -100,7 +107,7 @@ void Discussion::parseDiscussion(const QJsonObject &o)
     mDescription = o.value(QLatin1String("description")).toString();
     mNumberMessages = o.value(QLatin1String("msgs")).toInt();
     mDiscussionRoomId = o.value(QLatin1String("_id")).toString();
-    mLastMessage = Utils::parseIsoDate(QStringLiteral("lm"), o);
+    setLastMessage(Utils::parseIsoDate(QStringLiteral("lm"), o));
 }
 
 QString Discussion::discussionRoomId() const
