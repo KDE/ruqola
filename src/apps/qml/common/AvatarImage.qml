@@ -41,7 +41,7 @@ Rectangle {
     Layout.alignment: Qt.AlignTop | Qt.AlignCenter
     Layout.fillHeight: false
     //Customize it.
-    implicitWidth: Kirigami.Units.iconSizes.large
+    implicitWidth: Kirigami.Units.iconSizes.medium
     implicitHeight: implicitWidth
     
     radius: 3
