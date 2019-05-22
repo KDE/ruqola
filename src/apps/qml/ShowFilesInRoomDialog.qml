@@ -78,8 +78,8 @@ QQC2.Dialog {
 
             model: filesModel
             delegate: Kirigami.BasicListItem {
+                reserveSpaceForIcon: false
                 RowLayout {
-                    //width: ListView.view.width
                     ColumnLayout {
                         QQC2.Label {
                             text: filename
