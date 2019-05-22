@@ -34,4 +34,11 @@ void SearchMessageModelTest::shouldHaveDefaultValue()
 {
     SearchMessageModel w;
     QCOMPARE(w.rowCount(), 0);
+
+    QHash<int, QByteArray> roles;
+    roles[SearchMessageModel::MessageConvertedText] = QByteArrayLiteral("messagetext");
+    roles[SearchMessageModel::Timestamp] = QByteArrayLiteral("messagetimestamp");
+    roles[SearchMessageModel::MessageId] = QByteArrayLiteral("messageid");
+    roles[SearchMessageModel::SystemMessageType] = QByteArrayLiteral("systemmessagetype");
+    QCOMPARE(w.roleNames(), roles);
 }
