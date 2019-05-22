@@ -44,11 +44,9 @@ QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
     case Timestamp:
         return message.timeStamp();
     case MessageId:
-        //TODO ?
-        return {};
+        return message.messageId();
     case UserId:
-        //TODO ?
-        return {};
+        return message.userId();
     case SystemMessageType:
         //TODO ?
         return {};
@@ -60,8 +58,9 @@ QHash<int, QByteArray> SearchMessageModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
     roles[SearchMessageModel::MessageConvertedText] = QByteArrayLiteral("messagetext");
-    roles[SearchMessageModel::Timestamp] = QByteArrayLiteral("timestamp");
+    roles[SearchMessageModel::Timestamp] = QByteArrayLiteral("messagetimestamp");
     roles[SearchMessageModel::MessageId] = QByteArrayLiteral("messageid");
+    roles[SearchMessageModel::SystemMessageType] = QByteArrayLiteral("systemmessagetype");
     //Add more ????
     return roles;
 }
@@ -79,7 +78,7 @@ void SearchMessageModel::parseResult(const QJsonObject &obj, bool restApi)
     for (int i = 0; i < messagesObj.size(); i++) {
         const QJsonObject o = messagesObj.at(i).toObject();
         SearchMessage msg;
-        msg.parseResult(o, restApi);
+        msg.parseMessage(o, restApi);
         //Verify that it's valid
         messages.append(msg);
     }

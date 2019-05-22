@@ -35,13 +35,13 @@ Rectangle {
     property string avatarurl
     property string aliasname
     property string username
-
+    property int defaultWidth: Kirigami.Units.iconSizes.medium
     signal showUserInfo()
 
     Layout.alignment: Qt.AlignTop | Qt.AlignCenter
     Layout.fillHeight: false
     //Customize it.
-    implicitWidth: Kirigami.Units.iconSizes.medium
+    implicitWidth: defaultWidth
     implicitHeight: implicitWidth
     
     radius: 3

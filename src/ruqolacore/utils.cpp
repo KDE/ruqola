@@ -106,7 +106,7 @@ QString Utils::presenceStatusToString(User::PresenceStatus status)
     case User::PresenceStatus::Unknown:
         return {};
     }
-    Q_UNREACHABLE();
+    
     return {};
 }
 

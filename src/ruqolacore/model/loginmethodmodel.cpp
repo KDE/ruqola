@@ -79,7 +79,7 @@ QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
     case Type:
         return info.oauthType();
     }
-    Q_UNREACHABLE();
+    
     return {};
 }
 

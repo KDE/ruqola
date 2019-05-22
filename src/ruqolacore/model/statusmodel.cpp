@@ -123,6 +123,6 @@ QVariant StatusModel::data(const QModelIndex &index, int role) const
     case Icon:
         return statusInfo.icon;
     }
-    Q_UNREACHABLE();
+    
     return {};
 }

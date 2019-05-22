@@ -47,7 +47,7 @@ QVariant EmoticonCategoriesModel::data(const QModelIndex &index, int role) const
     case Category:
         return cat.category();
     }
-    Q_UNREACHABLE();
+
     return {};
 }
 

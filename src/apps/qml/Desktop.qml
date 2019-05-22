@@ -225,6 +225,9 @@ Kirigami.ApplicationWindow {
         onClosed: {
             rocketChatAccount.clearSearchModel()
         }
+        onGoToMessage: {
+            console.log("Show history to message: " + messageId)
+        }
     }
 
     JobErrorMessageDialog {

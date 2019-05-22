@@ -53,7 +53,7 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
     case UserIcon:
         return user.iconFromStatus();
     }
-    Q_UNREACHABLE();
+    
     return {};
 }
 

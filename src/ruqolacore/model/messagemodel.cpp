@@ -328,7 +328,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::Groupable:
         return mAllMessages.at(idx).groupable();
     }
-    Q_UNREACHABLE();
+    
     return {};
 }
 

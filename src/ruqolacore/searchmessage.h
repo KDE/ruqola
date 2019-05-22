@@ -25,20 +25,13 @@
 #include "libruqola_private_export.h"
 #include "messages/message.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT SearchMessage
+class LIBRUQOLACORE_TESTS_EXPORT SearchMessage : public Message
 {
     Q_GADGET
 public:
     SearchMessage();
-
-    void parseResult(const QJsonObject &obj, bool restApi);
-    Q_REQUIRED_RESULT QString text() const;
-    Q_REQUIRED_RESULT qint64 timeStamp() const;
-private:
-    Message mMessage;
 };
 Q_DECLARE_METATYPE(SearchMessage)
 Q_DECLARE_TYPEINFO(SearchMessage, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const SearchMessage &t);
 
 #endif // SEARCHMESSAGE_H

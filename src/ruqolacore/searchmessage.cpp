@@ -22,25 +22,3 @@
 SearchMessage::SearchMessage()
 {
 }
-
-void SearchMessage::parseResult(const QJsonObject &obj, bool restApi)
-{
-    mMessage.parseMessage(obj, restApi);
-}
-
-qint64 SearchMessage::timeStamp() const
-{
-    return mMessage.timeStamp();
-}
-
-QString SearchMessage::text() const
-{
-    return mMessage.text();
-}
-
-QDebug operator <<(QDebug d, const SearchMessage &t)
-{
-    d << "text " <<  t.text();
-    d << "timeStamp " <<  t.timeStamp();
-    return d;
-}

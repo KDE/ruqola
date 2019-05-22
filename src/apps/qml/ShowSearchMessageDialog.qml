@@ -25,13 +25,16 @@ import QtQuick.Window 2.2
 import QtQuick 2.9
 import KDE.Ruqola.UsersForRoomFilterProxyModel 1.0
 import org.kde.kirigami 2.7 as Kirigami
-
+import "common"
+import "messages"
 QQC2.Dialog {
     id: showSearchMessageDialog
 
     title: i18n("Search Message")
 
     signal searchMessage(string pattern, string rid)
+
+    signal goToMessage(string messageId)
 
     property QtObject searchMessageModel
     property string roomId
@@ -69,8 +72,24 @@ QQC2.Dialog {
 
             model: searchMessageModel
             delegate: Kirigami.BasicListItem {
-                label: messagetext
                 reserveSpaceForIcon: false
+                RowLayout {
+//                    AvatarImage {
+//                        id: avatarRect
+//                        avatarurl: i_avatar
+//                        aliasname: i_aliasname
+//                        username: i_username
+//                    }
+                    QQC2.Label {
+                        text: messagetext
+                        elide: Text.ElideRight
+                        wrapMode: QQC2.Label.Wrap
+                    }
+                    TimestampText {
+                        id: timestampText
+                        timestamp: messagetimestamp
+                    }
+                }
             }
         }
     }

@@ -120,7 +120,7 @@ QString InputCompleterModel::completerName(const Channel &channel) const
         qCWarning(RUQOLA_LOG) << "Unknown channel type!";
         return {};
     }
-    Q_UNREACHABLE();
+    
     return {};
 }
 
