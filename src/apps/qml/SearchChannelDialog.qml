@@ -57,6 +57,13 @@ QQC2.Dialog {
                 searchChannelDialog.searchChannel(channelnametext.text)
             }
         }
+        QQC2.Label {
+            text: listview.count === 0 ? i18n("No Channel found") : ""
+            Component.onCompleted: {
+                font.italic = true
+                font.bold = true
+            }
+        }
         ListView {
             id: listview
             width: 300;
@@ -64,28 +71,30 @@ QQC2.Dialog {
             clip: true
 
             model: searchChannelModel
-            delegate:
+            delegate: //Kirigami.BasicListItem {
+                //reserveSpaceForIcon: false
                 RowLayout {
-                Kirigami.Icon {
-                    source: "list-add"
-                    //FIXME
-                    height: Kirigami.Units.iconSizes.medium
-                    width: height
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            searchChannelDialog.openChannel(channelname, channelid, channeltype)
+                    Kirigami.Icon {
+                        source: "list-add"
+                        //FIXME
+                        height: Kirigami.Units.iconSizes.medium
+                        width: height
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                searchChannelDialog.openChannel(channelname, channelid, channeltype)
+                            }
                         }
                     }
-                }
-                Kirigami.Icon {
-                    source: iconname
-                    height: Kirigami.Units.iconSizes.medium
-                    width: height
-                }
-                QQC2.Label {
-                    text: channelname
-                }
+                    Kirigami.Icon {
+                        source: iconname
+                        height: Kirigami.Units.iconSizes.medium
+                        width: height
+                    }
+                    QQC2.Label {
+                        text: channelname
+                    }
+                //}
             }
         }
     }
