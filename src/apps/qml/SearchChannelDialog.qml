@@ -49,12 +49,10 @@ QQC2.Dialog {
     }
 
     ColumnLayout {
-        QQC2.TextField {
+        LineEditWithClearButton {
             id: channelnametext
-            selectByMouse: true
-            focus: true
-            Layout.fillWidth: true
             placeholderText: i18n("Search Channel...")
+            Layout.fillWidth: true
             onAccepted: {
                 searchChannelDialog.searchChannel(channelnametext.text)
             }
