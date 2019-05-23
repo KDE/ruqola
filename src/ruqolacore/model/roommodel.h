@@ -29,8 +29,6 @@
 #include <QObject>
 class RoomWrapper;
 class RocketChatAccount;
-class FilesForRoomModel;
-class FilesForRoomFilterProxyModel;
 class MessageModel;
 class ThreadsModel;
 class DiscussionsModel;
@@ -111,10 +109,6 @@ public:
     UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
 
     UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
-
-    FilesForRoomModel *filesModelForRoom(const QString &roomId) const;
-
-    FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel(const QString &roomId) const;
 
     MessageModel *messageModel(const QString &roomId) const;
 

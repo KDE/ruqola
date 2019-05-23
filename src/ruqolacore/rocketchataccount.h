@@ -62,6 +62,7 @@ class ThreadsFilterProxyModel;
 class ServerConfigInfo;
 class ReceiveTypingNotificationManager;
 class EmoticonModel;
+class FilesForRoomModel;
 namespace RocketChatRestApi {
 class RestApiRequest;
 }
@@ -173,7 +174,7 @@ public:
     Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
     Q_INVOKABLE UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
     Q_INVOKABLE void roomFiles(const QString &roomId, const QString &channelType = QString());
-    Q_INVOKABLE FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel(const QString &roomId) const;
+    Q_INVOKABLE FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
     Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId, const QString &channelType);
     Q_INVOKABLE SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
     Q_INVOKABLE InputCompleterModel *inputCompleterModel() const;
@@ -286,7 +287,6 @@ public:
     void loadAutoCompleteChannel(const QJsonObject &obj);
 
     void insertCompleterUsers();
-    void insertFilesList(const QString &roomId);
 
     void inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
     void inputUserAutocomplete(const QString &pattern, const QString &exceptions);
@@ -383,6 +383,8 @@ private:
     SearchMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
     ReceiveTypingNotificationManager *mReceiveTypingNotificationManager = nullptr;
     ServerConfigInfo *mServerConfigInfo = nullptr;
+    FilesForRoomModel *mFilesModelForRoom = nullptr;
+    FilesForRoomFilterProxyModel *mFilesForRoomFilterProxyModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
     bool mEditingMode = false;
 };

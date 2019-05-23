@@ -584,6 +584,7 @@ quint64 DDPClient::getUsersOfRoom(const QString &roomId, bool showAll)
     return method(result, callback, DDPClient::Persistent);
 }
 
+#if 0
 quint64 DDPClient::roomFiles(const QString &roomId)
 {
     const quint64 subscribeId = m_uid;
@@ -618,7 +619,7 @@ quint64 DDPClient::roomFiles(const QString &roomId)
 
     return method(result, callback, DDPClient::Persistent);
 }
-
+#endif
 quint64 DDPClient::createJitsiConfCall(const QString &roomId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->createJitsiConfCall(roomId, m_uid);

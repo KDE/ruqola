@@ -74,7 +74,7 @@ Kirigami.ApplicationWindow {
         appid.messageModel = appid.rocketChatAccount.messageModelForRoom(roomID)
         appid.selectedRoom = appid.rocketChatAccount.getRoomWrapper(roomID)
         appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(roomID)
-        appid.filesModel = appid.rocketChatAccount.filesForRoomFilterProxyModel(roomID)
+        appid.filesModel = appid.rocketChatAccount.filesForRoomFilterProxyModel()
         appid.threadsModel = appid.rocketChatAccount.threadsFilterProxyModel(roomID)
         appid.discussionsModel = appid.rocketChatAccount.discussionsFilterProxyModel(roomID)
     }

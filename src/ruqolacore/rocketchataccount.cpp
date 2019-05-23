@@ -50,6 +50,7 @@
 #include "model/searchmessagefilterproxymodel.h"
 #include "model/discussionsmodel.h"
 #include "model/threadsmodel.h"
+#include "model/filesforroomfilterproxymodel.h"
 #include "managerdatapaths.h"
 #include "authenticationmanager.h"
 
@@ -65,6 +66,7 @@
 
 #include <plugins/pluginauthentication.h>
 #include <plugins/pluginauthenticationinterface.h>
+
 
 #define USE_REASTAPI_JOB 1
 
@@ -113,6 +115,13 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mSearchMessageModel = new SearchMessageModel(this);
     mSearchMessageFilterProxyModel = new SearchMessageFilterProxyModel(this);
     mSearchMessageFilterProxyModel->setSourceModel(mSearchMessageModel);
+
+    mFilesModelForRoom = new FilesForRoomModel(this, this);
+    mFilesModelForRoom->setObjectName(QStringLiteral("filesmodelforrooms"));
+    mFilesForRoomFilterProxyModel = new FilesForRoomFilterProxyModel(this);
+    mFilesForRoomFilterProxyModel->setObjectName(QStringLiteral("filesforroomfiltermodelproxy"));
+    mFilesForRoomFilterProxyModel->setSourceModel(mFilesModelForRoom);
+
 
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this, this);
@@ -225,9 +234,9 @@ UsersForRoomFilterProxyModel *RocketChatAccount::usersForRoomFilterProxyModel(co
     return mRoomModel->usersForRoomFilterProxyModel(roomId);
 }
 
-FilesForRoomFilterProxyModel *RocketChatAccount::filesForRoomFilterProxyModel(const QString &roomId) const
+FilesForRoomFilterProxyModel *RocketChatAccount::filesForRoomFilterProxyModel() const
 {
-    return mRoomModel->filesForRoomFilterProxyModel(roomId);
+    return mFilesForRoomFilterProxyModel;
 }
 
 RocketChatBackend *RocketChatAccount::rocketChatBackend() const
@@ -596,16 +605,6 @@ void RocketChatAccount::deleteMessage(const QString &messageId, const QString &r
     restApi()->deleteMessage(roomId, messageId);
 }
 
-void RocketChatAccount::insertFilesList(const QString &roomId)
-{
-    FilesForRoomModel *filesForRoomModel = roomModel()->filesModelForRoom(roomId);
-    if (filesForRoomModel) {
-        filesForRoomModel->setFiles(rocketChatBackend()->files());
-    } else {
-        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
-    }
-}
-
 void RocketChatAccount::insertCompleterUsers()
 {
     userCompleterModel()->insertUsers(rocketChatBackend()->users());
@@ -739,12 +738,7 @@ void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)
 {
     const QVector<File> files = parseFilesInChannel(obj);
-    FilesForRoomModel *filesForRoomModel = roomModel()->filesModelForRoom(roomId);
-    if (filesForRoomModel) {
-        filesForRoomModel->setFiles(files);
-    } else {
-        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
-    }
+    mFilesModelForRoom->setFiles(files);
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)

@@ -164,7 +164,7 @@ public:
     Q_REQUIRED_RESULT quint64  getUsersOfRoom(const QString &roomId, bool showAll);
     Q_REQUIRED_RESULT quint64  loadHistory(const QJsonArray &params);
     Q_REQUIRED_RESULT quint64  channelAndPrivateAutocomplete(const QString &pattern, const QString &exception);
-    Q_REQUIRED_RESULT quint64  roomFiles(const QString &roomId);
+    //Q_REQUIRED_RESULT quint64  roomFiles(const QString &roomId);
     Q_REQUIRED_RESULT quint64  addUserToRoom(const QString &userId, const QString &roomId);
     Q_REQUIRED_RESULT quint64  inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
     Q_REQUIRED_RESULT quint64  inputUserAutocomplete(const QString &pattern, const QString &exceptions);

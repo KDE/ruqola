@@ -427,18 +427,6 @@ UsersForRoomFilterProxyModel *RoomModel::usersForRoomFilterProxyModel(const QStr
     return {};
 }
 
-FilesForRoomFilterProxyModel *RoomModel::filesForRoomFilterProxyModel(const QString &roomId) const
-{
-    const int roomCount = mRoomsList.count();
-    for (int i = 0; i < roomCount; ++i) {
-        Room *room = mRoomsList.at(i);
-        if (room->roomId() == roomId) {
-            return room->filesForRoomFilterProxyModel();
-        }
-    }
-    return {};
-}
-
 MessageModel *RoomModel::messageModel(const QString &roomId) const
 {
     const int roomCount = mRoomsList.count();
@@ -446,18 +434,6 @@ MessageModel *RoomModel::messageModel(const QString &roomId) const
         Room *room = mRoomsList.at(i);
         if (room->roomId() == roomId) {
             return room->messageModel();
-        }
-    }
-    return {};
-}
-
-FilesForRoomModel *RoomModel::filesModelForRoom(const QString &roomId) const
-{
-    const int roomCount = mRoomsList.count();
-    for (int i = 0; i < roomCount; ++i) {
-        Room *room = mRoomsList.at(i);
-        if (room->roomId() == roomId) {
-            return room->filesModelForRoom();
         }
     }
     return {};

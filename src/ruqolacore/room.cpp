@@ -27,8 +27,6 @@
 #include "ruqola_debug.h"
 #include "model/usersforroommodel.h"
 #include "model/usersforroomfilterproxymodel.h"
-#include "model/filesforroommodel.h"
-#include "model/filesforroomfilterproxymodel.h"
 #include "model/messagemodel.h"
 #include "model/threadsmodel.h"
 #include "model/threadsfilterproxymodel.h"
@@ -49,12 +47,6 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     mUsersModelForRoomProxyModel = new UsersForRoomFilterProxyModel(this);
     mUsersModelForRoomProxyModel->setObjectName(QStringLiteral("usersforroommodelproxymodel"));
     mUsersModelForRoomProxyModel->setSourceModel(mUsersModelForRoom);
-
-    mFilesModelForRoom = new FilesForRoomModel(mRocketChatAccount, this);
-    mFilesModelForRoom->setObjectName(QStringLiteral("filesmodelforrooms"));
-    mFilesForRoomFilterProxyModel = new FilesForRoomFilterProxyModel(this);
-    mFilesForRoomFilterProxyModel->setObjectName(QStringLiteral("filesforroomfiltermodelproxy"));
-    mFilesForRoomFilterProxyModel->setSourceModel(mFilesModelForRoom);
 
     mMessageModel = new MessageModel(QString(), mRocketChatAccount, this, this);
 
@@ -1025,15 +1017,6 @@ UsersForRoomFilterProxyModel *Room::usersModelForRoomProxyModel() const
     return mUsersModelForRoomProxyModel;
 }
 
-FilesForRoomModel *Room::filesModelForRoom() const
-{
-    return mFilesModelForRoom;
-}
-
-FilesForRoomFilterProxyModel *Room::filesForRoomFilterProxyModel() const
-{
-    return mFilesForRoomFilterProxyModel;
-}
 
 DiscussionsFilterProxyModel *Room::discussionsModelForRoomFilterProxyModel() const
 {

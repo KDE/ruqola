@@ -31,8 +31,6 @@
 #include "libruqola_private_export.h"
 class UsersForRoomModel;
 class UsersForRoomFilterProxyModel;
-class FilesForRoomModel;
-class FilesForRoomFilterProxyModel;
 class MessageModel;
 class RocketChatAccount;
 class NotificationOptionsWrapper;
@@ -148,9 +146,6 @@ public:
 
     UsersForRoomModel *usersModelForRoom() const;
     UsersForRoomFilterProxyModel *usersModelForRoomProxyModel() const;
-
-    FilesForRoomModel *filesModelForRoom() const;
-    FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
 
     DiscussionsFilterProxyModel *discussionsModelForRoomFilterProxyModel() const;
     DiscussionsModel *discussionsModelForRoom() const;
@@ -345,14 +340,15 @@ private:
     bool mJoinCodeRequired = false;
     bool mWasInitialized = false;
     bool mBroadcast = false;
-    UsersForRoomModel *mUsersModelForRoom = nullptr;
-    UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
-    FilesForRoomModel *mFilesModelForRoom = nullptr;
-    FilesForRoomFilterProxyModel *mFilesForRoomFilterProxyModel = nullptr;
     ThreadsModel *mThreadsModel = nullptr;
     ThreadsFilterProxyModel *mThreadsFilterProxyModel = nullptr;
     DiscussionsFilterProxyModel *mDiscussionsFilterProxyModel = nullptr;
     DiscussionsModel *mDiscussionsModel = nullptr;
+
+
+
+    UsersForRoomModel *mUsersModelForRoom = nullptr;
+    UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
     MessageModel *mMessageModel = nullptr;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };
