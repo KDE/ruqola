@@ -71,9 +71,10 @@ QQC2.Dialog {
             clip: true
 
             model: searchChannelModel
-            delegate: //Kirigami.BasicListItem {
-                //reserveSpaceForIcon: false
+            delegate: Kirigami.BasicListItem {
+                reserveSpaceForIcon: false
                 RowLayout {
+                    Layout.fillHeight: true
                     Kirigami.Icon {
                         source: "list-add"
                         //FIXME
@@ -92,9 +93,10 @@ QQC2.Dialog {
                         width: height
                     }
                     QQC2.Label {
+                        Layout.fillWidth: true
                         text: channelname
                     }
-                //}
+                }
             }
         }
     }
