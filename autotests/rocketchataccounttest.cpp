@@ -26,6 +26,10 @@
 #include "model/filesforroommodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
+#include "model/threadsfilterproxymodel.h"
+#include "model/threadsmodel.h"
+#include "model/mentionsmodel.h"
+#include "model/mentionsfilterproxymodel.h"
 #include <QTest>
 #include <QStandardPaths>
 
@@ -61,5 +65,9 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.discussionsFilterProxyModel());
     QVERIFY(w.discussionsFilterProxyModel());
     QCOMPARE(w.discussionsFilterProxyModel()->sourceModel(), w.discussionsModel());
-
+    QVERIFY(w.threadsModel());
+    QVERIFY(w.threadsFilterProxyModel());
+    QCOMPARE(w.threadsFilterProxyModel()->sourceModel(), w.threadsModel());
+    QVERIFY(w.mentionsFilterProxyModel());
+    QCOMPARE(w.mentionsFilterProxyModel()->sourceModel(), w.mentionsModel());
 }

@@ -64,6 +64,10 @@ class ReceiveTypingNotificationManager;
 class EmoticonModel;
 class DiscussionsFilterProxyModel;
 class DiscussionsModel;
+class ThreadsModel;
+class MentionsModel;
+class MentionsFilterProxyModel;
+
 namespace RocketChatRestApi {
 class RestApiRequest;
 }
@@ -184,7 +188,8 @@ public:
 
     Q_INVOKABLE DiscussionsFilterProxyModel *discussionsFilterProxyModel() const;
 
-    Q_INVOKABLE ThreadsFilterProxyModel *threadsFilterProxyModel(const QString &roomId) const;
+    Q_INVOKABLE ThreadsFilterProxyModel *threadsFilterProxyModel() const;
+    Q_INVOKABLE MentionsFilterProxyModel *mentionsFilterProxyModel() const;
 
     Q_INVOKABLE void changeDefaultAuthentication(int index);
     Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid);
@@ -311,6 +316,11 @@ public:
 
     DiscussionsModel *discussionsModel() const;
 
+    ThreadsModel *threadsModel() const;
+
+    MentionsModel *mentionsModel() const;
+
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -392,7 +402,11 @@ private:
     FilesForRoomFilterProxyModel *mFilesForRoomFilterProxyModel = nullptr;
     DiscussionsFilterProxyModel *mDiscussionsFilterProxyModel = nullptr;
     DiscussionsModel *mDiscussionsModel = nullptr;
+    ThreadsModel *mThreadsModel = nullptr;
+    ThreadsFilterProxyModel *mThreadsFilterProxyModel = nullptr;
 
+    MentionsModel *mMentionsModel = nullptr;
+    MentionsFilterProxyModel *mMentionsFilterProxyModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
     bool mEditingMode = false;
 };

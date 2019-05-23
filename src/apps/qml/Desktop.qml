@@ -45,9 +45,10 @@ Kirigami.ApplicationWindow {
 
     property QtObject messageModel
     property QtObject userModel
-    property QtObject filesModel
-    property QtObject threadsModel
-    property QtObject discussionsModel
+    property QtObject filesModel: appid.rocketChatAccount.filesForRoomFilterProxyModel()
+    property QtObject threadsModel: appid.rocketChatAccount.threadsFilterProxyModel()
+    property QtObject discussionsModel: appid.rocketChatAccount.discussionsFilterProxyModel()
+    property QtObject mentionsModel: appid.rocketChatAccount.mentionsFilterProxyModel()
     property QtObject accountManager: Ruqola.accountManager()
     property QtObject accountManagerModel: accountManager.rocketChatAccountModel()
     property QtObject rocketChatAccount: accountManager.firstAccount()
@@ -74,9 +75,6 @@ Kirigami.ApplicationWindow {
         appid.messageModel = appid.rocketChatAccount.messageModelForRoom(roomID)
         appid.selectedRoom = appid.rocketChatAccount.getRoomWrapper(roomID)
         appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(roomID)
-        appid.filesModel = appid.rocketChatAccount.filesForRoomFilterProxyModel()
-        appid.threadsModel = appid.rocketChatAccount.threadsFilterProxyModel(roomID)
-        appid.discussionsModel = appid.rocketChatAccount.discussionsFilterProxyModel()
     }
 
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None

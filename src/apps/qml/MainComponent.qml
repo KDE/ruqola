@@ -479,11 +479,10 @@ Component {
 
             ShowMentionsInRoomDialog {
                 id: showMentionsInRoomDialog
+                mentionsModel: appid.mentionsModel
                 onGoToMessage: {
                     console.log("Go to Message not implemented yet")
                 }
-
-                //mentionsModel: a
             }
             ShowDiscussionsInRoomDialog {
                 id: showDiscussionsInRoomDialog
