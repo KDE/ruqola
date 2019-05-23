@@ -668,6 +668,11 @@ QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj)
     return files;
 }
 
+FilesForRoomModel *RocketChatAccount::filesModelForRoom() const
+{
+    return mFilesModelForRoom;
+}
+
 EmoticonModel *RocketChatAccount::emoticonModel() const
 {
     return mEmoticonModel;

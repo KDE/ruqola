@@ -306,6 +306,8 @@ public:
     Q_INVOKABLE EmoticonModel *emoticonModel() const;
     void setEmoticonModel(EmoticonModel *emoticonModel);
 
+    FilesForRoomModel *filesModelForRoom() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
