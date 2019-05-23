@@ -44,3 +44,20 @@ void ReactionTest::shouldReturnCount()
     r.setUserNames({QStringLiteral("dd"), QStringLiteral("dd2")});
     QCOMPARE(r.count(), 2);
 }
+
+void ReactionTest::shouldShowReactionsToolTip()
+{
+    Reaction r;
+    r.setReactionName(QStringLiteral(":foo:"));
+    QCOMPARE(r.convertedUsersNameAtToolTip(), QString());
+    QStringList userNames;
+    userNames.append(QStringLiteral("bla"));
+    r.setUserNames(userNames);
+    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla had reacted with :foo:"));
+    userNames.append(QStringLiteral("blo"));
+    r.setUserNames(userNames);
+    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla and blo had reacted with :foo:"));
+    userNames.append(QStringLiteral("bli"));
+    r.setUserNames(userNames);
+    QCOMPARE(r.convertedUsersNameAtToolTip(), QStringLiteral("bla, blo and bli had reacted with :foo:"));
+}

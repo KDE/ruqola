@@ -32,11 +32,23 @@ QString Reaction::convertedReactionName() const
 
 QString Reaction::convertedUsersNameAtToolTip() const
 {
-    if (mUserNames.count() == 1) {
-        return i18n("%1 has reacted with %2", mUserNames.at(0), mReactionName);
+    if (mUserNames.isEmpty()) {
+        return QString();
+    } else if (mUserNames.count() == 1) {
+        return i18n("%1 had reacted with %2", mUserNames[0], mReactionName);
     } else {
-        const QString users = mUserNames.join(QLatin1Char(','));
-        return i18n("%1 has reacted with %2", users, mReactionName);
+        QString notificationStr;
+        for (int i = 0; i < mUserNames.count(); ++i) {
+            const QString user = mUserNames.at(i);
+            if (i == 0) {
+                notificationStr = user;
+            } else if (i < mUserNames.count() - 1) {
+                notificationStr = i18n("%1, %2", notificationStr, user);
+            } else {
+                notificationStr = i18n("%1 and %2", notificationStr, user);
+            }
+        }
+        return i18n("%1 had reacted with %2", notificationStr, mReactionName);
     }
 }
 

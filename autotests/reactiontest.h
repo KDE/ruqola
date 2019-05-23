@@ -31,6 +31,7 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldReturnCount();
+    void shouldShowReactionsToolTip();
 };
 
 #endif // REACTIONTEST_H
