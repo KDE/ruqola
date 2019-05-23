@@ -32,6 +32,8 @@ QQC2.Dialog {
 
     signal searchMessage(string pattern, string rid)
 
+    signal goToMessage(string messageId)
+
     property QtObject mentionsModel
     property string roomId
     x: parent.width / 2 - width / 2
