@@ -76,7 +76,7 @@ Kirigami.ApplicationWindow {
         appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(roomID)
         appid.filesModel = appid.rocketChatAccount.filesForRoomFilterProxyModel()
         appid.threadsModel = appid.rocketChatAccount.threadsFilterProxyModel(roomID)
-        appid.discussionsModel = appid.rocketChatAccount.discussionsFilterProxyModel(roomID)
+        appid.discussionsModel = appid.rocketChatAccount.discussionsFilterProxyModel()
     }
 
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None

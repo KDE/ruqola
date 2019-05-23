@@ -51,6 +51,7 @@
 #include "model/discussionsmodel.h"
 #include "model/threadsmodel.h"
 #include "model/filesforroomfilterproxymodel.h"
+#include "model/discussionsfilterproxymodel.h"
 #include "managerdatapaths.h"
 #include "authenticationmanager.h"
 
@@ -66,6 +67,7 @@
 
 #include <plugins/pluginauthentication.h>
 #include <plugins/pluginauthenticationinterface.h>
+
 
 
 #define USE_REASTAPI_JOB 1
@@ -121,6 +123,12 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mFilesForRoomFilterProxyModel = new FilesForRoomFilterProxyModel(this);
     mFilesForRoomFilterProxyModel->setObjectName(QStringLiteral("filesforroomfiltermodelproxy"));
     mFilesForRoomFilterProxyModel->setSourceModel(mFilesModelForRoom);
+
+    mDiscussionsModel = new DiscussionsModel(this);
+    mDiscussionsModel->setObjectName(QStringLiteral("discussionsmodel"));
+    mDiscussionsFilterProxyModel = new DiscussionsFilterProxyModel(this);
+    mDiscussionsFilterProxyModel->setObjectName(QStringLiteral("discussionsfilterproxymodel"));
+    mDiscussionsFilterProxyModel->setSourceModel(mDiscussionsModel);
 
 
     mStatusModel = new StatusModel(this);
@@ -274,9 +282,9 @@ Room *RocketChatAccount::getRoom(const QString &roomId)
     return mRoomModel->findRoom(roomId);
 }
 
-DiscussionsFilterProxyModel *RocketChatAccount::discussionsFilterProxyModel(const QString &roomId) const
+DiscussionsFilterProxyModel *RocketChatAccount::discussionsFilterProxyModel() const
 {
-    return mRoomModel->discussionsModelForRoomProxyModel(roomId);
+    return mDiscussionsFilterProxyModel;
 }
 
 ThreadsFilterProxyModel *RocketChatAccount::threadsFilterProxyModel(const QString &roomId) const
@@ -668,6 +676,11 @@ QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj)
     return files;
 }
 
+DiscussionsModel *RocketChatAccount::discussionsModel() const
+{
+    return mDiscussionsModel;
+}
+
 FilesForRoomModel *RocketChatAccount::filesModelForRoom() const
 {
     return mFilesModelForRoom;
@@ -706,14 +719,9 @@ void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const 
 
 void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId)
 {
-    Room *room = mRoomModel->findRoom(roomId);
-    if (room) {
-        Discussions discussions;
-        discussions.parseDiscussions(obj);
-        room->discussionsModelForRoom()->setDiscussions(discussions);
-    } else {
-        qCWarning(RUQOLA_LOG) << " Impossible to find room " << roomId;
-    }
+    Discussions discussions;
+    discussions.parseDiscussions(obj);
+    mDiscussionsModel->setDiscussions(discussions);
 }
 
 void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId)

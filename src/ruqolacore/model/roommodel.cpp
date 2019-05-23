@@ -25,7 +25,6 @@
 #include "rocketchataccount.h"
 #include "usersforroommodel.h"
 #include "threadsmodel.h"
-#include "discussionsmodel.h"
 #include "roomwrapper.h"
 #include <KLocalizedString>
 
@@ -439,29 +438,6 @@ MessageModel *RoomModel::messageModel(const QString &roomId) const
     return {};
 }
 
-DiscussionsModel *RoomModel::discussionsModelForRoom(const QString &roomId) const
-{
-    const int roomCount = mRoomsList.count();
-    for (int i = 0; i < roomCount; ++i) {
-        Room *room = mRoomsList.at(i);
-        if (room->roomId() == roomId) {
-            return room->discussionsModelForRoom();
-        }
-    }
-    return {};
-}
-
-DiscussionsFilterProxyModel *RoomModel::discussionsModelForRoomProxyModel(const QString &roomId) const
-{
-    const int roomCount = mRoomsList.count();
-    for (int i = 0; i < roomCount; ++i) {
-        Room *room = mRoomsList.at(i);
-        if (room->roomId() == roomId) {
-            return room->discussionsModelForRoomFilterProxyModel();
-        }
-    }
-    return {};
-}
 
 ThreadsModel *RoomModel::threadsModelForRoom(const QString &roomId) const
 {

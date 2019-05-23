@@ -24,6 +24,8 @@
 #include "model/searchmessagemodel.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
+#include "model/discussionsfilterproxymodel.h"
+#include "model/discussionsmodel.h"
 #include <QTest>
 #include <QStandardPaths>
 
@@ -56,4 +58,8 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.filesModelForRoom());
     QVERIFY(w.filesForRoomFilterProxyModel());
     QCOMPARE(w.filesForRoomFilterProxyModel()->sourceModel(), w.filesModelForRoom());
+    QVERIFY(w.discussionsFilterProxyModel());
+    QVERIFY(w.discussionsFilterProxyModel());
+    QCOMPARE(w.discussionsFilterProxyModel()->sourceModel(), w.discussionsModel());
+
 }

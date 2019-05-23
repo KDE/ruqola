@@ -48,6 +48,7 @@ class OtrManager;
 class UsersForRoomFilterProxyModel;
 class UsersForRoomModel;
 class FilesForRoomFilterProxyModel;
+class FilesForRoomModel;
 class SearchChannelModel;
 class SearchChannelFilterProxyModel;
 class LoginMethodModel;
@@ -57,12 +58,12 @@ class PluginAuthenticationInterface;
 class Room;
 class SearchMessageModel;
 class SearchMessageFilterProxyModel;
-class DiscussionsFilterProxyModel;
 class ThreadsFilterProxyModel;
 class ServerConfigInfo;
 class ReceiveTypingNotificationManager;
 class EmoticonModel;
-class FilesForRoomModel;
+class DiscussionsFilterProxyModel;
+class DiscussionsModel;
 namespace RocketChatRestApi {
 class RestApiRequest;
 }
@@ -181,7 +182,7 @@ public:
     Q_INVOKABLE LoginMethodModel *loginMethodModel() const;
     Q_INVOKABLE Room *getRoom(const QString &roomId);
 
-    Q_INVOKABLE DiscussionsFilterProxyModel *discussionsFilterProxyModel(const QString &roomId) const;
+    Q_INVOKABLE DiscussionsFilterProxyModel *discussionsFilterProxyModel() const;
 
     Q_INVOKABLE ThreadsFilterProxyModel *threadsFilterProxyModel(const QString &roomId) const;
 
@@ -308,6 +309,8 @@ public:
 
     FilesForRoomModel *filesModelForRoom() const;
 
+    DiscussionsModel *discussionsModel() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -387,6 +390,9 @@ private:
     ServerConfigInfo *mServerConfigInfo = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;
     FilesForRoomFilterProxyModel *mFilesForRoomFilterProxyModel = nullptr;
+    DiscussionsFilterProxyModel *mDiscussionsFilterProxyModel = nullptr;
+    DiscussionsModel *mDiscussionsModel = nullptr;
+
     EmoticonModel *mEmoticonModel = nullptr;
     bool mEditingMode = false;
 };

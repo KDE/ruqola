@@ -25,8 +25,6 @@
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
-#include "model/discussionsfilterproxymodel.h"
-#include "model/discussionsmodel.h"
 #include "model/threadsfilterproxymodel.h"
 #include "model/threadsmodel.h"
 #include <QJsonDocument>
@@ -51,9 +49,6 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.threadsModelForRoomFilterProxyModel());
     QCOMPARE(input.threadsModelForRoomFilterProxyModel()->sourceModel(), input.threadsModelForRoom());
 
-    QVERIFY(input.discussionsModelForRoom());
-    QVERIFY(input.discussionsModelForRoomFilterProxyModel());
-    QCOMPARE(input.discussionsModelForRoomFilterProxyModel()->sourceModel(), input.discussionsModelForRoom());
 
     QCOMPARE(input.usersModelForRoomProxyModel()->sourceModel(), input.usersModelForRoom());
 

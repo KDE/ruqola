@@ -31,7 +31,6 @@ class RoomWrapper;
 class RocketChatAccount;
 class MessageModel;
 class ThreadsModel;
-class DiscussionsModel;
 class ThreadsFilterProxyModel;
 
 class LIBRUQOLACORE_EXPORT RoomModel : public QAbstractListModel
@@ -120,8 +119,6 @@ public:
     void updateSubscriptionRoom(const QJsonObject &room);
     Q_REQUIRED_RESULT QString insertRoom(const QJsonObject &room);
 
-    DiscussionsModel *discussionsModelForRoom(const QString &roomId) const;
-    DiscussionsFilterProxyModel *discussionsModelForRoomProxyModel(const QString &roomId) const;
     ThreadsModel *threadsModelForRoom(const QString &roomId) const;
     ThreadsFilterProxyModel *threadsModelForRoomProxyModel(const QString &roomId) const;
 Q_SIGNALS:
