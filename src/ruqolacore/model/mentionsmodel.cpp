@@ -40,8 +40,45 @@ QVariant MentionsModel::data(const QModelIndex &index, int role) const
         return {};
     }
     const Mention mention = mMentions.at(index.row());
-
-    //TODO
+    switch (role) {
+    case OriginalMessage:
+        return mention.text();
+    case MessageConvertedText:
+        //return mention.con; //TODO
+        return {};
+    case Username:
+        return mention.username();
+    case Timestamp:
+        return mention.timeStamp();
+    case UserId:
+        return mention.userId();
+    case MessageId:
+        return mention.messageId();
+    case RoomId:
+        return mention.roomId();
+    case UpdatedAt:
+        return mention.updatedAt();
+    case EditedByUserName:
+        return mention.editedByUsername();
+    case EditedByUserId:
+        return mention.editedByUserId();
+    case Alias:
+        return mention.alias();
+    case Avatar:
+        return mention.avatar();
+    case Roles:
+        return mention.role();
+    case Reactions: {
+        QVariantList lst;
+        const auto reactions = mention.reactions().reactions();
+        lst.reserve(reactions.count());
+        for (const Reaction &react : reactions) {
+            //Convert reactions
+            lst.append(QVariant::fromValue(react));
+        }
+        return lst;
+    }
+    }
     return {};
 }
 
@@ -75,11 +112,6 @@ QHash<int, QByteArray> MentionsModel::roleNames() const
     roles[EditedByUserId] = QByteArrayLiteral("editedByUserID");
     roles[Alias] = QByteArrayLiteral("alias");
     roles[Avatar] = QByteArrayLiteral("avatar");
-    roles[MessageType] = QByteArrayLiteral("messagetype");
-    roles[Attachments] = QByteArrayLiteral("attachments");
-    roles[Urls] = QByteArrayLiteral("urls");
-    roles[Date] = QByteArrayLiteral("date");
-    roles[UsernameUrl] = QByteArrayLiteral("usernameurl");
     roles[Roles] = QByteArrayLiteral("roles");
     roles[Reactions] = QByteArrayLiteral("reactions");
     return roles;

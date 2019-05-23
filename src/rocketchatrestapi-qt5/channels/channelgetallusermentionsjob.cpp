@@ -91,7 +91,7 @@ void ChannelGetAllUserMentionsJob::slotChannelGetAllUserMentionsFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelGetAllUserMentionsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelGetAllUserMentionsDone(replyObject);
+            Q_EMIT channelGetAllUserMentionsDone(replyObject, mRoomId);
         } else {
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelGetAllUserMentionsJob problem: ") + replyJson.toJson(QJsonDocument::Indented));

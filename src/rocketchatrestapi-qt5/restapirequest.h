@@ -187,7 +187,7 @@ Q_SIGNALS:
     void setChannelJoinDone(const QString &roomId);
     void missingChannelPassword(const QString &roomId);
     void openArchivedRoom(const QString &roomId);
-    void channelGetAllUserMentionsDone(const QJsonObject &obj);
+    void channelGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
     void updateJitsiTimeOutDone(const QString &datetime);
     void channelKickUserDone(const QJsonObject &obj);
     void groupKickUserDone(const QJsonObject &obj);

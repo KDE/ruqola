@@ -49,11 +49,6 @@ void MentionsModelTest::shouldHaveDefaultValue()
     roles[MentionsModel::EditedByUserId] = QByteArrayLiteral("editedByUserID");
     roles[MentionsModel::Alias] = QByteArrayLiteral("alias");
     roles[MentionsModel::Avatar] = QByteArrayLiteral("avatar");
-    roles[MentionsModel::MessageType] = QByteArrayLiteral("messagetype");
-    roles[MentionsModel::Attachments] = QByteArrayLiteral("attachments");
-    roles[MentionsModel::Urls] = QByteArrayLiteral("urls");
-    roles[MentionsModel::Date] = QByteArrayLiteral("date");
-    roles[MentionsModel::UsernameUrl] = QByteArrayLiteral("usernameurl");
     roles[MentionsModel::Roles] = QByteArrayLiteral("roles");
     roles[MentionsModel::Reactions] = QByteArrayLiteral("reactions");
     QCOMPARE(w.roleNames(), roles);
