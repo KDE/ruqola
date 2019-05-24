@@ -90,6 +90,7 @@ Rectangle {
     signal createDiscussion(string messageId)
     signal openDiscussion(string discussionRoomId)
     signal openThread(string threadMessageId)
+    signal replyInThread(string messageId)
     Loader {
         id: loaded
         anchors.fill: parent
@@ -313,6 +314,10 @@ Rectangle {
         }
         onOpenThread: {
             messageMain.openThread(threadMessageId)
+        }
+        onReplyInThread: {
+            console.log("onReplyInThread: { " + messageId)
+            messageMain.replyInThread(messageId)
         }
     }
 }

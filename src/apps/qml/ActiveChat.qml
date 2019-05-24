@@ -43,6 +43,7 @@ ListView {
     signal createDiscussion(string messageId)
     signal openDiscussion(string discussionRoomId)
     signal openThread(string threadMessageId)
+    signal replyInThread(string messageId)
 
     property QtObject rcAccount
     property string roomId: ""
@@ -157,6 +158,10 @@ ListView {
         }
         onOpenThread: {
             activeChat.openThread(threadMessageId)
+        }
+        onReplyInThread: {
+            activeChat.replyInThread(messageId)
+            console.log("Reply in thread " + messageId)
         }
     }
 }

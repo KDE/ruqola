@@ -39,7 +39,7 @@ ColumnLayout {
     signal createDiscussion(string messageId)
     signal openDiscussion(string discussionRoomId)
     signal openThread(string threadMessageId)
-
+    signal replyInThread(string messageId)
     property string i_date
     property string i_username
     property string i_usernameurl

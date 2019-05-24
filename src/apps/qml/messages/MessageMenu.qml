@@ -65,8 +65,8 @@ QQC2.Menu {
             text: i18n("Reply in Thread")
         }
         onTriggered: {
-//            messageMain.copyMessage(i_messageID, i_originalMessage);
-//            console.log(RuqolaDebugCategorySingleton.category, "Copy", i_messageID, i_originalMessage);
+            messageMain.replyInThread(i_messageID);
+            console.log(RuqolaDebugCategorySingleton.category, "Reply in thread ", i_messageID);
         }
     }
 
