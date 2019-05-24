@@ -47,15 +47,6 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     mUsersModelForRoomProxyModel->setSourceModel(mUsersModelForRoom);
 
     mMessageModel = new MessageModel(QString(), mRocketChatAccount, this, this);
-
-    mThreadsModel = new ThreadsModel(this);
-    mThreadsModel->setObjectName(QStringLiteral("threadsmodel"));
-
-    mThreadsFilterProxyModel = new ThreadsFilterProxyModel(this);
-    mThreadsFilterProxyModel->setObjectName(QStringLiteral("threadsfiltermodelproxy"));
-    mThreadsFilterProxyModel->setSourceModel(mThreadsModel);
-
-    //TODO necessary to define mChannelType
 }
 
 bool Room::operator==(const Room &other) const
@@ -1007,16 +998,6 @@ UsersForRoomModel *Room::usersModelForRoom() const
 UsersForRoomFilterProxyModel *Room::usersModelForRoomProxyModel() const
 {
     return mUsersModelForRoomProxyModel;
-}
-
-ThreadsFilterProxyModel *Room::threadsModelForRoomFilterProxyModel() const
-{
-    return mThreadsFilterProxyModel;
-}
-
-ThreadsModel *Room::threadsModelForRoom() const
-{
-    return mThreadsModel;
 }
 
 MessageModel *Room::messageModel() const
