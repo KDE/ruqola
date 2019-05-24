@@ -28,6 +28,14 @@ class LIBRUQOLACORE_TESTS_EXPORT ThreadsModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum ThreadRoles {
+        ParentId = Qt::UserRole + 1,
+        Description,
+        NumberOfMessages,
+        LastMessage
+    };
+    Q_ENUM(ThreadRoles)
+
     explicit ThreadsModel(QObject *parent = nullptr);
     ~ThreadsModel() override;
 

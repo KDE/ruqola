@@ -115,3 +115,8 @@ QDebug operator <<(QDebug d, const Threads &t)
     }
     return d;
 }
+
+void Threads::append(const Thread &thread)
+{
+    mThreads.append(thread);
+}

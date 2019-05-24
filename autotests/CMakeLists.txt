@@ -85,5 +85,6 @@ add_ruqola_test(threadsfilterproxymodeltest.cpp)
 add_ruqola_test(emoticoncategoriesmodeltest.cpp)
 add_ruqola_test(emoticoncategorytest.cpp)
 add_ruqola_test(threadstest.cpp)
+add_ruqola_test(threadsmodeltest.cpp)
 
 add_subdirectory(qml)

@@ -47,6 +47,10 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> ThreadsModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
+    roles[ParentId] = QByteArrayLiteral("parentid");
+    roles[Description] = QByteArrayLiteral("description");
+    roles[NumberOfMessages] = QByteArrayLiteral("numberofmessages");
+    roles[LastMessage] = QByteArrayLiteral("lastmessage");
     return roles;
 }
 

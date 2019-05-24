@@ -48,6 +48,7 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
+    void append(const Thread &thread);
 private:
     QVector<Thread> mThreads;
     int mThreadsCount = 0;

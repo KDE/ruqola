@@ -745,6 +745,9 @@ void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const QStri
 
 void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)
 {
+    Threads threads;
+    threads.parseThreads(obj);
+    mThreadsModel->setThreads(threads);
 }
 
 void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId)
