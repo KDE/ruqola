@@ -30,5 +30,4 @@ public:
 };
 Q_DECLARE_METATYPE(Thread)
 Q_DECLARE_TYPEINFO(Thread, Q_MOVABLE_TYPE);
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Thread &t);
 #endif // THREAD_H

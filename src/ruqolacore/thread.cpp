@@ -22,9 +22,3 @@
 Thread::Thread()
 {
 }
-
-QDebug operator <<(QDebug d, const Thread &t)
-{
-    //TODO
-    return d;
-}
