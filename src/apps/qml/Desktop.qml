@@ -52,10 +52,9 @@ Kirigami.ApplicationWindow {
     property QtObject mentionsModel: appid.rocketChatAccount.mentionsFilterProxyModel()
     property QtObject accountManager: Ruqola.accountManager()
     property QtObject accountManagerModel: accountManager.rocketChatAccountModel()
-    property QtObject inputCompleterModel: rocketChatAccount.inputCompleterModel()
     property QtObject searchMessageModel: rocketChatAccount.searchMessageFilterProxyModel()
     property QtObject emojiModel: rocketChatAccount.emoticonModel()
-    property QtObject threadsModel//: rocketChatAccount.threadsFilterProxyModel()
+    property QtObject threadsModel3: rocketChatAccount.threadsFilterProxyModel()
     property string userInputMessageText: "";
 
     width: Kirigami.Units.gridUnit * 55
@@ -69,7 +68,6 @@ Kirigami.ApplicationWindow {
         if (roomID === selectedRoomID) {
             return;
         }
-        //TODO remove duplicate code !!!!
         appid.rocketChatAccount.switchingToRoom(roomID)
         appid.rocketChatAccount.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
         appid.selectedRoomID = roomID;

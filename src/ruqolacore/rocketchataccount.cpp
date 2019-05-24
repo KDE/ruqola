@@ -140,7 +140,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mThreadsFilterProxyModel->setSourceModel(mThreadsModel);
 
     mMentionsModel = new MentionsModel(this);
-    mThreadsModel->setObjectName(QStringLiteral("threadsmodel"));
+    mMentionsModel->setObjectName(QStringLiteral("mentionsmodel"));
 
     mMentionsFilterProxyModel = new MentionsFilterProxyModel(this);
     mMentionsFilterProxyModel->setObjectName(QStringLiteral("mentionsfiltermodelproxy"));
@@ -745,9 +745,7 @@ void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const QStri
 
 void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)
 {
-    Threads threads;
-    threads.parseThreads(obj);
-    mThreadsModel->setThreads(threads);
+    //USe a specific method for threadmessages
 }
 
 void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId)

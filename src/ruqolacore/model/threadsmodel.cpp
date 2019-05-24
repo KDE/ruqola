@@ -77,5 +77,4 @@ void ThreadsModel::setThreads(const Threads &threads)
         mThreads = threads;
         endInsertRows();
     }
-    qDebug() << " void ThreadsModel::setThreads(const Threads &threads)" << threads.count();
 }

@@ -25,7 +25,7 @@ ThreadsFilterProxyModel::ThreadsFilterProxyModel(QObject *parent)
 {
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(ThreadsModel::LastMessage);
+    setFilterRole(ThreadsModel::Description);
     sort(0);
 }
 
