@@ -87,6 +87,9 @@ QQC2.Dialog {
                                 text: i18np("1 message", "%1 messages", numberofmessages)
                                 elide: Text.ElideRight
                                 wrapMode: QQC2.Label.Wrap
+                                Component.onCompleted: {
+                                    font.bold = true
+                                }
                             }
                             QQC2.Label {
                                 id: timestampText
