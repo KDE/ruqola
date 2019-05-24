@@ -151,7 +151,7 @@ public:
     Q_REQUIRED_RESULT bool archived() const;
     void setArchived(bool archived);
 
-    QString description() const;
+    Q_REQUIRED_RESULT QString description() const;
     void setDescription(const QString &description);
 
     Q_REQUIRED_RESULT bool encryptedEnabled() const;
