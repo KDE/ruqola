@@ -40,6 +40,17 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
         return {};
     }
     const Thread thread = mThreads.at(index.row());
+    switch (role) {
+    case ParentId:
+        //return thread.parentRoomId();
+        return {};
+    case Description:
+        return thread.text();
+    case NumberOfMessages:
+        return thread.threadCount();
+    case LastMessage:
+        return thread.threadLastMessage();
+    }
 
     return {};
 }
@@ -66,4 +77,5 @@ void ThreadsModel::setThreads(const Threads &threads)
         mThreads = threads;
         endInsertRows();
     }
+    qDebug() << " void ThreadsModel::setThreads(const Threads &threads)" << threads.count();
 }

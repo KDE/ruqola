@@ -45,16 +45,17 @@ Kirigami.ApplicationWindow {
 
     property QtObject messageModel
     property QtObject userModel
+    property QtObject rocketChatAccount: accountManager.firstAccount()
+
     property QtObject filesModel: appid.rocketChatAccount.filesForRoomFilterProxyModel()
-    property QtObject threadsModel: appid.rocketChatAccount.threadsFilterProxyModel()
     property QtObject discussionsModel: appid.rocketChatAccount.discussionsFilterProxyModel()
     property QtObject mentionsModel: appid.rocketChatAccount.mentionsFilterProxyModel()
     property QtObject accountManager: Ruqola.accountManager()
     property QtObject accountManagerModel: accountManager.rocketChatAccountModel()
-    property QtObject rocketChatAccount: accountManager.firstAccount()
     property QtObject inputCompleterModel: rocketChatAccount.inputCompleterModel()
     property QtObject searchMessageModel: rocketChatAccount.searchMessageFilterProxyModel()
     property QtObject emojiModel: rocketChatAccount.emoticonModel()
+    property QtObject threadsModel//: rocketChatAccount.threadsFilterProxyModel()
     property string userInputMessageText: "";
 
     width: Kirigami.Units.gridUnit * 55
