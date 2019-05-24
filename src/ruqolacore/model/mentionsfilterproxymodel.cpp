@@ -39,3 +39,8 @@ QHash<int, QByteArray> MentionsFilterProxyModel::roleNames() const
     }
     return QHash<int, QByteArray>();
 }
+
+void MentionsFilterProxyModel::setFilterString(const QString &string)
+{
+    setFilterFixedString(string);
+}

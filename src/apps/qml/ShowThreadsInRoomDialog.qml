@@ -29,8 +29,6 @@ QQC2.Dialog {
 
     title: i18n("Threads")
 
-    signal searchThreads(string pattern, string rid)
-
     property QtObject threadsModel
     property string roomId
     x: parent.width / 2 - width / 2
@@ -52,8 +50,8 @@ QQC2.Dialog {
             id: searchField
             placeholderText: i18n("Search Threads...")
             Layout.fillWidth: true
-            onAccepted: {
-                showThreadsInRoomDialog.searchThreads(text, roomId)
+            onTextChanged: {
+                threadsModel.setFilterString(text);
             }
         }
         QQC2.Label {

@@ -29,8 +29,6 @@ QQC2.Dialog {
 
     title: i18n("Mentions")
 
-    signal searchMessage(string pattern, string rid)
-
     signal goToMessage(string messageId)
 
     property QtObject mentionsModel
@@ -54,8 +52,8 @@ QQC2.Dialog {
             id: searchField
             placeholderText: i18n("Search Mentions...")
             Layout.fillWidth: true
-            onAccepted: {
-                showMentionsInRoomDialog.searchMessage(text, roomId)
+            onTextChanged: {
+                mentionsModel.setFilterString(text);
             }
         }
         QQC2.Label {
@@ -77,7 +75,7 @@ QQC2.Dialog {
 
             model: mentionsModel
             delegate: Kirigami.BasicListItem {
-                label: messagetext
+                label: originalMessage
                 reserveSpaceForIcon: false
             }
         }

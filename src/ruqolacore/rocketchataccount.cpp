@@ -756,8 +756,9 @@ void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const
 
 void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId)
 {
-
-    //TODO parse mentions
+    Mentions mentions;
+    mentions.parseMentions(obj);
+    mMentionsModel->setMentions(mentions);
 }
 
 void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId)

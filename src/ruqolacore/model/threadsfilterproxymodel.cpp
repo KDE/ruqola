@@ -40,3 +40,8 @@ QHash<int, QByteArray> ThreadsFilterProxyModel::roleNames() const
     }
     return QHash<int, QByteArray>();
 }
+
+void ThreadsFilterProxyModel::setFilterString(const QString &string)
+{
+    setFilterFixedString(string);
+}

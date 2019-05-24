@@ -31,6 +31,7 @@ public:
     ~MentionsFilterProxyModel() override;
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
+    Q_INVOKABLE void setFilterString(const QString &string);
 };
 
 #endif // MENTIONSFILTERPROXYMODEL_H
