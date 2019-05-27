@@ -73,8 +73,33 @@ QQC2.Dialog {
 
             model: threadsModel
             delegate: Kirigami.BasicListItem {
-                label: description
                 reserveSpaceForIcon: false
+                RowLayout {
+                    ColumnLayout {
+                        QQC2.Label {
+                            text: description
+                            elide: Text.ElideRight
+                            wrapMode: QQC2.Label.Wrap
+                        }
+
+                        RowLayout {
+                            QQC2.Label {
+                                text: i18np("1 reply", "%1 replies", numberofmessages)
+                                elide: Text.ElideRight
+                                wrapMode: QQC2.Label.Wrap
+                                Component.onCompleted: {
+                                    font.bold = true
+                                }
+                            }
+                            QQC2.Label {
+                                id: timestampText
+                                Layout.alignment: Qt.AlignTop | Qt.AlignRight
+                                text: lastmessage
+                                opacity: .5
+                            }
+                        }
+                    }
+                }
             }
         }
     }

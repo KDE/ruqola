@@ -19,6 +19,8 @@
 
 #include "threadsmodel.h"
 
+#include <QDateTime>
+
 ThreadsModel::ThreadsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -49,7 +51,8 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
     case NumberOfMessages:
         return thread.threadCount();
     case LastMessage:
-        return thread.threadLastMessage();
+        //Need to cache it
+        return QDateTime::fromMSecsSinceEpoch(thread.threadLastMessage()).toString(Qt::SystemLocaleLongDate);
     }
 
     return {};
