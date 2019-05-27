@@ -500,6 +500,9 @@ Component {
             ShowThreadsInRoomDialog {
                 id: showThreadsInRoomDialog
                 threadsModel: appid.threadsModel
+                onOpenThread: {
+                    appid.rocketChatAccount.getThreadMessages(threadMessageId)
+                }
             }
 
             ShowFilesInRoomDialog {

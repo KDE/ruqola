@@ -19,14 +19,75 @@
 */
 
 #include "threadmessages.h"
+#include "ruqola_debug.h"
+#include <QJsonArray>
+#include <QJsonObject>
 
 ThreadMessages::ThreadMessages()
 {
 
 }
 
+
+void ThreadMessages::parseThreadMessages(const QJsonObject &threadsObj)
+{
+    mThreadMessagesCount = threadsObj[QStringLiteral("count")].toInt();
+    mOffset = threadsObj[QStringLiteral("offset")].toInt();
+    mTotal = threadsObj[QStringLiteral("total")].toInt();
+    const QJsonArray threadsArray = threadsObj[QStringLiteral("threads")].toArray();
+    /*
+    mThreads.clear();
+    mThreads.reserve(threadsArray.count());
+    for (const QJsonValue &current : threadsArray) {
+        if (current.type() == QJsonValue::Object) {
+            const QJsonObject discussionObject = current.toObject();
+            Thread m;
+            m.parseMessage(discussionObject, true);
+            mThreads.append(m);
+        } else {
+            qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
+        }
+    }
+    */
+}
+
+int ThreadMessages::offset() const
+{
+    return mOffset;
+}
+
+void ThreadMessages::setOffset(int offset)
+{
+    mOffset = offset;
+}
+
+int ThreadMessages::total() const
+{
+    return mTotal;
+}
+
+void ThreadMessages::setTotal(int total)
+{
+    mTotal = total;
+}
+
+int ThreadMessages::threadMessagesCount() const
+{
+    return mThreadMessagesCount;
+}
+
+void ThreadMessages::setThreadMessagesCount(int threadMessagesCount)
+{
+    mThreadMessagesCount = threadMessagesCount;
+}
+
 QDebug operator <<(QDebug d, const ThreadMessages &t)
 {
-    //TODO
+    d << "total " << t.total();
+    d << "offset " << t.offset();
+    d << "threadsCount " << t.threadMessagesCount();
+//    for (int i = 0, total = t.threads().count(); i < total; ++i) {
+//        d << t.threads().at(i);
+//    }
     return d;
 }

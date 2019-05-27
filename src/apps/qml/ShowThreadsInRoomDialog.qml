@@ -109,7 +109,6 @@ QQC2.Dialog {
                                 onClicked: {
                                     showThreadsInRoomDialog.openThread(threadmessageid)
                                     showThreadsInRoomDialog.close()
-                                    //Allow to close it.
                                 }
                             }
                         }

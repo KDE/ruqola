@@ -26,6 +26,21 @@ class LIBRUQOLACORE_TESTS_EXPORT ThreadMessages
 {
 public:
     ThreadMessages();
+    void parseThreadMessages(const QJsonObject &threadsObj);
+
+    Q_REQUIRED_RESULT int offset() const;
+    void setOffset(int offset);
+
+    Q_REQUIRED_RESULT int total() const;
+    void setTotal(int total);
+
+    Q_REQUIRED_RESULT int threadMessagesCount() const;
+    void setThreadMessagesCount(int threadMessagesCount);
+
+private:
+    int mThreadMessagesCount = 0;
+    int mOffset = 0;
+    int mTotal = 0;
 };
 Q_DECLARE_METATYPE(ThreadMessages)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const ThreadMessages &t);

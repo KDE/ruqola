@@ -107,7 +107,6 @@ QQC2.Dialog {
                                 onClicked: {
                                     showDiscussionsInRoomDialog.openDiscussion(discussionid)
                                     showDiscussionsInRoomDialog.close()
-                                    //Allow to close it.
                                 }
                             }
                         }
