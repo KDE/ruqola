@@ -1,4 +1,4 @@
-if (Qt5QuickCompiler_FOUND)
+if (Qt5QuickCompiler_FOUND AND NOT DISABLE_QTQUICK_COMPILER)
     qtquick_compiler_add_resources(RuqolaResources qml/qml.qrc)
 else ()
     qt5_add_resources(RuqolaResources qml/qml.qrc)

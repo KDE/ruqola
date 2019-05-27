@@ -37,7 +37,7 @@ include(ECMAddTests)
 include(GenerateExportHeader)
 include(FeatureSummary)
 
-
+option(DISABLE_QTQUICK_COMPILER "Disable using qtquick compiler (false)" FALSE)
 option(PLUGINS_AUTHENTICATION_BASED_ON_O2 "Build authentication based on o2 lib (experimental)" FALSE)
 if (NOT WIN32)
     option(UNITY_SUPPORT "Build unity support" TRUE)
