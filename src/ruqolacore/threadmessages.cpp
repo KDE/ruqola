@@ -28,7 +28,6 @@ ThreadMessages::ThreadMessages()
 
 }
 
-
 void ThreadMessages::parseThreadMessages(const QJsonObject &threadsObj)
 {
     mThreadMessagesCount = threadsObj[QStringLiteral("count")].toInt();
@@ -85,7 +84,7 @@ QDebug operator <<(QDebug d, const ThreadMessages &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();
-    d << "threadsCount " << t.threadMessagesCount();
+    d << "threadMessagesCount " << t.threadMessagesCount();
 //    for (int i = 0, total = t.threads().count(); i < total; ++i) {
 //        d << t.threads().at(i);
 //    }
