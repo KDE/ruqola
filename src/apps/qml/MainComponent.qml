@@ -499,7 +499,7 @@ Component {
 
             ShowThreadsInRoomDialog {
                 id: showThreadsInRoomDialog
-                threadsModel: appid.threadsModel3
+                threadsModel: appid.threadsModel
             }
 
             ShowFilesInRoomDialog {
