@@ -676,7 +676,7 @@ void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelT
     restApi()->filesInRoom(roomId, channelType);
 }
 
-QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj)
+QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj) const
 {
     //TODO add autotests
     QVector<File> files;

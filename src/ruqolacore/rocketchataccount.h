@@ -243,9 +243,9 @@ public:
     RocketChatAccountSettings *settings() const;
     DDPClient *ddp();
 
-    bool editingMode() const;
+    Q_REQUIRED_RESULT bool editingMode() const;
 
-    DDPClient::LoginStatus loginStatus();
+    Q_REQUIRED_RESULT DDPClient::LoginStatus loginStatus();
     RocketChatRestApi::RestApiRequest *restApi();
 
     //Make it private in future
@@ -365,7 +365,7 @@ private:
     void checkInitializedRoom(const QString &roomId);
     void clearTypingNotification();
 
-    QVector<File> parseFilesInChannel(const QJsonObject &obj);
+    QVector<File> parseFilesInChannel(const QJsonObject &obj) const;
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 
