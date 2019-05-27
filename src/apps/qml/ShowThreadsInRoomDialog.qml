@@ -28,6 +28,7 @@ QQC2.Dialog {
     id: showThreadsInRoomDialog
 
     title: i18n("Threads")
+    signal openThread(string threadMessageId)
 
     property QtObject threadsModel
     property string roomId
@@ -96,6 +97,20 @@ QQC2.Dialog {
                                 Layout.alignment: Qt.AlignTop | Qt.AlignRight
                                 text: lastmessage
                                 opacity: .5
+                            }
+                        }
+                        QQC2.Label {
+                            text: i18n("Open Thread")
+                            elide: Text.ElideRight
+                            wrapMode: QQC2.Label.Wrap
+                            color: Kirigami.Theme.negativeTextColor
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    showThreadsInRoomDialog.openThread(threadmessageid)
+                                    showThreadsInRoomDialog.close()
+                                    //Allow to close it.
+                                }
                             }
                         }
                     }

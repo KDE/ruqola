@@ -33,7 +33,7 @@ void ThreadsModelTest::shouldHaveDefaultValues()
 {
     ThreadsModel model;
     QHash<int, QByteArray> roles;
-    roles[ThreadsModel::ParentId] = QByteArrayLiteral("parentid");
+    roles[ThreadsModel::ThreadMessageId] = QByteArrayLiteral("threadmessageid");
     roles[ThreadsModel::Description] = QByteArrayLiteral("description");
     roles[ThreadsModel::NumberOfMessages] = QByteArrayLiteral("numberofmessages");
     roles[ThreadsModel::LastMessage] = QByteArrayLiteral("lastmessage");

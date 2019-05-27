@@ -29,7 +29,7 @@ class LIBRUQOLACORE_TESTS_EXPORT ThreadsModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum ThreadRoles {
-        ParentId = Qt::UserRole + 1,
+        ThreadMessageId = Qt::UserRole + 1,
         Description,
         NumberOfMessages,
         LastMessage

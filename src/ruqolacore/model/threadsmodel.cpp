@@ -43,7 +43,7 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
     }
     const Thread thread = mThreads.at(index.row());
     switch (role) {
-    case ParentId:
+    case ThreadMessageId:
         //return thread.parentRoomId();
         return {};
     case Description:
@@ -61,7 +61,7 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> ThreadsModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[ParentId] = QByteArrayLiteral("parentid");
+    roles[ThreadMessageId] = QByteArrayLiteral("threadmessageid");
     roles[Description] = QByteArrayLiteral("description");
     roles[NumberOfMessages] = QByteArrayLiteral("numberofmessages");
     roles[LastMessage] = QByteArrayLiteral("lastmessage");
