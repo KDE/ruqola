@@ -252,7 +252,7 @@ void DDPClient::start()
 {
     if (!mWebSocket) {
         if (!RuqolaTestWebSocket::_k_ruqola_webSocket) {
-            mWebSocket = new RuqolaWebSocket(this);
+            mWebSocket = new RuqolaWebSocket(mRocketChatAccount->ruqolaLogger(), this);
         } else {
             mWebSocket = RuqolaTestWebSocket::_k_ruqola_webSocket;
         }

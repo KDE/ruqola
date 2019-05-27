@@ -20,16 +20,18 @@
 
 #include "ruqolawebsocket.h"
 #include "ruqola_debug.h"
+#include "ruqolalogger.h"
 
 #include <QWebSocket>
 
-RuqolaWebSocket::RuqolaWebSocket(QObject *parent)
-    : AbstractWebSocket(parent)
+RuqolaWebSocket::RuqolaWebSocket(RuqolaLogger *logger, QObject *parent)
+    : AbstractWebSocket(parent),
+      mLogger(logger)
 {
     mWebSocket = new QWebSocket;
     connect(mWebSocket, &QWebSocket::connected, this, &RuqolaWebSocket::connected);
     connect(mWebSocket, &QWebSocket::disconnected, this, &RuqolaWebSocket::disconnected);
-    connect(mWebSocket, &QWebSocket::textMessageReceived, this, &RuqolaWebSocket::textMessageReceived);
+    connect(mWebSocket, &QWebSocket::textMessageReceived, this, &RuqolaWebSocket::slotTextMessageReceived);
     connect(mWebSocket, &QWebSocket::sslErrors, this, &RuqolaWebSocket::sslErrors);
 }
 
@@ -47,6 +49,9 @@ void RuqolaWebSocket::openUrl(const QUrl &url)
 qint64 RuqolaWebSocket::sendTextMessage(const QString &message)
 {
     qCDebug(RUQOLA_LOG) << " qint64 RuqolaWebSocket::sendTextMessage(const QString &message)"<<message;
+    if (mLogger) {
+        mLogger->dataSent(message.toUtf8());
+    }
     return mWebSocket->sendTextMessage(message);
 }
 
@@ -93,4 +98,12 @@ qint64 RuqolaWebSocket::sendBinaryMessage(const QByteArray &data)
 void RuqolaWebSocket::ignoreSslErrors()
 {
     mWebSocket->ignoreSslErrors();
+}
+
+void RuqolaWebSocket::slotTextMessageReceived(const QString &msg)
+{
+    if (mLogger) {
+        mLogger->dataReceived(msg.toUtf8());
+    }
+    Q_EMIT textMessageReceived(msg);
 }

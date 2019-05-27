@@ -24,11 +24,12 @@
 #include "abstractwebsocket.h"
 
 class QWebSocket;
+class RuqolaLogger;
 class RuqolaWebSocket : public AbstractWebSocket
 {
     Q_OBJECT
 public:
-    explicit RuqolaWebSocket(QObject *parent = nullptr);
+    explicit RuqolaWebSocket(RuqolaLogger *logger, QObject *parent = nullptr);
     ~RuqolaWebSocket() override;
 
     void openUrl(const QUrl &url) override;
@@ -43,8 +44,11 @@ public:
     qint64 sendBinaryMessage(const QByteArray &data) override;
     void ignoreSslErrors() override;
 
+private Q_SLOTS:
+    void slotTextMessageReceived(const QString &msg);
 private:
     QWebSocket *mWebSocket = nullptr;
+    RuqolaLogger *mLogger = nullptr;
 };
 
 #endif // RUQOLAWEBSOCKET_H
