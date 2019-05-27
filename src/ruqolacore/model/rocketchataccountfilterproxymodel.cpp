@@ -19,13 +19,14 @@
 */
 
 #include "rocketchataccountfilterproxymodel.h"
+#include "rocketchataccountmodel.h"
 
 RocketChatAccountFilterProxyModel::RocketChatAccountFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    //setFilterRole(UserCompleterModel::UserName);
+    setFilterRole(RocketChatAccountModel::Name);
     sort(0);
 }
 
