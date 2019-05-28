@@ -56,6 +56,7 @@
 #include "chat/unfollowmessagejob.h"
 #include "chat/getthreadsjob.h"
 #include "chat/getthreadmessagesjob.h"
+#include "chat/sendmessagejob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
@@ -1440,5 +1441,16 @@ void RestApiRequest::getThreadMessages(const QString &threadMessageId)
     connect(job, &GetThreadMessagesJob::getThreadMessagesDone, this, &RestApiRequest::getThreadMessagesDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getThreadMessages";
+    }
+}
+
+void RestApiRequest::sendMessage(const QString &roomId, const QString &text)
+{
+    SendMessageJob *job = new SendMessageJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setText(text);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }
 }
