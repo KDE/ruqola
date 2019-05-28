@@ -30,6 +30,12 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SendMessageJob : public RestApiAbstr
 public:
     explicit SendMessageJob(QObject *parent = nullptr);
     ~SendMessageJob() override;
+    struct SendMessageArguments {
+        QString messageId;
+        QString roomId;
+        QString threadMessageId;
+        QString message;
+    };
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
