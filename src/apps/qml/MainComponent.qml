@@ -411,16 +411,18 @@ Component {
             }
 
             onOpenThread: {
-                console.log("Open thread messageid" + threadMessageId)
+                //console.log(RuqolaDebugCategorySingleton.category, "Open thread messageid" + threadMessageId)
                 appid.rocketChatAccount.getThreadMessages(threadMessageId)
+                showThreadMessageDialog.threadMessageId = threadMessageId;
+                showThreadMessageDialog.open()
             }
 
             onOpenDiscussion: {
-                console.log("Open discussion " + discussionRoomId)
+                //console.log(RuqolaDebugCategorySingleton.category, "Open discussion " + discussionRoomId)
                 appid.switchToRoom(discussionRoomId)
             }
             onReplyInThread:  {
-                console.log("reply in thread " + messageId)
+                console.log(RuqolaDebugCategorySingleton.category,"reply in thread " + messageId)
             }
 
             OpenChannelDialog {
@@ -514,6 +516,9 @@ Component {
                 onDeleteFile: {
                     appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileid, appid.selectedRoom.channelType)
                 }
+            }
+            ShowThreadMessagesDialog {
+                id: showThreadMessageDialog
             }
         }
 

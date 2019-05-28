@@ -30,7 +30,8 @@ QQC2.Dialog {
     title: i18n("Thread Messages") //Add room name too.
 
     property QtObject threadsModel
-    property string roomId
+
+    property string threadMessageId
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
@@ -41,5 +42,9 @@ QQC2.Dialog {
 
     //Add menu here
     ColumnLayout {
+        ActiveChat {
+            implicitWidth: 400
+            implicitHeight: 400
+        }
     }
 }
