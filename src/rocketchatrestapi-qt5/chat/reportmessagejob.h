@@ -50,7 +50,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ReportMessageJob)
-    void slotPinMessage();
+    void slotReportMessage();
     QString mMessageId;
     QString mReportMessage;
 };

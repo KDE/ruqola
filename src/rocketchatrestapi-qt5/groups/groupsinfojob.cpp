@@ -45,11 +45,11 @@ bool GroupsInfoJob::start()
     }
     addLoggerInfo("GroupsInfoJob::start: ");
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &GroupsInfoJob::slotFilesinChannelFinished);
+    connect(reply, &QNetworkReply::finished, this, &GroupsInfoJob::slotChannelInfoFinished);
     return true;
 }
 
-void GroupsInfoJob::slotFilesinChannelFinished()
+void GroupsInfoJob::slotChannelInfoFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {

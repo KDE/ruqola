@@ -45,7 +45,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GroupsInfoJob)
-    void slotFilesinChannelFinished();
+    void slotChannelInfoFinished();
     QString mRoomId;
 };
 }
