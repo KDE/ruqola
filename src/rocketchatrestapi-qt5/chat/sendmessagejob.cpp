@@ -122,10 +122,11 @@ bool SendMessageJob::canStart() const
 
 QJsonDocument SendMessageJob::json() const
 {
+    QJsonObject message;
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = mRoomId;
-    jsonObj[QLatin1String("text")] = mText;
-
-    const QJsonDocument postData = QJsonDocument(jsonObj);
+    jsonObj[QLatin1String("rid")] = mRoomId;
+    jsonObj[QLatin1String("msg")] = mText;
+    message[QLatin1String("message")] = jsonObj;
+    const QJsonDocument postData = QJsonDocument(message);
     return postData;
 }
