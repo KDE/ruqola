@@ -1448,8 +1448,10 @@ void RestApiRequest::sendMessage(const QString &roomId, const QString &text)
 {
     SendMessageJob *job = new SendMessageJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    job->setText(text);
+    SendMessageJob::SendMessageArguments args;
+    args.roomId = roomId;
+    args.message = text;
+    job->setSendMessageArguments(args);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }

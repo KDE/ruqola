@@ -42,13 +42,10 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
     Q_REQUIRED_RESULT bool canStart() const override;
 
-    Q_REQUIRED_RESULT QString text() const;
-    void setText(const QString &text);
-
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
     Q_REQUIRED_RESULT QJsonDocument json() const;
+
+    Q_REQUIRED_RESULT SendMessageArguments sendMessageArguments() const;
+    void setSendMessageArguments(const SendMessageArguments &sendMessageArguments);
 
 Q_SIGNALS:
     void sendMessageDone();
@@ -56,8 +53,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(SendMessageJob)
     void slotSendMessageDone();
-    QString mText;
-    QString mRoomId;
+    SendMessageArguments mSendMessageArguments;
 };
 }
 #endif // SENDMESSAGEJOB_H

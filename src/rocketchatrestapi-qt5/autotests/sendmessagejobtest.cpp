@@ -35,8 +35,11 @@ void SendMessageJobTest::shouldHaveDefaultValue()
     SendMessageJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.roomId().isEmpty());
-    QVERIFY(job.text().isEmpty());
+    SendMessageJob::SendMessageArguments args = job.sendMessageArguments();
+    QVERIFY(args.roomId.isEmpty());
+    QVERIFY(args.message.isEmpty());
+    QVERIFY(args.threadMessageId.isEmpty());
+    QVERIFY(args.messageId.isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
@@ -54,8 +57,10 @@ void SendMessageJobTest::shouldGenerateJson()
     SendMessageJob job;
     const QString roomId = QStringLiteral("foo1");
     const QString text = QStringLiteral("topic1");
-    job.setRoomId(roomId);
-    job.setText(text);
+    SendMessageJob::SendMessageArguments args;
+    args.roomId = roomId;
+    args.message = text;
+    job.setSendMessageArguments(args);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"message\":{\"msg\":\"%2\",\"rid\":\"%1\"}}").arg(roomId, text).toLatin1());
 }
 
@@ -76,11 +81,13 @@ void SendMessageJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString roomId = QStringLiteral("foo1");
-    job.setRoomId(roomId);
+    SendMessageJob::SendMessageArguments args;
+    args.roomId = QStringLiteral("foo1");
+    job.setSendMessageArguments(args);
     QVERIFY(!job.canStart());
-    const QString text = QStringLiteral("topic1");
-    job.setText(text);
+
+    args.message = QStringLiteral("topic1");
+    job.setSendMessageArguments(args);
     QVERIFY(job.canStart());
 
     delete method;

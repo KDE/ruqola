@@ -73,6 +73,16 @@ void SendMessageJob::slotSendMessageDone()
     deleteLater();
 }
 
+SendMessageJob::SendMessageArguments SendMessageJob::sendMessageArguments() const
+{
+    return mSendMessageArguments;
+}
+
+void SendMessageJob::setSendMessageArguments(const SendMessageArguments &sendMessageArguments)
+{
+    mSendMessageArguments = sendMessageArguments;
+}
+
 QNetworkRequest SendMessageJob::request() const
 {
     const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatSendMessage);
@@ -82,38 +92,17 @@ QNetworkRequest SendMessageJob::request() const
     return request;
 }
 
-QString SendMessageJob::text() const
-{
-    return mText;
-}
-
-void SendMessageJob::setText(const QString &text)
-{
-    mText = text;
-}
-
-QString SendMessageJob::roomId() const
-{
-    return mRoomId;
-}
-
-void SendMessageJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
-}
-
 bool SendMessageJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SendMessageJob job";
         return false;
     }
-    //It can be optional!
-    if (mText.isEmpty()) {
+    if (mSendMessageArguments.message.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Text is empty";
         return false;
     }
-    if (mRoomId.isEmpty()) {
+    if (mSendMessageArguments.roomId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "roomId is not defined";
         return false;
     }
@@ -124,8 +113,8 @@ QJsonDocument SendMessageJob::json() const
 {
     QJsonObject message;
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("rid")] = mRoomId;
-    jsonObj[QLatin1String("msg")] = mText;
+    jsonObj[QLatin1String("rid")] = mSendMessageArguments.roomId;
+    jsonObj[QLatin1String("msg")] = mSendMessageArguments.message;
     message[QLatin1String("message")] = jsonObj;
     const QJsonDocument postData = QJsonDocument(message);
     return postData;
