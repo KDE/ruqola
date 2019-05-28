@@ -161,7 +161,6 @@ ListView {
         }
         onReplyInThread: {
             activeChat.replyInThread(messageId)
-            console.log("Reply in thread " + messageId)
         }
     }
 }

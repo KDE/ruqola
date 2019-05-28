@@ -419,10 +419,9 @@ Component {
                 console.log("Open discussion " + discussionRoomId)
                 appid.switchToRoom(discussionRoomId)
             }
-            //Laurent it crashs...
-//            onReplyInThread:  {
-//                console.log("reply in thread " + messageId)
-//            }
+            onReplyInThread:  {
+                console.log("reply in thread " + messageId)
+            }
 
             OpenChannelDialog {
                 id: openChannelDialog
