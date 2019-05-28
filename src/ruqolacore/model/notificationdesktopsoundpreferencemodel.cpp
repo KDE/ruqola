@@ -50,7 +50,7 @@ QVariant NotificationDesktopSoundPreferenceModel::data(const QModelIndex &index,
     case NotificationPreference:
         return preferenceInfo.preference;
     }
-    
+
     return {};
 }
 

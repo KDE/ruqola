@@ -71,7 +71,6 @@
 #include <plugins/pluginauthentication.h>
 #include <plugins/pluginauthenticationinterface.h>
 
-
 #define USE_REASTAPI_JOB 1
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)

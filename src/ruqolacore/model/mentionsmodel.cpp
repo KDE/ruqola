@@ -68,7 +68,8 @@ QVariant MentionsModel::data(const QModelIndex &index, int role) const
         return mention.avatar();
     case Roles:
         return mention.role();
-    case Reactions: {
+    case Reactions:
+    {
         QVariantList lst;
         const auto reactions = mention.reactions().reactions();
         lst.reserve(reactions.count());

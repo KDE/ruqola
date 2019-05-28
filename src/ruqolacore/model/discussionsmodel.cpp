@@ -79,4 +79,3 @@ void DiscussionsModel::setDiscussions(const Discussions &discussions)
         endInsertRows();
     }
 }
-

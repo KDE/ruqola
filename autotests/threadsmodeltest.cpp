@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(ThreadsModelTest)
 ThreadsModelTest::ThreadsModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ThreadsModelTest::shouldHaveDefaultValues()

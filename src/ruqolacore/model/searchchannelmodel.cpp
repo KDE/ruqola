@@ -101,7 +101,7 @@ QVariant SearchChannelModel::data(const QModelIndex &index, int role) const
     case SearchChannelModel::ChannelType:
         return channel.type();
     }
-    
+
     return {};
 }
 

@@ -25,8 +25,8 @@
 #include <QWebSocket>
 
 RuqolaWebSocket::RuqolaWebSocket(RuqolaLogger *logger, QObject *parent)
-    : AbstractWebSocket(parent),
-      mLogger(logger)
+    : AbstractWebSocket(parent)
+    , mLogger(logger)
 {
     mWebSocket = new QWebSocket;
     connect(mWebSocket, &QWebSocket::connected, this, &RuqolaWebSocket::connected);

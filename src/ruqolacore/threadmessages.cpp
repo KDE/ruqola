@@ -25,7 +25,6 @@
 
 ThreadMessages::ThreadMessages()
 {
-
 }
 
 void ThreadMessages::parseThreadMessages(const QJsonObject &threadsObj)

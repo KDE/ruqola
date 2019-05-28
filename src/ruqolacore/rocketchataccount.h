@@ -320,7 +320,6 @@ public:
 
     MentionsModel *mentionsModel() const;
 
-
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

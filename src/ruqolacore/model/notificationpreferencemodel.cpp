@@ -49,7 +49,7 @@ QVariant NotificationPreferenceModel::data(const QModelIndex &index, int role) c
     case NotificationPreference:
         return preferenceInfo.preference;
     }
-    
+
     return {};
 }
 

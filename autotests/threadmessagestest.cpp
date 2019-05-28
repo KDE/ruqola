@@ -26,5 +26,4 @@ QTEST_GUILESS_MAIN(ThreadMessagesTest)
 ThreadMessagesTest::ThreadMessagesTest(QObject *parent)
     : QObject(parent)
 {
-
 }

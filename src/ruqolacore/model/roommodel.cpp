@@ -438,7 +438,6 @@ MessageModel *RoomModel::messageModel(const QString &roomId) const
     return {};
 }
 
-
 QString RoomModel::inputMessage(const QString &roomId) const
 {
     const int roomCount = mRoomsList.count();

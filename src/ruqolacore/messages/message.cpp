@@ -61,7 +61,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mEditedByUserId = o.value(QLatin1String("editedBy")).toObject().value(QLatin1String("_id")).toString();
     mAlias = o.value(QLatin1String("alias")).toString();
     mAvatar = o.value(QLatin1String("avatar")).toString();
-    mGroupable = o.value(QLatin1String("groupable")).toBool(/*true*/false); //Laurent, disable for the moment groupable
+    mGroupable = o.value(QLatin1String("groupable")).toBool(/*true*/ false); //Laurent, disable for the moment groupable
     mParseUrls = o.value(QLatin1String("parseUrls")).toBool();
     mRole = o.value(QLatin1String("role")).toString();
     mThreadCount = o.value(QLatin1String("tcount")).toInt();
