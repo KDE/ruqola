@@ -69,8 +69,7 @@ QQC2.Dialog {
         QQC2.TextField {
             id: userList
             selectByMouse: true
-            //Add i18n context ?
-            placeholderText: i18n("User separate with ','")
+            placeholderText: i18nc("List of users separated by ','", "User separate with ','")
         }
 
         QQC2.Label {
@@ -109,7 +108,6 @@ QQC2.Dialog {
         PasswordLineEdit {
             id: password
             selectByMouse: true
-            //Add i18n context ?
             placeholderText: i18n("Add password")
         }
     }

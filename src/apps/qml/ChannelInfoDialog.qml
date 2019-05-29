@@ -157,6 +157,7 @@ QQC2.Dialog {
             id: broadcast
             checked: roomInfo === null ? false : roomInfo.broadcast
             onClicked: {
+                console.log("Broadcast not implemented yet")
                 //TODO
             }
         }
