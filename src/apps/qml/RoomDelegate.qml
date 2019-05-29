@@ -56,6 +56,7 @@ Kirigami.BasicListItem {
     
     visible: !d_name.empty && d_open
 
+    textColor: ((d_unread > 0) || d_alert) ? Kirigami.Theme.textColor : Kirigami.Theme.disabledTextColor
     font.bold: (d_unread > 0) || d_alert
     label: d_name
     checked: d_selected
