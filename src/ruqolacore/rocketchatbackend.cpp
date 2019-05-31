@@ -373,8 +373,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 QJsonDocument d;
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: Room Changed:") + d.toJson());
-            } else {
-                qWarning() << "ROOMS CHANGED: " << object;
             }
         } else if (eventname.endsWith(QLatin1String("/notification"))) {
             if (mRocketChatAccount->ruqolaLogger()) {
