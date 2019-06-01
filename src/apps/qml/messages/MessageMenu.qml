@@ -89,7 +89,6 @@ QQC2.Menu {
         onTriggered: {
             messageMain.editMessage(i_messageID, i_originalMessage);
             console.log(RuqolaDebugCategorySingleton.category, "Edit", i_messageID, i_originalMessage);
-            console.log(RuqolaDebugCategorySingleton.category, "User", i_own_username, i_username);
         }
     }
     QQC2.MenuItem {
