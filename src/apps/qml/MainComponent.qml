@@ -410,10 +410,8 @@ Component {
             }
 
             onOpenThread: {
-                //console.log(RuqolaDebugCategorySingleton.category, "Open thread messageid" + threadMessageId)
-                appid.rocketChatAccount.getThreadMessages(threadMessageId)
-                showThreadMessageDialog.threadMessageId = threadMessageId;
-                showThreadMessageDialog.open()
+                showThreadMessageDialogLoader.threadMessageId = threadMessageId;
+                showThreadMessageDialogLoader.active = true
             }
 
             onOpenDiscussion: {
@@ -532,8 +530,24 @@ Component {
                     }
                 }
             }
-            ShowThreadMessagesDialog {
-                id: showThreadMessageDialog
+            Loader {
+                id: showThreadMessageDialogLoader
+                active: false
+                parent: mainWidget
+                property string threadMessageId
+                sourceComponent: ShowThreadMessagesDialog {
+                    id: showThreadMessageDialog
+                    onAccepted: {
+                        showThreadMessageDialogLoader.active = false
+                    }
+                    onRejected: {
+                        showThreadMessageDialogLoader.active = false
+                    }
+                    Component.onCompleted: {
+                        showThreadMessageDialog.threadMessageId = showThreadMessageDialogLoader.threadMessageId;
+                        showThreadMessageDialog.open()
+                    }
+                }
             }
         }
 
