@@ -160,8 +160,7 @@ Component {
                     visible: appid.selectedRoom
                     text: i18n("Show Files Attachment In Room")
                     onTriggered: {
-                        appid.rocketChatAccount.roomFiles(appid.selectedRoomID, appid.selectedRoom.channelType);
-                        showFilesInRoomDialog.initializeAndOpen()
+                        showFilesInRoomDialogLoader.active = true
                     }
                 }
             ]
@@ -506,15 +505,31 @@ Component {
                 }
             }
 
-            ShowFilesInRoomDialog {
-                id: showFilesInRoomDialog
-                filesModel: appid.filesModel
-                onDownloadFile: {
-                    downloadFileDialog.fileToSaveUrl = file
-                    downloadFileDialog.open()
-                }
-                onDeleteFile: {
-                    appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileid, appid.selectedRoom.channelType)
+            Loader {
+                id: showFilesInRoomDialogLoader
+                active: false
+                sourceComponent :ShowFilesInRoomDialog {
+                    id: showFilesInRoomDialog
+                    parent: mainWidget
+                    filesModel: appid.filesModel
+                    onDownloadFile: {
+                        downloadFileDialog.fileToSaveUrl = file
+                        downloadFileDialog.open()
+                    }
+                    Component.onCompleted: {
+                        appid.rocketChatAccount.roomFiles(appid.selectedRoomID, appid.selectedRoom.channelType);
+                        initializeAndOpen()
+                    }
+
+                    onDeleteFile: {
+                        appid.rocketChatAccount.deleteFileMessage(appid.selectedRoomID, fileid, appid.selectedRoom.channelType)
+                    }
+                    onRejected: {
+                        showFilesInRoomDialogLoader.active = false
+                    }
+                    onAccepted: {
+                        showFilesInRoomDialogLoader.active = false
+                    }
                 }
             }
             ShowThreadMessagesDialog {
