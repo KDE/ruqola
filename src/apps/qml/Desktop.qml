@@ -96,7 +96,7 @@ Kirigami.ApplicationWindow {
                 text: i18n("About")
                 iconName: ":/icons/systray.png"
                 onTriggered: {
-                    aboutDataDialog.open()
+                    aboutDataDialogLoader.active = true
                 }
             },
             Kirigami.Action {
@@ -122,7 +122,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-               separator: true
+                separator: true
             },
             Kirigami.Action {
                 text: i18n("Log out")
@@ -133,7 +133,7 @@ Kirigami.ApplicationWindow {
                 }
             },
             Kirigami.Action {
-               separator: true
+                separator: true
             },
             Kirigami.Action {
                 shortcut: StandardKey.Quit
@@ -161,11 +161,23 @@ Kirigami.ApplicationWindow {
         rcAccount: rocketChatAccount
     }
 
-    AboutDialog {
-        id: aboutDataDialog
-        applicationData: Ruqola.applicationData()
-        onOpenurl: {
-            RuqolaUtils.openUrl(link);
+    Loader {
+        id: aboutDataDialogLoader
+        active: false
+        sourceComponent : AboutDialog {
+            id: aboutDataDialog
+            parent: appid.pageStack
+            applicationData: Ruqola.applicationData()
+            Component.onCompleted: {
+                open()
+            }
+
+            onOpenurl: {
+                RuqolaUtils.openUrl(link);
+            }
+            onRejected: {
+                aboutDataDialogLoader.active = false
+            }
         }
     }
 
@@ -285,9 +297,23 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    TakeVideoMessageDialog {
-        id: takeVideoMessage
-        rcAccount: rocketChatAccount
+    Loader {
+        id: takeVideoMessageLoader
+        active: false
+        sourceComponent : TakeVideoMessageDialog {
+            id: takeVideoMessage
+            parent: appid.pageStack
+            rcAccount: rocketChatAccount
+            Component.onCompleted: {
+                open()
+            }
+            onRejected: {
+                takeVideoMessageLoader.active = false
+            }
+            onAccepted: {
+                takeVideoMessageLoader.active = false
+            }
+        }
     }
 
     QQC2.BusyIndicator {

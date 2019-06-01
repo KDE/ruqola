@@ -146,7 +146,7 @@ Component {
                     visible: appid.selectedRoom
                     text: i18n("Take a Video Message")
                     onTriggered: {
-                        takeVideoMessage.open();
+                        takeVideoMessageLoader.active = true;
                     }
                 },
                 Kirigami.Action {
