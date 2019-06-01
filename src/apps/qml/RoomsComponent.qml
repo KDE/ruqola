@@ -68,8 +68,7 @@ Component {
                 Kirigami.Action {
                     text: i18n("Server Info")
                     onTriggered: {
-                        serverinfodialog.rcAccount = appid.rocketChatAccount
-                        serverinfodialog.open();
+                        serverinfodialogLoader.active = true;
                     }
                 }
 

@@ -236,9 +236,21 @@ Kirigami.ApplicationWindow {
             rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames, encryptedRoom, password, broadcast);
         }
     }
-    ServerInfoDialog {
-        id: serverinfodialog
+    Loader {
+        id: serverinfodialogLoader
+        active: false
+        sourceComponent : ServerInfoDialog {
+            rcAccount: appid.rocketChatAccount
+            parent: appid.pageStack
+            Component.onCompleted: {
+                open()
+            }
+            onRejected: {
+                serverinfodialogLoader.active = false
+            }
+        }
     }
+
     SearchChannelDialog {
         id: searchChannelDialog
         searchChannelModel: rocketChatAccount.searchChannelFilterProxyModel()
