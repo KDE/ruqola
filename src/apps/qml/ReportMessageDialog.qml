@@ -38,6 +38,12 @@ QQC2.Dialog {
     modal: true
     focus: true
 
+    function initializeAndOpen()
+    {
+        messageInfo.text = "";
+        open();
+    }
+
     GridLayout {
         columns: 2
         QQC2.Label {

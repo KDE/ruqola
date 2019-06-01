@@ -81,11 +81,11 @@ Component {
                         var channelType = appid.selectedRoom.channelType;
                         if (channelType === "c" || channelType === "p") {
                             //Only for debug
-//                                    if (channelType === "c") {
-//                                        appid.rocketChatAccount.channelInfo(appid.selectedRoom.rid);
-//                                    } else {
-//                                        appid.rocketChatAccount.groupInfo(appid.selectedRoom.rid);
-//                                    }
+                            //                                    if (channelType === "c") {
+                            //                                        appid.rocketChatAccount.channelInfo(appid.selectedRoom.rid);
+                            //                                    } else {
+                            //                                        appid.rocketChatAccount.groupInfo(appid.selectedRoom.rid);
+                            //                                    }
                             //For testing
                             channelInfoDialog.roomInfo = appid.selectedRoom
                             channelInfoDialog.initializeAndOpen()
@@ -102,7 +102,7 @@ Component {
                     text: i18n("Mentions")
                     onTriggered: {
                         appid.rocketChatAccount.channelGetAllUserMentions(appid.selectedRoomID);
-                        showMentionsInRoomDialog.initializeAndOpen()
+                        showMentionsInRoomDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {
@@ -110,7 +110,7 @@ Component {
                     text: i18n("Discussions")
                     onTriggered: {
                         appid.rocketChatAccount.discussionsInRoom(appid.selectedRoomID);
-                        showDiscussionsInRoomDialog.initializeAndOpen()
+                        showDiscussionsInRoomDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {
@@ -310,7 +310,7 @@ Component {
                                     }
                                 }
                             }
-                        }                        
+                        }
                     }
                 }
                 Item {
@@ -383,8 +383,8 @@ Component {
                 appid.rocketChatAccount.joinJitsiConfCall(roomId)
             }
             onReportMessage: {
-                reportMessageDialog.msgId = messageId
-                reportMessageDialog.open();
+                reportMessageDialogLoader.messageId = messageId
+                reportMessageDialogLoader.active = true
             }
 
             onDeleteMessage: {
@@ -445,10 +445,27 @@ Component {
                 }
             }
 
-            ReportMessageDialog {
-                id: reportMessageDialog
-                onReportMessage: {
-                    appid.rocketChatAccount.deleteMessage(messageId, message)
+            Loader {
+                id: reportMessageDialogLoader
+                active: false
+                parent: mainWidget
+                property string messageId
+                sourceComponent: ReportMessageDialog {
+                    id: reportMessageDialog
+                    onReportMessage: {
+                        appid.rocketChatAccount.deleteMessage(messageId, message)
+                    }
+                    onRejected: {
+                        reportMessageDialogLoader.active = false
+                    }
+                    onAccepted: {
+                        reportMessageDialogLoader.active = false
+                    }
+                    Component.onCompleted: {
+                        msgId = reportMessageDialogLoader.messageId
+                        initializeAndOpen()
+                    }
+
                 }
             }
 
@@ -480,18 +497,49 @@ Component {
                 }
             }
 
-            ShowMentionsInRoomDialog {
-                id: showMentionsInRoomDialog
-                mentionsModel: appid.mentionsModel
-                onGoToMessage: {
-                    console.log("Go to Message not implemented yet")
+            Loader {
+                id: showMentionsInRoomDialogLoader
+                active: false
+                sourceComponent: ShowMentionsInRoomDialog {
+                    id: showMentionsInRoomDialog
+                    parent: mainWidget
+                    mentionsModel: appid.mentionsModel
+                    onGoToMessage: {
+                        console.log("Go to Message not implemented yet")
+                    }
+                    onRejected: {
+                        showMentionsInRoomDialogLoader.active = false
+                    }
+                    onAccepted: {
+                        showMentionsInRoomDialogLoader.active = false
+                    }
+                    Component.onCompleted: {
+                        initializeAndOpen()
+                    }
                 }
             }
-            ShowDiscussionsInRoomDialog {
-                id: showDiscussionsInRoomDialog
-                discussionsModel: appid.discussionsModel
-                onOpenDiscussion: {
-                    appid.switchToRoom(discussionId)
+            Loader {
+                id: showDiscussionsInRoomDialogLoader
+                active: false
+                sourceComponent: ShowDiscussionsInRoomDialog {
+                    id: showDiscussionsInRoomDialog
+                    parent: mainWidget
+
+                    discussionsModel: appid.discussionsModel
+
+                    Component.onCompleted: {
+                        initializeAndOpen()
+                    }
+                    onOpenDiscussion: {
+                        appid.switchToRoom(discussionId)
+                        showDiscussionsInRoomDialogLoader.active = false
+                    }
+                    onRejected: {
+                        showDiscussionsInRoomDialogLoader.active = false
+                    }
+                    onAccepted: {
+                        showDiscussionsInRoomDialogLoader.active = false
+                    }
                 }
             }
 
@@ -506,7 +554,7 @@ Component {
             Loader {
                 id: showFilesInRoomDialogLoader
                 active: false
-                sourceComponent :ShowFilesInRoomDialog {
+                sourceComponent: ShowFilesInRoomDialog {
                     id: showFilesInRoomDialog
                     parent: mainWidget
                     filesModel: appid.filesModel
