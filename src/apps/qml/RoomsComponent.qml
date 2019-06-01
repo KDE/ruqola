@@ -58,8 +58,7 @@ Component {
                 Kirigami.Action {
                     text: i18n("Create New Channel")
                     onTriggered: {
-                        createNewChannelDialog.encryptedRoomEnabled = appid.rocketChatAccount.encryptedEnabled()
-                        createNewChannelDialog.initializeAndOpen()
+                        createNewChannelDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {

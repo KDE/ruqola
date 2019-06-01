@@ -230,12 +230,27 @@ Kirigami.ApplicationWindow {
     JobErrorMessageDialog {
         id: jobErrorMessageDialog
     }
-    CreateNewChannelDialog {
-        id: createNewChannelDialog
-        onCreateNewChannel: {
-            rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames, encryptedRoom, password, broadcast);
+    Loader {
+        id: createNewChannelDialogLoader
+        active: false
+        sourceComponent : CreateNewChannelDialog {
+            parent: appid.pageStack
+            Component.onCompleted: {
+                encryptedRoomEnabled = appid.rocketChatAccount.encryptedEnabled()
+                initializeAndOpen()
+            }
+            onRejected: {
+                createNewChannelDialogLoader.active = false
+            }
+            onAccepted: {
+                createNewChannelDialogLoader.active = false
+            }
+            onCreateNewChannel: {
+                rocketChatAccount.createNewChannel(name, readOnly, privateRoom, usernames, encryptedRoom, password, broadcast);
+            }
         }
     }
+
     Loader {
         id: serverinfodialogLoader
         active: false
