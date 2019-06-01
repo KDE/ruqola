@@ -51,6 +51,7 @@ Kirigami.Icon {
             emoticonMenu.visible ? emoticonMenu.close() : emoticonMenu.open()
         }
     }
+    //Port to loader.
     EmoticonMenu {
         id: emoticonMenu
         emojiPopupModel: appid.emojiModel

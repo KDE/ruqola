@@ -118,7 +118,7 @@ Component {
                     text: i18n("Threads")
                     onTriggered: {
                         appid.rocketChatAccount.threadsInRoom(appid.selectedRoomID);
-                        showThreadsInRoomDialog.initializeAndOpen()
+                        showThreadsInRoomDialogLoader.active = true
                     }
                 },
                 Kirigami.Action {
@@ -543,11 +543,25 @@ Component {
                 }
             }
 
-            ShowThreadsInRoomDialog {
-                id: showThreadsInRoomDialog
-                threadsModel: appid.threadsModel
-                onOpenThread: {
-                    appid.rocketChatAccount.getThreadMessages(threadMessageId)
+            Loader {
+                id: showThreadsInRoomDialogLoader
+                active: false
+                sourceComponent: ShowThreadsInRoomDialog {
+                    id: showThreadsInRoomDialog
+                    parent: mainWidget
+                    threadsModel: appid.threadsModel
+                    onOpenThread: {
+                        appid.rocketChatAccount.getThreadMessages(threadMessageId)
+                    }
+                    onRejected: {
+                        showThreadsInRoomDialogLoader.active = false
+                    }
+                    onAccepted: {
+                        showThreadsInRoomDialogLoader.active = false
+                    }
+                    Component.onCompleted: {
+                        initializeAndOpen()
+                    }
                 }
             }
 
