@@ -48,19 +48,28 @@ Kirigami.Icon {
 
         anchors.fill: parent
         onClicked: {
-            emoticonMenu.visible ? emoticonMenu.close() : emoticonMenu.open()
+            if (emoticonMenuLoader.active)
+                emoticonMenuLoader.active = false
+            else
+                emoticonMenuLoader.active = true
         }
     }
-    //Port to loader.
-    EmoticonMenu {
-        id: emoticonMenu
-        emojiPopupModel: appid.emojiModel
-        width: Kirigami.Units.gridUnit * 20
-        height: Kirigami.Units.gridUnit * 15
-        x: -width + parent.width
-        y: -height - 10
-        onInsertEmoticon: {
-            reactIcon.insertReaction(emoti)
+    Loader {
+        id: emoticonMenuLoader
+        active: false
+        sourceComponent :EmoticonMenu {
+            id: emoticonMenu
+            emojiPopupModel: appid.emojiModel
+            width: Kirigami.Units.gridUnit * 20
+            height: Kirigami.Units.gridUnit * 15
+            x: -width + parent.width
+            y: -height - 10
+            Component.onCompleted: {
+                open()
+            }
+            onInsertEmoticon: {
+                reactIcon.insertReaction(emoti)
+            }
         }
     }
 }
