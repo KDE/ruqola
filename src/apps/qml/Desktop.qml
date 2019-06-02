@@ -188,12 +188,28 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    NotificationOptionsDialog {
-        id: notificationsDialog
-        rid: (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""
-        roomInfo: appid ? appid.selectedRoom : ""
-        onModifyNotificationsSetting: {
-            rocketChatAccount.changeNotificationsSettings(roomId, type, newVal)
+    Loader {
+        id: notificationsDialogLoader
+        active: false
+        sourceComponent : NotificationOptionsDialog {
+            id: notificationsDialog
+            parent: appid.pageStack
+            onModifyNotificationsSetting: {
+                rocketChatAccount.changeNotificationsSettings(roomId, type, newVal)
+            }
+
+            Component.onCompleted: {
+                rid = (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""
+                roomInfo = appid ? appid.selectedRoom : ""
+                initializeAndOpen()
+            }
+            onRejected: {
+                notificationsDialogLoader.active = false
+            }
+            onAccepted: {
+                notificationsDialogLoader.active = false
+            }
+
         }
     }
 

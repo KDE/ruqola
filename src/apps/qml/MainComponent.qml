@@ -55,7 +55,7 @@ Component {
                 icon.color: "transparent"
                 visible: appid.selectedRoom
                 onTriggered: {
-                    notificationsDialog.initializeAndOpen()
+                    notificationsDialogLoader.active = true;
                 }
             }
             main: Kirigami.Action {
