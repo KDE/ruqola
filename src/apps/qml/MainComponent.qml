@@ -55,7 +55,6 @@ Component {
                 icon.color: "transparent"
                 visible: appid.selectedRoom
                 onTriggered: {
-                    notificationsDialog.roomInfo = appid.selectedRoom
                     notificationsDialog.initializeAndOpen()
                 }
             }

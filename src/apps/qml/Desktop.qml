@@ -191,6 +191,7 @@ Kirigami.ApplicationWindow {
     NotificationOptionsDialog {
         id: notificationsDialog
         rid: (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""
+        roomInfo: appid ? appid.selectedRoom : ""
         onModifyNotificationsSetting: {
             rocketChatAccount.changeNotificationsSettings(roomId, type, newVal)
         }
