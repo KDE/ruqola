@@ -68,7 +68,7 @@ Component {
                 icon.name: "edit-find"
                 visible: appid.selectedRoom
                 onTriggered: {
-                    searchMessageDialog.initializeAndOpen();
+                    searchMessageDialogLoader.active = true;
                 }
             }
             contextualActions: [

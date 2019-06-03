@@ -241,19 +241,32 @@ Kirigami.ApplicationWindow {
             rocketChatAccount.addUserToRoom(userId, rid, channelType)
         }
     }
-
-    ShowSearchMessageDialog {
-        id: searchMessageDialog
-        roomId: appid.selectedRoomID
-        searchMessageModel: appid.searchMessageModel
-        onSearchMessage: {
-            rocketChatAccount.messageSearch(pattern, rid)
-        }
-        onClosed: {
-            rocketChatAccount.clearSearchModel()
-        }
-        onGoToMessage: {
-            console.log("Show history to message: " + messageId)
+    Loader {
+        id: searchMessageDialogLoader
+        active: false
+        sourceComponent: ShowSearchMessageDialog {
+            id: searchMessageDialog
+            roomId: appid.selectedRoomID
+            parent: appid.pageStack
+            searchMessageModel: appid.searchMessageModel
+            onSearchMessage: {
+                rocketChatAccount.messageSearch(pattern, rid)
+            }
+            onGoToMessage: {
+                console.log("Show history to message: " + messageId)
+            }
+            onRejected: {
+                rocketChatAccount.clearSearchModel()
+                searchMessageDialogLoader.active = false
+            }
+            onAccepted: {
+                rocketChatAccount.clearSearchModel()
+                searchMessageDialogLoader.active = false
+            }
+            Component.onCompleted: {
+                roomId = appid.selectedRoomID
+                initializeAndOpen()
+            }
         }
     }
 
