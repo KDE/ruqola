@@ -244,6 +244,7 @@ Kirigami.ApplicationWindow {
 
     ShowSearchMessageDialog {
         id: searchMessageDialog
+        roomId: appid.selectedRoomID
         searchMessageModel: appid.searchMessageModel
         onSearchMessage: {
             rocketChatAccount.messageSearch(pattern, rid)

@@ -68,7 +68,6 @@ Component {
                 icon.name: "edit-find"
                 visible: appid.selectedRoom
                 onTriggered: {
-                    searchMessageDialog.roomId = appid.selectedRoomID
                     searchMessageDialog.initializeAndOpen();
                 }
             }
