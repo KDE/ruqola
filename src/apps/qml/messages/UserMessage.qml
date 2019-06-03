@@ -56,7 +56,7 @@ MessageBase {
             aliasname: i_aliasname
             username: i_username
             onShowUserInfo: {
-                console.log("show user info not implemented yet")
+                console.log(RuqolaDebugCategorySingleton.category, "show user info not implemented yet")
                 //TODO
             }
             visible: !i_groupable
@@ -212,7 +212,7 @@ MessageBase {
             }
             ThreadLabel {
                 onOpenThread: {
-                    console.log( " OPen thread " + i_messageID)
+                    console.log(RuqolaDebugCategorySingleton.category, " OPen thread " + i_messageID)
                     messageMain.openThread(i_messageID)
                 }
             }

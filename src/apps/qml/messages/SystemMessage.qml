@@ -61,7 +61,7 @@ MessageBase {
             id: discussionLabel
             onOpenDiscussion: {
                 messageMain.openDiscussion(i_drid)
-                console.log("Click to go to sub room: " + i_drid)
+                console.log(RuqolaDebugCategorySingleton.category, "Click to go to sub room: " + i_drid)
             }
         }
         Item {

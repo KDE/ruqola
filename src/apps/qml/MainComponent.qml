@@ -503,7 +503,7 @@ Component {
                     parent: mainWidget
                     mentionsModel: appid.mentionsModel
                     onGoToMessage: {
-                        console.log("Go to Message not implemented yet")
+                        console.log(RuqolaDebugCategorySingleton.category, "Go to Message not implemented yet")
                     }
                     onRejected: {
                         showMentionsInRoomDialogLoader.active = false

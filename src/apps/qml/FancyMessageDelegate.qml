@@ -316,7 +316,7 @@ Rectangle {
             messageMain.openThread(threadMessageId)
         }
         onReplyInThread: {
-            console.log("onReplyInThread: { " + messageId)
+            console.log(RuqolaDebugCategorySingleton.category, "onReplyInThread: " + messageId)
             messageMain.replyInThread(messageId)
         }
     }

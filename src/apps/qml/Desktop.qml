@@ -253,7 +253,7 @@ Kirigami.ApplicationWindow {
                 rocketChatAccount.messageSearch(pattern, rid)
             }
             onGoToMessage: {
-                console.log("Show history to message: " + messageId)
+                console.log(RuqolaDebugCategorySingleton.category, "Show history to message: " + messageId)
             }
             onRejected: {
                 rocketChatAccount.clearSearchModel()
