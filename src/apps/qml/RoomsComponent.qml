@@ -49,7 +49,7 @@ Component {
                 },
                 Kirigami.Action {
                     iconName: "edit-symbolic"
-                    text: i18n("Edit room");
+                    text: i18n("Show Close Icons");
                     checkable: true
                     onToggled: {
                         appid.rocketChatAccount.switchEditingMode(checked);
