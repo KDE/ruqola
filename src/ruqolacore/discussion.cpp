@@ -88,7 +88,7 @@ bool Discussion::operator ==(const Discussion &other) const
            && (parentRoomId() == other.parentRoomId())
            && (numberMessages() == other.numberMessages())
            && (lastMessage() == other.lastMessage())
-            && (discussionRoomId() == other.discussionRoomId());
+           && (discussionRoomId() == other.discussionRoomId());
 }
 
 Discussion &Discussion::operator=(const Discussion &other)
