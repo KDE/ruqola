@@ -51,7 +51,7 @@ QString InputTextManager::replaceWord(const QString &newWord, const QString &tex
     }
 
     int start = 0;
-    for (int i = position; i >= 0; i--) {
+    for (int i = position - 1; i >= 0; i--) {
         if (i == 0) {
             start = 1;
             break;
