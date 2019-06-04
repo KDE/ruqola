@@ -79,8 +79,24 @@ ColumnLayout {
                 textSelected(listView.currentItem.myData.completername)
             }
         }
+        Keys.onReturnPressed: {
+            if (listView.currentItem) {
+                textSelected(listView.currentItem.myData.completername)
+            } else {
+                accepted()
+            }
+        }
+        Keys.onEnterPressed: {
+            if (listView.currentItem) {
+                textSelected(listView.currentItem.myData.completername)
+            } else {
+                accepted()
+            }
+        }
+
         onAccepted: {
             if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
+                //Modify text.
                 if (messageId !== "") {
                     if (text !== savePreviousMessage) {
                         rcAccount.updateMessage(selectedRoomID, messageId, text);
