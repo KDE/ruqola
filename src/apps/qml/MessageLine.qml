@@ -75,7 +75,9 @@ ColumnLayout {
             listView.decrementCurrentIndex()
         }
         Keys.onTabPressed: {
-            textSelected(listView.currentItem.myData.completername)
+            if (listView.currentItem) {
+                textSelected(listView.currentItem.myData.completername)
+            }
         }
         onAccepted: {
             if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
@@ -94,7 +96,8 @@ ColumnLayout {
         QQC2.Popup {
             id: popup
             x: 0
-            y: -popupheight
+            height: Kirigami.Units.gridUnit * listView.count + 10
+            y: -height - 10
             padding: 0
             width: messageLine.width
             contentHeight: rect.height
@@ -106,12 +109,12 @@ ColumnLayout {
                 anchors.top: popup.top
                 anchors.left: popup.left
 
-                height: popupheight
+                height: popup.height
                 width: popup.width
 
                 ListView {
                     id: listView
-                    height: popupheight
+                    height: popup.height
                     width: parent.width
                     interactive: true
                     clip: true
