@@ -500,7 +500,7 @@ Component {
                 active: false
                 sourceComponent: ShowMentionsInRoomDialog {
                     id: showMentionsInRoomDialog
-                    parent: mainWidget
+                    parent: appid.pageStack
                     mentionsModel: appid.mentionsModel
                     onGoToMessage: {
                         console.log(RuqolaDebugCategorySingleton.category, "Go to Message not implemented yet")
@@ -521,7 +521,7 @@ Component {
                 active: false
                 sourceComponent: ShowDiscussionsInRoomDialog {
                     id: showDiscussionsInRoomDialog
-                    parent: mainWidget
+                    parent: appid.pageStack
 
                     discussionsModel: appid.discussionsModel
 
@@ -546,7 +546,7 @@ Component {
                 active: false
                 sourceComponent: ShowThreadsInRoomDialog {
                     id: showThreadsInRoomDialog
-                    parent: mainWidget
+                    parent: appid.pageStack
                     threadsModel: appid.threadsModel
                     onOpenThread: {
                         appid.rocketChatAccount.getThreadMessages(threadMessageId)
@@ -568,7 +568,7 @@ Component {
                 active: false
                 sourceComponent: ShowFilesInRoomDialog {
                     id: showFilesInRoomDialog
-                    parent: mainWidget
+                    parent: appid.pageStack
                     filesModel: appid.filesModel
                     onDownloadFile: {
                         downloadFileDialog.fileToSaveUrl = file
@@ -593,7 +593,7 @@ Component {
             Loader {
                 id: showThreadMessageDialogLoader
                 active: false
-                parent: mainWidget
+                parent: appid.pageStack
                 property string threadMessageId
                 sourceComponent: ShowThreadMessagesDialog {
                     id: showThreadMessageDialog
