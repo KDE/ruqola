@@ -43,7 +43,8 @@ public:
         LoggingIn,
         LoggedIn,
         LoginFailed,
-        LoggedOut
+        LoggedOut,
+        FailedToLogginPluginProblem
     };
     Q_ENUM(LoginStatus)
 
