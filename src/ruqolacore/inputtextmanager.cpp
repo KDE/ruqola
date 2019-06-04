@@ -86,7 +86,7 @@ QString InputTextManager::searchWord(const QString &text, int position)
         if (!text.at(i-1).isSpace()) {
             continue;
         }
-        start = i + 1;
+        start = i;
         break;
     }
     int end = text.length() - 1;
@@ -99,6 +99,7 @@ QString InputTextManager::searchWord(const QString &text, int position)
     }
 
     const QString word = text.mid(start, end - start + 1);
+    //qDebug() << "position" << position << " word " << word << " text " << text << " start " << start << " end " << end;
     return word;
 }
 
