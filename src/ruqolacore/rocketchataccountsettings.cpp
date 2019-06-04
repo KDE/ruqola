@@ -55,7 +55,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mUserId = mSetting->value(QStringLiteral("userID")).toString();
     mAuthToken = mSetting->value(QStringLiteral("authToken")).toString();
     mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
-
+    mShowUnreadOnTop = mSetting->value(QStringLiteral("showunreadontop")).toBool();
 #if HAVE_QT5KEYCHAIN
     auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
     connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
@@ -86,6 +86,22 @@ void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
         qCWarning(RUQOLA_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
     }
 #endif
+}
+
+bool RocketChatAccountSettings::showUnreadOnTop() const
+{
+    return mShowUnreadOnTop;
+}
+
+bool RocketChatAccountSettings::setShowUnreadOnTop(bool showUnreadOnTop)
+{
+    if (mShowUnreadOnTop != showUnreadOnTop) {
+        mShowUnreadOnTop = showUnreadOnTop;
+        mSetting->setValue(QStringLiteral("showunreadontop"), mShowUnreadOnTop);
+        mSetting->sync();
+        return true;
+    }
+    return false;
 }
 
 QString RocketChatAccountSettings::userId() const

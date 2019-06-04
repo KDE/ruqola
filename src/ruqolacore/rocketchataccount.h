@@ -409,7 +409,6 @@ private:
     MentionsFilterProxyModel *mMentionsFilterProxyModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
     bool mEditingMode = false;
-    bool mUnreadOnTop = false;
 };
 
 #endif // ROCKETCHATACCOUNT_H

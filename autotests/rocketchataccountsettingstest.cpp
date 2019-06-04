@@ -211,4 +211,5 @@ void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
     QVERIFY(chat.userName().isEmpty());
     QVERIFY(chat.authToken().isEmpty());
     QCOMPARE(chat.serverUrl(), QStringLiteral("open.rocket.chat"));
+    QVERIFY(!chat.showUnreadOnTop());
 }

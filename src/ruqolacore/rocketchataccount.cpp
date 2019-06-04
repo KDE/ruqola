@@ -439,11 +439,6 @@ bool RocketChatAccount::editingMode() const
     return mEditingMode;
 }
 
-bool RocketChatAccount::sortUnreadOnTop() const
-{
-    return mUnreadOnTop;
-}
-
 DDPClient::LoginStatus RocketChatAccount::loginStatus()
 {
     if (mDdp) {
@@ -1319,10 +1314,14 @@ void RocketChatAccount::switchEditingMode(bool b)
 
 void RocketChatAccount::setSortUnreadOnTop(bool b)
 {
-    if (mUnreadOnTop != b) {
-        mUnreadOnTop = b;
+    if (settings()->setShowUnreadOnTop(b)) {
         mRoomFilterProxyModel->invalidate();
     }
+}
+
+bool RocketChatAccount::sortUnreadOnTop() const
+{
+    return settings()->showUnreadOnTop();
 }
 
 void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, const QString &channelType)

@@ -58,6 +58,10 @@ public:
     void setPassword(const QString &password);
 
     void removeSettings();
+
+    Q_REQUIRED_RESULT bool showUnreadOnTop() const;
+    bool setShowUnreadOnTop(bool showUnreadOnTop);
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
@@ -79,6 +83,7 @@ private:
     QString mUserName;
     QString mPassword;
     QSettings *mSetting = nullptr;
+    bool mShowUnreadOnTop = false;
 };
 
 #endif // ROCKETCHATACCOUNTSETTINGS_H
