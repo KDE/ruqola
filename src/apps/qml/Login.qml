@@ -192,12 +192,12 @@ Kirigami.Page {
             visible: rcAccount.loginStatus === DDPClient.LoginFailed
         }
         QQC2.Label {
-            text: i18n("Installation Problem found. Not Plugins found here.");
+            text: i18n("Installation Problem found. No plugins found here.");
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
             color: Kirigami.Theme.negativeTextColor
             font.bold: true
-            visible: rcAccount.loginStatus === DDPClient.FailedToLogginPluginProblem
+            visible: rcAccount.loginStatus === DDPClient.FailedToLoginPluginProblem
         }
     }
 }

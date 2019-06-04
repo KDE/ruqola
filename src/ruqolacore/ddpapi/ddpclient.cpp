@@ -880,8 +880,8 @@ void DDPClient::login()
         if (mRocketChatAccount->defaultAuthenticationInterface()) {
             mRocketChatAccount->defaultAuthenticationInterface()->login();
         } else {
-            qCWarning(RUQOLA_DDPAPI_LOG) <<"Any plugins loaded. Please verify your installation.";
-            setLoginStatus(FailedToLogginPluginProblem);
+            qCWarning(RUQOLA_DDPAPI_LOG) <<"No plugins loaded. Please verify your installation.";
+            setLoginStatus(FailedToLoginPluginProblem);
         }
     } else if (!mRocketChatAccount->settings()->authToken().isEmpty() && !m_attemptedTokenLogin) {
         m_attemptedPasswordLogin = true;

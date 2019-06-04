@@ -1066,7 +1066,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
     const QVector<PluginAuthentication *> lstPlugins = AuthenticationManager::self()->pluginsList();
     qCDebug(RUQOLA_LOG) <<" void RocketChatAccount::initializeAuthenticationPlugins()" << lstPlugins.count();
     if (lstPlugins.isEmpty()) {
-        qCWarning(RUQOLA_LOG) <<" Any plugins loaded. Please verify your installation.";
+        qCWarning(RUQOLA_LOG) <<" No plugins loaded. Please verify your installation.";
     }
     mLstPluginAuthenticationInterface.clear();
 
