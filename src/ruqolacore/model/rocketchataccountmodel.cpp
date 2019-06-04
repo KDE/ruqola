@@ -100,7 +100,7 @@ void RocketChatAccountModel::insertAccount(RocketChatAccount *account)
 
 void RocketChatAccountModel::removeAccount(const QString &name)
 {
-    qDebug() << " void RocketChatAccountModel::removeAccount(const QString &name)"<<name;
+    //qDebug() << " void RocketChatAccountModel::removeAccount(const QString &name)"<<name;
     //Search account.
     for (int i = 0; i < mRocketChatAccount.count(); ++i) {
         if (mRocketChatAccount.at(i)->accountName() == name) {

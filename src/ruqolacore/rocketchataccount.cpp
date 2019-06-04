@@ -770,7 +770,7 @@ void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QSt
 
 void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
 {
-    qDebug() << " void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)"<<obj;
+    //qDebug() << " void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)"<<obj;
     //If empty ! show empty list
     loadAutoCompleteChannel(obj);
 }
