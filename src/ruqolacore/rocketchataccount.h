@@ -240,6 +240,8 @@ public:
     Q_INVOKABLE void discussionsInRoom(const QString &roomId);
     Q_INVOKABLE void followMessage(const QString &messageId, bool follow);
 
+    Q_INVOKABLE void replyToMessage(const QString &roomID, const QString &message, const QString &messageId);
+
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
@@ -322,6 +324,7 @@ public:
     ThreadsModel *threadsModel() const;
 
     MentionsModel *mentionsModel() const;
+
 
 
 Q_SIGNALS:

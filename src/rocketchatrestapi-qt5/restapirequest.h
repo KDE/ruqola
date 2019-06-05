@@ -160,7 +160,7 @@ public:
     void getDiscussions(const QString &roomId);
     void getThreadsList(const QString &roomId);
     void getThreadMessages(const QString &threadMessageId);
-    void sendMessage(const QString &roomId, const QString &text);
+    void sendMessage(const QString &roomId, const QString &text, const QString &messageId = QString());
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();

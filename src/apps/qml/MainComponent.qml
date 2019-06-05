@@ -353,6 +353,7 @@ Component {
             }
             onReplyMessage: {
                 console.log(RuqolaDebugCategorySingleton.category, "Not implemented reply message : " + messageId)
+                userInputMessage.messageId = messageId;
             }
             onSetFavoriteMessage: {
                 appid.rocketChatAccount.starMessage(messageId, starred)

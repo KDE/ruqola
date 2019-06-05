@@ -346,6 +346,12 @@ void RocketChatAccount::reactOnMessage(const QString &messageId, const QString &
     restApi()->reactOnMessage(messageId, emoji, shouldReact);
 }
 
+void RocketChatAccount::replyToMessage(const QString &roomID, const QString &message, const QString &messageId)
+{
+    restApi()->postMessage(roomID, message);
+}
+
+
 void RocketChatAccount::sendMessage(const QString &roomID, const QString &message)
 {
     restApi()->postMessage(roomID, message);

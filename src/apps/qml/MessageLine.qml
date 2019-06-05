@@ -98,7 +98,10 @@ ColumnLayout {
             if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
                 //Modify text.
                 if (messageId !== "") {
-                    if (text !== savePreviousMessage) {
+                    //Reply against message
+                    if (savePreviousMessage == "") {
+                        rcAccount.sendMessage(selectedRoomID, text, messageId);
+                    } else if (text !== savePreviousMessage) {
                         rcAccount.updateMessage(selectedRoomID, messageId, text);
                     }
                     savePreviousMessage = "";
