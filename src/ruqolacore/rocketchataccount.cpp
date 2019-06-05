@@ -1316,6 +1316,7 @@ void RocketChatAccount::setSortUnreadOnTop(bool b)
 {
     if (settings()->setShowUnreadOnTop(b)) {
         mRoomFilterProxyModel->invalidate();
+        Q_EMIT sortUnreadOnTopChanged();
     }
 }
 

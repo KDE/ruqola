@@ -51,6 +51,7 @@ Component {
                     iconName: "edit-symbolic"
                     text: i18n("Unread on Top");
                     checkable: true
+                    checked: appid.rocketChatAccount.sortUnreadOnTop;
                     onToggled: {
                         appid.rocketChatAccount.setSortUnreadOnTop(checked);
                     }

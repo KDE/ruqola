@@ -81,6 +81,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
     Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
     Q_PROPERTY(bool editingMode READ editingMode NOTIFY editingModeChanged)
+    Q_PROPERTY(bool sortUnreadOnTop READ sortUnreadOnTop NOTIFY sortUnreadOnTopChanged)
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
     ~RocketChatAccount();
@@ -340,6 +341,7 @@ Q_SIGNALS:
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void missingChannelPassword(const QString &roomId);
     void editingModeChanged();
+    void sortUnreadOnTopChanged();
     void jobFailed(const QString &message);
 private:
     Q_DISABLE_COPY(RocketChatAccount)
