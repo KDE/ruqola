@@ -57,6 +57,6 @@ QQC2.Dialog {
     }
 
     onAccepted: {
-        openChannelDialog.reportMessage(msgId, messageInfo.text)
+        reportMessageDialog.reportMessage(msgId, messageInfo.text)
     }
 }
