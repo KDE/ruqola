@@ -35,8 +35,8 @@ Component {
     id: roomsComponent
     Kirigami.ScrollablePage {
         id: roomsPage
-
         title: i18n("Rooms")
+
         actions {
             contextualActions: [
                 Kirigami.Action {
@@ -85,16 +85,15 @@ Component {
 
         // Since we can't have actions at the bottom on mobile, force always toolbar mode
         globalToolBarStyle: Kirigami.ApplicationHeaderStyle.ToolBar
-        titleDelegate:
-            LineEditWithClearButton {
+        titleDelegate: LineEditWithClearButton {
             id: searchField
             placeholderText: i18n("Search Room...")
             Layout.fillWidth: true
             onTextChanged: {
                 appid.rocketChatAccount.roomFilterProxyModel().setFilterString(text);
             }
+            focusSequence: "Ctrl+K"
         }
-
         background: Rectangle {
             color: Kirigami.Theme.backgroundColor
         }
