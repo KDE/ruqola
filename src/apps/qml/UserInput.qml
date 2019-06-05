@@ -86,7 +86,7 @@ RowLayout {
     }
 
     Kirigami.Icon {
-        source: "mail-sent"
+        source: messageLine.savePreviousMessage == "" ?  "mail-sent" : "edit-symbolic"
         width: height
         height: messageLine.height
         MouseArea {

@@ -171,6 +171,11 @@ ColumnLayout {
     Keys.onEscapePressed: {
         if (popup.visible) {
             popup.close()
+            //Clear modified message
+        } else if (savePreviousMessage !== "") {
+            savePreviousMessage = "";
+            messageId = "";
+            messageLine.text = "";
         } else {
             clearUnreadMessages();
         }
