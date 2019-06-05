@@ -49,6 +49,7 @@ QQC2.Dialog {
     function initializeAndOpen()
     {
         username.text = "";
+        username.forceActiveFocus();
         open();
     }
 

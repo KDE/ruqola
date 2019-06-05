@@ -45,6 +45,7 @@ QQC2.Dialog {
     function initializeAndOpen()
     {
         channelnametext.text = "";
+        channelnametext.forceActiveFocus()
         open();
     }
 

@@ -48,6 +48,7 @@ QQC2.Dialog {
     function initializeAndOpen()
     {
         searchField.text = "";
+        searchField.forceActiveFocus();
         open();
     }
 
