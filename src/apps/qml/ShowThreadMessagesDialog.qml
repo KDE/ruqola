@@ -40,11 +40,21 @@ QQC2.Dialog {
     standardButtons: QQC2.Dialog.Close
 
 
-    //Add menu here
     ColumnLayout {
-        ActiveChat {
-            implicitWidth: 400
-            implicitHeight: 400
+        ListView {
+            id: listview
+            width: 400;
+            height: 200
+            clip: true
+            // Scrollars
+            QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
+            QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
+
+            model: threadsModel
+            delegate: Kirigami.BasicListItem {
+                label: originalMessage
+                reserveSpaceForIcon: false
+            }
         }
     }
 }
