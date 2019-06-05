@@ -38,23 +38,17 @@ QQC2.Dialog {
     modal: true
     focus: true
     standardButtons: QQC2.Dialog.Close
+    width: 400;
+    height: 200
 
+    ActiveChat {
+        id: threadMessageListView
+        model: threadsModel
+        rcAccount: appid.rocketChatAccount
+        roomId: appid.selectedRoomID
+        anchors.fill: parent
+        clip: true
 
-    ColumnLayout {
-        ListView {
-            id: listview
-            width: 400;
-            height: 200
-            clip: true
-            // Scrollars
-            QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
-            QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
-
-            model: threadsModel
-            delegate: Kirigami.BasicListItem {
-                label: originalMessage
-                reserveSpaceForIcon: false
-            }
-        }
+        QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
     }
 }
