@@ -551,6 +551,7 @@ Component {
                     threadsModel: appid.threadsModel
                     onOpenThread: {
                         appid.rocketChatAccount.getThreadMessages(threadMessageId)
+                        showThreadsInRoomDialogLoader.active = false
                     }
                     onRejected: {
                         showThreadsInRoomDialogLoader.active = false
@@ -594,10 +595,10 @@ Component {
             Loader {
                 id: showThreadMessageDialogLoader
                 active: false
-                parent: appid.pageStack
                 property string threadMessageId
                 sourceComponent: ShowThreadMessagesDialog {
                     id: showThreadMessageDialog
+                    parent: appid.pageStack
                     onAccepted: {
                         showThreadMessageDialogLoader.active = false
                     }
