@@ -113,6 +113,12 @@ QJsonDocument SendMessageJob::json() const
 {
     QJsonObject message;
     QJsonObject jsonObj;
+    if (!mSendMessageArguments.messageId.isEmpty()) {
+        jsonObj[QLatin1String("_id")] = mSendMessageArguments.messageId;
+    }
+    if (!mSendMessageArguments.threadMessageId.isEmpty()) {
+        jsonObj[QLatin1String("tmid")] = mSendMessageArguments.threadMessageId;
+    }
     jsonObj[QLatin1String("rid")] = mSendMessageArguments.roomId;
     jsonObj[QLatin1String("msg")] = mSendMessageArguments.message;
     message[QLatin1String("message")] = jsonObj;
