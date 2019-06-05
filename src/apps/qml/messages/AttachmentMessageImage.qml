@@ -30,11 +30,21 @@ import "../common"
 MessageBase {
     id: messageMain
 
-    MessageMenu {
-        id: menu
-        can_editing_message: i_can_editing_message
-        starred: i_starred
-        pinned_message: i_pinned
+    Loader {
+        id: messageMenuLoader
+        active: false
+        property var posX
+        property var posY
+        sourceComponent :MessageMenu {
+            id: menu
+            x: messageMenuLoader.posX
+            y: messageMenuLoader.posY
+            can_editing_message: i_can_editing_message
+            starred: i_starred
+            Component.onCompleted: {
+                open()
+            }
+        }
     }
 
     RowLayout {
@@ -72,9 +82,12 @@ MessageBase {
 
                                 onClicked: {
                                     if (mouse.button === Qt.RightButton) {
-                                        menu.x = mouse.x
-                                        menu.y = mouse.y
-                                        menu.open();
+                                        messageMenuLoader.posX = mouse.x
+                                        messageMenuLoader.posY = mouse.y
+                                        if (messageMenuLoader.active)
+                                            messageMenuLoader.active = false
+                                        else
+                                            messageMenuLoader.active = true
                                     }
                                 }
                             }
