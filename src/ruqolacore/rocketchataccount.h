@@ -237,6 +237,7 @@ public:
 
     Q_INVOKABLE void threadsInRoom(const QString &roomId);
     Q_INVOKABLE void discussionsInRoom(const QString &roomId);
+    Q_INVOKABLE void followMessage(const QString &messageId, bool follow);
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
@@ -320,6 +321,7 @@ public:
     ThreadsModel *threadsModel() const;
 
     MentionsModel *mentionsModel() const;
+
 
 Q_SIGNALS:
     void connectedChanged();

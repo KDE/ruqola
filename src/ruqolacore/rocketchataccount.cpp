@@ -1567,3 +1567,12 @@ void RocketChatAccount::discussionsInRoom(const QString &roomId)
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::discussionsInRoom is not supported before server 1.0.0";
     }
 }
+
+void RocketChatAccount::followMessage(const QString &messageId, bool follow)
+{
+    if (follow) {
+        restApi()->followMessage(messageId);
+    } else {
+        restApi()->unFollowMessage(messageId);
+    }
+}
