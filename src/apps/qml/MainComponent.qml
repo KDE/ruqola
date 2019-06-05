@@ -489,10 +489,24 @@ Component {
             DisplayImageDialog {
                 id: displayImageDialog
             }
-            UploadFileDialog {
-                id: uploadFileDialog
-                onUploadFile: {
-                    appid.rocketChatAccount.uploadFile(appid.selectedRoomID, description, messageText, filename)
+            Loader {
+                id: uploadFileDialogLoader
+                active: false
+                sourceComponent: UploadFileDialog {
+                    id: uploadFileDialog
+                    parent: appid.pageStack
+                    onUploadFile: {
+                        appid.rocketChatAccount.uploadFile(appid.selectedRoomID, description, messageText, filename)
+                    }
+                    Component.onCompleted: {
+                        initializeAndOpen()
+                    }
+                    onRejected: {
+                        uploadFileDialogLoader.active = false
+                    }
+                    onAccepted: {
+                        uploadFileDialogLoader.active = false
+                    }
                 }
             }
 
@@ -651,7 +665,7 @@ Component {
                         rcAccount.clearUnreadMessages(appid.selectedRoomID)
                     }
                     onUploadFile: {
-                        uploadFileDialog.initializeAndOpen()
+                        uploadFileDialogLoader.active = true
                     }
                 }
 
