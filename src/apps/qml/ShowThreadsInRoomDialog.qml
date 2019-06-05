@@ -109,7 +109,6 @@ QQC2.Dialog {
                                 anchors.fill: parent
                                 onClicked: {
                                     showThreadsInRoomDialog.openThread(threadmessageid)
-                                    showThreadsInRoomDialog.close()
                                 }
                             }
                         }
