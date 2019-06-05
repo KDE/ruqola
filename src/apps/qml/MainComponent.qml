@@ -370,8 +370,8 @@ Component {
             }
 
             onOpenChannel: {
-                openChannelDialog.channelName = channel
-                openChannelDialog.open()
+                openChannelDialogLoader.channelName = channel
+                openChannelDialogLoader.active = true;
             }
 
             onOpenDirectChannel: {
@@ -421,10 +421,26 @@ Component {
                 console.log(RuqolaDebugCategorySingleton.category,"reply in thread " + messageId)
             }
 
-            OpenChannelDialog {
-                id: openChannelDialog
-                onOpenChannel: {
-                    appid.rocketChatAccount.openChannel(channelName);
+            Loader {
+                id: openChannelDialogLoader
+                active: false
+                property string channelName
+                sourceComponent: OpenChannelDialog {
+                    id: openChannelDialog
+                    parent: appid.pageStack
+                    onOpenChannel: {
+                        appid.rocketChatAccount.openChannel(channelName);
+                    }
+                    onRejected: {
+                        reportMessageDialogLoader.active = false
+                    }
+                    onAccepted: {
+                        reportMessageDialogLoader.active = false
+                    }
+                    Component.onCompleted: {
+                        channelName = openChannelDialogLoader.channelName
+                        open()
+                    }
                 }
             }
 
@@ -447,7 +463,7 @@ Component {
             Loader {
                 id: reportMessageDialogLoader
                 active: false
-                parent: mainWidget
+                parent: appid.pageStack
                 property string messageId
                 sourceComponent: ReportMessageDialog {
                     id: reportMessageDialog
@@ -464,7 +480,6 @@ Component {
                         msgId = reportMessageDialogLoader.messageId
                         initializeAndOpen()
                     }
-
                 }
             }
 

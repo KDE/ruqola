@@ -35,11 +35,12 @@ QQC2.Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
+    width: 400
     modal: true
     focus: true
-    Row {
+    ColumnLayout {
         QQC2.Label {
-            text: channelName === "" ? "" : i18n("Open \"%1\"?", channelName)
+            text: channelName === "" ? "" : i18n("Do you want to open this channel: \"%1\"?", channelName)
             font.bold: true
             font.pointSize: 15
             wrapMode: QQC2.Label.Wrap
