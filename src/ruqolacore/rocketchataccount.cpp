@@ -548,12 +548,13 @@ void RocketChatAccount::eraseRoom(const QString &roomId, const QString &channelT
 
 void RocketChatAccount::openDirectChannel(const QString &username)
 {
+    //Laurent for the moment I didn't find a restapi method for it
     //TODO verify username vs userId
-#ifdef USE_REASTAPI_JOB
-    restApi()->openDirectMessage(username);
-#else
+//#ifdef USE_REASTAPI_JOB
+//    restApi()->openDirectMessage(username);
+//#else
     ddp()->openDirectChannel(username);
-#endif
+//#endif
 }
 
 void RocketChatAccount::createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom, const QString &password, bool broadcast)
