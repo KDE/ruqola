@@ -262,29 +262,46 @@ Component {
                             height: Kirigami.Units.iconSizes.small
                             width: height
                         }
-                        UserMenu {
-                            id: userMenu
-                            userId: model.userid
-                            can_manage_users: appid.selectedRoom.canChangeRoles
-                            ownUserId: appid.rocketChatAccount.userID
-                            isAdirectChannel: appid.selectedRoom.channelType === "d"
-                            onKickUser: {
-                                appid.rocketChatAccount.kickUser(appid.selectedRoomID, userId, appid.selectedRoom.channelType)
-                            }
-                            onChangeRole: {
-                                appid.rocketChatAccount.changeRoles(appid.selectedRoomID, userId, appid.selectedRoom.channelType, type)
-                            }
-                            onIgnoreUser: {
-                                //TODO verify ignored
-                                //appid.rocketChatAccount.ignoreUser(appid.selectedRoomID, userId, ignored)
-                            }
-                            onOpenConversation: {
-                                //TODO
-                            }
-                            onAboutToShow: {
-                                hasLeaderRole = appid.selectedRoom.userHasLeaderRole(model.userid)
-                                hasModeratorRole = appid.selectedRoom.userHasModeratorRole(model.userid)
-                                hasOwnerRole = appid.selectedRoom.userHasOwnerRole(model.userid)
+                        Loader {
+                            id: userMenuLoader
+                            active: false
+                            property var posX
+                            property var posY
+
+                            sourceComponent: UserMenu {
+                                id: userMenu
+                                x: userMenuLoader.posX
+                                y: userMenuLoader.posY
+                                userId: model.userid
+                                can_manage_users: appid.selectedRoom.canChangeRoles
+                                ownUserId: appid.rocketChatAccount.userID
+                                isAdirectChannel: appid.selectedRoom.channelType === "d"
+                                onKickUser: {
+                                    appid.rocketChatAccount.kickUser(appid.selectedRoomID, userId, appid.selectedRoom.channelType)
+                                }
+                                onChangeRole: {
+                                    appid.rocketChatAccount.changeRoles(appid.selectedRoomID, userId, appid.selectedRoom.channelType, type)
+                                }
+                                onIgnoreUser: {
+                                    //TODO verify ignored
+                                    //appid.rocketChatAccount.ignoreUser(appid.selectedRoomID, userId, ignored)
+                                }
+                                onOpenConversation: {
+                                    if (userId !== appid.rocketChatAccount.userID) {
+                                        console.log("userId " + userId)
+                                        openDirectChannelDialog.username = userId;
+                                        openDirectChannelDialog.open()
+                                    }
+                                    //TODO
+                                }
+                                onAboutToShow: {
+                                    hasLeaderRole = appid.selectedRoom.userHasLeaderRole(model.userid)
+                                    hasModeratorRole = appid.selectedRoom.userHasModeratorRole(model.userid)
+                                    hasOwnerRole = appid.selectedRoom.userHasOwnerRole(model.userid)
+                                }
+                                Component.onCompleted: {
+                                    open()
+                                }
                             }
                         }
 
@@ -302,9 +319,12 @@ Component {
 
                                 onClicked: {
                                     if (mouse.button === Qt.RightButton) {
-                                        userMenu.x = mouse.x
-                                        userMenu.y = mouse.y
-                                        userMenu.open();
+                                        userMenuLoader.posX = mouse.x
+                                        userMenuLoader.posY = mouse.y
+                                        if (userMenuLoader.active)
+                                            userMenuLoader.active = false
+                                        else
+                                            userMenuLoader.active = true
                                     }
                                 }
                             }
