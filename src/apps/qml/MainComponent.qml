@@ -466,6 +466,7 @@ Component {
 
             OpenDirectChannelDialog {
                 id: openDirectChannelDialog
+                parent: appid.pageStack
                 onOpenDirectChannel: {
                     if (appid.rocketChatAccount.userName !== userName) {
                         appid.rocketChatAccount.openDirectChannel(userName);
