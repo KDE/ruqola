@@ -46,7 +46,7 @@ MessageBase {
         active: false
         property var posX
         property var posY
-        sourceComponent :MessageMenu {
+        sourceComponent: MessageMenu {
             id: menu
             x: messageMenuLoader.posX
             y: messageMenuLoader.posY
