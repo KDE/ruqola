@@ -438,7 +438,7 @@ Component {
                 appid.switchToRoom(discussionRoomId)
             }
             onReplyInThread:  {
-                console.log(RuqolaDebugCategorySingleton.category,"reply in thread " + messageId)
+                //console.log(RuqolaDebugCategorySingleton.category,"reply in thread " + messageId)
                 userInputMessage.threadmessageId = messageId;
             }
 

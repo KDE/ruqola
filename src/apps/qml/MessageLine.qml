@@ -104,14 +104,16 @@ ColumnLayout {
                     } else if (text !== savePreviousMessage) {
                         rcAccount.updateMessage(selectedRoomID, messageId, text);
                     }
-                    savePreviousMessage = "";
-                    messageId = "";
-                } else if (threadmessageId !== "") {
+                } else if (threadmessageId !== "") { //Reply in thread
                     rcAccount.replyOnThread(selectedRoomID, threadmessageId, text);
                 } else {
                     rcAccount.sendMessage(selectedRoomID, text);
                 }
+                //clear all element
                 text = "";
+                threadmessageId = "";
+                savePreviousMessage = "";
+                messageId = "";
             }
         }
         QQC2.Popup {
