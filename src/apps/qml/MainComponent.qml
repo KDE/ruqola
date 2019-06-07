@@ -439,6 +439,7 @@ Component {
             }
             onReplyInThread:  {
                 console.log(RuqolaDebugCategorySingleton.category,"reply in thread " + messageId)
+                userInputMessage.threadmessageId = messageId;
             }
 
             Loader {

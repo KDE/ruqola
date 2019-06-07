@@ -32,6 +32,7 @@ RowLayout {
     property QtObject rcAccount
     property alias messageLineText: messageLine.messageLineText
     property string messageId
+    property string threadmessageId
 
     signal textEditing(string str)
     signal uploadFile()

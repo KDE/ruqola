@@ -106,6 +106,8 @@ ColumnLayout {
                     }
                     savePreviousMessage = "";
                     messageId = "";
+                } else if (threadmessageId !== "") {
+                    rcAccount.replyOnThread(selectedRoomID, threadmessageId, text);
                 } else {
                     rcAccount.sendMessage(selectedRoomID, text);
                 }
@@ -172,9 +174,10 @@ ColumnLayout {
         if (popup.visible) {
             popup.close()
             //Clear modified message
-        } else if (savePreviousMessage !== "") {
+        } else if (savePreviousMessage !== "" || threadmessageId !== "") {
             savePreviousMessage = "";
             messageId = "";
+            threadmessageId = "";
             messageLine.text = "";
         } else {
             clearUnreadMessages();

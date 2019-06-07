@@ -145,6 +145,7 @@ public:
     Q_INVOKABLE void changeFavorite(const QString &roomId, bool checked);
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
     Q_INVOKABLE void updateMessage(const QString &roomID, const QString &messageId, const QString &message);
+    Q_INVOKABLE void replyOnThread(const QString &roomID, const QString &threadMessageId, const QString &message);
     Q_INVOKABLE void openChannel(const QString &url);
     Q_INVOKABLE void joinJitsiConfCall(const QString &roomId);
     Q_INVOKABLE void createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom, const QString &password, bool broadcast);

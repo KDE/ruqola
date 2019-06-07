@@ -362,6 +362,11 @@ void RocketChatAccount::updateMessage(const QString &roomID, const QString &mess
     restApi()->updateMessage(roomID, messageId, message);
 }
 
+void RocketChatAccount::replyOnThread(const QString &roomID, const QString &threadMessageId, const QString &message)
+{
+    restApi()->sendMessage(roomID, message, QString(), threadMessageId);
+}
+
 QString RocketChatAccount::avatarUrlFromDirectChannel(const QString &rid)
 {
     return mCache->avatarUrl(Utils::userIdFromDirectChannel(rid, userID()));
