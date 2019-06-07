@@ -57,6 +57,9 @@ MessageBase {
             Component.onCompleted: {
                 open()
             }
+            onAboutToHide: {
+                messageMenuLoader.active = false;
+            }
         }
     }
 

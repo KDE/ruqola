@@ -283,8 +283,9 @@ Component {
                                     appid.rocketChatAccount.changeRoles(appid.selectedRoomID, userId, appid.selectedRoom.channelType, type)
                                 }
                                 onIgnoreUser: {
-                                    //TODO verify ignored
-                                    //appid.rocketChatAccount.ignoreUser(appid.selectedRoomID, userId, ignored)
+                                    if (userId !== appid.rocketChatAccount.userID) {
+                                        appid.rocketChatAccount.ignoreUser(appid.selectedRoomID, userId, ignore)
+                                    }
                                 }
                                 onOpenConversation: {
                                     if (userId !== appid.rocketChatAccount.userID) {
@@ -300,6 +301,9 @@ Component {
                                 }
                                 Component.onCompleted: {
                                     open()
+                                }
+                                onAboutToHide: {
+                                    userMenuLoader.active = false
                                 }
                             }
                         }
