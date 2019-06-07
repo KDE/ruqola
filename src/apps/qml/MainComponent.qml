@@ -288,8 +288,8 @@ Component {
                                 }
                                 onOpenConversation: {
                                     if (userId !== appid.rocketChatAccount.userID) {
-                                        console.log("userId " + userId)
-                                        openDirectChannelDialog.username = userId;
+                                        //console.log("userId " + userId)
+                                        openDirectChannelDialog.username = model.username;
                                         openDirectChannelDialog.open()
                                     }
                                     //TODO
