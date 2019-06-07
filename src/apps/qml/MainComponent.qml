@@ -292,7 +292,6 @@ Component {
                                         openDirectChannelDialog.username = model.username;
                                         openDirectChannelDialog.open()
                                     }
-                                    //TODO
                                 }
                                 onAboutToShow: {
                                     hasLeaderRole = appid.selectedRoom.userHasLeaderRole(model.userid)
