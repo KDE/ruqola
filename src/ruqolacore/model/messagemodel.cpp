@@ -218,45 +218,46 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return {};
     }
     const int idx = index.row();
+    const Message &message = mAllMessages.at(idx);
     switch (role) {
     case MessageModel::Username:
-        return mAllMessages.at(idx).username();
+        return message.username();
     case MessageModel::OriginalMessage:
-        return mAllMessages.at(idx).text();
+        return message.text();
     case MessageModel::MessageConvertedText:
         //TODO improve it.
-        if (mAllMessages.at(idx).messageType() == Message::System) {
-            return mAllMessages.at(idx).messageTypeText();
+        if (message.messageType() == Message::System) {
+            return message.messageTypeText();
         } else {
-            if (mRoom && mRoom->userIsIgnored(mAllMessages.at(idx).userId())) {
+            if (mRoom && mRoom->userIsIgnored(message.userId())) {
                 return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
             }
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-            return convertMessageText(mAllMessages.at(idx).text(), mAllMessages.at(idx).mentions(), userName);
+            return convertMessageText(message.text(), message.mentions(), userName);
         }
     case MessageModel::Timestamp:
-        return mAllMessages.at(idx).timeStamp();
+        return message.timeStamp();
     case MessageModel::UserId:
-        return mAllMessages.at(idx).userId();
+        return message.userId();
     case MessageModel::SystemMessageType:
-        return mAllMessages.at(idx).systemMessageType();
+        return message.systemMessageType();
     case MessageModel::MessageId:
-        return mAllMessages.at(idx).messageId();
+        return message.messageId();
     case MessageModel::Alias:
-        return mAllMessages.at(idx).alias();
+        return message.alias();
     case MessageModel::MessageType:
-        return mAllMessages.at(idx).messageType();
+        return message.messageType();
     case MessageModel::Avatar:
-        return mAllMessages.at(idx).avatar();
+        return message.avatar();
     case MessageModel::EditedAt:
-        return mAllMessages.at(idx).editedAt();
+        return message.editedAt();
     case MessageModel::EditedByUserName:
-        return mAllMessages.at(idx).editedByUsername();
+        return message.editedByUsername();
     case MessageModel::Attachments:
     {
         QVariantList lst;
-        lst.reserve(mAllMessages.at(idx).attachements().count());
-        const auto attachs = mAllMessages.at(idx).attachements();
+        lst.reserve(message.attachements().count());
+        const auto attachs = message.attachements();
         for (const MessageAttachment &att : attachs) {
             lst.append(QVariant::fromValue(att));
         }
@@ -265,8 +266,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::Urls:
     {
         QVariantList lst;
-        lst.reserve(mAllMessages.at(idx).urls().count());
-        const auto urls = mAllMessages.at(idx).urls();
+        lst.reserve(message.urls().count());
+        const auto urls = message.urls();
         for (const MessageUrl &url : urls) {
             lst.append(QVariant::fromValue(url));
         }
@@ -277,31 +278,31 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             QDateTime previewDate;
             previewDate.setMSecsSinceEpoch(mAllMessages.at(idx - 1).timeStamp());
             QDateTime currentDate;
-            currentDate.setMSecsSinceEpoch(mAllMessages.at(idx).timeStamp());
+            currentDate.setMSecsSinceEpoch(message.timeStamp());
             if (previewDate.date() != currentDate.date()) {
                 return currentDate.date().toString();
             }
         }
         return QString();
     case MessageModel::CanEditMessage:
-        return (mAllMessages.at(idx).timeStamp() + (mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000 : 0))
+        return (message.timeStamp() + (mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000 : 0))
                > QDateTime::currentMSecsSinceEpoch();
     case MessageModel::Starred:
-        return mAllMessages.at(idx).starred();
+        return message.starred();
     case MessageModel::UsernameUrl:
     {
-        const QString username = mAllMessages.at(idx).username();
+        const QString username = message.username();
         if (username.isEmpty()) {
             return {};
         }
-        return QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(mAllMessages.at(idx).username());
+        return QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(message.username());
     }
     case MessageModel::Roles:
-        return roomRoles(mAllMessages.at(idx).userId());
+        return roomRoles(message.userId());
     case MessageModel::Reactions:
     {
         QVariantList lst;
-        const auto reactions = mAllMessages.at(idx).reactions().reactions();
+        const auto reactions = message.reactions().reactions();
         lst.reserve(reactions.count());
         for (const Reaction &react : reactions) {
             //Convert reactions
@@ -310,23 +311,23 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return lst;
     }
     case MessageModel::Ignored:
-        return mRoom && mRoom->userIsIgnored(mAllMessages.at(idx).userId());
+        return mRoom && mRoom->userIsIgnored(message.userId());
     case MessageModel::Pinned:
-        return mAllMessages.at(idx).messagePinned().pinned();
+        return message.messagePinned().pinned();
     case MessageModel::DiscussionCount:
-        return mAllMessages.at(idx).discussionCount();
+        return message.discussionCount();
     case MessageModel::DiscussionRoomId:
-        return mAllMessages.at(idx).discussionRoomId();
+        return message.discussionRoomId();
     case MessageModel::DiscussionLastMessage:
-        return mAllMessages.at(idx).discussionLastMessage();
+        return message.discussionLastMessage();
     case MessageModel::ThreadCount:
-        return mAllMessages.at(idx).threadCount();
+        return message.threadCount();
     case MessageModel::ThreadLastMessage:
-        return mAllMessages.at(idx).threadLastMessage();
+        return message.threadLastMessage();
     case MessageModel::ThreadMessageId:
-        return mAllMessages.at(idx).threadMessageId();
+        return message.threadMessageId();
     case MessageModel::Groupable:
-        return mAllMessages.at(idx).groupable();
+        return message.groupable();
     }
 
     return {};
