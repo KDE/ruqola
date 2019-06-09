@@ -358,13 +358,14 @@ bool MessageModel::isEmpty() const
 
 void MessageModel::deleteMessage(const QString &messageId)
 {
-    for (int i = 0, total = mAllMessages.count(); i < total; ++i) {
-        if (mAllMessages.at(i).messageId() == messageId) {
-            beginRemoveRows(QModelIndex(), i, i);
-            mAllMessages.remove(i);
-            endRemoveRows();
-            break;
-        }
+    auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [messageId](const Message &msg) {
+        return msg.messageId() == messageId;
+    });
+    if (it != mAllMessages.end()) {
+        const int i = std::distance(mAllMessages.begin(), it);
+        beginRemoveRows(QModelIndex(), i, i);
+        mAllMessages.erase(it);
+        endRemoveRows();
     }
 }
 
