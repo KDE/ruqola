@@ -27,6 +27,7 @@
 
 #include <KSyntaxHighlighting/Repository>
 #include <KSyntaxHighlighting/Theme>
+#include <KSyntaxHighlighting/Definition>
 
 #include <QRegularExpressionMatch>
 

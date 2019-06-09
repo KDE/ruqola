@@ -23,9 +23,9 @@
 #include <QString>
 #include <QMap>
 #include "libruqola_private_export.h"
-#include <KSyntaxHighlighting/Repository>
-#include <KSyntaxHighlighting/Definition>
+
 class EmojiManager;
+
 class LIBRUQOLACORE_TESTS_EXPORT TextConverter
 {
 public:
