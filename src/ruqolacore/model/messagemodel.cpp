@@ -140,7 +140,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[Attachments] = QByteArrayLiteral("attachments");
     roles[Urls] = QByteArrayLiteral("urls");
     roles[Date] = QByteArrayLiteral("date");
-    roles[CanEditingMessage] = QByteArrayLiteral("canEditingMessage");
+    roles[CanEditMessage] = QByteArrayLiteral("canEditMessage");
     roles[Starred] = QByteArrayLiteral("starred");
     roles[UsernameUrl] = QByteArrayLiteral("usernameurl");
     roles[Roles] = QByteArrayLiteral("roles");
@@ -283,7 +283,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             }
         }
         return QString();
-    case MessageModel::CanEditingMessage:
+    case MessageModel::CanEditMessage:
         return (mAllMessages.at(idx).timeStamp() + (mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000 : 0))
                > QDateTime::currentMSecsSinceEpoch();
     case MessageModel::Starred:

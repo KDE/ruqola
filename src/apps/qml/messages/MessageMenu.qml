@@ -26,7 +26,7 @@ import QtQuick.Layouts 1.12
 import KDE.Ruqola.DebugCategory 1.0
 QQC2.Menu {
     id: menu
-    property bool can_editing_message
+    property bool can_edit_message
     property bool user_ignored
     property bool starred
     property bool pinned_message
@@ -162,7 +162,7 @@ QQC2.Menu {
             pinnedMessageLabel.text = updatePinnedMessageLabelText();
         }
 
-        editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_editing_message
+        editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_edit_message
         ignoreLabel.text = updateIgnoreLabelText()
         ignoreUserItem.visible = (i_username != i_own_username)
     }

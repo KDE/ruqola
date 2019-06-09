@@ -54,7 +54,7 @@ ColumnLayout {
     property var i_roles
     property string i_editedByUserName
     property bool i_starred
-    property bool i_can_editing_message
+    property bool i_can_edit_message
     property bool i_user_ignored
     property bool i_pinned
 

@@ -89,7 +89,7 @@ ListView {
         i_roles: roles
         i_date: date
         i_own_username: rcAccount.userName
-        i_can_editing_message: canEditingMessage
+        i_can_edit_message: canEditMessage
         i_starred: starred
         i_pinned: pinned
         i_editedByUserName: editedByUsername

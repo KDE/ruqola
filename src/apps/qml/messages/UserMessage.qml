@@ -50,7 +50,7 @@ MessageBase {
             id: menu
             x: messageMenuLoader.posX
             y: messageMenuLoader.posY
-            can_editing_message: i_can_editing_message
+            can_edit_message: i_can_edit_message
             user_ignored : i_user_ignored
             starred: i_starred
             pinned_message: i_pinned

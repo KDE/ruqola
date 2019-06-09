@@ -56,7 +56,7 @@ void MessageModelTest::shouldHaveDefaultValue()
     roles[MessageModel::Attachments] = QByteArrayLiteral("attachments");
     roles[MessageModel::Urls] = QByteArrayLiteral("urls");
     roles[MessageModel::Date] = QByteArrayLiteral("date");
-    roles[MessageModel::CanEditingMessage] = QByteArrayLiteral("canEditingMessage");
+    roles[MessageModel::CanEditMessage] = QByteArrayLiteral("canEditMessage");
     roles[MessageModel::Starred] = QByteArrayLiteral("starred");
     roles[MessageModel::UsernameUrl] = QByteArrayLiteral("usernameurl");
     roles[MessageModel::Roles] = QByteArrayLiteral("roles");

@@ -55,7 +55,7 @@ Rectangle {
     property var i_roles
     property string i_date
     property string i_own_username
-    property bool i_can_editing_message
+    property bool i_can_edit_message
     property bool i_starred
     property bool i_user_ignored
     property bool i_pinned
@@ -151,7 +151,7 @@ Rectangle {
                               i_date: i_date,
                               i_own_username: i_own_username,
                               rcAccount: appid.rocketChatAccount,
-                              i_can_editing_message: i_can_editing_message,
+                              i_can_edit_message: i_can_edit_message,
                               i_editedByUserName: i_editedByUserName,
                               i_starred: i_starred,
                               i_pinned: i_pinned,

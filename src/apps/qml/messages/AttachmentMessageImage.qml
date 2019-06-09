@@ -39,7 +39,7 @@ MessageBase {
             id: menu
             x: messageMenuLoader.posX
             y: messageMenuLoader.posY
-            can_editing_message: i_can_editing_message
+            can_edit_message: i_can_edit_message
             starred: i_starred
             Component.onCompleted: {
                 open()

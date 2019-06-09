@@ -58,7 +58,7 @@ public:
         Attachments,
         Urls,
         Date,
-        CanEditingMessage,
+        CanEditMessage,
         Starred,
         UsernameUrl,
         Roles,
