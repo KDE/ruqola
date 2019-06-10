@@ -77,40 +77,55 @@ MessageBase {
         }
         ColumnLayout {
             Layout.fillHeight: true
-            Kirigami.Heading {
-                id: usernameLabel
+            RowLayout {
+                QQC2.Label {
+                    id: usernameLabel
+                    Layout.alignment: Qt.AlignLeft
+                    font.bold: true
+                    text: i_aliasname +  ' ' + i_usernameurl + (i_editedByUserName === "" ? "" : " " + i18n("(edited by %1)", i_editedByUserName))
 
-                level: 5
-                Layout.alignment: Qt.AlignLeft
-                font.bold: true
-                text: i_aliasname +  ' ' + i_usernameurl + (i_editedByUserName === "" ? "" : " " + i18n("(edited by %1)", i_editedByUserName))
+                    height: avatarRect.height
+                    onLinkActivated: messageMain.linkActivated(link)
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.RightButton
 
-                height: avatarRect.height
-                onLinkActivated: messageMain.linkActivated(link)
-                MouseArea {
-                    anchors.fill: parent
-                    acceptedButtons: Qt.RightButton
-
-                    onClicked: {
-                        if (mouse.button === Qt.RightButton) {
-                            messageMenuLoader.posX = mouse.x
-                            messageMenuLoader.posY = mouse.y
-                            if (messageMenuLoader.active)
-                                messageMenuLoader.active = false
-                            else
-                                messageMenuLoader.active = true
+                        onClicked: {
+                            if (mouse.button === Qt.RightButton) {
+                                messageMenuLoader.posX = mouse.x
+                                messageMenuLoader.posY = mouse.y
+                                if (messageMenuLoader.active)
+                                    messageMenuLoader.active = false
+                                else
+                                    messageMenuLoader.active = true
+                            }
                         }
                     }
+                    visible: !i_groupable
                 }
-                visible: !i_groupable
+                Kirigami.Icon {
+                    id: rolesInfo
+                    property var opacityDefaultValue: 0.5
+                    source: "documentinfo"
+                    width: height
+                    height: 18
+                    visible: i_roles.length > 0
+                    opacity: opacityDefaultValue
+                    MouseArea {
+                        hoverEnabled: true
+                        anchors.fill: parent
+                        onEntered: {
+                            rolesInfo.opacity = 1.0
+                        }
 
-            }
-
-            RowLayout {
-                RepeaterRoles {
-                    id: repearterRoles
-                    model: i_roles
-                    Layout.fillWidth: true
+                        onExited: {
+                            rolesInfo.opacity = rolesInfo.opacityDefaultValue
+                        }
+                        QQC2.ToolTip {
+                            id: tooltipRoleInfo
+                            text: i_roles
+                        }
+                    }
                 }
             }
 
@@ -153,24 +168,24 @@ MessageBase {
                     //Reactivate when we have a parsed url !
                     //see info about bugs
 
-//                    Repeater {
-//                        id: repeaterUrl
+                    //                    Repeater {
+                    //                        id: repeaterUrl
 
-//                        model: i_urls
-//                        Text {
-//                            //Display it only if url != text otherwise it's not necessary
-//                            visible: model.modelData.url !== i_originalMessage
-//                            width: urlColumn.width
-//                            text: model.modelData.description === ""  ?
-//                                      RuqolaUtils.markdownToRichText(model.modelData.url) :
-//                                      RuqolaUtils.markdownToRichText(model.modelData.description)
-//                            wrapMode: QQC2.Label.Wrap
-//                            renderType: Text.NativeRendering
-//                            textFormat: Text.RichText
+                    //                        model: i_urls
+                    //                        Text {
+                    //                            //Display it only if url != text otherwise it's not necessary
+                    //                            visible: model.modelData.url !== i_originalMessage
+                    //                            width: urlColumn.width
+                    //                            text: model.modelData.description === ""  ?
+                    //                                      RuqolaUtils.markdownToRichText(model.modelData.url) :
+                    //                                      RuqolaUtils.markdownToRichText(model.modelData.description)
+                    //                            wrapMode: QQC2.Label.Wrap
+                    //                            renderType: Text.NativeRendering
+                    //                            textFormat: Text.RichText
 
-//                            onLinkActivated: messageMain.linkActivated(link)
-//                        }
-//                    }
+                    //                            onLinkActivated: messageMain.linkActivated(link)
+                    //                        }
+                    //                    }
 
                     RepeaterReactions {
                         id: repearterReactions

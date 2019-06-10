@@ -298,7 +298,10 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(message.username());
     }
     case MessageModel::Roles:
-        return roomRoles(message.userId());
+    {
+        const QString str = roomRoles(message.userId()).join(QLatin1Char(','));
+        return str;
+    }
     case MessageModel::Reactions:
     {
         QVariantList lst;
