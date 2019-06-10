@@ -19,6 +19,7 @@
 
 #include "textconvertertest.h"
 #include "textconverter.h"
+#include "messages/message.h"
 #include "emoticons/emojimanager.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -45,7 +46,7 @@ void TextConverterTest::shouldConvertText()
     QFETCH(QString, input);
     QFETCH(QString, output);
     TextConverter w;
-    QCOMPARE(w.convertMessageText(input, {}, QString()), output);
+    QCOMPARE(w.convertMessageText(input, {}, QString(), {}), output);
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji_data()
@@ -106,5 +107,5 @@ void TextConverterTest::shouldConvertTextWithEmoji()
 
     TextConverter w(&manager);
 
-    QCOMPARE(w.convertMessageText(input, {}, QString()), output);
+    QCOMPARE(w.convertMessageText(input, {}, QString(), {}), output);
 }

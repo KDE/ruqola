@@ -21,6 +21,7 @@
 #include "utils.h"
 #include "ruqola_debug.h"
 #include "emoticons/emojimanager.h"
+#include "messages/message.h"
 
 #include "texthighlighter.h"
 #include "syntaxhighlightingmanager.h"
@@ -37,8 +38,28 @@ TextConverter::TextConverter(EmojiManager *emojiManager)
     (void)SyntaxHighlightingManager::self();
 }
 
-QString TextConverter::convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const
+QString TextConverter::convertMessageText(const QString &_str, const QMap<QString, QString> &mentions, const QString &userName, const QVector<Message> &allMessages) const
 {
+    QString str = _str;
+    QString quotedMessage;
+    if (str.startsWith(QLatin1String("[ ](http"))) { // ## is there a better way?
+        const int startPos = str.indexOf(QLatin1Char('('));
+        const int endPos = str.indexOf(QLatin1Char(')'));
+        const QString url = str.mid(startPos + 1, endPos - startPos - 1);
+        // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
+        // Note that this code ignores the channel name, it's always the current one...
+        const QString messageId = url.mid(url.indexOf(QLatin1String("msg=")) + 4);
+        //qCDebug(RUQOLA_LOG) << "Extracted messageId" << messageId;
+        auto it = std::find_if(allMessages.cbegin(), allMessages.cend(), [messageId](const Message &msg) {
+            return msg.messageId() == messageId;
+        });
+        if (it != allMessages.cend()) {
+            quotedMessage = QStringLiteral("<font size=\"-1\">&gt; %1</font><br/>").arg((*it).text());
+            str = str.mid(endPos + 1);
+        } else {
+            qCDebug(RUQOLA_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
+        }
+    }
     if (SyntaxHighlightingManager::self()->syntaxHighlightingInitialized()) {
         const int startIndex = str.indexOf(QLatin1String("```"));
         const int endIndex = str.lastIndexOf(QLatin1String("```"));
@@ -63,7 +84,7 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
                                                   ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
                                                   : */SyntaxHighlightingManager::self()->repo().defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
             highLighter.highlight(quoteStr);
-            return beginStr + *s.string() + endStr;
+            return quotedMessage + beginStr + *s.string() + endStr;
         }
     }
     QString richText = Utils::generateRichText(str, mentions, userName);
@@ -81,5 +102,5 @@ QString TextConverter::convertMessageText(const QString &str, const QMap<QString
     } else {
         qCWarning(RUQOLA_LOG) << "Emojimanager was not setted";
     }
-    return richText;
+    return quotedMessage + richText;
 }

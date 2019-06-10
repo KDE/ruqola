@@ -343,7 +343,7 @@ QStringList MessageModel::roomRoles(const QString &userId) const
 
 QString MessageModel::convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const
 {
-    return mTextConverter->convertMessageText(str, mentions, userName);
+    return mTextConverter->convertMessageText(str, mentions, userName, mAllMessages);
 }
 
 void MessageModel::setRoomID(const QString &roomID)
