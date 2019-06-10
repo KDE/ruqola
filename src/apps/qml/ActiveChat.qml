@@ -48,16 +48,28 @@ ListView {
     property QtObject rcAccount
     property string roomId: ""
     property bool enableEditingMode: false
+    property bool wasAtYEnd: true
 
     spacing: Kirigami.Units.smallSpacing
     highlightRangeMode: ListView.ApplyRange
     preferredHighlightBegin: currentItem === null ? parent.height : parent.height - currentItem.height
     preferredHighlightEnd: parent.height
 
-    onCountChanged: {
-        //if (atYEnd) {
-            currentIndex = count - 1
-        //}
+    onAtYEndChanged: {
+        // Remember if we were at the bottom, for when onContentHeight is called
+        if (wasAtYEnd != atYEnd) {
+            wasAtYEnd = atYEnd;
+        }
+    }
+
+    onContentHeightChanged: {
+        // This is supposed to be emitted only when messages are added or removed.
+        // TODO: Apparently it is also emitted when just scrolling up and down, too... Why?
+        //       I guess because items are loaded on demand, and implicitHeight depends on loaded.item.implicitHeight?
+        //console.log("height=" + contentHeight);
+        if (wasAtYEnd) {
+            positionViewAtEnd();
+        }
     }
 
     Component.onCompleted: positionViewAtEnd()
