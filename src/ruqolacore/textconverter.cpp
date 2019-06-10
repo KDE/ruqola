@@ -38,10 +38,23 @@ TextConverter::TextConverter(EmojiManager *emojiManager)
     (void)SyntaxHighlightingManager::self();
 }
 
-QString TextConverter::convertMessageText(const QString &_str, const QString &userName, const QVector<Message> &allMessages) const
+QString TextConverter::convertMessageText(const QString &_str, const QString &userName, const QVector<Message> &allMessages, const QString &threadMessageId) const
 {
     QString str = _str;
     QString quotedMessage;
+    QString quotedThreadMessage;
+    if (!threadMessageId.isEmpty()) {
+        auto it = std::find_if(allMessages.cbegin(), allMessages.cend(), [threadMessageId](const Message &msg) {
+            return msg.messageId() == threadMessageId;
+        });
+        if (it != allMessages.cend()) {
+            //Fix color
+            quotedThreadMessage = QStringLiteral("<font color=\"red\" size=\"-1\">%1</font><br/>").arg((*it).text());
+        } else {
+            qCDebug(RUQOLA_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
+        }
+
+    }
     if (str.startsWith(QLatin1String("[ ](http"))) { // ## is there a better way?
         const int startPos = str.indexOf(QLatin1Char('('));
         const int endPos = str.indexOf(QLatin1Char(')'));
@@ -84,7 +97,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
                                                   ? mRepo.defaultTheme(KSyntaxHighlighting::Repository::DarkTheme)
                                                   : */SyntaxHighlightingManager::self()->repo().defaultTheme(KSyntaxHighlighting::Repository::DarkTheme));
             highLighter.highlight(quoteStr);
-            return quotedMessage + beginStr + *s.string() + endStr;
+            return quotedThreadMessage + quotedMessage + beginStr + *s.string() + endStr;
         }
     }
     QString richText = Utils::generateRichText(str, userName);
@@ -102,5 +115,5 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
     } else {
         qCWarning(RUQOLA_LOG) << "Emojimanager was not setted";
     }
-    return quotedMessage + richText;
+    return quotedThreadMessage + quotedMessage + richText;
 }
