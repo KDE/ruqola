@@ -131,7 +131,7 @@ void UtilsTest::shouldExtractGenerateRichText()
 {
     QFETCH(QString, input);
     QFETCH(QString, output);
-    QCOMPARE(Utils::generateRichText(input, {}, QString()), output);
+    QCOMPARE(Utils::generateRichText(input, QString()), output);
 }
 
 void UtilsTest::shouldHighlightText_data()
@@ -154,7 +154,7 @@ void UtilsTest::shouldHighlightText()
     QFETCH(QString, input);
     QFETCH(QString, username);
     QFETCH(QString, output);
-    QCOMPARE(Utils::generateRichText(input, {}, username), output);
+    QCOMPARE(Utils::generateRichText(input, username), output);
 }
 
 void UtilsTest::shouldParseNotification_data()

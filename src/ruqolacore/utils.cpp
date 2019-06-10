@@ -63,10 +63,8 @@ QString Utils::markdownToRichText(const QString &markDown)
     return str;
 }
 
-QString Utils::generateRichText(const QString &str, const QMap<QString, QString> &mentions, const QString &username)
+QString Utils::generateRichText(const QString &str, const QString &username)
 {
-    //Not using mentions for the moment.
-    Q_UNUSED(mentions)
     QString newStr = Utils::markdownToRichText(str);
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"));
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);

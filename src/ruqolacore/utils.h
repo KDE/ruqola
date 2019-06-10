@@ -29,7 +29,7 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QUrl generateServerUrl(const QStrin
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString markdownToRichText(const QString &markDown);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString presenceStatusToString(User::PresenceStatus status);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT User::PresenceStatus presenceStatusFromString(const QString &status);
-Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString generateRichText(const QString &markDown, const QMap<QString, QString> &mentions, const QString &username);
+Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString generateRichText(const QString &markDown, const QString &username);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString extractRoomUserFromUrl(QString url);
 LIBRUQOLACORE_TESTS_EXPORT void parseNotification(const QJsonArray &contents, QString &message, QString &title, QString &sender);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QString userIdFromDirectChannel(const QString &rid, const QString &userId);

@@ -34,7 +34,7 @@ public:
     explicit TextConverter(EmojiManager *emojiManager = nullptr);
     ~TextConverter() = default;
 
-    Q_REQUIRED_RESULT QString convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName, const QVector<Message> &allMessages) const;
+    Q_REQUIRED_RESULT QString convertMessageText(const QString &str, const QString &userName, const QVector<Message> &allMessages) const;
 private:
     EmojiManager *mEmojiManager = nullptr;
 };

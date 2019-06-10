@@ -38,7 +38,7 @@ TextConverter::TextConverter(EmojiManager *emojiManager)
     (void)SyntaxHighlightingManager::self();
 }
 
-QString TextConverter::convertMessageText(const QString &_str, const QMap<QString, QString> &mentions, const QString &userName, const QVector<Message> &allMessages) const
+QString TextConverter::convertMessageText(const QString &_str, const QString &userName, const QVector<Message> &allMessages) const
 {
     QString str = _str;
     QString quotedMessage;
@@ -87,7 +87,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QMap<QStrin
             return quotedMessage + beginStr + *s.string() + endStr;
         }
     }
-    QString richText = Utils::generateRichText(str, mentions, userName);
+    QString richText = Utils::generateRichText(str, userName);
     if (mEmojiManager) {
         static const QRegularExpression regularExpressionUser(QStringLiteral("(:\\w+:)"));
         QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(richText);

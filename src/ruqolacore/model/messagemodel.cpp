@@ -233,7 +233,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
                 return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
             }
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-            return convertMessageText(message.text(), message.mentions(), userName);
+            return convertMessageText(message.text(), userName);
         }
     case MessageModel::Timestamp:
         return message.timeStamp();
@@ -341,9 +341,9 @@ QStringList MessageModel::roomRoles(const QString &userId) const
     return QStringList();
 }
 
-QString MessageModel::convertMessageText(const QString &str, const QMap<QString, QString> &mentions, const QString &userName) const
+QString MessageModel::convertMessageText(const QString &str, const QString &userName) const
 {
-    return mTextConverter->convertMessageText(str, mentions, userName, mAllMessages);
+    return mTextConverter->convertMessageText(str, userName, mAllMessages);
 }
 
 void MessageModel::setRoomID(const QString &roomID)
