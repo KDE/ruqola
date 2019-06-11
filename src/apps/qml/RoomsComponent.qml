@@ -171,9 +171,9 @@ Component {
             }
             onLeaveRoom: {
                 //TODO move to desktop.qml
-                leaveChannelDialog.rId = roomID
-                leaveChannelDialog.channelType = roomType
-                leaveChannelDialog.open()
+                leaveChannelDialogLoader.rid = roomID
+                leaveChannelDialogLoader.roomType = roomType
+                leaveChannelDialogLoader.active = true
             }
 
             onRoomSelected: {

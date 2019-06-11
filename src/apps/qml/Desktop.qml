@@ -224,16 +224,38 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    LeaveChannelDialog {
-        id: leaveChannelDialog
-        onLeaveChannel:  {
-            rocketChatAccount.leaveRoom(roomId, channelType)
+    Loader {
+        id: leaveChannelDialogLoader
+        active: false
+        property string rid
+        property string roomType
+
+        sourceComponent: LeaveChannelDialog {
+            id: leaveChannelDialog
+            parent: appid.pageStack
+            onLeaveChannel:  {
+                rocketChatAccount.leaveRoom(roomId, channelType)
+            }
+            onRejected: {
+                leaveChannelDialogLoader.active = false
+            }
+            onAccepted: {
+                leaveChannelDialogLoader.active = false
+            }
+            Component.onCompleted: {
+                leaveChannelDialog.rId = leaveChannelDialogLoader.rid
+                leaveChannelDialog.channelType = leaveChannelDialogLoader.roomType
+                open()
+            }
         }
     }
 
     AddUserDialog {
         id: addUserDialog
         completerModel: rocketChatAccount.userCompleterFilterModelProxy()
+        roomInfo: appid.selectedRoom
+        roomId: appid.selectedRoomID
+
         onSearchUserName: {
             rocketChatAccount.userAutocomplete(pattern, "");
         }
