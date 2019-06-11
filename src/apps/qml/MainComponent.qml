@@ -361,6 +361,7 @@ Component {
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
 
+            onRoomIdChanged: positionViewAtEnd();
             onPinMessage: {
                 appid.rocketChatAccount.pinMessage(messageId, pinned)
             }
