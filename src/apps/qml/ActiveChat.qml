@@ -49,6 +49,7 @@ ListView {
     property string roomId: ""
     property bool enableEditingMode: false
     property bool wasAtYEnd: true
+    property bool changingRooms: false
 
     spacing: Kirigami.Units.smallSpacing
     highlightRangeMode: ListView.ApplyRange
@@ -57,7 +58,7 @@ ListView {
 
     onAtYEndChanged: {
         // Remember if we were at the bottom, for when onContentHeight is called
-        if (wasAtYEnd != atYEnd) {
+        if (wasAtYEnd != atYEnd && !changingRooms) {
             wasAtYEnd = atYEnd;
         }
     }
@@ -66,11 +67,13 @@ ListView {
         // This is supposed to be emitted only when messages are added or removed.
         // TODO: Apparently it is also emitted when just scrolling up and down, too... Why?
         //       I guess because items are loaded on demand, and implicitHeight depends on loaded.item.implicitHeight?
-        //console.log("height=" + contentHeight);
-        if (wasAtYEnd) {
+        //console.log("height=" + contentHeight + " using wasAtYEnd=" + wasAtYEnd + " changingRooms=" + changingRooms);
+        if (contentHeight > 0 && (wasAtYEnd || changingRooms)) {
             positionViewAtEnd();
+            changingRooms = false;
         }
     }
+    onRoomIdChanged: { changingRooms = true; }
 
     Component.onCompleted: positionViewAtEnd()
     visible: count > 0
