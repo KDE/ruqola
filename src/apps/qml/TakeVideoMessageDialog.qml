@@ -23,6 +23,7 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.2
 import QtMultimedia 5.8
+import org.kde.kirigami 2.7 as Kirigami
 import KDE.Ruqola.RocketChatAccount 1.0
 QQC2.Dialog {
     id: takeVideoMessageDialog
@@ -38,8 +39,8 @@ QQC2.Dialog {
 
     modal: true
     focus: true
-    readonly property bool isCameraAvailable: QtMultimedia.availableCameras.length > 0
-    standardButtons: isCameraAvailable == true ? QQC2.Dialog.Ok | QQC2.Dialog.Cancel : QQC2.Dialog.Close
+    property bool isNotCameraAvailable: camera.availability === Camera.Unavailable || camera.availability === Camera.ResourceMissing
+    standardButtons: isNotCameraAvailable == true ? QQC2.Dialog.Close : QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     Camera {
         id: camera
@@ -49,30 +50,32 @@ QQC2.Dialog {
         videoRecorder.outputLocation: rcAccount.recordingVideoPath()
     }
 
-    //TODO align vertical center
-    QQC2.Label {
-        visible: isCameraAvailable == false
-        text: i18n("Sorry, No camera found.");
-        font.bold: true
-        font.pointSize: 20
-        anchors.fill: parent
+    Kirigami.InlineMessage {
+        visible: isNotCameraAvailable
         anchors.centerIn: parent
-        wrapMode: QQC2.Label.Wrap
-        anchors.horizontalCenter: parent.horizontalCenter
+        width: 300
+        height: 60
+        text: i18n("There is no camera available.")
     }
-
+    Kirigami.InlineMessage {
+        visible: camera.availability === Camera.Busy
+        anchors.centerIn: parent
+        width: 300
+        height: 60
+        text: i18n("Your camera is busy.\nTry to close other applications using the camera.")
+    }
     VideoOutput {
         id: camareLiveOutput
         source: camera
         anchors.fill: parent
         autoOrientation: true
         focus: visible
-        visible: isCameraAvailable && (camera.cameraStatus === Camera.ActiveStatus)
-        enabled: isCameraAvailable && (camera.cameraStatus === Camera.ActiveStatus)
+        visible: !isNotCameraAvailable && (camera.cameraStatus === Camera.ActiveStatus)
+        enabled: !isNotCameraAvailable && (camera.cameraStatus === Camera.ActiveStatus)
     }
     QQC2.Button {
         text: i18n("Video");
-        visible: isCameraAvailable
+        visible: !isNotCameraAvailable
         onPressed: {
             if (camera.cameraStatus === camera.StartingStatus)
                 camera.stop()
