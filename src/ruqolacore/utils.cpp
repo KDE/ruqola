@@ -55,7 +55,7 @@ QString Utils::markdownToRichText(const QString &markDown)
     QString str = markDown;
 
     //TODO remove replaceSmileys when we will use unicode emoticons
-    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys;
+    const KTextToHTML::Options convertFlags = KTextToHTML::PreserveSpaces | KTextToHTML::HighlightText | KTextToHTML::ReplaceSmileys | KTextToHTML::ConvertPhoneNumbers;
     str = KTextToHTML::convertToHtml(str, convertFlags);
     //Bug 391520 I don't remember why I removed <br /> need to investigate
     //str.remove(QStringLiteral("<br />"));
