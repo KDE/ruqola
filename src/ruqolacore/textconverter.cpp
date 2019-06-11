@@ -43,6 +43,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
     QString str = _str;
     QString quotedMessage;
     QString quotedThreadMessage;
+    //TODO use specific component for threading
     if (!threadMessageId.isEmpty()) {
         auto it = std::find_if(allMessages.cbegin(), allMessages.cend(), [threadMessageId](const Message &msg) {
             return msg.messageId() == threadMessageId;
@@ -55,6 +56,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
         }
 
     }
+    //TODO we need to look at room name too as we can have it when we use "direct reply"
     if (str.startsWith(QLatin1String("[ ](http"))) { // ## is there a better way?
         const int startPos = str.indexOf(QLatin1Char('('));
         const int endPos = str.indexOf(QLatin1Char(')'));
