@@ -31,9 +31,9 @@ QQC2.Label {
 
     renderType: Text.NativeRendering
     textFormat: Text.RichText
-    
+    color: "red" //Convert to kirigami color
     text: i_dcount > 0 ? i18np("1 message", "%1 messages",i_dcount) : i18n("Any message yet")
-    wrapMode: QQC2.Label.Wrap
+    wrapMode: QQC2.Label.NoWrap
     visible: i_drid != ""
     MouseArea {
         anchors.fill: parent
