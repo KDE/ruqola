@@ -43,9 +43,9 @@ void Reactions::parseReactions(const QJsonObject &reacts, EmojiManager *emojiMan
     for (const QString &str : lst) {
         users.clear();
         const QJsonObject obj = reacts.value(str).toObject();
-        QJsonValue usernames = obj.value(QLatin1String("usernames"));
+        const QJsonValue usernames = obj.value(QLatin1String("usernames"));
         if (!usernames.isUndefined()) {
-            QJsonArray array = usernames.toArray();
+            const QJsonArray array = usernames.toArray();
             for (int i = 0; i < array.count(); ++i) {
                 users.append(array.at(i).toString());
             }
@@ -90,7 +90,7 @@ Reactions Reactions::fromJSon(const QJsonObject &o)
     QStringList users;
     for (const QString &str : lst) {
         const QJsonObject obj = o.value(str).toObject();
-        QJsonValue usernames = obj.value(QLatin1String("usernames"));
+        const QJsonValue usernames = obj.value(QLatin1String("usernames"));
         if (!usernames.isUndefined()) {
             QJsonArray array = usernames.toArray();
             for (int i = 0; i < array.count(); ++i) {
