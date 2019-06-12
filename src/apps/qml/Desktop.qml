@@ -181,11 +181,25 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    PrivateChannelInfoDialog {
-        id: privateChannelInfoDialog
-        roomInfo: appid.selectedRoom
-        onBlockUser: {
-            rocketChatAccount.blockUser(rid, block)
+    Loader {
+        id: privateChannelInfoDialogLoader
+        active: false
+        sourceComponent: PrivateChannelInfoDialog {
+            id: privateChannelInfoDialog
+            roomInfo: appid.selectedRoom
+            parent: appid.pageStack
+            onBlockUser: {
+                rocketChatAccount.blockUser(rid, block)
+            }
+            onRejected: {
+                privateChannelInfoDialogLoader.active = false
+            }
+            onAccepted: {
+                privateChannelInfoDialogLoader.active = false
+            }
+            Component.onCompleted: {
+                initializeAndOpen()
+            }
         }
     }
 

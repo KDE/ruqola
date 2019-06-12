@@ -87,7 +87,7 @@ Component {
                             //For testing
                             channelInfoDialogLoader.active = true
                         } else if (channelType === "d") {
-                            privateChannelInfoDialog.initializeAndOpen()
+                            privateChannelInfoDialogLoader.active = true
                         } else {
                             console.log(RuqolaDebugCategorySingleton.category,"channel type " + appid.selectedRoom.channelType)
                         }
