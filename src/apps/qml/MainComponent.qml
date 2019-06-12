@@ -85,10 +85,8 @@ Component {
                             //                                        appid.rocketChatAccount.groupInfo(appid.selectedRoom.rid);
                             //                                    }
                             //For testing
-                            channelInfoDialog.roomInfo = appid.selectedRoom
-                            channelInfoDialog.initializeAndOpen()
+                            channelInfoDialogLoader.active = true
                         } else if (channelType === "d") {
-                            privateChannelInfoDialog.roomInfo = appid.selectedRoom
                             privateChannelInfoDialog.initializeAndOpen()
                         } else {
                             console.log(RuqolaDebugCategorySingleton.category,"channel type " + appid.selectedRoom.channelType)

@@ -183,6 +183,7 @@ Kirigami.ApplicationWindow {
 
     PrivateChannelInfoDialog {
         id: privateChannelInfoDialog
+        roomInfo: appid.selectedRoom
         onBlockUser: {
             rocketChatAccount.blockUser(rid, block)
         }
@@ -213,17 +214,32 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    ChannelInfoDialog {
-        id: channelInfoDialog
-        channelName: (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""
-        onDeleteRoom: {
-            rocketChatAccount.eraseRoom(roomId, appid.selectedRoom.channelType)
-        }
-        onModifyChannelSetting: {
-            rocketChatAccount.changeChannelSettings(roomId, type, newVal, channelType)
+    Loader {
+        id: channelInfoDialogLoader
+        active: false
+        sourceComponent: ChannelInfoDialog {
+            id: channelInfoDialog
+            parent: appid.pageStack
+            roomInfo: appid.selectedRoom
+            channelName: (appid && appid.selectedRoomID) ? appid.selectedRoomID : ""
+            onDeleteRoom: {
+                rocketChatAccount.eraseRoom(roomId, appid.selectedRoom.channelType)
+            }
+            onModifyChannelSetting: {
+                rocketChatAccount.changeChannelSettings(roomId, type, newVal, channelType)
+            }
+            onRejected: {
+                channelInfoDialogLoader.active = false
+            }
+            onAccepted: {
+                channelInfoDialogLoader.active = false
+            }
+            Component.onCompleted: {
+                initializeAndOpen()
+            }
+
         }
     }
-
     Loader {
         id: leaveChannelDialogLoader
         active: false
