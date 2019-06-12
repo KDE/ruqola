@@ -170,6 +170,7 @@ Component {
                 icon.name: "favorite"
                 checkable: true
                 visible: appid.selectedRoom && !appid.selectedRoom.isDiscussionRoom
+                Accessible.onPressAction: onClicked
                 Binding on checked {
                     value: appid.selectedRoom && appid.selectedRoom.favorite
                 }
@@ -179,6 +180,7 @@ Component {
             }
             QQC2.ToolButton {
                 icon.name: "draw-arrow-back"
+                Accessible.onPressAction: onClicked
                 visible: appid.selectedRoom && appid.selectedRoom.isDiscussionRoom
                 onClicked: {
                     appid.switchToRoom(appid.selectedRoom.parentRid)

@@ -32,6 +32,8 @@ QQC2.TextField {
     inputMethodHints: Qt.ImhHiddenText
     placeholderText: i18n("Enter Password...")
 
+    Accessible.passwordEdit: true
+
     Kirigami.Icon {
         source: passwordLineEdit.displayPassword ? "visibility": "hint"
         anchors.right: parent.right
