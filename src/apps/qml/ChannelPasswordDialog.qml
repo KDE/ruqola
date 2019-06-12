@@ -55,10 +55,8 @@ QQC2.Dialog {
         QQC2.Label {
             text: i18n("Password:");
         }
-        QQC2.TextField {
+        PasswordLineEdit {
             id: passwordField
-            selectByMouse: true
-            echoMode: TextInput.Password
         }
     }
 
