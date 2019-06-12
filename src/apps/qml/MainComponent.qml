@@ -132,7 +132,7 @@ Component {
                     onTriggered: {
                         var channelType = appid.selectedRoom.channelType;
                         if (channelType === "c" || channelType === "p") {
-                            addUserDialog.initializeAndOpen()
+                            addUserDialogLoader.active = true
                         }
                     }
                 },

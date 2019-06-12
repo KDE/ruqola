@@ -279,18 +279,32 @@ Kirigami.ApplicationWindow {
             }
         }
     }
+    Loader {
+        id: addUserDialogLoader
+        active: false
+        sourceComponent: AddUserDialog {
+            id: addUserDialog
+            parent: appid.pageStack
+            completerModel: rocketChatAccount.userCompleterFilterModelProxy()
+            roomInfo: appid.selectedRoom
+            roomId: appid.selectedRoomID
 
-    AddUserDialog {
-        id: addUserDialog
-        completerModel: rocketChatAccount.userCompleterFilterModelProxy()
-        roomInfo: appid.selectedRoom
-        roomId: appid.selectedRoomID
+            onSearchUserName: {
+                rocketChatAccount.userAutocomplete(pattern, "");
+            }
+            onAddUser: {
+                rocketChatAccount.addUserToRoom(userId, rid, channelType)
+            }
+            onRejected: {
+                addUserDialogLoader.active = false
+            }
+            onAccepted: {
+                addUserDialogLoader.active = false
+            }
+            Component.onCompleted: {
+                initializeAndOpen()
+            }
 
-        onSearchUserName: {
-            rocketChatAccount.userAutocomplete(pattern, "");
-        }
-        onAddUser: {
-            rocketChatAccount.addUserToRoom(userId, rid, channelType)
         }
     }
     Loader {
