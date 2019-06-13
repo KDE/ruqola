@@ -336,8 +336,24 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    JobErrorMessageDialog {
-        id: jobErrorMessageDialog
+    Loader {
+        id: jobErrorMessageDialogLoader
+        property string jobMessageError
+        active: false
+        sourceComponent : JobErrorMessageDialog {
+            id: jobErrorMessageDialog
+            parent: appid.pageStack
+            Component.onCompleted: {
+                jobErrorMessageDialog.jobMessageError = jobErrorMessageDialogLoader.jobMessageError
+                open()
+            }
+            onRejected: {
+                jobErrorMessageDialogLoader.active = false
+            }
+            onAccepted: {
+                jobErrorMessageDialogLoader.active = false
+            }
+        }
     }
     Loader {
         id: createNewChannelDialogLoader
@@ -441,8 +457,8 @@ Kirigami.ApplicationWindow {
             channelPasswordDialog.visible = true
         }
         onJobFailed: {
-            jobErrorMessageDialog.jobMessageError = message
-            jobErrorMessageDialog.open()
+            jobErrorMessageDialogLoader.jobMessageError = message
+            jobErrorMessageDialogLoader.active = true
         }
     }
 
