@@ -171,6 +171,8 @@ public:
     Q_REQUIRED_RESULT QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
 
+    Q_REQUIRED_RESULT QString displayTime() const;
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -230,6 +232,7 @@ private:
     QString mThreadMessageId;
 
     // ts
+    QString mDisplayTime;
     qint64 mTimeStamp = -1;
     // _updatedAt
     qint64 mUpdatedAt = -1;

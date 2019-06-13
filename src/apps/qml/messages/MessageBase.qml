@@ -46,13 +46,13 @@ ColumnLayout {
     property string i_usernameurl
     property string i_aliasname
     property string i_avatar
-    property var i_timestamp
+    property string i_timestamp
     property string i_messageText
     property string i_originalMessage
     property var i_urls
     property var i_attachments
     property var i_reactions
-    property var i_roles
+    property string i_roles
     property string i_editedByUserName
     property bool i_starred
     property bool i_can_edit_message

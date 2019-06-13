@@ -22,6 +22,7 @@
 #include "utils.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
+#include <QDateTime>
 #include <QJsonArray>
 #include <QJsonDocument>
 
@@ -43,11 +44,11 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     if (restApi) {
         mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), o);
         mEditedAt = Utils::parseIsoDate(QStringLiteral("editedAt"), o);
-        mTimeStamp = Utils::parseIsoDate(QStringLiteral("ts"), o);
+        setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
         mThreadLastMessage = Utils::parseIsoDate(QStringLiteral("tlm"), o);
         mDiscussionLastMessage = Utils::parseIsoDate(QStringLiteral("dlm"), o);
     } else {
-        mTimeStamp = Utils::parseDate(QStringLiteral("ts"), o);
+        setTimeStamp(Utils::parseDate(QStringLiteral("ts"), o));
         mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), o);
         mEditedAt = Utils::parseDate(QStringLiteral("editedAt"), o);
         //Verify if a day we will use not restapi for it.
@@ -89,6 +90,11 @@ void Message::parseReactions(const QJsonObject &reacts)
     if (!reacts.isEmpty()) {
         mReactions.parseReactions(reacts, mEmojiManager);
     }
+}
+
+QString Message::displayTime() const
+{
+    return mDisplayTime;
 }
 
 QString Message::threadMessageId() const
@@ -578,7 +584,10 @@ qint64 Message::timeStamp() const
 
 void Message::setTimeStamp(const qint64 &timeStamp)
 {
-    mTimeStamp = timeStamp;
+    if (mTimeStamp != timeStamp) {
+        mTimeStamp = timeStamp;
+        mDisplayTime = QDateTime::fromMSecsSinceEpoch(mTimeStamp).time().toString(QStringLiteral("hh::mm"));
+    }
 }
 
 QString Message::text() const

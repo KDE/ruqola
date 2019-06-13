@@ -47,12 +47,12 @@ Rectangle {
     property string i_avatar
     property string i_aliasname
     property string i_editedByUserName
-    property var i_timestamp
+    property string i_timestamp
     property var i_messageType
     property var i_urls
     property var i_attachments
     property var i_reactions
-    property var i_roles
+    property string i_roles
     property string i_date
     property string i_own_username
     property bool i_can_edit_message

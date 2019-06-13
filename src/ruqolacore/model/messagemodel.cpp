@@ -238,7 +238,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
 
     case MessageModel::Timestamp:
-        return message.timeStamp();
+        return message.displayTime();
     case MessageModel::UserId:
         return message.userId();
     case MessageModel::SystemMessageType:
@@ -282,9 +282,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         if (idx == 0) {
             return currentDate.date().toString();
         }
-        QDateTime previewDate;
-        previewDate.setMSecsSinceEpoch(mAllMessages.at(idx - 1).timeStamp());
-        if (previewDate.date() != currentDate.date()) {
+        QDateTime previousDate;
+        previousDate.setMSecsSinceEpoch(mAllMessages.at(idx - 1).timeStamp());
+        if (previousDate.date() != currentDate.date()) {
             return currentDate.date().toString();
         }
         return QString();

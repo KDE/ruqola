@@ -23,13 +23,12 @@ import QtQuick 2.9
 import QtQuick.Controls 2.5 as QQC2
 
 import QtQuick.Layouts 1.12
-import "../js/message.js" as MessageScript;
 
 QQC2.Label {
     id: timestampText
-    property var timestamp
+    property string timestamp
     Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
-    text: MessageScript.displayDateTime(timestamp)
+    text: timestamp
     opacity: .5
     
     z: 10
