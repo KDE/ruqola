@@ -32,6 +32,7 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
     Q_INVOKABLE void setFilterString(const QString &string);
+    Q_INVOKABLE void clearFilter();
 };
 
 #endif // DISCUSSIONSFILTERPROXYMODEL_H

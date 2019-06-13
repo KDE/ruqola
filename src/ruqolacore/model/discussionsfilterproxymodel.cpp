@@ -44,3 +44,8 @@ void DiscussionsFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);
 }
+
+void DiscussionsFilterProxyModel::clearFilter()
+{
+    setFilterFixedString(QString());
+}
