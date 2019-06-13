@@ -389,7 +389,11 @@ QString MessageModel::threadMessagePreview(const QString &threadMessageId) const
             return msg.messageId() == threadMessageId;
         });
         if (it != mAllMessages.cend()) {
-            return (*it).text();
+            QString str = (*it).text();
+            if (str.length() > 80) {
+                str = str.left(80) + QStringLiteral("...");
+            }
+            return str;
         } else {
             qCDebug(RUQOLA_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
         }
