@@ -351,7 +351,6 @@ void RocketChatAccount::replyToMessage(const QString &roomID, const QString &mes
     restApi()->postMessage(roomID, message);
 }
 
-
 void RocketChatAccount::sendMessage(const QString &roomID, const QString &message)
 {
     restApi()->postMessage(roomID, message);

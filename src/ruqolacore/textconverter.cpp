@@ -54,7 +54,6 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
         } else {
             qCDebug(RUQOLA_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
         }
-
     }
     //TODO we need to look at room name too as we can have it when we use "direct reply"
     if (str.startsWith(QLatin1String("[ ](http"))) { // ## is there a better way?
