@@ -41,6 +41,7 @@ QQC2.Dialog {
 
     function initializeAndOpen()
     {
+        threadsModel.clearFilter();
         searchField.text = "";
         searchField.forceActiveFocus();
         open();

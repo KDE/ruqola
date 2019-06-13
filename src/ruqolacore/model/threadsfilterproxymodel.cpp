@@ -45,3 +45,8 @@ void ThreadsFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);
 }
+
+void ThreadsFilterProxyModel::clearFilter()
+{
+    setFilterFixedString(QString());
+}
