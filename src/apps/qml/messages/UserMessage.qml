@@ -145,10 +145,11 @@ MessageBase {
                     wrapMode: QQC2.Label.Wrap
                     MouseArea {
                         anchors.fill: parent
-                        acceptedButtons: Qt.RightButton
+                        acceptedButtons: Qt.RightButton | Qt.LeftButton
 
                         onClicked: {
-                            //TODO open thread here too
+                            //console.log("open thread "  + i_tmid)
+                            messageMain.openThread(i_tmid)
                         }
                     }
                 }
