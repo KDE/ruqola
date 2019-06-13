@@ -408,8 +408,8 @@ Component {
             }
 
             onDeleteMessage: {
-                deleteMessageDialog.msgId = messageId
-                deleteMessageDialog.open()
+                deleteMessageDialogLoader.messageId = messageId
+                deleteMessageDialogLoader.active = true
             }
             onDownloadAttachment: {
                 downloadFileDialog.fileToSaveUrl = url
@@ -506,15 +506,33 @@ Component {
                 }
             }
 
-            DeleteMessageDialog {
-                id: deleteMessageDialog
-                onDeleteMessage: {
-                    appid.rocketChatAccount.deleteMessage(messageId, appid.selectedRoomID)
+            Loader {
+                id: deleteMessageDialogLoader
+                active: false
+                property string messageId
+                sourceComponent: DeleteMessageDialog {
+                    id: deleteMessageDialog
+                    parent: appid.pageStack
+                    onDeleteMessage: {
+                        appid.rocketChatAccount.deleteMessage(messageId, appid.selectedRoomID)
+                    }
+                    Component.onCompleted: {
+                        msgId = deleteMessageDialogLoader.messageId
+                        open()
+                    }
+                    onRejected: {
+                        deleteMessageDialogLoader.active = false
+                    }
+                    onAccepted: {
+                        deleteMessageDialogLoader.active = false
+                    }
+
                 }
             }
 
             DownloadFileDialog {
                 id: downloadFileDialog
+
                 onAccepted: {
                     if (fileUrl != "") {
                         console.log(RuqolaDebugCategorySingleton.category, "You chose: " + fileUrl)
