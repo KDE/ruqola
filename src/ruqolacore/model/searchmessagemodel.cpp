@@ -21,6 +21,7 @@
 #include "searchmessagemodel.h"
 #include "ruqola_debug.h"
 
+#include <QDateTime>
 #include <QJsonArray>
 
 SearchMessageModel::SearchMessageModel(QObject *parent)
@@ -42,7 +43,7 @@ QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
     case MessageConvertedText:
         return message.text();
     case Timestamp:
-        return message.timeStamp();
+        return QDateTime::fromMSecsSinceEpoch(message.timeStamp()).toString();
     case MessageId:
         return message.messageId();
     case UserId:
