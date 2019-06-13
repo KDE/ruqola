@@ -54,7 +54,7 @@ QHash<int, QByteArray> StatusModel::roleNames() const
 void StatusModel::setCurrentPresenceStatus(User::PresenceStatus status)
 {
     int newStatusIndex = 0;
-    for (int i = 0; i < mStatusList.count(); ++i) {
+    for (int i = 0, total = mStatusList.count(); i < total; ++i) {
         if (mStatusList.at(i).status == status) {
             newStatusIndex = i;
             break;
