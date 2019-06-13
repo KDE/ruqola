@@ -345,6 +345,8 @@ Q_SIGNALS:
     void editingModeChanged();
     void sortUnreadOnTopChanged();
     void jobFailed(const QString &message);
+    void switchedRooms();
+
 private:
     Q_DISABLE_COPY(RocketChatAccount)
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);

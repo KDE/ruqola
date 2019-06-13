@@ -49,7 +49,6 @@ ListView {
     property string roomId: ""
     property bool enableEditingMode: false
     property bool wasAtYEnd: true
-    property bool changingRooms: false
 
     spacing: Kirigami.Units.smallSpacing
     highlightRangeMode: ListView.ApplyRange
@@ -58,7 +57,7 @@ ListView {
 
     onAtYEndChanged: {
         // Remember if we were at the bottom, for when onContentHeight is called
-        if (wasAtYEnd != atYEnd && !changingRooms) {
+        if (wasAtYEnd != atYEnd) {
             wasAtYEnd = atYEnd;
         }
     }
@@ -68,14 +67,19 @@ ListView {
         // TODO: Apparently it is also emitted when just scrolling up and down, too... Why?
         //       I guess because items are loaded on demand, and implicitHeight depends on loaded.item.implicitHeight?
         //console.log("height=" + contentHeight + " using wasAtYEnd=" + wasAtYEnd + " changingRooms=" + changingRooms);
-        if (contentHeight > 0 && (wasAtYEnd || changingRooms)) {
+        if (contentHeight > 0 && (wasAtYEnd)) {
             positionViewAtEnd();
-            changingRooms = false;
         }
     }
-    onRoomIdChanged: { changingRooms = true; }
 
     Component.onCompleted: positionViewAtEnd()
+    Connections {
+        target: appid.rocketChatAccount
+        onSwitchedRooms: {
+            positionViewAtEnd();
+        }
+    }
+
     visible: count > 0
     onDragEnded : {
         if (roomId !== "") {

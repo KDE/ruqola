@@ -1533,6 +1533,7 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomId)
         }
         loadHistory(r->roomId(), QString(), true /*initial loading*/);
     }
+    QMetaObject::invokeMethod(this, &RocketChatAccount::switchedRooms, Qt::QueuedConnection);
 }
 
 void RocketChatAccount::openDocumentation()
