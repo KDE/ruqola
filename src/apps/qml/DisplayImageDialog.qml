@@ -29,8 +29,8 @@ QQC2.Dialog {
 
     property url iUrl
     property bool isAnimatedImage: false
-    width: parent.width
-    height: parent.height
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
 
     modal: true
     focus: true

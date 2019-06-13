@@ -544,6 +544,7 @@ Component {
             }
             DisplayImageDialog {
                 id: displayImageDialog
+                parent: appid.pageStack
             }
             Loader {
                 id: uploadFileDialogLoader
