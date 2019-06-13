@@ -44,8 +44,7 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
     const Thread thread = mThreads.at(index.row());
     switch (role) {
     case ThreadMessageId:
-        //return thread.parentRoomId();
-        return {};
+        return thread.messageId();
     case Description:
         return thread.text();
     case NumberOfMessages:
