@@ -276,16 +276,19 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return lst;
     }
     case MessageModel::Date:
-        if (idx > 0) {
-            QDateTime previewDate;
-            previewDate.setMSecsSinceEpoch(mAllMessages.at(idx - 1).timeStamp());
-            QDateTime currentDate;
-            currentDate.setMSecsSinceEpoch(message.timeStamp());
-            if (previewDate.date() != currentDate.date()) {
-                return currentDate.date().toString();
-            }
+    {
+        QDateTime currentDate;
+        currentDate.setMSecsSinceEpoch(message.timeStamp());
+        if (idx == 0) {
+            return currentDate.date().toString();
+        }
+        QDateTime previewDate;
+        previewDate.setMSecsSinceEpoch(mAllMessages.at(idx - 1).timeStamp());
+        if (previewDate.date() != currentDate.date()) {
+            return currentDate.date().toString();
         }
         return QString();
+    }
     case MessageModel::CanEditMessage:
         return (message.timeStamp() + (mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000 : 0))
                > QDateTime::currentMSecsSinceEpoch();
