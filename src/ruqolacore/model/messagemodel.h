@@ -70,7 +70,8 @@ public:
         DiscussionLastMessage,
         ThreadCount,
         ThreadLastMessage,
-        ThreadMessageId
+        ThreadMessageId,
+        ThreadMessagePreview
     };
     Q_ENUM(MessageRoles)
 
@@ -113,7 +114,8 @@ private:
     Q_DISABLE_COPY(MessageModel)
     void refresh();
     QStringList roomRoles(const QString &userId) const;
-    QString convertMessageText(const QString &str, const QString &userName, const QString &threadMessageId) const;
+    QString convertMessageText(const QString &str, const QString &userName) const;
+    QString threadMessagePreview(const QString &threadMessageId) const;
     QString mRoomID;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;

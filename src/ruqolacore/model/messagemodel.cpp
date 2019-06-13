@@ -153,6 +153,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[ThreadCount] = QByteArrayLiteral("threadCount");
     roles[ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
     roles[ThreadMessageId] = QByteArrayLiteral("threadMessageId");
+    roles[ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
     return roles;
 }
 
@@ -233,8 +234,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
                 return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
             }
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-            return convertMessageText(message.text(), userName, message.threadMessageId());
+            return convertMessageText(message.text(), userName);
         }
+
     case MessageModel::Timestamp:
         return message.timeStamp();
     case MessageModel::UserId:
@@ -329,6 +331,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.threadLastMessage();
     case MessageModel::ThreadMessageId:
         return message.threadMessageId();
+    case MessageModel::ThreadMessagePreview:
+        return threadMessagePreview(message.threadMessageId());
     case MessageModel::Groupable:
         return message.groupable();
     }
@@ -344,9 +348,9 @@ QStringList MessageModel::roomRoles(const QString &userId) const
     return QStringList();
 }
 
-QString MessageModel::convertMessageText(const QString &str, const QString &userName, const QString &threadMessageId) const
+QString MessageModel::convertMessageText(const QString &str, const QString &userName) const
 {
-    return mTextConverter->convertMessageText(str, userName, mAllMessages, threadMessageId);
+    return mTextConverter->convertMessageText(str, userName, mAllMessages);
 }
 
 void MessageModel::setRoomID(const QString &roomID)
@@ -375,4 +379,20 @@ void MessageModel::deleteMessage(const QString &messageId)
 qint64 MessageModel::generateNewStartTimeStamp(qint64 lastTimeStamp)
 {
     return mLoadRecentHistoryManager->generateNewStartTimeStamp(lastTimeStamp);
+}
+
+
+QString MessageModel::threadMessagePreview(const QString &threadMessageId) const
+{
+    if (!threadMessageId.isEmpty()) {
+        auto it = std::find_if(mAllMessages.cbegin(), mAllMessages.cend(), [threadMessageId](const Message &msg) {
+            return msg.messageId() == threadMessageId;
+        });
+        if (it != mAllMessages.cend()) {
+            return (*it).text();
+        } else {
+            qCDebug(RUQOLA_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
+        }
+    }
+    return {};
 }

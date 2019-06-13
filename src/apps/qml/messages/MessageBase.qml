@@ -40,6 +40,7 @@ ColumnLayout {
     signal openDiscussion(string discussionRoomId)
     signal openThread(string threadMessageId)
     signal replyInThread(string messageId)
+
     property string i_date
     property string i_username
     property string i_usernameurl
@@ -57,13 +58,12 @@ ColumnLayout {
     property bool i_can_edit_message
     property bool i_user_ignored
     property bool i_pinned
-
     property int i_dcount
     property string i_drid
-
     property int i_tcount
     property string i_tmid
     property bool i_groupable
+    property string i_threadPreview
 
 
     property QtObject rcAccount

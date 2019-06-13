@@ -62,6 +62,7 @@ Rectangle {
     property int i_dcount
     property string i_drid
     property string i_tmid
+    property string i_threadPreview
     property int i_tcount
     property bool i_groupable
 
@@ -160,7 +161,8 @@ Rectangle {
                               i_drid: i_drid,
                               i_tcount: i_tcount,
                               i_groupable: i_groupable,
-                              i_tmid: i_tmid
+                              i_tmid: i_tmid,
+                              i_threadPreview: i_threadPreview
 
                           }
                           )

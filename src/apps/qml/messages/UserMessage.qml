@@ -134,8 +134,27 @@ MessageBase {
 
                 Layout.fillWidth: true
                 QQC2.Label {
+                    id: threadPreview
                     width: parent.width
+                    visible: i_threadPreview.length > 0
+                    renderType: Text.NativeRendering
+                    textFormat: Text.RichText
+                    color: "red" //Convert to kirigami color
+                    font.pointSize: textLabel.font.pointSize - 1
+                    text: i_threadPreview
+                    wrapMode: QQC2.Label.Wrap
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.RightButton
+
+                        onClicked: {
+                            //TODO open thread here too
+                        }
+                    }
+                }
+                QQC2.Label {
                     id: textLabel
+                    width: parent.width
 
                     renderType: Text.NativeRendering
                     textFormat: Text.RichText
@@ -161,6 +180,7 @@ MessageBase {
                         }
                     }
                 }
+
                 Column {
                     id: urlColumn
                     width: parent.width
