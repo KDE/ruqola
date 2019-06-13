@@ -712,7 +712,11 @@ Component {
                     onNotificationChanged: {
                         //console.log(RuqolaDebugCategorySingleton.category, "Typing in roomId: " + roomId + " str " + notificationStr);
                         if (appid.selectedRoomID === roomId) {
+                            var wasAtEnd = activeChat.atYEnd;
                             typingInfo.text = notificationStr;
+                            if (wasAtEnd) {
+                                activeChat.positionViewAtEnd();
+                            }
                         }
                     }
                     onClearNotification: {
