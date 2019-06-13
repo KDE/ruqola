@@ -14,6 +14,6 @@ function stringToColour(str) {
 //Move in c++
 function displayDateTime(timestamp)
 {
-    return Qt.formatDate(new Date(timestamp), i18n("yyyy-MM-dd")) + "\n" + Qt.formatTime(new Date(timestamp), i18n("hh:mm"));
+    return Qt.formatTime(new Date(timestamp), i18n("hh:mm"));
 }
 
