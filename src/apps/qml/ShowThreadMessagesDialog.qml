@@ -37,7 +37,7 @@ QQC2.Dialog {
     modal: true
     focus: true
     standardButtons: QQC2.Dialog.Close
-    width: 800;
+    width: 800
     height: 600
     ColumnLayout {
         ActiveChat {
