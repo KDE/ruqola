@@ -48,7 +48,7 @@ bool GetRoomsJob::start()
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &GetRoomsJob::slotGetRoomsFinished);
-    addLoggerInfo(QByteArrayLiteral("GetRoomsJob: Ask info about rooms"));
+    addLoggerInfo(QByteArrayLiteral("GetRoomsJob: Ask all rooms"));
     return true;
 }
 

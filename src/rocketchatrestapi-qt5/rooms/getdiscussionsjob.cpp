@@ -62,7 +62,7 @@ bool GetDiscussionsJob::start()
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
     connect(reply, &QNetworkReply::finished, this, &GetDiscussionsJob::slotGetDiscussionsFinished);
-    addLoggerInfo(QByteArrayLiteral("GetDiscussionsJob: Ask info about rooms"));
+    addLoggerInfo(QByteArrayLiteral("GetDiscussionsJob: Ask discussions in room"));
     return true;
 }
 
