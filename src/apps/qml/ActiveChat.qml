@@ -51,7 +51,7 @@ ListView {
     property bool enableEditingMode: false
     property bool wasAtYEnd: true
 
-    spacing: Kirigami.Units.smallSpacing
+    spacing: 0//Kirigami.Units.smallSpacing
     highlightRangeMode: ListView.ApplyRange
     preferredHighlightBegin: currentItem === null ? parent.height : parent.height - currentItem.height
     preferredHighlightEnd: parent.height
