@@ -38,17 +38,18 @@ QQC2.Dialog {
     modal: true
     focus: true
     standardButtons: QQC2.Dialog.Close
-    width: 400;
-    height: 200
+    width: 800;
+    height: 600
+    ColumnLayout {
+        ActiveChat {
+            id: threadMessageListView
+            model: threadMessagesModel
+            rcAccount: appid.rocketChatAccount
+            roomId: appid.selectedRoomID
+            anchors.fill: parent
+            clip: true
 
-    ActiveChat {
-        id: threadMessageListView
-        model: threadMessagesModel
-        rcAccount: appid.rocketChatAccount
-        roomId: appid.selectedRoomID
-        anchors.fill: parent
-        clip: true
-
-        QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
+            QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
+        }
     }
 }
