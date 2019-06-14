@@ -77,8 +77,10 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
         }
     }
 #endif
-    connect(mRoom, &Room::rolesChanged, this, &MessageModel::refresh);
-    connect(mRoom, &Room::ignoredUsersChanged, this, &MessageModel::refresh);
+    if (mRoom) {
+        connect(mRoom, &Room::rolesChanged, this, &MessageModel::refresh);
+        connect(mRoom, &Room::ignoredUsersChanged, this, &MessageModel::refresh);
+    }
 }
 
 MessageModel::~MessageModel()

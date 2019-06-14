@@ -18,37 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-import QtQuick.Layouts 1.12
-import QtQuick.Controls 2.5 as QQC2
-import QtQuick.Window 2.2
-import QtQuick 2.9
-import org.kde.kirigami 2.7 as Kirigami
+#ifndef THREADMESSAGETEST_H
+#define THREADMESSAGETEST_H
 
-QQC2.Dialog {
-    id: showThreadMessagesDialog
+#include <QObject>
 
-    title: i18n("Thread Messages") //Add room name too.
+class ThreadMessageTest : public QObject
+{
+    Q_OBJECT
+public:
+    explicit ThreadMessageTest(QObject *parent = nullptr);
+    ~ThreadMessageTest() = default;
+};
 
-    property QtObject threadMessagesModel
-
-    property string threadMessageId
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
-
-    modal: true
-    focus: true
-    standardButtons: QQC2.Dialog.Close
-    width: 400;
-    height: 200
-
-    ActiveChat {
-        id: threadMessageListView
-        model: threadMessagesModel
-        rcAccount: appid.rocketChatAccount
-        roomId: appid.selectedRoomID
-        anchors.fill: parent
-        clip: true
-
-        QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
-    }
-}
+#endif // THREADMESSAGETEST_H

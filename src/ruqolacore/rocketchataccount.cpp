@@ -63,6 +63,7 @@
 #include "receivetypingnotificationmanager.h"
 #include "restapirequest.h"
 #include "serverconfiginfo.h"
+#include "threadmessages.h"
 
 #include <QDesktopServices>
 #include <QRegularExpression>
@@ -144,6 +145,10 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mMentionsFilterProxyModel = new MentionsFilterProxyModel(this);
     mMentionsFilterProxyModel->setObjectName(QStringLiteral("mentionsfiltermodelproxy"));
     mMentionsFilterProxyModel->setSourceModel(mMentionsModel);
+
+
+    mThreadMessageModel = new MessageModel(QString(), this, nullptr, this);
+    mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));
 
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this, this);
@@ -701,6 +706,11 @@ QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj) con
     return files;
 }
 
+MessageModel *RocketChatAccount::threadMessageModel() const
+{
+    return mThreadMessageModel;
+}
+
 MentionsFilterProxyModel *RocketChatAccount::mentionsFilterProxyModel() const
 {
     return mMentionsFilterProxyModel;
@@ -755,6 +765,12 @@ void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const QStri
 
 void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)
 {
+    ThreadMessages threadmessages;
+    threadmessages.parseThreadMessages(obj);
+    //Create own model ??
+    for (int i = 0; i < threadmessages.count(); ++i) {
+        mThreadMessageModel->addMessage(threadmessages.at(i));
+    }
     //USe a specific method for threadmessages
 }
 

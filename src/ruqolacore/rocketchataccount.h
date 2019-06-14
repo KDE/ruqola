@@ -326,6 +326,8 @@ public:
 
     MentionsModel *mentionsModel() const;
 
+    MessageModel *threadMessageModel() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -416,6 +418,7 @@ private:
     MentionsModel *mMentionsModel = nullptr;
     MentionsFilterProxyModel *mMentionsFilterProxyModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
+    MessageModel *mThreadMessageModel = nullptr;
     bool mEditingMode = false;
 };
 

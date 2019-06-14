@@ -18,36 +18,9 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef THREADMESSAGES_H
-#define THREADMESSAGES_H
-#include "libruqola_private_export.h"
 #include "threadmessage.h"
-#include <QDebug>
-class LIBRUQOLACORE_TESTS_EXPORT ThreadMessages
+
+ThreadMessage::ThreadMessage()
 {
-public:
-    ThreadMessages();
-    void parseThreadMessages(const QJsonObject &threadsObj);
 
-    Q_REQUIRED_RESULT int offset() const;
-    void setOffset(int offset);
-
-    Q_REQUIRED_RESULT int total() const;
-    void setTotal(int total);
-
-    Q_REQUIRED_RESULT int threadMessagesCount() const;
-    void setThreadMessagesCount(int threadMessagesCount);
-
-    Q_REQUIRED_RESULT bool isEmpty() const;
-    void clear();
-    Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT ThreadMessage at(int index) const;
-private:
-    QVector<ThreadMessage> mThreadMessages;
-    int mThreadMessagesCount = 0;
-    int mOffset = 0;
-    int mTotal = 0;
-};
-Q_DECLARE_METATYPE(ThreadMessages)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const ThreadMessages &t);
-#endif // THREADMESSAGES_H
+}

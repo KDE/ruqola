@@ -32,21 +32,20 @@ void ThreadMessages::parseThreadMessages(const QJsonObject &threadsObj)
     mThreadMessagesCount = threadsObj[QStringLiteral("count")].toInt();
     mOffset = threadsObj[QStringLiteral("offset")].toInt();
     mTotal = threadsObj[QStringLiteral("total")].toInt();
-    const QJsonArray threadsArray = threadsObj[QStringLiteral("threads")].toArray();
-    /*
-    mThreads.clear();
-    mThreads.reserve(threadsArray.count());
+    const QJsonArray threadsArray = threadsObj[QStringLiteral("messages")].toArray();
+    qDebug() << " threadsArray" << threadsArray;
+    mThreadMessages.clear();
+    mThreadMessages.reserve(threadsArray.count());
     for (const QJsonValue &current : threadsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject discussionObject = current.toObject();
-            Thread m;
+            ThreadMessage m;
             m.parseMessage(discussionObject, true);
-            mThreads.append(m);
+            mThreadMessages.append(m);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
         }
     }
-    */
 }
 
 int ThreadMessages::offset() const
@@ -79,13 +78,34 @@ void ThreadMessages::setThreadMessagesCount(int threadMessagesCount)
     mThreadMessagesCount = threadMessagesCount;
 }
 
+bool ThreadMessages::isEmpty() const
+{
+    return mThreadMessages.isEmpty();
+}
+
+void ThreadMessages::clear()
+{
+    mThreadMessages.clear();
+}
+
+int ThreadMessages::count() const
+{
+    return mThreadMessages.count();
+}
+
+ThreadMessage ThreadMessages::at(int index) const
+{
+    return mThreadMessages.at(index);
+}
+
+
 QDebug operator <<(QDebug d, const ThreadMessages &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();
     d << "threadMessagesCount " << t.threadMessagesCount();
-//    for (int i = 0, total = t.threads().count(); i < total; ++i) {
-//        d << t.threads().at(i);
-//    }
+    for (int i = 0, total = t.count(); i < total; ++i) {
+        d << t.at(i);
+    }
     return d;
 }
