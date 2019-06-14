@@ -36,7 +36,7 @@ Repeater {
             wrapMode: QQC2.Label.NoWrap
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
-            font.pixelSize: 12
+            font.pixelSize: 8
             MouseArea {
                 anchors.fill: parent
                 acceptedButtons: Qt.RightButton | Qt.LeftButton
