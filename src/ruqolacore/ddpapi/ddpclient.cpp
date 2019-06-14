@@ -202,7 +202,7 @@ void login_result(const QJsonObject &obj, RocketChatAccount *account)
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Login result: "<< obj;
     }
-#if 0 //Show expire token date
+#if 0 //Show expire token date ~90 days !
     const QJsonObject result = obj.value(QLatin1String("result")).toObject();
     qDebug() << " result token " << result[QStringLiteral("token")].toString();
     const qint64 tokenExpires = Utils::parseDate(QStringLiteral("tokenExpires"), result);
