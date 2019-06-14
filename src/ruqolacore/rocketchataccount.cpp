@@ -1353,6 +1353,8 @@ void RocketChatAccount::rolesInRoom(const QString &roomId, const QString &channe
         restApi()->getChannelRoles(roomId);
     } else if (channelType == QStringLiteral("p")) {
         restApi()->getGroupRoles(roomId);
+    } else if (channelType == QStringLiteral("d")) {
+        //No a problem here.
     } else {
         qCWarning(RUQOLA_LOG) << " unsupport get roles room for type " << channelType;
     }
