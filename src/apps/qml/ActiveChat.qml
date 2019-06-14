@@ -184,10 +184,12 @@ ListView {
             activeChat.replyInThread(messageId)
         }
     }
-    section.delegate: NewDateLabel {
-        date: section
-        width: activeChat.width
+    section {
+        delegate: NewDateLabel {
+            date: section
+            width: activeChat.width
+        }
+        property: "date"
+        labelPositioning: ViewSection.InlineLabels | ViewSection.CurrentLabelAtStart
     }
-    section.property: "date"
-    section.labelPositioning: ViewSection.InlineLabels | ViewSection.CurrentLabelAtStart
 }
