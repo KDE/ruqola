@@ -202,6 +202,15 @@ void login_result(const QJsonObject &obj, RocketChatAccount *account)
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Login result: "<< obj;
     }
+#if 0 //Show expire token date
+    const QJsonObject result = obj.value(QLatin1String("result")).toObject();
+    qDebug() << " result token " << result[QStringLiteral("token")].toString();
+    const qint64 tokenExpires = Utils::parseDate(QStringLiteral("tokenExpires"), result);
+    qDebug() << " result tokenExpires " << tokenExpires;
+    const QDateTime tokenExpiresDateTime = QDateTime::fromMSecsSinceEpoch(tokenExpires);
+    qDebug() << " tokenExpiresDateTime" << tokenExpiresDateTime;
+    qDebug() << " currentdatetime" << QDateTime::currentDateTime().toMSecsSinceEpoch();
+#endif
 }
 
 void create_channel(const QJsonObject &root, RocketChatAccount *account)
