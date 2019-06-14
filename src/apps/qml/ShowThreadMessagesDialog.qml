@@ -32,8 +32,7 @@ QQC2.Dialog {
     property QtObject threadMessagesModel
 
     property string threadMessageId
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+    anchors.centerIn: parent
 
     modal: true
     focus: true
@@ -42,6 +41,8 @@ QQC2.Dialog {
     height: 600
     ColumnLayout {
         ActiveChat {
+            width: 600;
+            height: 400
             id: threadMessageListView
             model: threadMessagesModel
             rcAccount: appid.rocketChatAccount

@@ -35,9 +35,7 @@ QQC2.Dialog {
     signal deleteFile(string fileid)
 
     property QtObject filesModel
-
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+    anchors.centerIn: parent
 
     modal: true
     standardButtons: QQC2.Dialog.Close
@@ -70,8 +68,8 @@ QQC2.Dialog {
         //Add scrollview
         ListView {
             id: listview
-            width: 400
-            height: 200
+            width: 600;
+            height: 400
             clip: true
             // Scrollars
             QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }

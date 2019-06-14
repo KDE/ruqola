@@ -32,8 +32,7 @@ QQC2.Dialog {
 
     property QtObject discussionsModel
     property string roomId
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+    anchors.centerIn: parent
 
     modal: true
     focus: true
@@ -66,8 +65,8 @@ QQC2.Dialog {
 
         ListView {
             id: listview
-            width: 400;
-            height: 200
+            width: 600;
+            height: 400
             clip: true
             // Scrollars
             QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
