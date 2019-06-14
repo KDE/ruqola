@@ -383,9 +383,9 @@ Component {
                 appid.rocketChatAccount.ignoreUser(roomId, userId, ignored)
             }
             onCreateDiscussion: {
-                createDiscussionDialog.clearAndOpen()
-                createDiscussionDialog.roomId = roomId
-                createDiscussionDialog.messageId = messageId
+                createDiscussionDialogLoader.roomId = roomId
+                createDiscussionDialogLoader.messageId = messageId
+                createDiscussionDialogLoader.active = true
                 //TODO add message text too
             }
 
@@ -475,20 +475,41 @@ Component {
                 }
             }
 
-            CreateDiscussionDialog {
-                id: createDiscussionDialog
-                roomName: appid.selectedRoom.displayRoomName
-                onCreateNewDiscussion: {
-                    appid.rocketChatAccount.createDiscussion(parentRoomName, discussionTitle, replyMessage, msgId);
+            Loader {
+                id: createDiscussionDialogLoader
+                active: false
+                property string roomId
+                property string messageId
+
+                sourceComponent: CreateDiscussionDialog {
+                    id: createDiscussionDialog
+                    parent: appid.pageStack
+                    onRejected: {
+                        reportMessageDialogLoader.active = false
+                    }
+                    onAccepted: {
+                        reportMessageDialogLoader.active = false
+                    }
+                    Component.onCompleted: {
+                        roomName = appid.selectedRoom.displayRoomName
+                        roomId = createDiscussionDialogLoader.roomId
+                        messageId = createDiscussionDialogLoader.messageId
+                        clearAndOpen()
+                    }
+
+                    onCreateNewDiscussion: {
+                        appid.rocketChatAccount.createDiscussion(parentRoomName, discussionTitle, replyMessage, msgId);
+                    }
+
                 }
             }
 
             Loader {
                 id: reportMessageDialogLoader
                 active: false
-                parent: appid.pageStack
                 property string messageId
                 sourceComponent: ReportMessageDialog {
+                    parent: appid.pageStack
                     id: reportMessageDialog
                     onReportMessage: {
                         appid.rocketChatAccount.deleteMessage(messageId, message)
