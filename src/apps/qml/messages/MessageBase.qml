@@ -67,9 +67,4 @@ ColumnLayout {
 
 
     property QtObject rcAccount
-
-    NewDateLabel {
-        id: newDateRect
-        date: i_date
-    }
 }
