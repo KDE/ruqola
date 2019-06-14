@@ -586,7 +586,7 @@ void Message::setTimeStamp(const qint64 &timeStamp)
 {
     if (mTimeStamp != timeStamp) {
         mTimeStamp = timeStamp;
-        mDisplayTime = QDateTime::fromMSecsSinceEpoch(mTimeStamp).time().toString(QStringLiteral("hh::mm"));
+        mDisplayTime = QDateTime::fromMSecsSinceEpoch(mTimeStamp).time().toString(QStringLiteral("hh:mm"));
     }
 }
 
