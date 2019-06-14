@@ -195,7 +195,7 @@ void empty_callback(const QJsonObject &obj, RocketChatAccount *account)
     }
 }
 
-void loginresult(const QJsonObject &obj, RocketChatAccount *account)
+void login_result(const QJsonObject &obj, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Login result: ") + QJsonDocument(obj).toJson());
@@ -662,7 +662,7 @@ quint64 DDPClient::loginProvider(const QString &credentialToken, const QString &
 quint64 DDPClient::login(const QString &username, const QString &password)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->login(username, password, m_uid);
-    return method(result, loginresult, DDPClient::Ephemeral);
+    return method(result, login_result, DDPClient::Ephemeral);
 }
 
 quint64 DDPClient::addUserToRoom(const QString &username, const QString &roomId)
