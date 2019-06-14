@@ -384,7 +384,6 @@ Component {
             }
             onCreateDiscussion: {
                 createDiscussionDialog.clearAndOpen()
-                createDiscussionDialog.roomName = appid.selectedRoom.displayRoomName
                 createDiscussionDialog.roomId = roomId
                 createDiscussionDialog.messageId = messageId
                 //TODO add message text too
@@ -478,6 +477,7 @@ Component {
 
             CreateDiscussionDialog {
                 id: createDiscussionDialog
+                roomName: appid.selectedRoom.displayRoomName
                 onCreateNewDiscussion: {
                     appid.rocketChatAccount.createDiscussion(parentRoomName, discussionTitle, replyMessage, msgId);
                 }
