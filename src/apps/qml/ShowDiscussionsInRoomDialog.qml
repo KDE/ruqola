@@ -76,7 +76,7 @@ QQC2.Dialog {
             delegate: Kirigami.BasicListItem {
                 reserveSpaceForIcon: false
                 reserveSpaceForLabel: false
-                RowLayout {
+                contentItem: RowLayout {
                     ColumnLayout {
                         QQC2.Label {
                             text: description
