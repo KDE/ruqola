@@ -73,6 +73,7 @@ QQC2.Dialog {
             model: searchMessageModel
             delegate: Kirigami.BasicListItem {
                 reserveSpaceForIcon: false
+                reserveSpaceForLabel: false
                 RowLayout {
 //                    AvatarImage {
 //                        id: avatarRect

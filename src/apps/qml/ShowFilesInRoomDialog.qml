@@ -78,6 +78,7 @@ QQC2.Dialog {
             model: filesModel
             delegate: Kirigami.BasicListItem {
                 reserveSpaceForIcon: false
+                reserveSpaceForLabel: false
                 RowLayout {
                     ColumnLayout {
                         QQC2.Label {

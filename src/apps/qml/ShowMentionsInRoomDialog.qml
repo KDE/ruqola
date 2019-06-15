@@ -75,6 +75,7 @@ QQC2.Dialog {
             model: mentionsModel
             delegate: Kirigami.BasicListItem {
                 label: originalMessage
+                //reserveSpaceForLabel: false
                 reserveSpaceForIcon: false
             }
         }

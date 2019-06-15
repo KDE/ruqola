@@ -76,6 +76,7 @@ QQC2.Dialog {
             model: threadsModel
             delegate: Kirigami.BasicListItem {
                 reserveSpaceForIcon: false
+                reserveSpaceForLabel: false
                 RowLayout {
                     ColumnLayout {
                         QQC2.Label {
