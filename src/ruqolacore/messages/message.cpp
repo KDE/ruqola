@@ -476,6 +476,8 @@ QString Message::messageTypeText() const
         return i18n("Encrypted message: %1", mText);
     } else if (mSystemMessageType == QLatin1String("discussion-created")) {
         return i18n("Discussion created about \"%1\"", mText);
+    } else if (mSystemMessageType == QLatin1String("ut")) {
+        return i18n("%1 has joined the conversation", mUsername);
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
