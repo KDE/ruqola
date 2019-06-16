@@ -478,6 +478,13 @@ QString Message::messageTypeText() const
         return i18n("Discussion created about \"%1\"", mText);
     } else if (mSystemMessageType == QLatin1String("ut")) {
         return i18n("%1 has joined the conversation", mUsername);
+    } else if (mSystemMessageType == QLatin1String("room-archived")) {
+        return i18n("This room has been archived by %1", mUsername);
+    } else if (mSystemMessageType == QLatin1String("room-unarchived")) {
+        return i18n("This room has been unarchived by %1", mUsername);
+    } else if (mSystemMessageType == QLatin1String("rtc")) {
+        qCWarning(RUQOLA_LOG) << "Need to implement : " << mSystemMessageType << " mText " << mText;
+        return i18n("Unknown action!");
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
