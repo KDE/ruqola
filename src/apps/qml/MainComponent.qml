@@ -485,10 +485,10 @@ Component {
                     id: createDiscussionDialog
                     parent: appid.pageStack
                     onRejected: {
-                        reportMessageDialogLoader.active = false
+                        createDiscussionDialogLoader.active = false
                     }
                     onAccepted: {
-                        reportMessageDialogLoader.active = false
+                        createDiscussionDialogLoader.active = false
                     }
                     Component.onCompleted: {
                         roomName = appid.selectedRoom.displayRoomName
