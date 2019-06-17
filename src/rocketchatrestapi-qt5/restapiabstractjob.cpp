@@ -407,6 +407,8 @@ QString RestApiAbstractJob::errorMessage(const QString &str)
         return i18n("User registration is only allowed via Secret URL");
     } else if (str == QLatin1String("error-you-are-last-owner")) {
         return i18n("You are the last owner. Please set new owner before leaving the room.");
+    } else if (str == QLatin1String("error-room-archived")) {
+        return i18n("The private group is archived");
     } else {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " unknown error type " << str;
         return {};
