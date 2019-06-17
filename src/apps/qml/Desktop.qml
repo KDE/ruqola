@@ -165,7 +165,7 @@ Kirigami.ApplicationWindow {
     Loader {
         id: aboutDataDialogLoader
         active: false
-        sourceComponent : AboutDialog {
+        sourceComponent: AboutDialog {
             id: aboutDataDialog
             parent: appid.pageStack
             applicationData: Ruqola.applicationData()
@@ -207,7 +207,7 @@ Kirigami.ApplicationWindow {
     Loader {
         id: notificationsDialogLoader
         active: false
-        sourceComponent : NotificationOptionsDialog {
+        sourceComponent: NotificationOptionsDialog {
             id: notificationsDialog
             parent: appid.pageStack
             onModifyNotificationsSetting: {
@@ -341,7 +341,7 @@ Kirigami.ApplicationWindow {
         id: jobErrorMessageDialogLoader
         property string jobMessageError
         active: false
-        sourceComponent : JobErrorMessageDialog {
+        sourceComponent: JobErrorMessageDialog {
             id: jobErrorMessageDialog
             parent: appid.pageStack
             Component.onCompleted: {
@@ -359,7 +359,7 @@ Kirigami.ApplicationWindow {
     Loader {
         id: createNewChannelDialogLoader
         active: false
-        sourceComponent : CreateNewChannelDialog {
+        sourceComponent: CreateNewChannelDialog {
             parent: appid.pageStack
             Component.onCompleted: {
                 encryptedRoomEnabled = appid.rocketChatAccount.encryptedEnabled()
@@ -380,7 +380,7 @@ Kirigami.ApplicationWindow {
     Loader {
         id: serverinfodialogLoader
         active: false
-        sourceComponent : ServerInfoDialog {
+        sourceComponent: ServerInfoDialog {
             rcAccount: appid.rocketChatAccount
             parent: appid.pageStack
             Component.onCompleted: {
@@ -414,7 +414,7 @@ Kirigami.ApplicationWindow {
     Loader {
         id: takeVideoMessageLoader
         active: false
-        sourceComponent : TakeVideoMessageDialog {
+        sourceComponent: TakeVideoMessageDialog {
             id: takeVideoMessage
             parent: appid.pageStack
             rcAccount: rocketChatAccount
@@ -444,18 +444,35 @@ Kirigami.ApplicationWindow {
         id: mainComponent
     }
 
-    ChannelPasswordDialog {
-        id: channelPasswordDialog
-        onJoinRoom: {
-            rocketChatAccount.joinRoom(roomId, password)
+    Loader {
+        id: channelPasswordDialogLoader
+        active: false
+        property string roomId
+        sourceComponent: ChannelPasswordDialog {
+            id: channelPasswordDialog
+            parent: appid.pageStack
+            onJoinRoom: {
+                rocketChatAccount.joinRoom(roomId, password)
+            }
+            Component.onCompleted: {
+                roomId = channelPasswordDialogLoader.roomId
+                initializeAndOpen()
+            }
+            onRejected: {
+                channelPasswordDialogLoader.active = false
+            }
+            onAccepted: {
+                channelPasswordDialogLoader.active = false
+            }
+
         }
     }
 
     Connections {
         target: rocketChatAccount
         onMissingChannelPassword: {
-            channelPasswordDialog.roomId = roomId
-            channelPasswordDialog.visible = true
+            channelPasswordDialogLoader.roomId = roomId
+            channelPasswordDialogLoader.active = true
         }
         onJobFailed: {
             jobErrorMessageDialogLoader.jobMessageError = message
