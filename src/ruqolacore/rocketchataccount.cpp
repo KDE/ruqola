@@ -923,9 +923,9 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         break;
     case RoomType:
         if (channelType == QStringLiteral("c")) {
-            restApi()->setChannelType(roomId, channelType);
+            restApi()->setChannelType(roomId, newValue.toBool());
         } else if (channelType == QStringLiteral("p")) {
-            restApi()->setGroupType(roomId, channelType);
+            restApi()->setGroupType(roomId, newValue.toBool());
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport roomtype for type " << channelType;
         }

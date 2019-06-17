@@ -117,10 +117,10 @@ QJsonDocument SetChannelTypeJob::json() const
     jsonObj[QLatin1String("roomId")] = roomId();
     switch (mType) {
     case Public:
-        jsonObj[QLatin1String("type")] = QStringLiteral("p");
+        jsonObj[QLatin1String("type")] = QStringLiteral("c");
         break;
     case Private:
-        jsonObj[QLatin1String("type")] = QStringLiteral("c");
+        jsonObj[QLatin1String("type")] = QStringLiteral("p");
         break;
     case Unknown:
         break;

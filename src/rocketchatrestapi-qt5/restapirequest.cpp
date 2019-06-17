@@ -1036,23 +1036,23 @@ void RestApiRequest::reportMessage(const QString &messageId, const QString &mess
     }
 }
 
-void RestApiRequest::setGroupType(const QString &roomId, const QString &type)
+void RestApiRequest::setGroupType(const QString &roomId, bool isPrivate)
 {
     SetGroupTypeJob *job = new SetGroupTypeJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
-    job->setType(type == QLatin1String("c") ? SetGroupTypeJob::Private : SetGroupTypeJob::Public);
+    job->setType(isPrivate ? SetGroupTypeJob::Private : SetGroupTypeJob::Public);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }
 }
 
-void RestApiRequest::setChannelType(const QString &roomId, const QString &type)
+void RestApiRequest::setChannelType(const QString &roomId, bool isPrivate)
 {
     SetChannelTypeJob *job = new SetChannelTypeJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
-    job->setType(type == QLatin1String("c") ? SetChannelTypeJob::Private : SetChannelTypeJob::Public);
+    job->setType(isPrivate ? SetChannelTypeJob::Private : SetChannelTypeJob::Public);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }

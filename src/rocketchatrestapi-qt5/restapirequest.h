@@ -110,8 +110,8 @@ public:
     void ignoreUser(const QString &roomId, const QString &userId, bool ignore);
     void userPresence(const QString &userId);
     void reportMessage(const QString &messageId, const QString &message);
-    void setGroupType(const QString &roomId, const QString &type);
-    void setChannelType(const QString &roomId, const QString &type);
+    void setGroupType(const QString &roomId, bool isPrivate);
+    void setChannelType(const QString &roomId, bool isPrivate);
     void getGroupRoles(const QString &roomId);
     void getChannelRoles(const QString &roomId);
     void getUsernameSuggestion();
