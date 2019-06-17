@@ -914,9 +914,9 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         break;
     case Archive:
         if (channelType == QStringLiteral("c")) {
-            restApi()->archiveChannel(roomId);
+            restApi()->archiveChannel(roomId, newValue.toBool());
         } else if (channelType == QStringLiteral("p")) {
-            restApi()->archiveGroups(roomId);
+            restApi()->archiveGroups(roomId, newValue.toBool());
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport archiving for type " << channelType;
         }

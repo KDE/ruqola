@@ -573,21 +573,23 @@ void RestApiRequest::leaveGroups(const QString &roomId)
     }
 }
 
-void RestApiRequest::archiveChannel(const QString &roomId)
+void RestApiRequest::archiveChannel(const QString &roomId, bool archive)
 {
     ArchiveChannelJob *job = new ArchiveChannelJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
+    job->setArchive(archive);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }
 }
 
-void RestApiRequest::archiveGroups(const QString &roomId)
+void RestApiRequest::archiveGroups(const QString &roomId, bool archive)
 {
     ArchiveGroupsJob *job = new ArchiveGroupsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
+    job->setArchive(archive);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
     }

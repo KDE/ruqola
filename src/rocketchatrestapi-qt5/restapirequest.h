@@ -83,8 +83,8 @@ public:
     void historyChannel(const QString &roomId, const QString &type);
     void changeChannelDescription(const QString &roomId, const QString &description);
     void changeGroupsDescription(const QString &roomId, const QString &description);
-    void archiveChannel(const QString &roomId);
-    void archiveGroups(const QString &roomId);
+    void archiveChannel(const QString &roomId, bool archive);
+    void archiveGroups(const QString &roomId, bool archive);
     void filesInRoom(const QString &roomId, const QString &type);
     void addUserInChannel(const QString &roomId, const QString &userId);
 

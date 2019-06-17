@@ -170,6 +170,7 @@ QQC2.Dialog {
             id: archiveRoom
             checked: roomInfo === null ? false : roomInfo.archived
             onClicked: {
+                archiveRoomDialog.archive = checked
                 archiveRoomDialog.open()
             }
         }
@@ -215,7 +216,7 @@ QQC2.Dialog {
     ArchiveRoomDialog {
         id: archiveRoomDialog
         onAccepted: {
-            channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Archive, true, roomInfo.channelType)
+            channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Archive, archiveRoomDialog.archive, roomInfo.channelType)
         }
         onRejected: {
             archiveRoom.checked = false

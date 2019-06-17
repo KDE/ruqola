@@ -32,13 +32,14 @@ QQC2.Dialog {
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
+    property bool archive: false
     modal: true
     focus: true
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
     Row {
         QQC2.Label {
-            text: i18n("Do you want to archive this room?")
+            text: archive ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?")
             font.bold: true
             font.pointSize: 15
         }
