@@ -270,7 +270,6 @@ void Message::setMentions(const QMap<QString, QString> &mentions)
 
 void Message::parseAttachment(const QJsonArray &attachments)
 {
-    //TODO add support de support
     mAttachements.clear();
     if (!attachments.isEmpty()) {
         //qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
@@ -309,9 +308,15 @@ void Message::parseAttachment(const QJsonArray &attachments)
                     messageAttachement.setImageWidth(imageDimensionsParams.value(QLatin1String("width")).toInt());
                     //TODO validate image size
                 } else {
-                    //We don't have dimension so we can't load it.
-                    //=>convert to normaltext
-                    mMessageType = Message::MessageType::NormalText;
+                    //Use default value ?
+                    if (attachment.contains(QLatin1String("image_preview"))) {
+                        messageAttachement.setImageHeight(120);
+                        messageAttachement.setImageWidth(120);
+                    } else {
+                        //We don't have dimension so we can't load it.
+                        //=>convert to normaltext
+                        mMessageType = Message::MessageType::NormalText;
+                    }
                 }
             }
 
