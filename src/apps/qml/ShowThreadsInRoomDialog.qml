@@ -84,6 +84,7 @@ QQC2.Dialog {
                             text: description
                             elide: Text.ElideRight
                             wrapMode: QQC2.Label.Wrap
+                            renderType: Text.NativeRendering
                             Layout.preferredWidth: parent.width
                         }
 
@@ -95,12 +96,14 @@ QQC2.Dialog {
                                 Component.onCompleted: {
                                     font.bold = true
                                 }
+                                renderType: Text.NativeRendering
                             }
                             QQC2.Label {
                                 id: timestampText
                                 Layout.alignment: Qt.AlignTop | Qt.AlignRight
                                 text: lastmessage
                                 opacity: .5
+                                renderType: Text.NativeRendering
                             }
                         }
                         QQC2.Label {
@@ -108,6 +111,7 @@ QQC2.Dialog {
                             elide: Text.ElideRight
                             wrapMode: QQC2.Label.Wrap
                             color: Kirigami.Theme.negativeTextColor
+                            renderType: Text.NativeRendering
                             MouseArea {
                                 anchors.fill: parent
                                 onClicked: {
