@@ -326,7 +326,7 @@ public:
 
     MentionsModel *mentionsModel() const;
 
-    MessageModel *threadMessageModel() const;
+    Q_INVOKABLE MessageModel *threadMessageModel() const;
 
 Q_SIGNALS:
     void connectedChanged();
