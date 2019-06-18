@@ -78,11 +78,13 @@ QQC2.Dialog {
                 reserveSpaceForIcon: false
                 reserveSpaceForLabel: false
                 RowLayout {
+                    width: parent.width
                     ColumnLayout {
                         QQC2.Label {
                             text: description
                             elide: Text.ElideRight
                             wrapMode: QQC2.Label.Wrap
+                            Layout.preferredWidth: parent.width
                         }
 
                         RowLayout {
@@ -112,6 +114,9 @@ QQC2.Dialog {
                                     showThreadsInRoomDialog.openThread(threadmessageid)
                                 }
                             }
+                        }
+                        Item {
+                            Layout.fillWidth: true
                         }
                     }
                 }
