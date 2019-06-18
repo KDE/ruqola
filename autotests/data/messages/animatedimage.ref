@@ -3,6 +3,8 @@
     "attachments": [
         {
             "description": "",
+            "image_height": 120,
+            "image_width": 120,
             "mimetype": "image/gif",
             "title": "blo.gif",
             "url": "/file-upload/pp7trWCayLekSquM/blo.gif"
@@ -15,7 +17,7 @@
     "groupable": false,
     "message": "",
     "messageID": "ZGdbAFBZsLSrt7SLn",
-    "messageType": "NormalText",
+    "messageType": "Image",
     "parseUrls": false,
     "pinned": false,
     "roomID": "dBWXYy4nyBHn8Q7dv",

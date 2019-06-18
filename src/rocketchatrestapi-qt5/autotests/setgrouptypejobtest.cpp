@@ -55,10 +55,10 @@ void SetGroupTypeJobTest::shouldGenerateJson()
     const QString channelname = QStringLiteral("foo1");
     job.setRoomId(channelname);
     job.setType(SetGroupTypeJob::Private);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"type\":\"c\"}").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"type\":\"p\"}").arg(channelname).toLatin1());
 
     job.setType(SetGroupTypeJob::Public);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"type\":\"p\"}").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"roomId\":\"%1\",\"type\":\"c\"}").arg(channelname).toLatin1());
 }
 
 void SetGroupTypeJobTest::shouldNotStarting()
