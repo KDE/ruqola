@@ -720,10 +720,7 @@ Component {
                     id: channelInfo
                     font.bold: true
                     Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-                    //FIXME
-                    visible: appid.selectedRoom && ((appid.selectedRoom.readOnly === true && !appid.selectedRoom.canChangeRoles)
-                                                    || (appid.selectedRoom.blocker === true)
-                                                    || (appid.selectedRoom.blocked === true))
+                    visible: appid.selectedRoom && appid.selectedRoom.roomMessageInfo.length > 0
                     text: appid.selectedRoom ? appid.selectedRoom.roomMessageInfo : ""
                 }
 
@@ -735,7 +732,7 @@ Component {
                 UserInput {
                     id: userInputMessage
                     rcAccount: appid.rocketChatAccount
-                    visible: appid.selectedRoom && (appid.selectedRoom.readOnly === false) && (appid.selectedRoom.blocker === false) && (appid.selectedRoom.blocked === false)
+                    visible: appid.selectedRoom && (appid.selectedRoom.roomMessageInfo.length === 0)
                     messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
                     onTextEditing: {
                         rcAccount.textEditing(appid.selectedRoomID, str)
