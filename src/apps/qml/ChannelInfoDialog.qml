@@ -140,6 +140,15 @@ QQC2.Dialog {
         QQC2.Label {
             id: labelReadOnlyRoom
             text: i18n("Read-Only:");
+            MouseArea {
+                anchors.fill: parent
+                acceptedButtons: Qt.RightButton | Qt.LeftButton
+                hoverEnabled: true
+                QQC2.ToolTip {
+                    id: tooltipReact
+                    text: i18n("Only Authorized people can write.")
+                }
+            }
         }
         QQC2.Switch {
             id: readOnlyRoom
