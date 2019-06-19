@@ -31,6 +31,7 @@ QQC2.Dialog {
     property bool isAnimatedImage: false
     width: parent.width * 9 / 10
     height: parent.height * 9 / 10
+    anchors.centerIn: parent
 
     modal: true
     focus: true
