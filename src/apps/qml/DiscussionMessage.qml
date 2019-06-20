@@ -32,6 +32,8 @@ ColumnLayout {
     property string i_discussionid
     property string i_description
 
+    signal openDiscussion(string messageDiscussionId)
+
     QQC2.Label {
         text: i_description
         elide: Text.ElideRight
@@ -61,8 +63,7 @@ ColumnLayout {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                //showDiscussionsInRoomDialog.openDiscussion(i_discussionid)
-                //showDiscussionsInRoomDialog.close()
+                showDiscussionsInRoomDialog.openDiscussion(i_discussionid)
             }
         }
     }

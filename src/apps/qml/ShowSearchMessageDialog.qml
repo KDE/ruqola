@@ -38,6 +38,8 @@ QQC2.Dialog {
 
     property QtObject searchMessageModel
     property string roomId
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
     anchors.centerIn: parent
 
     modal: true
@@ -51,7 +53,7 @@ QQC2.Dialog {
         open();
     }
 
-    ColumnLayout {
+    contentItem: ColumnLayout {
         LineEditWithClearButton {
             id: searchField
             placeholderText: i18n("Search Word...")
@@ -63,9 +65,9 @@ QQC2.Dialog {
 
         ListView {
             id: listview
-            width: 600;
-            height: 400
             clip: true
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             // Scrollars
             QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
             QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
@@ -75,20 +77,26 @@ QQC2.Dialog {
                 reserveSpaceForIcon: false
                 reserveSpaceForLabel: false
                 RowLayout {
-//                    AvatarImage {
-//                        id: avatarRect
-//                        avatarurl: i_avatar
-//                        aliasname: i_aliasname
-//                        username: i_username
-//                    }
-                    QQC2.Label {
-                        text: messagetext
-                        elide: Text.ElideRight
-                        wrapMode: QQC2.Label.Wrap
-                    }
-                    TimestampText {
-                        id: timestampText
-                        timestamp: messagetimestamp
+                    width: parent.width
+                    ColumnLayout {
+                        //                    AvatarImage {
+                        //                        id: avatarRect
+                        //                        avatarurl: i_avatar
+                        //                        aliasname: i_aliasname
+                        //                        username: i_username
+                        //                    }
+                        QQC2.Label {
+                            text: messagetext
+                            elide: Text.ElideRight
+                            wrapMode: QQC2.Label.Wrap
+                        }
+                        TimestampText {
+                            id: timestampText
+                            timestamp: messagetimestamp
+                        }
+                        Item {
+                            Layout.fillWidth: true
+                        }
                     }
                 }
             }

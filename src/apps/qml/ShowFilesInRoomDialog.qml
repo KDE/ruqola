@@ -35,6 +35,8 @@ QQC2.Dialog {
     signal deleteFile(string fileid)
 
     property QtObject filesModel
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
     anchors.centerIn: parent
 
     modal: true
@@ -48,7 +50,7 @@ QQC2.Dialog {
     }
 
 
-    ColumnLayout {
+    contentItem: ColumnLayout {
         LineEditWithClearButton {
             id: searchField
             placeholderText: i18n("Search File...")
@@ -68,8 +70,9 @@ QQC2.Dialog {
         //Add scrollview
         ListView {
             id: listview
-            width: 600;
-            height: 400
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
             clip: true
             // Scrollars
             QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
@@ -77,9 +80,12 @@ QQC2.Dialog {
 
             model: filesModel
             delegate: Kirigami.BasicListItem {
+                id: delegateFileItem
                 reserveSpaceForIcon: false
                 reserveSpaceForLabel: false
+
                 RowLayout {
+                    width: delegateFileItem.width
                     ColumnLayout {
                         QQC2.Label {
                             text: filename

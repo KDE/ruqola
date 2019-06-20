@@ -32,6 +32,8 @@ QQC2.Dialog {
 
     property QtObject threadsModel
     property string roomId
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
     anchors.centerIn: parent
 
     modal: true
@@ -47,7 +49,7 @@ QQC2.Dialog {
     }
 
     //Add menu here
-    ColumnLayout {
+    contentItem: ColumnLayout {
         LineEditWithClearButton {
             id: searchField
             placeholderText: i18n("Search Threads...")
@@ -66,9 +68,10 @@ QQC2.Dialog {
 
         ListView {
             id: listview
-            width: 600;
-            height: 400
             clip: true
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+
             // Scrollars
             QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
             QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }

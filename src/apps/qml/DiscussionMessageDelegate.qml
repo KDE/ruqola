@@ -37,6 +37,7 @@ Rectangle {
     property string i_lastmessage
     property string i_discussionid
     property string i_description
+    signal openDiscussion(string messageDiscussionId)
 
     color: RuqolaSingleton.backgroundColor
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
@@ -55,6 +56,12 @@ Rectangle {
                           i_discussionid: i_discussionid,
                           i_description: i_description
                       })
+        }
+    }
+    Connections {
+        target: loaded.item
+        onOpenDiscussion: {
+            dicussionMessageDelegateItem.openDiscussion(messageDiscussionId)
         }
     }
 }

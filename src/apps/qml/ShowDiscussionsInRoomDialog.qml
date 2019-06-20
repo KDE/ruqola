@@ -32,6 +32,8 @@ QQC2.Dialog {
 
     property QtObject discussionsModel
     property string roomId
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
     anchors.centerIn: parent
 
     modal: true
@@ -46,7 +48,7 @@ QQC2.Dialog {
         open();
     }
 
-    ColumnLayout {
+    contentItem: ColumnLayout {
         LineEditWithClearButton {
             id: searchField
             placeholderText: i18n("Search Discussions...")
@@ -65,8 +67,8 @@ QQC2.Dialog {
 
         ListView {
             id: listview
-            width: 800;
-            height: 500
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             clip: true
             // Scrollars
             QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
@@ -83,6 +85,9 @@ QQC2.Dialog {
                 i_lastmessage: lastmessage
                 i_discussionid: discussionid
                 i_description: description
+                onOpenDiscussion: {
+                    showDiscussionsInRoomDialog.openDiscussion(messageDiscussionId)
+                }
             }
         }
     }

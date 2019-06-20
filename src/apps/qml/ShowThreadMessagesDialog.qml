@@ -32,25 +32,29 @@ QQC2.Dialog {
     property QtObject threadMessagesModel
 
     property string threadMessageId
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
     anchors.centerIn: parent
+
 
     modal: true
     focus: true
     standardButtons: QQC2.Dialog.Close
-    width: 800
-    height: 600
-    ColumnLayout {
+    contentItem: ColumnLayout {
         ActiveChat {
-            width: 600;
-            height: 400
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             id: threadMessageListView
             model: threadMessagesModel
             rcAccount: appid.rocketChatAccount
             roomId: appid.selectedRoomID
-            anchors.fill: parent
             clip: true
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
+        }
+        //TODO improve it.
+        UserInput {
+
         }
     }
 }
