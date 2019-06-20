@@ -33,10 +33,10 @@ import KDE.Ruqola.DebugCategory 1.0
 Rectangle {
 
     id: dicussionMessageDelegateItem
-    property int numberofmessages
-    property string lastmessage
-    property string discussionid
-    property string description
+    property int i_numberofmessages
+    property string i_lastmessage
+    property string i_discussionid
+    property string i_description
 
     color: RuqolaSingleton.backgroundColor
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
@@ -50,10 +50,10 @@ Rectangle {
         Component.onCompleted: {
             setSource("DiscussionMessage.qml",
                       {
-                          numberofmessages: numberofmessages,
-                          lastmessage: lastmessage,
-                          discussionid: discussionid,
-                          description: description
+                          i_numberofmessages: i_numberofmessages,
+                          i_lastmessage: i_lastmessage,
+                          i_discussionid: i_discussionid,
+                          i_description: i_description
                       })
         }
     }

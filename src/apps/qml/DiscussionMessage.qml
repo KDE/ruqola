@@ -27,19 +27,19 @@ import KDE.Ruqola.ExtraColors 1.0
 import KDE.Ruqola.DebugCategory 1.0
 
 ColumnLayout {
-    property int numberofmessages
-    property string lastmessage
-    property string discussionid
-    property string description
+    property int i_numberofmessages
+    property string i_lastmessage
+    property string i_discussionid
+    property string i_description
 
     QQC2.Label {
-        text: description
+        text: i_description
         elide: Text.ElideRight
         wrapMode: QQC2.Label.Wrap
     }
     RowLayout {
         QQC2.Label {
-            text: i18np("1 message", "%1 messages", numberofmessages)
+            text: i18np("1 message", "%1 messages", i_numberofmessages)
             elide: Text.ElideRight
             wrapMode: QQC2.Label.Wrap
             Component.onCompleted: {
@@ -49,7 +49,7 @@ ColumnLayout {
         QQC2.Label {
             id: timestampText
             Layout.alignment: Qt.AlignTop | Qt.AlignRight
-            text: lastmessage
+            text: i_lastmessage
             opacity: .5
         }
     }
@@ -61,7 +61,7 @@ ColumnLayout {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                //showDiscussionsInRoomDialog.openDiscussion(discussionid)
+                //showDiscussionsInRoomDialog.openDiscussion(i_discussionid)
                 //showDiscussionsInRoomDialog.close()
             }
         }

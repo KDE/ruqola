@@ -65,8 +65,8 @@ QQC2.Dialog {
 
         ListView {
             id: listview
-            width: 600;
-            height: 400
+            width: 800;
+            height: 500
             clip: true
             // Scrollars
             QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
@@ -79,11 +79,10 @@ QQC2.Dialog {
                 anchors.rightMargin: Kirigami.Units.largeSpacing
                 anchors.leftMargin: Kirigami.Units.largeSpacing
 
-                numberofmessages: numberofmessages
-                lastmessage: lastmessage
-                discussionid: discussionid
-                description: description
-
+                i_numberofmessages: numberofmessages
+                i_lastmessage: lastmessage
+                i_discussionid: discussionid
+                i_description: description
             }
         }
     }
