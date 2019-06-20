@@ -54,6 +54,8 @@
         <file>ShowDiscussionsInRoomDialog.qml</file>
         <file>ShowThreadsInRoomDialog.qml</file>
         <file>ShowThreadMessagesDialog.qml</file>
+        <file>DiscussionMessageDelegate.qml</file>
+        <file>DiscussionMessage.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

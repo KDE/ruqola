@@ -73,47 +73,17 @@ QQC2.Dialog {
             QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
 
             model: discussionsModel
-            delegate: Kirigami.BasicListItem {
-                reserveSpaceForIcon: false
-                reserveSpaceForLabel: false
-                contentItem: RowLayout {
-                    ColumnLayout {
-                        QQC2.Label {
-                            text: description
-                            elide: Text.ElideRight
-                            wrapMode: QQC2.Label.Wrap
-                        }
-                        RowLayout {
-                            QQC2.Label {
-                                text: i18np("1 message", "%1 messages", numberofmessages)
-                                elide: Text.ElideRight
-                                wrapMode: QQC2.Label.Wrap
-                                Component.onCompleted: {
-                                    font.bold = true
-                                }
-                            }
-                            QQC2.Label {
-                                id: timestampText
-                                Layout.alignment: Qt.AlignTop | Qt.AlignRight
-                                text: lastmessage
-                                opacity: .5
-                            }
-                        }
-                        QQC2.Label {
-                            text: i18n("Open Discussion")
-                            elide: Text.ElideRight
-                            wrapMode: QQC2.Label.Wrap
-                            color: Kirigami.Theme.negativeTextColor
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    showDiscussionsInRoomDialog.openDiscussion(discussionid)
-                                    showDiscussionsInRoomDialog.close()
-                                }
-                            }
-                        }
-                    }
-                }
+            delegate: DiscussionMessageDelegate {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.rightMargin: Kirigami.Units.largeSpacing
+                anchors.leftMargin: Kirigami.Units.largeSpacing
+
+                numberofmessages: numberofmessages
+                lastmessage: lastmessage
+                discussionid: discussionid
+                description: description
+
             }
         }
     }
