@@ -30,7 +30,8 @@ AvatarManager::AvatarManager(RocketChatAccount *account, QObject *parent)
 {
     mTimer = new QTimer(this);
     mTimer->setSingleShot(true);
-    mTimer->setInterval(1000);
+    //increase interval otherwise we can have some error
+    mTimer->setInterval(2000);
     connect(mTimer, &QTimer::timeout, this, &AvatarManager::slotLoadNextAvatar);
     connect(mAccount->restApi(), &RocketChatRestApi::RestApiRequest::avatar, this, &AvatarManager::slotInsertAvatarUrl);
     connect(mAccount->restApi(), &RocketChatRestApi::RestApiRequest::redownloadAvatar, this, &AvatarManager::slotRescheduleDownload);
