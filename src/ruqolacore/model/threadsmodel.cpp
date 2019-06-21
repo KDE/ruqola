@@ -52,6 +52,8 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
     case LastMessage:
         //Need to cache it
         return QDateTime::fromMSecsSinceEpoch(thread.threadLastMessage()).toString(Qt::SystemLocaleLongDate);
+    case TimeStamp:
+        return thread.timeStamp();
     }
 
     return {};
@@ -64,6 +66,7 @@ QHash<int, QByteArray> ThreadsModel::roleNames() const
     roles[Description] = QByteArrayLiteral("description");
     roles[NumberOfMessages] = QByteArrayLiteral("numberofmessages");
     roles[LastMessage] = QByteArrayLiteral("lastmessage");
+    roles[TimeStamp] = QByteArrayLiteral("timestamp");
     return roles;
 }
 

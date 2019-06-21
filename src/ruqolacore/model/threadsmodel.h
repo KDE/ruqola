@@ -32,7 +32,8 @@ public:
         ThreadMessageId = Qt::UserRole + 1,
         Description,
         NumberOfMessages,
-        LastMessage
+        LastMessage,
+        TimeStamp
     };
     Q_ENUM(ThreadRoles)
 

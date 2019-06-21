@@ -138,3 +138,9 @@ QNetworkRequest ChannelFilesJob::request() const
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     return request;
 }
+
+
+bool RocketChatRestApi::ChannelFilesJob::hasQueryParameterSupport() const
+{
+    return true;
+}

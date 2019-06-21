@@ -36,6 +36,7 @@
 #include "model/statusmodel.h"
 #include "utils.h"
 #include "rocketchatcache.h"
+#include "fileattachments.h"
 #include "emoticons/emojimanager.h"
 #include "model/emoticonmodel.h"
 #include "otrmanager.h"
@@ -691,21 +692,6 @@ void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelT
     restApi()->filesInRoom(roomId, channelType);
 }
 
-QVector<File> RocketChatAccount::parseFilesInChannel(const QJsonObject &obj) const
-{
-    //TODO add autotests
-    QVector<File> files;
-    const QJsonArray filesArray = obj.value(QLatin1String("files")).toArray();
-    files.reserve(filesArray.count());
-    for (int i = 0; i < filesArray.count(); ++i) {
-        QJsonObject fileObj = filesArray.at(i).toObject();
-        File f;
-        f.parseFile(fileObj, true);
-        files.append(f);
-    }
-    return files;
-}
-
 MessageModel *RocketChatAccount::threadMessageModel() const
 {
     return mThreadMessageModel;
@@ -805,8 +791,9 @@ void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
 
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)
 {
-    const QVector<File> files = parseFilesInChannel(obj);
-    mFilesModelForRoom->setFiles(files);
+    FileAttachments attachments;
+    attachments.parseFileAttachments(obj);
+    mFilesModelForRoom->setFiles(attachments.fileAttachments());
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)

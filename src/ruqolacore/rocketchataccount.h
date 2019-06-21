@@ -375,8 +375,6 @@ private:
     void checkInitializedRoom(const QString &roomId);
     void clearTypingNotification();
 
-    QVector<File> parseFilesInChannel(const QJsonObject &obj) const;
-
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 
     QHash<AuthenticationManager::OauthType, PluginAuthenticationInterface *> mLstPluginAuthenticationInterface;

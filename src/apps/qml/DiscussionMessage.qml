@@ -40,7 +40,7 @@ Kirigami.BasicListItem {
     ColumnLayout {
         QQC2.Label {
             id: timestamp
-            Layout.alignment: Qt.AlignTop | Qt.AlignRight
+            Layout.alignment: Qt.AlignTop
             text: i_timestamp
             opacity: .5
         }

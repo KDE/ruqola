@@ -152,6 +152,8 @@ set (Ruqola_core_srcs
     threadmessage.cpp
 
     messagedownloadmanager.cpp
+
+    fileattachments.cpp
 )
 
 if (NOT WIN32)

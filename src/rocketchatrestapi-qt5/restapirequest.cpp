@@ -673,12 +673,18 @@ void RestApiRequest::openDirectMessage(const QString &userId)
     }
 }
 
-void RestApiRequest::filesInRoom(const QString &roomId, const QString &type)
+void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int offset, int count)
 {
     ChannelFilesJob *job = new ChannelFilesJob(this);
     connect(job, &ChannelFilesJob::channelFilesDone, this, &RestApiRequest::channelFilesDone);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
+    QueryParameters parameters;
+    parameters.setCount(count);
+    parameters.setOffset(offset);
+    job->setQueryParameters(parameters);
+
+
     if (type == QLatin1String("d")) {
         job->setChannelType(ChannelFilesJob::Direct);
     } else if (type == QLatin1String("p")) {

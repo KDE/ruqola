@@ -36,6 +36,7 @@ void ThreadsModelTest::shouldHaveDefaultValues()
     roles[ThreadsModel::Description] = QByteArrayLiteral("description");
     roles[ThreadsModel::NumberOfMessages] = QByteArrayLiteral("numberofmessages");
     roles[ThreadsModel::LastMessage] = QByteArrayLiteral("lastmessage");
+    roles[ThreadsModel::TimeStamp] = QByteArrayLiteral("timestamp");
     QCOMPARE(model.roleNames(), roles);
 }
 

@@ -50,6 +50,7 @@ public:
     Q_REQUIRED_RESULT ChannelType channelType() const;
     void setChannelType(RocketChatRestApi::ChannelFilesJob::ChannelType channelType);
 
+    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 Q_SIGNALS:
     void channelFilesDone(const QJsonObject &replyObjectj, const QString &roomId);
 
@@ -58,6 +59,7 @@ private:
     void slotFilesinChannelFinished();
     QString mRoomId;
     ChannelType mChannelType = Unknown;
+
 };
 }
 
