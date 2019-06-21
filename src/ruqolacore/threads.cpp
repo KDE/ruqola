@@ -41,13 +41,15 @@ void Threads::parseThreads(const QJsonObject &threadsObj)
     mOffset = threadsObj[QStringLiteral("offset")].toInt();
     mTotal = threadsObj[QStringLiteral("total")].toInt();
     const QJsonArray threadsArray = threadsObj[QStringLiteral("threads")].toArray();
+    qDebug() << "mThreadsCount  " << mThreadsCount << " mOffset " << mOffset << " total : " << mTotal;
+    //TODO add sorting + load all missing thread info !
     mThreads.clear();
     mThreads.reserve(threadsArray.count());
     for (const QJsonValue &current : threadsArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject discussionObject = current.toObject();
+            const QJsonObject threadObject = current.toObject();
             Thread m;
-            m.parseMessage(discussionObject, true);
+            m.parseMessage(threadObject, true);
             mThreads.append(m);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
