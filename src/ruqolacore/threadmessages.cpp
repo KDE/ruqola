@@ -38,9 +38,9 @@ void ThreadMessages::parseThreadMessages(const QJsonObject &threadsObj)
     mThreadMessages.reserve(threadsArray.count());
     for (const QJsonValue &current : threadsArray) {
         if (current.type() == QJsonValue::Object) {
-            const QJsonObject discussionObject = current.toObject();
+            const QJsonObject threadMessageObject = current.toObject();
             ThreadMessage m;
-            m.parseMessage(discussionObject, true);
+            m.parseMessage(threadMessageObject, true);
             mThreadMessages.append(m);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
