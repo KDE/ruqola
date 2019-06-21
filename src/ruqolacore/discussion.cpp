@@ -75,7 +75,7 @@ QString Discussion::timeStampDisplay() const
 
 QString Discussion::lastMessageDisplay() const
 {
-    return i18n("Last Message: %1", mLastMessageDateTimeStr);
+    return i18n("(Last Message: %1)", mLastMessageDateTimeStr);
 }
 
 qint64 Discussion::timeStamp() const
@@ -95,8 +95,8 @@ QDebug operator <<(QDebug d, const Discussion &t)
     d << "Last Message " << t.lastMessage();
     d << "Number of Messages " << t.numberMessages();
     d << "Description " << t.description();
-    d << "Room Id " << t.discussionRoomId();
-    d << "Room Id " << t.timeStamp();
+    d << "Discussion Room Id " << t.discussionRoomId();
+    d << "timestamp " << t.timeStamp();
     return d;
 }
 
