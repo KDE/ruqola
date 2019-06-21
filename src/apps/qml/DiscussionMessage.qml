@@ -33,10 +33,18 @@ Kirigami.BasicListItem {
     property string i_lastmessage
     property string i_discussionid
     property string i_description
+    property string i_timestamp
 
     signal openDiscussion(string messageDiscussionId)
 
     ColumnLayout {
+        QQC2.Label {
+            id: timestamp
+            Layout.alignment: Qt.AlignTop | Qt.AlignRight
+            text: i_timestamp
+            opacity: .5
+        }
+
         QQC2.Label {
             text: i_description
             elide: Text.ElideRight
@@ -52,7 +60,7 @@ Kirigami.BasicListItem {
                 }
             }
             QQC2.Label {
-                id: timestampText
+                id: lastMessageText
                 Layout.alignment: Qt.AlignTop | Qt.AlignRight
                 text: i_lastmessage
                 opacity: .5

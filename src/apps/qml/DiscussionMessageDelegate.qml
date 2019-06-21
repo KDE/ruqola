@@ -37,6 +37,7 @@ Rectangle {
     property string i_lastmessage
     property string i_discussionid
     property string i_description
+    property string i_timestamp
     signal openDiscussion(string messageDiscussionId)
 
     color: RuqolaSingleton.backgroundColor
@@ -54,7 +55,8 @@ Rectangle {
                           i_numberofmessages: i_numberofmessages,
                           i_lastmessage: i_lastmessage,
                           i_discussionid: i_discussionid,
-                          i_description: i_description
+                          i_description: i_description,
+                          i_timestamp: i_timestamp
                       })
         }
     }

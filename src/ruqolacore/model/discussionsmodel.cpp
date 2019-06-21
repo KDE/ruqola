@@ -51,6 +51,8 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
         return discussion.lastMessageDisplay();
     case DiscussionRoomId:
         return discussion.discussionRoomId();
+    case TimeStamp:
+        return discussion.timeStampDisplay();
     }
     return {};
 }
@@ -63,6 +65,7 @@ QHash<int, QByteArray> DiscussionsModel::roleNames() const
     roles[NumberOfMessages] = QByteArrayLiteral("numberofmessages");
     roles[LastMessage] = QByteArrayLiteral("lastmessage");
     roles[DiscussionRoomId] = QByteArrayLiteral("discussionid");
+    roles[TimeStamp] = QByteArrayLiteral("timestamp");
     return roles;
 }
 

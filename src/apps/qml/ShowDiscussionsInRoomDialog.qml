@@ -91,6 +91,7 @@ QQC2.Dialog {
                 i_lastmessage: lastmessage
                 i_discussionid: discussionid
                 i_description: description
+                i_timestamp: timestamp
                 onOpenDiscussion: {
                     showDiscussionsInRoomDialog.openDiscussion(messageDiscussionId)
                 }

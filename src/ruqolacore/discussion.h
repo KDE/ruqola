@@ -50,13 +50,21 @@ public:
     void setDiscussionRoomId(const QString &discussionRoomId);
 
     Q_REQUIRED_RESULT QString lastMessageDisplay() const;
+
+
+    Q_REQUIRED_RESULT qint64 timeStamp() const;
+    void setTimeStamp(const qint64 &timeStamp);
+
+    Q_REQUIRED_RESULT QString timeStampDisplay() const;
 private:
     QString mDescription;
     QString mParentRoomId;
     QString mDiscussionRoomId;
     QString mLastMessageDateTimeStr;
+    QString mTimeStampDateTimeStr;
     int mNumberMessages = 0;
     qint64 mLastMessage = -1;
+    qint64 mTimeStamp = -1;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const Discussion &t);
 Q_DECLARE_METATYPE(Discussion)

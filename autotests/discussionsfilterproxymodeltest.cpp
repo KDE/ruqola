@@ -40,6 +40,7 @@ void DiscussionsFilterProxyModelTest::shouldHaveDefaultValues()
     roles[DiscussionsModel::NumberOfMessages] = QByteArrayLiteral("numberofmessages");
     roles[DiscussionsModel::LastMessage] = QByteArrayLiteral("lastmessage");
     roles[DiscussionsModel::DiscussionRoomId] = QByteArrayLiteral("discussionid");
+    roles[DiscussionsModel::TimeStamp] = QByteArrayLiteral("timestamp");
     QCOMPARE(proxy.roleNames(), roles);
 }
 

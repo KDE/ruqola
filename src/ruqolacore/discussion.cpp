@@ -21,6 +21,7 @@
 #include "utils.h"
 #include <QDateTime>
 #include <QJsonObject>
+#include <KLocalizedString>
 
 Discussion::Discussion()
 {
@@ -67,9 +68,25 @@ void Discussion::setLastMessage(const qint64 &lastMessage)
     mLastMessageDateTimeStr = QDateTime::fromMSecsSinceEpoch(mLastMessage).toString(Qt::SystemLocaleLongDate);
 }
 
+QString Discussion::timeStampDisplay() const
+{
+    return mTimeStampDateTimeStr;
+}
+
 QString Discussion::lastMessageDisplay() const
 {
-    return mLastMessageDateTimeStr;
+    return i18n("Last Message: %1", mLastMessageDateTimeStr);
+}
+
+qint64 Discussion::timeStamp() const
+{
+    return mTimeStamp;
+}
+
+void Discussion::setTimeStamp(const qint64 &timeStamp)
+{
+    mTimeStamp = timeStamp;
+    mTimeStampDateTimeStr = QDateTime::fromMSecsSinceEpoch(mTimeStamp).toString(Qt::SystemLocaleLongDate);
 }
 
 QDebug operator <<(QDebug d, const Discussion &t)
@@ -79,6 +96,7 @@ QDebug operator <<(QDebug d, const Discussion &t)
     d << "Number of Messages " << t.numberMessages();
     d << "Description " << t.description();
     d << "Room Id " << t.discussionRoomId();
+    d << "Room Id " << t.timeStamp();
     return d;
 }
 
@@ -88,7 +106,8 @@ bool Discussion::operator ==(const Discussion &other) const
            && (parentRoomId() == other.parentRoomId())
            && (numberMessages() == other.numberMessages())
            && (lastMessage() == other.lastMessage())
-           && (discussionRoomId() == other.discussionRoomId());
+           && (discussionRoomId() == other.discussionRoomId())
+            && (timeStamp() == other.timeStamp());
 }
 
 Discussion &Discussion::operator=(const Discussion &other)
@@ -98,6 +117,7 @@ Discussion &Discussion::operator=(const Discussion &other)
     mNumberMessages = other.numberMessages();
     mLastMessage = other.lastMessage();
     mDiscussionRoomId = other.discussionRoomId();
+    mTimeStamp = other.timeStamp();
     return *this;
 }
 
@@ -108,6 +128,7 @@ void Discussion::parseDiscussion(const QJsonObject &o)
     mNumberMessages = o.value(QLatin1String("msgs")).toInt();
     mDiscussionRoomId = o.value(QLatin1String("_id")).toString();
     setLastMessage(Utils::parseIsoDate(QStringLiteral("lm"), o));
+    setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
 }
 
 QString Discussion::discussionRoomId() const
