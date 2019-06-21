@@ -130,6 +130,7 @@ QNetworkRequest ChannelFilesJob::request() const
     }
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

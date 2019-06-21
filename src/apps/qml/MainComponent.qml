@@ -665,6 +665,8 @@ Component {
                     id: showFilesInRoomDialog
                     parent: appid.pageStack
                     filesModel: appid.filesModel
+                    roomId: appid.selectedRoomID
+                    channelType: appid.selectedRoom.channelType
                     onDownloadFile: {
                         downloadFileDialog.fileToSaveUrl = file
                         downloadFileDialog.open()

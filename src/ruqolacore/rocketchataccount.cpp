@@ -791,7 +791,15 @@ void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
 
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)
 {
+    //qDebug() << " slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)" << roomId << " obj " << obj;
     mFilesModelForRoom->parseFileAttachments(obj);
+}
+
+void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QString &channelType)
+{
+    const int offset = mFilesModelForRoom->fileAttachments()->offset() + mFilesModelForRoom->fileAttachments()->count() /*remove count after fixing it*/;
+    //qDebug() << " offset " << offset;
+    restApi()->filesInRoom(roomId, channelType, offset);
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)

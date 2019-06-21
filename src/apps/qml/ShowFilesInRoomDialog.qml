@@ -34,6 +34,8 @@ QQC2.Dialog {
     signal downloadFile(string file)
     signal deleteFile(string fileid)
 
+    property string roomId
+    property string channelType
     property QtObject filesModel
     width: parent.width * 9 / 10
     height: parent.height * 9 / 10
@@ -78,10 +80,9 @@ QQC2.Dialog {
             QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
             QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
             onDragEnded : {
-                //TODO implement for loading other info
-                //if (roomId !== "") {
-                //    rcAccount.loadHistory(roomId)
-                //}
+                if (roomId !== "") {
+                    appid.rocketChatAccount.loadMoreFileAttachments(roomId, channelType)
+                }
             }
 
             model: filesModel
