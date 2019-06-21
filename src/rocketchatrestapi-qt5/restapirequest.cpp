@@ -1417,6 +1417,13 @@ void RestApiRequest::getDiscussions(const QString &roomId)
 {
     GetDiscussionsJob *job = new GetDiscussionsJob(this);
     initializeRestApiJob(job);
+    /*
+    QueryParameters parameters;
+    QMap<QString, QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
+    parameters.setSorting(map);
+    job->setQueryParameters(parameters);
+*/
     job->setRoomId(roomId);
     connect(job, &GetDiscussionsJob::getDiscussionsDone, this, &RestApiRequest::getDiscussionsDone);
     if (!job->start()) {

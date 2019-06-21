@@ -77,6 +77,12 @@ QQC2.Dialog {
             // Scrollars
             QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
             QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
+            onDragEnded : {
+                //TODO implement for loading other info
+                //if (roomId !== "") {
+                //    rcAccount.loadHistory(roomId)
+                //}
+            }
 
             model: filesModel
             delegate: Kirigami.BasicListItem {
