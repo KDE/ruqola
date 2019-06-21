@@ -33,6 +33,7 @@ FilesForRoomModelTest::FilesForRoomModelTest(QObject *parent)
 void FilesForRoomModelTest::shouldHaveDefaultValue()
 {
     FilesForRoomModel w;
+    QVERIFY(w.fileAttachments());
     QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
     // (if it had 0 columns, it would have to emit column insertions, too much trouble)
     QCOMPARE(w.rowCount(), 0);
