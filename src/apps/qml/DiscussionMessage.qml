@@ -26,7 +26,9 @@ import KDE.Ruqola.RuqolaUtils 1.0
 import KDE.Ruqola.ExtraColors 1.0
 import KDE.Ruqola.DebugCategory 1.0
 
-ColumnLayout {
+Kirigami.BasicListItem {
+    reserveSpaceForIcon: false
+    reserveSpaceForLabel: false
     property int i_numberofmessages
     property string i_lastmessage
     property string i_discussionid
@@ -34,36 +36,38 @@ ColumnLayout {
 
     signal openDiscussion(string messageDiscussionId)
 
-    QQC2.Label {
-        text: i_description
-        elide: Text.ElideRight
-        wrapMode: QQC2.Label.Wrap
-    }
-    RowLayout {
+    ColumnLayout {
         QQC2.Label {
-            text: i18np("1 message", "%1 messages", i_numberofmessages)
+            text: i_description
             elide: Text.ElideRight
             wrapMode: QQC2.Label.Wrap
-            Component.onCompleted: {
-                font.bold = true
+        }
+        RowLayout {
+            QQC2.Label {
+                text: i18np("1 message", "%1 messages", i_numberofmessages)
+                elide: Text.ElideRight
+                wrapMode: QQC2.Label.Wrap
+                Component.onCompleted: {
+                    font.bold = true
+                }
+            }
+            QQC2.Label {
+                id: timestampText
+                Layout.alignment: Qt.AlignTop | Qt.AlignRight
+                text: i_lastmessage
+                opacity: .5
             }
         }
         QQC2.Label {
-            id: timestampText
-            Layout.alignment: Qt.AlignTop | Qt.AlignRight
-            text: i_lastmessage
-            opacity: .5
-        }
-    }
-    QQC2.Label {
-        text: i18n("Open Discussion")
-        elide: Text.ElideRight
-        wrapMode: QQC2.Label.Wrap
-        color: Kirigami.Theme.negativeTextColor
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                showDiscussionsInRoomDialog.openDiscussion(i_discussionid)
+            text: i18n("Open Discussion")
+            elide: Text.ElideRight
+            wrapMode: QQC2.Label.Wrap
+            color: Kirigami.Theme.negativeTextColor
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    showDiscussionsInRoomDialog.openDiscussion(i_discussionid)
+                }
             }
         }
     }
