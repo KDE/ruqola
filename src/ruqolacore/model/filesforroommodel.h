@@ -55,9 +55,15 @@ public:
 
     FileAttachments *fileAttachments() const;
 
-    void parseFileAttachments(const QJsonObject &fileAttachmentsObj);
+
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &roomId);
+
+    void parseFileAttachments(const QJsonObject &fileAttachmentsObj, const QString &roomId);
+    void addMoreFileAttachments(const QJsonObject &fileAttachmentsObj);
 private:
     Q_DISABLE_COPY(FilesForRoomModel)
+    QString mRoomId;
     FileAttachments *mFileAttachments = nullptr;
     RocketChatAccount *mRochetChantAccount = nullptr;
 };

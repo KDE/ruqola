@@ -35,7 +35,7 @@ bool FileAttachments::isEmpty() const
 
 void FileAttachments::clear()
 {
-    mFileAttachments.clear();
+    mFileAttachments.clear();    
 }
 
 int FileAttachments::count() const
@@ -48,15 +48,19 @@ File FileAttachments::at(int index) const
     return mFileAttachments.at(index);
 }
 
-void FileAttachments::parseFileAttachments(const QJsonObject &fileAttachmentsObj)
+void FileAttachments::parseMoreFileAttachments(const QJsonObject &fileAttachmentsObj)
 {
-    mFilesCount = fileAttachmentsObj[QStringLiteral("count")].toInt();
+    const int filesCount = fileAttachmentsObj[QStringLiteral("count")].toInt();
     mOffset = fileAttachmentsObj[QStringLiteral("offset")].toInt();
     mTotal = fileAttachmentsObj[QStringLiteral("total")].toInt();
-    const QJsonArray fileAttachmentsArray = fileAttachmentsObj[QStringLiteral("files")].toArray();
-    mFileAttachments.clear();
-    mFileAttachments.reserve(fileAttachmentsArray.count());
+    parseFiles(fileAttachmentsObj);
+    mFilesCount += filesCount;
+}
 
+void FileAttachments::parseFiles(const QJsonObject &fileAttachmentsObj)
+{
+    const QJsonArray fileAttachmentsArray = fileAttachmentsObj[QStringLiteral("files")].toArray();
+    mFileAttachments.reserve(mFileAttachments.count() + fileAttachmentsArray.count());
     for (const QJsonValue &current : fileAttachmentsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject fileAttachmentObject = current.toObject();
@@ -67,6 +71,15 @@ void FileAttachments::parseFileAttachments(const QJsonObject &fileAttachmentsObj
             qCWarning(RUQOLA_LOG) << "Problem when parsing file attachment" << current;
         }
     }
+}
+
+void FileAttachments::parseFileAttachments(const QJsonObject &fileAttachmentsObj)
+{
+    mFilesCount = fileAttachmentsObj[QStringLiteral("count")].toInt();
+    mOffset = fileAttachmentsObj[QStringLiteral("offset")].toInt();
+    mTotal = fileAttachmentsObj[QStringLiteral("total")].toInt();
+    mFileAttachments.clear();
+    parseFiles(fileAttachmentsObj);
 }
 
 int FileAttachments::filesCount() const

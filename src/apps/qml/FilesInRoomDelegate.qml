@@ -31,13 +31,12 @@ import KDE.Ruqola.RocketChatAccount 1.0
 import KDE.Ruqola.DebugCategory 1.0
 Rectangle {
 
-    id: dicussionMessageDelegateItem
+    id: filesInRoomDelegateItem
     property int i_numberofmessages
     property string i_lastmessage
     property string i_discussionid
     property string i_description
     property string i_timestamp
-    signal openDiscussion(string messageDiscussionId)
 
     color: RuqolaSingleton.backgroundColor
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
@@ -49,7 +48,7 @@ Rectangle {
         anchors.fill: parent
 
         Component.onCompleted: {
-            setSource("DiscussionMessage.qml",
+            setSource("FileInRoom.qml",
                       {
                           i_numberofmessages: i_numberofmessages,
                           i_lastmessage: i_lastmessage,
@@ -61,8 +60,8 @@ Rectangle {
     }
     Connections {
         target: loaded.item
-        onOpenDiscussion: {
-            dicussionMessageDelegateItem.openDiscussion(messageDiscussionId)
-        }
+        //onOpenDiscussion: {
+        //    dicussionMessageDelegateItem.openDiscussion(messageDiscussionId)
+        //}
     }
 }

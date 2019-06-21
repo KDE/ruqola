@@ -51,7 +51,9 @@ public:
     void setFileAttachments(const QVector<File> &fileAttachments);
 
     void parseFileAttachments(const QJsonObject &fileAttachmentsObj);
+    void parseMoreFileAttachments(const QJsonObject &fileAttachmentsObj);
 private:
+    void parseFiles(const QJsonObject &fileAttachmentsObj);
     QVector<File> mFileAttachments;
     int mFilesCount = 0;
     int mOffset = 0;

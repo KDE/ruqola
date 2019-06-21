@@ -34,8 +34,17 @@ FilesForRoomModel::~FilesForRoomModel()
     delete mFileAttachments;
 }
 
-void FilesForRoomModel::parseFileAttachments(const QJsonObject &fileAttachmentsObj)
+void FilesForRoomModel::addMoreFileAttachments(const QJsonObject &fileAttachmentsObj)
 {
+    const int numberOfElement = mFileAttachments->fileAttachments().count();
+    mFileAttachments->parseMoreFileAttachments(fileAttachmentsObj);
+    beginInsertRows(QModelIndex(), numberOfElement, mFileAttachments->fileAttachments().count() - 1);
+    endInsertRows();
+}
+
+void FilesForRoomModel::parseFileAttachments(const QJsonObject &fileAttachmentsObj, const QString &roomId)
+{
+    mRoomId = roomId;
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mFileAttachments->fileAttachments().count() - 1);
         mFileAttachments->clear();
@@ -46,6 +55,16 @@ void FilesForRoomModel::parseFileAttachments(const QJsonObject &fileAttachmentsO
         beginInsertRows(QModelIndex(), 0, mFileAttachments->fileAttachments().count() - 1);
         endInsertRows();
     }
+}
+
+QString FilesForRoomModel::roomId() const
+{
+    return mRoomId;
+}
+
+void FilesForRoomModel::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
 }
 
 void FilesForRoomModel::setFiles(const QVector<File> &files)

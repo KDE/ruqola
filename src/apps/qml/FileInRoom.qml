@@ -24,6 +24,7 @@ import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.12
 import KDE.Ruqola.ExtraColors 1.0
 import KDE.Ruqola.DebugCategory 1.0
+import "common"
 
 Kirigami.BasicListItem {
     reserveSpaceForIcon: false
@@ -34,47 +35,53 @@ Kirigami.BasicListItem {
     property string i_description
     property string i_timestamp
 
-    signal openDiscussion(string messageDiscussionId)
-
-    ColumnLayout {
-        QQC2.Label {
-            id: timestamp
-            Layout.alignment: Qt.AlignTop
-            text: i_timestamp
-            opacity: .5
-        }
-
-        QQC2.Label {
-            text: i_description
-            elide: Text.ElideRight
-            wrapMode: QQC2.Label.Wrap
-        }
-        RowLayout {
+    RowLayout {
+        width: delegateFileItem.width
+        ColumnLayout {
             QQC2.Label {
-                text: i18np("1 message", "%1 messages", i_numberofmessages)
+                text: filename
                 elide: Text.ElideRight
                 wrapMode: QQC2.Label.Wrap
+            }
+            QQC2.Label {
+                text: (description !== "" ? description : "")
+                visible: description !== ""
+                wrapMode: QQC2.Label.Wrap
                 Component.onCompleted: {
-                    font.bold = true
+                    font.italic = true
                 }
             }
             QQC2.Label {
-                id: lastMessageText
-                Layout.alignment: Qt.AlignTop | Qt.AlignRight
-                text: i_lastmessage
-                opacity: .5
+                text: username
+                wrapMode: QQC2.Label.NoWrap
+                elide: Text.ElideRight
+                color: Kirigami.Theme.disabledTextColor
+                Component.onCompleted: {
+                    font.italic = true
+                }
+            }
+            QQC2.Label {
+                text: timestamp
+                wrapMode: QQC2.Label.NoWrap
+                color: Kirigami.Theme.disabledTextColor
+                Component.onCompleted: {
+                    font.italic = true
+                }
             }
         }
-        QQC2.Label {
-            text: i18n("Open Discussion")
-            elide: Text.ElideRight
-            wrapMode: QQC2.Label.Wrap
-            color: Kirigami.Theme.negativeTextColor
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    showDiscussionsInRoomDialog.openDiscussion(i_discussionid)
-                }
+        Item {
+            Layout.fillWidth: true
+        }
+        DownloadButton {
+            onDownloadButtonClicked: {
+                showFilesInRoomDialog.downloadFile(url)
+            }
+        }
+        DeleteButton {
+            visible: canbedeleted
+            onDeleteButtonClicked: {
+                deleteFileAttachmentDialog.fileId = fileid;
+                deleteFileAttachmentDialog.open();
             }
         }
     }

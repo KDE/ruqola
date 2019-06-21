@@ -689,6 +689,7 @@ void RocketChatAccount::loadAutoCompleteChannel(const QJsonObject &obj)
 
 void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
+    mFilesModelForRoom->setRoomId(QString()); //Initialize it
     restApi()->filesInRoom(roomId, channelType);
 }
 
@@ -792,14 +793,19 @@ void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)
 {
     //qDebug() << " slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)" << roomId << " obj " << obj;
-    mFilesModelForRoom->parseFileAttachments(obj);
+    if (mFilesModelForRoom->roomId() != roomId) {
+        mFilesModelForRoom->parseFileAttachments(obj, roomId);
+    } else {
+        mFilesModelForRoom->addMoreFileAttachments(obj);
+    }
 }
 
 void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QString &channelType)
 {
-    const int offset = mFilesModelForRoom->fileAttachments()->offset() + mFilesModelForRoom->fileAttachments()->count() /*remove count after fixing it*/;
-    //qDebug() << " offset " << offset;
-    restApi()->filesInRoom(roomId, channelType, offset);
+    const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
+    if (offset < mFilesModelForRoom->fileAttachments()->total()) {
+        restApi()->filesInRoom(roomId, channelType, offset, qMin(50, mFilesModelForRoom->fileAttachments()->total() - offset ));
+    }
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
