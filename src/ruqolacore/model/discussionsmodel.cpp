@@ -53,6 +53,8 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
         return discussion.discussionRoomId();
     case TimeStamp:
         return discussion.timeStampDisplay();
+    case SortByTimeStamp:
+        return discussion.timeStamp();
     }
     return {};
 }

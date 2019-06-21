@@ -34,7 +34,8 @@ public:
         NumberOfMessages,
         LastMessage,
         DiscussionRoomId,
-        TimeStamp
+        TimeStamp,
+        SortByTimeStamp
     };
     Q_ENUM(DiscussionRoles)
 

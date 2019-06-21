@@ -28,7 +28,9 @@ FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(QObject *parent)
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     //Filter on filename for the moment
     setFilterRole(FilesForRoomModel::FileName);
-    sort(0);
+
+    setSortRole(FilesForRoomModel::TimeStamp);
+    sort(0, Qt::DescendingOrder);
 }
 
 FilesForRoomFilterProxyModel::~FilesForRoomFilterProxyModel()
