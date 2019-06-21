@@ -26,22 +26,38 @@ FilesForRoomModel::FilesForRoomModel(RocketChatAccount *account, QObject *parent
     : QAbstractListModel(parent)
     , mRochetChantAccount(account)
 {
+    mFileAttachments = new FileAttachments;
 }
 
 FilesForRoomModel::~FilesForRoomModel()
 {
+    delete mFileAttachments;
+}
+
+void FilesForRoomModel::parseFileAttachments(const QJsonObject &fileAttachmentsObj)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mFileAttachments->fileAttachments().count() - 1);
+        mFileAttachments->clear();
+        endRemoveRows();
+    }
+    mFileAttachments->parseFileAttachments(fileAttachmentsObj);
+    if (!mFileAttachments->isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mFileAttachments->fileAttachments().count() - 1);
+        endInsertRows();
+    }
 }
 
 void FilesForRoomModel::setFiles(const QVector<File> &files)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mFiles.count() - 1);
-        mFiles.clear();
+        beginRemoveRows(QModelIndex(), 0, mFileAttachments->fileAttachments().count() - 1);
+        mFileAttachments->clear();
         endRemoveRows();
     }
     if (!files.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, files.count() - 1);
-        mFiles = files;
+        mFileAttachments->setFileAttachments(files);
         endInsertRows();
     }
 }
@@ -49,16 +65,16 @@ void FilesForRoomModel::setFiles(const QVector<File> &files)
 int FilesForRoomModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return mFiles.count();
+    return mFileAttachments->fileAttachments().count();
 }
 
 QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mFiles.count()) {
+    if (index.row() < 0 || index.row() >= mFileAttachments->fileAttachments().count()) {
         return QVariant();
     }
 
-    const File file = mFiles.at(index.row());
+    const File file = mFileAttachments->fileAttachments().at(index.row());
     switch (role) {
     case FileName:
         return file.fileName();
@@ -95,4 +111,9 @@ QHash<int, QByteArray> FilesForRoomModel::roleNames() const
     roles[TimeStamp] = QByteArrayLiteral("timestamp");
     roles[UserName] = QByteArrayLiteral("username");
     return roles;
+}
+
+FileAttachments *FilesForRoomModel::fileAttachments() const
+{
+    return mFileAttachments;
 }

@@ -791,9 +791,7 @@ void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
 
 void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QString &roomId)
 {
-    FileAttachments attachments;
-    attachments.parseFileAttachments(obj);
-    mFilesModelForRoom->setFiles(attachments.fileAttachments());
+    mFilesModelForRoom->parseFileAttachments(obj);
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)

@@ -23,6 +23,7 @@
 
 #include <QAbstractListModel>
 #include "file.h"
+#include "fileattachments.h"
 #include "libruqola_private_export.h"
 class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT FilesForRoomModel : public QAbstractListModel
@@ -52,9 +53,12 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
+    FileAttachments *fileAttachments() const;
+
+    void parseFileAttachments(const QJsonObject &fileAttachmentsObj);
 private:
     Q_DISABLE_COPY(FilesForRoomModel)
-    QVector<File> mFiles;
+    FileAttachments *mFileAttachments = nullptr;
     RocketChatAccount *mRochetChantAccount = nullptr;
 };
 
