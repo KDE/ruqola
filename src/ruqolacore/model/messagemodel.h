@@ -110,6 +110,9 @@ public:
     void setRoomID(const QString &roomID);
     Q_REQUIRED_RESULT bool isEmpty() const;
 
+
+    void clear();
+
 private:
     Q_DISABLE_COPY(MessageModel)
     void refresh();

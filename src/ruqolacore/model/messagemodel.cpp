@@ -360,6 +360,15 @@ bool MessageModel::isEmpty() const
     return mAllMessages.isEmpty();
 }
 
+void MessageModel::clear()
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mAllMessages.count() - 1);
+        mAllMessages.clear();
+        endRemoveRows();
+    }
+}
+
 void MessageModel::deleteMessage(const QString &messageId)
 {
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [messageId](const Message &msg) {

@@ -768,6 +768,7 @@ void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const 
     ThreadMessages threadmessages;
     threadmessages.parseThreadMessages(obj);
     //Create own model ??
+    mThreadMessageModel->clear();
     for (int i = 0; i < threadmessages.count(); ++i) {
         mThreadMessageModel->addMessage(threadmessages.at(i));
     }
