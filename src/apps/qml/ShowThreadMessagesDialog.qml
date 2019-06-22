@@ -54,7 +54,9 @@ QQC2.Dialog {
         }
         //TODO improve it.
         UserInput {
-
+            onUploadFile: {
+                uploadFileDialogLoader.active = true
+            }
         }
     }
 }
