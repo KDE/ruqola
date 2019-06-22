@@ -1550,6 +1550,9 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomId)
             rolesInRoom(r->roomId(), r->channelType());
         }
         loadHistory(r->roomId(), QString(), true /*initial loading*/);
+    } else if (!r) {
+        qWarning() << " Room " << roomId << " was no found! Need to open it";
+        //openDirectChannel(roomId);
     }
     QMetaObject::invokeMethod(this, &RocketChatAccount::switchedRooms, Qt::QueuedConnection);
 }
