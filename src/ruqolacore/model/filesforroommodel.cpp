@@ -42,6 +42,11 @@ void FilesForRoomModel::addMoreFileAttachments(const QJsonObject &fileAttachment
     endInsertRows();
 }
 
+void FilesForRoomModel::initialize()
+{
+    mRoomId.clear();
+}
+
 void FilesForRoomModel::parseFileAttachments(const QJsonObject &fileAttachmentsObj, const QString &roomId)
 {
     mRoomId = roomId;

@@ -689,7 +689,7 @@ void RocketChatAccount::loadAutoCompleteChannel(const QJsonObject &obj)
 
 void RocketChatAccount::roomFiles(const QString &roomId, const QString &channelType)
 {
-    mFilesModelForRoom->setRoomId(QString()); //Initialize it
+    mFilesModelForRoom->initialize();
     restApi()->filesInRoom(roomId, channelType);
 }
 

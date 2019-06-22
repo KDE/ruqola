@@ -61,6 +61,7 @@ public:
 
     void parseFileAttachments(const QJsonObject &fileAttachmentsObj, const QString &roomId);
     void addMoreFileAttachments(const QJsonObject &fileAttachmentsObj);
+    void initialize();
 private:
     Q_DISABLE_COPY(FilesForRoomModel)
     QString mRoomId;
