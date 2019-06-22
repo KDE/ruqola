@@ -86,61 +86,15 @@ QQC2.Dialog {
             }
 
             model: filesModel
-            delegate: Kirigami.BasicListItem {
-                id: delegateFileItem
-                reserveSpaceForIcon: false
-                reserveSpaceForLabel: false
-
-                RowLayout {
-                    width: delegateFileItem.width
-                    ColumnLayout {
-                        QQC2.Label {
-                            text: filename
-                            elide: Text.ElideRight
-                            wrapMode: QQC2.Label.Wrap
-                        }
-                        QQC2.Label {
-                            text: (description !== "" ? description : "")
-                            visible: description !== ""
-                            wrapMode: QQC2.Label.Wrap
-                            Component.onCompleted: {
-                                font.italic = true
-                            }
-                        }
-                        QQC2.Label {
-                            text: username
-                            wrapMode: QQC2.Label.NoWrap
-                            elide: Text.ElideRight
-                            color: Kirigami.Theme.disabledTextColor
-                            Component.onCompleted: {
-                                font.italic = true
-                            }
-                        }
-                        QQC2.Label {
-                            text: timestamp
-                            wrapMode: QQC2.Label.NoWrap
-                            color: Kirigami.Theme.disabledTextColor
-                            Component.onCompleted: {
-                                font.italic = true
-                            }
-                        }
-                    }
-                    Item {
-                        Layout.fillWidth: true
-                    }
-                    DownloadButton {
-                        onDownloadButtonClicked: {
-                            showFilesInRoomDialog.downloadFile(url)
-                        }
-                    }
-                    DeleteButton {
-                        visible: canbedeleted
-                        onDeleteButtonClicked: {
-                            deleteFileAttachmentDialog.fileId = fileid;
-                            deleteFileAttachmentDialog.open();
-                        }
-                    }
-                }
+            delegate: FilesInRoomDelegate {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.rightMargin: Kirigami.Units.largeSpacing
+                anchors.leftMargin: Kirigami.Units.largeSpacing
+                i_filename: filename
+                i_description: description
+                i_username: username
+                i_timestamp: timestamp
             }
         }
     }

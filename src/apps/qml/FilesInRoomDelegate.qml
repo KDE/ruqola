@@ -32,10 +32,9 @@ import KDE.Ruqola.DebugCategory 1.0
 Rectangle {
 
     id: filesInRoomDelegateItem
-    property int i_numberofmessages
-    property string i_lastmessage
-    property string i_discussionid
+    property string i_filename
     property string i_description
+    property string i_username
     property string i_timestamp
 
     color: RuqolaSingleton.backgroundColor
@@ -50,10 +49,9 @@ Rectangle {
         Component.onCompleted: {
             setSource("FileInRoom.qml",
                       {
-                          i_numberofmessages: i_numberofmessages,
-                          i_lastmessage: i_lastmessage,
-                          i_discussionid: i_discussionid,
+                          i_filename: i_filename,
                           i_description: i_description,
+                          i_username: i_username,
                           i_timestamp: i_timestamp
                       })
         }

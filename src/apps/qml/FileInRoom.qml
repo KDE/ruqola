@@ -29,30 +29,29 @@ import "common"
 Kirigami.BasicListItem {
     reserveSpaceForIcon: false
     reserveSpaceForLabel: false
-    property int i_numberofmessages
-    property string i_lastmessage
-    property string i_discussionid
+    property string i_filename
     property string i_description
+    property string i_username
     property string i_timestamp
 
     RowLayout {
-        width: delegateFileItem.width
+        width: filesInRoomDelegateItem.width
         ColumnLayout {
             QQC2.Label {
-                text: filename
+                text: i_filename
                 elide: Text.ElideRight
                 wrapMode: QQC2.Label.Wrap
             }
             QQC2.Label {
-                text: (description !== "" ? description : "")
-                visible: description !== ""
+                text: (i_description !== "" ? i_description : "")
+                visible: i_description !== ""
                 wrapMode: QQC2.Label.Wrap
                 Component.onCompleted: {
                     font.italic = true
                 }
             }
             QQC2.Label {
-                text: username
+                text: i_username
                 wrapMode: QQC2.Label.NoWrap
                 elide: Text.ElideRight
                 color: Kirigami.Theme.disabledTextColor
@@ -61,7 +60,7 @@ Kirigami.BasicListItem {
                 }
             }
             QQC2.Label {
-                text: timestamp
+                text: i_timestamp
                 wrapMode: QQC2.Label.NoWrap
                 color: Kirigami.Theme.disabledTextColor
                 Component.onCompleted: {
