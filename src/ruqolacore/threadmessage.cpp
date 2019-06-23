@@ -22,5 +22,4 @@
 
 ThreadMessage::ThreadMessage()
 {
-
 }

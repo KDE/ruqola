@@ -21,7 +21,6 @@
 #ifndef THREADMESSAGE_H
 #define THREADMESSAGE_H
 
-
 #include "libruqola_private_export.h"
 #include "messages/message.h"
 #include <QObject>

@@ -52,7 +52,6 @@ private:
     Q_DISABLE_COPY(GetThreadsJob)
     void slotGetThreadsFinished();
     QString mRoomId;
-
 };
 }
 #endif // GETTHREADSJOB_H

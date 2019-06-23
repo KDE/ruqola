@@ -55,7 +55,6 @@ public:
 
     FileAttachments *fileAttachments() const;
 
-
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 

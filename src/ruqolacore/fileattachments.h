@@ -37,7 +37,6 @@ public:
     Q_REQUIRED_RESULT int count() const;
     Q_REQUIRED_RESULT File at(int index) const;
 
-
     Q_REQUIRED_RESULT int filesCount() const;
     void setFilesCount(int filesCount);
 

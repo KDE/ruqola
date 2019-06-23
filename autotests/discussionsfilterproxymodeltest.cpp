@@ -40,7 +40,6 @@ void DiscussionsFilterProxyModelTest::shouldHaveDefaultValues()
     QCOMPARE(proxy.filterRole(), DiscussionsModel::Description);
     QCOMPARE(proxy.sortRole(), DiscussionsModel::SortByTimeStamp);
 
-
     QHash<int, QByteArray> roles;
     roles[DiscussionsModel::ParentId] = QByteArrayLiteral("parentid");
     roles[DiscussionsModel::Description] = QByteArrayLiteral("description");

@@ -59,7 +59,6 @@ private:
     void slotFilesinChannelFinished();
     QString mRoomId;
     ChannelType mChannelType = Unknown;
-
 };
 }
 

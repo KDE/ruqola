@@ -23,10 +23,8 @@
 MessageDownloadManager::MessageDownloadManager(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 MessageDownloadManager::~MessageDownloadManager()
 {
-
 }

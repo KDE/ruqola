@@ -387,7 +387,6 @@ qint64 MessageModel::generateNewStartTimeStamp(qint64 lastTimeStamp)
     return mLoadRecentHistoryManager->generateNewStartTimeStamp(lastTimeStamp);
 }
 
-
 QString MessageModel::threadMessagePreview(const QString &threadMessageId) const
 {
     if (!threadMessageId.isEmpty()) {

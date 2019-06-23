@@ -684,7 +684,6 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int
     parameters.setOffset(offset);
     job->setQueryParameters(parameters);
 
-
     if (type == QLatin1String("d")) {
         job->setChannelType(ChannelFilesJob::Direct);
     } else if (type == QLatin1String("p")) {

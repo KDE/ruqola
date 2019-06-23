@@ -128,4 +128,3 @@ void ThreadsModel::parseThreads(const QJsonObject &threadsObj, const QString &ro
         endInsertRows();
     }
 }
-

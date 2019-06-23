@@ -97,7 +97,6 @@ ThreadMessage ThreadMessages::at(int index) const
     return mThreadMessages.at(index);
 }
 
-
 QDebug operator <<(QDebug d, const ThreadMessages &t)
 {
     d << "total " << t.total();

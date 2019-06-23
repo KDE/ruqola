@@ -25,7 +25,6 @@ QTEST_GUILESS_MAIN(FileAttachmentsTest)
 FileAttachmentsTest::FileAttachmentsTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void FileAttachmentsTest::shouldHaveDefaultValues()
@@ -69,4 +68,5 @@ void FileAttachmentsTest::shouldLoadThreads()
     QCOMPARE(m.total(), total);
     QCOMPARE(m.offset(), offset);
 }
+
 #endif

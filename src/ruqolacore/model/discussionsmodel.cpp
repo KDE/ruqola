@@ -31,7 +31,6 @@ DiscussionsModel::~DiscussionsModel()
     delete mDiscussions;
 }
 
-
 void DiscussionsModel::initialize()
 {
     mRoomId.clear();
@@ -80,7 +79,6 @@ void DiscussionsModel::parseDiscussions(const QJsonObject &discussionsObj, const
         endInsertRows();
     }
 }
-
 
 QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
 {

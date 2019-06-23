@@ -110,7 +110,6 @@ QNetworkRequest GetThreadsJob::request() const
     return request;
 }
 
-
 bool GetThreadsJob::hasQueryParameterSupport() const
 {
     return true;

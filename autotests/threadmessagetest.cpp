@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "threadmessagetest.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ThreadMessageTest)
@@ -26,5 +25,4 @@ QTEST_GUILESS_MAIN(ThreadMessageTest)
 ThreadMessageTest::ThreadMessageTest(QObject *parent)
     : QObject(parent)
 {
-
 }

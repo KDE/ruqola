@@ -25,7 +25,6 @@
 
 FileAttachments::FileAttachments()
 {
-
 }
 
 bool FileAttachments::isEmpty() const
@@ -35,7 +34,7 @@ bool FileAttachments::isEmpty() const
 
 void FileAttachments::clear()
 {
-    mFileAttachments.clear();    
+    mFileAttachments.clear();
 }
 
 int FileAttachments::count() const

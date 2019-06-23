@@ -51,7 +51,6 @@ public:
 
     Q_REQUIRED_RESULT QString lastMessageDisplay() const;
 
-
     Q_REQUIRED_RESULT qint64 timeStamp() const;
     void setTimeStamp(const qint64 &timeStamp);
 

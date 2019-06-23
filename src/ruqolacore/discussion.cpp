@@ -107,7 +107,7 @@ bool Discussion::operator ==(const Discussion &other) const
            && (numberMessages() == other.numberMessages())
            && (lastMessage() == other.lastMessage())
            && (discussionRoomId() == other.discussionRoomId())
-            && (timeStamp() == other.timeStamp());
+           && (timeStamp() == other.timeStamp());
 }
 
 Discussion &Discussion::operator=(const Discussion &other)

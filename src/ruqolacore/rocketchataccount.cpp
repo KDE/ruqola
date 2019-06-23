@@ -148,7 +148,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mMentionsFilterProxyModel->setObjectName(QStringLiteral("mentionsfiltermodelproxy"));
     mMentionsFilterProxyModel->setSourceModel(mMentionsModel);
 
-
     mThreadMessageModel = new MessageModel(QString(), this, nullptr, this);
     mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));
 
@@ -809,7 +808,7 @@ void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QSt
 {
     const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
     if (offset < mFilesModelForRoom->fileAttachments()->total()) {
-        restApi()->filesInRoom(roomId, channelType, offset, qMin(50, mFilesModelForRoom->fileAttachments()->total() - offset ));
+        restApi()->filesInRoom(roomId, channelType, offset, qMin(50, mFilesModelForRoom->fileAttachments()->total() - offset));
     }
 }
 
@@ -825,7 +824,7 @@ void RocketChatAccount::loadMoreThreads(const QString &roomId)
 {
     const int offset = mThreadsModel->threads()->threadsCount();
     if (offset < mThreadsModel->threads()->total()) {
-        restApi()->getThreadsList(roomId, offset, qMin(50, mThreadsModel->threads()->total() - offset ));
+        restApi()->getThreadsList(roomId, offset, qMin(50, mThreadsModel->threads()->total() - offset));
     }
 }
 
