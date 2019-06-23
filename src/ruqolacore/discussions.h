@@ -35,6 +35,8 @@ public:
 
     void parseDiscussions(const QJsonObject &array);
 
+    void parseMoreDiscussions(const QJsonObject &discussionsObj);
+
     Q_REQUIRED_RESULT bool isEmpty() const;
     void clear();
     Q_REQUIRED_RESULT int count() const;
@@ -51,6 +53,7 @@ public:
     void append(const Discussion &discussion);
 
 private:
+    void parseDiscussionsObj(const QJsonObject &discussionsObj);
     QVector<Discussion> mDiscussion;
     int mDiscussionsCount = 0;
     int mOffset = 0;

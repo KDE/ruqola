@@ -764,9 +764,11 @@ void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const 
 
 void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId)
 {
-    Discussions discussions;
-    discussions.parseDiscussions(obj);
-    mDiscussionsModel->setDiscussions(discussions);
+    if (mDiscussionsModel->roomId() != roomId) {
+        mDiscussionsModel->parseDiscussions(obj, roomId);
+    } else {
+        mDiscussionsModel->addMoreDiscussions(obj);
+    }
 }
 
 void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId)
@@ -810,10 +812,10 @@ void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QSt
 
 void RocketChatAccount::loadMoreDiscussions(const QString &roomId)
 {
-    //    const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
-    //    if (offset < mFilesModelForRoom->fileAttachments()->total()) {
-    //        restApi()->getDiscussions(roomId, offset, qMin(50, mFilesModelForRoom->fileAttachments()->total() - offset ));
-    //    }
+    const int offset = mDiscussionsModel->discussions()->discussionsCount();
+    if (offset < mDiscussionsModel->discussions()->total()) {
+        restApi()->getDiscussions(roomId, offset, qMin(50, mDiscussionsModel->discussions()->total() - offset));
+    }
 }
 
 void RocketChatAccount::loadMoreThreads(const QString &roomId)

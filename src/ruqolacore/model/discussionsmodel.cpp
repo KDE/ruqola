@@ -18,28 +18,76 @@
 */
 
 #include "discussionsmodel.h"
+#include "discussions.h"
 
 DiscussionsModel::DiscussionsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    mDiscussions = new Discussions;
 }
 
 DiscussionsModel::~DiscussionsModel()
 {
+    delete mDiscussions;
+}
+
+
+void DiscussionsModel::initialize()
+{
+    mRoomId.clear();
+}
+
+QString DiscussionsModel::roomId() const
+{
+    return mRoomId;
+}
+
+void DiscussionsModel::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
 }
 
 int DiscussionsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return mDiscussions.count();
+    return mDiscussions->count();
 }
+
+void DiscussionsModel::addMoreDiscussions(const QJsonObject &discussionsObj)
+{
+    const int numberOfElement = mDiscussions->discussions().count();
+    mDiscussions->parseMoreDiscussions(discussionsObj);
+    beginInsertRows(QModelIndex(), numberOfElement, mDiscussions->discussions().count() - 1);
+    endInsertRows();
+}
+
+Discussions *DiscussionsModel::discussions() const
+{
+    return mDiscussions;
+}
+
+void DiscussionsModel::parseDiscussions(const QJsonObject &discussionsObj, const QString &roomId)
+{
+    mRoomId = roomId;
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mDiscussions->discussions().count() - 1);
+        mDiscussions->clear();
+        endRemoveRows();
+    }
+    mDiscussions->parseDiscussions(discussionsObj);
+    if (!mDiscussions->isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mDiscussions->discussions().count() - 1);
+        endInsertRows();
+    }
+}
+
 
 QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mDiscussions.count()) {
+    if (index.row() < 0 || index.row() >= mDiscussions->count()) {
         return {};
     }
-    const Discussion discussion = mDiscussions.at(index.row());
+    const Discussion discussion = mDiscussions->at(index.row());
     switch (role) {
     case ParentId:
         return discussion.parentRoomId();
@@ -74,13 +122,13 @@ QHash<int, QByteArray> DiscussionsModel::roleNames() const
 void DiscussionsModel::setDiscussions(const Discussions &discussions)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mDiscussions.count() - 1);
-        mDiscussions.clear();
+        beginRemoveRows(QModelIndex(), 0, mDiscussions->count() - 1);
+        mDiscussions->clear();
         endRemoveRows();
     }
     if (!discussions.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, discussions.count() - 1);
-        mDiscussions = discussions;
+        mDiscussions->setDiscussions(discussions.discussions());
         endInsertRows();
     }
 }

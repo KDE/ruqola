@@ -19,6 +19,7 @@
 */
 
 #include "discussionsfilterproxymodeltest.h"
+#include "discussions.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
 #include <QTest>

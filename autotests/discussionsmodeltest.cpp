@@ -19,6 +19,7 @@
 */
 
 #include "discussionsmodeltest.h"
+#include "discussions.h"
 #include "model/discussionsmodel.h"
 #include "test_model_helpers.h"
 #include <QTest>

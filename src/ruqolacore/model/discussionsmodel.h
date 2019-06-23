@@ -21,9 +21,8 @@
 #define DISCUSSIONSMODEL_H
 
 #include "libruqola_private_export.h"
-#include "discussions.h"
 #include <QAbstractListModel>
-
+class Discussions;
 class LIBRUQOLACORE_TESTS_EXPORT DiscussionsModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -49,9 +48,20 @@ public:
 
     void setDiscussions(const Discussions &discussions);
 
+    void initialize();
+
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &roomId);
+
+    void parseDiscussions(const QJsonObject &discussionsObj, const QString &roomId);
+
+    void addMoreDiscussions(const QJsonObject &discussionsObj);
+    Discussions *discussions() const;
+
 private:
     Q_DISABLE_COPY(DiscussionsModel)
-    Discussions mDiscussions;
+    QString mRoomId;
+    Discussions *mDiscussions;
 };
 
 #endif // DISCUSSIONSMODEL_H

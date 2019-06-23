@@ -47,8 +47,13 @@ void Discussions::parseDiscussions(const QJsonObject &discussionsObj)
     mDiscussionsCount = discussionsObj[QStringLiteral("count")].toInt();
     mOffset = discussionsObj[QStringLiteral("offset")].toInt();
     mTotal = discussionsObj[QStringLiteral("total")].toInt();
+    mDiscussion.reserve(discussionsObj.count());
+    parseDiscussionsObj(discussionsObj);
+}
+
+void Discussions::parseDiscussionsObj(const QJsonObject &discussionsObj)
+{
     const QJsonArray discussionsArray = discussionsObj[QStringLiteral("discussions")].toArray();
-    mDiscussion.reserve(discussionsArray.count());
     for (const QJsonValue &current : discussionsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject discussionObject = current.toObject();
@@ -59,6 +64,15 @@ void Discussions::parseDiscussions(const QJsonObject &discussionsObj)
             qCWarning(RUQOLA_LOG) << "Problem when parsing discussions" << current;
         }
     }
+}
+
+void Discussions::parseMoreDiscussions(const QJsonObject &discussionsObj)
+{
+    const int discussionsCount = discussionsObj[QStringLiteral("count")].toInt();
+    mOffset = discussionsObj[QStringLiteral("offset")].toInt();
+    mTotal = discussionsObj[QStringLiteral("total")].toInt();
+    parseDiscussionsObj(discussionsObj);
+    mDiscussionsCount += discussionsCount;
 }
 
 bool Discussions::isEmpty() const
