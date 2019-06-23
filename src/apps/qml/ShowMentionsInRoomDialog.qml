@@ -74,10 +74,9 @@ QQC2.Dialog {
             QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
             QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
             onDragEnded : {
-                //TODO implement for loading other info
-                //if (roomId !== "") {
-                //    rcAccount.loadHistory(roomId)
-                //}
+                if (roomId !== "") {
+                    appid.rocketChatAccount.loadMoreMentions(roomId)
+                }
             }
 
             model: mentionsModel

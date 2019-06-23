@@ -66,6 +66,7 @@
 #include "serverconfiginfo.h"
 #include "threadmessages.h"
 #include "threads.h"
+#include "mentions.h"
 
 #include <QDesktopServices>
 #include <QRegularExpression>
@@ -773,9 +774,11 @@ void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const
 
 void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId)
 {
-    Mentions mentions;
-    mentions.parseMentions(obj);
-    mMentionsModel->setMentions(mentions);
+    if (mMentionsModel->roomId() != roomId) {
+        mMentionsModel->parseMentions(obj, roomId);
+    } else {
+        mMentionsModel->addMoreMentions(obj);
+    }
 }
 
 void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId)
@@ -831,6 +834,14 @@ void RocketChatAccount::loadMoreThreads(const QString &roomId)
 void RocketChatAccount::loadThreadMessagesHistory(const QString &roomId, const QString &channelType)
 {
     //TODO
+}
+
+void RocketChatAccount::loadMoreMentions(const QString &roomId)
+{
+    const int offset = mMentionsModel->mentions()->mentionsCount();
+    if (offset < mMentionsModel->mentions()->total()) {
+        restApi()->channelGetAllUserMentions(roomId, offset, qMin(50, mMentionsModel->mentions()->total() - offset));
+    }
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
@@ -1589,6 +1600,7 @@ void RocketChatAccount::openDocumentation()
 
 void RocketChatAccount::channelGetAllUserMentions(const QString &roomId)
 {
+    mMentionsModel->initialize();
     restApi()->channelGetAllUserMentions(roomId);
 }
 

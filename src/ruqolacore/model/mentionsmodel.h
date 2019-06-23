@@ -20,9 +20,9 @@
 #ifndef MENTIONSMODEL_H
 #define MENTIONSMODEL_H
 #include "libruqola_private_export.h"
-#include "mentions.h"
-#include <QAbstractListModel>
 
+#include <QAbstractListModel>
+class Mentions;
 class LIBRUQOLACORE_TESTS_EXPORT MentionsModel : public QAbstractListModel
 {
 public:
@@ -55,9 +55,18 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &roomId);
+
+    void initialize();
+    void addMoreMentions(const QJsonObject &mentionsObj);
+    void parseMentions(const QJsonObject &mentionsObj, const QString &roomId);
+    Mentions *mentions() const;
+
 private:
     Q_DISABLE_COPY(MentionsModel)
-    Mentions mMentions;
+    QString mRoomId;
+    Mentions *mMentions = nullptr;
 };
 
 #endif // MENTIONSMODEL_H

@@ -53,7 +53,10 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
+    void parseMoreMentions(const QJsonObject &threadsObj);
+
 private:
+    void parseMentionsObj(const QJsonObject &discussionsObj);
     QVector<Mention> mMentions;
     int mMentionsCount = 0;
     int mOffset = 0;

@@ -18,28 +18,35 @@
 */
 
 #include "mentionsmodel.h"
-
+#include "mentions.h"
 MentionsModel::MentionsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    mMentions = new Mentions;
 }
 
 MentionsModel::~MentionsModel()
 {
+    delete mMentions;
+}
+
+void MentionsModel::initialize()
+{
+    mRoomId.clear();
 }
 
 int MentionsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return mMentions.count();
+    return mMentions->count();
 }
 
 QVariant MentionsModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mMentions.count()) {
+    if (index.row() < 0 || index.row() >= mMentions->count()) {
         return {};
     }
-    const Mention mention = mMentions.at(index.row());
+    const Mention mention = mMentions->at(index.row());
     switch (role) {
     case OriginalMessage:
         return mention.text();
@@ -86,13 +93,13 @@ QVariant MentionsModel::data(const QModelIndex &index, int role) const
 void MentionsModel::setMentions(const Mentions &mentions)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mMentions.count() - 1);
-        mMentions.clear();
+        beginRemoveRows(QModelIndex(), 0, mMentions->count() - 1);
+        mMentions->clear();
         endRemoveRows();
     }
     if (!mentions.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mentions.count() - 1);
-        mMentions = mentions;
+        mMentions->setMentions(mentions.mentions());
         endInsertRows();
     }
 }
@@ -116,4 +123,43 @@ QHash<int, QByteArray> MentionsModel::roleNames() const
     roles[Roles] = QByteArrayLiteral("roles");
     roles[Reactions] = QByteArrayLiteral("reactions");
     return roles;
+}
+
+QString MentionsModel::roomId() const
+{
+    return mRoomId;
+}
+
+void MentionsModel::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
+}
+
+void MentionsModel::parseMentions(const QJsonObject &mentionsObj, const QString &roomId)
+{
+    mRoomId = roomId;
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mMentions->mentions().count() - 1);
+        mMentions->clear();
+        endRemoveRows();
+    }
+    mMentions->parseMentions(mentionsObj);
+    if (!mMentions->isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mMentions->mentions().count() - 1);
+        endInsertRows();
+    }
+}
+
+Mentions *MentionsModel::mentions() const
+{
+    return mMentions;
+}
+
+
+void MentionsModel::addMoreMentions(const QJsonObject &mentionsObj)
+{
+    const int numberOfElement = mMentions->mentions().count();
+    mMentions->parseMoreMentions(mentionsObj);
+    beginInsertRows(QModelIndex(), numberOfElement, mMentions->mentions().count() - 1);
+    endInsertRows();
 }

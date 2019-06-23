@@ -594,6 +594,7 @@ Component {
                 sourceComponent: ShowMentionsInRoomDialog {
                     id: showMentionsInRoomDialog
                     parent: appid.pageStack
+                    roomId: appid.selectedRoomID
                     mentionsModel: appid.mentionsModel
                     onGoToMessage: {
                         console.log(RuqolaDebugCategorySingleton.category, "Go to Message not implemented yet")

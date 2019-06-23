@@ -70,9 +70,19 @@ void Mentions::setTotal(int total)
     mTotal = total;
 }
 
+
 QVector<Mention> Mentions::mentions() const
 {
     return mMentions;
+}
+
+void Mentions::parseMoreMentions(const QJsonObject &mentionsObj)
+{
+    const int mentionsCount = mentionsObj[QStringLiteral("count")].toInt();
+    mOffset = mentionsObj[QStringLiteral("offset")].toInt();
+    mTotal = mentionsObj[QStringLiteral("total")].toInt();
+    parseMentionsObj(mentionsObj);
+    mMentionsCount += mentionsCount;
 }
 
 void Mentions::parseMentions(const QJsonObject &mentions)
@@ -81,9 +91,14 @@ void Mentions::parseMentions(const QJsonObject &mentions)
     mMentionsCount = mentions[QStringLiteral("count")].toInt();
     mOffset = mentions[QStringLiteral("offset")].toInt();
     mTotal = mentions[QStringLiteral("total")].toInt();
-    const QJsonArray mentionsArray = mentions[QStringLiteral("mentions")].toArray();
-    mMentions.reserve(mentionsArray.count());
-    for (const QJsonValue &current : mentionsArray) {
+    mMentions.reserve(mMentionsCount);
+    parseMentionsObj(mentions);
+}
+
+void Mentions::parseMentionsObj(const QJsonObject &discussionsObj)
+{
+    const QJsonArray discussionsArray = discussionsObj[QStringLiteral("mentions")].toArray();
+    for (const QJsonValue &current : discussionsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject mentionsObject = current.toObject();
             Mention m;
@@ -94,6 +109,7 @@ void Mentions::parseMentions(const QJsonObject &mentions)
         }
     }
 }
+
 
 bool Mentions::operator ==(const Mentions &other) const
 {

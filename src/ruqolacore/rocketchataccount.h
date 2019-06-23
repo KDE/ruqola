@@ -332,6 +332,7 @@ public:
     Q_INVOKABLE void loadMoreDiscussions(const QString &roomId);
     Q_INVOKABLE void loadMoreThreads(const QString &roomId);
     Q_INVOKABLE void loadThreadMessagesHistory(const QString &roomId, const QString &channelType);
+    Q_INVOKABLE void loadMoreMentions(const QString &roomId);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
