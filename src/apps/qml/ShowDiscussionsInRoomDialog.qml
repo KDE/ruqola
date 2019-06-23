@@ -57,8 +57,10 @@ QQC2.Dialog {
                 discussionsModel.setFilterString(text);
             }
         }
+
+
         QQC2.Label {
-            text: listview.count === 0 ? i18n("No Discussion found") : ""
+            text: listview.count === 0 ? i18n("No Discussion found") : i18np("%1 discussion in room", "%1 discussions in room", listview.count)
             Component.onCompleted: {
                 font.italic = true
                 font.bold = true
