@@ -808,14 +808,20 @@ void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QSt
     }
 }
 
-void RocketChatAccount::loadMoreDiscussions(const QString &roomId, const QString &channelType)
+void RocketChatAccount::loadMoreDiscussions(const QString &roomId)
 {
-    //TODO
+    //    const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
+    //    if (offset < mFilesModelForRoom->fileAttachments()->total()) {
+    //        restApi()->getDiscussions(roomId, offset, qMin(50, mFilesModelForRoom->fileAttachments()->total() - offset ));
+    //    }
 }
 
 void RocketChatAccount::loadMoreThreads(const QString &roomId)
 {
-    //TODO
+//    const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
+//    if (offset < mFilesModelForRoom->fileAttachments()->total()) {
+//        restApi()->getThreadsList(roomId, offset, qMin(50, mFilesModelForRoom->fileAttachments()->total() - offset ));
+//    }
 }
 
 void RocketChatAccount::loadThreadMessagesHistory(const QString &roomId, const QString &channelType)
