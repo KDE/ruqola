@@ -127,7 +127,7 @@ public:
     void changeChannelName(const QString &roomId, const QString &newName);
     void changeGroupName(const QString &roomId, const QString &newName);
     void groupInfo(const QString &roomId);
-    void channelGetAllUserMentions(const QString &roomId);
+    void channelGetAllUserMentions(const QString &roomId, int offset = 0, int count = 50);
     void updatejitsiTimeOut(const QString &roomId);
     void openDirectMessage(const QString &userId);
     void channelKick(const QString &roomId, const QString &userId);

@@ -1163,7 +1163,7 @@ void RestApiRequest::channelJoin(const QString &roomId, const QString &joinCode)
     }
 }
 
-void RestApiRequest::channelGetAllUserMentions(const QString &roomId)
+void RestApiRequest::channelGetAllUserMentions(const QString &roomId, int offset, int count)
 {
     ChannelGetAllUserMentionsJob *job = new ChannelGetAllUserMentionsJob(this);
     initializeRestApiJob(job);
@@ -1172,7 +1172,10 @@ void RestApiRequest::channelGetAllUserMentions(const QString &roomId)
     QMap<QString, QueryParameters::SortOrder> map;
     map.insert(QStringLiteral("_updatedAt"), QueryParameters::SortOrder::Descendant);
     parameters.setSorting(map);
+    parameters.setCount(count);
+    parameters.setOffset(offset);
     job->setQueryParameters(parameters);
+
     connect(job, &ChannelGetAllUserMentionsJob::channelGetAllUserMentionsDone, this, &RestApiRequest::channelGetAllUserMentionsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setChannelJoin";
