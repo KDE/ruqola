@@ -844,6 +844,14 @@ void RocketChatAccount::loadMoreMentions(const QString &roomId)
     }
 }
 
+void RocketChatAccount::loadMoreHistorySearch(const QString &roomId)
+{
+//    const int offset = mMentionsModel->mentions()->mentionsCount();
+//    if (offset < mMentionsModel->mentions()->total()) {
+//        restApi()->channelGetAllUserMentions(roomId, offset, qMin(50, mMentionsModel->mentions()->total() - offset));
+//    }
+}
+
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 {
     //TODO use restapi
