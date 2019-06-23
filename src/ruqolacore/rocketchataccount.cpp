@@ -808,6 +808,21 @@ void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QSt
     }
 }
 
+void RocketChatAccount::loadMoreDiscussions(const QString &roomId, const QString &channelType)
+{
+    //TODO
+}
+
+void RocketChatAccount::loadMoreThreads(const QString &roomId)
+{
+    //TODO
+}
+
+void RocketChatAccount::loadThreadMessagesHistory(const QString &roomId, const QString &channelType)
+{
+    //TODO
+}
+
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 {
     //TODO use restapi
