@@ -78,7 +78,7 @@ QQC2.Dialog {
             QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
             onDragEnded : {
                 if (roomId !== "") {
-                    rcAccount.loadMoreThreads(roomId)
+                    appid.rocketChatAccount.loadMoreThreads(roomId)
                 }
             }
 

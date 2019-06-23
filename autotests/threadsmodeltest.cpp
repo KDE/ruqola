@@ -19,6 +19,7 @@
 
 #include "threadsmodeltest.h"
 #include "model/threadsmodel.h"
+#include "threads.h"
 #include "test_model_helpers.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ThreadsModelTest)

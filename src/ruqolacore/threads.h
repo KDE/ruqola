@@ -49,7 +49,9 @@ public:
     void setTotal(int total);
 
     void append(const Thread &thread);
+    void parseMoreThreads(const QJsonObject &threadsObj);
 private:
+    void parseThreadsObj(const QJsonObject &threadsObj);
     QVector<Thread> mThreads;
     int mThreadsCount = 0;
     int mOffset = 0;

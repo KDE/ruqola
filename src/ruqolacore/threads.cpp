@@ -37,14 +37,17 @@ void Threads::setThreads(const QVector<Thread> &threads)
 
 void Threads::parseThreads(const QJsonObject &threadsObj)
 {
+    mThreads.clear();
     mThreadsCount = threadsObj[QStringLiteral("count")].toInt();
     mOffset = threadsObj[QStringLiteral("offset")].toInt();
     mTotal = threadsObj[QStringLiteral("total")].toInt();
+    mThreads.reserve(mThreadsCount);
+    parseThreadsObj(threadsObj);
+}
+
+void Threads::parseThreadsObj(const QJsonObject &threadsObj)
+{
     const QJsonArray threadsArray = threadsObj[QStringLiteral("threads")].toArray();
-    qDebug() << "mThreadsCount  " << mThreadsCount << " mOffset " << mOffset << " total : " << mTotal;
-    //TODO add sorting + load all missing thread info !
-    mThreads.clear();
-    mThreads.reserve(threadsArray.count());
     for (const QJsonValue &current : threadsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject threadObject = current.toObject();
@@ -55,6 +58,15 @@ void Threads::parseThreads(const QJsonObject &threadsObj)
             qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
         }
     }
+}
+
+void Threads::parseMoreThreads(const QJsonObject &threadsObj)
+{
+    const int threadsCount = threadsObj[QStringLiteral("count")].toInt();
+    mOffset = threadsObj[QStringLiteral("offset")].toInt();
+    mTotal = threadsObj[QStringLiteral("total")].toInt();
+    parseThreadsObj(threadsObj);
+    mThreadsCount += threadsCount;
 }
 
 bool Threads::isEmpty() const

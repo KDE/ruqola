@@ -47,7 +47,7 @@ void Discussions::parseDiscussions(const QJsonObject &discussionsObj)
     mDiscussionsCount = discussionsObj[QStringLiteral("count")].toInt();
     mOffset = discussionsObj[QStringLiteral("offset")].toInt();
     mTotal = discussionsObj[QStringLiteral("total")].toInt();
-    mDiscussion.reserve(discussionsObj.count());
+    mDiscussion.reserve(mDiscussionsCount);
     parseDiscussionsObj(discussionsObj);
 }
 

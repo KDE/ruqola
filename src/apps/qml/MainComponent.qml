@@ -617,7 +617,7 @@ Component {
                     parent: appid.pageStack
 
                     discussionsModel: appid.discussionsModel
-
+                    roomId: appid.selectedRoomID
                     Component.onCompleted: {
                         initializeAndOpen()
                     }
@@ -641,6 +641,7 @@ Component {
                     id: showThreadsInRoomDialog
                     parent: appid.pageStack
                     threadsModel: appid.threadsModel
+                    roomId: appid.selectedRoomID
                     onOpenThread: {
                         appid.rocketChatAccount.getThreadMessages(threadMessageId)
                         showThreadsInRoomDialogLoader.active = false

@@ -18,30 +18,37 @@
 */
 
 #include "threadsmodel.h"
-
+#include "threads.h"
 #include <QDateTime>
 
 ThreadsModel::ThreadsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+    mThreads = new Threads;
 }
 
 ThreadsModel::~ThreadsModel()
 {
+    delete mThreads;
+}
+
+void ThreadsModel::initialize()
+{
+    mRoomId.clear();
 }
 
 int ThreadsModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return mThreads.count();
+    return mThreads->count();
 }
 
 QVariant ThreadsModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mThreads.count()) {
+    if (index.row() < 0 || index.row() >= mThreads->count()) {
         return {};
     }
-    const Thread thread = mThreads.at(index.row());
+    const Thread thread = mThreads->at(index.row());
     switch (role) {
     case ThreadMessageId:
         return thread.messageId();
@@ -73,13 +80,52 @@ QHash<int, QByteArray> ThreadsModel::roleNames() const
 void ThreadsModel::setThreads(const Threads &threads)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mThreads.count() - 1);
-        mThreads.clear();
+        beginRemoveRows(QModelIndex(), 0, mThreads->count() - 1);
+        mThreads->clear();
         endRemoveRows();
     }
     if (!threads.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, threads.count() - 1);
-        mThreads = threads;
+        mThreads->setThreads(threads.threads());
         endInsertRows();
     }
 }
+
+QString ThreadsModel::roomId() const
+{
+    return mRoomId;
+}
+
+void ThreadsModel::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
+}
+
+void ThreadsModel::addMoreThreads(const QJsonObject &threadsObj)
+{
+    const int numberOfElement = mThreads->threads().count();
+    mThreads->parseMoreThreads(threadsObj);
+    beginInsertRows(QModelIndex(), numberOfElement, mThreads->threads().count() - 1);
+    endInsertRows();
+}
+
+Threads *ThreadsModel::threads() const
+{
+    return mThreads;
+}
+
+void ThreadsModel::parseThreads(const QJsonObject &threadsObj, const QString &roomId)
+{
+    mRoomId = roomId;
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mThreads->threads().count() - 1);
+        mThreads->clear();
+        endRemoveRows();
+    }
+    mThreads->parseThreads(threadsObj);
+    if (!mThreads->isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mThreads->threads().count() - 1);
+        endInsertRows();
+    }
+}
+

@@ -65,6 +65,7 @@
 #include "restapirequest.h"
 #include "serverconfiginfo.h"
 #include "threadmessages.h"
+#include "threads.h"
 
 #include <QDesktopServices>
 #include <QRegularExpression>
@@ -780,9 +781,11 @@ void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const
 
 void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId)
 {
-    Threads threads;
-    threads.parseThreads(obj);
-    mThreadsModel->setThreads(threads);
+    if (mThreadsModel->roomId() != roomId) {
+        mThreadsModel->parseThreads(obj, roomId);
+    } else {
+        mThreadsModel->addMoreThreads(obj);
+    }
 }
 
 void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
@@ -820,10 +823,10 @@ void RocketChatAccount::loadMoreDiscussions(const QString &roomId)
 
 void RocketChatAccount::loadMoreThreads(const QString &roomId)
 {
-//    const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
-//    if (offset < mFilesModelForRoom->fileAttachments()->total()) {
-//        restApi()->getThreadsList(roomId, offset, qMin(50, mFilesModelForRoom->fileAttachments()->total() - offset ));
-//    }
+    const int offset = mThreadsModel->threads()->threadsCount();
+    if (offset < mThreadsModel->threads()->total()) {
+        restApi()->getThreadsList(roomId, offset, qMin(50, mThreadsModel->threads()->total() - offset ));
+    }
 }
 
 void RocketChatAccount::loadThreadMessagesHistory(const QString &roomId, const QString &channelType)
@@ -1610,6 +1613,7 @@ void RocketChatAccount::createDiscussion(const QString &parentRoomId, const QStr
 void RocketChatAccount::threadsInRoom(const QString &roomId)
 {
     if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
+        mThreadsModel->initialize();
         restApi()->getThreadsList(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::threadsInRoom is not supported before server 1.0.0";
