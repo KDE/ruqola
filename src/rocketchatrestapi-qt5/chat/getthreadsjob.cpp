@@ -100,6 +100,7 @@ QNetworkRequest GetThreadsJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadsList);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("rid"), mRoomId);
+    addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);
@@ -107,4 +108,10 @@ QNetworkRequest GetThreadsJob::request() const
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
     addAuthRawHeader(request);
     return request;
+}
+
+
+bool GetThreadsJob::hasQueryParameterSupport() const
+{
+    return true;
 }

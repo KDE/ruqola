@@ -97,8 +97,7 @@ void GetDiscussionsJob::setRoomId(const QString &roomId)
 
 bool GetDiscussionsJob::hasQueryParameterSupport() const
 {
-    return false;
-    //return true;
+    return true;
 }
 
 QNetworkRequest GetDiscussionsJob::request() const
@@ -106,6 +105,7 @@ QNetworkRequest GetDiscussionsJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::RoomsGetDiscussions);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 
     QNetworkRequest request(url);

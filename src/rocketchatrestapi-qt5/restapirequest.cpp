@@ -1419,17 +1419,14 @@ void RestApiRequest::createDiscussion(const QString &parentRoomId, const QString
     }
 }
 
-void RestApiRequest::getDiscussions(const QString &roomId)
+void RestApiRequest::getDiscussions(const QString &roomId, int offset, int count)
 {
     GetDiscussionsJob *job = new GetDiscussionsJob(this);
     initializeRestApiJob(job);
-    /*
     QueryParameters parameters;
-    QMap<QString, QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("ts"), QueryParameters::SortOrder::Descendant);
-    parameters.setSorting(map);
+    parameters.setCount(count);
+    parameters.setOffset(offset);
     job->setQueryParameters(parameters);
-*/
     job->setRoomId(roomId);
     connect(job, &GetDiscussionsJob::getDiscussionsDone, this, &RestApiRequest::getDiscussionsDone);
     if (!job->start()) {
@@ -1437,11 +1434,15 @@ void RestApiRequest::getDiscussions(const QString &roomId)
     }
 }
 
-void RestApiRequest::getThreadsList(const QString &roomId)
+void RestApiRequest::getThreadsList(const QString &roomId, int offset, int count)
 {
     GetThreadsJob *job = new GetThreadsJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
+    QueryParameters parameters;
+    parameters.setCount(count);
+    parameters.setOffset(offset);
+    job->setQueryParameters(parameters);
     connect(job, &GetThreadsJob::getThreadsDone, this, &RestApiRequest::getThreadsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getThreadsList";

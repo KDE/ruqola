@@ -43,6 +43,7 @@ public:
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
+    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 
 Q_SIGNALS:
     void getThreadsDone(const QJsonObject &obj, const QString &roomId);
@@ -51,6 +52,7 @@ private:
     Q_DISABLE_COPY(GetThreadsJob)
     void slotGetThreadsFinished();
     QString mRoomId;
+
 };
 }
 #endif // GETTHREADSJOB_H

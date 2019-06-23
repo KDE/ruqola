@@ -157,8 +157,8 @@ public:
     void followMessage(const QString &messageId);
     void unFollowMessage(const QString &messageId);
     void createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &replyMessage, const QString &parentMessageId);
-    void getDiscussions(const QString &roomId);
-    void getThreadsList(const QString &roomId);
+    void getDiscussions(const QString &roomId, int offset = 0, int count = 50);
+    void getThreadsList(const QString &roomId, int offset = 0, int count = 50);
     void getThreadMessages(const QString &threadMessageId);
     void sendMessage(const QString &roomId, const QString &text, const QString &messageId = QString(), const QString &threadMessageId = QString());
 Q_SIGNALS:

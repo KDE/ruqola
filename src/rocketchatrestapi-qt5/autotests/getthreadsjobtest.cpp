@@ -38,7 +38,7 @@ void GetThreadsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
-    QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.hasQueryParameterSupport());
 }
 
 void GetThreadsJobTest::shouldGenerateRequest()
