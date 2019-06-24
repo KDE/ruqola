@@ -42,9 +42,9 @@ QQC2.Dialog {
     standardButtons: QQC2.Dialog.Close
     contentItem: ColumnLayout {
         ActiveChat {
+            id: threadMessageListView
             Layout.fillWidth: true
             Layout.fillHeight: true
-            id: threadMessageListView
             model: threadMessagesModel
             rcAccount: appid.rocketChatAccount
             roomId: appid.selectedRoomID
