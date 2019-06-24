@@ -359,7 +359,7 @@ Component {
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
             onDragEnded : {
-                if (roomId !== "") {
+                if (roomId !== "" && activeChat.atYBeginning) {
                     rcAccount.loadHistory(roomId)
                 }
             }

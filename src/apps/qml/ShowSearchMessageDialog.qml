@@ -76,7 +76,7 @@ QQC2.Dialog {
 
             onDragEnded : {
                 //TODO implement for loading other info
-                //if (roomId !== "") {
+                //if (roomId !== "" && activeChat.atYBeginning) { //Verify it
                 //    rcAccount.loadHistory(roomId)
                 //}
             }

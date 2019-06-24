@@ -80,7 +80,7 @@ QQC2.Dialog {
             QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
             QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
             onDragEnded : {
-                if (roomId !== "") {
+                if (roomId !== "" && listview.atYBeginning) {
                     appid.rocketChatAccount.loadMoreFileAttachments(roomId, channelType)
                 }
             }

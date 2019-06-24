@@ -41,7 +41,7 @@ void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValues()
     QCOMPARE(proxy.rowCount(), 0);
     QCOMPARE(proxy.filterCaseSensitivity(), Qt::CaseInsensitive);
     QCOMPARE(proxy.filterRole(), FilesForRoomModel::FileName);
-    QCOMPARE(proxy.sortRole(), FilesForRoomModel::TimeStamp);
+    QCOMPARE(proxy.sortRole(), FilesForRoomModel::SortByTimeStamp);
 
     QHash<int, QByteArray> roles;
     roles[FilesForRoomModel::FileName] = QByteArrayLiteral("filename");
