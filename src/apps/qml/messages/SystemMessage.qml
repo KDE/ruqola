@@ -36,32 +36,33 @@ MessageBase {
 
 
     RowLayout {
-        QQC2.Label {
-            id: textLabel
-            color: Kirigami.Theme.disabledTextColor
-            opacity: 1
+        ColumnLayout {
+            //Layout.fillHeight: true
+            QQC2.Label {
+                id: textLabel
+                color: Kirigami.Theme.disabledTextColor
+                opacity: 1
+                width: parent.width
+                //Layout.alignment: Qt.AlignLeft
+                //anchors.centerIn: parent
+                anchors.leftMargin: Kirigami.Units.smallSpacing
+                anchors.rightMargin: Kirigami.Units.smallSpacing
 
-            Layout.alignment: Qt.AlignLeft
-            //anchors.centerIn: parent
-            anchors.leftMargin: Kirigami.Units.smallSpacing
-            anchors.rightMargin: Kirigami.Units.smallSpacing
+                text: i_messageText
 
-            width: Math.min(implicitWidth, parent.width - Kirigami.Units.largeSpacing)
+                wrapMode: QQC2.Label.Wrap
 
-            text: i_messageText
-
-            wrapMode: QQC2.Label.Wrap
-
-            renderType: Text.NativeRendering
-            Component.onCompleted: {
-                font.italic = true
+                renderType: Text.NativeRendering
+                Component.onCompleted: {
+                    font.italic = true
+                }
             }
-        }
-        DiscussionLabel {
-            id: discussionLabel
-            onOpenDiscussion: {
-                messageMain.openDiscussion(i_drid)
-                console.log(RuqolaDebugCategorySingleton.category, "Click to go to sub room: " + i_drid)
+            DiscussionLabel {
+                id: discussionLabel
+                onOpenDiscussion: {
+                    messageMain.openDiscussion(i_drid)
+                    console.log(RuqolaDebugCategorySingleton.category, "Click to go to sub room: " + i_drid)
+                }
             }
         }
         Item {
