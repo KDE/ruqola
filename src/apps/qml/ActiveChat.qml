@@ -82,12 +82,6 @@ ListView {
     }
 
     visible: count > 0
-    onDragEnded : {
-        //TODO disable it when it's not a listview for messages
-        if (roomId !== "") {
-            rcAccount.loadHistory(roomId)
-        }
-    }
     delegate: FancyMessageDelegate {
         anchors.left: parent.left
         anchors.right: parent.right

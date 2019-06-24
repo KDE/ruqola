@@ -358,6 +358,11 @@ Component {
             clip: true
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
+            onDragEnded : {
+                if (roomId !== "") {
+                    rcAccount.loadHistory(roomId)
+                }
+            }
 
             onPinMessage: {
                 appid.rocketChatAccount.pinMessage(messageId, pinned)
