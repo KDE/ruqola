@@ -26,8 +26,8 @@ SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(QObject *parent)
 {
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(SearchMessageModel::Timestamp);
-    sort(0);
+    setFilterRole(SearchMessageModel::SortByTimeStamp);
+    sort(0, Qt::DescendingOrder);
 }
 
 SearchMessageFilterProxyModel::~SearchMessageFilterProxyModel()

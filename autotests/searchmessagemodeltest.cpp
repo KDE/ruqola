@@ -32,13 +32,42 @@ SearchMessageModelTest::SearchMessageModelTest(QObject *parent)
 
 void SearchMessageModelTest::shouldHaveDefaultValue()
 {
-    SearchMessageModel w;
+    SearchMessageModel w(nullptr);
     QCOMPARE(w.rowCount(), 0);
 
     QHash<int, QByteArray> roles;
-    roles[SearchMessageModel::MessageConvertedText] = QByteArrayLiteral("messagetext");
-    roles[SearchMessageModel::Timestamp] = QByteArrayLiteral("messagetimestamp");
-    roles[SearchMessageModel::MessageId] = QByteArrayLiteral("messageid");
-    roles[SearchMessageModel::SystemMessageType] = QByteArrayLiteral("systemmessagetype");
+    roles[SearchMessageModel::OriginalMessage] = QByteArrayLiteral("originalMessage");
+    roles[SearchMessageModel::MessageConvertedText] = QByteArrayLiteral("messageConverted");
+    roles[SearchMessageModel::Username] = QByteArrayLiteral("username");
+    roles[SearchMessageModel::Timestamp] = QByteArrayLiteral("timestamp");
+    roles[SearchMessageModel::UserId] = QByteArrayLiteral("userID");
+    roles[SearchMessageModel::SystemMessageType] = QByteArrayLiteral("type");
+    roles[SearchMessageModel::MessageId] = QByteArrayLiteral("messageID");
+    roles[SearchMessageModel::RoomId] = QByteArrayLiteral("roomID");
+    roles[SearchMessageModel::UpdatedAt] = QByteArrayLiteral("updatedAt");
+    roles[SearchMessageModel::EditedAt] = QByteArrayLiteral("editedAt");
+    roles[SearchMessageModel::EditedByUserName] = QByteArrayLiteral("editedByUsername");
+    roles[SearchMessageModel::EditedByUserId] = QByteArrayLiteral("editedByUserID");
+    roles[SearchMessageModel::Alias] = QByteArrayLiteral("alias");
+    roles[SearchMessageModel::Avatar] = QByteArrayLiteral("avatar");
+    roles[SearchMessageModel::Groupable] = QByteArrayLiteral("groupable");
+    roles[SearchMessageModel::MessageType] = QByteArrayLiteral("messagetype");
+    roles[SearchMessageModel::Attachments] = QByteArrayLiteral("attachments");
+    roles[SearchMessageModel::Urls] = QByteArrayLiteral("urls");
+    roles[SearchMessageModel::Date] = QByteArrayLiteral("date");
+    roles[SearchMessageModel::CanEditMessage] = QByteArrayLiteral("canEditMessage");
+    roles[SearchMessageModel::Starred] = QByteArrayLiteral("starred");
+    roles[SearchMessageModel::UsernameUrl] = QByteArrayLiteral("usernameurl");
+    roles[SearchMessageModel::Roles] = QByteArrayLiteral("roles");
+    roles[SearchMessageModel::Reactions] = QByteArrayLiteral("reactions");
+    roles[SearchMessageModel::Ignored] = QByteArrayLiteral("userIsIgnored");
+    roles[SearchMessageModel::Pinned] = QByteArrayLiteral("pinned");
+    roles[SearchMessageModel::DiscussionCount] = QByteArrayLiteral("discussionCount");
+    roles[SearchMessageModel::DiscussionRoomId] = QByteArrayLiteral("discussionRoomId");
+    roles[SearchMessageModel::DiscussionLastMessage] = QByteArrayLiteral("discussionLastMessage");
+    roles[SearchMessageModel::ThreadCount] = QByteArrayLiteral("threadCount");
+    roles[SearchMessageModel::ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
+    roles[SearchMessageModel::ThreadMessageId] = QByteArrayLiteral("threadMessageId");
+    roles[SearchMessageModel::ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
     QCOMPARE(w.roleNames(), roles);
 }

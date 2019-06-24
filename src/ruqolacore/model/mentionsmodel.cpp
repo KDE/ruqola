@@ -261,7 +261,6 @@ Mentions *MentionsModel::mentions() const
 
 void MentionsModel::addMoreMentions(const QJsonObject &mentionsObj)
 {
-    qDebug() << " sss " << "MentionsModel::addMoreMentions(const QJsonObject &mentionsObj)";
     const int numberOfElement = mMentions->mentions().count();
     mMentions->parseMoreMentions(mentionsObj);
     beginInsertRows(QModelIndex(), numberOfElement, mMentions->mentions().count() - 1);

@@ -34,6 +34,7 @@ ColumnLayout {
     property alias messageLineText: messageLine.text
     property string savePreviousMessage
     readonly property int popupheight: 100
+    property QtObject inputCompleterModel
 
     function sendMessage()
     {
@@ -141,7 +142,7 @@ ColumnLayout {
                     width: parent.width
                     interactive: true
                     clip: true
-                    model: rcAccount.inputCompleterModel()
+                    model: inputCompleterModel
                     delegate: Kirigami.BasicListItem {
                         readonly property variant myData: model
 

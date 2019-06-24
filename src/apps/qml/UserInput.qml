@@ -33,6 +33,7 @@ RowLayout {
     property alias messageLineText: messageLine.messageLineText
     property string messageId
     property string threadmessageId
+    property QtObject inputCompleterModel
 
     signal textEditing(string str)
     signal uploadFile()
@@ -61,6 +62,7 @@ RowLayout {
     }
     MessageLine {
         id: messageLine
+        inputCompleterModel: footerItem.inputCompleterModel
     }
     
     EmoticonMenu {

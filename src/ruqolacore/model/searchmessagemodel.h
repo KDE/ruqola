@@ -25,21 +25,52 @@
 #include <QJsonObject>
 #include "libruqola_private_export.h"
 #include "searchmessage.h"
-
+class TextConverter;
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT SearchMessageModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
     enum SearchMessageRoles {
-        MessageConvertedText = Qt::UserRole + 1,
+        Username = Qt::UserRole + 1,
+        OriginalMessage,
+        MessageConvertedText,
         Timestamp,
         UserId,
         SystemMessageType,
         MessageId,
+        RoomId,
+        UpdatedAt,
+        EditedAt,
+        EditedByUserName,
+        EditedByUserId,
+        Alias,
+        Avatar,
+        Groupable,
+        ParseUrls,
+        MessageType,
+        Attachments,
+        Urls,
+        Date,
+        CanEditMessage,
+        Starred,
+        UsernameUrl,
+        Roles,
+        Reactions,
+        Ignored,
+        Pinned,
+        DiscussionCount,
+        DiscussionRoomId,
+        DiscussionLastMessage,
+        ThreadCount,
+        ThreadLastMessage,
+        ThreadMessageId,
+        ThreadMessagePreview,
+        SortByTimeStamp
     };
     Q_ENUM(SearchMessageRoles)
 
-    explicit SearchMessageModel(QObject *parent = nullptr);
+    explicit SearchMessageModel(RocketChatAccount *account, QObject *parent = nullptr);
     ~SearchMessageModel() override;
 
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -51,8 +82,11 @@ public:
     void clear();
 private:
     Q_DISABLE_COPY(SearchMessageModel)
+    QString convertMessageText(const QString &str, const QString &userName) const;
     void setMessages(const QVector<SearchMessage> &channels);
     QVector<SearchMessage> mSearchMessages;
+    TextConverter *mTextConverter = nullptr;
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
 #endif // SEARCHMESSAGEMODEL_H

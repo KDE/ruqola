@@ -32,7 +32,7 @@ SearchMessageFilterProxyModelTest::SearchMessageFilterProxyModelTest(QObject *pa
 void SearchMessageFilterProxyModelTest::shouldHaveDefaultValue()
 {
     SearchMessageFilterProxyModel w;
-    SearchMessageModel sourceModel;
+    SearchMessageModel sourceModel(nullptr);
     w.setSourceModel(&sourceModel);
     QCOMPARE(w.rowCount(), 0);
     QVERIFY(w.sourceModel());

@@ -63,49 +63,19 @@ QQC2.Dialog {
             }
         }
 
-        ListView {
+        ActiveChat {
             id: listview
-            clip: true
             Layout.fillWidth: true
             Layout.fillHeight: true
-            // Scrollars
-            QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
-            QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
-
             model: searchMessageModel
+            rcAccount: appid.rocketChatAccount
+            roomId: appid.selectedRoomID
+            clip: true
 
+            QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
             onDragEnded : {
-                //TODO implement for loading other info
-                //if (roomId !== "" && activeChat.atYBeginning) { //Verify it
-                //    rcAccount.loadHistory(roomId)
-                //}
-            }
-
-            delegate: Kirigami.BasicListItem {
-                reserveSpaceForIcon: false
-                reserveSpaceForLabel: false
-                RowLayout {
-                    width: parent.width
-                    ColumnLayout {
-                        //                    AvatarImage {
-                        //                        id: avatarRect
-                        //                        avatarurl: i_avatar
-                        //                        aliasname: i_aliasname
-                        //                        username: i_username
-                        //                    }
-                        QQC2.Label {
-                            text: messagetext
-                            elide: Text.ElideRight
-                            wrapMode: QQC2.Label.Wrap
-                        }
-                        TimestampText {
-                            id: timestampText
-                            timestamp: messagetimestamp
-                        }
-                        Item {
-                            Layout.fillWidth: true
-                        }
-                    }
+                if (roomId !== "" && listview.atYBeginning ) {
+                    //appid.rocketChatAccount.loadMoreMentions(roomId)
                 }
             }
         }

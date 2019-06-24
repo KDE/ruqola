@@ -119,7 +119,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mSearchChannelFilterProxyModel = new SearchChannelFilterProxyModel(this);
     mSearchChannelFilterProxyModel->setSourceModel(mSearchChannelModel);
 
-    mSearchMessageModel = new SearchMessageModel(this);
+    mSearchMessageModel = new SearchMessageModel(this, this);
     mSearchMessageFilterProxyModel = new SearchMessageFilterProxyModel(this);
     mSearchMessageFilterProxyModel->setSourceModel(mSearchMessageModel);
 
@@ -1642,6 +1642,7 @@ void RocketChatAccount::threadsInRoom(const QString &roomId)
 void RocketChatAccount::discussionsInRoom(const QString &roomId)
 {
     if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
+        mDiscussionsModel->initialize();
         restApi()->getDiscussions(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::discussionsInRoom is not supported before server 1.0.0";
