@@ -39,7 +39,8 @@ public:
         CanBeDeleted,
         FileId,
         TimeStamp,
-        UserName
+        UserName,
+        SortByTimeStamp
     };
     Q_ENUM(UserRoles)
 
