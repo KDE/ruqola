@@ -142,7 +142,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mThreadsFilterProxyModel->setObjectName(QStringLiteral("threadsfiltermodelproxy"));
     mThreadsFilterProxyModel->setSourceModel(mThreadsModel);
 
-    mMentionsModel = new MentionsModel(this);
+    mMentionsModel = new MentionsModel(this, this);
     mMentionsModel->setObjectName(QStringLiteral("mentionsmodel"));
 
     mMentionsFilterProxyModel = new MentionsFilterProxyModel(this);

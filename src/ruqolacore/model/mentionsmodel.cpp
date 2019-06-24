@@ -19,15 +19,22 @@
 
 #include "mentionsmodel.h"
 #include "mentions.h"
-MentionsModel::MentionsModel(QObject *parent)
-    : QAbstractListModel(parent)
+#include "rocketchataccount.h"
+#include "textconverter.h"
+
+#include <QDateTime>
+
+MentionsModel::MentionsModel(RocketChatAccount *account, QObject *parent)
+    : QAbstractListModel(parent), mRocketChatAccount(account)
 {
     mMentions = new Mentions;
+    mTextConverter = new TextConverter(mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
 }
 
 MentionsModel::~MentionsModel()
 {
     delete mMentions;
+    delete mTextConverter;
 }
 
 void MentionsModel::initialize()
@@ -46,39 +53,93 @@ QVariant MentionsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mMentions->count()) {
         return {};
     }
-    const Mention mention = mMentions->at(index.row());
+    const int idx = index.row();
+    const Message &message = mMentions->at(idx);
     switch (role) {
-    case OriginalMessage:
-        return mention.text();
-    case MessageConvertedText:
-        //return mention.con; //TODO
-        return {};
-    case Username:
-        return mention.username();
-    case Timestamp:
-        return mention.timeStamp();
-    case UserId:
-        return mention.userId();
-    case MessageId:
-        return mention.messageId();
-    case RoomId:
-        return mention.roomId();
-    case UpdatedAt:
-        return mention.updatedAt();
-    case EditedByUserName:
-        return mention.editedByUsername();
-    case EditedByUserId:
-        return mention.editedByUserId();
-    case Alias:
-        return mention.alias();
-    case Avatar:
-        return mention.avatar();
-    case Roles:
-        return mention.role();
-    case Reactions:
+    case MentionsModel::Username:
+        return message.username();
+    case MentionsModel::OriginalMessage:
+        return message.text();
+    case MentionsModel::MessageConvertedText:
+        //TODO improve it.
+        if (message.messageType() == Message::System) {
+            return message.messageTypeText();
+        } else {
+#if 0
+            if (mRoom && mRoom->userIsIgnored(message.userId())) {
+                return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
+            }
+#endif
+            const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
+            return convertMessageText(message.text(), userName);
+        }
+
+    case MentionsModel::Timestamp:
+        return message.displayTime();
+    case MentionsModel::UserId:
+        return message.userId();
+    case MentionsModel::SystemMessageType:
+        return message.systemMessageType();
+    case MentionsModel::MessageId:
+        return message.messageId();
+    case MentionsModel::Alias:
+        return message.alias();
+    case MentionsModel::MessageType:
+        return message.messageType();
+    case MentionsModel::Avatar:
+        return message.avatar();
+    case MentionsModel::EditedAt:
+        return message.editedAt();
+    case MentionsModel::EditedByUserName:
+        return message.editedByUsername();
+    case MentionsModel::Attachments:
     {
         QVariantList lst;
-        const auto reactions = mention.reactions().reactions();
+        lst.reserve(message.attachements().count());
+        const auto attachs = message.attachements();
+        for (const MessageAttachment &att : attachs) {
+            lst.append(QVariant::fromValue(att));
+        }
+        return lst;
+    }
+    case MentionsModel::Urls:
+    {
+        QVariantList lst;
+        lst.reserve(message.urls().count());
+        const auto urls = message.urls();
+        for (const MessageUrl &url : urls) {
+            lst.append(QVariant::fromValue(url));
+        }
+        return lst;
+    }
+    case MentionsModel::Date:
+    {
+        QDateTime currentDate;
+        currentDate.setMSecsSinceEpoch(message.timeStamp());
+        return currentDate.date().toString();
+    }
+    case MentionsModel::CanEditMessage:
+        return false;
+    case MentionsModel::Starred:
+        return message.starred();
+    case MentionsModel::UsernameUrl:
+    {
+        const QString username = message.username();
+        if (username.isEmpty()) {
+            return {};
+        }
+        return QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(message.username());
+    }
+    case MentionsModel::Roles:
+    {
+        //const QString str = roomRoles(message.userId()).join(QLatin1Char(','));
+        //return str;
+        return QString();
+    }
+    case MentionsModel::Reactions:
+    {
+        QVariantList lst;
+        const auto reactions = message.reactions().reactions();
         lst.reserve(reactions.count());
         for (const Reaction &react : reactions) {
             //Convert reactions
@@ -86,8 +147,32 @@ QVariant MentionsModel::data(const QModelIndex &index, int role) const
         }
         return lst;
     }
+    case MentionsModel::Ignored:
+        return false;//mRoom && mRoom->userIsIgnored(message.userId());
+    case MentionsModel::Pinned:
+        return message.messagePinned().pinned();
+    case MentionsModel::DiscussionCount:
+        return message.discussionCount();
+    case MentionsModel::DiscussionRoomId:
+        return message.discussionRoomId();
+    case MentionsModel::DiscussionLastMessage:
+        return message.discussionLastMessage();
+    case MentionsModel::ThreadCount:
+        return message.threadCount();
+    case MentionsModel::ThreadLastMessage:
+        return message.threadLastMessage();
+    case MentionsModel::ThreadMessageId:
+        return message.threadMessageId();
+    case MentionsModel::ThreadMessagePreview:
+        return QString(); //threadMessagePreview(message.threadMessageId());
+    case MentionsModel::Groupable:
+        return message.groupable();
+    case MentionsModel::SortByTimeStamp:
+        return message.timeStamp();
     }
+
     return {};
+
 }
 
 void MentionsModel::setMentions(const Mentions &mentions)
@@ -112,6 +197,7 @@ QHash<int, QByteArray> MentionsModel::roleNames() const
     roles[Username] = QByteArrayLiteral("username");
     roles[Timestamp] = QByteArrayLiteral("timestamp");
     roles[UserId] = QByteArrayLiteral("userID");
+    roles[SystemMessageType] = QByteArrayLiteral("type");
     roles[MessageId] = QByteArrayLiteral("messageID");
     roles[RoomId] = QByteArrayLiteral("roomID");
     roles[UpdatedAt] = QByteArrayLiteral("updatedAt");
@@ -120,8 +206,25 @@ QHash<int, QByteArray> MentionsModel::roleNames() const
     roles[EditedByUserId] = QByteArrayLiteral("editedByUserID");
     roles[Alias] = QByteArrayLiteral("alias");
     roles[Avatar] = QByteArrayLiteral("avatar");
+    roles[Groupable] = QByteArrayLiteral("groupable");
+    roles[MessageType] = QByteArrayLiteral("messagetype");
+    roles[Attachments] = QByteArrayLiteral("attachments");
+    roles[Urls] = QByteArrayLiteral("urls");
+    roles[Date] = QByteArrayLiteral("date");
+    roles[CanEditMessage] = QByteArrayLiteral("canEditMessage");
+    roles[Starred] = QByteArrayLiteral("starred");
+    roles[UsernameUrl] = QByteArrayLiteral("usernameurl");
     roles[Roles] = QByteArrayLiteral("roles");
     roles[Reactions] = QByteArrayLiteral("reactions");
+    roles[Ignored] = QByteArrayLiteral("userIsIgnored");
+    roles[Pinned] = QByteArrayLiteral("pinned");
+    roles[DiscussionCount] = QByteArrayLiteral("discussionCount");
+    roles[DiscussionRoomId] = QByteArrayLiteral("discussionRoomId");
+    roles[DiscussionLastMessage] = QByteArrayLiteral("discussionLastMessage");
+    roles[ThreadCount] = QByteArrayLiteral("threadCount");
+    roles[ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
+    roles[ThreadMessageId] = QByteArrayLiteral("threadMessageId");
+    roles[ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
     return roles;
 }
 
@@ -158,8 +261,14 @@ Mentions *MentionsModel::mentions() const
 
 void MentionsModel::addMoreMentions(const QJsonObject &mentionsObj)
 {
+    qDebug() << " sss " << "MentionsModel::addMoreMentions(const QJsonObject &mentionsObj)";
     const int numberOfElement = mMentions->mentions().count();
     mMentions->parseMoreMentions(mentionsObj);
     beginInsertRows(QModelIndex(), numberOfElement, mMentions->mentions().count() - 1);
     endInsertRows();
+}
+
+QString MentionsModel::convertMessageText(const QString &str, const QString &userName) const
+{
+    return mTextConverter->convertMessageText(str, userName, {}/*mMentions->mentions() TODO*/);
 }

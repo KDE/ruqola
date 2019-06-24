@@ -23,15 +23,19 @@
 
 #include <QAbstractListModel>
 class Mentions;
+class RocketChatAccount;
+class TextConverter;
 class LIBRUQOLACORE_TESTS_EXPORT MentionsModel : public QAbstractListModel
 {
 public:
+    //Same as messageroles
     enum MessageRoles {
         Username = Qt::UserRole + 1,
         OriginalMessage,
         MessageConvertedText,
         Timestamp,
         UserId,
+        SystemMessageType,
         MessageId,
         RoomId,
         UpdatedAt,
@@ -40,12 +44,31 @@ public:
         EditedByUserId,
         Alias,
         Avatar,
+        Groupable,
+        ParseUrls,
+        MessageType,
+        Attachments,
+        Urls,
+        Date,
+        CanEditMessage,
+        Starred,
+        UsernameUrl,
         Roles,
         Reactions,
+        Ignored,
+        Pinned,
+        DiscussionCount,
+        DiscussionRoomId,
+        DiscussionLastMessage,
+        ThreadCount,
+        ThreadLastMessage,
+        ThreadMessageId,
+        ThreadMessagePreview,
+        SortByTimeStamp
     };
     Q_ENUM(MessageRoles)
 
-    explicit MentionsModel(QObject *parent = nullptr);
+    explicit MentionsModel(RocketChatAccount *account, QObject *parent = nullptr);
     ~MentionsModel() override;
 
     Q_REQUIRED_RESULT Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -65,7 +88,10 @@ public:
 
 private:
     Q_DISABLE_COPY(MentionsModel)
+    QString convertMessageText(const QString &str, const QString &userName) const;
     QString mRoomId;
+    TextConverter *mTextConverter = nullptr;
+    RocketChatAccount *mRocketChatAccount = nullptr;
     Mentions *mMentions = nullptr;
 };
 

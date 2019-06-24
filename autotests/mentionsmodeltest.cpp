@@ -30,7 +30,7 @@ MentionsModelTest::MentionsModelTest(QObject *parent)
 
 void MentionsModelTest::shouldHaveDefaultValue()
 {
-    MentionsModel w;
+    MentionsModel w(nullptr);
     QSignalSpy rowInsertedSpy(&w, &MentionsModel::rowsInserted);
     // (if it had 0 columns, it would have to emit column insertions, too much trouble)
     QCOMPARE(w.rowCount(), 0);
@@ -41,6 +41,7 @@ void MentionsModelTest::shouldHaveDefaultValue()
     roles[MentionsModel::Username] = QByteArrayLiteral("username");
     roles[MentionsModel::Timestamp] = QByteArrayLiteral("timestamp");
     roles[MentionsModel::UserId] = QByteArrayLiteral("userID");
+    roles[MentionsModel::SystemMessageType] = QByteArrayLiteral("type");
     roles[MentionsModel::MessageId] = QByteArrayLiteral("messageID");
     roles[MentionsModel::RoomId] = QByteArrayLiteral("roomID");
     roles[MentionsModel::UpdatedAt] = QByteArrayLiteral("updatedAt");
@@ -49,7 +50,24 @@ void MentionsModelTest::shouldHaveDefaultValue()
     roles[MentionsModel::EditedByUserId] = QByteArrayLiteral("editedByUserID");
     roles[MentionsModel::Alias] = QByteArrayLiteral("alias");
     roles[MentionsModel::Avatar] = QByteArrayLiteral("avatar");
+    roles[MentionsModel::Groupable] = QByteArrayLiteral("groupable");
+    roles[MentionsModel::MessageType] = QByteArrayLiteral("messagetype");
+    roles[MentionsModel::Attachments] = QByteArrayLiteral("attachments");
+    roles[MentionsModel::Urls] = QByteArrayLiteral("urls");
+    roles[MentionsModel::Date] = QByteArrayLiteral("date");
+    roles[MentionsModel::CanEditMessage] = QByteArrayLiteral("canEditMessage");
+    roles[MentionsModel::Starred] = QByteArrayLiteral("starred");
+    roles[MentionsModel::UsernameUrl] = QByteArrayLiteral("usernameurl");
     roles[MentionsModel::Roles] = QByteArrayLiteral("roles");
     roles[MentionsModel::Reactions] = QByteArrayLiteral("reactions");
+    roles[MentionsModel::Ignored] = QByteArrayLiteral("userIsIgnored");
+    roles[MentionsModel::Pinned] = QByteArrayLiteral("pinned");
+    roles[MentionsModel::DiscussionCount] = QByteArrayLiteral("discussionCount");
+    roles[MentionsModel::DiscussionRoomId] = QByteArrayLiteral("discussionRoomId");
+    roles[MentionsModel::DiscussionLastMessage] = QByteArrayLiteral("discussionLastMessage");
+    roles[MentionsModel::ThreadCount] = QByteArrayLiteral("threadCount");
+    roles[MentionsModel::ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
+    roles[MentionsModel::ThreadMessageId] = QByteArrayLiteral("threadMessageId");
+    roles[MentionsModel::ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
     QCOMPARE(w.roleNames(), roles);
 }

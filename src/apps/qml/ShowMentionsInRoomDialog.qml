@@ -64,27 +64,22 @@ QQC2.Dialog {
                 font.bold = true
             }
         }
-
-        ListView {
+        ActiveChat {
             id: listview
             Layout.fillWidth: true
             Layout.fillHeight: true
+            model: mentionsModel
+            rcAccount: appid.rocketChatAccount
+            roomId: appid.selectedRoomID
             clip: true
-            // Scrollars
-            QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
-            QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
+
+            QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
             onDragEnded : {
                 if (roomId !== "") {
                     appid.rocketChatAccount.loadMoreMentions(roomId)
                 }
             }
 
-            model: mentionsModel
-            delegate: Kirigami.BasicListItem {
-                label: originalMessage
-                //reserveSpaceForLabel: false
-                reserveSpaceForIcon: false
-            }
         }
     }
 }

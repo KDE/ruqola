@@ -24,9 +24,9 @@ MentionsFilterProxyModel::MentionsFilterProxyModel(QObject *parent)
 {
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(MentionsModel::Timestamp);
-    setSortRole(MentionsModel::Timestamp);
-    sort(0, Qt::DescendingOrder);
+    setFilterRole(MentionsModel::OriginalMessage);
+    setSortRole(MentionsModel::SortByTimeStamp);
+    sort(0, Qt::AscendingOrder);
 }
 
 MentionsFilterProxyModel::~MentionsFilterProxyModel()
