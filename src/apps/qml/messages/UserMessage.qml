@@ -39,6 +39,7 @@ MessageBase {
 
     id: messageMain
     Layout.alignment: Qt.AlignTop
+    //TODO disable it wgen we are not in real room (example mentions and co)
     Loader {
         id: messageMenuLoader
         active: false
