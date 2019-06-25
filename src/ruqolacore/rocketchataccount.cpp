@@ -91,6 +91,11 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mLoginMethodModel = new LoginMethodModel(this);
     mInputTextManager = new InputTextManager(this);
     connect(mInputTextManager, &InputTextManager::inputCompleter, this, &RocketChatAccount::inputAutocomplete);
+
+    mInputThreadMessageTextManager = new InputTextManager(this);
+    connect(mInputThreadMessageTextManager, &InputTextManager::inputCompleter, this, &RocketChatAccount::inputThreadMessageAutocomplete);
+
+
     mRuqolaServerConfig = new RuqolaServerConfig;
     mReceiveTypingNotificationManager = new ReceiveTypingNotificationManager(this);
 
@@ -1169,6 +1174,11 @@ PluginAuthenticationInterface *RocketChatAccount::defaultAuthenticationInterface
     return mDefaultAuthenticationInterface;
 }
 
+InputCompleterModel *RocketChatAccount::inputThreadMessageCompleterModel() const
+{
+    return mInputThreadMessageTextManager->inputCompleterModel();
+}
+
 InputCompleterModel *RocketChatAccount::inputCompleterModel() const
 {
     return mInputTextManager->inputCompleterModel();
@@ -1523,6 +1533,20 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
 
 void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)
 {
+    switch (type) {
+    case InputTextManager::CompletionForType::Channel:
+        ddp()->inputChannelAutocomplete(pattern, exceptions);
+        break;
+    case InputTextManager::CompletionForType::User:
+        ddp()->inputUserAutocomplete(pattern, exceptions);
+        break;
+    }
+}
+
+void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)
+{
+    //TODO
+    qDebug() << " void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)" << pattern;
     switch (type) {
     case InputTextManager::CompletionForType::Channel:
         ddp()->inputChannelAutocomplete(pattern, exceptions);

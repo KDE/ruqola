@@ -61,7 +61,7 @@ ColumnLayout {
         Layout.fillWidth: true
         placeholderText: i18n("Enter message...")
         onTextChanged: {
-            rcAccount.setInputTextChanged(text, cursorPosition);
+            appid.rocketChatAccount.setInputTextChanged(text, cursorPosition);
             if (listView.count > 0) {
                 showPopupCompleting()
             } else {
@@ -96,19 +96,19 @@ ColumnLayout {
         }
 
         onAccepted: {
-            if (text != "" && rcAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
+            if (text != "" && appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
                 //Modify text.
                 if (messageId !== "") {
                     //Reply against message
                     if (savePreviousMessage == "") {
-                        rcAccount.sendMessage(selectedRoomID, text, messageId);
+                        appid.rocketChatAccount.sendMessage(selectedRoomID, text, messageId);
                     } else if (text !== savePreviousMessage) {
-                        rcAccount.updateMessage(selectedRoomID, messageId, text);
+                        appid.rocketChatAccount.updateMessage(selectedRoomID, messageId, text);
                     }
                 } else if (threadmessageId !== "") { //Reply in thread
-                    rcAccount.replyOnThread(selectedRoomID, threadmessageId, text);
+                    appid.rocketChatAccount.replyOnThread(selectedRoomID, threadmessageId, text);
                 } else {
-                    rcAccount.sendMessage(selectedRoomID, text);
+                    appid.rocketChatAccount.sendMessage(selectedRoomID, text);
                 }
                 //clear all element
                 text = "";

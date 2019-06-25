@@ -54,6 +54,7 @@ QQC2.Dialog {
         }
         //TODO improve it.
         UserInput {
+            inputCompleterModel: appid.rocketChatAccount.inputThreadMessageCompleterModel()
             onUploadFile: {
                 uploadFileDialogLoader.active = true
             }

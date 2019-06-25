@@ -185,6 +185,7 @@ public:
     Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId, const QString &channelType);
     Q_INVOKABLE SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
     Q_INVOKABLE InputCompleterModel *inputCompleterModel() const;
+    Q_INVOKABLE InputCompleterModel *inputThreadMessageCompleterModel() const;
     Q_INVOKABLE LoginMethodModel *loginMethodModel() const;
     Q_INVOKABLE Room *getRoom(const QString &roomId);
 
@@ -333,6 +334,9 @@ public:
     Q_INVOKABLE void loadThreadMessagesHistory(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void loadMoreMentions(const QString &roomId);
     Q_INVOKABLE void loadMoreHistorySearch(const QString &roomId);
+
+
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -380,6 +384,7 @@ private:
     void checkInitializedRoom(const QString &roomId);
     void clearTypingNotification();
     void inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
+    void inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
 
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
@@ -408,6 +413,8 @@ private:
     SearchChannelFilterProxyModel *mSearchChannelFilterProxyModel = nullptr;
     LoginMethodModel *mLoginMethodModel = nullptr;
     InputTextManager *mInputTextManager = nullptr;
+
+    InputTextManager *mInputThreadMessageTextManager = nullptr;
 
     SearchMessageModel *mSearchMessageModel = nullptr;
     SearchMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
