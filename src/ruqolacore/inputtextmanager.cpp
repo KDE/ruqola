@@ -19,13 +19,11 @@
 */
 
 #include "inputtextmanager.h"
-#include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include "model/inputcompletermodel.h"
 
-InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
+InputTextManager::InputTextManager(QObject *parent)
     : QObject(parent)
-    , mAccount(account)
 {
     mInputCompleterModel = new InputCompleterModel(this);
 }
@@ -109,21 +107,19 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         clearCompleter();
         return;
     }
-    if (mAccount) {
-        const QString word = searchWord(text, position);
-        const QString str = word.right(word.length()-1);
-        if (word.isEmpty()) {
-            clearCompleter();
+    const QString word = searchWord(text, position);
+    const QString str = word.right(word.length()-1);
+    if (word.isEmpty()) {
+        clearCompleter();
+    } else {
+        if (word.startsWith(QLatin1Char('@'))) {
+            //FIXME word without @ ? and exception!
+            Q_EMIT inputCompleter(str, QString(), InputTextManager::CompletionForType::User);
+        } else if (word.startsWith(QLatin1Char('#'))) {
+            //FIXME word without @ ? and exception!
+            Q_EMIT inputCompleter(str, QString(), InputTextManager::CompletionForType::Channel);
         } else {
-            if (word.startsWith(QLatin1Char('@'))) {
-                //FIXME word without @ ? and exception!
-                mAccount->inputUserAutocomplete(str, QString());
-            } else if (word.startsWith(QLatin1Char('#'))) {
-                //FIXME word without @ ? and exception!
-                mAccount->inputChannelAutocomplete(str, QString());
-            } else {
-                clearCompleter();
-            }
+            clearCompleter();
         }
     }
 }

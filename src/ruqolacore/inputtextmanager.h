@@ -26,13 +26,17 @@
 
 #include "libruqola_private_export.h"
 class InputCompleterModel;
-class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit InputTextManager(RocketChatAccount *account, QObject *parent = nullptr);
+    enum CompletionForType {
+        Channel = 0,
+        User
+    };
+    explicit InputTextManager(QObject *parent = nullptr);
     ~InputTextManager();
+
 
     void setInputText(const QString &word);
 
@@ -48,10 +52,13 @@ public:
 
     //Only for autotests
     Q_REQUIRED_RESULT QString searchWord(const QString &text, int position);
+
+Q_SIGNALS:
+    void inputCompleter(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
+
 private:
     Q_DISABLE_COPY(InputTextManager)
     InputCompleterModel *mInputCompleterModel = nullptr;
-    RocketChatAccount *mAccount = nullptr;
 };
 
 #endif // INPUTTEXTMANAGER_H

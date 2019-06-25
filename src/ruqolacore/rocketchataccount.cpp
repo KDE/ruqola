@@ -89,7 +89,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mServerConfigInfo = new ServerConfigInfo(this, this);
     //Create it before loading settings
     mLoginMethodModel = new LoginMethodModel(this);
-    mInputTextManager = new InputTextManager(this, this);
+    mInputTextManager = new InputTextManager(this);
+    connect(mInputTextManager, &InputTextManager::inputCompleter, this, &RocketChatAccount::inputAutocomplete);
     mRuqolaServerConfig = new RuqolaServerConfig;
     mReceiveTypingNotificationManager = new ReceiveTypingNotificationManager(this);
 
@@ -1520,14 +1521,16 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     Q_EMIT notification(title, message, pix);
 }
 
-void RocketChatAccount::inputChannelAutocomplete(const QString &pattern, const QString &exceptions)
+void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)
 {
-    ddp()->inputChannelAutocomplete(pattern, exceptions);
-}
-
-void RocketChatAccount::inputUserAutocomplete(const QString &pattern, const QString &exceptions)
-{
-    ddp()->inputUserAutocomplete(pattern, exceptions);
+    switch (type) {
+    case InputTextManager::CompletionForType::Channel:
+        ddp()->inputChannelAutocomplete(pattern, exceptions);
+        break;
+    case InputTextManager::CompletionForType::User:
+        ddp()->inputUserAutocomplete(pattern, exceptions);
+        break;
+    }
 }
 
 void RocketChatAccount::inputTextCompleter(const QJsonObject &obj)

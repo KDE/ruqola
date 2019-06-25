@@ -28,6 +28,7 @@
 #include "libruqola_private_export.h"
 #include "authenticationinfo.h"
 #include "file.h"
+#include "inputtextmanager.h"
 class TypingNotification;
 class UsersModel;
 class RoomModel;
@@ -300,8 +301,6 @@ public:
 
     void insertCompleterUsers();
 
-    void inputChannelAutocomplete(const QString &pattern, const QString &exceptions);
-    void inputUserAutocomplete(const QString &pattern, const QString &exceptions);
     void inputTextCompleter(const QJsonObject &obj);
     PluginAuthenticationInterface *defaultAuthenticationInterface() const;
 
@@ -380,6 +379,8 @@ private:
 
     void checkInitializedRoom(const QString &roomId);
     void clearTypingNotification();
+    void inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
+
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 
