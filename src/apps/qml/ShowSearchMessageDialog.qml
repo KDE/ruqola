@@ -58,6 +58,7 @@ QQC2.Dialog {
             id: searchField
             placeholderText: i18n("Search Word...")
             Layout.fillWidth: true
+            Layout.alignment: Qt.AlignTop
             onAccepted: {
                 showSearchMessageDialog.searchMessage(text, roomId)
             }
@@ -73,11 +74,6 @@ QQC2.Dialog {
             clip: true
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
-            onDragEnded : {
-                if (roomId !== "" && listview.atYBeginning ) {
-                    //appid.rocketChatAccount.loadMoreMentions(roomId)
-                }
-            }
         }
     }
 }

@@ -51,6 +51,7 @@ QQC2.Dialog {
     contentItem: ColumnLayout {
         LineEditWithClearButton {
             id: searchField
+            Layout.alignment: Qt.AlignTop
             placeholderText: i18n("Search Mentions...")
             Layout.fillWidth: true
             onTextChanged: {
@@ -59,6 +60,7 @@ QQC2.Dialog {
         }
         QQC2.Label {
             text: listview.count === 0 ? i18n("No Mention found") : i18np("%1 mention in room", "%1 mentions in room", listview.count)
+            Layout.alignment: Qt.AlignTop
             Component.onCompleted: {
                 font.italic = true
                 font.bold = true
@@ -66,6 +68,7 @@ QQC2.Dialog {
         }
         ActiveChat {
             id: listview
+            Layout.alignment: Qt.AlignTop
             Layout.fillWidth: true
             Layout.fillHeight: true
             model: mentionsModel
