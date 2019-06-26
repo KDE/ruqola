@@ -161,6 +161,18 @@ void RocketChatAccountSettings::setPassword(const QString &password)
     Q_EMIT passwordChanged();
 }
 
+QString RocketChatAccountSettings::code() const
+{
+    return mCode;
+}
+
+void RocketChatAccountSettings::setCode(const QString &code)
+{
+    mCode = code;
+
+    Q_EMIT codeChanged();
+}
+
 QString RocketChatAccountSettings::userName() const
 {
     return mUserName;

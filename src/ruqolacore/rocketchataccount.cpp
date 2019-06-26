@@ -1213,6 +1213,11 @@ QString RocketChatAccount::password() const
     return settings()->password();
 }
 
+QString RocketChatAccount::code() const
+{
+    return settings()->code();
+}
+
 void RocketChatAccount::setAuthToken(const QString &token)
 {
     settings()->setAuthToken(token);
@@ -1221,6 +1226,11 @@ void RocketChatAccount::setAuthToken(const QString &token)
 void RocketChatAccount::setPassword(const QString &password)
 {
     settings()->setPassword(password);
+}
+
+void RocketChatAccount::setCode(const QString &code)
+{
+    settings()->setCode(code);
 }
 
 void RocketChatAccount::setUserName(const QString &username)

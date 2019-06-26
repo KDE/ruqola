@@ -57,6 +57,9 @@ public:
     Q_REQUIRED_RESULT QString password() const;
     void setPassword(const QString &password);
 
+    Q_REQUIRED_RESULT QString code() const;
+    void setCode(const QString &code);
+
     void removeSettings();
 
     Q_REQUIRED_RESULT bool showUnreadOnTop() const;
@@ -68,6 +71,7 @@ Q_SIGNALS:
     void userIDChanged();
     void accountNameChanged();
     void passwordChanged();
+    void codeChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccountSettings)
@@ -82,6 +86,7 @@ private:
     QString mCachePath;
     QString mUserName;
     QString mPassword;
+    QString mCode;
     QSettings *mSetting = nullptr;
     bool mShowUnreadOnTop = false;
 };

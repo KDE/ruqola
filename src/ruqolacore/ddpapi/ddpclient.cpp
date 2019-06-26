@@ -670,7 +670,7 @@ quint64 DDPClient::loginProvider(const QString &credentialToken, const QString &
 
 quint64 DDPClient::login(const QString &username, const QString &password)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->login(username, password, m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->login(username, password, mRocketChatAccount->settings()->code(), m_uid);
     return method(result, login_result, DDPClient::Ephemeral);
 }
 
@@ -827,10 +827,17 @@ void DDPClient::onTextMessageReceived(const QString &message)
             Q_EMIT result(id, QJsonDocument(root.value(QLatin1String("result")).toObject()));
 
             if (id == m_loginJob) {
-                if (root.value(QLatin1String("error")).toObject().value(QLatin1String("error")).toInt() == 403) {
+                QJsonObject error(root.value(QLatin1String("error")).toObject());
+                QJsonValue errorValue(error.value(QLatin1String("error")));
+                if (errorValue.toInt() == 403) {
                     qCDebug(RUQOLA_DDPAPI_LOG) << "Wrong password or token expired";
 
                     login(); // Let's keep trying to log in
+                } else if (errorValue.toString() == QLatin1String("totp-required")) {
+                    qCDebug(RUQOLA_DDPAPI_LOG) << "A 2FA code is required to login";
+                    setLoginStatus(LoginFailed);
+                } else if (!error.isEmpty()) {
+                    qCDebug(RUQOLA_DDPAPI_LOG) << error.value(QLatin1String("message")).toString();
                 } else {
                     const QString token = root.value(QLatin1String("result")).toObject().value(QLatin1String("token")).toString();
                     mRocketChatAccount->settings()->setAuthToken(token);

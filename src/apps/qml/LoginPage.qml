@@ -35,11 +35,13 @@ Login {
     username: rcAccount.userName
     originalAccountName: rcAccount.accountName
     password: rcAccount.password
+    code: rcAccount.code
     onAccepted: {
         //TODO ?
         //rcAccount.updateAccountSettings(loginTab.accountName, loginTab.password, loginTab.username, loginTab.serverUrl)
         rcAccount.accountName = loginTab.accountName;
         rcAccount.password = loginTab.password;
+        rcAccount.code = loginTab.code;
         rcAccount.userName = loginTab.username;
         rcAccount.serverUrl = loginTab.serverUrl;
         rcAccount.tryLogin();

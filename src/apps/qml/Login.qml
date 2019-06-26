@@ -35,6 +35,7 @@ Kirigami.Page {
     property QtObject rcAccount
     property alias username: usernameField.text;
     property alias password: passField.text;
+    property alias code: codeField.text;
     property alias serverUrl: urlField.text;
     property alias accountName: nameField.text;
 
@@ -154,6 +155,25 @@ Kirigami.Page {
         PasswordLineEdit {
             id: passField
             width: parent.width
+            onAccepted: {
+                if (acceptingButton.enabled) {
+                    acceptingButton.clicked();
+                }
+            }
+        }
+
+        QQC2.Label {
+            id: codeLabel
+
+            width: parent.width
+            text: i18n("Enter a 2FA code or a recovery code")
+            visible: rcAccount.loginStatus === DDPClient.LoginFailed
+        }
+
+        PasswordLineEdit {
+            id: codeField
+            width: parent.width
+            visible: rcAccount.loginStatus === DDPClient.LoginFailed
             onAccepted: {
                 if (acceptingButton.enabled) {
                     acceptingButton.clicked();

@@ -79,6 +79,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(QString serverUrl READ serverUrl WRITE setServerUrl NOTIFY serverUrlChanged)
     Q_PROPERTY(QString accountName READ accountName WRITE setAccountName NOTIFY accountNameChanged)
     Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
+    Q_PROPERTY(QString code READ code WRITE setCode NOTIFY codeChanged)
     Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
     Q_PROPERTY(bool editingMode READ editingMode NOTIFY editingModeChanged)
     Q_PROPERTY(bool sortUnreadOnTop READ sortUnreadOnTop NOTIFY sortUnreadOnTopChanged)
@@ -280,6 +281,9 @@ public:
     void setPassword(const QString &password);
     Q_REQUIRED_RESULT QString password() const;
 
+    void setCode(const QString &code);
+    Q_REQUIRED_RESULT QString code() const;
+
     void setAuthToken(const QString &token);
     Q_REQUIRED_RESULT QString authToken() const;
 
@@ -340,6 +344,7 @@ Q_SIGNALS:
     void userNameChanged();
     void userIDChanged();
     void passwordChanged();
+    void codeChanged();
     void serverUrlChanged();
     void loginStatusChanged();
     void logoutDone(const QString &accountname);
