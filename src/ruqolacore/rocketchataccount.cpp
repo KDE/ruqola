@@ -106,7 +106,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mRocketChatBackend = new RocketChatBackend(this, this);
 
     mEmoticonModel = new EmoticonModel(this);
-    //TODO
 
     //After loadSettings
     mEmojiManager = new EmojiManager(this);
@@ -1545,7 +1544,6 @@ void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString 
 
 void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)
 {
-    //TODO
     qDebug() << " void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)" << pattern;
     switch (type) {
     case InputTextManager::CompletionForType::Channel:
