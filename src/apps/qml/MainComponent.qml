@@ -650,6 +650,7 @@ Component {
                     roomId: appid.selectedRoomID
                     onOpenThread: {
                         appid.rocketChatAccount.getThreadMessages(threadMessageId)
+                        showThreadMessageDialogLoader.threadMessageId = threadMessageId
                         showThreadsInRoomDialogLoader.active = false
                         showThreadMessageDialogLoader.active = true
                     }

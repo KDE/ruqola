@@ -38,6 +38,7 @@ ColumnLayout {
     property string selectedRoomId
     property string messageId
     property string threadmessageId
+    property string selectedThreadMessage
 
     property QtObject inputCompleterModel
 
@@ -101,20 +102,26 @@ ColumnLayout {
         }
 
         onAccepted: {
-            if (text != "" && appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn && (messageLineItem.selectedRoomId !== "")) {
-                //Modify text.
-                if (messageId !== "") {
-                    //Reply against message
-                    if (savePreviousMessage == "") {
-                        appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text, messageId);
-                    } else if (text !== savePreviousMessage) {
-                        appid.rocketChatAccount.updateMessage(messageLineItem.selectedRoomId, messageId, text);
+            if (text != "" && appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn) {
+                console.log("messageLineItem.selectedThreadMessage" + messageLineItem.selectedThreadMessage)
+                if (messageLineItem.selectedRoomId !== "") {
+                    //Modify text.
+                    if (messageId !== "") {
+                        //Reply against message
+                        if (savePreviousMessage == "") {
+                            appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text, messageId);
+                        } else if (text !== savePreviousMessage) {
+                            appid.rocketChatAccount.updateMessage(messageLineItem.selectedRoomId, messageId, text);
+                        }
+                    } else if (threadmessageId !== "") { //Reply in thread
+                        appid.rocketChatAccount.replyOnThread(messageLineItem.selectedRoomId, threadmessageId, text);
+                    } else {
+                        appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text);
                     }
-                } else if (threadmessageId !== "") { //Reply in thread
-                    appid.rocketChatAccount.replyOnThread(messageLineItem.selectedRoomId, threadmessageId, text);
-                } else {
-                    appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text);
+                } else if (messageLineItem.selectedThreadMessage !== "") {
+                    console.log("In thread message")
                 }
+
                 //clear all element
                 text = "";
                 threadmessageId = "";

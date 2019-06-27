@@ -34,6 +34,7 @@ RowLayout {
     property string messageId
     property string threadmessageId
     property string selectedRoomId
+    property string selectedThreadMessage
     property QtObject inputCompleterModel
 
     signal textEditing(string str)
@@ -67,6 +68,7 @@ RowLayout {
         selectedRoomId: footerItem.selectedRoomId
         messageId: footerItem.messageId
         threadmessageId: footerItem.threadmessageId
+        selectedThreadMessage: footerItem.selectedThreadMessage
     }
     
     EmoticonMenu {
