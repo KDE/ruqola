@@ -77,9 +77,7 @@ RocketChatAccount *Ruqola::rocketChatAccount() const
 void Ruqola::sendNotification(const QString &title, const QString &message, const QPixmap &pixmap)
 {
     KNotification::event(KNotification::Notification, title,
-                         message, pixmap,
-                         nullptr,
-                         KNotification::Persistent | KNotification::SkipGrouping);
+                         message, pixmap);
 }
 
 Notification *Ruqola::notification()
