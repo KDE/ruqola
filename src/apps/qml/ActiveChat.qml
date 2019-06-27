@@ -50,6 +50,7 @@ ListView {
     property string roomId: ""
     property bool enableEditingMode: false
     property bool wasAtYEnd: true
+    property bool useMenuMessage: true
 
     spacing: 0//Kirigami.Units.smallSpacing
     highlightRangeMode: ListView.ApplyRange
@@ -116,6 +117,7 @@ ListView {
         i_threadPreview: threadMessagePreview
         i_tmid: threadMessageId
         i_groupable: groupable
+        i_useMenuMessage: useMenuMessage
 
         onOpenChannel: {
             activeChat.openChannel(channel)

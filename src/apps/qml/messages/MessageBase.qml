@@ -64,6 +64,7 @@ ColumnLayout {
     property string i_tmid
     property bool i_groupable
     property string i_threadPreview
+    property bool i_useMenuMessage
 
 
     property QtObject rcAccount

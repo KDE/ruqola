@@ -75,6 +75,7 @@ QQC2.Dialog {
             rcAccount: appid.rocketChatAccount
             roomId: appid.selectedRoomID
             clip: true
+            useMenuMessage: false
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
             onDragEnded : {

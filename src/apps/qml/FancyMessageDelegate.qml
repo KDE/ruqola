@@ -66,6 +66,8 @@ Rectangle {
     property int i_tcount
     property bool i_groupable
 
+    property bool i_useMenuMessage
+
 
 
     color: RuqolaSingleton.backgroundColor
@@ -110,6 +112,7 @@ Rectangle {
                                   i_messageID: i_messageID,
                                   i_avatar: i_avatar,
                                   i_date: i_date,
+                                  i_useMenuMessage: i_useMenuMessage,
                                   rcAccount: appid.rocketChatAccount
                               }
                               )
@@ -128,6 +131,7 @@ Rectangle {
                                   i_dcount: i_dcount,
                                   i_drid: i_drid,
                                   i_tcount: i_tcount,
+                                  i_useMenuMessage: i_useMenuMessage,
                                   i_groupable: i_groupable,
                                   i_tmid: i_tmid
                               }
@@ -162,6 +166,7 @@ Rectangle {
                               i_tcount: i_tcount,
                               i_groupable: i_groupable,
                               i_tmid: i_tmid,
+                              i_useMenuMessage: i_useMenuMessage,
                               i_threadPreview: i_threadPreview
 
                           }
@@ -191,6 +196,7 @@ Rectangle {
                               i_drid: i_drid,
                               i_tcount: i_tcount,
                               i_groupable: i_groupable,
+                              i_useMenuMessage: i_useMenuMessage,
                               i_tmid: i_tmid
                           })
             } else if (i_messageType === Message.Video) {
@@ -218,6 +224,7 @@ Rectangle {
                               i_drid: i_drid,
                               i_tcount: i_tcount,
                               i_groupable: i_groupable,
+                              i_useMenuMessage: i_useMenuMessage,
                               i_tmid: i_tmid
                           })
             } else if (i_messageType === Message.Image) {
@@ -244,6 +251,7 @@ Rectangle {
                               i_dcount: i_dcount,
                               i_drid: i_drid,
                               i_tcount: i_tcount,
+                              i_useMenuMessage: i_useMenuMessage,
                               i_groupable: i_groupable,
                               i_tmid: i_tmid
                           })

@@ -356,6 +356,7 @@ Component {
             roomId: appid.selectedRoomID
             anchors.fill: parent
             clip: true
+            useMenuMessage: true
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
             onDragEnded : {

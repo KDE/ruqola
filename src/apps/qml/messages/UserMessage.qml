@@ -90,13 +90,15 @@ MessageBase {
                         acceptedButtons: Qt.RightButton
 
                         onClicked: {
-                            if (mouse.button === Qt.RightButton) {
-                                messageMenuLoader.posX = mouse.x
-                                messageMenuLoader.posY = mouse.y
-                                if (messageMenuLoader.active)
-                                    messageMenuLoader.active = false
-                                else
-                                    messageMenuLoader.active = true
+                            if (i_useMenuMessage) {
+                                if (mouse.button === Qt.RightButton) {
+                                    messageMenuLoader.posX = mouse.x
+                                    messageMenuLoader.posY = mouse.y
+                                    if (messageMenuLoader.active)
+                                        messageMenuLoader.active = false
+                                    else
+                                        messageMenuLoader.active = true
+                                }
                             }
                         }
                     }
@@ -273,6 +275,7 @@ MessageBase {
             }
         }
         ReactionsPopup {
+            visible: i_useMenuMessage
             onInsertReaction: {
                 messageMain.addReaction(i_messageID, emoji)
             }
