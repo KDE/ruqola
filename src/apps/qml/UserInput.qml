@@ -33,6 +33,7 @@ RowLayout {
     property alias messageLineText: messageLine.messageLineText
     property string messageId
     property string threadmessageId
+    property string selectedRoomId
     property QtObject inputCompleterModel
 
     signal textEditing(string str)
@@ -49,7 +50,7 @@ RowLayout {
     Kirigami.Icon {
         id: attachment
 
-        enabled: selectedRoomID !== ""
+        enabled: selectedRoomId !== ""
         source: "document-send-symbolic"
         width: height
         height: messageLine.height
@@ -63,6 +64,9 @@ RowLayout {
     MessageLine {
         id: messageLine
         inputCompleterModel: footerItem.inputCompleterModel
+        selectedRoomId: footerItem.selectedRoomId
+        messageId: footerItem.messageId
+        threadmessageId: footerItem.threadmessageId
     }
     
     EmoticonMenu {

@@ -31,9 +31,14 @@ import KDE.Ruqola.DDPClient 1.0
 import org.kde.kirigami 2.7 as Kirigami
 
 ColumnLayout {
+    id: messageLineItem
     property alias messageLineText: messageLine.text
     property string savePreviousMessage
     readonly property int popupheight: 100
+    property string selectedRoomId
+    property string messageId
+    property string threadmessageId
+
     property QtObject inputCompleterModel
 
     function sendMessage()
@@ -96,19 +101,19 @@ ColumnLayout {
         }
 
         onAccepted: {
-            if (text != "" && appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn && (selectedRoomID !== "")) {
+            if (text != "" && appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn && (messageLineItem.selectedRoomId !== "")) {
                 //Modify text.
                 if (messageId !== "") {
                     //Reply against message
                     if (savePreviousMessage == "") {
-                        appid.rocketChatAccount.sendMessage(selectedRoomID, text, messageId);
+                        appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text, messageId);
                     } else if (text !== savePreviousMessage) {
-                        appid.rocketChatAccount.updateMessage(selectedRoomID, messageId, text);
+                        appid.rocketChatAccount.updateMessage(messageLineItem.selectedRoomId, messageId, text);
                     }
                 } else if (threadmessageId !== "") { //Reply in thread
-                    appid.rocketChatAccount.replyOnThread(selectedRoomID, threadmessageId, text);
+                    appid.rocketChatAccount.replyOnThread(messageLineItem.selectedRoomId, threadmessageId, text);
                 } else {
-                    appid.rocketChatAccount.sendMessage(selectedRoomID, text);
+                    appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text);
                 }
                 //clear all element
                 text = "";
@@ -169,7 +174,7 @@ ColumnLayout {
 
     function textSelected(completerName) {
         if (listView.currentItem) {
-            messageLine.text = rcAccount.replaceWord(completerName + " ", messageLine.text, messageLine.cursorPosition)
+            messageLine.text = appid.rocketChatAccount.replaceWord(completerName + " ", messageLine.text, messageLine.cursorPosition)
         }
         popup.close()
     }

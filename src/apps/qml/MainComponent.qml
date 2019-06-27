@@ -744,6 +744,7 @@ Component {
                     inputCompleterModel: rcAccount.inputCompleterModel()
                     visible: appid.selectedRoom && (appid.selectedRoom.roomMessageInfo.length === 0)
                     messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
+                    selectedRoomId: appid.selectedRoomID
                     onTextEditing: {
                         rcAccount.textEditing(appid.selectedRoomID, str)
                         appid.userInputMessageText = str;
