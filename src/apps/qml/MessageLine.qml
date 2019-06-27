@@ -103,8 +103,10 @@ ColumnLayout {
 
         onAccepted: {
             if (text != "" && appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn) {
-                console.log("messageLineItem.selectedThreadMessage" + messageLineItem.selectedThreadMessage)
-                if (messageLineItem.selectedRoomId !== "") {
+                if (messageLineItem.selectedThreadMessage !== "") {
+                    console.log("In thread message" + messageLineItem.selectedThreadMessage + messageLineItem.selectedRoomId)
+                    appid.rocketChatAccount.replyOnThread(messageLineItem.selectedRoomId, messageLineItem.selectedThreadMessage, text);
+                } else if (messageLineItem.selectedRoomId !== "") {
                     //Modify text.
                     if (messageId !== "") {
                         //Reply against message
@@ -118,8 +120,6 @@ ColumnLayout {
                     } else {
                         appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text);
                     }
-                } else if (messageLineItem.selectedThreadMessage !== "") {
-                    console.log("In thread message")
                 }
 
                 //clear all element

@@ -59,7 +59,7 @@ QQC2.Dialog {
             rcAccount: appid.rocketChatAccount
             visible: appid.selectedRoom && (appid.selectedRoom.roomMessageInfo.length === 0)
             messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
-            //selectedRoomId: appid.selectedRoomID
+            selectedRoomId: appid.selectedRoomID
             selectedThreadMessage: threadMessageId
 
 
