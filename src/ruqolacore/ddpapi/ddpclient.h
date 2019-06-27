@@ -239,7 +239,6 @@ private:
     bool m_connected = false;
 
     bool m_attemptedPasswordLogin = false;
-    bool m_attemptedTokenLogin = false;
 
     /**
     * @brief Abstract queue for all requests regarding network management

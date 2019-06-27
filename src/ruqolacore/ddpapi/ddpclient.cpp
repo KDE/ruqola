@@ -202,15 +202,12 @@ void login_result(const QJsonObject &obj, RocketChatAccount *account)
     } else {
         qCWarning(RUQOLA_DDPAPI_LOG) << "Login result: "<< obj;
     }
-#if 0 //Show expire token date ~90 days !
+
     const QJsonObject result = obj.value(QLatin1String("result")).toObject();
-    qDebug() << " result token " << result[QStringLiteral("token")].toString();
+    //qDebug() << " result token " << result[QStringLiteral("token")].toString();
     const qint64 tokenExpires = Utils::parseDate(QStringLiteral("tokenExpires"), result);
-    qDebug() << " result tokenExpires " << tokenExpires;
-    const QDateTime tokenExpiresDateTime = QDateTime::fromMSecsSinceEpoch(tokenExpires);
-    qDebug() << " tokenExpiresDateTime" << tokenExpiresDateTime;
-    qDebug() << " currentdatetime" << QDateTime::currentDateTime().toMSecsSinceEpoch();
-#endif
+    //qDebug() << " result tokenExpires " << tokenExpires;
+    account->settings()->setExpireToken(tokenExpires);
 }
 
 void create_channel(const QJsonObject &root, RocketChatAccount *account)
@@ -234,7 +231,6 @@ DDPClient::DDPClient(RocketChatAccount *account, QObject *parent)
     , m_loginStatus(NotConnected)
     , m_connected(false)
     , m_attemptedPasswordLogin(false)
-    , m_attemptedTokenLogin(false)
     , mRocketChatMessage(new RocketChatMessage)
     , mRocketChatAccount(account)
 {
@@ -329,7 +325,6 @@ void DDPClient::setLoginStatus(DDPClient::LoginStatus l)
     // reset flags
     if (l == LoginFailed) {
         m_attemptedPasswordLogin = false;
-        m_attemptedTokenLogin = false;
     }
 }
 
@@ -901,7 +896,7 @@ void DDPClient::login()
             qCWarning(RUQOLA_DDPAPI_LOG) <<"No plugins loaded. Please verify your installation.";
             setLoginStatus(FailedToLoginPluginProblem);
         }
-    } else if (!mRocketChatAccount->settings()->authToken().isEmpty() && !m_attemptedTokenLogin) {
+    } else if (!mRocketChatAccount->settings()->authToken().isEmpty() && !mRocketChatAccount->settings()->tokenExpired()) {
         m_attemptedPasswordLogin = true;
         QJsonObject json;
         json[QStringLiteral("resume")] = mRocketChatAccount->settings()->authToken();

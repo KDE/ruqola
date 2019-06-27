@@ -23,6 +23,7 @@
 #include "ruqola_debug.h"
 #include <config-ruqola.h>
 
+#include <QDateTime>
 #include <QFile>
 #include <QSettings>
 #include <QStandardPaths>
@@ -54,6 +55,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mUserName = mSetting->value(QStringLiteral("username")).toString();
     mUserId = mSetting->value(QStringLiteral("userID")).toString();
     mAuthToken = mSetting->value(QStringLiteral("authToken")).toString();
+    mExpireToken = mSetting->value(QStringLiteral("expireToken")).toLongLong();
     mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
     mShowUnreadOnTop = mSetting->value(QStringLiteral("showunreadontop")).toBool();
 #if HAVE_QT5KEYCHAIN
@@ -86,6 +88,25 @@ void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
         qCWarning(RUQOLA_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
     }
 #endif
+}
+
+qint64 RocketChatAccountSettings::expireToken() const
+{
+    return mExpireToken;
+}
+
+void RocketChatAccountSettings::setExpireToken(const qint64 &expireToken)
+{
+    if (mExpireToken != expireToken) {
+        mExpireToken = expireToken;
+        mSetting->setValue(QStringLiteral("expireToken"), mExpireToken);
+        mSetting->sync();
+    }
+}
+
+bool RocketChatAccountSettings::tokenExpired() const
+{
+    return mExpireToken < QDateTime::currentDateTime().toMSecsSinceEpoch();
 }
 
 bool RocketChatAccountSettings::showUnreadOnTop() const
@@ -135,10 +156,12 @@ void RocketChatAccountSettings::setAuthToken(const QString &authToken)
 void RocketChatAccountSettings::logout()
 {
     mSetting->setValue(QStringLiteral("authToken"), QString());
+    mSetting->setValue(QStringLiteral("expireToken"), -1);
     mSetting->sync();
     mAuthToken.clear();
     mUserId.clear();
     mPassword.clear();
+    mExpireToken = -1;
 }
 
 QString RocketChatAccountSettings::password() const

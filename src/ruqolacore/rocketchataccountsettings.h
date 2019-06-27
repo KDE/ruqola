@@ -62,6 +62,11 @@ public:
     Q_REQUIRED_RESULT bool showUnreadOnTop() const;
     bool setShowUnreadOnTop(bool showUnreadOnTop);
 
+    Q_REQUIRED_RESULT qint64 expireToken() const;
+    void setExpireToken(const qint64 &expireToken);
+
+    Q_REQUIRED_RESULT bool tokenExpired() const;
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
@@ -82,6 +87,7 @@ private:
     QString mCachePath;
     QString mUserName;
     QString mPassword;
+    qint64 mExpireToken = -1;
     QSettings *mSetting = nullptr;
     bool mShowUnreadOnTop = false;
 };
