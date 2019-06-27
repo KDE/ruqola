@@ -40,6 +40,7 @@ enum class RestApiUrlType {
     UsersResetAvatar,
     UsersSetAvatar,
     UsersUpdate,
+    UsersPresence, /*since 1.1.0*/
     UsersGetUsernameSuggestion,
     UsersRemovePersonalAccessToken,
     UsersGeneratePersonalAccessToken,
