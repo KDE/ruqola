@@ -107,14 +107,14 @@ Kirigami.ApplicationWindow {
                     Qt.openUrlExternally("https://bugs.kde.org/report.cgi");
                 }
             },
-            Kirigami.Action {
-                text: i18n("Configure Account")
-                iconName: "settings-configure"
-                onTriggered: {
-                    configureServerList.visible = true
-                    pageStack.visible = false
-                }
-            },
+//            Kirigami.Action {
+//                text: i18n("Configure Account")
+//                iconName: "settings-configure"
+//                onTriggered: {
+//                    configureServerList.visible = true
+//                    pageStack.visible = false
+//                }
+//            },
             Kirigami.Action {
                 text: i18n("Handbook")
                 iconName: "system-help"
