@@ -59,7 +59,7 @@ QQC2.Dialog {
             }
         }
         QQC2.Label {
-            text: listview.count === 0 ? i18n("No Mention found") : i18np("%1 mention in room", "%1 mentions in room", listview.count)
+            text: listview.count === 0 ? i18n("No Mention found") : i18np("%1 mention in room (Total: %2)", "%1 mentions in room (Total: %2)", listview.count, mentionsModel.total())
             Layout.alignment: Qt.AlignTop
             Component.onCompleted: {
                 font.italic = true

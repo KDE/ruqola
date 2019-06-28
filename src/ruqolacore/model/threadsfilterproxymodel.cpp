@@ -51,3 +51,8 @@ void ThreadsFilterProxyModel::clearFilter()
 {
     setFilterFixedString(QString());
 }
+
+int ThreadsFilterProxyModel::total() const
+{
+    return static_cast<ThreadsModel *>(sourceModel())->total();
+}

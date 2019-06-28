@@ -56,6 +56,7 @@ public:
     void addMoreThreads(const QJsonObject &threadsObj);
     Threads *threads() const;
 
+    Q_REQUIRED_RESULT int total() const;
 private:
     Q_DISABLE_COPY(ThreadsModel)
     QString mRoomId;

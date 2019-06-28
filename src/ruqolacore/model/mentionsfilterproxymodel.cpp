@@ -45,3 +45,8 @@ void MentionsFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);
 }
+
+int MentionsFilterProxyModel::total() const
+{
+    return static_cast<MentionsModel *>(sourceModel())->total();
+}

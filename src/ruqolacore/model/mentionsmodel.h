@@ -86,6 +86,8 @@ public:
     void parseMentions(const QJsonObject &mentionsObj, const QString &roomId);
     Mentions *mentions() const;
 
+    Q_REQUIRED_RESULT int total() const;
+
 private:
     Q_DISABLE_COPY(MentionsModel)
     QString convertMessageText(const QString &str, const QString &userName) const;

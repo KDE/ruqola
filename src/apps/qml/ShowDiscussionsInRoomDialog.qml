@@ -60,7 +60,7 @@ QQC2.Dialog {
 
 
         QQC2.Label {
-            text: listview.count === 0 ? i18n("No Discussion found") : i18np("%1 discussion in room", "%1 discussions in room", listview.count)
+            text: listview.count === 0 ? i18n("No Discussion found") : i18np("%1 discussion in room (Total: %2)", "%1 discussions in room (Total: %2)", listview.count, discussionsModel.total())
             Component.onCompleted: {
                 font.italic = true
                 font.bold = true

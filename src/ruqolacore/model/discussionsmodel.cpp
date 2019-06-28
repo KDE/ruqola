@@ -65,6 +65,14 @@ Discussions *DiscussionsModel::discussions() const
     return mDiscussions;
 }
 
+int DiscussionsModel::total() const
+{
+    if (mDiscussions) {
+        return mDiscussions->total();
+    }
+    return -1;
+}
+
 void DiscussionsModel::parseDiscussions(const QJsonObject &discussionsObj, const QString &roomId)
 {
     mRoomId = roomId;

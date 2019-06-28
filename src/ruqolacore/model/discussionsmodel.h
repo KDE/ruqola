@@ -57,6 +57,7 @@ public:
 
     void addMoreDiscussions(const QJsonObject &discussionsObj);
     Discussions *discussions() const;
+    Q_REQUIRED_RESULT int total() const;
 
 private:
     Q_DISABLE_COPY(DiscussionsModel)

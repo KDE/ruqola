@@ -256,6 +256,14 @@ Mentions *MentionsModel::mentions() const
     return mMentions;
 }
 
+int MentionsModel::total() const
+{
+    if (mMentions) {
+        return mMentions->total();
+    }
+    return -1;
+}
+
 void MentionsModel::addMoreMentions(const QJsonObject &mentionsObj)
 {
     const int numberOfElement = mMentions->mentions().count();

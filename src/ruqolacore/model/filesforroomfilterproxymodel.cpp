@@ -49,3 +49,8 @@ void FilesForRoomFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);
 }
+
+int FilesForRoomFilterProxyModel::total() const
+{
+    return static_cast<FilesForRoomModel *>(sourceModel())->total();
+}

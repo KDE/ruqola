@@ -50,3 +50,8 @@ void DiscussionsFilterProxyModel::clearFilter()
 {
     setFilterFixedString(QString());
 }
+
+int DiscussionsFilterProxyModel::total() const
+{
+    return static_cast<DiscussionsModel *>(sourceModel())->total();
+}

@@ -143,3 +143,11 @@ FileAttachments *FilesForRoomModel::fileAttachments() const
 {
     return mFileAttachments;
 }
+
+int FilesForRoomModel::total() const
+{
+    if (mFileAttachments) {
+        return mFileAttachments->total();
+    }
+    return -1;
+}

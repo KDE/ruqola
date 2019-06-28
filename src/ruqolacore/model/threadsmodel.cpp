@@ -128,3 +128,11 @@ void ThreadsModel::parseThreads(const QJsonObject &threadsObj, const QString &ro
         endInsertRows();
     }
 }
+
+int ThreadsModel::total() const
+{
+    if (mThreads) {
+        return mThreads->total();
+    }
+    return -1;
+}
