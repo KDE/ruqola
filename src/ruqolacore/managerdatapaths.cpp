@@ -50,7 +50,7 @@ QString ManagerDataPaths::path(ManagerDataPaths::PathType type, const QString &a
     switch (type) {
     case Picture:
     case Video:
-        path += QStringLiteral("/recordings");
+        path += QStringLiteral("/Ruqola/recordings");
         break;
     case Config:
     case Cache:
