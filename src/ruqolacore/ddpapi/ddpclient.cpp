@@ -881,7 +881,12 @@ quint64 DDPClient::loadHistory(const QJsonArray &params)
 
 void DDPClient::login()
 {
-    if (!mRocketChatAccount->settings()->password().isEmpty()) {
+    if (!mRocketChatAccount->settings()->authToken().isEmpty() && !mRocketChatAccount->settings()->tokenExpired()) {
+        m_attemptedPasswordLogin = true;
+        QJsonObject json;
+        json[QStringLiteral("resume")] = mRocketChatAccount->settings()->authToken();
+        m_loginJob = method(QStringLiteral("login"), QJsonDocument(json));
+    } else if (!mRocketChatAccount->settings()->password().isEmpty()) {
         // If we have a password and we couldn't log in, let's stop here
         if (m_attemptedPasswordLogin) {
             setLoginStatus(LoginFailed);
@@ -896,11 +901,6 @@ void DDPClient::login()
             qCWarning(RUQOLA_DDPAPI_LOG) <<"No plugins loaded. Please verify your installation.";
             setLoginStatus(FailedToLoginPluginProblem);
         }
-    } else if (!mRocketChatAccount->settings()->authToken().isEmpty() && !mRocketChatAccount->settings()->tokenExpired()) {
-        m_attemptedPasswordLogin = true;
-        QJsonObject json;
-        json[QStringLiteral("resume")] = mRocketChatAccount->settings()->authToken();
-        m_loginJob = method(QStringLiteral("login"), QJsonDocument(json));
     } else {
         setLoginStatus(LoginFailed);
     }
