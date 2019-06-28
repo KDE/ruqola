@@ -211,7 +211,6 @@ int SearchMessageModel::rowCount(const QModelIndex &parent) const
 
 void SearchMessageModel::parseResult(const QJsonObject &obj, bool restApi)
 {
-    qDebug() << " void SearchMessageModel::parseResult(const QJsonObject &obj, bool restApi)"<<obj;
     QVector<SearchMessage> messages;
     const QJsonArray messagesObj = obj.value(QLatin1String("messages")).toArray();
     for (int i = 0; i < messagesObj.size(); i++) {
