@@ -95,7 +95,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mInputThreadMessageTextManager = new InputTextManager(this);
     connect(mInputThreadMessageTextManager, &InputTextManager::inputCompleter, this, &RocketChatAccount::inputThreadMessageAutocomplete);
 
-
     mRuqolaServerConfig = new RuqolaServerConfig;
     mReceiveTypingNotificationManager = new ReceiveTypingNotificationManager(this);
 

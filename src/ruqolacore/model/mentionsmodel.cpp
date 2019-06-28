@@ -25,7 +25,8 @@
 #include <QDateTime>
 
 MentionsModel::MentionsModel(RocketChatAccount *account, QObject *parent)
-    : QAbstractListModel(parent), mRocketChatAccount(account)
+    : QAbstractListModel(parent)
+    , mRocketChatAccount(account)
 {
     mMentions = new Mentions;
     mTextConverter = new TextConverter(mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
@@ -131,11 +132,9 @@ QVariant MentionsModel::data(const QModelIndex &index, int role) const
         return QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(message.username());
     }
     case MentionsModel::Roles:
-    {
         //const QString str = roomRoles(message.userId()).join(QLatin1Char(','));
         //return str;
         return QString();
-    }
     case MentionsModel::Reactions:
     {
         QVariantList lst;
@@ -172,7 +171,6 @@ QVariant MentionsModel::data(const QModelIndex &index, int role) const
     }
 
     return {};
-
 }
 
 void MentionsModel::setMentions(const Mentions &mentions)
@@ -258,7 +256,6 @@ Mentions *MentionsModel::mentions() const
     return mMentions;
 }
 
-
 void MentionsModel::addMoreMentions(const QJsonObject &mentionsObj)
 {
     const int numberOfElement = mMentions->mentions().count();
@@ -269,5 +266,5 @@ void MentionsModel::addMoreMentions(const QJsonObject &mentionsObj)
 
 QString MentionsModel::convertMessageText(const QString &str, const QString &userName) const
 {
-    return mTextConverter->convertMessageText(str, userName, {}/*mMentions->mentions() TODO*/);
+    return mTextConverter->convertMessageText(str, userName, {} /*mMentions->mentions() TODO*/);
 }

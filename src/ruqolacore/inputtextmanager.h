@@ -37,7 +37,6 @@ public:
     explicit InputTextManager(QObject *parent = nullptr);
     ~InputTextManager();
 
-
     void setInputText(const QString &word);
 
     Q_REQUIRED_RESULT InputCompleterModel *inputCompleterModel() const;

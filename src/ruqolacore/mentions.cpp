@@ -70,7 +70,6 @@ void Mentions::setTotal(int total)
     mTotal = total;
 }
 
-
 QVector<Mention> Mentions::mentions() const
 {
     return mMentions;
@@ -109,7 +108,6 @@ void Mentions::parseMentionsObj(const QJsonObject &discussionsObj)
         }
     }
 }
-
 
 bool Mentions::operator ==(const Mentions &other) const
 {

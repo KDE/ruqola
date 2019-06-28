@@ -27,7 +27,8 @@
 #include <QJsonArray>
 
 SearchMessageModel::SearchMessageModel(RocketChatAccount *account, QObject *parent)
-    : QAbstractListModel(parent), mRocketChatAccount(account)
+    : QAbstractListModel(parent)
+    , mRocketChatAccount(account)
 {
     mTextConverter = new TextConverter(mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr);
 }
@@ -120,11 +121,9 @@ QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
         return QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(message.username());
     }
     case SearchMessageModel::Roles:
-    {
         //const QString str = roomRoles(message.userId()).join(QLatin1Char(','));
         //return str;
         return QString();
-    }
     case SearchMessageModel::Reactions:
     {
         QVariantList lst;
@@ -161,7 +160,6 @@ QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
     }
 
     return {};
-
 }
 
 QHash<int, QByteArray> SearchMessageModel::roleNames() const
@@ -248,5 +246,5 @@ void SearchMessageModel::setMessages(const QVector<SearchMessage> &messages)
 
 QString SearchMessageModel::convertMessageText(const QString &str, const QString &userName) const
 {
-    return mTextConverter->convertMessageText(str, userName, {}/*mMentions->mentions() TODO*/);
+    return mTextConverter->convertMessageText(str, userName, {} /*mMentions->mentions() TODO*/);
 }

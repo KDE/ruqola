@@ -339,8 +339,6 @@ public:
     Q_INVOKABLE void loadMoreMentions(const QString &roomId);
     Q_INVOKABLE void loadMoreHistorySearch(const QString &roomId);
 
-
-
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -390,7 +388,6 @@ private:
     void clearTypingNotification();
     void inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
     void inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
-
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 
