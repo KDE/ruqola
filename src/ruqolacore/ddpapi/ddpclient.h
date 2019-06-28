@@ -43,6 +43,7 @@ public:
         LoggingIn,
         LoggedIn,
         LoginFailed,
+        LoginCodeRequired,
         LoggedOut,
         FailedToLoginPluginProblem
     };

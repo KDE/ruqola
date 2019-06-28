@@ -35,6 +35,7 @@ Kirigami.Page {
     property QtObject rcAccount
     property alias username: usernameField.text;
     property alias password: passField.text;
+    property alias twoFactorAuthenticationCode: twoFactorAuthenticationCodeField.text;
     property alias serverUrl: urlField.text;
     property alias accountName: nameField.text;
 
@@ -154,6 +155,29 @@ Kirigami.Page {
         PasswordLineEdit {
             id: passField
             width: parent.width
+            onAccepted: {
+                if (acceptingButton.enabled) {
+                    acceptingButton.clicked();
+                }
+            }
+        }
+
+        QQC2.Label {
+            id: twoFactorAuthenticationCodeLabel
+
+            width: parent.width
+            wrapMode: Text.Wrap
+            text: i18n("You have enabled second factor authentication. Please enter the generated code or a backup code.")
+            color: Kirigami.Theme.negativeTextColor
+            font.bold: true
+            visible: rcAccount.loginStatus === DDPClient.LoginCodeRequired
+        }
+
+        PasswordLineEdit {
+            id: twoFactorAuthenticationCodeField
+            width: parent.width
+            placeholderText: i18n("Two-factor authentication code or backup code")
+            visible: rcAccount.loginStatus === DDPClient.LoginCodeRequired
             onAccepted: {
                 if (acceptingButton.enabled) {
                     acceptingButton.clicked();

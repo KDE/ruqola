@@ -91,7 +91,7 @@ public:
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult roomFiles(const QString &roomId, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult searchRoomUsers(const QString &pattern, const QString &exceptions, bool searchUser, bool searchRoom, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult addUserToRoom(const QString &username, const QString &roomId, quint64 id);
-    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult login(const QString &username, const QString &password, quint64 id);
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult login(const QString &username, const QString &password, const QString &twoFactorAuthenticationCode, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult inputChannelAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult inputUserAutocomplete(const QString &pattern, const QString &exceptions, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult loginProvider(const QString &credentialToken, const QString &credentialSecretd, quint64 id);

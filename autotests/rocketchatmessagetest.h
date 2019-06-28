@@ -80,6 +80,7 @@ private Q_SLOTS:
 
     void shouldAddUserToRoom();
     void shouldLogin();
+    void shouldLoginCode();
 
     void inputChannelAutocomplete();
 

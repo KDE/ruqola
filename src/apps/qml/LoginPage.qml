@@ -35,11 +35,13 @@ Login {
     username: rcAccount.userName
     originalAccountName: rcAccount.accountName
     password: rcAccount.password
+    twoFactorAuthenticationCode: rcAccount.twoFactorAuthenticationCode
     onAccepted: {
         //TODO ?
         //rcAccount.updateAccountSettings(loginTab.accountName, loginTab.password, loginTab.username, loginTab.serverUrl)
         rcAccount.accountName = loginTab.accountName;
         rcAccount.password = loginTab.password;
+        rcAccount.twoFactorAuthenticationCode = loginTab.twoFactorAuthenticationCode;
         rcAccount.userName = loginTab.username;
         rcAccount.serverUrl = loginTab.serverUrl;
         rcAccount.tryLogin();

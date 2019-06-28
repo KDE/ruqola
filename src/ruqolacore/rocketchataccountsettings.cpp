@@ -184,6 +184,20 @@ void RocketChatAccountSettings::setPassword(const QString &password)
     Q_EMIT passwordChanged();
 }
 
+QString RocketChatAccountSettings::twoFactorAuthenticationCode() const
+{
+    return mTwoFactorAuthenticationCode;
+}
+
+void RocketChatAccountSettings::setTwoFactorAuthenticationCode(const QString &twoFactorAuthenticationCode)
+{
+    if (mTwoFactorAuthenticationCode != twoFactorAuthenticationCode) {
+        mTwoFactorAuthenticationCode = twoFactorAuthenticationCode;
+
+        Q_EMIT twoFactorAuthenticationCodeChanged();
+    }
+}
+
 QString RocketChatAccountSettings::userName() const
 {
     return mUserName;

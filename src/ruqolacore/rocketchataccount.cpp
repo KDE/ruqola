@@ -1222,6 +1222,11 @@ QString RocketChatAccount::password() const
     return settings()->password();
 }
 
+QString RocketChatAccount::twoFactorAuthenticationCode() const
+{
+    return settings()->twoFactorAuthenticationCode();
+}
+
 void RocketChatAccount::setAuthToken(const QString &token)
 {
     settings()->setAuthToken(token);
@@ -1230,6 +1235,11 @@ void RocketChatAccount::setAuthToken(const QString &token)
 void RocketChatAccount::setPassword(const QString &password)
 {
     settings()->setPassword(password);
+}
+
+void RocketChatAccount::setTwoFactorAuthenticationCode(const QString &twoFactorAuthenticationCode)
+{
+    settings()->setTwoFactorAuthenticationCode(twoFactorAuthenticationCode);
 }
 
 void RocketChatAccount::setUserName(const QString &username)

@@ -57,6 +57,9 @@ public:
     Q_REQUIRED_RESULT QString password() const;
     void setPassword(const QString &password);
 
+    Q_REQUIRED_RESULT QString twoFactorAuthenticationCode() const;
+    void setTwoFactorAuthenticationCode(const QString &twoFactorAuthenticationCode);
+
     void removeSettings();
 
     Q_REQUIRED_RESULT bool showUnreadOnTop() const;
@@ -73,6 +76,7 @@ Q_SIGNALS:
     void userIDChanged();
     void accountNameChanged();
     void passwordChanged();
+    void twoFactorAuthenticationCodeChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccountSettings)
@@ -87,6 +91,7 @@ private:
     QString mCachePath;
     QString mUserName;
     QString mPassword;
+    QString mTwoFactorAuthenticationCode;
     qint64 mExpireToken = -1;
     QSettings *mSetting = nullptr;
     bool mShowUnreadOnTop = false;
