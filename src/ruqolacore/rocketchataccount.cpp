@@ -1001,6 +1001,7 @@ void RocketChatAccount::reportMessage(const QString &messageId, const QString &m
 void RocketChatAccount::getThreadMessages(const QString &threadMessageId)
 {
     if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
+        mThreadMessageModel->clear();
         restApi()->getThreadMessages(threadMessageId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getThreadMessages is not supported before server 1.0.0";
