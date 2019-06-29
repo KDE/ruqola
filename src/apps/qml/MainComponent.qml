@@ -435,6 +435,7 @@ Component {
             }
 
             onOpenThread: {
+                appid.rocketChatAccount.getThreadMessages(threadMessageId)
                 showThreadMessageDialogLoader.threadMessageId = threadMessageId;
                 showThreadMessageDialogLoader.active = true
             }
