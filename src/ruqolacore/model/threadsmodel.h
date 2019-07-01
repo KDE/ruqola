@@ -33,7 +33,11 @@ public:
         Description,
         NumberOfMessages,
         LastMessage,
-        TimeStamp
+        TimeStamp,
+        UserName,
+        AliasName,
+        Avatar,
+        UserId
     };
     Q_ENUM(ThreadRoles)
 
