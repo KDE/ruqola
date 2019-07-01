@@ -48,6 +48,9 @@ Kirigami.BasicListItem {
             text: i_description
             elide: Text.ElideRight
             wrapMode: QQC2.Label.Wrap
+            Component.onCompleted: {
+                font.italic = true
+            }
         }
         RowLayout {
             QQC2.Label {
