@@ -58,13 +58,9 @@ QQC2.Dialog {
                 mentionsModel.setFilterString(text);
             }
         }
-        QQC2.Label {
+        SearchLabel {
             text: listview.count === 0 ? i18n("No Mention found") : i18np("%1 mention in room (Total: %2)", "%1 mentions in room (Total: %2)", listview.count, mentionsModel.total())
             Layout.alignment: Qt.AlignTop
-            Component.onCompleted: {
-                font.italic = true
-                font.bold = true
-            }
         }
         ActiveChat {
             id: listview

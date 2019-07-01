@@ -58,6 +58,7 @@
         <file>DiscussionMessage.qml</file>
         <file>FilesInRoomDelegate.qml</file>
         <file>FileInRoom.qml</file>
+        <file>SearchLabel.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
