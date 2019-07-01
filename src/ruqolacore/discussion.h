@@ -55,12 +55,17 @@ public:
     void setTimeStamp(const qint64 &timeStamp);
 
     Q_REQUIRED_RESULT QString timeStampDisplay() const;
+
+    Q_REQUIRED_RESULT QString fname() const;
+    void setFname(const QString &fname);
+
 private:
     QString mDescription;
     QString mParentRoomId;
     QString mDiscussionRoomId;
     QString mLastMessageDateTimeStr;
     QString mTimeStampDateTimeStr;
+    QString mFname;
     int mNumberMessages = 0;
     qint64 mLastMessage = -1;
     qint64 mTimeStamp = -1;
