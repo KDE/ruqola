@@ -128,7 +128,6 @@ bool RuqolaRegisterEngine::initialize()
     qRegisterMetaType<RocketChatAccount::RoleType>();
     qRegisterMetaType<User::PresenceStatus>();
     qRegisterMetaType<AuthenticationManager::OauthType>();
-    (void)Ruqola::self();
     mEngine = new QQmlApplicationEngine;
 
     QQmlContext *ctxt = mEngine->rootContext();

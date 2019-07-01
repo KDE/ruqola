@@ -27,6 +27,7 @@
 #include <KCrash>
 #include "ruqolaregisterengine.h"
 #include "config-ruqola.h"
+#include "ruqola.h"
 #include <QIcon>
 
 #include <KAboutData>
@@ -78,6 +79,8 @@ int main(int argc, char *argv[])
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
+
+    (void)Ruqola::self();
 
     RuqolaRegisterEngine ruqolaEngine;
 
