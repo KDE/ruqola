@@ -23,6 +23,7 @@ import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.2
 import QtQuick 2.9
 import org.kde.kirigami 2.7 as Kirigami
+import "common"
 
 QQC2.Dialog {
     id: showThreadsInRoomDialog
@@ -89,6 +90,12 @@ QQC2.Dialog {
                 reserveSpaceForLabel: false
                 RowLayout {
                     width: parent.width
+                    AvatarImage {
+                        avatarurl: avatar == "" ? appid.rocketChatAccount.avatarUrl(userid) : avatar
+                        aliasname: aliasname
+                        username: username
+                    }
+
                     ColumnLayout {
                         QQC2.Label {
                             text: description

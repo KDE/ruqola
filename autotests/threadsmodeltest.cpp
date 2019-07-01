@@ -38,6 +38,11 @@ void ThreadsModelTest::shouldHaveDefaultValues()
     roles[ThreadsModel::NumberOfMessages] = QByteArrayLiteral("numberofmessages");
     roles[ThreadsModel::LastMessage] = QByteArrayLiteral("lastmessage");
     roles[ThreadsModel::TimeStamp] = QByteArrayLiteral("timestamp");
+    roles[ThreadsModel::UserName] = QByteArrayLiteral("username");
+    roles[ThreadsModel::AliasName] = QByteArrayLiteral("aliasname");
+    roles[ThreadsModel::Avatar] = QByteArrayLiteral("avatar");
+    roles[ThreadsModel::UserId] = QByteArrayLiteral("userid");
+
     QCOMPARE(model.roleNames(), roles);
 }
 

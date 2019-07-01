@@ -61,8 +61,15 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
         return QDateTime::fromMSecsSinceEpoch(thread.threadLastMessage()).toString(Qt::SystemLocaleLongDate);
     case TimeStamp:
         return thread.timeStamp();
+    case UserName:
+        return thread.username();
+    case AliasName:
+        return thread.alias();
+    case Avatar:
+        return thread.avatar();
+    case UserId:
+        return thread.userId();
     }
-
     return {};
 }
 
@@ -74,6 +81,10 @@ QHash<int, QByteArray> ThreadsModel::roleNames() const
     roles[NumberOfMessages] = QByteArrayLiteral("numberofmessages");
     roles[LastMessage] = QByteArrayLiteral("lastmessage");
     roles[TimeStamp] = QByteArrayLiteral("timestamp");
+    roles[UserName] = QByteArrayLiteral("username");
+    roles[AliasName] = QByteArrayLiteral("aliasname");
+    roles[Avatar] = QByteArrayLiteral("avatar");
+    roles[UserId] = QByteArrayLiteral("userid");
     return roles;
 }
 
