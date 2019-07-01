@@ -83,7 +83,10 @@ QQC2.Dialog {
                     appid.rocketChatAccount.loadMoreMentions(roomId)
                 }
             }
-
+        }
+        Item {
+            Layout.fillHeight: true
+            visible: listview.count === 0
         }
     }
 }
