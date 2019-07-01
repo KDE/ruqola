@@ -100,6 +100,9 @@ QQC2.Dialog {
                         QQC2.Label {
                             text: description
                             elide: Text.ElideRight
+                            Component.onCompleted: {
+                                font.italic = true
+                            }
                             wrapMode: QQC2.Label.Wrap
                             renderType: Text.NativeRendering
                             Layout.preferredWidth: parent.width
