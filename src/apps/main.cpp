@@ -76,9 +76,16 @@ int main(int argc, char *argv[])
     KAboutData::setApplicationData(aboutData);
 
     QCommandLineParser parser;
+    parser.addOption(QCommandLineOption(QStringList() <<  QStringLiteral("list-accounts"), i18n("Return lists of accounts")));
+
     aboutData.setupCommandLine(&parser);
     parser.process(app);
     aboutData.processCommandLine(&parser);
+    if (parser.isSet(QStringLiteral("list-accounts"))) {
+        //TODO return list of accounts
+        return 0;
+    }
+
 
     (void)Ruqola::self();
 
