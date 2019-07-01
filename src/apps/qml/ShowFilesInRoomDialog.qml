@@ -61,12 +61,9 @@ QQC2.Dialog {
                 filesModel.setFilterString(text);
             }
         }
-        QQC2.Label {
+
+        SearchLabel {
             text: listview.count === 0 ? i18n("No Attachment found") : i18np("%1 attachment in room (Total: %2)", "%1 attachments in room (Total: %2)", listview.count, filesModel.total())
-            Component.onCompleted: {
-                font.italic = true
-                font.bold = true
-            }
         }
 
         //Add scrollview
