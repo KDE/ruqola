@@ -79,8 +79,10 @@ Rectangle {
         renderType: Text.QtRendering
         color: Kirigami.Theme.backgroundColor
 
-        font.weight: Font.Bold
-        font.pointSize: 40
+        font {
+            weight: Font.Bold
+            pointSize: 40
+        }
         fontSizeMode: Text.Fit
         
         horizontalAlignment: Text.AlignHCenter
