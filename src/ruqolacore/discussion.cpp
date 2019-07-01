@@ -73,6 +73,16 @@ QString Discussion::timeStampDisplay() const
     return mTimeStampDateTimeStr;
 }
 
+QString Discussion::fname() const
+{
+    return mFname;
+}
+
+void Discussion::setFname(const QString &fname)
+{
+    mFname = fname;
+}
+
 QString Discussion::lastMessageDisplay() const
 {
     return i18n("(Last Message: %1)", mLastMessageDateTimeStr);
@@ -97,6 +107,7 @@ QDebug operator <<(QDebug d, const Discussion &t)
     d << "Description " << t.description();
     d << "Discussion Room Id " << t.discussionRoomId();
     d << "timestamp " << t.timeStamp();
+    d << "fname " << t.fname();
     return d;
 }
 
@@ -107,7 +118,8 @@ bool Discussion::operator ==(const Discussion &other) const
            && (numberMessages() == other.numberMessages())
            && (lastMessage() == other.lastMessage())
            && (discussionRoomId() == other.discussionRoomId())
-           && (timeStamp() == other.timeStamp());
+           && (timeStamp() == other.timeStamp())
+            && (fname() == other.fname());
 }
 
 Discussion &Discussion::operator=(const Discussion &other)
@@ -118,13 +130,16 @@ Discussion &Discussion::operator=(const Discussion &other)
     mLastMessage = other.lastMessage();
     mDiscussionRoomId = other.discussionRoomId();
     mTimeStamp = other.timeStamp();
+    mFname = other.fname();
     return *this;
 }
 
 void Discussion::parseDiscussion(const QJsonObject &o)
 {
+    qDebug() << " o " << o;
     mParentRoomId = o.value(QLatin1String("prid")).toString();
     mDescription = o.value(QLatin1String("description")).toString();
+    mFname = o.value(QLatin1String("fname")).toString();
     mNumberMessages = o.value(QLatin1String("msgs")).toInt();
     mDiscussionRoomId = o.value(QLatin1String("_id")).toString();
     setLastMessage(Utils::parseIsoDate(QStringLiteral("lm"), o));

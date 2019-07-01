@@ -62,7 +62,7 @@ public:
 private:
     Q_DISABLE_COPY(DiscussionsModel)
     QString mRoomId;
-    Discussions *mDiscussions;
+    Discussions *mDiscussions = nullptr;
 };
 
 #endif // DISCUSSIONSMODEL_H
