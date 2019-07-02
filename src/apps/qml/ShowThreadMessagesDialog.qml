@@ -52,6 +52,89 @@ QQC2.Dialog {
             useMenuMessage: true
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
+            onPinMessage: {
+//                appid.rocketChatAccount.pinMessage(messageId, pinned)
+            }
+
+            onEditMessage: {
+//                userInputMessage.messageId = messageId;
+//                userInputMessage.setOriginalMessage(messageStr)
+                //console.log(RuqolaDebugCategorySingleton.category, "edit! messageId : " + messageId + " messageStr " + messageStr)
+            }
+            onCopyMessage: {
+//                clipboard.text = messageStr
+                //console.log(RuqolaDebugCategorySingleton.category, "copy! messageId : " + messageId + " messageStr " + messageStr)
+            }
+            onReplyMessage: {
+//                console.log(RuqolaDebugCategorySingleton.category, "Not implemented reply message : " + messageId)
+//                userInputMessage.messageId = messageId;
+            }
+            onSetFavoriteMessage: {
+//                appid.rocketChatAccount.starMessage(messageId, starred)
+            }
+            onIgnoreUser: {
+//                appid.rocketChatAccount.ignoreUser(roomId, userId, ignored)
+            }
+            onCreateDiscussion: {
+//                createDiscussionDialogLoader.roomId = roomId
+//                createDiscussionDialogLoader.messageId = messageId
+//                createDiscussionDialogLoader.active = true
+                //TODO add message text too
+            }
+
+            onOpenChannel: {
+//                openChannelDialogLoader.channelName = channel
+//                openChannelDialogLoader.active = true;
+            }
+
+            onOpenDirectChannel: {
+//                openDirectChannelDialog.username = userName;
+//                openDirectChannelDialog.open()
+            }
+            onJitsiCallConfActivated: {
+//                appid.rocketChatAccount.joinJitsiConfCall(roomId)
+            }
+            onReportMessage: {
+//                reportMessageDialogLoader.messageId = messageId
+//                reportMessageDialogLoader.active = true
+            }
+
+            onDeleteMessage: {
+//                deleteMessageDialogLoader.messageId = messageId
+//                deleteMessageDialogLoader.active = true
+            }
+            onDownloadAttachment: {
+//                downloadFileDialog.fileToSaveUrl = url
+//                downloadFileDialog.open()
+            }
+
+            onDisplayImage: {
+//                displayImageDialog.iUrl = imageUrl
+//                displayImageDialog.title = title
+//                displayImageDialog.isAnimatedImage = isAnimatedImage
+//                displayImageDialog.clearScaleAndOpen();
+            }
+            onDeleteReaction: {
+//                appid.rocketChatAccount.reactOnMessage(messageId, emoji, false)
+            }
+            onAddReaction: {
+//                appid.rocketChatAccount.reactOnMessage(messageId, emoji, true)
+            }
+
+            onOpenThread: {
+//                appid.rocketChatAccount.getThreadMessages(threadMessageId)
+//                showThreadMessageDialogLoader.threadMessageId = threadMessageId;
+//                showThreadMessageDialogLoader.active = true
+            }
+
+            onOpenDiscussion: {
+                //console.log(RuqolaDebugCategorySingleton.category, "Open discussion " + discussionRoomId)
+//                appid.switchToRoom(discussionRoomId)
+            }
+            onReplyInThread:  {
+                //console.log(RuqolaDebugCategorySingleton.category,"reply in thread " + messageId)
+//                userInputMessage.threadmessageId = messageId;
+            }
         }
         //TODO improve it.
         UserInput {
