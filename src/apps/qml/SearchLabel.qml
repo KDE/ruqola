@@ -20,10 +20,29 @@
 
 import QtQuick 2.9
 import QtQuick.Controls 2.5 as QQC2
+import QtQuick.Layouts 1.12
 
-QQC2.Label {
-    Component.onCompleted: {
-        font.italic = true
-        font.bold = true
+RowLayout {
+    id: searchLabel
+    signal loadMoreElements()
+    property string labelText
+    QQC2.Label {
+        text: searchLabel.labelText
+        Component.onCompleted: {
+            font.italic = true
+            font.bold = true
+        }
+    }
+    QQC2.Label {
+        text: i18n("(Click here for Loading more...)")
+        Component.onCompleted: {
+            font.italic = true
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                searchLabel.loadMoreElements()
+            }
+        }
     }
 }

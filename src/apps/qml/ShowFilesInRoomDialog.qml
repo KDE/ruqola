@@ -63,7 +63,10 @@ QQC2.Dialog {
         }
 
         SearchLabel {
-            text: listview.count === 0 ? i18n("No Attachment found") : i18np("%1 attachment in room (Total: %2)", "%1 attachments in room (Total: %2)", listview.count, filesModel.total())
+            labelText: listview.count === 0 ? i18n("No Attachment found") : i18np("%1 attachment in room (Total: %2)", "%1 attachments in room (Total: %2)", listview.count, filesModel.total())
+            onLoadMoreElements: {
+                appid.rocketChatAccount.loadMoreFileAttachments(roomId, channelType)
+            }
         }
 
         //Add scrollview
