@@ -59,7 +59,10 @@ QQC2.Dialog {
         }
 
         SearchLabel {
-            text: listview.count === 0 ? i18n("No Discussion found") : i18np("%1 discussion in room (Total: %2)", "%1 discussions in room (Total: %2)", listview.count, discussionsModel.total())
+            labelText: listview.count === 0 ? i18n("No Discussion found") : i18np("%1 discussion in room (Total: %2)", "%1 discussions in room (Total: %2)", listview.count, discussionsModel.total())
+            onLoadMoreElements: {
+                appid.rocketChatAccount.loadMoreDiscussions(roomId)
+            }
         }
         ListView {
             id: listview
