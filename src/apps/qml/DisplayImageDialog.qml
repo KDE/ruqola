@@ -40,6 +40,7 @@ QQC2.Dialog {
     function clearScaleAndOpen()
     {
         image.scale = 1.0
+        imageAnimated.scale = 1.0
         open();
     }
 
