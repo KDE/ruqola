@@ -92,7 +92,7 @@ Reactions Reactions::fromJSon(const QJsonObject &o)
         const QJsonObject obj = o.value(str).toObject();
         const QJsonValue usernames = obj.value(QLatin1String("usernames"));
         if (!usernames.isUndefined()) {
-            QJsonArray array = usernames.toArray();
+            const QJsonArray array = usernames.toArray();
             for (int i = 0; i < array.count(); ++i) {
                 users.append(array.at(i).toString());
             }
