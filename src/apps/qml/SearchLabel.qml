@@ -21,6 +21,7 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.12
+import org.kde.kirigami 2.7 as Kirigami
 
 RowLayout {
     id: searchLabel
@@ -35,6 +36,7 @@ RowLayout {
     }
     QQC2.Label {
         text: i18n("(Click here for Loading more...)")
+        color: Kirigami.Theme.linkColor
         Component.onCompleted: {
             font.italic = true
         }
