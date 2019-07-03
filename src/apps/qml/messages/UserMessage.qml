@@ -170,13 +170,15 @@ MessageBase {
                         acceptedButtons: Qt.RightButton
 
                         onClicked: {
-                            if (mouse.button === Qt.RightButton) {
-                                messageMenuLoader.posX = mouse.x
-                                messageMenuLoader.posY = mouse.y
-                                if (messageMenuLoader.active)
-                                    messageMenuLoader.active = false
-                                else
-                                    messageMenuLoader.active = true
+                            if (i_useMenuMessage) {
+                                if (mouse.button === Qt.RightButton) {
+                                    messageMenuLoader.posX = mouse.x
+                                    messageMenuLoader.posY = mouse.y
+                                    if (messageMenuLoader.active)
+                                        messageMenuLoader.active = false
+                                    else
+                                        messageMenuLoader.active = true
+                                }
                             }
                         }
                     }
