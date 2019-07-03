@@ -61,6 +61,7 @@ QQC2.Dialog {
         }
 
         SearchLabel {
+            numberOfElements: listview.count
             labelText: listview.count === 0 ? i18n("No Thread found") : i18np("%1 thread in room (Total: %2)", "%1 threads in room (Total: %2)", listview.count, threadsModel.total())
             onLoadMoreElements: {
                 appid.rocketChatAccount.loadMoreThreads(roomId)

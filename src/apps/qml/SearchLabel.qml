@@ -27,6 +27,7 @@ RowLayout {
     id: searchLabel
     signal loadMoreElements()
     property string labelText
+    property int numberOfElements: 0
     QQC2.Label {
         text: searchLabel.labelText
         Component.onCompleted: {
@@ -35,6 +36,7 @@ RowLayout {
         }
     }
     QQC2.Label {
+        visible: numberOfElements > 0
         text: i18n("(Click here for Loading more...)")
         color: Kirigami.Theme.linkColor
         Component.onCompleted: {
