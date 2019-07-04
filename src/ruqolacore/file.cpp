@@ -30,6 +30,7 @@ void File::parseFile(const QJsonObject &object, bool restApi)
     const QJsonObject fields = restApi ? object : object.value(QLatin1String("fields")).toObject();
     setUserId(fields.value(QLatin1String("userId")).toString());
 
+    setDescription(fields.value(QLatin1String("description")).toString());
     setFileName(fields.value(QLatin1String("name")).toString());
     setMimeType(fields.value(QLatin1String("type")).toString());
     setUrl(fields.value(QLatin1String("url")).toString());
