@@ -43,7 +43,7 @@ Kirigami.BasicListItem {
                 wrapMode: QQC2.Label.Wrap
             }
             QQC2.Label {
-                text: (i_description !== "" ? i_description : "")
+                text: i_description
                 visible: i_description !== ""
                 wrapMode: QQC2.Label.Wrap
                 Component.onCompleted: {
