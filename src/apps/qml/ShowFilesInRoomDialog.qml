@@ -30,7 +30,7 @@ import "common"
 QQC2.Dialog {
     id: showFilesInRoomDialog
 
-    title: i18n("Show Files In Room")
+    title: i18n("Attachments")
     signal downloadFile(string file)
     signal deleteFile(string fileid)
 
