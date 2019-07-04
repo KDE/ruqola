@@ -28,9 +28,13 @@
 #include "ruqolaregisterengine.h"
 #include "config-ruqola.h"
 #include "ruqola.h"
-#include <QIcon>
+#include "managerdatapaths.h"
+#include <iostream>
+
 
 #include <KAboutData>
+#include <QIcon>
+#include <QDirIterator>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #include <KIconTheme>
@@ -81,7 +85,13 @@ int main(int argc, char *argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
     if (parser.isSet(QStringLiteral("list-accounts"))) {
-        //TODO return list of accounts
+        QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()), QStringList() << QStringLiteral(
+                            "ruqola.conf"), QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+        std::cout << i18n("The following account are available:").toLocal8Bit().data() << std::endl;
+        while (it.hasNext()) {
+            const QString val = it.next();
+            std::cout << val.toLocal8Bit().data() << std::endl;
+        }
         return 0;
     }
 
