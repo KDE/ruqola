@@ -31,8 +31,11 @@ QQC2.Dialog {
     title: i18n("Upload File")
 
     property string rId: ""
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+
+    width: parent.width * 6 / 10
+    height: parent.height * 4 / 10
+    anchors.centerIn: parent
+
 
     modal: true
     focus: true
@@ -49,15 +52,18 @@ QQC2.Dialog {
         open();
     }
 
-    ColumnLayout {
+    contentItem: ColumnLayout {
+        Layout.fillWidth: true
         QQC2.TextField {
             id: description
+            Layout.fillWidth: true
             selectByMouse: true
             placeholderText: i18n("Description")
         }
 
         QQC2.TextField {
             id: message
+            Layout.fillWidth: true
             selectByMouse: true
             placeholderText: i18n("Message")
         }
@@ -65,6 +71,7 @@ QQC2.Dialog {
         RowLayout {
             QQC2.TextField {
                 id: selectedFileNameField
+                Layout.fillWidth: true
                 selectByMouse: true
                 placeholderText: i18n("Select File...")
             }
