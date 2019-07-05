@@ -135,9 +135,9 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                 qCWarning(RUQOLA_LOG) << "Parse records: Error in users for rooms json" << root;
             }
         }
-        if (users.count() != total) {
-            qCWarning(RUQOLA_LOG) << "Users for rooms, parsing error. Parse " << users.count() << " users but json give us a total number : "<< total;
-        }
+//        if (users.count() != total) {
+//            qCWarning(RUQOLA_LOG) << "Users for rooms, parsing error. Parse " << users.count() << " users but json give us a total number : "<< total;
+//        }
         setUsers(users);
     } else {
         const QJsonObject result = root[QLatin1String("result")].toObject();
