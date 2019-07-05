@@ -54,9 +54,17 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
+    Q_REQUIRED_RESULT int total() const;
+    void setTotal(int total);
+
+    Q_REQUIRED_RESULT int offset() const;
+    void setOffset(int offset);
+
 private:
     QString generateDisplayName(const User &user) const;
     QVector<User> mUsers;
+    int mTotal = 0;
+    int mOffset = 0;
 };
 
 #endif // USERSFORROOMMODEL_H

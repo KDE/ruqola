@@ -339,6 +339,7 @@ public:
     Q_INVOKABLE void loadMoreMentions(const QString &roomId);
     Q_INVOKABLE void loadMoreHistorySearch(const QString &roomId);
 
+    Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
