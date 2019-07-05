@@ -811,6 +811,11 @@ void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QStri
     }
 }
 
+void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId)
+{
+
+}
+
 void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QString &channelType)
 {
     const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
