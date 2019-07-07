@@ -29,6 +29,7 @@ class UsersModel;
 class LIBRUQOLACORE_EXPORT UsersForRoomModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
 public:
     enum UsersForRoomRoles {
         UserName = Qt::UserRole + 1,
@@ -60,11 +61,19 @@ public:
     Q_REQUIRED_RESULT int offset() const;
     void setOffset(int offset);
 
+    Q_REQUIRED_RESULT bool hasFullList() const;
+    void setHasFullList(bool hasFullList);
+
+Q_SIGNALS:
+    void hasFullListChanged();
+
 private:
     QString generateDisplayName(const User &user) const;
+    void checkFullList();
     QVector<User> mUsers;
     int mTotal = 0;
     int mOffset = 0;
+    bool mHasFullList = false;
 };
 
 #endif // USERSFORROOMMODEL_H
