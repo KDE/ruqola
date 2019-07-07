@@ -27,6 +27,7 @@ class Threads;
 class LIBRUQOLACORE_TESTS_EXPORT ThreadsModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
 public:
     enum ThreadRoles {
         ThreadMessageId = Qt::UserRole + 1,
@@ -61,10 +62,18 @@ public:
     Threads *threads() const;
 
     Q_REQUIRED_RESULT int total() const;
+    bool hasFullList() const;
+    Q_REQUIRED_RESULT void setHasFullList(bool hasFullList);
+
+Q_SIGNALS:
+    void hasFullListChanged();
+
 private:
     Q_DISABLE_COPY(ThreadsModel)
+    void checkFullList();
     QString mRoomId;
     Threads *mThreads = nullptr;
+    bool mHasFullList = false;
 };
 
 #endif // DISCUSSIONSMODEL_H
