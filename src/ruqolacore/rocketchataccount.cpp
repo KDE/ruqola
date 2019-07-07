@@ -155,6 +155,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mMentionsFilterProxyModel->setObjectName(QStringLiteral("mentionsfiltermodelproxy"));
     mMentionsFilterProxyModel->setSourceModel(mMentionsModel);
 
+    connect(mMentionsModel, &MentionsModel::hasFullListChanged, mMentionsFilterProxyModel, &MentionsFilterProxyModel::hasFullListChanged);
+
     mThreadMessageModel = new MessageModel(QString(), this, nullptr, this);
     mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));
 

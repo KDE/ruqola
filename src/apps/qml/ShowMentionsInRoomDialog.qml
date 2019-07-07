@@ -60,6 +60,7 @@ QQC2.Dialog {
         }
         RowLayout {
             SearchLabel {
+                hasFullList: mentionsModel.hasFullList
                 numberOfElements: listview.count
                 labelText: listview.count === 0 ? i18n("No Mention found") : i18np("%1 mention in room (Total: %2)", "%1 mentions in room (Total: %2)", listview.count, mentionsModel.total())
                 onLoadMoreElements: {

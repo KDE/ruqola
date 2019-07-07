@@ -27,6 +27,8 @@ class RocketChatAccount;
 class TextConverter;
 class LIBRUQOLACORE_TESTS_EXPORT MentionsModel : public QAbstractListModel
 {
+    Q_OBJECT
+    Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
 public:
     //Same as messageroles
     enum MessageRoles {
@@ -88,13 +90,22 @@ public:
 
     Q_REQUIRED_RESULT int total() const;
 
+    Q_REQUIRED_RESULT bool hasFullList() const;
+
+    void setHasFullList(bool state);
+
+Q_SIGNALS:
+    void hasFullListChanged();
+
 private:
     Q_DISABLE_COPY(MentionsModel)
+    void checkFullList();
     QString convertMessageText(const QString &str, const QString &userName) const;
     QString mRoomId;
     TextConverter *mTextConverter = nullptr;
     RocketChatAccount *mRocketChatAccount = nullptr;
     Mentions *mMentions = nullptr;
+    bool mHasFullList = false;
 };
 
 #endif // MENTIONSMODEL_H
