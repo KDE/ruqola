@@ -54,3 +54,8 @@ int FilesForRoomFilterProxyModel::total() const
 {
     return static_cast<FilesForRoomModel *>(sourceModel())->total();
 }
+
+bool FilesForRoomFilterProxyModel::hasFullList() const
+{
+    return static_cast<FilesForRoomModel *>(sourceModel())->hasFullList();
+}

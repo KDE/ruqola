@@ -133,6 +133,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mFilesForRoomFilterProxyModel->setObjectName(QStringLiteral("filesforroomfiltermodelproxy"));
     mFilesForRoomFilterProxyModel->setSourceModel(mFilesModelForRoom);
 
+    connect(mFilesModelForRoom, &FilesForRoomModel::hasFullListChanged, mFilesForRoomFilterProxyModel, &FilesForRoomFilterProxyModel::hasFullListChanged);
+
     mDiscussionsModel = new DiscussionsModel(this);
     mDiscussionsModel->setObjectName(QStringLiteral("discussionsmodel"));
     mDiscussionsFilterProxyModel = new DiscussionsFilterProxyModel(this);

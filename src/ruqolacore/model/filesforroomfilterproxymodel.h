@@ -27,6 +27,7 @@
 class LIBRUQOLACORE_TESTS_EXPORT FilesForRoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
     explicit FilesForRoomFilterProxyModel(QObject *parent = nullptr);
     ~FilesForRoomFilterProxyModel() override;
@@ -35,6 +36,10 @@ public:
 
     Q_INVOKABLE void setFilterString(const QString &string);
     Q_INVOKABLE Q_REQUIRED_RESULT int total() const;
+
+    Q_REQUIRED_RESULT bool hasFullList() const;
+Q_SIGNALS:
+    void hasFullListChanged();
 };
 
 #endif // FILESFORROOMFILTERPROXYMODEL_H

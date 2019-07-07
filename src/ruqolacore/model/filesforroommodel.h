@@ -29,6 +29,7 @@ class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT FilesForRoomModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
 public:
     enum UserRoles {
         FileName = Qt::UserRole + 1,
@@ -63,9 +64,18 @@ public:
     void addMoreFileAttachments(const QJsonObject &fileAttachmentsObj);
     void initialize();
     Q_REQUIRED_RESULT int total() const;
+
+    Q_REQUIRED_RESULT bool hasFullList() const;
+    void setHasFullList(bool state);
+
+Q_SIGNALS:
+    void hasFullListChanged();
+
 private:
     Q_DISABLE_COPY(FilesForRoomModel)
+    void checkFullList();
     QString mRoomId;
+    bool mHasFullList = false;
     FileAttachments *mFileAttachments = nullptr;
     RocketChatAccount *mRochetChantAccount = nullptr;
 };
