@@ -41,6 +41,7 @@ MentionsModel::~MentionsModel()
 void MentionsModel::initialize()
 {
     mRoomId.clear();
+    setHasFullList(false);
 }
 
 int MentionsModel::rowCount(const QModelIndex &parent) const
@@ -185,6 +186,7 @@ void MentionsModel::setMentions(const Mentions &mentions)
         mMentions->setMentions(mentions.mentions());
         endInsertRows();
     }
+    checkFullList();
 }
 
 QHash<int, QByteArray> MentionsModel::roleNames() const
@@ -249,6 +251,7 @@ void MentionsModel::parseMentions(const QJsonObject &mentionsObj, const QString 
         beginInsertRows(QModelIndex(), 0, mMentions->mentions().count() - 1);
         endInsertRows();
     }
+    checkFullList();
 }
 
 Mentions *MentionsModel::mentions() const
@@ -264,12 +267,32 @@ int MentionsModel::total() const
     return -1;
 }
 
+
+void MentionsModel::setHasFullList(bool state)
+{
+    if (mHasFullList != state) {
+        mHasFullList = state;
+        Q_EMIT hasFullListChanged();
+    }
+}
+
+bool MentionsModel::hasFullList() const
+{
+    return mHasFullList;
+}
+
+void MentionsModel::checkFullList()
+{
+    setHasFullList(mMentions->count() == mMentions->total());
+}
+
 void MentionsModel::addMoreMentions(const QJsonObject &mentionsObj)
 {
     const int numberOfElement = mMentions->mentions().count();
     mMentions->parseMoreMentions(mentionsObj);
     beginInsertRows(QModelIndex(), numberOfElement, mMentions->mentions().count() - 1);
     endInsertRows();
+    checkFullList();
 }
 
 QString MentionsModel::convertMessageText(const QString &str, const QString &userName) const

@@ -50,3 +50,9 @@ int MentionsFilterProxyModel::total() const
 {
     return static_cast<MentionsModel *>(sourceModel())->total();
 }
+
+bool MentionsFilterProxyModel::hasFullList() const
+{
+    return static_cast<MentionsModel *>(sourceModel())->hasFullList();
+}
+
