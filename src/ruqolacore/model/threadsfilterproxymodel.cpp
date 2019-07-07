@@ -56,3 +56,8 @@ int ThreadsFilterProxyModel::total() const
 {
     return static_cast<ThreadsModel *>(sourceModel())->total();
 }
+
+bool ThreadsFilterProxyModel::hasFullList() const
+{
+    return static_cast<ThreadsModel *>(sourceModel())->hasFullList();
+}

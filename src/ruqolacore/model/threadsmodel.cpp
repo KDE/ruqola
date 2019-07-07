@@ -32,9 +32,15 @@ ThreadsModel::~ThreadsModel()
     delete mThreads;
 }
 
+void ThreadsModel::checkFullList()
+{
+    setHasFullList(mThreads->threads().count() == mThreads->total());
+}
+
 void ThreadsModel::initialize()
 {
     mRoomId.clear();
+    setHasFullList(false);
 }
 
 int ThreadsModel::rowCount(const QModelIndex &parent) const
@@ -100,6 +106,7 @@ void ThreadsModel::setThreads(const Threads &threads)
         mThreads->setThreads(threads.threads());
         endInsertRows();
     }
+    checkFullList();
 }
 
 QString ThreadsModel::roomId() const
@@ -118,6 +125,7 @@ void ThreadsModel::addMoreThreads(const QJsonObject &threadsObj)
     mThreads->parseMoreThreads(threadsObj);
     beginInsertRows(QModelIndex(), numberOfElement, mThreads->threads().count() - 1);
     endInsertRows();
+    checkFullList();
 }
 
 Threads *ThreadsModel::threads() const
@@ -138,6 +146,7 @@ void ThreadsModel::parseThreads(const QJsonObject &threadsObj, const QString &ro
         beginInsertRows(QModelIndex(), 0, mThreads->threads().count() - 1);
         endInsertRows();
     }
+    checkFullList();
 }
 
 int ThreadsModel::total() const
@@ -146,4 +155,17 @@ int ThreadsModel::total() const
         return mThreads->total();
     }
     return -1;
+}
+
+void ThreadsModel::setHasFullList(bool hasFullList)
+{
+    if (mHasFullList != hasFullList) {
+        mHasFullList = hasFullList;
+        Q_EMIT hasFullListChanged();
+    }
+}
+
+bool ThreadsModel::hasFullList() const
+{
+    return mHasFullList;
 }
