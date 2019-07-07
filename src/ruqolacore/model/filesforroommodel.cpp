@@ -34,17 +34,24 @@ FilesForRoomModel::~FilesForRoomModel()
     delete mFileAttachments;
 }
 
+void FilesForRoomModel::checkFullList()
+{
+    setHasFullList(mFileAttachments->fileAttachments().count() == mFileAttachments->total());
+}
+
 void FilesForRoomModel::addMoreFileAttachments(const QJsonObject &fileAttachmentsObj)
 {
     const int numberOfElement = mFileAttachments->fileAttachments().count();
     mFileAttachments->parseMoreFileAttachments(fileAttachmentsObj);
     beginInsertRows(QModelIndex(), numberOfElement, mFileAttachments->fileAttachments().count() - 1);
     endInsertRows();
+    checkFullList();
 }
 
 void FilesForRoomModel::initialize()
 {
     mRoomId.clear();
+    setHasFullList(false);
 }
 
 void FilesForRoomModel::parseFileAttachments(const QJsonObject &fileAttachmentsObj, const QString &roomId)
@@ -60,6 +67,7 @@ void FilesForRoomModel::parseFileAttachments(const QJsonObject &fileAttachmentsO
         beginInsertRows(QModelIndex(), 0, mFileAttachments->fileAttachments().count() - 1);
         endInsertRows();
     }
+    checkFullList();
 }
 
 QString FilesForRoomModel::roomId() const
@@ -84,6 +92,7 @@ void FilesForRoomModel::setFiles(const QVector<File> &files)
         mFileAttachments->setFileAttachments(files);
         endInsertRows();
     }
+    checkFullList();
 }
 
 int FilesForRoomModel::rowCount(const QModelIndex &parent) const
@@ -150,4 +159,17 @@ int FilesForRoomModel::total() const
         return mFileAttachments->total();
     }
     return -1;
+}
+
+void FilesForRoomModel::setHasFullList(bool state)
+{
+    if (mHasFullList != state) {
+        mHasFullList = state;
+        Q_EMIT hasFullListChanged();
+    }
+}
+
+bool FilesForRoomModel::hasFullList() const
+{
+    return mHasFullList;
 }
