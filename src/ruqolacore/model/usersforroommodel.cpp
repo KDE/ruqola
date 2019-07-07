@@ -56,6 +56,7 @@ void UsersForRoomModel::setUsers(const QVector<User> &users)
         mUsers = users;
         endInsertRows();
     }
+    checkFullList();
 }
 
 int UsersForRoomModel::rowCount(const QModelIndex &parent) const
@@ -91,6 +92,25 @@ QString UsersForRoomModel::generateDisplayName(const User &user) const
 {
     const QString displayName = QStringLiteral("<a href=\'%1\'>%1</a>").arg(user.userName().isEmpty() ? user.name() : user.userName());
     return displayName;
+}
+
+void UsersForRoomModel::checkFullList()
+{
+    setHasFullList(mUsers.count() == mTotal);
+
+}
+
+bool UsersForRoomModel::hasFullList() const
+{
+    return mHasFullList;
+}
+
+void UsersForRoomModel::setHasFullList(bool hasFullList)
+{
+    if (mHasFullList != hasFullList) {
+        mHasFullList = hasFullList;
+        Q_EMIT hasFullListChanged();
+    }
 }
 
 int UsersForRoomModel::offset() const
