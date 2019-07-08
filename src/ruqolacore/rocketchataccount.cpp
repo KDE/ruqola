@@ -820,6 +820,12 @@ void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QStri
 
 void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId)
 {
+    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
+    const int offset = usersModelForRoom->offset();
+    if (offset < usersModelForRoom->total()) {
+        //restApi()->membersInRoom(roomId, roomType);
+        //restApi()->filesInRoom(roomId, channelType, offset, qMin(50, usersModelForRoom->total() - offset));
+    }
 }
 
 void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QString &channelType)

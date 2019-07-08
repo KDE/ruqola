@@ -144,7 +144,7 @@ public:
     void channelRemoveOwner(const QString &roomId, const QString &userId);
     void channelDelete(const QString &roomId);
     void groupDelete(const QString &roomId);
-    void membersInRoom(const QString &roomId, const QString &type);
+    void membersInRoom(const QString &roomId, const QString &type, int offset = 0, int count = 50);
     void changeChannelReadOnly(const QString &roomId, bool b);
     void changeGroupsReadOnly(const QString &roomId, bool b);
     void channelAddLeader(const QString &roomId, const QString &userId);

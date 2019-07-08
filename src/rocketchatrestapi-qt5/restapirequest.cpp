@@ -696,7 +696,8 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int
     }
 }
 
-void RestApiRequest::membersInRoom(const QString &roomId, const QString &type)
+//FIXME
+void RestApiRequest::membersInRoom(const QString &roomId, const QString &type, int offset, int count)
 {
     ChannelMembersJob *job = new ChannelMembersJob(this);
     connect(job, &ChannelMembersJob::channelMembersDone, this, &RestApiRequest::channelMembersDone);
