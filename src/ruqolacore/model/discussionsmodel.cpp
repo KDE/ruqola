@@ -31,6 +31,11 @@ DiscussionsModel::~DiscussionsModel()
     delete mDiscussions;
 }
 
+void DiscussionsModel::checkFullList()
+{
+    setHasFullList(mDiscussions->discussions().count() == mDiscussions->total());
+}
+
 void DiscussionsModel::initialize()
 {
     mRoomId.clear();
@@ -58,6 +63,7 @@ void DiscussionsModel::addMoreDiscussions(const QJsonObject &discussionsObj)
     mDiscussions->parseMoreDiscussions(discussionsObj);
     beginInsertRows(QModelIndex(), numberOfElement, mDiscussions->discussions().count() - 1);
     endInsertRows();
+    checkFullList();
 }
 
 Discussions *DiscussionsModel::discussions() const
@@ -86,6 +92,7 @@ void DiscussionsModel::parseDiscussions(const QJsonObject &discussionsObj, const
         beginInsertRows(QModelIndex(), 0, mDiscussions->discussions().count() - 1);
         endInsertRows();
     }
+    checkFullList();
 }
 
 QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
@@ -137,4 +144,19 @@ void DiscussionsModel::setDiscussions(const Discussions &discussions)
         mDiscussions->setDiscussions(discussions.discussions());
         endInsertRows();
     }
+    checkFullList();
 }
+
+void DiscussionsModel::setHasFullList(bool state)
+{
+    if (mHasFullList != state) {
+        mHasFullList = state;
+        Q_EMIT hasFullListChanged();
+    }
+}
+
+bool DiscussionsModel::hasFullList() const
+{
+    return mHasFullList;
+}
+

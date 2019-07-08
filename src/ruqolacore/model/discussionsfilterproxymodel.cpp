@@ -55,3 +55,8 @@ int DiscussionsFilterProxyModel::total() const
 {
     return static_cast<DiscussionsModel *>(sourceModel())->total();
 }
+
+bool DiscussionsFilterProxyModel::hasFullList() const
+{
+    return static_cast<DiscussionsModel *>(sourceModel())->hasFullList();
+}
