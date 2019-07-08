@@ -105,7 +105,7 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
     case ParentId:
         return discussion.parentRoomId();
     case Description:
-        return (discussion.description().isEmpty() ? discussion.fname() : discussion.description());
+        return discussion.description().isEmpty() ? discussion.fname() : discussion.description();
     case NumberOfMessages:
         return discussion.numberMessages();
     case LastMessage:
@@ -159,4 +159,3 @@ bool DiscussionsModel::hasFullList() const
 {
     return mHasFullList;
 }
-

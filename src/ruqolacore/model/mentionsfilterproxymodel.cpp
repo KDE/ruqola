@@ -55,4 +55,3 @@ bool MentionsFilterProxyModel::hasFullList() const
 {
     return static_cast<MentionsModel *>(sourceModel())->hasFullList();
 }
-
