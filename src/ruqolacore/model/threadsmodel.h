@@ -62,8 +62,8 @@ public:
     Threads *threads() const;
 
     Q_REQUIRED_RESULT int total() const;
-    bool hasFullList() const;
-    Q_REQUIRED_RESULT void setHasFullList(bool hasFullList);
+    Q_REQUIRED_RESULT bool hasFullList() const;
+    void setHasFullList(bool hasFullList);
 
 Q_SIGNALS:
     void hasFullListChanged();
