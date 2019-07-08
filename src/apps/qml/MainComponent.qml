@@ -332,6 +332,16 @@ Component {
                         }
                     }
                 }
+                SearchLabel {
+                    width: parent.width
+                    hasFullList: appid.userModel ? appid.userModel.hasFullList : true
+                    numberOfElements: appid.userModel ? appid.userModel.rowCount() : 0
+                    onLoadMoreElements: {
+                        console.log("click")
+                        //appid.rocketChatAccount.loadMoreFileAttachments(roomId, channelType)
+                    }
+                }
+
                 Item {
                     width: parent.width
                     height: topBarUserList.isActive ? 1 : 0

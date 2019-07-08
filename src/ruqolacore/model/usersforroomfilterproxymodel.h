@@ -27,6 +27,7 @@
 class LIBRUQOLACORE_TESTS_EXPORT UsersForRoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
     explicit UsersForRoomFilterProxyModel(QObject *parent = nullptr);
     ~UsersForRoomFilterProxyModel() override;
@@ -34,6 +35,11 @@ public:
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void setFilterString(const QString &string);
+
+    Q_REQUIRED_RESULT bool hasFullList() const;
+    Q_REQUIRED_RESULT Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+Q_SIGNALS:
+    void hasFullListChanged();
 
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
