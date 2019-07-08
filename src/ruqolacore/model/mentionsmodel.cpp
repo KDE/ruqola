@@ -267,7 +267,6 @@ int MentionsModel::total() const
     return -1;
 }
 
-
 void MentionsModel::setHasFullList(bool state)
 {
     if (mHasFullList != state) {

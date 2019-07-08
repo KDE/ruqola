@@ -159,4 +159,3 @@ bool DiscussionsModel::hasFullList() const
 {
     return mHasFullList;
 }
-

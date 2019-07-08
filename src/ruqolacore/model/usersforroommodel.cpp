@@ -97,7 +97,6 @@ QString UsersForRoomModel::generateDisplayName(const User &user) const
 void UsersForRoomModel::checkFullList()
 {
     setHasFullList(mUsers.count() == mTotal);
-
 }
 
 bool UsersForRoomModel::hasFullList() const
