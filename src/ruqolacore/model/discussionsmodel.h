@@ -26,6 +26,7 @@ class Discussions;
 class LIBRUQOLACORE_TESTS_EXPORT DiscussionsModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
 public:
     enum DiscussionRoles {
         ParentId = Qt::UserRole + 1,
@@ -59,9 +60,17 @@ public:
     Discussions *discussions() const;
     Q_REQUIRED_RESULT int total() const;
 
+    void setHasFullList(bool state);
+    Q_REQUIRED_RESULT bool hasFullList() const;
+
+Q_SIGNALS:
+    void hasFullListChanged();
+
 private:
     Q_DISABLE_COPY(DiscussionsModel)
+    void checkFullList();
     QString mRoomId;
+    bool mHasFullList = false;
     Discussions *mDiscussions = nullptr;
 };
 
