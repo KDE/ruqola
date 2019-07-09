@@ -700,6 +700,10 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int
 void RestApiRequest::membersInRoom(const QString &roomId, const QString &type, int offset, int count)
 {
     ChannelMembersJob *job = new ChannelMembersJob(this);
+    QueryParameters parameters;
+    parameters.setCount(count);
+    parameters.setOffset(offset);
+    job->setQueryParameters(parameters);
     connect(job, &ChannelMembersJob::channelMembersDone, this, &RestApiRequest::channelMembersDone);
     initializeRestApiJob(job);
     job->setRoomId(roomId);

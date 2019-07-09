@@ -50,6 +50,8 @@ public:
     Q_REQUIRED_RESULT ChannelType channelType() const;
     void setChannelType(RocketChatRestApi::ChannelMembersJob::ChannelType channelType);
 
+    Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
+
 Q_SIGNALS:
     void channelMembersDone(const QJsonObject &replyObjectj, const QString &roomId);
 

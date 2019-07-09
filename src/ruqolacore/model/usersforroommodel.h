@@ -63,6 +63,7 @@ public:
 
     Q_REQUIRED_RESULT bool hasFullList() const;
     void setHasFullList(bool hasFullList);
+    Q_REQUIRED_RESULT int usersCount() const;
 
 Q_SIGNALS:
     void hasFullListChanged();

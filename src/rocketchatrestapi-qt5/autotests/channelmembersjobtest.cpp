@@ -36,7 +36,7 @@ void ChannelMembersJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QCOMPARE(job.channelType(), ChannelMembersJob::ChannelType::Unknown);
-    QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.hasQueryParameterSupport());
 }
 
 void ChannelMembersJobTest::shouldGenerateRequest()

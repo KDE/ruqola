@@ -54,11 +54,6 @@ bool UsersForRoomFilterProxyModel::hasFullList() const
     return static_cast<UsersForRoomModel *>(sourceModel())->hasFullList();
 }
 
-int UsersForRoomFilterProxyModel::rowCount(const QModelIndex &parent) const
-{
-    return sourceModel()->rowCount(parent);
-}
-
 bool UsersForRoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     if (!sourceModel()) {

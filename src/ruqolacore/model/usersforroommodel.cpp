@@ -96,7 +96,6 @@ QString UsersForRoomModel::generateDisplayName(const User &user) const
 
 void UsersForRoomModel::checkFullList()
 {
-    qDebug() << " void UsersForRoomModel::checkFullList()" << mUsers.count() << " mTotal " << mTotal;
     setHasFullList(mUsers.count() == mTotal);
 }
 
@@ -111,6 +110,11 @@ void UsersForRoomModel::setHasFullList(bool hasFullList)
         mHasFullList = hasFullList;
         Q_EMIT hasFullListChanged();
     }
+}
+
+int UsersForRoomModel::usersCount() const
+{
+    return mUsers.count();
 }
 
 int UsersForRoomModel::offset() const
@@ -146,6 +150,7 @@ QHash<int, QByteArray> UsersForRoomModel::roleNames() const
 
 void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi)
 {
+    qDebug() << " root " << root;
     if (restapi) {
         mTotal = root[QLatin1String("total")].toInt();
         mOffset = root[QLatin1String("offset")].toInt();

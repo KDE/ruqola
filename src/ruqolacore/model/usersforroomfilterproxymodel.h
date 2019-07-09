@@ -37,7 +37,6 @@ public:
     Q_INVOKABLE void setFilterString(const QString &string);
 
     Q_REQUIRED_RESULT bool hasFullList() const;
-    Q_REQUIRED_RESULT Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 Q_SIGNALS:
     void hasFullListChanged();
 
