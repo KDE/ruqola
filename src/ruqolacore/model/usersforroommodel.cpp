@@ -46,14 +46,21 @@ void UsersForRoomModel::addUser(const User &users)
 
 void UsersForRoomModel::setUsers(const QVector<User> &users)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
-        mUsers.clear();
-        endRemoveRows();
-    }
-    if (!users.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, users.count() - 1);
-        mUsers = users;
+    if (mUsers.isEmpty()) {
+        if (rowCount() != 0) {
+            beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
+            mUsers.clear();
+            endRemoveRows();
+        }
+        if (!users.isEmpty()) {
+            beginInsertRows(QModelIndex(), 0, users.count() - 1);
+            mUsers = users;
+            endInsertRows();
+        }
+    } else {
+        const int numberOfElement = mUsers.count();
+        mUsers << users;
+        beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
         endInsertRows();
     }
     checkFullList();
@@ -150,7 +157,6 @@ QHash<int, QByteArray> UsersForRoomModel::roleNames() const
 
 void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi)
 {
-    qDebug() << " root " << root;
     if (restapi) {
         mTotal = root[QLatin1String("total")].toInt();
         mOffset = root[QLatin1String("offset")].toInt();
@@ -181,9 +187,6 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                 qCWarning(RUQOLA_LOG) << "Parse records: Error in users for rooms json" << root;
             }
         }
-//        if (users.count() != total) {
-//            qCWarning(RUQOLA_LOG) << "Users for rooms, parsing error. Parse " << users.count() << " users but json give us a total number : "<< total;
-//        }
         setUsers(users);
     } else {
         const QJsonObject result = root[QLatin1String("result")].toObject();
@@ -218,9 +221,6 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                     qCWarning(RUQOLA_LOG) << "Parse records: Error in users for rooms json" << root;
                 }
             }
-//            if (users.count() != total) {
-//                qCWarning(RUQOLA_LOG) << "Users for rooms, parsing error. Parse " << users.count() << " users but json give us a total number : "<< total;
-//            }
             setUsers(users);
         } else {
             qCWarning(RUQOLA_LOG) << "Error in users for rooms json" << root;
