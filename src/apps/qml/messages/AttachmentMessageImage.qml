@@ -61,6 +61,33 @@ MessageBase {
             }
         }
         ColumnLayout {
+            QQC2.Label {
+                id: usernameLabel
+                Layout.alignment: Qt.AlignLeft
+                font.bold: true
+                text: i_aliasname +  ' ' + i_usernameurl + (i_editedByUserName === "" ? "" : " " + i18n("(edited by %1)", i_editedByUserName))
+
+                height: avatarRect.height
+                onLinkActivated: messageMain.linkActivated(link)
+                MouseArea {
+                    anchors.fill: parent
+                    acceptedButtons: Qt.RightButton
+
+                    onClicked: {
+                        if (i_useMenuMessage) {
+                            if (mouse.button === Qt.RightButton) {
+                                messageMenuLoader.posX = mouse.x
+                                messageMenuLoader.posY = mouse.y
+                                if (messageMenuLoader.active)
+                                    messageMenuLoader.active = false
+                                else
+                                    messageMenuLoader.active = true
+                            }
+                        }
+                    }
+                }
+                visible: !i_groupable
+            }
             Repeater {
                 id: repearterAttachments
 
