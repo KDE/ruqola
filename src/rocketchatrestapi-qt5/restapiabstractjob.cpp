@@ -158,6 +158,7 @@ void RestApiAbstractJob::addQueryParameter(QUrlQuery &urlQuery) const
             urlQuery.addQueryItem(QStringLiteral("sort"), str);
         }
     }
+    //qDebug() << " urlQuery " << urlQuery.toString();
 }
 
 RocketChatRestApi::AbstractLogger *RestApiAbstractJob::restApiLogger() const

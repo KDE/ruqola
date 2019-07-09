@@ -252,6 +252,7 @@ Component {
                 Behavior on opacity { NumberAnimation { duration: 650; easing.type: Easing.InOutQuad } }
 
                 Repeater {
+                    id: repeaterUser
                     model: parent.opacity > 0.5 ? appid.userModel : 0
                     RowLayout {
                         Kirigami.Icon {
@@ -334,11 +335,11 @@ Component {
                 }
                 SearchLabel {
                     width: parent.width
-                    hasFullList: appid.userModel ? appid.userModel.hasFullList : true
-                    numberOfElements: appid.userModel ? appid.userModel.rowCount() : 0
+                    hasFullList: appid.userModel ? appid.userModel.hasFullList : false
+                    numberOfElements: repeaterUser.count
                     onLoadMoreElements: {
+                        appid.rocketChatAccount.loadMoreUsersInRoom(appid.selectedRoomID, appid.selectedRoom.channelType)
                         console.log("click")
-                        //appid.rocketChatAccount.loadMoreFileAttachments(roomId, channelType)
                     }
                 }
 

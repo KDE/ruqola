@@ -79,6 +79,11 @@ void ChannelMembersJob::setChannelType(ChannelType channelType)
     mChannelType = channelType;
 }
 
+bool ChannelMembersJob::hasQueryParameterSupport() const
+{
+    return true;
+}
+
 bool ChannelMembersJob::requireHttpAuthentication() const
 {
     return true;
@@ -130,6 +135,7 @@ QNetworkRequest ChannelMembersJob::request() const
     }
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
