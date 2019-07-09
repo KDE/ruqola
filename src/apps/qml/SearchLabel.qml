@@ -30,6 +30,7 @@ RowLayout {
     property int numberOfElements: 0
     property bool hasFullList: false
     QQC2.Label {
+        visible: searchLabel.labelText.length > 0
         text: searchLabel.labelText
         Component.onCompleted: {
             font.italic = true

@@ -339,7 +339,6 @@ Component {
                     numberOfElements: repeaterUser.count
                     onLoadMoreElements: {
                         appid.rocketChatAccount.loadMoreUsersInRoom(appid.selectedRoomID, appid.selectedRoom.channelType)
-                        console.log("click")
                     }
                 }
 
