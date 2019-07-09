@@ -36,11 +36,10 @@ QQC2.Dialog {
 
     property QtObject applicationData
 
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
+    anchors.centerIn: parent
 
-    width: Math.min(bar.contentWidth + Kirigami.Units.smallSpacing * 2, 500)
-    height: 600
     modal: true
     focus: true
     Item {
