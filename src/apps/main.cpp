@@ -85,12 +85,15 @@ int main(int argc, char *argv[])
     parser.process(app);
     aboutData.processCommandLine(&parser);
     if (parser.isSet(QStringLiteral("list-accounts"))) {
-        QDirIterator it(ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString()), QStringList() << QStringLiteral(
+        const QString configPath = ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
+        QDirIterator it(configPath, QStringList() << QStringLiteral(
                             "ruqola.conf"), QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
         std::cout << i18n("The following account are available:").toLocal8Bit().data() << std::endl;
         while (it.hasNext()) {
-            const QString val = it.next();
-            std::cout << val.toLocal8Bit().data() << std::endl;
+            QString result = it.next();
+            result.remove(configPath + QLatin1Char('/'));
+            result.remove(QStringLiteral("/ruqola.conf"));
+            std::cout << "   " << result.toLocal8Bit().data() << std::endl;
         }
         return 0;
     }
