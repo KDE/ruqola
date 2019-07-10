@@ -111,8 +111,10 @@ ColumnLayout {
                     if (messageId !== "") {
                         //Reply against message
                         if (savePreviousMessage == "") {
+                            //console.log("Previous message  empty")
                             appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text, messageId);
                         } else if (text !== savePreviousMessage) {
+                            //console.log("Previous message  empty text different")
                             appid.rocketChatAccount.updateMessage(messageLineItem.selectedRoomId, messageId, text);
                         }
                     } else if (threadmessageId !== "") { //Reply in thread
@@ -126,7 +128,6 @@ ColumnLayout {
                 text = "";
                 threadmessageId = "";
                 savePreviousMessage = "";
-                messageId = "";
             }
         }
         QQC2.Popup {
