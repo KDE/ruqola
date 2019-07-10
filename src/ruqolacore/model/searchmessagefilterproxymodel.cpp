@@ -41,3 +41,8 @@ QHash<int, QByteArray> SearchMessageFilterProxyModel::roleNames() const
     }
     return QHash<int, QByteArray>();
 }
+
+bool SearchMessageFilterProxyModel::stringNotFound() const
+{
+    return static_cast<SearchMessageModel *>(sourceModel())->stringNotFound();
+}
