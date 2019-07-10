@@ -80,6 +80,7 @@ int main(int argc, char *argv[])
 
     QCommandLineParser parser;
     parser.addOption(QCommandLineOption(QStringList() <<  QStringLiteral("list-accounts"), i18n("Return lists of accounts")));
+    parser.addOption(QCommandLineOption(QStringList() <<  QStringLiteral("account"), i18n("Start with specific account"), QStringLiteral("file")));
 
     aboutData.setupCommandLine(&parser);
     parser.process(app);
@@ -98,7 +99,14 @@ int main(int argc, char *argv[])
         return 0;
     }
 
+    QString loadAccount;
+    if (parser.isSet(QStringLiteral("account"))) {
+        loadAccount = parser.value(QStringLiteral("account"));
+    }
     (void)Ruqola::self();
+    if (!loadAccount.isEmpty()) {
+        Ruqola::self()->setCurrentAccount(loadAccount);
+    }
 
     RuqolaRegisterEngine ruqolaEngine;
 

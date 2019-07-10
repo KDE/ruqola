@@ -68,6 +68,7 @@ void AccountManager::loadAccount()
     }
 
     mRocketChatAccountModel->setAccounts(lstAccounts);
+    mCurrentAccount = mRocketChatAccountModel->account(0);
 }
 
 RocketChatAccountFilterProxyModel *AccountManager::rocketChatAccountProxyModel() const
@@ -75,11 +76,9 @@ RocketChatAccountFilterProxyModel *AccountManager::rocketChatAccountProxyModel()
     return mRocketChatAccountProxyModel;
 }
 
-RocketChatAccount *AccountManager::firstAccount() const
+RocketChatAccount *AccountManager::currentAccount() const
 {
-    //Temporary too
-    RocketChatAccount *t = mRocketChatAccountModel->account(0);
-    return t;
+    return mCurrentAccount;
 }
 
 void AccountManager::addAccount(const QString &accountName, const QString &username, const QString &url)
@@ -99,6 +98,14 @@ void AccountManager::addAccount(const QString &accountName, const QString &usern
 void AccountManager::addAccount(RocketChatAccount *account)
 {
     mRocketChatAccountModel->insertAccount(account);
+}
+
+void AccountManager::setCurrentAccount(const QString &accountName)
+{
+    RocketChatAccount *account = mRocketChatAccountModel->account(accountName);
+    if (account) {
+        mCurrentAccount = account;
+    }
 }
 
 void AccountManager::removeAccount(const QString &accountName)

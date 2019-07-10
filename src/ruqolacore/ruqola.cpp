@@ -59,6 +59,11 @@ Ruqola::Ruqola(QObject *parent)
     mRuqolaAboutData = new QmlAboutData(this);
 }
 
+void Ruqola::setCurrentAccount(const QString &accountName)
+{
+    mAccountManager->setCurrentAccount(accountName);
+}
+
 AccountManager *Ruqola::accountManager() const
 {
     return mAccountManager;
@@ -71,7 +76,7 @@ QmlAboutData *Ruqola::applicationData() const
 
 RocketChatAccount *Ruqola::rocketChatAccount() const
 {
-    return mAccountManager->firstAccount();
+    return mAccountManager->currentAccount();
 }
 
 void Ruqola::sendNotification(const QString &title, const QString &message, const QPixmap &pixmap)

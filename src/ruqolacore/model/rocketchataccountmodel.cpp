@@ -57,6 +57,21 @@ void RocketChatAccountModel::setAccounts(const QVector<RocketChatAccount *> &acc
     }
 }
 
+RocketChatAccount *RocketChatAccountModel::account(const QString &accountName) const
+{
+    if (mRocketChatAccount.isEmpty()) {
+        qCWarning(RUQOLA_LOG) << " Empty account";
+        return nullptr;
+    }
+    for (int i = 0; i < mRocketChatAccount.count(); ++i) {
+        if (mRocketChatAccount.at(i)->accountName() == accountName) {
+            return mRocketChatAccount.at(i);
+        }
+    }
+    return nullptr;
+}
+
+
 RocketChatAccount *RocketChatAccountModel::account(int index) const
 {
     if (mRocketChatAccount.isEmpty() || (index > mRocketChatAccount.count() - 1)) {

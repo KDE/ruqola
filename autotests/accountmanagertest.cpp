@@ -38,7 +38,7 @@ void AccountManagerTest::shouldHaveDefaultValue()
     QVERIFY(w.rocketChatAccountProxyModel());
     QCOMPARE(w.rocketChatAccountProxyModel()->sourceModel(), w.rocketChatAccountModel());
 
-    QVERIFY(w.firstAccount());
+    QVERIFY(w.currentAccount());
 }
 
 void AccountManagerTest::shouldAddAccount()

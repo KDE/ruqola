@@ -45,7 +45,7 @@ Kirigami.ApplicationWindow {
 
     property QtObject messageModel
     property QtObject userModel
-    property QtObject rocketChatAccount: accountManager.firstAccount()
+    property QtObject rocketChatAccount: accountManager.currentAccount()
 
     property QtObject filesModel: appid.rocketChatAccount.filesForRoomFilterProxyModel()
     property QtObject discussionsModel: appid.rocketChatAccount.discussionsFilterProxyModel()

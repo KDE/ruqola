@@ -57,6 +57,8 @@ public:
     Q_INVOKABLE AccountManager *accountManager() const;
 
     explicit Ruqola(QObject *parent = nullptr);
+
+    void setCurrentAccount(const QString &accountName);
 private:
     Q_DISABLE_COPY(Ruqola)
     void sendNotification(const QString &title, const QString &message, const QPixmap &pixmap);

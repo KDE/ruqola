@@ -39,10 +39,11 @@ public:
     Q_INVOKABLE void removeAccount(const QString &accountName);
     Q_INVOKABLE void addAccount(const QString &accountName, const QString &username, const QString &url);
 
-    Q_INVOKABLE RocketChatAccount *firstAccount() const;
+    Q_INVOKABLE RocketChatAccount *currentAccount() const;
     Q_INVOKABLE RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel() const;
 
     void addAccount(RocketChatAccount *account);
+    void setCurrentAccount(const QString &accountName);
 
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
@@ -53,6 +54,7 @@ private:
     Q_DISABLE_COPY(AccountManager)
 
     void loadAccount();
+    RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *mRocketChatAccountModel = nullptr;
     RocketChatAccountFilterProxyModel *mRocketChatAccountProxyModel = nullptr;
 };

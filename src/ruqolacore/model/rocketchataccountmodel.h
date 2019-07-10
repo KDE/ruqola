@@ -49,9 +49,12 @@ public:
     void setAccounts(const QVector<RocketChatAccount *> &accounts);
 
     Q_REQUIRED_RESULT RocketChatAccount *account(int index) const;
+
+    Q_REQUIRED_RESULT RocketChatAccount *account(const QString &accountName) const;
 private:
     Q_DISABLE_COPY(RocketChatAccountModel)
     QVector<RocketChatAccount *> mRocketChatAccount;
 };
+
 
 #endif // ROCKETCHATACCOUNTMODEL_H
