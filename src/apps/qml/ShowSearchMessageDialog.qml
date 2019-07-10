@@ -63,7 +63,19 @@ QQC2.Dialog {
                 showSearchMessageDialog.searchMessage(text, roomId)
             }
         }
-
+        QQC2.Label {
+            visible: searchMessageModel.stringNotFound
+            text: i18n("Any string found")
+            Layout.alignment: Qt.AlignTop
+            Component.onCompleted: {
+                font.italic = true
+                font.bold = true
+            }
+        }
+        Item {
+            Layout.fillHeight: true
+            visible: searchMessageModel.stringNotFound
+        }
         ActiveChat {
             id: listview
             Layout.fillWidth: true

@@ -30,6 +30,7 @@ class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT SearchMessageModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(bool stringNotFound READ stringNotFound WRITE setStringNotFound NOTIFY stringNotFoundChanged)
 public:
     enum SearchMessageRoles {
         Username = Qt::UserRole + 1,
@@ -80,11 +81,19 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = {}) const override;
     void parseResult(const QJsonObject &obj, bool restApi = false);
     void clear();
+
+    Q_REQUIRED_RESULT bool stringNotFound() const;
+    void setStringNotFound(bool stringNotFound);
+
+Q_SIGNALS:
+    void stringNotFoundChanged();
+
 private:
     Q_DISABLE_COPY(SearchMessageModel)
     QString convertMessageText(const QString &str, const QString &userName) const;
     void setMessages(const QVector<SearchMessage> &channels);
     QVector<SearchMessage> mSearchMessages;
+    bool mStringNotFound = false;
     TextConverter *mTextConverter = nullptr;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };

@@ -218,6 +218,7 @@ void SearchMessageModel::parseResult(const QJsonObject &obj, bool restApi)
         //Verify that it's valid
         messages.append(msg);
     }
+    setStringNotFound(messagesObj.isEmpty());
     setMessages(messages);
 }
 
@@ -228,6 +229,7 @@ void SearchMessageModel::clear()
         mSearchMessages.clear();
         endRemoveRows();
     }
+    setStringNotFound(false);
 }
 
 void SearchMessageModel::setMessages(const QVector<SearchMessage> &messages)
@@ -241,6 +243,19 @@ void SearchMessageModel::setMessages(const QVector<SearchMessage> &messages)
         beginInsertRows(QModelIndex(), 0, messages.count() - 1);
         mSearchMessages = messages;
         endInsertRows();
+    }
+}
+
+bool SearchMessageModel::stringNotFound() const
+{
+    return mStringNotFound;
+}
+
+void SearchMessageModel::setStringNotFound(bool stringNotFound)
+{
+    if (mStringNotFound != stringNotFound) {
+        mStringNotFound = stringNotFound;
+        Q_EMIT stringNotFoundChanged();
     }
 }
 
