@@ -31,7 +31,6 @@
 #include "managerdatapaths.h"
 #include <iostream>
 
-
 #include <KAboutData>
 #include <QIcon>
 #include <QDirIterator>

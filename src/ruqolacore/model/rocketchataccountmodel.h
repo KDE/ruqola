@@ -56,5 +56,4 @@ private:
     QVector<RocketChatAccount *> mRocketChatAccount;
 };
 
-
 #endif // ROCKETCHATACCOUNTMODEL_H

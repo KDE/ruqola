@@ -101,7 +101,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     initializeAuthenticationPlugins();
 
-
     mRocketChatBackend = new RocketChatBackend(this, this);
 
     mEmoticonModel = new EmoticonModel(this);

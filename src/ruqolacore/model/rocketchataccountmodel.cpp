@@ -71,7 +71,6 @@ RocketChatAccount *RocketChatAccountModel::account(const QString &accountName) c
     return nullptr;
 }
 
-
 RocketChatAccount *RocketChatAccountModel::account(int index) const
 {
     if (mRocketChatAccount.isEmpty() || (index > mRocketChatAccount.count() - 1)) {
