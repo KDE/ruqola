@@ -82,6 +82,7 @@ void UsersForRoomModelTest::shouldAddValues()
         user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
     }
+    w.clear();
     w.setUsers(users);
     QCOMPARE(w.rowCount(), 3);
     QCOMPARE(rowInsertedSpy.count(), 1);
@@ -93,6 +94,7 @@ void UsersForRoomModelTest::shouldAddValues()
     rowInsertedSpy.clear();
 
     users.clear();
+    w.clear();
     w.setUsers(users);
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
