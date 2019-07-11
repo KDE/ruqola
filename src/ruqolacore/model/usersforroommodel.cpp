@@ -66,6 +66,15 @@ void UsersForRoomModel::setUsers(const QVector<User> &users)
     checkFullList();
 }
 
+void UsersForRoomModel::clear()
+{
+    if (!mUsers.isEmpty()) {
+        beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
+        mUsers.clear();
+        endRemoveRows();
+    }
+}
+
 int UsersForRoomModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
