@@ -88,6 +88,9 @@ QQC2.Dialog {
                 }
             }
         }
+        Item {
+            Layout.fillHeight: true
+        }
         FileDialog {
             id: selectFileDialog
             title: i18n("Please choose a file")
