@@ -33,7 +33,8 @@ public:
         UserName = Qt::UserRole + 1,
         UserId,
         UserStatus,
-        UserIcon
+        UserIcon,
+        UserStatusText
     };
     Q_ENUM(UserRoles)
 

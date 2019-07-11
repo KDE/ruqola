@@ -65,11 +65,15 @@ public:
     Q_REQUIRED_RESULT int utcOffset() const;
     void setUtcOffset(int utcOffset);
 
+    Q_REQUIRED_RESULT QString statusText() const;
+    void setStatusText(const QString &statusText);
+
 private:
     QString mStatus = QStringLiteral("offline");
     QString mUserId;
     QString mName;
     QString mUserName;
+    QString mStatusText;
     int mUtcOffset = 0;
 };
 Q_DECLARE_METATYPE(User)

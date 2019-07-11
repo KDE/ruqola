@@ -68,7 +68,8 @@ bool User::operator ==(const User &other) const
            && (mUserId == other.userId())
            && (mStatus == other.status())
            && (mUserName == other.userName())
-           && (mUtcOffset == other.utcOffset());
+           && (mUtcOffset == other.utcOffset())
+            && (mStatusText == other.statusText());
 }
 
 bool User::operator !=(const User &other) const
@@ -83,6 +84,7 @@ User &User::operator=(const User &other)
     mName = other.name();
     mUserName = other.userName();
     mUtcOffset = other.utcOffset();
+    mStatusText = other.statusText();
     return *this;
 }
 
@@ -112,6 +114,16 @@ void User::setUtcOffset(int utcOffset)
     mUtcOffset = utcOffset;
 }
 
+QString User::statusText() const
+{
+    return mStatusText;
+}
+
+void User::setStatusText(const QString &statusText)
+{
+    mStatusText = statusText;
+}
+
 QDebug operator <<(QDebug d, const User &t)
 {
     d << "Name " << t.name();
@@ -119,6 +131,7 @@ QDebug operator <<(QDebug d, const User &t)
     d << "Status " << t.status();
     d << "UserName " << t.userName();
     d << "UtcOffset " << t.utcOffset();
+    d << "StatusText " << t.statusText();
     return d;
 }
 
@@ -130,6 +143,7 @@ void User::parseUser(const QJsonObject &object)
     setStatus(fields.value(QLatin1String("status")).toString());
     setUserName(fields.value(QLatin1String("username")).toString());
     setUtcOffset(fields.value(QLatin1String("utcOffset")).toInt());
+    setStatusText(fields.value(QLatin1String("statusText")).toString());
 }
 
 QString User::iconFromStatus() const

@@ -52,6 +52,8 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
         return user.status();
     case UserIcon:
         return user.iconFromStatus();
+    case UserStatusText:
+        return user.statusText();
     }
 
     return {};
@@ -165,6 +167,7 @@ void UsersModel::updateUser(const QJsonObject &array)
                 Q_EMIT nameChanged(user);
                 userDataChanged = true;
             }
+            //StatusText ?
             if (!userDataChanged) {
                 qCWarning(RUQOLA_LOG) << " Unsupported yet user data modification " << array;
             }
