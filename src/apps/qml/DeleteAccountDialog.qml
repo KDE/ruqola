@@ -30,14 +30,15 @@ QQC2.Dialog {
     title: i18n("Delete Account")
 
     property string accountName
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
+    anchors.centerIn: parent
 
     modal: true
     focus: true
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
-    Row {
+    contentItem: Row {
         QQC2.Label {
             text: accountName === "" ? "" : i18n("Do you want to delete '%1' account?", accountName)
             font.bold: true

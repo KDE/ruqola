@@ -26,19 +26,20 @@ import KDE.Ruqola.RocketChatAccount 1.0
 
 Kirigami.Page {
     id: configureServer
-
-    implicitHeight: 400
-    implicitWidth: 300
+    anchors.fill: parent
+    //implicitHeight: 400
+    //implicitWidth: 300
 
     property QtObject accountModel
 
     signal closeConfigureServer()
 
     ColumnLayout {
+        anchors.fill: parent
         ListView {
             id: listview
-            width: 300;
-            height: 200
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             clip: true
 
             model: accountModel
