@@ -27,7 +27,7 @@
 class RuqolaLogger : public RocketChatRestApi::AbstractLogger
 {
 public:
-    RuqolaLogger();
+    explicit RuqolaLogger(const QString &accountName = QString());
     ~RuqolaLogger() override;
     void dataSent(const QByteArray &data) override;
     void dataReceived(const QByteArray &data) override;

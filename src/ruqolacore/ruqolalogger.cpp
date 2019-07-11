@@ -23,13 +23,14 @@
 #include <QCoreApplication>
 #include <QFileInfo>
 
-RuqolaLogger::RuqolaLogger()
+RuqolaLogger::RuqolaLogger(const QString &accountName)
     : RocketChatRestApi::AbstractLogger()
 {
     static quint64 nextIdentifier = 0;
     mIdentifier = ++nextIdentifier;
 
     mFile.setFileName(QLatin1String(qgetenv("RUQOLA_LOGFILE"))
+                      + QLatin1Char('-') + accountName
                       + QLatin1Char('.')
                       + QString::number(QCoreApplication::applicationPid())
                       + QLatin1Char('.')

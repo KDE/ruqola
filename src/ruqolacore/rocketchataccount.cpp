@@ -82,8 +82,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)"<<accountFileName;
     //create an unique file for each account
+    loadSettings(accountFileName);
     if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
-        mRuqolaLogger = new RuqolaLogger;
+        mRuqolaLogger = new RuqolaLogger(mSettings->accountName());
     }
 
     mServerConfigInfo = new ServerConfigInfo(this, this);
@@ -100,7 +101,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     initializeAuthenticationPlugins();
 
-    loadSettings(accountFileName);
 
     mRocketChatBackend = new RocketChatBackend(this, this);
 
