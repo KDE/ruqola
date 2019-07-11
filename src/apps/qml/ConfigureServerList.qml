@@ -43,22 +43,27 @@ Kirigami.Page {
             clip: true
 
             model: accountModel
-            delegate:
+            delegate: Kirigami.BasicListItem {
+                reserveSpaceForIcon: false
                 RowLayout {
-                QQC2.Label {
-                    text: name
-                }
-                Kirigami.Icon {
-                    //Fix icon ??
-                    source: "list-remove"
-                    height: Kirigami.Units.iconSizes.medium
-                    width: height
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            deleteAccountDialog.accountName = name
-                            deleteAccountDialog.open()
+                    QQC2.Label {
+                        text: name
+                    }
+                    Kirigami.Icon {
+                        //Fix icon ??
+                        source: "list-remove"
+                        height: Kirigami.Units.iconSizes.medium
+                        width: height
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                deleteAccountDialog.accountName = name
+                                deleteAccountDialog.open()
+                            }
                         }
+                    }
+                    Item {
+                        Layout.fillWidth: true
                     }
                 }
             }
