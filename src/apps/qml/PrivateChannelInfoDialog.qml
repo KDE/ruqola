@@ -31,7 +31,7 @@ QQC2.Dialog {
 
     signal blockUser(string rid, bool block)
 
-    title: i18n("Info about this private channel")
+    title: i18n("Info About this user")
     standardButtons: QQC2.Dialog.Close
 
     modal: true
