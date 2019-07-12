@@ -127,6 +127,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.delete")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsGetAllUserMentionsByChannel), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsSetEncrypted), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.setEncrypted")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsOnline), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.online")));
+
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsAddAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.addAll")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsAddModerator), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.addModerator")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::GroupsAddOwner), QUrl(QStringLiteral("http://www.kde.org/api/v1/groups.addOwner")));
