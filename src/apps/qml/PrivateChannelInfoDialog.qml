@@ -36,8 +36,9 @@ QQC2.Dialog {
 
     modal: true
     focus: true
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
+    anchors.centerIn: parent
 
     function initializeAndOpen()
     {
@@ -45,7 +46,7 @@ QQC2.Dialog {
         open();
     }
 
-    ColumnLayout {
+    contentItem: ColumnLayout {
         AvatarImage {
             id: avatarRect
             implicitHeight: 160
