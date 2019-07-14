@@ -68,6 +68,7 @@ void AccountManager::loadAccount()
     }
 
     mRocketChatAccountModel->setAccounts(lstAccounts);
+    //Use first one
     mCurrentAccount = mRocketChatAccountModel->account(0);
 }
 
