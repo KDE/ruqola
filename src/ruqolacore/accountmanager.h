@@ -53,6 +53,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(AccountManager)
 
+    void selectAccount(const QString &accountName);
     void loadAccount();
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *mRocketChatAccountModel = nullptr;

@@ -24,6 +24,7 @@
 #include "ruqola_debug.h"
 #include <QDir>
 #include <QDirIterator>
+#include <QSettings>
 
 #include "model/rocketchataccountmodel.h"
 #include "model/rocketchataccountfilterproxymodel.h"
@@ -68,8 +69,20 @@ void AccountManager::loadAccount()
     }
 
     mRocketChatAccountModel->setAccounts(lstAccounts);
-    //Use first one
-    mCurrentAccount = mRocketChatAccountModel->account(0);
+
+    QSettings settings;
+    const QString previousAccount = settings.value(QStringLiteral("currentAccount"), QString()).toString();
+qDebug() << " previousAccount" << previousAccount;
+    if (previousAccount.isEmpty()) {
+        //Use first one
+        mCurrentAccount = mRocketChatAccountModel->account(0);
+    } else {
+        selectAccount(previousAccount);
+        if (!mCurrentAccount) {
+            //Use first one
+            mCurrentAccount = mRocketChatAccountModel->account(0);
+        }
+    }
 }
 
 RocketChatAccountFilterProxyModel *AccountManager::rocketChatAccountProxyModel() const
@@ -101,10 +114,21 @@ void AccountManager::addAccount(RocketChatAccount *account)
     mRocketChatAccountModel->insertAccount(account);
 }
 
+void AccountManager::selectAccount(const QString &accountName)
+{
+    RocketChatAccount *account = mRocketChatAccountModel->account(accountName);
+    if (account) {
+        mCurrentAccount = account;
+    }
+}
+
 void AccountManager::setCurrentAccount(const QString &accountName)
 {
     RocketChatAccount *account = mRocketChatAccountModel->account(accountName);
     if (account) {
+        QSettings settings;
+        settings.setValue(QStringLiteral("currentAccount"), accountName);
+        settings.sync();
         mCurrentAccount = account;
     }
 }
