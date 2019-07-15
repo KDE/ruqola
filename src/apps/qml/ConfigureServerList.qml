@@ -62,6 +62,17 @@ Kirigami.Page {
                             }
                         }
                     }
+                    Kirigami.Icon {
+                        //Fix icon ??
+                        source: "document-edit"
+                        height: Kirigami.Units.iconSizes.medium
+                        width: height
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                            }
+                        }
+                    }
                     Item {
                         Layout.fillWidth: true
                     }
