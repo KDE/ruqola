@@ -905,7 +905,6 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
 
 void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
 {
-    qDebug() << " void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)" << obj;
     mSearchMessageModel->parseResult(obj, true);
 }
 
