@@ -27,8 +27,6 @@ import KDE.Ruqola.RocketChatAccount 1.0
 Kirigami.Page {
     id: configureServer
     anchors.fill: parent
-    //implicitHeight: 400
-    //implicitWidth: 300
 
     property QtObject accountModel
 
