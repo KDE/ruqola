@@ -136,7 +136,6 @@ Discussion &Discussion::operator=(const Discussion &other)
 
 void Discussion::parseDiscussion(const QJsonObject &o)
 {
-    qDebug() << " o " << o;
     mParentRoomId = o.value(QLatin1String("prid")).toString();
     mDescription = o.value(QLatin1String("description")).toString();
     mFname = o.value(QLatin1String("fname")).toString();
