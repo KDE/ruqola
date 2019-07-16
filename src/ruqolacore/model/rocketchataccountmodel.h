@@ -30,7 +30,8 @@ class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccountModel : public QAbstractListMo
 public:
     enum AccountRoles {
         Name = Qt::UserRole + 1,
-        SiteUrl
+        SiteUrl,
+        UserName,
     };
     Q_ENUM(AccountRoles)
 

@@ -40,6 +40,8 @@ void RocketChatAccountModelTest::shouldHaveDefaultValue()
     QHash<int, QByteArray> roles;
     roles[RocketChatAccountModel::Name] = QByteArrayLiteral("name");
     roles[RocketChatAccountModel::SiteUrl] = QByteArrayLiteral("siteurl");
+    roles[RocketChatAccountModel::UserName] = QByteArrayLiteral("username");
+
     QCOMPARE(w.roleNames(), roles);
 }
 

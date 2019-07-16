@@ -93,11 +93,14 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
         return {};
     }
     const int idx = index.row();
+    RocketChatAccount *account = mRocketChatAccount.at(idx);
     switch (role) {
     case Name:
-        return mRocketChatAccount.at(idx)->accountName();
+        return account->accountName();
     case SiteUrl:
-        return mRocketChatAccount.at(idx)->ruqolaServerConfig()->siteUrl();
+        return account->ruqolaServerConfig()->siteUrl();
+    case UserName:
+        return account->userName();
     }
     //Add icon ???
     return {};
@@ -133,5 +136,6 @@ QHash<int, QByteArray> RocketChatAccountModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles[Name] = QByteArrayLiteral("name");
     roles[SiteUrl] = QByteArrayLiteral("siteurl");
+    roles[UserName] = QByteArrayLiteral("username");
     return roles;
 }
