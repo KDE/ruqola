@@ -27,11 +27,13 @@ import org.kde.kirigami 2.7 as Kirigami
 QQC2.Dialog {
     id: showThreadMessagesDialog
 
-    title: i18n("Thread Messages") //Add room name too.
 
     property QtObject threadMessagesModel
 
     property string threadMessageId
+    property string threadPreviewText
+
+    title: threadPreviewText === "" ? "" : i18n("Thread Messages: %1", threadPreviewText)
     width: parent.width * 9 / 10
     height: parent.height * 9 / 10
     anchors.centerIn: parent
