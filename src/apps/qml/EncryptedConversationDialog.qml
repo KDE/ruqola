@@ -40,6 +40,7 @@ QQC2.Dialog {
     Row {
         QQC2.Label {
             text: i18n("Do you want to accept encrypted conversation?")
+            textFormat: Text.PlainText
             font.bold: true
             font.pointSize: 15
         }

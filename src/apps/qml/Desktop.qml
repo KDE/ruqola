@@ -89,6 +89,7 @@ Kirigami.ApplicationWindow {
         topContent: [
             QQC2.Label {
                 text: rocketChatAccount.userName === "" ? "" : i18n("Hello, %1", rocketChatAccount.userName)
+                textFormat: Text.PlainText
             }
         ]
         

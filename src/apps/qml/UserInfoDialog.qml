@@ -48,6 +48,7 @@ QQC2.Dialog {
         columns: 2
         QQC2.Label {
             text: i18n("Name:");
+            textFormat: Text.PlainText
         }
         TextFieldEditor {
             id: channelNameField

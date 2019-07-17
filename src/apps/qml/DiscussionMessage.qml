@@ -56,6 +56,7 @@ Kirigami.BasicListItem {
             QQC2.Label {
                 text: i18np("1 message", "%1 messages", i_numberofmessages)
                 elide: Text.ElideRight
+                textFormat: Text.PlainText
                 wrapMode: QQC2.Label.Wrap
                 Component.onCompleted: {
                     font.bold = true
@@ -72,6 +73,7 @@ Kirigami.BasicListItem {
             text: i18n("Open Discussion")
             elide: Text.ElideRight
             wrapMode: QQC2.Label.Wrap
+            textFormat: Text.PlainText
             color: Kirigami.Theme.negativeTextColor
             MouseArea {
                 anchors.fill: parent

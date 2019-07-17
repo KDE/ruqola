@@ -108,7 +108,7 @@ Component {
                 }
                 QQC2.Label {
                     id: comboboxLabel
-
+                    textFormat: Text.PlainText
                     text: i18n("Status:")
                 }
 

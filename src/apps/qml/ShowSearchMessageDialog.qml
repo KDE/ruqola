@@ -66,6 +66,7 @@ QQC2.Dialog {
         QQC2.Label {
             visible: searchMessageModel.stringNotFound
             text: i18n("Any string found")
+            textFormat: Text.PlainText
             Layout.alignment: Qt.AlignTop
             Component.onCompleted: {
                 font.italic = true

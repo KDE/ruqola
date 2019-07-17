@@ -43,6 +43,7 @@ QQC2.Dialog {
         QQC2.Label {
             text: i18n("Do you want to leave this channel?")
             font.bold: true
+            textFormat: Text.PlainText
             font.pointSize: 15
         }
     }

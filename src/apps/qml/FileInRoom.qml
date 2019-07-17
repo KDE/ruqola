@@ -39,6 +39,7 @@ Kirigami.BasicListItem {
         ColumnLayout {
             QQC2.Label {
                 text: i_filename
+                textFormat: Text.PlainText
                 elide: Text.ElideRight
                 wrapMode: QQC2.Label.Wrap
             }
@@ -61,6 +62,7 @@ Kirigami.BasicListItem {
             }
             QQC2.Label {
                 text: i_timestamp
+                textFormat: Text.PlainText
                 wrapMode: QQC2.Label.NoWrap
                 color: Kirigami.Theme.disabledTextColor
                 Component.onCompleted: {

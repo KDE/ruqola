@@ -30,6 +30,7 @@ QQC2.Label {
     Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
     text: timestamp
     opacity: .5
+    textFormat: Text.PlainText
     
     z: 10
 }

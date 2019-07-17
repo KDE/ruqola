@@ -39,6 +39,7 @@ Rectangle {
     color: RuqolaSingleton.backgroundColor;
     QQC2.Label {
         id: dateLabel
+        textFormat: Text.PlainText
         text: date
         font.bold: true
         font.italic: true

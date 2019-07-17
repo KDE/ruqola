@@ -57,6 +57,7 @@ Kirigami.Page {
             id: loginLabel
 
             text: i18n("Ruqola Log in")
+            textFormat: Text.PlainText
             color: "#555"
             font.pointSize: 40
             horizontalAlignment: Text.AlignHCenter
@@ -73,6 +74,7 @@ Kirigami.Page {
         QQC2.Label {
             width: parent.width
             text: i18n("Account Name")
+            textFormat: Text.PlainText
         }
 
         QQC2.TextField {
@@ -86,7 +88,8 @@ Kirigami.Page {
 
         QQC2.Label {
             width: parent.width
-            text: i18n("Rocket Chat Server")    
+            text: i18n("Rocket Chat Server")
+            textFormat: Text.PlainText
         }
 
         QQC2.TextField {
@@ -102,6 +105,7 @@ Kirigami.Page {
             width: parent.width
             text: i18n("Authentication Method")
             visible: loginMethodCombobox.visible
+            textFormat: Text.PlainText
         }
 
         QQC2.ComboBox {
