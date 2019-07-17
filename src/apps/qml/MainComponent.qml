@@ -196,7 +196,9 @@ Component {
             Kirigami.Heading {
                 text: appid.selectedRoom ? appid.selectedRoom.displayRoomName : ""
                 level: 3
-                font.bold: true
+                Component.onCompleted: {
+                    font.bold = true
+                }
             }
             Item {
                 Layout.fillWidth: true
