@@ -65,6 +65,7 @@ QQC2.Menu {
         id: conversationItem
         contentItem: QQC2.Label {
             text: i18n("Conversation")
+            textFormat: Text.PlainText
         }
         onTriggered: {
             menu.openConversation(userId)
@@ -116,6 +117,7 @@ QQC2.Menu {
         visible: can_manage_users && !isAdirectChannel
         contentItem: QQC2.Label {
             text: i18n("Remove from Room")
+            textFormat: Text.PlainText
         }
         onTriggered: {
             menu.kickUser(userId)

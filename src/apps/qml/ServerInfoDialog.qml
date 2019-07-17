@@ -40,14 +40,17 @@ QQC2.Dialog {
         QQC2.Label {
             text: rcAccount ? i18n("Account name: %1", rcAccount.serverConfigInfo().serverName) : ""
             font.pointSize: 15
+            textFormat: Text.PlainText
         }
         QQC2.Label {
             text: rcAccount ? i18n("User name: %1", rcAccount.serverConfigInfo().userName) : ""
             font.pointSize: 15
+            textFormat: Text.PlainText
         }
         QQC2.Label {
             text: rcAccount ? i18n("Server version: %1", rcAccount.serverConfigInfo().serverVersionStr) : ""
             font.pointSize: 15
+            textFormat: Text.PlainText
         }
     }
 

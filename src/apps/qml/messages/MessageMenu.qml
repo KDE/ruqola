@@ -51,6 +51,7 @@ QQC2.Menu {
         visible: rcAccount.discussionEnabled()
         contentItem: QQC2.Label {
             text: i18n("Start a Discussion")
+            textFormat: Text.PlainText
         }
         onTriggered: {
             messageMain.createDiscussion(i_messageID);
@@ -62,6 +63,7 @@ QQC2.Menu {
         visible: rcAccount.threadsEnabled()
         contentItem: QQC2.Label {
             text: i18n("Reply in Thread")
+            textFormat: Text.PlainText
         }
         onTriggered: {
             messageMain.replyInThread(i_messageID);
@@ -73,6 +75,7 @@ QQC2.Menu {
         id: copyMessageItem
         contentItem: QQC2.Label {
             text: i18n("Copy")
+            textFormat: Text.PlainText
         }
         onTriggered: {
             messageMain.copyMessage(i_messageID, i_originalMessage);
@@ -84,6 +87,7 @@ QQC2.Menu {
         id: editMessageItem
         contentItem: QQC2.Label {
             text: i18n("Edit")
+            textFormat: Text.PlainText
         }
         onTriggered: {
             messageMain.editMessage(i_messageID, i_originalMessage);
@@ -93,6 +97,7 @@ QQC2.Menu {
     QQC2.MenuItem {
         contentItem: QQC2.Label {
             text: i18n("Reply")
+            textFormat: Text.PlainText
         }
         onTriggered: {
             console.log(RuqolaDebugCategorySingleton.category, "Reply to", i_messageID);
@@ -127,6 +132,7 @@ QQC2.Menu {
         visible: i_username === i_own_username && rcAccount.allowMessageDeletingEnabled()
         contentItem: QQC2.Label {
             text: i18n("Delete")
+            textFormat: Text.PlainText
         }
         onTriggered: {
             messageMain.deleteMessage(i_messageID);
@@ -136,6 +142,7 @@ QQC2.Menu {
         id: reportMessageItem
         contentItem: QQC2.Label {
             text: i18n("Report Message")
+            textFormat: Text.PlainText
         }
         onTriggered: {
             messageMain.reportMessage(i_messageID);

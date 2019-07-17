@@ -48,6 +48,7 @@ QQC2.Dialog {
         columns: 2
         QQC2.Label {
             text: i18n("Message:");
+            textFormat: Text.PlainText
         }
         QQC2.TextField {
             id: messageInfo

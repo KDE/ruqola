@@ -44,6 +44,7 @@ QQC2.Dialog {
             font.bold: true
             font.pointSize: 15
             wrapMode: QQC2.Label.Wrap
+            textFormat: Text.PlainText
         }
     }
 
