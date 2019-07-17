@@ -62,13 +62,26 @@ QMap<QString, QVector<UnicodeEmoticon> > EmojiManager::unicodeEmojiList() const
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)
 {
     mCustomEmojiList.clear();
-    const QJsonArray result = obj.value(restApi ? QLatin1String("emojis") : QLatin1String("result")).toArray();
-    for (int i = 0; i < result.size(); i++) {
-        const QJsonObject emojiJson = result.at(i).toObject();
-        Emoji emoji;
-        emoji.parseEmoji(emojiJson, restApi);
-        if (emoji.isValid()) {
-            mCustomEmojiList.append(emoji);
+    if (!restApi) {
+        const QJsonArray result = obj.value(restApi ? QLatin1String("emojis") : QLatin1String("result")).toArray();
+        for (int i = 0; i < result.size(); i++) {
+            const QJsonObject emojiJson = result.at(i).toObject();
+            Emoji emoji;
+            emoji.parseEmoji(emojiJson, restApi);
+            if (emoji.isValid()) {
+                mCustomEmojiList.append(emoji);
+            }
+        }
+    } else {
+        const QJsonObject result = obj.value(restApi ? QLatin1String("emojis") : QLatin1String("result")).toObject();
+        const QJsonArray array = result.value(QLatin1String("update")).toArray();
+        for (int i = 0; i < array.size(); i++) {
+            const QJsonObject emojiJson = array.at(i).toObject();
+            Emoji emoji;
+            emoji.parseEmoji(emojiJson, restApi);
+            if (emoji.isValid()) {
+                mCustomEmojiList.append(emoji);
+            }
         }
     }
 }

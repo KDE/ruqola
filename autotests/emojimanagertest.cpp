@@ -65,7 +65,7 @@ void EmojiManagerTest::shouldParseEmojiRestApi_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("number");
-    QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 42;
+    QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 7;
 }
 
 void EmojiManagerTest::shouldParseEmojiRestApi()

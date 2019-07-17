@@ -175,11 +175,11 @@ Emoji &Emoji::operator=(const Emoji &other)
 
 QDebug operator <<(QDebug d, const Emoji &t)
 {
-    d << "Name: " << t.name();
-    d << "Identifier: " << t.identifier();
-    d << "extension: " << t.extension();
-    d << "aliases: " << t.aliases();
-    d << "UpdatedAt: " << t.updatedAt();
+    d << "Name: " << t.name() << " ";
+    d << "Identifier: " << t.identifier() << " ";
+    d << "extension: " << t.extension() << " ";
+    d << "aliases: " << t.aliases() << " ";
+    d << "UpdatedAt: " << t.updatedAt() << " ";
     d << "EmojiIdentifier: " << t.emojiIdentifier();
     return d;
 }
