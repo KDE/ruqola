@@ -75,6 +75,7 @@ void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)
     } else {
         const QJsonObject result = obj.value(restApi ? QLatin1String("emojis") : QLatin1String("result")).toObject();
         const QJsonArray array = result.value(QLatin1String("update")).toArray();
+        //TODO add support for remove when we store it in local
         for (int i = 0; i < array.size(); i++) {
             const QJsonObject emojiJson = array.at(i).toObject();
             Emoji emoji;
