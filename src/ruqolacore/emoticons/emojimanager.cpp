@@ -63,7 +63,7 @@ void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)
 {
     mCustomEmojiList.clear();
     if (!restApi) {
-        const QJsonArray result = obj.value(restApi ? QLatin1String("emojis") : QLatin1String("result")).toArray();
+        const QJsonArray result = obj.value(QLatin1String("result")).toArray();
         for (int i = 0; i < result.size(); i++) {
             const QJsonObject emojiJson = result.at(i).toObject();
             Emoji emoji;
@@ -73,7 +73,7 @@ void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)
             }
         }
     } else {
-        const QJsonObject result = obj.value(restApi ? QLatin1String("emojis") : QLatin1String("result")).toObject();
+        const QJsonObject result = obj.value(QLatin1String("emojis")).toObject();
         const QJsonArray array = result.value(QLatin1String("update")).toArray();
         //TODO add support for remove when we store it in local
         for (int i = 0; i < array.size(); i++) {
