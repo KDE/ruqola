@@ -149,7 +149,7 @@ MessageBase {
 
                         onClicked: {
                             //console.log("open thread "  + i_tmid)
-                            messageMain.openThread(i_tmid)
+                            messageMain.openThread(i_tmid, i_threadPreview)
                         }
                     }
                 }
@@ -271,7 +271,7 @@ MessageBase {
             ThreadLabel {
                 onOpenThread: {
                     console.log(RuqolaDebugCategorySingleton.category, " OPen thread " + i_messageID)
-                    messageMain.openThread(i_messageID)
+                    messageMain.openThread(i_messageID, i_messageText)
                 }
             }
         }

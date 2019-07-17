@@ -92,7 +92,7 @@ Rectangle {
     signal pinMessage(string messageId, bool pinned)
     signal createDiscussion(string messageId)
     signal openDiscussion(string discussionRoomId)
-    signal openThread(string threadMessageId)
+    signal openThread(string threadMessageId, string threadPreviewText)
     signal replyInThread(string messageId)
     Loader {
         id: loaded
@@ -323,7 +323,7 @@ Rectangle {
             messageMain.openDiscussion(discussionRoomId)
         }
         onOpenThread: {
-            messageMain.openThread(threadMessageId)
+            messageMain.openThread(threadMessageId, threadPreviewText)
         }
         onReplyInThread: {
             console.log(RuqolaDebugCategorySingleton.category, "onReplyInThread: " + messageId)

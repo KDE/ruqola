@@ -447,6 +447,7 @@ Component {
             onOpenThread: {
                 appid.rocketChatAccount.getThreadMessages(threadMessageId)
                 showThreadMessageDialogLoader.threadMessageId = threadMessageId;
+                showThreadMessageDialogLoader.threadPreviewText = threadPreviewText
                 showThreadMessageDialogLoader.active = true
             }
 
@@ -663,6 +664,7 @@ Component {
                     onOpenThread: {
                         appid.rocketChatAccount.getThreadMessages(threadMessageId)
                         showThreadMessageDialogLoader.threadMessageId = threadMessageId
+                        showThreadMessageDialogLoader.threadPreviewText = threadPreviewText
                         showThreadsInRoomDialogLoader.active = false
                         showThreadMessageDialogLoader.active = true
                     }
@@ -711,6 +713,7 @@ Component {
                 id: showThreadMessageDialogLoader
                 active: false
                 property string threadMessageId
+                property string threadPreviewText
                 sourceComponent: ShowThreadMessagesDialog {
                     id: showThreadMessageDialog
                     parent: appid.pageStack
@@ -723,6 +726,7 @@ Component {
                     }
                     Component.onCompleted: {
                         showThreadMessageDialog.threadMessageId = showThreadMessageDialogLoader.threadMessageId;
+                        showThreadMessageDialog.threadPreviewText = showThreadMessageDialogLoader.threadPreviewText
                         showThreadMessageDialog.open()
                     }
                 }

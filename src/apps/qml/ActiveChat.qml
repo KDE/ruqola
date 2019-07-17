@@ -43,7 +43,7 @@ ListView {
     signal pinMessage(string messageId, bool pinned)
     signal createDiscussion(string messageId)
     signal openDiscussion(string discussionRoomId)
-    signal openThread(string threadMessageId)
+    signal openThread(string threadMessageId, string threadPreviewText)
     signal replyInThread(string messageId)
 
     property QtObject rcAccount
@@ -175,7 +175,7 @@ ListView {
             activeChat.openDiscussion(discussionRoomId)
         }
         onOpenThread: {
-            activeChat.openThread(threadMessageId)
+            activeChat.openThread(threadMessageId, threadPreviewText)
         }
         onReplyInThread: {
             activeChat.replyInThread(messageId)
