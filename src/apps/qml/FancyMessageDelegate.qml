@@ -90,7 +90,7 @@ Rectangle {
     signal addReaction(string messageId, string emoji)
     signal ignoreUser(bool ignored)
     signal pinMessage(string messageId, bool pinned)
-    signal createDiscussion(string messageId)
+    signal createDiscussion(string messageId, string originalMessage)
     signal openDiscussion(string discussionRoomId)
     signal openThread(string threadMessageId, string threadPreviewText)
     signal replyInThread(string messageId)
@@ -317,7 +317,7 @@ Rectangle {
             messageMain.ignoreUser(ignored)
         }
         onCreateDiscussion: {
-            messageMain.createDiscussion(messageId)
+            messageMain.createDiscussion(messageId, originalMessage)
         }
         onOpenDiscussion: {
             messageMain.openDiscussion(discussionRoomId)
