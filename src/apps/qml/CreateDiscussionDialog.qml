@@ -31,6 +31,7 @@ QQC2.Dialog {
     property string roomId
     property string messageId
     property string roomName
+    property string originalMessage
 
 
     signal createNewDiscussion(string parentRoomName, string discussionTitle, string replyMessage, string msgId)
@@ -45,7 +46,7 @@ QQC2.Dialog {
 
     function clearAndOpen()
     {
-        discussionName.text = ""
+        //discussionName.text = ""
         answer.text = ""
         open();
     }
@@ -67,6 +68,7 @@ QQC2.Dialog {
         QQC2.TextField {
             id: discussionName
             selectByMouse: true
+            text: originalMessage
         }
         QQC2.Label {
             text: i18n("Your answer:");
@@ -76,7 +78,6 @@ QQC2.Dialog {
             selectByMouse: true
         }
         //Add message + users
-
     }
 
     onAccepted: {

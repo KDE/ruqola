@@ -403,6 +403,7 @@ Component {
             onCreateDiscussion: {
                 createDiscussionDialogLoader.roomId = roomId
                 createDiscussionDialogLoader.messageId = messageId
+                createDiscussionDialogLoader.originalMessage = originalMessage
                 createDiscussionDialogLoader.active = true
                 //TODO add message text too
             }
@@ -500,6 +501,7 @@ Component {
                 active: false
                 property string roomId
                 property string messageId
+                property string originalMessage
 
                 sourceComponent: CreateDiscussionDialog {
                     id: createDiscussionDialog
@@ -514,6 +516,7 @@ Component {
                         roomName = appid.selectedRoom.displayRoomName
                         roomId = createDiscussionDialogLoader.roomId
                         messageId = createDiscussionDialogLoader.messageId
+                        originalMessage = createDiscussionDialogLoader.originalMessage
                         clearAndOpen()
                     }
 

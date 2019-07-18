@@ -54,7 +54,7 @@ QQC2.Menu {
             textFormat: Text.PlainText
         }
         onTriggered: {
-            messageMain.createDiscussion(i_messageID);
+            messageMain.createDiscussion(i_messageID, i_originalMessage);
             console.log(RuqolaDebugCategorySingleton.category, "Create discussion: messageId: ", i_messageID);
         }
     }
