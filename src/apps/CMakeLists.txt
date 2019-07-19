@@ -4,7 +4,10 @@ else ()
     qt5_add_resources(RuqolaResources qml/qml.qrc)
 endif()
 
-add_executable(ruqola main.cpp ${RuqolaResources})
+# Add QML file as sources so they are available in QtCreator searches
+file(GLOB ruqola_qml_files */*.qml)
+
+add_executable(ruqola main.cpp ${RuqolaResources} ${ruqola_qml_files})
 
 target_link_libraries(ruqola libruqolacore
     librocketchatrestapi-qt5
