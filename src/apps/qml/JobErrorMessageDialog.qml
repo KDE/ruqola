@@ -34,7 +34,7 @@ QQC2.Dialog {
 
     modal: true
 
-    //TODO add timer for hidding it.
+    //TODO add timer for hiding it.
     ColumnLayout {
         QQC2.Label {
             id: messageError

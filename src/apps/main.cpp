@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
         const QString configPath = ManagerDataPaths::self()->path(ManagerDataPaths::Config, QString());
         QDirIterator it(configPath, QStringList() << QStringLiteral(
                             "ruqola.conf"), QDir::AllEntries | QDir::NoSymLinks | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
-        std::cout << i18n("The following account are available:").toLocal8Bit().data() << std::endl;
+        std::cout << i18n("The following accounts are available:").toLocal8Bit().data() << std::endl;
         while (it.hasNext()) {
             QString result = it.next();
             result.remove(configPath + QLatin1Char('/'));

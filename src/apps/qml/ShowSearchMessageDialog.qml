@@ -56,7 +56,7 @@ QQC2.Dialog {
     contentItem: ColumnLayout {
         LineEditWithClearButton {
             id: searchField
-            placeholderText: i18n("Search Word... (You can use regularexpression as /^text$/i)")
+            placeholderText: i18n("Search Word... (You can use regular expression as /^text$/i)")
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop
             onAccepted: {
