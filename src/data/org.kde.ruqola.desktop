@@ -1,9 +1,18 @@
 [Desktop Entry]
 Name=Ruqola
+Name[ca]=Ruqola
+Name[es]=Ruqola
+Name[nl]=Ruqola
+Name[pt]=Ruqola
+Name[x-test]=xxRuqolaxx
 Type=Application
 Exec=ruqola -qwindowtitle %c %u
 Icon=ruqola
 GenericName=Rocket.Chat client
+GenericName[ca]=Client del Rocket.Chat
+GenericName[nl]=Client van Rocket.Chat
+GenericName[pt]=Cliente de Rocket.Chat
+GenericName[x-test]=xxRocket.Chat clientxx
 Terminal=false
 StartupNotify=true
 Categories=Qt;KDE;Network;

@@ -2,6 +2,11 @@
     "KPlugin": {
         "Id": "googleauthenticationplugin",
         "Name": "Google Authentication Plugin",
+        "Name[ca]": "Connector d'autenticació de Google",
+        "Name[es]": "Complemento de autenticación de Google",
+        "Name[nl]": "Plug-in voor authenticatie via Google",
+        "Name[pt]": "'Plugin' de Autenticação do Google",
+        "Name[x-test]": "xxGoogle Authentication Pluginxx",
         "ServiceTypes": [
             "Ruqola/Authentication"
         ],
