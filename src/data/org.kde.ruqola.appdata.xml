@@ -4,13 +4,26 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Ruqola</name>
+  <name xml:lang="ca">Ruqola</name>
+  <name xml:lang="es">Ruqola</name>
+  <name xml:lang="nl">Ruqola</name>
+  <name xml:lang="pt">Ruqola</name>
+  <name xml:lang="x-test">xxRuqolaxx</name>
   <summary>Rocket Chat Client</summary>
+  <summary xml:lang="ca">Client de xat del Rocket</summary>
+  <summary xml:lang="nl">Client van Rocket Chat</summary>
+  <summary xml:lang="pt">Cliente de Rocket Chat</summary>
+  <summary xml:lang="x-test">xxRocket Chat Clientxx</summary>
   <description>
     <p>
        Ruqola is a Rocket Chat client based on QML.
        Connection is activated directly when you launch Ruqola.
        
     </p>
+    <p xml:lang="ca">El Ruqola és un client de xat del Rocket basat en el QML. La connexió s'activa directament en llançar el Ruqola.</p>
+    <p xml:lang="nl">Ruqola is een client van Rocket Chat gebaseerd op QML. Verbinden wordt direct geactiveerd wanneer u Ruqola start.</p>
+    <p xml:lang="pt">O Ruqola é um cliente de Rocket Chat baseado em QML. A ligação fica activada directamente quando invocar o Ruqola.</p>
+    <p xml:lang="x-test">xxRuqola is a Rocket Chat client based on QML. Connection is activated directly when you launch Ruqola.xx</p>
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=ruqola</url>
   <project_group>KDE</project_group>
