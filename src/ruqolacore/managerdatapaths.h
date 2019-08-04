@@ -25,7 +25,7 @@
 #include <QString>
 #include "libruqola_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT ManagerDataPaths
+class LIBRUQOLACORE_EXPORT ManagerDataPaths
 {
 public:
     enum PathType {
