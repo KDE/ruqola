@@ -58,10 +58,4 @@ Rectangle {
                       })
         }
     }
-    Connections {
-        target: loaded.item
-        //onOpenDiscussion: {
-        //    dicussionMessageDelegateItem.openDiscussion(messageDiscussionId)
-        //}
-    }
 }
