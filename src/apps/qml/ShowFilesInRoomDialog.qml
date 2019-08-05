@@ -97,6 +97,7 @@ QQC2.Dialog {
                 i_description: description
                 i_username: username
                 i_timestamp: timestamp
+                i_url: url
             }
         }
     }
