@@ -34,6 +34,7 @@ Kirigami.BasicListItem {
     property string i_username
     property string i_timestamp
     property string i_url
+    property bool i_complete
 
     RowLayout {
         width: filesInRoomDelegateItem.width
@@ -75,6 +76,7 @@ Kirigami.BasicListItem {
             Layout.fillWidth: true
         }
         DownloadButton {
+            visible: i_complete
             onDownloadButtonClicked: {
                 showFilesInRoomDialog.downloadFile(i_url)
             }

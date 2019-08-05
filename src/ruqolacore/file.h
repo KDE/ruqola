@@ -65,6 +65,9 @@ public:
 
     Q_REQUIRED_RESULT QString uploadedDateTimeStr() const;
 
+    Q_REQUIRED_RESULT bool complete() const;
+    void setComplete(bool complete);
+
 private:
     QString mFileName;
     QString mDescription;
@@ -76,6 +79,7 @@ private:
     QString mUserName;
     QString mUploadedDateTimeStr;
 
+    bool mComplete = false;
     qint64 mUploadedAt = -1;
 };
 Q_DECLARE_METATYPE(File)
