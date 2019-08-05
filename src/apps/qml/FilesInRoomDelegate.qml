@@ -36,6 +36,7 @@ Rectangle {
     property string i_description
     property string i_username
     property string i_timestamp
+    property string i_url
 
     color: RuqolaSingleton.backgroundColor
     implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
@@ -52,7 +53,8 @@ Rectangle {
                           i_filename: i_filename,
                           i_description: i_description,
                           i_username: i_username,
-                          i_timestamp: i_timestamp
+                          i_timestamp: i_timestamp,
+                          i_url: i_url
                       })
         }
     }
