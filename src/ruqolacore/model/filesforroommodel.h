@@ -41,7 +41,8 @@ public:
         FileId,
         TimeStamp,
         UserName,
-        SortByTimeStamp
+        SortByTimeStamp,
+        Complete
     };
     Q_ENUM(UserRoles)
 

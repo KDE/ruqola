@@ -129,6 +129,8 @@ QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
         return file.userName();
     case SortByTimeStamp:
         return file.uploadedAt();
+    case Complete:
+        return file.complete();
     }
     return {};
 }
@@ -145,6 +147,7 @@ QHash<int, QByteArray> FilesForRoomModel::roleNames() const
     roles[FileId] = QByteArrayLiteral("fileid");
     roles[TimeStamp] = QByteArrayLiteral("timestamp");
     roles[UserName] = QByteArrayLiteral("username");
+    roles[Complete] = QByteArrayLiteral("complete");
     return roles;
 }
 

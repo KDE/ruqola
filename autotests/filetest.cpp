@@ -42,6 +42,7 @@ void FileTest::shouldHaveDefaultValue()
     QVERIFY(f.rid().isEmpty());
     QVERIFY(f.uploadedDateTimeStr().isEmpty());
     QCOMPARE(f.uploadedAt(), -1);
+    QCOMPARE(f.complete(), false);
 }
 
 void FileTest::shouldAssignValue()
@@ -55,6 +56,7 @@ void FileTest::shouldAssignValue()
     const qint64 timeUploaded = 55;
     const QString fileId = QStringLiteral("blabla");
     const QString rId = QStringLiteral("blabla22");
+    bool complete = false;
     f.setUrl(url);
     f.setFileName(name);
     f.setDescription(description);
@@ -63,6 +65,7 @@ void FileTest::shouldAssignValue()
     f.setUploadedAt(timeUploaded);
     f.setFileId(fileId);
     f.setRid(rId);
+    f.setComplete(complete);
 
     QCOMPARE(f.url(), url);
     QCOMPARE(f.fileName(), name);
@@ -72,6 +75,11 @@ void FileTest::shouldAssignValue()
     QCOMPARE(f.uploadedAt(), timeUploaded);
     QCOMPARE(f.fileId(), fileId);
     QCOMPARE(f.rid(), rId);
+    QCOMPARE(f.complete(), complete);
+
+    complete = true;
+    f.setComplete(complete);
+    QCOMPARE(f.complete(), complete);
 }
 
 void FileTest::shouldCopyValue()
@@ -85,6 +93,8 @@ void FileTest::shouldCopyValue()
     const QString fileId = QStringLiteral("blabla");
     const QString rId = QStringLiteral("blabla22");
     const qint64 timeUploaded = 55;
+    bool complete = true;
+    f.setComplete(complete);
     f.setUrl(url);
     f.setFileName(name);
     f.setDescription(description);
@@ -127,6 +137,7 @@ void FileTest::shouldParseFile_data()
         expected.setFileId(QStringLiteral("AoqRSa6GMt3wXCeSo"));
         expected.setRid(QStringLiteral("GENERAL"));
         expected.setUserName(QStringLiteral("bli"));
+        expected.setComplete(true);
         QTest::newRow("roomfile1-restapi") << QStringLiteral("roomfile1") << expected << true;
     }
 }
