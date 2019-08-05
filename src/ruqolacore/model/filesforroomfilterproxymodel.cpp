@@ -30,7 +30,7 @@ FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(QObject *parent)
     setFilterRole(FilesForRoomModel::FileName);
 
     setSortRole(FilesForRoomModel::SortByTimeStamp);
-    sort(0, Qt::AscendingOrder);
+    sort(0, Qt::DescendingOrder);
 }
 
 FilesForRoomFilterProxyModel::~FilesForRoomFilterProxyModel()
