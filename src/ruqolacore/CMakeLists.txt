@@ -49,6 +49,8 @@ set (Ruqola_model_core_srcs
     model/threadsfilterproxymodel.cpp
 
     model/emoticoncategoriesmodel.cpp
+
+    model/threadmessagemodel.cpp
     )
 
 set(Ruqola_plugins_srcs
