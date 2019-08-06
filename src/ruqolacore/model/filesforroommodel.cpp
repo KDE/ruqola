@@ -39,6 +39,16 @@ void FilesForRoomModel::checkFullList()
     setHasFullList(mFileAttachments->fileAttachments().count() == mFileAttachments->total());
 }
 
+bool FilesForRoomModel::loadMoreFilesInProgress() const
+{
+    return mLoadMoreFilesInProgress;
+}
+
+void FilesForRoomModel::setLoadMoreFilesInProgress(bool loadMoreFilesInProgress)
+{
+    mLoadMoreFilesInProgress = loadMoreFilesInProgress;
+}
+
 void FilesForRoomModel::addMoreFileAttachments(const QJsonObject &fileAttachmentsObj)
 {
     const int numberOfElement = mFileAttachments->fileAttachments().count();
@@ -51,6 +61,7 @@ void FilesForRoomModel::addMoreFileAttachments(const QJsonObject &fileAttachment
 void FilesForRoomModel::initialize()
 {
     mRoomId.clear();
+    mLoadMoreFilesInProgress = false;
     setHasFullList(false);
 }
 

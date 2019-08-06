@@ -36,9 +36,21 @@ void DiscussionsModel::checkFullList()
     setHasFullList(mDiscussions->discussions().count() == mDiscussions->total());
 }
 
+bool DiscussionsModel::loadMoreDiscussionsInProgress() const
+{
+    return mLoadMoreDiscussionsInProgress;
+}
+
+void DiscussionsModel::setLoadMoreDiscussionsInProgress(bool loadMoreDiscussionsInProgress)
+{
+    mLoadMoreDiscussionsInProgress = loadMoreDiscussionsInProgress;
+}
+
 void DiscussionsModel::initialize()
 {
     mRoomId.clear();
+    mLoadMoreDiscussionsInProgress = false;
+    setHasFullList(false);
 }
 
 QString DiscussionsModel::roomId() const

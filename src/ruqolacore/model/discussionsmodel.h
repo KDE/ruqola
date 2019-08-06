@@ -63,6 +63,9 @@ public:
     void setHasFullList(bool state);
     Q_REQUIRED_RESULT bool hasFullList() const;
 
+    Q_REQUIRED_RESULT bool loadMoreDiscussionsInProgress() const;
+    void setLoadMoreDiscussionsInProgress(bool loadMoreDiscussionsInProgress);
+
 Q_SIGNALS:
     void hasFullListChanged();
 
@@ -70,6 +73,7 @@ private:
     Q_DISABLE_COPY(DiscussionsModel)
     void checkFullList();
     QString mRoomId;
+    bool mLoadMoreDiscussionsInProgress = false;
     bool mHasFullList = false;
     Discussions *mDiscussions = nullptr;
 };
