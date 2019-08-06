@@ -32,6 +32,8 @@ ThreadsModelTest::ThreadsModelTest(QObject *parent)
 void ThreadsModelTest::shouldHaveDefaultValues()
 {
     ThreadsModel model;
+    QVERIFY(!model.loadMoreThreadsInProgress());
+    QVERIFY(!model.hasFullList());
     QHash<int, QByteArray> roles;
     roles[ThreadsModel::ThreadMessageId] = QByteArrayLiteral("threadmessageid");
     roles[ThreadsModel::Description] = QByteArrayLiteral("description");

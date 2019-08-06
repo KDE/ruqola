@@ -37,10 +37,21 @@ void ThreadsModel::checkFullList()
     setHasFullList(mThreads->threads().count() == mThreads->total());
 }
 
+bool ThreadsModel::loadMoreThreadsInProgress() const
+{
+    return mLoadMoreThreadsInProgress;
+}
+
+void ThreadsModel::setLoadMoreThreadsInProgress(bool loadMoreThreadsInProgress)
+{
+    mLoadMoreThreadsInProgress = loadMoreThreadsInProgress;
+}
+
 void ThreadsModel::initialize()
 {
     mRoomId.clear();
     setHasFullList(false);
+    mLoadMoreThreadsInProgress = false;
 }
 
 int ThreadsModel::rowCount(const QModelIndex &parent) const

@@ -801,6 +801,7 @@ void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QSt
     } else {
         mThreadsModel->addMoreThreads(obj);
     }
+    mThreadsModel->setLoadMoreThreadsInProgress(false);
 }
 
 void RocketChatAccount::slotSplotLightDone(const QJsonObject &obj)
@@ -854,9 +855,11 @@ void RocketChatAccount::loadMoreDiscussions(const QString &roomId)
 
 void RocketChatAccount::loadMoreThreads(const QString &roomId)
 {
-    const int offset = mThreadsModel->threads()->threadsCount();
-    if (offset < mThreadsModel->threads()->total()) {
-        restApi()->getThreadsList(roomId, offset, qMin(50, mThreadsModel->threads()->total() - offset));
+    if (!mThreadsModel->loadMoreThreadsInProgress()) {
+        const int offset = mThreadsModel->threads()->threadsCount();
+        if (offset < mThreadsModel->threads()->total()) {
+            restApi()->getThreadsList(roomId, offset, qMin(50, mThreadsModel->threads()->total() - offset));
+        }
     }
 }
 

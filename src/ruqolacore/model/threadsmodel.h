@@ -65,6 +65,9 @@ public:
     Q_REQUIRED_RESULT bool hasFullList() const;
     void setHasFullList(bool hasFullList);
 
+    Q_REQUIRED_RESULT bool loadMoreThreadsInProgress() const;
+    void setLoadMoreThreadsInProgress(bool loadMoreThreadsInProgress);
+
 Q_SIGNALS:
     void hasFullListChanged();
 
@@ -74,6 +77,7 @@ private:
     QString mRoomId;
     Threads *mThreads = nullptr;
     bool mHasFullList = false;
+    bool mLoadMoreThreadsInProgress = false;
 };
 
 #endif // DISCUSSIONSMODEL_H
