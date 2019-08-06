@@ -44,6 +44,7 @@ void ThreadsModelTest::shouldHaveDefaultValues()
     roles[ThreadsModel::AliasName] = QByteArrayLiteral("aliasname");
     roles[ThreadsModel::Avatar] = QByteArrayLiteral("avatar");
     roles[ThreadsModel::UserId] = QByteArrayLiteral("userid");
+    roles[ThreadsModel::ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
 
     QCOMPARE(model.roleNames(), roles);
 }
