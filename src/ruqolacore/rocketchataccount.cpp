@@ -781,6 +781,7 @@ void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const
     } else {
         mDiscussionsModel->addMoreDiscussions(obj);
     }
+    mDiscussionsModel->setLoadMoreDiscussionsInProgress(false);
 }
 
 void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId)
@@ -816,6 +817,7 @@ void RocketChatAccount::slotChannelFilesDone(const QJsonObject &obj, const QStri
     } else {
         mFilesModelForRoom->addMoreFileAttachments(obj);
     }
+    mFilesModelForRoom->setLoadMoreFilesInProgress(false);
 }
 
 void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, const QString &channelType)
@@ -829,17 +831,23 @@ void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, const QString
 
 void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QString &channelType)
 {
-    const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
-    if (offset < mFilesModelForRoom->fileAttachments()->total()) {
-        restApi()->filesInRoom(roomId, channelType, offset, qMin(50, mFilesModelForRoom->fileAttachments()->total() - offset));
+    if (!mFilesModelForRoom->loadMoreFilesInProgress()) {
+        const int offset = mFilesModelForRoom->fileAttachments()->filesCount();
+        if (offset < mFilesModelForRoom->fileAttachments()->total()) {
+            mFilesModelForRoom->setLoadMoreFilesInProgress(true);
+            restApi()->filesInRoom(roomId, channelType, offset, qMin(50, mFilesModelForRoom->fileAttachments()->total() - offset));
+        }
     }
 }
 
 void RocketChatAccount::loadMoreDiscussions(const QString &roomId)
 {
-    const int offset = mDiscussionsModel->discussions()->discussionsCount();
-    if (offset < mDiscussionsModel->discussions()->total()) {
-        restApi()->getDiscussions(roomId, offset, qMin(50, mDiscussionsModel->discussions()->total() - offset));
+    if (!mDiscussionsModel->loadMoreDiscussionsInProgress()) {
+        const int offset = mDiscussionsModel->discussions()->discussionsCount();
+        if (offset < mDiscussionsModel->discussions()->total()) {
+            mDiscussionsModel->setLoadMoreDiscussionsInProgress(true);
+            restApi()->getDiscussions(roomId, offset, qMin(50, mDiscussionsModel->discussions()->total() - offset));
+        }
     }
 }
 

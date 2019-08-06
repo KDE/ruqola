@@ -38,6 +38,7 @@ void FilesForRoomModelTest::shouldHaveDefaultValue()
     // (if it had 0 columns, it would have to emit column insertions, too much trouble)
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
+    QVERIFY(!w.loadMoreFilesInProgress());
     QHash<int, QByteArray> roles;
     roles[FilesForRoomModel::FileName] = QByteArrayLiteral("filename");
     roles[FilesForRoomModel::UserId] = QByteArrayLiteral("userid");

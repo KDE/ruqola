@@ -32,6 +32,7 @@ DiscussionsModelTest::DiscussionsModelTest(QObject *parent)
 void DiscussionsModelTest::shouldHaveDefaultValues()
 {
     DiscussionsModel model;
+    QVERIFY(!model.loadMoreDiscussionsInProgress());
     QHash<int, QByteArray> roles;
     roles[DiscussionsModel::ParentId] = QByteArrayLiteral("parentid");
     roles[DiscussionsModel::Description] = QByteArrayLiteral("description");

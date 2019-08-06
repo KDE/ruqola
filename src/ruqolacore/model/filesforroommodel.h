@@ -69,6 +69,9 @@ public:
     Q_REQUIRED_RESULT bool hasFullList() const;
     void setHasFullList(bool state);
 
+    Q_REQUIRED_RESULT bool loadMoreFilesInProgress() const;
+    void setLoadMoreFilesInProgress(bool loadMoreFilesInProgress);
+
 Q_SIGNALS:
     void hasFullListChanged();
 
@@ -77,6 +80,7 @@ private:
     void checkFullList();
     QString mRoomId;
     bool mHasFullList = false;
+    bool mLoadMoreFilesInProgress = false;
     FileAttachments *mFileAttachments = nullptr;
     RocketChatAccount *mRochetChantAccount = nullptr;
 };
