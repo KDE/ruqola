@@ -792,6 +792,7 @@ void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const
     } else {
         mMentionsModel->addMoreMentions(obj);
     }
+    mMentionsModel->setLoadMoreMentionsInProgress(false);
 }
 
 void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId)
@@ -867,9 +868,12 @@ void RocketChatAccount::loadThreadMessagesHistory(const QString &roomId, const Q
 
 void RocketChatAccount::loadMoreMentions(const QString &roomId)
 {
-    const int offset = mMentionsModel->mentions()->mentionsCount();
-    if (offset < mMentionsModel->mentions()->total()) {
-        restApi()->channelGetAllUserMentions(roomId, offset, qMin(50, mMentionsModel->mentions()->total() - offset));
+    if (!mMentionsModel->loadMoreMentionsInProgress()) {
+        const int offset = mMentionsModel->mentions()->mentionsCount();
+        if (offset < mMentionsModel->mentions()->total()) {
+            mMentionsModel->setLoadMoreMentionsInProgress(true);
+            restApi()->channelGetAllUserMentions(roomId, offset, qMin(50, mMentionsModel->mentions()->total() - offset));
+        }
     }
 }
 

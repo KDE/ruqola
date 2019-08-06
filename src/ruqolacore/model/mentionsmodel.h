@@ -94,6 +94,9 @@ public:
 
     void setHasFullList(bool state);
 
+    Q_REQUIRED_RESULT bool loadMoreMentionsInProgress() const;
+    void setLoadMoreMentionsInProgress(bool loadMoreMentionsInProgress);
+
 Q_SIGNALS:
     void hasFullListChanged();
 
@@ -106,6 +109,7 @@ private:
     RocketChatAccount *mRocketChatAccount = nullptr;
     Mentions *mMentions = nullptr;
     bool mHasFullList = false;
+    bool mLoadMoreMentionsInProgress = false;
 };
 
 #endif // MENTIONSMODEL_H
