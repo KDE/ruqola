@@ -29,7 +29,7 @@ QQC2.Dialog {
     id: showThreadsInRoomDialog
 
     title: i18n("Threads")
-    signal openThread(string threadMessageId)
+    signal openThread(string threadMessageId, string threadPreviewText)
 
     property QtObject threadsModel
     property string roomId
@@ -135,7 +135,7 @@ QQC2.Dialog {
                             MouseArea {
                                 anchors.fill: parent
                                 onClicked: {
-                                    showThreadsInRoomDialog.openThread(threadmessageid)
+                                    showThreadsInRoomDialog.openThread(threadmessageid, threadMessagePreview)
                                 }
                             }
                         }

@@ -86,6 +86,9 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
         return thread.avatar();
     case UserId:
         return thread.userId();
+    case ThreadMessagePreview:
+        //TODO
+        return QString();
     }
     return {};
 }
@@ -102,6 +105,7 @@ QHash<int, QByteArray> ThreadsModel::roleNames() const
     roles[AliasName] = QByteArrayLiteral("aliasname");
     roles[Avatar] = QByteArrayLiteral("avatar");
     roles[UserId] = QByteArrayLiteral("userid");
+    roles[ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
     return roles;
 }
 
