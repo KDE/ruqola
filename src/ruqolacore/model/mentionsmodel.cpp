@@ -42,6 +42,7 @@ void MentionsModel::initialize()
 {
     mRoomId.clear();
     setHasFullList(false);
+    mLoadMoreMentionsInProgress = false;
 }
 
 int MentionsModel::rowCount(const QModelIndex &parent) const
@@ -297,4 +298,14 @@ void MentionsModel::addMoreMentions(const QJsonObject &mentionsObj)
 QString MentionsModel::convertMessageText(const QString &str, const QString &userName) const
 {
     return mTextConverter->convertMessageText(str, userName, {} /*mMentions->mentions() TODO*/);
+}
+
+bool MentionsModel::loadMoreMentionsInProgress() const
+{
+    return mLoadMoreMentionsInProgress;
+}
+
+void MentionsModel::setLoadMoreMentionsInProgress(bool loadMoreMentionsInProgress)
+{
+    mLoadMoreMentionsInProgress = loadMoreMentionsInProgress;
 }

@@ -35,6 +35,7 @@ void MentionsModelTest::shouldHaveDefaultValue()
     // (if it had 0 columns, it would have to emit column insertions, too much trouble)
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
+    QVERIFY(!w.loadMoreMentionsInProgress());
     QHash<int, QByteArray> roles;
     roles[MentionsModel::OriginalMessage] = QByteArrayLiteral("originalMessage");
     roles[MentionsModel::MessageConvertedText] = QByteArrayLiteral("messageConverted");
