@@ -33,7 +33,7 @@ class RocketChatAccount;
 class TextConverter;
 class LoadRecentHistoryManager;
 class Room;
-class LIBRUQOLACORE_EXPORT MessageModel : public QAbstractListModel
+class LIBRUQOLACORE_TESTS_EXPORT MessageModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
