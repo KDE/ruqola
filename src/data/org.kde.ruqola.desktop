@@ -2,6 +2,7 @@
 Name=Ruqola
 Name[ca]=Ruqola
 Name[cs]=Ruqola
+Name[de]=Ruqola
 Name[es]=Ruqola
 Name[nl]=Ruqola
 Name[pl]=Ruqola
@@ -16,6 +17,7 @@ Icon=ruqola
 GenericName=Rocket.Chat client
 GenericName[ca]=Client del Rocket.Chat
 GenericName[cs]=Klient pro Rocket Chat
+GenericName[de]=Rocket-Chat-Client
 GenericName[nl]=Client van Rocket.Chat
 GenericName[pl]=Klient rozmowy Rocket
 GenericName[pt]=Cliente de Rocket.Chat
