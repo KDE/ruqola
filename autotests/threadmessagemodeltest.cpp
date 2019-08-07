@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "threadmessagemodeltest.h"
 #include "model/threadmessagemodel.h"
 
@@ -28,7 +27,6 @@ QTEST_GUILESS_MAIN(ThreadMessageModelTest)
 ThreadMessageModelTest::ThreadMessageModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ThreadMessageModelTest::shouldHaveDefaultValues()

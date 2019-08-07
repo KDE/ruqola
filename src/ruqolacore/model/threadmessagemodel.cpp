@@ -21,14 +21,12 @@
 #include "threadmessagemodel.h"
 
 ThreadMessageModel::ThreadMessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
-    : MessageModel (roomID, account, room, parent)
+    : MessageModel(roomID, account, room, parent)
 {
-
 }
 
 ThreadMessageModel::~ThreadMessageModel()
 {
-
 }
 
 QString ThreadMessageModel::threadMessageId() const
