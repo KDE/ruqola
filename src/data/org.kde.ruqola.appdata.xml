@@ -6,6 +6,7 @@
   <name>Ruqola</name>
   <name xml:lang="ca">Ruqola</name>
   <name xml:lang="cs">Ruqola</name>
+  <name xml:lang="de">Ruqola</name>
   <name xml:lang="es">Ruqola</name>
   <name xml:lang="nl">Ruqola</name>
   <name xml:lang="pl">Ruqola</name>
@@ -17,6 +18,7 @@
   <summary>Rocket Chat Client</summary>
   <summary xml:lang="ca">Client de xat del Rocket</summary>
   <summary xml:lang="cs">Klient pro Rocket Chat</summary>
+  <summary xml:lang="de">Rocket-Chat-Client</summary>
   <summary xml:lang="nl">Client van Rocket Chat</summary>
   <summary xml:lang="pl">Klient rozmowy Rocket</summary>
   <summary xml:lang="pt">Cliente de Rocket Chat</summary>
