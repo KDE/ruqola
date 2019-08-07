@@ -20,6 +20,8 @@
 
 #include "threadmessagemodel.h"
 
+#include "threadmessages.h"
+
 ThreadMessageModel::ThreadMessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
     : MessageModel(roomID, account, room, parent)
 {
@@ -37,4 +39,30 @@ QString ThreadMessageModel::threadMessageId() const
 void ThreadMessageModel::setThreadMessageId(const QString &threadMessageId)
 {
     mThreadMessageId = threadMessageId;
+}
+
+
+void ThreadMessageModel::parseThreadMessages(const QJsonObject &obj)
+{
+    ThreadMessages threadmessages;
+    threadmessages.parseThreadMessages(obj);
+    clear();
+    for (int i = 0; i < threadmessages.count(); ++i) {
+        addMessage(threadmessages.at(i));
+    }
+}
+
+void ThreadMessageModel::loadMoreThreadMessages(const QJsonObject &obj)
+{
+    //TODO
+}
+
+int ThreadMessageModel::total() const
+{
+    return mTotal;
+}
+
+void ThreadMessageModel::setTotal(int total)
+{
+    mTotal = total;
 }

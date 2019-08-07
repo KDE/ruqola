@@ -765,14 +765,12 @@ void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const QStri
 
 void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)
 {
-    ThreadMessages threadmessages;
-    threadmessages.parseThreadMessages(obj);
-    //Create own model ??
-    mThreadMessageModel->clear();
-    for (int i = 0; i < threadmessages.count(); ++i) {
-        mThreadMessageModel->addMessage(threadmessages.at(i));
+    if (mThreadMessageModel->threadMessageId() != threadMessageId) {
+        mThreadMessageModel->setThreadMessageId(threadMessageId);
+        mThreadMessageModel->parseThreadMessages(obj);
+    } else {
+        //TODO add more
     }
-    //USe a specific method for threadmessages
 }
 
 void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId)
@@ -1126,6 +1124,7 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
+        //TODO add Accounts_AllowUserStatusMessageChange when we will have a RestAPI method for it.
     }
     fillOauthModel();
 }
