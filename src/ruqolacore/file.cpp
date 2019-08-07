@@ -79,7 +79,7 @@ bool File::operator ==(const File &other) const
            && (fileId() == other.fileId())
            && (rid() == other.rid())
            && (userName() == other.userName())
-            && (complete() == other.complete());
+           && (complete() == other.complete());
 }
 
 File &File::operator=(const File &other)

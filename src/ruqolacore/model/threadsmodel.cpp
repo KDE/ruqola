@@ -87,8 +87,7 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
     case UserId:
         return thread.userId();
     case ThreadMessagePreview:
-        //TODO
-        return QString();
+        return threadMessagePreview(thread.text());
     }
     return {};
 }
@@ -183,4 +182,13 @@ void ThreadsModel::setHasFullList(bool hasFullList)
 bool ThreadsModel::hasFullList() const
 {
     return mHasFullList;
+}
+
+QString ThreadsModel::threadMessagePreview(const QString &messageStr) const
+{
+    QString str = messageStr;
+    if (str.length() > 80) {
+        str = str.left(80) + QStringLiteral("...");
+    }
+    return str;
 }

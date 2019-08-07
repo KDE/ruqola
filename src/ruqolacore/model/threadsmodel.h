@@ -74,6 +74,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ThreadsModel)
+    QString threadMessagePreview(const QString &messageStr) const;
     void checkFullList();
     QString mRoomId;
     Threads *mThreads = nullptr;
