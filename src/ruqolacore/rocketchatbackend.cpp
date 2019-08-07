@@ -165,6 +165,9 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         m.parseMessage(o);
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
         if (MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(m.roomId())) {
+            if (!m.threadMessageId().isEmpty()) {
+                qDebug() << " It's a thread message id ****************************" << m.threadMessageId();
+            }
             messageModel->addMessage(m);
         } else {
             qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << m.roomId() << " It's a bug for sure.";
@@ -417,6 +420,10 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(roomId);
                 Message m(mRocketChatAccount->emojiManager());
                 m.parseMessage(roomData);
+                if (!m.threadMessageId().isEmpty()) {
+                    qDebug() << " It's a thread message id ****************************" << m.threadMessageId();
+                    //TODO check if thread message is opened!
+                }
                 //m.setMessageType(Message::System);
                 //TODO add special element!See roomData QJsonObject({"_id":"u9xnnzaBQoQithsxP","msg":"You have been muted and cannot speak in this room","rid":"Dic5wZD4Zu9ze5gk3","ts":{"$date":1534166745895}})
                 messageModel->addMessage(m);

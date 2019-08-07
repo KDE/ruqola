@@ -34,8 +34,15 @@ public:
     Q_REQUIRED_RESULT QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
 
+    void parseThreadMessages(const QJsonObject &obj);
+    void loadMoreThreadMessages(const QJsonObject &obj);
+
+    Q_REQUIRED_RESULT int total() const;
+    void setTotal(int total);
+
 private:
     QString mThreadMessageId;
+    int mTotal = 0;
 };
 
 #endif // THREADMESSAGEMODEL_H
