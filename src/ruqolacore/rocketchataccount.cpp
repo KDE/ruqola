@@ -56,6 +56,7 @@
 #include "model/threadsfilterproxymodel.h"
 #include "model/mentionsmodel.h"
 #include "model/mentionsfilterproxymodel.h"
+#include "model/threadmessagemodel.h"
 #include "managerdatapaths.h"
 #include "authenticationmanager.h"
 
@@ -160,7 +161,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     connect(mMentionsModel, &MentionsModel::hasFullListChanged, mMentionsFilterProxyModel, &MentionsFilterProxyModel::hasFullListChanged);
 
-    mThreadMessageModel = new MessageModel(QString(), this, nullptr, this);
+    mThreadMessageModel = new ThreadMessageModel(QString(), this, nullptr, this);
     mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));
 
     mStatusModel = new StatusModel(this);

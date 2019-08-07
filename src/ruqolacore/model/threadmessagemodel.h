@@ -24,12 +24,18 @@
 #include "libruqola_private_export.h"
 #include "messagemodel.h"
 
-class ThreadMessageModel : public MessageModel
+class LIBRUQOLACORE_TESTS_EXPORT ThreadMessageModel : public MessageModel
 {
     Q_OBJECT
 public:
     explicit ThreadMessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
     ~ThreadMessageModel();
+
+    Q_REQUIRED_RESULT QString threadMessageId() const;
+    void setThreadMessageId(const QString &threadMessageId);
+
+private:
+    QString mThreadMessageId;
 };
 
 #endif // THREADMESSAGEMODEL_H
