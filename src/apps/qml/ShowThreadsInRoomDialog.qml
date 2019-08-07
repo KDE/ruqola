@@ -53,6 +53,7 @@ QQC2.Dialog {
     contentItem: ColumnLayout {
         LineEditWithClearButton {
             id: searchField
+            visible: listview.count !== 0
             placeholderText: i18n("Search Threads...")
             Layout.fillWidth: true
             onTextChanged: {
