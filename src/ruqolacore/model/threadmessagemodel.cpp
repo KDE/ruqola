@@ -30,3 +30,13 @@ ThreadMessageModel::~ThreadMessageModel()
 {
 
 }
+
+QString ThreadMessageModel::threadMessageId() const
+{
+    return mThreadMessageId;
+}
+
+void ThreadMessageModel::setThreadMessageId(const QString &threadMessageId)
+{
+    mThreadMessageId = threadMessageId;
+}

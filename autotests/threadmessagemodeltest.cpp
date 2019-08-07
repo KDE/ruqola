@@ -20,6 +20,7 @@
 
 
 #include "threadmessagemodeltest.h"
+#include "model/threadmessagemodel.h"
 
 #include <QTest>
 QTEST_GUILESS_MAIN(ThreadMessageModelTest)
@@ -28,4 +29,10 @@ ThreadMessageModelTest::ThreadMessageModelTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void ThreadMessageModelTest::shouldHaveDefaultValues()
+{
+    ThreadMessageModel w;
+    QVERIFY(w.threadMessageId().isEmpty());
 }

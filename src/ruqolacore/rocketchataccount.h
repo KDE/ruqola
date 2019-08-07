@@ -67,6 +67,7 @@ class DiscussionsModel;
 class ThreadsModel;
 class MentionsModel;
 class MentionsFilterProxyModel;
+class ThreadMessageModel;
 
 namespace RocketChatRestApi {
 class RestApiRequest;
@@ -433,7 +434,7 @@ private:
     MentionsModel *mMentionsModel = nullptr;
     MentionsFilterProxyModel *mMentionsFilterProxyModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
-    MessageModel *mThreadMessageModel = nullptr;
+    ThreadMessageModel *mThreadMessageModel = nullptr;
     bool mEditingMode = false;
 };
 

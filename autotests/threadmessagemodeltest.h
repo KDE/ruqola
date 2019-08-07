@@ -29,6 +29,8 @@ class ThreadMessageModelTest : public QObject
 public:
     explicit ThreadMessageModelTest(QObject *parent = nullptr);
     ~ThreadMessageModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // THREADMESSAGEMODELTEST_H
