@@ -64,8 +64,8 @@ QQC2.Dialog {
                 //console.log(RuqolaDebugCategorySingleton.category, "edit! messageId : " + messageId + " messageStr " + messageStr)
             }
             onCopyMessage: {
-//                clipboard.text = messageStr
-                //console.log(RuqolaDebugCategorySingleton.category, "copy! messageId : " + messageId + " messageStr " + messageStr)
+                clipboard.text = messageStr
+                console.log(RuqolaDebugCategorySingleton.category, "copy! messageId : " + messageId + " messageStr " + messageStr)
             }
             onReplyMessage: {
 //                console.log(RuqolaDebugCategorySingleton.category, "Not implemented reply message : " + messageId)
