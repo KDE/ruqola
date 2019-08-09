@@ -44,11 +44,14 @@ Kirigami.BasicListItem {
                 textFormat: Text.PlainText
                 elide: Text.ElideRight
                 wrapMode: QQC2.Label.Wrap
+                Layout.fillWidth: true
             }
             QQC2.Label {
                 text: i_description
+                Layout.fillWidth: true
                 visible: i_description !== ""
                 wrapMode: QQC2.Label.Wrap
+                elide: Text.ElideRight
                 Component.onCompleted: {
                     font.italic = true
                 }
@@ -58,6 +61,7 @@ Kirigami.BasicListItem {
                 wrapMode: QQC2.Label.NoWrap
                 elide: Text.ElideRight
                 color: Kirigami.Theme.disabledTextColor
+                Layout.fillWidth: true
                 Component.onCompleted: {
                     font.italic = true
                 }
@@ -67,6 +71,7 @@ Kirigami.BasicListItem {
                 textFormat: Text.PlainText
                 wrapMode: QQC2.Label.NoWrap
                 color: Kirigami.Theme.disabledTextColor
+                Layout.fillWidth: true
                 Component.onCompleted: {
                     font.italic = true
                 }
