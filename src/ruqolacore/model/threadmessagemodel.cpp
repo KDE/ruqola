@@ -41,20 +41,24 @@ void ThreadMessageModel::setThreadMessageId(const QString &threadMessageId)
     mThreadMessageId = threadMessageId;
 }
 
-
-void ThreadMessageModel::parseThreadMessages(const QJsonObject &obj)
+void ThreadMessageModel::parse(const QJsonObject &obj)
 {
     ThreadMessages threadmessages;
     threadmessages.parseThreadMessages(obj);
-    clear();
     for (int i = 0; i < threadmessages.count(); ++i) {
         addMessage(threadmessages.at(i));
     }
 }
 
+void ThreadMessageModel::parseThreadMessages(const QJsonObject &obj)
+{
+    clear();
+    parse(obj);
+}
+
 void ThreadMessageModel::loadMoreThreadMessages(const QJsonObject &obj)
 {
-    //TODO
+    parse(obj);
 }
 
 int ThreadMessageModel::total() const

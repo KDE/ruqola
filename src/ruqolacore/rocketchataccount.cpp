@@ -770,7 +770,7 @@ void RocketChatAccount::slotGetThreadMessagesDone(const QJsonObject &obj, const 
         mThreadMessageModel->setThreadMessageId(threadMessageId);
         mThreadMessageModel->parseThreadMessages(obj);
     } else {
-        //TODO add more
+        mThreadMessageModel->loadMoreThreadMessages(obj);
     }
 }
 
@@ -863,8 +863,15 @@ void RocketChatAccount::loadMoreThreads(const QString &roomId)
     }
 }
 
-void RocketChatAccount::loadThreadMessagesHistory(const QString &roomId, const QString &channelType)
+void RocketChatAccount::loadThreadMessagesHistory(const QString &threadMessageId)
 {
+    if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
+        //mThreadMessageModel->clear();
+        restApi()->getThreadMessages(threadMessageId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getThreadMessages is not supported before server 1.0.0";
+    }
+
     //TODO
 }
 
@@ -877,14 +884,6 @@ void RocketChatAccount::loadMoreMentions(const QString &roomId)
             restApi()->channelGetAllUserMentions(roomId, offset, qMin(50, mMentionsModel->mentions()->total() - offset));
         }
     }
-}
-
-void RocketChatAccount::loadMoreHistorySearch(const QString &roomId)
-{
-//    const int offset = mMentionsModel->mentions()->mentionsCount();
-//    if (offset < mMentionsModel->mentions()->total()) {
-//        restApi()->channelGetAllUserMentions(roomId, offset, qMin(50, mMentionsModel->mentions()->total() - offset));
-//    }
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)

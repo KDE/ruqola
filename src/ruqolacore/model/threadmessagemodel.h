@@ -41,6 +41,7 @@ public:
     void setTotal(int total);
 
 private:
+    void parse(const QJsonObject &obj);
     QString mThreadMessageId;
     int mTotal = 0;
 };
