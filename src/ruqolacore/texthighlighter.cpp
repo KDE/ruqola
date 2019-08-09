@@ -32,7 +32,7 @@ TextHighlighter::TextHighlighter(QTextStream *stream)
 
 void TextHighlighter::highlight(const QString &str)
 {
-    *mStream << QStringLiteral("<pre>");
+    //*mStream << QStringLiteral("<pre>");
 
     KSyntaxHighlighting::State state;
 
@@ -49,7 +49,7 @@ void TextHighlighter::highlight(const QString &str)
         state = highlightLine(mCurrentLine, state);
         *mStream << QStringLiteral("<br>");
     }
-    *mStream << QLatin1String("</pre>");
+    //*mStream << QLatin1String("</pre>");
 }
 
 void TextHighlighter::applyFormat(int offset, int length, const KSyntaxHighlighting::Format &format)
