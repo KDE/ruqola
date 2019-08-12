@@ -165,9 +165,9 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         m.parseMessage(o);
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
         if (MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(m.roomId())) {
-            if (!m.threadMessageId().isEmpty()) {
-                qDebug() << " It's a thread message id ****************************" << m.threadMessageId();
-            }
+//            if (!m.threadMessageId().isEmpty()) {
+//                qDebug() << " It's a thread message id ****************************" << m.threadMessageId();
+//            }
             messageModel->addMessage(m);
         } else {
             qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << m.roomId() << " It's a bug for sure.";
