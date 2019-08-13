@@ -63,6 +63,7 @@ QQC2.Menu {
 
     QQC2.MenuItem {
         id: conversationItem
+        visible: userId !== appid.rocketChatAccount.userID &&  !isAdirectChannel
         contentItem: QQC2.Label {
             text: i18n("Conversation")
             textFormat: Text.PlainText
@@ -70,7 +71,6 @@ QQC2.Menu {
         onTriggered: {
             menu.openConversation(userId)
         }
-        visible: !isAdirectChannel
     }
     QQC2.MenuItem {
         id: removeAsOwnerItem
