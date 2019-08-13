@@ -210,11 +210,14 @@ MessageBase {
                     //                        }
                     //                    }
 
-                    RepeaterReactions {
-                        id: repearterReactions
-                        model: i_reactions
-                        onDeleteReaction: {
-                            messageMain.deleteReaction(i_messageID, emoji)
+                    RowLayout {
+                        Layout.fillWidth: true
+                        RepeaterReactions {
+                            id: repearterReactions
+                            model: i_reactions
+                            onDeleteReaction: {
+                                messageMain.deleteReaction(i_messageID, emoji)
+                            }
                         }
                     }
                     Repeater {
