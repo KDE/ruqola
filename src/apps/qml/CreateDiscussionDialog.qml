@@ -38,8 +38,9 @@ QQC2.Dialog {
 
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
+    anchors.centerIn: parent
 
     modal: true
     focus: true
@@ -47,17 +48,20 @@ QQC2.Dialog {
     function clearAndOpen()
     {
         //discussionName.text = ""
+        //TODO search how implement it without call it all the time.
+        standardButton(QQC2.Dialog.Ok).text = i18n("Create");
         answer.text = ""
         open();
     }
 
-    ColumnLayout {
+    contentItem: ColumnLayout {
         QQC2.Label {
             text: i18n("Parent Channel or Group:");
         }
         QQC2.TextField {
             id: parentRoom
             text: roomName
+            Layout.fillWidth: true
             selectByMouse: true
             readOnly: true
         }
@@ -68,15 +72,32 @@ QQC2.Dialog {
         QQC2.TextField {
             id: discussionName
             selectByMouse: true
+            Layout.fillWidth: true
             text: originalMessage
         }
+
+//        //TODO implement it.
+//        QQC2.Label {
+//            text: i18n("Invite Users:");
+//        }
+//        QQC2.TextField {
+//            id: inviteUser
+//            selectByMouse: true
+//            Layout.fillWidth: true
+//        }
+
         QQC2.Label {
             text: i18n("Your answer:");
         }
         QQC2.TextField {
             id: answer
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             selectByMouse: true
+            verticalAlignment: TextInput.AlignTop
+            wrapMode: TextInput.Wrap
         }
+
         //Add message + users
     }
 

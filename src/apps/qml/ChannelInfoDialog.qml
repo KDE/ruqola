@@ -34,8 +34,10 @@ QQC2.Dialog {
 
     modal: true
     focus: true
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
+    anchors.centerIn: parent
 
     property string channelName: ""
     property QtObject roomInfo
@@ -69,13 +71,14 @@ QQC2.Dialog {
         open();
     }
 
-    GridLayout {
+    contentItem: GridLayout {
         columns: 2
         QQC2.Label {
             text: i18n("Name:");
         }
         TextFieldEditor {
             id: channelNameField
+            Layout.fillWidth: true
             textField: roomInfo === null ? "" : roomInfo.name
 
             onUpdateValue: {
@@ -94,6 +97,7 @@ QQC2.Dialog {
         }
         TextFieldEditor {
             id: channelCommentField
+            Layout.fillWidth: true
             textField: roomInfo === null ? "" : roomInfo.topic
             onUpdateValue: {
                 if (roomInfo.topic !== newVal) {
@@ -106,6 +110,7 @@ QQC2.Dialog {
         }
         TextFieldEditor {
             id: channelAnnouncementField
+            Layout.fillWidth: true
             textField: roomInfo === null ? "" : roomInfo.announcement;
             onUpdateValue: {
                 if (roomInfo.announcement !== newVal) {
@@ -118,6 +123,7 @@ QQC2.Dialog {
         }
         TextFieldEditor {
             id: channelDescriptionField
+            Layout.fillWidth: true
             textField: roomInfo === null ? "" : roomInfo.description;
             onUpdateValue: {
                 if (roomInfo.description !== newVal) {
@@ -132,6 +138,7 @@ QQC2.Dialog {
         }
         PasswordLineEdit {
             id: password
+            Layout.fillWidth: true
             selectByMouse: true
             //Add i18n context ?
             placeholderText: roomInfo === null ? i18n("Add password") : (roomInfo.joinCodeRequired ? i18n("This Room has a password") : i18n("Add password"))
@@ -219,6 +226,9 @@ QQC2.Dialog {
                 deleteRoomDialog.rId = roomInfo.rid
                 deleteRoomDialog.open();
             }
+        }
+        Item {
+            Layout.fillHeight: true
         }
     }
 
