@@ -612,7 +612,15 @@ void RestApiRequest::reactOnMessage(const QString &messageId, const QString &emo
     ReactOnMessageJob *job = new ReactOnMessageJob(this);
     initializeRestApiJob(job);
     job->setMessageId(messageId);
-    job->setEmoji(emoji);
+    QString fixedEmoji = emoji;
+    if (fixedEmoji.startsWith(QLatin1Char(':'))) {
+        fixedEmoji.remove(0, 1);
+    }
+    if (fixedEmoji.endsWith(QLatin1Char(':'))) {
+        fixedEmoji.chop(1);
+    }
+
+    job->setEmoji(fixedEmoji);
     job->setShouldReact(shouldReact);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
