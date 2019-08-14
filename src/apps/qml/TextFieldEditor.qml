@@ -44,6 +44,7 @@ RowLayout {
     QQC2.TextField {
         id: channelNameField
         selectByMouse: true
+        Layout.fillWidth: true
         onAccepted: {
             if (enabled) {
                 textFieldEditor.updateValue(text)
