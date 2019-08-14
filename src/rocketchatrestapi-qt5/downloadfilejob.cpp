@@ -61,7 +61,7 @@ void DownloadFileJob::slotDownloadDone()
         } else {
             //FIXME
             //emitFailedMessage(replyObject);
-            addLoggerWarning(QByteArrayLiteral("DownloadFileJob problem: ") + data);
+            addLoggerWarning(QByteArrayLiteral("DownloadFileJob problem data: [") + data + "] :END");
         }
         reply->deleteLater();
     }
