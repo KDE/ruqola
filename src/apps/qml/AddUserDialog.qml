@@ -50,6 +50,7 @@ QQC2.Dialog {
     function initializeAndOpen()
     {
         username.text = "";
+        completerModel.clear();
         username.forceActiveFocus();
         open();
     }
@@ -70,27 +71,30 @@ QQC2.Dialog {
             clip: true
 
             model: completerModel
-            delegate:
+            delegate: Kirigami.BasicListItem {
+                reserveSpaceForIcon: false
+                reserveSpaceForLabel: false
                 RowLayout {
-                Kirigami.Icon {
-                    source: "list-add"
-                    height: Kirigami.Units.iconSizes.medium
-                    width: height
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            addUserDialog.addUser(userid, roomId, roomInfo.channelType)
+                    Kirigami.Icon {
+                        source: "list-add"
+                        height: Kirigami.Units.iconSizes.medium
+                        width: height
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                addUserDialog.addUser(userid, roomId, roomInfo.channelType)
+                            }
                         }
                     }
-                }
 
-                Kirigami.Icon {
-                    source: iconstatus
-                    height: Kirigami.Units.iconSizes.medium
-                    width: height
-                }
-                QQC2.Label {
-                    text: username
+                    Kirigami.Icon {
+                        source: iconstatus
+                        height: Kirigami.Units.iconSizes.medium
+                        width: height
+                    }
+                    QQC2.Label {
+                        text: username
+                    }
                 }
             }
         }
