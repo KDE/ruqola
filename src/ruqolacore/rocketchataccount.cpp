@@ -1120,6 +1120,10 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
             mRuqolaServerConfig->setThreadsEnabled(value.toBool());
         } else if (id == QLatin1String("Discussion_enabled")) {
             mRuqolaServerConfig->setDiscussionEnabled(value.toBool());
+        } else if (id == QLatin1String("AutoTranslate_Enabled")) {
+            mRuqolaServerConfig->setAutoTranslateEnabled(value.toBool());
+        } else if (id == QLatin1String("AutoTranslate_GoogleAPIKey")) {
+            mRuqolaServerConfig->setAutoTranslateGoogleKey(value.toString());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
@@ -1397,6 +1401,11 @@ bool RocketChatAccount::allowMessageDeletingEnabled() const
 bool RocketChatAccount::threadsEnabled() const
 {
     return mRuqolaServerConfig->threadsEnabled();
+}
+
+bool RocketChatAccount::autoTranslateEnabled() const
+{
+    return mRuqolaServerConfig->autoTranslateEnabled();
 }
 
 bool RocketChatAccount::discussionEnabled() const

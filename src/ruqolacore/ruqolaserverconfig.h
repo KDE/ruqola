@@ -106,6 +106,12 @@ public:
     Q_REQUIRED_RESULT bool discussionEnabled() const;
     void setDiscussionEnabled(bool discussionEnabled);
 
+    Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
+    void setAutoTranslateEnabled(bool autoTranslateEnabled);
+
+    Q_REQUIRED_RESULT QString autoTranslateGoogleKey() const;
+    void setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey);
+
 private:
     void adaptToServerVersion();
     QString mUniqueId;
@@ -115,6 +121,7 @@ private:
     QString mSiteUrl;
     QString mSiteName;
     QString mServerVersionStr;
+    QString mAutoTranslateGoogleKey;
     AuthenticationManager::OauthTypes mServerOauthTypes = AuthenticationManager::OauthType::Password;
     AuthenticationManager::OauthTypes mRuqolaOauthTypes = AuthenticationManager::OauthType::Password;
     int mBlockEditingMessageInMinutes = 5;
@@ -133,6 +140,7 @@ private:
     bool mJitsiEnabled = false;
     bool mThreadsEnabled = false;
     bool mDiscussionEnabled = false;
+    bool mAutoTranslateEnabled = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const RuqolaServerConfig &t);
 #endif // RUQOLASERVERCONFIG_H

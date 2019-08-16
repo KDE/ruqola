@@ -190,6 +190,26 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+QString RuqolaServerConfig::autoTranslateGoogleKey() const
+{
+    return mAutoTranslateGoogleKey;
+}
+
+void RuqolaServerConfig::setAutoTranslateGoogleKey(const QString &autoTranslateGoogleKey)
+{
+    mAutoTranslateGoogleKey = autoTranslateGoogleKey;
+}
+
+bool RuqolaServerConfig::autoTranslateEnabled() const
+{
+    return mAutoTranslateEnabled;
+}
+
+void RuqolaServerConfig::setAutoTranslateEnabled(bool autoTranslateEnabled)
+{
+    mAutoTranslateEnabled = autoTranslateEnabled;
+}
+
 bool RuqolaServerConfig::discussionEnabled() const
 {
     return mDiscussionEnabled;

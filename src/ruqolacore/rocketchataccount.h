@@ -221,6 +221,8 @@ public:
     Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
     Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
 
+    Q_INVOKABLE Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
+
     Q_INVOKABLE void channelInfo(const QString &roomId);
     Q_INVOKABLE void groupInfo(const QString &roomId);
     Q_INVOKABLE void channelGetAllUserMentions(const QString &roomId);
