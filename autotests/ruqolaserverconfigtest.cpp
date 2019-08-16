@@ -53,6 +53,8 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.allowMessageDeletingEnabled());
     QVERIFY(!config.threadsEnabled());
     QVERIFY(!config.discussionEnabled());
+    QVERIFY(!config.autoTranslateEnabled());
+    QVERIFY(config.autoTranslateGoogleKey().isEmpty());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
@@ -61,6 +63,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const QString jitsimeeturl = QStringLiteral("test 2");
     const QString uniqueId = QStringLiteral("test 3");
     const QString filestoragetype = QStringLiteral("test 4");
+    const QString googleKey = QStringLiteral("Google12");
     const bool jistsiEnabled = true;
     const bool allowEditing = false;
     const int minutes = 12;
@@ -68,6 +71,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     const QString siteName = QStringLiteral("sitename");
     const QString siteUrl = QStringLiteral("siteurl");
     bool encryptionEnabled = false;
+    bool autoTranslateEnabled = true;
     RuqolaServerConfig config;
     config.setJitsiMeetPrefix(jitsimeetprefix);
     config.setJitsiMeetUrl(jitsimeeturl);
@@ -80,6 +84,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     config.setSiteUrl(siteUrl);
     config.setEncryptionEnabled(encryptionEnabled);
     config.setJitsiEnabled(jistsiEnabled);
+    config.setAutoTranslateEnabled(autoTranslateEnabled);
+    config.setAutoTranslateGoogleKey(googleKey);
 
     bool pinning = true;
     bool snippeting = true;
@@ -87,6 +93,7 @@ void RuqolaServerConfigTest::shouldAssignValues()
     bool deleting = true;
     bool threadsEnabled = true;
     bool discussionEnabled = true;
+
     config.setAllowMessagePinningEnabled(pinning);
     config.setAllowMessageSnippetingEnabled(snippeting);
     config.setAllowMessageStarringEnabled(starring);
@@ -113,6 +120,8 @@ void RuqolaServerConfigTest::shouldAssignValues()
     QCOMPARE(config.allowMessageDeletingEnabled(), deleting);
     QCOMPARE(config.threadsEnabled(), threadsEnabled);
     QCOMPARE(config.discussionEnabled(), discussionEnabled);
+    QCOMPARE(config.autoTranslateEnabled(), autoTranslateEnabled);
+    QCOMPARE(config.autoTranslateGoogleKey(), googleKey);
 }
 
 void RuqolaServerConfigTest::shouldEnabledRc60_data()
