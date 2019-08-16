@@ -41,6 +41,7 @@ enum class RestApiUrlType {
     UsersSetAvatar,
     UsersUpdate,
     UsersPresence, /*since 1.1.0*/
+    UsersUpdateOwnBasicInfo,
     UsersGetUsernameSuggestion,
     UsersRemovePersonalAccessToken,
     UsersGeneratePersonalAccessToken,

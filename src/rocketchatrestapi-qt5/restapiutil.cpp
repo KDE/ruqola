@@ -79,6 +79,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("users.generatePersonalAccessToken");
     case RestApiUtil::RestApiUrlType::UsersPresence:
         return QStringLiteral("users.presence");
+    case RestApiUtil::RestApiUrlType::UsersUpdateOwnBasicInfo:
+        return QStringLiteral("users.updateOwnBasicInfo");
     case RestApiUtil::RestApiUrlType::ChatDelete:
         return QStringLiteral("chat.delete");
     case RestApiUtil::RestApiUrlType::ChatGetMessage:
