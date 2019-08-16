@@ -32,8 +32,9 @@ QQC2.Dialog {
 
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
+    anchors.centerIn: parent
 
     modal: true
     focus: true
@@ -52,13 +53,14 @@ QQC2.Dialog {
         open()
     }
 
-    GridLayout {
+    contentItem: GridLayout {
         columns: 2
         QQC2.Label {
             text: i18n("Name:");
         }
         QQC2.TextField {
             id: channelName
+            Layout.fillWidth: true
             selectByMouse: true
             placeholderText: i18n("Channel Name")
         }
@@ -69,6 +71,7 @@ QQC2.Dialog {
         //TODO add model for searching users
         QQC2.TextField {
             id: userList
+            Layout.fillWidth: true
             selectByMouse: true
             placeholderText: i18nc("List of users separated by ','", "User separate with ','")
         }
@@ -117,8 +120,12 @@ QQC2.Dialog {
         }
         PasswordLineEdit {
             id: password
+            Layout.fillWidth: true
             selectByMouse: true
             placeholderText: i18n("Add password")
+        }
+        Item {
+            Layout.fillHeight: true
         }
     }
 
