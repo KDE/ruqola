@@ -61,5 +61,8 @@ QQC2.Dialog {
                 privateChannelInfoDialog.blockUser(roomInfo.rid, !roomInfo.blocker)
             }
         }
+        Item {
+            Layout.fillHeight: true
+        }
     }
 }
