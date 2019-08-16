@@ -40,8 +40,9 @@ QQC2.Dialog {
     title: i18n("Add Users")
     standardButtons: QQC2.Dialog.Close
 
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
+    anchors.centerIn: parent
 
     modal: true
     focus: true
@@ -53,7 +54,7 @@ QQC2.Dialog {
         open();
     }
 
-    ColumnLayout {
+    contentItem: ColumnLayout {
         LineEditWithClearButton {
             id: username
             placeholderText: i18n("Search User...")
@@ -64,8 +65,8 @@ QQC2.Dialog {
         }
         ListView {
             id: listview
-            width: 300;
-            height: 200
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             clip: true
 
             model: completerModel
