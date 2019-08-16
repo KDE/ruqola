@@ -81,6 +81,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("users.presence");
     case RestApiUtil::RestApiUrlType::UsersUpdateOwnBasicInfo:
         return QStringLiteral("users.updateOwnBasicInfo");
+    case RestApiUtil::RestApiUrlType::UsersRegeneratePersonalAccessToken:
+        return QStringLiteral("users.regeneratePersonalAccessToken");
     case RestApiUtil::RestApiUrlType::ChatDelete:
         return QStringLiteral("chat.delete");
     case RestApiUtil::RestApiUrlType::ChatGetMessage:
@@ -111,7 +113,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("chat.unfollowMessage");
     case RestApiUtil::RestApiUrlType::ChatGetDeletedMessage:
         return QStringLiteral("chat.getDeletedMessages");
-
+    case RestApiUtil::RestApiUrlType::ChatMessageReadReceipts:
+        return QStringLiteral("chat.getMessageReadReceipts");
     case RestApiUtil::RestApiUrlType::ChatSyncThreadsList:
         return QStringLiteral("chat.syncThreadsList");
     case RestApiUtil::RestApiUrlType::ChatGetThreadsList:

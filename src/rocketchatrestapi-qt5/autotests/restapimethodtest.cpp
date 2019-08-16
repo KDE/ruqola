@@ -68,6 +68,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRemovePersonalAccessToken), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.removePersonalAccessToken")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGeneratePersonalAccessToken), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.generatePersonalAccessToken")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersUpdateOwnBasicInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.updateOwnBasicInfo")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRegeneratePersonalAccessToken), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.regeneratePersonalAccessToken")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersPresence), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.presence")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.delete")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessage")));
@@ -89,6 +90,7 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatSyncThreadsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncThreadsList")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetDeletedMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getDeletedMessages")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatSendMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.sendMessage")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatMessageReadReceipts), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessageReadReceipts")));
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addAll")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChannelsAddLeader), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.addLeader")));

@@ -42,6 +42,7 @@ enum class RestApiUrlType {
     UsersUpdate,
     UsersPresence, /*since 1.1.0*/
     UsersUpdateOwnBasicInfo,
+    UsersRegeneratePersonalAccessToken,
     UsersGetUsernameSuggestion,
     UsersRemovePersonalAccessToken,
     UsersGeneratePersonalAccessToken,
@@ -66,6 +67,7 @@ enum class RestApiUrlType {
     ChatSyncThreadsList,
     ChatGetDeletedMessage,
     ChatSendMessage,
+    ChatMessageReadReceipts,
 
     ChannelsAddAll,
     //@since 0.75
