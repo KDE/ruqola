@@ -79,8 +79,14 @@ set(Ruqola_messages_srcs
     messages/reaction.cpp
     messages/messagepinned.cpp
     )
-    
+
+set(Ruqola_message_convertertextjob_SRCS
+    convertertextjob/convertertextabstractjob.cpp
+    convertertextjob/translatetextjob.cpp
+    )
+
 set (Ruqola_core_srcs
+    ${Ruqola_message_convertertextjob_SRCS}
     ${Ruqola_emoticons_srcs}
     ${Ruqola_messages_srcs}
     ${Ruqola_model_core_srcs}
