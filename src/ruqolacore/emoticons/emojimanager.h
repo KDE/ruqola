@@ -37,12 +37,13 @@ public:
 
     Q_REQUIRED_RESULT int count() const;
 
-    Q_REQUIRED_RESULT QString replaceEmojiIdentifier(const QString &emojiIdentifier);
+    Q_REQUIRED_RESULT QString replaceEmojiIdentifier(const QString &emojiIdentifier, bool isReaction = false);
     Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
     Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon> > unicodeEmojiList() const;
 
+    Q_REQUIRED_RESULT bool isAnimatedImage(const QString &emojiIdentifier) const;
 private:
     Q_DISABLE_COPY(EmojiManager)
     void clearCustomEmojiCachedHtml();

@@ -34,6 +34,7 @@ void ReactionTest::shouldHaveDefaultValue()
     QVERIFY(r.userNames().isEmpty());
     QVERIFY(r.reactionName().isEmpty());
     QCOMPARE(r.count(), 0);
+    QVERIFY(!r.isAnimatedImage());
 }
 
 void ReactionTest::shouldReturnCount()

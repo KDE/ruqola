@@ -28,8 +28,30 @@ Repeater {
     id: repearterReactions
     signal deleteReaction(string emoji)
     Column {
+        AnimatedImage {
+            id: imageAnimated
+            visible: model.modelData.isAnimatedImage
+            source: model.modelData.convertedReactionName
+            //Verify it
+            height: 20
+            width: height
+
+            MouseArea {
+                anchors.fill: parent
+                acceptedButtons: Qt.RightButton | Qt.LeftButton
+                hoverEnabled: true
+                onClicked: {
+                    repearterReactions.deleteReaction(model.modelData.reactionName);
+                }
+
+                QQC2.ToolTip {
+                    text: model.modelData.convertedUsersNameAtToolTip
+                }
+            }
+        }
         QQC2.Label {
             id: reactionsType
+            visible: !model.modelData.isAnimatedImage
             renderType: Text.NativeRendering
             textFormat: Text.RichText
             text: model.modelData.convertedReactionName
@@ -46,7 +68,6 @@ Repeater {
                 }
 
                 QQC2.ToolTip {
-                    id: tooltipReact
                     text: model.modelData.convertedUsersNameAtToolTip
                 }
             }

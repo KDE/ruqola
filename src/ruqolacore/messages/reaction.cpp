@@ -38,11 +38,11 @@ QString Reaction::convertedUsersNameAtToolTip() const
         return i18n("%1 had reacted with %2", mUserNames[0], mReactionName);
     } else {
         QString notificationStr;
-        for (int i = 0; i < mUserNames.count(); ++i) {
+        for (int i = 0, total = mUserNames.count(); i < total; ++i) {
             const QString user = mUserNames.at(i);
             if (i == 0) {
                 notificationStr = user;
-            } else if (i < mUserNames.count() - 1) {
+            } else if (i < (total - 1)) {
                 notificationStr = i18n("%1, %2", notificationStr, user);
             } else {
                 notificationStr = i18n("%1 and %2", notificationStr, user);
@@ -50,6 +50,16 @@ QString Reaction::convertedUsersNameAtToolTip() const
         }
         return i18n("%1 had reacted with %2", notificationStr, mReactionName);
     }
+}
+
+bool Reaction::isAnimatedImage() const
+{
+    return mIsAnimatedImage;
+}
+
+void Reaction::setIsAnimatedImage(bool isAnimatedImage)
+{
+    mIsAnimatedImage = isAnimatedImage;
 }
 
 QString Reaction::reactionName() const
@@ -62,7 +72,8 @@ void Reaction::setReactionName(const QString &reactionName, EmojiManager *emojiM
     if (mReactionName != reactionName) {
         mReactionName = reactionName;
         if (emojiManager) {
-            mCacheConvertedReactionName = emojiManager->replaceEmojiIdentifier(mReactionName);
+            mCacheConvertedReactionName = emojiManager->replaceEmojiIdentifier(mReactionName, true);
+            mIsAnimatedImage = emojiManager->isAnimatedImage(mReactionName);
         } else {
             const KTextToHTML::Options convertFlags = KTextToHTML::ReplaceSmileys;
             mCacheConvertedReactionName = KTextToHTML::convertToHtml(mReactionName, convertFlags);
