@@ -47,6 +47,11 @@ void Emoji::setUpdatedAt(const qint64 &updatedAt)
     mUpdatedAt = updatedAt;
 }
 
+bool Emoji::isAnimatedImage() const
+{
+    return mExtension == QLatin1String("gif");
+}
+
 void Emoji::parseEmoji(const QJsonObject &emoji, bool restApi)
 {
     mIdentifier = emoji.value(QLatin1String("_id")).toString();
@@ -72,6 +77,24 @@ bool Emoji::isValid() const
 {
     //Add more check ?
     return !mIdentifier.isEmpty() && !mName.isEmpty();
+}
+
+QString Emoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl)
+{
+    if (mCachedHtml.isEmpty()) {
+        //TODO verify it.
+
+        QString url = serverUrl + QStringLiteral("/emoji-custom/%1.%2").arg(mName).arg(mExtension);
+        // ???? http ? not https ???
+        if (!url.startsWith(QLatin1String("http://")) && !url.startsWith(QLatin1String("https://"))) {
+            url.prepend(QLatin1String("http://"));
+        }
+        //https://rocket.chat/docs/developer-guides/realtime-api/method-calls/list-custom-emoji/#list-custom-emoji
+        //http://yourhost.com/emoji-custom/Emoji%20Name.png
+        //TODO customize size.
+        mCachedHtml = url;
+    }
+    return mCachedHtml;
 }
 
 QString Emoji::generateHtmlFromCustomEmoji(const QString &serverUrl)

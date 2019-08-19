@@ -30,6 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Reaction
     Q_PROPERTY(QString reactionName READ reactionName CONSTANT)
     Q_PROPERTY(QString convertedReactionName READ convertedReactionName CONSTANT)
     Q_PROPERTY(QString convertedUsersNameAtToolTip READ convertedUsersNameAtToolTip CONSTANT)
+    Q_PROPERTY(bool isAnimatedImage READ isAnimatedImage CONSTANT)
 public:
     Reaction();
 
@@ -45,10 +46,15 @@ public:
 
     Q_REQUIRED_RESULT QString convertedReactionName() const;
     Q_REQUIRED_RESULT QString convertedUsersNameAtToolTip() const;
+
+    Q_REQUIRED_RESULT bool isAnimatedImage() const;
+    void setIsAnimatedImage(bool isAnimatedImage);
+
 private:
     QString mReactionName;
     QString mCacheConvertedReactionName;
     QStringList mUserNames;
+    bool mIsAnimatedImage = false;
 };
 Q_DECLARE_METATYPE(Reaction)
 Q_DECLARE_TYPEINFO(Reaction, Q_MOVABLE_TYPE);

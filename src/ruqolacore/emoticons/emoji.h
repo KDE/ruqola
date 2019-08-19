@@ -65,6 +65,9 @@ public:
     Q_REQUIRED_RESULT qint64 updatedAt() const;
     void setUpdatedAt(const qint64 &updatedAt);
 
+    Q_REQUIRED_RESULT bool isAnimatedImage() const;
+
+    Q_REQUIRED_RESULT QString generateAnimatedUrlFromCustomEmoji(const QString &serverUrl);
 private:
     QString mEmojiIdentifier;
     QString mIdentifier;

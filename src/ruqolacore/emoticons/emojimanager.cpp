@@ -92,7 +92,20 @@ int EmojiManager::count() const
     return mCustomEmojiList.count() + mUnicodeEmojiList.count();
 }
 
-QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier)
+bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
+{
+    if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
+        for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
+            const Emoji emoji = mCustomEmojiList.at(i);
+            if (emoji.hasEmoji(emojiIdentifier)) {
+                return emoji.isAnimatedImage();
+            }
+        }
+    }
+    return false;
+}
+
+QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, bool isReaction)
 {
     if (mServerUrl.isEmpty()) {
         qCWarning(RUQOLA_LOG) << "Server Url not defined";
@@ -104,7 +117,12 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier)
                 QString cachedHtml = mCustomEmojiList.at(i).cachedHtml();
                 if (cachedHtml.isEmpty()) {
                     Emoji emoji = mCustomEmojiList[i];
-                    cachedHtml = emoji.generateHtmlFromCustomEmoji(mServerUrl);
+                    //For the moment we can't support animated image as emoticon in text. Only as Reaction.
+                    if (emoji.isAnimatedImage() && isReaction) {
+                        cachedHtml = emoji.generateAnimatedUrlFromCustomEmoji(mServerUrl);
+                    } else {
+                        cachedHtml = emoji.generateHtmlFromCustomEmoji(mServerUrl);
+                    }
                     mCustomEmojiList.replace(i, emoji);
                 }
                 return cachedHtml;

@@ -40,6 +40,7 @@ void EmojiTest::shouldHaveDefaultValue()
     QVERIFY(j.aliases().isEmpty());
     QCOMPARE(j.updatedAt(), 0);
     QVERIFY(j.emojiIdentifier().isEmpty());
+    QCOMPARE(j.isAnimatedImage(), false);
 }
 
 void EmojiTest::shouldAssignValue()
