@@ -96,7 +96,10 @@ QString InputTextManager::searchWord(const QString &text, int position)
         break;
     }
 
-    const QString word = text.mid(start, end - start + 1);
+    QString word = text.mid(start, end - start + 1);
+    if (!word.isEmpty() && word.at(word.length() -1).isSpace()) {
+        word.chop(1);
+    }
     //qDebug() << "position" << position << " word " << word << " text " << text << " start " << start << " end " << end;
     return word;
 }
@@ -107,8 +110,8 @@ void InputTextManager::setInputTextChanged(const QString &text, int position)
         clearCompleter();
         return;
     }
-    const QString word = searchWord(text, position).trimmed();
-    const QString str = word.right(word.length()-1).trimmed();
+    const QString word = searchWord(text, position);
+    const QString str = word.right(word.length()-1);
     //qDebug() << " str :" << str << ": word :" << word << ":";
     if (word.isEmpty()) {
         clearCompleter();
