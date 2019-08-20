@@ -31,10 +31,11 @@ Repeater {
         AnimatedImage {
             id: imageAnimated
             visible: model.modelData.isAnimatedImage
-            source: model.modelData.convertedReactionName
+            source: model.modelData.isAnimatedImage ? model.modelData.convertedReactionName : ""
             //Verify it
             height: 20
             width: height
+            asynchronous: true
 
             MouseArea {
                 anchors.fill: parent
