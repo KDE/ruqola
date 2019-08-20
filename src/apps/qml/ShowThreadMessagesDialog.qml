@@ -55,7 +55,7 @@ QQC2.Dialog {
 
             QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
             onPinMessage: {
-//                appid.rocketChatAccount.pinMessage(messageId, pinned)
+                appid.rocketChatAccount.pinMessage(messageId, pinned)
             }
 
             onEditMessage: {
@@ -72,7 +72,7 @@ QQC2.Dialog {
 //                userInputMessage.messageId = messageId;
             }
             onSetFavoriteMessage: {
-//                appid.rocketChatAccount.starMessage(messageId, starred)
+                appid.rocketChatAccount.starMessage(messageId, starred)
             }
             onIgnoreUser: {
 //                appid.rocketChatAccount.ignoreUser(roomId, userId, ignored)
@@ -117,10 +117,10 @@ QQC2.Dialog {
 //                displayImageDialog.clearScaleAndOpen();
             }
             onDeleteReaction: {
-//                appid.rocketChatAccount.reactOnMessage(messageId, emoji, false)
+                appid.rocketChatAccount.reactOnMessage(messageId, emoji, false)
             }
             onAddReaction: {
-//                appid.rocketChatAccount.reactOnMessage(messageId, emoji, true)
+                appid.rocketChatAccount.reactOnMessage(messageId, emoji, true)
             }
 
             onOpenThread: {
