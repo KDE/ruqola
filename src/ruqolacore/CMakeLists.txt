@@ -51,6 +51,8 @@ set (Ruqola_model_core_srcs
     model/emoticoncategoriesmodel.cpp
 
     model/threadmessagemodel.cpp
+
+    model/pinnedmessagemodel.cpp
     )
 
 set(Ruqola_plugins_srcs
