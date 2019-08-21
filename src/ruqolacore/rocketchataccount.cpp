@@ -801,6 +801,12 @@ void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const
 void RocketChatAccount::slotGetPinnedMessagesDone(const QJsonObject &obj, const QString &roomId)
 {
     qDebug() << " obj " << obj << "roomId : " << roomId;
+    if (mPinnedMessageModel->roomId() != roomId) {
+        mPinnedMessageModel->setRoomID(roomId);
+        mPinnedMessageModel->parsePinnedMessages(obj);
+    } else {
+        mPinnedMessageModel->loadMorePinnedMessages(obj);
+    }
 }
 
 void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId)
