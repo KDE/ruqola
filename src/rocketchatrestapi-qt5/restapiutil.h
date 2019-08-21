@@ -201,8 +201,6 @@ enum class RestApiUrlType {
     AutoTranslateGetSupportedLanguages,
     AutoTranslateSaveSettings,
     AutoTranslateTranslateMessage,
-
-
 };
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

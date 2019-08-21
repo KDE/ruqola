@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "translatetextjobtest.h"
 #include <QTest>
 
@@ -27,5 +26,4 @@ QTEST_GUILESS_MAIN(TranslateTextJobTest)
 TranslateTextJobTest::TranslateTextJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }

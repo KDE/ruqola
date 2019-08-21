@@ -45,7 +45,7 @@ void PinnedMessageModel::parse(const QJsonObject &obj)
 {
     ThreadMessages threadmessages;
     threadmessages.parseThreadMessages(obj);
-    for (int i = 0; i < threadmessages.count(); ++i) {
+    for (int i = 0, total = threadmessages.count(); i < total; ++i) {
         addMessage(threadmessages.at(i));
     }
 }
@@ -69,4 +69,14 @@ int PinnedMessageModel::total() const
 void PinnedMessageModel::setTotal(int total)
 {
     mTotal = total;
+}
+
+bool PinnedMessageModel::loadMorePinnedMessageInProgress() const
+{
+    return mLoadingInProgress;
+}
+
+void PinnedMessageModel::setLoadMorePinnedMessageInProgress(bool inProgress)
+{
+    mLoadingInProgress = inProgress;
 }

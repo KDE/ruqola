@@ -800,13 +800,13 @@ void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const
 
 void RocketChatAccount::slotGetPinnedMessagesDone(const QJsonObject &obj, const QString &roomId)
 {
-    qDebug() << " obj " << obj << "roomId : " << roomId;
     if (mPinnedMessageModel->roomId() != roomId) {
         mPinnedMessageModel->setRoomID(roomId);
         mPinnedMessageModel->parsePinnedMessages(obj);
     } else {
         mPinnedMessageModel->loadMorePinnedMessages(obj);
     }
+    mPinnedMessageModel->setLoadMorePinnedMessageInProgress(false);
 }
 
 void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId)
@@ -892,16 +892,26 @@ void RocketChatAccount::loadMoreThreads(const QString &roomId)
     }
 }
 
+void RocketChatAccount::loadMorePinnedMessages(const QString &roomId)
+{
+    if (!mPinnedMessageModel->loadMorePinnedMessageInProgress()) {
+        //TODO
+        /*
+        const int offset = mPinnedMessageModel->count();
+        if (offset < mPinnedMessageModel->total()) {
+            restApi()->getThreadsList(roomId, offset, qMin(50, mPinnedMessageModel->total() - offset));
+        }
+        */
+    }
+}
+
 void RocketChatAccount::loadThreadMessagesHistory(const QString &threadMessageId)
 {
     if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
-        //mThreadMessageModel->clear();
         restApi()->getThreadMessages(threadMessageId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getThreadMessages is not supported before server 1.0.0";
     }
-
-    //TODO
 }
 
 void RocketChatAccount::loadMoreMentions(const QString &roomId)

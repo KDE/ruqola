@@ -33,4 +33,5 @@ void PinnedMessageModelTest::shouldHaveDefaultValues()
 {
     PinnedMessageModel w;
     QVERIFY(w.roomId().isEmpty());
+    QVERIFY(!w.loadMorePinnedMessageInProgress());
 }

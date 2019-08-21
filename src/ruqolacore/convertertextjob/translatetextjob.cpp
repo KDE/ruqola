@@ -18,18 +18,15 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "translatetextjob.h"
 
 TranslateTextJob::TranslateTextJob(QObject *parent)
     : ConverterTextAbstractJob(parent)
 {
-
 }
 
 TranslateTextJob::~TranslateTextJob()
 {
-
 }
 
 void TranslateTextJob::start()

@@ -18,18 +18,15 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "convertertextabstractjob.h"
 
 ConverterTextAbstractJob::ConverterTextAbstractJob(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 ConverterTextAbstractJob::~ConverterTextAbstractJob()
 {
-
 }
 
 QString ConverterTextAbstractJob::messageId() const

@@ -27,18 +27,18 @@ public:
     explicit ConverterTextAbstractJobImpl(QObject *parent = nullptr)
         : ConverterTextAbstractJob(parent)
     {
-
     }
-    void start() override {}
+
+    void start() override
+    {
+    }
 };
 
 QTEST_GUILESS_MAIN(ConverterTextAbstractJobTest)
 
-
 ConverterTextAbstractJobTest::ConverterTextAbstractJobTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ConverterTextAbstractJobTest::shouldHaveDefaultValue()

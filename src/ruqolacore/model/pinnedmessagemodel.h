@@ -40,10 +40,14 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
+    Q_REQUIRED_RESULT bool loadMorePinnedMessageInProgress() const;
+    void setLoadMorePinnedMessageInProgress(bool inProgress);
+
 private:
     void parse(const QJsonObject &obj);
     QString mRoomId;
     int mTotal = 0;
+    bool mLoadingInProgress = false;
 };
 
 #endif // PINNEDMESSAGEMODEL_H
