@@ -344,6 +344,8 @@ public:
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void getPinnedMessages(const QString &roomId);
 
+    Q_INVOKABLE Q_REQUIRED_RESULT bool hasPinnedMessagesSupport() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

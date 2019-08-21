@@ -102,7 +102,7 @@ Component {
                     }
                 },
                 Kirigami.Action {
-                    visible: appid.selectedRoom // && pinned messages support (server > 2.0.0)
+                    visible: appid.selectedRoom && appid.rocketChatAccount.hasPinnedMessagesSupport()
                     text: i18n("Pinned Messages")
                     onTriggered: {
                         appid.rocketChatAccount.getPinnedMessages(appid.selectedRoomID);

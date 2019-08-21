@@ -845,6 +845,11 @@ void RocketChatAccount::getPinnedMessages(const QString &roomId)
     }
 }
 
+bool RocketChatAccount::hasPinnedMessagesSupport() const
+{
+    return mRuqolaServerConfig->hasAtLeastVersion(1, 4, 0);
+}
+
 void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QString &channelType)
 {
     if (!mFilesModelForRoom->loadMoreFilesInProgress()) {
