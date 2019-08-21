@@ -68,6 +68,7 @@ class ThreadsModel;
 class MentionsModel;
 class MentionsFilterProxyModel;
 class ThreadMessageModel;
+class PinnedMessageModel;
 
 namespace RocketChatRestApi {
 class RestApiRequest;
@@ -346,6 +347,8 @@ public:
 
     Q_INVOKABLE Q_REQUIRED_RESULT bool hasPinnedMessagesSupport() const;
 
+    Q_INVOKABLE PinnedMessageModel *pinnedMessageModel() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -441,6 +444,7 @@ private:
     MentionsFilterProxyModel *mMentionsFilterProxyModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
     ThreadMessageModel *mThreadMessageModel = nullptr;
+    PinnedMessageModel *mPinnedMessageModel = nullptr;
     bool mEditingMode = false;
 };
 

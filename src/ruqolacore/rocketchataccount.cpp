@@ -56,6 +56,7 @@
 #include "model/threadsfilterproxymodel.h"
 #include "model/mentionsmodel.h"
 #include "model/mentionsfilterproxymodel.h"
+#include "model/pinnedmessagemodel.h"
 #include "model/threadmessagemodel.h"
 #include "managerdatapaths.h"
 #include "authenticationmanager.h"
@@ -163,6 +164,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mThreadMessageModel = new ThreadMessageModel(QString(), this, nullptr, this);
     mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));
+
+    mPinnedMessageModel = new PinnedMessageModel(QString(), this, nullptr, this);
+    mPinnedMessageModel->setObjectName(QStringLiteral("pinnedmessagemodel"));
 
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this, this);
@@ -1622,6 +1626,11 @@ void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, c
         ddp()->inputUserAutocomplete(pattern, exceptions);
         break;
     }
+}
+
+PinnedMessageModel *RocketChatAccount::pinnedMessageModel() const
+{
+    return mPinnedMessageModel;
 }
 
 void RocketChatAccount::inputTextCompleter(const QJsonObject &obj)

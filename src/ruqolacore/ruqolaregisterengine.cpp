@@ -56,6 +56,7 @@
 #include "model/notificationdesktopsoundpreferencemodel.h"
 #include "model/threadsmodel.h"
 #include "model/threadsfilterproxymodel.h"
+#include "model/pinnedmessagemodel.h"
 #include "model/discussionsmodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/emoticoncategoriesmodel.h"
