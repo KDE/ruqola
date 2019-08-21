@@ -68,6 +68,8 @@ enum class RestApiUrlType {
     ChatGetDeletedMessage,
     ChatSendMessage,
     ChatMessageReadReceipts,
+    //Since 2.0.0
+    ChatGetPinnedMessages,
 
     ChannelsAddAll,
     //@since 0.75
@@ -195,10 +197,11 @@ enum class RestApiUrlType {
     //since 0.74
     VideoConfJitsi,
 
-    //Autotranslate @since 1.3
+    //Autotranslate @since 2.0
     AutoTranslateGetSupportedLanguages,
     AutoTranslateSaveSettings,
     AutoTranslateTranslateMessage,
+
 
 };
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString adaptUrl(const QString &url);

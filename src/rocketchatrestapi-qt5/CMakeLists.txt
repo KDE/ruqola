@@ -51,6 +51,7 @@ set (RocketChatRestApiQt_SRCS
     chat/getthreadsjob.cpp
     chat/getthreadmessagesjob.cpp
     chat/sendmessagejob.cpp
+    chat/getpinnedmessagesjob.cpp
 
     channels/changechanneltopicjob.cpp
     channels/changechannelannouncementjob.cpp

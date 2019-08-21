@@ -423,6 +423,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, &RocketChatAccount::slotGetThreadsListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetAllUserMentionsDone, this, &RocketChatAccount::slotGetAllUserMentionsDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getPinnedMessagesDone, this, &RocketChatAccount::slotGetPinnedMessagesDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -793,6 +794,11 @@ void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const
     mMentionsModel->setLoadMoreMentionsInProgress(false);
 }
 
+void RocketChatAccount::slotGetPinnedMessagesDone(const QJsonObject &obj, const QString &roomId)
+{
+    qDebug() << " obj " << obj << "roomId : " << roomId;
+}
+
 void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId)
 {
     if (mThreadsModel->roomId() != roomId) {
@@ -827,6 +833,15 @@ void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, const QString
     const int offset = usersModelForRoom->usersCount();
     if (offset < usersModelForRoom->total()) {
         restApi()->membersInRoom(roomId, channelType, offset, qMin(50, usersModelForRoom->total() - offset));
+    }
+}
+
+void RocketChatAccount::getPinnedMessages(const QString &roomId)
+{
+    if (mRuqolaServerConfig->hasAtLeastVersion(1, 4, 0)) {
+        restApi()->getPinnedMessages(roomId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getPinnedMessages is not supported before server 2.0.0";
     }
 }
 

@@ -342,6 +342,8 @@ public:
     Q_INVOKABLE void loadMoreMentions(const QString &roomId);
 
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
+    Q_INVOKABLE void getPinnedMessages(const QString &roomId);
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -373,6 +375,7 @@ private:
     void slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId);
     void slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId);
     void slotGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
+    void slotGetPinnedMessagesDone(const QJsonObject &obj, const QString &roomId);
 
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);

@@ -57,6 +57,7 @@
 #include "chat/getthreadsjob.h"
 #include "chat/getthreadmessagesjob.h"
 #include "chat/sendmessagejob.h"
+#include "chat/getpinnedmessagesjob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
@@ -1461,6 +1462,21 @@ void RestApiRequest::getThreadsList(const QString &roomId, int offset, int count
     connect(job, &GetThreadsJob::getThreadsDone, this, &RestApiRequest::getThreadsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getThreadsList";
+    }
+}
+
+void RestApiRequest::getPinnedMessages(const QString &roomId, int offset, int count)
+{
+    GetPinnedMessagesJob *job = new GetPinnedMessagesJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    QueryParameters parameters;
+    parameters.setCount(count);
+    parameters.setOffset(offset);
+    job->setQueryParameters(parameters);
+    connect(job, &GetPinnedMessagesJob::getPinnedMessagesDone, this, &RestApiRequest::getPinnedMessagesDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getPinnedMessagesList";
     }
 }
 
