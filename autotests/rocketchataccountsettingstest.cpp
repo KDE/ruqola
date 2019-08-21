@@ -58,7 +58,7 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenSetServerURLChanged()
     QCOMPARE(SpyURL.count(), 1);
 
     //Test Empty url
-    QString emptyString;
+    const QString emptyString;
     SampleChatAccount.setServerUrl(emptyString);
     QCOMPARE(SpyURL.count(), 2);
 
@@ -92,7 +92,7 @@ void RocketChatAccountSettingsTest::shouldEmitSignalWhenUserNameChanged()
     QCOMPARE(SpyName.count(), 1);
 
     //Test empty string
-    QString emptyString;
+    const QString emptyString;
     SampleChat.setUserName(emptyString);
     QCOMPARE(SpyName.count(), 2);
 
@@ -139,7 +139,7 @@ void RocketChatAccountSettingsTest::shouldSetAccountName()
     RocketChatAccountSettings sampleChat;
     QSignalSpy spy(&sampleChat, &RocketChatAccountSettings::accountNameChanged);
 
-    QString val = QStringLiteral("myAccount#$^56");
+    const QString val = QStringLiteral("myAccount#$^56");
     sampleChat.setAccountName(val);
 
     QCOMPARE(val, sampleChat.accountName());
@@ -150,7 +150,7 @@ void RocketChatAccountSettingsTest::shouldsetAuthToken()
 {
     RocketChatAccountSettings sampleChat;
 
-    QString val = QStringLiteral("myAuthToken#$^56");
+    const QString val = QStringLiteral("myAuthToken#$^56");
     sampleChat.setAuthToken(val);
 
     QCOMPARE(val, sampleChat.authToken());
@@ -160,7 +160,7 @@ void RocketChatAccountSettingsTest::shouldSetPassword()
 {
     RocketChatAccountSettings sampleChat;
 
-    QString val = QStringLiteral("myPass#$^56");
+    const QString val = QStringLiteral("myPass#$^56");
     sampleChat.setPassword(val);
 
     QCOMPARE(val, sampleChat.password());
@@ -170,7 +170,7 @@ void RocketChatAccountSettingsTest::shouldSetServerUrl()
 {
     RocketChatAccountSettings sampleChat;
 
-    QString val = QStringLiteral("my.fancy.url");
+    const QString val = QStringLiteral("my.fancy.url");
     sampleChat.setServerUrl(val);
 
     QCOMPARE(val, sampleChat.serverUrl());
@@ -180,7 +180,7 @@ void RocketChatAccountSettingsTest::shouldSetUserID()
 {
     RocketChatAccountSettings sampleChat;
 
-    QString val = QStringLiteral("ECE305");
+    const QString val = QStringLiteral("ECE305");
     sampleChat.setUserId(val);
 
     QCOMPARE(val, sampleChat.userId());
@@ -190,7 +190,7 @@ void RocketChatAccountSettingsTest::shouldSetUserName()
 {
     RocketChatAccountSettings sampleChat;
 
-    QString val = QStringLiteral("Eric Roberts");
+    const QString val = QStringLiteral("Eric Roberts");
     sampleChat.setUserName(val);
 
     QCOMPARE(val, sampleChat.userName());
@@ -212,4 +212,6 @@ void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
     QVERIFY(chat.authToken().isEmpty());
     QCOMPARE(chat.serverUrl(), QStringLiteral("open.rocket.chat"));
     QVERIFY(!chat.showUnreadOnTop());
+    QVERIFY(chat.twoFactorAuthenticationCode().isEmpty());
+    QVERIFY(chat.enabled());
 }

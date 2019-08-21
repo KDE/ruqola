@@ -90,6 +90,16 @@ void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
 #endif
 }
 
+bool RocketChatAccountSettings::enabled() const
+{
+    return mEnabled;
+}
+
+void RocketChatAccountSettings::setEnabled(bool enabled)
+{
+    mEnabled = enabled;
+}
+
 qint64 RocketChatAccountSettings::expireToken() const
 {
     return mExpireToken;

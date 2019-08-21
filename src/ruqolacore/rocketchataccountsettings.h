@@ -70,6 +70,9 @@ public:
 
     Q_REQUIRED_RESULT bool tokenExpired() const;
 
+    Q_REQUIRED_RESULT bool enabled() const;
+    void setEnabled(bool enabled);
+
 Q_SIGNALS:
     void serverURLChanged();
     void userNameChanged();
@@ -95,6 +98,7 @@ private:
     qint64 mExpireToken = -1;
     QSettings *mSetting = nullptr;
     bool mShowUnreadOnTop = false;
+    bool mEnabled = true;
 };
 
 #endif // ROCKETCHATACCOUNTSETTINGS_H
