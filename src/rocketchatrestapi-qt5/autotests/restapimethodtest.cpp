@@ -208,4 +208,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.create")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RolesAddUserToRole), QUrl(QStringLiteral("http://www.kde.org/api/v1/roles.addUserToRole")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConfJitsi), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference/jitsi.update-timeout")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateGetSupportedLanguages), QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.getSupportedLanguages")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateSaveSettings), QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.saveSettings")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateTranslateMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/autotranslate.translateMessage")));
 }

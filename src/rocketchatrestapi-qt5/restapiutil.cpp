@@ -358,6 +358,13 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("roles.addUserToRole");
     case RestApiUtil::RestApiUrlType::VideoConfJitsi:
         return QStringLiteral("video-conference/jitsi.update-timeout");
+
+    case RestApiUtil::RestApiUrlType::AutoTranslateGetSupportedLanguages:
+        return QStringLiteral("autotranslate.getSupportedLanguages");
+    case RestApiUtil::RestApiUrlType::AutoTranslateSaveSettings:
+        return QStringLiteral("autotranslate.saveSettings");
+    case RestApiUtil::RestApiUrlType::AutoTranslateTranslateMessage:
+        return QStringLiteral("autotranslate.translateMessage");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
