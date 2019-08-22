@@ -35,13 +35,13 @@ void RestApiMethod::setServerUrl(const QString &serverUrl)
     mServerUrl = serverUrl;
 }
 
-QUrl RestApiMethod::generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension)
+QUrl RestApiMethod::generateUrl(RestApiUtil::RestApiUrlType type, const QString &urlExtension, bool useV1Extension)
 {
     if (mServerUrl.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Server url is empty";
         return {};
     }
-    QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + RestApiUtil::apiUri() + RestApiUtil::restUrl(type);
+    QString urlStr = RestApiUtil::adaptUrl(mServerUrl) + (useV1Extension ? RestApiUtil::apiUri() : QStringLiteral("/api/")) + RestApiUtil::restUrl(type);
     if (!urlExtension.isEmpty()) {
         urlStr += QLatin1Char('/') + urlExtension;
     }

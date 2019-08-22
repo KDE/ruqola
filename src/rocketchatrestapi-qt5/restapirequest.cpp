@@ -368,9 +368,10 @@ void RestApiRequest::downloadFile(const QUrl &url, const QString &mimeType, bool
     }
 }
 
-void RestApiRequest::serverInfo()
+void RestApiRequest::serverInfo(bool useDeprecatedVersion)
 {
     ServerInfoJob *job = new ServerInfoJob(this);
+    job->setUseDeprecatedVersion(useDeprecatedVersion);
     initializeRestApiJob(job);
     connect(job, &ServerInfoJob::serverInfoDone, this, &RestApiRequest::getServerInfoDone);
     if (!job->start()) {

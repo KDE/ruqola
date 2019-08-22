@@ -60,7 +60,7 @@ public:
     void channelList();
     void getAvatar(const QString &userId);
 
-    void serverInfo();
+    void serverInfo(bool useDeprecatedVersion);
     void getPrivateSettings();
     void getOwnInfo();
     void starMessage(const QString &messageId, bool starred);
