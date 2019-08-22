@@ -23,11 +23,11 @@
 #include "libruqola_private_export.h"
 #include "threadmessage.h"
 #include <QDebug>
-class LIBRUQOLACORE_TESTS_EXPORT ThreadMessages
+class LIBRUQOLACORE_TESTS_EXPORT ListMessages
 {
 public:
-    ThreadMessages();
-    void parseThreadMessages(const QJsonObject &threadsObj);
+    ListMessages();
+    void parseMessages(const QJsonObject &threadsObj);
 
     Q_REQUIRED_RESULT int offset() const;
     void setOffset(int offset);
@@ -48,6 +48,6 @@ private:
     int mOffset = 0;
     int mTotal = 0;
 };
-Q_DECLARE_METATYPE(ThreadMessages)
-LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const ThreadMessages &t);
+Q_DECLARE_METATYPE(ListMessages)
+LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const ListMessages &t);
 #endif // THREADMESSAGES_H

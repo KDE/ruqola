@@ -158,7 +158,7 @@ set (Ruqola_core_srcs
 
     emoticoncategory.cpp
 
-    threadmessages.cpp
+    listmessages.cpp
     threadmessage.cpp
 
     messagedownloadmanager.cpp

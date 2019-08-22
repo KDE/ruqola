@@ -66,7 +66,7 @@
 #include "receivetypingnotificationmanager.h"
 #include "restapirequest.h"
 #include "serverconfiginfo.h"
-#include "threadmessages.h"
+#include "listmessages.h"
 #include "threads.h"
 #include "mentions.h"
 

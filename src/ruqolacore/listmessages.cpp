@@ -18,16 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "threadmessages.h"
+#include "listmessages.h"
 #include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
-ThreadMessages::ThreadMessages()
+ListMessages::ListMessages()
 {
 }
 
-void ThreadMessages::parseThreadMessages(const QJsonObject &threadsObj)
+void ListMessages::parseMessages(const QJsonObject &threadsObj)
 {
     mThreadMessagesCount = threadsObj[QStringLiteral("count")].toInt();
     mOffset = threadsObj[QStringLiteral("offset")].toInt();
@@ -47,57 +47,57 @@ void ThreadMessages::parseThreadMessages(const QJsonObject &threadsObj)
     }
 }
 
-int ThreadMessages::offset() const
+int ListMessages::offset() const
 {
     return mOffset;
 }
 
-void ThreadMessages::setOffset(int offset)
+void ListMessages::setOffset(int offset)
 {
     mOffset = offset;
 }
 
-int ThreadMessages::total() const
+int ListMessages::total() const
 {
     return mTotal;
 }
 
-void ThreadMessages::setTotal(int total)
+void ListMessages::setTotal(int total)
 {
     mTotal = total;
 }
 
-int ThreadMessages::threadMessagesCount() const
+int ListMessages::threadMessagesCount() const
 {
     return mThreadMessagesCount;
 }
 
-void ThreadMessages::setThreadMessagesCount(int threadMessagesCount)
+void ListMessages::setThreadMessagesCount(int threadMessagesCount)
 {
     mThreadMessagesCount = threadMessagesCount;
 }
 
-bool ThreadMessages::isEmpty() const
+bool ListMessages::isEmpty() const
 {
     return mThreadMessages.isEmpty();
 }
 
-void ThreadMessages::clear()
+void ListMessages::clear()
 {
     mThreadMessages.clear();
 }
 
-int ThreadMessages::count() const
+int ListMessages::count() const
 {
     return mThreadMessages.count();
 }
 
-ThreadMessage ThreadMessages::at(int index) const
+ThreadMessage ListMessages::at(int index) const
 {
     return mThreadMessages.at(index);
 }
 
-QDebug operator <<(QDebug d, const ThreadMessages &t)
+QDebug operator <<(QDebug d, const ListMessages &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();

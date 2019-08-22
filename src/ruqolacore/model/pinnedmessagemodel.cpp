@@ -20,7 +20,7 @@
 
 #include "pinnedmessagemodel.h"
 
-#include "threadmessages.h"
+#include "listmessages.h"
 
 PinnedMessageModel::PinnedMessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
     : MessageModel(roomID, account, room, parent)
@@ -43,8 +43,8 @@ void PinnedMessageModel::setRoomId(const QString &threadMessageId)
 
 void PinnedMessageModel::parse(const QJsonObject &obj)
 {
-    ThreadMessages threadmessages;
-    threadmessages.parseThreadMessages(obj);
+    ListMessages threadmessages;
+    threadmessages.parseMessages(obj);
     for (int i = 0, total = threadmessages.count(); i < total; ++i) {
         addMessage(threadmessages.at(i));
     }
