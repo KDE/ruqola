@@ -57,7 +57,7 @@ QQC2.Dialog {
         }
 
         SearchLabel {
-            hasFullList: pinnedmessagesModel.hasFullList
+            hasFullList: pinnedMessagesModel.hasFullList
             numberOfElements: listview.count
             labelText: listview.count === 0 ? i18n("No Pinned Messages found") : i18np("%1 Pinned Message in room (Total: %2)", "%1 Pinned Messages in room (Total: %2)", listview.count, pinnedmessagesModel.total())
             onLoadMoreElements: {
@@ -78,7 +78,7 @@ QQC2.Dialog {
                 }
             }
 
-            model: pinnedmessagesModel
+            model: pinnedMessagesModel
             delegate: DiscussionMessageDelegate {
                 anchors.left: parent.left
                 anchors.right: parent.right

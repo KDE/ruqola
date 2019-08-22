@@ -738,7 +738,7 @@ Component {
                         showPinnedMessageDialogLoader.active = false
                     }
                     Component.onCompleted: {
-                        showPinnedMessageDialogLoader.open()
+                        open()
                     }
                 }
             }
