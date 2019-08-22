@@ -38,12 +38,17 @@ public:
 
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
+    Q_REQUIRED_RESULT bool useDeprecatedVersion() const;
+
+    void setUseDeprecatedVersion(bool useDeprecatedVersion);
+
 Q_SIGNALS:
     void serverInfoDone(const QString &versionInfo);
 
 private:
     Q_DISABLE_COPY(ServerInfoJob)
     void slotServerInfoFinished();
+    bool mUseDeprecatedVersion = true;
 };
 }
 #endif // SERVERINFOJOB_H

@@ -49,9 +49,10 @@ bool ServerInfoJob::start()
     return true;
 }
 
+//Since 2.0.0 we don't use v1 path. Need to exclude it.
 QNetworkRequest ServerInfoJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ServerInfo, QString(), mUseDeprecatedVersion);
     QNetworkRequest request(url);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
     request.setAttribute(QNetworkRequest::HTTP2AllowedAttribute, true);
@@ -63,6 +64,11 @@ bool ServerInfoJob::requireHttpAuthentication() const
     return false;
 }
 
+bool ServerInfoJob::useDeprecatedVersion() const
+{
+    return mUseDeprecatedVersion;
+}
+
 void ServerInfoJob::slotServerInfoFinished()
 {
     QString versionStr;
@@ -72,15 +78,30 @@ void ServerInfoJob::slotServerInfoFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
-            const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
-            versionStr = version.value(QStringLiteral("version")).toString();
-            addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT serverInfoDone(versionStr);
+            if (mUseDeprecatedVersion) {
+                const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
+                versionStr = version.value(QStringLiteral("version")).toString();
+                addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+                Q_EMIT serverInfoDone(versionStr);
+            } else {
+                versionStr = replyObject.value(QStringLiteral("version")).toString();
+                addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+                Q_EMIT serverInfoDone(versionStr);
+            }
         } else {
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ServerInfoJob::slotServerInfoFinished: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            if (mUseDeprecatedVersion) {
+                //Emit a version otherwise it breaks login!
+                Q_EMIT serverInfoDone(QStringLiteral("1.0.0"));
+            }
         }
         reply->deleteLater();
     }
     deleteLater();
+}
+
+void ServerInfoJob::setUseDeprecatedVersion(bool useDeprecatedVersion)
+{
+    mUseDeprecatedVersion = useDeprecatedVersion;
 }
