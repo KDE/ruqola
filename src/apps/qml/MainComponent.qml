@@ -106,6 +106,7 @@ Component {
                     text: i18n("Pinned Messages")
                     onTriggered: {
                         appid.rocketChatAccount.getPinnedMessages(appid.selectedRoomID);
+                        showPinnedMessageDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {
@@ -721,6 +722,28 @@ Component {
                     }
                 }
             }
+            Loader {
+                id: showPinnedMessageDialogLoader
+                active: false
+                property string threadMessageId
+                property string threadPreviewText
+                sourceComponent: ShowPinnedMessagesDialog {
+                    id: showPinnedMessageDialog
+                    parent: appid.pageStack
+                    pinnedMessagesModel: appid.pinnedMessagesModel
+                    onAccepted: {
+                        showPinnedMessageDialogLoader.active = false
+                    }
+                    onRejected: {
+                        showPinnedMessageDialogLoader.active = false
+                    }
+                    Component.onCompleted: {
+                        showPinnedMessageDialogLoader.open()
+                    }
+                }
+            }
+
+
             Loader {
                 id: showThreadMessageDialogLoader
                 active: false

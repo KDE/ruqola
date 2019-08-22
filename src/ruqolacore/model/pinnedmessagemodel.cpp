@@ -43,10 +43,10 @@ void PinnedMessageModel::setRoomId(const QString &threadMessageId)
 
 void PinnedMessageModel::parse(const QJsonObject &obj)
 {
-    ListMessages threadmessages;
-    threadmessages.parseMessages(obj);
-    for (int i = 0, total = threadmessages.count(); i < total; ++i) {
-        addMessage(threadmessages.at(i));
+    ListMessages messages;
+    messages.parseMessages(obj);
+    for (int i = 0, total = messages.count(); i < total; ++i) {
+        addMessage(messages.at(i));
     }
 }
 

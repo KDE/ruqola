@@ -28,7 +28,7 @@ QQC2.Dialog {
 
     title: i18n("Pinned Messages")
 
-    property QtObject pinnedmessagesModel
+    property QtObject pinnedMessagesModel
     property string roomId
     width: parent.width * 9 / 10
     height: parent.height * 9 / 10
