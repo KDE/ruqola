@@ -18,10 +18,10 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef THREADMESSAGES_H
-#define THREADMESSAGES_H
+#ifndef LISTMESSAGES_H
+#define LISTMESSAGES_H
 #include "libruqola_private_export.h"
-#include "threadmessage.h"
+#include "messages/message.h"
 #include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT ListMessages
 {
@@ -35,19 +35,19 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
-    Q_REQUIRED_RESULT int threadMessagesCount() const;
-    void setThreadMessagesCount(int threadMessagesCount);
+    Q_REQUIRED_RESULT int messagesCount() const;
+    void setMessagesCount(int listMessagesCount);
 
     Q_REQUIRED_RESULT bool isEmpty() const;
     void clear();
     Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT ThreadMessage at(int index) const;
+    Q_REQUIRED_RESULT Message at(int index) const;
 private:
-    QVector<ThreadMessage> mThreadMessages;
-    int mThreadMessagesCount = 0;
+    QVector<Message> mListMessages;
+    int mMessagesCount = 0;
     int mOffset = 0;
     int mTotal = 0;
 };
 Q_DECLARE_METATYPE(ListMessages)
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const ListMessages &t);
-#endif // THREADMESSAGES_H
+#endif // LISTMESSAGES_H

@@ -29,18 +29,18 @@ ListMessages::ListMessages()
 
 void ListMessages::parseMessages(const QJsonObject &threadsObj)
 {
-    mThreadMessagesCount = threadsObj[QStringLiteral("count")].toInt();
+    mMessagesCount = threadsObj[QStringLiteral("count")].toInt();
     mOffset = threadsObj[QStringLiteral("offset")].toInt();
     mTotal = threadsObj[QStringLiteral("total")].toInt();
     const QJsonArray threadsArray = threadsObj[QStringLiteral("messages")].toArray();
-    mThreadMessages.clear();
-    mThreadMessages.reserve(threadsArray.count());
+    mListMessages.clear();
+    mListMessages.reserve(threadsArray.count());
     for (const QJsonValue &current : threadsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject threadMessageObject = current.toObject();
-            ThreadMessage m;
+            Message m;
             m.parseMessage(threadMessageObject, true);
-            mThreadMessages.append(m);
+            mListMessages.append(m);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
         }
@@ -67,41 +67,41 @@ void ListMessages::setTotal(int total)
     mTotal = total;
 }
 
-int ListMessages::threadMessagesCount() const
+int ListMessages::messagesCount() const
 {
-    return mThreadMessagesCount;
+    return mMessagesCount;
 }
 
-void ListMessages::setThreadMessagesCount(int threadMessagesCount)
+void ListMessages::setMessagesCount(int count)
 {
-    mThreadMessagesCount = threadMessagesCount;
+    mMessagesCount = count;
 }
 
 bool ListMessages::isEmpty() const
 {
-    return mThreadMessages.isEmpty();
+    return mListMessages.isEmpty();
 }
 
 void ListMessages::clear()
 {
-    mThreadMessages.clear();
+    mListMessages.clear();
 }
 
 int ListMessages::count() const
 {
-    return mThreadMessages.count();
+    return mListMessages.count();
 }
 
-ThreadMessage ListMessages::at(int index) const
+Message ListMessages::at(int index) const
 {
-    return mThreadMessages.at(index);
+    return mListMessages.at(index);
 }
 
 QDebug operator <<(QDebug d, const ListMessages &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();
-    d << "threadMessagesCount " << t.threadMessagesCount();
+    d << "threadMessagesCount " << t.messagesCount();
     for (int i = 0, total = t.count(); i < total; ++i) {
         d << t.at(i);
     }
