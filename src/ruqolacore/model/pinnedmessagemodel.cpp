@@ -36,9 +36,9 @@ QString PinnedMessageModel::roomId() const
     return mRoomId;
 }
 
-void PinnedMessageModel::setRoomId(const QString &threadMessageId)
+void PinnedMessageModel::setRoomId(const QString &roomId)
 {
-    mRoomId = threadMessageId;
+    mRoomId = roomId;
 }
 
 void PinnedMessageModel::parse(const QJsonObject &obj)

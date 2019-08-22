@@ -849,6 +849,7 @@ void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, const QString
 void RocketChatAccount::getPinnedMessages(const QString &roomId)
 {
     if (mRuqolaServerConfig->hasAtLeastVersion(1, 4, 0)) {
+        mPinnedMessageModel->clear();
         restApi()->getPinnedMessages(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getPinnedMessages is not supported before server 2.0.0";

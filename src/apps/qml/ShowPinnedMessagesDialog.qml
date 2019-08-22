@@ -61,39 +61,30 @@ QQC2.Dialog {
             numberOfElements: listview.count
             labelText: listview.count === 0 ? i18n("No Pinned Messages found") : i18np("%1 Pinned Message in room (Total: %2)", "%1 Pinned Messages in room (Total: %2)", listview.count, pinnedmessagesModel.total())
             onLoadMoreElements: {
-                //appid.rocketChatAccount.loadMoreDiscussions(roomId)
+                appid.rocketChatAccount.loadMorePinnedMessages(roomId)
             }
         }
-        ListView {
+//            onDragEnded : {
+//                if (roomId !== "" && listview.atYBeginning ) {
+//                    appid.rocketChatAccount.loadMorePinnedMessages(roomId)
+//                }
+//            }
+        Item {
+            Layout.fillHeight: true
+        }
+
+        ActiveChat {
             id: listview
             Layout.fillWidth: true
             Layout.fillHeight: true
-            clip: true
-            // Scrollars
-            QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
-            QQC2.ScrollIndicator.horizontal: QQC2.ScrollIndicator { }
-            onDragEnded : {
-                if (roomId !== "" && listview.atYBeginning ) {
-                    //appid.rocketChatAccount.loadMoreDiscussions(roomId)
-                }
-            }
-
             model: pinnedMessagesModel
-            delegate: DiscussionMessageDelegate {
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.rightMargin: Kirigami.Units.largeSpacing
-                anchors.leftMargin: Kirigami.Units.largeSpacing
+            rcAccount: appid.rocketChatAccount
+            roomId: appid.selectedRoomID
+            clip: true
+            useMenuMessage: false
 
-                i_numberofmessages: numberofmessages
-                i_lastmessage: lastmessage
-                i_discussionid: discussionid
-                i_description: description
-                i_timestamp: timestamp
-                onOpenDiscussion: {
-                    showDiscussionsInRoomDialog.openDiscussion(messageDiscussionId)
-                }
-            }
+            QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
         }
     }
+
 }

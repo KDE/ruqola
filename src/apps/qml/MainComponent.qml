@@ -725,8 +725,6 @@ Component {
             Loader {
                 id: showPinnedMessageDialogLoader
                 active: false
-                property string threadMessageId
-                property string threadPreviewText
                 sourceComponent: ShowPinnedMessagesDialog {
                     id: showPinnedMessageDialog
                     parent: appid.pageStack
