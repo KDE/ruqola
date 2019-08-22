@@ -145,10 +145,19 @@ RocketChatBackend::~RocketChatBackend()
 
 void RocketChatBackend::slotConnectedChanged()
 {
-    mRocketChatAccount->restApi()->serverInfo(false); //TODO fix support for old server version...
+    mRocketChatAccount->restApi()->serverInfo(false);
     connect(mRocketChatAccount->restApi(), &RocketChatRestApi::RestApiRequest::getServerInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
+    connect(mRocketChatAccount->restApi(), &RocketChatRestApi::RestApiRequest::getServerInfoFailed, this, &RocketChatBackend::slotGetServerInfoFailed, Qt::UniqueConnection);
     mRocketChatAccount->ddp()->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
 }
+
+void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)
+{
+    if (!useDeprecatedVersion) {
+        mRocketChatAccount->restApi()->serverInfo(true);
+    }
+}
+
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 {

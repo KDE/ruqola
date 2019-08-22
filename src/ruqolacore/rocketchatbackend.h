@@ -60,6 +60,7 @@ private:
     void slotLoginStatusChanged();
     void slotConnectedChanged();
     void slotUserIDChanged();
+    void slotGetServerInfoFailed(bool useDeprecatedVersion);
     void parseOwnInfoDown(const QJsonObject &replyObject);
     void parseServerVersionDone(const QString &version);
 

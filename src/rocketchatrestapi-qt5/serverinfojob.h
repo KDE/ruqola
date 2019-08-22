@@ -44,6 +44,7 @@ public:
 
 Q_SIGNALS:
     void serverInfoDone(const QString &versionInfo);
+    void serverInfoFailed(bool useDeprectedVersion);
 
 private:
     Q_DISABLE_COPY(ServerInfoJob)
