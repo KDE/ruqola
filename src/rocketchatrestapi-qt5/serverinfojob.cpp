@@ -89,11 +89,10 @@ void ServerInfoJob::slotServerInfoFinished()
                 Q_EMIT serverInfoDone(versionStr);
             }
         } else {
-            emitFailedMessage(replyObject);
+            Q_EMIT serverInfoFailed(mUseDeprecatedVersion);
             addLoggerWarning(QByteArrayLiteral("ServerInfoJob::slotServerInfoFinished: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-            if (mUseDeprecatedVersion) {
-                //Emit a version otherwise it breaks login!
-                Q_EMIT serverInfoDone(QStringLiteral("1.0.0"));
+            if (!mUseDeprecatedVersion) {
+                emitFailedMessage(replyObject);
             }
         }
         reply->deleteLater();
