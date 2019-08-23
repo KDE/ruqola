@@ -1645,7 +1645,7 @@ void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, c
     }
 }
 
-PinnedMessageModel *RocketChatAccount::pinnedMessageModel() const
+MessageModel *RocketChatAccount::pinnedMessageModel() const
 {
     return mPinnedMessageModel;
 }

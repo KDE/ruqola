@@ -37,7 +37,7 @@ public:
     void parsePinnedMessages(const QJsonObject &obj);
     void loadMorePinnedMessages(const QJsonObject &obj);
 
-    Q_REQUIRED_RESULT int total() const;
+    Q_INVOKABLE Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
     Q_REQUIRED_RESULT bool loadMorePinnedMessageInProgress() const;

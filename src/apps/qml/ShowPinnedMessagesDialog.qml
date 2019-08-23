@@ -40,7 +40,7 @@ QQC2.Dialog {
 
     function initializeAndOpen()
     {
-        pinnedmessagesModel.clearFilter();
+        pinnedMessagesModel.clearFilter();
         searchField.text = "";
         searchField.forceActiveFocus();
         open();
@@ -52,14 +52,14 @@ QQC2.Dialog {
             placeholderText: i18n("Search Pinned Messages...")
             Layout.fillWidth: true
             onTextChanged: {
-                pinnedmessagesModel.setFilterString(text);
+                pinnedMessagesModel.setFilterString(text);
             }
         }
 
         SearchLabel {
             //TODO fix me hasFullList: pinnedMessagesModel.hasFullList
             numberOfElements: listview.count
-            labelText: listview.count === 0 ? i18n("No Pinned Messages found") : i18np("%1 Pinned Message in room (Total: %2)", "%1 Pinned Messages in room (Total: %2)", listview.count, pinnedmessagesModel.total())
+            labelText: listview.count === 0 ? i18n("No Pinned Messages found") : i18np("%1 Pinned Message in room (Total: %2)", "%1 Pinned Messages in room (Total: %2)", listview.count, pinnedMessagesModel.total())
             onLoadMoreElements: {
                 appid.rocketChatAccount.loadMorePinnedMessages(roomId)
             }
@@ -86,5 +86,4 @@ QQC2.Dialog {
             QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
         }
     }
-
 }

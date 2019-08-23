@@ -347,7 +347,7 @@ public:
 
     Q_INVOKABLE Q_REQUIRED_RESULT bool hasPinnedMessagesSupport() const;
 
-    Q_INVOKABLE PinnedMessageModel *pinnedMessageModel() const;
+    Q_INVOKABLE MessageModel *pinnedMessageModel() const;
 
     Q_INVOKABLE void loadMorePinnedMessages(const QString &roomId);
 Q_SIGNALS:
