@@ -518,6 +518,14 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             qCWarning(RUQOLA_LOG) << "Need to implement updateEmojiCustom :" << fields;
         } else if (eventname == QLatin1String("Users:NameChanged")) {
             qCWarning(RUQOLA_LOG) << "Need to implement: Users:NameChanged :" << fields;
+        } else if (eventname == QLatin1String("Users:Deleted")) {
+            qCWarning(RUQOLA_LOG) << "Need to implement: Users:Deleted :" << fields;
+        } else if (eventname == QLatin1String("deleteCustomUserStatus")) {
+            qCWarning(RUQOLA_LOG) << "Need to implement: deleteCustomUserStatus :" << fields;
+        } else if (eventname == QLatin1String("updateCustomUserStatus")) {
+            qCWarning(RUQOLA_LOG) << "Need to implement: updateCustomUserStatus :" << fields;
+        } else if (eventname == QLatin1String("user-status")) {
+            qCWarning(RUQOLA_LOG) << "Need to implement: user-status :" << fields;
         } else {
             qWarning() << "stream-notify-logged not supported " << fields;
         }
@@ -688,6 +696,30 @@ void RocketChatBackend::slotUserIDChanged()
     {
         const QJsonArray params{
             QJsonValue(QStringLiteral("Users:Deleted")), {
+                true
+            }
+        };
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("deleteCustomUserStatus")), {
+                true
+            }
+        };
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("updateCustomUserStatus")), {
+                true
+            }
+        };
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-logged"), params);
+    }
+    {
+        const QJsonArray params{
+            QJsonValue(QStringLiteral("user-status")), {
                 true
             }
         };
