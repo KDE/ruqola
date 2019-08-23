@@ -45,6 +45,7 @@ void ThreadMessageModel::parse(const QJsonObject &obj)
 {
     ThreadMessages threadmessages;
     threadmessages.parseThreadMessages(obj);
+    mTotal = threadmessages.total();
     for (int i = 0; i < threadmessages.count(); ++i) {
         addMessage(threadmessages.at(i));
     }
