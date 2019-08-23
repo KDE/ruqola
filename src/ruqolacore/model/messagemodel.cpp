@@ -328,8 +328,10 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.threadLastMessage();
     case MessageModel::ThreadMessageId:
         return message.threadMessageId();
-    case MessageModel::ThreadMessagePreview:
-        return threadMessagePreview(message.threadMessageId());
+    case MessageModel::ThreadMessagePreview: {
+        const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
+        return threadMessagePreview(message.threadMessageId(), userName);
+    }
     case MessageModel::Groupable:
         return message.groupable();
     }
@@ -387,14 +389,14 @@ qint64 MessageModel::generateNewStartTimeStamp(qint64 lastTimeStamp)
     return mLoadRecentHistoryManager->generateNewStartTimeStamp(lastTimeStamp);
 }
 
-QString MessageModel::threadMessagePreview(const QString &threadMessageId) const
+QString MessageModel::threadMessagePreview(const QString &threadMessageId, const QString &userName) const
 {
     if (!threadMessageId.isEmpty()) {
         auto it = std::find_if(mAllMessages.cbegin(), mAllMessages.cend(), [threadMessageId](const Message &msg) {
             return msg.messageId() == threadMessageId;
         });
         if (it != mAllMessages.cend()) {
-            QString str = (*it).text();
+            QString str = convertMessageText((*it).text(), userName);
             if (str.length() > 80) {
                 str = str.left(80) + QStringLiteral("...");
             }

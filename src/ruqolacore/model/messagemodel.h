@@ -117,7 +117,7 @@ private:
     void refresh();
     QStringList roomRoles(const QString &userId) const;
     QString convertMessageText(const QString &str, const QString &userName) const;
-    QString threadMessagePreview(const QString &threadMessageId) const;
+    QString threadMessagePreview(const QString &threadMessageId, const QString &userName) const;
     QString mRoomID;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
