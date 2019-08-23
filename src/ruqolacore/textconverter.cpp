@@ -55,7 +55,8 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
             return msg.messageId() == messageId;
         });
         if (it != allMessages.cend()) {
-            quotedMessage = QStringLiteral("<font size=\"-1\">&gt; %1</font><br/>").arg((*it).text());
+            const QString text = convertMessageText((*it).text(), userName, allMessages);
+            quotedMessage = QStringLiteral("<font size=\"-1\">&gt; %1</font><br/>").arg(text);
             str = str.mid(endPos + 1);
         } else {
             qCDebug(RUQOLA_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
