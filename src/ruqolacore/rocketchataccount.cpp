@@ -896,13 +896,10 @@ void RocketChatAccount::loadMoreThreads(const QString &roomId)
 void RocketChatAccount::loadMorePinnedMessages(const QString &roomId)
 {
     if (!mPinnedMessageModel->loadMorePinnedMessageInProgress()) {
-        //TODO
-        /*
-        const int offset = mPinnedMessageModel->count();
+        const int offset = mPinnedMessageModel->rowCount();
         if (offset < mPinnedMessageModel->total()) {
-            restApi()->getThreadsList(roomId, offset, qMin(50, mPinnedMessageModel->total() - offset));
+            restApi()->getPinnedMessages(roomId, offset, qMin(50, mPinnedMessageModel->total() - offset));
         }
-        */
     }
 }
 

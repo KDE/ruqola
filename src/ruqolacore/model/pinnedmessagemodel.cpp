@@ -49,6 +49,7 @@ void PinnedMessageModel::parse(const QJsonObject &obj)
     for (int i = 0, total = messages.count(); i < total; ++i) {
         addMessage(messages.at(i));
     }
+    checkFullList();
 }
 
 void PinnedMessageModel::parsePinnedMessages(const QJsonObject &obj)
@@ -81,3 +82,22 @@ void PinnedMessageModel::setLoadMorePinnedMessageInProgress(bool inProgress)
 {
     mLoadingInProgress = inProgress;
 }
+
+void PinnedMessageModel::setHasFullList(bool state)
+{
+    if (mHasFullList != state) {
+        mHasFullList = state;
+        Q_EMIT hasFullListChanged();
+    }
+}
+
+bool PinnedMessageModel::hasFullList() const
+{
+    return mHasFullList;
+}
+
+void PinnedMessageModel::checkFullList()
+{
+    setHasFullList(rowCount() == total());
+}
+

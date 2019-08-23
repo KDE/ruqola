@@ -27,6 +27,7 @@
 class LIBRUQOLACORE_TESTS_EXPORT PinnedMessageModel : public MessageModel
 {
     Q_OBJECT
+    Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
 public:
     explicit PinnedMessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
     ~PinnedMessageModel();
@@ -43,11 +44,19 @@ public:
     Q_REQUIRED_RESULT bool loadMorePinnedMessageInProgress() const;
     void setLoadMorePinnedMessageInProgress(bool inProgress);
 
+    void setHasFullList(bool state);
+    Q_REQUIRED_RESULT bool hasFullList() const;
+
+Q_SIGNALS:
+    void hasFullListChanged();
+
 private:
     void parse(const QJsonObject &obj);
+    void checkFullList();
     QString mRoomId;
     int mTotal = 0;
     bool mLoadingInProgress = false;
+    bool mHasFullList = false;
 };
 
 #endif // PINNEDMESSAGEMODEL_H

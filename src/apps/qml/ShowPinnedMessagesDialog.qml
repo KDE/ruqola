@@ -57,24 +57,25 @@ QQC2.Dialog {
         }
 
         SearchLabel {
-            //TODO fix me hasFullList: pinnedMessagesModel.hasFullList
+            hasFullList: pinnedMessagesModel.hasFullList
             numberOfElements: listview.count
             labelText: listview.count === 0 ? i18n("No Pinned Messages found") : i18np("%1 Pinned Message in room (Total: %2)", "%1 Pinned Messages in room (Total: %2)", listview.count, pinnedMessagesModel.total())
             onLoadMoreElements: {
                 appid.rocketChatAccount.loadMorePinnedMessages(roomId)
             }
         }
-//            onDragEnded : {
-//                if (roomId !== "" && listview.atYBeginning ) {
-//                    appid.rocketChatAccount.loadMorePinnedMessages(roomId)
-//                }
-//            }
         Item {
             Layout.fillHeight: true
+            visible: listview.count === 0
         }
 
         ActiveChat {
             id: listview
+            onDragEnded : {
+                if (roomId !== "" && listview.atYBeginning ) {
+                    appid.rocketChatAccount.loadMorePinnedMessages(roomId)
+                }
+            }
             Layout.fillWidth: true
             Layout.fillHeight: true
             model: pinnedMessagesModel
