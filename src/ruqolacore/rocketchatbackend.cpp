@@ -513,9 +513,11 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else if (eventname == QLatin1String("updateAvatar")) {
             //TODO update it.
             //Update list of avatar !
-            qCWarning(RUQOLA_LOG) << " updateAvatar :" << fields;
+            qCWarning(RUQOLA_LOG) << "Need to implement updateAvatar :" << fields;
         } else if (eventname == QLatin1String("updateEmojiCustom")) {
-            qCWarning(RUQOLA_LOG) << " updateEmojiCustom :" << fields;
+            qCWarning(RUQOLA_LOG) << "Need to implement updateEmojiCustom :" << fields;
+        } else if (eventname == QLatin1String("Users:NameChanged")) {
+            qCWarning(RUQOLA_LOG) << "Need to implement: Users:NameChanged :" << fields;
         } else {
             qWarning() << "stream-notify-logged not supported " << fields;
         }
