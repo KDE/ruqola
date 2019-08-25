@@ -158,7 +158,6 @@ void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)
     }
 }
 
-
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 {
     for (const QJsonValue &v : messages) {

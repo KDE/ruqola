@@ -328,7 +328,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.threadLastMessage();
     case MessageModel::ThreadMessageId:
         return message.threadMessageId();
-    case MessageModel::ThreadMessagePreview: {
+    case MessageModel::ThreadMessagePreview:
+    {
         const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
         return threadMessagePreview(message.threadMessageId(), userName);
     }

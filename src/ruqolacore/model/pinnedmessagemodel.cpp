@@ -100,4 +100,3 @@ void PinnedMessageModel::checkFullList()
 {
     setHasFullList(rowCount() == total());
 }
-
