@@ -30,6 +30,8 @@
 #include "model/threadsmodel.h"
 #include "model/mentionsmodel.h"
 #include "model/mentionsfilterproxymodel.h"
+#include "model/pinnedmessagemodel.h"
+#include "model/pinnedmessagemodelfilterproxymodel.h"
 #include <QTest>
 #include <QStandardPaths>
 
@@ -71,4 +73,8 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QCOMPARE(w.threadsFilterProxyModel()->sourceModel(), w.threadsModel());
     QVERIFY(w.mentionsFilterProxyModel());
     QCOMPARE(w.mentionsFilterProxyModel()->sourceModel(), w.mentionsModel());
+
+    QVERIFY(w.pinnedMessageModel());
+    QCOMPARE(w.pinnedMessagesFilterProxyModel()->sourceModel(), w.pinnedMessageModel());
+
 }

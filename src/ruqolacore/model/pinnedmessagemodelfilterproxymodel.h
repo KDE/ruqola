@@ -30,7 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT PinnedMessageModelFilterProxyModel : public QSo
     Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
     explicit PinnedMessageModelFilterProxyModel(QObject *parent = nullptr);
-    ~PinnedMessageModelFilterProxyModel();
+    ~PinnedMessageModelFilterProxyModel() override;
     Q_REQUIRED_RESULT bool hasFullList() const;
     Q_REQUIRED_RESULT int total() const;
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
