@@ -53,6 +53,7 @@ set (Ruqola_model_core_srcs
     model/threadmessagemodel.cpp
 
     model/pinnedmessagemodel.cpp
+    model/pinnedmessagemodelfilterproxymodel.cpp
     )
 
 set(Ruqola_plugins_srcs
