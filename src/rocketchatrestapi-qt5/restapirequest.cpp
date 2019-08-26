@@ -130,6 +130,8 @@
 
 #include "video-conference/videoconfupdatejitsitimeoutjob.h"
 
+#include "autotranslate/getsupportedlanguagesjob.h"
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
@@ -1505,5 +1507,15 @@ void RestApiRequest::sendMessage(const QString &roomId, const QString &text, con
     job->setSendMessageArguments(args);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start job";
+    }
+}
+
+void RestApiRequest::getSupportedLanguagesMessages()
+{
+    GetSupportedLanguagesJob *job = new GetSupportedLanguagesJob(this);
+    initializeRestApiJob(job);
+    connect(job, &GetSupportedLanguagesJob::getSupportedLanguagesDone, this, &RestApiRequest::getSupportedLanguagesDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getSupportedLanguagesMessages";
     }
 }

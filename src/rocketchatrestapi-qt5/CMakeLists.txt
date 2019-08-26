@@ -128,6 +128,9 @@ set (RocketChatRestApiQt_SRCS
     e2e/setuserpublicandprivatekeysjob.cpp
 
     video-conference/videoconfupdatejitsitimeoutjob.cpp
+
+    autotranslate/getsupportedlanguagesjob.cpp
+    autotranslate/translatemessagejob.cpp
     )
 
 

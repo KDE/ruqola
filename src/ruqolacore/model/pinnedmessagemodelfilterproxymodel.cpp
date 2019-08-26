@@ -48,6 +48,11 @@ QHash<int, QByteArray> PinnedMessageModelFilterProxyModel::roleNames() const
     return QHash<int, QByteArray>();
 }
 
+void PinnedMessageModelFilterProxyModel::setFilterString(const QString &string)
+{
+    setFilterFixedString(string);
+}
+
 bool PinnedMessageModelFilterProxyModel::hasFullList() const
 {
     return static_cast<PinnedMessageModel *>(sourceModel())->hasFullList();

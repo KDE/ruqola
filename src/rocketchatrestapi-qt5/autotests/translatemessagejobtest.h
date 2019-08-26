@@ -18,25 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PINNEDMESSAGEMODELFILTERPROXYMODEL_H
-#define PINNEDMESSAGEMODELFILTERPROXYMODEL_H
+#ifndef TRANSLATEMESSAGEJOBTEST_H
+#define TRANSLATEMESSAGEJOBTEST_H
 
-#include <QSortFilterProxyModel>
-#include "libruqola_private_export.h"
+#include <QObject>
 
-class LIBRUQOLACORE_TESTS_EXPORT PinnedMessageModelFilterProxyModel : public QSortFilterProxyModel
+class TranslateMessageJobTest : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
-    explicit PinnedMessageModelFilterProxyModel(QObject *parent = nullptr);
-    ~PinnedMessageModelFilterProxyModel() override;
-    Q_INVOKABLE Q_REQUIRED_RESULT bool hasFullList() const;
-    Q_INVOKABLE Q_REQUIRED_RESULT int total() const;
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-    Q_INVOKABLE void setFilterString(const QString &string);
-Q_SIGNALS:
-    void hasFullListChanged();
+    explicit TranslateMessageJobTest(QObject *parent = nullptr);
+    ~TranslateMessageJobTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
+    void shouldGenerateRequest();
+    void shouldGenerateJson();
+    void shouldNotStarting();
 };
 
-#endif // PINNEDMESSAGEMODELFILTERPROXYMODEL_H
+#endif // TRANSLATEMESSAGEJOBTEST_H

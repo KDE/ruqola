@@ -18,25 +18,35 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PINNEDMESSAGEMODELFILTERPROXYMODEL_H
-#define PINNEDMESSAGEMODELFILTERPROXYMODEL_H
+#ifndef GETSUPPORTEDLANGUAGESJOB_H
+#define GETSUPPORTEDLANGUAGESJOB_H
 
-#include <QSortFilterProxyModel>
-#include "libruqola_private_export.h"
+#include "restapiabstractjob.h"
+#include "librestapi_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT PinnedMessageModelFilterProxyModel : public QSortFilterProxyModel
+#include <QNetworkRequest>
+namespace RocketChatRestApi {
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetSupportedLanguagesJob : public RestApiAbstractJob
 {
     Q_OBJECT
-    Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
-    explicit PinnedMessageModelFilterProxyModel(QObject *parent = nullptr);
-    ~PinnedMessageModelFilterProxyModel() override;
-    Q_INVOKABLE Q_REQUIRED_RESULT bool hasFullList() const;
-    Q_INVOKABLE Q_REQUIRED_RESULT int total() const;
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-    Q_INVOKABLE void setFilterString(const QString &string);
-Q_SIGNALS:
-    void hasFullListChanged();
-};
+    explicit GetSupportedLanguagesJob(QObject *parent = nullptr);
+    ~GetSupportedLanguagesJob() override;
 
-#endif // PINNEDMESSAGEMODELFILTERPROXYMODEL_H
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+
+    Q_REQUIRED_RESULT bool start() override;
+
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+
+    Q_REQUIRED_RESULT bool canStart() const override;
+
+Q_SIGNALS:
+    void getSupportedLanguagesDone(const QJsonObject &obj);
+
+private:
+    Q_DISABLE_COPY(GetSupportedLanguagesJob)
+    void slotGetSupportedLanguagesFinished();
+};
+}
+#endif // GETSUPPORTEDLANGUAGESJOB_H

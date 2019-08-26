@@ -162,6 +162,7 @@ public:
     void getThreadMessages(const QString &threadMessageId);
     void sendMessage(const QString &roomId, const QString &text, const QString &messageId = QString(), const QString &threadMessageId = QString());
     void getPinnedMessages(const QString &roomId, int offset = 0, int count = 50);
+    void getSupportedLanguagesMessages();
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -211,6 +212,7 @@ Q_SIGNALS:
     void getThreadsDone(const QJsonObject &obj, const QString &roomId);
     void getThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
     void getPinnedMessagesDone(const QJsonObject &obj, const QString &roomId);
+    void getSupportedLanguagesDone(const QJsonObject &obj);
 
     void failed(const QString &str);
 
