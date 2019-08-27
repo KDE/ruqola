@@ -54,6 +54,8 @@ set (Ruqola_model_core_srcs
 
     model/pinnedmessagemodel.cpp
     model/pinnedmessagemodelfilterproxymodel.cpp
+
+    model/autotranslatelanguagesmodel.cpp
     )
 
 set(Ruqola_plugins_srcs
@@ -88,7 +90,13 @@ set(Ruqola_message_convertertextjob_SRCS
     convertertextjob/translatetextjob.cpp
     )
 
+set(Ruqola_autotranslatelanguage_SRCS
+    autotranslatelanguage.cpp
+    autotranslatelanguages.cpp
+    )
+
 set (Ruqola_core_srcs
+    ${Ruqola_autotranslatelanguage_SRCS}
     ${Ruqola_message_convertertextjob_SRCS}
     ${Ruqola_emoticons_srcs}
     ${Ruqola_messages_srcs}
