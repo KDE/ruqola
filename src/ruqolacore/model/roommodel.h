@@ -59,6 +59,7 @@ public:
         RoomOtr,
         RoomUserMentions,
         RoomIgnoredUsers,
+        RoomAutotranslateLanguage,
     };
     Q_ENUM(RoomRoles)
 

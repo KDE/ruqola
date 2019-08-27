@@ -1,0 +1,39 @@
+{
+    "alert": false,
+    "archived": false,
+    "autoTranslateLanguage": "en",
+    "blocked": false,
+    "blocker": false,
+    "broadcast": false,
+    "encrypted": false,
+    "favorite": false,
+    "fname": "ruqola",
+    "jitsiTimeout": -1,
+    "lastSeeAt": -1,
+    "name": "ruqola",
+    "notifications": {
+        "audioNotificationValue": "",
+        "audioNotifications": "",
+        "desktopNotificationDuration": 0,
+        "desktopNotifications": "",
+        "disableNotifications": false,
+        "emailNotifications": "",
+        "hideUnreadStatus": false,
+        "mobilePushNotifications": "",
+        "muteGroupMentions": false,
+        "unreadAlert": ""
+    },
+    "open": true,
+    "rid": "3ZvKSjzabkkLJmuAr",
+    "ro": false,
+    "roles": [
+        "owner"
+    ],
+    "roomCreatorUserID": "",
+    "roomCreatorUserName": "",
+    "selected": false,
+    "t": "c",
+    "unread": 0,
+    "updatedAt": 1566885101719,
+    "userMentions": 0
+}

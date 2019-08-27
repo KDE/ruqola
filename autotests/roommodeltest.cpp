@@ -66,6 +66,7 @@ void RoomModelTest::shouldHaveDefaultValues()
     roles[RoomModel::RoomSection] = QByteArrayLiteral("sectionname");
     roles[RoomModel::RoomIcon] = QByteArrayLiteral("channelicon");
     roles[RoomModel::RoomUserMentions] = QByteArrayLiteral("userMentions");
+    roles[RoomModel::RoomAutotranslateLanguage] = QByteArrayLiteral("autotranslateLanguage");
     QCOMPARE(sampleModel.roleNames(), roles);
 }
 

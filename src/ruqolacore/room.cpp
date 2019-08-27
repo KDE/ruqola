@@ -236,6 +236,9 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     if (json.contains(QLatin1String("fname"))) {
         setFName(json[QStringLiteral("fname")].toString());
     }
+    if (json.contains(QLatin1String("autoTranslateLanguage"))) {
+        setAutoTranslateLanguage(json[QStringLiteral("autoTranslateLanguage")].toString());
+    }
     if (json.contains(QLatin1String("archived"))) {
         setArchived(json[QStringLiteral("archived")].toBool());
     } else {
@@ -502,6 +505,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
     setFName(json[QStringLiteral("fname")].toString());
+    setAutoTranslateLanguage(json[QStringLiteral("autoTranslateLanguage")].toString());
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     //topic/announcement/description is not part of update subscription
     const QString roomType = json.value(QLatin1String("t")).toString();
@@ -624,6 +628,7 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
     setFName(json[QStringLiteral("fname")].toString());
+    setAutoTranslateLanguage(json[QStringLiteral("autoTranslateLanguage")].toString());
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
     //topic/announcement/description is not part of update subscription
     const QString roomType = json.value(QLatin1String("t")).toString();
@@ -698,6 +703,19 @@ void Room::parseCommonData(const QJsonObject &json)
         lstRoles << rolesArray.at(i).toString();
     }
     setRoles(lstRoles);
+}
+
+QString Room::autoTranslateLanguage() const
+{
+    return mAutotranslateLanguage;
+}
+
+void Room::setAutoTranslateLanguage(const QString &autotranslateLanguage)
+{
+    if (mAutotranslateLanguage != autotranslateLanguage) {
+        mAutotranslateLanguage = autotranslateLanguage;
+        Q_EMIT autoTranslateLanguageChanged();
+    }
 }
 
 QString Room::displayFName() const
@@ -851,6 +869,7 @@ Room *Room::fromJSon(const QJsonObject &o)
     r->setChannelType(o[QStringLiteral("t")].toString());
     r->setName(o[QStringLiteral("name")].toString());
     r->setFName(o[QStringLiteral("fname")].toString());
+    r->setAutoTranslateLanguage(o[QStringLiteral("autoTranslateLanguage")].toString());
     r->setRoomCreatorUserName(o[QStringLiteral("roomCreatorUserName")].toString());
     r->setRoomCreatorUserId(o[QStringLiteral("roomCreatorUserID")].toString());
     r->setTopic(o[QStringLiteral("topic")].toString());
@@ -923,6 +942,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("roomCreatorUserID")] = r->roomCreatorUserId();
     if (!r->topic().isEmpty()) {
         o[QStringLiteral("topic")] = r->topic();
+    }
+    if (!r->autoTranslateLanguage().isEmpty()) {
+        o[QStringLiteral("autoTranslateLanguage")] = r->autoTranslateLanguage();
     }
     o[QStringLiteral("jitsiTimeout")] = r->jitsiTimeout();
     o[QStringLiteral("updatedAt")] = r->updatedAt();

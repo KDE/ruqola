@@ -1,0 +1,30 @@
+{
+    "_id": "mCqnCHagWRHPiQ2nq",
+    "_updatedAt": {
+        "$date": 1566885101719
+    },
+    "alert": false,
+    "autoTranslateLanguage": "en",
+    "fname": "ruqola",
+    "groupMentions": 0,
+    "ls": {
+        "$date": 1566885101719
+    },
+    "name": "ruqola",
+    "open": true,
+    "rid": "3ZvKSjzabkkLJmuAr",
+    "roles": [
+        "owner"
+    ],
+    "t": "c",
+    "ts": {
+        "$date": 1502605004299
+    },
+    "u": {
+        "_id": "YbwG4T2uB3wZSZSKB",
+        "name": null,
+        "username": "laurent-montel"
+    },
+    "unread": 0,
+    "userMentions": 0
+}

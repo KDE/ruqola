@@ -60,5 +60,6 @@ void RoomFilterProxyModelTest::shouldHaveDefaultValue()
     roles[RoomModel::RoomSection] = QByteArrayLiteral("sectionname");
     roles[RoomModel::RoomIcon] = QByteArrayLiteral("channelicon");
     roles[RoomModel::RoomUserMentions] = QByteArrayLiteral("userMentions");
+    roles[RoomModel::RoomAutotranslateLanguage] = QByteArrayLiteral("autotranslateLanguage");
     QCOMPARE(w.roleNames(), roles);
 }

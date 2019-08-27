@@ -157,6 +157,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomSection] = QByteArrayLiteral("sectionname");
     roles[RoomIcon] = QByteArrayLiteral("channelicon");
     roles[RoomUserMentions] = QByteArrayLiteral("userMentions");
+    roles[RoomAutotranslateLanguage] = QByteArrayLiteral("autotranslateLanguage");
     return roles;
 }
 
@@ -220,6 +221,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->userMentions();
     case RoomModel::RoomIgnoredUsers:
         return r->ignoredUsers();
+    case RoomModel::RoomAutotranslateLanguage:
+        return r->autoTranslateLanguage();
     }
     return {};
 }

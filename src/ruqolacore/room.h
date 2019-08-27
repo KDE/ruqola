@@ -56,7 +56,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(bool joinCodeRequired READ joinCodeRequired WRITE setJoinCodeRequired NOTIFY joinCodeRequiredChanged)
     Q_PROPERTY(QString channelType READ channelType WRITE setChannelType NOTIFY channelTypeChanged)
     Q_PROPERTY(bool wasInitialized READ wasInitialized CONSTANT)
-
+    Q_PROPERTY(QString autoTranslateLanguage READ autoTranslateLanguage WRITE setAutoTranslateLanguage NOTIFY autoTranslateLanguageChanged)
 public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
 
@@ -224,6 +224,9 @@ public:
     Q_REQUIRED_RESULT QString displayFName() const;
     Q_REQUIRED_RESULT bool isDiscussionRoom() const;
 
+    Q_REQUIRED_RESULT QString autoTranslateLanguage() const;
+    void setAutoTranslateLanguage(const QString &autoTranslateLanguage);
+
 Q_SIGNALS:
     void nameChanged();
     void fnameChanged();
@@ -254,6 +257,7 @@ Q_SIGNALS:
 
     void broadcastChanged();
     void parentRidChanged();
+    void autoTranslateLanguageChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -306,6 +310,9 @@ private:
     //Encryption Key
     QString mE2EKey;
     QString mE2eKeyId;
+
+    //Autotranslate
+    QString mAutotranslateLanguage;
 
     //Roles In Room
     Roles mRolesForRooms;

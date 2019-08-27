@@ -72,6 +72,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.parentRid().isEmpty());
     QVERIFY(!input.broadcast());
     QVERIFY(input.fName().isEmpty());
+    QVERIFY(input.autoTranslateLanguage().isEmpty());
 }
 
 //TODO add notification, userMentions too
@@ -101,6 +102,7 @@ void RoomTest::shouldSerialized()
     input.setRoles({QStringLiteral("foo"), QStringLiteral("bla")});
     input.setIgnoredUsers({QStringLiteral("gg"), QStringLiteral("gg2")});
     input.setJoinCodeRequired(true);
+    input.setAutoTranslateLanguage(QStringLiteral("blss"));
     const QByteArray ba = Room::serialize(&input);
     //qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
     Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
@@ -130,6 +132,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyjoinCodeRequiredChanged(&input, &Room::joinCodeRequiredChanged);
     QSignalSpy spychannelTypeChanged(&input, &Room::channelTypeChanged);
     QSignalSpy spyparentRidChanged(&input, &Room::parentRidChanged);
+    QSignalSpy spyautoTranslateLanguageChanged(&input, &Room::parentRidChanged);
     input.setRoomId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
@@ -154,6 +157,7 @@ void RoomTest::shouldEmitSignals()
     input.setRoles({QStringLiteral("bla"), QStringLiteral("blu")});
     input.setIgnoredUsers({QStringLiteral("bla"), QStringLiteral("blu3")});
     input.setParentRid(QStringLiteral("bla"));
+    input.setAutoTranslateLanguage(QStringLiteral("bli"));
 
     QCOMPARE(spyNameChanged.count(), 1);
     QCOMPARE(spyannouncementChanged.count(), 1);
@@ -173,6 +177,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyjoinCodeRequiredChanged.count(), 1);
     QCOMPARE(spychannelTypeChanged.count(), 1);
     QCOMPARE(spyparentRidChanged.count(), 1);
+    QCOMPARE(spyautoTranslateLanguageChanged.count(), 1);
 }
 
 void RoomTest::shouldChangeInputMessage()
@@ -200,6 +205,7 @@ void RoomTest::shouldParseRoom_data()
     QTest::newRow("unread-usermentions-room") << QStringLiteral("unread-usermentions-room");
     QTest::newRow("muted-users") << QStringLiteral("muted-users");
     QTest::newRow("userignored-room") << QStringLiteral("userignored-room");
+    QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage");
 }
 
 void RoomTest::shouldParseRoom()
@@ -241,6 +247,7 @@ void RoomTest::shouldParseRoomAndUpdate_data()
     QTest::newRow("room-mute-unmute") << QStringLiteral("room-mute-unmute") << (QStringList() <<QStringLiteral("muted-users") << QStringLiteral("unmuted-users"));
     QTest::newRow("userignored-room") << QStringLiteral("userignored-room") << (QStringList() <<QStringLiteral("userignored-room-update"));
     QTest::newRow("room-requiredjoincode-owner") << QStringLiteral("room-requiredjoincode-owner") << (QStringList() <<QStringLiteral("room-requiredjoincode-update"));
+    QTest::newRow("autotranslatelanguage") << QStringLiteral("autotranslatelanguage") << (QStringList() <<QStringLiteral("autotranslatelanguage-update"));
 }
 
 void RoomTest::shouldParseRoomAndUpdate()

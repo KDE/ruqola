@@ -143,6 +143,7 @@ void Discussion::parseDiscussion(const QJsonObject &o)
     mDiscussionRoomId = o.value(QLatin1String("_id")).toString();
     setLastMessage(Utils::parseIsoDate(QStringLiteral("lm"), o));
     setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
+    //TODO autotranslate ??
 }
 
 QString Discussion::discussionRoomId() const
