@@ -353,6 +353,7 @@ public:
     Q_INVOKABLE void loadMorePinnedMessages(const QString &roomId);
     Q_INVOKABLE PinnedMessageModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;
 
+    Q_INVOKABLE void getSupportedLanguages();
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

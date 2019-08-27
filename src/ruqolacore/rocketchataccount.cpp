@@ -1785,3 +1785,12 @@ void RocketChatAccount::followMessage(const QString &messageId, bool follow)
         restApi()->unFollowMessage(messageId);
     }
 }
+
+void RocketChatAccount::getSupportedLanguages()
+{
+    if (mRuqolaServerConfig->hasAtLeastVersion(1, 99, 0)) {
+        restApi()->getSupportedLanguagesMessages();
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSupportedLanguages is not supported before server 2.0.0";
+    }
+}

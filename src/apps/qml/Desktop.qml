@@ -135,6 +135,12 @@ Kirigami.ApplicationWindow {
                     appid.globalDrawer.drawerOpen = false;
                 }
             },
+//            Kirigami.Action {
+//                text: i18n("autotranslate")
+//                onTriggered: {
+//                    rocketChatAccount.getSupportedLanguages();
+//                }
+//            },
             Kirigami.Action {
                 separator: true
             },
