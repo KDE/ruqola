@@ -31,7 +31,7 @@ RowLayout {
     id: footerItem
     property QtObject rcAccount
     property alias messageLineText: messageLine.messageLineText
-    property string messageId
+    property alias messageId: messageLine.messageId
     property string threadmessageId
     property string selectedRoomId
     property string selectedThreadMessage
