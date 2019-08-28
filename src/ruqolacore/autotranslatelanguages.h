@@ -35,7 +35,11 @@ public:
 
     Q_REQUIRED_RESULT bool isEmpty() const;
     Q_REQUIRED_RESULT int count() const;
+    void clear();
     Q_REQUIRED_RESULT AutotranslateLanguage at(int index) const;
+
+    void parseLanguages(const QJsonObject &Obj);
+
 private:
     QVector<AutotranslateLanguage> mAutotranslateLanguages;
 };

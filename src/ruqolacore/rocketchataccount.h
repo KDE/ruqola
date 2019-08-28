@@ -70,6 +70,7 @@ class MentionsFilterProxyModel;
 class ThreadMessageModel;
 class PinnedMessageModel;
 class PinnedMessageModelFilterProxyModel;
+class AutotranslateLanguagesModel;
 
 namespace RocketChatRestApi {
 class RestApiRequest;
@@ -354,6 +355,8 @@ public:
     Q_INVOKABLE PinnedMessageModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;
 
     Q_INVOKABLE void getSupportedLanguages();
+    AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -452,6 +455,7 @@ private:
     ThreadMessageModel *mThreadMessageModel = nullptr;
     PinnedMessageModel *mPinnedMessageModel = nullptr;
     PinnedMessageModelFilterProxyModel *mPinnedMessagesFilterProxyModel = nullptr;
+    AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
     bool mEditingMode = false;
 };
 

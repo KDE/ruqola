@@ -59,6 +59,7 @@
 #include "model/pinnedmessagemodel.h"
 #include "model/threadmessagemodel.h"
 #include "model/pinnedmessagemodelfilterproxymodel.h"
+#include "model/autotranslatelanguagesmodel.h"
 #include "managerdatapaths.h"
 #include "authenticationmanager.h"
 
@@ -174,6 +175,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mPinnedMessagesFilterProxyModel->setObjectName(QStringLiteral("pinnedmessagesfiltermodelproxy"));
     mPinnedMessagesFilterProxyModel->setSourceModel(mPinnedMessageModel);
 
+
+    mAutoTranslateLanguagesModel = new AutotranslateLanguagesModel(this);
+    mAutoTranslateLanguagesModel->setObjectName(QStringLiteral("autotranslatelanguagesmodel"));
 
     mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this, this);
@@ -1650,6 +1654,11 @@ void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, c
     }
 }
 
+AutotranslateLanguagesModel *RocketChatAccount::autoTranslateLanguagesModel() const
+{
+    return mAutoTranslateLanguagesModel;
+}
+
 PinnedMessageModelFilterProxyModel *RocketChatAccount::pinnedMessagesFilterProxyModel() const
 {
     return mPinnedMessagesFilterProxyModel;
@@ -1798,5 +1807,5 @@ void RocketChatAccount::getSupportedLanguages()
 
 void RocketChatAccount::slotGetSupportedLanguagesDone(const QJsonObject &obj)
 {
-    //TODO
+    mAutoTranslateLanguagesModel->parseLanguages(obj);
 }

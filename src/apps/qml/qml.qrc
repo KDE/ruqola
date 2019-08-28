@@ -60,6 +60,7 @@
         <file>FileInRoom.qml</file>
         <file>SearchLabel.qml</file>
         <file>ShowPinnedMessagesDialog.qml</file>
+        <file>AutoTranslateLanguageCombobox.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

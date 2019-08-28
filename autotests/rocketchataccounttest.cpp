@@ -77,4 +77,5 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.pinnedMessageModel());
     QCOMPARE(w.pinnedMessagesFilterProxyModel()->sourceModel(), w.pinnedMessageModel());
 
+    QVERIFY(w.autoTranslateLanguagesModel());
 }

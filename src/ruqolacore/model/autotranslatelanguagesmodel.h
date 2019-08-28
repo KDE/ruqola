@@ -41,6 +41,9 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
+
+    void parseLanguages(const QJsonObject &obj);
+
 private:
     AutotranslateLanguages mAutoTranslateLanguages;
 };

@@ -18,6 +18,7 @@
 */
 
 #include "autotranslatelanguagesmodel.h"
+#include <QJsonObject>
 
 AutotranslateLanguagesModel::AutotranslateLanguagesModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -58,4 +59,18 @@ QHash<int, QByteArray> AutotranslateLanguagesModel::roleNames() const
     roles[AutotranslateLanguagesModel::LanguageName] = QByteArrayLiteral("language");
     roles[AutotranslateLanguagesModel::DisplayName] = QByteArrayLiteral("displaylanguage");
     return roles;
+}
+
+void AutotranslateLanguagesModel::parseLanguages(const QJsonObject &obj)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mAutoTranslateLanguages.count() - 1);
+        mAutoTranslateLanguages.clear();
+        endRemoveRows();
+    }
+    mAutoTranslateLanguages.parseLanguages(obj);
+    if (!mAutoTranslateLanguages.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, mAutoTranslateLanguages.count() - 1);
+        endInsertRows();
+    }
 }

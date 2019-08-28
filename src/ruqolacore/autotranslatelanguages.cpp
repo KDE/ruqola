@@ -44,9 +44,22 @@ int AutotranslateLanguages::count() const
     return mAutotranslateLanguages.count();
 }
 
+void AutotranslateLanguages::clear()
+{
+    mAutotranslateLanguages.clear();
+}
+
 AutotranslateLanguage AutotranslateLanguages::at(int index) const
 {
     return mAutotranslateLanguages.at(index);
+}
+
+void AutotranslateLanguages::parseLanguages(const QJsonObject &Obj)
+{
+    clear();
+    //Sorting ??
+    //
+    //TODO
 }
 
 QDebug operator <<(QDebug d, const AutotranslateLanguages &t)
