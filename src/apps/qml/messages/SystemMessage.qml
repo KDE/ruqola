@@ -40,6 +40,7 @@ MessageBase {
             //Layout.fillHeight: true
             QQC2.Label {
                 id: textLabel
+                Layout.fillWidth: true
                 color: Kirigami.Theme.disabledTextColor
                 opacity: 1
                 width: parent.width
