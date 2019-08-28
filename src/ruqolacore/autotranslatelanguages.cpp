@@ -24,18 +24,36 @@ AutotranslateLanguages::AutotranslateLanguages()
 
 }
 
-QVector<AutotranslateLanguages> AutotranslateLanguages::autotranslateLanguage() const
+QVector<AutotranslateLanguage> AutotranslateLanguages::autotranslateLanguage() const
 {
-    return mAutotranslateLanguage;
+    return mAutotranslateLanguages;
 }
 
-void AutotranslateLanguages::setAutotranslateLanguage(const QVector<AutotranslateLanguages> &autotranslateLanguage)
+void AutotranslateLanguages::setAutotranslateLanguages(const QVector<AutotranslateLanguage> &autotranslateLanguage)
 {
-    mAutotranslateLanguage = autotranslateLanguage;
+    mAutotranslateLanguages = autotranslateLanguage;
+}
+
+bool AutotranslateLanguages::isEmpty() const
+{
+    return mAutotranslateLanguages.isEmpty();
+}
+
+int AutotranslateLanguages::count() const
+{
+    return mAutotranslateLanguages.count();
+}
+
+AutotranslateLanguage AutotranslateLanguages::at(int index) const
+{
+    return mAutotranslateLanguages.at(index);
 }
 
 QDebug operator <<(QDebug d, const AutotranslateLanguages &t)
 {
-    //TODO
+    for (const AutotranslateLanguage &lang : t.autotranslateLanguage()) {
+        d << "autotranslate :" << lang;
+    }
     return d;
 }
+

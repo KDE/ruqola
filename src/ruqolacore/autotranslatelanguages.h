@@ -30,11 +30,14 @@ class LIBRUQOLACORE_TESTS_EXPORT AutotranslateLanguages
 public:
     AutotranslateLanguages();
 
-    Q_REQUIRED_RESULT QVector<AutotranslateLanguages> autotranslateLanguage() const;
-    void setAutotranslateLanguage(const QVector<AutotranslateLanguages> &autotranslateLanguage);
+    Q_REQUIRED_RESULT QVector<AutotranslateLanguage> autotranslateLanguage() const;
+    void setAutotranslateLanguages(const QVector<AutotranslateLanguage> &autotranslateLanguage);
 
+    Q_REQUIRED_RESULT bool isEmpty() const;
+    Q_REQUIRED_RESULT int count() const;
+    Q_REQUIRED_RESULT AutotranslateLanguage at(int index) const;
 private:
-    QVector<AutotranslateLanguages> mAutotranslateLanguage;
+    QVector<AutotranslateLanguage> mAutotranslateLanguages;
 };
 
 Q_DECLARE_METATYPE(AutotranslateLanguages)

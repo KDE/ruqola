@@ -27,6 +27,15 @@ class LIBRUQOLACORE_TESTS_EXPORT AutotranslateLanguage
 {
 public:
     AutotranslateLanguage();
+    Q_REQUIRED_RESULT QString language() const;
+    void setLanguage(const QString &language);
+
+    Q_REQUIRED_RESULT QString displayLanguage() const;
+    void setDisplayLanguage(const QString &displayLanguage);
+
+private:
+    QString mLanguage;
+    QString mDisplayLanguage;
 };
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const AutotranslateLanguage &t);
 Q_DECLARE_METATYPE(AutotranslateLanguage)

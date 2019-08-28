@@ -22,15 +22,27 @@
 
 #include <QAbstractListModel>
 #include "libruqola_private_export.h"
+#include "autotranslatelanguages.h"
 
 class LIBRUQOLACORE_TESTS_EXPORT AutotranslateLanguagesModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
+    enum AutoTranslateLanguesRoles {
+        LanguageName = Qt::UserRole + 1,
+        DisplayName,
+    };
+    Q_ENUM(AutoTranslateLanguesRoles)
+
+
     explicit AutotranslateLanguagesModel(QObject *parent = nullptr);
     ~AutotranslateLanguagesModel() override;
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
+    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
+private:
+    AutotranslateLanguages mAutoTranslateLanguages;
 };
 
 #endif // AUTOTRANSLATELANGUAGESMODEL_H

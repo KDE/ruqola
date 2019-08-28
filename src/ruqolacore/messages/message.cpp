@@ -71,6 +71,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     mThreadMessageId = o.value(QLatin1String("tmid")).toString();
     mMessageStarred.parse(o);
     mMessagePinned.parse(o);
+    mMessageTranslation.parse(o);
 
     mMessageType = Message::MessageType::NormalText;
     if (!type.isEmpty()) {
@@ -90,6 +91,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     if (!reacts.isEmpty()) {
         mReactions.parseReactions(reacts, mEmojiManager);
     }
+}
+
+MessageTranslation Message::messageTranslation() const
+{
+    return mMessageTranslation;
+}
+
+void Message::setMessageTranslation(const MessageTranslation &messageTranslation)
+{
+    mMessageTranslation = messageTranslation;
 }
 
 QString Message::displayTime() const
@@ -366,7 +377,8 @@ bool Message::operator==(const Message &other) const
            && (mDiscussionCount == other.discussionCount())
            && (mDiscussionLastMessage == other.discussionLastMessage())
            && (mDiscussionRoomId == other.discussionRoomId())
-           && (mThreadMessageId == other.threadMessageId());
+           && (mThreadMessageId == other.threadMessageId())
+            && (mMessageTranslation == other.messageTranslation());
 }
 
 Message &Message::operator=(const Message &other)
@@ -402,6 +414,7 @@ Message &Message::operator=(const Message &other)
     setDiscussionLastMessage(other.discussionLastMessage());
     setDiscussionRoomId(other.discussionRoomId());
     setThreadMessageId(other.threadMessageId());
+    setMessageTranslation(other.messageTranslation());
     return *this;
 }
 
@@ -726,6 +739,7 @@ Message Message::fromJSon(const QJsonObject &o)
 //            message.mAttachements.append(att);
 //        }
     }
+    //TODO add message translation !
 
     return message;
 }
@@ -815,6 +829,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (toBinary) {
         return d.toBinaryData();
     }
+    //TODO add message translation
+
     return d.toJson(QJsonDocument::Indented);
 }
 
@@ -854,5 +870,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "discussionlastmessage " << t.discussionLastMessage();
     d << "discussionRoomId " << t.discussionRoomId();
     d << "threadMessageId " << t.threadMessageId();
+    d << "messagetranslation" << t.messageTranslation();
     return d;
 }

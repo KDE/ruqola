@@ -18,11 +18,22 @@
 */
 
 #include "autotranslatelanguagesmodeltest.h"
+#include "model/autotranslatelanguagesmodel.h"
 #include <QTest>
+#include "test_model_helpers.h"
 QTEST_GUILESS_MAIN(AutotranslateLanguagesModelTest)
 
 AutotranslateLanguagesModelTest::AutotranslateLanguagesModelTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void AutotranslateLanguagesModelTest::shouldHaveDefaultValues()
+{
+    AutotranslateLanguagesModel model;
+    QHash<int, QByteArray> roles;
+    roles[AutotranslateLanguagesModel::LanguageName] = QByteArrayLiteral("language");
+    roles[AutotranslateLanguagesModel::DisplayName] = QByteArrayLiteral("displaylanguage");
+    QCOMPARE(model.roleNames(), roles);
 }

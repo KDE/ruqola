@@ -386,6 +386,7 @@ private:
     void slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId);
     void slotGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
     void slotGetPinnedMessagesDone(const QJsonObject &obj, const QString &roomId);
+    void slotGetSupportedLanguagesDone(const QJsonObject &obj);
 
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);

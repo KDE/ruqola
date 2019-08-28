@@ -28,6 +28,8 @@ class AutotranslateLanguagesModelTest : public QObject
 public:
     explicit AutotranslateLanguagesModelTest(QObject *parent = nullptr);
     ~AutotranslateLanguagesModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // AUTOTRANSLATELANGUAGESMODELTEST_H

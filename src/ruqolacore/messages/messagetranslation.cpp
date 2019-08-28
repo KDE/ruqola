@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 #include "messagetranslation.h"
+#include <QJsonObject>
+#include <QJsonArray>
 
 MessageTranslation::MessageTranslation()
 {
@@ -28,4 +30,15 @@ QDebug operator <<(QDebug d, const MessageTranslation &t)
 {
     //TODO
     return d;
+}
+
+void MessageTranslation::parse(const QJsonObject &o)
+{
+    //TODO
+}
+
+bool MessageTranslation::operator==(const MessageTranslation &other) const
+{
+    //TODO implement it
+    return true;
 }

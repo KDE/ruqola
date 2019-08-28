@@ -18,6 +18,7 @@
 */
 
 #include "autotranslatelanguagestest.h"
+#include "autotranslatelanguages.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(AutotranslateLanguagesTest)
 
@@ -25,4 +26,11 @@ AutotranslateLanguagesTest::AutotranslateLanguagesTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void AutotranslateLanguagesTest::shouldHaveDefaultValues()
+{
+    AutotranslateLanguages w;
+    QVERIFY(w.isEmpty());
+    QCOMPARE(w.count(), 0);
 }

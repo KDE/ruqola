@@ -27,6 +27,7 @@
 #include "messagepinned.h"
 #include "messagestarred.h"
 #include "reactions.h"
+#include "messagetranslation.h"
 #include <QJsonObject>
 #include <QString>
 #include <QVector>
@@ -173,6 +174,9 @@ public:
 
     Q_REQUIRED_RESULT QString displayTime() const;
 
+    Q_REQUIRED_RESULT MessageTranslation messageTranslation() const;
+    void setMessageTranslation(const MessageTranslation &messageTranslation);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -184,6 +188,9 @@ private:
 
     //Message Starred
     MessageStarred mMessageStarred;
+
+    //Message Translation
+    MessageTranslation mMessageTranslation;
 
     //Message Object Fields
     QVector<MessageAttachment> mAttachements;

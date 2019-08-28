@@ -435,6 +435,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetAllUserMentionsDone, this, &RocketChatAccount::slotGetAllUserMentionsDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getPinnedMessagesDone, this, &RocketChatAccount::slotGetPinnedMessagesDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -1793,4 +1794,9 @@ void RocketChatAccount::getSupportedLanguages()
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSupportedLanguages is not supported before server 2.0.0";
     }
+}
+
+void RocketChatAccount::slotGetSupportedLanguagesDone(const QJsonObject &obj)
+{
+    //TODO
 }

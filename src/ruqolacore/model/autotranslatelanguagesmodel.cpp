@@ -32,12 +32,30 @@ AutotranslateLanguagesModel::~AutotranslateLanguagesModel()
 
 int AutotranslateLanguagesModel::rowCount(const QModelIndex &parent) const
 {
-    //TODO
-    return {};
+    Q_UNUSED(parent);
+    return mAutoTranslateLanguages.count();
 }
 
 QVariant AutotranslateLanguagesModel::data(const QModelIndex &index, int role) const
 {
-    //TODO
+    if (index.row() < 0 || index.row() >= mAutoTranslateLanguages.count()) {
+        return {};
+    }
+    const AutotranslateLanguage language = mAutoTranslateLanguages.at(index.row());
+
+    switch (role) {
+    case AutotranslateLanguagesModel::LanguageName:
+        return language.language();
+    case AutotranslateLanguagesModel::DisplayName:
+        return language.displayLanguage();
+    }
     return {};
+}
+
+QHash<int, QByteArray> AutotranslateLanguagesModel::roleNames() const
+{
+    QHash<int, QByteArray> roles;
+    roles[AutotranslateLanguagesModel::LanguageName] = QByteArrayLiteral("language");
+    roles[AutotranslateLanguagesModel::DisplayName] = QByteArrayLiteral("displaylanguage");
+    return roles;
 }
