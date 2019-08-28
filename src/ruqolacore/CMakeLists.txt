@@ -83,6 +83,7 @@ set(Ruqola_messages_srcs
     messages/reactions.cpp
     messages/reaction.cpp
     messages/messagepinned.cpp
+    messages/messagetranslation.cpp
     )
 
 set(Ruqola_message_convertertextjob_SRCS
