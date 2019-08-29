@@ -218,7 +218,7 @@ void RocketChatBackend::slotLoginStatusChanged()
 
 void RocketChatBackend::parseServerVersionDone(const QString &version)
 {
-    qCDebug(RUQOLA_LOG) << " void RocketChatBackend::parseServerVersionDone(const QString &version)******************" << version;
+    //qCDebug(RUQOLA_LOG) << " void RocketChatBackend::parseServerVersionDone(const QString &version)******************" << version;
     mRocketChatAccount->setServerVersion(version);
     mRocketChatAccount->ddp()->login();
 }
