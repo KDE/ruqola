@@ -902,18 +902,10 @@ void RocketChatAccount::slotSyncThreadMessagesDone(const QJsonObject &obj, const
     qDebug() << " void RocketChatAccount::slotSyncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)" << obj << " threadMessageId " << threadMessageId;
 }
 
-void RocketChatAccount::updateThreadMessageList(const QString &threadMessageId)
+void RocketChatAccount::updateThreadMessageList(const Message &m)
 {
-    //Timestamp pb...
-    QTimeZone t = QTimeZone::utc();
-    if (mThreadMessageModel->threadMessageId() == threadMessageId) {
-        qDebug() << " Need to update message list " << threadMessageId;
-        QDateTime d(QDateTime::fromMSecsSinceEpoch(mThreadMessageModel->lastTimestamp()));
-        d.setTimeSpec(Qt::LocalTime);
-        const QString timestamp = d.toString(Qt::ISODate);
-        qDebug() << " timestamp" << timestamp;
-        qDebug() << " offset " << t.offsetFromUtc(d);
-        //restApi()->syncThreadMessages(threadMessageId, /*timestamp*/QStringLiteral("2019-08-29T15:01:53"));
+    if (mThreadMessageModel->threadMessageId() == m.threadMessageId()) {
+        mThreadMessageModel->addMessage(m);
     }
 }
 

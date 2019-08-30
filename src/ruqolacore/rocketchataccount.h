@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QUrl>
 #include <ddpapi/ddpclient.h>
+#include "messages/message.h"
 #include "rocketchataccountsettings.h"
 #include "libruqola_private_export.h"
 #include "authenticationinfo.h"
@@ -357,7 +358,7 @@ public:
     Q_INVOKABLE void getSupportedLanguages();
     AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
 
-    void updateThreadMessageList(const QString &threadMessageId);
+    void updateThreadMessageList(const Message &m);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
