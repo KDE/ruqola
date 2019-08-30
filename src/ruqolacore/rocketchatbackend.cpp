@@ -175,12 +175,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
         //qDebug() << " roomId"<<roomId << " add message " << m.message;
         if (MessageModel *messageModel = mRocketChatAccount->messageModelForRoom(m.roomId())) {
             if (!m.threadMessageId().isEmpty()) {
-                qDebug() << " It's a thread message id **ssss**************************" << m.threadMessageId() << "o" << o;
-                QDateTime d(QDateTime::fromMSecsSinceEpoch(m.updatedAt()));
-                d.setTimeSpec(Qt::LocalTime);
-                const QString timestamp = d.toString(Qt::ISODate);
-                qDebug() << " time stamp " << timestamp;
-                mRocketChatAccount->updateThreadMessageList(m.threadMessageId());
+                mRocketChatAccount->updateThreadMessageList(m);
             }
             messageModel->addMessage(m);
         } else {
@@ -436,8 +431,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 m.parseMessage(roomData);
                 if (!m.threadMessageId().isEmpty()) {
                     qDebug() << " It's a thread message id ****************************" << m.threadMessageId();
-                    mRocketChatAccount->updateThreadMessageList(m.threadMessageId());
-                    //TODO check if thread message is opened!
+                    mRocketChatAccount->updateThreadMessageList(m);
                 }
                 //m.setMessageType(Message::System);
                 //TODO add special element!See roomData QJsonObject({"_id":"u9xnnzaBQoQithsxP","msg":"You have been muted and cannot speak in this room","rid":"Dic5wZD4Zu9ze5gk3","ts":{"$date":1534166745895}})

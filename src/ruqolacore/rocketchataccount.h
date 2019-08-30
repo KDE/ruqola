@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QUrl>
 #include <ddpapi/ddpclient.h>
+#include "messages/message.h"
 #include "rocketchataccountsettings.h"
 #include "libruqola_private_export.h"
 #include "authenticationinfo.h"
@@ -340,7 +341,7 @@ public:
     Q_INVOKABLE void loadMoreMentions(const QString &roomId);
 
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
-    void updateThreadMessageList(const QString &threadMessageId);
+    void updateThreadMessageList(const Message &m);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
