@@ -44,6 +44,7 @@
 #include "authentication/loginjob.h"
 
 #include "chat/starmessagejob.h"
+#include "chat/syncthreadmessagesjob.h"
 #include "chat/postmessagejob.h"
 #include "chat/deletemessagejob.h"
 #include "chat/updatemessagejob.h"
@@ -1492,6 +1493,18 @@ void RestApiRequest::getThreadMessages(const QString &threadMessageId)
     connect(job, &GetThreadMessagesJob::getThreadMessagesDone, this, &RestApiRequest::getThreadMessagesDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getThreadMessages";
+    }
+}
+
+void RestApiRequest::syncThreadMessages(const QString &threadMessageId, const QString &timestamp)
+{
+    SyncThreadMessagesJob *job = new SyncThreadMessagesJob(this);
+    initializeRestApiJob(job);
+    job->setThreadMessageId(threadMessageId);
+    job->setTimeStamp(timestamp);
+    connect(job, &SyncThreadMessagesJob::syncThreadMessagesDone, this, &RestApiRequest::syncThreadMessagesDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start syncThreadMessages";
     }
 }
 

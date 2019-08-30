@@ -37,6 +37,7 @@ set (RocketChatRestApiQt_SRCS
     emoji/deleteemojicustomjob.cpp
 
     chat/starmessagejob.cpp
+    chat/syncthreadmessagesjob.cpp
     chat/pinmessagejob.cpp
     chat/postmessagejob.cpp
     chat/deletemessagejob.cpp

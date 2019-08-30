@@ -75,6 +75,7 @@
 
 #include <QDesktopServices>
 #include <QRegularExpression>
+#include <QTimeZone>
 #include <QTimer>
 
 #include <plugins/pluginauthentication.h>
@@ -424,6 +425,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
         mRestApi = new RocketChatRestApi::RestApiRequest(this);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::syncThreadMessagesDone, this, &RocketChatAccount::slotSyncThreadMessagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::setChannelJoinDone, this, &RocketChatAccount::setChannelJoinDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::missingChannelPassword, this, &RocketChatAccount::missingChannelPassword);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::loadEmojiCustomDone, this, &RocketChatAccount::loadEmojiRestApi);
@@ -892,6 +894,26 @@ void RocketChatAccount::loadMoreDiscussions(const QString &roomId)
             mDiscussionsModel->setLoadMoreDiscussionsInProgress(true);
             restApi()->getDiscussions(roomId, offset, qMin(50, mDiscussionsModel->discussions()->total() - offset));
         }
+    }
+}
+
+void RocketChatAccount::slotSyncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)
+{
+    qDebug() << " void RocketChatAccount::slotSyncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)" << obj << " threadMessageId " << threadMessageId;
+}
+
+void RocketChatAccount::updateThreadMessageList(const QString &threadMessageId)
+{
+    //Timestamp pb...
+    QTimeZone t = QTimeZone::utc();
+    if (mThreadMessageModel->threadMessageId() == threadMessageId) {
+        qDebug() << " Need to update message list " << threadMessageId;
+        QDateTime d(QDateTime::fromMSecsSinceEpoch(mThreadMessageModel->lastTimestamp()));
+        d.setTimeSpec(Qt::LocalTime);
+        const QString timestamp = d.toString(Qt::ISODate);
+        qDebug() << " timestamp" << timestamp;
+        qDebug() << " offset " << t.offsetFromUtc(d);
+        //restApi()->syncThreadMessages(threadMessageId, /*timestamp*/QStringLiteral("2019-08-29T15:01:53"));
     }
 }
 

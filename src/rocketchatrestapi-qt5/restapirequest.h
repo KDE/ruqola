@@ -124,6 +124,7 @@ public:
 
     void channelInfo(const QString &roomId);
 
+    void syncThreadMessages(const QString &threadMessageId, const QString &timestamp);
     void changeChannelName(const QString &roomId, const QString &newName);
     void changeGroupName(const QString &roomId, const QString &newName);
     void groupInfo(const QString &roomId);
@@ -175,6 +176,7 @@ Q_SIGNALS:
     void privateInfoDone(const QByteArray &data);
     void channelFilesDone(const QJsonObject &obj, const QString &roomId);
     void channelMembersDone(const QJsonObject &obj, const QString &roomId);
+    void syncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
     void loadEmojiCustomDone(const QJsonObject &obj);
     void spotlightDone(const QJsonObject &obj);
     void channelListDone(const QJsonObject &obj);

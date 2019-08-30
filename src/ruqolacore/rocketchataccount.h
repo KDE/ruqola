@@ -357,6 +357,7 @@ public:
     Q_INVOKABLE void getSupportedLanguages();
     AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
 
+    void updateThreadMessageList(const QString &threadMessageId);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -381,6 +382,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
+    void slotSyncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);
     void slotChannelRolesDone(const QJsonObject &obj, const QString &roomId);
     void slotSplotLightDone(const QJsonObject &obj);
