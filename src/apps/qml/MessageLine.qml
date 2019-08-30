@@ -104,7 +104,7 @@ ColumnLayout {
         onAccepted: {
             if (text != "" && appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn) {
                 if (messageLineItem.selectedThreadMessage !== "") {
-                    console.log("In thread message" + messageLineItem.selectedThreadMessage + messageLineItem.selectedRoomId)
+                    //console.log("In thread message" + messageLineItem.selectedThreadMessage + messageLineItem.selectedRoomId)
                     appid.rocketChatAccount.replyOnThread(messageLineItem.selectedRoomId, messageLineItem.selectedThreadMessage, text);
                 } else if (messageLineItem.selectedRoomId !== "") {
                     //Modify text.
