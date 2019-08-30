@@ -19,6 +19,7 @@
 */
 
 #include "messagetranslationtest.h"
+#include "messages/messagetranslation.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(MessageTranslationTest)
 
@@ -26,4 +27,10 @@ MessageTranslationTest::MessageTranslationTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void MessageTranslationTest::shouldHaveDefaultValues()
+{
+    MessageTranslation t;
+    QVERIFY(t.translatedString().isEmpty());
 }

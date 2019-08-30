@@ -38,7 +38,7 @@ public:
     void clear();
     Q_REQUIRED_RESULT AutotranslateLanguage at(int index) const;
 
-    void parseLanguages(const QJsonObject &Obj);
+    void parseLanguages(const QJsonObject &obj);
 
 private:
     QVector<AutotranslateLanguage> mAutotranslateLanguages;

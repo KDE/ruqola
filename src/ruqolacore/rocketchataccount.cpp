@@ -425,7 +425,6 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
 {
     if (!mRestApi) {
         mRestApi = new RocketChatRestApi::RestApiRequest(this);
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::syncThreadMessagesDone, this, &RocketChatAccount::slotSyncThreadMessagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::setChannelJoinDone, this, &RocketChatAccount::setChannelJoinDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::missingChannelPassword, this, &RocketChatAccount::missingChannelPassword);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::loadEmojiCustomDone, this, &RocketChatAccount::loadEmojiRestApi);
@@ -895,11 +894,6 @@ void RocketChatAccount::loadMoreDiscussions(const QString &roomId)
             restApi()->getDiscussions(roomId, offset, qMin(50, mDiscussionsModel->discussions()->total() - offset));
         }
     }
-}
-
-void RocketChatAccount::slotSyncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)
-{
-    qDebug() << " void RocketChatAccount::slotSyncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId)" << obj << " threadMessageId " << threadMessageId;
 }
 
 void RocketChatAccount::updateThreadMessageList(const Message &m)

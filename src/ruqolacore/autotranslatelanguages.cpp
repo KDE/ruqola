@@ -19,6 +19,9 @@
 
 #include "autotranslatelanguages.h"
 
+#include <QJsonArray>
+#include <qjsonobject.h>
+
 AutotranslateLanguages::AutotranslateLanguages()
 {
 
@@ -54,12 +57,16 @@ AutotranslateLanguage AutotranslateLanguages::at(int index) const
     return mAutotranslateLanguages.at(index);
 }
 
-void AutotranslateLanguages::parseLanguages(const QJsonObject &Obj)
+void AutotranslateLanguages::parseLanguages(const QJsonObject &obj)
 {
     clear();
-    //Sorting ??
-    //
-    //TODO
+    const QJsonArray array = obj[QLatin1String("languages")].toArray();
+    for (const QJsonValue &current : array) {
+        const QJsonObject languageObject = current.toObject();
+        AutotranslateLanguage lang;
+        lang.setLanguage(languageObject.value(QLatin1String("language")).toString());
+        mAutotranslateLanguages.append(lang);
+    }
 }
 
 QDebug operator <<(QDebug d, const AutotranslateLanguages &t)

@@ -28,17 +28,37 @@ MessageTranslation::MessageTranslation()
 
 QDebug operator <<(QDebug d, const MessageTranslation &t)
 {
-    //TODO
+    d << " translate string " << t.translatedString();
     return d;
 }
 
-void MessageTranslation::parse(const QJsonObject &o)
+void MessageTranslation::parse(const QJsonObject &obj)
 {
-    //TODO
+    mTranslatedString.clear();
+    const QJsonObject languageObject = obj[QLatin1String("translations")].toObject();
+    const QStringList keys = languageObject.keys();
+    for (const QString &lang : keys) {
+        mTranslatedString.insert(lang, languageObject.value(lang).toString());
+    }
+    //qDebug() << " void MessageTranslation::parse(const QJsonObject &obj)"<<mTranslatedString;
 }
 
 bool MessageTranslation::operator==(const MessageTranslation &other) const
 {
-    //TODO implement it
-    return true;
+    return mTranslatedString == other.translatedString();
+}
+
+QMap<QString, QString> MessageTranslation::translatedString() const
+{
+    return mTranslatedString;
+}
+
+void MessageTranslation::setTranslatedString(const QMap<QString, QString> &translatedString)
+{
+    mTranslatedString = translatedString;
+}
+
+QString MessageTranslation::translatedStringFromLanguage(const QString &lang)
+{
+    return mTranslatedString.value(lang);
 }
