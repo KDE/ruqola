@@ -340,6 +340,7 @@ public:
     Q_INVOKABLE void loadMoreMentions(const QString &roomId);
 
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
+    void updateThreadMessageList(const QString &threadMessageId);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -364,6 +365,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
+    void slotSyncThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);
     void slotChannelRolesDone(const QJsonObject &obj, const QString &roomId);
     void slotSplotLightDone(const QJsonObject &obj);
