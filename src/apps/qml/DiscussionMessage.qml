@@ -64,6 +64,7 @@ Kirigami.BasicListItem {
             }
             QQC2.Label {
                 id: lastMessageText
+                visible: i_numberofmessages > 0
                 Layout.alignment: Qt.AlignTop | Qt.AlignRight
                 text: i_lastmessage
                 opacity: .5
