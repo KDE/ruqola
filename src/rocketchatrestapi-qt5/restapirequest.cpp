@@ -1461,6 +1461,9 @@ void RestApiRequest::getThreadsList(const QString &roomId, int offset, int count
     initializeRestApiJob(job);
     job->setRoomId(roomId);
     QueryParameters parameters;
+    QMap<QString, QueryParameters::SortOrder> map;
+    map.insert(QStringLiteral("_updatedAt"), QueryParameters::SortOrder::Descendant);
+    parameters.setSorting(map);
     parameters.setCount(count);
     parameters.setOffset(offset);
     job->setQueryParameters(parameters);
