@@ -103,13 +103,12 @@ bool User::isValid() const
     return !mUserName.isEmpty() || !mName.isEmpty();
 }
 
-int User::utcOffset() const
+double User::utcOffset() const
 {
     return mUtcOffset;
 }
 
-//TODO use double ??? we can see some -3.5 !
-void User::setUtcOffset(int utcOffset)
+void User::setUtcOffset(double utcOffset)
 {
     mUtcOffset = utcOffset;
 }
@@ -142,8 +141,8 @@ void User::parseUser(const QJsonObject &object)
     setName(fields.value(QLatin1String("name")).toString());
     setStatus(fields.value(QLatin1String("status")).toString());
     setUserName(fields.value(QLatin1String("username")).toString());
-    setUtcOffset(fields.value(QLatin1String("utcOffset")).toInt());
     setStatusText(fields.value(QLatin1String("statusText")).toString());
+    setUtcOffset(fields.value(QLatin1String("utcOffset")).toDouble());
 }
 
 QString User::iconFromStatus() const
