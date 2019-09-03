@@ -178,7 +178,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                 const QString userName = userObject[QStringLiteral("username")].toString();
                 const QString name = userObject[QStringLiteral("name")].toString();
                 const QString id = userObject[QStringLiteral("_id")].toString();
-                const int utcOffset = userObject[QStringLiteral("utcOffset")].toInt();
+                const double utcOffset = userObject[QStringLiteral("utcOffset")].toDouble();
                 const QString status = userObject[QStringLiteral("status")].toString();
                 User user;
                 user.setName(name);

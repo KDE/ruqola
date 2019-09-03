@@ -62,15 +62,15 @@ public:
 
     Q_REQUIRED_RESULT bool isValid() const;
 
-    Q_REQUIRED_RESULT int utcOffset() const;
-    void setUtcOffset(int utcOffset);
+    Q_REQUIRED_RESULT double utcOffset() const;
+    void setUtcOffset(double utcOffset);
 
 private:
     QString mStatus = QStringLiteral("offline");
     QString mUserId;
     QString mName;
     QString mUserName;
-    int mUtcOffset = 0;
+    int mUtcOffset = 0.0;
 };
 Q_DECLARE_METATYPE(User)
 Q_DECLARE_TYPEINFO(User, Q_MOVABLE_TYPE);
