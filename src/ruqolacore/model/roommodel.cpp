@@ -158,6 +158,7 @@ QHash<int, QByteArray> RoomModel::roleNames() const
     roles[RoomIcon] = QByteArrayLiteral("channelicon");
     roles[RoomUserMentions] = QByteArrayLiteral("userMentions");
     roles[RoomAutotranslateLanguage] = QByteArrayLiteral("autotranslateLanguage");
+    roles[RoomAutotranslate] = QByteArrayLiteral("autotranslate");
     return roles;
 }
 

@@ -73,6 +73,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(!input.broadcast());
     QVERIFY(input.fName().isEmpty());
     QVERIFY(input.autoTranslateLanguage().isEmpty());
+    QVERIFY(!input.autoTranslate());
 }
 
 //TODO add notification, userMentions too
@@ -103,6 +104,7 @@ void RoomTest::shouldSerialized()
     input.setIgnoredUsers({QStringLiteral("gg"), QStringLiteral("gg2")});
     input.setJoinCodeRequired(true);
     input.setAutoTranslateLanguage(QStringLiteral("blss"));
+    input.setAutoTranslate(true);
     const QByteArray ba = Room::serialize(&input);
     //qDebug() << QJsonObject(QJsonDocument::fromBinaryData(ba).object());
     Room *output = Room::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
@@ -132,7 +134,8 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyjoinCodeRequiredChanged(&input, &Room::joinCodeRequiredChanged);
     QSignalSpy spychannelTypeChanged(&input, &Room::channelTypeChanged);
     QSignalSpy spyparentRidChanged(&input, &Room::parentRidChanged);
-    QSignalSpy spyautoTranslateLanguageChanged(&input, &Room::parentRidChanged);
+    QSignalSpy spyautoTranslateLanguageChanged(&input, &Room::autoTranslateLanguageChanged);
+    QSignalSpy spyautoTranslateChanged(&input, &Room::autoTranslateChanged);
     input.setRoomId(QStringLiteral("foo"));
     input.setChannelType(QStringLiteral("p"));
     input.setName(QStringLiteral("d"));
@@ -158,6 +161,7 @@ void RoomTest::shouldEmitSignals()
     input.setIgnoredUsers({QStringLiteral("bla"), QStringLiteral("blu3")});
     input.setParentRid(QStringLiteral("bla"));
     input.setAutoTranslateLanguage(QStringLiteral("bli"));
+    input.setAutoTranslate(true);
 
     QCOMPARE(spyNameChanged.count(), 1);
     QCOMPARE(spyannouncementChanged.count(), 1);
@@ -178,6 +182,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spychannelTypeChanged.count(), 1);
     QCOMPARE(spyparentRidChanged.count(), 1);
     QCOMPARE(spyautoTranslateLanguageChanged.count(), 1);
+    QCOMPARE(spyautoTranslateChanged.count(), 1);
 }
 
 void RoomTest::shouldChangeInputMessage()

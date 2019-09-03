@@ -57,6 +57,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
     Q_PROPERTY(QString channelType READ channelType WRITE setChannelType NOTIFY channelTypeChanged)
     Q_PROPERTY(bool wasInitialized READ wasInitialized CONSTANT)
     Q_PROPERTY(QString autoTranslateLanguage READ autoTranslateLanguage WRITE setAutoTranslateLanguage NOTIFY autoTranslateLanguageChanged)
+    Q_PROPERTY(bool autoTranslate READ autoTranslate WRITE setAutoTranslate NOTIFY autoTranslateChanged)
 public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
 
@@ -227,6 +228,9 @@ public:
     Q_REQUIRED_RESULT QString autoTranslateLanguage() const;
     void setAutoTranslateLanguage(const QString &autoTranslateLanguage);
 
+    Q_REQUIRED_RESULT bool autoTranslate() const;
+    void setAutoTranslate(bool autoTranslate);
+
 Q_SIGNALS:
     void nameChanged();
     void fnameChanged();
@@ -258,6 +262,7 @@ Q_SIGNALS:
     void broadcastChanged();
     void parentRidChanged();
     void autoTranslateLanguageChanged();
+    void autoTranslateChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -337,6 +342,7 @@ private:
     bool mJoinCodeRequired = false;
     bool mWasInitialized = false;
     bool mBroadcast = false;
+    bool mAutoTranslate = false;
 
     UsersForRoomModel *mUsersModelForRoom = nullptr;
     UsersForRoomFilterProxyModel *mUsersModelForRoomProxyModel = nullptr;
