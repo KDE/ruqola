@@ -70,7 +70,7 @@ private:
     QString mUserId;
     QString mName;
     QString mUserName;
-    int mUtcOffset = 0.0;
+    double mUtcOffset = 0.0;
 };
 Q_DECLARE_METATYPE(User)
 Q_DECLARE_TYPEINFO(User, Q_MOVABLE_TYPE);
