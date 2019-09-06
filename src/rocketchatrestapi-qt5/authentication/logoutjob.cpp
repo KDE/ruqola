@@ -58,7 +58,7 @@ void LogoutJob::slotLogout()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success")) {
+        if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success")) {
             qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
             Q_EMIT logoutDone();
         } else {

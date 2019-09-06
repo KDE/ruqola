@@ -132,7 +132,7 @@ QString InputCompleterModel::channelName(const Channel &channel) const
         QString text = channel.user().userName();
         const QString name = channel.user().name();
         if (!name.isEmpty()) {
-            text += QStringLiteral(" (") + channel.user().name() + QLatin1Char(')');
+            text += QLatin1String(" (") + channel.user().name() + QLatin1Char(')');
         }
         return text;
     }
@@ -151,9 +151,9 @@ QIcon InputCompleterModel::channelIconName(const Channel &channel) const
     case Channel::ChannelType::PrivateChannel:
         return QIcon::fromTheme(channel.user().iconFromStatus());
     case Channel::ChannelType::Room:
-        if (channel.roomType() == QLatin1String("c")) {
+        if (channel.roomType() == QLatin1Char('c')) {
             return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
-        } else if (channel.roomType() == QLatin1String("p")) {
+        } else if (channel.roomType() == QLatin1Char('p')) {
             return QIcon::fromTheme(QStringLiteral("lock"));
         }
         qCWarning(RUQOLA_LOG) << "Unknown room type!" << channel.roomType();

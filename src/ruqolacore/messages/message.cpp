@@ -452,7 +452,7 @@ QString Message::messageTypeText() const
         }
     } else if (mSystemMessageType == QLatin1String("au")) {
         return i18n("%2 added %1 to the conversation", mText, mUsername);
-    } else if (mSystemMessageType == QLatin1String("r")) {
+    } else if (mSystemMessageType == QLatin1Char('r')) {
         return i18n("%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>", mText, mUsername);
     } else if (mSystemMessageType == QLatin1String("ru")) {
         return i18n("%2 removed user %1", mText, mUsername);

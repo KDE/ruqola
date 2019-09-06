@@ -80,7 +80,7 @@ void ChannelTest::shouldParseChannel()
     QFETCH(QString, name);
     QFETCH(Channel::ChannelType, channelType);
     QFETCH(Channel, expectedChannel);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + name + QStringLiteral(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + name + QLatin1String(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();

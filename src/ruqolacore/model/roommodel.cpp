@@ -334,7 +334,7 @@ void RoomModel::updateSubscription(const QJsonArray &array)
 {
     const QString actionName = array[0].toString();
     const QJsonObject roomData = array[1].toObject();
-    if (actionName == QStringLiteral("removed")) {
+    if (actionName == QLatin1String("removed")) {
         qCDebug(RUQOLA_LOG) << "REMOVE ROOM name " << roomData.value(QLatin1String("name")) << " rid " << roomData.value(QLatin1String("rid"));
         const QString id = roomData.value(QLatin1String("rid")).toString();
         const int roomCount = mRoomsList.count();
@@ -346,16 +346,16 @@ void RoomModel::updateSubscription(const QJsonArray &array)
                 break;
             }
         }
-    } else if (actionName == QStringLiteral("inserted")) {
+    } else if (actionName == QLatin1String("inserted")) {
         qCDebug(RUQOLA_LOG) << "INSERT ROOM  name " << roomData.value(QLatin1String("name")) << " rid " << roomData.value(QLatin1String("rid"));
         //TODO fix me!
         addRoom(roomData);
         //addRoom(roomData.value(QLatin1String("rid")).toString(), roomData.value(QLatin1String("name")).toString(), false);
-    } else if (actionName == QStringLiteral("updated")) {
+    } else if (actionName == QLatin1String("updated")) {
         //qCDebug(RUQOLA_LOG) << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
         qDebug() << "UPDATE ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
         updateSubscriptionRoom(roomData);
-    } else if (actionName == QStringLiteral("changed")) {
+    } else if (actionName == QLatin1String("changed")) {
         //qDebug() << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
         qCDebug(RUQOLA_LOG) << "CHANGED ROOM name " << roomData.value(QLatin1String("name")).toString() << " rid " << roomData.value(QLatin1String("rid")) << " roomData " << roomData;
         qCDebug(RUQOLA_LOG) << "RoomModel::updateSubscription Not implementer changed room yet" << array;
@@ -474,27 +474,27 @@ QString RoomModel::sectionName(Room *r) const
     } else {
         const QString channelTypeStr = r->channelType();
         if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
-            if (channelTypeStr == QLatin1String("p")) {
+            if (channelTypeStr == QLatin1Char('p')) {
                 if (r->parentRid().isEmpty()) {
                     str = i18n("Unread Rooms");
                 } else {
                     str = i18n("Unread Discussions");
                 }
-            } else if (channelTypeStr == QLatin1String("c")) {
+            } else if (channelTypeStr == QLatin1Char('c')) {
                 str = i18n("Unread Rooms");
-            } else if (channelTypeStr == QLatin1String("d")) {
+            } else if (channelTypeStr == QLatin1Char('d')) {
                 str = i18n("Unread Private Messages");
             }
         } else {
-            if (channelTypeStr == QLatin1String("p")) {
+            if (channelTypeStr == QLatin1Char('p')) {
                 if (r->parentRid().isEmpty()) {
                     str = i18n("Rooms");
                 } else {
                     str = i18n("Discussions");
                 }
-            } else if (channelTypeStr == QLatin1String("c")) {
+            } else if (channelTypeStr == QLatin1Char('c')) {
                 str = i18n("Rooms");
-            } else if (channelTypeStr == QLatin1String("d")) {
+            } else if (channelTypeStr == QLatin1Char('d')) {
                 str = i18n("Private Messages");
             }
         }
@@ -515,11 +515,11 @@ int RoomModel::order(Room *r) const
         order += 10;
     }
     const QString channelTypeStr = r->channelType();
-    if (channelTypeStr == QLatin1String("c")) {
+    if (channelTypeStr == QLatin1Char('c')) {
         order += 1;
-    } else if (channelTypeStr == QLatin1String("d")) {
+    } else if (channelTypeStr == QLatin1Char('d')) {
         order += 2;
-    } else if (channelTypeStr == QLatin1String("p")) {
+    } else if (channelTypeStr == QLatin1Char('p')) {
         if (r->parentRid().isEmpty()) {
             order += 1;
         } else {
@@ -534,20 +534,20 @@ int RoomModel::order(Room *r) const
 
 QIcon RoomModel::icon(Room *r) const
 {
-    if (r->channelType() == QLatin1String("c")) {
+    if (r->channelType() == QLatin1Char('c')) {
         if (r->unread() > 0 || r->alert()) {
             return QIcon::fromTheme(QStringLiteral("irc-channel-active"));
         } else {
             return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));
         }
-    } else if (r->channelType() == QLatin1String("d")) {
+    } else if (r->channelType() == QLatin1Char('d')) {
         const QString userStatusIconFileName = mRocketChatAccount ? mRocketChatAccount->userStatusIconFileName(r->name()) : QString();
         if (userStatusIconFileName.isEmpty()) {
             return QIcon::fromTheme(QStringLiteral("user-available"));
         } else {
             return QIcon::fromTheme(userStatusIconFileName);
         }
-    } else if (r->channelType() == QLatin1String("p")) {
+    } else if (r->channelType() == QLatin1Char('p')) {
         return QIcon::fromTheme(QStringLiteral("lock"));
     }
     return {};

@@ -240,7 +240,7 @@ void MessageTest::shouldParseMessage()
 {
     QFETCH(QString, name);
     QFETCH(Message, expectedMessage);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + name + QStringLiteral(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + name + QLatin1String(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -327,7 +327,7 @@ void MessageTest::shouldParseJsonMessage_data()
 void MessageTest::shouldParseJsonMessage()
 {
     QFETCH(QString, fileName);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/messages/") + fileName + QStringLiteral(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/messages/") + fileName + QLatin1String(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -373,7 +373,7 @@ void MessageTest::shouldUpdateJsonMessage()
     QFETCH(QString, fileNameinit);
     QFETCH(QStringList, fileNameupdate);
 
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/messages-updated/") + fileNameinit + QStringLiteral(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/messages-updated/") + fileNameinit + QLatin1String(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -385,7 +385,7 @@ void MessageTest::shouldUpdateJsonMessage()
     r.parseMessage(fields);
 
     for (const QString &updateFile : fileNameupdate) {
-        const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/messages-updated/") + updateFile + QStringLiteral(".json");
+        const QString originalUpdateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/messages-updated/") + updateFile + QLatin1String(".json");
         QFile f(originalUpdateJsonFile);
         QVERIFY(f.open(QIODevice::ReadOnly));
         const QByteArray content = f.readAll();

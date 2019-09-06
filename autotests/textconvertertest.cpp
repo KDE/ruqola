@@ -94,7 +94,7 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     QFETCH(QString, serverUrl);
 
     //Load emoji
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/json/") + QStringLiteral("emojiparent") + QStringLiteral(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + QLatin1String("emojiparent") + QLatin1String(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();

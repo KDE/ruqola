@@ -37,7 +37,7 @@ QUrl Utils::generateServerUrl(const QString &url)
     } else if (serverUrl.startsWith(QLatin1String("http://"))) {
         serverUrl.replace(QLatin1String("http://"), QLatin1String("ws://"));
     } else {
-        serverUrl = QStringLiteral("wss://") + serverUrl;
+        serverUrl = QLatin1String("wss://") + serverUrl;
     }
     return QUrl(serverUrl + QStringLiteral("/websocket"));
 }
@@ -110,13 +110,13 @@ QString Utils::presenceStatusToString(User::PresenceStatus status)
 
 User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
 {
-    if (status == QStringLiteral("online")) {
+    if (status == QLatin1String("online")) {
         return User::PresenceStatus::PresenceOnline;
-    } else if (status == QStringLiteral("busy")) {
+    } else if (status == QLatin1String("busy")) {
         return User::PresenceStatus::PresenceBusy;
-    } else if (status == QStringLiteral("away")) {
+    } else if (status == QLatin1String("away")) {
         return User::PresenceStatus::PresenceAway;
-    } else if (status == QStringLiteral("offline")) {
+    } else if (status == QLatin1String("offline")) {
         return User::PresenceStatus::PresenceOffline;
     } else {
         qCDebug(RUQOLA_LOG) << "Problem with status " << status;

@@ -139,7 +139,7 @@ void UsersForRoomModelTest::shouldParseUsers_data()
 
 QJsonObject loadFile(const QString &file)
 {
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/usersforroom/") + file;
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/usersforroom/") + file;
     QFile f(originalJsonFile);
     if (!f.open(QIODevice::ReadOnly)) {
         qWarning() << " Unable to load file " << file;

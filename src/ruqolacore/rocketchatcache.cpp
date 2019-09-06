@@ -135,7 +135,7 @@ QUrl RocketChatCache::generateDownloadFile(const QString &url)
     }
     QString tmpUrl = mAccount->settings()->serverUrl();
     if (!tmpUrl.startsWith(QLatin1String("https://"))) {
-        tmpUrl = QStringLiteral("https://") + tmpUrl;
+        tmpUrl = QLatin1String("https://") + tmpUrl;
     }
     const QUrl downloadFileUrl = QUrl::fromUserInput(tmpUrl + url);
     return downloadFileUrl;

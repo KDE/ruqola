@@ -31,8 +31,8 @@ RocketChatMessageTest::RocketChatMessageTest(QObject *parent)
 
 void RocketChatMessageTest::compareFile(const QString &data, const QString &name)
 {
-    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/method/") + name + QStringLiteral(".ref");
-    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/method/") + name + QStringLiteral("-generated.ref");
+    const QString refFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/method/") + name + QLatin1String(".ref");
+    const QString generatedFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/method/") + name + QLatin1String("-generated.ref");
     //Create generated file
     QFile f(generatedFile);
     QVERIFY(f.open(QIODevice::WriteOnly | QIODevice::Truncate));

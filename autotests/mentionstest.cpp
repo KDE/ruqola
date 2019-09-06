@@ -53,7 +53,7 @@ void MentionsTest::shouldLoadMentions()
     QFETCH(int, mentionsCount);
     QFETCH(int, total);
     QFETCH(int, offset);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/mentions/") + name + QStringLiteral(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/mentions/") + name + QLatin1String(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();

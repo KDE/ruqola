@@ -72,7 +72,7 @@ void GetAvatarJob::slotGetAvatarInfo()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject.contains(QStringLiteral("success"))) {
+        if (replyObject.contains(QLatin1String("success"))) {
             if (!replyObject[QStringLiteral("success")].toBool()) {
                 addLoggerWarning(QByteArrayLiteral("GetAvatarJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
                 qWarning() << "void GetAvatarJob::slotGetAvatarInfo() ERROR :" << reply->property("userId").toString();

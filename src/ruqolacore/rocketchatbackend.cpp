@@ -71,8 +71,8 @@ void rooms_parsing(const QJsonObject &root, RocketChatAccount *account)
 
             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Rooms:") + d.toJson());
         }
-        if (roomType == QLatin1String("c") //Chat
-            || roomType == QLatin1String("p") /*Private chat*/) {
+        if (roomType == QLatin1Char('c') //Chat
+            || roomType == QLatin1Char('p') /*Private chat*/) {
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPClient::LoggedIn) {
                 model->updateRoom(roomJson);
@@ -105,14 +105,14 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
 
             account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Rooms subscriptions:") + d.toJson());
         }
-        if (roomType == QLatin1String("c") //Chat
-            || roomType == QLatin1String("p")     /*Private chat*/
-            || roomType == QLatin1String("d")) {    //Direct chat) {
+        if (roomType == QLatin1Char('c') //Chat
+            || roomType == QLatin1Char('p')     /*Private chat*/
+            || roomType == QLatin1Char('d')) {    //Direct chat) {
             // let's be extra safe around crashes
             if (account->loginStatus() == DDPClient::LoggedIn) {
                 model->addRoom(room);
             }
-        } else if (roomType == QLatin1String("l")) { //Live chat
+        } else if (roomType == QLatin1Char('l')) { //Live chat
             qCDebug(RUQOLA_LOG) << "Live Chat not implemented yet";
         }
     }

@@ -638,11 +638,11 @@ void RestApiRequest::closeChannel(const QString &roomId, const QString &type)
     ChannelCloseJob *job = new ChannelCloseJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
-    if (type == QLatin1String("d")) {
+    if (type == QLatin1Char('d')) {
         job->setChannelType(ChannelCloseJob::Direct);
-    } else if (type == QLatin1String("p")) {
+    } else if (type == QLatin1Char('p')) {
         job->setChannelType(ChannelCloseJob::Groups);
-    } else if (type == QLatin1String("c")) {
+    } else if (type == QLatin1Char('c')) {
         job->setChannelType(ChannelCloseJob::Channel);
     }
     if (!job->start()) {
@@ -655,11 +655,11 @@ void RestApiRequest::historyChannel(const QString &roomId, const QString &type)
     ChannelHistoryJob *job = new ChannelHistoryJob(this);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
-    if (type == QLatin1String("d")) {
+    if (type == QLatin1Char('d')) {
         job->setChannelType(ChannelHistoryJob::Direct);
-    } else if (type == QLatin1String("p")) {
+    } else if (type == QLatin1Char('p')) {
         job->setChannelType(ChannelHistoryJob::Groups);
-    } else if (type == QLatin1String("c")) {
+    } else if (type == QLatin1Char('c')) {
         job->setChannelType(ChannelHistoryJob::Channel);
     }
     if (!job->start()) {
@@ -698,11 +698,11 @@ void RestApiRequest::filesInRoom(const QString &roomId, const QString &type, int
     parameters.setOffset(offset);
     job->setQueryParameters(parameters);
 
-    if (type == QLatin1String("d")) {
+    if (type == QLatin1Char('d')) {
         job->setChannelType(ChannelFilesJob::Direct);
-    } else if (type == QLatin1String("p")) {
+    } else if (type == QLatin1Char('p')) {
         job->setChannelType(ChannelFilesJob::Groups);
-    } else if (type == QLatin1String("c")) {
+    } else if (type == QLatin1Char('c')) {
         job->setChannelType(ChannelFilesJob::Channel);
     }
     if (!job->start()) {
@@ -721,11 +721,11 @@ void RestApiRequest::membersInRoom(const QString &roomId, const QString &type, i
     connect(job, &ChannelMembersJob::channelMembersDone, this, &RestApiRequest::channelMembersDone);
     initializeRestApiJob(job);
     job->setRoomId(roomId);
-    if (type == QLatin1String("d")) {
+    if (type == QLatin1Char('d')) {
         job->setChannelType(ChannelMembersJob::Direct);
-    } else if (type == QLatin1String("p")) {
+    } else if (type == QLatin1Char('p')) {
         job->setChannelType(ChannelMembersJob::Groups);
-    } else if (type == QLatin1String("c")) {
+    } else if (type == QLatin1Char('c')) {
         job->setChannelType(ChannelMembersJob::Channel);
     }
     if (!job->start()) {

@@ -54,7 +54,7 @@ void FileAttachmentsTest::shouldLoadThreads()
     QFETCH(int, threadsCount);
     QFETCH(int, total);
     QFETCH(int, offset);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/threads/") + name + QStringLiteral(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/threads/") + name + QLatin1String(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();

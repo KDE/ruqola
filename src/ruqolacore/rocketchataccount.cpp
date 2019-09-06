@@ -449,9 +449,9 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
 
 void RocketChatAccount::leaveRoom(const QString &roomId, const QString &channelType)
 {
-    if (channelType == QStringLiteral("c")) {
+    if (channelType == QLatin1Char('c')) {
         restApi()->leaveChannel(roomId);
-    } else if (channelType == QStringLiteral("p")) {
+    } else if (channelType == QLatin1Char('p')) {
         restApi()->leaveGroups(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " unsupport leave room for type " << channelType;
@@ -578,9 +578,9 @@ void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
 
 void RocketChatAccount::eraseRoom(const QString &roomId, const QString &channelType)
 {
-    if (channelType == QStringLiteral("c")) {
+    if (channelType == QLatin1Char('c')) {
         restApi()->channelDelete(roomId);
-    } else if (channelType == QStringLiteral("p")) {
+    } else if (channelType == QLatin1Char('p')) {
         restApi()->groupDelete(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " unsupport delete for type " << channelType;
@@ -952,9 +952,9 @@ void RocketChatAccount::createJitsiConfCall(const QString &roomId)
 
 void RocketChatAccount::addUserToRoom(const QString &userId, const QString &roomId, const QString &channelType)
 {
-    if (channelType == QStringLiteral("c")) {
+    if (channelType == QLatin1Char('c')) {
         restApi()->addUserInChannel(roomId, userId);
-    } else if (channelType == QStringLiteral("p")) {
+    } else if (channelType == QLatin1Char('p')) {
         restApi()->addUserInGroup(roomId, userId);
     }
 }
@@ -997,9 +997,9 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
 {
     switch (infoType) {
     case Announcement:
-        if (channelType == QStringLiteral("c")) {
+        if (channelType == QLatin1Char('c')) {
             restApi()->changeChannelAnnouncement(roomId, newValue.toString());
-        } else if (channelType == QStringLiteral("p")) {
+        } else if (channelType == QLatin1Char('p')) {
             if (mRuqolaServerConfig->hasAtLeastVersion(0, 70, 0)) {
                 restApi()->changeGroupsAnnouncement(roomId, newValue.toString());
             } else {
@@ -1010,27 +1010,27 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         }
         break;
     case Description:
-        if (channelType == QStringLiteral("c")) {
+        if (channelType == QLatin1Char('c')) {
             restApi()->changeChannelDescription(roomId, newValue.toString());
-        } else if (channelType == QStringLiteral("p")) {
+        } else if (channelType == QLatin1Char('p')) {
             restApi()->changeGroupsDescription(roomId, newValue.toString());
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport change description for type " << channelType;
         }
         break;
     case Name:
-        if (channelType == QStringLiteral("c")) {
+        if (channelType == QLatin1Char('c')) {
             restApi()->changeChannelName(roomId, newValue.toString());
-        } else if (channelType == QStringLiteral("p")) {
+        } else if (channelType == QLatin1Char('p')) {
             restApi()->changeGroupName(roomId, newValue.toString());
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport change name for type " << channelType;
         }
         break;
     case Topic:
-        if (channelType == QStringLiteral("c")) {
+        if (channelType == QLatin1Char('c')) {
             restApi()->changeChannelTopic(roomId, newValue.toString());
-        } else if (channelType == QStringLiteral("p")) {
+        } else if (channelType == QLatin1Char('p')) {
             restApi()->changeGroupsTopic(roomId, newValue.toString());
         } else {
             //TODO : change topic in direct channel
@@ -1038,36 +1038,36 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         }
         break;
     case ReadOnly:
-        if (channelType == QStringLiteral("c")) {
+        if (channelType == QLatin1Char('c')) {
             restApi()->changeChannelReadOnly(roomId, newValue.toBool());
-        } else if (channelType == QStringLiteral("p")) {
+        } else if (channelType == QLatin1Char('p')) {
             restApi()->changeGroupsReadOnly(roomId, newValue.toBool());
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport change readonly for type " << channelType;
         }
         break;
     case Archive:
-        if (channelType == QStringLiteral("c")) {
+        if (channelType == QLatin1Char('c')) {
             restApi()->archiveChannel(roomId, newValue.toBool());
-        } else if (channelType == QStringLiteral("p")) {
+        } else if (channelType == QLatin1Char('p')) {
             restApi()->archiveGroups(roomId, newValue.toBool());
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport archiving for type " << channelType;
         }
         break;
     case RoomType:
-        if (channelType == QStringLiteral("c")) {
+        if (channelType == QLatin1Char('c')) {
             restApi()->setChannelType(roomId, newValue.toBool());
-        } else if (channelType == QStringLiteral("p")) {
+        } else if (channelType == QLatin1Char('p')) {
             restApi()->setGroupType(roomId, newValue.toBool());
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport roomtype for type " << channelType;
         }
         break;
     case Encrypted:
-        if (channelType == QStringLiteral("c")) {
+        if (channelType == QLatin1Char('c')) {
             restApi()->changeChannelEncrypted(roomId, newValue.toBool());
-        } else if (channelType == QStringLiteral("p")) {
+        } else if (channelType == QLatin1Char('p')) {
             restApi()->changeGroupsEncrypted(roomId, newValue.toBool());
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport encrypted mode for type " << channelType;
@@ -1514,9 +1514,9 @@ bool RocketChatAccount::sortUnreadOnTop() const
 
 void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, const QString &channelType)
 {
-    if (channelType == QStringLiteral("c")) {
+    if (channelType == QLatin1Char('c')) {
         restApi()->channelKick(roomId, userId);
-    } else if (channelType == QStringLiteral("p")) {
+    } else if (channelType == QLatin1Char('p')) {
         restApi()->groupKick(roomId, userId);
     } else {
         qCWarning(RUQOLA_LOG) << " unsupport kickUser room for type " << channelType;
@@ -1525,11 +1525,11 @@ void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, c
 
 void RocketChatAccount::rolesInRoom(const QString &roomId, const QString &channelType)
 {
-    if (channelType == QStringLiteral("c")) {
+    if (channelType == QLatin1Char('c')) {
         restApi()->getChannelRoles(roomId);
-    } else if (channelType == QStringLiteral("p")) {
+    } else if (channelType == QLatin1Char('p')) {
         restApi()->getGroupRoles(roomId);
-    } else if (channelType == QStringLiteral("d")) {
+    } else if (channelType == QLatin1Char('d')) {
         //No a problem here.
     } else {
         qCWarning(RUQOLA_LOG) << " unsupport get roles room for type " << channelType;
@@ -1544,7 +1544,7 @@ void RocketChatAccount::switchingToRoom(const QString &roomID)
 
 void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType)
 {
-    if (channelType == QStringLiteral("c")) {
+    if (channelType == QLatin1Char('c')) {
         switch (roleType) {
         case RocketChatAccount::AddOwner:
             restApi()->channelAddOwner(roomId, userId);
@@ -1573,7 +1573,7 @@ void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId
             restApi()->channelRemoveModerator(roomId, userId);
             break;
         }
-    } else if (channelType == QStringLiteral("p")) {
+    } else if (channelType == QLatin1Char('p')) {
         switch (roleType) {
         case RocketChatAccount::AddOwner:
             restApi()->groupAddOwner(roomId, userId);

@@ -85,7 +85,7 @@ void RoleTest::shouldLoadRoles()
 {
     QFETCH(QString, name);
     QFETCH(Role, role);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/rolesforroom/") + name + QStringLiteral(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/rolesforroom/") + name + QLatin1String(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();

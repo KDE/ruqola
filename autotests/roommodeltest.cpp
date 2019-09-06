@@ -499,7 +499,7 @@ void RoomModelTest::shouldInsertRoom()
     QFETCH(QString, insertRoomFileName);
     QFETCH(QString, roomId);
 
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QStringLiteral("/insert-rooms/") + insertRoomFileName + QStringLiteral(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/insert-rooms/") + insertRoomFileName + QLatin1String(".json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();

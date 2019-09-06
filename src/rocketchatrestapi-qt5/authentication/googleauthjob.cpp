@@ -79,7 +79,7 @@ void GoogleAuthJob::slotGoogleauthDone()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("status")].toString() == QStringLiteral("success") && replyObject.contains(QLatin1String("data"))) {
+        if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success") && replyObject.contains(QLatin1String("data"))) {
             const QJsonObject data = replyObject[QStringLiteral("data")].toObject();
 
             if (data.contains(QLatin1String("authToken")) && data.contains(QLatin1String("userId"))) {
