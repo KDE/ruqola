@@ -57,6 +57,9 @@ RoomWrapper::RoomWrapper(Room *r, QObject *parent)
     connect(mRoom, &Room::ignoredUsersChanged, this, &RoomWrapper::ignoredUsersChanged);
     connect(mRoom, &Room::mutedUsersChanged, this, &RoomWrapper::mutedUsersChanged);
     connect(mRoom, &Room::joinCodeRequiredChanged, this, &RoomWrapper::joinCodeRequiredChanged);
+
+    connect(mRoom, &Room::autoTranslateLanguageChanged, this, &RoomWrapper::autoTranslateLanguageChanged);
+    connect(mRoom, &Room::autoTranslateChanged, this, &RoomWrapper::autoTranslateChanged);
 }
 
 RoomWrapper::~RoomWrapper()
@@ -196,4 +199,14 @@ bool RoomWrapper::userHasLeaderRole(const QString &userId) const
 bool RoomWrapper::userHasModeratorRole(const QString &userId) const
 {
     return mRoom->userHasModeratorRole(userId);
+}
+
+QString RoomWrapper::autoTranslateLanguage() const
+{
+    return mRoom->autoTranslateLanguage();
+}
+
+bool RoomWrapper::autoTranslate() const
+{
+    return mRoom->autoTranslate();
 }
