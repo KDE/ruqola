@@ -25,6 +25,7 @@ import QtQuick.Window 2.2
 import org.kde.kirigami 2.7 as Kirigami
 QQC2.Dialog {
     id: autoTranslateConfigDialog
+    property QtObject roomInfo
 
     title: i18n("Auto-Translate")
 
@@ -33,7 +34,22 @@ QQC2.Dialog {
     width: parent.width * 9 / 10
     height: parent.height * 9 / 10
     anchors.centerIn: parent
-
     modal: true
     focus: true
+    contentItem: GridLayout {
+        columns: 2
+        QQC2.Label {
+            id: labelAutoTranslate
+            text: i18n("Automatic Translation:");
+        }
+        QQC2.Switch {
+            id: autoTranslate
+            //checked: roomInfo === null ? false : roomInfo.archived
+            onClicked: {
+            }
+        }
+        Item {
+            Layout.fillHeight: true
+        }
+    }
 }
