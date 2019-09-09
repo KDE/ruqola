@@ -94,6 +94,13 @@ Component {
                     }
                 },
                 Kirigami.Action {
+                    visible: appid.selectedRoom && appid.rocketChatAccount.autoTranslateEnabled()
+                    text: i18n("Auto-Translate")
+                    onTriggered: {
+                        //TODO
+                    }
+                },
+                Kirigami.Action {
                     visible: appid.selectedRoom
                     text: i18n("Mentions")
                     onTriggered: {
