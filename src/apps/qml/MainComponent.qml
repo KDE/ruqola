@@ -97,7 +97,7 @@ Component {
                     visible: appid.selectedRoom && appid.rocketChatAccount.autoTranslateEnabled()
                     text: i18n("Auto-Translate")
                     onTriggered: {
-                        //TODO
+                        autoTranslateConfigDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {
@@ -622,6 +622,24 @@ Component {
                     }
                     onAccepted: {
                         uploadFileDialogLoader.active = false
+                    }
+                }
+            }
+
+            Loader {
+                id: autoTranslateConfigDialogLoader
+                active: false
+                sourceComponent: AutoTranslateConfigDialog {
+                    id: autoTranslateConfigDialog
+                    parent: appid.pageStack
+                    onRejected: {
+                        autoTranslateConfigDialogLoader.active = false
+                    }
+                    onAccepted: {
+                        autoTranslateConfigDialogLoader.active = false
+                    }
+                    Component.onCompleted: {
+                        open()
                     }
                 }
             }

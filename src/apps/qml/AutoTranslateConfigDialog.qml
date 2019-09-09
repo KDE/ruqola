@@ -24,7 +24,7 @@ import QtQuick.Window 2.2
 
 import org.kde.kirigami 2.7 as Kirigami
 QQC2.Dialog {
-    id: aboutDialog
+    id: autoTranslateConfigDialog
 
     title: i18n("Auto-Translate")
 
