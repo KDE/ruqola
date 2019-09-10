@@ -44,9 +44,17 @@ QQC2.Dialog {
         }
         QQC2.Switch {
             id: autoTranslate
-            //checked: roomInfo === null ? false : roomInfo.archived
+            checked: roomInfo === null ? false : roomInfo.autoTranslate
             onClicked: {
+                console.log("change autotranslate info");
             }
+        }
+        QQC2.Label {
+            id: labelLAnguage
+            text: i18n("Language:");
+        }
+        AutoTranslateLanguageCombobox {
+
         }
         Item {
             Layout.fillHeight: true

@@ -632,6 +632,7 @@ Component {
                 sourceComponent: AutoTranslateConfigDialog {
                     id: autoTranslateConfigDialog
                     parent: appid.pageStack
+                    roomInfo: appid.selectedRoom
                     onRejected: {
                         autoTranslateConfigDialogLoader.active = false
                     }
