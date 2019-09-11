@@ -132,6 +132,7 @@
 #include "video-conference/videoconfupdatejitsitimeoutjob.h"
 
 #include "autotranslate/getsupportedlanguagesjob.h"
+#include "autotranslate/translatesavesettingsjob.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -1534,4 +1535,31 @@ void RestApiRequest::getSupportedLanguagesMessages()
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getSupportedLanguagesMessages";
     }
+}
+
+void RestApiRequest::autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language)
+{
+    TranslateSaveSettingsJob *job = new TranslateSaveSettingsJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setType(TranslateSaveSettingsJob::LanguageSetting);
+    job->setLanguage(language);
+    connect(job, &TranslateSaveSettingsJob::translateSavesettingsDone, this, &RestApiRequest::translateSavesettingsDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start autoTranslateSaveLanguageSettings";
+    }
+}
+
+void RestApiRequest::autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate)
+{
+    TranslateSaveSettingsJob *job = new TranslateSaveSettingsJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setType(TranslateSaveSettingsJob::AutoTranslateSetting);
+    job->setAutoTranslate(autoTranslate);
+    connect(job, &TranslateSaveSettingsJob::translateSavesettingsDone, this, &RestApiRequest::translateSavesettingsDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start autoTranslateSaveAutoTranslateSettings";
+    }
+
 }
