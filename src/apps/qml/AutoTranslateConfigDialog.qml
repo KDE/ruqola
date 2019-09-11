@@ -31,6 +31,8 @@ QQC2.Dialog {
 
     standardButtons: QQC2.Dialog.Close
 
+    signal changeAutoTranslateSettings(string roomId, bool value)
+
     width: parent.width * 9 / 10
     height: parent.height * 9 / 10
     anchors.centerIn: parent
@@ -47,6 +49,7 @@ QQC2.Dialog {
             checked: roomInfo === null ? false : roomInfo.autoTranslate
             onClicked: {
                 console.log("change autotranslate info");
+                autoTranslateConfigDialog.changeAutoTranslateSettings(roomInfo.rid, autoTranslate.checked)
             }
         }
         QQC2.Label {

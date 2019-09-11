@@ -359,6 +359,8 @@ public:
     AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
 
     void updateThreadMessageList(const Message &m);
+    Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
+    Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

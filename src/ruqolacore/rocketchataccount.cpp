@@ -1817,3 +1817,21 @@ void RocketChatAccount::slotGetSupportedLanguagesDone(const QJsonObject &obj)
 {
     mAutoTranslateLanguagesModel->parseLanguages(obj);
 }
+
+void RocketChatAccount::autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language)
+{
+    if (mRuqolaServerConfig->hasAtLeastVersion(1, 99, 0)) {
+        restApi()->autoTranslateSaveLanguageSettings(roomId, language);
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::autoTranslateSaveLanguageSettings is not supported before server 2.0.0";
+    }
+}
+
+void RocketChatAccount::autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate)
+{
+    if (mRuqolaServerConfig->hasAtLeastVersion(1, 99, 0)) {
+        restApi()->autoTranslateSaveAutoTranslateSettings(roomId, autoTranslate);
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::autoTranslateSaveLanguageSettings is not supported before server 2.0.0";
+    }
+}

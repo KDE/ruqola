@@ -124,7 +124,7 @@ bool TranslateSaveSettingsJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TranslateSaveSettingsJob: mRoomId is empty";
         return false;
     }
-    if (mLanguage.isEmpty()) {
+    if (mType == LanguageSetting && mLanguage.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TranslateSaveSettingsJob: mLanguage is empty";
         return false;
     }
