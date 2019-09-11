@@ -69,6 +69,36 @@ void TranslateSaveSettingsJob::slotTranslateSaveSettingsFinished()
     deleteLater();
 }
 
+TranslateSaveSettingsJob::SettingType TranslateSaveSettingsJob::type() const
+{
+    return mType;
+}
+
+void TranslateSaveSettingsJob::setType(const SettingType &type)
+{
+    mType = type;
+}
+
+QString TranslateSaveSettingsJob::language() const
+{
+    return mLanguage;
+}
+
+void TranslateSaveSettingsJob::setLanguage(const QString &language)
+{
+    mLanguage = language;
+}
+
+bool TranslateSaveSettingsJob::autoTranslate() const
+{
+    return mAutoTranslate;
+}
+
+void TranslateSaveSettingsJob::setAutoTranslate(bool autoTranslate)
+{
+    mAutoTranslate = autoTranslate;
+}
+
 QString TranslateSaveSettingsJob::roomId() const
 {
     return mRoomId;
@@ -94,6 +124,14 @@ bool TranslateSaveSettingsJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TranslateSaveSettingsJob: mRoomId is empty";
         return false;
     }
+    if (mLanguage.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TranslateSaveSettingsJob: mLanguage is empty";
+        return false;
+    }
+    if (mType == Underfined) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TranslateSaveSettingsJob: mType is not defined";
+        return false;
+    }
     return true;
 }
 
@@ -109,8 +147,22 @@ QNetworkRequest TranslateSaveSettingsJob::request() const
 QJsonDocument TranslateSaveSettingsJob::json() const
 {
     QJsonObject jsonObj;
-//    jsonObj[QLatin1String("messageId")] = mMessageId;
-//    jsonObj[QLatin1String("targetLanguage")] = mTargetLanguage;
+    jsonObj[QLatin1String("roomId")] = mRoomId;
+    switch (mType) {
+    case AutoTranslateSetting: {
+        jsonObj[QLatin1String("field")] = QStringLiteral("autoTranslate");
+        jsonObj[QLatin1String("value")] = mAutoTranslate;
+        break;
+    }
+    case LanguageSetting: {
+        jsonObj[QLatin1String("field")] = QStringLiteral("autoTranslateLanguage");
+        jsonObj[QLatin1String("value")] = mLanguage;
+        break;
+    }
+    case Underfined: {
+        break;
+    }
+    }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }

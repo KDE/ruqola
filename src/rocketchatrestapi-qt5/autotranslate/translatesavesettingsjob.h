@@ -31,6 +31,12 @@ public:
     explicit TranslateSaveSettingsJob(QObject *parent = nullptr);
     ~TranslateSaveSettingsJob() override;
 
+    enum SettingType {
+        AutoTranslateSetting,
+        LanguageSetting,
+        Underfined
+    };
+
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
     Q_REQUIRED_RESULT bool canStart() const override;
@@ -41,6 +47,15 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
+    Q_REQUIRED_RESULT bool autoTranslate() const;
+    void setAutoTranslate(bool autoTranslate);
+
+    Q_REQUIRED_RESULT QString language() const;
+    void setLanguage(const QString &language);
+
+    Q_REQUIRED_RESULT SettingType type() const;
+    void setType(const SettingType &type);
+
 Q_SIGNALS:
     void translateSavesettingsDone();
 
@@ -48,6 +63,9 @@ private:
     Q_DISABLE_COPY(TranslateSaveSettingsJob)
     void slotTranslateSaveSettingsFinished();
     QString mRoomId;
+    QString mLanguage;
+    TranslateSaveSettingsJob::SettingType mType = Underfined;
+    bool mAutoTranslate = false;
 };
 }
 #endif // TRANSLATESAVESETTINGSJOB_H
