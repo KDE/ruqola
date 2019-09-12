@@ -91,6 +91,9 @@ void TranslateSaveSettingsJobTest::shouldNotStarting()
 
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
+    QVERIFY(job.canStart());
+    type = TranslateSaveSettingsJob::LanguageSetting;
+    job.setType(type);
     QVERIFY(!job.canStart());
     const QString targetLanguage = QStringLiteral("bla");
     job.setLanguage(targetLanguage);
