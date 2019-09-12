@@ -645,6 +645,9 @@ Component {
                     onChangeAutoTranslateSettings: {
                         appid.rocketChatAccount.autoTranslateSaveAutoTranslateSettings(roomId, value)
                     }
+                    onChangeAutoTranslateLanguageSettings: {
+                        appid.rocketChatAccount.autoTranslateSaveAutoTranslateSettings(roomId, lang)
+                    }
                 }
             }
 

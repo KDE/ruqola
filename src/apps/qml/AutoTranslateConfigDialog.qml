@@ -32,6 +32,7 @@ QQC2.Dialog {
     standardButtons: QQC2.Dialog.Close
 
     signal changeAutoTranslateSettings(string roomId, bool value)
+    signal changeAutoTranslateLanguageSettings(string roomId, string lang)
 
     width: parent.width * 9 / 10
     height: parent.height * 9 / 10
