@@ -107,10 +107,6 @@ if (BUILD_TESTING)
 endif()
 
 add_subdirectory(doc)
-if (${ECM_VERSION} STRGREATER "5.58.0")
-   install(FILES ruqola.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-else()
-   install(FILES ruqola.categories DESTINATION ${KDE_INSTALL_CONFDIR})	
-endif()
+install(FILES ruqola.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
