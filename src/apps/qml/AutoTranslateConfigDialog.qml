@@ -58,7 +58,8 @@ QQC2.Dialog {
             text: i18n("Language:");
         }
         AutoTranslateLanguageCombobox {
-
+            //model: NotificationPreferences.desktopNotificationModel()
+            //TODO
         }
         Item {
             Layout.fillHeight: true

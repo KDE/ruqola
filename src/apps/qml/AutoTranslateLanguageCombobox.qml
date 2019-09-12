@@ -26,8 +26,8 @@ import KDE.Ruqola.DebugCategory 1.0
 QQC2.ComboBox {
     id: autoTranslateLanguageCombobox
     Layout.alignment: Qt.AlignLeft
-//    textRole: "preferencei18n"
-//    onActivated: {
-//        console.log(RuqolaDebugCategorySingleton.category, " Change " + model.currentPreference(index))
-//    }
+    textRole: "preferencei18n"
+    onActivated: {
+        console.log(RuqolaDebugCategorySingleton.category, " Change " + model.currentPreference(index))
+    }
 }
