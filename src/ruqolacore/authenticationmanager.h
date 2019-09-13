@@ -24,6 +24,7 @@
 #include <KPluginMetaData>
 #include <QObject>
 #include "libruqolacore_export.h"
+#include <QVector>
 class PluginAuthentication;
 class PluginUtilData
 {
