@@ -236,7 +236,16 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
                 return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
             }
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-            return convertMessageText(message.text(), userName);
+            QString messageStr = message.text();
+            if (mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
+                const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
+                if (!messageTranslation.isEmpty()) {
+                    messageStr = messageTranslation;
+                }
+                //qDebug() << " autotranslate true && mRoom->autoTranslateLanguage() :" << mRoom->autoTranslateLanguage();
+            }
+
+            return convertMessageText(messageStr, userName);
         }
 
     case MessageModel::Timestamp:
