@@ -1419,6 +1419,7 @@ void RocketChatAccount::setServerVersion(const QString &version)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::setServerVersion(const QString &version)" << version;
     mRuqolaServerConfig->setServerVersion(version);
+    getSupportedLanguages();
 }
 
 bool RocketChatAccount::needAdaptNewSubscriptionRC60() const
@@ -1806,7 +1807,7 @@ void RocketChatAccount::followMessage(const QString &messageId, bool follow)
 
 void RocketChatAccount::getSupportedLanguages()
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(1, 99, 0)) {
+    if (mRuqolaServerConfig->hasAtLeastVersion(1, 99, 0) && autoTranslateEnabled()) {
         restApi()->getSupportedLanguagesMessages();
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSupportedLanguages is not supported before server 2.0.0";
