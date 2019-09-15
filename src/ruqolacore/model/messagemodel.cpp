@@ -245,7 +245,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
                 //qDebug() << " autotranslate true && mRoom->autoTranslateLanguage() :" << mRoom->autoTranslateLanguage();
             }
 
-            return convertMessageText(messageStr, userName);
+            return convertMessageText(message, userName);
         }
 
     case MessageModel::Timestamp:
@@ -357,9 +357,18 @@ QStringList MessageModel::roomRoles(const QString &userId) const
     return QStringList();
 }
 
-QString MessageModel::convertMessageText(const QString &str, const QString &userName) const
+QString MessageModel::convertMessageText(const Message &message, const QString &userName) const
 {
-    return mTextConverter->convertMessageText(str, userName, mAllMessages);
+    QString messageStr = message.text();
+    if (mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
+        const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
+        if (!messageTranslation.isEmpty()) {
+            messageStr = messageTranslation;
+        }
+        //qDebug() << " autotranslate true && mRoom->autoTranslateLanguage() :" << mRoom->autoTranslateLanguage();
+    }
+
+    return mTextConverter->convertMessageText(messageStr, userName, mAllMessages);
 }
 
 void MessageModel::setRoomID(const QString &roomID)
@@ -406,7 +415,7 @@ QString MessageModel::threadMessagePreview(const QString &threadMessageId, const
             return msg.messageId() == threadMessageId;
         });
         if (it != mAllMessages.cend()) {
-            QString str = convertMessageText((*it).text(), userName);
+            QString str = convertMessageText((*it), userName);
             if (str.length() > 80) {
                 str = str.left(80) + QStringLiteral("...");
             }

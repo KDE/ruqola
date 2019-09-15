@@ -116,7 +116,7 @@ private:
     Q_DISABLE_COPY(MessageModel)
     void refresh();
     QStringList roomRoles(const QString &userId) const;
-    QString convertMessageText(const QString &str, const QString &userName) const;
+    QString convertMessageText(const Message &message, const QString &userName) const;
     QString threadMessagePreview(const QString &threadMessageId, const QString &userName) const;
     QString mRoomID;
     QVector<Message> mAllMessages;
