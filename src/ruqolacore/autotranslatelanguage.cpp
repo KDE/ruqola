@@ -36,7 +36,7 @@ void AutotranslateLanguage::setLanguage(const QString &language)
 
 QString AutotranslateLanguage::displayLanguage() const
 {
-    return mDisplayLanguage;
+    return mDisplayLanguage.isEmpty() ? mLanguage : mDisplayLanguage;
 }
 
 void AutotranslateLanguage::setDisplayLanguage(const QString &displayLanguage)
