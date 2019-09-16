@@ -40,7 +40,7 @@ public:
 
     Q_REQUIRED_RESULT bool operator ==(const File &other) const;
 
-    File &operator=(const File &other);
+    File &operator=(const File &other) = default;
 
     Q_REQUIRED_RESULT QString userId() const;
     void setUserId(const QString &userId);

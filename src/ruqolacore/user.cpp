@@ -77,17 +77,6 @@ bool User::operator !=(const User &other) const
     return !operator ==(other);
 }
 
-User &User::operator=(const User &other)
-{
-    mStatus = other.status();
-    mUserId = other.userId();
-    mName = other.name();
-    mUserName = other.userName();
-    mUtcOffset = other.utcOffset();
-    mStatusText = other.statusText();
-    return *this;
-}
-
 QString User::userName() const
 {
     return mUserName;

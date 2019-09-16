@@ -185,17 +185,6 @@ bool Emoji::operator==(const Emoji &other) const
            && (mUpdatedAt == other.updatedAt());
 }
 
-Emoji &Emoji::operator=(const Emoji &other)
-{
-    mName = other.name();
-    mExtension = other.extension();
-    mIdentifier = other.identifier();
-    mAliases = other.aliases();
-    mEmojiIdentifier = other.emojiIdentifier();
-    mUpdatedAt = other.updatedAt();
-    return *this;
-}
-
 QDebug operator <<(QDebug d, const Emoji &t)
 {
     d << "Name: " << t.name() << " ";

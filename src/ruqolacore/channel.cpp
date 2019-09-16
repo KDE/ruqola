@@ -76,16 +76,6 @@ bool Channel::operator==(const Channel &other) const
            && (mRoomName == other.roomName());
 }
 
-Channel &Channel::operator=(const Channel &other)
-{
-    mType = other.type();
-    mUser = other.user();
-    mRoomId = other.roomId();
-    mRoomType = other.roomType();
-    mRoomName = other.roomName();
-    return *this;
-}
-
 QString Channel::roomId() const
 {
     return mRoomId;

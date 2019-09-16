@@ -381,43 +381,6 @@ bool Message::operator==(const Message &other) const
             && (mMessageTranslation == other.messageTranslation());
 }
 
-Message &Message::operator=(const Message &other)
-{
-    setMessageId(other.messageId());
-    setRoomId(other.roomId());
-    setText(other.text());
-    setTimeStamp(other.timeStamp());
-    setUsername(other.username());
-    setUserId(other.userId());
-    setUpdatedAt(other.updatedAt());
-    setEditedAt(other.editedAt());
-    setEditedByUsername(other.editedByUsername());
-    setEditedByUserId(other.editedByUserId());
-    setAlias(other.alias());
-    setAvatar(other.avatar());
-    setSystemMessageType(other.systemMessageType());
-    setGroupable(other.groupable());
-    setParseUrls(other.parseUrls());
-    setUrls(other.urls());
-    setAttachements(other.attachements());
-    setMentions(other.mentions());
-    setMessageType(other.messageType());
-    setStarred(other.starred());
-    setRole(other.role());
-    setReactions(other.reactions());
-    setUnread(other.unread());
-    setMessagePinned(other.messagePinned());
-    setMessageStarred(other.messageStarred());
-    setThreadCount(other.threadCount());
-    setThreadLastMessage(other.threadLastMessage());
-    setDiscussionCount(other.discussionCount());
-    setDiscussionLastMessage(other.discussionLastMessage());
-    setDiscussionRoomId(other.discussionRoomId());
-    setThreadMessageId(other.threadMessageId());
-    setMessageTranslation(other.messageTranslation());
-    return *this;
-}
-
 bool Message::operator<(const Message &other) const
 {
     return mTimeStamp < other.mTimeStamp;

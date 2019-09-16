@@ -81,7 +81,7 @@ public:
 
     Q_REQUIRED_RESULT bool operator==(const Message &other) const;
 
-    Message &operator=(const Message &other);
+    Message &operator=(const Message &other) = default;
 
     // To be used in sorted insert: timestamp
     bool operator<(const Message &other) const;

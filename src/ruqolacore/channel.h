@@ -48,7 +48,7 @@ public:
 
     Q_REQUIRED_RESULT bool operator==(const Channel &other) const;
 
-    Channel &operator=(const Channel &other);
+    Channel &operator=(const Channel &other) = default;
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);

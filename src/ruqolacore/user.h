@@ -56,7 +56,7 @@ public:
     Q_REQUIRED_RESULT bool operator ==(const User &other) const;
     Q_REQUIRED_RESULT bool operator !=(const User &other) const;
 
-    User &operator=(const User &other);
+    User &operator=(const User &other) = default;
     Q_REQUIRED_RESULT QString userName() const;
     void setUserName(const QString &userName);
 

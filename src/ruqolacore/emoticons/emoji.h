@@ -45,7 +45,7 @@ public:
 
     bool operator==(const Emoji &other) const;
 
-    Emoji &operator=(const Emoji &other);
+    Emoji &operator=(const Emoji &other) = default;
 
     Q_REQUIRED_RESULT bool isValid() const;
 

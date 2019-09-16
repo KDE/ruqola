@@ -82,21 +82,6 @@ bool File::operator ==(const File &other) const
            && (complete() == other.complete());
 }
 
-File &File::operator=(const File &other)
-{
-    mFileName = other.fileName();
-    mDescription = other.description();
-    mUrl = other.url();
-    mUserId = other.userId();
-    mMimeType = other.mimeType();
-    mUploadedAt = other.uploadedAt();
-    mFileId = other.fileId();
-    mRid = other.rid();
-    mUserName = other.userName();
-    mComplete = other.complete();
-    return *this;
-}
-
 QString File::userId() const
 {
     return mUserId;
