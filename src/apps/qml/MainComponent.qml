@@ -53,6 +53,7 @@ Component {
             left: Kirigami.Action {
                 icon.name: "preferences-desktop-notification"
                 icon.color: "transparent"
+                tooltip: i18n("Configure Notification")
                 visible: appid.selectedRoom
                 onTriggered: {
                     notificationsDialogLoader.active = true;
@@ -61,11 +62,13 @@ Component {
             main: Kirigami.Action {
                 id: showUsersAction
                 icon.name: "system-users"
+                tooltip: i18n("List of Users")
                 visible: appid.selectedRoom
                 checkable: true
             }
             right: Kirigami.Action {
                 icon.name: "edit-find"
+                tooltip: i18n("Search Messages")
                 visible: appid.selectedRoom
                 onTriggered: {
                     searchMessageDialogLoader.active = true;
@@ -75,6 +78,7 @@ Component {
                 Kirigami.Action {
                     visible: appid.selectedRoom
                     text: i18n("Channel Info")
+                    tooltip: i18n("Channel Info")
                     onTriggered: {
                         var channelType = appid.selectedRoom.channelType;
                         if (channelType === "c" || channelType === "p") {
