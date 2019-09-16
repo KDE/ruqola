@@ -228,7 +228,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::OriginalMessage:
         return message.text();
     case MessageModel::MessageConvertedText:
-        //TODO improve it.
         if (message.messageType() == Message::System) {
             return message.messageTypeText();
         } else {
@@ -236,15 +235,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
                 return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
             }
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-            QString messageStr = message.text();
-            if (mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
-                const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
-                if (!messageTranslation.isEmpty()) {
-                    messageStr = messageTranslation;
-                }
-                //qDebug() << " autotranslate true && mRoom->autoTranslateLanguage() :" << mRoom->autoTranslateLanguage();
-            }
-
             return convertMessageText(message, userName);
         }
 
@@ -360,7 +350,7 @@ QStringList MessageModel::roomRoles(const QString &userId) const
 QString MessageModel::convertMessageText(const Message &message, const QString &userName) const
 {
     QString messageStr = message.text();
-    if (mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
+    if (mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
         const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
         if (!messageTranslation.isEmpty()) {
             messageStr = messageTranslation;
