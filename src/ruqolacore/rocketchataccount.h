@@ -356,7 +356,7 @@ public:
     Q_INVOKABLE PinnedMessageModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;
 
     Q_INVOKABLE void getSupportedLanguages();
-    AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
+    Q_INVOKABLE AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
 
     void updateThreadMessageList(const Message &m);
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);

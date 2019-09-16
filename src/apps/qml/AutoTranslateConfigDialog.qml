@@ -49,7 +49,6 @@ QQC2.Dialog {
             id: autoTranslate
             checked: roomInfo === null ? false : roomInfo.autoTranslate
             onClicked: {
-                console.log("change autotranslate info");
                 autoTranslateConfigDialog.changeAutoTranslateSettings(roomInfo.rid, autoTranslate.checked)
             }
         }
@@ -58,8 +57,10 @@ QQC2.Dialog {
             text: i18n("Language:");
         }
         AutoTranslateLanguageCombobox {
-            //model: NotificationPreferences.desktopNotificationModel()
-            //TODO
+            model: appid.autotranslateLanguagesModel
+            onActivated: {
+
+            }
         }
         Item {
             Layout.fillHeight: true
