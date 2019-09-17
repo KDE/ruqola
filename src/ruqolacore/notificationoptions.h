@@ -73,7 +73,7 @@ public:
     void parseNotificationOptions(const QJsonObject &obj);
     void updateNotificationOptions(const QJsonObject &obj);
 
-    NotificationOptions &operator =(const NotificationOptions &other);
+    NotificationOptions &operator =(const NotificationOptions &other) = default;
     Q_REQUIRED_RESULT bool operator==(const NotificationOptions &other) const;
 
     Q_REQUIRED_RESULT bool muteGroupMentions() const;

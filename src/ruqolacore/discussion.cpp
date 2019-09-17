@@ -122,18 +122,6 @@ bool Discussion::operator ==(const Discussion &other) const
            && (fname() == other.fname());
 }
 
-Discussion &Discussion::operator=(const Discussion &other)
-{
-    mParentRoomId = other.parentRoomId();
-    mDescription = other.description();
-    mNumberMessages = other.numberMessages();
-    mLastMessage = other.lastMessage();
-    mDiscussionRoomId = other.discussionRoomId();
-    mTimeStamp = other.timeStamp();
-    mFname = other.fname();
-    return *this;
-}
-
 void Discussion::parseDiscussion(const QJsonObject &o)
 {
     mParentRoomId = o.value(QLatin1String("prid")).toString();

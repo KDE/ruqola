@@ -42,7 +42,7 @@ public:
     void setLastMessage(const qint64 &lastMessage);
 
     Q_REQUIRED_RESULT bool operator ==(const Discussion &other) const;
-    Discussion &operator =(const Discussion &other);
+    Discussion &operator =(const Discussion &other) = default;
 
     void parseDiscussion(const QJsonObject &o);
 

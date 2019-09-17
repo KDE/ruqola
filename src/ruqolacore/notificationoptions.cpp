@@ -200,18 +200,3 @@ QDebug operator <<(QDebug d, const NotificationOptions &t)
     d << "mMuteGroupMentions: " << t.muteGroupMentions();
     return d;
 }
-
-NotificationOptions &NotificationOptions::operator=(const NotificationOptions &other)
-{
-    mAudioNotifications = other.audioNotifications();
-    mDesktopNotifications = other.desktopNotifications();
-    mMobilePushNotification = other.mobilePushNotification();
-    mEmailNotifications = other.emailNotifications();
-    mUnreadTrayIconAlert = other.unreadTrayIconAlert();
-    mAudioNotificationValue = other.audioNotificationValue();
-    mDesktopNotificationDuration = other.desktopNotificationDuration();
-    mDisableNotifications = other.disableNotifications();
-    mHideUnreadStatus = other.hideUnreadStatus();
-    mMuteGroupMentions = other.muteGroupMentions();
-    return *this;
-}
