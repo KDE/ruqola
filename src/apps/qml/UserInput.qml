@@ -23,7 +23,7 @@
 
 import QtQuick 2.9
 import QtQuick.Layouts 1.12
-
+import QtQuick.Controls 2.5 as QQC2
 import KDE.Ruqola.RocketChatAccount 1.0
 import org.kde.kirigami 2.7 as Kirigami
 import "common"
@@ -50,6 +50,13 @@ RowLayout {
 
     Kirigami.Icon {
         id: attachment
+        MouseArea {
+            hoverEnabled: true
+            anchors.fill: parent
+            QQC2.ToolTip {
+                text: i18n("Attach Files")
+            }
+        }
 
         enabled: selectedRoomId !== ""
         source: "document-send-symbolic"
@@ -87,6 +94,14 @@ RowLayout {
         width: height
         height: messageLine.height
         MouseArea {
+            hoverEnabled: true
+            anchors.fill: parent
+            QQC2.ToolTip {
+                text: i18n("Insert Emoji")
+            }
+        }
+
+        MouseArea {
             anchors.fill: parent
             onClicked: {
                 emoticonMenu.visible ? emoticonMenu.close() : emoticonMenu.open()
@@ -99,6 +114,10 @@ RowLayout {
         width: height
         height: messageLine.height
         MouseArea {
+            hoverEnabled: true
+            QQC2.ToolTip {
+                text: i18n("Send Message")
+            }
             anchors.fill: parent
             onClicked: {
                 messageLine.sendMessage()
