@@ -45,14 +45,14 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString userId() const;
-    void setUserId(const QString &userId);
-
     Q_REQUIRED_RESULT QString statusMessage() const;
     void setStatusMessage(const QString &statusMessage);
 
     Q_REQUIRED_RESULT StatusType status() const;
     void setStatus(StatusType status);
+
+    Q_REQUIRED_RESULT QString statusUserId() const;
+    void setStatusUserId(const QString &statusUserId);
 
 Q_SIGNALS:
     void setStatusDone();
@@ -60,7 +60,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(SetStatusJob)
     void slotSetStatus();
-    QString mUserId;
+    QString mStatusUserId;
     QString mStatusMessage;
     StatusType mStatus = Unknown;
 };

@@ -35,7 +35,7 @@ void SetStatusJobTest::shouldHaveDefaultValue()
     SetStatusJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.userId().isEmpty());
+    QVERIFY(job.statusUserId().isEmpty());
     QVERIFY(job.statusMessage().isEmpty());
     QCOMPARE(job.status(), SetStatusJob::Unknown);
     QVERIFY(!job.hasQueryParameterSupport());
@@ -54,7 +54,7 @@ void SetStatusJobTest::shouldGenerateJson()
 {
     SetStatusJob job;
     const QString userId = QStringLiteral("foo1");
-    job.setUserId(userId);
+    job.setStatusUserId(userId);
     //TODO add type
     //TODO add message
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"userId\":\"%1\"}").arg(userId).toLatin1());
@@ -77,8 +77,8 @@ void SetStatusJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-    const QString userid = QStringLiteral("foo1");
-    job.setUserId(userid);
+    const QString statusUserid = QStringLiteral("foo1");
+    job.setStatusUserId(statusUserid);
     QVERIFY(!job.canStart());
     job.setStatus(SetStatusJob::Away);
     QVERIFY(job.canStart());

@@ -67,6 +67,16 @@ void SetStatusJob::slotSetStatus()
     deleteLater();
 }
 
+QString SetStatusJob::statusUserId() const
+{
+    return mStatusUserId;
+}
+
+void SetStatusJob::setStatusUserId(const QString &statusUserId)
+{
+    mStatusUserId = statusUserId;
+}
+
 SetStatusJob::StatusType SetStatusJob::status() const
 {
     return mStatus;
@@ -87,17 +97,6 @@ void SetStatusJob::setStatusMessage(const QString &statusMessage)
     mStatusMessage = statusMessage;
 }
 
-QString SetStatusJob::userId() const
-{
-    return mUserId;
-}
-
-void SetStatusJob::setUserId(const QString &userId)
-{
-    mUserId = userId;
-}
-
-
 bool SetStatusJob::requireHttpAuthentication() const
 {
     return true;
@@ -109,7 +108,7 @@ bool SetStatusJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetStatusJob";
         return false;
     }
-    if (mUserId.isEmpty()) {
+    if (mStatusUserId.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetStatusJob: mUserId is empty";
         return false;
     }
@@ -132,7 +131,7 @@ QNetworkRequest SetStatusJob::request() const
 QJsonDocument SetStatusJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("userId")] = mUserId;
+    jsonObj[QLatin1String("userId")] = mStatusUserId;
     if (!mStatusMessage.isEmpty()) {
 
     }
