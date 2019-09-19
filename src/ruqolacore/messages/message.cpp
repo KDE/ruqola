@@ -466,6 +466,10 @@ QString Message::messageTypeText() const
     } else if (mSystemMessageType == QLatin1String("rtc")) {
         qCWarning(RUQOLA_LOG) << "Need to implement : " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
+    } else if (mSystemMessageType == QLatin1String("wm")) {
+        //TODO verify
+        qCWarning(RUQOLA_LOG) << "Need to implement : " << mSystemMessageType << " mText " << mText;
+        return i18n("Welcome %1!", mUsername);
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
