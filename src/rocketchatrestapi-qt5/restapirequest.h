@@ -166,6 +166,7 @@ public:
     void getSupportedLanguagesMessages();
     void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
+    void setUserStatus(const QString &userId, const QString &message);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -218,6 +219,7 @@ Q_SIGNALS:
     void getPinnedMessagesDone(const QJsonObject &obj, const QString &roomId);
     void getSupportedLanguagesDone(const QJsonObject &obj);
     void translateSavesettingsDone();
+    void setStatusDone();
 
     void failed(const QString &str);
 

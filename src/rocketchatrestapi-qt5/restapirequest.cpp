@@ -35,6 +35,7 @@
 #include "users/usersinfojob.h"
 #include "users/getpresencejob.h"
 #include "users/getusernamesuggestionjob.h"
+#include "users/setstatusjob.h"
 
 #include "misc/owninfojob.h"
 
@@ -1560,6 +1561,19 @@ void RestApiRequest::autoTranslateSaveAutoTranslateSettings(const QString &roomI
     connect(job, &TranslateSaveSettingsJob::translateSavesettingsDone, this, &RestApiRequest::translateSavesettingsDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start autoTranslateSaveAutoTranslateSettings";
+    }
+
+}
+
+void RestApiRequest::setUserStatus(const QString &userId, const QString &message /*add type*/)
+{
+    SetStatusJob *job = new SetStatusJob(this);
+    initializeRestApiJob(job);
+    job->setStatusUserId(userId);
+    job->setStatusMessage(message);
+    connect(job, &SetStatusJob::setStatusDone, this, &RestApiRequest::setStatusDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetStatusJob";
     }
 
 }
