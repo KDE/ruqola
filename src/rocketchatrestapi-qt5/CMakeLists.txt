@@ -21,6 +21,7 @@ set (RocketChatRestApiQt_SRCS
     users/getpresencejob.cpp
     users/resetavatarjob.cpp
     users/getusernamesuggestionjob.cpp
+    users/setstatusjob.cpp
 
     authentication/logoutjob.cpp
     authentication/loginjob.cpp

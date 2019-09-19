@@ -83,6 +83,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("users.updateOwnBasicInfo");
     case RestApiUtil::RestApiUrlType::UsersRegeneratePersonalAccessToken:
         return QStringLiteral("users.regeneratePersonalAccessToken");
+    case RestApiUtil::RestApiUrlType::UsersSetStatus:
+        return QStringLiteral("users.setStatus");
+    case RestApiUtil::RestApiUrlType::UsersGetStatus:
+        return QStringLiteral("users.getStatus");
     case RestApiUtil::RestApiUrlType::ChatDelete:
         return QStringLiteral("chat.delete");
     case RestApiUtil::RestApiUrlType::ChatGetMessage:

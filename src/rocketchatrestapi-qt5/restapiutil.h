@@ -46,6 +46,8 @@ enum class RestApiUrlType {
     UsersGetUsernameSuggestion,
     UsersRemovePersonalAccessToken,
     UsersGeneratePersonalAccessToken,
+    UsersSetStatus,
+    UsersGetStatus,
     ChatDelete,
     ChatGetMessage,
     ChatPinMessage,
