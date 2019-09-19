@@ -132,11 +132,29 @@ QJsonDocument SetStatusJob::json() const
 {
     QJsonObject jsonObj;
     jsonObj[QLatin1String("userId")] = mStatusUserId;
-    if (!mStatusMessage.isEmpty()) {
-
+    QString statusType;
+    switch(mStatus) {
+    case OnLine:
+        statusType = QStringLiteral("online");
+        break;
+    case Away:
+        statusType = QStringLiteral("away");
+        break;
+    case Offline:
+        statusType = QStringLiteral("offline");
+        break;
+    case Busy:
+        statusType = QStringLiteral("busy");
+        break;
+    case Unknown:
+        break;
     }
-    //ADD type
-    //ADD message
+    QJsonObject statusJson;
+    statusJson[QLatin1String("status")] = statusType;
+    if (!mStatusMessage.isEmpty()) {
+        statusJson[QLatin1String("message")] = mStatusMessage;
+    }
+    jsonObj[QLatin1String("bodyParams")] = statusJson;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
