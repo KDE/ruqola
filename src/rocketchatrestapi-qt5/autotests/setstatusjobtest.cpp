@@ -55,9 +55,13 @@ void SetStatusJobTest::shouldGenerateJson()
     SetStatusJob job;
     const QString userId = QStringLiteral("foo1");
     job.setStatusUserId(userId);
-    //TODO add type
-    //TODO add message
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"userId\":\"%1\"}").arg(userId).toLatin1());
+    job.setStatusMessage(QString());
+    job.setStatus(SetStatusJob::Away);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"message\":\"\",\"status\":\"away\",\"userId\":\"foo1\"}").arg(userId).toLatin1());
+    job.setStatusMessage(QStringLiteral("bla"));
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"message\":\"bla\",\"status\":\"away\",\"userId\":\"foo1\"}").arg(userId).toLatin1());
+    job.setStatus(SetStatusJob::Offline);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral("{\"message\":\"bla\",\"status\":\"offline\",\"userId\":\"foo1\"}").arg(userId).toLatin1());
 }
 
 void SetStatusJobTest::shouldNotStarting()
