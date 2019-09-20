@@ -1565,11 +1565,12 @@ void RestApiRequest::autoTranslateSaveAutoTranslateSettings(const QString &roomI
 
 }
 
-void RestApiRequest::setUserStatus(const QString &userId, const QString &message /*add type*/)
+void RestApiRequest::setUserStatus(const QString &userId, SetStatusJob::StatusType status, const QString &message)
 {
     SetStatusJob *job = new SetStatusJob(this);
     initializeRestApiJob(job);
     job->setStatusUserId(userId);
+    job->setStatus(status);
     job->setStatusMessage(message);
     connect(job, &SetStatusJob::setStatusDone, this, &RestApiRequest::setStatusDone);
     if (!job->start()) {

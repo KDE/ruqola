@@ -149,12 +149,8 @@ QJsonDocument SetStatusJob::json() const
     case Unknown:
         break;
     }
-    QJsonObject statusJson;
-    statusJson[QLatin1String("status")] = statusType;
-    if (!mStatusMessage.isEmpty()) {
-        statusJson[QLatin1String("message")] = mStatusMessage;
-    }
-    jsonObj[QLatin1String("bodyParams")] = statusJson;
+    jsonObj[QLatin1String("status")] = statusType;
+    jsonObj[QLatin1String("message")] = mStatusMessage;
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

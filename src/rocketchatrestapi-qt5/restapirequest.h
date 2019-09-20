@@ -25,6 +25,7 @@
 #include <QSslError>
 #include <QUrl>
 #include "restapiutil.h"
+#include "users/setstatusjob.h"
 #include "librocketchatrestapi-qt5_export.h"
 
 class QNetworkAccessManager;
@@ -166,7 +167,7 @@ public:
     void getSupportedLanguagesMessages();
     void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
-    void setUserStatus(const QString &userId, const QString &message);
+    void setUserStatus(const QString &userId, SetStatusJob::StatusType status, const QString &message = QString());
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();

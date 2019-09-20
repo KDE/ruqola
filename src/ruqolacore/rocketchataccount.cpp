@@ -81,6 +81,8 @@
 #include <plugins/pluginauthentication.h>
 #include <plugins/pluginauthenticationinterface.h>
 
+#include <users/setstatusjob.h>
+
 #define USE_REASTAPI_JOB 1
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
@@ -651,7 +653,37 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status)
     //Not implemented yet
     //TODO use restapi
     if (statusModel()->currentUserStatus() != status) {
+#ifdef USE_REASTAPI_JOB
+        RocketChatRestApi::SetStatusJob::StatusType type;
+        switch (status) {
+        case User::PresenceStatus::PresenceOnline:
+            type = RocketChatRestApi::SetStatusJob::OnLine;
+            break;
+        case User::PresenceStatus::PresenceBusy:
+            type = RocketChatRestApi::SetStatusJob::Busy;
+            break;
+        case User::PresenceStatus::PresenceAway:
+            type = RocketChatRestApi::SetStatusJob::Away;
+            break;
+        case User::PresenceStatus::PresenceOffline:
+            type = RocketChatRestApi::SetStatusJob::Offline;
+            break;
+        case User::PresenceStatus::Unknown:
+            type = RocketChatRestApi::SetStatusJob::Unknown;
+            break;
+        }
+
+        enum class PresenceStatus {
+            PresenceOnline,
+            PresenceBusy,
+            PresenceAway,
+            PresenceOffline,
+            Unknown
+        };
+        restApi()->setUserStatus(userID(), type, QString()); //TOOD add messagestatus
+#else
         ddp()->setDefaultStatus(status);
+#endif
     }
 }
 
