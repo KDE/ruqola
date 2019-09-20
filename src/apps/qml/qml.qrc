@@ -62,6 +62,7 @@
         <file>ShowPinnedMessagesDialog.qml</file>
         <file>AutoTranslateLanguageCombobox.qml</file>
         <file>AutoTranslateConfigDialog.qml</file>
+        <file>CustomUserStatusDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>
