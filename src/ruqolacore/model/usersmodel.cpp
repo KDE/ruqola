@@ -167,7 +167,15 @@ void UsersModel::updateUser(const QJsonObject &array)
                 Q_EMIT nameChanged(user);
                 userDataChanged = true;
             }
-            //StatusText ?
+            const QString statusMessage = fields.value(QLatin1String("statusText")).toString();
+            if (!statusMessage.isEmpty()) {
+                user.setStatusText(statusMessage);
+                mUsers.replace(i, user);
+                const QModelIndex idx = createIndex(i, 0);
+                Q_EMIT dataChanged(idx, idx);
+                Q_EMIT statusMessageChanged(user);
+                userDataChanged = true;
+            }
             if (!userDataChanged) {
                 qCWarning(RUQOLA_LOG) << " Unsupported yet user data modification " << array;
             }
