@@ -25,16 +25,35 @@ import QtQuick.Window 2.2
 import KDE.Ruqola.DebugCategory 1.0
 
 QQC2.Dialog {
-    id: channelPasswordDialog
+    id: customUserStatusDialog
 
     title: i18n("Custom User Status")
 
     standardButtons: QQC2.Dialog.Ok | QQC2.Dialog.Cancel
 
+    signal customUserStatus(string type, string messageStatus)
 
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
 
     modal: true
     focus: true
+    function initializeAndOpen()
+    {
+        //passwordField.text = "";
+        open()
+    }
+    ColumnLayout {
+        QQC2.Label {
+            text: i18n("Status Text:");
+        }
+//        PasswordLineEdit {
+//            id: passwordField
+//        }
+    }
+
+    onAccepted: {
+        //customUserStatusDialog.customUserStatus(roomId, passwordField.text)
+    }
+
 }
