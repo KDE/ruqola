@@ -30,7 +30,7 @@ import KDE.Ruqola.RoomFilterProxyModel 1.0
 import KDE.Ruqola.UsersForRoomFilterProxyModel 1.0
 import org.kde.kirigami 2.7 as Kirigami
 import KDE.Ruqola.StatusModel 1.0
-
+import "common"
 Component {
     id: roomsComponent
     Kirigami.ScrollablePage {
@@ -112,47 +112,8 @@ Component {
                     text: i18n("Status:")
                 }
 
-                QQC2.ComboBox {
+                StatusCombobox {
                     id: statusCombobox
-                    Layout.alignment: Qt.AlignLeft
-                    model: appid.rocketChatAccount.statusModel()
-                    //textRole is removed as a workaround for now to draw our own text
-                    //textRole: "statusi18n"
-                    property variant icon
-                    property string text
-                    onActivated: {
-                        appid.rocketChatAccount.changeDefaultStatus(index, "")
-                    }
-                    currentIndex: model.currentStatus
-
-                    delegate: Kirigami.BasicListItem {
-                        property bool current: index === statusCombobox.currentIndex
-                        separatorVisible: false
-                        onCurrentChanged: {
-                            if (current) {
-                                statusCombobox.text = model.statusi18n
-                                statusCombobox.icon = model.icon
-                            }
-                        }
-                        icon: model.icon
-                        label: model.statusi18n
-                    }
-                    //FIXME: QQC2 combobox really, really needs icons support
-                    contentItem: RowLayout {
-                        Kirigami.Icon {
-                            Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
-                            Layout.fillHeight: true
-                            source: statusCombobox.icon
-                        }
-                        QQC2.Label {
-                            text: statusCombobox.text
-                            verticalAlignment: Text.AlignVCenter
-                            Layout.fillHeight: true
-                        }
-                        Item {
-                            Layout.fillWidth: true
-                        }
-                    }
                 }
             }
         }

@@ -192,6 +192,24 @@ Kirigami.ApplicationWindow {
     }
 
     Loader {
+        id: customUserStatusDialogLoader
+        active: false
+        sourceComponent: CustomUserStatusDialog {
+            id: customUserStatusDialog
+            parent: appid.pageStack
+            onRejected: {
+                customUserStatusDialogLoader.active = false
+            }
+            onAccepted: {
+                customUserStatusDialogLoader.active = false
+            }
+            Component.onCompleted: {
+                open()
+            }
+        }
+    }
+
+    Loader {
         id: privateChannelInfoDialogLoader
         active: false
         sourceComponent: PrivateChannelInfoDialog {

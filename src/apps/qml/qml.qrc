@@ -86,6 +86,7 @@
         <file alias="AvatarImage.qml">common/AvatarImage.qml</file>
         <file alias="DeleteButton.qml">common/DeleteButton.qml</file>
         <file alias="EmoticonMenu.qml">common/EmoticonMenu.qml</file>
+        <file alias="StatusCombobox.qml">common/StatusCombobox.qml</file>
     </qresource>
     <qresource prefix="/icons">
         <file alias="systray.png">icons/systray.png</file>
