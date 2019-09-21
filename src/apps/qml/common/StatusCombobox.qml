@@ -29,7 +29,7 @@ import KDE.Ruqola.StatusModel 1.0
 QQC2.ComboBox {
     id: statusCombobox
     Layout.alignment: Qt.AlignLeft
-    model: appid.rocketChatAccount.statusModel()
+
     //textRole is removed as a workaround for now to draw our own text
     //textRole: "statusi18n"
     property variant icon
