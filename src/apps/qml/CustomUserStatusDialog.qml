@@ -38,22 +38,22 @@ QQC2.Dialog {
 
     modal: true
     focus: true
-    function initializeAndOpen()
-    {
-        //passwordField.text = "";
-        open()
-    }
+    property string statusMessageStr
     ColumnLayout {
         QQC2.Label {
             text: i18n("Status Text:");
         }
-//        PasswordLineEdit {
-//            id: passwordField
-//        }
+        QQC2.TextField {
+            id: statusMessage
+            text: statusMessageStr
+            Layout.fillWidth: true
+            selectByMouse: true
+            readOnly: true
+        }
     }
 
     onAccepted: {
-        //customUserStatusDialog.customUserStatus(roomId, passwordField.text)
+        //customUserStatusDialog.customUserStatus(roomId, statusMessage.text)
     }
 
 }
