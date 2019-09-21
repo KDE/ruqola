@@ -159,8 +159,8 @@ public:
     Q_INVOKABLE void joinRoom(const QString &roomId, const QString &joinCode = QString());
     Q_INVOKABLE void openDirectChannel(const QString &username);
     Q_INVOKABLE void listEmojiCustom();
-    Q_INVOKABLE void setDefaultStatus(User::PresenceStatus status);
-    Q_INVOKABLE void changeDefaultStatus(int index);
+    Q_INVOKABLE void setDefaultStatus(User::PresenceStatus status, const QString &messageStatus); //Move to private no ?
+    Q_INVOKABLE void changeDefaultStatus(int index, const QString &messageStatus);
     Q_INVOKABLE void createJitsiConfCall(const QString &roomId);
     Q_INVOKABLE void deleteMessage(const QString &messageId, const QString &roomId);
     Q_INVOKABLE void userAutocomplete(const QString &searchText, const QString &exception);

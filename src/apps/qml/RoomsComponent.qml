@@ -121,7 +121,7 @@ Component {
                     property variant icon
                     property string text
                     onActivated: {
-                        appid.rocketChatAccount.changeDefaultStatus(index)
+                        appid.rocketChatAccount.changeDefaultStatus(index, "")
                     }
                     currentIndex: model.currentStatus
 
