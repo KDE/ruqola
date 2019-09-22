@@ -56,6 +56,7 @@ Rectangle {
         visible: avatarurl !== ""
         source: avatarurl
         fillMode: Image.PreserveAspectFit
+        asynchronous: true
         MouseArea {
             anchors.fill: parent
             onClicked: {
