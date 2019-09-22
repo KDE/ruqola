@@ -5,6 +5,7 @@
         "Name[ca]": "Connector d'autenticació de Google",
         "Name[cs]": "Ověřovací modul Google",
         "Name[de]": "Google-Authentifizierungsmodul",
+        "Name[en_GB]": "Google Authentication Plugin",
         "Name[es]": "Complemento de autenticación de Google",
         "Name[fr]": "Module externe d'authentification Google",
         "Name[it]": "Estensione per l'autenticazione con Google",
