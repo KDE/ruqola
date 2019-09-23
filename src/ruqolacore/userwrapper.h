@@ -23,15 +23,30 @@
 #define USERWRAPPER_H
 
 #include <QObject>
+#include "libruqolacore_export.h"
 class User;
 
-class UserWrapper : public QObject
+class LIBRUQOLACORE_EXPORT UserWrapper : public QObject
 {
     Q_OBJECT
 public:
     explicit UserWrapper(QObject *parent = nullptr);
     explicit UserWrapper(User *user, QObject *parent = nullptr);
     ~UserWrapper();
+
+    Q_REQUIRED_RESULT QString name() const;
+    Q_REQUIRED_RESULT QString userId() const;
+    Q_REQUIRED_RESULT QString status() const;
+    Q_REQUIRED_RESULT QString userName() const;
+    Q_REQUIRED_RESULT double utcOffset() const;
+    Q_REQUIRED_RESULT QString statusText() const;
+Q_SIGNALS:
+    void nameChanged();
+    void userIdChanged();
+    void statusChanged();
+    void userNameChanged();
+    void utcOffsetChanged();
+    void statusTextChanged();
 private:
     Q_DISABLE_COPY(UserWrapper)
     User *mUser = nullptr;

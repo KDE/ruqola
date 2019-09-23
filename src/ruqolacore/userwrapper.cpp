@@ -20,7 +20,7 @@
 
 
 #include "userwrapper.h"
-
+#include "user.h"
 UserWrapper::UserWrapper(QObject *parent)
     : QObject(parent)
 {
@@ -36,4 +36,34 @@ UserWrapper::UserWrapper(User *user, QObject *parent)
 UserWrapper::~UserWrapper()
 {
 
+}
+
+QString UserWrapper::name() const
+{
+    return mUser->name();
+}
+
+QString UserWrapper::userId() const
+{
+    return mUser->userId();
+}
+
+QString UserWrapper::status() const
+{
+    return mUser->status();
+}
+
+QString UserWrapper::userName() const
+{
+    return mUser->userName();
+}
+
+double UserWrapper::utcOffset() const
+{
+    return mUser->utcOffset();
+}
+
+QString UserWrapper::statusText() const
+{
+    return mUser->statusText();
 }
