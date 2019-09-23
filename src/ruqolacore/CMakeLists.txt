@@ -118,6 +118,7 @@ set (Ruqola_core_srcs
     typingnotification.cpp
     changetemporarystatus.cpp
     user.cpp
+    userwrapper.cpp
     utils.cpp
     clipboardproxy.cpp
     otr.cpp
