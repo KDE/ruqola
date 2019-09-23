@@ -46,24 +46,5 @@ QQC2.Dialog {
 
     GridLayout {
         columns: 2
-        QQC2.Label {
-            text: i18n("Name:");
-            textFormat: Text.PlainText
-        }
-        TextFieldEditor {
-            id: channelNameField
-            textField: roomInfo === null ? "" : roomInfo.name
-
-            onUpdateValue: {
-                if (newVal != "") {
-                    if (roomInfo.name !== newVal) {
-                        channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal, roomInfo.channelType)
-                    }
-                } else {
-                    //see https://doc.qt.io/qt-5/qml-qtqml-loggingcategory.html
-                    console.log(RuqolaDebugCategorySingleton.category, "New name is empty. We can't rename room name to empty name.")
-                }
-            }
-        }
     }
 }
