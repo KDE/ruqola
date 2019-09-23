@@ -94,6 +94,7 @@ Rectangle {
     signal openDiscussion(string discussionRoomId)
     signal openThread(string threadMessageId, string threadPreviewText)
     signal replyInThread(string messageId)
+    signal showUserInfo(string userId)
     Loader {
         id: loaded
         anchors.fill: parent
@@ -328,6 +329,9 @@ Rectangle {
         onReplyInThread: {
             console.log(RuqolaDebugCategorySingleton.category, "onReplyInThread: " + messageId)
             messageMain.replyInThread(messageId)
+        }
+        onShowUserInfo: {
+            messageMain.showUserInfo(userId)
         }
     }
 }

@@ -482,6 +482,13 @@ Component {
                 userInputMessage.threadmessageId = messageId;
             }
 
+            onShowUserInfo: {
+                //TODO add userId in dialog box
+                showUserInfoDialogLoader.active = true;
+                //TODO
+                console.log("Open user info " + userId)
+            }
+
             Loader {
                 id: openChannelDialogLoader
                 active: false
@@ -505,7 +512,29 @@ Component {
                 }
             }
 
-            OpenDirectChannelDialog {
+            Loader {
+                id: showUserInfoDialogLoader
+                active: false
+                sourceComponent: UserInfoDialog {
+                    id: userInfoDialog
+                    parent: appid.pageStack
+                    onRejected: {
+                        showUserInfoDialogLoader.active = false
+                    }
+                    onAccepted: {
+                        showUserInfoDialogLoader.active = false
+                    }
+                    Component.onCompleted: {
+//                        roomName = appid.selectedRoom.displayRoomName
+//                        roomId = createDiscussionDialogLoader.roomId
+//                        messageId = createDiscussionDialogLoader.messageId
+//                        originalMessage = createDiscussionDialogLoader.originalMessage
+//                        clearAndOpen()
+                    }
+                }
+            }
+
+            OpenDirectChannelDialog { //TODO Port to loader
                 id: openDirectChannelDialog
                 parent: appid.pageStack
                 onOpenDirectChannel: {

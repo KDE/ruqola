@@ -59,7 +59,7 @@ QQC2.Dialog {
         AutoTranslateLanguageCombobox {
             model: appid.autotranslateLanguagesModel
             onActivated: {
-
+                //TODO
             }
         }
         Item {

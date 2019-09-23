@@ -24,20 +24,18 @@ import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.2
 import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.RocketChatAccount 1.0
-import KDE.Ruqola.RoomWrapper 1.0
-import "common"
 QQC2.Dialog {
     id: userInfoDialog
 
     title: i18n("User Info")
     standardButtons: QQC2.Dialog.Close
 
+    property QtObject userInfo
+
     modal: true
     focus: true
     x: parent.width / 2 - width / 2
     y: parent.height / 2 - height / 2
-
-    property string channelName: ""
 
     function initializeAndOpen()
     {

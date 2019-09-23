@@ -45,6 +45,7 @@ ListView {
     signal openDiscussion(string discussionRoomId)
     signal openThread(string threadMessageId, string threadPreviewText)
     signal replyInThread(string messageId)
+    signal showUserInfo(string userId)
 
     property QtObject rcAccount
     property string roomId: ""
@@ -179,6 +180,9 @@ ListView {
         }
         onReplyInThread: {
             activeChat.replyInThread(messageId)
+        }
+        onShowUserInfo: {
+            activeChat.showUserInfo(userId)
         }
     }
     section {
