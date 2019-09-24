@@ -53,15 +53,15 @@ void UsersForRoomModelTest::shouldHaveDefaultValue()
 void UsersForRoomModelTest::shouldAddValues()
 {
     UsersForRoomModel w;
-    QVector<User> users;
+    QVector<User *> users;
     QSignalSpy rowInsertedSpy(&w, &UsersForRoomModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &UsersForRoomModel::rowsAboutToBeInserted);
     for (int i = 0; i < 10; i++) {
-        User user;
-        user.setName(QStringLiteral("name%1").arg(i));
-        user.setStatus(QStringLiteral("status%1").arg(i));
-        user.setUserId(QStringLiteral("userId%1").arg(i));
-        user.setUserName(QStringLiteral("username%1").arg(i));
+        User *user = new User;
+        user->setName(QStringLiteral("name%1").arg(i));
+        user->setStatus(QStringLiteral("status%1").arg(i));
+        user->setUserId(QStringLiteral("userId%1").arg(i));
+        user->setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
     }
     w.setUsers(users);
@@ -74,12 +74,13 @@ void UsersForRoomModelTest::shouldAddValues()
     rowInsertedSpy.clear();
 
     users.clear();
+
     for (int i = 0; i < 3; ++i) {
-        User user;
-        user.setName(QStringLiteral("name%1").arg(i));
-        user.setStatus(QStringLiteral("status%1").arg(i));
-        user.setUserId(QStringLiteral("userId%1").arg(i));
-        user.setUserName(QStringLiteral("username%1").arg(i));
+        User *user = new User;
+        user->setName(QStringLiteral("name%1").arg(i));
+        user->setStatus(QStringLiteral("status%1").arg(i));
+        user->setUserId(QStringLiteral("userId%1").arg(i));
+        user->setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
     }
     w.clear();
@@ -106,13 +107,13 @@ void UsersForRoomModelTest::shouldAddValues()
 void UsersForRoomModelTest::shouldVerifyData()
 {
     UsersForRoomModel w;
-    QVector<User> users;
+    QVector<User *> users;
     for (int i = 0; i < 10; i++) {
-        User user;
-        user.setName(QStringLiteral("name%1").arg(i));
-        user.setStatus(QStringLiteral("online"));
-        user.setUserId(QStringLiteral("userId%1").arg(i));
-        user.setUserName(QStringLiteral("username%1").arg(i));
+        User *user = new User;
+        user->setName(QStringLiteral("name%1").arg(i));
+        user->setStatus(QStringLiteral("online"));
+        user->setUserId(QStringLiteral("userId%1").arg(i));
+        user->setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
     }
     w.setUsers(users);

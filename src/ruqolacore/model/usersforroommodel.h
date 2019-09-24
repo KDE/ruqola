@@ -43,7 +43,7 @@ public:
     explicit UsersForRoomModel(QObject *parent = nullptr);
     ~UsersForRoomModel() override;
 
-    void setUsers(const QVector<User> &users);
+    void setUsers(const QVector<User *> &users);
 
     void clear();
     Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
@@ -72,7 +72,7 @@ Q_SIGNALS:
 private:
     QString generateDisplayName(const User &user) const;
     void checkFullList();
-    QVector<User> mUsers;
+    QVector<User *> mUsers;
     int mTotal = 0;
     int mOffset = 0;
     bool mHasFullList = false;
