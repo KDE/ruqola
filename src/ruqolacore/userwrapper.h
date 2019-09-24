@@ -29,6 +29,12 @@ class User;
 class LIBRUQOLACORE_EXPORT UserWrapper : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString name READ name NOTIFY nameChanged)
+    Q_PROPERTY(QString userId READ userId NOTIFY userIdChanged)
+    Q_PROPERTY(QString status READ status NOTIFY statusChanged)
+    Q_PROPERTY(QString userName READ userName NOTIFY userNameChanged)
+    Q_PROPERTY(double utcOffset READ utcOffset NOTIFY utcOffsetChanged)
+    Q_PROPERTY(QString statusText READ statusText NOTIFY statusTextChanged)
 public:
     explicit UserWrapper(QObject *parent = nullptr);
     explicit UserWrapper(User *user, QObject *parent = nullptr);
