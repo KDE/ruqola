@@ -47,7 +47,7 @@ public:
 
     void clearUsersList();
 
-    Q_REQUIRED_RESULT QVector<User> users() const;
+    Q_REQUIRED_RESULT QVector<User *> users() const;
 
     void clearFilesList();
     Q_REQUIRED_RESULT QVector<File> files() const;
@@ -64,7 +64,7 @@ private:
     void parseOwnInfoDown(const QJsonObject &replyObject);
     void parseServerVersionDone(const QString &version);
 
-    QVector<User> mUsers;
+    QVector<User *> mUsers;
     QVector<File> mFiles;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };

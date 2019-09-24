@@ -29,18 +29,20 @@ UserCompleterModel::UserCompleterModel(QObject *parent)
 
 UserCompleterModel::~UserCompleterModel()
 {
+    qDeleteAll(mUsers);
 }
 
 void UserCompleterModel::clear()
 {
     if (!mUsers.isEmpty()) {
         beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
+        qDeleteAll(mUsers);
         mUsers.clear();
         endRemoveRows();
     }
 }
 
-void UserCompleterModel::insertUsers(const QVector<User> &users)
+void UserCompleterModel::insertUsers(const QVector<User *> &users)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mUsers.count() - 1);
@@ -65,14 +67,14 @@ QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mUsers.count()) {
         return QVariant();
     }
-    const User user = mUsers.at(index.row());
+    const User *user = mUsers.at(index.row());
     switch (role) {
     case UserName:
-        return user.userName();
+        return user->userName();
     case UserId:
-        return user.userId();
+        return user->userId();
     case UserIconStatus:
-        return user.iconFromStatus();
+        return user->iconFromStatus();
     }
 
     return {};
