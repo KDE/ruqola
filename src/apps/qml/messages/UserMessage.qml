@@ -68,7 +68,6 @@ MessageBase {
             aliasname: i_aliasname
             username: i_username
             onShowUserInfo: {
-                console.log(RuqolaDebugCategorySingleton.category, "show user info not implemented yet")
                 messageMain.showUserInfo(i_own_username)
             }
             visible: !i_groupable

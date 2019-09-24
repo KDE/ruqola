@@ -525,11 +525,7 @@ Component {
                         showUserInfoDialogLoader.active = false
                     }
                     Component.onCompleted: {
-//                        roomName = appid.selectedRoom.displayRoomName
-//                        roomId = createDiscussionDialogLoader.roomId
-//                        messageId = createDiscussionDialogLoader.messageId
-//                        originalMessage = createDiscussionDialogLoader.originalMessage
-//                        clearAndOpen()
+                        //open()
                     }
                 }
             }
