@@ -75,7 +75,7 @@ Kirigami.ApplicationWindow {
         appid.rocketChatAccount.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
         appid.selectedRoomID = roomID;
         appid.messageModel = appid.rocketChatAccount.messageModelForRoom(roomID)
-        appid.selectedRoom = appid.rocketChatAccount.getRoomWrapper(roomID)
+        appid.selectedRoom = appid.rocketChatAccount.roomWrapper(roomID)
         appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(roomID)
     }
 

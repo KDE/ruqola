@@ -103,7 +103,7 @@ public:
     void removeRoom(const QString &roomId);
 
     void getUnreadAlertFromAccount(bool &hasAlert, int &nbUnread);
-    void userStatusChanged(const User &user);
+    void userStatusChanged(User *user);
 
     UsersForRoomModel *usersModelForRoom(const QString &roomId) const;
 

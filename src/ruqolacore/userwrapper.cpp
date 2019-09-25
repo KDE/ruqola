@@ -31,6 +31,12 @@ UserWrapper::UserWrapper(User *user, QObject *parent)
     : QObject(parent)
 {
     mUser = user;
+    connect(mUser, &User::nameChanged, this, &UserWrapper::nameChanged);
+    connect(mUser, &User::userIdChanged, this, &UserWrapper::userIdChanged);
+    connect(mUser, &User::statusChanged, this, &UserWrapper::statusChanged);
+    connect(mUser, &User::userNameChanged, this, &UserWrapper::userNameChanged);
+    connect(mUser, &User::utcOffsetChanged, this, &UserWrapper::utcOffsetChanged);
+    connect(mUser, &User::statusTextChanged, this, &UserWrapper::statusTextChanged);
 }
 
 UserWrapper::~UserWrapper()

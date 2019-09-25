@@ -240,13 +240,13 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
     }
 }
 
-void UsersForRoomModel::userStatusChanged(const User &newuser)
+void UsersForRoomModel::userStatusChanged(User *newuser)
 {
     const int roomCount = mUsers.count();
     for (int i = 0; i < roomCount; ++i) {
         User *user = mUsers.at(i);
-        if (newuser.userId() == user->userId()) {
-            user->setStatus(newuser.status());
+        if (newuser->userId() == user->userId()) {
+            user->setStatus(newuser->status());
             mUsers.replace(i, user);
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);

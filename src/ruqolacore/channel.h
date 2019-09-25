@@ -43,8 +43,8 @@ public:
     Q_REQUIRED_RESULT ChannelType type() const;
     void setType(const ChannelType &type);
 
-    Q_REQUIRED_RESULT User user() const;
-    void setUser(const User &user);
+    Q_REQUIRED_RESULT User *user() const;
+    void setUser(User *user);
 
     Q_REQUIRED_RESULT bool operator==(const Channel &other) const;
 
@@ -60,11 +60,11 @@ public:
     void setRoomType(const QString &roomType);
 
 private:
-    User mUser;
     QString mRoomId;
     QString mRoomName;
     QString mRoomType;
     ChannelType mType = ChannelType::Unknown;
+    User *mUser = nullptr;
 };
 Q_DECLARE_METATYPE(Channel)
 Q_DECLARE_TYPEINFO(Channel, Q_MOVABLE_TYPE);

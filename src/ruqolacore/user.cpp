@@ -24,7 +24,8 @@
 
 #include <QJsonObject>
 
-User::User()
+User::User(QObject *parent)
+    : QObject(parent)
 {
 }
 
@@ -39,7 +40,10 @@ QString User::name() const
 
 void User::setName(const QString &name)
 {
-    mName = name;
+    if (mName != name) {
+        mName = name;
+        Q_EMIT nameChanged();
+    }
 }
 
 QString User::userId() const
@@ -49,7 +53,10 @@ QString User::userId() const
 
 void User::setUserId(const QString &userId)
 {
-    mUserId = userId;
+    if (mUserId != userId) {
+        mUserId = userId;
+        Q_EMIT userIdChanged();
+    }
 }
 
 QString User::status() const
@@ -59,7 +66,10 @@ QString User::status() const
 
 void User::setStatus(const QString &status)
 {
-    mStatus = status;
+    if (mStatus != status) {
+        mStatus = status;
+        Q_EMIT statusChanged();
+    }
 }
 
 bool User::operator ==(const User &other) const
@@ -84,7 +94,10 @@ QString User::userName() const
 
 void User::setUserName(const QString &userName)
 {
-    mUserName = userName;
+    if (mUserName != userName) {
+        mUserName = userName;
+        Q_EMIT userNameChanged();
+    }
 }
 
 bool User::isValid() const
@@ -99,7 +112,10 @@ double User::utcOffset() const
 
 void User::setUtcOffset(double utcOffset)
 {
-    mUtcOffset = utcOffset;
+    if (mUtcOffset != utcOffset) {
+        mUtcOffset = utcOffset;
+        Q_EMIT utcOffsetChanged();
+    }
 }
 
 QString User::statusText() const
@@ -109,7 +125,10 @@ QString User::statusText() const
 
 void User::setStatusText(const QString &statusText)
 {
-    mStatusText = statusText;
+    if (mStatusText != statusText) {
+        mStatusText = statusText;
+        Q_EMIT statusTextChanged();
+    }
 }
 
 QDebug operator <<(QDebug d, const User &t)

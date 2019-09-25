@@ -24,9 +24,9 @@
 #include <QString>
 #include <QDebug>
 #include "libruqola_private_export.h"
-class LIBRUQOLACORE_TESTS_EXPORT User
+class LIBRUQOLACORE_TESTS_EXPORT User : public QObject
 {
-    Q_GADGET
+    Q_OBJECT
 public:
 
     enum class PresenceStatus {
@@ -38,7 +38,7 @@ public:
     };
     Q_ENUM(PresenceStatus)
 
-    User();
+    explicit User(QObject *parent = nullptr);
     ~User();
 
     Q_REQUIRED_RESULT QString name() const;
@@ -68,6 +68,14 @@ public:
     Q_REQUIRED_RESULT QString statusText() const;
     void setStatusText(const QString &statusText);
 
+Q_SIGNALS:
+    void nameChanged();
+    void userIdChanged();
+    void statusChanged();
+    void userNameChanged();
+    void utcOffsetChanged();
+    void statusTextChanged();
+
 private:
     QString mStatus = QStringLiteral("offline");
     QString mUserId;
@@ -76,8 +84,6 @@ private:
     QString mStatusText;
     double mUtcOffset = 0.0;
 };
-Q_DECLARE_METATYPE(User)
-Q_DECLARE_TYPEINFO(User, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator <<(QDebug d, const User &t);
 
 #endif // USER_H

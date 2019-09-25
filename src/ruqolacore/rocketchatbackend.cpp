@@ -187,11 +187,11 @@ void RocketChatBackend::parseOwnInfoDown(const QJsonObject &replyObject)
 {
     //Move code in rocketchataccount directly ?
     //qDebug() << "replyJson " << replyJson;
-    User user;
-    user.setUserId(replyObject.value(QLatin1String("_id")).toString());
-    user.setUserName(replyObject.value(QLatin1String("username")).toString());
-    user.setStatus(replyObject.value(QLatin1String("status")).toString());
-    if (user.isValid()) {
+    User *user = new User;
+    user->setUserId(replyObject.value(QLatin1String("_id")).toString());
+    user->setUserName(replyObject.value(QLatin1String("username")).toString());
+    user->setStatus(replyObject.value(QLatin1String("status")).toString());
+    if (user->isValid()) {
         mRocketChatAccount->usersModel()->addUser(user);
     } else {
         qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyObject;
@@ -267,8 +267,8 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
             qCDebug(RUQOLA_LOG) << "User id set to " << mRocketChatAccount->settings()->userId();
         } else {
             //TODO add current user ? me ?
-            User user;
-            user.parseUser(object);
+            User *user = new User;
+            user->parseUser(object);
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);

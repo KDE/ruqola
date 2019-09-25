@@ -113,7 +113,7 @@ QString InputCompleterModel::completerName(const Channel &channel) const
     //For private channel we need to use username for channel we need roomId
     switch (channel.type()) {
     case Channel::ChannelType::PrivateChannel:
-        return channel.user().userName();
+        return channel.user()->userName();
     case Channel::ChannelType::Room:
         return channel.roomName();
     case Channel::ChannelType::Unknown:
@@ -129,10 +129,10 @@ QString InputCompleterModel::channelName(const Channel &channel) const
     switch (channel.type()) {
     case Channel::ChannelType::PrivateChannel:
     {
-        QString text = channel.user().userName();
-        const QString name = channel.user().name();
+        QString text = channel.user()->userName();
+        const QString name = channel.user()->name();
         if (!name.isEmpty()) {
-            text += QLatin1String(" (") + channel.user().name() + QLatin1Char(')');
+            text += QLatin1String(" (") + channel.user()->name() + QLatin1Char(')');
         }
         return text;
     }
@@ -149,7 +149,7 @@ QIcon InputCompleterModel::channelIconName(const Channel &channel) const
 {
     switch (channel.type()) {
     case Channel::ChannelType::PrivateChannel:
-        return QIcon::fromTheme(channel.user().iconFromStatus());
+        return QIcon::fromTheme(channel.user()->iconFromStatus());
     case Channel::ChannelType::Room:
         if (channel.roomType() == QLatin1Char('c')) {
             return QIcon::fromTheme(QStringLiteral("irc-channel-inactive"));

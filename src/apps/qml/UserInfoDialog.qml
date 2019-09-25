@@ -30,7 +30,7 @@ QQC2.Dialog {
     title: i18n("User Info")
     standardButtons: QQC2.Dialog.Close
 
-    property QtObject userInfo
+    property QtObject userInfo: appid.rocketChatAccount.userWrapper("") //TODO
 
     modal: true
     focus: true

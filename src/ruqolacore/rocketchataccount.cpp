@@ -343,7 +343,7 @@ ThreadsFilterProxyModel *RocketChatAccount::threadsFilterProxyModel() const
     return mThreadsFilterProxyModel;
 }
 
-RoomWrapper *RocketChatAccount::getRoomWrapper(const QString &roomId)
+RoomWrapper *RocketChatAccount::roomWrapper(const QString &roomId)
 {
     return mRoomModel->findRoomWrapper(roomId);
 }
@@ -1533,6 +1533,12 @@ bool RocketChatAccount::sortUnreadOnTop() const
     return settings()->showUnreadOnTop();
 }
 
+UserWrapper *RocketChatAccount::userWrapper(const QString &userId)
+{
+    //TODO
+    return nullptr;
+}
+
 void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, const QString &channelType)
 {
     if (channelType == QLatin1Char('c')) {
@@ -1713,12 +1719,12 @@ void RocketChatAccount::updateUser(const QJsonObject &object)
     mUserModel->updateUser(object);
 }
 
-void RocketChatAccount::userStatusChanged(const User &user)
+void RocketChatAccount::userStatusChanged(User *user)
 {
     //qDebug() << " void RocketChatAccount::userStatusChanged(const User &user)"<<user.userId() << " userId" << userID();
-    if (user.userId() == userID()) {
+    if (user->userId() == userID()) {
         //qDebug() << " void RocketChatAccount::userStatusChanged(const User &user) current user !!!!!!!!!!!!" << user;
-        statusModel()->setCurrentPresenceStatus(Utils::presenceStatusFromString(user.status()));
+        statusModel()->setCurrentPresenceStatus(Utils::presenceStatusFromString(user->status()));
     }
     mRoomModel->userStatusChanged(user);
 }

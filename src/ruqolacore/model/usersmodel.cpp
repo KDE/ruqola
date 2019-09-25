@@ -29,6 +29,7 @@ UsersModel::UsersModel(QObject *parent)
 
 UsersModel::~UsersModel()
 {
+    qDeleteAll(mUsers);
 }
 
 int UsersModel::rowCount(const QModelIndex &parent) const
@@ -42,18 +43,18 @@ QVariant UsersModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mUsers.count()) {
         return QVariant();
     }
-    const User user = mUsers.at(index.row());
+    const User *user = mUsers.at(index.row());
     switch (role) {
     case UserName:
-        return user.name();
+        return user->name();
     case UserId:
-        return user.userId();
+        return user->userId();
     case UserStatus:
-        return user.status();
+        return user->status();
     case UserIcon:
-        return user.iconFromStatus();
+        return user->iconFromStatus();
     case UserStatusText:
-        return user.statusText();
+        return user->statusText();
     }
 
     return {};
@@ -63,8 +64,8 @@ QString UsersModel::userStatusIconFileName(const QString &name)
 {
     const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i).userName() == name) {
-            return mUsers.at(i).iconFromStatus();
+        if (mUsers.at(i)->userName() == name) {
+            return mUsers.at(i)->iconFromStatus();
         }
     }
 
@@ -77,8 +78,8 @@ QString UsersModel::status(const QString &userId) const
     const int userCount = mUsers.count();
 
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i).userId() == userId) {
-            return mUsers.at(i).status();
+        if (mUsers.at(i)->userId() == userId) {
+            return mUsers.at(i)->status();
         }
     }
     //Return offline as default;
@@ -90,11 +91,11 @@ void UsersModel::removeUser(const QString &userId)
     qCDebug(RUQOLA_LOG) << " User removed " << userId;
     const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i).userId() == userId) {
-            qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i).name();
+        if (mUsers.at(i)->userId() == userId) {
+            qCDebug(RUQOLA_LOG) << " User removed " << mUsers.at(i)->name();
             //Send info as it's disconnected. But don't remove it from list
-            User user = mUsers.at(i);
-            user.setStatus(QStringLiteral("offline"));
+            User *user = mUsers.at(i);
+            user->setStatus(QStringLiteral("offline"));
             mUsers.replace(i, user);
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT userStatusChanged(user);
@@ -104,7 +105,7 @@ void UsersModel::removeUser(const QString &userId)
     }
 }
 
-void UsersModel::addUser(const User &newuser)
+void UsersModel::addUser(User *newuser)
 {
     //It can be duplicate as we don't remove user from list when user is disconnected. Otherwise it will not sync with
     // user for room list
@@ -112,14 +113,15 @@ void UsersModel::addUser(const User &newuser)
     const int userCount = mUsers.count();
     bool found = false;
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i).userId() == newuser.userId()) {
+        if (mUsers.at(i)->userId() == newuser->userId()) {
             found = true;
-            User user = mUsers.at(i);
-            user.setStatus(newuser.status());
+            User *user = mUsers.at(i);
+            user->setStatus(newuser->status());
             mUsers.replace(i, user);
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT userStatusChanged(user);
             Q_EMIT dataChanged(idx, idx);
+            delete newuser;
             break;
         }
     }
@@ -136,13 +138,13 @@ void UsersModel::updateUser(const QJsonObject &array)
     const QString id = array.value(QLatin1String("id")).toString();
     const int userCount = mUsers.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i).userId() == id) {
-            User user = mUsers.at(i);
+        if (mUsers.at(i)->userId() == id) {
+            User *user = mUsers.at(i);
             const QJsonObject fields = array.value(QLatin1String("fields")).toObject();
             const QString newStatus = fields.value(QLatin1String("status")).toString();
             bool userDataChanged = false;
             if (!newStatus.isEmpty()) {
-                user.setStatus(newStatus);
+                user->setStatus(newStatus);
                 mUsers.replace(i, user);
                 const QModelIndex idx = createIndex(i, 0);
                 Q_EMIT dataChanged(idx, idx);
@@ -151,7 +153,7 @@ void UsersModel::updateUser(const QJsonObject &array)
             }
             const QString newName = fields.value(QLatin1String("name")).toString();
             if (!newName.isEmpty()) {
-                user.setName(newName);
+                user->setName(newName);
                 mUsers.replace(i, user);
                 const QModelIndex idx = createIndex(i, 0);
                 Q_EMIT dataChanged(idx, idx);
@@ -160,7 +162,7 @@ void UsersModel::updateUser(const QJsonObject &array)
             }
             const QString newuserName = fields.value(QLatin1String("username")).toString();
             if (!newuserName.isEmpty()) {
-                user.setUserName(newuserName);
+                user->setUserName(newuserName);
                 mUsers.replace(i, user);
                 const QModelIndex idx = createIndex(i, 0);
                 Q_EMIT dataChanged(idx, idx);
@@ -169,7 +171,7 @@ void UsersModel::updateUser(const QJsonObject &array)
             }
             const QString statusMessage = fields.value(QLatin1String("statusText")).toString();
             if (!statusMessage.isEmpty()) {
-                user.setStatusText(statusMessage);
+                user->setStatusText(statusMessage);
                 mUsers.replace(i, user);
                 const QModelIndex idx = createIndex(i, 0);
                 Q_EMIT dataChanged(idx, idx);

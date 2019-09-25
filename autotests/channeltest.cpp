@@ -35,7 +35,7 @@ void ChannelTest::shouldHaveDefaultValue()
 {
     Channel t;
     QCOMPARE(t.type(), Channel::ChannelType::Unknown);
-    QVERIFY(!t.user().isValid());
+    QVERIFY(!t.user()->isValid());
     QVERIFY(t.roomName().isEmpty());
     QVERIFY(t.roomId().isEmpty());
     QVERIFY(t.roomType().isEmpty());
@@ -64,11 +64,11 @@ void ChannelTest::shouldParseChannel_data()
     QTest::newRow("room") << QStringLiteral("channelroom") << Channel::ChannelType::Room << chanRoom;
 
     Channel chanUser;
-    User user;
-    user.setName(QStringLiteral("foo"));
-    user.setUserName(QStringLiteral("bla"));
-    user.setUserId(QStringLiteral("o7kiLAYPCiDidqJe"));
-    user.setStatus(QStringLiteral("online"));
+    User *user = new User;
+    user->setName(QStringLiteral("foo"));
+    user->setUserName(QStringLiteral("bla"));
+    user->setUserId(QStringLiteral("o7kiLAYPCiDidqJe"));
+    user->setStatus(QStringLiteral("online"));
     chanUser.setUser(user);
     chanUser.setType(Channel::ChannelType::PrivateChannel);
 

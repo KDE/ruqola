@@ -37,27 +37,6 @@ class NotificationOptionsWrapper;
 class LIBRUQOLACORE_TESTS_EXPORT Room : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
-    Q_PROPERTY(QString fname READ fName WRITE setFName NOTIFY fnameChanged)
-    Q_PROPERTY(QString announcement READ announcement WRITE setAnnouncement NOTIFY announcementChanged)
-    Q_PROPERTY(QString topic READ topic WRITE setTopic NOTIFY topicChanged)
-    Q_PROPERTY(bool favorite READ favorite WRITE setFavorite NOTIFY favoriteChanged)
-    Q_PROPERTY(bool readOnly READ readOnly WRITE setReadOnly NOTIFY readOnlyChanged)
-    Q_PROPERTY(bool alert READ alert WRITE setAlert NOTIFY alertChanged)
-    Q_PROPERTY(bool blocker READ blocker WRITE setBlocker NOTIFY blockerChanged)
-    Q_PROPERTY(bool archived READ archived WRITE setArchived NOTIFY archivedChanged)
-    Q_PROPERTY(bool blocked READ blocked WRITE setBlocked NOTIFY blockedChanged)
-    Q_PROPERTY(bool open READ open WRITE setOpen NOTIFY openChanged)
-    Q_PROPERTY(bool encrypted READ encrypted WRITE setEncrypted NOTIFY encryptedChanged)
-    Q_PROPERTY(bool broadcast READ broadcast WRITE setBroadcast NOTIFY broadcastChanged)
-    Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
-    Q_PROPERTY(QStringList roles READ roles WRITE setRoles NOTIFY rolesChanged)
-    Q_PROPERTY(QString e2eKeyId READ e2eKeyId WRITE setE2eKeyId NOTIFY encryptionKeyIdChanged)
-    Q_PROPERTY(bool joinCodeRequired READ joinCodeRequired WRITE setJoinCodeRequired NOTIFY joinCodeRequiredChanged)
-    Q_PROPERTY(QString channelType READ channelType WRITE setChannelType NOTIFY channelTypeChanged)
-    Q_PROPERTY(bool wasInitialized READ wasInitialized CONSTANT)
-    Q_PROPERTY(QString autoTranslateLanguage READ autoTranslateLanguage WRITE setAutoTranslateLanguage NOTIFY autoTranslateLanguageChanged)
-    Q_PROPERTY(bool autoTranslate READ autoTranslate WRITE setAutoTranslate NOTIFY autoTranslateChanged)
 public:
     explicit Room(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
 

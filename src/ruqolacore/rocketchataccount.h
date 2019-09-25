@@ -72,6 +72,7 @@ class ThreadMessageModel;
 class PinnedMessageModel;
 class PinnedMessageModelFilterProxyModel;
 class AutotranslateLanguagesModel;
+class UserWrapper;
 
 namespace RocketChatRestApi {
 class RestApiRequest;
@@ -136,7 +137,7 @@ public:
 
     Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
     Q_INVOKABLE UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
-    Q_INVOKABLE RoomWrapper *getRoomWrapper(const QString &roomId);
+    Q_INVOKABLE RoomWrapper *roomWrapper(const QString &roomId);
     Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);
     Q_INVOKABLE QString getUserCurrentMessage(const QString &roomId);
     Q_INVOKABLE void setUserCurrentMessage(const QString &message, const QString &roomId);
@@ -260,6 +261,8 @@ public:
 
     Q_REQUIRED_RESULT bool editingMode() const;
     Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
+
+    Q_INVOKABLE UserWrapper *userWrapper(const QString &userId);
 
     Q_REQUIRED_RESULT DDPClient::LoginStatus loginStatus();
     RocketChatRestApi::RestApiRequest *restApi();
@@ -404,7 +407,7 @@ private:
     void fillOauthModel();
     void initializeAuthenticationPlugins();
     void setDefaultAuthentication(AuthenticationManager::OauthType type);
-    void userStatusChanged(const User &user);
+    void userStatusChanged(User *user);
     void setChannelJoinDone(const QString &roomId);
     void openArchivedRoom(const QString &roomId);
 

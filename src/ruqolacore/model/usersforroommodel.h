@@ -50,7 +50,7 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void parseUsersForRooms(const QJsonObject &root, UsersModel *model, bool restapi);
-    void userStatusChanged(const User &newuser);
+    void userStatusChanged(User *newuser);
     void removeUser(const QString &userId);
     void addUser(const User &users);
 
