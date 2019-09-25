@@ -19,30 +19,27 @@
 */
 
 #include "channel.h"
+#include "utils.h"
 #include "ruqola_debug.h"
 
 #include <QJsonObject>
 
 Channel::Channel()
 {
-    mUser = new User;
 }
 
 Channel::~Channel()
 {
-    //TODO FIXME MEM leak pb with copy operator
-    //delete mUser;
 }
 
 void Channel::parseChannel(const QJsonObject &object, ChannelType type)
 {
     mType = type;
     if (mType == ChannelType::PrivateChannel) {
-        //We can't use User.parseUser as it uses different json.
-        mUser->setUserId(object.value(QLatin1String("_id")).toString());
-        mUser->setName(object.value(QLatin1String("name")).toString());
-        mUser->setStatus(object.value(QLatin1String("status")).toString());
-        mUser->setUserName(object.value(QLatin1String("username")).toString());
+        mUserId = object.value(QLatin1String("_id")).toString();
+        mName = object.value(QLatin1String("name")).toString();
+        mStatus = object.value(QLatin1String("status")).toString();
+        mUserName = object.value(QLatin1String("username")).toString();
     } else {
         mRoomId = object.value(QLatin1String("_id")).toString();
         mRoomName = object.value(QLatin1String("name")).toString();
@@ -60,24 +57,16 @@ void Channel::setType(const ChannelType &type)
     mType = type;
 }
 
-User *Channel::user() const
-{
-    return mUser;
-}
-
-void Channel::setUser(User *user)
-{
-    delete mUser;
-    mUser = user;
-}
-
 bool Channel::operator==(const Channel &other) const
 {
     return (mType == other.type())
-           && (*mUser == *other.user())
-           && (mRoomId == other.roomId())
-           && (mRoomType == other.roomType())
-           && (mRoomName == other.roomName());
+            && (mRoomId == other.roomId())
+            && (mRoomType == other.roomType())
+            && (mRoomName == other.roomName())
+            && (mUserId == other.userId())
+            && (mName == other.name())
+            && (mStatus == other.status())
+            && (mUserName == other.userName());
 }
 
 QString Channel::roomId() const
@@ -110,12 +99,61 @@ void Channel::setRoomType(const QString &roomType)
     mRoomType = roomType;
 }
 
+QString Channel::userId() const
+{
+    return mUserId;
+}
+
+void Channel::setUserId(const QString &userId)
+{
+    mUserId = userId;
+}
+
+QString Channel::name() const
+{
+    return mName;
+}
+
+void Channel::setName(const QString &name)
+{
+    mName = name;
+}
+
+QString Channel::status() const
+{
+    return mStatus;
+}
+
+void Channel::setStatus(const QString &status)
+{
+    mStatus = status;
+}
+
+QString Channel::userName() const
+{
+    return mUserName;
+}
+
+void Channel::setUserName(const QString &userName)
+{
+    mUserName = userName;
+}
+
+QString Channel::iconFromStatus() const
+{
+    return Utils::iconFromStatus(mStatus);
+}
+
 QDebug operator <<(QDebug d, const Channel &t)
 {
     d << "type: " << t.type();
-    d << "user: " << *t.user();
     d << "roomName: " << t.roomName();
     d << "roomType: " << t.roomType();
     d << "roomId: " << t.roomId();
+    d << "mUserId " << t.userId();
+    d << "mName " << t.name();
+    d << "mStatus " << t.status();
+    d << "mUserName " << t.userName();
+
     return d;
 }

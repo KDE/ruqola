@@ -22,7 +22,6 @@
 #define CHANNEL_H
 
 #include "libruqola_private_export.h"
-#include "user.h"
 #include <QDebug>
 //TODO rename it
 class LIBRUQOLACORE_TESTS_EXPORT Channel
@@ -43,9 +42,6 @@ public:
     Q_REQUIRED_RESULT ChannelType type() const;
     void setType(const ChannelType &type);
 
-    Q_REQUIRED_RESULT User *user() const;
-    void setUser(User *user);
-
     Q_REQUIRED_RESULT bool operator==(const Channel &other) const;
 
     Channel &operator=(const Channel &other) = default;
@@ -59,12 +55,30 @@ public:
     Q_REQUIRED_RESULT QString roomType() const;
     void setRoomType(const QString &roomType);
 
+    Q_REQUIRED_RESULT QString userId() const;
+    void setUserId(const QString &userId);
+
+    Q_REQUIRED_RESULT QString name() const;
+    void setName(const QString &name);
+
+    Q_REQUIRED_RESULT QString status() const;
+    void setStatus(const QString &status);
+
+    Q_REQUIRED_RESULT QString userName() const;
+    void setUserName(const QString &userName);
+
+    Q_REQUIRED_RESULT QString iconFromStatus() const;
 private:
     QString mRoomId;
     QString mRoomName;
     QString mRoomType;
+
+    //Private Channel
+    QString mUserId;
+    QString mName;
+    QString mStatus;
+    QString mUserName;
     ChannelType mType = ChannelType::Unknown;
-    User *mUser = nullptr;
 };
 Q_DECLARE_METATYPE(Channel)
 Q_DECLARE_TYPEINFO(Channel, Q_MOVABLE_TYPE);
