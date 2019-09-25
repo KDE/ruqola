@@ -525,7 +525,7 @@ Component {
                         showUserInfoDialogLoader.active = false
                     }
                     Component.onCompleted: {
-                        //open()
+                        //open() //REACTIVATE IT
                     }
                 }
             }

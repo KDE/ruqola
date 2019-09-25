@@ -1535,8 +1535,7 @@ bool RocketChatAccount::sortUnreadOnTop() const
 
 UserWrapper *RocketChatAccount::userWrapper(const QString &userId)
 {
-    //TODO
-    return nullptr;
+    return usersModel()->findUserWrapper(userId);
 }
 
 void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, const QString &channelType)
