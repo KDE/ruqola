@@ -155,20 +155,5 @@ void User::parseUser(const QJsonObject &object)
 
 QString User::iconFromStatus() const
 {
-    //TODO optimization ?
-    const PresenceStatus status = Utils::presenceStatusFromString(mStatus);
-    switch (status) {
-    case PresenceStatus::PresenceOnline:
-        return QStringLiteral("user-online");
-    case PresenceStatus::PresenceBusy:
-        return QStringLiteral("user-busy");
-    case PresenceStatus::PresenceAway:
-        return QStringLiteral("user-away");
-    case PresenceStatus::PresenceOffline:
-        return QStringLiteral("user-offline");
-    case PresenceStatus::Unknown:
-        return QStringLiteral("unknown");
-    }
-    qCDebug(RUQOLA_LOG) << " QString User::iconFromStatus() const" << name() << " mStatus" << mStatus;
-    return {};
+    return Utils::iconFromStatus(mStatus);
 }

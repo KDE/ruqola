@@ -108,6 +108,26 @@ QString Utils::presenceStatusToString(User::PresenceStatus status)
     return {};
 }
 
+QString Utils::iconFromStatus(const QString &status)
+{
+    if (status == QLatin1String("online")) {
+        return QStringLiteral("user-online");
+    } else if (status == QLatin1String("busy")) {
+        return QStringLiteral("user-busy");
+    } else if (status == QLatin1String("away")) {
+        return QStringLiteral("user-away");
+    } else if (status == QLatin1String("offline")) {
+        return QStringLiteral("user-offline");
+    } else {
+        qCDebug(RUQOLA_LOG) << "Problem with status " << status;
+        return QStringLiteral("unknown");
+    }
+
+    qCDebug(RUQOLA_LOG) << " QString User::iconFromStatus() const" << status;
+    return {};
+}
+
+
 User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
 {
     if (status == QLatin1String("online")) {
