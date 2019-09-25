@@ -69,6 +69,7 @@ void UserCompleterModelTest::shouldAddValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9"));
 
+    qDeleteAll(users);
     users.clear();
     for (int i = 0; i < 3; ++i) {
         User *user = new User;
