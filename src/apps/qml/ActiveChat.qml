@@ -182,7 +182,7 @@ ListView {
             activeChat.replyInThread(messageId)
         }
         onShowUserInfo: {
-            activeChat.showUserInfo(userId)
+            activeChat.showUserInfo(userID)
         }
     }
     section {

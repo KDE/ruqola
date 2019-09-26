@@ -483,9 +483,8 @@ Component {
             }
 
             onShowUserInfo: {
-                //TODO add userId in dialog box
+                showUserInfoDialogLoader.userId = userId
                 showUserInfoDialogLoader.active = true;
-                //TODO
                 console.log("Open user info " + userId)
             }
 
@@ -515,9 +514,11 @@ Component {
             Loader {
                 id: showUserInfoDialogLoader
                 active: false
+                property string userId
                 sourceComponent: UserInfoDialog {
                     id: userInfoDialog
                     parent: appid.pageStack
+
                     onRejected: {
                         showUserInfoDialogLoader.active = false
                     }
@@ -525,6 +526,7 @@ Component {
                         showUserInfoDialogLoader.active = false
                     }
                     Component.onCompleted: {
+                        userInfo = appid.rocketChatAccount.userWrapper(showUserInfoDialogLoader.userId)
                         //open() //REACTIVATE IT
                     }
                 }

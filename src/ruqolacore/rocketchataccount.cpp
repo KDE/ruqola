@@ -671,6 +671,7 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QStr
     }
     restApi()->setUserStatus(userID(), type, messageStatus);
 #else
+    Q_UNUSED(messageStatus);
     ddp()->setDefaultStatus(status);
 #endif
 }

@@ -94,7 +94,7 @@ Rectangle {
     signal openDiscussion(string discussionRoomId)
     signal openThread(string threadMessageId, string threadPreviewText)
     signal replyInThread(string messageId)
-    signal showUserInfo(string userId)
+    signal showUserInfo()
     Loader {
         id: loaded
         anchors.fill: parent
@@ -331,7 +331,7 @@ Rectangle {
             messageMain.replyInThread(messageId)
         }
         onShowUserInfo: {
-            messageMain.showUserInfo(userId)
+            messageMain.showUserInfo()
         }
     }
 }
