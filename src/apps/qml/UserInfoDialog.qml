@@ -33,15 +33,22 @@ QQC2.Dialog {
     property QtObject userInfo
     modal: true
     focus: true
-    x: parent.width / 2 - width / 2
-    y: parent.height / 2 - height / 2
-
+    width: parent.width * 9 / 10
+    height: parent.height * 9 / 10
+    anchors.centerIn: parent
     function initializeAndOpen()
     {
         open();
     }
 
-    GridLayout {
+    contentItem: GridLayout {
         columns: 2
+        QQC2.Label {
+            text: userInfo.name
+            elide: Text.ElideRight
+            wrapMode: QQC2.Label.Wrap
+            renderType: Text.NativeRendering
+            Layout.preferredWidth: parent.width
+        }
     }
 }
