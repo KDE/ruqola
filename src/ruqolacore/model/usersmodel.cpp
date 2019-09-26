@@ -157,6 +157,7 @@ void UsersModel::updateUser(const QJsonObject &array)
         if (mUsers.at(i)->userId() == id) {
             User *user = mUsers.at(i);
             const QJsonObject fields = array.value(QLatin1String("fields")).toObject();
+
             const QString newStatus = fields.value(QLatin1String("status")).toString();
             bool userDataChanged = false;
             if (!newStatus.isEmpty()) {

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2019 Montel Laurent <montel@kde.org>
+   Copyright (c) 2019 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "usersinfojob.h"
+#include "userspresencejob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
@@ -26,21 +26,21 @@
 #include <QUrlQuery>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-UsersInfoJob::UsersInfoJob(QObject *parent)
+UsersPresenceJob::UsersPresenceJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-UsersInfoJob::~UsersInfoJob()
+UsersPresenceJob::~UsersPresenceJob()
 {
 }
 
-bool UsersInfoJob::requireHttpAuthentication() const
+bool UsersPresenceJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool UsersInfoJob::start()
+bool UsersPresenceJob::start()
 {
     if (!canStart()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start usersinfo job";
@@ -48,12 +48,12 @@ bool UsersInfoJob::start()
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &UsersInfoJob::slotUserInfoFinished);
-    addLoggerInfo(QByteArrayLiteral("UsersInfoJob: Ask info about me"));
+    connect(reply, &QNetworkReply::finished, this, &UsersPresenceJob::slotUsersPresenceFinished);
+    addLoggerInfo(QByteArrayLiteral("UsersPresenceJob: Ask info about me"));
     return true;
 }
 
-void UsersInfoJob::slotUserInfoFinished()
+void UsersPresenceJob::slotUsersPresenceFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -61,47 +61,20 @@ void UsersInfoJob::slotUserInfoFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("UsersInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT usersInfoDone(replyObject);
+            addLoggerInfo(QByteArrayLiteral("UsersPresenceJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT usersPresenceDone(replyObject);
         } else {
             emitFailedMessage(replyObject);
-            addLoggerWarning(QByteArrayLiteral("UsersInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("UsersPresenceJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
     deleteLater();
 }
 
-bool UsersInfoJob::useUserName() const
+QNetworkRequest UsersPresenceJob::request() const
 {
-    return mUseUserName;
-}
-
-void UsersInfoJob::setUseUserName(bool useUserName)
-{
-    mUseUserName = useUserName;
-}
-
-QString UsersInfoJob::identifier() const
-{
-    return mIdentifier;
-}
-
-void UsersInfoJob::setIdentifier(const QString &identifier)
-{
-    mIdentifier = identifier;
-}
-
-QNetworkRequest UsersInfoJob::request() const
-{
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersInfo);
-    QUrlQuery queryUrl;
-    if (mUseUserName) {
-        queryUrl.addQueryItem(QStringLiteral("username"), mIdentifier);
-    } else {
-        queryUrl.addQueryItem(QStringLiteral("userId"), mIdentifier);
-    }
-    url.setQuery(queryUrl);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersPresence);
 
     QNetworkRequest request(url);
     addAuthRawHeader(request);
@@ -110,14 +83,10 @@ QNetworkRequest UsersInfoJob::request() const
     return request;
 }
 
-bool UsersInfoJob::canStart() const
+bool UsersPresenceJob::canStart() const
 {
-    if (mIdentifier.trimmed().isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UsersInfoJob: identifier is empty";
-        return false;
-    }
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersInfoJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersPresenceJob job";
         return false;
     }
     return true;

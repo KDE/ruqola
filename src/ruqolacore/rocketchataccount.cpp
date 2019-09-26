@@ -443,6 +443,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetAllUserMentionsDone, this, &RocketChatAccount::slotGetAllUserMentionsDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getPinnedMessagesDone, this, &RocketChatAccount::slotGetPinnedMessagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
     }
@@ -1440,7 +1441,6 @@ void RocketChatAccount::setServerVersion(const QString &version)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::setServerVersion(const QString &version)" << version;
     mRuqolaServerConfig->setServerVersion(version);
-    getSupportedLanguages();
 }
 
 bool RocketChatAccount::needAdaptNewSubscriptionRC60() const
@@ -1861,4 +1861,31 @@ void RocketChatAccount::autoTranslateSaveAutoTranslateSettings(const QString &ro
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::autoTranslateSaveLanguageSettings is not supported before server 2.0.0";
     }
+}
+
+void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
+{
+    qDebug() << " void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)" << obj;
+}
+
+void RocketChatAccount::usersPresence()
+{
+    if (mRuqolaServerConfig->hasAtLeastVersion(1, 1, 0)) {
+        restApi()->usersPresence();
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::usersPresence is not supported before server 1.1.0";
+    }
+}
+
+void RocketChatAccount::initializeAccount()
+{
+    listEmojiCustom();
+    //load when necessary
+    //account->usersPresence();
+    if (mRuqolaServerConfig->autoTranslateEnabled()) {
+        getSupportedLanguages();
+    }
+    //Force set online.
+    //TODO don't reset message status !
+    ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
 }

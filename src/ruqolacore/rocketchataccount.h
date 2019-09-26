@@ -159,7 +159,6 @@ public:
     Q_INVOKABLE void createNewChannel(const QString &name, bool readOnly, bool privateRoom, const QString &userNames, bool encryptedRoom, const QString &password, bool broadcast);
     Q_INVOKABLE void joinRoom(const QString &roomId, const QString &joinCode = QString());
     Q_INVOKABLE void openDirectChannel(const QString &username);
-    Q_INVOKABLE void listEmojiCustom();
     Q_INVOKABLE void setDefaultStatus(User::PresenceStatus status, const QString &messageStatus); //Move to private no ?
     Q_INVOKABLE void changeDefaultStatus(int index, const QString &messageStatus);
     Q_INVOKABLE void createJitsiConfCall(const QString &roomId);
@@ -358,12 +357,14 @@ public:
     Q_INVOKABLE void loadMorePinnedMessages(const QString &roomId);
     Q_INVOKABLE PinnedMessageModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;
 
-    Q_INVOKABLE void getSupportedLanguages();
     Q_INVOKABLE AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
 
     void updateThreadMessageList(const Message &m);
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
+
+    void initializeAccount();
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -397,6 +398,8 @@ private:
     void slotGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
     void slotGetPinnedMessagesDone(const QJsonObject &obj, const QString &roomId);
     void slotGetSupportedLanguagesDone(const QJsonObject &obj);
+    void slotUsersPresenceDone(const QJsonObject &obj);
+
 
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);
@@ -410,6 +413,10 @@ private:
     void userStatusChanged(User *user);
     void setChannelJoinDone(const QString &roomId);
     void openArchivedRoom(const QString &roomId);
+
+    void getSupportedLanguages();
+    void usersPresence();
+    void listEmojiCustom();
 
     void checkInitializedRoom(const QString &roomId);
     void clearTypingNotification();

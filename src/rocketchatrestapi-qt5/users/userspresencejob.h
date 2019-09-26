@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2019 Montel Laurent <montel@kde.org>
+   Copyright (c) 2019 Montel Laurent <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,21 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSINFOJOB_H
-#define USERSINFOJOB_H
+#ifndef USERSPRESENCEJOB_H
+#define USERSPRESENCEJOB_H
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersInfoJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UsersPresenceJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
     //TODO userId or Username
-    explicit UsersInfoJob(QObject *parent = nullptr);
-    ~UsersInfoJob() override;
+    explicit UsersPresenceJob(QObject *parent = nullptr);
+    ~UsersPresenceJob() override;
 
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
@@ -42,20 +42,13 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QString identifier() const;
-    void setIdentifier(const QString &identifier);
-
-    Q_REQUIRED_RESULT bool useUserName() const;
-    void setUseUserName(bool useUserName);
 
 Q_SIGNALS:
-    void usersInfoDone(const QJsonObject &obj);
+    void usersPresenceDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(UsersInfoJob)
-    void slotUserInfoFinished();
-    QString mIdentifier;
-    bool mUseUserName = false;
+    Q_DISABLE_COPY(UsersPresenceJob)
+    void slotUsersPresenceFinished();
 };
 }
-#endif // USERSINFOJOB_H
+#endif // USERSPRESENCEJOB_H

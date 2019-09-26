@@ -31,6 +31,7 @@ UserWrapper::UserWrapper(User *user, QObject *parent)
     : QObject(parent)
 {
     mUser = user;
+    qDebug() << " mUSer " << *user;
     connect(mUser, &User::nameChanged, this, &UserWrapper::nameChanged);
     connect(mUser, &User::userIdChanged, this, &UserWrapper::userIdChanged);
     connect(mUser, &User::statusChanged, this, &UserWrapper::statusChanged);

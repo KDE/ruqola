@@ -121,10 +121,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
     params[QStringLiteral("$date")] = QJsonValue(0); // get ALL rooms we've ever seen
     account->ddp()->method(QStringLiteral("rooms/get"), QJsonDocument(params), rooms_parsing);
 
-    //TODO ?
-    account->listEmojiCustom();
-    //Force set online.
-    account->ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
+    account->initializeAccount();
 }
 
 RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent)

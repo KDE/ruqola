@@ -36,6 +36,7 @@
 #include "users/getpresencejob.h"
 #include "users/getusernamesuggestionjob.h"
 #include "users/setstatusjob.h"
+#include "users/userspresencejob.h"
 
 #include "misc/owninfojob.h"
 
@@ -1576,5 +1577,14 @@ void RestApiRequest::setUserStatus(const QString &userId, SetStatusJob::StatusTy
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetStatusJob";
     }
+}
 
+void RestApiRequest::usersPresence()
+{
+    UsersPresenceJob *job = new UsersPresenceJob(this);
+    initializeRestApiJob(job);
+    connect(job, &UsersPresenceJob::usersPresenceDone, this, &RestApiRequest::usersPresenceDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start usersPresenceJob";
+    }
 }
