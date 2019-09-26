@@ -212,6 +212,19 @@ Component {
                 width: height
                 visible: appid.selectedRoom && appid.selectedRoom.encrypted
             }
+            Kirigami.Icon {
+                source: "preferences-desktop-locale"
+                height: Kirigami.Units.iconSizes.medium
+                width: height
+                visible: appid.selectedRoom && appid.selectedRoom.autoTranslate
+                MouseArea {
+                    hoverEnabled: true
+                    anchors.fill: parent
+                    QQC2.ToolTip {
+                        text: i18n("Auto-Translate Activated")
+                    }
+                }
+            }
             Kirigami.Heading {
                 text: appid.selectedRoom ? appid.selectedRoom.displayRoomName : ""
                 level: 3
