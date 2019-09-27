@@ -20,6 +20,7 @@
  *
  */
 import QtQuick 2.9
+import QtQml 2.1 as QtQml
 import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.12
@@ -106,6 +107,40 @@ Component {
                     verticalCenter: parent.verticalCenter
                     left: parent.left
                 }
+                QQC2.ToolButton {
+                    id: accountButton
+                    icon.name: "network-workgroup"
+                    onClicked: accountMenu.open()
+                    visible: recentFilesInstantiator.model.rowCount() > 1
+                    QQC2.Menu {
+                        id: accountMenu
+                        QtQml.Instantiator {
+                            id: recentFilesInstantiator
+                            model: appid.accountManagerModel
+
+                            delegate: QQC2.MenuItem {
+                                text: name
+                                checkable: true
+                                autoExclusive: true
+
+                                onTriggered: {
+                                    console.log(" ddd " + name);
+                                    appid.accountManager.setCurrentAccount(name);
+                                    appid.rocketChatAccount = accountManager.currentAccount()
+                                }
+                            }
+
+                            onObjectAdded: {
+                                accountMenu.insertItem(index, object)
+                            }
+                            onObjectRemoved: {
+                                accountMenu.removeItem(object)
+                            }
+                        }
+                    }
+                }
+
+
                 QQC2.Label {
                     id: comboboxLabel
                     textFormat: Text.PlainText

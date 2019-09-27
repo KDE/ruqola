@@ -38,7 +38,7 @@ public:
     explicit RocketChatAccountModel(QObject *parent = nullptr);
     ~RocketChatAccountModel() override;
 
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = {}) const override;
+    Q_REQUIRED_RESULT Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void insertAccount(RocketChatAccount *account);

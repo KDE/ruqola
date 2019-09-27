@@ -43,7 +43,7 @@ public:
     Q_INVOKABLE RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel() const;
 
     void addAccount(RocketChatAccount *account);
-    void setCurrentAccount(const QString &accountName);
+    Q_INVOKABLE void setCurrentAccount(const QString &accountName);
 
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
