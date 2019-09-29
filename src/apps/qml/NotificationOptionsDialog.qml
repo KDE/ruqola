@@ -101,7 +101,7 @@ QQC2.Dialog {
 
         QQC2.GroupBox {
             id: desktopNotificationGroupBox
-            title: qsTr("Desktop")
+            title: i18n("Desktop")
             GridLayout {
                 columns: 2
                 anchors.fill: parent
@@ -154,7 +154,7 @@ QQC2.Dialog {
 
         QQC2.GroupBox {
             id: mobileNotificationGroupBox
-            title: qsTr("Mobile")
+            title: i18n("Mobile")
             GridLayout {
                 columns: 2
                 anchors.fill: parent
@@ -175,7 +175,7 @@ QQC2.Dialog {
 
         QQC2.GroupBox {
             id: emailNotificationGroupBox
-            title: qsTr("Email")
+            title: i18n("Email")
             GridLayout {
                 anchors.fill: parent
                 columns: 2
