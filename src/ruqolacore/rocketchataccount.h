@@ -102,7 +102,9 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(bool discussionEnabled READ discussionEnabled CONSTANT)
     Q_PROPERTY(bool hasPinnedMessagesSupport READ hasPinnedMessagesSupport CONSTANT)
     Q_PROPERTY(ServerConfigInfo* serverConfigInfo READ serverConfigInfo CONSTANT)
-    Q_PROPERTY(StatusModel* statusModel READ statusModel CONSTANT)
+    Q_PROPERTY(AutotranslateLanguagesModel* autoTranslateLanguagesModel READ autoTranslateLanguagesModel CONSTANT)
+    Q_PROPERTY(QString recordingVideoPath READ recordingVideoPath CONSTANT)
+    Q_PROPERTY(QString recordingImagePath READ recordingImagePath CONSTANT)
 
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
@@ -181,8 +183,6 @@ public:
     Q_INVOKABLE void eraseRoom(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void changeChannelSettings(const QString &roomId, RocketChatAccount::RoomInfoType infoType, const QVariant &newValue, const QString &channelType = QString());
     Q_INVOKABLE void changeNotificationsSettings(const QString &roomId, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue);
-    Q_INVOKABLE QString recordingVideoPath() const;
-    Q_INVOKABLE QString recordingImagePath() const;
     Q_INVOKABLE void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     Q_INVOKABLE void starMessage(const QString &messageId, bool starred);
     Q_INVOKABLE void pinMessage(const QString &messageId, bool pinned);
@@ -251,6 +251,31 @@ public:
     Q_INVOKABLE void followMessage(const QString &messageId, bool follow);
 
     Q_INVOKABLE void replyToMessage(const QString &roomID, const QString &message, const QString &messageId);
+    Q_INVOKABLE UserWrapper *userWrapper(const QString &userId);
+    Q_INVOKABLE MessageModel *threadMessageModel() const;
+    Q_INVOKABLE EmoticonModel *emoticonModel() const;
+    Q_INVOKABLE void loadMoreFileAttachments(const QString &roomId, const QString &channelType);
+    Q_INVOKABLE void loadMoreDiscussions(const QString &roomId);
+    Q_INVOKABLE void loadMoreThreads(const QString &roomId);
+    Q_INVOKABLE void loadThreadMessagesHistory(const QString &roomId);
+    Q_INVOKABLE void loadMoreMentions(const QString &roomId);
+
+    Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
+    Q_INVOKABLE void getPinnedMessages(const QString &roomId);
+
+
+    Q_INVOKABLE MessageModel *pinnedMessageModel() const;
+
+    Q_INVOKABLE void loadMorePinnedMessages(const QString &roomId);
+    Q_INVOKABLE PinnedMessageModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;
+
+
+    Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
+    Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
+
+
+
+    AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
 
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
@@ -261,7 +286,6 @@ public:
     Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
 
-    Q_INVOKABLE UserWrapper *userWrapper(const QString &userId);
 
     Q_REQUIRED_RESULT DDPClient::LoginStatus loginStatus();
     RocketChatRestApi::RestApiRequest *restApi();
@@ -328,7 +352,6 @@ public:
 
     void rolesChanged(const QJsonArray &contents);
 
-    Q_INVOKABLE EmoticonModel *emoticonModel() const;
 
     FilesForRoomModel *filesModelForRoom() const;
 
@@ -338,30 +361,9 @@ public:
 
     MentionsModel *mentionsModel() const;
 
-    Q_INVOKABLE MessageModel *threadMessageModel() const;
-
-    Q_INVOKABLE void loadMoreFileAttachments(const QString &roomId, const QString &channelType);
-    Q_INVOKABLE void loadMoreDiscussions(const QString &roomId);
-    Q_INVOKABLE void loadMoreThreads(const QString &roomId);
-    Q_INVOKABLE void loadThreadMessagesHistory(const QString &roomId);
-    Q_INVOKABLE void loadMoreMentions(const QString &roomId);
-
-    Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
-    Q_INVOKABLE void getPinnedMessages(const QString &roomId);
-
-
-    Q_INVOKABLE MessageModel *pinnedMessageModel() const;
-
-    Q_INVOKABLE void loadMorePinnedMessages(const QString &roomId);
-    Q_INVOKABLE PinnedMessageModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;
-
-    Q_INVOKABLE AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
-
-    void updateThreadMessageList(const Message &m);
-    Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
-    Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 
     Q_REQUIRED_RESULT bool encryptedEnabled() const;
+    void updateThreadMessageList(const Message &m);
 
     void initializeAccount();
 
@@ -403,6 +405,9 @@ private:
     Q_REQUIRED_RESULT QString serverUrl() const;
     Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
     Q_REQUIRED_RESULT StatusModel *statusModel() const;
+    QString recordingVideoPath() const;
+    QString recordingImagePath() const;
+
 
 
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);

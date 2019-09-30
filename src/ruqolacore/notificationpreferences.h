@@ -32,21 +32,27 @@ class NotificationDesktopSoundPreferenceModel;
 class LIBRUQOLACORE_TESTS_EXPORT NotificationPreferences : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(NotificationPreferenceModel* emailNotificationModel READ emailNotificationModel CONSTANT)
+    Q_PROPERTY(NotificationPreferenceModel* mobileNotificationModel READ mobileNotificationModel CONSTANT)
+    Q_PROPERTY(NotificationPreferenceModel* desktopNotificationModel READ desktopNotificationModel CONSTANT)
+    Q_PROPERTY(NotificationPreferenceModel* desktopAudioNotificationModel READ desktopAudioNotificationModel CONSTANT)
+    Q_PROPERTY(NotificationDesktopDurationPreferenceModel* desktopDurationNotificationModel READ desktopDurationNotificationModel CONSTANT)
+    Q_PROPERTY(NotificationDesktopSoundPreferenceModel* desktopSoundNotificationModel READ desktopSoundNotificationModel CONSTANT)
 public:
     explicit NotificationPreferences(QObject *parent = nullptr);
     ~NotificationPreferences();
 
-    Q_INVOKABLE Q_REQUIRED_RESULT NotificationPreferenceModel *emailNotificationModel() const;
+    Q_REQUIRED_RESULT NotificationPreferenceModel *emailNotificationModel() const;
 
-    Q_INVOKABLE Q_REQUIRED_RESULT NotificationPreferenceModel *mobileNotificationModel() const;
+    Q_REQUIRED_RESULT NotificationPreferenceModel *mobileNotificationModel() const;
 
-    Q_INVOKABLE Q_REQUIRED_RESULT NotificationPreferenceModel *desktopNotificationModel() const;
+    Q_REQUIRED_RESULT NotificationPreferenceModel *desktopNotificationModel() const;
 
-    Q_INVOKABLE Q_REQUIRED_RESULT NotificationPreferenceModel *desktopAudioNotificationModel() const;
+    Q_REQUIRED_RESULT NotificationPreferenceModel *desktopAudioNotificationModel() const;
 
-    Q_INVOKABLE Q_REQUIRED_RESULT NotificationDesktopDurationPreferenceModel *desktopDurationNotificationModel() const;
+    Q_REQUIRED_RESULT NotificationDesktopDurationPreferenceModel *desktopDurationNotificationModel() const;
 
-    Q_INVOKABLE Q_REQUIRED_RESULT NotificationDesktopSoundPreferenceModel *desktopSoundNotificationModel() const;
+    Q_REQUIRED_RESULT NotificationDesktopSoundPreferenceModel *desktopSoundNotificationModel() const;
 
 private:
     NotificationPreferenceModel *mEmailNotificationModel = nullptr;

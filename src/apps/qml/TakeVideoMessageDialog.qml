@@ -47,7 +47,7 @@ QQC2.Dialog {
         videoRecorder.audioEncodingMode: CameraRecorder.ConstantBitrateEncoding;
         videoRecorder.audioBitRate: 128000
         videoRecorder.mediaContainer: "mp4"
-        videoRecorder.outputLocation: rcAccount.recordingVideoPath()
+        videoRecorder.outputLocation: rcAccount.recordingVideoPath
     }
 
     Kirigami.InlineMessage {

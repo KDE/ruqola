@@ -57,7 +57,7 @@ Kirigami.ApplicationWindow {
     property QtObject threadsModel: rocketChatAccount.threadsFilterProxyModel()
     property QtObject threadMessagesModel: rocketChatAccount.threadMessageModel()
     property QtObject pinnedMessagesModel: rocketChatAccount.pinnedMessagesFilterProxyModel()
-    property QtObject autotranslateLanguagesModel: rocketChatAccount.autoTranslateLanguagesModel()
+    property QtObject autotranslateLanguagesModel: rocketChatAccount.autoTranslateLanguagesModel
     property string userInputMessageText: "";
 
     width: Kirigami.Units.gridUnit * 55
