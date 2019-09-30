@@ -113,7 +113,7 @@ Component {
                     }
                 },
                 Kirigami.Action {
-                    visible: appid.selectedRoom && appid.rocketChatAccount.hasPinnedMessagesSupport()
+                    visible: appid.selectedRoom && appid.rocketChatAccount.hasPinnedMessagesSupport
                     text: i18n("Pinned Messages")
                     onTriggered: {
                         appid.rocketChatAccount.getPinnedMessages(appid.selectedRoomID);
@@ -121,7 +121,7 @@ Component {
                     }
                 },
                 Kirigami.Action {
-                    visible: appid.selectedRoom && appid.rocketChatAccount.discussionEnabled()
+                    visible: appid.selectedRoom && appid.rocketChatAccount.discussionEnabled
                     text: i18n("Discussions")
                     onTriggered: {
                         appid.rocketChatAccount.discussionsInRoom(appid.selectedRoomID);
@@ -129,7 +129,7 @@ Component {
                     }
                 },
                 Kirigami.Action {
-                    visible: appid.selectedRoom && appid.rocketChatAccount.threadsEnabled()
+                    visible: appid.selectedRoom && appid.rocketChatAccount.threadsEnabled
                     text: i18n("Threads")
                     onTriggered: {
                         appid.rocketChatAccount.threadsInRoom(appid.selectedRoomID);

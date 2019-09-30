@@ -100,6 +100,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(bool allowMessageDeletingEnabled READ allowMessageDeletingEnabled CONSTANT)
     Q_PROPERTY(bool threadsEnabled READ threadsEnabled CONSTANT)
     Q_PROPERTY(bool discussionEnabled READ discussionEnabled CONSTANT)
+    Q_PROPERTY(bool hasPinnedMessagesSupport READ hasPinnedMessagesSupport CONSTANT)
 
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
@@ -185,8 +186,6 @@ public:
     Q_INVOKABLE void pinMessage(const QString &messageId, bool pinned);
 
     Q_INVOKABLE void uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl);
-    Q_INVOKABLE QString serverUrl() const;
-
     Q_INVOKABLE QString avatarUrl(const QString &userId);
 
     Q_INVOKABLE StatusModel *statusModel() const;
@@ -350,7 +349,6 @@ public:
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void getPinnedMessages(const QString &roomId);
 
-    Q_INVOKABLE Q_REQUIRED_RESULT bool hasPinnedMessagesSupport() const;
 
     Q_INVOKABLE MessageModel *pinnedMessageModel() const;
 
@@ -396,11 +394,13 @@ private:
     Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
     Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
     Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
+    Q_REQUIRED_RESULT bool hasPinnedMessagesSupport() const;
 
     Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
     Q_REQUIRED_RESULT bool threadsEnabled() const;
 
     Q_REQUIRED_RESULT bool discussionEnabled() const;
+    Q_REQUIRED_RESULT QString serverUrl() const;
 
 
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);

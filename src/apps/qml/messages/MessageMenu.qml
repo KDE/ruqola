@@ -48,7 +48,7 @@ QQC2.Menu {
 
     QQC2.MenuItem {
         id: startADiscussionItem
-        visible: rcAccount.discussionEnabled()
+        visible: rcAccount.discussionEnabled
         contentItem: QQC2.Label {
             text: i18n("Start a Discussion")
             textFormat: Text.PlainText
@@ -60,7 +60,7 @@ QQC2.Menu {
     }
     QQC2.MenuItem {
         id: startAThreadItem
-        visible: rcAccount.threadsEnabled()
+        visible: rcAccount.threadsEnabled
         contentItem: QQC2.Label {
             text: i18n("Reply in Thread")
             textFormat: Text.PlainText
