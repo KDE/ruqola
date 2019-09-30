@@ -167,7 +167,7 @@ public:
 
 
 
-    Q_INVOKABLE QString getUserCurrentMessage(const QString &roomId);
+    Q_INVOKABLE Q_REQUIRED_RESULT QString getUserCurrentMessage(const QString &roomId);
     Q_INVOKABLE void setUserCurrentMessage(const QString &message, const QString &roomId);
     Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
     Q_INVOKABLE void leaveRoom(const QString &roomId, const QString &channelType);
@@ -206,9 +206,9 @@ public:
     Q_INVOKABLE void changeDefaultAuthentication(int index);
     Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid);
     Q_INVOKABLE void setInputTextChanged(const QString &str, int position);
-    Q_INVOKABLE QString replaceWord(const QString &newWord, const QString &str, int position);
+    Q_INVOKABLE Q_REQUIRED_RESULT QString replaceWord(const QString &newWord, const QString &str, int position);
     Q_INVOKABLE void blockUser(const QString &userId, bool block);
-    Q_INVOKABLE QString avatarUrlFromDirectChannel(const QString &rid);
+    Q_INVOKABLE Q_REQUIRED_RESULT QString avatarUrlFromDirectChannel(const QString &rid);
     Q_INVOKABLE void deleteFileMessage(const QString &roomId, const QString &fileId, const QString &channelType);
     Q_INVOKABLE void openDocumentation();
     Q_INVOKABLE void clearSearchModel();
@@ -240,8 +240,8 @@ public:
     Q_INVOKABLE void loadMorePinnedMessages(const QString &roomId);
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
+
     Q_INVOKABLE UserWrapper *userWrapper(const QString &userId);
-    Q_INVOKABLE Room *getRoom(const QString &roomId);
     Q_INVOKABLE UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
     Q_INVOKABLE RoomWrapper *roomWrapper(const QString &roomId);
     Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);
@@ -383,6 +383,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
+    Room *getRoom(const QString &roomId);
     Q_REQUIRED_RESULT bool jitsiEnabled() const;
     Q_REQUIRED_RESULT bool allowMessagePinningEnabled() const;
     Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
