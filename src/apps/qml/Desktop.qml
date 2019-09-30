@@ -47,16 +47,16 @@ Kirigami.ApplicationWindow {
     property QtObject userModel
     property QtObject rocketChatAccount: accountManager.account
 
-    property QtObject filesModel: appid.rocketChatAccount.filesForRoomFilterProxyModel()
-    property QtObject discussionsModel: appid.rocketChatAccount.discussionsFilterProxyModel()
-    property QtObject mentionsModel: appid.rocketChatAccount.mentionsFilterProxyModel()
+    property QtObject filesModel: appid.rocketChatAccount.filesForRoomFilterProxyModel
+    property QtObject discussionsModel: appid.rocketChatAccount.discussionsFilterProxyModel
+    property QtObject mentionsModel: appid.rocketChatAccount.mentionsFilterProxyModel
     property QtObject accountManager: Ruqola.accountManager()
-    property QtObject accountManagerModel: accountManager.rocketChatAccountModel()
-    property QtObject searchMessageModel: rocketChatAccount.searchMessageFilterProxyModel()
-    property QtObject emojiModel: rocketChatAccount.emoticonModel()
-    property QtObject threadsModel: rocketChatAccount.threadsFilterProxyModel()
-    property QtObject threadMessagesModel: rocketChatAccount.threadMessageModel()
-    property QtObject pinnedMessagesModel: rocketChatAccount.pinnedMessagesFilterProxyModel()
+    property QtObject accountManagerModel: accountManager.rocketChatAccountModel
+    property QtObject searchMessageModel: rocketChatAccount.searchMessageFilterProxyModel
+    property QtObject emojiModel: rocketChatAccount.emoticonModel
+    property QtObject threadsModel: rocketChatAccount.threadsFilterProxyModel
+    property QtObject threadMessagesModel: rocketChatAccount.threadMessageModel
+    property QtObject pinnedMessagesModel: rocketChatAccount.pinnedMessagesFilterProxyModel
     property QtObject autotranslateLanguagesModel: rocketChatAccount.autoTranslateLanguagesModel
     property string userInputMessageText: "";
 
@@ -421,7 +421,7 @@ Kirigami.ApplicationWindow {
 
     SearchChannelDialog {
         id: searchChannelDialog
-        searchChannelModel: rocketChatAccount.searchChannelFilterProxyModel()
+        searchChannelModel: rocketChatAccount.searchChannelFilterProxyModel
         onSearchChannel: {
             rocketChatAccount.channelAndPrivateAutocomplete(pattern);
         }

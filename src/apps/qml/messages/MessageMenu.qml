@@ -169,7 +169,7 @@ QQC2.Menu {
             pinnedMessageLabel.text = updatePinnedMessageLabelText();
         }
 
-        editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages() && can_edit_message
+        editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages && can_edit_message
         ignoreLabel.text = updateIgnoreLabelText()
         ignoreUserItem.visible = (i_username != i_own_username)
     }

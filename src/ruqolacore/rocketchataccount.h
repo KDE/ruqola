@@ -105,6 +105,21 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(AutotranslateLanguagesModel* autoTranslateLanguagesModel READ autoTranslateLanguagesModel CONSTANT)
     Q_PROPERTY(QString recordingVideoPath READ recordingVideoPath CONSTANT)
     Q_PROPERTY(QString recordingImagePath READ recordingImagePath CONSTANT)
+    Q_PROPERTY(bool allowEditingMessages READ allowEditingMessages CONSTANT)
+    Q_PROPERTY(bool otrEnabled READ otrEnabled CONSTANT)
+    Q_PROPERTY(LoginMethodModel* loginMethodModel READ loginMethodModel CONSTANT)
+    Q_PROPERTY(StatusModel* statusModel READ statusModel CONSTANT)
+    Q_PROPERTY(DiscussionsFilterProxyModel* discussionsFilterProxyModel READ discussionsFilterProxyModel CONSTANT)
+    Q_PROPERTY(SearchChannelFilterProxyModel* searchChannelFilterProxyModel READ searchChannelFilterProxyModel CONSTANT)
+    Q_PROPERTY(InputCompleterModel* inputCompleterModel READ inputCompleterModel CONSTANT)
+    Q_PROPERTY(InputCompleterModel* inputThreadMessageCompleterModel READ inputThreadMessageCompleterModel CONSTANT)
+    Q_PROPERTY(ThreadsFilterProxyModel* threadsFilterProxyModel READ threadsFilterProxyModel CONSTANT)
+    Q_PROPERTY(MentionsFilterProxyModel* mentionsFilterProxyModel READ mentionsFilterProxyModel CONSTANT)
+    Q_PROPERTY(MessageModel* threadMessageModel READ threadMessageModel CONSTANT)
+    Q_PROPERTY(EmoticonModel* emoticonModel READ emoticonModel CONSTANT)
+    Q_PROPERTY(PinnedMessageModelFilterProxyModel* pinnedMessagesFilterProxyModel READ pinnedMessagesFilterProxyModel CONSTANT)
+    Q_PROPERTY(FilesForRoomFilterProxyModel* filesForRoomFilterProxyModel READ filesForRoomFilterProxyModel CONSTANT)
+    Q_PROPERTY(SearchMessageFilterProxyModel* searchMessageFilterProxyModel READ searchMessageFilterProxyModel CONSTANT)
 
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
@@ -149,9 +164,8 @@ public:
 
     Q_INVOKABLE UsersModel *usersModel() const;
 
-    Q_INVOKABLE RoomModel *roomModel() const;
-
     Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
+
     Q_INVOKABLE UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
     Q_INVOKABLE RoomWrapper *roomWrapper(const QString &roomId);
     Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);
@@ -193,28 +207,20 @@ public:
 
     Q_INVOKABLE Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
     Q_INVOKABLE void loadHistory(const QString &roomID, const QString &channelType = QString(), bool initial = false);
-    Q_INVOKABLE Q_REQUIRED_RESULT bool allowEditingMessages() const;
-    Q_INVOKABLE Q_REQUIRED_RESULT bool otrEnabled() const;
     Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
     Q_INVOKABLE UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
     Q_INVOKABLE void roomFiles(const QString &roomId, const QString &channelType = QString());
-    Q_INVOKABLE FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
     Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId, const QString &channelType);
-    Q_INVOKABLE SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
-    Q_INVOKABLE InputCompleterModel *inputCompleterModel() const;
-    Q_INVOKABLE InputCompleterModel *inputThreadMessageCompleterModel() const;
-    Q_INVOKABLE LoginMethodModel *loginMethodModel() const;
+
+
     Q_INVOKABLE Room *getRoom(const QString &roomId);
 
-    Q_INVOKABLE DiscussionsFilterProxyModel *discussionsFilterProxyModel() const;
 
-    Q_INVOKABLE ThreadsFilterProxyModel *threadsFilterProxyModel() const;
-    Q_INVOKABLE MentionsFilterProxyModel *mentionsFilterProxyModel() const;
+
 
     Q_INVOKABLE void changeDefaultAuthentication(int index);
     Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid);
 
-    Q_INVOKABLE SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     Q_INVOKABLE void setInputTextChanged(const QString &str, int position);
     Q_INVOKABLE QString replaceWord(const QString &newWord, const QString &str, int position);
     Q_INVOKABLE void blockUser(const QString &userId, bool block);
@@ -252,8 +258,6 @@ public:
 
     Q_INVOKABLE void replyToMessage(const QString &roomID, const QString &message, const QString &messageId);
     Q_INVOKABLE UserWrapper *userWrapper(const QString &userId);
-    Q_INVOKABLE MessageModel *threadMessageModel() const;
-    Q_INVOKABLE EmoticonModel *emoticonModel() const;
     Q_INVOKABLE void loadMoreFileAttachments(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void loadMoreDiscussions(const QString &roomId);
     Q_INVOKABLE void loadMoreThreads(const QString &roomId);
@@ -263,25 +267,34 @@ public:
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void getPinnedMessages(const QString &roomId);
 
-
-    Q_INVOKABLE MessageModel *pinnedMessageModel() const;
-
     Q_INVOKABLE void loadMorePinnedMessages(const QString &roomId);
-    Q_INVOKABLE PinnedMessageModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;
 
 
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 
 
+    SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
+    FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
 
+    MessageModel *threadMessageModel() const;
+    EmoticonModel *emoticonModel() const;
+    PinnedMessageModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;
+    MessageModel *pinnedMessageModel() const;
+    SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
     AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
-
+    DiscussionsFilterProxyModel *discussionsFilterProxyModel() const;
     SearchChannelModel *searchChannelModel() const;
     UserCompleterModel *userCompleterModel() const;
     RocketChatAccountSettings *settings() const;
-    DDPClient *ddp();
+    InputCompleterModel *inputCompleterModel() const;
+    InputCompleterModel *inputThreadMessageCompleterModel() const;
+    ThreadsFilterProxyModel *threadsFilterProxyModel() const;
+    MentionsFilterProxyModel *mentionsFilterProxyModel() const;
 
+    DDPClient *ddp();
+    RoomModel *roomModel() const;
+    LoginMethodModel *loginMethodModel() const;
     Q_REQUIRED_RESULT bool editingMode() const;
     Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
@@ -366,6 +379,8 @@ public:
     void updateThreadMessageList(const Message &m);
 
     void initializeAccount();
+    Q_REQUIRED_RESULT bool allowEditingMessages() const;
+    Q_REQUIRED_RESULT bool otrEnabled() const;
 
 Q_SIGNALS:
     void connectedChanged();

@@ -867,7 +867,7 @@ Component {
                 UserInput {
                     id: userInputMessage
                     rcAccount: appid.rocketChatAccount
-                    inputCompleterModel: rcAccount.inputCompleterModel()
+                    inputCompleterModel: rcAccount.inputCompleterModel
                     visible: appid.selectedRoom && (appid.selectedRoom.roomMessageInfo.length === 0)
                     messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
                     selectedRoomId: appid.selectedRoomID

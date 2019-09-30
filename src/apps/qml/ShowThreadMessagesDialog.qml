@@ -140,7 +140,7 @@ QQC2.Dialog {
         }
         //TODO improve it.
         UserInput {
-            inputCompleterModel: appid.rocketChatAccount.inputThreadMessageCompleterModel()
+            inputCompleterModel: appid.rocketChatAccount.inputThreadMessageCompleterModel
 
             rcAccount: appid.rocketChatAccount
             visible: appid.selectedRoom && (appid.selectedRoom.roomMessageInfo.length === 0)

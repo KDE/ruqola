@@ -111,7 +111,7 @@ Kirigami.Page {
         QQC2.ComboBox {
             id: loginMethodCombobox
             width: parent.width
-            model: appid.rocketChatAccount.loginMethodModel()
+            model: appid.rocketChatAccount.loginMethodModel
             visible: count > 1
             textRole: "name"
             currentIndex: model.currentLoginMethod
