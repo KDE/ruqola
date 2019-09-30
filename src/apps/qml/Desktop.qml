@@ -313,7 +313,7 @@ Kirigami.ApplicationWindow {
         sourceComponent: AddUserDialog {
             id: addUserDialog
             parent: appid.pageStack
-            completerModel: rocketChatAccount.userCompleterFilterModelProxy()
+            completerModel: rocketChatAccount.userCompleterFilterModelProxy
             roomInfo: appid.selectedRoom
             roomId: appid.selectedRoomID
 

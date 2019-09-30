@@ -122,6 +122,8 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(SearchMessageFilterProxyModel* searchMessageFilterProxyModel READ searchMessageFilterProxyModel CONSTANT)
     Q_PROPERTY(RoomFilterProxyModel* roomFilterProxyModel READ roomFilterProxyModel CONSTANT)
     Q_PROPERTY(UsersModel* usersModel READ usersModel CONSTANT)
+    Q_PROPERTY(ReceiveTypingNotificationManager* receiveTypingNotificationManager READ receiveTypingNotificationManager CONSTANT)
+    Q_PROPERTY(UserCompleterFilterProxyModel* userCompleterFilterModelProxy READ userCompleterFilterModelProxy CONSTANT)
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
     ~RocketChatAccount();
@@ -165,20 +167,14 @@ public:
 
 
 
-    Q_INVOKABLE UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
-    Q_INVOKABLE RoomWrapper *roomWrapper(const QString &roomId);
-    Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);
     Q_INVOKABLE QString getUserCurrentMessage(const QString &roomId);
     Q_INVOKABLE void setUserCurrentMessage(const QString &message, const QString &roomId);
-
     Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
-
     Q_INVOKABLE void leaveRoom(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void hideRoom(const QString &roomId, const QString &channelType = QString());
     Q_INVOKABLE void tryLogin();
     Q_INVOKABLE void logOut();
     Q_INVOKABLE void clearUnreadMessages(const QString &roomId);
-
     Q_INVOKABLE void changeFavorite(const QString &roomId, bool checked);
     Q_INVOKABLE void sendMessage(const QString &roomID, const QString &message);
     Q_INVOKABLE void updateMessage(const QString &roomID, const QString &messageId, const QString &message);
@@ -199,27 +195,16 @@ public:
     Q_INVOKABLE void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     Q_INVOKABLE void starMessage(const QString &messageId, bool starred);
     Q_INVOKABLE void pinMessage(const QString &messageId, bool pinned);
-
     Q_INVOKABLE void uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl);
-    Q_INVOKABLE QString avatarUrl(const QString &userId);
-
-
+    Q_INVOKABLE Q_REQUIRED_RESULT QString avatarUrl(const QString &userId);
     Q_INVOKABLE Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
     Q_INVOKABLE void loadHistory(const QString &roomID, const QString &channelType = QString(), bool initial = false);
     Q_INVOKABLE void channelAndPrivateAutocomplete(const QString &pattern);
-    Q_INVOKABLE UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
+
     Q_INVOKABLE void roomFiles(const QString &roomId, const QString &channelType = QString());
     Q_INVOKABLE void addUserToRoom(const QString &username, const QString &roomId, const QString &channelType);
-
-
-    Q_INVOKABLE Room *getRoom(const QString &roomId);
-
-
-
-
     Q_INVOKABLE void changeDefaultAuthentication(int index);
     Q_INVOKABLE void messageSearch(const QString &pattern, const QString &rid);
-
     Q_INVOKABLE void setInputTextChanged(const QString &str, int position);
     Q_INVOKABLE QString replaceWord(const QString &newWord, const QString &str, int position);
     Q_INVOKABLE void blockUser(const QString &userId, bool block);
@@ -227,54 +212,45 @@ public:
     Q_INVOKABLE void deleteFileMessage(const QString &roomId, const QString &fileId, const QString &channelType);
     Q_INVOKABLE void openDocumentation();
     Q_INVOKABLE void clearSearchModel();
-
     Q_INVOKABLE void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
     Q_INVOKABLE void ignoreUser(const QString &rid, const QString &userId, bool ignore);
-    Q_INVOKABLE ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
-
-
-
     Q_INVOKABLE void channelInfo(const QString &roomId);
     Q_INVOKABLE void groupInfo(const QString &roomId);
     Q_INVOKABLE void channelGetAllUserMentions(const QString &roomId);
-
     Q_INVOKABLE void switchEditingMode(bool b);
     Q_INVOKABLE void setSortUnreadOnTop(bool b);
     Q_INVOKABLE void kickUser(const QString &rid, const QString &userId, const QString &channelType);
     Q_INVOKABLE void changeRoles(const QString &rid, const QString &userId, const QString &channelType, RocketChatAccount::RoleType roleType);
     Q_INVOKABLE void rolesInRoom(const QString &roomId, const QString &channelType);
-
     Q_INVOKABLE void switchingToRoom(const QString &roomID);
     Q_INVOKABLE void reportMessage(const QString &messageId, const QString &message);
     Q_INVOKABLE void getThreadMessages(const QString &threadMessageId);
-
     Q_INVOKABLE void createDiscussion(const QString &parentRoomName, const QString &discussionName, const QString &replyMessage, const QString &messageId);
-
-
     Q_INVOKABLE void threadsInRoom(const QString &roomId);
     Q_INVOKABLE void discussionsInRoom(const QString &roomId);
     Q_INVOKABLE void followMessage(const QString &messageId, bool follow);
-
     Q_INVOKABLE void replyToMessage(const QString &roomID, const QString &message, const QString &messageId);
-    Q_INVOKABLE UserWrapper *userWrapper(const QString &userId);
     Q_INVOKABLE void loadMoreFileAttachments(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void loadMoreDiscussions(const QString &roomId);
     Q_INVOKABLE void loadMoreThreads(const QString &roomId);
     Q_INVOKABLE void loadThreadMessagesHistory(const QString &roomId);
     Q_INVOKABLE void loadMoreMentions(const QString &roomId);
-
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void getPinnedMessages(const QString &roomId);
-
     Q_INVOKABLE void loadMorePinnedMessages(const QString &roomId);
-
-
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
+    Q_INVOKABLE UserWrapper *userWrapper(const QString &userId);
+    Q_INVOKABLE Room *getRoom(const QString &roomId);
+    Q_INVOKABLE UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
+    Q_INVOKABLE RoomWrapper *roomWrapper(const QString &roomId);
+    Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);
 
 
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
+    ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
+    UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
 
     UsersModel *usersModel() const;
     RoomFilterProxyModel *roomFilterProxyModel() const;

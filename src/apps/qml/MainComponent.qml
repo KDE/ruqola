@@ -884,7 +884,7 @@ Component {
                 }
 
                 Connections {
-                    target: appid.rocketChatAccount.receiveTypingNotificationManager()
+                    target: appid.rocketChatAccount.receiveTypingNotificationManager
                     onNotificationChanged: {
                         //console.log(RuqolaDebugCategorySingleton.category, "Typing in roomId: " + roomId + " str " + notificationStr);
                         if (appid.selectedRoomID === roomId) {
