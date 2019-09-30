@@ -120,7 +120,8 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(PinnedMessageModelFilterProxyModel* pinnedMessagesFilterProxyModel READ pinnedMessagesFilterProxyModel CONSTANT)
     Q_PROPERTY(FilesForRoomFilterProxyModel* filesForRoomFilterProxyModel READ filesForRoomFilterProxyModel CONSTANT)
     Q_PROPERTY(SearchMessageFilterProxyModel* searchMessageFilterProxyModel READ searchMessageFilterProxyModel CONSTANT)
-
+    Q_PROPERTY(RoomFilterProxyModel* roomFilterProxyModel READ roomFilterProxyModel CONSTANT)
+    Q_PROPERTY(UsersModel* usersModel READ usersModel CONSTANT)
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
     ~RocketChatAccount();
@@ -162,9 +163,7 @@ public:
     };
     Q_ENUM(RoleType)
 
-    Q_INVOKABLE UsersModel *usersModel() const;
 
-    Q_INVOKABLE RoomFilterProxyModel *roomFilterProxyModel() const;
 
     Q_INVOKABLE UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
     Q_INVOKABLE RoomWrapper *roomWrapper(const QString &roomId);
@@ -277,6 +276,8 @@ public:
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
 
+    UsersModel *usersModel() const;
+    RoomFilterProxyModel *roomFilterProxyModel() const;
     MessageModel *threadMessageModel() const;
     EmoticonModel *emoticonModel() const;
     PinnedMessageModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;

@@ -91,7 +91,7 @@ Component {
             placeholderText: i18n("Search Room...")
             Layout.fillWidth: true
             onTextChanged: {
-                appid.rocketChatAccount.roomFilterProxyModel().setFilterString(text);
+                appid.rocketChatAccount.roomFilterProxyModel.setFilterString(text);
             }
             focusSequence: "Ctrl+K"
         }
@@ -160,7 +160,7 @@ Component {
             editingMode: appid.rocketChatAccount.editingMode
             implicitWidth: Kirigami.Units.gridUnit * 10
             anchors.fill: parent
-            model: appid.rocketChatAccount.roomFilterProxyModel()
+            model: appid.rocketChatAccount.roomFilterProxyModel
             selectedRoomID: appid.selectedRoomID;
             onHideRoom: {
                 rocketChatAccount.hideRoom(roomID, roomType)
