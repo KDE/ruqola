@@ -44,6 +44,7 @@ public:
 
     void addAccount(RocketChatAccount *account);
     Q_INVOKABLE void setCurrentAccount(const QString &accountName);
+    Q_INVOKABLE void selectAccount(const QString &accountName);
 
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
@@ -53,7 +54,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(AccountManager)
 
-    void selectAccount(const QString &accountName);
     void loadAccount();
     RocketChatAccount *mCurrentAccount = nullptr;
     RocketChatAccountModel *mRocketChatAccountModel = nullptr;

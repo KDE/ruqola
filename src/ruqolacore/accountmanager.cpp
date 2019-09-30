@@ -118,6 +118,8 @@ void AccountManager::selectAccount(const QString &accountName)
     RocketChatAccount *account = mRocketChatAccountModel->account(accountName);
     if (account) {
         mCurrentAccount = account;
+    } else {
+        qCWarning(RUQOLA_LOG) << "AccountName " << accountName << " is not found on system.";
     }
 }
 
