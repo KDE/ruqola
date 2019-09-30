@@ -101,6 +101,8 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(bool threadsEnabled READ threadsEnabled CONSTANT)
     Q_PROPERTY(bool discussionEnabled READ discussionEnabled CONSTANT)
     Q_PROPERTY(bool hasPinnedMessagesSupport READ hasPinnedMessagesSupport CONSTANT)
+    Q_PROPERTY(ServerConfigInfo* serverConfigInfo READ serverConfigInfo CONSTANT)
+    Q_PROPERTY(StatusModel* statusModel READ statusModel CONSTANT)
 
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
@@ -188,7 +190,6 @@ public:
     Q_INVOKABLE void uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl);
     Q_INVOKABLE QString avatarUrl(const QString &userId);
 
-    Q_INVOKABLE StatusModel *statusModel() const;
 
     Q_INVOKABLE Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
     Q_INVOKABLE void loadHistory(const QString &roomID, const QString &channelType = QString(), bool initial = false);
@@ -225,7 +226,6 @@ public:
     Q_INVOKABLE void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
     Q_INVOKABLE void ignoreUser(const QString &rid, const QString &userId, bool ignore);
     Q_INVOKABLE ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
-    Q_INVOKABLE Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
 
 
 
@@ -401,6 +401,8 @@ private:
 
     Q_REQUIRED_RESULT bool discussionEnabled() const;
     Q_REQUIRED_RESULT QString serverUrl() const;
+    Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
+    Q_REQUIRED_RESULT StatusModel *statusModel() const;
 
 
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);

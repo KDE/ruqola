@@ -148,7 +148,7 @@ Component {
 
                 StatusCombobox {
                     id: statusCombobox
-                    model: appid.rocketChatAccount.statusModel()
+                    model: appid.rocketChatAccount.statusModel
                 }
             }
         }
