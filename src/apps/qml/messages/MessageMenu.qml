@@ -129,7 +129,7 @@ QQC2.Menu {
 
     QQC2.MenuItem {
         id: deleteMessageItem
-        visible: i_username === i_own_username && rcAccount.allowMessageDeletingEnabled()
+        visible: i_username === i_own_username && rcAccount.allowMessageDeletingEnabled
         contentItem: QQC2.Label {
             text: i18n("Delete")
             textFormat: Text.PlainText
@@ -160,11 +160,11 @@ QQC2.Menu {
         }
     }
     onAboutToShow: {
-        starredMessageItem.visible = rcAccount.allowMessageStarringEnabled()
+        starredMessageItem.visible = rcAccount.allowMessageStarringEnabled
         if (starredMessageItem.visible) {
             favoriteLabel.text = updateFavoriteLabelText()
         }
-        pinnedMessageItem.visible = rcAccount.allowMessagePinningEnabled()
+        pinnedMessageItem.visible = rcAccount.allowMessagePinningEnabled
         if (pinnedMessageItem.visible) {
             pinnedMessageLabel.text = updatePinnedMessageLabelText();
         }

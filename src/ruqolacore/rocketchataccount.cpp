@@ -781,11 +781,6 @@ EmoticonModel *RocketChatAccount::emoticonModel() const
     return mEmoticonModel;
 }
 
-void RocketChatAccount::setEmoticonModel(EmoticonModel *emoticonModel)
-{
-    mEmoticonModel = emoticonModel;
-}
-
 ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationManager() const
 {
     return mReceiveTypingNotificationManager;

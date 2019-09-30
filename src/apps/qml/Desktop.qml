@@ -45,7 +45,7 @@ Kirigami.ApplicationWindow {
 
     property QtObject messageModel
     property QtObject userModel
-    property QtObject rocketChatAccount: accountManager.currentAccount()
+    property QtObject rocketChatAccount: accountManager.account
 
     property QtObject filesModel: appid.rocketChatAccount.filesForRoomFilterProxyModel()
     property QtObject discussionsModel: appid.rocketChatAccount.discussionsFilterProxyModel()
@@ -389,7 +389,7 @@ Kirigami.ApplicationWindow {
         sourceComponent: CreateNewChannelDialog {
             parent: appid.pageStack
             Component.onCompleted: {
-                encryptedRoomEnabled = appid.rocketChatAccount.encryptedEnabled()
+                encryptedRoomEnabled = appid.rocketChatAccount.encryptedEnabled
                 initializeAndOpen()
             }
             onRejected: {

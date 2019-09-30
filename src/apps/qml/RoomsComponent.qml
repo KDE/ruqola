@@ -125,8 +125,7 @@ Component {
 
                                 onTriggered: {
                                     console.log(" ddd " + name);
-                                    appid.accountManager.selectAccount(name);
-                                    appid.rocketChatAccount = accountManager.currentAccount()
+                                    appid.accountManager.currentAccount = name;
                                 }
                             }
 

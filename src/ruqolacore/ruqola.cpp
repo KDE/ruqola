@@ -76,7 +76,7 @@ QmlAboutData *Ruqola::applicationData() const
 
 RocketChatAccount *Ruqola::rocketChatAccount() const
 {
-    return mAccountManager->currentAccount();
+    return mAccountManager->account();
 }
 
 void Ruqola::sendNotification(const QString &title, const QString &message, const QPixmap &pixmap)

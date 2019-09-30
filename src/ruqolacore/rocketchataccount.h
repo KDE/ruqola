@@ -90,6 +90,17 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(DDPClient::LoginStatus loginStatus READ loginStatus NOTIFY loginStatusChanged)
     Q_PROPERTY(bool editingMode READ editingMode NOTIFY editingModeChanged)
     Q_PROPERTY(bool sortUnreadOnTop READ sortUnreadOnTop NOTIFY sortUnreadOnTopChanged)
+    Q_PROPERTY(bool autoTranslateEnabled READ autoTranslateEnabled CONSTANT)
+
+    Q_PROPERTY(bool jitsiEnabled READ jitsiEnabled CONSTANT)
+    Q_PROPERTY(bool encryptedEnabled READ encryptedEnabled CONSTANT)
+    Q_PROPERTY(bool allowMessagePinningEnabled READ allowMessagePinningEnabled CONSTANT)
+    Q_PROPERTY(bool allowMessageSnippetingEnabled READ allowMessageSnippetingEnabled CONSTANT)
+    Q_PROPERTY(bool allowMessageStarringEnabled READ allowMessageStarringEnabled CONSTANT)
+    Q_PROPERTY(bool allowMessageDeletingEnabled READ allowMessageDeletingEnabled CONSTANT)
+    Q_PROPERTY(bool threadsEnabled READ threadsEnabled CONSTANT)
+    Q_PROPERTY(bool discussionEnabled READ discussionEnabled CONSTANT)
+
 public:
     explicit RocketChatAccount(const QString &accountName = QString(), QObject *parent = nullptr);
     ~RocketChatAccount();
@@ -215,17 +226,9 @@ public:
     Q_INVOKABLE void reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact);
     Q_INVOKABLE void ignoreUser(const QString &rid, const QString &userId, bool ignore);
     Q_INVOKABLE ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
-    Q_INVOKABLE Q_REQUIRED_RESULT bool encryptedEnabled() const;
-    Q_INVOKABLE Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_INVOKABLE Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
-    Q_INVOKABLE Q_REQUIRED_RESULT bool jitsiEnabled() const;
 
-    Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessagePinningEnabled() const;
-    Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
-    Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
-    Q_INVOKABLE Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
 
-    Q_INVOKABLE Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
 
     Q_INVOKABLE void channelInfo(const QString &roomId);
     Q_INVOKABLE void groupInfo(const QString &roomId);
@@ -243,9 +246,6 @@ public:
 
     Q_INVOKABLE void createDiscussion(const QString &parentRoomName, const QString &discussionName, const QString &replyMessage, const QString &messageId);
 
-    Q_INVOKABLE Q_REQUIRED_RESULT bool threadsEnabled() const;
-
-    Q_INVOKABLE Q_REQUIRED_RESULT bool discussionEnabled() const;
 
     Q_INVOKABLE void threadsInRoom(const QString &roomId);
     Q_INVOKABLE void discussionsInRoom(const QString &roomId);
@@ -259,6 +259,7 @@ public:
     DDPClient *ddp();
 
     Q_REQUIRED_RESULT bool editingMode() const;
+    Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
 
     Q_INVOKABLE UserWrapper *userWrapper(const QString &userId);
@@ -329,7 +330,6 @@ public:
     void rolesChanged(const QJsonArray &contents);
 
     Q_INVOKABLE EmoticonModel *emoticonModel() const;
-    void setEmoticonModel(EmoticonModel *emoticonModel);
 
     FilesForRoomModel *filesModelForRoom() const;
 
@@ -363,6 +363,8 @@ public:
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 
+    Q_REQUIRED_RESULT bool encryptedEnabled() const;
+
     void initializeAccount();
 
 Q_SIGNALS:
@@ -389,6 +391,18 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
+    Q_REQUIRED_RESULT bool jitsiEnabled() const;
+    Q_REQUIRED_RESULT bool allowMessagePinningEnabled() const;
+    Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
+    Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
+    Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
+
+    Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
+    Q_REQUIRED_RESULT bool threadsEnabled() const;
+
+    Q_REQUIRED_RESULT bool discussionEnabled() const;
+
+
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);
     void slotChannelRolesDone(const QJsonObject &obj, const QString &roomId);
     void slotSplotLightDone(const QJsonObject &obj);

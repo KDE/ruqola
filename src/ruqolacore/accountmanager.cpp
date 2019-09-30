@@ -89,7 +89,7 @@ RocketChatAccountFilterProxyModel *AccountManager::rocketChatAccountProxyModel()
     return mRocketChatAccountProxyModel;
 }
 
-RocketChatAccount *AccountManager::currentAccount() const
+RocketChatAccount *AccountManager::account() const
 {
     return mCurrentAccount;
 }
@@ -127,13 +127,21 @@ void AccountManager::setCurrentAccount(const QString &accountName)
 {
     RocketChatAccount *account = mRocketChatAccountModel->account(accountName);
     if (account) {
-        QSettings settings;
-        settings.setValue(QStringLiteral("currentAccount"), accountName);
-        settings.sync();
-        mCurrentAccount = account;
+        if (mCurrentAccount != account) {
+            QSettings settings;
+            settings.setValue(QStringLiteral("currentAccount"), accountName);
+            settings.sync();
+            mCurrentAccount = account;
+            Q_EMIT currentAccountChanged();
+        }
     } else {
         qCWarning(RUQOLA_LOG) << "AccountName " << accountName << " is not found on system. Fallback to default one.";
     }
+}
+
+QString AccountManager::currentAccount() const
+{
+    return mCurrentAccount ? mCurrentAccount->accountName() : QString();
 }
 
 void AccountManager::removeAccount(const QString &accountName)

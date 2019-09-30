@@ -30,6 +30,8 @@ class RocketChatAccountFilterProxyModel;
 class LIBRUQOLACORE_TESTS_EXPORT AccountManager : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString currentAccount READ currentAccount WRITE setCurrentAccount NOTIFY currentAccountChanged)
+    Q_PROPERTY(RocketChatAccount *account READ account NOTIFY currentAccountChanged)
 public:
     explicit AccountManager(QObject *parent = nullptr);
     ~AccountManager();
@@ -39,17 +41,23 @@ public:
     Q_INVOKABLE void removeAccount(const QString &accountName);
     Q_INVOKABLE void addAccount(const QString &accountName, const QString &username, const QString &url);
 
-    Q_INVOKABLE RocketChatAccount *currentAccount() const;
+    RocketChatAccount *account() const;
+
     Q_INVOKABLE RocketChatAccountFilterProxyModel *rocketChatAccountProxyModel() const;
 
     void addAccount(RocketChatAccount *account);
-    Q_INVOKABLE void setCurrentAccount(const QString &accountName);
-    Q_INVOKABLE void selectAccount(const QString &accountName);
+
+
+
+    void setCurrentAccount(const QString &accountName);
+    QString currentAccount() const;
+    void selectAccount(const QString &accountName);
 
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void notification(const QString &title, const QString &message, const QPixmap &pixmap);
+    void currentAccountChanged();
 
 private:
     Q_DISABLE_COPY(AccountManager)

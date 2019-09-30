@@ -98,7 +98,7 @@ Component {
                     }
                 },
                 Kirigami.Action {
-                    visible: appid.selectedRoom && appid.rocketChatAccount.autoTranslateEnabled()
+                    visible: appid.selectedRoom && appid.rocketChatAccount.autoTranslateEnabled
                     text: i18n("Auto-Translate")
                     onTriggered: {
                         autoTranslateConfigDialogLoader.active = true;
@@ -180,7 +180,7 @@ Component {
         }
         
         onContextualActionsAboutToShow: {
-            menuVideoChatAction.shouldBeVisible = appid.rocketChatAccount.jitsiEnabled()
+            menuVideoChatAction.shouldBeVisible = appid.rocketChatAccount.jitsiEnabled
         }
 
         globalToolBarStyle: Kirigami.ApplicationHeaderStyle.ToolBar
