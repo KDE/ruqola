@@ -93,6 +93,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     }
 }
 
+bool Message::showOriginalMessage() const
+{
+    return mShowOriginalMessage;
+}
+
+void Message::setShowOriginalMessage(bool showOriginalMessage)
+{
+    mShowOriginalMessage = showOriginalMessage;
+}
+
 MessageTranslation Message::messageTranslation() const
 {
     return mMessageTranslation;
@@ -378,7 +388,8 @@ bool Message::operator==(const Message &other) const
            && (mDiscussionLastMessage == other.discussionLastMessage())
            && (mDiscussionRoomId == other.discussionRoomId())
            && (mThreadMessageId == other.threadMessageId())
-           && (mMessageTranslation == other.messageTranslation());
+           && (mMessageTranslation == other.messageTranslation())
+            && (mShowOriginalMessage == other.showOriginalMessage());
 }
 
 bool Message::operator<(const Message &other) const
@@ -838,5 +849,6 @@ QDebug operator <<(QDebug d, const Message &t)
     d << "discussionRoomId " << t.discussionRoomId();
     d << "threadMessageId " << t.threadMessageId();
     d << "messagetranslation" << t.messageTranslation();
+    d << "mShowOriginalMessage " << t.showOriginalMessage();
     return d;
 }

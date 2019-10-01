@@ -350,7 +350,7 @@ QStringList MessageModel::roomRoles(const QString &userId) const
 QString MessageModel::convertMessageText(const Message &message, const QString &userName) const
 {
     QString messageStr = message.text();
-    if (mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
+    if (!message.showOriginalMessage() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
         const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
         if (!messageTranslation.isEmpty()) {
             messageStr = messageTranslation;

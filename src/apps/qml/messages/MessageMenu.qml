@@ -45,6 +45,11 @@ QQC2.Menu {
     {
         return (pinned_message === true) ?  i18n("Unpin Message") : i18n("Pin Message")
     }
+    function updateTranslateLabelTex()
+    {
+        //TODO
+        return "In progress";
+    }
 
     QQC2.MenuItem {
         id: startADiscussionItem
@@ -157,6 +162,19 @@ QQC2.Menu {
         onTriggered: {
             console.log(RuqolaDebugCategorySingleton.category, "Ignore", i_messageID);
             messageMain.ignoreUser(!user_ignored);
+        }
+    }
+
+    QQC2.MenuItem {
+        id: translateMessageItem
+        visible: rcAccount.autoTranslateEnabled
+        contentItem: QQC2.Label {
+            id: tranlateMessageLabel
+            text: updateTranslateLabelTex()
+        }
+        onTriggered: {
+            //console.log(RuqolaDebugCategorySingleton.category, "Ignore", i_messageID);
+            //messageMain.ignoreUser(!user_ignored);
         }
     }
     onAboutToShow: {
