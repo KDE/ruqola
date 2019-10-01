@@ -124,7 +124,6 @@ Component {
                                 autoExclusive: true
 
                                 onTriggered: {
-                                    console.log(" ddd " + name);
                                     appid.accountManager.currentAccount = name;
                                 }
                             }
