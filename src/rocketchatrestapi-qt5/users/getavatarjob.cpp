@@ -57,14 +57,14 @@ bool GetAvatarJob::start()
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &GetAvatarJob::slotGetAvatarInfo);
+    connect(reply, &QNetworkReply::finished, this, &GetAvatarJob::slotGetAvatar);
     addLoggerInfo("GetAvatarJob ask for avatarUserId: " + mAvatarUserId.toLatin1());
     reply->setProperty("userId", mAvatarUserId);
 
     return true;
 }
 
-void GetAvatarJob::slotGetAvatarInfo()
+void GetAvatarJob::slotGetAvatar()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -75,7 +75,7 @@ void GetAvatarJob::slotGetAvatarInfo()
         if (replyObject.contains(QLatin1String("success"))) {
             if (!replyObject[QStringLiteral("success")].toBool()) {
                 addLoggerWarning(QByteArrayLiteral("GetAvatarJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-                qWarning() << "void GetAvatarJob::slotGetAvatarInfo() ERROR :" << reply->property("userId").toString();
+                qWarning() << "void GetAvatarJob::slotGetAvatar() ERROR :" << reply->property("userId").toString() << replyJson;
             } else {
                 addLoggerInfo(QByteArrayLiteral("GetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
                 qCWarning(ROCKETCHATQTRESTAPI_LOG) << " not implemented ! API changed !";

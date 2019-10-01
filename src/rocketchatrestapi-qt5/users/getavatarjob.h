@@ -52,7 +52,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GetAvatarJob)
-    void slotGetAvatarInfo();
+    void slotGetAvatar();
     QString mAvatarUserId;
 };
 }
