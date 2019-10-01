@@ -18,13 +18,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "userwrapper.h"
 #include "user.h"
 UserWrapper::UserWrapper(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 UserWrapper::UserWrapper(User *user, QObject *parent)
@@ -42,7 +40,6 @@ UserWrapper::UserWrapper(User *user, QObject *parent)
 
 UserWrapper::~UserWrapper()
 {
-
 }
 
 QString UserWrapper::name() const

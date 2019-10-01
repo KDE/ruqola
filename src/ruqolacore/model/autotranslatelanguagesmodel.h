@@ -34,7 +34,6 @@ public:
     };
     Q_ENUM(AutoTranslateLanguesRoles)
 
-
     explicit AutotranslateLanguagesModel(QObject *parent = nullptr);
     ~AutotranslateLanguagesModel() override;
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;

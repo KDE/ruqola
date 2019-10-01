@@ -24,7 +24,6 @@
 
 AutotranslateLanguages::AutotranslateLanguages()
 {
-
 }
 
 QVector<AutotranslateLanguage> AutotranslateLanguages::autotranslateLanguage() const
@@ -76,4 +75,3 @@ QDebug operator <<(QDebug d, const AutotranslateLanguages &t)
     }
     return d;
 }
-

@@ -1563,7 +1563,6 @@ void RestApiRequest::autoTranslateSaveAutoTranslateSettings(const QString &roomI
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start autoTranslateSaveAutoTranslateSettings";
     }
-
 }
 
 void RestApiRequest::setUserStatus(const QString &userId, SetStatusJob::StatusType status, const QString &message)

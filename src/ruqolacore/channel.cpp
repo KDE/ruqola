@@ -60,13 +60,13 @@ void Channel::setType(const ChannelType &type)
 bool Channel::operator==(const Channel &other) const
 {
     return (mType == other.type())
-            && (mRoomId == other.roomId())
-            && (mRoomType == other.roomType())
-            && (mRoomName == other.roomName())
-            && (mUserId == other.userId())
-            && (mName == other.name())
-            && (mStatus == other.status())
-            && (mUserName == other.userName());
+           && (mRoomId == other.roomId())
+           && (mRoomType == other.roomType())
+           && (mRoomName == other.roomName())
+           && (mUserId == other.userId())
+           && (mName == other.name())
+           && (mStatus == other.status())
+           && (mUserName == other.userName());
 }
 
 QString Channel::roomId() const

@@ -23,12 +23,10 @@
 AutotranslateLanguagesModel::AutotranslateLanguagesModel(QObject *parent)
     : QAbstractListModel(parent)
 {
-
 }
 
 AutotranslateLanguagesModel::~AutotranslateLanguagesModel()
 {
-
 }
 
 int AutotranslateLanguagesModel::rowCount(const QModelIndex &parent) const

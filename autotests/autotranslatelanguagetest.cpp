@@ -25,7 +25,6 @@ QTEST_GUILESS_MAIN(AutotranslateLanguageTest)
 AutotranslateLanguageTest::AutotranslateLanguageTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AutotranslateLanguageTest::shouldHaveDefaultValue()

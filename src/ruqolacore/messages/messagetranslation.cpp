@@ -23,7 +23,6 @@
 
 MessageTranslation::MessageTranslation()
 {
-
 }
 
 QDebug operator <<(QDebug d, const MessageTranslation &t)

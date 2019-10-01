@@ -94,7 +94,6 @@ public:
     Q_REQUIRED_RESULT QString autoTranslateLanguage() const;
     Q_REQUIRED_RESULT bool autoTranslate() const;
 
-
 Q_SIGNALS:
     void nameChanged();
     void topicChanged();

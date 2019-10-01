@@ -165,8 +165,6 @@ public:
     };
     Q_ENUM(RoleType)
 
-
-
     Q_INVOKABLE Q_REQUIRED_RESULT QString getUserCurrentMessage(const QString &roomId);
     Q_INVOKABLE void setUserCurrentMessage(const QString &message, const QString &roomId);
     Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
@@ -246,7 +244,6 @@ public:
     Q_INVOKABLE RoomWrapper *roomWrapper(const QString &roomId);
     Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);
 
-
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
     ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
@@ -275,7 +272,6 @@ public:
     Q_REQUIRED_RESULT bool editingMode() const;
     Q_REQUIRED_RESULT QString serverVersionStr() const;
     Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
-
 
     Q_REQUIRED_RESULT DDPClient::LoginStatus loginStatus();
     RocketChatRestApi::RestApiRequest *restApi();
@@ -342,7 +338,6 @@ public:
 
     void rolesChanged(const QJsonArray &contents);
 
-
     FilesForRoomModel *filesModelForRoom() const;
 
     DiscussionsModel *discussionsModel() const;
@@ -350,7 +345,6 @@ public:
     ThreadsModel *threadsModel() const;
 
     MentionsModel *mentionsModel() const;
-
 
     Q_REQUIRED_RESULT bool encryptedEnabled() const;
     void updateThreadMessageList(const Message &m);
@@ -401,8 +395,6 @@ private:
     QString recordingVideoPath() const;
     QString recordingImagePath() const;
 
-
-
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);
     void slotChannelRolesDone(const QJsonObject &obj, const QString &roomId);
     void slotSplotLightDone(const QJsonObject &obj);
@@ -413,7 +405,6 @@ private:
     void slotGetPinnedMessagesDone(const QJsonObject &obj, const QString &roomId);
     void slotGetSupportedLanguagesDone(const QJsonObject &obj);
     void slotUsersPresenceDone(const QJsonObject &obj);
-
 
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);

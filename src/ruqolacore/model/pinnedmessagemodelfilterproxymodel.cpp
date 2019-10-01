@@ -32,7 +32,6 @@ PinnedMessageModelFilterProxyModel::PinnedMessageModelFilterProxyModel(QObject *
 
 PinnedMessageModelFilterProxyModel::~PinnedMessageModelFilterProxyModel()
 {
-
 }
 
 int PinnedMessageModelFilterProxyModel::total() const

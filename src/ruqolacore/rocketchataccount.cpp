@@ -63,7 +63,6 @@
 #include "managerdatapaths.h"
 #include "authenticationmanager.h"
 
-
 #include "ddpapi/ddpclient.h"
 #include "discussions.h"
 #include "receivetypingnotificationmanager.h"
@@ -177,7 +176,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mPinnedMessagesFilterProxyModel = new PinnedMessageModelFilterProxyModel(this);
     mPinnedMessagesFilterProxyModel->setObjectName(QStringLiteral("pinnedmessagesfiltermodelproxy"));
     mPinnedMessagesFilterProxyModel->setSourceModel(mPinnedMessageModel);
-
 
     mAutoTranslateLanguagesModel = new AutotranslateLanguagesModel(this);
     mAutoTranslateLanguagesModel->setObjectName(QStringLiteral("autotranslatelanguagesmodel"));

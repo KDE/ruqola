@@ -21,7 +21,6 @@
 
 AutotranslateLanguage::AutotranslateLanguage()
 {
-
 }
 
 QString AutotranslateLanguage::language() const

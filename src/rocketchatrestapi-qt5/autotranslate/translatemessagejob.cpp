@@ -89,7 +89,6 @@ void TranslateMessageJob::setMessageId(const QString &messageId)
     mMessageId = messageId;
 }
 
-
 bool TranslateMessageJob::requireHttpAuthentication() const
 {
     return true;

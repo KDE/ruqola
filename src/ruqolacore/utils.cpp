@@ -127,7 +127,6 @@ QString Utils::iconFromStatus(const QString &status)
     return {};
 }
 
-
 User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
 {
     if (status == QLatin1String("online")) {

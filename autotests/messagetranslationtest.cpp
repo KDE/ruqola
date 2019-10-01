@@ -26,7 +26,6 @@ QTEST_GUILESS_MAIN(MessageTranslationTest)
 MessageTranslationTest::MessageTranslationTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MessageTranslationTest::shouldHaveDefaultValues()

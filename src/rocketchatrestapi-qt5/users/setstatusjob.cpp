@@ -133,7 +133,7 @@ QJsonDocument SetStatusJob::json() const
     QJsonObject jsonObj;
     jsonObj[QLatin1String("userId")] = mStatusUserId;
     QString statusType;
-    switch(mStatus) {
+    switch (mStatus) {
     case OnLine:
         statusType = QStringLiteral("online");
         break;

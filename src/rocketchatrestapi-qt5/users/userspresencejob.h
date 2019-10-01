@@ -42,7 +42,6 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-
 Q_SIGNALS:
     void usersPresenceDone(const QJsonObject &obj);
 

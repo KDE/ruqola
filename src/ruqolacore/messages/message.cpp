@@ -378,7 +378,7 @@ bool Message::operator==(const Message &other) const
            && (mDiscussionLastMessage == other.discussionLastMessage())
            && (mDiscussionRoomId == other.discussionRoomId())
            && (mThreadMessageId == other.threadMessageId())
-            && (mMessageTranslation == other.messageTranslation());
+           && (mMessageTranslation == other.messageTranslation());
 }
 
 bool Message::operator<(const Message &other) const

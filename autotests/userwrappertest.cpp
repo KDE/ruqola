@@ -24,5 +24,4 @@ QTEST_GUILESS_MAIN(UserWrapperTest)
 UserWrapperTest::UserWrapperTest(QObject *parent)
     : QObject(parent)
 {
-
 }

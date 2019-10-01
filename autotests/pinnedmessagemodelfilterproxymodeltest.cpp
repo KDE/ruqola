@@ -24,5 +24,4 @@ QTEST_GUILESS_MAIN(PinnedMessageModelFilterProxyModelTest)
 PinnedMessageModelFilterProxyModelTest::PinnedMessageModelFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
-
 }

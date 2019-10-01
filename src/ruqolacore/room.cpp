@@ -90,8 +90,8 @@ bool Room::isEqual(const Room &other) const
            && (mBroadcast == other.broadcast())
            && (mParentRid == other.parentRid())
            && (mFName == other.fName())
-            && (mAutoTranslate == other.autoTranslate())
-            && (mAutotranslateLanguage == other.autoTranslateLanguage());
+           && (mAutoTranslate == other.autoTranslate())
+           && (mAutotranslateLanguage == other.autoTranslateLanguage());
 }
 
 QString Room::displayRoomName() const

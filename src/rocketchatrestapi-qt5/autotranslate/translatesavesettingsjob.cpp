@@ -149,19 +149,16 @@ QJsonDocument TranslateSaveSettingsJob::json() const
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = mRoomId;
     switch (mType) {
-    case AutoTranslateSetting: {
+    case AutoTranslateSetting:
         jsonObj[QLatin1String("field")] = QStringLiteral("autoTranslate");
         jsonObj[QLatin1String("value")] = mAutoTranslate;
         break;
-    }
-    case LanguageSetting: {
+    case LanguageSetting:
         jsonObj[QLatin1String("field")] = QStringLiteral("autoTranslateLanguage");
         jsonObj[QLatin1String("value")] = mLanguage;
         break;
-    }
-    case Underfined: {
+    case Underfined:
         break;
-    }
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
