@@ -119,6 +119,7 @@ ListView {
         i_tmid: threadMessageId
         i_groupable: groupable
         i_useMenuMessage: useMenuMessage
+        i_showTranslatedMessage: showTranslatedMessage
 
         onOpenChannel: {
             activeChat.openChannel(channel)

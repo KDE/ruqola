@@ -67,6 +67,7 @@ Rectangle {
     property bool i_groupable
 
     property bool i_useMenuMessage
+    property bool i_showTranslatedMessage
 
 
 
@@ -114,6 +115,7 @@ Rectangle {
                                   i_avatar: i_avatar,
                                   i_date: i_date,
                                   i_useMenuMessage: i_useMenuMessage,
+                                  i_showTranslatedMessage: i_showTranslatedMessage,
                                   rcAccount: appid.rocketChatAccount
                               }
                               )
@@ -133,6 +135,7 @@ Rectangle {
                                   i_drid: i_drid,
                                   i_tcount: i_tcount,
                                   i_useMenuMessage: i_useMenuMessage,
+                                  i_showTranslatedMessage: i_showTranslatedMessage,
                                   i_groupable: i_groupable,
                                   i_tmid: i_tmid
                               }
@@ -168,6 +171,7 @@ Rectangle {
                               i_groupable: i_groupable,
                               i_tmid: i_tmid,
                               i_useMenuMessage: i_useMenuMessage,
+                              i_showTranslatedMessage: i_showTranslatedMessage,
                               i_threadPreview: i_threadPreview
 
                           }
@@ -198,6 +202,7 @@ Rectangle {
                               i_tcount: i_tcount,
                               i_groupable: i_groupable,
                               i_useMenuMessage: i_useMenuMessage,
+                              i_showTranslatedMessage: i_showTranslatedMessage,
                               i_tmid: i_tmid
                           })
             } else if (i_messageType === Message.Video) {
@@ -226,6 +231,7 @@ Rectangle {
                               i_tcount: i_tcount,
                               i_groupable: i_groupable,
                               i_useMenuMessage: i_useMenuMessage,
+                              i_showTranslatedMessage: i_showTranslatedMessage,
                               i_tmid: i_tmid
                           })
             } else if (i_messageType === Message.Image) {
@@ -254,6 +260,7 @@ Rectangle {
                               i_tcount: i_tcount,
                               i_useMenuMessage: i_useMenuMessage,
                               i_groupable: i_groupable,
+                              i_showTranslatedMessage: i_showTranslatedMessage,
                               i_tmid: i_tmid
                           })
 

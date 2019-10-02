@@ -66,6 +66,7 @@ ColumnLayout {
     property bool i_groupable
     property string i_threadPreview
     property bool i_useMenuMessage
+    property bool i_showTranslatedMessage
 
 
     property QtObject rcAccount

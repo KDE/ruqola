@@ -30,6 +30,7 @@ QQC2.Menu {
     property bool user_ignored
     property bool starred
     property bool pinned_message
+    property bool showTranslatedMessage
 
     function updateFavoriteLabelText()
     {
@@ -47,8 +48,7 @@ QQC2.Menu {
     }
     function updateTranslateLabelTex()
     {
-        //TODO
-        return "In progress";
+        return showTranslatedMessage ? i18n("Original Message") : i18n("Translate Message");
     }
 
     QQC2.MenuItem {
