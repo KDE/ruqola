@@ -156,6 +156,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
     roles[ThreadMessageId] = QByteArrayLiteral("threadMessageId");
     roles[ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
+    roles[ShowTranslatedMessage] = QByteArrayLiteral("showTranslatedMessage");
     return roles;
 }
 
@@ -334,6 +335,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     }
     case MessageModel::Groupable:
         return message.groupable();
+    case MessageModel::ShowTranslatedMessage:
+        return message.showTranslatedMessage();
     }
 
     return {};
@@ -350,7 +353,7 @@ QStringList MessageModel::roomRoles(const QString &userId) const
 QString MessageModel::convertMessageText(const Message &message, const QString &userName) const
 {
     QString messageStr = message.text();
-    if (!message.showOriginalMessage() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
+    if (message.showTranslatedMessage() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
         const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
         if (!messageTranslation.isEmpty()) {
             messageStr = messageTranslation;

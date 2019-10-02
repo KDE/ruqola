@@ -69,5 +69,6 @@ void SearchMessageModelTest::shouldHaveDefaultValue()
     roles[SearchMessageModel::ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
     roles[SearchMessageModel::ThreadMessageId] = QByteArrayLiteral("threadMessageId");
     roles[SearchMessageModel::ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
+    roles[SearchMessageModel::ShowTranslatedMessage] = QByteArrayLiteral("showTranslatedMessage");
     QCOMPARE(w.roleNames(), roles);
 }

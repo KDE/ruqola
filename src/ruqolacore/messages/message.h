@@ -177,10 +177,8 @@ public:
     Q_REQUIRED_RESULT MessageTranslation messageTranslation() const;
     void setMessageTranslation(const MessageTranslation &messageTranslation);
 
-
-
-    Q_REQUIRED_RESULT bool showOriginalMessage() const;
-    void setShowOriginalMessage(bool showOriginalMessage);
+    Q_REQUIRED_RESULT bool showTranslatedMessage() const;
+    void setShowTranslatedMessage(bool showTranslatedMessage);
 
 private:
     void parseMentions(const QJsonArray &mentions);
@@ -272,7 +270,7 @@ private:
     //Unread Message
     bool mUnread = false;
 
-    bool mShowOriginalMessage = false;
+    bool mShowTranslatedMessage = true;
 
     EmojiManager *mEmojiManager = nullptr;
 };

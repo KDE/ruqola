@@ -70,5 +70,6 @@ void MentionsModelTest::shouldHaveDefaultValue()
     roles[MentionsModel::ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
     roles[MentionsModel::ThreadMessageId] = QByteArrayLiteral("threadMessageId");
     roles[MentionsModel::ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
+    roles[MentionsModel::ShowTranslatedMessage] = QByteArrayLiteral("showTranslatedMessage");
     QCOMPARE(w.roleNames(), roles);
 }

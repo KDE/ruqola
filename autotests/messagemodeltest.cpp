@@ -71,6 +71,7 @@ void MessageModelTest::shouldHaveDefaultValue()
     roles[MessageModel::ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
     roles[MessageModel::ThreadMessageId] = QByteArrayLiteral("threadMessageId");
     roles[MessageModel::ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
+    roles[MessageModel::ShowTranslatedMessage] = QByteArrayLiteral("showTranslatedMessage");
     QCOMPARE(w.roleNames(), roles);
 }
 

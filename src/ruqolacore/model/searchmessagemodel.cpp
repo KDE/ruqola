@@ -157,6 +157,8 @@ QVariant SearchMessageModel::data(const QModelIndex &index, int role) const
         return message.groupable();
     case SearchMessageModel::SortByTimeStamp:
         return message.timeStamp();
+    case SearchMessageModel::ShowTranslatedMessage:
+        return message.showTranslatedMessage();
     }
 
     return {};
@@ -198,6 +200,7 @@ QHash<int, QByteArray> SearchMessageModel::roleNames() const
     roles[ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
     roles[ThreadMessageId] = QByteArrayLiteral("threadMessageId");
     roles[ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
+    roles[ShowTranslatedMessage] = QByteArrayLiteral("showTranslatedMessage");
     return roles;
 }
 

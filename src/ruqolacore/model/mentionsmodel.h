@@ -66,7 +66,8 @@ public:
         ThreadLastMessage,
         ThreadMessageId,
         ThreadMessagePreview,
-        SortByTimeStamp
+        SortByTimeStamp,
+        ShowTranslatedMessage,
     };
     Q_ENUM(MessageRoles)
 

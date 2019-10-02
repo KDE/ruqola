@@ -39,7 +39,8 @@ public:
         AliasName,
         Avatar,
         UserId,
-        ThreadMessagePreview
+        ThreadMessagePreview,
+        ShowTranslatedMessage,
     };
     Q_ENUM(ThreadRoles)
 

@@ -170,6 +170,8 @@ QVariant MentionsModel::data(const QModelIndex &index, int role) const
         return message.groupable();
     case MentionsModel::SortByTimeStamp:
         return message.timeStamp();
+    case MentionsModel::ShowTranslatedMessage:
+        return message.showTranslatedMessage();
     }
 
     return {};
@@ -226,6 +228,7 @@ QHash<int, QByteArray> MentionsModel::roleNames() const
     roles[ThreadLastMessage] = QByteArrayLiteral("threadLastMessage");
     roles[ThreadMessageId] = QByteArrayLiteral("threadMessageId");
     roles[ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
+    roles[ShowTranslatedMessage] = QByteArrayLiteral("showTranslatedMessage");
     return roles;
 }
 

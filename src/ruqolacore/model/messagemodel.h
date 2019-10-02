@@ -71,7 +71,8 @@ public:
         ThreadCount,
         ThreadLastMessage,
         ThreadMessageId,
-        ThreadMessagePreview
+        ThreadMessagePreview,
+        ShowTranslatedMessage
     };
     Q_ENUM(MessageRoles)
 
