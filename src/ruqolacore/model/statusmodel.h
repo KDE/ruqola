@@ -55,10 +55,10 @@ public:
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
-    void setCurrentPresenceStatus(User::PresenceStatus status);
-
     Q_REQUIRED_RESULT int currentStatus() const;
 
+
+    void setCurrentPresenceStatus(User::PresenceStatus status);
     Q_REQUIRED_RESULT User::PresenceStatus currentUserStatus() const;
 
 Q_SIGNALS:

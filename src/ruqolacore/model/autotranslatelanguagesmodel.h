@@ -43,8 +43,15 @@ public:
 
     void parseLanguages(const QJsonObject &obj);
 
+
+    Q_INVOKABLE Q_REQUIRED_RESULT int currentLanguage(const QString &lang) const;
+
+Q_SIGNALS:
+    void currentLanguageChanged();
+
 private:
     AutotranslateLanguages mAutoTranslateLanguages;
+    int mCurrentLanguage = 0;
 };
 
 #endif // AUTOTRANSLATELANGUAGESMODEL_H

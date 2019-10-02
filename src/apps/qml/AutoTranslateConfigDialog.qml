@@ -58,7 +58,9 @@ QQC2.Dialog {
         }
         AutoTranslateLanguageCombobox {
             model: appid.autotranslateLanguagesModel
+            currentIndex: roomInfo === null ? 1 : appid.autotranslateLanguagesModel.currentLanguage(roomInfo.autoTranslateLanguage)
             onActivated: {
+                //autoTranslateConfigDialog.changeAutoTranslateLanguageSettings(roomInfo.rid, "")
                 //TODO
             }
         }
