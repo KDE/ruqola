@@ -27,7 +27,4 @@ QQC2.ComboBox {
     id: autoTranslateLanguageCombobox
     Layout.alignment: Qt.AlignLeft
     textRole: "displaylanguage"
-    onActivated: {
-        console.log(RuqolaDebugCategorySingleton.category, " Change " + model.currentPreference(index))
-    }
 }

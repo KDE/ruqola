@@ -45,6 +45,7 @@ public:
 
 
     Q_INVOKABLE Q_REQUIRED_RESULT int currentLanguage(const QString &lang) const;
+    Q_INVOKABLE Q_REQUIRED_RESULT QString selectedLanguage(int index) const;
 
 Q_SIGNALS:
     void currentLanguageChanged();

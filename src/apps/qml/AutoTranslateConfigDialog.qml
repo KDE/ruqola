@@ -60,8 +60,7 @@ QQC2.Dialog {
             model: appid.autotranslateLanguagesModel
             currentIndex: roomInfo === null ? 1 : appid.autotranslateLanguagesModel.currentLanguage(roomInfo.autoTranslateLanguage)
             onActivated: {
-                //autoTranslateConfigDialog.changeAutoTranslateLanguageSettings(roomInfo.rid, "")
-                //TODO
+                autoTranslateConfigDialog.changeAutoTranslateLanguageSettings(roomInfo.rid, appid.autotranslateLanguagesModel.selectedLanguage(index))
             }
         }
         Item {

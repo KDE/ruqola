@@ -82,3 +82,8 @@ int AutotranslateLanguagesModel::currentLanguage(const QString &lang) const
     }
     return 1;
 }
+
+QString AutotranslateLanguagesModel::selectedLanguage(int index) const
+{
+    return mAutoTranslateLanguages.autotranslateLanguage().at(index).language();
+}
