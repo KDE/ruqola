@@ -27,6 +27,7 @@ class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccountModel : public QAbstractListModel
 {
     Q_OBJECT
+    Q_PROPERTY(int accountNumber READ accountNumber NOTIFY accountNumberChanged)
 public:
     enum AccountRoles {
         Name = Qt::UserRole + 1,
@@ -38,7 +39,7 @@ public:
     explicit RocketChatAccountModel(QObject *parent = nullptr);
     ~RocketChatAccountModel() override;
 
-    Q_REQUIRED_RESULT Q_INVOKABLE int rowCount(const QModelIndex &parent = {}) const override;
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = {}) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void insertAccount(RocketChatAccount *account);
@@ -52,6 +53,12 @@ public:
     Q_REQUIRED_RESULT RocketChatAccount *account(int index) const;
 
     Q_REQUIRED_RESULT RocketChatAccount *account(const QString &accountName) const;
+
+    Q_REQUIRED_RESULT int accountNumber() const;
+
+Q_SIGNALS:
+    void accountNumberChanged();
+
 private:
     Q_DISABLE_COPY(RocketChatAccountModel)
     QVector<RocketChatAccount *> mRocketChatAccount;

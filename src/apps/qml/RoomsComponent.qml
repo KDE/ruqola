@@ -111,17 +111,18 @@ Component {
                     id: accountButton
                     icon.name: "network-workgroup"
                     onClicked: accountMenu.open()
-                    visible: recentFilesInstantiator.model.rowCount() > 1
+                    visible: accountMenuInstantiator.model.accountNumber > 1
                     QQC2.Menu {
                         id: accountMenu
                         QtQml.Instantiator {
-                            id: recentFilesInstantiator
+                            id: accountMenuInstantiator
                             model: appid.accountManagerModel
 
                             delegate: QQC2.MenuItem {
                                 text: name
                                 checkable: true
                                 autoExclusive: true
+                                checked: appid.accountManager.currentAccount === name
 
                                 onTriggered: {
                                     appid.accountManager.currentAccount = name;

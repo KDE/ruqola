@@ -41,6 +41,7 @@ void RocketChatAccountModel::clear()
         mRocketChatAccount.clear();
         endRemoveRows();
     }
+    Q_EMIT accountNumberChanged();
 }
 
 void RocketChatAccountModel::setAccounts(const QVector<RocketChatAccount *> &accounts)
@@ -55,6 +56,7 @@ void RocketChatAccountModel::setAccounts(const QVector<RocketChatAccount *> &acc
         mRocketChatAccount = accounts;
         endInsertRows();
     }
+    Q_EMIT accountNumberChanged();
 }
 
 RocketChatAccount *RocketChatAccountModel::account(const QString &accountName) const
@@ -69,6 +71,11 @@ RocketChatAccount *RocketChatAccountModel::account(const QString &accountName) c
         }
     }
     return nullptr;
+}
+
+int RocketChatAccountModel::accountNumber() const
+{
+    return mRocketChatAccount.count();
 }
 
 RocketChatAccount *RocketChatAccountModel::account(int index) const
@@ -113,6 +120,7 @@ void RocketChatAccountModel::insertAccount(RocketChatAccount *account)
     beginInsertRows(QModelIndex(), accountCount, accountCount);
     mRocketChatAccount.append(account);
     endInsertRows();
+    Q_EMIT accountNumberChanged();
 }
 
 void RocketChatAccountModel::removeAccount(const QString &name)
@@ -126,6 +134,7 @@ void RocketChatAccountModel::removeAccount(const QString &name)
             account->removeSettings();
             delete account;
             endRemoveRows();
+            Q_EMIT accountNumberChanged();
             break;
         }
     }

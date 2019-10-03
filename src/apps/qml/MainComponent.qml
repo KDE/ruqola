@@ -690,7 +690,7 @@ Component {
                         appid.rocketChatAccount.autoTranslateSaveAutoTranslateSettings(roomId, value)
                     }
                     onChangeAutoTranslateLanguageSettings: {
-                        appid.rocketChatAccount.autoTranslateSaveAutoTranslateSettings(roomId, lang)
+                        appid.rocketChatAccount.autoTranslateSaveLanguageSettings(roomId, lang)
                     }
                 }
             }
