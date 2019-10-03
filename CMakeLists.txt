@@ -1,4 +1,4 @@
-set(RUQOLA_VERSION "1.0.43")
+set(RUQOLA_VERSION "1.0.80")
 cmake_minimum_required(VERSION 3.5)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set (CMAKE_CXX_STANDARD 11)
@@ -7,7 +7,7 @@ set(KF5_MIN_VERSION "5.59.0")
 set(REQUIRED_QT_VERSION "5.12.0")
 
 # Do NOT add quote
-set(RUQOLA_DEV_VERSION alpha)
+set(RUQOLA_DEV_VERSION beta1)
 
 # add an extra space
 if(DEFINED RUQOLA_DEV_VERSION)
