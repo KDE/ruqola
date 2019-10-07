@@ -55,6 +55,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(QString parentRid READ parentRid CONSTANT)
     Q_PROPERTY(QString autoTranslateLanguage READ autoTranslateLanguage NOTIFY autoTranslateLanguageChanged)
     Q_PROPERTY(bool autoTranslate READ autoTranslate NOTIFY autoTranslateChanged)
+    Q_PROPERTY(NotificationOptionsWrapper * notificationOptions READ notificationOptions CONSTANT)
     Q_OBJECT
 public:
     explicit RoomWrapper(QObject *parent = nullptr);
@@ -85,15 +86,15 @@ public:
     Q_REQUIRED_RESULT bool isDiscussionRoom() const;
     Q_REQUIRED_RESULT QString parentRid() const;
 
-    Q_REQUIRED_RESULT Q_INVOKABLE NotificationOptionsWrapper *notificationOptions() const;
+    Q_REQUIRED_RESULT NotificationOptionsWrapper *notificationOptions() const;
     Q_REQUIRED_RESULT bool canChangeRoles() const;
-    Q_REQUIRED_RESULT Q_INVOKABLE bool userHasOwnerRole(const QString &userId) const;
-    Q_REQUIRED_RESULT Q_INVOKABLE bool userHasLeaderRole(const QString &userId) const;
-    Q_REQUIRED_RESULT Q_INVOKABLE bool userHasModeratorRole(const QString &userId) const;
 
     Q_REQUIRED_RESULT QString autoTranslateLanguage() const;
     Q_REQUIRED_RESULT bool autoTranslate() const;
 
+    Q_REQUIRED_RESULT Q_INVOKABLE bool userHasOwnerRole(const QString &userId) const;
+    Q_REQUIRED_RESULT Q_INVOKABLE bool userHasLeaderRole(const QString &userId) const;
+    Q_REQUIRED_RESULT Q_INVOKABLE bool userHasModeratorRole(const QString &userId) const;
 Q_SIGNALS:
     void nameChanged();
     void topicChanged();

@@ -67,7 +67,7 @@ QQC2.Dialog {
 
             QQC2.Switch {
                 id: disableNotification
-                checked: roomInfo === null ? false : roomInfo.notificationOptions().disableNotifications
+                checked: roomInfo === null ? false : roomInfo.notificationOptions.disableNotifications
                 onClicked: {
                     notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DisableNotifications, checked)
                     updateStatus(checked)
@@ -80,7 +80,7 @@ QQC2.Dialog {
 
             QQC2.Switch {
                 id: hideUnreadRoomStatus
-                checked: roomInfo === null ? false : roomInfo.notificationOptions().hideUnreadStatus
+                checked: roomInfo === null ? false : roomInfo.notificationOptions.hideUnreadStatus
                 onClicked: {
                     notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.HideUnreadStatus, checked)
                 }
@@ -92,7 +92,7 @@ QQC2.Dialog {
 
             QQC2.Switch {
                 id: muteGroupMention
-                checked: roomInfo === null ? false : roomInfo.notificationOptions().muteGroupMentions
+                checked: roomInfo === null ? false : roomInfo.notificationOptions.muteGroupMentions
                 onClicked: {
                     notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MuteGroupMentions, checked)
                 }
@@ -111,7 +111,7 @@ QQC2.Dialog {
                 NotificationAlertCombobox {
                     id: desktopAlertCombobox
                     model: NotificationPreferences.desktopNotificationModel
-                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().desktopNotifications) : 0
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions.desktopNotifications) : 0
                     onActivated: {
                         notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DesktopNotifications, model.currentPreference(index))
                     }
@@ -122,7 +122,7 @@ QQC2.Dialog {
                 NotificationAlertCombobox {
                     id: desktopAudioCombobox
                     model: NotificationPreferences.desktopAudioNotificationModel
-                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().audioNotifications) : 0
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions.audioNotifications) : 0
                     onActivated: {
                         notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.AudioNotifications, model.currentPreference(index))
                     }
@@ -133,7 +133,7 @@ QQC2.Dialog {
                 NotificationAlertCombobox {
                     id: desktopSoundCombobox
                     model: NotificationPreferences.desktopSoundNotificationModel
-                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().audioNotificationValue) : 0
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions.audioNotificationValue) : 0
                     onActivated: {
                         notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DesktopSoundNotifications, model.currentPreference(index))
                     }
@@ -144,7 +144,7 @@ QQC2.Dialog {
                 NotificationAlertCombobox {
                     id: desktopDurationCombobox
                     model: NotificationPreferences.desktopDurationNotificationModel
-                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().desktopNotificationDuration) : 0
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions.desktopNotificationDuration) : 0
                     onActivated: {
                         notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.DesktopDurationNotifications, model.currentPreference(index))
                     }
@@ -165,7 +165,7 @@ QQC2.Dialog {
                 NotificationAlertCombobox {
                     id: mobileAlertCombobox
                     model: NotificationPreferences.mobileNotificationModel
-                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().mobileNotifications) : 0
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions.mobileNotifications) : 0
                     onActivated: {
                         notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.MobilePushNotifications, NotificationPreferences.mobileNotificationModel().currentPreference(index))
                     }
@@ -185,7 +185,7 @@ QQC2.Dialog {
                 NotificationAlertCombobox {
                     id: emailAlertCombobox
                     model: NotificationPreferences.emailNotificationModel
-                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions().emailNotifications) : 0
+                    currentIndex: roomInfo !== null ? model.setCurrentNotificationPreference(roomInfo.notificationOptions.emailNotifications) : 0
                     onActivated: {
                         notificationOptionsDialog.modifyNotificationsSetting(rid, RocketChatAccount.EmailNotifications, NotificationPreferences.emailNotificationModel().currentPreference(index))
                     }
