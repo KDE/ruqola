@@ -540,7 +540,7 @@ Component {
                     }
                     Component.onCompleted: {
                         userInfo = appid.rocketChatAccount.userWrapper(showUserInfoDialogLoader.userId)
-                        open() //REACTIVATE IT
+                        //open() //REACTIVATE IT
                     }
                 }
             }
