@@ -46,7 +46,7 @@ QQC2.Menu {
     {
         return (pinned_message === true) ?  i18n("Unpin Message") : i18n("Pin Message")
     }
-    function updateTranslateLabelTex()
+    function updateTranslateLabelText()
     {
         return showTranslatedMessage ? i18n("Original Message") : i18n("Translate Message");
     }
@@ -170,11 +170,11 @@ QQC2.Menu {
         visible: rcAccount.autoTranslateEnabled
         contentItem: QQC2.Label {
             id: tranlateMessageLabel
-            text: updateTranslateLabelTex()
+            text: updateTranslateLabelText()
         }
         onTriggered: {
-            //console.log(RuqolaDebugCategorySingleton.category, "Ignore", i_messageID);
-            //messageMain.ignoreUser(!user_ignored);
+            console.log(RuqolaDebugCategorySingleton.category, "change translate status", i_messageID);
+            messageMain.showOriginalOrTranslatedMessage(i_messageID, false) //TODO fix me!
         }
     }
     onAboutToShow: {

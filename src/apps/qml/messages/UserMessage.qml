@@ -52,6 +52,7 @@ MessageBase {
             user_ignored : i_user_ignored
             starred: i_starred
             pinned_message: i_pinned
+            showTranslatedMessage: i_showTranslatedMessage
             Component.onCompleted: {
                 open()
             }

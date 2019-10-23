@@ -41,6 +41,7 @@ ColumnLayout {
     signal openThread(string threadMessageId, string threadPreviewText)
     signal replyInThread(string messageId)
     signal showUserInfo()
+    signal showOriginalOrTranslatedMessage(string messageId, bool showOriginal)
 
     property string i_date
     property string i_username
