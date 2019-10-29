@@ -46,6 +46,7 @@ ListView {
     signal openThread(string threadMessageId, string threadPreviewText)
     signal replyInThread(string messageId)
     signal showUserInfo(string userId)
+    signal showOriginalOrTranslatedMessage(string messageId, bool showOriginal)
 
     property QtObject rcAccount
     property string roomId: ""
@@ -184,6 +185,9 @@ ListView {
         }
         onShowUserInfo: {
             activeChat.showUserInfo(userID)
+        }
+        onShowOriginalOrTranslatedMessage: {
+            activeChat.showOriginalOrTranslatedMessage(messageId, showOriginal)
         }
     }
     section {

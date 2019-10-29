@@ -500,6 +500,10 @@ Component {
                 showUserInfoDialogLoader.active = true;
                 console.log("Open user info " + userId)
             }
+            onShowOriginalOrTranslatedMessage: {
+                console.log("Translate or not " + messageId + " translate " + showOriginal)
+                //TODO
+            }
 
             Loader {
                 id: openChannelDialogLoader

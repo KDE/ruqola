@@ -96,6 +96,7 @@ Rectangle {
     signal openThread(string threadMessageId, string threadPreviewText)
     signal replyInThread(string messageId)
     signal showUserInfo()
+    signal showOriginalOrTranslatedMessage(string messageId, bool showOriginal)
     Loader {
         id: loaded
         anchors.fill: parent
@@ -339,6 +340,10 @@ Rectangle {
         }
         onShowUserInfo: {
             messageMain.showUserInfo()
+        }
+        onShowOriginalOrTranslatedMessage: {
+            messageMain.showOriginalOrTranslatedMessage(messageId, showOriginal)
+            console.log("onShowOriginalOrTranslatedMessage: " + messageId)
         }
     }
 }
