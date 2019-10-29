@@ -93,6 +93,16 @@ void Message::parseReactions(const QJsonObject &reacts)
     }
 }
 
+bool Message::showAttachment() const
+{
+    return mShowAttachment;
+}
+
+void Message::setShowAttachment(bool showAttachment)
+{
+    mShowAttachment = showAttachment;
+}
+
 bool Message::showTranslatedMessage() const
 {
     return mShowTranslatedMessage;

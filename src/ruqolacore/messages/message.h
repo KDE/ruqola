@@ -180,6 +180,9 @@ public:
     Q_REQUIRED_RESULT bool showTranslatedMessage() const;
     void setShowTranslatedMessage(bool showTranslatedMessage);
 
+    Q_REQUIRED_RESULT bool showAttachment() const;
+    void setShowAttachment(bool showAttachment);
+
 private:
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
@@ -271,6 +274,8 @@ private:
     bool mUnread = false;
 
     bool mShowTranslatedMessage = true;
+
+    bool mShowAttachment = false;
 
     EmojiManager *mEmojiManager = nullptr;
 };
