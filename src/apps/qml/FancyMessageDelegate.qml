@@ -299,11 +299,11 @@ Rectangle {
             messageMain.downloadAttachment(url)
         }
         onEditMessage: {
-            console.log(RuqolaDebugCategorySingleton.category, "i_messageText " + i_messageText);
+            //console.log(RuqolaDebugCategorySingleton.category, "i_messageText " + i_messageText);
             messageMain.editMessage(messageId, messageStr)
         }
         onCopyMessage: {
-            console.log(RuqolaDebugCategorySingleton.category, "i_messageText " + i_messageText);
+            //console.log(RuqolaDebugCategorySingleton.category, "i_messageText " + i_messageText);
             messageMain.copyMessage(messageId, messageStr)
         }
         onReplyMessage: {
@@ -334,7 +334,7 @@ Rectangle {
             messageMain.openThread(threadMessageId, threadPreviewText)
         }
         onReplyInThread: {
-            console.log(RuqolaDebugCategorySingleton.category, "onReplyInThread: " + messageId)
+            //console.log(RuqolaDebugCategorySingleton.category, "onReplyInThread: " + messageId)
             messageMain.replyInThread(messageId)
         }
         onShowUserInfo: {
