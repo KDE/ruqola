@@ -206,6 +206,9 @@ MessageBase {
                     ShowHideButton {
                         targetAnimation: model.modelData.isAnimatedImage ? imageAnimatedUrl : imageUrl
                         defaultHeight: model.modelData.isAnimatedImage ? imageAnimatedUrl.imageHeight : Url.imageHeight
+                        onHiddenChanged: {
+                            messageMain.showDisplayAttachment(i_messageID, state)
+                        }
                     }
 
                     DownloadButton {

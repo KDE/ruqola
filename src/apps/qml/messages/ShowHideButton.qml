@@ -27,9 +27,12 @@ import org.kde.kirigami 2.7 as Kirigami
 import QtQuick.Layouts 1.12
 
 Kirigami.Icon {
+    id: showHideButtonId
     property QtObject targetAnimation
     property int defaultHeight: 200
     property bool isHidden: true
+
+    signal hiddenChanged(bool state);
 
     source: isHidden ? "hint" : "visibility"
     width: height
@@ -44,6 +47,7 @@ Kirigami.Icon {
                 isHidden = true
                 imageAnimationHide.running = true;
             }
+            showHideButtonId.hiddenChanged(!isHidden)
         }
     }
     NumberAnimation {

@@ -355,7 +355,7 @@ void RocketChatAccount::changeDisplayAttachment(const QString &roomId, const QSt
 {
     MessageModel *model = mRoomModel->messageModel(roomId);
     if (model) {
-
+        model->changeDisplayAttachment(messageId, displayAttachment);
     } else {
         qCWarning(RUQOLA_LOG) << "impossible to find room: " << roomId;
     }
@@ -366,7 +366,7 @@ void RocketChatAccount::changeShowOriginalMessage(const QString &roomId, const Q
 {
     MessageModel *model = mRoomModel->messageModel(roomId);
     if (model) {
-
+        model->changeShowOriginalMessage(messageId, showOriginal);
     } else {
         qCWarning(RUQOLA_LOG) << "impossible to find room: " << roomId;
     }

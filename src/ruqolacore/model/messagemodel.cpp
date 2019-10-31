@@ -383,6 +383,29 @@ void MessageModel::clear()
     }
 }
 
+void MessageModel::changeShowOriginalMessage(const QString &messageId, bool showOriginal)
+{
+    auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [messageId](const Message &msg) {
+        return msg.messageId() == messageId;
+    });
+    if (it != mAllMessages.end()) {
+        //TODO
+    }
+}
+
+void MessageModel::changeDisplayAttachment(const QString &messageId, bool displayAttachment)
+{
+    auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [messageId](const Message &msg) {
+        return msg.messageId() == messageId;
+    });
+    if (it != mAllMessages.end()) {
+        const int i = std::distance(mAllMessages.begin(), it);
+        (*it).setShowAttachment(displayAttachment);
+        mAllMessages.takeAt(i);
+        mAllMessages.insert(i, (*it));
+    }
+}
+
 void MessageModel::deleteMessage(const QString &messageId)
 {
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [messageId](const Message &msg) {
