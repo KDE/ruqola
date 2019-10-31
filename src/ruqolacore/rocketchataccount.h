@@ -244,6 +244,7 @@ public:
     Q_INVOKABLE RoomWrapper *roomWrapper(const QString &roomId);
     Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);
     Q_INVOKABLE void changeDisplayAttachment(const QString &roomId, const QString &messageId, bool displayAttachment);
+    Q_INVOKABLE void changeShowOriginalMessage(const QString &roomId, const QString &messageId, bool showOriginal);
 
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
