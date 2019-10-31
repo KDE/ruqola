@@ -505,6 +505,11 @@ Component {
                 //TODO
             }
 
+            onShowDisplayAttachment: {
+                console.log("Change display Attachment " + messageId + " show? " + displayAttachment)
+                appid.rocketChatAccount.changeDisplayAttachment(appid.selectedRoomID, messageId, displayAttachment)
+            }
+
             Loader {
                 id: openChannelDialogLoader
                 active: false

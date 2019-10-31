@@ -243,6 +243,7 @@ public:
     Q_INVOKABLE UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
     Q_INVOKABLE RoomWrapper *roomWrapper(const QString &roomId);
     Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);
+    Q_INVOKABLE void changeDisplayAttachment(const QString &roomId, const QString &messageId, bool displayAttachment);
 
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;

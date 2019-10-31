@@ -42,6 +42,7 @@ ColumnLayout {
     signal replyInThread(string messageId)
     signal showUserInfo()
     signal showOriginalOrTranslatedMessage(string messageId, bool showOriginal)
+    signal showDisplayAttachment(string messageId, bool displayAttachment)
 
     property string i_date
     property string i_username

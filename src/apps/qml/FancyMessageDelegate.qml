@@ -97,6 +97,7 @@ Rectangle {
     signal replyInThread(string messageId)
     signal showUserInfo()
     signal showOriginalOrTranslatedMessage(string messageId, bool showOriginal)
+    signal showDisplayAttachment(string messageId, bool displayAttachment)
     Loader {
         id: loaded
         anchors.fill: parent
@@ -345,5 +346,10 @@ Rectangle {
             messageMain.showOriginalOrTranslatedMessage(messageId, showOriginal)
             console.log("onShowOriginalOrTranslatedMessage: " + messageId)
         }
+        onShowDisplayAttachment: {
+            messageMain.showDisplayAttachment(messageId, displayAttachment)
+            //TODO
+        }
+
     }
 }

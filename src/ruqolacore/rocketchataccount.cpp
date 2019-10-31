@@ -351,6 +351,11 @@ MessageModel *RocketChatAccount::messageModelForRoom(const QString &roomID)
     return mRoomModel->messageModel(roomID);
 }
 
+void RocketChatAccount::changeDisplayAttachment(const QString &roomId, const QString &messageId, bool displayAttachment)
+{
+    //TODO
+}
+
 QString RocketChatAccount::getUserCurrentMessage(const QString &roomId)
 {
     return mRoomModel->inputMessage(roomId);

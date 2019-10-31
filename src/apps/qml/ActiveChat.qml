@@ -47,6 +47,7 @@ ListView {
     signal replyInThread(string messageId)
     signal showUserInfo(string userId)
     signal showOriginalOrTranslatedMessage(string messageId, bool showOriginal)
+    signal showDisplayAttachment(string messageId, bool displayAttachment)
 
     property QtObject rcAccount
     property string roomId: ""
@@ -188,6 +189,10 @@ ListView {
         }
         onShowOriginalOrTranslatedMessage: {
             activeChat.showOriginalOrTranslatedMessage(messageId, showOriginal)
+        }
+        onShowDisplayAttachment: {
+            activeChat.showDisplayAttachment(messageId, displayAttachment)
+            //TODO
         }
     }
     section {
