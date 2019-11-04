@@ -157,6 +157,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
     roles[ThreadMessageId] = QByteArrayLiteral("threadMessageId");
     roles[ThreadMessagePreview] = QByteArrayLiteral("threadMessagePreview");
     roles[ShowTranslatedMessage] = QByteArrayLiteral("showTranslatedMessage");
+    roles[DisplayAttachment] = QByteArrayLiteral("displayAttachment");
     return roles;
 }
 
@@ -337,6 +338,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.groupable();
     case MessageModel::ShowTranslatedMessage:
         return message.showTranslatedMessage();
+    case MessageModel::DisplayAttachment:
+        return message.showAttachment();
     }
 
     return {};
