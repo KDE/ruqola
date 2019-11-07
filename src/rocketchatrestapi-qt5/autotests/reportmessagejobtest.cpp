@@ -25,7 +25,6 @@
 #include <QJsonDocument>
 #include <restapimethod.h>
 
-#include <QTest>
 QTEST_GUILESS_MAIN(ReportMessageJobTest)
 using namespace RocketChatRestApi;
 ReportMessageJobTest::ReportMessageJobTest(QObject *parent)

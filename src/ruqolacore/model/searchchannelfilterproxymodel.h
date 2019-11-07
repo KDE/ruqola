@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHCHANNELROOMFILTERPROXYMODEL_H
-#define SEARCHCHANNELROOMFILTERPROXYMODEL_H
+#ifndef SEARCHCHANNELFILTERPROXYMODEL_H
+#define SEARCHCHANNELFILTERPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
 #include "libruqola_private_export.h"
@@ -36,4 +36,4 @@ protected:
     Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
 
-#endif // SEARCHCHANNELROOMFILTERPROXYMODEL_H
+#endif // SEARCHCHANNELFILTERPROXYMODEL_H

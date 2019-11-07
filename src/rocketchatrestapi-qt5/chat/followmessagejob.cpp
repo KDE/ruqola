@@ -56,7 +56,7 @@ void FollowMessageJob::slotFollowMessageFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("FollowMessageJob sucess: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("FollowMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT followMessageDone();
         } else {
             emitFailedMessage(replyObject);

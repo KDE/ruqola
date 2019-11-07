@@ -24,7 +24,6 @@
 #include <QJsonArray>
 
 #include <QIcon>
-#include <QJsonArray>
 #include <QJsonObject>
 #include <QModelIndex>
 

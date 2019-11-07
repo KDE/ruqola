@@ -868,7 +868,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
             qDebug() << "Unsubscribe element" <<message;
             const QJsonObject errorObj = root[QStringLiteral("error")].toObject();
             qWarning() << "Error found start:";
-            qWarning() << "ERRROR: " << errorObj[QStringLiteral("error")].toString();
+            qWarning() << "ERROR: " << errorObj[QStringLiteral("error")].toString();
             qWarning() << "Message: " << errorObj[QStringLiteral("message")].toString();
             qWarning() << "Reason: " << errorObj[QStringLiteral("reason")].toString();
             qWarning() << "-- Error found END --";

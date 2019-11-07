@@ -35,7 +35,6 @@
 #include "model/messagemodel.h"
 #include "receivetypingnotificationmanager.h"
 #include "file.h"
-#include "user.h"
 
 #include <QJsonObject>
 #include <QJsonArray>

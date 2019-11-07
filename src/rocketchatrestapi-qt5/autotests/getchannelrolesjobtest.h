@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef GETPRESENCEJOBTEST_H
-#define GETPRESENCEJOBTEST_H
+#ifndef GETCHANNELROLESJOBTEST_H
+#define GETCHANNELROLESJOBTEST_H
 
 #include <QObject>
 
@@ -34,4 +34,4 @@ private Q_SLOTS:
     void shouldGenerateRequest();
 };
 
-#endif // GETPRESENCEJOBTEST_H
+#endif // GETCHANNELROLESJOBTEST_H

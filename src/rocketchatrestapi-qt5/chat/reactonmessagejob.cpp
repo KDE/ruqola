@@ -56,7 +56,7 @@ void ReactOnMessageJob::slotReactonMessageFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ReactOnMessageJob sucess: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("ReactOnMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT reactOnMessageDone();
         } else {
             emitFailedMessage(replyObject);

@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHCHANNELROOMMODEL_H
-#define SEARCHCHANNELROOMMODEL_H
+#ifndef SEARCHCHANNELMODEL_H
+#define SEARCHCHANNELMODEL_H
 
 #include <QAbstractListModel>
 #include <channel.h>
@@ -57,4 +57,4 @@ private:
     QVector<Channel> mChannel;
 };
 
-#endif // SEARCHCHANNELROOMMODEL_H
+#endif // SEARCHCHANNELMODEL_H

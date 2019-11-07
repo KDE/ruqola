@@ -24,7 +24,6 @@
 #include <QTest>
 #include <QJsonDocument>
 #include <restapimethod.h>
-#include <QTest>
 QTEST_GUILESS_MAIN(PinMessageJobTest)
 using namespace RocketChatRestApi;
 

@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef FILESMODELFORROOM_H
-#define FILESMODELFORROOM_H
+#ifndef FILESFORROOMMODEL_H
+#define FILESFORROOMMODEL_H
 
 #include <QAbstractListModel>
 #include "file.h"
@@ -85,4 +85,4 @@ private:
     RocketChatAccount *mRochetChantAccount = nullptr;
 };
 
-#endif // FILESMODELFORROOM_H
+#endif // FILESFORROOMMODEL_H

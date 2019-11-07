@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERMODEL_H
-#define USERMODEL_H
+#ifndef USERSMODEL_H
+#define USERSMODEL_H
 
 #include "libruqola_private_export.h"
 #include <QAbstractListModel>
@@ -65,4 +65,4 @@ private:
     QVector<User *> mUsers;
 };
 
-#endif // USERMODEL_H
+#endif // USERSMODEL_H

@@ -102,7 +102,7 @@ QString TextConverter::convertMessageText(const QString &_str, const QString &us
             }
         }
     } else {
-        qCWarning(RUQOLA_LOG) << "Emojimanager was not setted";
+        qCWarning(RUQOLA_LOG) << "Emojimanager was not set";
     }
     return quotedMessage + richText;
 }

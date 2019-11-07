@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SETAVATARDONETEST_H
-#define SETAVATARDONETEST_H
+#ifndef RESETAVATARJOBTEST_H
+#define RESETAVATARJOBTEST_H
 
 #include <QObject>
 
@@ -36,4 +36,4 @@ private Q_SLOTS:
     void shouldNotStarting();
 };
 
-#endif // SETAVATARDONETEST_H
+#endif // RESETAVATARJOBTEST_H

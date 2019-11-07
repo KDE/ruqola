@@ -25,7 +25,6 @@
 #include <QUrlQuery>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
 using namespace RocketChatRestApi;
 ForgotPasswordJob::ForgotPasswordJob(QObject *parent)
     : RestApiAbstractJob(parent)

@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLAABOUTDATA_H
-#define RUQOLAABOUTDATA_H
+#ifndef RUQOLAQMLABOUTDATA_H
+#define RUQOLAQMLABOUTDATA_H
 
 #include <KAboutData>
 #include <QObject>
@@ -61,4 +61,4 @@ private:
     KAboutData mAboutData;
 };
 
-#endif // RUQOLAABOUTDATA_H
+#endif // RUQOLAQMLABOUTDATA_H

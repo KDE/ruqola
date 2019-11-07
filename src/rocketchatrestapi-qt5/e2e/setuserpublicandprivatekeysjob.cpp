@@ -57,7 +57,7 @@ void SetUserPublicAndPrivateKeysJob::slotAddKeyToChainFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("SetUserPublicAndPrivateKeysJob: sucess: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("SetUserPublicAndPrivateKeysJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT addKeyToChainDone();
         } else {
             emitFailedMessage(replyObject);

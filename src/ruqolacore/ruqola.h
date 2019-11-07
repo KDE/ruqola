@@ -20,8 +20,8 @@
  *
  */
 
-#ifndef USERDATA_H
-#define USERDATA_H
+#ifndef RUQOLA_H
+#define RUQOLA_H
 
 #include <QObject>
 #include "libruqolacore_export.h"
@@ -78,4 +78,4 @@ inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngi
     return userData;
 }
 
-#endif // USERDATA_H
+#endif // RUQOLA_H

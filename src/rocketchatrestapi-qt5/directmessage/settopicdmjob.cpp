@@ -58,7 +58,7 @@ void SetTopicDmJob::slotSetTopicDmFinished()
         const QJsonObject replyObject = replyJson.object();
 
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("Create direct message sucess: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerInfo(QByteArrayLiteral("Create direct message success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT setTopicDmDone();
         } else {
             emitFailedMessage(replyObject);
