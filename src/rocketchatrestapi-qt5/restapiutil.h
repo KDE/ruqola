@@ -73,6 +73,10 @@ enum class RestApiUrlType {
     //Since 2.0.0
     ChatGetPinnedMessages,
 
+    //Since 2.2.x
+    ChatGetStarredMessages,
+    ChatGetSnippetedMessages,
+
     ChannelsAddAll,
     //@since 0.75
     ChannelsAddLeader,

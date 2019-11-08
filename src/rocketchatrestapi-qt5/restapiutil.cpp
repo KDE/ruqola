@@ -131,6 +131,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("chat.sendMessage");
     case RestApiUtil::RestApiUrlType::ChatGetPinnedMessages:
         return QStringLiteral("chat.getPinnedMessages");
+    case RestApiUtil::RestApiUrlType::ChatGetStarredMessages:
+        return QStringLiteral("chat.getStarredMessages");
+    case RestApiUtil::RestApiUrlType::ChatGetSnippetedMessages:
+        return QStringLiteral("chat.getSnippetedMessages");
     case RestApiUtil::RestApiUrlType::ChannelsAddAll:
         return QStringLiteral("channels.addAll");
     case RestApiUtil::RestApiUrlType::ChannelsAddModerator:
