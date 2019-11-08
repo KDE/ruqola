@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLAABOUTDATAAUTHORMODEL_H
-#define RUQOLAABOUTDATAAUTHORMODEL_H
+#ifndef QMLABOUTDATAAUTHORMODEL_H
+#define QMLABOUTDATAAUTHORMODEL_H
 
 #include <QAbstractListModel>
 #include "libruqola_private_export.h"
@@ -53,4 +53,4 @@ private:
     QList<KAboutPerson> mAboutPerson;
 };
 
-#endif // RUQOLAABOUTDATAAUTHORMODEL_H
+#endif // QMLABOUTDATAAUTHORMODEL_H

@@ -19,7 +19,6 @@
 */
 
 #include "usercompletermodeltest.h"
-#include "usercompletermodeltest.h"
 #include "model/usercompletermodel.h"
 #include "test_model_helpers.h"
 #include <QSignalSpy>

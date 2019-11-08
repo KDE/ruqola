@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef USERSMODELFORROOMTEST_H
-#define USERSMODELFORROOMTEST_H
+#ifndef USERSFORROOMMODELTEST_H
+#define USERSFORROOMMODELTEST_H
 
 #include <QObject>
 
@@ -38,4 +38,4 @@ private Q_SLOTS:
     void shouldParseUsers();
 };
 
-#endif // USERSMODELFORROOMTEST_H
+#endif // USERSFORROOMMODELTEST_H
