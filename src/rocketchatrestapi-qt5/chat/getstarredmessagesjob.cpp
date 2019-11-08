@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "getpinnedmessagesjob.h"
+#include "getstarredmessagesjob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
@@ -27,47 +27,47 @@
 #include <QUrlQuery>
 
 using namespace RocketChatRestApi;
-GetPinnedMessagesJob::GetPinnedMessagesJob(QObject *parent)
+GetStarredMessagesJob::GetStarredMessagesJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-GetPinnedMessagesJob::~GetPinnedMessagesJob()
+GetStarredMessagesJob::~GetStarredMessagesJob()
 {
 }
 
-bool GetPinnedMessagesJob::requireHttpAuthentication() const
+bool GetStarredMessagesJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool GetPinnedMessagesJob::canStart() const
+bool GetStarredMessagesJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetPinnedMessagesJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetStarredMessagesJob";
         return false;
     }
     if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetPinnedMessagesJob: mRoomId is empty";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetStarredMessagesJob: mRoomId is empty";
         return false;
     }
     return true;
 }
 
-bool GetPinnedMessagesJob::start()
+bool GetStarredMessagesJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetPinnedMessagesJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start GetStarredMessagesJob job";
         deleteLater();
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &GetPinnedMessagesJob::slotGetPinnedMessagesFinished);
-    addLoggerInfo(QByteArrayLiteral("GetPinnedMessagesJob: Ask pinned messages"));
+    connect(reply, &QNetworkReply::finished, this, &GetStarredMessagesJob::slotGetStarredMessagesFinished);
+    addLoggerInfo(QByteArrayLiteral("GetStarredMessagesJob: Ask starred messages"));
     return true;
 }
 
-void GetPinnedMessagesJob::slotGetPinnedMessagesFinished()
+void GetStarredMessagesJob::slotGetStarredMessagesFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -75,30 +75,30 @@ void GetPinnedMessagesJob::slotGetPinnedMessagesFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GetPinnedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT getPinnedMessagesDone(replyObject, mRoomId);
+            addLoggerInfo(QByteArrayLiteral("GetStarredMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT getStarredMessagesDone(replyObject, mRoomId);
         } else {
             emitFailedMessage(replyObject);
-            addLoggerWarning(QByteArrayLiteral("GetPinnedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("GetStarredMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
     deleteLater();
 }
 
-QString GetPinnedMessagesJob::roomId() const
+QString GetStarredMessagesJob::roomId() const
 {
     return mRoomId;
 }
 
-void GetPinnedMessagesJob::setRoomId(const QString &roomId)
+void GetStarredMessagesJob::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
 }
 
-QNetworkRequest GetPinnedMessagesJob::request() const
+QNetworkRequest GetStarredMessagesJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetPinnedMessages);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetStarredMessages);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
     addQueryParameter(queryUrl);
@@ -111,7 +111,7 @@ QNetworkRequest GetPinnedMessagesJob::request() const
     return request;
 }
 
-bool GetPinnedMessagesJob::hasQueryParameterSupport() const
+bool GetStarredMessagesJob::hasQueryParameterSupport() const
 {
     return true;
 }
