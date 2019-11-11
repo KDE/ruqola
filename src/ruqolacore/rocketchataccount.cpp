@@ -943,7 +943,6 @@ bool RocketChatAccount::hasSnippetedMessagesSupport() const
     return mRuqolaServerConfig->hasAtLeastVersion(2, 3, 0);
 }
 
-
 void RocketChatAccount::getSnippetedMessages(const QString &roomId)
 {
     if (hasSnippetedMessagesSupport()) {

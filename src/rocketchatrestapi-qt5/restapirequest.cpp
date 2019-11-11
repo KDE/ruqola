@@ -1523,7 +1523,6 @@ void RestApiRequest::getSnippetedMessages(const QString &roomId, int offset, int
     }
 }
 
-
 void RestApiRequest::getThreadMessages(const QString &threadMessageId)
 {
     GetThreadMessagesJob *job = new GetThreadMessagesJob(this);

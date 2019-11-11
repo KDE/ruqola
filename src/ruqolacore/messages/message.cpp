@@ -399,7 +399,7 @@ bool Message::operator==(const Message &other) const
            && (mDiscussionRoomId == other.discussionRoomId())
            && (mThreadMessageId == other.threadMessageId())
            && (mMessageTranslation == other.messageTranslation())
-            && (mShowTranslatedMessage == other.showTranslatedMessage());
+           && (mShowTranslatedMessage == other.showTranslatedMessage());
 }
 
 bool Message::operator<(const Message &other) const

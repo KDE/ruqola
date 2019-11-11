@@ -241,7 +241,6 @@ public:
     Q_INVOKABLE void getStarredMessages(const QString &roomId);
     Q_INVOKABLE void getSnippetedMessages(const QString &roomId);
 
-
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 
@@ -394,7 +393,6 @@ private:
     Q_REQUIRED_RESULT bool hasPinnedMessagesSupport() const;
     Q_REQUIRED_RESULT bool hasStarredMessagesSupport() const;
     Q_REQUIRED_RESULT bool hasSnippetedMessagesSupport() const;
-
 
     Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
     Q_REQUIRED_RESULT bool threadsEnabled() const;
