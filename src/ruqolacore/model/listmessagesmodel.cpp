@@ -52,13 +52,13 @@ void ListMessagesModel::parse(const QJsonObject &obj)
     checkFullList();
 }
 
-void ListMessagesModel::parsePinnedMessages(const QJsonObject &obj)
+void ListMessagesModel::parseListMessages(const QJsonObject &obj)
 {
     clear();
     parse(obj);
 }
 
-void ListMessagesModel::loadMorePinnedMessages(const QJsonObject &obj)
+void ListMessagesModel::loadMoreListMessages(const QJsonObject &obj)
 {
     parse(obj);
 }
@@ -73,12 +73,12 @@ void ListMessagesModel::setTotal(int total)
     mTotal = total;
 }
 
-bool ListMessagesModel::loadMorePinnedMessageInProgress() const
+bool ListMessagesModel::loadMoreListMessagesInProgress() const
 {
     return mLoadingInProgress;
 }
 
-void ListMessagesModel::setLoadMorePinnedMessageInProgress(bool inProgress)
+void ListMessagesModel::setLoadMoreListMessagesInProgress(bool inProgress)
 {
     mLoadingInProgress = inProgress;
 }

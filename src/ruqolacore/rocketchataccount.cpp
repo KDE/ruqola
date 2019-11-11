@@ -864,11 +864,11 @@ void RocketChatAccount::slotGetPinnedMessagesDone(const QJsonObject &obj, const 
 {
     if (mPinnedMessageModel->roomId() != roomId) {
         mPinnedMessageModel->setRoomID(roomId);
-        mPinnedMessageModel->parsePinnedMessages(obj);
+        mPinnedMessageModel->parseListMessages(obj);
     } else {
-        mPinnedMessageModel->loadMorePinnedMessages(obj);
+        mPinnedMessageModel->loadMoreListMessages(obj);
     }
-    mPinnedMessageModel->setLoadMorePinnedMessageInProgress(false);
+    mPinnedMessageModel->setLoadMoreListMessagesInProgress(false);
 }
 
 void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId)
@@ -994,7 +994,7 @@ void RocketChatAccount::loadMoreThreads(const QString &roomId)
 
 void RocketChatAccount::loadMorePinnedMessages(const QString &roomId)
 {
-    if (!mPinnedMessageModel->loadMorePinnedMessageInProgress()) {
+    if (!mPinnedMessageModel->loadMoreListMessagesInProgress()) {
         const int offset = mPinnedMessageModel->rowCount();
         if (offset < mPinnedMessageModel->total()) {
             restApi()->getPinnedMessages(roomId, offset, qMin(50, mPinnedMessageModel->total() - offset));

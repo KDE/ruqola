@@ -18,19 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef PINNEDMESSAGEMODELTEST_H
-#define PINNEDMESSAGEMODELTEST_H
+#include "listmessagesmodeltest.h"
+#include "model/listmessagesmodel.h"
 
-#include <QObject>
+#include <QTest>
+QTEST_GUILESS_MAIN(ListMessagesModelTest)
 
-class PinnedMessageModelTest : public QObject
+ListMessagesModelTest::ListMessagesModelTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit PinnedMessageModelTest(QObject *parent = nullptr);
-    ~PinnedMessageModelTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
-};
+}
 
-#endif // PINNEDMESSAGEMODELTEST_H
+void ListMessagesModelTest::shouldHaveDefaultValues()
+{
+    ListMessagesModel w;
+    QVERIFY(w.roomId().isEmpty());
+    QVERIFY(!w.loadMoreListMessagesInProgress());
+}

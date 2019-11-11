@@ -35,14 +35,14 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
-    void parsePinnedMessages(const QJsonObject &obj);
-    void loadMorePinnedMessages(const QJsonObject &obj);
+    void parseListMessages(const QJsonObject &obj);
+    void loadMoreListMessages(const QJsonObject &obj);
 
     Q_INVOKABLE Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
-    Q_REQUIRED_RESULT bool loadMorePinnedMessageInProgress() const;
-    void setLoadMorePinnedMessageInProgress(bool inProgress);
+    Q_REQUIRED_RESULT bool loadMoreListMessagesInProgress() const;
+    void setLoadMoreListMessagesInProgress(bool inProgress);
 
     void setHasFullList(bool state);
     Q_REQUIRED_RESULT bool hasFullList() const;
