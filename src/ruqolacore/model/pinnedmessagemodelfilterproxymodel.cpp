@@ -19,14 +19,14 @@
 */
 
 #include "pinnedmessagemodelfilterproxymodel.h"
-#include "pinnedmessagemodel.h"
+#include "listmessagesmodel.h"
 
 PinnedMessageModelFilterProxyModel::PinnedMessageModelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(PinnedMessageModel::OriginalMessage);
+    setFilterRole(ListMessagesModel::OriginalMessage);
     sort(0, Qt::DescendingOrder);
 }
 
@@ -36,7 +36,7 @@ PinnedMessageModelFilterProxyModel::~PinnedMessageModelFilterProxyModel()
 
 int PinnedMessageModelFilterProxyModel::total() const
 {
-    return static_cast<PinnedMessageModel *>(sourceModel())->total();
+    return static_cast<ListMessagesModel *>(sourceModel())->total();
 }
 
 QHash<int, QByteArray> PinnedMessageModelFilterProxyModel::roleNames() const
@@ -54,5 +54,5 @@ void PinnedMessageModelFilterProxyModel::setFilterString(const QString &string)
 
 bool PinnedMessageModelFilterProxyModel::hasFullList() const
 {
-    return static_cast<PinnedMessageModel *>(sourceModel())->hasFullList();
+    return static_cast<ListMessagesModel *>(sourceModel())->hasFullList();
 }

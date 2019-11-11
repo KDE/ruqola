@@ -30,7 +30,7 @@
 #include "model/threadsmodel.h"
 #include "model/mentionsmodel.h"
 #include "model/mentionsfilterproxymodel.h"
-#include "model/pinnedmessagemodel.h"
+#include "model/listmessagesmodel.h"
 #include "model/pinnedmessagemodelfilterproxymodel.h"
 #include <QTest>
 #include <QStandardPaths>

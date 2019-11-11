@@ -18,30 +18,30 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "pinnedmessagemodel.h"
+#include "listmessagesmodel.h"
 
 #include "listmessages.h"
 
-PinnedMessageModel::PinnedMessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
+ListMessagesModel::ListMessagesModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
     : MessageModel(roomID, account, room, parent)
 {
 }
 
-PinnedMessageModel::~PinnedMessageModel()
+ListMessagesModel::~ListMessagesModel()
 {
 }
 
-QString PinnedMessageModel::roomId() const
+QString ListMessagesModel::roomId() const
 {
     return mRoomId;
 }
 
-void PinnedMessageModel::setRoomId(const QString &roomId)
+void ListMessagesModel::setRoomId(const QString &roomId)
 {
     mRoomId = roomId;
 }
 
-void PinnedMessageModel::parse(const QJsonObject &obj)
+void ListMessagesModel::parse(const QJsonObject &obj)
 {
     ListMessages messages;
     messages.parseMessages(obj);
@@ -52,38 +52,38 @@ void PinnedMessageModel::parse(const QJsonObject &obj)
     checkFullList();
 }
 
-void PinnedMessageModel::parsePinnedMessages(const QJsonObject &obj)
+void ListMessagesModel::parsePinnedMessages(const QJsonObject &obj)
 {
     clear();
     parse(obj);
 }
 
-void PinnedMessageModel::loadMorePinnedMessages(const QJsonObject &obj)
+void ListMessagesModel::loadMorePinnedMessages(const QJsonObject &obj)
 {
     parse(obj);
 }
 
-int PinnedMessageModel::total() const
+int ListMessagesModel::total() const
 {
     return mTotal;
 }
 
-void PinnedMessageModel::setTotal(int total)
+void ListMessagesModel::setTotal(int total)
 {
     mTotal = total;
 }
 
-bool PinnedMessageModel::loadMorePinnedMessageInProgress() const
+bool ListMessagesModel::loadMorePinnedMessageInProgress() const
 {
     return mLoadingInProgress;
 }
 
-void PinnedMessageModel::setLoadMorePinnedMessageInProgress(bool inProgress)
+void ListMessagesModel::setLoadMorePinnedMessageInProgress(bool inProgress)
 {
     mLoadingInProgress = inProgress;
 }
 
-void PinnedMessageModel::setHasFullList(bool state)
+void ListMessagesModel::setHasFullList(bool state)
 {
     if (mHasFullList != state) {
         mHasFullList = state;
@@ -91,12 +91,12 @@ void PinnedMessageModel::setHasFullList(bool state)
     }
 }
 
-bool PinnedMessageModel::hasFullList() const
+bool ListMessagesModel::hasFullList() const
 {
     return mHasFullList;
 }
 
-void PinnedMessageModel::checkFullList()
+void ListMessagesModel::checkFullList()
 {
     setHasFullList(rowCount() == total());
 }

@@ -69,7 +69,7 @@ class ThreadsModel;
 class MentionsModel;
 class MentionsFilterProxyModel;
 class ThreadMessageModel;
-class PinnedMessageModel;
+class ListMessagesModel;
 class PinnedMessageModelFilterProxyModel;
 class AutotranslateLanguagesModel;
 class UserWrapper;
@@ -483,7 +483,7 @@ private:
     MentionsFilterProxyModel *mMentionsFilterProxyModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
     ThreadMessageModel *mThreadMessageModel = nullptr;
-    PinnedMessageModel *mPinnedMessageModel = nullptr;
+    ListMessagesModel *mPinnedMessageModel = nullptr;
     PinnedMessageModelFilterProxyModel *mPinnedMessagesFilterProxyModel = nullptr;
     AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
     bool mEditingMode = false;

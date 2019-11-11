@@ -19,7 +19,7 @@
 */
 
 #include "pinnedmessagemodeltest.h"
-#include "model/pinnedmessagemodel.h"
+#include "model/listmessagesmodel.h"
 
 #include <QTest>
 QTEST_GUILESS_MAIN(PinnedMessageModelTest)
@@ -31,7 +31,7 @@ PinnedMessageModelTest::PinnedMessageModelTest(QObject *parent)
 
 void PinnedMessageModelTest::shouldHaveDefaultValues()
 {
-    PinnedMessageModel w;
+    ListMessagesModel w;
     QVERIFY(w.roomId().isEmpty());
     QVERIFY(!w.loadMorePinnedMessageInProgress());
 }

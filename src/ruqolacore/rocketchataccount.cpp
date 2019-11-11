@@ -56,7 +56,7 @@
 #include "model/threadsfilterproxymodel.h"
 #include "model/mentionsmodel.h"
 #include "model/mentionsfilterproxymodel.h"
-#include "model/pinnedmessagemodel.h"
+#include "model/listmessagesmodel.h"
 #include "model/threadmessagemodel.h"
 #include "model/pinnedmessagemodelfilterproxymodel.h"
 #include "model/autotranslatelanguagesmodel.h"
@@ -170,7 +170,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mThreadMessageModel = new ThreadMessageModel(QString(), this, nullptr, this);
     mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));
 
-    mPinnedMessageModel = new PinnedMessageModel(QString(), this, nullptr, this);
+    mPinnedMessageModel = new ListMessagesModel(QString(), this, nullptr, this);
     mPinnedMessageModel->setObjectName(QStringLiteral("pinnedmessagemodel"));
 
     mPinnedMessagesFilterProxyModel = new PinnedMessageModelFilterProxyModel(this);

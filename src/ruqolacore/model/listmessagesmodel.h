@@ -24,13 +24,13 @@
 #include "libruqola_private_export.h"
 #include "messagemodel.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT PinnedMessageModel : public MessageModel
+class LIBRUQOLACORE_TESTS_EXPORT ListMessagesModel : public MessageModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
 public:
-    explicit PinnedMessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
-    ~PinnedMessageModel();
+    explicit ListMessagesModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
+    ~ListMessagesModel();
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
