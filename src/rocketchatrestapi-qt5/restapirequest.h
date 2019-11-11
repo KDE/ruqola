@@ -169,6 +169,8 @@ public:
     void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
     void setUserStatus(const QString &userId, SetStatusJob::StatusType status, const QString &message = QString());
     void usersPresence();
+    void getStarredMessages(const QString &roomId, int offset = 0, int count = 50);
+    void getSnippetedMessages(const QString &roomId, int offset = 0, int count = 50);
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -219,6 +221,8 @@ Q_SIGNALS:
     void getThreadsDone(const QJsonObject &obj, const QString &roomId);
     void getThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
     void getPinnedMessagesDone(const QJsonObject &obj, const QString &roomId);
+    void getStarredMessagesDone(const QJsonObject &obj, const QString &roomId);
+    void getSnippetedMessagesDone(const QJsonObject &obj, const QString &roomId);
     void getSupportedLanguagesDone(const QJsonObject &obj);
     void translateSavesettingsDone();
     void setStatusDone();

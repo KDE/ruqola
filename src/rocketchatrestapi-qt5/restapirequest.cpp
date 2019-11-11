@@ -61,6 +61,8 @@
 #include "chat/getthreadmessagesjob.h"
 #include "chat/sendmessagejob.h"
 #include "chat/getpinnedmessagesjob.h"
+#include "chat/getsnippetedmessagesjob.h"
+#include "chat/getstarredmessagesjob.h"
 
 #include "channels/changechanneltopicjob.h"
 #include "channels/changechannelannouncementjob.h"
@@ -1490,6 +1492,37 @@ void RestApiRequest::getPinnedMessages(const QString &roomId, int offset, int co
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getPinnedMessagesList";
     }
 }
+
+void RestApiRequest::getStarredMessages(const QString &roomId, int offset, int count)
+{
+    GetStarredMessagesJob *job = new GetStarredMessagesJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    QueryParameters parameters;
+    parameters.setCount(count);
+    parameters.setOffset(offset);
+    job->setQueryParameters(parameters);
+    connect(job, &GetStarredMessagesJob::getStarredMessagesDone, this, &RestApiRequest::getStarredMessagesDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getStarredMessagesList";
+    }
+}
+
+void RestApiRequest::getSnippetedMessages(const QString &roomId, int offset, int count)
+{
+    GetSnippetedMessagesJob *job = new GetSnippetedMessagesJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    QueryParameters parameters;
+    parameters.setCount(count);
+    parameters.setOffset(offset);
+    job->setQueryParameters(parameters);
+    connect(job, &GetSnippetedMessagesJob::getSnippetedMessagesDone, this, &RestApiRequest::getSnippetedMessagesDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getSnippetedMessagesList";
+    }
+}
+
 
 void RestApiRequest::getThreadMessages(const QString &threadMessageId)
 {
