@@ -63,6 +63,8 @@
         <file>AutoTranslateLanguageCombobox.qml</file>
         <file>AutoTranslateConfigDialog.qml</file>
         <file>CustomUserStatusDialog.qml</file>
+        <file>ShowStarredMessagesDialog.qml</file>
+        <file>ShowSnippetedMessagesDialog.qml</file>
     </qresource>
     <qresource prefix="/messages">
         <file alias="SystemMessage.qml">messages/SystemMessage.qml</file>

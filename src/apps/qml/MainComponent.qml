@@ -121,6 +121,22 @@ Component {
                     }
                 },
                 Kirigami.Action {
+                    visible: appid.selectedRoom && appid.rocketChatAccount.hasStarredMessagesSupport
+                    text: i18n("Starred Messages")
+                    onTriggered: {
+                        appid.rocketChatAccount.getStarredMessages(appid.selectedRoomID);
+                        //TODO showPinnedMessageDialogLoader.active = true;
+                    }
+                },
+                Kirigami.Action {
+                    visible: appid.selectedRoom && appid.rocketChatAccount.hasSnippetedMessagesSupport
+                    text: i18n("Snippeted Messages")
+                    onTriggered: {
+                        appid.rocketChatAccount.getSnippetedMessages(appid.selectedRoomID);
+                        // TODO showPinnedMessageDialogLoader.active = true;
+                    }
+                },
+                Kirigami.Action {
                     visible: appid.selectedRoom && appid.rocketChatAccount.discussionEnabled
                     text: i18n("Discussions")
                     onTriggered: {
