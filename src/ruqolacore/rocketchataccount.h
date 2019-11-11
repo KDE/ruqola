@@ -101,6 +101,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(bool threadsEnabled READ threadsEnabled CONSTANT)
     Q_PROPERTY(bool discussionEnabled READ discussionEnabled CONSTANT)
     Q_PROPERTY(bool hasPinnedMessagesSupport READ hasPinnedMessagesSupport CONSTANT)
+    Q_PROPERTY(bool hasSnippetedMessagesSupport READ hasSnippetedMessagesSupport CONSTANT)
     Q_PROPERTY(bool hasStarredMessagesSupport READ hasStarredMessagesSupport CONSTANT)
     Q_PROPERTY(ServerConfigInfo* serverConfigInfo READ serverConfigInfo CONSTANT)
     Q_PROPERTY(AutotranslateLanguagesModel* autoTranslateLanguagesModel READ autoTranslateLanguagesModel CONSTANT)
@@ -392,6 +393,8 @@ private:
     Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
     Q_REQUIRED_RESULT bool hasPinnedMessagesSupport() const;
     Q_REQUIRED_RESULT bool hasStarredMessagesSupport() const;
+    Q_REQUIRED_RESULT bool hasSnippetedMessagesSupport() const;
+
 
     Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
     Q_REQUIRED_RESULT bool threadsEnabled() const;

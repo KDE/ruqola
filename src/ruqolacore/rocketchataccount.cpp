@@ -938,9 +938,15 @@ void RocketChatAccount::getStarredMessages(const QString &roomId)
     }
 }
 
+bool RocketChatAccount::hasSnippetedMessagesSupport() const
+{
+    return mRuqolaServerConfig->hasAtLeastVersion(2, 3, 0);
+}
+
+
 void RocketChatAccount::getSnippetedMessages(const QString &roomId)
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(2, 3, 0)) {
+    if (hasSnippetedMessagesSupport()) {
         //mPinnedMessageModel->clear();
         restApi()->getSnippetedMessages(roomId);
     } else {
