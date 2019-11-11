@@ -101,6 +101,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(bool threadsEnabled READ threadsEnabled CONSTANT)
     Q_PROPERTY(bool discussionEnabled READ discussionEnabled CONSTANT)
     Q_PROPERTY(bool hasPinnedMessagesSupport READ hasPinnedMessagesSupport CONSTANT)
+    Q_PROPERTY(bool hasStarredMessagesSupport READ hasStarredMessagesSupport CONSTANT)
     Q_PROPERTY(ServerConfigInfo* serverConfigInfo READ serverConfigInfo CONSTANT)
     Q_PROPERTY(AutotranslateLanguagesModel* autoTranslateLanguagesModel READ autoTranslateLanguagesModel CONSTANT)
     Q_PROPERTY(QString recordingVideoPath READ recordingVideoPath CONSTANT)
@@ -236,6 +237,10 @@ public:
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void getPinnedMessages(const QString &roomId);
     Q_INVOKABLE void loadMorePinnedMessages(const QString &roomId);
+    Q_INVOKABLE void getStarredMessages(const QString &roomId);
+    Q_INVOKABLE void getSnippetedMessages(const QString &roomId);
+
+
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 
@@ -386,6 +391,7 @@ private:
     Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
     Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
     Q_REQUIRED_RESULT bool hasPinnedMessagesSupport() const;
+    Q_REQUIRED_RESULT bool hasStarredMessagesSupport() const;
 
     Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
     Q_REQUIRED_RESULT bool threadsEnabled() const;
@@ -407,6 +413,8 @@ private:
     void slotGetPinnedMessagesDone(const QJsonObject &obj, const QString &roomId);
     void slotGetSupportedLanguagesDone(const QJsonObject &obj);
     void slotUsersPresenceDone(const QJsonObject &obj);
+    void slotGetSnippetedMessagesDone(const QJsonObject &obj, const QString &roomId);
+    void slotGetStarredMessagesDone(const QJsonObject &obj, const QString &roomId);
 
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);

@@ -462,6 +462,8 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetAllUserMentionsDone, this, &RocketChatAccount::slotGetAllUserMentionsDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getPinnedMessagesDone, this, &RocketChatAccount::slotGetPinnedMessagesDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getSnippetedMessagesDone, this, &RocketChatAccount::slotGetSnippetedMessagesDone);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getStarredMessagesDone, this, &RocketChatAccount::slotGetStarredMessagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
@@ -848,6 +850,16 @@ void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const
     mMentionsModel->setLoadMoreMentionsInProgress(false);
 }
 
+void RocketChatAccount::slotGetStarredMessagesDone(const QJsonObject &obj, const QString &roomId)
+{
+    //TODO
+}
+
+void RocketChatAccount::slotGetSnippetedMessagesDone(const QJsonObject &obj, const QString &roomId)
+{
+    //TODO
+}
+
 void RocketChatAccount::slotGetPinnedMessagesDone(const QJsonObject &obj, const QString &roomId)
 {
     if (mPinnedMessageModel->roomId() != roomId) {
@@ -898,7 +910,7 @@ void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, const QString
 
 void RocketChatAccount::getPinnedMessages(const QString &roomId)
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(1, 4, 0)) {
+    if (hasPinnedMessagesSupport()) {
         mPinnedMessageModel->clear();
         restApi()->getPinnedMessages(roomId);
     } else {
@@ -909,6 +921,31 @@ void RocketChatAccount::getPinnedMessages(const QString &roomId)
 bool RocketChatAccount::hasPinnedMessagesSupport() const
 {
     return mRuqolaServerConfig->hasAtLeastVersion(1, 4, 0);
+}
+
+bool RocketChatAccount::hasStarredMessagesSupport() const
+{
+    return mRuqolaServerConfig->hasAtLeastVersion(2, 3, 0);
+}
+
+void RocketChatAccount::getStarredMessages(const QString &roomId)
+{
+    if (hasStarredMessagesSupport()) {
+        //mPinnedMessageModel->clear();
+        restApi()->getStarredMessages(roomId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getStarredMessages is not supported before server 2.3.0";
+    }
+}
+
+void RocketChatAccount::getSnippetedMessages(const QString &roomId)
+{
+    if (mRuqolaServerConfig->hasAtLeastVersion(2, 3, 0)) {
+        //mPinnedMessageModel->clear();
+        restApi()->getSnippetedMessages(roomId);
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSnippetedMessages is not supported before server 2.3.0";
+    }
 }
 
 void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QString &channelType)
