@@ -22,12 +22,14 @@
 
 #include <QObject>
 
-class PinnedMessageModelFilterProxyModelTest : public QObject
+class ListMessagesModelFilterProxyModelTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit PinnedMessageModelFilterProxyModelTest(QObject *parent = nullptr);
-    ~PinnedMessageModelFilterProxyModelTest() = default;
+    explicit ListMessagesModelFilterProxyModelTest(QObject *parent = nullptr);
+    ~ListMessagesModelFilterProxyModelTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // PINNEDMESSAGEMODELFILTERPROXYMODELTEST_H

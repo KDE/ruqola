@@ -17,11 +17,17 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#include "pinnedmessagemodelfilterproxymodeltest.h"
+#include "listmessagesmodelfilterproxymodeltest.h"
+#include "model/listmessagesmodelfilterproxymodel.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(PinnedMessageModelFilterProxyModelTest)
+QTEST_GUILESS_MAIN(ListMessagesModelFilterProxyModelTest)
 
-PinnedMessageModelFilterProxyModelTest::PinnedMessageModelFilterProxyModelTest(QObject *parent)
+ListMessagesModelFilterProxyModelTest::ListMessagesModelFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void ListMessagesModelFilterProxyModelTest::shouldHaveDefaultValues()
+{
+    //TODO
 }
