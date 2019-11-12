@@ -938,6 +938,11 @@ void RocketChatAccount::getStarredMessages(const QString &roomId)
     }
 }
 
+void RocketChatAccount::loadMoreStarredMessages(const QString &roomId)
+{
+    //TODO
+}
+
 bool RocketChatAccount::hasSnippetedMessagesSupport() const
 {
     return mRuqolaServerConfig->hasAtLeastVersion(2, 3, 0);
@@ -951,6 +956,11 @@ void RocketChatAccount::getSnippetedMessages(const QString &roomId)
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSnippetedMessages is not supported before server 2.3.0";
     }
+}
+
+void RocketChatAccount::loadMoreSnippetedMessages(const QString &roomId)
+{
+    //TODO
 }
 
 void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QString &channelType)

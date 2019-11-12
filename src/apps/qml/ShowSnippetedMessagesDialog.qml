@@ -23,68 +23,11 @@ import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.2
 import QtQuick 2.9
 import org.kde.kirigami 2.7 as Kirigami
-QQC2.Dialog {
-    id: showStarredMessagesDialog
+ListMessagesDialogBase {
+    id: showSnippetedMessagesDialog
 
     title: i18n("Snippeted Messages")
-
-    property QtObject snippetedMessagesModel
-    property string roomId
-    width: parent.width * 9 / 10
-    height: parent.height * 9 / 10
-    anchors.centerIn: parent
-
-    modal: true
-    focus: true
-    standardButtons: QQC2.Dialog.Close
-
-    function initializeAndOpen()
-    {
-        snippetedMessagesModel.clearFilter();
-        searchField.text = "";
-        searchField.forceActiveFocus();
-        open();
-    }
-
-    contentItem: ColumnLayout {
-        LineEditWithClearButton {
-            id: searchField
-            placeholderText: i18n("Search Snippeted Messages...")
-            Layout.fillWidth: true
-            onTextChanged: {
-                snippetedMessagesModel.setFilterString(text);
-            }
-        }
-
-        SearchLabel {
-            hasFullList: snippetedMessagesModel.hasFullList
-            numberOfElements: listview.count
-            labelText: listview.count === 0 ? i18n("No Snippeted Messages found") : i18np("%1 Snippeted Message in room (Total: %2)", "%1 Starred Messages in room (Total: %2)", listview.count, snippetedMessagesModel.total())
-            onLoadMoreElements: {
-                appid.rocketChatAccount.loadMorePinnedMessages(roomId)
-            }
-        }
-        Item {
-            Layout.fillHeight: true
-            visible: listview.count === 0
-        }
-
-        ActiveChat {
-            id: listview
-            onDragEnded : {
-                if (roomId !== "" && listview.atYBeginning ) {
-                    appid.rocketChatAccount.loadMorePinnedMessages(roomId)
-                }
-            }
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            model: snippetedMessagesModel
-            rcAccount: appid.rocketChatAccount
-            roomId: appid.selectedRoomID
-            clip: true
-            useMenuMessage: false
-
-            QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
-        }
+    onLoadMoreMessage: {
+        appid.rocketChatAccount.loadMoreSnippetedMessages(roomId)
     }
 }

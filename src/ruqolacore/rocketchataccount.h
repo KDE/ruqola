@@ -239,7 +239,9 @@ public:
     Q_INVOKABLE void getPinnedMessages(const QString &roomId);
     Q_INVOKABLE void loadMorePinnedMessages(const QString &roomId);
     Q_INVOKABLE void getStarredMessages(const QString &roomId);
+    Q_INVOKABLE void loadMoreStarredMessages(const QString &roomId);
     Q_INVOKABLE void getSnippetedMessages(const QString &roomId);
+    Q_INVOKABLE void loadMoreSnippetedMessages(const QString &roomId);
 
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
