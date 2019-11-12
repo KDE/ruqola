@@ -18,10 +18,10 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "pinnedmessagemodelfilterproxymodel.h"
+#include "listmessagesmodelfilterproxymodel.h"
 #include "listmessagesmodel.h"
 
-PinnedMessageModelFilterProxyModel::PinnedMessageModelFilterProxyModel(QObject *parent)
+ListMessagesModelFilterProxyModel::ListMessagesModelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
@@ -30,16 +30,16 @@ PinnedMessageModelFilterProxyModel::PinnedMessageModelFilterProxyModel(QObject *
     sort(0, Qt::DescendingOrder);
 }
 
-PinnedMessageModelFilterProxyModel::~PinnedMessageModelFilterProxyModel()
+ListMessagesModelFilterProxyModel::~ListMessagesModelFilterProxyModel()
 {
 }
 
-int PinnedMessageModelFilterProxyModel::total() const
+int ListMessagesModelFilterProxyModel::total() const
 {
     return static_cast<ListMessagesModel *>(sourceModel())->total();
 }
 
-QHash<int, QByteArray> PinnedMessageModelFilterProxyModel::roleNames() const
+QHash<int, QByteArray> ListMessagesModelFilterProxyModel::roleNames() const
 {
     if (QAbstractItemModel *source = sourceModel()) {
         return source->roleNames();
@@ -47,12 +47,12 @@ QHash<int, QByteArray> PinnedMessageModelFilterProxyModel::roleNames() const
     return QHash<int, QByteArray>();
 }
 
-void PinnedMessageModelFilterProxyModel::setFilterString(const QString &string)
+void ListMessagesModelFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);
 }
 
-bool PinnedMessageModelFilterProxyModel::hasFullList() const
+bool ListMessagesModelFilterProxyModel::hasFullList() const
 {
     return static_cast<ListMessagesModel *>(sourceModel())->hasFullList();
 }

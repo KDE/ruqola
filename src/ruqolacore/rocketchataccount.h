@@ -70,7 +70,7 @@ class MentionsModel;
 class MentionsFilterProxyModel;
 class ThreadMessageModel;
 class ListMessagesModel;
-class PinnedMessageModelFilterProxyModel;
+class ListMessagesModelFilterProxyModel;
 class AutotranslateLanguagesModel;
 class UserWrapper;
 
@@ -119,7 +119,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(MentionsFilterProxyModel* mentionsFilterProxyModel READ mentionsFilterProxyModel CONSTANT)
     Q_PROPERTY(MessageModel* threadMessageModel READ threadMessageModel CONSTANT)
     Q_PROPERTY(EmoticonModel* emoticonModel READ emoticonModel CONSTANT)
-    Q_PROPERTY(PinnedMessageModelFilterProxyModel* pinnedMessagesFilterProxyModel READ pinnedMessagesFilterProxyModel CONSTANT)
+    Q_PROPERTY(ListMessagesModelFilterProxyModel* pinnedMessagesFilterProxyModel READ pinnedMessagesFilterProxyModel CONSTANT)
     Q_PROPERTY(FilesForRoomFilterProxyModel* filesForRoomFilterProxyModel READ filesForRoomFilterProxyModel CONSTANT)
     Q_PROPERTY(SearchMessageFilterProxyModel* searchMessageFilterProxyModel READ searchMessageFilterProxyModel CONSTANT)
     Q_PROPERTY(RoomFilterProxyModel* roomFilterProxyModel READ roomFilterProxyModel CONSTANT)
@@ -260,7 +260,7 @@ public:
     RoomFilterProxyModel *roomFilterProxyModel() const;
     MessageModel *threadMessageModel() const;
     EmoticonModel *emoticonModel() const;
-    PinnedMessageModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;
+    ListMessagesModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;
     MessageModel *pinnedMessageModel() const;
     SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
     AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
@@ -484,7 +484,7 @@ private:
     EmoticonModel *mEmoticonModel = nullptr;
     ThreadMessageModel *mThreadMessageModel = nullptr;
     ListMessagesModel *mPinnedMessageModel = nullptr;
-    PinnedMessageModelFilterProxyModel *mPinnedMessagesFilterProxyModel = nullptr;
+    ListMessagesModelFilterProxyModel *mPinnedMessagesFilterProxyModel = nullptr;
     AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
     bool mEditingMode = false;
 };

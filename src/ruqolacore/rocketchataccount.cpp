@@ -58,7 +58,7 @@
 #include "model/mentionsfilterproxymodel.h"
 #include "model/listmessagesmodel.h"
 #include "model/threadmessagemodel.h"
-#include "model/pinnedmessagemodelfilterproxymodel.h"
+#include "model/listmessagesmodelfilterproxymodel.h"
 #include "model/autotranslatelanguagesmodel.h"
 #include "managerdatapaths.h"
 #include "authenticationmanager.h"
@@ -173,7 +173,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mPinnedMessageModel = new ListMessagesModel(QString(), this, nullptr, this);
     mPinnedMessageModel->setObjectName(QStringLiteral("pinnedmessagemodel"));
 
-    mPinnedMessagesFilterProxyModel = new PinnedMessageModelFilterProxyModel(this);
+    mPinnedMessagesFilterProxyModel = new ListMessagesModelFilterProxyModel(this);
     mPinnedMessagesFilterProxyModel->setObjectName(QStringLiteral("pinnedmessagesfiltermodelproxy"));
     mPinnedMessagesFilterProxyModel->setSourceModel(mPinnedMessageModel);
 
@@ -1751,7 +1751,7 @@ AutotranslateLanguagesModel *RocketChatAccount::autoTranslateLanguagesModel() co
     return mAutoTranslateLanguagesModel;
 }
 
-PinnedMessageModelFilterProxyModel *RocketChatAccount::pinnedMessagesFilterProxyModel() const
+ListMessagesModelFilterProxyModel *RocketChatAccount::pinnedMessagesFilterProxyModel() const
 {
     return mPinnedMessagesFilterProxyModel;
 }

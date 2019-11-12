@@ -62,7 +62,7 @@
 #include "model/discussionsfilterproxymodel.h"
 #include "model/emoticoncategoriesmodel.h"
 #include "notificationpreferences.h"
-#include "model/pinnedmessagemodelfilterproxymodel.h"
+#include "model/listmessagesmodelfilterproxymodel.h"
 #include "model/autotranslatelanguagesmodel.h"
 
 #include "channel.h"
@@ -121,7 +121,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<DiscussionsModel>("KDE.Ruqola.DiscussionsModel", 1, 0, "DiscussionsModel");
     qmlRegisterType<DiscussionsFilterProxyModel>("KDE.Ruqola.DiscussionsFilterProxyModel", 1, 0, "DiscussionsFilterProxyModel");
     qmlRegisterType<EmoticonCategoriesModel>("KDE.Ruqola.EmoticonCategoriesModel", 1, 0, "EmoticonCategoriesModel");
-    qmlRegisterType<PinnedMessageModelFilterProxyModel>("KDE.Ruqola.PinnedMessageModelFilterProxyModel", 1, 0, "PinnedMessageModelFilterProxyModel");
+    qmlRegisterType<ListMessagesModelFilterProxyModel>("KDE.Ruqola.PinnedMessageModelFilterProxyModel", 1, 0, "PinnedMessageModelFilterProxyModel");
     qmlRegisterType<AutotranslateLanguagesModel>("KDE.Ruqola.AutotranslateLanguagesModel", 1, 0, "AutotranslateLanguagesModel");
 
     qmlRegisterType<ReceiveTypingNotificationManager>("KDE.Ruqola.ReceiveTypingNotificationManager", 1, 0, "ReceiveTypingNotificationManager");

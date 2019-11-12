@@ -53,7 +53,7 @@ set (Ruqola_model_core_srcs
     model/threadmessagemodel.cpp
 
     model/listmessagesmodel.cpp
-    model/pinnedmessagemodelfilterproxymodel.cpp
+    model/listmessagesmodelfilterproxymodel.cpp
 
     model/autotranslatelanguagesmodel.cpp
     )

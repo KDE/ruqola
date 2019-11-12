@@ -24,13 +24,13 @@
 #include <QSortFilterProxyModel>
 #include "libruqola_private_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT PinnedMessageModelFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_TESTS_EXPORT ListMessagesModelFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
-    explicit PinnedMessageModelFilterProxyModel(QObject *parent = nullptr);
-    ~PinnedMessageModelFilterProxyModel() override;
+    explicit ListMessagesModelFilterProxyModel(QObject *parent = nullptr);
+    ~ListMessagesModelFilterProxyModel() override;
     Q_INVOKABLE Q_REQUIRED_RESULT bool hasFullList() const;
     Q_INVOKABLE Q_REQUIRED_RESULT int total() const;
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
