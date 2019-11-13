@@ -103,12 +103,12 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(bool hasPinnedMessagesSupport READ hasPinnedMessagesSupport CONSTANT)
     Q_PROPERTY(bool hasSnippetedMessagesSupport READ hasSnippetedMessagesSupport CONSTANT)
     Q_PROPERTY(bool hasStarredMessagesSupport READ hasStarredMessagesSupport CONSTANT)
+    Q_PROPERTY(bool allowEditingMessages READ allowEditingMessages CONSTANT)
+    Q_PROPERTY(bool otrEnabled READ otrEnabled CONSTANT)
     Q_PROPERTY(ServerConfigInfo* serverConfigInfo READ serverConfigInfo CONSTANT)
     Q_PROPERTY(AutotranslateLanguagesModel* autoTranslateLanguagesModel READ autoTranslateLanguagesModel CONSTANT)
     Q_PROPERTY(QString recordingVideoPath READ recordingVideoPath CONSTANT)
     Q_PROPERTY(QString recordingImagePath READ recordingImagePath CONSTANT)
-    Q_PROPERTY(bool allowEditingMessages READ allowEditingMessages CONSTANT)
-    Q_PROPERTY(bool otrEnabled READ otrEnabled CONSTANT)
     Q_PROPERTY(LoginMethodModel* loginMethodModel READ loginMethodModel CONSTANT)
     Q_PROPERTY(StatusModel* statusModel READ statusModel CONSTANT)
     Q_PROPERTY(DiscussionsFilterProxyModel* discussionsFilterProxyModel READ discussionsFilterProxyModel CONSTANT)
@@ -493,7 +493,6 @@ private:
 
     ListMessagesModel *mStarredMessageModel = nullptr;
     ListMessagesModelFilterProxyModel *mStarredMessagesFilterProxyModel = nullptr;
-
 
     AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
     bool mEditingMode = false;

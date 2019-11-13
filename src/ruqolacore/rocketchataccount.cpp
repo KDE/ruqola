@@ -177,15 +177,12 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mPinnedMessagesFilterProxyModel->setObjectName(QStringLiteral("pinnedmessagesfiltermodelproxy"));
     mPinnedMessagesFilterProxyModel->setSourceModel(mPinnedMessageModel);
 
-
     mStarredMessageModel = new ListMessagesModel(QString(), this, nullptr, this);
     mStarredMessageModel->setObjectName(QStringLiteral("starredmessagemodel"));
 
     mStarredMessagesFilterProxyModel = new ListMessagesModelFilterProxyModel(this);
     mStarredMessagesFilterProxyModel->setObjectName(QStringLiteral("starredmessagesfiltermodelproxy"));
     mStarredMessagesFilterProxyModel->setSourceModel(mStarredMessageModel);
-
-
 
     mAutoTranslateLanguagesModel = new AutotranslateLanguagesModel(this);
     mAutoTranslateLanguagesModel->setObjectName(QStringLiteral("autotranslatelanguagesmodel"));
