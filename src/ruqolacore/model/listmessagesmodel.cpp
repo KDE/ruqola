@@ -100,3 +100,13 @@ void ListMessagesModel::checkFullList()
 {
     setHasFullList(rowCount() == total());
 }
+
+ListMessagesModel::ListMessageType ListMessagesModel::listMessageType() const
+{
+    return mListMessageType;
+}
+
+void ListMessagesModel::setListMessageType(const ListMessageType &listMessageType)
+{
+    mListMessageType = listMessageType;
+}

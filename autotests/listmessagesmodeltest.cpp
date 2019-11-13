@@ -34,4 +34,6 @@ void ListMessagesModelTest::shouldHaveDefaultValues()
     ListMessagesModel w;
     QVERIFY(w.roomId().isEmpty());
     QVERIFY(!w.loadMoreListMessagesInProgress());
+    QCOMPARE(w.listMessageType(), ListMessagesModel::ListMessageType::Unknown);
+    QCOMPARE(w.total(), 0);
 }
