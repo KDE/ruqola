@@ -1712,8 +1712,9 @@ bool RocketChatAccount::allowEditingMessages() const
 
 void RocketChatAccount::parseOtr(const QJsonArray &contents)
 {
-    const Otr t = mOtrManager->parseOtr(contents);
-    qDebug() << " void RocketChatAccount::parseOtr(const QJsonArray &contents)"<<t;
+    qCWarning(RUQOLA_LOG) << " NOT IMPLEMENTED YET";
+    //const Otr t = mOtrManager->parseOtr(contents);
+    //qDebug() << " void RocketChatAccount::parseOtr(const QJsonArray &contents)"<<t;
     //TODO add notification ?
 }
 
@@ -1752,7 +1753,7 @@ void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString 
 
 void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)
 {
-    qDebug() << " void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)" << pattern;
+    //qDebug() << " void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type)" << pattern;
     switch (type) {
     case InputTextManager::CompletionForType::Channel:
         ddp()->inputChannelAutocomplete(pattern, exceptions);
