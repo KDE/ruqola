@@ -177,6 +177,16 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mPinnedMessagesFilterProxyModel->setObjectName(QStringLiteral("pinnedmessagesfiltermodelproxy"));
     mPinnedMessagesFilterProxyModel->setSourceModel(mPinnedMessageModel);
 
+
+    mStarredMessageModel = new ListMessagesModel(QString(), this, nullptr, this);
+    mStarredMessageModel->setObjectName(QStringLiteral("starredmessagemodel"));
+
+    mStarredMessagesFilterProxyModel = new ListMessagesModelFilterProxyModel(this);
+    mStarredMessagesFilterProxyModel->setObjectName(QStringLiteral("starredmessagesfiltermodelproxy"));
+    mStarredMessagesFilterProxyModel->setSourceModel(mStarredMessageModel);
+
+
+
     mAutoTranslateLanguagesModel = new AutotranslateLanguagesModel(this);
     mAutoTranslateLanguagesModel->setObjectName(QStringLiteral("autotranslatelanguagesmodel"));
 
@@ -1754,6 +1764,11 @@ void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, c
         ddp()->inputUserAutocomplete(pattern, exceptions);
         break;
     }
+}
+
+ListMessagesModelFilterProxyModel *RocketChatAccount::starredMessagesFilterProxyModel() const
+{
+    return mStarredMessagesFilterProxyModel;
 }
 
 AutotranslateLanguagesModel *RocketChatAccount::autoTranslateLanguagesModel() const

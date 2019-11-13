@@ -120,6 +120,7 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(MessageModel* threadMessageModel READ threadMessageModel CONSTANT)
     Q_PROPERTY(EmoticonModel* emoticonModel READ emoticonModel CONSTANT)
     Q_PROPERTY(ListMessagesModelFilterProxyModel* pinnedMessagesFilterProxyModel READ pinnedMessagesFilterProxyModel CONSTANT)
+    Q_PROPERTY(ListMessagesModelFilterProxyModel* starredMessagesFilterProxyModel READ starredMessagesFilterProxyModel CONSTANT)
     Q_PROPERTY(FilesForRoomFilterProxyModel* filesForRoomFilterProxyModel READ filesForRoomFilterProxyModel CONSTANT)
     Q_PROPERTY(SearchMessageFilterProxyModel* searchMessageFilterProxyModel READ searchMessageFilterProxyModel CONSTANT)
     Q_PROPERTY(RoomFilterProxyModel* roomFilterProxyModel READ roomFilterProxyModel CONSTANT)
@@ -362,6 +363,8 @@ public:
     Q_REQUIRED_RESULT bool allowEditingMessages() const;
     Q_REQUIRED_RESULT bool otrEnabled() const;
 
+    ListMessagesModelFilterProxyModel *starredMessagesFilterProxyModel() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -487,6 +490,11 @@ private:
     ThreadMessageModel *mThreadMessageModel = nullptr;
     ListMessagesModel *mPinnedMessageModel = nullptr;
     ListMessagesModelFilterProxyModel *mPinnedMessagesFilterProxyModel = nullptr;
+
+    ListMessagesModel *mStarredMessageModel = nullptr;
+    ListMessagesModelFilterProxyModel *mStarredMessagesFilterProxyModel = nullptr;
+
+
     AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
     bool mEditingMode = false;
 };
