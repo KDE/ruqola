@@ -1009,6 +1009,26 @@ void RocketChatAccount::loadMoreThreads(const QString &roomId)
     }
 }
 
+void RocketChatAccount::loadMoreListMessages(const QString &roomId, ListMessagesModel::ListMessageType type)
+{
+    if (!mPinnedMessageModel->loadMoreListMessagesInProgress()) {
+        const int offset = mPinnedMessageModel->rowCount();
+        if (offset < mPinnedMessageModel->total()) {
+            switch (type) {
+            case ListMessagesModel::Unknown:
+                //bug !
+                break;
+            case ListMessagesModel::StarredMessages:
+                break;
+            case ListMessagesModel::SnipperedMessages:
+                break;
+            case ListMessagesModel::PinnedMessages:
+                break;
+            }
+        }
+    }
+}
+
 void RocketChatAccount::loadMorePinnedMessages(const QString &roomId)
 {
     if (!mPinnedMessageModel->loadMoreListMessagesInProgress()) {

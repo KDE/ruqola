@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QUrl>
 #include <ddpapi/ddpclient.h>
+#include <model/listmessagesmodel.h>
 #include "messages/message.h"
 #include "rocketchataccountsettings.h"
 #include "libruqola_private_export.h"
@@ -253,6 +254,9 @@ public:
     Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);
     Q_INVOKABLE void changeDisplayAttachment(const QString &roomId, const QString &messageId, bool displayAttachment);
     Q_INVOKABLE void changeShowOriginalMessage(const QString &roomId, const QString &messageId, bool showOriginal);
+
+    Q_INVOKABLE void loadMoreListMessages(const QString &roomId, ListMessagesModel::ListMessageType type);
+
 
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
