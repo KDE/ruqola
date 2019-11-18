@@ -118,7 +118,7 @@ Component {
                     text: i18n("Pinned Messages")
                     onTriggered: {
                         appid.rocketChatAccount.getListMessages(appid.selectedRoomID, ListMessagesModel.PinnedMessages);
-                        showPinnedMessageDialogLoader.active = true;
+                        showListMessageDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {
@@ -126,7 +126,7 @@ Component {
                     text: i18n("Starred Messages")
                     onTriggered: {
                         appid.rocketChatAccount.getListMessages(appid.selectedRoomID, ListMessagesModel.StarredMessages);
-                        showPinnedMessageDialogLoader.active = true;
+                        showListMessageDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {
@@ -134,7 +134,7 @@ Component {
                     text: i18n("Snippeted Messages")
                     onTriggered: {
                         appid.rocketChatAccount.getListMessages(appid.selectedRoomID, ListMessagesModel.SnipperedMessages);
-                        showPinnedMessageDialogLoader.active = true;
+                        showListMessageDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {
@@ -825,17 +825,17 @@ Component {
                 }
             }
             Loader {
-                id: showPinnedMessageDialogLoader
+                id: showListMessageDialogLoader
                 active: false
                 sourceComponent: ShowPinnedMessagesDialog {
-                    id: showPinnedMessageDialog
+                    id: showListMessageDialog
                     parent: appid.pageStack
                     listMessagesModel: appid.listMessagesModel
                     onAccepted: {
-                        showPinnedMessageDialogLoader.active = false
+                        showListMessageDialogLoader.active = false
                     }
                     onRejected: {
-                        showPinnedMessageDialogLoader.active = false
+                        showListMessageDialogLoader.active = false
                     }
                     Component.onCompleted: {
                         open()
