@@ -1009,6 +1009,24 @@ void RocketChatAccount::loadMoreThreads(const QString &roomId)
     }
 }
 
+void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel::ListMessageType type)
+{
+    switch (type) {
+    case ListMessagesModel::Unknown:
+        qCWarning(RUQOLA_LOG) << " Error when using getListMessages";
+        break;
+    case ListMessagesModel::StarredMessages:
+        getStarredMessages(roomId);
+        break;
+    case ListMessagesModel::SnipperedMessages:
+        getSnippetedMessages(roomId);
+        break;
+    case ListMessagesModel::PinnedMessages:
+        getPinnedMessages(roomId);
+        break;
+    }
+}
+
 void RocketChatAccount::loadMoreListMessages(const QString &roomId, ListMessagesModel::ListMessageType type)
 {
     if (!mPinnedMessageModel->loadMoreListMessagesInProgress()) {

@@ -256,6 +256,7 @@ public:
     Q_INVOKABLE void changeShowOriginalMessage(const QString &roomId, const QString &messageId, bool showOriginal);
 
     Q_INVOKABLE void loadMoreListMessages(const QString &roomId, ListMessagesModel::ListMessageType type);
+    Q_INVOKABLE void getListMessages(const QString &roomId, ListMessagesModel::ListMessageType type);
 
 
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
