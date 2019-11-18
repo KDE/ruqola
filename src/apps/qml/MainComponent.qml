@@ -829,7 +829,7 @@ Component {
                 sourceComponent: ShowPinnedMessagesDialog {
                     id: showPinnedMessageDialog
                     parent: appid.pageStack
-                    listMessagesModel: appid.pinnedMessagesModel
+                    listMessagesModel: appid.listMessagesModel
                     onAccepted: {
                         showPinnedMessageDialogLoader.active = false
                     }

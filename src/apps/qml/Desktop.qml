@@ -56,7 +56,7 @@ Kirigami.ApplicationWindow {
     property QtObject emojiModel: rocketChatAccount.emoticonModel
     property QtObject threadsModel: rocketChatAccount.threadsFilterProxyModel
     property QtObject threadMessagesModel: rocketChatAccount.threadMessageModel
-    property QtObject pinnedMessagesModel: rocketChatAccount.pinnedMessagesFilterProxyModel
+    property QtObject listMessagesModel: rocketChatAccount.listMessagesFilterProxyModel
     property QtObject autotranslateLanguagesModel: rocketChatAccount.autoTranslateLanguagesModel
     property string userInputMessageText: "";
 

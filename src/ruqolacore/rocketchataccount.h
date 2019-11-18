@@ -120,10 +120,9 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(MentionsFilterProxyModel* mentionsFilterProxyModel READ mentionsFilterProxyModel CONSTANT)
     Q_PROPERTY(MessageModel* threadMessageModel READ threadMessageModel CONSTANT)
     Q_PROPERTY(EmoticonModel* emoticonModel READ emoticonModel CONSTANT)
-    Q_PROPERTY(ListMessagesModelFilterProxyModel* pinnedMessagesFilterProxyModel READ pinnedMessagesFilterProxyModel CONSTANT)
-    Q_PROPERTY(ListMessagesModelFilterProxyModel* starredMessagesFilterProxyModel READ starredMessagesFilterProxyModel CONSTANT)
     Q_PROPERTY(FilesForRoomFilterProxyModel* filesForRoomFilterProxyModel READ filesForRoomFilterProxyModel CONSTANT)
     Q_PROPERTY(SearchMessageFilterProxyModel* searchMessageFilterProxyModel READ searchMessageFilterProxyModel CONSTANT)
+    Q_PROPERTY(ListMessagesModelFilterProxyModel* listMessagesFilterProxyModel READ listMessagesFilterProxyModel CONSTANT)
     Q_PROPERTY(RoomFilterProxyModel* roomFilterProxyModel READ roomFilterProxyModel CONSTANT)
     Q_PROPERTY(UsersModel* usersModel READ usersModel CONSTANT)
     Q_PROPERTY(ReceiveTypingNotificationManager* receiveTypingNotificationManager READ receiveTypingNotificationManager CONSTANT)
@@ -238,12 +237,10 @@ public:
     Q_INVOKABLE void loadThreadMessagesHistory(const QString &roomId);
     Q_INVOKABLE void loadMoreMentions(const QString &roomId);
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
+
     Q_INVOKABLE void getPinnedMessages(const QString &roomId);
-    Q_INVOKABLE void loadMorePinnedMessages(const QString &roomId);
     Q_INVOKABLE void getStarredMessages(const QString &roomId);
-    Q_INVOKABLE void loadMoreStarredMessages(const QString &roomId);
     Q_INVOKABLE void getSnippetedMessages(const QString &roomId);
-    Q_INVOKABLE void loadMoreSnippetedMessages(const QString &roomId);
 
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
@@ -268,8 +265,6 @@ public:
     RoomFilterProxyModel *roomFilterProxyModel() const;
     MessageModel *threadMessageModel() const;
     EmoticonModel *emoticonModel() const;
-    ListMessagesModelFilterProxyModel *pinnedMessagesFilterProxyModel() const;
-    MessageModel *pinnedMessageModel() const;
     SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
     AutotranslateLanguagesModel *autoTranslateLanguagesModel() const;
     DiscussionsFilterProxyModel *discussionsFilterProxyModel() const;
@@ -368,7 +363,8 @@ public:
     Q_REQUIRED_RESULT bool allowEditingMessages() const;
     Q_REQUIRED_RESULT bool otrEnabled() const;
 
-    ListMessagesModelFilterProxyModel *starredMessagesFilterProxyModel() const;
+    ListMessagesModel *listMessageModel() const;
+    ListMessagesModelFilterProxyModel *listMessagesFilterProxyModel() const;
 
 Q_SIGNALS:
     void connectedChanged();
@@ -421,11 +417,8 @@ private:
     void slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId);
     void slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId);
     void slotGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
-    void slotGetPinnedMessagesDone(const QJsonObject &obj, const QString &roomId);
     void slotGetSupportedLanguagesDone(const QJsonObject &obj);
     void slotUsersPresenceDone(const QJsonObject &obj);
-    void slotGetSnippetedMessagesDone(const QJsonObject &obj, const QString &roomId);
-    void slotGetStarredMessagesDone(const QJsonObject &obj, const QString &roomId);
 
     void loadEmojiRestApi(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);
@@ -448,6 +441,7 @@ private:
     void clearTypingNotification();
     void inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
     void inputThreadMessageAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type);
+    void slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type);
 
     PluginAuthenticationInterface *mDefaultAuthenticationInterface = nullptr;
 
@@ -493,11 +487,10 @@ private:
     MentionsFilterProxyModel *mMentionsFilterProxyModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
     ThreadMessageModel *mThreadMessageModel = nullptr;
-    ListMessagesModel *mPinnedMessageModel = nullptr;
-    ListMessagesModelFilterProxyModel *mPinnedMessagesFilterProxyModel = nullptr;
 
-    ListMessagesModel *mStarredMessageModel = nullptr;
-    ListMessagesModelFilterProxyModel *mStarredMessagesFilterProxyModel = nullptr;
+    ListMessagesModel *mListMessageModel = nullptr;
+    ListMessagesModelFilterProxyModel *mListMessagesFilterProxyModel = nullptr;
+
 
     AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
     bool mEditingMode = false;

@@ -170,19 +170,13 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mThreadMessageModel = new ThreadMessageModel(QString(), this, nullptr, this);
     mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));
 
-    mPinnedMessageModel = new ListMessagesModel(QString(), this, nullptr, this);
-    mPinnedMessageModel->setObjectName(QStringLiteral("pinnedmessagemodel"));
+    mListMessageModel = new ListMessagesModel(QString(), this, nullptr, this);
+    mListMessageModel->setObjectName(QStringLiteral("listmessagemodel"));
 
-    mPinnedMessagesFilterProxyModel = new ListMessagesModelFilterProxyModel(this);
-    mPinnedMessagesFilterProxyModel->setObjectName(QStringLiteral("pinnedmessagesfiltermodelproxy"));
-    mPinnedMessagesFilterProxyModel->setSourceModel(mPinnedMessageModel);
+    mListMessagesFilterProxyModel = new ListMessagesModelFilterProxyModel(this);
+    mListMessagesFilterProxyModel->setObjectName(QStringLiteral("listmessagesfiltermodelproxy"));
+    mListMessagesFilterProxyModel->setSourceModel(mListMessageModel);
 
-    mStarredMessageModel = new ListMessagesModel(QString(), this, nullptr, this);
-    mStarredMessageModel->setObjectName(QStringLiteral("starredmessagemodel"));
-
-    mStarredMessagesFilterProxyModel = new ListMessagesModelFilterProxyModel(this);
-    mStarredMessagesFilterProxyModel->setObjectName(QStringLiteral("starredmessagesfiltermodelproxy"));
-    mStarredMessagesFilterProxyModel->setSourceModel(mStarredMessageModel);
 
     mAutoTranslateLanguagesModel = new AutotranslateLanguagesModel(this);
     mAutoTranslateLanguagesModel->setObjectName(QStringLiteral("autotranslatelanguagesmodel"));
@@ -468,9 +462,17 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, &RocketChatAccount::slotGetThreadsListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetAllUserMentionsDone, this, &RocketChatAccount::slotGetAllUserMentionsDone);
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getPinnedMessagesDone, this, &RocketChatAccount::slotGetPinnedMessagesDone);
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getSnippetedMessagesDone, this, &RocketChatAccount::slotGetSnippetedMessagesDone);
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getStarredMessagesDone, this, &RocketChatAccount::slotGetStarredMessagesDone);
+
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getPinnedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+            slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::PinnedMessages);
+        });
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getSnippetedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+            slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::SnipperedMessages);
+        });
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::getStarredMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+            slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::StarredMessages);
+        });
+
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
         mRestApi->setServerUrl(mSettings->serverUrl());
@@ -857,25 +859,26 @@ void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const
     mMentionsModel->setLoadMoreMentionsInProgress(false);
 }
 
-void RocketChatAccount::slotGetStarredMessagesDone(const QJsonObject &obj, const QString &roomId)
+void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type)
 {
-    //TODO
-}
-
-void RocketChatAccount::slotGetSnippetedMessagesDone(const QJsonObject &obj, const QString &roomId)
-{
-    //TODO
-}
-
-void RocketChatAccount::slotGetPinnedMessagesDone(const QJsonObject &obj, const QString &roomId)
-{
-    if (mPinnedMessageModel->roomId() != roomId) {
-        mPinnedMessageModel->setRoomID(roomId);
-        mPinnedMessageModel->parseListMessages(obj);
+    if (mListMessageModel->roomId() != roomId || mListMessageModel->listMessageType() != type) {
+        mListMessageModel->setRoomID(roomId);
+        mListMessageModel->setListMessageType(type);
+        mListMessageModel->parseListMessages(obj);
     } else {
-        mPinnedMessageModel->loadMoreListMessages(obj);
+        mListMessageModel->loadMoreListMessages(obj);
     }
-    mPinnedMessageModel->setLoadMoreListMessagesInProgress(false);
+    mListMessageModel->setLoadMoreListMessagesInProgress(false);
+}
+
+ListMessagesModelFilterProxyModel *RocketChatAccount::listMessagesFilterProxyModel() const
+{
+    return mListMessagesFilterProxyModel;
+}
+
+ListMessagesModel *RocketChatAccount::listMessageModel() const
+{
+    return mListMessageModel;
 }
 
 void RocketChatAccount::slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId)
@@ -918,7 +921,7 @@ void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, const QString
 void RocketChatAccount::getPinnedMessages(const QString &roomId)
 {
     if (hasPinnedMessagesSupport()) {
-        mPinnedMessageModel->clear();
+        mListMessageModel->clear();
         restApi()->getPinnedMessages(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getPinnedMessages is not supported before server 2.0.0";
@@ -938,16 +941,11 @@ bool RocketChatAccount::hasStarredMessagesSupport() const
 void RocketChatAccount::getStarredMessages(const QString &roomId)
 {
     if (hasStarredMessagesSupport()) {
-        //mPinnedMessageModel->clear();
+        mListMessageModel->clear();
         restApi()->getStarredMessages(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getStarredMessages is not supported before server 2.3.0";
     }
-}
-
-void RocketChatAccount::loadMoreStarredMessages(const QString &roomId)
-{
-    //TODO
 }
 
 bool RocketChatAccount::hasSnippetedMessagesSupport() const
@@ -958,16 +956,11 @@ bool RocketChatAccount::hasSnippetedMessagesSupport() const
 void RocketChatAccount::getSnippetedMessages(const QString &roomId)
 {
     if (hasSnippetedMessagesSupport()) {
-        //mPinnedMessageModel->clear();
+        mListMessageModel->clear();
         restApi()->getSnippetedMessages(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSnippetedMessages is not supported before server 2.3.0";
     }
-}
-
-void RocketChatAccount::loadMoreSnippetedMessages(const QString &roomId)
-{
-    //TODO
 }
 
 void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, const QString &channelType)
@@ -1016,10 +1009,14 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
         qCWarning(RUQOLA_LOG) << " Error when using getListMessages";
         break;
     case ListMessagesModel::StarredMessages:
-        getStarredMessages(roomId);
+        if (hasStarredMessagesSupport()) {
+            getStarredMessages(roomId);
+        }
         break;
     case ListMessagesModel::SnipperedMessages:
-        getSnippetedMessages(roomId);
+        if (hasSnippetedMessagesSupport()) {
+            getSnippetedMessages(roomId);
+        }
         break;
     case ListMessagesModel::PinnedMessages:
         getPinnedMessages(roomId);
@@ -1029,30 +1026,27 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
 
 void RocketChatAccount::loadMoreListMessages(const QString &roomId, ListMessagesModel::ListMessageType type)
 {
-    if (!mPinnedMessageModel->loadMoreListMessagesInProgress()) {
-        const int offset = mPinnedMessageModel->rowCount();
-        if (offset < mPinnedMessageModel->total()) {
+    if (!mListMessageModel->loadMoreListMessagesInProgress()) {
+        const int offset = mListMessageModel->rowCount();
+        if (offset < mListMessageModel->total()) {
             switch (type) {
             case ListMessagesModel::Unknown:
-                //bug !
+                qCWarning(RUQOLA_LOG) << " Error when using loadMoreListMessages";
                 break;
             case ListMessagesModel::StarredMessages:
+                if (hasStarredMessagesSupport()) {
+                    restApi()->getStarredMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
+                }
                 break;
             case ListMessagesModel::SnipperedMessages:
+                if (hasSnippetedMessagesSupport()) {
+                    restApi()->getSnippetedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
+                }
                 break;
             case ListMessagesModel::PinnedMessages:
+                restApi()->getPinnedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             }
-        }
-    }
-}
-
-void RocketChatAccount::loadMorePinnedMessages(const QString &roomId)
-{
-    if (!mPinnedMessageModel->loadMoreListMessagesInProgress()) {
-        const int offset = mPinnedMessageModel->rowCount();
-        if (offset < mPinnedMessageModel->total()) {
-            restApi()->getPinnedMessages(roomId, offset, qMin(50, mPinnedMessageModel->total() - offset));
         }
     }
 }
@@ -1802,24 +1796,9 @@ void RocketChatAccount::inputThreadMessageAutocomplete(const QString &pattern, c
     }
 }
 
-ListMessagesModelFilterProxyModel *RocketChatAccount::starredMessagesFilterProxyModel() const
-{
-    return mStarredMessagesFilterProxyModel;
-}
-
 AutotranslateLanguagesModel *RocketChatAccount::autoTranslateLanguagesModel() const
 {
     return mAutoTranslateLanguagesModel;
-}
-
-ListMessagesModelFilterProxyModel *RocketChatAccount::pinnedMessagesFilterProxyModel() const
-{
-    return mPinnedMessagesFilterProxyModel;
-}
-
-MessageModel *RocketChatAccount::pinnedMessageModel() const
-{
-    return mPinnedMessageModel;
 }
 
 void RocketChatAccount::inputTextCompleter(const QJsonObject &obj)
