@@ -1004,6 +1004,7 @@ void RocketChatAccount::loadMoreThreads(const QString &roomId)
 
 void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel::ListMessageType type)
 {
+    mListMessageModel->setListMessageType(type);
     switch (type) {
     case ListMessagesModel::Unknown:
         qCWarning(RUQOLA_LOG) << " Error when using getListMessages";

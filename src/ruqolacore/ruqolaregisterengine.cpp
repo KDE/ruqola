@@ -129,10 +129,12 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterUncreatableType<Channel>("KDE.Ruqola.Channel", 1, 0, "Channel", QStringLiteral("ChannelType is an enum container"));
     qmlRegisterUncreatableType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient", QStringLiteral("DDPClient.LoginStatus is an enum container"));
     qmlRegisterType<ServerConfigInfo>("KDE.Ruqola.ServerConfigInfo", 1, 0, "ServerConfigInfo");
+    qmlRegisterType<ListMessagesModel>("KDE.Ruqola.ListMessagesModel", 1, 0, "ListMessagesModel");
     qRegisterMetaType<Message::MessageType>();
     qRegisterMetaType<RocketChatAccount::RoomInfoType>();
     qRegisterMetaType<RocketChatAccount::NotificationOptionsType>();
     qRegisterMetaType<RocketChatAccount::RoleType>();
+    qRegisterMetaType<ListMessagesModel::ListMessageType>();
     qRegisterMetaType<User::PresenceStatus>();
     qRegisterMetaType<AuthenticationManager::OauthType>();
     mEngine = new QQmlApplicationEngine;

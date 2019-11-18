@@ -35,6 +35,7 @@ import org.kde.kirigami 2.7 as Kirigami
 import KDE.Ruqola.DebugCategory 1.0
 import KDE.Ruqola.ReceiveTypingNotificationManager 1.0
 import KDE.Ruqola.DebugCategory 1.0
+import KDE.Ruqola.ListMessagesModel 1.0
 
 Component {
     id: mainComponent
@@ -116,7 +117,7 @@ Component {
                     visible: appid.selectedRoom && appid.rocketChatAccount.hasPinnedMessagesSupport
                     text: i18n("Pinned Messages")
                     onTriggered: {
-                        appid.rocketChatAccount.getPinnedMessages(appid.selectedRoomID);
+                        appid.rocketChatAccount.getListMessages(appid.selectedRoomID, ListMessagesModel.PinnedMessages);
                         showPinnedMessageDialogLoader.active = true;
                     }
                 },
@@ -124,16 +125,16 @@ Component {
                     visible: appid.selectedRoom && appid.rocketChatAccount.hasStarredMessagesSupport
                     text: i18n("Starred Messages")
                     onTriggered: {
-                        appid.rocketChatAccount.getStarredMessages(appid.selectedRoomID);
-                        //TODO showPinnedMessageDialogLoader.active = true;
+                        appid.rocketChatAccount.getListMessages(appid.selectedRoomID, ListMessagesModel.StarredMessages);
+                        showPinnedMessageDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {
                     visible: appid.selectedRoom && appid.rocketChatAccount.hasSnippetedMessagesSupport
                     text: i18n("Snippeted Messages")
                     onTriggered: {
-                        appid.rocketChatAccount.getSnippetedMessages(appid.selectedRoomID);
-                        // TODO showPinnedMessageDialogLoader.active = true;
+                        appid.rocketChatAccount.getListMessages(appid.selectedRoomID, ListMessagesModel.SnipperedMessages);
+                        showPinnedMessageDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {
