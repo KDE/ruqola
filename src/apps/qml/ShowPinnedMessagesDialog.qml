@@ -28,6 +28,6 @@ ListMessagesDialogBase {
 
     title: i18n("Pinned Messages")
     onLoadMoreMessage: {
-        appid.rocketChatAccount.loadMorePinnedMessages(roomId)
+        appid.rocketChatAccount.loadMoreListMessages(roomId, ListMessagesModel.PinnedMessages)
     }
 }
