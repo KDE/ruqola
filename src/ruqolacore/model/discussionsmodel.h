@@ -27,6 +27,7 @@ class LIBRUQOLACORE_TESTS_EXPORT DiscussionsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
+    //TODO add totalChanged properties
 public:
     enum DiscussionRoles {
         ParentId = Qt::UserRole + 1,
@@ -68,6 +69,7 @@ public:
 
 Q_SIGNALS:
     void hasFullListChanged();
+    void totalChanged();
 
 private:
     Q_DISABLE_COPY(DiscussionsModel)
