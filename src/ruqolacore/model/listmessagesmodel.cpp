@@ -108,5 +108,8 @@ ListMessagesModel::ListMessageType ListMessagesModel::listMessageType() const
 
 void ListMessagesModel::setListMessageType(const ListMessageType &listMessageType)
 {
-    mListMessageType = listMessageType;
+    if (mListMessageType != listMessageType) {
+        mListMessageType = listMessageType;
+        Q_EMIT listMessageTypeChanged();
+    }
 }
