@@ -28,6 +28,7 @@ ListMessagesModelFilterProxyModel::ListMessagesModelFilterProxyModel(QObject *pa
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(ListMessagesModel::OriginalMessage);
     sort(0, Qt::DescendingOrder);
+    //TODO connect signal !
 }
 
 ListMessagesModelFilterProxyModel::~ListMessagesModelFilterProxyModel()
