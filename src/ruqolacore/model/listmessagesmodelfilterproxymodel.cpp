@@ -20,6 +20,7 @@
 
 #include "listmessagesmodelfilterproxymodel.h"
 #include "listmessagesmodel.h"
+#include <KLocalizedString>
 
 ListMessagesModelFilterProxyModel::ListMessagesModelFilterProxyModel(ListMessagesModel *model, QObject *parent)
     : QSortFilterProxyModel(parent)
@@ -55,6 +56,21 @@ QHash<int, QByteArray> ListMessagesModelFilterProxyModel::roleNames() const
 void ListMessagesModelFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);
+}
+
+QString ListMessagesModelFilterProxyModel::title() const
+{
+    switch(listMessageType()) {
+    case ListMessagesModel::Unknown:
+        return {};
+    case ListMessagesModel::StarredMessages:
+        return i18n("Starred Messages");
+    case ListMessagesModel::SnipperedMessages:
+        return i18n("Snippered Messages");
+    case ListMessagesModel::PinnedMessages:
+        return i18n("Pinned Messages");
+    }
+    return {};
 }
 
 ListMessagesModel::ListMessageType ListMessagesModelFilterProxyModel::listMessageType() const

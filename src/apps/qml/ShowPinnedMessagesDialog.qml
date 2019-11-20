@@ -27,7 +27,7 @@ import KDE.Ruqola.ListMessagesModel 1.0
 ListMessagesDialogBase {
     id: showPinnedMessagesDialog
 
-    title: i18n("Pinned Messages")
+    title: listMessagesModel.title
     onLoadMoreMessage: {
         appid.rocketChatAccount.loadMoreListMessages(roomId, ListMessagesModel.PinnedMessages)
     }
