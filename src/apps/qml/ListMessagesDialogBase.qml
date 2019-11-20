@@ -59,7 +59,7 @@ QQC2.Dialog {
         SearchLabel {
             hasFullList: listMessagesModel.hasFullList
             numberOfElements: listview.count
-            labelText: listview.count === 0 ? i18n("No Messages found") : i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", listview.count, listMessagesModel.total())
+            labelText: listview.count === 0 ? i18n("No Messages found") : i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", listview.count, listMessagesModel.total)
             onLoadMoreElements: {
                 listMessagesDialogBase.loadMoreMessage(roomId)
             }

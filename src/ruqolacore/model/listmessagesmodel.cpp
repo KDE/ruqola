@@ -70,7 +70,10 @@ int ListMessagesModel::total() const
 
 void ListMessagesModel::setTotal(int total)
 {
-    mTotal = total;
+    if (mTotal != total) {
+        mTotal = total;
+        Q_EMIT totalChanged();
+    }
 }
 
 bool ListMessagesModel::loadMoreListMessagesInProgress() const

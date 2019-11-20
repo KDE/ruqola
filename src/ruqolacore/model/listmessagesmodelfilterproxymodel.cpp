@@ -21,14 +21,18 @@
 #include "listmessagesmodelfilterproxymodel.h"
 #include "listmessagesmodel.h"
 
-ListMessagesModelFilterProxyModel::ListMessagesModelFilterProxyModel(QObject *parent)
+ListMessagesModelFilterProxyModel::ListMessagesModelFilterProxyModel(ListMessagesModel *model, QObject *parent)
     : QSortFilterProxyModel(parent)
+    , mModel(model)
 {
+    setSourceModel(mModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(ListMessagesModel::OriginalMessage);
     sort(0, Qt::DescendingOrder);
-    //TODO connect signal !
+    connect(mModel, &ListMessagesModel::hasFullListChanged, this, &ListMessagesModelFilterProxyModel::hasFullListChanged);
+    connect(mModel, &ListMessagesModel::listMessageTypeChanged, this, &ListMessagesModelFilterProxyModel::listMessageTypeChanged);
+    connect(mModel, &ListMessagesModel::totalChanged, this, &ListMessagesModelFilterProxyModel::totalChanged);
 }
 
 ListMessagesModelFilterProxyModel::~ListMessagesModelFilterProxyModel()
@@ -37,7 +41,7 @@ ListMessagesModelFilterProxyModel::~ListMessagesModelFilterProxyModel()
 
 int ListMessagesModelFilterProxyModel::total() const
 {
-    return static_cast<ListMessagesModel *>(sourceModel())->total();
+    return mModel->total();
 }
 
 QHash<int, QByteArray> ListMessagesModelFilterProxyModel::roleNames() const
@@ -53,7 +57,12 @@ void ListMessagesModelFilterProxyModel::setFilterString(const QString &string)
     setFilterFixedString(string);
 }
 
+ListMessagesModel::ListMessageType ListMessagesModelFilterProxyModel::listMessageType() const
+{
+    return mModel->listMessageType();
+}
+
 bool ListMessagesModelFilterProxyModel::hasFullList() const
 {
-    return static_cast<ListMessagesModel *>(sourceModel())->hasFullList();
+    return mModel->hasFullList();
 }

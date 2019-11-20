@@ -173,9 +173,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mListMessageModel = new ListMessagesModel(QString(), this, nullptr, this);
     mListMessageModel->setObjectName(QStringLiteral("listmessagemodel"));
 
-    mListMessagesFilterProxyModel = new ListMessagesModelFilterProxyModel(this);
+    mListMessagesFilterProxyModel = new ListMessagesModelFilterProxyModel(mListMessageModel, this);
     mListMessagesFilterProxyModel->setObjectName(QStringLiteral("listmessagesfiltermodelproxy"));
-    mListMessagesFilterProxyModel->setSourceModel(mListMessageModel);
 
 
     mAutoTranslateLanguagesModel = new AutotranslateLanguagesModel(this);

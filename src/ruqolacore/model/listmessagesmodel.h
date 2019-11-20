@@ -29,6 +29,7 @@ class LIBRUQOLACORE_TESTS_EXPORT ListMessagesModel : public MessageModel
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
     Q_PROPERTY(ListMessagesModel::ListMessageType listMessageType READ listMessageType WRITE setListMessageType NOTIFY listMessageTypeChanged)
+    Q_PROPERTY(int total READ total WRITE setTotal NOTIFY totalChanged)
 public:
 
     enum ListMessageType {
@@ -63,6 +64,7 @@ public:
 Q_SIGNALS:
     void hasFullListChanged();
     void listMessageTypeChanged();
+    void totalChanged();
 
 private:
     void parse(const QJsonObject &obj);

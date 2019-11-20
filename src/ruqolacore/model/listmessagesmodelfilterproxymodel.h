@@ -22,21 +22,32 @@
 #define PINNEDMESSAGEMODELFILTERPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
+#include "listmessagesmodel.h"
 #include "libruqola_private_export.h"
-
 class LIBRUQOLACORE_TESTS_EXPORT ListMessagesModelFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
+    Q_PROPERTY(ListMessagesModel::ListMessageType listMessageType READ listMessageType NOTIFY listMessageTypeChanged)
+    Q_PROPERTY(int total READ total NOTIFY totalChanged)
 public:
-    explicit ListMessagesModelFilterProxyModel(QObject *parent = nullptr);
+    //Fix me
+    explicit ListMessagesModelFilterProxyModel(ListMessagesModel *model = nullptr, QObject *parent = nullptr);
     ~ListMessagesModelFilterProxyModel() override;
-    Q_INVOKABLE Q_REQUIRED_RESULT bool hasFullList() const;
-    Q_INVOKABLE Q_REQUIRED_RESULT int total() const;
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
     Q_INVOKABLE void setFilterString(const QString &string);
+
+
 Q_SIGNALS:
     void hasFullListChanged();
+    void listMessageTypeChanged();
+    void totalChanged();
+
+private:
+    Q_REQUIRED_RESULT bool hasFullList() const;
+    Q_REQUIRED_RESULT int total() const;
+    Q_REQUIRED_RESULT ListMessagesModel::ListMessageType listMessageType() const;
+    ListMessagesModel *mModel = nullptr;
 };
 
 #endif // PINNEDMESSAGEMODELFILTERPROXYMODEL_H
