@@ -23,6 +23,7 @@ import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.2
 import QtQuick 2.9
 import org.kde.kirigami 2.7 as Kirigami
+import KDE.Ruqola.ListMessagesModel 1.0
 ListMessagesDialogBase {
     id: showPinnedMessagesDialog
 
