@@ -31,6 +31,7 @@ class LIBRUQOLACORE_TESTS_EXPORT ListMessagesModelFilterProxyModel : public QSor
     Q_PROPERTY(ListMessagesModel::ListMessageType listMessageType READ listMessageType NOTIFY listMessageTypeChanged)
     Q_PROPERTY(int total READ total NOTIFY totalChanged)
     Q_PROPERTY(QString title READ title CONSTANT)
+    Q_PROPERTY(ListMessagesModel *listMessageModel READ listMessageModel CONSTANT)
 public:
     //Fix me
     explicit ListMessagesModelFilterProxyModel(ListMessagesModel *model = nullptr, QObject *parent = nullptr);
@@ -38,6 +39,8 @@ public:
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
     Q_INVOKABLE void setFilterString(const QString &string);
 
+
+    ListMessagesModel *listMessageModel() const;
 
 Q_SIGNALS:
     void hasFullListChanged();

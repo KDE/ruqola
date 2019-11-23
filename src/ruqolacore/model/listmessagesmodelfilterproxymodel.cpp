@@ -78,6 +78,11 @@ ListMessagesModel::ListMessageType ListMessagesModelFilterProxyModel::listMessag
     return mModel->listMessageType();
 }
 
+ListMessagesModel *ListMessagesModelFilterProxyModel::listMessageModel() const
+{
+    return mModel;
+}
+
 bool ListMessagesModelFilterProxyModel::hasFullList() const
 {
     return mModel->hasFullList();
