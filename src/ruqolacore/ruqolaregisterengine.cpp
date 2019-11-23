@@ -40,7 +40,6 @@
 #include "model/statusmodel.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usercompleterfilterproxymodel.h"
-#include "model/filesforroommodel.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/searchchannelfilterproxymodel.h"
 #include "model/inputcompletermodel.h"
@@ -55,10 +54,8 @@
 #include "model/mentionsfilterproxymodel.h"
 #include "model/notificationdesktopdurationpreferencemodel.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
-#include "model/threadsmodel.h"
 #include "model/threadsfilterproxymodel.h"
 #include "model/listmessagesmodel.h"
-#include "model/discussionsmodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/emoticoncategoriesmodel.h"
 #include "notificationpreferences.h"
@@ -116,9 +113,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<ClipboardProxy>("KDE.Ruqola.Clipboard", 1, 0, "Clipboard");
     qmlRegisterType<NotificationOptionsWrapper>("KDE.Ruqola.NotificationOptionsWrapper", 1, 0, "NotificationOptionsWrapper");
     qmlRegisterType<EmoticonModel>("KDE.Ruqola.EmoticonModel", 1, 0, "EmoticonModel");
-    qmlRegisterType<ThreadsModel>("KDE.Ruqola.ThreadsModel", 1, 0, "ThreadsModel");
     qmlRegisterType<ThreadsFilterProxyModel>("KDE.Ruqola.ThreadsFilterProxyModel", 1, 0, "ThreadsFilterProxyModel");
-    qmlRegisterType<DiscussionsModel>("KDE.Ruqola.DiscussionsModel", 1, 0, "DiscussionsModel");
     qmlRegisterType<DiscussionsFilterProxyModel>("KDE.Ruqola.DiscussionsFilterProxyModel", 1, 0, "DiscussionsFilterProxyModel");
     qmlRegisterType<EmoticonCategoriesModel>("KDE.Ruqola.EmoticonCategoriesModel", 1, 0, "EmoticonCategoriesModel");
     qmlRegisterType<ListMessagesModelFilterProxyModel>("KDE.Ruqola.PinnedMessageModelFilterProxyModel", 1, 0, "PinnedMessageModelFilterProxyModel");
