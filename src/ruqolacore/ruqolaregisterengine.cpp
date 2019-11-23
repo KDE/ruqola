@@ -116,7 +116,7 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<ThreadsFilterProxyModel>("KDE.Ruqola.ThreadsFilterProxyModel", 1, 0, "ThreadsFilterProxyModel");
     qmlRegisterType<DiscussionsFilterProxyModel>("KDE.Ruqola.DiscussionsFilterProxyModel", 1, 0, "DiscussionsFilterProxyModel");
     qmlRegisterType<EmoticonCategoriesModel>("KDE.Ruqola.EmoticonCategoriesModel", 1, 0, "EmoticonCategoriesModel");
-    qmlRegisterType<ListMessagesModelFilterProxyModel>("KDE.Ruqola.PinnedMessageModelFilterProxyModel", 1, 0, "PinnedMessageModelFilterProxyModel");
+    qmlRegisterType<ListMessagesModelFilterProxyModel>("KDE.Ruqola.ListMessagesModelFilterProxyModel", 1, 0, "ListMessagesModelFilterProxyModel");
     qmlRegisterType<AutotranslateLanguagesModel>("KDE.Ruqola.AutotranslateLanguagesModel", 1, 0, "AutotranslateLanguagesModel");
 
     qmlRegisterType<ReceiveTypingNotificationManager>("KDE.Ruqola.ReceiveTypingNotificationManager", 1, 0, "ReceiveTypingNotificationManager");

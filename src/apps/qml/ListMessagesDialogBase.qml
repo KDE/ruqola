@@ -32,6 +32,12 @@ QQC2.Dialog {
     height: parent.height * 9 / 10
     anchors.centerIn: parent
 
+    title: listMessagesModel.title
+
+    onLoadMoreMessage: {
+        appid.rocketChatAccount.loadMoreListMessages(roomId)
+    }
+
     modal: true
     focus: true
     standardButtons: QQC2.Dialog.Close

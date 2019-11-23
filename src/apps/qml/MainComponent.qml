@@ -827,7 +827,7 @@ Component {
             Loader {
                 id: showListMessageDialogLoader
                 active: false
-                sourceComponent: ShowPinnedMessagesDialog {
+                sourceComponent: ListMessagesDialogBase {
                     id: showListMessageDialog
                     parent: appid.pageStack
                     listMessagesModel: appid.listMessagesModel

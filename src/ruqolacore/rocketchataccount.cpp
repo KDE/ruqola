@@ -1024,34 +1024,30 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
     }
 }
 
-void RocketChatAccount::loadMoreListMessages(const QString &roomId, ListMessagesModel::ListMessageType type)
+void RocketChatAccount::loadMoreListMessages(const QString &roomId)
 {
-    if (mListMessageModel->listMessageType() == type) {
-        if (!mListMessageModel->loadMoreListMessagesInProgress()) {
-            const int offset = mListMessageModel->rowCount();
-            if (offset < mListMessageModel->total()) {
-                switch (type) {
-                case ListMessagesModel::Unknown:
-                    qCWarning(RUQOLA_LOG) << " Error when using loadMoreListMessages";
-                    break;
-                case ListMessagesModel::StarredMessages:
-                    if (hasStarredMessagesSupport()) {
-                        restApi()->getStarredMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
-                    }
-                    break;
-                case ListMessagesModel::SnipperedMessages:
-                    if (hasSnippetedMessagesSupport()) {
-                        restApi()->getSnippetedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
-                    }
-                    break;
-                case ListMessagesModel::PinnedMessages:
-                    restApi()->getPinnedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
-                    break;
+    if (!mListMessageModel->loadMoreListMessagesInProgress()) {
+        const int offset = mListMessageModel->rowCount();
+        if (offset < mListMessageModel->total()) {
+            switch (mListMessageModel->listMessageType()) {
+            case ListMessagesModel::Unknown:
+                qCWarning(RUQOLA_LOG) << " Error when using loadMoreListMessages";
+                break;
+            case ListMessagesModel::StarredMessages:
+                if (hasStarredMessagesSupport()) {
+                    restApi()->getStarredMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 }
+                break;
+            case ListMessagesModel::SnipperedMessages:
+                if (hasSnippetedMessagesSupport()) {
+                    restApi()->getSnippetedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
+                }
+                break;
+            case ListMessagesModel::PinnedMessages:
+                restApi()->getPinnedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
+                break;
             }
         }
-    } else {
-        qCWarning(RUQOLA_LOG) << "List message type " << mListMessageModel->listMessageType() << " try to update type " << type;
     }
 }
 
