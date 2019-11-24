@@ -136,9 +136,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mFilesModelForRoom = new FilesForRoomModel(this, this);
     mFilesModelForRoom->setObjectName(QStringLiteral("filesmodelforrooms"));
-    mFilesForRoomFilterProxyModel = new FilesForRoomFilterProxyModel(this);
+    mFilesForRoomFilterProxyModel = new FilesForRoomFilterProxyModel(mFilesModelForRoom, this);
     mFilesForRoomFilterProxyModel->setObjectName(QStringLiteral("filesforroomfiltermodelproxy"));
-    mFilesForRoomFilterProxyModel->setSourceModel(mFilesModelForRoom);
 
     connect(mFilesModelForRoom, &FilesForRoomModel::hasFullListChanged, mFilesForRoomFilterProxyModel, &FilesForRoomFilterProxyModel::hasFullListChanged);
 

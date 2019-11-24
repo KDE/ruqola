@@ -35,9 +35,8 @@ void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValue()
 
 void FilesForRoomFilterProxyModelTest::shouldHaveDefaultValues()
 {
-    FilesForRoomFilterProxyModel proxy;
     FilesForRoomModel model;
-    proxy.setSourceModel(&model);
+    FilesForRoomFilterProxyModel proxy(&model);
     QCOMPARE(proxy.rowCount(), 0);
     QCOMPARE(proxy.filterCaseSensitivity(), Qt::CaseInsensitive);
     QCOMPARE(proxy.filterRole(), FilesForRoomModel::FileName);

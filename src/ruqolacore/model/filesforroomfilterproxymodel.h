@@ -23,13 +23,13 @@
 
 #include <QSortFilterProxyModel>
 #include "libruqola_private_export.h"
-
+class FilesForRoomModel;
 class LIBRUQOLACORE_TESTS_EXPORT FilesForRoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
-    explicit FilesForRoomFilterProxyModel(QObject *parent = nullptr);
+    explicit FilesForRoomFilterProxyModel(FilesForRoomModel *fileModel = nullptr, QObject *parent = nullptr);
     ~FilesForRoomFilterProxyModel() override;
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
@@ -40,6 +40,8 @@ public:
     Q_REQUIRED_RESULT bool hasFullList() const;
 Q_SIGNALS:
     void hasFullListChanged();
+private:
+    FilesForRoomModel *mFileForRoomModel = nullptr;
 };
 
 #endif // FILESFORROOMFILTERPROXYMODEL_H

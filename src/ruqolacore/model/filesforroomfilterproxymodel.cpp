@@ -21,9 +21,11 @@
 #include "filesforroomfilterproxymodel.h"
 #include "filesforroommodel.h"
 
-FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel(parent)
+FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(FilesForRoomModel *fileModel, QObject *parent)
+    : QSortFilterProxyModel(parent),
+      mFileForRoomModel(fileModel)
 {
+    setSourceModel(mFileForRoomModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     //Filter on filename for the moment
@@ -52,10 +54,10 @@ void FilesForRoomFilterProxyModel::setFilterString(const QString &string)
 
 int FilesForRoomFilterProxyModel::total() const
 {
-    return static_cast<FilesForRoomModel *>(sourceModel())->total();
+    return mFileForRoomModel->total();
 }
 
 bool FilesForRoomFilterProxyModel::hasFullList() const
 {
-    return static_cast<FilesForRoomModel *>(sourceModel())->hasFullList();
+    return mFileForRoomModel->hasFullList();
 }
