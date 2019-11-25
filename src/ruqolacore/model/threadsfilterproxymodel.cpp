@@ -20,14 +20,17 @@
 #include "threadsfilterproxymodel.h"
 #include "threadsmodel.h"
 
-ThreadsFilterProxyModel::ThreadsFilterProxyModel(QObject *parent)
+ThreadsFilterProxyModel::ThreadsFilterProxyModel(ThreadsModel *threadModel, QObject *parent)
     : QSortFilterProxyModel(parent)
+    , mThreadsModel(threadModel)
 {
+    setSourceModel(mThreadsModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(ThreadsModel::Description);
     setSortRole(ThreadsModel::TimeStamp);
     sort(0, Qt::DescendingOrder);
+    connect(mThreadsModel, &ThreadsModel::hasFullListChanged, this, &ThreadsFilterProxyModel::hasFullListChanged);
 }
 
 ThreadsFilterProxyModel::~ThreadsFilterProxyModel()
@@ -54,10 +57,10 @@ void ThreadsFilterProxyModel::clearFilter()
 
 int ThreadsFilterProxyModel::total() const
 {
-    return static_cast<ThreadsModel *>(sourceModel())->total();
+    return mThreadsModel->total();
 }
 
 bool ThreadsFilterProxyModel::hasFullList() const
 {
-    return static_cast<ThreadsModel *>(sourceModel())->hasFullList();
+    return mThreadsModel->hasFullList();
 }

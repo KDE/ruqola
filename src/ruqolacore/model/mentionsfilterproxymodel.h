@@ -22,13 +22,13 @@
 
 #include <QSortFilterProxyModel>
 #include "libruqola_private_export.h"
-
+class MentionsModel;
 class LIBRUQOLACORE_TESTS_EXPORT MentionsFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
-    explicit MentionsFilterProxyModel(QObject *parent = nullptr);
+    explicit MentionsFilterProxyModel(MentionsModel *model = nullptr, QObject *parent = nullptr);
     ~MentionsFilterProxyModel() override;
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
@@ -38,6 +38,8 @@ public:
     Q_REQUIRED_RESULT bool hasFullList() const;
 Q_SIGNALS:
     void hasFullListChanged();
+private:
+    MentionsModel *mMentionsModel = nullptr;
 };
 
 #endif // MENTIONSFILTERPROXYMODEL_H

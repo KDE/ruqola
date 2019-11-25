@@ -130,41 +130,30 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mSearchChannelFilterProxyModel->setSourceModel(mSearchChannelModel);
 
     mSearchMessageModel = new SearchMessageModel(this, this);
-    mSearchMessageFilterProxyModel = new SearchMessageFilterProxyModel(this);
-    mSearchMessageFilterProxyModel->setSourceModel(mSearchMessageModel);
-    connect(mSearchMessageModel, &SearchMessageModel::stringNotFoundChanged, mSearchMessageFilterProxyModel, &SearchMessageFilterProxyModel::stringNotFoundChanged);
+    mSearchMessageFilterProxyModel = new SearchMessageFilterProxyModel(mSearchMessageModel, this);
 
     mFilesModelForRoom = new FilesForRoomModel(this, this);
     mFilesModelForRoom->setObjectName(QStringLiteral("filesmodelforrooms"));
     mFilesForRoomFilterProxyModel = new FilesForRoomFilterProxyModel(mFilesModelForRoom, this);
     mFilesForRoomFilterProxyModel->setObjectName(QStringLiteral("filesforroomfiltermodelproxy"));
 
-    connect(mFilesModelForRoom, &FilesForRoomModel::hasFullListChanged, mFilesForRoomFilterProxyModel, &FilesForRoomFilterProxyModel::hasFullListChanged);
-
     mDiscussionsModel = new DiscussionsModel(this);
     mDiscussionsModel->setObjectName(QStringLiteral("discussionsmodel"));
-    mDiscussionsFilterProxyModel = new DiscussionsFilterProxyModel(this);
+    mDiscussionsFilterProxyModel = new DiscussionsFilterProxyModel(mDiscussionsModel, this);
     mDiscussionsFilterProxyModel->setObjectName(QStringLiteral("discussionsfilterproxymodel"));
-    mDiscussionsFilterProxyModel->setSourceModel(mDiscussionsModel);
 
-    connect(mDiscussionsModel, &DiscussionsModel::hasFullListChanged, mDiscussionsFilterProxyModel, &DiscussionsFilterProxyModel::hasFullListChanged);
 
     mThreadsModel = new ThreadsModel(this);
     mThreadsModel->setObjectName(QStringLiteral("threadsmodel"));
 
-    mThreadsFilterProxyModel = new ThreadsFilterProxyModel(this);
+    mThreadsFilterProxyModel = new ThreadsFilterProxyModel(mThreadsModel, this);
     mThreadsFilterProxyModel->setObjectName(QStringLiteral("threadsfiltermodelproxy"));
-    mThreadsFilterProxyModel->setSourceModel(mThreadsModel);
-    connect(mThreadsModel, &ThreadsModel::hasFullListChanged, mThreadsFilterProxyModel, &ThreadsFilterProxyModel::hasFullListChanged);
 
     mMentionsModel = new MentionsModel(this, this);
     mMentionsModel->setObjectName(QStringLiteral("mentionsmodel"));
 
-    mMentionsFilterProxyModel = new MentionsFilterProxyModel(this);
+    mMentionsFilterProxyModel = new MentionsFilterProxyModel(mMentionsModel, this);
     mMentionsFilterProxyModel->setObjectName(QStringLiteral("mentionsfiltermodelproxy"));
-    mMentionsFilterProxyModel->setSourceModel(mMentionsModel);
-
-    connect(mMentionsModel, &MentionsModel::hasFullListChanged, mMentionsFilterProxyModel, &MentionsFilterProxyModel::hasFullListChanged);
 
     mThreadMessageModel = new ThreadMessageModel(QString(), this, nullptr, this);
     mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));

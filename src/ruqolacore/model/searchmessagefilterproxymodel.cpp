@@ -21,13 +21,16 @@
 #include "searchmessagefilterproxymodel.h"
 #include "searchmessagemodel.h"
 
-SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(QObject *parent)
+SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(SearchMessageModel *model, QObject *parent)
     : QSortFilterProxyModel(parent)
+    , mSearchMessageModel(model)
 {
+    setSourceModel(mSearchMessageModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(SearchMessageModel::SortByTimeStamp);
     sort(0, Qt::DescendingOrder);
+    connect(mSearchMessageModel, &SearchMessageModel::stringNotFoundChanged, this, &SearchMessageFilterProxyModel::stringNotFoundChanged);
 }
 
 SearchMessageFilterProxyModel::~SearchMessageFilterProxyModel()
@@ -44,5 +47,5 @@ QHash<int, QByteArray> SearchMessageFilterProxyModel::roleNames() const
 
 bool SearchMessageFilterProxyModel::stringNotFound() const
 {
-    return static_cast<SearchMessageModel *>(sourceModel())->stringNotFound();
+    return mSearchMessageModel->stringNotFound();
 }

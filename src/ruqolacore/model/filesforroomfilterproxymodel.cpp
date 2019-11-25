@@ -23,9 +23,9 @@
 
 FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(FilesForRoomModel *fileModel, QObject *parent)
     : QSortFilterProxyModel(parent),
-      mFileForRoomModel(fileModel)
+      mFilesForRoomModel(fileModel)
 {
-    setSourceModel(mFileForRoomModel);
+    setSourceModel(mFilesForRoomModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     //Filter on filename for the moment
@@ -33,6 +33,7 @@ FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(FilesForRoomModel *fi
 
     setSortRole(FilesForRoomModel::SortByTimeStamp);
     sort(0, Qt::DescendingOrder);
+    connect(mFilesForRoomModel, &FilesForRoomModel::hasFullListChanged, this, &FilesForRoomFilterProxyModel::hasFullListChanged);
 }
 
 FilesForRoomFilterProxyModel::~FilesForRoomFilterProxyModel()
@@ -54,10 +55,10 @@ void FilesForRoomFilterProxyModel::setFilterString(const QString &string)
 
 int FilesForRoomFilterProxyModel::total() const
 {
-    return mFileForRoomModel->total();
+    return mFilesForRoomModel->total();
 }
 
 bool FilesForRoomFilterProxyModel::hasFullList() const
 {
-    return mFileForRoomModel->hasFullList();
+    return mFilesForRoomModel->hasFullList();
 }

@@ -23,19 +23,21 @@
 
 #include <QSortFilterProxyModel>
 #include "libruqola_private_export.h"
-
+class SearchMessageModel;
 class LIBRUQOLACORE_TESTS_EXPORT SearchMessageFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(bool stringNotFound READ stringNotFound NOTIFY stringNotFoundChanged)
 public:
-    explicit SearchMessageFilterProxyModel(QObject *parent = nullptr);
+    explicit SearchMessageFilterProxyModel(SearchMessageModel *model = nullptr, QObject *parent = nullptr);
     ~SearchMessageFilterProxyModel() override;
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
     Q_REQUIRED_RESULT bool stringNotFound() const;
 Q_SIGNALS:
     void stringNotFoundChanged();
+private:
+    SearchMessageModel *mSearchMessageModel = nullptr;
 };
 
 #endif // SEARCHMESSAGEFILTERPROXYMODEL_H

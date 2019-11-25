@@ -41,7 +41,7 @@ public:
 Q_SIGNALS:
     void hasFullListChanged();
 private:
-    FilesForRoomModel *mFileForRoomModel = nullptr;
+    FilesForRoomModel *mFilesForRoomModel = nullptr;
 };
 
 #endif // FILESFORROOMFILTERPROXYMODEL_H

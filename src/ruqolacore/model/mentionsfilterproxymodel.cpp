@@ -19,14 +19,17 @@
 
 #include "mentionsfilterproxymodel.h"
 #include "mentionsmodel.h"
-MentionsFilterProxyModel::MentionsFilterProxyModel(QObject *parent)
+MentionsFilterProxyModel::MentionsFilterProxyModel(MentionsModel *model, QObject *parent)
     : QSortFilterProxyModel(parent)
+    , mMentionsModel(model)
 {
+    setSourceModel(mMentionsModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(MentionsModel::OriginalMessage);
     setSortRole(MentionsModel::SortByTimeStamp);
     sort(0, Qt::AscendingOrder);
+    connect(mMentionsModel, &MentionsModel::hasFullListChanged, this, &MentionsFilterProxyModel::hasFullListChanged);
 }
 
 MentionsFilterProxyModel::~MentionsFilterProxyModel()
@@ -48,10 +51,10 @@ void MentionsFilterProxyModel::setFilterString(const QString &string)
 
 int MentionsFilterProxyModel::total() const
 {
-    return static_cast<MentionsModel *>(sourceModel())->total();
+    return mMentionsModel->total();
 }
 
 bool MentionsFilterProxyModel::hasFullList() const
 {
-    return static_cast<MentionsModel *>(sourceModel())->hasFullList();
+    return mMentionsModel->hasFullList();
 }

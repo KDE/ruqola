@@ -19,14 +19,17 @@
 
 #include "discussionsfilterproxymodel.h"
 #include "discussionsmodel.h"
-DiscussionsFilterProxyModel::DiscussionsFilterProxyModel(QObject *parent)
-    : QSortFilterProxyModel(parent)
+DiscussionsFilterProxyModel::DiscussionsFilterProxyModel(DiscussionsModel *model, QObject *parent)
+    : QSortFilterProxyModel(parent),
+      mDiscussionsModel(model)
 {
+    setSourceModel(mDiscussionsModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(DiscussionsModel::Description);
     setSortRole(DiscussionsModel::SortByTimeStamp);
     sort(0, Qt::DescendingOrder);
+    connect(mDiscussionsModel, &DiscussionsModel::hasFullListChanged, this, &DiscussionsFilterProxyModel::hasFullListChanged);
 }
 
 DiscussionsFilterProxyModel::~DiscussionsFilterProxyModel()
@@ -53,10 +56,10 @@ void DiscussionsFilterProxyModel::clearFilter()
 
 int DiscussionsFilterProxyModel::total() const
 {
-    return static_cast<DiscussionsModel *>(sourceModel())->total();
+    return mDiscussionsModel->total();
 }
 
 bool DiscussionsFilterProxyModel::hasFullList() const
 {
-    return static_cast<DiscussionsModel *>(sourceModel())->hasFullList();
+    return mDiscussionsModel->hasFullList();
 }

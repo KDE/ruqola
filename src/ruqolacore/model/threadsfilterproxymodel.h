@@ -22,13 +22,13 @@
 
 #include <QSortFilterProxyModel>
 #include "libruqola_private_export.h"
-
+class ThreadsModel;
 class LIBRUQOLACORE_TESTS_EXPORT ThreadsFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
 public:
-    explicit ThreadsFilterProxyModel(QObject *parent = nullptr);
+    explicit ThreadsFilterProxyModel(ThreadsModel *threadModel = nullptr, QObject *parent = nullptr);
     ~ThreadsFilterProxyModel() override;
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
@@ -39,6 +39,8 @@ public:
 
 Q_SIGNALS:
     void hasFullListChanged();
+private:
+    ThreadsModel *mThreadsModel = nullptr;
 };
 
 #endif // THREADSFILTERPROXYMODEL_H
