@@ -93,7 +93,7 @@ void NotificationPreferenceModel::fillModel()
 int NotificationPreferenceModel::setCurrentNotificationPreference(const QString &preference)
 {
     int newStatusIndex = 0;
-    for (int i = 0; i < mNotificationPreferenceList.count(); ++i) {
+    for (int i = 0, total = mNotificationPreferenceList.count(); i < total; ++i) {
         if (mNotificationPreferenceList.at(i).preference == preference) {
             newStatusIndex = i;
             break;

@@ -56,7 +56,6 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.loginMethodModel());
     QVERIFY(w.inputCompleterModel());
     QVERIFY(w.inputThreadMessageCompleterModel());
-    QVERIFY(!w.ruqolaLogger());
     QVERIFY(w.searchChannelFilterProxyModel());
     QVERIFY(w.searchMessageModel());
     QCOMPARE(w.searchMessageFilterProxyModel()->sourceModel(), w.searchMessageModel());
@@ -65,7 +64,6 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.filesModelForRoom());
     QVERIFY(w.filesForRoomFilterProxyModel());
     QCOMPARE(w.filesForRoomFilterProxyModel()->sourceModel(), w.filesModelForRoom());
-    QVERIFY(w.discussionsFilterProxyModel());
     QVERIFY(w.discussionsFilterProxyModel());
     QCOMPARE(w.discussionsFilterProxyModel()->sourceModel(), w.discussionsModel());
     QVERIFY(w.threadsModel());
