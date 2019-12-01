@@ -24,10 +24,8 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.12
+import Ruqola 1.0
 
-import KDE.Ruqola.RocketChatAccount 1.0
-import KDE.Ruqola.InputCompleterModel 1.0
-import KDE.Ruqola.DDPClient 1.0
 import org.kde.kirigami 2.7 as Kirigami
 
 ColumnLayout {

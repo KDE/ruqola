@@ -26,8 +26,8 @@ import org.kde.kirigami 2.7 as Kirigami
 import QtQuick.Layouts 1.12
 import "../js/message.js" as MessageScript;
 import QtQuick.Window 2.2
-import KDE.Ruqola.RocketChatAccount 1.0
-import KDE.Ruqola.DebugCategory 1.0
+
+
 
 Rectangle {
     id: avatarRect

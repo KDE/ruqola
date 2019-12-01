@@ -67,6 +67,8 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
+#define URI "Ruqola"
+
 RuqolaRegisterEngine::RuqolaRegisterEngine()
 {
 }
@@ -79,52 +81,52 @@ RuqolaRegisterEngine::~RuqolaRegisterEngine()
 bool RuqolaRegisterEngine::initialize()
 {
     //Singleton
-    qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), "KDE.Ruqola.ExtraColors", 1, 0, "RuqolaSingleton");
-    qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/DebugCategory.qml")), "KDE.Ruqola.DebugCategory", 1, 0, "RuqolaDebugCategorySingleton");
-    qmlRegisterSingletonType<Ruqola>("KDE.Ruqola.Ruqola", 1, 0, "Ruqola", ruqola_singletontype_provider);
-    qmlRegisterSingletonType<RuqolaUtils>("KDE.Ruqola.RuqolaUtils", 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
-    qmlRegisterSingletonType<NotificationPreferences>("KDE.Ruqola.NotificationPreferences", 1, 0, "NotificationPreferences", notificationpreferences_singletontype_provider);
+    qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/ExtraColors.qml")), URI, 1, 0, "RuqolaSingleton");
+    qmlRegisterSingletonType(QUrl(QStringLiteral("qrc:/DebugCategory.qml")), URI, 1, 0, "RuqolaDebugCategorySingleton");
+    qmlRegisterSingletonType<Ruqola>(URI, 1, 0, "Ruqola", ruqola_singletontype_provider);
+    qmlRegisterSingletonType<RuqolaUtils>(URI, 1, 0, "RuqolaUtils", ruqolautils_singletontype_provider);
+    qmlRegisterSingletonType<NotificationPreferences>(URI, 1, 0, "NotificationPreferences", notificationpreferences_singletontype_provider);
 
-    qmlRegisterType<MessageModel>("KDE.Ruqola.MessageModel", 1, 0, "MessageModel");
-    qmlRegisterType<RoomWrapper>("KDE.Ruqola.RoomWrapper", 1, 0, "RoomWrapper");
-    qmlRegisterType<UserWrapper>("KDE.Ruqola.UserWrapper", 1, 0, "UserWrapper");
-    qmlRegisterType<Room>("KDE.Ruqola.Room", 1, 0, "Room");
-    qmlRegisterType<RocketChatAccount>("KDE.Ruqola.RocketChatAccount", 1, 0, "RocketChatAccount");
-    qmlRegisterType<UsersModel>("KDE.Ruqola.UsersModel", 1, 0, "UsersModel");
-    qmlRegisterType<RoomFilterProxyModel>("KDE.Ruqola.RoomFilterProxyModel", 1, 0, "RoomFilterProxyModel");
-    qmlRegisterType<UsersForRoomFilterProxyModel>("KDE.Ruqola.UsersForRoomFilterProxyModel", 1, 0, "UsersForRoomFilterProxyModel");
-    qmlRegisterType<UserCompleterFilterProxyModel>("KDE.Ruqola.UserCompleterFilterModelProxy", 1, 0, "UserCompleterFilterModelProxy");
-    qmlRegisterType<FilesForRoomFilterProxyModel>("KDE.Ruqola.FilesForRoomFilterProxyModel", 1, 0, "FilesForRoomFilterProxyModel");
-    qmlRegisterType<MentionsFilterProxyModel>("KDE.Ruqola.MentionsFilterProxyModel", 1, 0, "MentionsFilterProxyModel");
-    qmlRegisterType<QmlAboutData>("KDE.Ruqola.RuqolaAboutData", 1, 0, "RuqolaAboutData");
-    qmlRegisterType<QmlAboutDataAuthorModel>("KDE.Ruqola.RuqolaAboutDataAuthorModel", 1, 0, "RuqolaAboutDataAuthorModel");
-    qmlRegisterType<UserCompleterModel>("KDE.Ruqola.UserCompleterModel", 1, 0, "UserCompleterModel");
-    qmlRegisterType<StatusModel>("KDE.Ruqola.StatusModel", 1, 0, "StatusModel");
-    qmlRegisterType<NotificationPreferenceModel>("KDE.Ruqola.NotificationPreferenceModel", 1, 0, "NotificationPreferenceModel");
-    qmlRegisterType<NotificationDesktopDurationPreferenceModel>("KDE.Ruqola.NotificationDesktopDurationPreferenceModel", 1, 0, "NotificationDesktopDurationPreferenceModel");
-    qmlRegisterType<NotificationDesktopSoundPreferenceModel>("KDE.Ruqola.NotificationDesktopSoundPreferenceModel", 1, 0, "NotificationDesktopSoundPreferenceModel");
-    qmlRegisterType<SearchChannelFilterProxyModel>("KDE.Ruqola.SearchChannelFilterProxyModel", 1, 0, "SearchChannelFilterProxyModel");
-    qmlRegisterType<InputCompleterModel>("KDE.Ruqola.InputCompleterModel", 1, 0, "InputCompleterModel");
-    qmlRegisterType<LoginMethodModel>("KDE.Ruqola.LoginMethodModel", 1, 0, "LoginMethodModel");
-    qmlRegisterType<SearchMessageFilterProxyModel>("KDE.Ruqola.SearchMessageFilterProxyModel", 1, 0, "SearchMessageFilterProxyModel");
-    qmlRegisterType<AccountManager>("KDE.Ruqola.AccountManager", 1, 0, "AccountManager");
-    qmlRegisterType<RocketChatAccountFilterProxyModel>("KDE.Ruqola.RocketChatAccountFilterProxyModel", 1, 0, "RocketChatAccountFilterProxyModel");
-    qmlRegisterType<RocketChatAccountModel>("KDE.Ruqola.RocketChatAccountModel", 1, 0, "RocketChatAccountModel");
-    qmlRegisterType<ClipboardProxy>("KDE.Ruqola.Clipboard", 1, 0, "Clipboard");
-    qmlRegisterType<NotificationOptionsWrapper>("KDE.Ruqola.NotificationOptionsWrapper", 1, 0, "NotificationOptionsWrapper");
-    qmlRegisterType<EmoticonModel>("KDE.Ruqola.EmoticonModel", 1, 0, "EmoticonModel");
-    qmlRegisterType<ThreadsFilterProxyModel>("KDE.Ruqola.ThreadsFilterProxyModel", 1, 0, "ThreadsFilterProxyModel");
-    qmlRegisterType<DiscussionsFilterProxyModel>("KDE.Ruqola.DiscussionsFilterProxyModel", 1, 0, "DiscussionsFilterProxyModel");
-    qmlRegisterType<EmoticonCategoriesModel>("KDE.Ruqola.EmoticonCategoriesModel", 1, 0, "EmoticonCategoriesModel");
-    qmlRegisterType<ListMessagesModelFilterProxyModel>("KDE.Ruqola.ListMessagesModelFilterProxyModel", 1, 0, "ListMessagesModelFilterProxyModel");
-    qmlRegisterType<AutotranslateLanguagesModel>("KDE.Ruqola.AutotranslateLanguagesModel", 1, 0, "AutotranslateLanguagesModel");
+    qmlRegisterType<MessageModel>(URI, 1, 0, "MessageModel");
+    qmlRegisterType<RoomWrapper>(URI, 1, 0, "RoomWrapper");
+    qmlRegisterType<UserWrapper>(URI, 1, 0, "UserWrapper");
+    qmlRegisterType<Room>(URI, 1, 0, "Room");
+    qmlRegisterType<RocketChatAccount>(URI, 1, 0, "RocketChatAccount");
+    qmlRegisterType<UsersModel>(URI, 1, 0, "UsersModel");
+    qmlRegisterType<RoomFilterProxyModel>(URI, 1, 0, "RoomFilterProxyModel");
+    qmlRegisterType<UsersForRoomFilterProxyModel>(URI, 1, 0, "UsersForRoomFilterProxyModel");
+    qmlRegisterType<UserCompleterFilterProxyModel>(URI, 1, 0, "UserCompleterFilterModelProxy");
+    qmlRegisterType<FilesForRoomFilterProxyModel>(URI, 1, 0, "FilesForRoomFilterProxyModel");
+    qmlRegisterType<MentionsFilterProxyModel>(URI, 1, 0, "MentionsFilterProxyModel");
+    qmlRegisterType<QmlAboutData>(URI, 1, 0, "RuqolaAboutData");
+    qmlRegisterType<QmlAboutDataAuthorModel>(URI, 1, 0, "RuqolaAboutDataAuthorModel");
+    qmlRegisterType<UserCompleterModel>(URI, 1, 0, "UserCompleterModel");
+    qmlRegisterType<StatusModel>(URI, 1, 0, "StatusModel");
+    qmlRegisterType<NotificationPreferenceModel>(URI, 1, 0, "NotificationPreferenceModel");
+    qmlRegisterType<NotificationDesktopDurationPreferenceModel>(URI, 1, 0, "NotificationDesktopDurationPreferenceModel");
+    qmlRegisterType<NotificationDesktopSoundPreferenceModel>(URI, 1, 0, "NotificationDesktopSoundPreferenceModel");
+    qmlRegisterType<SearchChannelFilterProxyModel>(URI, 1, 0, "SearchChannelFilterProxyModel");
+    qmlRegisterType<InputCompleterModel>(URI, 1, 0, "InputCompleterModel");
+    qmlRegisterType<LoginMethodModel>(URI, 1, 0, "LoginMethodModel");
+    qmlRegisterType<SearchMessageFilterProxyModel>(URI, 1, 0, "SearchMessageFilterProxyModel");
+    qmlRegisterType<AccountManager>(URI, 1, 0, "AccountManager");
+    qmlRegisterType<RocketChatAccountFilterProxyModel>(URI, 1, 0, "RocketChatAccountFilterProxyModel");
+    qmlRegisterType<RocketChatAccountModel>(URI, 1, 0, "RocketChatAccountModel");
+    qmlRegisterType<ClipboardProxy>(URI, 1, 0, "Clipboard");
+    qmlRegisterType<NotificationOptionsWrapper>(URI, 1, 0, "NotificationOptionsWrapper");
+    qmlRegisterType<EmoticonModel>(URI, 1, 0, "EmoticonModel");
+    qmlRegisterType<ThreadsFilterProxyModel>(URI, 1, 0, "ThreadsFilterProxyModel");
+    qmlRegisterType<DiscussionsFilterProxyModel>(URI, 1, 0, "DiscussionsFilterProxyModel");
+    qmlRegisterType<EmoticonCategoriesModel>(URI, 1, 0, "EmoticonCategoriesModel");
+    qmlRegisterType<ListMessagesModelFilterProxyModel>(URI, 1, 0, "ListMessagesModelFilterProxyModel");
+    qmlRegisterType<AutotranslateLanguagesModel>(URI, 1, 0, "AutotranslateLanguagesModel");
 
-    qmlRegisterType<ReceiveTypingNotificationManager>("KDE.Ruqola.ReceiveTypingNotificationManager", 1, 0, "ReceiveTypingNotificationManager");
-    qmlRegisterUncreatableType<Message>("KDE.Ruqola.Message", 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
-    qmlRegisterUncreatableType<Channel>("KDE.Ruqola.Channel", 1, 0, "Channel", QStringLiteral("ChannelType is an enum container"));
-    qmlRegisterUncreatableType<DDPClient>("KDE.Ruqola.DDPClient", 1, 0, "DDPClient", QStringLiteral("DDPClient.LoginStatus is an enum container"));
-    qmlRegisterType<ServerConfigInfo>("KDE.Ruqola.ServerConfigInfo", 1, 0, "ServerConfigInfo");
-    qmlRegisterType<ListMessagesModel>("KDE.Ruqola.ListMessagesModel", 1, 0, "ListMessagesModel");
+    qmlRegisterType<ReceiveTypingNotificationManager>(URI, 1, 0, "ReceiveTypingNotificationManager");
+    qmlRegisterUncreatableType<Message>(URI, 1, 0, "Message", QStringLiteral("MessageType is an enum container"));
+    qmlRegisterUncreatableType<Channel>(URI, 1, 0, "Channel", QStringLiteral("ChannelType is an enum container"));
+    qmlRegisterUncreatableType<DDPClient>(URI, 1, 0, "DDPClient", QStringLiteral("DDPClient.LoginStatus is an enum container"));
+    qmlRegisterType<ServerConfigInfo>(URI, 1, 0, "ServerConfigInfo");
+    qmlRegisterType<ListMessagesModel>(URI, 1, 0, "ListMessagesModel");
     qRegisterMetaType<Message::MessageType>();
     qRegisterMetaType<RocketChatAccount::RoomInfoType>();
     qRegisterMetaType<RocketChatAccount::NotificationOptionsType>();
@@ -136,7 +138,7 @@ bool RuqolaRegisterEngine::initialize()
 
     QQmlContext *ctxt = mEngine->rootContext();
 #if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
-    qmlRegisterType<Notification>("KDE.Ruqola.Notification", 1, 0, "Notification");
+    qmlRegisterType<Notification>(URI, 1, 0, "Notification");
     ctxt->setContextProperty(QStringLiteral("systrayIcon"), Ruqola::self()->notification());
 #endif
     ctxt->setContextObject(new KLocalizedContext(mEngine));

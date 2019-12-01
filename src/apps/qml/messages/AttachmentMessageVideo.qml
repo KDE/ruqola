@@ -24,10 +24,11 @@ import QtQuick.Controls 2.5 as QQC2
 import org.kde.kirigami 2.7 as Kirigami
 import QtMultimedia 5.8
 import QtQuick.Layouts 1.12
+import Ruqola 1.0
 import "../js/convert.js" as ConvertScript;
 import "../common"
 
-import KDE.Ruqola.DebugCategory 1.0
+
 
 MessageBase {
     id: attachmentVideo

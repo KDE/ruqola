@@ -22,9 +22,7 @@
 
 import QtQuick 2.9
 
-import KDE.Ruqola.RocketChatAccount 1.0
-import KDE.Ruqola.DDPClient 1.0
-
+import Ruqola 1.0
 
 Login {
     id: loginTab

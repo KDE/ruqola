@@ -21,8 +21,8 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.2
-import KDE.Ruqola.RuqolaAboutDataAuthorModel 1.0
-import KDE.Ruqola.RuqolaAboutData 1.0
+import Ruqola 1.0
+
 
 import org.kde.kirigami 2.7 as Kirigami
 QQC2.Dialog {

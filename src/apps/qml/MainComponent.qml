@@ -26,17 +26,8 @@ import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
-
-import KDE.Ruqola.RuqolaUtils 1.0
-import KDE.Ruqola.Ruqola 1.0
-import KDE.Ruqola.Clipboard 1.0
-import KDE.Ruqola.RoomFilterProxyModel 1.0
 import org.kde.kirigami 2.7 as Kirigami
-import KDE.Ruqola.DebugCategory 1.0
-import KDE.Ruqola.ReceiveTypingNotificationManager 1.0
-import KDE.Ruqola.DebugCategory 1.0
-import KDE.Ruqola.ListMessagesModel 1.0
-
+import Ruqola 1.0
 Component {
     id: mainComponent
 

@@ -20,15 +20,15 @@
  */
 
 import QtQuick 2.9
+import Ruqola 1.0
 
-import KDE.Ruqola.Message 1.0
 
 import QtQuick.Controls 2.2
 import org.kde.kirigami 2.7 as Kirigami
-import KDE.Ruqola.ExtraColors 1.0
+
 import QtQuick.Layouts 1.12
-import KDE.Ruqola.RocketChatAccount 1.0
-import KDE.Ruqola.DebugCategory 1.0
+
+
 Rectangle {
 
     id: filesInRoomDelegateItem
