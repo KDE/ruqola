@@ -31,7 +31,6 @@
 class QNetworkAccessManager;
 class QNetworkReply;
 class QNetworkCookieJar;
-class RestApiMethod;
 namespace RocketChatRestApi {
 class RestApiAbstractJob;
 class AbstractLogger;
