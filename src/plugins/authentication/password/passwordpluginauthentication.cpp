@@ -20,7 +20,7 @@
 
 #include "passwordpluginauthentication.h"
 #include "passwordauthenticationinterface.h"
-#include <kpluginfactory.h>
+#include <KPluginFactory>
 #include <KLocalizedString>
 
 K_PLUGIN_CLASS_WITH_JSON(PasswordPluginAuthentication, "ruqola_passwordauthenticationplugin.json")

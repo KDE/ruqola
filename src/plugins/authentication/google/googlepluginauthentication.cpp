@@ -20,7 +20,7 @@
 
 #include "googlepluginauthentication.h"
 #include "googleauthenticationinterface.h"
-#include <kpluginfactory.h>
+#include <KPluginFactory>
 #include <KLocalizedString>
 #include "plugins/kcoreaddons_ruqola_compat.h"
 
