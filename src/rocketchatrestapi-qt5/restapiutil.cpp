@@ -87,6 +87,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("users.setStatus");
     case RestApiUtil::RestApiUrlType::UsersGetStatus:
         return QStringLiteral("users.getStatus");
+    case RestApiUtil::RestApiUrlType::UsersAutocomplete:
+        return QStringLiteral("users.autocomplete");
     case RestApiUtil::RestApiUrlType::ChatDelete:
         return QStringLiteral("chat.delete");
     case RestApiUtil::RestApiUrlType::ChatGetMessage:
