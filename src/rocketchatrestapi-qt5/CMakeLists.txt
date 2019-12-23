@@ -137,6 +137,9 @@ set (RocketChatRestApiQt_SRCS
     autotranslate/getsupportedlanguagesjob.cpp
     autotranslate/translatemessagejob.cpp
     autotranslate/translatesavesettingsjob.cpp
+
+    custom/customuserstatusjob.cpp
+
     )
 
 
