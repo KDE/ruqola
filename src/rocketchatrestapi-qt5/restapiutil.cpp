@@ -377,6 +377,12 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("autotranslate.saveSettings");
     case RestApiUtil::RestApiUrlType::AutoTranslateTranslateMessage:
         return QStringLiteral("autotranslate.translateMessage");
+
+
+    case RestApiUtil::RestApiUrlType::CustomUserStatusList:
+        return QStringLiteral("custom-user-status.list");
+    case RestApiUtil::RestApiUrlType::CustomSoundsList:
+        return QStringLiteral("custom-sounds.list");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
