@@ -170,6 +170,7 @@ public:
     void usersPresence();
     void getStarredMessages(const QString &roomId, int offset = 0, int count = 50);
     void getSnippetedMessages(const QString &roomId, int offset = 0, int count = 50);
+    void customUserStatus();
 Q_SIGNALS:
     void avatar(const QString &userId, const QString &url);
     void redownloadAvatar();
@@ -226,6 +227,7 @@ Q_SIGNALS:
     void translateSavesettingsDone();
     void setStatusDone();
     void usersPresenceDone(const QJsonObject &obj);
+    void customUserStatusDone(const QByteArray &); //TODO QByteArray or QJson ?
 
     void failed(const QString &str);
 

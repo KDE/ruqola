@@ -138,6 +138,9 @@
 #include "autotranslate/getsupportedlanguagesjob.h"
 #include "autotranslate/translatesavesettingsjob.h"
 
+#include "custom/customsoundsjob.h"
+#include "custom/customuserstatusjob.h"
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QUrl>
@@ -1617,5 +1620,15 @@ void RestApiRequest::usersPresence()
     connect(job, &UsersPresenceJob::usersPresenceDone, this, &RestApiRequest::usersPresenceDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start usersPresenceJob";
+    }
+}
+
+void RestApiRequest::customUserStatus()
+{
+    CustomUserStatusJob *job = new CustomUserStatusJob(this);
+    initializeRestApiJob(job);
+    connect(job, &CustomUserStatusJob::customUserStatusDone, this, &RestApiRequest::customUserStatusDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusJob";
     }
 }
