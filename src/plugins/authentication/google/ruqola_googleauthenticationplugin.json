@@ -19,6 +19,7 @@
         "Name[sv]": "Insticksprogram för Google behörighetskontroll",
         "Name[uk]": "Додаток розпізнавання Google",
         "Name[x-test]": "xxGoogle Authentication Pluginxx",
+        "Name[zh_TW]": "Google 身份驗證外掛程式",
         "ServiceTypes": [
             "Ruqola/Authentication"
         ],
