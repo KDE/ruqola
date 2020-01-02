@@ -1,7 +1,7 @@
 /*
  
  * Copyright 2016 Riccardo Iaconelli <riccardo@kde.org>
- * Copyright 2017-2018 Montel Laurent <montel@kde.org>
+ * Copyright 2017-2020 Montel Laurent <montel@kde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as

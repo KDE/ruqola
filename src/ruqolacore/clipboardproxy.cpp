@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2018-2019 Montel Laurent <montel@kde.org>
+   Copyright (c) 2018-2020 Laurent Montel <montel@kde.org>
    based on code found https://stackoverflow.com/questions/40092352/passing-qclipboard-to-qml
 
    This library is free software; you can redistribute it and/or modify
