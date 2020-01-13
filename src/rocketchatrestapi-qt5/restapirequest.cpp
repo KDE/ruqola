@@ -1632,3 +1632,13 @@ void RestApiRequest::customUserStatus()
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomUserStatusJob";
     }
 }
+
+void RestApiRequest::customSounds()
+{
+    CustomSoundsJob *job = new CustomSoundsJob(this);
+    initializeRestApiJob(job);
+    connect(job, &CustomSoundsJob::customSoundsDone, this, &RestApiRequest::customSoundsDone);
+    if (!job->start()) {
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start CustomSoundsJob";
+    }
+}
