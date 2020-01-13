@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2019-2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "userspresencejob.h"
+#include "usersautocompletejob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 #include <QJsonDocument>
@@ -26,34 +26,34 @@
 #include <QUrlQuery>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
-UsersPresenceJob::UsersPresenceJob(QObject *parent)
+UsersAutocompleteJob::UsersAutocompleteJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
 }
 
-UsersPresenceJob::~UsersPresenceJob()
+UsersAutocompleteJob::~UsersAutocompleteJob()
 {
 }
 
-bool UsersPresenceJob::requireHttpAuthentication() const
+bool UsersAutocompleteJob::requireHttpAuthentication() const
 {
     return true;
 }
 
-bool UsersPresenceJob::start()
+bool UsersAutocompleteJob::start()
 {
     if (!canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start userspresence job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersAutocompleteJob job";
         deleteLater();
         return false;
     }
     QNetworkReply *reply = mNetworkAccessManager->get(request());
-    connect(reply, &QNetworkReply::finished, this, &UsersPresenceJob::slotUsersPresenceFinished);
-    addLoggerInfo(QByteArrayLiteral("UsersPresenceJob: Ask info about me"));
+    connect(reply, &QNetworkReply::finished, this, &UsersAutocompleteJob::slotUsersAutocompleteFinished);
+    addLoggerInfo(QByteArrayLiteral("UsersAutocompleteJob: Ask info about me"));
     return true;
 }
 
-void UsersPresenceJob::slotUsersPresenceFinished()
+void UsersAutocompleteJob::slotUsersAutocompleteFinished()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -61,20 +61,20 @@ void UsersPresenceJob::slotUsersPresenceFinished()
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("UsersPresenceJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT usersPresenceDone(replyObject);
+            addLoggerInfo(QByteArrayLiteral("UsersAutocompleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT usersAutocompleteDone(replyObject);
         } else {
             emitFailedMessage(replyObject);
-            addLoggerWarning(QByteArrayLiteral("UsersPresenceJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            addLoggerWarning(QByteArrayLiteral("UsersAutocompleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();
     }
     deleteLater();
 }
 
-QNetworkRequest UsersPresenceJob::request() const
+QNetworkRequest UsersAutocompleteJob::request() const
 {
-    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersPresence);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersAutocomplete);
 
     QNetworkRequest request(url);
     addAuthRawHeader(request);
@@ -83,10 +83,10 @@ QNetworkRequest UsersPresenceJob::request() const
     return request;
 }
 
-bool UsersPresenceJob::canStart() const
+bool UsersAutocompleteJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersPresenceJob job";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UsersAutocompleteJob job";
         return false;
     }
     return true;
