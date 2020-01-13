@@ -27,7 +27,7 @@ import QtQuick.Layouts 1.12
 import "../js/message.js" as MessageScript;
 import QtQuick.Window 2.2
 
-
+import Ruqola 1.0
 
 Rectangle {
     id: avatarRect

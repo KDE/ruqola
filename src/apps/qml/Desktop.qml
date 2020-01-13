@@ -29,12 +29,7 @@ import QtQuick.Controls 2.5 as QQC2
 
 import Ruqola 1.0
 
-
 import org.kde.kirigami 2.7 as Kirigami
-
-
-
-
 Kirigami.ApplicationWindow {
     id: appid
     readonly property int margin: 11

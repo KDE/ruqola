@@ -21,7 +21,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
-
+import Ruqola 1.0
 
 QQC2.ComboBox {
     id: notificationAlertCombobox

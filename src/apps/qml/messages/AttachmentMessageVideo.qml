@@ -28,8 +28,6 @@ import Ruqola 1.0
 import "../js/convert.js" as ConvertScript;
 import "../common"
 
-
-
 MessageBase {
     id: attachmentVideo
 
