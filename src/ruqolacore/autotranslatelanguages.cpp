@@ -20,7 +20,7 @@
 #include "autotranslatelanguages.h"
 
 #include <QJsonArray>
-#include <qjsonobject.h>
+#include <QJsonObject>
 
 AutotranslateLanguages::AutotranslateLanguages()
 {
