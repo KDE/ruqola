@@ -1962,6 +1962,15 @@ void RocketChatAccount::usersPresence()
     }
 }
 
+void RocketChatAccount::customUsersStatus()
+{
+    if (mRuqolaServerConfig->hasAtLeastVersion(2, 4, 0)) {
+        restApi()->customUserStatus();
+    } else {
+        qCWarning(RUQOLA_LOG) << " RocketChatAccount::customUserStatus is not supported before server 2.4.0";
+    }
+}
+
 void RocketChatAccount::initializeAccount()
 {
     listEmojiCustom();
@@ -1973,4 +1982,5 @@ void RocketChatAccount::initializeAccount()
     //Force set online.
     //TODO don't reset message status !
     ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
+    //customUsersStatus(); Only for test
 }

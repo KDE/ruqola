@@ -366,6 +366,7 @@ public:
     ListMessagesModel *listMessageModel() const;
     ListMessagesModelFilterProxyModel *listMessagesFilterProxyModel() const;
 
+    void customUsersStatus();
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -407,8 +408,8 @@ private:
     Q_REQUIRED_RESULT QString serverUrl() const;
     Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
     Q_REQUIRED_RESULT StatusModel *statusModel() const;
-    QString recordingVideoPath() const;
-    QString recordingImagePath() const;
+    Q_REQUIRED_RESULT QString recordingVideoPath() const;
+    Q_REQUIRED_RESULT QString recordingImagePath() const;
 
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);
     void slotChannelRolesDone(const QJsonObject &obj, const QString &roomId);
