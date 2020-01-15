@@ -809,7 +809,7 @@ void DDPClient::onTextMessageReceived(const QString &message)
 
         if (messageType == QLatin1String("updated")) {
             //nothing to do.
-            qCDebug(RUQOLA_DDPAPI_LOG) << " message updated ! not implemented yet" << response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << " message updated ! not implemented yet" << response;
         } else if (messageType == QLatin1String("result")) {
             quint64 id = root.value(QLatin1String("id")).toString().toULongLong();
 
@@ -824,14 +824,14 @@ void DDPClient::onTextMessageReceived(const QString &message)
                 const QJsonObject error(root.value(QLatin1String("error")).toObject());
                 const QJsonValue errorValue(error.value(QLatin1String("error")));
                 if (errorValue.toInt() == 403) {
-                    qCDebug(RUQOLA_DDPAPI_LOG) << "Wrong password or token expired";
+                    qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "Wrong password or token expired";
 
                     login(); // Let's keep trying to log in
                 } else if (errorValue.toString() == QLatin1String("totp-required") || errorValue.toString() == QLatin1String("totp-invalid")) {
-                    qCDebug(RUQOLA_DDPAPI_LOG) << "A 2FA code or backup code is required to login";
+                    qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "A 2FA code or backup code is required to login";
                     setLoginStatus(LoginCodeRequired);
                 } else if (!error.isEmpty()) {
-                    qCDebug(RUQOLA_DDPAPI_LOG) << error.value(QLatin1String("message")).toString();
+                    qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << error.value(QLatin1String("message")).toString();
                     setLoginStatus(LoginFailed);
                 } else {
                     const QString token = root.value(QLatin1String("result")).toObject().value(QLatin1String("token")).toString();
@@ -842,42 +842,40 @@ void DDPClient::onTextMessageReceived(const QString &message)
                 }
             }
         } else if (messageType == QLatin1String("connected")) {
-            //qCDebug(RUQOLA_DDPAPI_LOG) << "Connected";
-            qDebug() << "Connected";
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << " Connected!";
             m_connected = true;
             setLoginStatus(DDPClient::LoggingIn);
             Q_EMIT connectedChanged();
         } else if (messageType == QLatin1String("error")) {
-            qWarning() << "ERROR!!" << message;
+            qWarning() << mRocketChatAccount->accountName()  << " ERROR!!" << message;
         } else if (messageType == QLatin1String("ping")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << "Ping - Pong";
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "Ping - Pong";
             pong();
         } else if (messageType == QLatin1String("added")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << "ADDING element" <<response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName() << "ADDING element" <<response;
             Q_EMIT added(root);
         } else if (messageType == QLatin1String("changed")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << "Changed element" <<response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "Changed element" <<response;
             Q_EMIT changed(root);
         } else if (messageType == QLatin1String("ready")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << "READY element" <<response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "READY element" <<response;
             executeSubsCallBack(root);
         } else if (messageType == QLatin1String("removed")) {
-            qCDebug(RUQOLA_DDPAPI_LOG) << "REMOVED element" <<response;
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "REMOVED element" <<response;
             Q_EMIT removed(root);
         } else if (messageType == QLatin1String("nosub")) {
-            qDebug() << "Unsubscribe element" <<message;
+            qDebug() << mRocketChatAccount->accountName()  << "Unsubscribe element" <<message;
             const QJsonObject errorObj = root[QStringLiteral("error")].toObject();
-            qWarning() << "Error found start:";
-            qWarning() << "ERROR: " << errorObj[QStringLiteral("error")].toString();
-            qWarning() << "Message: " << errorObj[QStringLiteral("message")].toString();
-            qWarning() << "Reason: " << errorObj[QStringLiteral("reason")].toString();
-            qWarning() << "-- Error found END --";
+            qWarning() << mRocketChatAccount->accountName()  << "Error found start:";
+            qWarning() << mRocketChatAccount->accountName()  << "ERROR: " << errorObj[QStringLiteral("error")].toString();
+            qWarning() << mRocketChatAccount->accountName()  << "Message: " << errorObj[QStringLiteral("message")].toString();
+            qWarning() << mRocketChatAccount->accountName()  << "Reason: " << errorObj[QStringLiteral("reason")].toString();
+            qWarning() << mRocketChatAccount->accountName()  << "-- Error found END --";
         } else {
-            qWarning() << "received something unhandled:" << message;
-            qCDebug(RUQOLA_DDPAPI_LOG) << "received something unhandled:" << message;
+            qWarning() << mRocketChatAccount->accountName()  << "received something unhandled:" << message;
         }
     } else {
-        qWarning() << "received something unhandled unknown " << message;
+        qWarning() << mRocketChatAccount->accountName()  << "received something unhandled unknown " << message;
     }
 }
 
