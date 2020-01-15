@@ -559,11 +559,7 @@ void RocketChatAccount::clearUnreadMessages(const QString &roomId)
 
 void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(0, 64, 0)) {
-        restApi()->markAsFavorite(roomId, checked);
-    } else {
-        ddp()->toggleFavorite(roomId, checked);
-    }
+    restApi()->markAsFavorite(roomId, checked);
 }
 
 void RocketChatAccount::openChannel(const QString &url)
@@ -660,11 +656,7 @@ void RocketChatAccount::channelAndPrivateAutocomplete(const QString &pattern)
 
 void RocketChatAccount::listEmojiCustom()
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(0, 63, 0)) {
-        restApi()->listEmojiCustom();
-    } else {
-        ddp()->listEmojiCustom();
-    }
+    restApi()->listEmojiCustom();
 }
 
 void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QString &messageStatus)
@@ -1041,11 +1033,7 @@ void RocketChatAccount::loadMoreListMessages(const QString &roomId)
 
 void RocketChatAccount::loadThreadMessagesHistory(const QString &threadMessageId)
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
-        restApi()->getThreadMessages(threadMessageId);
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getThreadMessages is not supported before server 1.0.0";
-    }
+    restApi()->getThreadMessages(threadMessageId);
 }
 
 void RocketChatAccount::loadMoreMentions(const QString &roomId)
@@ -1116,11 +1104,7 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
         if (channelType == QLatin1Char('c')) {
             restApi()->changeChannelAnnouncement(roomId, newValue.toString());
         } else if (channelType == QLatin1Char('p')) {
-            if (mRuqolaServerConfig->hasAtLeastVersion(0, 70, 0)) {
-                restApi()->changeGroupsAnnouncement(roomId, newValue.toString());
-            } else {
-                ddp()->setRoomAnnouncement(roomId, newValue.toString());
-            }
+            restApi()->changeGroupsAnnouncement(roomId, newValue.toString());
         } else {
             qCWarning(RUQOLA_LOG) << " unsupport change announcement for type " << channelType;
         }
@@ -1194,21 +1178,13 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
 
 void RocketChatAccount::reportMessage(const QString &messageId, const QString &message)
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(0, 64, 0)) {
-        restApi()->reportMessage(messageId, message);
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::reportMessage is not supported before server 0.64";
-    }
+    restApi()->reportMessage(messageId, message);
 }
 
 void RocketChatAccount::getThreadMessages(const QString &threadMessageId)
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
-        mThreadMessageModel->clear();
-        restApi()->getThreadMessages(threadMessageId);
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::getThreadMessages is not supported before server 1.0.0";
-    }
+    mThreadMessageModel->clear();
+    restApi()->getThreadMessages(threadMessageId);
 }
 
 void RocketChatAccount::changeNotificationsSettings(const QString &roomId, RocketChatAccount::NotificationOptionsType notificationsType, const QVariant &newValue)
@@ -1671,11 +1647,7 @@ void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId
             restApi()->channelAddOwner(roomId, userId);
             break;
         case RocketChatAccount::AddLeader:
-            if (mRuqolaServerConfig->hasAtLeastVersion(0, 75, 0)) {
-                restApi()->channelAddLeader(roomId, userId);
-            } else {
-                qCWarning(RUQOLA_LOG) << " RocketChatAccount::AddLeader is not supported before server 0.75";
-            }
+            restApi()->channelAddLeader(roomId, userId);
             break;
         case RocketChatAccount::AddModerator:
             restApi()->channelAddModerator(roomId, userId);
@@ -1684,11 +1656,7 @@ void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId
             restApi()->channelRemoveOwner(roomId, userId);
             break;
         case RocketChatAccount::RemoveLeader:
-            if (mRuqolaServerConfig->hasAtLeastVersion(0, 75, 0)) {
-                restApi()->channelRemoveLeader(roomId, userId);
-            } else {
-                qCWarning(RUQOLA_LOG) << " RocketChatAccount::RemoveLeader is not supported before server 0.75";
-            }
+            restApi()->channelRemoveLeader(roomId, userId);
             break;
         case RocketChatAccount::RemoveModerator:
             restApi()->channelRemoveModerator(roomId, userId);
@@ -1889,22 +1857,14 @@ void RocketChatAccount::createDiscussion(const QString &parentRoomId, const QStr
 
 void RocketChatAccount::threadsInRoom(const QString &roomId)
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
-        mThreadsModel->initialize();
-        restApi()->getThreadsList(roomId);
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::threadsInRoom is not supported before server 1.0.0";
-    }
+    mThreadsModel->initialize();
+    restApi()->getThreadsList(roomId);
 }
 
 void RocketChatAccount::discussionsInRoom(const QString &roomId)
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(1, 0, 0)) {
-        mDiscussionsModel->initialize();
-        restApi()->getDiscussions(roomId);
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::discussionsInRoom is not supported before server 1.0.0";
-    }
+    mDiscussionsModel->initialize();
+    restApi()->getDiscussions(roomId);
 }
 
 void RocketChatAccount::followMessage(const QString &messageId, bool follow)
@@ -1955,11 +1915,7 @@ void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
 
 void RocketChatAccount::usersPresence()
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(1, 1, 0)) {
-        restApi()->usersPresence();
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::usersPresence is not supported before server 1.1.0";
-    }
+    restApi()->usersPresence();
 }
 
 void RocketChatAccount::customUsersStatus()
