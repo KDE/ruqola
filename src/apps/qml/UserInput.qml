@@ -78,18 +78,26 @@ RowLayout {
         selectedThreadMessage: footerItem.selectedThreadMessage
     }
     
-    EmoticonMenu {
-        id: emoticonMenu
-        emojiPopupModel: appid.emojiModel
-        width: Kirigami.Units.gridUnit * 20
-        height: Kirigami.Units.gridUnit * 15
-        x: -width + parent.width
-        y: -height - 10
-        onInsertEmoticon: {
-            messageLine.insertEmoticon(emoti)
+    Loader {
+        id: emoticonMenuLoader
+        active: false
+        sourceComponent :EmoticonMenu {
+            id: emoticonMenu
+            emojiPopupModel: appid.emojiModel
+            width: Kirigami.Units.gridUnit * 20
+            height: Kirigami.Units.gridUnit * 15
+            x: -width + emojiIcon.x + emojiIcon.width
+            y: -height
+            Component.onCompleted: {
+                open()
+            }
+            onInsertEmoticon: {
+                messageLine.insertEmoticon(emoti)
+            }
         }
     }
     Kirigami.Icon {
+        id: emojiIcon
         source: "face-smile"
         width: height
         height: messageLine.height
@@ -104,7 +112,10 @@ RowLayout {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                emoticonMenu.visible ? emoticonMenu.close() : emoticonMenu.open()
+                if (emoticonMenuLoader.active)
+                    emoticonMenuLoader.active = false
+                else
+                    emoticonMenuLoader.active = true
             }
         }
     }
