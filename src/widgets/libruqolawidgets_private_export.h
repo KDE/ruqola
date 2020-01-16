@@ -25,7 +25,7 @@
 /* Classes which are exported only for unit tests */
 #ifdef BUILD_TESTING
 # ifndef LIBRUQOLAWIDGETS_TESTS_EXPORT
-#  define LIBRUQOLAWIDGETS_TESTS_EXPORT LIBRUQOLAWIDGETS_NO_EXPORT
+#  define LIBRUQOLAWIDGETS_TESTS_EXPORT LIBRUQOLAWIDGETS_EXPORT
 # endif
 #else /* not compiling tests */
 # define LIBRUQOLAWIDGETS_TESTS_EXPORT

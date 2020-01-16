@@ -1,0 +1,11 @@
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
+<gui name="ruqola-widget" version="1">
+ <MenuBar>
+  <Menu name="file" >
+  </Menu>
+  <Menu name="edit" >
+   <text>&amp;Edit</text>
+  </Menu>
+ </MenuBar>
+</gui>
+

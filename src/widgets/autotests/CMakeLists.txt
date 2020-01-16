@@ -8,3 +8,4 @@ macro(add_ruqolawidget_test _source)
 endmacro()
 
 add_ruqolawidget_test(ruqolacentralwidgettest.cpp)
+add_ruqolawidget_test(serverinfowidgettest.cpp)

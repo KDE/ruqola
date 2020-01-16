@@ -18,20 +18,45 @@
    Boston, MA 02110-1301, USA.
 */
 
+
+#include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
-#include <QVBoxLayout>
-#include <KLocalizedString>
 
-RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
-    : QWidget(parent)
-{
-    QHBoxLayout *mainLayout = new QHBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainlayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+#include <KConfigGroup>
+#include <KSharedConfig>
 
+namespace {
+static const char myConfigGroupName[] = "RuqolaMainWindow";
 }
 
-RuqolaCentralWidget::~RuqolaCentralWidget()
+RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
+    : KXmlGuiWindow(parent)
 {
+    mMainWidget = new RuqolaCentralWidget(this);
+    setCentralWidget(mMainWidget);
+    setupActions();
+    setupGUI();
+    readConfig();
 }
 
+RuqolaMainWindow::~RuqolaMainWindow()
+{
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group = config->group(myConfigGroupName);
+    group.writeEntry("Size", size());
+}
+
+void RuqolaMainWindow::readConfig()
+{
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group = KConfigGroup(config, myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void RuqolaMainWindow::setupActions()
+{
+
+}

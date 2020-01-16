@@ -1,2 +1,2 @@
 add_subdirectory(qml)
-add_subdirectory(widgets)
+add_subdirectory(widget)

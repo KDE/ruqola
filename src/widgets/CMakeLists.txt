@@ -1,11 +1,19 @@
 
 set(Ruqola_widgets_SRCS
+    ruqolamainwindow.cpp
     ruqolacentralwidget.cpp
+    )
+
+set(Ruqola_widgets_dialog_SRCS
+    dialogs/serverinfowidget.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
 
-add_library(libruqolawidgets ${Ruqola_widgets_SRCS})
+add_library(libruqolawidgets
+    ${Ruqola_widgets_SRCS}
+    ${Ruqola_widgets_dialog_SRCS}
+    )
 
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
 
@@ -14,6 +22,8 @@ target_link_libraries(libruqolawidgets
     Qt5::Gui
     Qt5::Widgets
     KF5::I18n
+    KF5::ConfigCore
+    KF5::XmlGui
     librocketchatrestapi-qt5
 )
 

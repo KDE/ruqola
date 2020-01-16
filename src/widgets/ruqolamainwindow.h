@@ -22,13 +22,18 @@
 #define RUQOLAMAINWINDOW_H
 
 #include <KXmlGuiWindow>
-
-class RuqolaMainWindow : public KXmlGuiWindow
+#include "libruqolawidgets_export.h"
+class RuqolaCentralWidget;
+class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
 public:
     explicit RuqolaMainWindow(QWidget *parent = nullptr);
     ~RuqolaMainWindow();
+private:
+    void setupActions();
+    void readConfig();
+    RuqolaCentralWidget *mMainWidget = nullptr;
 };
 
 #endif // RUQOLAMAINWINDOW_H

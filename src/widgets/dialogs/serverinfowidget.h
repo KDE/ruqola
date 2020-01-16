@@ -18,18 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLACENTRALWIDGET_H
-#define RUQOLACENTRALWIDGET_H
+#ifndef SERVERINFOWIDGET_H
+#define SERVERINFOWIDGET_H
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_EXPORT RuqolaCentralWidget : public QWidget
+
+class LIBRUQOLAWIDGETS_EXPORT ServerInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit RuqolaCentralWidget(QWidget *parent = nullptr);
-    ~RuqolaCentralWidget();
-
+    explicit ServerInfoWidget(QWidget *parent = nullptr);
+    ~ServerInfoWidget();
 };
 
-#endif // RUQOLACENTRALWIDGET_H
+#endif // SERVERINFOWIDGET_H

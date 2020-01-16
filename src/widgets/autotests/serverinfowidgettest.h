@@ -19,15 +19,17 @@
 */
 
 
-#include "ruqolamainwindow.h"
+#ifndef SERVERINFOWIDGETTEST_H
+#define SERVERINFOWIDGETTEST_H
 
-RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
-    : KXmlGuiWindow(parent)
+#include <QObject>
+
+class ServerInfoWidgetTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit ServerInfoWidgetTest(QObject *parent = nullptr);
+    ~ServerInfoWidgetTest() = default;
+};
 
-}
-
-RuqolaMainWindow::~RuqolaMainWindow()
-{
-
-}
+#endif // SERVERINFOWIDGETTEST_H
