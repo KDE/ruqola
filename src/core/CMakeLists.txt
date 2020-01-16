@@ -228,4 +228,8 @@ set_target_properties(libruqolacore
     PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
     )
 
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
+
 install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
