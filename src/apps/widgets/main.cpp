@@ -45,6 +45,8 @@ int main(int argc, char *argv[])
     KCrash::initialize();
 
 
+    //TODO remove duplicate with qml version
+
     KLocalizedString::setApplicationDomain("ruqola");
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
 
