@@ -24,15 +24,18 @@
 #include <QCommandLineParser>
 #include <KLocalizedString>
 #include <KCrash>
-#include "ruqolaregisterengine.h"
 #include "config-ruqola.h"
 #include "ruqola.h"
 #include "managerdatapaths.h"
+
+#include "ruqolamainwindow.h"
+
 #include <iostream>
 
 #include <KAboutData>
 #include <QIcon>
 #include <QDirIterator>
+#include <KDBusService>
 
 
 int main(int argc, char *argv[])
@@ -100,6 +103,10 @@ int main(int argc, char *argv[])
     if (!loadAccount.isEmpty()) {
         Ruqola::self()->setCurrentAccount(loadAccount);
     }
+    KDBusService service(KDBusService::Unique);
 
-    return app.exec();
+    RuqolaMainWindow *mw = new RuqolaMainWindow();
+    mw->show();
+    const int val = app.exec();
+    return val;
 }
