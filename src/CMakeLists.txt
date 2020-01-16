@@ -1,8 +1,13 @@
 
 add_subdirectory(rocketchatrestapi-qt5)
-add_subdirectory(ruqolacore)
+
+add_subdirectory(core)
+add_subdirectory(widgets)
+
 add_subdirectory(plugins)
+
 add_subdirectory(icons)
+
 add_subdirectory(apps)
 
 install(PROGRAMS data/org.kde.ruqola.desktop DESTINATION ${KDE_INSTALL_APPDIR})

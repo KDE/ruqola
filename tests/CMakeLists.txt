@@ -12,7 +12,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 )
 set(unicodeemoticongui_SRCS unicodeemoticongui.cpp)
 
-qt5_add_resources(unicodeemoticongui_SRCS ../src/ruqolacore/ruqolacore.qrc)
+qt5_add_resources(unicodeemoticongui_SRCS ../src/core/ruqolacore.qrc)
 
 add_executable(unicodeemoticongui ${unicodeemoticongui_SRCS})
 
