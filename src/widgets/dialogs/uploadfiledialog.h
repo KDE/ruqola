@@ -24,13 +24,15 @@
 #include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
-
+class UploadFileWidget;
 class LIBRUQOLAWIDGETS_EXPORT UploadFileDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit UploadFileDialog(QWidget *parent = nullptr);
     ~UploadFileDialog();
+private:
+    UploadFileWidget *mUploadFileWidget = nullptr;
 };
 
 #endif // UPLOADFILEDIALOG_H

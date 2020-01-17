@@ -19,6 +19,7 @@
 */
 
 #include "uploadfiledialogtest.h"
+#include "dialogs/uploadfiledialog.h"
 #include <QTest>
 QTEST_MAIN(UploadFileDialogTest)
 

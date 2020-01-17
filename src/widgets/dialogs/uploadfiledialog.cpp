@@ -19,6 +19,7 @@
 */
 
 #include "uploadfiledialog.h"
+#include "uploadfilewidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -26,7 +27,12 @@
 UploadFileDialog::UploadFileDialog(QWidget *parent)
     : QDialog(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mUploadFileWidget = new UploadFileWidget(this);
+    mUploadFileWidget->setObjectName(QStringLiteral("mUploadFileWidget"));
+    mainLayout->addWidget(mUploadFileWidget);
 }
 
 UploadFileDialog::~UploadFileDialog()
