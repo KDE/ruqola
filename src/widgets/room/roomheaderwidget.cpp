@@ -19,7 +19,7 @@
 */
 
 #include "roomheaderwidget.h"
-#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <KLocalizedString>
 
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)

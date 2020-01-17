@@ -31,6 +31,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListWidget : public QWidget
 public:
     explicit ChannelListWidget(QWidget *parent = nullptr);
     ~ChannelListWidget();
+
+Q_SIGNALS:
+    void channelSelected(const QString &roomId);
+
 private:
     StatusCombobox *mStatusComboBox = nullptr;
     ChannelListView *mChannelView = nullptr;

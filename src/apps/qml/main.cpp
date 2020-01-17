@@ -56,10 +56,10 @@ int main(int argc, char *argv[])
     KLocalizedString::setApplicationDomain("ruqola");
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
 
-    KAboutData aboutData(QStringLiteral("ruqola"),
-                         i18n("Ruqola"),
+    KAboutData aboutData(QStringLiteral("ruqolaqml"),
+                         i18n("Ruqolaqml"),
                          QStringLiteral(RUQOLA_VERSION),
-                         i18n("Rocket Chat Client"),
+                         i18n("QML Rocket Chat Client"),
                          KAboutLicense::GPL_V2,
                          i18n("Copyright © 2017-2020 Ruqola authors"));
 

@@ -34,6 +34,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mChannelView = new ChannelListView(this);
     mChannelView->setObjectName(QStringLiteral("mChannelView"));
     mainLayout->addWidget(mChannelView);
+    connect(mChannelView, &ChannelListView::channelSelected, this, &ChannelListWidget::channelSelected);
 
     mStatusComboBox = new StatusCombobox(this);
     mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));

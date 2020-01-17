@@ -32,6 +32,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 public:
     explicit RoomWidget(QWidget *parent = nullptr);
     ~RoomWidget();
+
+Q_SIGNALS:
+    void channelSelected(const QString &roomId);
+
 private:
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     RoomListView *mRoomListView = nullptr;

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=RuqolaQml
+Type=Application
+Exec=ruqolaqml -qwindowtitle %c %u
+Icon=ruqola
+GenericName=QML Rocket.Chat client
+Terminal=false
+StartupNotify=true
+Categories=Qt;KDE;Network;

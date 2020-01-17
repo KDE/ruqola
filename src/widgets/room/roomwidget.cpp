@@ -43,6 +43,8 @@ RoomWidget::RoomWidget(QWidget *parent)
     mMessageLineEdit = new MessageLineEdit(this);
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
     mainLayout->addWidget(mMessageLineEdit);
+
+    connect(this, &RoomWidget::channelSelected, mRoomListView, &RoomListView::setChannelSelected);
 }
 
 RoomWidget::~RoomWidget()

@@ -224,6 +224,12 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     }
     const int idx = index.row();
     const Message &message = mAllMessages.at(idx);
+
+    //TODO temporary
+    if (role == Qt::DisplayRole) {
+        //role = MessageModel::MessageConvertedText;
+        role = MessageModel::OriginalMessage;
+    }
     switch (role) {
     case MessageModel::Username:
         return message.username();

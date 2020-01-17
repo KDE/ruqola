@@ -19,6 +19,9 @@
 */
 
 #include "roomlistview.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+#include <QDebug>
 RoomListView::RoomListView(QWidget *parent)
     : QListView(parent)
 {
@@ -27,4 +30,11 @@ RoomListView::RoomListView(QWidget *parent)
 RoomListView::~RoomListView()
 {
 
+}
+
+void RoomListView::setChannelSelected(const QString &roomId)
+{
+    //TODO temporary
+    Ruqola::self()->rocketChatAccount()->switchingToRoom(roomId);
+    setModel(Ruqola::self()->rocketChatAccount()->messageModelForRoom(roomId));
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
-    <qresource prefix="/kxmlgui5/ruqola-widget">
-        <file>ruqolawidgetui.rc</file>
+    <qresource prefix="/kxmlgui5/ruqola">
+        <file>ruqolaui.rc</file>
     </qresource>
 </RCC>
 

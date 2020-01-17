@@ -22,15 +22,23 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "model/roomfilterproxymodel.h"
+#include <QDebug>
 
 ChannelListView::ChannelListView(QWidget *parent)
     : QListView(parent)
 {
     setModel(Ruqola::self()->rocketChatAccount()->roomFilterProxyModel());
-
+    connect(this, &ChannelListView::clicked, this, &ChannelListView::slotClicked);
 }
 
 ChannelListView::~ChannelListView()
 {
 
+}
+
+void ChannelListView::slotClicked(const QModelIndex &index)
+{
+    if (index.isValid()) {
+        Q_EMIT channelSelected(index.data(RoomModel::RoomID).toString());
+    }
 }

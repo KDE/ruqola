@@ -18,19 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMLISTVIEW_H
-#define ROOMLISTVIEW_H
-
-#include <QListView>
-#include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomListView : public QListView
+#include "messagelineedittest.h"
+#include "room/messagelineedit.h"
+#include <QTest>
+QTEST_MAIN(MessageLineEditTest)
+MessageLineEditTest::MessageLineEditTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit RoomListView(QWidget *parent = nullptr);
-    ~RoomListView();
 
-    void setChannelSelected(const QString &roomId);
-};
+}
 
-#endif // ROOMLISTVIEW_H
+void MessageLineEditTest::shouldHaveDefautValues()
+{
+    MessageLineEdit w;
+    QVERIFY(w.isClearButtonEnabled());
+}

@@ -17,20 +17,20 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+#ifndef MESSAGELINEEDITTEST_H
+#define MESSAGELINEEDITTEST_H
 
-#ifndef ROOMLISTVIEW_H
-#define ROOMLISTVIEW_H
+#include <QObject>
 
-#include <QListView>
-#include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomListView : public QListView
+class MessageLineEditTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit RoomListView(QWidget *parent = nullptr);
-    ~RoomListView();
+    explicit MessageLineEditTest(QObject *parent = nullptr);
+    ~MessageLineEditTest() = default;
 
-    void setChannelSelected(const QString &roomId);
+private Q_SLOTS:
+    void shouldHaveDefautValues();
 };
 
-#endif // ROOMLISTVIEW_H
+#endif // MESSAGELINEEDITTEST_H

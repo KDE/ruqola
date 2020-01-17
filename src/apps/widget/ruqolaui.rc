@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola-widget" version="1">
+<gui name="ruqola" version="1">
  <MenuBar>
   <Menu name="file" >
   </Menu>

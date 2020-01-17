@@ -23,7 +23,7 @@
 MessageLineEdit::MessageLineEdit(QWidget *parent)
     : QLineEdit(parent)
 {
-
+    setClearButtonEnabled(true);
 }
 
 MessageLineEdit::~MessageLineEdit()

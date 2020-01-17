@@ -30,6 +30,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QListView
 public:
     explicit ChannelListView(QWidget *parent = nullptr);
     ~ChannelListView();
+Q_SIGNALS:
+    void channelSelected(const QString &roomId);
+private:
+    void slotClicked(const QModelIndex &index);
 };
 
 #endif // CHANNELLISTVIEW_H
