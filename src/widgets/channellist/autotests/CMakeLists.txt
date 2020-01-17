@@ -8,3 +8,4 @@ macro(add_ruqolachannellist_test _source)
 endmacro()
 
 add_ruqolachannellist_test(channellistwidgettest.cpp)
+add_ruqolachannellist_test(statuscomboboxtest.cpp)

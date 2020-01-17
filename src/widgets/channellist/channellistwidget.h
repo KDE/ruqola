@@ -23,13 +23,17 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-
+class StatusCombobox;
+class ChannelListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ChannelListWidget(QWidget *parent = nullptr);
     ~ChannelListWidget();
+private:
+    StatusCombobox *mStatusComboBox = nullptr;
+    ChannelListView *mChannelView = nullptr;
 };
 
 #endif // CHANNELLISTWIDGET_H

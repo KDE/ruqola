@@ -18,19 +18,15 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELLISTWIDGETTEST_H
-#define CHANNELLISTWIDGETTEST_H
+#include "statuscombobox.h"
 
-#include <QObject>
-
-class ChannelListWidgetTest : public QObject
+StatusCombobox::StatusCombobox(QWidget *parent)
+    : QComboBox(parent)
 {
-    Q_OBJECT
-public:
-    explicit ChannelListWidgetTest(QObject *parent = nullptr);
-    ~ChannelListWidgetTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
-};
 
-#endif // CHANNELLISTWIDGETTEST_H
+}
+
+StatusCombobox::~StatusCombobox()
+{
+
+}

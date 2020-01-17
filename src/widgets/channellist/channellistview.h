@@ -18,19 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELLISTWIDGETTEST_H
-#define CHANNELLISTWIDGETTEST_H
+#ifndef CHANNELLISTVIEW_H
+#define CHANNELLISTVIEW_H
 
-#include <QObject>
+#include <QListView>
 
-class ChannelListWidgetTest : public QObject
+#include "libruqolawidgets_private_export.h"
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QListView
 {
     Q_OBJECT
 public:
-    explicit ChannelListWidgetTest(QObject *parent = nullptr);
-    ~ChannelListWidgetTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
+    explicit ChannelListView(QWidget *parent = nullptr);
+    ~ChannelListView();
 };
 
-#endif // CHANNELLISTWIDGETTEST_H
+#endif // CHANNELLISTVIEW_H

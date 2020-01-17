@@ -33,9 +33,11 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
 
     mChannelList = new ChannelListWidget(this);
     mChannelList->setObjectName(QStringLiteral("mChannelList"));
+    mainLayout->addWidget(mChannelList);
 
     mRoomWidget = new RoomWidget(this);
     mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
+    mainLayout->addWidget(mRoomWidget);
 }
 
 RuqolaCentralWidget::~RuqolaCentralWidget()

@@ -10,6 +10,8 @@ set(Ruqola_widgets_dialog_SRCS
 
 set(Ruqola_channellist_SRCS
     channellist/channellistwidget.cpp
+    channellist/statuscombobox.cpp
+    channellist/channellistview.cpp
     )
 
 set(Ruqola_roomwidget_SRCS

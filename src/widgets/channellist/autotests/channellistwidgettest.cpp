@@ -19,9 +19,30 @@
 */
 
 #include "channellistwidgettest.h"
+#include "channellist/channellistwidget.h"
+#include "channellist/statuscombobox.h"
+#include "channellist/channellistview.h"
+
 #include <QTest>
+#include <QVBoxLayout>
+
 QTEST_MAIN(ChannelListWidgetTest)
 ChannelListWidgetTest::ChannelListWidgetTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void ChannelListWidgetTest::shouldHaveDefaultValues()
+{
+    ChannelListWidget w;
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainlayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    StatusCombobox *mStatusComboBox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusComboBox"));
+    QVERIFY(mStatusComboBox);
+
+    ChannelListView *mChannelView = w.findChild<ChannelListView *>(QStringLiteral("mChannelView"));
+    QVERIFY(mChannelView);
 }

@@ -18,7 +18,9 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "channellistview.h"
 #include "channellistwidget.h"
+#include "statuscombobox.h"
 #include <QHBoxLayout>
 #include <KLocalizedString>
 
@@ -28,6 +30,14 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mChannelView = new ChannelListView(this);
+    mChannelView->setObjectName(QStringLiteral("mChannelView"));
+    mainLayout->addWidget(mChannelView);
+
+    mStatusComboBox = new StatusCombobox(this);
+    mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
+    mainLayout->addWidget(mStatusComboBox);
 }
 
 ChannelListWidget::~ChannelListWidget()
