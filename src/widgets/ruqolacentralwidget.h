@@ -23,12 +23,17 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+class ChannelListWidget;
+class RoomWidget;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaCentralWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit RuqolaCentralWidget(QWidget *parent = nullptr);
     ~RuqolaCentralWidget();
+private:
+    ChannelListWidget *mChannelList = nullptr;
+    RoomWidget *mRoomWidget = nullptr;
 };
 
 #endif // RUQOLACENTRALWIDGET_H

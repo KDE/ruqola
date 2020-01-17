@@ -19,6 +19,8 @@
 */
 
 #include "ruqolacentralwidget.h"
+#include "channellist/channellistwidget.h"
+#include "room/roomwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 
@@ -28,6 +30,12 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mChannelList = new ChannelListWidget(this);
+    mChannelList->setObjectName(QStringLiteral("mChannelList"));
+
+    mRoomWidget = new RoomWidget(this);
+    mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
 }
 
 RuqolaCentralWidget::~RuqolaCentralWidget()

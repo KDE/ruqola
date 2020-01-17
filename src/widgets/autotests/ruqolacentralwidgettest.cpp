@@ -19,9 +19,29 @@
 */
 
 #include "ruqolacentralwidgettest.h"
+#include "ruqolacentralwidget.h"
+#include "channellist/channellistwidget.h"
+#include "room/roomwidget.h"
+
+#include <QHBoxLayout>
 #include <QTest>
+
 QTEST_MAIN(RuqolaCentralWidgetTest)
 RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
+{
+    RuqolaCentralWidget w;
+    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    ChannelListWidget *mChannelList = w.findChild<ChannelListWidget *>(QStringLiteral("mChannelList"));
+    QVERIFY(mChannelList);
+
+    RoomWidget *mRoomWidget = w.findChild<RoomWidget *>(QStringLiteral("mRoomWidget"));
+    QVERIFY(mRoomWidget);
 }
