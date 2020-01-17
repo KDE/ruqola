@@ -18,17 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "serverinfowidget.h"
-#include <QHBoxLayout>
-#include <KLocalizedString>
 
-ServerInfoWidget::ServerInfoWidget(QWidget *parent)
-    : QWidget(parent)
+#ifndef CHANNELLISTWIDGETTEST_H
+#define CHANNELLISTWIDGETTEST_H
+
+#include <QObject>
+
+class ChannelListWidgetTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit ChannelListWidgetTest(QObject *parent = nullptr);
+    ~ChannelListWidgetTest() = default;
+};
 
-}
-
-ServerInfoWidget::~ServerInfoWidget()
-{
-
-}
+#endif // CHANNELLISTWIDGETTEST_H
