@@ -7,3 +7,4 @@ org.kde.ruqola.qml ruqola (qml)
 org.kde.ruqola_googleauthenticationplugin ruqola (google authentication plugin) IDENTIFIER [RUQOLA_GOOGLEAUTHENTICATION_PLUGIN_LOG]
 org.kde.ruqola_passwordauthenticationplugin ruqola (password authentication plugin) IDENTIFIER [RUQOLA_PASSWORDAUTHENTICATION_PLUGIN_LOG]
 org.kde.ruqola.ddp.collectiontype ruqola ddp unknown collection type IDENTIFIER [RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG]
+org.kde.ruqola.widgets ruqola lib widget IDENTIFIER [RUQOLAWIDGETS_LOG]
