@@ -46,7 +46,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
     mainLayout->addWidget(mMessageLineEdit);
 
-    connect(this, &RoomWidget::channelSelected, this, &RoomWidget::setRoomId);
+    connect(this, &RoomWidget::channelSelected, this, &RoomWidget::setChannelSelected);
     connect(mMessageLineEdit, &MessageLineEdit::sendMessage, this, &RoomWidget::slotSendMessage);
 }
 
@@ -57,6 +57,12 @@ RoomWidget::~RoomWidget()
 void RoomWidget::slotSendMessage(const QString &msg)
 {
     Ruqola::self()->rocketChatAccount()->sendMessage(mRoomId, msg);
+}
+
+void RoomWidget::setChannelSelected(const QModelIndex &index)
+{
+    setRoomId(index.data(RoomModel::RoomID).toString());
+    mRoomHeaderWidget->setRoomName(index.data(RoomModel::RoomFName).toString());
 }
 
 QString RoomWidget::roomId() const

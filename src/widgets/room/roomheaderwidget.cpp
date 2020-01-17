@@ -33,6 +33,18 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mRoomName = new QLabel(this);
     mRoomName->setObjectName(QStringLiteral("mRoomName"));
     mainLayout->addWidget(mRoomName);
+
+    mTopic = new QLabel(this);
+    mTopic->setObjectName(QStringLiteral("mTopic"));
+    mainLayout->addWidget(mTopic);
+
+    mAnnouncement = new QLabel(this);
+    mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
+    mainLayout->addWidget(mAnnouncement);
+
+    mDescription = new QLabel(this);
+    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mainLayout->addWidget(mDescription);
 }
 
 RoomHeaderWidget::~RoomHeaderWidget()

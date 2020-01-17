@@ -35,6 +35,9 @@ public:
     Q_REQUIRED_RESULT QString roomName() const;
 private:
     QLabel *mRoomName = nullptr;
+    QLabel *mTopic = nullptr;
+    QLabel *mAnnouncement = nullptr;
+    QLabel *mDescription = nullptr;
 };
 
 #endif // ROOMHEADERWIDGET_H

@@ -37,9 +37,10 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void channelSelected(const QString &roomId);
+    void channelSelected(const QModelIndex &index);
 
 private:
+    void setChannelSelected(const QModelIndex &index);
     void slotSendMessage(const QString &msg);
     QString mRoomId;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;

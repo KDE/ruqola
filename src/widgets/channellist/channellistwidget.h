@@ -33,7 +33,7 @@ public:
     ~ChannelListWidget();
 
 Q_SIGNALS:
-    void channelSelected(const QString &roomId);
+    void channelSelected(const QModelIndex &index);
 
 private:
     StatusCombobox *mStatusComboBox = nullptr;

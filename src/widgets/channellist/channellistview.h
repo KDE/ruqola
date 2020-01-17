@@ -31,7 +31,7 @@ public:
     explicit ChannelListView(QWidget *parent = nullptr);
     ~ChannelListView();
 Q_SIGNALS:
-    void channelSelected(const QString &roomId);
+    void channelSelected(const QModelIndex &index);
 private:
     void slotClicked(const QModelIndex &index);
 };

@@ -39,6 +39,6 @@ ChannelListView::~ChannelListView()
 void ChannelListView::slotClicked(const QModelIndex &index)
 {
     if (index.isValid()) {
-        Q_EMIT channelSelected(index.data(RoomModel::RoomID).toString());
+        Q_EMIT channelSelected(index);
     }
 }
