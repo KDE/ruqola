@@ -6,6 +6,8 @@ set(Ruqola_widgets_SRCS
 
 set(Ruqola_widgets_dialog_SRCS
     dialogs/serverinfowidget.cpp
+    dialogs/uploadfiledialog.cpp
+    dialogs/uploadfilewidget.cpp
     )
 
 set(Ruqola_channellist_SRCS
@@ -57,6 +59,7 @@ if (BUILD_TESTING)
     add_subdirectory(tests)
     add_subdirectory(channellist/autotests)
     add_subdirectory(room/autotests)
+    add_subdirectory(dialogs/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
