@@ -23,8 +23,8 @@
 #define ROOMWIDGET_H
 
 #include <QWidget>
-
-class RoomWidget : public QWidget
+#include "libruqolawidgets_private_export.h"
+class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
 public:

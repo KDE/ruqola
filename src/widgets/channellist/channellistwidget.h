@@ -22,8 +22,9 @@
 #define CHANNELLISTWIDGET_H
 
 #include <QWidget>
+#include "libruqolawidgets_private_export.h"
 
-class ChannelListWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListWidget : public QWidget
 {
     Q_OBJECT
 public:
