@@ -12,12 +12,17 @@ set(Ruqola_channellist_SRCS
     channellist/channellistwidget.cpp
     )
 
+set(Ruqola_roomwidget_SRCS
+    room/roomwidget.cpp
+    )
+
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
 
 add_library(libruqolawidgets
     ${Ruqola_widgets_SRCS}
     ${Ruqola_widgets_dialog_SRCS}
     ${Ruqola_channellist_SRCS}
+    ${Ruqola_roomwidget_SRCS}
     )
 
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
@@ -45,6 +50,7 @@ if (BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
     add_subdirectory(channellist/autotests)
+    add_subdirectory(room/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
