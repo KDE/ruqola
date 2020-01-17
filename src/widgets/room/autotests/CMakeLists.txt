@@ -8,3 +8,4 @@ macro(add_ruqolaroom_test _source)
 endmacro()
 
 add_ruqolaroom_test(roomwidgettest.cpp)
+add_ruqolaroom_test(roomheaderwidgettest.cpp)

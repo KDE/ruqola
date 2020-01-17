@@ -18,17 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomwidget.h"
-#include <QHBoxLayout>
-#include <KLocalizedString>
+#ifndef ROOMHEADERWIDGETTEST_H
+#define ROOMHEADERWIDGETTEST_H
 
-RoomWidget::RoomWidget(QWidget *parent)
-    : QWidget(parent)
+#include <QObject>
+
+class RoomHeaderWidgetTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit RoomHeaderWidgetTest(QObject *parent = nullptr);
+    ~RoomHeaderWidgetTest() = default;
+};
 
-}
-
-RoomWidget::~RoomWidget()
-{
-
-}
+#endif // ROOMHEADERWIDGETTEST_H
