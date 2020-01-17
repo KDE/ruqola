@@ -24,12 +24,17 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit RoomHeaderWidget(QWidget *parent = nullptr);
     ~RoomHeaderWidget();
+    void setRoomName(const QString &name);
+    Q_REQUIRED_RESULT QString roomName() const;
+private:
+    QLabel *mRoomName = nullptr;
 };
 
 #endif // ROOMHEADERWIDGET_H

@@ -21,12 +21,30 @@
 #include "roomheaderwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QLabel>
 
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mRoomName = new QLabel(this);
+    mRoomName->setObjectName(QStringLiteral("mRoomName"));
+    mainLayout->addWidget(mRoomName);
 }
 
 RoomHeaderWidget::~RoomHeaderWidget()
 {
+}
+
+void RoomHeaderWidget::setRoomName(const QString &name)
+{
+    mRoomName->setText(name);
+}
+
+QString RoomHeaderWidget::roomName() const
+{
+    return mRoomName->text();
 }
