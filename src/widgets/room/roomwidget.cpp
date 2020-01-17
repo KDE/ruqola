@@ -20,7 +20,7 @@
 
 #include "roomwidget.h"
 #include "roomheaderwidget.h"
-#include "roomlistview.h"
+#include "messagelistview.h"
 #include "messagelineedit.h"
 #include <QHBoxLayout>
 #include <KLocalizedString>
@@ -38,9 +38,9 @@ RoomWidget::RoomWidget(QWidget *parent)
     mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));
     mainLayout->addWidget(mRoomHeaderWidget);
 
-    mRoomListView = new RoomListView(this);
-    mRoomListView->setObjectName(QStringLiteral("mRoomListView"));
-    mainLayout->addWidget(mRoomListView);
+    mMessageListView = new MessageListView(this);
+    mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
+    mainLayout->addWidget(mMessageListView);
 
     mMessageLineEdit = new MessageLineEdit(this);
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
@@ -74,6 +74,6 @@ void RoomWidget::setRoomId(const QString &roomId)
 {
     if (mRoomId != roomId) {
         mRoomId = roomId;
-        mRoomListView->setChannelSelected(roomId);
+        mMessageListView->setChannelSelected(roomId);
     }
 }

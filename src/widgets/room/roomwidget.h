@@ -24,7 +24,7 @@
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class RoomHeaderWidget;
-class RoomListView;
+class MessageListView;
 class MessageLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
@@ -44,7 +44,7 @@ private:
     void slotSendMessage(const QString &msg);
     QString mRoomId;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
-    RoomListView *mRoomListView = nullptr;
+    MessageListView *mMessageListView = nullptr;
     MessageLineEdit *mMessageLineEdit = nullptr;
 };
 

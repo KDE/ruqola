@@ -19,7 +19,7 @@ set(Ruqola_channellist_SRCS
 set(Ruqola_roomwidget_SRCS
     room/roomwidget.cpp
     room/roomheaderwidget.cpp
-    room/roomlistview.cpp
+    room/messagelistview.cpp
     room/messagelineedit.cpp
     )
 

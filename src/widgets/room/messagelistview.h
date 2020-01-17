@@ -18,19 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ROOMLISTVIEW_H
-#define ROOMLISTVIEW_H
+#ifndef MESSAGELISTVIEW_H
+#define MESSAGELISTVIEW_H
 
 #include <QListView>
 #include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomListView : public QListView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public QListView
 {
     Q_OBJECT
 public:
-    explicit RoomListView(QWidget *parent = nullptr);
-    ~RoomListView();
+    explicit MessageListView(QWidget *parent = nullptr);
+    ~MessageListView();
 
     void setChannelSelected(const QString &roomId);
 };
 
-#endif // ROOMLISTVIEW_H
+#endif // MESSAGELISTVIEW_H

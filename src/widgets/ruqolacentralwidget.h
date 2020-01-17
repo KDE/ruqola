@@ -25,6 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 class ChannelListWidget;
 class RoomWidget;
+
 class LIBRUQOLAWIDGETS_EXPORT RuqolaCentralWidget : public QWidget
 {
     Q_OBJECT

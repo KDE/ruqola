@@ -18,21 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomlistview.h"
+#include "messagelistview.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include <QDebug>
-RoomListView::RoomListView(QWidget *parent)
+
+MessageListView::MessageListView(QWidget *parent)
     : QListView(parent)
 {
 }
 
-RoomListView::~RoomListView()
+MessageListView::~MessageListView()
 {
 
 }
 
-void RoomListView::setChannelSelected(const QString &roomId)
+void MessageListView::setChannelSelected(const QString &roomId)
 {
     //TODO temporary
     Ruqola::self()->rocketChatAccount()->switchingToRoom(roomId);
