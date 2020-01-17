@@ -24,6 +24,10 @@ MessageLineEdit::MessageLineEdit(QWidget *parent)
     : QLineEdit(parent)
 {
     setClearButtonEnabled(true);
+    connect(this, &MessageLineEdit::returnPressed, this, [this]() {
+        Q_EMIT sendMessage(text());
+        clear();
+    });
 }
 
 MessageLineEdit::~MessageLineEdit()

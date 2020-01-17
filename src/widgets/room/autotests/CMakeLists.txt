@@ -9,5 +9,4 @@ endmacro()
 
 add_ruqolaroom_test(roomwidgettest.cpp)
 add_ruqolaroom_test(roomheaderwidgettest.cpp)
-add_ruqolaroom_test(channellistviewtest.cpp)
 add_ruqolaroom_test(messagelineedittest.cpp)

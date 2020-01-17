@@ -18,12 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "channellistviewtest.h"
-#include <QTest>
+#ifndef CHANNELLISTVIEWTEST_H
+#define CHANNELLISTVIEWTEST_H
 
-QTEST_MAIN(ChannelListViewTest)
-ChannelListViewTest::ChannelListViewTest(QObject *parent)
-    : QObject(parent)
+#include <QObject>
+
+class ChannelListViewTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit ChannelListViewTest(QObject *parent = nullptr);
+    ~ChannelListViewTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};
 
-}
+#endif // CHANNELLISTVIEWTEST_H

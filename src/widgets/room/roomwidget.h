@@ -33,10 +33,15 @@ public:
     explicit RoomWidget(QWidget *parent = nullptr);
     ~RoomWidget();
 
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &roomId);
+
 Q_SIGNALS:
     void channelSelected(const QString &roomId);
 
 private:
+    void slotSendMessage(const QString &msg);
+    QString mRoomId;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     RoomListView *mRoomListView = nullptr;
     MessageLineEdit *mMessageLineEdit = nullptr;

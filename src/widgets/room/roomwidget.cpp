@@ -24,6 +24,8 @@
 #include "messagelineedit.h"
 #include <QHBoxLayout>
 #include <KLocalizedString>
+#include "ruqola.h"
+#include "rocketchataccount.h"
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -44,9 +46,28 @@ RoomWidget::RoomWidget(QWidget *parent)
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
     mainLayout->addWidget(mMessageLineEdit);
 
-    connect(this, &RoomWidget::channelSelected, mRoomListView, &RoomListView::setChannelSelected);
+    connect(this, &RoomWidget::channelSelected, this, &RoomWidget::setRoomId);
+    connect(mMessageLineEdit, &MessageLineEdit::sendMessage, this, &RoomWidget::slotSendMessage);
 }
 
 RoomWidget::~RoomWidget()
 {
+}
+
+void RoomWidget::slotSendMessage(const QString &msg)
+{
+    Ruqola::self()->rocketChatAccount()->sendMessage(mRoomId, msg);
+}
+
+QString RoomWidget::roomId() const
+{
+    return mRoomId;
+}
+
+void RoomWidget::setRoomId(const QString &roomId)
+{
+    if (mRoomId != roomId) {
+        mRoomId = roomId;
+        mRoomListView->setChannelSelected(roomId);
+    }
 }

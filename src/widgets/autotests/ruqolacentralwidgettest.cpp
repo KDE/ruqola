@@ -42,5 +42,5 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mChannelList);
 
     RoomWidget *mRoomWidget = w.findChild<RoomWidget *>(QStringLiteral("mRoomWidget"));
-    QVERIFY(mRoomWidget);
+    QVERIFY(mRoomWidget);    
 }

@@ -30,6 +30,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineEdit : public QLineEdit
 public:
     explicit MessageLineEdit(QWidget *parent = nullptr);
     ~MessageLineEdit();
+Q_SIGNALS:
+    void sendMessage(const QString &str);
 };
 
 #endif // MESSAGELINEEDIT_H

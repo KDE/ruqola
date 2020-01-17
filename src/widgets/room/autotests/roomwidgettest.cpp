@@ -19,9 +19,35 @@
 */
 
 #include "roomwidgettest.h"
+#include "room/roomwidget.h"
+#include "room/messagelineedit.h"
+#include "room/roomheaderwidget.h"
+#include "room/roomlistview.h"
+
 #include <QTest>
+#include <QVBoxLayout>
+
 QTEST_MAIN(RoomWidgetTest)
 RoomWidgetTest::RoomWidgetTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void RoomWidgetTest::shouldHaveDefaultValues()
+{
+    RoomWidget w;
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+
+    RoomHeaderWidget *mRoomHeaderWidget = w.findChild<RoomHeaderWidget *>(QStringLiteral("mRoomHeaderWidget"));
+    QVERIFY(mRoomHeaderWidget);
+
+    RoomListView *mRoomListView = w.findChild<RoomListView *>(QStringLiteral("mRoomListView"));
+    QVERIFY(mRoomListView);
+
+    MessageLineEdit *mMessageLineEdit = w.findChild<MessageLineEdit *>(QStringLiteral("mMessageLineEdit"));
+    QVERIFY(mMessageLineEdit);
+    QVERIFY(w.roomId().isEmpty());
 }
