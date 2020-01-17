@@ -37,7 +37,6 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     RuqolaCentralWidget w;
     QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
     ChannelListWidget *mChannelList = w.findChild<ChannelListWidget *>(QStringLiteral("mChannelList"));
     QVERIFY(mChannelList);

@@ -23,12 +23,19 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+class RoomHeaderWidget;
+class RoomListView;
+class MessageLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit RoomWidget(QWidget *parent = nullptr);
     ~RoomWidget();
+private:
+    RoomHeaderWidget *mRoomHeaderWidget = nullptr;
+    RoomListView *mRoomListView = nullptr;
+    MessageLineEdit *mMessageLineEdit = nullptr;
 };
 
 #endif // ROOMWIDGET_H

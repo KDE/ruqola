@@ -18,33 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomwidget.h"
-#include "roomheaderwidget.h"
-#include "roomlistview.h"
-#include "messagelineedit.h"
-#include <QHBoxLayout>
-#include <KLocalizedString>
+#ifndef MESSAGELINEEDIT_H
+#define MESSAGELINEEDIT_H
 
-RoomWidget::RoomWidget(QWidget *parent)
-    : QWidget(parent)
+#include <QLineEdit>
+
+#include "libruqolawidgets_private_export.h"
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineEdit : public QLineEdit
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    Q_OBJECT
+public:
+    explicit MessageLineEdit(QWidget *parent = nullptr);
+    ~MessageLineEdit();
+};
 
-    mRoomHeaderWidget = new RoomHeaderWidget(this);
-    mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));
-    mainLayout->addWidget(mRoomHeaderWidget);
-
-    mRoomListView = new RoomListView(this);
-    mRoomListView->setObjectName(QStringLiteral("mRoomListView"));
-    mainLayout->addWidget(mRoomListView);
-
-    mMessageLineEdit = new MessageLineEdit(this);
-    mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
-    mainLayout->addWidget(mMessageLineEdit);
-}
-
-RoomWidget::~RoomWidget()
-{
-}
+#endif // MESSAGELINEEDIT_H

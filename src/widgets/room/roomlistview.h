@@ -18,33 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomwidget.h"
-#include "roomheaderwidget.h"
-#include "roomlistview.h"
-#include "messagelineedit.h"
-#include <QHBoxLayout>
-#include <KLocalizedString>
+#ifndef ROOMLISTVIEW_H
+#define ROOMLISTVIEW_H
 
-RoomWidget::RoomWidget(QWidget *parent)
-    : QWidget(parent)
+#include <QListView>
+#include "libruqolawidgets_private_export.h"
+class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomListView : public QListView
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    Q_OBJECT
+public:
+    explicit RoomListView(QWidget *parent = nullptr);
+    ~RoomListView();
+};
 
-    mRoomHeaderWidget = new RoomHeaderWidget(this);
-    mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));
-    mainLayout->addWidget(mRoomHeaderWidget);
-
-    mRoomListView = new RoomListView(this);
-    mRoomListView->setObjectName(QStringLiteral("mRoomListView"));
-    mainLayout->addWidget(mRoomListView);
-
-    mMessageLineEdit = new MessageLineEdit(this);
-    mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
-    mainLayout->addWidget(mMessageLineEdit);
-}
-
-RoomWidget::~RoomWidget()
-{
-}
+#endif // ROOMLISTVIEW_H

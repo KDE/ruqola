@@ -18,33 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomwidget.h"
-#include "roomheaderwidget.h"
-#include "roomlistview.h"
-#include "messagelineedit.h"
-#include <QHBoxLayout>
-#include <KLocalizedString>
+#include "channellistviewtest.h"
+#include <QTest>
 
-RoomWidget::RoomWidget(QWidget *parent)
-    : QWidget(parent)
+QTEST_MAIN(ChannelListViewTest)
+ChannelListViewTest::ChannelListViewTest(QObject *parent)
+    : QObject(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mRoomHeaderWidget = new RoomHeaderWidget(this);
-    mRoomHeaderWidget->setObjectName(QStringLiteral("mRoomHeaderWidget"));
-    mainLayout->addWidget(mRoomHeaderWidget);
-
-    mRoomListView = new RoomListView(this);
-    mRoomListView->setObjectName(QStringLiteral("mRoomListView"));
-    mainLayout->addWidget(mRoomListView);
-
-    mMessageLineEdit = new MessageLineEdit(this);
-    mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
-    mainLayout->addWidget(mMessageLineEdit);
-}
-
-RoomWidget::~RoomWidget()
-{
 }

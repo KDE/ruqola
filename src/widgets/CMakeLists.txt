@@ -17,6 +17,8 @@ set(Ruqola_channellist_SRCS
 set(Ruqola_roomwidget_SRCS
     room/roomwidget.cpp
     room/roomheaderwidget.cpp
+    room/roomlistview.cpp
+    room/messagelineedit.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
