@@ -24,5 +24,4 @@ QTEST_MAIN(RoomWidgetTest)
 RoomWidgetTest::RoomWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

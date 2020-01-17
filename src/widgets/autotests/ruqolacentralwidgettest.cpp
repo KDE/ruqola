@@ -24,5 +24,4 @@ QTEST_MAIN(RuqolaCentralWidgetTest)
 RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

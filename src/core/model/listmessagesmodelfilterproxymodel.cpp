@@ -60,7 +60,7 @@ void ListMessagesModelFilterProxyModel::setFilterString(const QString &string)
 
 QString ListMessagesModelFilterProxyModel::title() const
 {
-    switch(listMessageType()) {
+    switch (listMessageType()) {
     case ListMessagesModel::Unknown:
         return {};
     case ListMessagesModel::StarredMessages:

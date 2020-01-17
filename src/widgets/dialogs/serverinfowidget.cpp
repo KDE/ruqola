@@ -25,10 +25,8 @@
 ServerInfoWidget::ServerInfoWidget(QWidget *parent)
     : QWidget(parent)
 {
-
 }
 
 ServerInfoWidget::~ServerInfoWidget()
 {
-
 }

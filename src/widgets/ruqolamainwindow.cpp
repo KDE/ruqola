@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
 
@@ -58,5 +57,4 @@ void RuqolaMainWindow::readConfig()
 
 void RuqolaMainWindow::setupActions()
 {
-
 }

@@ -25,10 +25,8 @@
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
 {
-
 }
 
 RoomWidget::~RoomWidget()
 {
-
 }

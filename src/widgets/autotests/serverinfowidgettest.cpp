@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "serverinfowidgettest.h"
 #include <QTest>
 QTEST_MAIN(ServerInfoWidgetTest)
@@ -26,5 +25,4 @@ QTEST_MAIN(ServerInfoWidgetTest)
 ServerInfoWidgetTest::ServerInfoWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

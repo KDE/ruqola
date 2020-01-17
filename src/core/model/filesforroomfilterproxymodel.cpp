@@ -22,8 +22,8 @@
 #include "filesforroommodel.h"
 
 FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(FilesForRoomModel *fileModel, QObject *parent)
-    : QSortFilterProxyModel(parent),
-      mFilesForRoomModel(fileModel)
+    : QSortFilterProxyModel(parent)
+    , mFilesForRoomModel(fileModel)
 {
     setSourceModel(mFilesForRoomModel);
     setDynamicSortFilter(true);

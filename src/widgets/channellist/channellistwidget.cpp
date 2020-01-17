@@ -25,10 +25,8 @@
 ChannelListWidget::ChannelListWidget(QWidget *parent)
     : QWidget(parent)
 {
-
 }
 
 ChannelListWidget::~ChannelListWidget()
 {
-
 }

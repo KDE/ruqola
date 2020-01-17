@@ -20,8 +20,8 @@
 #include "discussionsfilterproxymodel.h"
 #include "discussionsmodel.h"
 DiscussionsFilterProxyModel::DiscussionsFilterProxyModel(DiscussionsModel *model, QObject *parent)
-    : QSortFilterProxyModel(parent),
-      mDiscussionsModel(model)
+    : QSortFilterProxyModel(parent)
+    , mDiscussionsModel(model)
 {
     setSourceModel(mDiscussionsModel);
     setDynamicSortFilter(true);

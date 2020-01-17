@@ -37,7 +37,6 @@
 #include <QDirIterator>
 #include <KDBusService>
 
-
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -46,7 +45,6 @@ int main(int argc, char *argv[])
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
 
     KCrash::initialize();
-
 
     //TODO remove duplicate with qml version
 

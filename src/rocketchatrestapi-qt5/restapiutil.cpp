@@ -378,7 +378,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::AutoTranslateTranslateMessage:
         return QStringLiteral("autotranslate.translateMessage");
 
-
     case RestApiUtil::RestApiUrlType::CustomUserStatusList:
         return QStringLiteral("custom-user-status.list");
     case RestApiUtil::RestApiUrlType::CustomSoundsList:

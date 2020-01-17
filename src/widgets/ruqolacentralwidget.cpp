@@ -28,10 +28,8 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
-
 }
 
 RuqolaCentralWidget::~RuqolaCentralWidget()
 {
 }
-

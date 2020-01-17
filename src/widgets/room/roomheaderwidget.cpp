@@ -23,10 +23,8 @@
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)
 {
-
 }
 
 RoomHeaderWidget::~RoomHeaderWidget()
 {
-
 }

@@ -24,5 +24,4 @@ QTEST_MAIN(RoomHeaderWidgetTest)
 RoomHeaderWidgetTest::RoomHeaderWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

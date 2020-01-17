@@ -255,7 +255,6 @@ public:
     Q_INVOKABLE void loadMoreListMessages(const QString &roomId);
     Q_INVOKABLE void getListMessages(const QString &roomId, ListMessagesModel::ListMessageType type);
 
-
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
     ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
@@ -491,7 +490,6 @@ private:
 
     ListMessagesModel *mListMessageModel = nullptr;
     ListMessagesModelFilterProxyModel *mListMessagesFilterProxyModel = nullptr;
-
 
     AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
     bool mEditingMode = false;

@@ -142,7 +142,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mDiscussionsFilterProxyModel = new DiscussionsFilterProxyModel(mDiscussionsModel, this);
     mDiscussionsFilterProxyModel->setObjectName(QStringLiteral("discussionsfilterproxymodel"));
 
-
     mThreadsModel = new ThreadsModel(this);
     mThreadsModel->setObjectName(QStringLiteral("threadsmodel"));
 
@@ -163,7 +162,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mListMessagesFilterProxyModel = new ListMessagesModelFilterProxyModel(mListMessageModel, this);
     mListMessagesFilterProxyModel->setObjectName(QStringLiteral("listmessagesfiltermodelproxy"));
-
 
     mAutoTranslateLanguagesModel = new AutotranslateLanguagesModel(this);
     mAutoTranslateLanguagesModel->setObjectName(QStringLiteral("autotranslatelanguagesmodel"));

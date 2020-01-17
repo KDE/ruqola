@@ -18,12 +18,10 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "channellistwidgettest.h"
 #include <QTest>
 QTEST_MAIN(ChannelListWidgetTest)
 ChannelListWidgetTest::ChannelListWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

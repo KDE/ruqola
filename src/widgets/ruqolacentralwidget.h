@@ -29,7 +29,6 @@ class LIBRUQOLAWIDGETS_EXPORT RuqolaCentralWidget : public QWidget
 public:
     explicit RuqolaCentralWidget(QWidget *parent = nullptr);
     ~RuqolaCentralWidget();
-
 };
 
 #endif // RUQOLACENTRALWIDGET_H
