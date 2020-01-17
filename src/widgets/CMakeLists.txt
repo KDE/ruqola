@@ -40,6 +40,7 @@ target_link_libraries(libruqolawidgets
     KF5::ConfigCore
     KF5::XmlGui
     librocketchatrestapi-qt5
+    libruqolacore
 )
 
 if (NOT WIN32)

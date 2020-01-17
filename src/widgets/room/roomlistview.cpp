@@ -19,11 +19,9 @@
 */
 
 #include "roomlistview.h"
-
 RoomListView::RoomListView(QWidget *parent)
     : QListView(parent)
 {
-
 }
 
 RoomListView::~RoomListView()

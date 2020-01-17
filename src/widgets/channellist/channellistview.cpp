@@ -19,10 +19,14 @@
 */
 
 #include "channellistview.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+#include "model/roomfilterproxymodel.h"
 
 ChannelListView::ChannelListView(QWidget *parent)
     : QListView(parent)
 {
+    setModel(Ruqola::self()->rocketChatAccount()->roomFilterProxyModel());
 
 }
 
