@@ -58,6 +58,29 @@ static QString makeSenderText(const QString &sender)
     return QLatin1Char('@') + sender;
 }
 
+static QString makeTimeStampText(const QModelIndex &index)
+{
+    return index.data(MessageModel::Timestamp).toString();
+}
+
+static void drawTimestamp(const QModelIndex &index, QPainter *painter, const QStyleOptionViewItem &option, QRect *timeRect)
+{
+    const QString timeStampText = makeTimeStampText(index);
+    // This gives incorrect results (too small bounding rect), no idea why!
+    //const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
+    const QSize timeSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
+
+    *timeRect = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignRight | Qt::AlignVCenter, timeSize, option.rect);
+    const QPen oldPen = painter->pen();
+    QColor col = painter->pen().color();
+    col.setAlpha(128); // TimestampText.qml had opacity: .5
+    painter->setPen(col);
+    painter->drawText(*timeRect, timeStampText);
+    painter->setPen(oldPen);
+
+    painter->setPen(oldPen);
+}
+
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     drawBackground(painter, option, index);
@@ -85,9 +108,14 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     QRect senderRect = option.rect; //  for now
     senderRect.setSize(senderFontMetrics.boundingRect(senderText).size());
 
+    // Timestamp
+    QRect timeRect;
+    drawTimestamp(index, painter, option, &timeRect);
+
     // Message
     QRect messageRect = option.rect;
     messageRect.setLeft(senderRect.right());
+    messageRect.setRight(timeRect.left() - 1);
     const QString message = index.data(MessageModel::MessageConvertedText).toString();
 
     qreal baseLine = 0;
@@ -103,6 +131,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    // Sender
     const QString sender = index.data(MessageModel::Username).toString();
     QFont boldFont = option.font;
     boldFont.setBold(true);
@@ -110,9 +139,16 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     const QFontMetrics senderFontMetrics(boldFont);
     senderRect.setSize(senderFontMetrics.boundingRect(makeSenderText(sender)).size());
 
+    // Timestamp
+    const QString timeStampText = makeTimeStampText(index);
+    const QSize timeSize = option.fontMetrics.boundingRect(timeStampText).size();
+
+    // Message (using the rest of the available width)
     QTextDocument doc;
     const QString message = index.data(MessageModel::MessageConvertedText).toString();
     doc.setHtml(message);
-    doc.setTextWidth(option.rect.width());
-    return QSize(senderRect.width() + doc.idealWidth(), qMax<int>(senderRect.height(), doc.size().height()));
+    doc.setTextWidth(option.rect.width() - senderRect.width() - timeSize.width());
+
+    return QSize(senderRect.width() + doc.idealWidth() + timeSize.width(),
+                 qMax<int>(senderRect.height(), doc.size().height()));
 }
