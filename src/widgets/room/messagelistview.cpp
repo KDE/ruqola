@@ -21,11 +21,13 @@
 #include "messagelistview.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "messagelistdelegate.h"
 #include <QDebug>
 
 MessageListView::MessageListView(QWidget *parent)
     : QListView(parent)
 {
+    setItemDelegate(new MessageListDelegate(this));
 }
 
 MessageListView::~MessageListView()
