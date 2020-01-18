@@ -19,9 +19,40 @@
 */
 
 #include "roomheaderwidgettest.h"
+#include "room/roomheaderwidget.h"
+#include <QLabel>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(RoomHeaderWidgetTest)
 RoomHeaderWidgetTest::RoomHeaderWidgetTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void RoomHeaderWidgetTest::shouldHaveDefaultValues()
+{
+    RoomHeaderWidget w;
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QLabel *mRoomName = w.findChild<QLabel *>(QStringLiteral("mRoomName"));
+    QVERIFY(mRoomName);
+    QVERIFY(mRoomName->text().isEmpty());
+    QVERIFY(!mRoomName->isVisible());
+
+    QLabel *mTopic = w.findChild<QLabel *>(QStringLiteral("mTopic"));
+    QVERIFY(mTopic);
+    QVERIFY(mTopic->text().isEmpty());
+    QVERIFY(!mTopic->isVisible());
+
+    QLabel *mAnnouncement = w.findChild<QLabel *>(QStringLiteral("mAnnouncement"));
+    QVERIFY(mAnnouncement);
+    QVERIFY(mAnnouncement->text().isEmpty());
+    QVERIFY(!mAnnouncement->isVisible());
+
+    QLabel *mDescription = w.findChild<QLabel *>(QStringLiteral("mDescription"));
+    QVERIFY(mDescription);
+    QVERIFY(mDescription->text().isEmpty());
+    QVERIFY(!mDescription->isVisible());
 }
