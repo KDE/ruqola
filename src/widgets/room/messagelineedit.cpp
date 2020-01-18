@@ -34,3 +34,5 @@ MessageLineEdit::~MessageLineEdit()
 {
 
 }
+
+//TODO add keyEvent

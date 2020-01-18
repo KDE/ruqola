@@ -18,20 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "statuscombobox.h"
+#include "messagelinewidget.h"
+#include <QHBoxLayout>
 
-StatusCombobox::StatusCombobox(QWidget *parent)
-    : QComboBox(parent)
+MessageLineWidget::MessageLineWidget(QWidget *parent)
+    : QWidget(parent)
 {
-    init();
-}
-
-StatusCombobox::~StatusCombobox()
-{
-
-}
-
-void StatusCombobox::init()
-{
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
     //TODO
+}
+
+MessageLineWidget::~MessageLineWidget()
+{
+
 }

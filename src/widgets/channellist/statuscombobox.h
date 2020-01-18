@@ -31,6 +31,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT StatusCombobox : public QComboBox
 public:
     explicit StatusCombobox(QWidget *parent = nullptr);
     ~StatusCombobox();
+private:
+    void init();
 };
 
 #endif // STATUSCOMBOBOX_H

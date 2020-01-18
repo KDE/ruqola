@@ -18,20 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "statuscombobox.h"
+#include "messagelinewidgettest.h"
+#include "room/messagelinewidget.h"
+#include <QTest>
+QTEST_MAIN(MessageLineWidgetTest)
 
-StatusCombobox::StatusCombobox(QWidget *parent)
-    : QComboBox(parent)
-{
-    init();
-}
-
-StatusCombobox::~StatusCombobox()
+MessageLineWidgetTest::MessageLineWidgetTest(QObject *parent)
+    : QObject(parent)
 {
 
-}
-
-void StatusCombobox::init()
-{
-    //TODO
 }

@@ -22,6 +22,7 @@ set(Ruqola_roomwidget_SRCS
     room/messagelistview.cpp
     room/messagelineedit.cpp
     room/messagelistdelegate.cpp
+    room/messagelinewidget.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
