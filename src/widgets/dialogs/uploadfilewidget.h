@@ -22,13 +22,18 @@
 #define UPLOADFILEWIDGET_H
 
 #include <QWidget>
-
-class UploadFileWidget : public QWidget
+class QLineEdit;
+#include "libruqolawidgets_private_export.h"
+class LIBRUQOLAWIDGETS_EXPORT UploadFileWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit UploadFileWidget(QWidget *parent = nullptr);
     ~UploadFileWidget();
+private:
+    QLineEdit *mDescription = nullptr;
+    QLineEdit *mMessage = nullptr;
+    //KUrlRequester *mSelectFile = nullptr;
 };
 
 #endif // UPLOADFILEWIDGET_H

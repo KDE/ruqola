@@ -20,6 +20,8 @@
 
 #include "uploadfilewidgettest.h"
 #include "dialogs/uploadfilewidget.h"
+#include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(UploadFileWidgetTest)
 
@@ -27,4 +29,20 @@ UploadFileWidgetTest::UploadFileWidgetTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void UploadFileWidgetTest::shouldHaveDefaultValues()
+{
+    UploadFileWidget w;
+    QFormLayout *layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
+    QVERIFY(layout);
+    QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QLineEdit *mDescription = w.findChild<QLineEdit *>(QStringLiteral("mDescription"));
+    QVERIFY(mDescription);
+    QVERIFY(mDescription->isClearButtonEnabled());
+
+    QLineEdit *mMessage = w.findChild<QLineEdit *>(QStringLiteral("mMessage"));
+    QVERIFY(mMessage);
+    QVERIFY(mMessage->isClearButtonEnabled());
 }

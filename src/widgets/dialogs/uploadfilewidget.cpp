@@ -19,11 +19,26 @@
 */
 
 #include "uploadfilewidget.h"
+#include <QFormLayout>
+#include <KLocalizedString>
+#include <QLineEdit>
 
 UploadFileWidget::UploadFileWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QFormLayout *layout = new QFormLayout(this);
+    layout->setObjectName(QStringLiteral("layout"));
+    layout->setContentsMargins(0, 0, 0, 0);
 
+    mDescription = new QLineEdit(this);
+    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setClearButtonEnabled(true);
+    layout->addRow(i18n("Description"), mDescription);
+
+    mMessage = new QLineEdit(this);
+    mMessage->setObjectName(QStringLiteral("mMessage"));
+    mMessage->setClearButtonEnabled(true);
+    layout->addRow(i18n("Message"), mMessage);
 }
 
 UploadFileWidget::~UploadFileWidget()
