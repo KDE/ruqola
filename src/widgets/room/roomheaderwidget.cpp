@@ -38,16 +38,19 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mTopic = new QLabel(this);
     mTopic->setObjectName(QStringLiteral("mTopic"));
     mainLayout->addWidget(mTopic);
+    mTopic->setOpenExternalLinks(true);
     mTopic->setVisible(false);
 
     mAnnouncement = new QLabel(this);
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
     mainLayout->addWidget(mAnnouncement);
+    mAnnouncement->setOpenExternalLinks(true);
     mAnnouncement->setVisible(false);
 
     mDescription = new QLabel(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
     mainLayout->addWidget(mDescription);
+    mDescription->setOpenExternalLinks(true);
     mDescription->setVisible(false);
 }
 
