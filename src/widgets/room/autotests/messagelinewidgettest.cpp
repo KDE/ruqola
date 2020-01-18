@@ -20,6 +20,7 @@
 
 #include "messagelinewidgettest.h"
 #include "room/messagelinewidget.h"
+#include <QHBoxLayout>
 #include <QTest>
 QTEST_MAIN(MessageLineWidgetTest)
 
@@ -27,4 +28,13 @@ MessageLineWidgetTest::MessageLineWidgetTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void MessageLineWidgetTest::shouldHaveDefaultValues()
+{
+    MessageLineWidget w;
+    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+    //TODO
 }

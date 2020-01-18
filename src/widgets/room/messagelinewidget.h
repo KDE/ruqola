@@ -23,8 +23,8 @@
 #define MESSAGELINEWIDGET_H
 
 #include <QWidget>
-
-class MessageLineWidget : public QWidget
+#include "libruqolawidgets_private_export.h"
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
     Q_OBJECT
 public:

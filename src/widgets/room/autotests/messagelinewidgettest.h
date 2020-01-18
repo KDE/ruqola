@@ -29,6 +29,8 @@ class MessageLineWidgetTest : public QObject
 public:
     explicit MessageLineWidgetTest(QObject *parent = nullptr);
     ~MessageLineWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // MESSAGELINEWIDGETTEST_H
