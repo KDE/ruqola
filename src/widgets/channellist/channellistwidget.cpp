@@ -35,6 +35,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
 
     mSearchRoom = new QLineEdit(this);
     mSearchRoom->setObjectName(QStringLiteral("mSearchRoom"));
+    mSearchRoom->setClearButtonEnabled(true);
     mainLayout->addWidget(mSearchRoom);
 
     mChannelView = new ChannelListView(this);
