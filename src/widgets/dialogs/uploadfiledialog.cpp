@@ -33,6 +33,11 @@ UploadFileDialog::UploadFileDialog(QWidget *parent)
     mUploadFileWidget = new UploadFileWidget(this);
     mUploadFileWidget->setObjectName(QStringLiteral("mUploadFileWidget"));
     mainLayout->addWidget(mUploadFileWidget);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    //TODO emit signal for uploading file
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &UploadFileDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &UploadFileDialog::reject);
 }
 
 UploadFileDialog::~UploadFileDialog()
