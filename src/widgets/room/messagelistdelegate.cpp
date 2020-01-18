@@ -23,6 +23,7 @@
 
 #include <QPainter>
 #include <QStyle>
+#include <QTextBlock>
 #include <QTextDocument>
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
@@ -30,7 +31,7 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
 {
 }
 
-static void drawRichText(QPainter *painter, const QRect &rect, const QString &text)
+static void drawRichText(QPainter *painter, const QRect &rect, const QString &text, qreal *pBaseLine)
 {
     // Possible optimisation: store the QTextDocument into the Message itself?
     QTextDocument doc;
@@ -46,6 +47,10 @@ static void drawRichText(QPainter *painter, const QRect &rect, const QString &te
     const QRect clip(0, 0, rect.width(), rect.height());
     doc.drawContents(painter, clip);
     painter->translate(-rect.left(), -rect.top());
+
+    const qreal frameMargin = doc.frameAt(0)->frameFormat().topMargin();
+    const QTextLine &line = doc.firstBlock().layout()->lineAt(0);
+    *pBaseLine = frameMargin + line.y() + line.ascent();
 }
 
 static QString makeSenderText(const QString &sender)
@@ -72,24 +77,26 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     drawDecoration(painter, opt, decorationRect, pixmap);
 #endif
 
-    // Sender
+    // Sender (calculate size, but don't draw it yet, we need to align vertically to the first line of the message)
     const QString senderText = makeSenderText(sender);
-    const QFont font = option.font;
-    QFont boldFont = font;
+    QFont boldFont = option.font;
     boldFont.setBold(true);
-    painter->setFont(boldFont);
     const QFontMetrics senderFontMetrics(boldFont);
     QRect senderRect = option.rect; //  for now
     senderRect.setSize(senderFontMetrics.boundingRect(senderText).size());
-    painter->drawText(senderRect, senderText);
-    painter->setFont(font);
 
     // Message
     QRect messageRect = option.rect;
     messageRect.setLeft(senderRect.right());
     const QString message = index.data(MessageModel::MessageConvertedText).toString();
 
-    drawRichText(painter, messageRect, message);
+    qreal baseLine = 0;
+    drawRichText(painter, messageRect, message, &baseLine);
+
+    // Now draw the sender
+    painter->setFont(boldFont);
+    painter->drawText(senderRect.x(), senderRect.y() + baseLine, senderText);
+    painter->setFont(option.font);
 
     //drawFocus(painter, option, displayRect);
 }
