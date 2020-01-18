@@ -33,18 +33,22 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mRoomName = new QLabel(this);
     mRoomName->setObjectName(QStringLiteral("mRoomName"));
     mainLayout->addWidget(mRoomName);
+    mRoomName->setVisible(false);
 
     mTopic = new QLabel(this);
     mTopic->setObjectName(QStringLiteral("mTopic"));
     mainLayout->addWidget(mTopic);
+    mTopic->setVisible(false);
 
     mAnnouncement = new QLabel(this);
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
     mainLayout->addWidget(mAnnouncement);
+    mAnnouncement->setVisible(false);
 
     mDescription = new QLabel(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
     mainLayout->addWidget(mDescription);
+    mDescription->setVisible(false);
 }
 
 RoomHeaderWidget::~RoomHeaderWidget()
@@ -54,6 +58,7 @@ RoomHeaderWidget::~RoomHeaderWidget()
 void RoomHeaderWidget::setRoomName(const QString &name)
 {
     mRoomName->setText(name);
+    mRoomName->setVisible(!name.isEmpty());
 }
 
 QString RoomHeaderWidget::roomName() const
