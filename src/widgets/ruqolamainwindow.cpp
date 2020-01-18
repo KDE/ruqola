@@ -33,6 +33,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
 {
     mMainWidget = new RuqolaCentralWidget(this);
+    mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     setCentralWidget(mMainWidget);
     setupActions();
     setupGUI();
