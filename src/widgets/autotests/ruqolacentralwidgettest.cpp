@@ -24,6 +24,7 @@
 #include "room/roomwidget.h"
 
 #include <QHBoxLayout>
+#include <QSplitter>
 #include <QTest>
 
 QTEST_MAIN(RuqolaCentralWidgetTest)
@@ -38,9 +39,14 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
 
+    QSplitter *mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
+    QVERIFY(mSplitter);
+
     ChannelListWidget *mChannelList = w.findChild<ChannelListWidget *>(QStringLiteral("mChannelList"));
     QVERIFY(mChannelList);
 
     RoomWidget *mRoomWidget = w.findChild<RoomWidget *>(QStringLiteral("mRoomWidget"));
-    QVERIFY(mRoomWidget);    
+    QVERIFY(mRoomWidget);
+    QVERIFY(mSplitter->indexOf(mChannelList) >= 0);
+    QVERIFY(mSplitter->indexOf(mRoomWidget) >= 0);
 }

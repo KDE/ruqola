@@ -25,7 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 class ChannelListWidget;
 class RoomWidget;
-
+class QSplitter;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaCentralWidget : public QWidget
 {
     Q_OBJECT
@@ -35,6 +35,7 @@ public:
 private:
     ChannelListWidget *mChannelList = nullptr;
     RoomWidget *mRoomWidget = nullptr;
+    QSplitter *mSplitter = nullptr;
 };
 
 #endif // RUQOLACENTRALWIDGET_H

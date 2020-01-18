@@ -23,20 +23,25 @@
 #include "room/roomwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QSplitter>
 
 RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     : QWidget(parent)
-{
+{    
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
+    mSplitter = new QSplitter(this);
+    mSplitter->setObjectName(QStringLiteral("mSplitter"));
+    mainLayout->addWidget(mSplitter);
+
     mChannelList = new ChannelListWidget(this);
     mChannelList->setObjectName(QStringLiteral("mChannelList"));
-    mainLayout->addWidget(mChannelList);
+    mSplitter->addWidget(mChannelList);
 
     mRoomWidget = new RoomWidget(this);
     mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
-    mainLayout->addWidget(mRoomWidget);
+    mSplitter->addWidget(mRoomWidget);
 
     connect(mChannelList, &ChannelListWidget::channelSelected, mRoomWidget, &RoomWidget::channelSelected);
 }
