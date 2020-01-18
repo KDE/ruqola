@@ -20,7 +20,10 @@
 
 #include "messagelineedit.h"
 #include "messagelinewidget.h"
+#include "dialogs/uploadfiledialog.h"
+#include <QPointer>
 #include <QHBoxLayout>
+#include <QToolButton>
 
 MessageLineWidget::MessageLineWidget(QWidget *parent)
     : QWidget(parent)
@@ -28,6 +31,13 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setSpacing(0);
+
+    mSendFile = new QToolButton(this);
+    mSendFile->setObjectName(QStringLiteral("mSendFile"));
+    mainLayout->addWidget(mSendFile);
+    mSendFile->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
+    connect(mSendFile, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
 
     mMessageLineEdit = new MessageLineEdit(this);
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
@@ -39,4 +49,13 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 MessageLineWidget::~MessageLineWidget()
 {
 
+}
+
+void MessageLineWidget::slotSendFile()
+{
+    QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
+    if (dlg->exec()) {
+        //TODO
+    }
+    delete dlg;
 }

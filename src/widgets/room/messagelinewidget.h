@@ -25,6 +25,7 @@
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class MessageLineEdit;
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
     Q_OBJECT
@@ -37,7 +38,9 @@ Q_SIGNALS:
     void clearNotification();
 
 private:
+    void slotSendFile();
     MessageLineEdit *mMessageLineEdit = nullptr;
+    QToolButton *mSendFile = nullptr;
 };
 
 #endif // MESSAGELINEWIDGET_H
