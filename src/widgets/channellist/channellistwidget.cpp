@@ -22,6 +22,7 @@
 #include "channellistwidget.h"
 #include "statuscombobox.h"
 #include <QHBoxLayout>
+#include <QLabel>
 #include <KLocalizedString>
 
 ChannelListWidget::ChannelListWidget(QWidget *parent)
@@ -36,9 +37,16 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mainLayout->addWidget(mChannelView);
     connect(mChannelView, &ChannelListView::channelSelected, this, &ChannelListWidget::channelSelected);
 
+
+    QHBoxLayout *statusComboBoxLayout = new QHBoxLayout;
+    mainLayout->addLayout(statusComboBoxLayout);
+    QLabel *label = new QLabel(i18n("Status:"), this);
+    label->setObjectName(QStringLiteral("label"));
+    statusComboBoxLayout->addWidget(label);
+
     mStatusComboBox = new StatusCombobox(this);
     mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
-    mainLayout->addWidget(mStatusComboBox);
+    statusComboBoxLayout->addWidget(mStatusComboBox);
 }
 
 ChannelListWidget::~ChannelListWidget()

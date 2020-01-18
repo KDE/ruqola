@@ -23,6 +23,7 @@
 #include "channellist/statuscombobox.h"
 #include "channellist/channellistview.h"
 
+#include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -45,4 +46,8 @@ void ChannelListWidgetTest::shouldHaveDefaultValues()
 
     ChannelListView *mChannelView = w.findChild<ChannelListView *>(QStringLiteral("mChannelView"));
     QVERIFY(mChannelView);
+
+    QLabel *label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
 }
