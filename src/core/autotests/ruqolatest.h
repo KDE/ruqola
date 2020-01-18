@@ -29,8 +29,10 @@ class RuqolaTest : public QObject
 public:
     explicit RuqolaTest(QObject *parent = nullptr);
     ~RuqolaTest() = default;
+
 private Q_SLOTS:
     void shouldHaveDefaultValue();
+    void shouldDestroy();
 };
 
 #endif // RUQOLATEST_H

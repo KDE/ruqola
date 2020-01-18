@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "ruqola.h"
 #include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
 
@@ -43,6 +44,8 @@ RuqolaMainWindow::~RuqolaMainWindow()
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group = config->group(myConfigGroupName);
     group.writeEntry("Size", size());
+
+    Ruqola::destroy();
 }
 
 void RuqolaMainWindow::readConfig()

@@ -33,9 +33,10 @@
 #include "restapirequest.h"
 #include <KNotification>
 
+static Ruqola *s_self = nullptr;
+
 Ruqola *Ruqola::self()
 {
-    static Ruqola *s_self = nullptr;
     if (!s_self) {
         s_self = new Ruqola;
         // Create systray to show notifications on Desktop
@@ -44,6 +45,12 @@ Ruqola *Ruqola::self()
 #endif
     }
     return s_self;
+}
+
+void Ruqola::destroy()
+{
+    delete s_self;
+    s_self = nullptr;
 }
 
 Ruqola::Ruqola(QObject *parent)
@@ -88,7 +95,7 @@ void Ruqola::sendNotification(const QString &title, const QString &message, cons
 Notification *Ruqola::notification()
 {
     if (!mNotification) {
-        mNotification = new Notification();
+        mNotification = new Notification(this);
     }
     return mNotification;
 }

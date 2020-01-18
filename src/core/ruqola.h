@@ -48,6 +48,8 @@ public:
     */
     static Ruqola *self();
 
+    static void destroy();
+
     Notification *notification();
 
     Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;

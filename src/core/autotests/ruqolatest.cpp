@@ -21,6 +21,8 @@
 #include "ruqolatest.h"
 #include "ruqola.h"
 #include <QTest>
+#include <QPointer>
+
 QTEST_MAIN(RuqolaTest)
 
 RuqolaTest::RuqolaTest(QObject *parent)
@@ -33,4 +35,19 @@ void RuqolaTest::shouldHaveDefaultValue()
     Ruqola r(nullptr);
     QVERIFY(r.accountManager());
     QVERIFY(r.applicationData());
+}
+
+void RuqolaTest::shouldDestroy()
+{
+    // GIVEN
+    Ruqola *obj = Ruqola::self();
+    QPointer<Notification> pNotification(obj->notification());
+    QVERIFY(!pNotification.isNull());
+
+    // WHEN
+    Ruqola::destroy();
+
+    // THEN
+    QVERIFY(pNotification.isNull());
+    // otherwise the process won't exit...
 }
