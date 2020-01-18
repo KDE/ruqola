@@ -35,9 +35,12 @@ public:
 
     Q_INVOKABLE void setFilterString(const QString &string);
 protected:
-    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    Q_REQUIRED_RESULT bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
 private:
     Q_DISABLE_COPY(RoomFilterProxyModel)
+
 };
 
 #endif // ROOMFILTERPROXYMODEL_H
