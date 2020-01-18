@@ -22,10 +22,30 @@
 #include "model/messagemodel.h"
 
 #include <QPainter>
+#include <QStyle>
+#include <QTextDocument>
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent)
 {
+}
+
+static void drawRichText(QPainter *painter, const QRect &rect, const QString &text)
+{
+    // Possible optimisation: store the QTextDocument into the Message itself?
+    QTextDocument doc;
+    doc.setHtml(text);
+    doc.setTextWidth(rect.width());
+
+    //QStyleOptionViewItemV4 options = option;
+    //initStyleOption(&options, index);
+    //options.text = QString();
+    //options.widget->style()->drawControl(QStyle::CE_ItemViewItem, &options, painter);
+
+    painter->translate(rect.left(), rect.top());
+    const QRect clip(0, 0, rect.width(), rect.height());
+    doc.drawContents(painter, clip);
+    painter->translate(-rect.left(), -rect.top());
 }
 
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -55,24 +75,25 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     painter->drawText(displayRect, userText);
     painter->setFont(font);
 
-    // Then the actual message (TODO richtext support)
+    // Then the actual message
     QRect messageRect = displayRect;
     messageRect.setTop(messageRect.top() + QFontMetrics(boldFont).height());
     const QString message = index.data(MessageModel::MessageConvertedText).toString();
-    painter->drawText(messageRect, message);
 
-    drawFocus(painter, option, displayRect);
+    drawRichText(painter, messageRect, message);
+
+    //drawFocus(painter, option, displayRect);
 }
 
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    //QRect decorationRect = rect(option, index, Qt::DecorationRole);
-    //QRect displayRect = d->displayRect(index, option, decorationRect, checkRect);
-
     QFont boldFont = option.font;
     boldFont.setBold(true);
     const int userHeight = QFontMetrics(boldFont).height();
 
-    // TODO HACK
-    return QSize(500, userHeight * 2);
+    QTextDocument doc;
+    const QString message = index.data(MessageModel::MessageConvertedText).toString();
+    doc.setHtml(message);
+    doc.setTextWidth(option.rect.width());
+    return QSize(doc.idealWidth(), userHeight + doc.size().height());
 }

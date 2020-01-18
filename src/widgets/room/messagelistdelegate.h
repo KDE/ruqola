@@ -26,6 +26,7 @@
 class MessageListDelegate : public QItemDelegate
 {
     Q_OBJECT
+
 public:
     explicit MessageListDelegate(QObject *parent = nullptr);
 
