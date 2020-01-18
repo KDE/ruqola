@@ -20,6 +20,8 @@
 
 #include "messagelineedit.h"
 
+#include <QKeyEvent>
+
 MessageLineEdit::MessageLineEdit(QWidget *parent)
     : QLineEdit(parent)
 {
@@ -34,5 +36,19 @@ MessageLineEdit::~MessageLineEdit()
 {
 
 }
+
+void MessageLineEdit::keyPressEvent(QKeyEvent *e)
+{
+    switch (e->key()) {
+    case Qt::Key_Escape:
+        e->ignore();
+        Q_EMIT clearNotification();
+        return;
+    default:
+        break;
+    }
+    QLineEdit::keyPressEvent(e);
+}
+
 
 //TODO add keyEvent

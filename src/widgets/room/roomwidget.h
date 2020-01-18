@@ -42,6 +42,7 @@ Q_SIGNALS:
 private:
     void setChannelSelected(const QModelIndex &index);
     void slotSendMessage(const QString &msg);
+    void slotClearNotification();
     QString mRoomId;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;

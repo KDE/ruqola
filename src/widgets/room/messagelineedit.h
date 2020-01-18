@@ -32,6 +32,9 @@ public:
     ~MessageLineEdit();
 Q_SIGNALS:
     void sendMessage(const QString &str);
+    void clearNotification();
+protected:
+    void keyPressEvent(QKeyEvent *e) override;
 };
 
 #endif // MESSAGELINEEDIT_H

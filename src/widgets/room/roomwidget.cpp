@@ -48,6 +48,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     connect(this, &RoomWidget::channelSelected, this, &RoomWidget::setChannelSelected);
     connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &RoomWidget::slotSendMessage);
+    connect(mMessageLineWidget, &MessageLineWidget::clearNotification, this, &RoomWidget::slotClearNotification);
 }
 
 RoomWidget::~RoomWidget()
@@ -76,4 +77,9 @@ void RoomWidget::setRoomId(const QString &roomId)
         mRoomId = roomId;
         mMessageListView->setChannelSelected(roomId);
     }
+}
+
+void RoomWidget::slotClearNotification()
+{
+    Ruqola::self()->rocketChatAccount()->clearUnreadMessages(mRoomId);
 }

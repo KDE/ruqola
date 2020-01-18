@@ -33,6 +33,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
     mainLayout->addWidget(mMessageLineEdit);
     connect(mMessageLineEdit, &MessageLineEdit::sendMessage, this, &MessageLineWidget::sendMessage);
+    connect(mMessageLineEdit, &MessageLineEdit::clearNotification, this, &MessageLineWidget::clearNotification);
 }
 
 MessageLineWidget::~MessageLineWidget()

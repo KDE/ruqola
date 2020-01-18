@@ -34,6 +34,7 @@ public:
 
 Q_SIGNALS:
     void sendMessage(const QString &str);
+    void clearNotification();
 
 private:
     MessageLineEdit *mMessageLineEdit = nullptr;
