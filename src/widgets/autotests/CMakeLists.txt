@@ -9,3 +9,4 @@ endmacro()
 
 add_ruqolawidget_test(ruqolacentralwidgettest.cpp)
 add_ruqolawidget_test(serverinfowidgettest.cpp)
+add_ruqolawidget_test(ruqolaloginwidgettest.cpp)
