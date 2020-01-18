@@ -25,6 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 class StatusCombobox;
 class ChannelListView;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListWidget : public QWidget
 {
     Q_OBJECT
@@ -38,6 +39,7 @@ Q_SIGNALS:
 private:
     StatusCombobox *mStatusComboBox = nullptr;
     ChannelListView *mChannelView = nullptr;
+    QLineEdit *mSearchRoom = nullptr;
 };
 
 #endif // CHANNELLISTWIDGET_H

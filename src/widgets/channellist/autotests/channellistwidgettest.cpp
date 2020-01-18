@@ -24,6 +24,7 @@
 #include "channellist/channellistview.h"
 
 #include <QLabel>
+#include <QLineEdit>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -40,6 +41,9 @@ void ChannelListWidgetTest::shouldHaveDefaultValues()
     QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QLineEdit *mSearchRoom = w.findChild<QLineEdit *>(QStringLiteral("mSearchRoom"));
+    QVERIFY(mSearchRoom);
 
     StatusCombobox *mStatusComboBox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusComboBox"));
     QVERIFY(mStatusComboBox);

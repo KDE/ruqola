@@ -24,6 +24,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <KLocalizedString>
+#include <QLineEdit>
 
 ChannelListWidget::ChannelListWidget(QWidget *parent)
     : QWidget(parent)
@@ -31,6 +32,10 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mSearchRoom = new QLineEdit(this);
+    mSearchRoom->setObjectName(QStringLiteral("mSearchRoom"));
+    mainLayout->addWidget(mSearchRoom);
 
     mChannelView = new ChannelListView(this);
     mChannelView->setObjectName(QStringLiteral("mChannelView"));
