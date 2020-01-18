@@ -64,6 +64,9 @@ void RoomWidget::setChannelSelected(const QModelIndex &index)
 {
     setRoomId(index.data(RoomModel::RoomID).toString());
     mRoomHeaderWidget->setRoomName(index.data(RoomModel::RoomFName).toString());
+    mRoomHeaderWidget->setRoomAnnouncement(index.data(RoomModel::RoomAnnouncement).toString());
+    mRoomHeaderWidget->setRoomTopic(index.data(RoomModel::RoomTopic).toString());
+    //Description ???
 }
 
 QString RoomWidget::roomId() const

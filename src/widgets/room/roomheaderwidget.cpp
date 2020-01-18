@@ -68,3 +68,15 @@ QString RoomHeaderWidget::roomName() const
 {
     return mRoomName->text();
 }
+
+void RoomHeaderWidget::setRoomAnnouncement(const QString &name)
+{
+    mAnnouncement->setText(name);
+    mAnnouncement->setVisible(!name.isEmpty());
+}
+
+void RoomHeaderWidget::setRoomTopic(const QString &name)
+{
+    mTopic->setText(name);
+    mTopic->setVisible(!name.isEmpty());
+}

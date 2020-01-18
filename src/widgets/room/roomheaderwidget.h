@@ -33,6 +33,9 @@ public:
     ~RoomHeaderWidget();
     void setRoomName(const QString &name);
     Q_REQUIRED_RESULT QString roomName() const;
+    void setRoomAnnouncement(const QString &name);
+    void setRoomTopic(const QString &name);
+
 private:
     QLabel *mRoomName = nullptr;
     QLabel *mTopic = nullptr;
