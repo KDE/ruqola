@@ -25,7 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 class RoomHeaderWidget;
 class MessageListView;
-class MessageLineEdit;
+class MessageLineWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -45,7 +45,7 @@ private:
     QString mRoomId;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;
-    MessageLineEdit *mMessageLineEdit = nullptr;
+    MessageLineWidget *mMessageLineWidget = nullptr;
 };
 
 #endif // ROOMWIDGET_H

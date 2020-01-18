@@ -21,7 +21,7 @@
 #include "roomwidget.h"
 #include "roomheaderwidget.h"
 #include "messagelistview.h"
-#include "messagelineedit.h"
+#include "messagelinewidget.h"
 #include <QHBoxLayout>
 #include <KLocalizedString>
 #include "ruqola.h"
@@ -42,12 +42,12 @@ RoomWidget::RoomWidget(QWidget *parent)
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView);
 
-    mMessageLineEdit = new MessageLineEdit(this);
-    mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
-    mainLayout->addWidget(mMessageLineEdit);
+    mMessageLineWidget = new MessageLineWidget(this);
+    mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
+    mainLayout->addWidget(mMessageLineWidget);
 
     connect(this, &RoomWidget::channelSelected, this, &RoomWidget::setChannelSelected);
-    connect(mMessageLineEdit, &MessageLineEdit::sendMessage, this, &RoomWidget::slotSendMessage);
+    connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &RoomWidget::slotSendMessage);
 }
 
 RoomWidget::~RoomWidget()

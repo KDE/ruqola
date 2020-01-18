@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "messagelineedit.h"
 #include "messagelinewidget.h"
 #include <QHBoxLayout>
 
@@ -27,7 +28,11 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
-    //TODO
+
+    mMessageLineEdit = new MessageLineEdit(this);
+    mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
+    mainLayout->addWidget(mMessageLineEdit);
+    connect(mMessageLineEdit, &MessageLineEdit::sendMessage, this, &MessageLineWidget::sendMessage);
 }
 
 MessageLineWidget::~MessageLineWidget()

@@ -24,12 +24,19 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+class MessageLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit MessageLineWidget(QWidget *parent = nullptr);
     ~MessageLineWidget();
+
+Q_SIGNALS:
+    void sendMessage(const QString &str);
+
+private:
+    MessageLineEdit *mMessageLineEdit = nullptr;
 };
 
 #endif // MESSAGELINEWIDGET_H

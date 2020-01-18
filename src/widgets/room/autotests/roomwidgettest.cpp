@@ -20,7 +20,7 @@
 
 #include "roomwidgettest.h"
 #include "room/roomwidget.h"
-#include "room/messagelineedit.h"
+#include "room/messagelinewidget.h"
 #include "room/roomheaderwidget.h"
 #include "room/messagelistview.h"
 
@@ -47,7 +47,8 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     MessageListView *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
     QVERIFY(mMessageListView);
 
-    MessageLineEdit *mMessageLineEdit = w.findChild<MessageLineEdit *>(QStringLiteral("mMessageLineEdit"));
-    QVERIFY(mMessageLineEdit);
+    MessageLineWidget *mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
+    QVERIFY(mMessageLineWidget);
+
     QVERIFY(w.roomId().isEmpty());
 }
