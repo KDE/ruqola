@@ -33,6 +33,7 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
 
     mSplitter = new QSplitter(this);
     mSplitter->setObjectName(QStringLiteral("mSplitter"));
+    mSplitter->setChildrenCollapsible(false);
     mainLayout->addWidget(mSplitter);
 
     mChannelList = new ChannelListWidget(this);
