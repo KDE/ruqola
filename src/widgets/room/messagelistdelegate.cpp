@@ -67,12 +67,17 @@ static QString makeTimeStampText(const QModelIndex &index)
     return index.data(MessageModel::Timestamp).toString();
 }
 
+static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
+{
+    // This gives incorrect results (too small bounding rect), no idea why!
+    //const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
+    return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
+}
+
 static void drawTimestamp(const QModelIndex &index, QPainter *painter, const QStyleOptionViewItem &option, QRect *timeRect)
 {
     const QString timeStampText = makeTimeStampText(index);
-    // This gives incorrect results (too small bounding rect), no idea why!
-    //const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
-    const QSize timeSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
+    const QSize timeSize = timeStampSize(timeStampText, option);
 
     *timeRect = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignRight | Qt::AlignVCenter, timeSize, option.rect);
     const QPen oldPen = painter->pen();
@@ -172,7 +177,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 
     // Timestamp
     const QString timeStampText = makeTimeStampText(index);
-    const QSize timeSize = option.fontMetrics.boundingRect(timeStampText).size();
+    const QSize timeSize = timeStampSize(timeStampText, option);
 
     // Message (using the rest of the available width)
     QTextDocument doc;
