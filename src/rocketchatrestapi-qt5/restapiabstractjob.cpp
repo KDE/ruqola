@@ -173,7 +173,7 @@ void RestApiAbstractJob::setRestApiLogger(RocketChatRestApi::AbstractLogger *ruq
 
 void RestApiAbstractJob::addLoggerInfo(const QByteArray &str)
 {
-    if (mRestApiLogger) {
+    if (mRestApiLogger) { // when $RUQOLA_LOGFILE is set
         mRestApiLogger->dataSent("RESTAPI: " + str);
     } else {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "RESTAPI: " << str;
