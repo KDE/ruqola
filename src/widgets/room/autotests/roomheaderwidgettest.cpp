@@ -22,6 +22,7 @@
 #include "room/roomheaderwidget.h"
 #include <QLabel>
 #include <QTest>
+#include <QToolButton>
 #include <QVBoxLayout>
 QTEST_MAIN(RoomHeaderWidgetTest)
 RoomHeaderWidgetTest::RoomHeaderWidgetTest(QObject *parent)
@@ -55,4 +56,9 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDescription);
     QVERIFY(mDescription->text().isEmpty());
     QVERIFY(!mDescription->isVisible());
+
+    QToolButton *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
+    QVERIFY(mFavoriteButton);
+    QVERIFY(mFavoriteButton->isCheckable());
+    QVERIFY(!mFavoriteButton->isVisible());
 }

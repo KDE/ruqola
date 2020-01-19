@@ -40,6 +40,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mFavoriteButton->setObjectName(QStringLiteral("mFavoriteButton"));
     mFavoriteButton->setIcon(QIcon::fromTheme(QStringLiteral("favorite")));
     mFavoriteButton->setCheckable(true);
+    mFavoriteButton->setVisible(false);
     headerLayout->addWidget(mFavoriteButton, Qt::AlignTop);
     connect(mFavoriteButton, &QToolButton::clicked, this, &RoomHeaderWidget::favoriteChanged);
 
@@ -102,4 +103,5 @@ void RoomHeaderWidget::setRoomTopic(const QString &name)
 void RoomHeaderWidget::setFavoriteStatus(bool b)
 {
     mFavoriteButton->setChecked(b);
+    mFavoriteButton->setVisible(true); //TODO optimize it.
 }
