@@ -22,6 +22,7 @@
 #define UPLOADFILEDIALOG_H
 
 #include <QDialog>
+#include <QUrl>
 
 #include "libruqolawidgets_private_export.h"
 class UploadFileWidget;
@@ -29,8 +30,19 @@ class LIBRUQOLAWIDGETS_EXPORT UploadFileDialog : public QDialog
 {
     Q_OBJECT
 public:
+    struct UploadFileInfo {
+        QString description;
+        QString message;
+        QUrl fileUrl;
+        Q_REQUIRED_RESULT bool isValid() const {
+            return fileUrl.isValid(); //TODO verify local ?
+        }
+    };
+
     explicit UploadFileDialog(QWidget *parent = nullptr);
     ~UploadFileDialog();
+
+    Q_REQUIRED_RESULT UploadFileInfo fileInfo() const;
 private:
     UploadFileWidget *mUploadFileWidget = nullptr;
 };

@@ -69,6 +69,7 @@ endif()
 find_package(KF5DBusAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5XmlGui ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5Config ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5KIO ${KF5_MIN_VERSION} CONFIG REQUIRED)
 
 find_package(Qt5Keychain)
 set_package_properties(Qt5Keychain PROPERTIES

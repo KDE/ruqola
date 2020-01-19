@@ -31,6 +31,7 @@ public:
     ~UploadFileWidgetTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldReturnEmptyResult();
 };
 
 #endif // UPLOADFILEWIDGETTEST_H

@@ -20,6 +20,7 @@
 
 #include "uploadfilewidgettest.h"
 #include "dialogs/uploadfilewidget.h"
+#include <KUrlRequester>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
@@ -45,4 +46,15 @@ void UploadFileWidgetTest::shouldHaveDefaultValues()
     QLineEdit *mMessage = w.findChild<QLineEdit *>(QStringLiteral("mMessage"));
     QVERIFY(mMessage);
     QVERIFY(mMessage->isClearButtonEnabled());
+
+    KUrlRequester *mSelectFile = w.findChild<KUrlRequester *>(QStringLiteral("mSelectFile"));
+    QVERIFY(mSelectFile);
+}
+
+void UploadFileWidgetTest::shouldReturnEmptyResult()
+{
+    UploadFileWidget w;
+    QVERIFY(w.description().isEmpty());
+    QVERIFY(w.message().isEmpty());
+    QVERIFY(w.fileUrl().isEmpty());
 }

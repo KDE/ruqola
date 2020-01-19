@@ -44,6 +44,7 @@ target_link_libraries(libruqolawidgets
     KF5::I18n
     KF5::ConfigCore
     KF5::XmlGui
+    KF5::KIOWidgets
     librocketchatrestapi-qt5
     libruqolacore
 )

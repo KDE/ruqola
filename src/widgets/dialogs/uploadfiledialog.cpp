@@ -45,3 +45,12 @@ UploadFileDialog::~UploadFileDialog()
 {
 
 }
+
+UploadFileDialog::UploadFileInfo UploadFileDialog::fileInfo() const
+{
+    UploadFileInfo result;
+    result.description = mUploadFileWidget->description();
+    result.message = mUploadFileWidget->message();
+    result.fileUrl = mUploadFileWidget->fileUrl();
+    return result;
+}
