@@ -47,6 +47,7 @@ private:
     void slotClearNotification();
     void slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void updateRoomHeader();
+    void connectRoomWrapper();
     QString mRoomId;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;

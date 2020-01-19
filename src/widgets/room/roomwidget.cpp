@@ -96,18 +96,23 @@ void RoomWidget::setRoomId(const QString &roomId)
         mMessageListView->setChannelSelected(roomId);
         delete mRoomWrapper;
         mRoomWrapper = Ruqola::self()->rocketChatAccount()->roomWrapper(mRoomId);
-        if (mRoomWrapper) {
-            connect(mRoomWrapper, &RoomWrapper::announcementChanged, this, [this]() {
-                  mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
-            });
-            connect(mRoomWrapper, &RoomWrapper::topicChanged, this, [this]() {
-                  mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
-            });
-            connect(mRoomWrapper, &RoomWrapper::nameChanged, this, [this]() {
-                  mRoomHeaderWidget->setRoomName(mRoomWrapper->name());
-            });
-            updateRoomHeader();
-        }
+        connectRoomWrapper();
+    }
+}
+
+void RoomWidget::connectRoomWrapper()
+{
+    if (mRoomWrapper) {
+        connect(mRoomWrapper, &RoomWrapper::announcementChanged, this, [this]() {
+              mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
+        });
+        connect(mRoomWrapper, &RoomWrapper::topicChanged, this, [this]() {
+              mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
+        });
+        connect(mRoomWrapper, &RoomWrapper::nameChanged, this, [this]() {
+              mRoomHeaderWidget->setRoomName(mRoomWrapper->name());
+        });
+        updateRoomHeader();
     }
 }
 
