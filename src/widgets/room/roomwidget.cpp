@@ -51,6 +51,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &RoomWidget::slotSendMessage);
     connect(mMessageLineWidget, &MessageLineWidget::clearNotification, this, &RoomWidget::slotClearNotification);
     connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
 }
 
 RoomWidget::~RoomWidget()
@@ -122,4 +123,9 @@ void RoomWidget::connectRoomWrapper()
 void RoomWidget::slotClearNotification()
 {
     Ruqola::self()->rocketChatAccount()->clearUnreadMessages(mRoomId);
+}
+
+void RoomWidget::slotChangeFavorite(bool b)
+{
+    Ruqola::self()->rocketChatAccount()->changeFavorite(mRoomId, b);
 }

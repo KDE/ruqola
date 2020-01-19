@@ -41,6 +41,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mFavoriteButton->setIcon(QIcon::fromTheme(QStringLiteral("favorite")));
     mFavoriteButton->setCheckable(true);
     headerLayout->addWidget(mFavoriteButton, Qt::AlignTop);
+    connect(mFavoriteButton, &QToolButton::clicked, this, &RoomHeaderWidget::favoriteChanged);
 
     QVBoxLayout *infoLayout = new QVBoxLayout(this);
     infoLayout->setObjectName(QStringLiteral("infoLayout"));

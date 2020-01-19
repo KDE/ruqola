@@ -38,6 +38,8 @@ public:
     void setRoomTopic(const QString &name);
 
     void setFavoriteStatus(bool b);
+Q_SIGNALS:
+    void favoriteChanged(bool b);
 private:
     QLabel *mRoomName = nullptr;
     QLabel *mTopic = nullptr;
