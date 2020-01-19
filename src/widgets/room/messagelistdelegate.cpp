@@ -180,7 +180,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     doc.setHtml(message);
     const int widthBeforeMessage = senderRect.right();
     const int widthAfterMessage = timeSize.width();
-    doc.setTextWidth(option.rect.width() - widthBeforeMessage - widthAfterMessage);
+    doc.setTextWidth(qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage));
 
     // hopefully the width below is never more than option.rect.width() or we'll get a scrollbar
     return QSize(widthBeforeMessage + doc.idealWidth() + widthAfterMessage,

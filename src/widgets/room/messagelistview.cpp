@@ -28,6 +28,8 @@ MessageListView::MessageListView(QWidget *parent)
     : QListView(parent)
 {
     setItemDelegate(new MessageListDelegate(this));
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setWordWrap(true); // so that the delegate sizeHint is called again when the width changes
 }
 
 MessageListView::~MessageListView()
