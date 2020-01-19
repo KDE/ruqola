@@ -25,6 +25,7 @@
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <KLocalizedString>
 
 namespace {
 static const char myConfigGroupName[] = "RuqolaMainWindow";
@@ -65,5 +66,19 @@ void RuqolaMainWindow::setupActions()
     KActionCollection *ac = actionCollection();
 
     KStandardAction::quit(this, &RuqolaMainWindow::close, ac);
-    //KStandardAction::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
+    KStandardAction::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
+
+    QAction *act = new QAction(i18n("Add Account..."), this);
+    connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddAccount);
+    ac->addAction(QStringLiteral("add_account"), act);
+}
+
+void RuqolaMainWindow::slotConfigure()
+{
+    //TODO
+}
+
+void RuqolaMainWindow::slotAddAccount()
+{
+    //TODO
 }

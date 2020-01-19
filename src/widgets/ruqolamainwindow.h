@@ -33,6 +33,8 @@ public:
 private:
     void setupActions();
     void readConfig();
+    void slotAddAccount();
+    void slotConfigure();
     RuqolaCentralWidget *mMainWidget = nullptr;
 };
 
