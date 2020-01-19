@@ -20,8 +20,11 @@
 
 #include "messagelistdelegate.h"
 #include "model/messagemodel.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 
 #include <QPainter>
+#include <QPixmapCache>
 #include <QStyle>
 #include <QTextBlock>
 #include <QTextDocument>
@@ -50,12 +53,12 @@ static void drawRichText(QPainter *painter, const QRect &rect, const QString &te
 
     const qreal frameMargin = doc.frameAt(0)->frameFormat().topMargin();
     const QTextLine &line = doc.firstBlock().layout()->lineAt(0);
-    *pBaseLine = frameMargin + line.y() + line.ascent();
+    *pBaseLine = rect.y() + frameMargin + line.y() + line.ascent();
 }
 
-static QString makeSenderText(const QString &sender)
+static QString makeSenderText(const QModelIndex &index)
 {
-    return QLatin1Char('@') + sender;
+    return QLatin1Char('@') + index.data(MessageModel::Username).toString();
 }
 
 static QString makeTimeStampText(const QModelIndex &index)
@@ -81,32 +84,41 @@ static void drawTimestamp(const QModelIndex &index, QPainter *painter, const QSt
     painter->setPen(oldPen);
 }
 
+static QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight)
+{
+    const QString userId = index.data(MessageModel::UserId).toString();
+    const QString iconUrlStr = Ruqola::self()->rocketChatAccount()->avatarUrl(userId);
+    QPixmap pix;
+    if (!QPixmapCache::find(iconUrlStr, &pix)) {
+        const QUrl iconUrl(iconUrlStr);
+        Q_ASSERT(iconUrl.isLocalFile());
+        if (pix.load(iconUrl.toLocalFile())) {
+            pix = pix.scaledToHeight(maxHeight);
+            QPixmapCache::insert(iconUrlStr, pix);
+        } else {
+            qWarning() << "Could not load" << iconUrl.toLocalFile();
+        }
+    }
+    return pix;
+}
+
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     drawBackground(painter, option, index);
 
-    // Compact mode : <icon> <sender> <message> <smiley> <timestamp>
-
-
-    //QRect decorationRect = opt.rect;
-    const QString sender = index.data(MessageModel::Username).toString();
-#if 0
-    const QString iconFileName = mCache->avatarUrlFromCacheOnly(sender);
-    QPixmap pixmap;
-    if (!iconFileName.isEmpty()) {
-        const bool loaded = pix.load(iconFileName); // SLOW! QPixmapCache anyone?
-    }
-
-    drawDecoration(painter, opt, decorationRect, pixmap);
-#endif
+    // Compact mode : <pixmap> <sender> <message> <smiley> <timestamp>
 
     // Sender (calculate size, but don't draw it yet, we need to align vertically to the first line of the message)
-    const QString senderText = makeSenderText(sender);
+    const QString senderText = makeSenderText(index);
     QFont boldFont = option.font;
     boldFont.setBold(true);
     const QFontMetrics senderFontMetrics(boldFont);
-    QRect senderRect = option.rect; //  for now
+    QRect senderRect = option.rect;
     senderRect.setSize(senderFontMetrics.boundingRect(senderText).size());
+
+    // Pixmap (load and calculate size, but don't draw it yet, same reason)
+    const QPixmap avatarPixmap = makeAvatarPixmap(index, senderRect.height());
+    senderRect.translate(avatarPixmap.width(), 0);
 
     // Timestamp
     QRect timeRect;
@@ -117,13 +129,18 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     messageRect.setLeft(senderRect.right());
     messageRect.setRight(timeRect.left() - 1);
     const QString message = index.data(MessageModel::MessageConvertedText).toString();
-
     qreal baseLine = 0;
     drawRichText(painter, messageRect, message, &baseLine);
 
+    // Now draw the pixmap
+    painter->drawPixmap(option.rect.x(), baseLine - senderFontMetrics.ascent(), avatarPixmap);
+    // If we need support for drawing as selected, we might want to do this:
+    //QRect decorationRect(option.rect.x(), topOfFirstLine, avatarPixmap.width(), avatarPixmap.height());
+    //drawDecoration(painter, option, decorationRect, avatarPixmap);
+
     // Now draw the sender
     painter->setFont(boldFont);
-    painter->drawText(senderRect.x(), senderRect.y() + baseLine, senderText);
+    painter->drawText(senderRect.x(), baseLine, senderText);
     painter->setFont(option.font);
 
     //drawFocus(painter, option, displayRect);
@@ -132,12 +149,15 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // Sender
-    const QString sender = index.data(MessageModel::Username).toString();
     QFont boldFont = option.font;
     boldFont.setBold(true);
-    QRect senderRect = option.rect; //  for now
+    QRect senderRect = option.rect;
     const QFontMetrics senderFontMetrics(boldFont);
-    senderRect.setSize(senderFontMetrics.boundingRect(makeSenderText(sender)).size());
+    senderRect.setSize(senderFontMetrics.boundingRect(makeSenderText(index)).size());
+
+    // Pixmap
+    const QPixmap avatarPixmap = makeAvatarPixmap(index, senderRect.height());
+    senderRect.translate(avatarPixmap.width(), 0);
 
     // Timestamp
     const QString timeStampText = makeTimeStampText(index);
@@ -147,8 +167,8 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     QTextDocument doc;
     const QString message = index.data(MessageModel::MessageConvertedText).toString();
     doc.setHtml(message);
-    doc.setTextWidth(option.rect.width() - senderRect.width() - timeSize.width());
+    doc.setTextWidth(option.rect.width() - senderRect.right() - timeSize.width());
 
-    return QSize(senderRect.width() + doc.idealWidth() + timeSize.width(),
+    return QSize(avatarPixmap.width() + senderRect.width() + doc.idealWidth() + timeSize.width(),
                  qMax<int>(senderRect.height(), doc.size().height()));
 }
