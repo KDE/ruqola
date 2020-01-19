@@ -28,6 +28,7 @@
 #include <QStyle>
 #include <QTextBlock>
 #include <QTextDocument>
+#include <QWindow>
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -102,6 +103,16 @@ static QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight)
     return pix;
 }
 
+// [margin] <pixmap> [margin] <sender>
+static QRect layoutPixmapAndSender(const QStyleOptionViewItem &option, const QSize &senderTextSize, const QPixmap &avatarPixmap, int *pAvatarX)
+{
+    const int margin = 4 * option.widget->window()->windowHandle()->devicePixelRatio();
+    QRect senderRect(option.rect.x() + avatarPixmap.width() + 2 * margin, option.rect.y(),
+                     senderTextSize.width(), senderTextSize.height());
+    *pAvatarX = option.rect.x() + margin;
+    return senderRect;
+}
+
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     drawBackground(painter, option, index);
@@ -113,12 +124,12 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     QFont boldFont = option.font;
     boldFont.setBold(true);
     const QFontMetrics senderFontMetrics(boldFont);
-    QRect senderRect = option.rect;
-    senderRect.setSize(senderFontMetrics.boundingRect(senderText).size());
+    const QSize senderTextSize = senderFontMetrics.boundingRect(senderText).size();
 
     // Pixmap (load and calculate size, but don't draw it yet, same reason)
-    const QPixmap avatarPixmap = makeAvatarPixmap(index, senderRect.height());
-    senderRect.translate(avatarPixmap.width(), 0);
+    const QPixmap avatarPixmap = makeAvatarPixmap(index, senderTextSize.height());
+    int avatarX = 0;
+    const QRect senderRect = layoutPixmapAndSender(option, senderTextSize, avatarPixmap, &avatarX);
 
     // Timestamp
     QRect timeRect;
@@ -133,7 +144,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     drawRichText(painter, messageRect, message, &baseLine);
 
     // Now draw the pixmap
-    painter->drawPixmap(option.rect.x(), baseLine - senderFontMetrics.ascent(), avatarPixmap);
+    painter->drawPixmap(avatarX, baseLine - senderFontMetrics.ascent(), avatarPixmap);
     // If we need support for drawing as selected, we might want to do this:
     //QRect decorationRect(option.rect.x(), topOfFirstLine, avatarPixmap.width(), avatarPixmap.height());
     //drawDecoration(painter, option, decorationRect, avatarPixmap);
@@ -151,13 +162,13 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     // Sender
     QFont boldFont = option.font;
     boldFont.setBold(true);
-    QRect senderRect = option.rect;
     const QFontMetrics senderFontMetrics(boldFont);
-    senderRect.setSize(senderFontMetrics.boundingRect(makeSenderText(index)).size());
+    const QSize senderTextSize = senderFontMetrics.boundingRect(makeSenderText(index)).size();
 
     // Pixmap
-    const QPixmap avatarPixmap = makeAvatarPixmap(index, senderRect.height());
-    senderRect.translate(avatarPixmap.width(), 0);
+    const QPixmap avatarPixmap = makeAvatarPixmap(index, senderTextSize.height());
+    int avatarX = 0;
+    const QRect senderRect = layoutPixmapAndSender(option, senderTextSize, avatarPixmap, &avatarX);
 
     // Timestamp
     const QString timeStampText = makeTimeStampText(index);
@@ -167,8 +178,11 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     QTextDocument doc;
     const QString message = index.data(MessageModel::MessageConvertedText).toString();
     doc.setHtml(message);
-    doc.setTextWidth(option.rect.width() - senderRect.right() - timeSize.width());
+    const int widthBeforeMessage = senderRect.right();
+    const int widthAfterMessage = timeSize.width();
+    doc.setTextWidth(option.rect.width() - widthBeforeMessage - widthAfterMessage);
 
-    return QSize(avatarPixmap.width() + senderRect.width() + doc.idealWidth() + timeSize.width(),
+    // hopefully the width below is never more than option.rect.width() or we'll get a scrollbar
+    return QSize(widthBeforeMessage + doc.idealWidth() + widthAfterMessage,
                  qMax<int>(senderRect.height(), doc.size().height()));
 }
