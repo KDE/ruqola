@@ -82,6 +82,8 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
         mRoomHeaderWidget->setFavoriteStatus(mRoomWrapper->favorite());
         //Description
+    } else {
+        //Hide it
     }
 }
 
