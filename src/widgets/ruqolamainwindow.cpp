@@ -22,6 +22,7 @@
 #include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
 
+#include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
 
@@ -61,4 +62,8 @@ void RuqolaMainWindow::readConfig()
 
 void RuqolaMainWindow::setupActions()
 {
+    KActionCollection *ac = actionCollection();
+
+    KStandardAction::quit(this, &RuqolaMainWindow::close, ac);
+    //KStandardAction::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
 }
