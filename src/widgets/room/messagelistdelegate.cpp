@@ -118,11 +118,36 @@ static QRect layoutPixmapAndSender(const QStyleOptionViewItem &option, const QSi
     return senderRect;
 }
 
+QString MessageListDelegate::makeMessageText(const QModelIndex &index) const
+{
+    QString message = index.data(MessageModel::MessageConvertedText).toString();
+
+    // Reactions
+    const QVariantList reactions = index.data(MessageModel::Reactions).toList();
+    if (!reactions.isEmpty()) {
+        for (const QVariant &v : reactions) {
+            const Reaction reaction = v.value<Reaction>();
+            message += reaction.convertedReactionName();
+        }
+    }
+
+    return message;
+}
+
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     drawBackground(painter, option, index);
 
     // Compact mode : <pixmap> <sender> <message> <smiley> <timestamp>
+
+    /*auto lst = index.data(MessageModel::Attachments).toList();
+    if (!lst.isEmpty()) {
+        qDebug() << "Attachments" << lst;
+    }
+    auto urls = index.data(MessageModel::Urls).toList();
+    if (!urls.isEmpty()) {
+        qDebug() << "Urls" << urls;
+    }*/
 
     // Sender (calculate size, but don't draw it yet, we need to align vertically to the first line of the message)
     const QString senderText = makeSenderText(index);
@@ -144,7 +169,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     QRect messageRect = option.rect;
     messageRect.setLeft(senderRect.right());
     messageRect.setRight(timeRect.left() - 1);
-    const QString message = index.data(MessageModel::MessageConvertedText).toString();
+    const QString message = makeMessageText(index);
     qreal baseLine = 0;
     drawRichText(painter, messageRect, message, &baseLine);
 
@@ -181,7 +206,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 
     // Message (using the rest of the available width)
     QTextDocument doc;
-    const QString message = index.data(MessageModel::MessageConvertedText).toString();
+    const QString message = makeMessageText(index);
     doc.setHtml(message);
     const int widthBeforeMessage = senderRect.right();
     const int widthAfterMessage = timeSize.width();
