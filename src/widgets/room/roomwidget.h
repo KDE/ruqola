@@ -27,6 +27,7 @@
 class RoomHeaderWidget;
 class MessageListView;
 class MessageLineWidget;
+class RoomWrapper;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -44,11 +45,13 @@ private:
     void setChannelSelected(const QModelIndex &index);
     void slotSendMessage(const QString &msg);
     void slotClearNotification();
+    void slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
+    void updateRoomHeader();
     QString mRoomId;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;
     MessageLineWidget *mMessageLineWidget = nullptr;
-    void slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
+    RoomWrapper *mRoomWrapper = nullptr;
 };
 
 #endif // ROOMWIDGET_H

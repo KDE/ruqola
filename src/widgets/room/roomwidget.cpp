@@ -26,6 +26,7 @@
 #include <KLocalizedString>
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include <roomwrapper.h>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -54,6 +55,7 @@ RoomWidget::RoomWidget(QWidget *parent)
 
 RoomWidget::~RoomWidget()
 {
+    delete mRoomWrapper;
 }
 
 void RoomWidget::slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
@@ -69,10 +71,17 @@ void RoomWidget::slotSendMessage(const QString &msg)
 void RoomWidget::setChannelSelected(const QModelIndex &index)
 {
     setRoomId(index.data(RoomModel::RoomID).toString());
-    mRoomHeaderWidget->setRoomName(index.data(RoomModel::RoomFName).toString());
-    mRoomHeaderWidget->setRoomAnnouncement(index.data(RoomModel::RoomAnnouncement).toString());
-    mRoomHeaderWidget->setRoomTopic(index.data(RoomModel::RoomTopic).toString());
+    //Use roomwrapper here!
     //Description ???
+}
+
+void RoomWidget::updateRoomHeader()
+{
+    if (mRoomWrapper) {
+        mRoomHeaderWidget->setRoomName(mRoomWrapper->name());
+        mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
+        mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
+    }
 }
 
 QString RoomWidget::roomId() const
@@ -85,6 +94,20 @@ void RoomWidget::setRoomId(const QString &roomId)
     if (mRoomId != roomId) {
         mRoomId = roomId;
         mMessageListView->setChannelSelected(roomId);
+        delete mRoomWrapper;
+        mRoomWrapper = Ruqola::self()->rocketChatAccount()->roomWrapper(mRoomId);
+        if (mRoomWrapper) {
+            connect(mRoomWrapper, &RoomWrapper::announcementChanged, this, [this]() {
+                  mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
+            });
+            connect(mRoomWrapper, &RoomWrapper::topicChanged, this, [this]() {
+                  mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
+            });
+            connect(mRoomWrapper, &RoomWrapper::nameChanged, this, [this]() {
+                  mRoomHeaderWidget->setRoomName(mRoomWrapper->name());
+            });
+            updateRoomHeader();
+        }
     }
 }
 
