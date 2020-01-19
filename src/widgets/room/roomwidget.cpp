@@ -49,10 +49,16 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(this, &RoomWidget::channelSelected, this, &RoomWidget::setChannelSelected);
     connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &RoomWidget::slotSendMessage);
     connect(mMessageLineWidget, &MessageLineWidget::clearNotification, this, &RoomWidget::slotClearNotification);
+    connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
 }
 
 RoomWidget::~RoomWidget()
 {
+}
+
+void RoomWidget::slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
+{
+    Ruqola::self()->rocketChatAccount()->uploadFile(mRoomId, uploadFileInfo.description, uploadFileInfo.message, uploadFileInfo.fileUrl);
 }
 
 void RoomWidget::slotSendMessage(const QString &msg)

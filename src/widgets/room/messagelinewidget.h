@@ -23,6 +23,7 @@
 #define MESSAGELINEWIDGET_H
 
 #include <QWidget>
+#include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
 class MessageLineEdit;
 class QToolButton;
@@ -36,6 +37,7 @@ public:
 Q_SIGNALS:
     void sendMessage(const QString &str);
     void clearNotification();
+    void sendFile(const UploadFileDialog::UploadFileInfo &result);
 
 private:
     void slotSendFile();

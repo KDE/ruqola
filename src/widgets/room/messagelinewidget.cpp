@@ -56,6 +56,7 @@ void MessageLineWidget::slotSendFile()
     QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
     if (dlg->exec()) {
         const UploadFileDialog::UploadFileInfo result = dlg->fileInfo();
+        Q_EMIT sendFile(result);
         //TODO
     }
     delete dlg;

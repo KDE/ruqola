@@ -22,6 +22,7 @@
 #define ROOMWIDGET_H
 
 #include <QWidget>
+#include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
 class RoomHeaderWidget;
 class MessageListView;
@@ -47,6 +48,7 @@ private:
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;
     MessageLineWidget *mMessageLineWidget = nullptr;
+    void slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
 };
 
 #endif // ROOMWIDGET_H
