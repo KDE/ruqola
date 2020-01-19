@@ -1,9 +1,25 @@
 [Desktop Entry]
 Name=RuqolaQml
+Name[ca]=RuqolaQml
+Name[et]=RuqolaQml
+Name[nl]=RuqolaQml
+Name[pt]=RuqolaQml
+Name[pt_BR]=RuqolaQml
+Name[sv]=Ruqola-QML
+Name[uk]=RuqolaQml
+Name[x-test]=xxRuqolaQmlxx
 Type=Application
 Exec=ruqolaqml -qwindowtitle %c %u
 Icon=ruqola
 GenericName=QML Rocket.Chat client
+GenericName[ca]=Client QML del Rocket.Chat
+GenericName[et]=Rocket Chati QML klient
+GenericName[nl]=QML Rocket Chat-client
+GenericName[pt]=Cliente de Rocket.Chat em QML
+GenericName[pt_BR]=Cliente Rocket.Chat em QML
+GenericName[sv]=QML Rocket.Chattklient
+GenericName[uk]=Клієнт спілкування Rocket на QML
+GenericName[x-test]=xxQML Rocket.Chat clientxx
 Terminal=false
 StartupNotify=true
 Categories=Qt;KDE;Network;
