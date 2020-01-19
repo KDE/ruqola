@@ -22,6 +22,7 @@
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QLabel>
+#include <QToolButton>
 
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)
@@ -30,26 +31,42 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    QHBoxLayout *headerLayout = new QHBoxLayout;
+    headerLayout->setObjectName(QStringLiteral("headerLayout"));
+    headerLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->addLayout(headerLayout);
+
+    mFavoriteButton = new QToolButton(this);
+    mFavoriteButton->setObjectName(QStringLiteral("mFavoriteButton"));
+    mFavoriteButton->setIcon(QIcon::fromTheme(QStringLiteral("favorite")));
+    mFavoriteButton->setCheckable(true);
+    headerLayout->addWidget(mFavoriteButton, Qt::AlignTop);
+
+    QVBoxLayout *infoLayout = new QVBoxLayout(this);
+    infoLayout->setObjectName(QStringLiteral("infoLayout"));
+    infoLayout->setContentsMargins(0, 0, 0, 0);
+    headerLayout->addLayout(infoLayout);
+
     mRoomName = new QLabel(this);
     mRoomName->setObjectName(QStringLiteral("mRoomName"));
-    mainLayout->addWidget(mRoomName);
+    infoLayout->addWidget(mRoomName);
     mRoomName->setVisible(false);
 
     mTopic = new QLabel(this);
     mTopic->setObjectName(QStringLiteral("mTopic"));
-    mainLayout->addWidget(mTopic);
+    infoLayout->addWidget(mTopic);
     mTopic->setOpenExternalLinks(true);
     mTopic->setVisible(false);
 
     mAnnouncement = new QLabel(this);
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
-    mainLayout->addWidget(mAnnouncement);
+    infoLayout->addWidget(mAnnouncement);
     mAnnouncement->setOpenExternalLinks(true);
     mAnnouncement->setVisible(false);
 
     mDescription = new QLabel(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
-    mainLayout->addWidget(mDescription);
+    infoLayout->addWidget(mDescription);
     mDescription->setOpenExternalLinks(true);
     mDescription->setVisible(false);
 }

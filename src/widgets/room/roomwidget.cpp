@@ -71,8 +71,6 @@ void RoomWidget::slotSendMessage(const QString &msg)
 void RoomWidget::setChannelSelected(const QModelIndex &index)
 {
     setRoomId(index.data(RoomModel::RoomID).toString());
-    //Use roomwrapper here!
-    //Description ???
 }
 
 void RoomWidget::updateRoomHeader()
@@ -81,6 +79,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setRoomName(mRoomWrapper->name());
         mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
         mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
+        //Description
     }
 }
 
@@ -104,13 +103,16 @@ void RoomWidget::connectRoomWrapper()
 {
     if (mRoomWrapper) {
         connect(mRoomWrapper, &RoomWrapper::announcementChanged, this, [this]() {
-              mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
+            mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
         });
         connect(mRoomWrapper, &RoomWrapper::topicChanged, this, [this]() {
-              mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
+            mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
         });
         connect(mRoomWrapper, &RoomWrapper::nameChanged, this, [this]() {
-              mRoomHeaderWidget->setRoomName(mRoomWrapper->name());
+            mRoomHeaderWidget->setRoomName(mRoomWrapper->name());
+        });
+        connect(mRoomWrapper, &RoomWrapper::favoriteChanged, this, [this]() {
+            //TODO
         });
         updateRoomHeader();
     }

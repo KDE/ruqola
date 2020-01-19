@@ -25,6 +25,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QLabel;
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomHeaderWidget : public QWidget
 {
     Q_OBJECT
@@ -41,6 +42,7 @@ private:
     QLabel *mTopic = nullptr;
     QLabel *mAnnouncement = nullptr;
     QLabel *mDescription = nullptr;
+    QToolButton *mFavoriteButton = nullptr;
 };
 
 #endif // ROOMHEADERWIDGET_H
