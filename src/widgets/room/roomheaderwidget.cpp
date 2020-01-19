@@ -97,3 +97,8 @@ void RoomHeaderWidget::setRoomTopic(const QString &name)
     mTopic->setText(name);
     mTopic->setVisible(!name.isEmpty());
 }
+
+void RoomHeaderWidget::setFavoriteStatus(bool b)
+{
+    mFavoriteButton->setChecked(b);
+}

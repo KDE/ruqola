@@ -79,6 +79,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setRoomName(mRoomWrapper->name());
         mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
         mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
+        mRoomHeaderWidget->setFavoriteStatus(mRoomWrapper->favorite());
         //Description
     }
 }
@@ -112,7 +113,7 @@ void RoomWidget::connectRoomWrapper()
             mRoomHeaderWidget->setRoomName(mRoomWrapper->name());
         });
         connect(mRoomWrapper, &RoomWrapper::favoriteChanged, this, [this]() {
-            //TODO
+            mRoomHeaderWidget->setFavoriteStatus(mRoomWrapper->favorite());
         });
         updateRoomHeader();
     }

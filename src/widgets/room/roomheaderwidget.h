@@ -37,6 +37,7 @@ public:
     void setRoomAnnouncement(const QString &name);
     void setRoomTopic(const QString &name);
 
+    void setFavoriteStatus(bool b);
 private:
     QLabel *mRoomName = nullptr;
     QLabel *mTopic = nullptr;
