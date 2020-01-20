@@ -40,7 +40,7 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     mMessage = new QLineEdit(this);
     mMessage->setObjectName(QStringLiteral("mMessage"));
     mMessage->setClearButtonEnabled(true);
-    layout->addRow(i18n("Message"), mMessage);
+    layout->addRow(i18n("Message:"), mMessage);
 
     mSelectFile = new KUrlRequester(this);
     mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
