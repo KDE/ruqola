@@ -23,13 +23,15 @@
 
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
-
+class ServerInfoWidget;
 class LIBRUQOLAWIDGETS_EXPORT ServerInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ServerInfoDialog(QWidget *parent = nullptr);
     ~ServerInfoDialog();
+private:
+    ServerInfoWidget *mServerInfoWidget = nullptr;
 };
 
 #endif // SERVERINFODIALOG_H

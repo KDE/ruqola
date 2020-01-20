@@ -19,6 +19,7 @@
 */
 
 #include "serverinfodialog.h"
+#include "serverinfowidget.h"
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
 #include <KLocalizedString>
@@ -26,7 +27,17 @@
 ServerInfoDialog::ServerInfoDialog(QWidget *parent)
     : QDialog(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mServerInfoWidget = new ServerInfoWidget(this);
+    mServerInfoWidget->setObjectName(QStringLiteral("mServerInfoWidget"));
+    mainLayout->addWidget(mServerInfoWidget);
+
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &ServerInfoDialog::close);
 }
 
 ServerInfoDialog::~ServerInfoDialog()

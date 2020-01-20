@@ -20,7 +20,10 @@
 
 #include "serverinfodialogtest.h"
 #include "dialogs/serverinfodialog.h"
+#include "dialogs/serverinfowidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ServerInfoDialogTest)
 ServerInfoDialogTest::ServerInfoDialogTest(QObject *parent)
     : QObject(parent)
@@ -30,5 +33,14 @@ ServerInfoDialogTest::ServerInfoDialogTest(QObject *parent)
 
 void ServerInfoDialogTest::shouldHaveDefaultValues()
 {
-    //TODO
+    ServerInfoDialog w;
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    ServerInfoWidget *mServerInfoWidget = w.findChild<ServerInfoWidget *>(QStringLiteral("mServerInfoWidget"));
+    QVERIFY(mServerInfoWidget);
+
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }
