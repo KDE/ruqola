@@ -112,7 +112,6 @@ void UsersModel::removeUser(const QString &userId)
             //Send info as it's disconnected. But don't remove it from list
             User *user = mUsers.at(i);
             user->setStatus(QStringLiteral("offline"));
-            mUsers.replace(i, user);
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT userStatusChanged(user);
             Q_EMIT dataChanged(idx, idx);
@@ -133,7 +132,6 @@ void UsersModel::addUser(User *newuser)
             found = true;
             User *user = mUsers.at(i);
             user->setStatus(newuser->status());
-            mUsers.replace(i, user);
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT userStatusChanged(user);
             Q_EMIT dataChanged(idx, idx);
@@ -162,7 +160,6 @@ void UsersModel::updateUser(const QJsonObject &array)
             bool userDataChanged = false;
             if (!newStatus.isEmpty()) {
                 user->setStatus(newStatus);
-                mUsers.replace(i, user);
                 const QModelIndex idx = createIndex(i, 0);
                 Q_EMIT dataChanged(idx, idx);
                 Q_EMIT userStatusChanged(user);
@@ -171,7 +168,6 @@ void UsersModel::updateUser(const QJsonObject &array)
             const QString newName = fields.value(QLatin1String("name")).toString();
             if (!newName.isEmpty()) {
                 user->setName(newName);
-                mUsers.replace(i, user);
                 const QModelIndex idx = createIndex(i, 0);
                 Q_EMIT dataChanged(idx, idx);
                 Q_EMIT userNameChanged(user);
@@ -180,7 +176,6 @@ void UsersModel::updateUser(const QJsonObject &array)
             const QString newuserName = fields.value(QLatin1String("username")).toString();
             if (!newuserName.isEmpty()) {
                 user->setUserName(newuserName);
-                mUsers.replace(i, user);
                 const QModelIndex idx = createIndex(i, 0);
                 Q_EMIT dataChanged(idx, idx);
                 Q_EMIT nameChanged(user);
@@ -189,7 +184,6 @@ void UsersModel::updateUser(const QJsonObject &array)
             const QString statusMessage = fields.value(QLatin1String("statusText")).toString();
             if (!statusMessage.isEmpty()) {
                 user->setStatusText(statusMessage);
-                mUsers.replace(i, user);
                 const QModelIndex idx = createIndex(i, 0);
                 Q_EMIT dataChanged(idx, idx);
                 Q_EMIT statusMessageChanged(user);

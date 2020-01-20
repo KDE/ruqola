@@ -247,7 +247,6 @@ void UsersForRoomModel::userStatusChanged(User *newuser)
         User *user = mUsers.at(i);
         if (newuser->userId() == user->userId()) {
             user->setStatus(newuser->status());
-            mUsers.replace(i, user);
             const QModelIndex idx = createIndex(i, 0);
             Q_EMIT dataChanged(idx, idx);
         }
