@@ -20,6 +20,7 @@
 
 
 #include "channelinfodialog.h"
+#include "channelinfowidget.h"
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -27,9 +28,18 @@
 ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     : QDialog(parent)
 {
+    setWindowTitle(i18nc("@title:window", "Channel Info"));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mChannelInfoWidget = new ChannelInfoWidget(this);
+    mChannelInfoWidget->setObjectName(QStringLiteral("mChannelInfoWidget"));
+    mainLayout->addWidget(mChannelInfoWidget);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ChannelInfoDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelInfoDialog::reject);
+    mainLayout->addWidget(buttonBox);
 }
 
 ChannelInfoDialog::~ChannelInfoDialog()

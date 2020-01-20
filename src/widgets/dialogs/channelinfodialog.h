@@ -22,13 +22,15 @@
 #define CHANNELINFODIALOG_H
 
 #include <QDialog>
-
+class ChannelInfoWidget;
 class ChannelInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ChannelInfoDialog(QWidget *parent = nullptr);
     ~ChannelInfoDialog();
+private:
+    ChannelInfoWidget *mChannelInfoWidget = nullptr;
 };
 
 #endif // CHANNELINFODIALOG_H

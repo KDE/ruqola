@@ -28,3 +28,8 @@ UploadFileDialogTest::UploadFileDialogTest(QObject *parent)
 {
 
 }
+
+void UploadFileDialogTest::shouldHaveDefaultValues()
+{
+    //TODO
+}

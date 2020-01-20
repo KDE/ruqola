@@ -34,6 +34,7 @@ ServerInfoDialogTest::ServerInfoDialogTest(QObject *parent)
 void ServerInfoDialogTest::shouldHaveDefaultValues()
 {
     ServerInfoDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
 
     QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
