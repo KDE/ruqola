@@ -116,14 +116,13 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
             if (mCustomEmojiList.at(i).hasEmoji(emojiIdentifier)) {
                 QString cachedHtml = mCustomEmojiList.at(i).cachedHtml();
                 if (cachedHtml.isEmpty()) {
-                    Emoji emoji = mCustomEmojiList[i];
+                    Emoji &emoji = mCustomEmojiList[i];
                     //For the moment we can't support animated image as emoticon in text. Only as Reaction.
                     if (emoji.isAnimatedImage() && isReaction) {
                         cachedHtml = emoji.generateAnimatedUrlFromCustomEmoji(mServerUrl);
                     } else {
                         cachedHtml = emoji.generateHtmlFromCustomEmoji(mServerUrl);
                     }
-                    mCustomEmojiList.replace(i, emoji);
                 }
                 return cachedHtml;
             }
@@ -162,9 +161,7 @@ void EmojiManager::clearCustomEmojiCachedHtml()
     for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
         const QString &cachedHtml = mCustomEmojiList.at(i).cachedHtml();
         if (!cachedHtml.isEmpty()) {
-            Emoji emoji = mCustomEmojiList[i];
-            emoji.clearCachedHtml();
-            mCustomEmojiList.replace(i, emoji);
+            mCustomEmojiList[i].clearCachedHtml();
         }
     }
 }
