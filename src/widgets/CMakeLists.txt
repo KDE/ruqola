@@ -11,6 +11,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/uploadfiledialog.cpp
     dialogs/uploadfilewidget.cpp
     dialogs/channelinfowidget.cpp
+    dialogs/channelinfodialog.cpp
     )
 
 set(Ruqola_channellist_SRCS
