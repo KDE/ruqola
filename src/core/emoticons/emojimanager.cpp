@@ -159,9 +159,6 @@ void EmojiManager::setServerUrl(const QString &serverUrl)
 void EmojiManager::clearCustomEmojiCachedHtml()
 {
     for (int i = 0, total = mCustomEmojiList.size(); i < total; ++i) {
-        const QString &cachedHtml = mCustomEmojiList.at(i).cachedHtml();
-        if (!cachedHtml.isEmpty()) {
-            mCustomEmojiList[i].clearCachedHtml();
-        }
+        mCustomEmojiList[i].clearCachedHtml();
     }
 }
