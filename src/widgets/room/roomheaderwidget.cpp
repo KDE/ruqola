@@ -44,7 +44,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     headerLayout->addWidget(mFavoriteButton, Qt::AlignTop);
     connect(mFavoriteButton, &QToolButton::clicked, this, &RoomHeaderWidget::favoriteChanged);
 
-    QVBoxLayout *infoLayout = new QVBoxLayout(this);
+    QVBoxLayout *infoLayout = new QVBoxLayout;
     infoLayout->setObjectName(QStringLiteral("infoLayout"));
     infoLayout->setContentsMargins(0, 0, 0, 0);
     headerLayout->addLayout(infoLayout);
