@@ -21,6 +21,7 @@
 #include "ruqolaloginwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <KPasswordLineEdit>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QPushButton>
@@ -43,7 +44,9 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
-    //TODO add password
+    mPasswordLineEdit = new KPasswordLineEdit(this);
+    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
     mLoginButton = new QPushButton(i18n("Login"), this);
     mLoginButton->setObjectName(QStringLiteral("mLoginButton"));

@@ -26,6 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class QPushButton;
+class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaLoginWidget : public QWidget
 {
     Q_OBJECT
@@ -39,7 +40,7 @@ private:
     QLineEdit *mAccountName = nullptr;
     QLineEdit *mServerName = nullptr;
     QLineEdit *mUserName = nullptr;
-    //TODO password
+    KPasswordLineEdit *mPasswordLineEdit = nullptr;
     QPushButton *mLoginButton = nullptr;
 };
 

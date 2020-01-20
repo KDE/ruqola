@@ -30,6 +30,8 @@ class RuqolaLoginWidgetTest : public QObject
 public:
     explicit RuqolaLoginWidgetTest(QObject *parent = nullptr);
     ~RuqolaLoginWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // RUQOLALOGINWIDGETTEST_H

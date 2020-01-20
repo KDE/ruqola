@@ -21,10 +21,41 @@
 
 #include "ruqolaloginwidgettest.h"
 #include "ruqolaloginwidget.h"
+#include <KPasswordLineEdit>
+#include <QFormLayout>
+#include <QLineEdit>
+#include <QPushButton>
 #include <QTest>
 QTEST_MAIN(RuqolaLoginWidgetTest)
 RuqolaLoginWidgetTest::RuqolaLoginWidgetTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
+{
+    RuqolaLoginWidget w;
+
+    QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    QLineEdit *mAccountName = w.findChild<QLineEdit *>(QStringLiteral("mAccountName"));
+    QVERIFY(mAccountName);
+    QVERIFY(mAccountName->text().isEmpty());
+
+    QLineEdit *mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
+    QVERIFY(mServerName);
+    QVERIFY(mServerName->text().isEmpty());
+
+    QLineEdit *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    QVERIFY(mUserName);
+    QVERIFY(mUserName->text().isEmpty());
+
+    KPasswordLineEdit *mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    QVERIFY(mPasswordLineEdit);
+
+    QPushButton *mLoginButton = w.findChild<QPushButton *>(QStringLiteral("mLoginButton"));
+    QVERIFY(mLoginButton);
+    QVERIFY(!mLoginButton->text().isEmpty());
 }
