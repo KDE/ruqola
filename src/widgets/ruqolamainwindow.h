@@ -24,6 +24,7 @@
 #include <KXmlGuiWindow>
 #include "libruqolawidgets_export.h"
 class RuqolaCentralWidget;
+class QAction;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -34,8 +35,12 @@ private:
     void setupActions();
     void readConfig();
     void slotAddAccount();
+    void slotServerInfo();
     void slotConfigure();
+    void slotLogout();
     RuqolaCentralWidget *mMainWidget = nullptr;
+    QAction *mServerInfo = nullptr;
+    QAction *mLogout = nullptr;
 };
 
 #endif // RUQOLAMAINWINDOW_H

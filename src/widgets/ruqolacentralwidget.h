@@ -23,9 +23,9 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-class ChannelListWidget;
-class RoomWidget;
-class QSplitter;
+class QStackedWidget;
+class RuqolaMainWidget;
+class RuqolaLoginWidget;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaCentralWidget : public QWidget
 {
     Q_OBJECT
@@ -33,9 +33,10 @@ public:
     explicit RuqolaCentralWidget(QWidget *parent = nullptr);
     ~RuqolaCentralWidget();
 private:
-    ChannelListWidget *mChannelList = nullptr;
-    RoomWidget *mRoomWidget = nullptr;
-    QSplitter *mSplitter = nullptr;
+    void slotLoginStatusChanged();
+    QStackedWidget *mStackedWidget = nullptr;
+    RuqolaMainWidget *mRuqolaMainWidget = nullptr;
+    RuqolaLoginWidget *mRuqolaLoginWidget = nullptr;
 };
 
 #endif // RUQOLACENTRALWIDGET_H

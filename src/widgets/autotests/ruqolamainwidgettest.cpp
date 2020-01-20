@@ -18,23 +18,40 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "ruqolacentralwidgettest.h"
-#include "ruqolacentralwidget.h"
+#include "ruqolamainwidgettest.h"
+#include "ruqolamainwidget.h"
+#include "channellist/channellistwidget.h"
+#include "room/roomwidget.h"
 
 #include <QHBoxLayout>
+#include <QSplitter>
 #include <QTest>
 
-QTEST_MAIN(RuqolaCentralWidgetTest)
-RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
+QTEST_MAIN(RuqolaMainWidgetTest)
+
+RuqolaMainWidgetTest::RuqolaMainWidgetTest(QObject *parent)
     : QObject(parent)
 {
+
 }
 
-void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
+void RuqolaMainWidgetTest::shouldHaveDefaultValues()
 {
-    RuqolaCentralWidget w;
+    RuqolaMainWidget w;
     QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
 
-    //TODO
+    QSplitter *mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
+    QVERIFY(mSplitter);
+    QVERIFY(!mSplitter->childrenCollapsible());
+    mSplitter->setChildrenCollapsible(false);
+
+    ChannelListWidget *mChannelList = w.findChild<ChannelListWidget *>(QStringLiteral("mChannelList"));
+    QVERIFY(mChannelList);
+
+    RoomWidget *mRoomWidget = w.findChild<RoomWidget *>(QStringLiteral("mRoomWidget"));
+    QVERIFY(mRoomWidget);
+    QVERIFY(mSplitter->indexOf(mChannelList) >= 0);
+    QVERIFY(mSplitter->indexOf(mRoomWidget) >= 0);
+
 }

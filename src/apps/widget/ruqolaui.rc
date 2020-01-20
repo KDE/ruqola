@@ -1,8 +1,12 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="2">
+<gui name="ruqola" version="3">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_account" />
+   <Separator/>
+   <Action name="server_info" />
+   <Separator/>
+   <Action name="logout" />
    <Separator/>
   </Menu>
   <Menu name="edit" >

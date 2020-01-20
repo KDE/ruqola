@@ -18,11 +18,35 @@
    Boston, MA 02110-1301, USA.
 */
 
+
 #include "serverinfowidgettest.h"
+#include "dialogs/serverinfowidget.h"
+#include <QFormLayout>
+#include <QLabel>
 #include <QTest>
 QTEST_MAIN(ServerInfoWidgetTest)
-
-ServerInfoWidgetTest::ServerInfoWidgetTest(QObject *parent)
-    : QObject(parent)
+ServerInfoWidgetTest::ServerInfoWidgetTest(QWidget *parent)
+    : QWidget(parent)
 {
+
+}
+
+void ServerInfoWidgetTest::shouldHaveDefaultValues()
+{
+    ServerInfoWidget w;
+    QFormLayout *layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
+    QVERIFY(layout);
+    QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QLabel *mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
+    QVERIFY(mAccountName);
+    QVERIFY(mAccountName->text().isEmpty());
+
+    QLabel *mUserName = w.findChild<QLabel *>(QStringLiteral("mUserName"));
+    QVERIFY(mUserName);
+    QVERIFY(mUserName->text().isEmpty());
+
+    QLabel *mServerVersion = w.findChild<QLabel *>(QStringLiteral("mServerVersion"));
+    QVERIFY(mServerVersion);
+    QVERIFY(mServerVersion->text().isEmpty());
 }

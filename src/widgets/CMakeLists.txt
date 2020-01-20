@@ -3,6 +3,7 @@ set(Ruqola_widgets_SRCS
     ruqolamainwindow.cpp
     ruqolacentralwidget.cpp
     ruqolaloginwidget.cpp
+    ruqolamainwidget.cpp
     )
 
 set(Ruqola_widgets_dialog_SRCS

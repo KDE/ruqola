@@ -19,11 +19,13 @@
 */
 
 #include "ruqolacentralwidget.h"
-#include "channellist/channellistwidget.h"
-#include "room/roomwidget.h"
+#include "ruqolaloginwidget.h"
+#include "ruqolamainwidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <QVBoxLayout>
-#include <KLocalizedString>
 #include <QSplitter>
+#include <QStackedWidget>
 
 RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     : QWidget(parent)
@@ -31,22 +33,44 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
-    mSplitter = new QSplitter(this);
-    mSplitter->setObjectName(QStringLiteral("mSplitter"));
-    mSplitter->setChildrenCollapsible(false);
-    mainLayout->addWidget(mSplitter);
+    mStackedWidget = new QStackedWidget(this);
+    mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
+    mainLayout->addWidget(mStackedWidget);
 
-    mChannelList = new ChannelListWidget(this);
-    mChannelList->setObjectName(QStringLiteral("mChannelList"));
-    mSplitter->addWidget(mChannelList);
+    mRuqolaMainWidget = new RuqolaMainWidget(this);
+    mRuqolaMainWidget->setObjectName(QStringLiteral("mRuqolaMainWidget"));
+    mStackedWidget->addWidget(mRuqolaMainWidget);
 
-    mRoomWidget = new RoomWidget(this);
-    mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
-    mSplitter->addWidget(mRoomWidget);
+    mRuqolaLoginWidget = new RuqolaLoginWidget(this);
+    mRuqolaLoginWidget->setObjectName(QStringLiteral("mRuqolaLoginWidget"));
+    mStackedWidget->addWidget(mRuqolaLoginWidget);
 
-    connect(mChannelList, &ChannelListWidget::channelSelected, mRoomWidget, &RoomWidget::channelSelected);
+    //TODO fix me
+    //mStackedWidget->setCurrentWidget(mRuqolaMainWidget);
+    //Fix me multiaccount
+    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::loginStatusChanged, this, &RuqolaCentralWidget::slotLoginStatusChanged);
 }
 
 RuqolaCentralWidget::~RuqolaCentralWidget()
 {
+}
+
+void RuqolaCentralWidget::slotLoginStatusChanged()
+{
+    /*        NotConnected,
+        LoggingIn,
+        LoggedIn,
+        LoginFailed,
+        LoginCodeRequired,
+        LoggedOut,
+        FailedToLoginPluginProblem
+        */
+    if (Ruqola::self()->rocketChatAccount()->loginStatus() == DDPClient::LoggedIn) {
+        mStackedWidget->setCurrentWidget(mRuqolaMainWidget);
+    } else {
+        mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
+        //TODO assign value in mRuqolaLoginWidget directly
+        //TODO set login info etc.
+    }
+    //TODO
 }

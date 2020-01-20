@@ -27,6 +27,7 @@
 ChannelListView::ChannelListView(QWidget *parent)
     : QListView(parent)
 {
+    //TODO update when we have multiaccount!
     setModel(Ruqola::self()->rocketChatAccount()->roomFilterProxyModel());
     connect(this, &ChannelListView::clicked, this, &ChannelListView::slotClicked);
 }

@@ -30,6 +30,8 @@ class ChannelInfoWidgetTest : public QObject
 public:
     explicit ChannelInfoWidgetTest(QObject *parent = nullptr);
     ~ChannelInfoWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // CHANNELINFOWIDGETTEST_H

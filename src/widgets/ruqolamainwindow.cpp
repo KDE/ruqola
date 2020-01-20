@@ -19,13 +19,15 @@
 */
 
 #include "ruqola.h"
+#include "rocketchataccount.h"
 #include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
-
+#include "dialogs/serverinfodialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <KLocalizedString>
+#include <QPointer>
 
 namespace {
 static const char myConfigGroupName[] = "RuqolaMainWindow";
@@ -71,6 +73,15 @@ void RuqolaMainWindow::setupActions()
     QAction *act = new QAction(i18n("Add Account..."), this);
     connect(act, &QAction::triggered, this, &RuqolaMainWindow::slotAddAccount);
     ac->addAction(QStringLiteral("add_account"), act);
+
+    //Move in specific server widget
+    mServerInfo = new QAction(i18n("Server Info..."), this);
+    connect(mServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotServerInfo);
+    ac->addAction(QStringLiteral("server_info"), mServerInfo);
+
+    mLogout = new QAction(i18n("Logout"), this);
+    connect(mLogout, &QAction::triggered, this, &RuqolaMainWindow::slotLogout);
+    ac->addAction(QStringLiteral("logout"), mLogout);
 }
 
 void RuqolaMainWindow::slotConfigure()
@@ -81,4 +92,18 @@ void RuqolaMainWindow::slotConfigure()
 void RuqolaMainWindow::slotAddAccount()
 {
     //TODO
+}
+
+void RuqolaMainWindow::slotServerInfo()
+{
+    qDebug() << " void RuqolaMainWindow::slotServerInfo()";
+    QPointer<ServerInfoDialog> dlg = new ServerInfoDialog(this);
+    dlg->setServerConfigInfo(Ruqola::self()->rocketChatAccount()->serverConfigInfo());
+    dlg->exec();
+    delete dlg;
+}
+
+void RuqolaMainWindow::slotLogout()
+{
+    Ruqola::self()->rocketChatAccount()->logOut();
 }

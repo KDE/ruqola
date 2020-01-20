@@ -20,10 +20,18 @@
 
 
 #include "channelinfowidgettest.h"
+#include "dialogs/channelinfowidget.h"
+#include <QFormLayout>
+#include <QLabel>
 #include <QTest>
 QTEST_MAIN(ChannelInfoWidgetTest)
 ChannelInfoWidgetTest::ChannelInfoWidgetTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void ChannelInfoWidgetTest::shouldHaveDefaultValues()
+{
+    ChannelInfoWidget w;
 }

@@ -19,18 +19,38 @@
 */
 
 #include "serverinfowidget.h"
-#include <QHBoxLayout>
+#include "serverconfiginfo.h"
+#include <QFormLayout>
 #include <KLocalizedString>
+#include <QLabel>
 
 ServerInfoWidget::ServerInfoWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    QFormLayout *layout = new QFormLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
 
+    mAccountName = new QLabel(this);
+    mAccountName->setObjectName(QStringLiteral("mAccountName"));
+    layout->addRow(i18n("Account Name:"), mAccountName);
+    mUserName = new QLabel(this);
+    mUserName->setObjectName(QStringLiteral("mUserName"));
+    layout->addRow(i18n("User Name:"), mUserName);
+    mServerVersion = new QLabel(this);
+    mServerVersion->setObjectName(QStringLiteral("mServerVersion"));
+    layout->addRow(i18n("Server Version:"), mServerVersion);
 }
 
 ServerInfoWidget::~ServerInfoWidget()
 {
+}
+
+void ServerInfoWidget::setServerConfigInfo(ServerConfigInfo *info)
+{
+    if (info) {
+        mAccountName->setText(info->serverName());
+        mUserName->setText(info->userName());
+        mServerVersion->setText(info->serverVersionStr());
+    }
 }

@@ -21,17 +21,43 @@
 #include "ruqolaloginwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QFormLayout>
+#include <QLineEdit>
+#include <QPushButton>
 
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    QFormLayout *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    mAccountName = new QLineEdit(this);
+    mAccountName->setObjectName(QStringLiteral("mAccountName"));
+    mainLayout->addRow(i18n("Account Name:"), mAccountName);
+
+    mServerName = new QLineEdit(this);
+    mServerName->setObjectName(QStringLiteral("mServerName"));
+    mainLayout->addRow(i18n("Server Name:"), mServerName);
+
+    mUserName = new QLineEdit(this);
+    mUserName->setObjectName(QStringLiteral("mUserName"));
+    mainLayout->addRow(i18n("User Name:"), mUserName);
+
+    //TODO add password
+
+    mLoginButton = new QPushButton(i18n("Login"), this);
+    mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
+    mainLayout->addWidget(mLoginButton);
+    connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
+    //TODO add message error
 }
 
 RuqolaLoginWidget::~RuqolaLoginWidget()
 {
 
+}
+
+void RuqolaLoginWidget::slotLogin()
+{
+    //TODO
 }

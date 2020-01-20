@@ -23,13 +23,19 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-
+class QLabel;
+class ServerConfigInfo;
 class LIBRUQOLAWIDGETS_EXPORT ServerInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ServerInfoWidget(QWidget *parent = nullptr);
     ~ServerInfoWidget();
+    void setServerConfigInfo(ServerConfigInfo *info);
+private:
+    QLabel *mAccountName = nullptr;
+    QLabel *mUserName = nullptr;
+    QLabel *mServerVersion = nullptr;
 };
 
 #endif // SERVERINFOWIDGET_H

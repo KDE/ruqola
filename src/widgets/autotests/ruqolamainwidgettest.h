@@ -18,23 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "ruqolacentralwidgettest.h"
-#include "ruqolacentralwidget.h"
+#ifndef RUQOLAMAINWIDGETTEST_H
+#define RUQOLAMAINWIDGETTEST_H
 
-#include <QHBoxLayout>
-#include <QTest>
+#include <QObject>
 
-QTEST_MAIN(RuqolaCentralWidgetTest)
-RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
-    : QObject(parent)
+class RuqolaMainWidgetTest : public QObject
 {
-}
+    Q_OBJECT
+public:
+    explicit RuqolaMainWidgetTest(QObject *parent = nullptr);
+    ~RuqolaMainWidgetTest() = default;
 
-void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
-{
-    RuqolaCentralWidget w;
-    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
-    QVERIFY(mainLayout);
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};
 
-    //TODO
-}
+#endif // RUQOLAMAINWIDGETTEST_H

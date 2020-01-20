@@ -18,35 +18,37 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "serverinfodialog.h"
-#include "serverinfowidget.h"
+
+#include "ruqolamainwidget.h"
+#include "channellist/channellistwidget.h"
+#include "room/roomwidget.h"
+
+#include <QSplitter>
 #include <QVBoxLayout>
-#include <QDialogButtonBox>
-#include <KLocalizedString>
 
-ServerInfoDialog::ServerInfoDialog(QWidget *parent)
-    : QDialog(parent)
+RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
+    : QWidget(parent)
 {
-    setWindowTitle(i18nc("@title:window", "Server Info"));
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainlayout"));
 
-    mServerInfoWidget = new ServerInfoWidget(this);
-    mServerInfoWidget->setObjectName(QStringLiteral("mServerInfoWidget"));
-    mainLayout->addWidget(mServerInfoWidget);
+    mSplitter = new QSplitter(this);
+    mSplitter->setObjectName(QStringLiteral("mSplitter"));
+    mSplitter->setChildrenCollapsible(false);
+    mainLayout->addWidget(mSplitter);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
-    button->setObjectName(QStringLiteral("button"));
-    mainLayout->addWidget(button);
-    connect(button, &QDialogButtonBox::rejected, this, &ServerInfoDialog::close);
+    mChannelList = new ChannelListWidget(this);
+    mChannelList->setObjectName(QStringLiteral("mChannelList"));
+    mSplitter->addWidget(mChannelList);
+
+    mRoomWidget = new RoomWidget(this);
+    mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
+    mSplitter->addWidget(mRoomWidget);
+
+    connect(mChannelList, &ChannelListWidget::channelSelected, mRoomWidget, &RoomWidget::channelSelected);
 }
 
-ServerInfoDialog::~ServerInfoDialog()
+RuqolaMainWidget::~RuqolaMainWidget()
 {
 
-}
-
-void ServerInfoDialog::setServerConfigInfo(ServerConfigInfo *info)
-{
-    mServerInfoWidget->setServerConfigInfo(info);
 }

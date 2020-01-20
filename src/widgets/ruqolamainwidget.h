@@ -18,17 +18,26 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SERVERINFOWIDGETTEST_H
-#define SERVERINFOWIDGETTEST_H
 
-#include <QObject>
+#ifndef RUQOLAMAINWIDGET_H
+#define RUQOLAMAINWIDGET_H
 
-class ServerInfoWidgetTest : public QObject
+#include <QWidget>
+#include "libruqolawidgets_private_export.h"
+class ChannelListWidget;
+class RoomWidget;
+class QSplitter;
+
+class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ServerInfoWidgetTest(QObject *parent = nullptr);
-    ~ServerInfoWidgetTest() = default;
+    explicit RuqolaMainWidget(QWidget *parent = nullptr);
+    ~RuqolaMainWidget();
+private:
+    ChannelListWidget *mChannelList = nullptr;
+    RoomWidget *mRoomWidget = nullptr;
+    QSplitter *mSplitter = nullptr;
 };
 
-#endif // SERVERINFOWIDGETTEST_H
+#endif // RUQOLAMAINWIDGET_H

@@ -24,12 +24,23 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+class QLineEdit;
+class QPushButton;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaLoginWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit RuqolaLoginWidget(QWidget *parent = nullptr);
     ~RuqolaLoginWidget();
+
+private:
+    void slotLogin();
+
+    QLineEdit *mAccountName = nullptr;
+    QLineEdit *mServerName = nullptr;
+    QLineEdit *mUserName = nullptr;
+    //TODO password
+    QPushButton *mLoginButton = nullptr;
 };
 
 #endif // RUQOLALOGINWIDGET_H
