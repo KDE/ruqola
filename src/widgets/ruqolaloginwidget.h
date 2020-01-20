@@ -34,6 +34,7 @@ public:
     explicit RuqolaLoginWidget(QWidget *parent = nullptr);
     ~RuqolaLoginWidget();
 
+    void initialize();
 private:
     void slotLogin();
 

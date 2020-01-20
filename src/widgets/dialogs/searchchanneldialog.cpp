@@ -19,32 +19,25 @@
 */
 
 
-#ifndef MESSAGELINEWIDGET_H
-#define MESSAGELINEWIDGET_H
+#include "searchchanneldialog.h"
+#include <QDialogButtonBox>
+#include <KLocalizedString>
+#include <QVBoxLayout>
 
-#include <QWidget>
-#include "dialogs/uploadfiledialog.h"
-#include "libruqolawidgets_private_export.h"
-class MessageLineEdit;
-class QToolButton;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
+SearchChannelDialog::SearchChannelDialog(QWidget *parent)
+    : QDialog(parent)
 {
-    Q_OBJECT
-public:
-    explicit MessageLineWidget(QWidget *parent = nullptr);
-    ~MessageLineWidget();
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-Q_SIGNALS:
-    void sendMessage(const QString &str);
-    void clearNotification();
-    void sendFile(const UploadFileDialog::UploadFileInfo &result);
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::accepted, this, &SearchChannelDialog::accept);
+    connect(button, &QDialogButtonBox::rejected, this, &SearchChannelDialog::reject);
+}
 
-private:
-    void slotSendFile();
-    MessageLineEdit *mMessageLineEdit = nullptr;
-    QToolButton *mSendFile = nullptr;
-    QToolButton *mEmoticonButton = nullptr;
-    QToolButton *mSendMessageButton = nullptr;
-};
+SearchChannelDialog::~SearchChannelDialog()
+{
 
-#endif // MESSAGELINEWIDGET_H
+}

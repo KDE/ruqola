@@ -69,8 +69,8 @@ void RuqolaCentralWidget::slotLoginStatusChanged()
         mStackedWidget->setCurrentWidget(mRuqolaMainWidget);
     } else {
         mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
+        mRuqolaLoginWidget->initialize();
         //TODO assign value in mRuqolaLoginWidget directly
-        //TODO set login info etc.
     }
     //TODO
 }

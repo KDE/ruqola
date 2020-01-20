@@ -45,4 +45,15 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
 
     QToolButton *mSendFile = w.findChild<QToolButton *>(QStringLiteral("mSendFile"));
     QVERIFY(mSendFile);
+    QVERIFY(!mSendFile->icon().isNull());
+
+    QToolButton *mEmoticonButton = w.findChild<QToolButton *>(QStringLiteral("mEmoticonButton"));
+    QVERIFY(mEmoticonButton);
+    QVERIFY(!mEmoticonButton->icon().isNull());
+
+    QToolButton *mSendMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSendMessageButton"));
+    QVERIFY(mSendMessageButton);
+    QVERIFY(!mSendMessageButton->icon().isNull());
 }
+
+//TODO test signal/slot

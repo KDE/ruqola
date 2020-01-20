@@ -44,6 +44,16 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mainLayout->addWidget(mMessageLineEdit);
     connect(mMessageLineEdit, &MessageLineEdit::sendMessage, this, &MessageLineWidget::sendMessage);
     connect(mMessageLineEdit, &MessageLineEdit::clearNotification, this, &MessageLineWidget::clearNotification);
+
+    mEmoticonButton = new QToolButton(this);
+    mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
+    mEmoticonButton->setIcon(QIcon::fromTheme(QStringLiteral("face-smile")));
+    mainLayout->addWidget(mEmoticonButton);
+
+    mSendMessageButton = new QToolButton(this);
+    mSendMessageButton->setObjectName(QStringLiteral("mSendMessageButton"));
+    mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent"))); //Change it when we edit message
+    mainLayout->addWidget(mSendMessageButton);
 }
 
 MessageLineWidget::~MessageLineWidget()

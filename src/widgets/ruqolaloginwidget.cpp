@@ -19,6 +19,8 @@
 */
 
 #include "ruqolaloginwidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
@@ -53,11 +55,28 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mainLayout->addWidget(mLoginButton);
     connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
     //TODO add message error
+    //TODO add support for twoFactorAuthentication
+    /**
+serverUrl: rcAccount.serverUrl
+username: rcAccount.userName
+originalAccountName: rcAccount.accountName
+password: rcAccount.password
+twoFactorAuthenticationCode: rcAccount.twoFactorAuthenticationCode
+*/
 }
 
 RuqolaLoginWidget::~RuqolaLoginWidget()
 {
 
+}
+
+void RuqolaLoginWidget::initialize()
+{
+    auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
+    mAccountName->setText(rocketChatAccount->accountName());
+    mServerName->setText(rocketChatAccount->serverUrl());
+    mUserName->setText(rocketChatAccount->userName());
+    mPasswordLineEdit->setPassword(rocketChatAccount->password());
 }
 
 void RuqolaLoginWidget::slotLogin()

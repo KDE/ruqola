@@ -18,33 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef SEARCHCHANNELDIALOG_H
+#define SEARCHCHANNELDIALOG_H
 
-#ifndef MESSAGELINEWIDGET_H
-#define MESSAGELINEWIDGET_H
-
-#include <QWidget>
-#include "dialogs/uploadfiledialog.h"
+#include <QDialog>
 #include "libruqolawidgets_private_export.h"
-class MessageLineEdit;
-class QToolButton;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
+class LIBRUQOLAWIDGETS_EXPORT SearchChannelDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit MessageLineWidget(QWidget *parent = nullptr);
-    ~MessageLineWidget();
-
-Q_SIGNALS:
-    void sendMessage(const QString &str);
-    void clearNotification();
-    void sendFile(const UploadFileDialog::UploadFileInfo &result);
-
-private:
-    void slotSendFile();
-    MessageLineEdit *mMessageLineEdit = nullptr;
-    QToolButton *mSendFile = nullptr;
-    QToolButton *mEmoticonButton = nullptr;
-    QToolButton *mSendMessageButton = nullptr;
+    explicit SearchChannelDialog(QWidget *parent = nullptr);
+    ~SearchChannelDialog();
 };
 
-#endif // MESSAGELINEWIDGET_H
+#endif // SEARCHCHANNELDIALOG_H
