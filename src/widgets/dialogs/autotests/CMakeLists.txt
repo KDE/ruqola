@@ -9,3 +9,5 @@ endmacro()
 
 add_ruqoladialog_test(uploadfiledialogtest.cpp)
 add_ruqoladialog_test(uploadfilewidgettest.cpp)
+add_ruqoladialog_test(channelinfowidgettest.cpp)
+add_ruqoladialog_test(serverinfodialogtest.cpp)

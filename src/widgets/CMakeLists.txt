@@ -7,8 +7,10 @@ set(Ruqola_widgets_SRCS
 
 set(Ruqola_widgets_dialog_SRCS
     dialogs/serverinfowidget.cpp
+    dialogs/serverinfodialog.cpp
     dialogs/uploadfiledialog.cpp
     dialogs/uploadfilewidget.cpp
+    dialogs/channelinfowidget.cpp
     )
 
 set(Ruqola_channellist_SRCS
