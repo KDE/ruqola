@@ -95,7 +95,7 @@ static QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight)
     const QString userId = index.data(MessageModel::UserId).toString();
     const QString iconUrlStr = Ruqola::self()->rocketChatAccount()->avatarUrl(userId);
     QPixmap pix;
-    if (!QPixmapCache::find(iconUrlStr, &pix)) {
+    if (!iconUrlStr.isEmpty() && !QPixmapCache::find(iconUrlStr, &pix)) {
         const QUrl iconUrl(iconUrlStr);
         Q_ASSERT(iconUrl.isLocalFile());
         if (pix.load(iconUrl.toLocalFile())) {
