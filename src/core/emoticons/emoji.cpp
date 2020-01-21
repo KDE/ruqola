@@ -52,17 +52,13 @@ bool Emoji::isAnimatedImage() const
     return mExtension == QLatin1String("gif");
 }
 
-void Emoji::parseEmoji(const QJsonObject &emoji, bool restApi)
+void Emoji::parseEmoji(const QJsonObject &emoji)
 {
     mIdentifier = emoji.value(QLatin1String("_id")).toString();
     mExtension = emoji.value(QLatin1String("extension")).toString();
     mName = emoji.value(QLatin1String("name")).toString();
     mEmojiIdentifier = QLatin1Char(':') + mName + QLatin1Char(':');
-    if (restApi) {
-        mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), emoji);
-    } else {
-        mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), emoji);
-    }
+    mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), emoji);
     const QJsonArray array = emoji.value(QLatin1String("aliases")).toArray();
     const int arrayCount = array.count();
     QStringList lst;

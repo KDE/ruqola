@@ -150,7 +150,6 @@ public:
     Q_REQUIRED_RESULT quint64 openDirectChannel(const QString &userId);
     void subscribeRoomMessage(const QString &roomId);
     Q_REQUIRED_RESULT quint64 setDefaultStatus(User::PresenceStatus status);
-    Q_REQUIRED_RESULT quint64 listEmojiCustom();
     Q_REQUIRED_RESULT quint64 createJitsiConfCall(const QString &roomId);
     Q_REQUIRED_RESULT quint64 userAutocomplete(const QString &pattern, const QString &exception);
     Q_REQUIRED_RESULT quint64 deleteMessage(const QString &messageId);

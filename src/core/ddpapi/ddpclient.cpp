@@ -177,15 +177,6 @@ void change_default_status(const QJsonObject &obj, RocketChatAccount *account)
     }
 }
 
-void list_emoji_custom(const QJsonObject &obj, RocketChatAccount *account)
-{
-    account->loadEmoji(obj);
-    //qDebug() << " list emoji custom " << obj[QLatin1String("result")].toArray();
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Load Emoji Custom :") + QJsonDocument(obj).toJson());
-    }
-}
-
 void empty_callback(const QJsonObject &obj, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -536,12 +527,6 @@ quint64 DDPClient::setDefaultStatus(User::PresenceStatus status)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setDefaultStatus(status, m_uid);
     return method(result, change_default_status, DDPClient::Persistent);
-}
-
-quint64 DDPClient::listEmojiCustom()
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->listEmojiCustom(m_uid);
-    return method(result, list_emoji_custom, DDPClient::Persistent);
 }
 
 quint64 DDPClient::userAutocomplete(const QString &pattern, const QString &exception)

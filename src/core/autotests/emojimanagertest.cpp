@@ -38,29 +38,6 @@ void EmojiManagerTest::shouldHaveDefaultValue()
     QCOMPARE(manager.count(), 0);
 }
 
-void EmojiManagerTest::shouldParseEmoji_data()
-{
-    QTest::addColumn<QString>("name");
-    QTest::addColumn<int>("number");
-    QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 40;
-}
-
-void EmojiManagerTest::shouldParseEmoji()
-{
-    QFETCH(QString, name);
-    QFETCH(int, number);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + name + QLatin1String(".json");
-    QFile f(originalJsonFile);
-    QVERIFY(f.open(QIODevice::ReadOnly));
-    const QByteArray content = f.readAll();
-    f.close();
-    const QJsonDocument doc = QJsonDocument::fromJson(content);
-    const QJsonObject obj = doc.object();
-    EmojiManager manager(nullptr, false);
-    manager.loadCustomEmoji(obj, false);
-    QCOMPARE(manager.count(), number);
-}
-
 void EmojiManagerTest::shouldParseEmojiRestApi_data()
 {
     QTest::addColumn<QString>("name");
@@ -80,13 +57,13 @@ void EmojiManagerTest::shouldParseEmojiRestApi()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
     EmojiManager manager(nullptr, false);
-    manager.loadCustomEmoji(obj, true);
+    manager.loadCustomEmoji(obj);
     QCOMPARE(manager.count(), number);
 }
 
 void EmojiManagerTest::shouldGenerateHtml()
 {
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + QLatin1String("emojiparent") + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -94,29 +71,26 @@ void EmojiManagerTest::shouldGenerateHtml()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
     EmojiManager manager;
-    manager.loadCustomEmoji(obj, false);
+    manager.loadCustomEmoji(obj);
     //No serverUrl set.
     QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
 
     const QString serverUrl = QStringLiteral("www.kde.org");
     manager.setServerUrl(serverUrl);
 
-    //:foo: doesn't exist
+    // :foo: doesn't exist
     QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":foo:")), QStringLiteral(":foo:"));
 
-    //It exists
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/react_rocket.png'/>"));
+    // Existing emoji
+    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/>"));
 
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":totoro:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/totoro.gif'/>"));
-
-    //Test aliases
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":clap:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>"));
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":clapping:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/clapping.gif'/>"));
+    // Alias
+    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":darth:")), QStringLiteral("<img height='22' width='22' src='http://www.kde.org/emoji-custom/vader.png'/>"));
 }
 
 void EmojiManagerTest::shouldChangeServerUrl()
 {
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + QLatin1String("emojiparent") + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");
     QFile f(originalJsonFile);
     QVERIFY(f.open(QIODevice::ReadOnly));
     const QByteArray content = f.readAll();
@@ -124,15 +98,15 @@ void EmojiManagerTest::shouldChangeServerUrl()
     const QJsonDocument doc = QJsonDocument::fromJson(content);
     const QJsonObject obj = doc.object();
     EmojiManager manager(nullptr, false);
-    manager.loadCustomEmoji(obj, false);
+    manager.loadCustomEmoji(obj);
     QString serverUrl = QStringLiteral("www.kde.org");
     manager.setServerUrl(serverUrl);
 
     //It exists
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/react_rocket.png'/>").arg(serverUrl));
+    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png'/>").arg(serverUrl));
 
     //Change server url => clear cache
     serverUrl = QStringLiteral("www.bla.org");
     manager.setServerUrl(serverUrl);
-    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":react_rocket:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/react_rocket.png'/>").arg(serverUrl));
+    QCOMPARE(manager.replaceEmojiIdentifier(QStringLiteral(":vader:")), QStringLiteral("<img height='22' width='22' src='http://%1/emoji-custom/vader.png'/>").arg(serverUrl));
 }

@@ -435,7 +435,7 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         mRestApi = new RocketChatRestApi::RestApiRequest(this);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::setChannelJoinDone, this, &RocketChatAccount::setChannelJoinDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::missingChannelPassword, this, &RocketChatAccount::missingChannelPassword);
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::loadEmojiCustomDone, this, &RocketChatAccount::loadEmojiRestApi);
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::loadEmojiCustomDone, this, &RocketChatAccount::loadEmoji);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::openArchivedRoom, this, &RocketChatAccount::openArchivedRoom);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
@@ -690,14 +690,9 @@ void RocketChatAccount::changeDefaultStatus(int index, const QString &messageSta
     setDefaultStatus(mStatusModel->status(index), messageStatus);
 }
 
-void RocketChatAccount::loadEmojiRestApi(const QJsonObject &obj)
-{
-    mEmojiManager->loadCustomEmoji(obj, true);
-}
-
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
-    mEmojiManager->loadCustomEmoji(obj, false);
+    mEmojiManager->loadCustomEmoji(obj);
 }
 
 void RocketChatAccount::deleteMessage(const QString &messageId, const QString &roomId)

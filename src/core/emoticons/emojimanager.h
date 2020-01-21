@@ -33,7 +33,7 @@ public:
     explicit EmojiManager(QObject *parent = nullptr, bool loadUnicode = true);
     ~EmojiManager();
 
-    void loadCustomEmoji(const QJsonObject &obj, bool restApi);
+    void loadCustomEmoji(const QJsonObject &obj);
 
     Q_REQUIRED_RESULT int count() const;
 

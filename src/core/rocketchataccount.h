@@ -294,7 +294,6 @@ public:
 
     RuqolaLogger *ruqolaLogger() const;
 
-    void loadEmoji(const QJsonObject &obj);
     void parsePublicSettings(const QJsonObject &obj);
 
     RuqolaServerConfig *ruqolaServerConfig() const;
@@ -421,7 +420,7 @@ private:
     void slotGetSupportedLanguagesDone(const QJsonObject &obj);
     void slotUsersPresenceDone(const QJsonObject &obj);
 
-    void loadEmojiRestApi(const QJsonObject &obj);
+    void loadEmoji(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);
     void slotNeedToUpdateNotification();
     void insertAvatarUrl(const QString &userId, const QString &url);

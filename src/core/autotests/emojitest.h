@@ -35,9 +35,6 @@ private Q_SLOTS:
     void shouldCopyValue();
     void shouldClearCachedHtml();
 
-    void shouldParseEmoji_data();
-    void shouldParseEmoji();
-
     void shouldParseEmojiRestAPI_data();
     void shouldParseEmojiRestAPI();
 

@@ -61,8 +61,6 @@ private Q_SLOTS:
 
     void shouldSearchMessage();
 
-    void shouldListEmojiCustom();
-
     void shouldUserAutoComplete();
     void shouldSendFileMessage();
 

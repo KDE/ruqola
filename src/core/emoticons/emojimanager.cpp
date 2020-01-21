@@ -59,30 +59,18 @@ QMap<QString, QVector<UnicodeEmoticon> > EmojiManager::unicodeEmojiList() const
     return mUnicodeEmojiList;
 }
 
-void EmojiManager::loadCustomEmoji(const QJsonObject &obj, bool restApi)
+void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
 {
     mCustomEmojiList.clear();
-    if (!restApi) {
-        const QJsonArray result = obj.value(QLatin1String("result")).toArray();
-        for (int i = 0; i < result.size(); i++) {
-            const QJsonObject emojiJson = result.at(i).toObject();
-            Emoji emoji;
-            emoji.parseEmoji(emojiJson, restApi);
-            if (emoji.isValid()) {
-                mCustomEmojiList.append(emoji);
-            }
-        }
-    } else {
-        const QJsonObject result = obj.value(QLatin1String("emojis")).toObject();
-        const QJsonArray array = result.value(QLatin1String("update")).toArray();
-        //TODO add support for remove when we store it in local
-        for (int i = 0; i < array.size(); i++) {
-            const QJsonObject emojiJson = array.at(i).toObject();
-            Emoji emoji;
-            emoji.parseEmoji(emojiJson, restApi);
-            if (emoji.isValid()) {
-                mCustomEmojiList.append(emoji);
-            }
+    const QJsonObject result = obj.value(QLatin1String("emojis")).toObject();
+    const QJsonArray array = result.value(QLatin1String("update")).toArray();
+    //TODO add support for remove when we store it in local
+    for (int i = 0; i < array.size(); i++) {
+        const QJsonObject emojiJson = array.at(i).toObject();
+        Emoji emoji;
+        emoji.parseEmoji(emojiJson);
+        if (emoji.isValid()) {
+            mCustomEmojiList.append(emoji);
         }
     }
 }

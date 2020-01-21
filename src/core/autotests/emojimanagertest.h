@@ -32,9 +32,6 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
 
-    void shouldParseEmoji_data();
-    void shouldParseEmoji();
-
     void shouldGenerateHtml();
 
     void shouldChangeServerUrl();
