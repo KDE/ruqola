@@ -18,20 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHCHANNELDIALOG_H
-#define SEARCHCHANNELDIALOG_H
+#include "searchchannelwidget.h"
+#include <QVBoxLayout>
+#include <KLocalizedString>
 
-#include <QDialog>
-#include "libruqolawidgets_private_export.h"
-class SearchChannelWidget;
-class LIBRUQOLAWIDGETS_EXPORT SearchChannelDialog : public QDialog
+SearchChannelWidget::SearchChannelWidget(QWidget *parent)
+    : QWidget(parent)
 {
-    Q_OBJECT
-public:
-    explicit SearchChannelDialog(QWidget *parent = nullptr);
-    ~SearchChannelDialog();
-private:
-    SearchChannelWidget *mSearchChannelWidget = nullptr;
-};
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+}
 
-#endif // SEARCHCHANNELDIALOG_H
+SearchChannelWidget::~SearchChannelWidget()
+{
+
+}

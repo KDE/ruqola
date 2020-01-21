@@ -18,20 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SEARCHCHANNELDIALOG_H
-#define SEARCHCHANNELDIALOG_H
+#ifndef SEARCHCHANNELWIDGET_H
+#define SEARCHCHANNELWIDGET_H
 
-#include <QDialog>
-#include "libruqolawidgets_private_export.h"
-class SearchChannelWidget;
-class LIBRUQOLAWIDGETS_EXPORT SearchChannelDialog : public QDialog
+#include <QWidget>
+
+class SearchChannelWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SearchChannelDialog(QWidget *parent = nullptr);
-    ~SearchChannelDialog();
-private:
-    SearchChannelWidget *mSearchChannelWidget = nullptr;
+    explicit SearchChannelWidget(QWidget *parent = nullptr);
+    ~SearchChannelWidget();
 };
 
-#endif // SEARCHCHANNELDIALOG_H
+#endif // SEARCHCHANNELWIDGET_H

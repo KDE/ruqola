@@ -20,6 +20,7 @@
 
 
 #include "searchchanneldialog.h"
+#include "searchchannelwidget.h"
 #include <QDialogButtonBox>
 #include <KLocalizedString>
 #include <QVBoxLayout>
@@ -29,6 +30,10 @@ SearchChannelDialog::SearchChannelDialog(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mSearchChannelWidget = new SearchChannelWidget(this);
+    mSearchChannelWidget->setObjectName(QStringLiteral("mSearchChannelWidget"));
+    mainLayout->addWidget(mSearchChannelWidget);
 
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
