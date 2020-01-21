@@ -20,7 +20,10 @@
 
 #include "searchchanneldialogtest.h"
 #include "dialogs/searchchanneldialog.h"
+#include "dialogs/searchchannelwidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(SearchChannelDialogTest)
 SearchChannelDialogTest::SearchChannelDialogTest(QObject *parent)
     : QObject(parent)
@@ -29,4 +32,13 @@ SearchChannelDialogTest::SearchChannelDialogTest(QObject *parent)
 
 void SearchChannelDialogTest::shouldHaveDefaultValues()
 {
+    SearchChannelDialog w;
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    SearchChannelWidget *mSearchChannelWidget = w.findChild<SearchChannelWidget *>(QStringLiteral("mSearchChannelWidget"));
+    QVERIFY(mSearchChannelWidget);
+
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }

@@ -22,13 +22,16 @@
 #define SEARCHCHANNELWIDGET_H
 
 #include <QWidget>
-
-class SearchChannelWidget : public QWidget
+#include "libruqolawidgets_private_export.h"
+class QLineEdit;
+class LIBRUQOLAWIDGETS_EXPORT SearchChannelWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit SearchChannelWidget(QWidget *parent = nullptr);
     ~SearchChannelWidget();
+private:
+    QLineEdit *mSearchLineEdit = nullptr;
 };
 
 #endif // SEARCHCHANNELWIDGET_H

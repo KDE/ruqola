@@ -21,6 +21,7 @@
 #include "searchchannelwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QLineEdit>
 
 SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     : QWidget(parent)
@@ -28,6 +29,10 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mSearchLineEdit = new QLineEdit(this);
+    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mainLayout->addWidget(mSearchLineEdit);
 }
 
 SearchChannelWidget::~SearchChannelWidget()
