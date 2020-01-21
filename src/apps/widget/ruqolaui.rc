@@ -11,6 +11,7 @@
   </Menu>
   <Menu name="edit" >
    <text>&amp;Edit</text>
+   <Action name="search_channel" />
   </Menu>
  </MenuBar>
 </gui>

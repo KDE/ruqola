@@ -38,9 +38,11 @@ private:
     void slotServerInfo();
     void slotConfigure();
     void slotLogout();
+    void slotSearchChannel();
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
     QAction *mLogout = nullptr;
+    QAction *mSearchChannel = nullptr;
 };
 
 #endif // RUQOLAMAINWINDOW_H

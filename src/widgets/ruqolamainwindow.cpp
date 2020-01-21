@@ -23,6 +23,7 @@
 #include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
 #include "dialogs/serverinfodialog.h"
+#include "dialogs/searchchanneldialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -82,6 +83,10 @@ void RuqolaMainWindow::setupActions()
     mLogout = new QAction(i18n("Logout"), this);
     connect(mLogout, &QAction::triggered, this, &RuqolaMainWindow::slotLogout);
     ac->addAction(QStringLiteral("logout"), mLogout);
+
+    mSearchChannel = new QAction(i18n("Search Channel..."), this);
+    connect(mSearchChannel, &QAction::triggered, this, &RuqolaMainWindow::slotSearchChannel);
+    ac->addAction(QStringLiteral("search_channel"), mSearchChannel);
 }
 
 void RuqolaMainWindow::slotConfigure()
@@ -96,7 +101,6 @@ void RuqolaMainWindow::slotAddAccount()
 
 void RuqolaMainWindow::slotServerInfo()
 {
-    qDebug() << " void RuqolaMainWindow::slotServerInfo()";
     QPointer<ServerInfoDialog> dlg = new ServerInfoDialog(this);
     dlg->setServerConfigInfo(Ruqola::self()->rocketChatAccount()->serverConfigInfo());
     dlg->exec();
@@ -106,4 +110,11 @@ void RuqolaMainWindow::slotServerInfo()
 void RuqolaMainWindow::slotLogout()
 {
     Ruqola::self()->rocketChatAccount()->logOut();
+}
+
+void RuqolaMainWindow::slotSearchChannel()
+{
+    QPointer<SearchChannelDialog> dlg = new SearchChannelDialog(this);
+    dlg->exec();
+    delete dlg;
 }
