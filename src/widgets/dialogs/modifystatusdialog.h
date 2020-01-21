@@ -23,13 +23,15 @@
 
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
-
+class ModifyStatusWidget;
 class LIBRUQOLAWIDGETS_EXPORT ModifyStatusDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ModifyStatusDialog(QWidget *parent = nullptr);
     ~ModifyStatusDialog();
+private:
+    ModifyStatusWidget *mModifyStatusWidget = nullptr;
 };
 
 #endif // MODIFYSTATUSDIALOG_H

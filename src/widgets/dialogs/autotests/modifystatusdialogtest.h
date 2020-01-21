@@ -19,17 +19,19 @@
 */
 
 
-#ifndef MODIFYSTATUSDIALOG_H
-#define MODIFYSTATUSDIALOG_H
+#ifndef MODIFYSTATUSDIALOGTEST_H
+#define MODIFYSTATUSDIALOGTEST_H
 
 #include <QObject>
-
-class ModifyStatusDialog : public QObject
+#include "libruqolawidgets_private_export.h"
+class LIBRUQOLAWIDGETS_EXPORT ModifyStatusDialogTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ModifyStatusDialog(QObject *parent = nullptr);
-    ~ModifyStatusDialog() = default;
+    explicit ModifyStatusDialogTest(QObject *parent = nullptr);
+    ~ModifyStatusDialogTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // MODIFYSTATUSDIALOG_H
+#endif // MODIFYSTATUSDIALOGTEST_H

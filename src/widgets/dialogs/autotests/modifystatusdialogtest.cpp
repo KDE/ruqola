@@ -19,11 +19,30 @@
 */
 
 
-#include "modifystatusdialog.h"
+#include "modifystatusdialogtest.h"
+#include "dialogs/modifystatusdialog.h"
+#include "dialogs/modifystatuswidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
-QTEST_MAIN(ModifyStatusDialog)
-ModifyStatusDialog::ModifyStatusDialog(QObject *parent)
+#include <QVBoxLayout>
+QTEST_MAIN(ModifyStatusDialogTest)
+ModifyStatusDialogTest::ModifyStatusDialogTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void ModifyStatusDialogTest::shouldHaveDefaultValues()
+{
+    ModifyStatusDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    ModifyStatusWidget *mModifyStatusWidget = w.findChild<ModifyStatusWidget *>(QStringLiteral("mModifyStatusWidget"));
+    QVERIFY(mModifyStatusWidget);
+
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }

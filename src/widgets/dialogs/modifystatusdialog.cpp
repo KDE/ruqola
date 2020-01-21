@@ -19,6 +19,7 @@
 */
 
 #include "modifystatusdialog.h"
+#include "modifystatuswidget.h"
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
 #include <KLocalizedString>
@@ -30,6 +31,10 @@ ModifyStatusDialog::ModifyStatusDialog(QWidget *parent)
     setWindowTitle(i18nc("@title:window", "Modify Status"));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mModifyStatusWidget = new ModifyStatusWidget(this);
+    mModifyStatusWidget->setObjectName(QStringLiteral("mModifyStatusWidget"));
+    mainLayout->addWidget(mModifyStatusWidget);
 
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
