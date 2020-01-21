@@ -37,6 +37,7 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
 
     mStatusLineEdit = new QLineEdit(this);
     mStatusLineEdit->setObjectName(QStringLiteral("mStatusLineEdit"));
+    mStatusLineEdit->setClearButtonEnabled(true);
 
     mainLayout->addRow(i18n("Message Status:"), mStatusLineEdit);
     mainLayout->addRow(i18n("Status:"), mStatusCombobox);
@@ -46,3 +47,9 @@ ModifyStatusWidget::~ModifyStatusWidget()
 {
 
 }
+
+QString ModifyStatusWidget::statusMessage() const
+{
+    return mStatusLineEdit->text();
+}
+//TODO add status info

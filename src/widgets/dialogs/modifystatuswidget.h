@@ -33,6 +33,7 @@ class LIBRUQOLAWIDGETS_EXPORT ModifyStatusWidget : public QWidget
 public:
     explicit ModifyStatusWidget(QWidget *parent = nullptr);
     ~ModifyStatusWidget();
+    Q_REQUIRED_RESULT QString statusMessage() const;
 private:
     StatusCombobox *mStatusCombobox = nullptr;
     QLineEdit *mStatusLineEdit = nullptr;
