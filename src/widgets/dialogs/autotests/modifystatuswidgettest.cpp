@@ -46,5 +46,5 @@ void ModifyStatusWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mStatusLineEdit);
     QVERIFY(mStatusLineEdit->isClearButtonEnabled());
 
-    QVERIFY(w.statusMessage().isEmpty());
+    QVERIFY(w.messageStatus().isEmpty());
 }

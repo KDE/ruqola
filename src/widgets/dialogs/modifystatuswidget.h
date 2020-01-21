@@ -25,6 +25,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+#include "user.h"
 class QLineEdit;
 class StatusCombobox;
 class LIBRUQOLAWIDGETS_EXPORT ModifyStatusWidget : public QWidget
@@ -33,7 +34,10 @@ class LIBRUQOLAWIDGETS_EXPORT ModifyStatusWidget : public QWidget
 public:
     explicit ModifyStatusWidget(QWidget *parent = nullptr);
     ~ModifyStatusWidget();
-    Q_REQUIRED_RESULT QString statusMessage() const;
+
+    Q_REQUIRED_RESULT QString messageStatus() const;
+    Q_REQUIRED_RESULT User::PresenceStatus status() const;
+
 private:
     StatusCombobox *mStatusCombobox = nullptr;
     QLineEdit *mStatusLineEdit = nullptr;

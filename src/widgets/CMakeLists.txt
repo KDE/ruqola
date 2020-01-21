@@ -17,6 +17,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/searchchannelwidget.cpp
     dialogs/modifystatusdialog.cpp
     dialogs/modifystatuswidget.cpp
+    dialogs/createnewchanneldialog.cpp
     )
 
 set(Ruqola_channellist_SRCS

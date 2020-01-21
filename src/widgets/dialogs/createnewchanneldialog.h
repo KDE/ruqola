@@ -19,32 +19,18 @@
 */
 
 
-#include "modifystatusdialogtest.h"
-#include "dialogs/modifystatusdialog.h"
-#include "dialogs/modifystatuswidget.h"
-#include <QDialogButtonBox>
-#include <QTest>
-#include <QVBoxLayout>
-QTEST_MAIN(ModifyStatusDialogTest)
-ModifyStatusDialogTest::ModifyStatusDialogTest(QObject *parent)
-    : QObject(parent)
+#ifndef CREATENEWCHANNELDIALOG_H
+#define CREATENEWCHANNELDIALOG_H
+
+#include <QDialog>
+#include "libruqolawidgets_private_export.h"
+
+class LIBRUQOLAWIDGETS_EXPORT CreateNewChannelDialog : public QDialog
 {
+    Q_OBJECT
+public:
+    explicit CreateNewChannelDialog(QWidget *parent = nullptr);
+    ~CreateNewChannelDialog();
+};
 
-}
-
-void ModifyStatusDialogTest::shouldHaveDefaultValues()
-{
-    ModifyStatusDialog w;
-    QVERIFY(!w.windowTitle().isEmpty());
-
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-
-    ModifyStatusWidget *mModifyStatusWidget = w.findChild<ModifyStatusWidget *>(QStringLiteral("mModifyStatusWidget"));
-    QVERIFY(mModifyStatusWidget);
-
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
-    QVERIFY(button);
-
-    QVERIFY(w.messageStatus().isEmpty());
-}
+#endif // CREATENEWCHANNELDIALOG_H

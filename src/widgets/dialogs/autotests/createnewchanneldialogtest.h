@@ -18,33 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef CREATENEWCHANNELDIALOGTEST_H
+#define CREATENEWCHANNELDIALOGTEST_H
 
-#include "modifystatusdialogtest.h"
-#include "dialogs/modifystatusdialog.h"
-#include "dialogs/modifystatuswidget.h"
-#include <QDialogButtonBox>
-#include <QTest>
-#include <QVBoxLayout>
-QTEST_MAIN(ModifyStatusDialogTest)
-ModifyStatusDialogTest::ModifyStatusDialogTest(QObject *parent)
-    : QObject(parent)
+#include <QObject>
+
+class CreateNewChannelDialogTest : public QObject
 {
+    Q_OBJECT
+public:
+    explicit CreateNewChannelDialogTest(QObject *parent = nullptr);
+    ~CreateNewChannelDialogTest() = default;
+};
 
-}
-
-void ModifyStatusDialogTest::shouldHaveDefaultValues()
-{
-    ModifyStatusDialog w;
-    QVERIFY(!w.windowTitle().isEmpty());
-
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-
-    ModifyStatusWidget *mModifyStatusWidget = w.findChild<ModifyStatusWidget *>(QStringLiteral("mModifyStatusWidget"));
-    QVERIFY(mModifyStatusWidget);
-
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
-    QVERIFY(button);
-
-    QVERIFY(w.messageStatus().isEmpty());
-}
+#endif // CREATENEWCHANNELDIALOGTEST_H

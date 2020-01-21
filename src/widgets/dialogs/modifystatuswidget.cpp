@@ -48,8 +48,12 @@ ModifyStatusWidget::~ModifyStatusWidget()
 
 }
 
-QString ModifyStatusWidget::statusMessage() const
+QString ModifyStatusWidget::messageStatus() const
 {
     return mStatusLineEdit->text();
 }
-//TODO add status info
+
+User::PresenceStatus ModifyStatusWidget::status() const
+{
+    return mStatusCombobox->status();
+}

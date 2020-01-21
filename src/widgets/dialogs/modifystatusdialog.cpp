@@ -47,3 +47,13 @@ ModifyStatusDialog::~ModifyStatusDialog()
 {
 
 }
+
+User::PresenceStatus ModifyStatusDialog::status() const
+{
+    return mModifyStatusWidget->status();
+}
+
+QString ModifyStatusDialog::messageStatus() const
+{
+    return mModifyStatusWidget->messageStatus();
+}
