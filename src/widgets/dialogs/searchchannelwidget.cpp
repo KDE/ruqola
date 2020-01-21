@@ -22,6 +22,7 @@
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QLineEdit>
+#include <QListWidget>
 
 SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     : QWidget(parent)
@@ -32,7 +33,12 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
 
     mSearchLineEdit = new QLineEdit(this);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setClearButtonEnabled(true);
     mainLayout->addWidget(mSearchLineEdit);
+
+    mResultListWidget = new QListWidget(this);
+    mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
+    mainLayout->addWidget(mResultListWidget);
 }
 
 SearchChannelWidget::~SearchChannelWidget()
