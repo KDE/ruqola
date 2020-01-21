@@ -19,18 +19,31 @@
 */
 
 #include "statuscombobox.h"
+#include <KLocalizedString>
+#include <QIcon>
 
-StatusCombobox::StatusCombobox(QWidget *parent)
+StatusCombobox::StatusCombobox(bool showModifyStatus, QWidget *parent)
     : QComboBox(parent)
 {
-    init();
+    init(showModifyStatus);
 }
 
 StatusCombobox::~StatusCombobox()
 {
 }
 
-void StatusCombobox::init()
+void StatusCombobox::init(bool showModifyStatus)
 {
-    //TODO
+    addItem(QIcon::fromTheme(QStringLiteral("im-user-online")), i18n("Online"), QVariant::fromValue(User::PresenceStatus::PresenceOnline));
+    addItem(QIcon::fromTheme(QStringLiteral("im-user-busy")), i18n("Busy"), QVariant::fromValue(User::PresenceStatus::PresenceBusy));
+    addItem(QIcon::fromTheme(QStringLiteral("im-user-away")), i18n("Away"), QVariant::fromValue(User::PresenceStatus::PresenceAway));
+    addItem(QIcon::fromTheme(QStringLiteral("im-user-offline")), i18n("Offline"), QVariant::fromValue(User::PresenceStatus::PresenceOffline));
+    if (showModifyStatus) {
+        addItem(i18n("Modify Status"), QVariant::fromValue(User::PresenceStatus::Unknown));
+    }
+}
+
+User::PresenceStatus StatusCombobox::status() const
+{
+    return currentData().value<User::PresenceStatus>();
 }

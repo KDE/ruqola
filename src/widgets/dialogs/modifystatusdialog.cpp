@@ -18,19 +18,27 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef STATUSCOMBOBOXTEST_H
-#define STATUSCOMBOBOXTEST_H
+#include "modifystatusdialog.h"
+#include <QVBoxLayout>
+#include <QDialogButtonBox>
+#include <KLocalizedString>
 
-#include <QObject>
 
-class StatusComboboxTest : public QObject
+ModifyStatusDialog::ModifyStatusDialog(QWidget *parent)
+    : QDialog(parent)
 {
-    Q_OBJECT
-public:
-    explicit StatusComboboxTest(QObject *parent = nullptr);
-    ~StatusComboboxTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
-};
+    setWindowTitle(i18nc("@title:window", "Modify Status"));
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-#endif // STATUSCOMBOBOXTEST_H
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::accepted, this, &ModifyStatusDialog::accept);
+    connect(button, &QDialogButtonBox::rejected, this, &ModifyStatusDialog::reject);
+}
+
+ModifyStatusDialog::~ModifyStatusDialog()
+{
+
+}

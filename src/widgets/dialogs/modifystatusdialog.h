@@ -18,19 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef STATUSCOMBOBOXTEST_H
-#define STATUSCOMBOBOXTEST_H
+#ifndef MODIFYSTATUSDIALOG_H
+#define MODIFYSTATUSDIALOG_H
 
-#include <QObject>
+#include <QDialog>
+#include "libruqolawidgets_private_export.h"
 
-class StatusComboboxTest : public QObject
+class LIBRUQOLAWIDGETS_EXPORT ModifyStatusDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit StatusComboboxTest(QObject *parent = nullptr);
-    ~StatusComboboxTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
+    explicit ModifyStatusDialog(QWidget *parent = nullptr);
+    ~ModifyStatusDialog();
 };
 
-#endif // STATUSCOMBOBOXTEST_H
+#endif // MODIFYSTATUSDIALOG_H

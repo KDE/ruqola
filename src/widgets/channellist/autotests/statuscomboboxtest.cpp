@@ -19,9 +19,19 @@
 */
 
 #include "statuscomboboxtest.h"
+#include "channellist/statuscombobox.h"
 #include <QTest>
 QTEST_MAIN(StatusComboboxTest)
 StatusComboboxTest::StatusComboboxTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void StatusComboboxTest::shouldHaveDefaultValues()
+{
+    StatusCombobox w(true);
+    QCOMPARE(w.count(), 5);
+
+    StatusCombobox w2(false);
+    QCOMPARE(w2.count(), 4);
 }

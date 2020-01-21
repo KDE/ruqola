@@ -31,6 +31,8 @@ public:
     explicit SearchChannelDialog(QWidget *parent = nullptr);
     ~SearchChannelDialog();
 private:
+    void readConfig();
+    void writeConfig();
     SearchChannelWidget *mSearchChannelWidget = nullptr;
 };
 

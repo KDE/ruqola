@@ -22,17 +22,18 @@
 #define STATUSCOMBOBOX_H
 
 #include <QComboBox>
-
+#include "user.h"
 #include "libruqolawidgets_private_export.h"
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT StatusCombobox : public QComboBox
 {
     Q_OBJECT
 public:
-    explicit StatusCombobox(QWidget *parent = nullptr);
+    explicit StatusCombobox(bool showModifyStatus, QWidget *parent = nullptr);
     ~StatusCombobox();
+    Q_REQUIRED_RESULT User::PresenceStatus status() const;
 private:
-    void init();
+    void init(bool showModifyStatus);
 };
 
 #endif // STATUSCOMBOBOX_H

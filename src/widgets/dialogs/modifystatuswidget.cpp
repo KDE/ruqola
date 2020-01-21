@@ -18,19 +18,31 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef STATUSCOMBOBOXTEST_H
-#define STATUSCOMBOBOXTEST_H
 
-#include <QObject>
+#include "modifystatuswidget.h"
+#include "channellist/statuscombobox.h"
+#include <KLocalizedString>
+#include <QFormLayout>
+#include <QLineEdit>
 
-class StatusComboboxTest : public QObject
+ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
+    : QWidget(parent)
 {
-    Q_OBJECT
-public:
-    explicit StatusComboboxTest(QObject *parent = nullptr);
-    ~StatusComboboxTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
-};
+    QFormLayout *mainLayout = new QFormLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
-#endif // STATUSCOMBOBOXTEST_H
+    mStatusCombobox = new StatusCombobox(false, this);
+    mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));
+
+    mStatusLineEdit = new QLineEdit(this);
+    mStatusLineEdit->setObjectName(QStringLiteral("mStatusLineEdit"));
+
+    mainLayout->addRow(i18n("Message Status:"), mStatusLineEdit);
+    mainLayout->addRow(i18n("Status:"), mStatusCombobox);
+}
+
+ModifyStatusWidget::~ModifyStatusWidget()
+{
+
+}

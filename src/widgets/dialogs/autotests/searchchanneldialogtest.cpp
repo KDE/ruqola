@@ -33,6 +33,8 @@ SearchChannelDialogTest::SearchChannelDialogTest(QObject *parent)
 void SearchChannelDialogTest::shouldHaveDefaultValues()
 {
     SearchChannelDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+
     QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 

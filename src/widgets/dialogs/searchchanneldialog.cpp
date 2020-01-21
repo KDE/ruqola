@@ -23,10 +23,13 @@
 #include <QDialogButtonBox>
 #include <KLocalizedString>
 #include <QVBoxLayout>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
 SearchChannelDialog::SearchChannelDialog(QWidget *parent)
     : QDialog(parent)
 {
+    setWindowTitle(i18nc("@title:window", "Search Channel"));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -39,8 +42,25 @@ SearchChannelDialog::SearchChannelDialog(QWidget *parent)
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &SearchChannelDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &SearchChannelDialog::reject);
+    readConfig();
 }
 
 SearchChannelDialog::~SearchChannelDialog()
 {
+    writeConfig();
+}
+
+void SearchChannelDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), "SearchChannelDialog");
+    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void SearchChannelDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), "SearchChannelDialog");
+    group.writeEntry("Size", size());
 }

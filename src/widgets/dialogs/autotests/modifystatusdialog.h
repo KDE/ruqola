@@ -18,19 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef STATUSCOMBOBOXTEST_H
-#define STATUSCOMBOBOXTEST_H
+
+#ifndef MODIFYSTATUSDIALOG_H
+#define MODIFYSTATUSDIALOG_H
 
 #include <QObject>
 
-class StatusComboboxTest : public QObject
+class ModifyStatusDialog : public QObject
 {
     Q_OBJECT
 public:
-    explicit StatusComboboxTest(QObject *parent = nullptr);
-    ~StatusComboboxTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
+    explicit ModifyStatusDialog(QObject *parent = nullptr);
+    ~ModifyStatusDialog() = default;
 };
 
-#endif // STATUSCOMBOBOXTEST_H
+#endif // MODIFYSTATUSDIALOG_H

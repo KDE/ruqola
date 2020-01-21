@@ -37,6 +37,7 @@ Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
 
 private:
+    void slotStatusChanged();
     StatusCombobox *mStatusComboBox = nullptr;
     ChannelListView *mChannelView = nullptr;
     QLineEdit *mSearchRoom = nullptr;

@@ -21,10 +21,13 @@
 #include "channellistview.h"
 #include "channellistwidget.h"
 #include "statuscombobox.h"
+#include "dialogs/modifystatusdialog.h"
 #include <QHBoxLayout>
 #include <QLabel>
 #include <KLocalizedString>
 #include <QLineEdit>
+#include <QDebug>
+#include <QPointer>
 
 ChannelListWidget::ChannelListWidget(QWidget *parent)
     : QWidget(parent)
@@ -49,11 +52,28 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     label->setObjectName(QStringLiteral("label"));
     statusComboBoxLayout->addWidget(label);
 
-    mStatusComboBox = new StatusCombobox(this);
+    mStatusComboBox = new StatusCombobox(true, this);
     mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
     statusComboBoxLayout->addWidget(mStatusComboBox);
+    connect(mStatusComboBox, QOverload<int>::of(&StatusCombobox::currentIndexChanged), this, &ChannelListWidget::slotStatusChanged);
 }
 
 ChannelListWidget::~ChannelListWidget()
 {
+}
+
+void ChannelListWidget::slotStatusChanged()
+{
+    const User::PresenceStatus status = mStatusComboBox->status();
+    if (status == User::PresenceStatus::Unknown) {
+        QPointer<ModifyStatusDialog> dlg = new ModifyStatusDialog(this);
+        //Set current Status
+        if (dlg->exec()) {
+
+        } else {
+            //restore status
+        }
+        delete dlg;
+    }
+    qDebug() << " status changed " << mStatusComboBox->status();
 }
