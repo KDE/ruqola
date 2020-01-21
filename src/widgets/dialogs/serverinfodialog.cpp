@@ -43,7 +43,6 @@ ServerInfoDialog::ServerInfoDialog(QWidget *parent)
 
 ServerInfoDialog::~ServerInfoDialog()
 {
-
 }
 
 void ServerInfoDialog::setServerConfigInfo(ServerConfigInfo *info)

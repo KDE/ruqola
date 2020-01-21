@@ -34,7 +34,8 @@ public:
         QString description;
         QString message;
         QUrl fileUrl;
-        Q_REQUIRED_RESULT bool isValid() const {
+        Q_REQUIRED_RESULT bool isValid() const
+        {
             return fileUrl.isValid(); //TODO verify local ?
         }
     };

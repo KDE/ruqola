@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "ruqolamainwidget.h"
 #include "channellist/channellistwidget.h"
 #include "room/roomwidget.h"
@@ -50,5 +49,4 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
 RuqolaMainWidget::~RuqolaMainWidget()
 {
-
 }

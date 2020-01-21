@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "ruqolaloginwidgettest.h"
 #include "ruqolaloginwidget.h"
 #include <KPasswordLineEdit>
@@ -30,7 +29,6 @@ QTEST_MAIN(RuqolaLoginWidgetTest)
 RuqolaLoginWidgetTest::RuqolaLoginWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RuqolaLoginWidgetTest::shouldHaveDefaultValues()

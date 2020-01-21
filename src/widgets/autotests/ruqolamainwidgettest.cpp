@@ -32,7 +32,6 @@ QTEST_MAIN(RuqolaMainWidgetTest)
 RuqolaMainWidgetTest::RuqolaMainWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void RuqolaMainWidgetTest::shouldHaveDefaultValues()
@@ -53,5 +52,4 @@ void RuqolaMainWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mRoomWidget);
     QVERIFY(mSplitter->indexOf(mChannelList) >= 0);
     QVERIFY(mSplitter->indexOf(mRoomWidget) >= 0);
-
 }

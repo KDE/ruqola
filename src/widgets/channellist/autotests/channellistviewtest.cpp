@@ -26,7 +26,6 @@ QTEST_MAIN(ChannelListViewTest)
 ChannelListViewTest::ChannelListViewTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ChannelListViewTest::shouldHaveDefaultValues()

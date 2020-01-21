@@ -43,7 +43,6 @@ UploadFileDialog::UploadFileDialog(QWidget *parent)
 
 UploadFileDialog::~UploadFileDialog()
 {
-
 }
 
 UploadFileDialog::UploadFileInfo UploadFileDialog::fileInfo() const

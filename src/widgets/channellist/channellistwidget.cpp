@@ -43,7 +43,6 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mainLayout->addWidget(mChannelView);
     connect(mChannelView, &ChannelListView::channelSelected, this, &ChannelListWidget::channelSelected);
 
-
     QHBoxLayout *statusComboBoxLayout = new QHBoxLayout;
     mainLayout->addLayout(statusComboBoxLayout);
     QLabel *label = new QLabel(i18n("Status:"), this);

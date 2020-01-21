@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef RUQOLALOGINWIDGET_H
 #define RUQOLALOGINWIDGET_H
 

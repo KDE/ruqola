@@ -34,7 +34,6 @@ ChannelListView::ChannelListView(QWidget *parent)
 
 ChannelListView::~ChannelListView()
 {
-
 }
 
 void ChannelListView::slotClicked(const QModelIndex &index)

@@ -66,7 +66,6 @@ void RoomFilterProxyModel::setFilterString(const QString &string)
     setFilterFixedString(string);
 }
 
-
 bool RoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);

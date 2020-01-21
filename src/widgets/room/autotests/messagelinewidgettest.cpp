@@ -29,7 +29,6 @@ QTEST_MAIN(MessageLineWidgetTest)
 MessageLineWidgetTest::MessageLineWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MessageLineWidgetTest::shouldHaveDefaultValues()

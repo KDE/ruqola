@@ -32,5 +32,4 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
 
 SearchChannelWidget::~SearchChannelWidget()
 {
-
 }

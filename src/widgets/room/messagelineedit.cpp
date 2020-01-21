@@ -34,7 +34,6 @@ MessageLineEdit::MessageLineEdit(QWidget *parent)
 
 MessageLineEdit::~MessageLineEdit()
 {
-
 }
 
 void MessageLineEdit::keyPressEvent(QKeyEvent *e)
@@ -49,6 +48,5 @@ void MessageLineEdit::keyPressEvent(QKeyEvent *e)
     }
     QLineEdit::keyPressEvent(e);
 }
-
 
 //TODO add keyEvent

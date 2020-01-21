@@ -28,7 +28,6 @@ QTEST_MAIN(ServerInfoDialogTest)
 ServerInfoDialogTest::ServerInfoDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ServerInfoDialogTest::shouldHaveDefaultValues()

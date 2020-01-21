@@ -25,10 +25,8 @@ QTEST_MAIN(SearchChannelDialogTest)
 SearchChannelDialogTest::SearchChannelDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void SearchChannelDialogTest::shouldHaveDefaultValues()
 {
-
 }

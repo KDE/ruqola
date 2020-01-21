@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "serverinfowidgettest.h"
 #include "dialogs/serverinfowidget.h"
 #include <QFormLayout>
@@ -28,7 +27,6 @@ QTEST_MAIN(ServerInfoWidgetTest)
 ServerInfoWidgetTest::ServerInfoWidgetTest(QWidget *parent)
     : QWidget(parent)
 {
-
 }
 
 void ServerInfoWidgetTest::shouldHaveDefaultValues()

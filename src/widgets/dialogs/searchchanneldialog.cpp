@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "searchchanneldialog.h"
 #include "searchchannelwidget.h"
 #include <QDialogButtonBox>
@@ -44,5 +43,4 @@ SearchChannelDialog::SearchChannelDialog(QWidget *parent)
 
 SearchChannelDialog::~SearchChannelDialog()
 {
-
 }

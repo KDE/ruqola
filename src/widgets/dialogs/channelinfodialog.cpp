@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "channelinfodialog.h"
 #include "channelinfowidget.h"
 #include <QDialogButtonBox>
@@ -44,5 +43,4 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
 
 ChannelInfoDialog::~ChannelInfoDialog()
 {
-
 }

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #ifndef RUQOLAMAINWIDGET_H
 #define RUQOLAMAINWIDGET_H
 

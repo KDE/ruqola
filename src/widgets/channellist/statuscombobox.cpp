@@ -28,7 +28,6 @@ StatusCombobox::StatusCombobox(QWidget *parent)
 
 StatusCombobox::~StatusCombobox()
 {
-
 }
 
 void StatusCombobox::init()

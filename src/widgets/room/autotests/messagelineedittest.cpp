@@ -25,7 +25,6 @@ QTEST_MAIN(MessageLineEditTest)
 MessageLineEditTest::MessageLineEditTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void MessageLineEditTest::shouldHaveDefautValues()

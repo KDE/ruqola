@@ -24,5 +24,4 @@ QTEST_MAIN(StatusComboboxTest)
 StatusComboboxTest::StatusComboboxTest(QObject *parent)
     : QObject(parent)
 {
-
 }

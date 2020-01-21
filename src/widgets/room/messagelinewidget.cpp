@@ -58,7 +58,6 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
 MessageLineWidget::~MessageLineWidget()
 {
-
 }
 
 void MessageLineWidget::slotSendFile()

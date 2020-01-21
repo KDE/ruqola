@@ -67,7 +67,6 @@ twoFactorAuthenticationCode: rcAccount.twoFactorAuthenticationCode
 
 RuqolaLoginWidget::~RuqolaLoginWidget()
 {
-
 }
 
 void RuqolaLoginWidget::initialize()

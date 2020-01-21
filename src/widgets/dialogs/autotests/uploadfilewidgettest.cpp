@@ -29,7 +29,6 @@ QTEST_MAIN(UploadFileWidgetTest)
 UploadFileWidgetTest::UploadFileWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void UploadFileWidgetTest::shouldHaveDefaultValues()

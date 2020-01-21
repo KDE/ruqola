@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "channelinfowidgettest.h"
 #include "dialogs/channelinfowidget.h"
 #include <QFormLayout>
@@ -28,7 +27,6 @@ QTEST_MAIN(ChannelInfoWidgetTest)
 ChannelInfoWidgetTest::ChannelInfoWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ChannelInfoWidgetTest::shouldHaveDefaultValues()

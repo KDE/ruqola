@@ -34,7 +34,6 @@ MessageListView::MessageListView(QWidget *parent)
 
 MessageListView::~MessageListView()
 {
-
 }
 
 void MessageListView::setChannelSelected(const QString &roomId)

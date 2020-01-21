@@ -40,7 +40,6 @@ protected:
 
 private:
     Q_DISABLE_COPY(RoomFilterProxyModel)
-
 };
 
 #endif // ROOMFILTERPROXYMODEL_H

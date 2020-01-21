@@ -26,7 +26,6 @@ QTEST_MAIN(UploadFileDialogTest)
 UploadFileDialogTest::UploadFileDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void UploadFileDialogTest::shouldHaveDefaultValues()
