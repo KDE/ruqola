@@ -117,6 +117,7 @@ void RuqolaMainWindow::slotPinnedMessages()
 {
     QPointer<ShowPinnedMessagesDialog> dlg = new ShowPinnedMessagesDialog(this);
     dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
+    //FIX load list Ruqola::self()->rocketChatAccount()->getListMessages(mRoo, ListMessagesModel.PinnedMessages);
     if (dlg->exec()) {
 
     }
