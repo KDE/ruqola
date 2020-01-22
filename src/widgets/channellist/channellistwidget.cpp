@@ -60,10 +60,18 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
     statusComboBoxLayout->addWidget(mStatusComboBox);
     connect(mStatusComboBox, QOverload<int>::of(&StatusCombobox::currentIndexChanged), this, &ChannelListWidget::slotStatusChanged);
+
+    //TODO fix multiaccount
+    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::userStatusUpdated, this, &ChannelListWidget::setUserStatusUpdated);
 }
 
 ChannelListWidget::~ChannelListWidget()
 {
+}
+
+void ChannelListWidget::setUserStatusUpdated(User::PresenceStatus status)
+{
+    mStatusComboBox->setStatus(status);
 }
 
 void ChannelListWidget::slotStatusChanged()

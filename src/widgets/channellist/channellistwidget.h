@@ -23,6 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+#include "user.h"
 class StatusCombobox;
 class ChannelListView;
 class QLineEdit;
@@ -37,6 +38,7 @@ Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
 
 private:
+    void setUserStatusUpdated(User::PresenceStatus status);
     void slotStatusChanged();
     StatusCombobox *mStatusComboBox = nullptr;
     ChannelListView *mChannelView = nullptr;

@@ -1775,7 +1775,9 @@ void RocketChatAccount::userStatusChanged(User *user)
     //qDebug() << " void RocketChatAccount::userStatusChanged(const User &user)"<<user.userId() << " userId" << userID();
     if (user->userId() == userID()) {
         //qDebug() << " void RocketChatAccount::userStatusChanged(const User &user) current user !!!!!!!!!!!!" << user;
-        statusModel()->setCurrentPresenceStatus(Utils::presenceStatusFromString(user->status()));
+        const User::PresenceStatus status = Utils::presenceStatusFromString(user->status());
+        statusModel()->setCurrentPresenceStatus(status);
+        Q_EMIT userStatusUpdated(status);
     }
     mRoomModel->userStatusChanged(user);
 }
