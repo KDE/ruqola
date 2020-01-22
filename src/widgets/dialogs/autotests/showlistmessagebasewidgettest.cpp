@@ -20,7 +20,12 @@
 
 #include "showlistmessagebasewidgettest.h"
 #include "dialogs/showlistmessagebasewidget.h"
+#include "room/messagelistview.h"
+#include <QLabel>
+#include <QLineEdit>
 #include <QTest>
+#include <QVBoxLayout>
+
 QTEST_MAIN(ShowListMessageBaseWidgetTest)
 ShowListMessageBaseWidgetTest::ShowListMessageBaseWidgetTest(QObject *parent)
     : QObject(parent)
@@ -31,5 +36,19 @@ ShowListMessageBaseWidgetTest::ShowListMessageBaseWidgetTest(QObject *parent)
 void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
 {
     ShowListMessageBaseWidget w;
-    //TODO
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QLineEdit *mSearchMessageLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchMessageLineEdit"));
+    QVERIFY(mSearchMessageLineEdit);
+    QVERIFY(mSearchMessageLineEdit->isClearButtonEnabled());
+
+    QLabel *mMessageListInfo = w.findChild<QLabel *>(QStringLiteral("mMessageListInfo"));
+    QVERIFY(mMessageListInfo);
+    QVERIFY(mMessageListInfo->text().isEmpty());
+
+    MessageListView *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
+    QVERIFY(mMessageListView);
 }

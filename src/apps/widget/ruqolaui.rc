@@ -13,6 +13,10 @@
    <text>&amp;Edit</text>
    <Action name="search_channel" />
    <Action name="create_new_channel" />
+   <Separator/>
+   <Action name="show_mentions" />
+   <Action name="show_pinned_messages" />
+   <Action name="show_starred_messages" />
   </Menu>
  </MenuBar>
 </gui>

@@ -25,6 +25,7 @@
 #include "dialogs/serverinfodialog.h"
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/createnewchanneldialog.h"
+#include "dialogs/createnewaccountdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -93,12 +94,40 @@ void RuqolaMainWindow::setupActions()
     connect(mCreateNewChannel, &QAction::triggered, this, &RuqolaMainWindow::slotCreateNewChannel);
     ac->addAction(QStringLiteral("create_new_channel"), mCreateNewChannel);
 
+    mShowMentions = new QAction(i18n("Show Mentions..."), this);
+    connect(mShowMentions, &QAction::triggered, this, &RuqolaMainWindow::slotShowMentions);
+    ac->addAction(QStringLiteral("show_mentions"), mShowMentions);
+
+    mShowPinnedMessages = new QAction(i18n("Show Pinned Messages..."), this);
+    connect(mShowPinnedMessages, &QAction::triggered, this, &RuqolaMainWindow::slotPinnedMessages);
+    ac->addAction(QStringLiteral("show_pinned_messages"), mShowPinnedMessages);
+
+    mShowStarredMessages = new QAction(i18n("Show Starred Messages..."), this);
+    connect(mShowStarredMessages, &QAction::triggered, this, &RuqolaMainWindow::slotStarredMessages);
+    ac->addAction(QStringLiteral("show_starred_messages"), mShowStarredMessages);
+}
+
+void RuqolaMainWindow::slotStarredMessages()
+{
+    //TODO
+}
+
+void RuqolaMainWindow::slotPinnedMessages()
+{
+    //TODO
+}
+
+void RuqolaMainWindow::slotShowMentions()
+{
+    //TODO
 }
 
 void RuqolaMainWindow::slotCreateNewChannel()
 {
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
-    dlg->exec();
+    if (dlg->exec()) {
+
+    }
     delete dlg;
 }
 
@@ -109,7 +138,11 @@ void RuqolaMainWindow::slotConfigure()
 
 void RuqolaMainWindow::slotAddAccount()
 {
-    //TODO
+    QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
+    if (dlg->exec()) {
+
+    }
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotServerInfo()

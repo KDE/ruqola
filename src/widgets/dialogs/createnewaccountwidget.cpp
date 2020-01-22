@@ -19,29 +19,15 @@
 */
 
 
-#ifndef SHOWLISTMESSAGEBASEWIDGET_H
-#define SHOWLISTMESSAGEBASEWIDGET_H
+#include "createnewaccountwidget.h"
 
-#include <QWidget>
-
-#include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class MessageListView;
-class QLabel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowListMessageBaseWidget : public QWidget
+CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
+    : QWidget(parent)
 {
-    Q_OBJECT
-public:
-    explicit ShowListMessageBaseWidget(QWidget *parent = nullptr);
-    ~ShowListMessageBaseWidget();
 
-    //TODO add Model
-    //TODO change text
+}
 
-private:
-    QLineEdit *mSearchMessageLineEdit = nullptr;
-    MessageListView *mMessageListView = nullptr;
-    QLabel *mMessageListInfo = nullptr;
-};
+CreateNewAccountWidget::~CreateNewAccountWidget()
+{
 
-#endif // SHOWLISTMESSAGEBASEWIDGET_H
+}

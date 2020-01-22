@@ -31,6 +31,7 @@ class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 public:
     explicit RuqolaMainWindow(QWidget *parent = nullptr);
     ~RuqolaMainWindow();
+
 private:
     void setupActions();
     void readConfig();
@@ -40,11 +41,18 @@ private:
     void slotLogout();
     void slotSearchChannel();
     void slotCreateNewChannel();
+    void slotShowMentions();
+    void slotPinnedMessages();
+    void slotStarredMessages();
+
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
     QAction *mLogout = nullptr;
     QAction *mSearchChannel = nullptr;
     QAction *mCreateNewChannel = nullptr;
+    QAction *mShowMentions = nullptr;
+    QAction *mShowPinnedMessages = nullptr;
+    QAction *mShowStarredMessages = nullptr;
 };
 
 #endif // RUQOLAMAINWINDOW_H

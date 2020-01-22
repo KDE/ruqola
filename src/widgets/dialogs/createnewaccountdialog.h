@@ -18,30 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-
-#ifndef SHOWLISTMESSAGEBASEWIDGET_H
-#define SHOWLISTMESSAGEBASEWIDGET_H
-
-#include <QWidget>
+#ifndef CREATENEWACCOUNTDIALOG_H
+#define CREATENEWACCOUNTDIALOG_H
+#include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class MessageListView;
-class QLabel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowListMessageBaseWidget : public QWidget
+
+class LIBRUQOLAWIDGETS_EXPORT CreateNewAccountDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ShowListMessageBaseWidget(QWidget *parent = nullptr);
-    ~ShowListMessageBaseWidget();
-
-    //TODO add Model
-    //TODO change text
-
-private:
-    QLineEdit *mSearchMessageLineEdit = nullptr;
-    MessageListView *mMessageListView = nullptr;
-    QLabel *mMessageListInfo = nullptr;
+    explicit CreateNewAccountDialog(QWidget *parent = nullptr);
+    ~CreateNewAccountDialog();
 };
 
-#endif // SHOWLISTMESSAGEBASEWIDGET_H
+#endif // CREATENEWACCOUNTDIALOG_H

@@ -18,35 +18,25 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "showlistmessagebasewidget.h"
-#include "room/messagelistview.h"
+#include "createnewaccountdialog.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
-#include <QLineEdit>
-#include <QLabel>
+#include <QDialogButtonBox>
 
-ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
-    : QWidget(parent)
+CreateNewAccountDialog::CreateNewAccountDialog(QWidget *parent)
+    : QDialog(parent)
 {
+    setWindowTitle(i18nc("@title:window", "Add Account"));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSearchMessageLineEdit = new QLineEdit(this);
-    mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
-    mSearchMessageLineEdit->setClearButtonEnabled(true);
-    mainLayout->addWidget(mSearchMessageLineEdit);
-
-    mMessageListInfo = new QLabel(this);
-    mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
-    mainLayout->addWidget(mMessageListInfo);
-
-    mMessageListView = new MessageListView(this);
-    mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
-    mainLayout->addWidget(mMessageListView);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewAccountDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewAccountDialog::reject);
+    mainLayout->addWidget(buttonBox);
 }
 
-ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
+CreateNewAccountDialog::~CreateNewAccountDialog()
 {
 
 }
