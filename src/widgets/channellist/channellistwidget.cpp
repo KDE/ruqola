@@ -72,6 +72,7 @@ ChannelListWidget::~ChannelListWidget()
 void ChannelListWidget::setUserStatusUpdated(User::PresenceStatus status)
 {
     mStatusComboBox->setStatus(status);
+    //FIXME Store current Status
 }
 
 void ChannelListWidget::slotStatusChanged()
