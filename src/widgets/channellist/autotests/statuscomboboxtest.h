@@ -31,6 +31,7 @@ public:
     ~StatusComboboxTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldSelectStatus();
 };
 
 #endif // STATUSCOMBOBOXTEST_H
