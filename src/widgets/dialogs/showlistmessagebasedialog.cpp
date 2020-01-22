@@ -18,33 +18,24 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLAMAINWINDOW_H
-#define RUQOLAMAINWINDOW_H
+#include "showlistmessagebasedialog.h"
+#include <QVBoxLayout>
+#include <KLocalizedString>
+#include <QDialogButtonBox>
 
-#include <KXmlGuiWindow>
-#include "libruqolawidgets_export.h"
-class RuqolaCentralWidget;
-class QAction;
-class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
+ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)
+    : QDialog(parent)
 {
-    Q_OBJECT
-public:
-    explicit RuqolaMainWindow(QWidget *parent = nullptr);
-    ~RuqolaMainWindow();
-private:
-    void setupActions();
-    void readConfig();
-    void slotAddAccount();
-    void slotServerInfo();
-    void slotConfigure();
-    void slotLogout();
-    void slotSearchChannel();
-    void slotCreateNewChannel();
-    RuqolaCentralWidget *mMainWidget = nullptr;
-    QAction *mServerInfo = nullptr;
-    QAction *mLogout = nullptr;
-    QAction *mSearchChannel = nullptr;
-    QAction *mCreateNewChannel = nullptr;
-};
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-#endif // RUQOLAMAINWINDOW_H
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &ShowListMessageBaseDialog::reject);
+}
+
+ShowListMessageBaseDialog::~ShowListMessageBaseDialog()
+{
+
+}

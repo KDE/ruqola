@@ -18,33 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLAMAINWINDOW_H
-#define RUQOLAMAINWINDOW_H
+#ifndef SHOWLISTMESSAGEBASEDIALOG_H
+#define SHOWLISTMESSAGEBASEDIALOG_H
 
-#include <KXmlGuiWindow>
+#include <QDialog>
+
 #include "libruqolawidgets_export.h"
-class RuqolaCentralWidget;
-class QAction;
-class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
+class LIBRUQOLAWIDGETS_EXPORT ShowListMessageBaseDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit RuqolaMainWindow(QWidget *parent = nullptr);
-    ~RuqolaMainWindow();
-private:
-    void setupActions();
-    void readConfig();
-    void slotAddAccount();
-    void slotServerInfo();
-    void slotConfigure();
-    void slotLogout();
-    void slotSearchChannel();
-    void slotCreateNewChannel();
-    RuqolaCentralWidget *mMainWidget = nullptr;
-    QAction *mServerInfo = nullptr;
-    QAction *mLogout = nullptr;
-    QAction *mSearchChannel = nullptr;
-    QAction *mCreateNewChannel = nullptr;
+    explicit ShowListMessageBaseDialog(QWidget *parent = nullptr);
+    ~ShowListMessageBaseDialog();
 };
 
-#endif // RUQOLAMAINWINDOW_H
+#endif // SHOWLISTMESSAGEBASEDIALOG_H

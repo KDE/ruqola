@@ -24,6 +24,7 @@
 #include "ruqolacentralwidget.h"
 #include "dialogs/serverinfodialog.h"
 #include "dialogs/searchchanneldialog.h"
+#include "dialogs/createnewchanneldialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -87,6 +88,18 @@ void RuqolaMainWindow::setupActions()
     mSearchChannel = new QAction(i18n("Search Channel..."), this);
     connect(mSearchChannel, &QAction::triggered, this, &RuqolaMainWindow::slotSearchChannel);
     ac->addAction(QStringLiteral("search_channel"), mSearchChannel);
+
+    mCreateNewChannel = new QAction(i18n("Create New Channel..."), this);
+    connect(mCreateNewChannel, &QAction::triggered, this, &RuqolaMainWindow::slotCreateNewChannel);
+    ac->addAction(QStringLiteral("create_new_channel"), mCreateNewChannel);
+
+}
+
+void RuqolaMainWindow::slotCreateNewChannel()
+{
+    QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
+    dlg->exec();
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotConfigure()
