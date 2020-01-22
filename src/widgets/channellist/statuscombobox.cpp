@@ -39,7 +39,7 @@ void StatusCombobox::init(bool showModifyStatus)
     addItem(QIcon::fromTheme(QStringLiteral("im-user-away")), i18n("Away"), QVariant::fromValue(User::PresenceStatus::PresenceAway));
     addItem(QIcon::fromTheme(QStringLiteral("im-user-offline")), i18n("Offline"), QVariant::fromValue(User::PresenceStatus::PresenceOffline));
     if (showModifyStatus) {
-        addItem(i18n("Modify Status"), QVariant::fromValue(User::PresenceStatus::Unknown));
+        addItem(i18n("Modify Status..."), QVariant::fromValue(User::PresenceStatus::Unknown));
     }
 }
 
