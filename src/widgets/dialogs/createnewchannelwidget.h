@@ -18,27 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef CREATENEWCHANNELWIDGET_H
+#define CREATENEWCHANNELWIDGET_H
 
-#include "createnewchanneldialog.h"
-#include <QVBoxLayout>
-#include <QDialogButtonBox>
-#include <KLocalizedString>
+#include <QWidget>
 
-CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)
-    : QDialog(parent)
+#include "libruqolawidgets_private_export.h"
+
+class LIBRUQOLAWIDGETS_EXPORT CreateNewChannelWidget : public QWidget
 {
-    setWindowTitle(i18nc("@title:window", "Create Channel"));
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    Q_OBJECT
+public:
+    explicit CreateNewChannelWidget(QWidget *parent = nullptr);
+    ~CreateNewChannelWidget();
+};
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
-    mainLayout->addWidget(button);
-    connect(button, &QDialogButtonBox::accepted, this, &CreateNewChannelDialog::accept);
-    connect(button, &QDialogButtonBox::rejected, this, &CreateNewChannelDialog::reject);
-}
-
-CreateNewChannelDialog::~CreateNewChannelDialog()
-{
-
-}
+#endif // CREATENEWCHANNELWIDGET_H
