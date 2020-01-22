@@ -25,13 +25,17 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-
+class QLineEdit;
+class MessageListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowListMessageBaseWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ShowListMessageBaseWidget(QWidget *parent = nullptr);
     ~ShowListMessageBaseWidget();
+private:
+    QLineEdit *mSearchMessageLineEdit = nullptr;
+    MessageListView *mMessageListView = nullptr;
 };
 
 #endif // SHOWLISTMESSAGEBASEWIDGET_H

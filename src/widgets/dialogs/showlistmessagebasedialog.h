@@ -24,12 +24,15 @@
 #include <QDialog>
 
 #include "libruqolawidgets_export.h"
+class ShowListMessageBaseWidget;
 class LIBRUQOLAWIDGETS_EXPORT ShowListMessageBaseDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ShowListMessageBaseDialog(QWidget *parent = nullptr);
     ~ShowListMessageBaseDialog();
+private:
+    ShowListMessageBaseWidget *mShowListMessage = nullptr;
 };
 
 #endif // SHOWLISTMESSAGEBASEDIALOG_H

@@ -19,11 +19,26 @@
 */
 
 #include "showlistmessagebasewidget.h"
+#include "room/messagelistview.h"
+#include <QVBoxLayout>
+#include <KLocalizedString>
+#include <QLineEdit>
 
 ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    mSearchMessageLineEdit = new QLineEdit(this);
+    mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
+    mSearchMessageLineEdit->setClearButtonEnabled(true);
+    mainLayout->addWidget(mSearchMessageLineEdit);
+
+    mMessageListView = new MessageListView(this);
+    mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
+    mainLayout->addWidget(mMessageListView);
 }
 
 ShowListMessageBaseWidget::~ShowListMessageBaseWidget()

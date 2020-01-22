@@ -19,6 +19,7 @@
 */
 
 #include "showlistmessagebasedialog.h"
+#include "showlistmessagebasewidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -28,6 +29,11 @@ ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    //TODO add model !
+    mShowListMessage = new ShowListMessageBaseWidget(this);
+    mShowListMessage->setObjectName(QStringLiteral("mShowListMessage"));
+    mainLayout->addWidget(mShowListMessage);
 
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
