@@ -28,6 +28,7 @@
 class QLineEdit;
 class MessageListView;
 class QLabel;
+class ListMessagesModelFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowListMessageBaseWidget : public QWidget
 {
     Q_OBJECT
@@ -35,7 +36,7 @@ public:
     explicit ShowListMessageBaseWidget(QWidget *parent = nullptr);
     ~ShowListMessageBaseWidget();
 
-    //TODO add Model
+    void setModel(ListMessagesModelFilterProxyModel *model);
     //TODO change text
 
 private:

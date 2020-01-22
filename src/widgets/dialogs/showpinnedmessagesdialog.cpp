@@ -18,24 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWLISTMESSAGEBASEDIALOG_H
-#define SHOWLISTMESSAGEBASEDIALOG_H
+#include "showpinnedmessagesdialog.h"
+#include <KLocalizedString>
 
-#include <QDialog>
-#include "libruqolawidgets_export.h"
-
-class ShowListMessageBaseWidget;
-class ListMessagesModelFilterProxyModel;
-class LIBRUQOLAWIDGETS_EXPORT ShowListMessageBaseDialog : public QDialog
+ShowPinnedMessagesDialog::ShowPinnedMessagesDialog(QWidget *parent)
+    : ShowListMessageBaseDialog(parent)
 {
-    Q_OBJECT
-public:
-    explicit ShowListMessageBaseDialog(QWidget *parent = nullptr);
-    ~ShowListMessageBaseDialog();
+    setWindowTitle(i18nc("@title:window", "Show Pinned Messages"));
+}
 
-    void setModel(ListMessagesModelFilterProxyModel *model);
-private:
-    ShowListMessageBaseWidget *mShowListMessage = nullptr;
-};
+ShowPinnedMessagesDialog::~ShowPinnedMessagesDialog()
+{
 
-#endif // SHOWLISTMESSAGEBASEDIALOG_H
+}

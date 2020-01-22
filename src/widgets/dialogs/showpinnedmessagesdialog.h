@@ -18,24 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWLISTMESSAGEBASEDIALOG_H
-#define SHOWLISTMESSAGEBASEDIALOG_H
+#ifndef SHOWPINNEDMESSAGESDIALOG_H
+#define SHOWPINNEDMESSAGESDIALOG_H
 
-#include <QDialog>
-#include "libruqolawidgets_export.h"
+#include "showlistmessagebasedialog.h"
 
-class ShowListMessageBaseWidget;
-class ListMessagesModelFilterProxyModel;
-class LIBRUQOLAWIDGETS_EXPORT ShowListMessageBaseDialog : public QDialog
+class ShowPinnedMessagesDialog : public ShowListMessageBaseDialog
 {
     Q_OBJECT
 public:
-    explicit ShowListMessageBaseDialog(QWidget *parent = nullptr);
-    ~ShowListMessageBaseDialog();
-
-    void setModel(ListMessagesModelFilterProxyModel *model);
-private:
-    ShowListMessageBaseWidget *mShowListMessage = nullptr;
+    explicit ShowPinnedMessagesDialog(QWidget *parent = nullptr);
+    ~ShowPinnedMessagesDialog();
 };
 
-#endif // SHOWLISTMESSAGEBASEDIALOG_H
+#endif // SHOWPINNEDMESSAGESDIALOG_H

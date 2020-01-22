@@ -26,6 +26,7 @@
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/createnewchanneldialog.h"
 #include "dialogs/createnewaccountdialog.h"
+#include "dialogs/showpinnedmessagesdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -114,7 +115,12 @@ void RuqolaMainWindow::slotStarredMessages()
 
 void RuqolaMainWindow::slotPinnedMessages()
 {
-    //TODO
+    QPointer<ShowPinnedMessagesDialog> dlg = new ShowPinnedMessagesDialog(this);
+    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
+    if (dlg->exec()) {
+
+    }
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotShowMentions()

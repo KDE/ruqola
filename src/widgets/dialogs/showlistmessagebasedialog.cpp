@@ -30,7 +30,6 @@ ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    //TODO add model !
     mShowListMessage = new ShowListMessageBaseWidget(this);
     mShowListMessage->setObjectName(QStringLiteral("mShowListMessage"));
     mainLayout->addWidget(mShowListMessage);
@@ -44,4 +43,9 @@ ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)
 ShowListMessageBaseDialog::~ShowListMessageBaseDialog()
 {
 
+}
+
+void ShowListMessageBaseDialog::setModel(ListMessagesModelFilterProxyModel *model)
+{
+    mShowListMessage->setModel(model);
 }

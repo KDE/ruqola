@@ -20,6 +20,8 @@
 
 #include "showlistmessagebasewidget.h"
 #include "room/messagelistview.h"
+#include "model/listmessagesmodelfilterproxymodel.h"
+
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QLineEdit>
@@ -49,4 +51,9 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
 ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
 {
 
+}
+
+void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *model)
+{
+    mMessageListView->setModel(model);
 }

@@ -23,6 +23,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/showlistmessagebasewidget.cpp
     dialogs/createnewaccountdialog.cpp
     dialogs/createnewaccountwidget.cpp
+    dialogs/showpinnedmessagesdialog.cpp
     )
 
 set(Ruqola_channellist_SRCS
