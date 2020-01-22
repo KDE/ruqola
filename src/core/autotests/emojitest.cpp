@@ -109,7 +109,7 @@ void EmojiTest::shouldClearCachedHtml()
     QCOMPARE(emojiRef.cachedHtml(), cachedHtml);
 }
 
-void EmojiTest::shouldParseEmojiRestAPI_data()
+void EmojiTest::shouldParseEmoji_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<Emoji>("expectedEmoji");
@@ -125,7 +125,7 @@ void EmojiTest::shouldParseEmojiRestAPI_data()
     }
 }
 
-void EmojiTest::shouldParseEmojiRestAPI()
+void EmojiTest::shouldParseEmoji()
 {
     QFETCH(QString, name);
     QFETCH(Emoji, expectedEmoji);
