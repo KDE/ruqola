@@ -22,6 +22,12 @@
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <KConfigGroup>
+#include <KSharedConfig>
+
+namespace {
+static const char myConfigGroupName[] = "CreateNewAccountDialog";
+}
 
 CreateNewAccountDialog::CreateNewAccountDialog(QWidget *parent)
     : QDialog(parent)
@@ -34,9 +40,25 @@ CreateNewAccountDialog::CreateNewAccountDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewAccountDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewAccountDialog::reject);
     mainLayout->addWidget(buttonBox);
+    readConfig();
 }
 
 CreateNewAccountDialog::~CreateNewAccountDialog()
 {
+    writeConfig();
+}
 
+void CreateNewAccountDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void CreateNewAccountDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
 }

@@ -30,6 +30,10 @@ class LIBRUQOLAWIDGETS_EXPORT CreateNewAccountDialog : public QDialog
 public:
     explicit CreateNewAccountDialog(QWidget *parent = nullptr);
     ~CreateNewAccountDialog();
+
+private:
+    void readConfig();
+    void writeConfig();
 };
 
 #endif // CREATENEWACCOUNTDIALOG_H

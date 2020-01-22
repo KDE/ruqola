@@ -53,6 +53,11 @@ RuqolaCentralWidget::~RuqolaCentralWidget()
 {
 }
 
+QString RuqolaCentralWidget::roomId() const
+{
+    return mRuqolaMainWidget->roomId();
+}
+
 void RuqolaCentralWidget::slotLoginStatusChanged()
 {
     /*        NotConnected,

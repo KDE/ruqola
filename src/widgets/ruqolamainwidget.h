@@ -33,6 +33,7 @@ class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWidget : public QWidget
 public:
     explicit RuqolaMainWidget(QWidget *parent = nullptr);
     ~RuqolaMainWidget();
+    Q_REQUIRED_RESULT QString roomId() const;
 private:
     ChannelListWidget *mChannelList = nullptr;
     RoomWidget *mRoomWidget = nullptr;

@@ -50,3 +50,8 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 RuqolaMainWidget::~RuqolaMainWidget()
 {
 }
+
+QString RuqolaMainWidget::roomId() const
+{
+    return mRoomWidget->roomId();
+}

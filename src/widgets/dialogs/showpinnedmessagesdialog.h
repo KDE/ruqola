@@ -29,6 +29,10 @@ class ShowPinnedMessagesDialog : public ShowListMessageBaseDialog
 public:
     explicit ShowPinnedMessagesDialog(QWidget *parent = nullptr);
     ~ShowPinnedMessagesDialog();
+
+private:
+    void readConfig();
+    void writeConfig();
 };
 
 #endif // SHOWPINNEDMESSAGESDIALOG_H

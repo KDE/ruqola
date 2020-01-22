@@ -18,26 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLACENTRALWIDGET_H
-#define RUQOLACENTRALWIDGET_H
+#ifndef SHOWSTARREDMESSAGESDIALOG_H
+#define SHOWSTARREDMESSAGESDIALOG_H
 
-#include <QWidget>
-#include "libruqolawidgets_private_export.h"
-class QStackedWidget;
-class RuqolaMainWidget;
-class RuqolaLoginWidget;
-class LIBRUQOLAWIDGETS_EXPORT RuqolaCentralWidget : public QWidget
+#include "showlistmessagebasedialog.h"
+class ShowStarredMessagesDialog : public ShowListMessageBaseDialog
 {
     Q_OBJECT
 public:
-    explicit RuqolaCentralWidget(QWidget *parent = nullptr);
-    ~RuqolaCentralWidget();
-    Q_REQUIRED_RESULT QString roomId() const;
+    explicit ShowStarredMessagesDialog(QWidget *parent = nullptr);
+    ~ShowStarredMessagesDialog();
+
 private:
-    void slotLoginStatusChanged();
-    QStackedWidget *mStackedWidget = nullptr;
-    RuqolaMainWidget *mRuqolaMainWidget = nullptr;
-    RuqolaLoginWidget *mRuqolaLoginWidget = nullptr;
+    void readConfig();
+    void writeConfig();
 };
 
-#endif // RUQOLACENTRALWIDGET_H
+#endif // SHOWSTARREDMESSAGESDIALOG_H

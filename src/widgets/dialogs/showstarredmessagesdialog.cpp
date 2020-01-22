@@ -18,26 +18,38 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLACENTRALWIDGET_H
-#define RUQOLACENTRALWIDGET_H
+#include "showstarredmessagesdialog.h"
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
 
-#include <QWidget>
-#include "libruqolawidgets_private_export.h"
-class QStackedWidget;
-class RuqolaMainWidget;
-class RuqolaLoginWidget;
-class LIBRUQOLAWIDGETS_EXPORT RuqolaCentralWidget : public QWidget
+namespace {
+static const char myConfigGroupName[] = "ShowStarredMessagesDialog";
+}
+
+ShowStarredMessagesDialog::ShowStarredMessagesDialog(QWidget *parent)
+    : ShowListMessageBaseDialog(parent)
 {
-    Q_OBJECT
-public:
-    explicit RuqolaCentralWidget(QWidget *parent = nullptr);
-    ~RuqolaCentralWidget();
-    Q_REQUIRED_RESULT QString roomId() const;
-private:
-    void slotLoginStatusChanged();
-    QStackedWidget *mStackedWidget = nullptr;
-    RuqolaMainWidget *mRuqolaMainWidget = nullptr;
-    RuqolaLoginWidget *mRuqolaLoginWidget = nullptr;
-};
+    setWindowTitle(i18nc("@title:window", "Show Starred Messages"));
+    readConfig();
+}
 
-#endif // RUQOLACENTRALWIDGET_H
+ShowStarredMessagesDialog::~ShowStarredMessagesDialog()
+{
+    writeConfig();
+}
+
+void ShowStarredMessagesDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void ShowStarredMessagesDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
+}

@@ -44,6 +44,7 @@ private:
     void slotShowMentions();
     void slotPinnedMessages();
     void slotStarredMessages();
+    void slotSnipperedMessages();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
@@ -53,6 +54,7 @@ private:
     QAction *mShowMentions = nullptr;
     QAction *mShowPinnedMessages = nullptr;
     QAction *mShowStarredMessages = nullptr;
+    QAction *mShowSnipperedMessages = nullptr;
 };
 
 #endif // RUQOLAMAINWINDOW_H

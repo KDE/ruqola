@@ -19,15 +19,37 @@
 */
 
 #include "showpinnedmessagesdialog.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
+
+namespace {
+static const char myConfigGroupName[] = "ShowPinnedMessagesDialog";
+}
 
 ShowPinnedMessagesDialog::ShowPinnedMessagesDialog(QWidget *parent)
     : ShowListMessageBaseDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Show Pinned Messages"));
+    readConfig();
 }
 
 ShowPinnedMessagesDialog::~ShowPinnedMessagesDialog()
 {
+    writeConfig();
+}
 
+void ShowPinnedMessagesDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void ShowPinnedMessagesDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
 }

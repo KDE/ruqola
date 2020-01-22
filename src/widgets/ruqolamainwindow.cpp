@@ -27,6 +27,9 @@
 #include "dialogs/createnewchanneldialog.h"
 #include "dialogs/createnewaccountdialog.h"
 #include "dialogs/showpinnedmessagesdialog.h"
+#include "dialogs/showstarredmessagesdialog.h"
+#include "dialogs/showmentionsmessagesdialog.h"
+#include "dialogs/showsnipperedmessagesdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -106,27 +109,46 @@ void RuqolaMainWindow::setupActions()
     mShowStarredMessages = new QAction(i18n("Show Starred Messages..."), this);
     connect(mShowStarredMessages, &QAction::triggered, this, &RuqolaMainWindow::slotStarredMessages);
     ac->addAction(QStringLiteral("show_starred_messages"), mShowStarredMessages);
+
+    mShowSnipperedMessages = new QAction(i18n("Show Snippered Messages..."), this);
+    connect(mShowSnipperedMessages, &QAction::triggered, this, &RuqolaMainWindow::slotSnipperedMessages);
+    ac->addAction(QStringLiteral("show_snippered_messages"), mShowSnipperedMessages);
 }
 
 void RuqolaMainWindow::slotStarredMessages()
 {
-    //TODO
+    QPointer<ShowStarredMessagesDialog> dlg = new ShowStarredMessagesDialog(this);
+    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
+    Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::StarredMessages);
+    dlg->exec();
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotPinnedMessages()
 {
     QPointer<ShowPinnedMessagesDialog> dlg = new ShowPinnedMessagesDialog(this);
     dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
-    //FIX load list Ruqola::self()->rocketChatAccount()->getListMessages(mRoo, ListMessagesModel.PinnedMessages);
-    if (dlg->exec()) {
-
-    }
+    Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::PinnedMessages);
+    dlg->exec();
     delete dlg;
 }
 
 void RuqolaMainWindow::slotShowMentions()
 {
-    //TODO
+//    QPointer<ShowMentionsMessagesDialog> dlg = new ShowMentionsMessagesDialog(this);
+//    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
+//    Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::);
+//    dlg->exec();
+//    delete dlg;
+}
+
+void RuqolaMainWindow::slotSnipperedMessages()
+{
+    QPointer<ShowSnipperedMessagesDialog> dlg = new ShowSnipperedMessagesDialog(this);
+    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
+    Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::SnipperedMessages);
+    dlg->exec();
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotCreateNewChannel()
