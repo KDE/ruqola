@@ -27,6 +27,8 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/showstarredmessagesdialog.cpp
     dialogs/showmentionsmessagesdialog.cpp
     dialogs/showsnipperedmessagesdialog.cpp
+    dialogs/configurenotificationdialog.cpp
+    dialogs/configurenotificationwidget.cpp
     )
 
 set(Ruqola_channellist_SRCS

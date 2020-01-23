@@ -18,36 +18,29 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLALOGINWIDGET_H
-#define RUQOLALOGINWIDGET_H
-
-#include <QWidget>
-#include <ddpapi/ddpclient.h>
-#include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class QPushButton;
-class KPasswordLineEdit;
-class QLabel;
-class KBusyIndicatorWidget;
-class LIBRUQOLAWIDGETS_EXPORT RuqolaLoginWidget : public QWidget
+#include "configurenotificationdialogtest.h"
+#include "dialogs/configurenotificationdialog.h"
+#include "dialogs/configurenotificationwidget.h"
+#include <QDialogButtonBox>
+#include <QTest>
+#include <QVBoxLayout>
+QTEST_MAIN(ConfigureNotificationDialogTest)
+ConfigureNotificationDialogTest::ConfigureNotificationDialogTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit RuqolaLoginWidget(QWidget *parent = nullptr);
-    ~RuqolaLoginWidget();
 
-    void initialize();
-    void setLogginStatus(DDPClient::LoginStatus status);
-private:
-    void slotLogin();
+}
 
-    QLabel *mAccountName = nullptr;
-    QLineEdit *mServerName = nullptr;
-    QLineEdit *mUserName = nullptr;
-    KPasswordLineEdit *mPasswordLineEdit = nullptr;
-    QPushButton *mLoginButton = nullptr;
-    KBusyIndicatorWidget *mBusyIndicatorWidget = nullptr;
-    //Add login method combobox
-};
+void ConfigureNotificationDialogTest::shouldHaveDefaultValues()
+{
+    ConfigureNotificationDialog w;
+    QVERIFY(w.windowTitle().isEmpty());
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
 
-#endif // RUQOLALOGINWIDGET_H
+    ConfigureNotificationWidget *mConfigureNoticationWidget = w.findChild<ConfigureNotificationWidget *>(QStringLiteral("mConfigureNoticationWidget"));
+    QVERIFY(mConfigureNoticationWidget);
+
+    QDialogButtonBox *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
+    QVERIFY(buttonBox);
+}

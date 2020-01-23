@@ -40,12 +40,15 @@ void CreateNewAccountWidgetTest::shouldHaveDefaultValues()
     QLineEdit *mAccountName = w.findChild<QLineEdit *>(QStringLiteral("mAccountName"));
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
+    QVERIFY(mAccountName->isClearButtonEnabled());
 
     QLineEdit *mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
     QVERIFY(mServerName);
     QVERIFY(mServerName->text().isEmpty());
+    QVERIFY(mServerName->isClearButtonEnabled());
 
     QLineEdit *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
+    QVERIFY(mUserName->isClearButtonEnabled());
 }

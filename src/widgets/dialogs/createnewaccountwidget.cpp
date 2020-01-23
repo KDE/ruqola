@@ -35,14 +35,17 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
 
     mAccountName = new QLineEdit(this);
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
+    mAccountName->setClearButtonEnabled(true);
     mainLayout->addRow(i18n("Account Name:"), mAccountName);
 
     mServerName = new QLineEdit(this);
     mServerName->setObjectName(QStringLiteral("mServerName"));
+    mServerName->setClearButtonEnabled(true);
     mainLayout->addRow(i18n("Server Name:"), mServerName);
 
     mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
+    mUserName->setClearButtonEnabled(true);
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
     connect(mUserName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);

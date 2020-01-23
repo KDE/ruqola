@@ -20,8 +20,10 @@
 
 #include "ruqolaloginwidgettest.h"
 #include "ruqolaloginwidget.h"
+#include <KBusyIndicatorWidget>
 #include <KPasswordLineEdit>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QTest>
@@ -38,7 +40,7 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    QLineEdit *mAccountName = w.findChild<QLineEdit *>(QStringLiteral("mAccountName"));
+    QLabel *mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
 
@@ -56,4 +58,7 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     QPushButton *mLoginButton = w.findChild<QPushButton *>(QStringLiteral("mLoginButton"));
     QVERIFY(mLoginButton);
     QVERIFY(!mLoginButton->text().isEmpty());
+
+    KBusyIndicatorWidget *mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(QStringLiteral("mBusyIndicatorWidget"));
+    QVERIFY(mBusyIndicatorWidget);
 }

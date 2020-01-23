@@ -73,6 +73,7 @@ void RuqolaCentralWidget::slotLoginStatusChanged()
     } else {
         mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
         mRuqolaLoginWidget->initialize();
+        mRuqolaLoginWidget->setLogginStatus(Ruqola::self()->rocketChatAccount()->loginStatus());
         //TODO assign value in mRuqolaLoginWidget directly
     }
     //TODO

@@ -18,36 +18,11 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef RUQOLALOGINWIDGET_H
-#define RUQOLALOGINWIDGET_H
-
-#include <QWidget>
-#include <ddpapi/ddpclient.h>
-#include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class QPushButton;
-class KPasswordLineEdit;
-class QLabel;
-class KBusyIndicatorWidget;
-class LIBRUQOLAWIDGETS_EXPORT RuqolaLoginWidget : public QWidget
+#include "configurenotificationwidgettest.h"
+#include <QTest>
+QTEST_MAIN(ConfigureNotificationWidgetTest)
+ConfigureNotificationWidgetTest::ConfigureNotificationWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit RuqolaLoginWidget(QWidget *parent = nullptr);
-    ~RuqolaLoginWidget();
 
-    void initialize();
-    void setLogginStatus(DDPClient::LoginStatus status);
-private:
-    void slotLogin();
-
-    QLabel *mAccountName = nullptr;
-    QLineEdit *mServerName = nullptr;
-    QLineEdit *mUserName = nullptr;
-    KPasswordLineEdit *mPasswordLineEdit = nullptr;
-    QPushButton *mLoginButton = nullptr;
-    KBusyIndicatorWidget *mBusyIndicatorWidget = nullptr;
-    //Add login method combobox
-};
-
-#endif // RUQOLALOGINWIDGET_H
+}

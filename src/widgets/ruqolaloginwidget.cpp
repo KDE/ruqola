@@ -27,6 +27,8 @@
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QLabel>
+#include <KBusyIndicatorWidget>
 
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     : QWidget(parent)
@@ -34,7 +36,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     QFormLayout *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mAccountName = new QLineEdit(this);
+    mAccountName = new QLabel(this);
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mainLayout->addRow(i18n("Account Name:"), mAccountName);
 
@@ -57,12 +59,14 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     //TODO add message error
     //TODO add support for twoFactorAuthentication
     /**
-serverUrl: rcAccount.serverUrl
-username: rcAccount.userName
-originalAccountName: rcAccount.accountName
-password: rcAccount.password
 twoFactorAuthenticationCode: rcAccount.twoFactorAuthenticationCode
 */
+
+    mBusyIndicatorWidget = new KBusyIndicatorWidget(this);
+    mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
+    mainLayout->addWidget(mBusyIndicatorWidget);
+    //Hide by default
+    mBusyIndicatorWidget->hide();
 }
 
 RuqolaLoginWidget::~RuqolaLoginWidget()
@@ -80,5 +84,40 @@ void RuqolaLoginWidget::initialize()
 
 void RuqolaLoginWidget::slotLogin()
 {
-    //TODO
+    auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
+    rocketChatAccount->setAccountName(mAccountName->text());
+    rocketChatAccount->setServerUrl(mServerName->text());
+    rocketChatAccount->setUserName(mUserName->text());
+    rocketChatAccount->setPassword(mPasswordLineEdit->password());
+    //twoFactorAuthenticationCode ?
+    rocketChatAccount->tryLogin();
+
+}
+
+void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
+{
+    switch(status) {
+    case DDPClient::LoginStatus::NotConnected:
+        mBusyIndicatorWidget->hide();
+        break;
+    case DDPClient::LoginStatus::LoggingIn:
+        mBusyIndicatorWidget->show();
+        break;
+    case DDPClient::LoginStatus::LoggedIn:
+        mBusyIndicatorWidget->hide();
+        break;
+    case DDPClient::LoginStatus::LoginFailed:
+        mBusyIndicatorWidget->hide();
+        break;
+    case DDPClient::LoginStatus::LoginCodeRequired:
+        mBusyIndicatorWidget->hide();
+        break;
+    case DDPClient::LoginStatus::LoggedOut:
+        mBusyIndicatorWidget->hide();
+        break;
+    case DDPClient::LoginStatus::FailedToLoginPluginProblem:
+        mBusyIndicatorWidget->hide();
+        //Show warning !
+        break;
+    }
 }
