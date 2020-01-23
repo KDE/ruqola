@@ -9,7 +9,7 @@ ecm_qt_declare_logging_category(ruqola_googleauthenticationplugin_SRCS HEADER go
 qt5_add_resources(ruqola_googleauthenticationplugin_SRCS googleauthentication.qrc)
 
 kcoreaddons_add_plugin(ruqola_googleauthenticationplugin JSON ruqola_googleauthenticationplugin.json SOURCES
-    ${ruqola_googleauthenticationplugin_SRCS} INSTALL_NAMESPACE ruqolaplugins)
+    ${ruqola_googleauthenticationplugin_SRCS} INSTALL_NAMESPACE ruqolaplugins/authentication)
 
 target_link_libraries(ruqola_googleauthenticationplugin
     libruqolacore ${o2_LIBRARIES}

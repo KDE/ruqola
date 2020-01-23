@@ -46,9 +46,7 @@ AuthenticationManager *AuthenticationManager::self()
 
 bool AuthenticationManager::initializePluginList()
 {
-    const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("ruqolaplugins"), [](const KPluginMetaData &md) {
-        return md.serviceTypes().contains(QLatin1String("Ruqola/Authentication"));
-    });
+    const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("ruqolaplugins/authentication"));
 
     QVectorIterator<KPluginMetaData> i(plugins);
     i.toBack();
