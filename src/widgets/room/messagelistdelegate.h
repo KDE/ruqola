@@ -21,6 +21,7 @@
 #ifndef MESSAGELISTDELEGATE_H
 #define MESSAGELISTDELEGATE_H
 
+#include <QFont>
 #include <QItemDelegate>
 
 class MessageListDelegate : public QItemDelegate
@@ -35,6 +36,7 @@ public:
 
 private:
     QString makeMessageText(const QModelIndex &index) const;
+    QFont m_emojiFont;
 };
 
 #endif // MESSAGELISTDELEGATE_H

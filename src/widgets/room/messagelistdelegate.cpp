@@ -22,6 +22,8 @@
 #include "model/messagemodel.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "emoticons/emojimanager.h"
+#include "emoticons/unicodeemoticon.h"
 
 #include <QPainter>
 #include <QPixmapCache>
@@ -30,8 +32,9 @@
 #include <QTextDocument>
 #include <QWindow>
 
+
 MessageListDelegate::MessageListDelegate(QObject *parent)
-    : QItemDelegate(parent)
+    : QItemDelegate(parent), m_emojiFont(QStringLiteral("NotoColorEmoji"))
 {
 }
 
@@ -108,10 +111,16 @@ static QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight)
     return pix;
 }
 
-// [margin] <pixmap> [margin] <sender>
-static QRect layoutPixmapAndSender(const QStyleOptionViewItem &option, const QSize &senderTextSize, const QPixmap &avatarPixmap, int *pAvatarX)
+static qreal basicMargin(const QStyleOptionViewItem &option)
 {
-    const int margin = 4 * option.widget->window()->windowHandle()->devicePixelRatio();
+    return 4 * option.widget->window()->windowHandle()->devicePixelRatio();
+}
+
+// [margin] <pixmap> [margin] <sender>
+static QRect layoutPixmapAndSender(const QStyleOptionViewItem &option, const QSize &senderTextSize,
+                                   const QPixmap &avatarPixmap, qreal *pAvatarX)
+{
+    const qreal margin = basicMargin(option);
     QRect senderRect(option.rect.x() + avatarPixmap.width() + 2 * margin, option.rect.y(),
                      senderTextSize.width(), senderTextSize.height());
     *pAvatarX = option.rect.x() + margin;
@@ -120,23 +129,14 @@ static QRect layoutPixmapAndSender(const QStyleOptionViewItem &option, const QSi
 
 QString MessageListDelegate::makeMessageText(const QModelIndex &index) const
 {
-    QString message = index.data(MessageModel::MessageConvertedText).toString();
-
-    // Reactions
-    const QVariantList reactions = index.data(MessageModel::Reactions).toList();
-    if (!reactions.isEmpty()) {
-        for (const QVariant &v : reactions) {
-            const Reaction reaction = v.value<Reaction>();
-            message += reaction.convertedReactionName();
-        }
-    }
-
-    return message;
+    return index.data(MessageModel::MessageConvertedText).toString();
 }
 
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     drawBackground(painter, option, index);
+
+    const QPen origPen = painter->pen();
 
     // Compact mode : <pixmap> <sender> <message> <smiley> <timestamp>
 
@@ -158,7 +158,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Pixmap (load and calculate size, but don't draw it yet, same reason)
     const QPixmap avatarPixmap = makeAvatarPixmap(index, senderTextSize.height());
-    int avatarX = 0;
+    qreal avatarX = 0;
     const QRect senderRect = layoutPixmapAndSender(option, senderTextSize, avatarPixmap, &avatarX);
 
     // Timestamp
@@ -182,7 +182,43 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // Now draw the sender
     painter->setFont(boldFont);
     painter->drawText(senderRect.x(), baseLine, senderText);
+
+    // Reactions
+    const QVariantList reactions = index.data(MessageModel::Reactions).toList();
+    if (!reactions.isEmpty()) {
+        auto *emojiManager = Ruqola::self()->rocketChatAccount()->emojiManager();
+        QFontMetricsF emojiFontMetrics(m_emojiFont);
+        painter->setFont(m_emojiFont);
+        const qreal margin = basicMargin(option);
+        int x = messageRect.x() + margin;
+        const QPen buttonPen(option.palette.button().color());
+        for (const QVariant &v : reactions) {
+            // ### Optimization idea: MessageModel::Message role, and calling the Message API directly
+            // Especially interesting in sizeHint where we just need to know "there are reactions"
+            const Reaction &reaction = v.value<Reaction>();
+            const QString emojiString = emojiManager->unicodeEmoticonForEmoji(reaction.reactionName()).unicode();
+            if (!emojiString.isEmpty()) {
+                const QSizeF sz = emojiFontMetrics.boundingRect(emojiString).size();
+                const qreal y = option.rect.bottom() - emojiFontMetrics.height() - 2;
+                const QRectF reactionRect(x, y, sz.width(), sz.height());
+                painter->setPen(origPen);
+                painter->drawText(reactionRect.adjusted(1, 1, 0, 0), emojiString);
+                painter->setPen(buttonPen);
+                painter->drawRect(reactionRect.adjusted(0, 0, -1, -1));
+                x += sz.width() + margin;
+            } else {
+                // TODO other kinds of emojis (but how to handle an image URL? QTextDocument manages somehow, I don't get it)
+                static QString lastWarning;
+                if (lastWarning != reaction.reactionName()) {
+                    lastWarning = reaction.reactionName();
+                    qDebug() << "Not handled: emoji" << reaction.reactionName() << emojiManager->replaceEmojiIdentifier(reaction.reactionName(), true);
+                }
+            }
+        }
+    }
+
     painter->setFont(option.font);
+    painter->setPen(origPen);
 
     //drawFocus(painter, option, displayRect);
 }
@@ -197,7 +233,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 
     // Pixmap
     const QPixmap avatarPixmap = makeAvatarPixmap(index, senderTextSize.height());
-    int avatarX = 0;
+    qreal avatarX = 0;
     const QRect senderRect = layoutPixmapAndSender(option, senderTextSize, avatarPixmap, &avatarX);
 
     // Timestamp
@@ -212,7 +248,14 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     const int widthAfterMessage = timeSize.width();
     doc.setTextWidth(qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage));
 
+    int additionalHeight = 0;
+    const QVariantList reactions = index.data(MessageModel::Reactions).toList();
+    if (!reactions.isEmpty()) {
+        QFontMetricsF emojiFontMetrics(m_emojiFont);
+        additionalHeight += emojiFontMetrics.height() + 4;
+    }
+
     // hopefully the width below is never more than option.rect.width() or we'll get a scrollbar
     return QSize(widthBeforeMessage + doc.idealWidth() + widthAfterMessage,
-                 qMax<int>(senderRect.height(), doc.size().height()));
+                 qMax<int>(senderRect.height(), doc.size().height()) + additionalHeight);
 }
