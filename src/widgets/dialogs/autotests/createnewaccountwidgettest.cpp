@@ -20,10 +20,34 @@
 
 
 #include "createnewaccountwidgettest.h"
+#include "dialogs/createnewaccountwidget.h"
+#include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(CreateNewAccountWidgetTest)
 CreateNewAccountWidgetTest::CreateNewAccountWidgetTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void CreateNewAccountWidgetTest::shouldHaveDefaultValues()
+{
+    CreateNewAccountWidget w;
+
+    QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QLineEdit *mAccountName = w.findChild<QLineEdit *>(QStringLiteral("mAccountName"));
+    QVERIFY(mAccountName);
+    QVERIFY(mAccountName->text().isEmpty());
+
+    QLineEdit *mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
+    QVERIFY(mServerName);
+    QVERIFY(mServerName->text().isEmpty());
+
+    QLineEdit *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    QVERIFY(mUserName);
+    QVERIFY(mUserName->text().isEmpty());
 }

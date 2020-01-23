@@ -21,10 +21,30 @@
 
 #include "createnewaccountwidget.h"
 
+#include <QFormLayout>
+#include <QLineEdit>
+#include <QVBoxLayout>
+
+#include <KLocalizedString>
+
 CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QFormLayout *mainLayout = new QFormLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    mAccountName = new QLineEdit(this);
+    mAccountName->setObjectName(QStringLiteral("mAccountName"));
+    mainLayout->addRow(i18n("Account Name:"), mAccountName);
+
+    mServerName = new QLineEdit(this);
+    mServerName->setObjectName(QStringLiteral("mServerName"));
+    mainLayout->addRow(i18n("Server Name:"), mServerName);
+
+    mUserName = new QLineEdit(this);
+    mUserName->setObjectName(QStringLiteral("mUserName"));
+    mainLayout->addRow(i18n("User Name:"), mUserName);
 }
 
 CreateNewAccountWidget::~CreateNewAccountWidget()

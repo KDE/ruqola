@@ -30,6 +30,8 @@ class CreateNewAccountWidgetTest : public QObject
 public:
     explicit CreateNewAccountWidgetTest(QObject *parent = nullptr);
     ~CreateNewAccountWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // CREATENEWACCOUNTWIDGETTEST_H

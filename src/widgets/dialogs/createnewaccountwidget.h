@@ -24,13 +24,17 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-
+class QLineEdit;
 class LIBRUQOLAWIDGETS_EXPORT CreateNewAccountWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit CreateNewAccountWidget(QWidget *parent = nullptr);
     ~CreateNewAccountWidget();
+private:
+    QLineEdit *mAccountName = nullptr;
+    QLineEdit *mServerName = nullptr;
+    QLineEdit *mUserName = nullptr;
 };
 
 #endif // CREATENEWACCOUNTWIDGET_H
