@@ -19,10 +19,28 @@
 */
 
 #include "createnewaccountdialogtest.h"
+#include "dialogs/createnewaccountdialog.h"
+#include "dialogs/createnewaccountwidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(CreateNewAccountDialogTest)
 CreateNewAccountDialogTest::CreateNewAccountDialogTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void CreateNewAccountDialogTest::shouldHaveDefaultValues()
+{
+    CreateNewAccountDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    CreateNewAccountWidget *mNewAccountWidget = w.findChild<CreateNewAccountWidget *>(QStringLiteral("mNewAccountWidget"));
+    QVERIFY(mNewAccountWidget);
+
+    QDialogButtonBox *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(buttonBox);
 }

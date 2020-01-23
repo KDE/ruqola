@@ -23,7 +23,7 @@
 #include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
-
+class CreateNewAccountWidget;
 class LIBRUQOLAWIDGETS_EXPORT CreateNewAccountDialog : public QDialog
 {
     Q_OBJECT
@@ -34,6 +34,7 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    CreateNewAccountWidget *mNewAccountWidget = nullptr;
 };
 
 #endif // CREATENEWACCOUNTDIALOG_H

@@ -45,6 +45,8 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     mUserName = new QLineEdit(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mainLayout->addRow(i18n("User Name:"), mUserName);
+
+    //TODO add support for two factor ?
 }
 
 CreateNewAccountWidget::~CreateNewAccountWidget()

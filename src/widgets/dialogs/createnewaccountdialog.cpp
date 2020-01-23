@@ -19,6 +19,7 @@
 */
 
 #include "createnewaccountdialog.h"
+#include "createnewaccountwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -36,7 +37,12 @@ CreateNewAccountDialog::CreateNewAccountDialog(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mNewAccountWidget = new CreateNewAccountWidget(this);
+    mNewAccountWidget->setObjectName(QStringLiteral("mNewAccountWidget"));
+    mainLayout->addWidget(mNewAccountWidget);
+
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
+    buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::accepted, this, &CreateNewAccountDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewAccountDialog::reject);
     mainLayout->addWidget(buttonBox);
