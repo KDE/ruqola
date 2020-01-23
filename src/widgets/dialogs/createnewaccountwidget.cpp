@@ -46,6 +46,8 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
+    connect(mUserName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
+
     //TODO add support for two factor ?
     //Disable ok button
 }
@@ -53,4 +55,11 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
 CreateNewAccountWidget::~CreateNewAccountWidget()
 {
 
+}
+
+void CreateNewAccountWidget::slotChangeOkButtonEnabled()
+{
+    Q_EMIT updateOkButton(!mAccountName->text().trimmed().isEmpty() &&
+                          !mServerName->text().trimmed().isEmpty() &&
+                          !mUserName->text().trimmed().isEmpty());
 }

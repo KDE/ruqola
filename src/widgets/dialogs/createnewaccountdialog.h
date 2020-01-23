@@ -24,6 +24,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class CreateNewAccountWidget;
+class QPushButton;
 class LIBRUQOLAWIDGETS_EXPORT CreateNewAccountDialog : public QDialog
 {
     Q_OBJECT
@@ -35,6 +36,7 @@ private:
     void readConfig();
     void writeConfig();
     CreateNewAccountWidget *mNewAccountWidget = nullptr;
+    QPushButton *mOkButton = nullptr;
 };
 
 #endif // CREATENEWACCOUNTDIALOG_H

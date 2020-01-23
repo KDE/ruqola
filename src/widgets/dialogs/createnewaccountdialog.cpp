@@ -23,6 +23,7 @@
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <KConfigGroup>
 #include <KSharedConfig>
 
@@ -47,6 +48,11 @@ CreateNewAccountDialog::CreateNewAccountDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewAccountDialog::reject);
     mainLayout->addWidget(buttonBox);
     readConfig();
+    mOkButton = buttonBox->button(QDialogButtonBox::Ok);
+    mOkButton->setEnabled(false);
+    connect(mNewAccountWidget, &CreateNewAccountWidget::updateOkButton, this, [this](bool state) {
+        mOkButton->setEnabled(state);
+    });
 }
 
 CreateNewAccountDialog::~CreateNewAccountDialog()

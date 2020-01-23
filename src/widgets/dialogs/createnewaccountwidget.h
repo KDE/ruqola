@@ -34,6 +34,7 @@ public:
 Q_SIGNALS:
     void updateOkButton(bool state);
 private:
+    void slotChangeOkButtonEnabled();
     QLineEdit *mAccountName = nullptr;
     QLineEdit *mServerName = nullptr;
     QLineEdit *mUserName = nullptr;
