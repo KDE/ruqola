@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "createnewaccountwidget.h"
 
 #include <QFormLayout>
@@ -54,12 +53,11 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
 
 CreateNewAccountWidget::~CreateNewAccountWidget()
 {
-
 }
 
 void CreateNewAccountWidget::slotChangeOkButtonEnabled()
 {
-    Q_EMIT updateOkButton(!mAccountName->text().trimmed().isEmpty() &&
-                          !mServerName->text().trimmed().isEmpty() &&
-                          !mUserName->text().trimmed().isEmpty());
+    Q_EMIT updateOkButton(!mAccountName->text().trimmed().isEmpty()
+                          && !mServerName->text().trimmed().isEmpty()
+                          && !mUserName->text().trimmed().isEmpty());
 }

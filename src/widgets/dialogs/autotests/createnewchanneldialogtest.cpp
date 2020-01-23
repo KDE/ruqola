@@ -26,5 +26,4 @@ QTEST_MAIN(CreateNewChannelDialogTest)
 CreateNewChannelDialogTest::CreateNewChannelDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }

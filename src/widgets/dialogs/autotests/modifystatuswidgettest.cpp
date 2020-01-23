@@ -29,7 +29,6 @@ QTEST_MAIN(ModifyStatusWidgetTest)
 ModifyStatusWidgetTest::ModifyStatusWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ModifyStatusWidgetTest::shouldHaveDefaultValues()

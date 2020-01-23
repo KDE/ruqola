@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "createnewchanneldialog.h"
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
@@ -40,5 +39,4 @@ CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)
 
 CreateNewChannelDialog::~CreateNewChannelDialog()
 {
-
 }

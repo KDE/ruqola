@@ -50,7 +50,6 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
 
 ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
 {
-
 }
 
 void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *model)

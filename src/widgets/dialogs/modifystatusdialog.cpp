@@ -24,7 +24,6 @@
 #include <QDialogButtonBox>
 #include <KLocalizedString>
 
-
 ModifyStatusDialog::ModifyStatusDialog(QWidget *parent)
     : QDialog(parent)
 {
@@ -45,7 +44,6 @@ ModifyStatusDialog::ModifyStatusDialog(QWidget *parent)
 
 ModifyStatusDialog::~ModifyStatusDialog()
 {
-
 }
 
 User::PresenceStatus ModifyStatusDialog::status() const

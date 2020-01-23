@@ -30,7 +30,6 @@ QTEST_MAIN(ShowListMessageBaseWidgetTest)
 ShowListMessageBaseWidgetTest::ShowListMessageBaseWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()

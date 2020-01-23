@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "createnewaccountwidgettest.h"
 #include "dialogs/createnewaccountwidget.h"
 #include <QFormLayout>
@@ -28,7 +27,6 @@ QTEST_MAIN(CreateNewAccountWidgetTest)
 CreateNewAccountWidgetTest::CreateNewAccountWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void CreateNewAccountWidgetTest::shouldHaveDefaultValues()

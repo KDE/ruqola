@@ -42,7 +42,6 @@ ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)
 
 ShowListMessageBaseDialog::~ShowListMessageBaseDialog()
 {
-
 }
 
 void ShowListMessageBaseDialog::setModel(ListMessagesModelFilterProxyModel *model)

@@ -32,5 +32,4 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
 
 CreateNewChannelWidget::~CreateNewChannelWidget()
 {
-
 }

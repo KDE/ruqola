@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "modifystatuswidget.h"
 #include "channellist/statuscombobox.h"
 #include <KLocalizedString>
@@ -45,7 +44,6 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
 
 ModifyStatusWidget::~ModifyStatusWidget()
 {
-
 }
 
 QString ModifyStatusWidget::messageStatus() const

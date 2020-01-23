@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "modifystatusdialogtest.h"
 #include "dialogs/modifystatusdialog.h"
 #include "dialogs/modifystatuswidget.h"
@@ -29,7 +28,6 @@ QTEST_MAIN(ModifyStatusDialogTest)
 ModifyStatusDialogTest::ModifyStatusDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ModifyStatusDialogTest::shouldHaveDefaultValues()

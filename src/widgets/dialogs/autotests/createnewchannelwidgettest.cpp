@@ -24,5 +24,4 @@ QTEST_MAIN(CreateNewChannelWidgetTest)
 CreateNewChannelWidgetTest::CreateNewChannelWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

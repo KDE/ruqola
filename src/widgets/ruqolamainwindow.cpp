@@ -155,7 +155,6 @@ void RuqolaMainWindow::slotCreateNewChannel()
 {
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
     if (dlg->exec()) {
-
     }
     delete dlg;
 }
@@ -169,7 +168,6 @@ void RuqolaMainWindow::slotAddAccount()
 {
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
     if (dlg->exec()) {
-
     }
     delete dlg;
 }

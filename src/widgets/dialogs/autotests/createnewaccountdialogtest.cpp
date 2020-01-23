@@ -28,7 +28,6 @@ QTEST_MAIN(CreateNewAccountDialogTest)
 CreateNewAccountDialogTest::CreateNewAccountDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void CreateNewAccountDialogTest::shouldHaveDefaultValues()
