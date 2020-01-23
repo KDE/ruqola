@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=RuqolaQml
 Name[ca]=RuqolaQml
+Name[es]=RuqolaQml
 Name[et]=RuqolaQml
 Name[nl]=RuqolaQml
 Name[pt]=RuqolaQml
@@ -13,6 +14,7 @@ Exec=ruqolaqml -qwindowtitle %c %u
 Icon=ruqola
 GenericName=QML Rocket.Chat client
 GenericName[ca]=Client QML del Rocket.Chat
+GenericName[es]=Cliente QML para Rocket.Chat
 GenericName[et]=Rocket Chati QML klient
 GenericName[nl]=QML Rocket Chat-client
 GenericName[pt]=Cliente de Rocket.Chat em QML
