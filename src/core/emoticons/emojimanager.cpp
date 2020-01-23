@@ -93,6 +93,21 @@ bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
     return false;
 }
 
+UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdentifier) const
+{
+    // ## why isn't the key in the QMap, the identifier?
+    for (auto emojiId = mUnicodeEmojiList.constBegin();
+         emojiId != mUnicodeEmojiList.constEnd(); ++emojiId) {
+        const QVector<UnicodeEmoticon> lst = emojiId.value();
+        for (const UnicodeEmoticon &emo : lst) {
+            if (emo.hasEmoji(emojiIdentifier)) {
+                return emo;
+            }
+        }
+    }
+    return {};
+}
+
 QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, bool isReaction)
 {
     if (mServerUrl.isEmpty()) {
@@ -115,15 +130,9 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
                 return cachedHtml;
             }
         }
-        QMap<QString, QVector<UnicodeEmoticon> >::const_iterator emojiId = mUnicodeEmojiList.constBegin();
-        while (emojiId != mUnicodeEmojiList.constEnd()) {
-            const QVector<UnicodeEmoticon> lst = emojiId.value();
-            for (int i = 0, total = lst.size(); i < total; ++i) {
-                if (lst.at(i).hasEmoji(emojiIdentifier)) {
-                    return lst.at(i).unicodeDisplay();
-                }
-            }
-            ++emojiId;
+        const UnicodeEmoticon unicodeEmoticon = unicodeEmoticonForEmoji(emojiIdentifier);
+        if (unicodeEmoticon.isValid()) {
+            return unicodeEmoticon.unicodeDisplay();
         }
     } else {
         qCWarning(RUQOLA_LOG) << "Emoji identifier is not correct :" << emojiIdentifier;

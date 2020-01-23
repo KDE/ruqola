@@ -44,6 +44,9 @@ public:
     Q_REQUIRED_RESULT QMap<QString, QVector<UnicodeEmoticon> > unicodeEmojiList() const;
 
     Q_REQUIRED_RESULT bool isAnimatedImage(const QString &emojiIdentifier) const;
+
+    Q_REQUIRED_RESULT UnicodeEmoticon unicodeEmoticonForEmoji(const QString &emojiIdentifier) const;
+
 private:
     Q_DISABLE_COPY(EmojiManager)
     void clearCustomEmojiCachedHtml();
