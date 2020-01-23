@@ -36,6 +36,8 @@ public:
 
 private:
     QString makeMessageText(const QModelIndex &index) const;
+    void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &messageRect, const QStyleOptionViewItem &option) const;
+
     QFont m_emojiFont;
 };
 

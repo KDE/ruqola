@@ -77,7 +77,7 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
     return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
 }
 
-static void drawTimestamp(const QModelIndex &index, QPainter *painter, const QStyleOptionViewItem &option, QRect *timeRect)
+static void drawTimestamp(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, QRect *timeRect)
 {
     const QString timeStampText = makeTimeStampText(index);
     const QSize timeSize = timeStampSize(timeStampText, option);
@@ -132,6 +132,64 @@ QString MessageListDelegate::makeMessageText(const QModelIndex &index) const
     return index.data(MessageModel::MessageConvertedText).toString();
 }
 
+void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &index, const QRect &messageRect, const QStyleOptionViewItem &option) const
+{
+    const QVariantList reactions = index.data(MessageModel::Reactions).toList();
+    if (reactions.isEmpty()) {
+        return;
+    }
+
+    auto *emojiManager = Ruqola::self()->rocketChatAccount()->emojiManager();
+    QFontMetricsF emojiFontMetrics(m_emojiFont);
+    const QPen origPen = painter->pen();
+    const QBrush origBrush = painter->brush();
+    const qreal margin = basicMargin(option);
+    qreal x = messageRect.x() + margin;
+    const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
+    QColor backgroundColor = option.palette.color(QPalette::Highlight);
+    backgroundColor.setAlpha(60);
+    const QBrush buttonBrush(backgroundColor);
+    for (const QVariant &v : reactions) {
+        // ### Optimization idea: MessageModel::Message role, and calling the Message API directly
+        // Especially interesting in sizeHint where we just need to know "there are reactions"
+        const Reaction &reaction = v.value<Reaction>();
+        const QString emojiString = emojiManager->unicodeEmoticonForEmoji(reaction.reactionName()).unicode();
+        if (!emojiString.isEmpty()) {
+            const QSizeF emojiSize = emojiFontMetrics.boundingRect(emojiString).size();
+            const qreal y = option.rect.bottom() - emojiFontMetrics.height() - 2;
+            const QString countStr = QString::number(reaction.count());
+            const int countWidth = option.fontMetrics.horizontalAdvance(countStr);
+            const QRectF reactionRect(x, y, emojiSize.width() + countWidth + margin,
+                                      qMax<qreal>(emojiSize.height(), option.fontMetrics.height()));
+
+            // Rounded rect
+            painter->setFont(m_emojiFont);
+            painter->setPen(buttonPen);
+            painter->setBrush(buttonBrush);
+            painter->drawRoundedRect(reactionRect, 5, 5);
+            painter->setBrush(origBrush);
+            painter->setPen(origPen);
+
+            // Emoji
+            const qreal emojiOffset = margin / 2 + 1;
+            painter->drawText(reactionRect.adjusted(emojiOffset, 1, 0, 0), emojiString);
+
+            // Count
+            painter->setFont(option.font);
+            painter->drawText(reactionRect.adjusted(emojiOffset + emojiSize.width(), 0, 0, 0), countStr);
+
+            x += reactionRect.width() + margin;
+        } else {
+            // TODO other kinds of emojis (but how to handle an image URL? QTextDocument manages somehow, I don't get it)
+            static QString lastWarning;
+            if (lastWarning != reaction.reactionName()) {
+                lastWarning = reaction.reactionName();
+                qDebug() << "Not handled: emoji" << reaction.reactionName() << emojiManager->replaceEmojiIdentifier(reaction.reactionName(), true);
+            }
+        }
+    }
+}
+
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     drawBackground(painter, option, index);
@@ -163,7 +221,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Timestamp
     QRect timeRect;
-    drawTimestamp(index, painter, option, &timeRect);
+    drawTimestamp(painter, index, option, &timeRect);
 
     // Message
     QRect messageRect = option.rect;
@@ -184,38 +242,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     painter->drawText(senderRect.x(), baseLine, senderText);
 
     // Reactions
-    const QVariantList reactions = index.data(MessageModel::Reactions).toList();
-    if (!reactions.isEmpty()) {
-        auto *emojiManager = Ruqola::self()->rocketChatAccount()->emojiManager();
-        QFontMetricsF emojiFontMetrics(m_emojiFont);
-        painter->setFont(m_emojiFont);
-        const qreal margin = basicMargin(option);
-        int x = messageRect.x() + margin;
-        const QPen buttonPen(option.palette.button().color());
-        for (const QVariant &v : reactions) {
-            // ### Optimization idea: MessageModel::Message role, and calling the Message API directly
-            // Especially interesting in sizeHint where we just need to know "there are reactions"
-            const Reaction &reaction = v.value<Reaction>();
-            const QString emojiString = emojiManager->unicodeEmoticonForEmoji(reaction.reactionName()).unicode();
-            if (!emojiString.isEmpty()) {
-                const QSizeF sz = emojiFontMetrics.boundingRect(emojiString).size();
-                const qreal y = option.rect.bottom() - emojiFontMetrics.height() - 2;
-                const QRectF reactionRect(x, y, sz.width(), sz.height());
-                painter->setPen(origPen);
-                painter->drawText(reactionRect.adjusted(1, 1, 0, 0), emojiString);
-                painter->setPen(buttonPen);
-                painter->drawRect(reactionRect.adjusted(0, 0, -1, -1));
-                x += sz.width() + margin;
-            } else {
-                // TODO other kinds of emojis (but how to handle an image URL? QTextDocument manages somehow, I don't get it)
-                static QString lastWarning;
-                if (lastWarning != reaction.reactionName()) {
-                    lastWarning = reaction.reactionName();
-                    qDebug() << "Not handled: emoji" << reaction.reactionName() << emojiManager->replaceEmojiIdentifier(reaction.reactionName(), true);
-                }
-            }
-        }
-    }
+    drawReactions(painter, index, messageRect, option);
 
     painter->setFont(option.font);
     painter->setPen(origPen);
