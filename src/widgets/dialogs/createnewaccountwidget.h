@@ -31,6 +31,8 @@ class LIBRUQOLAWIDGETS_EXPORT CreateNewAccountWidget : public QWidget
 public:
     explicit CreateNewAccountWidget(QWidget *parent = nullptr);
     ~CreateNewAccountWidget();
+Q_SIGNALS:
+    void updateOkButton(bool state);
 private:
     QLineEdit *mAccountName = nullptr;
     QLineEdit *mServerName = nullptr;

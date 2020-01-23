@@ -47,6 +47,7 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
     //TODO add support for two factor ?
+    //Disable ok button
 }
 
 CreateNewAccountWidget::~CreateNewAccountWidget()
