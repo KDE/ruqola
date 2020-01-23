@@ -35,6 +35,5 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     RuqolaCentralWidget w;
     QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
-QCOMPARE( QDate::fromString( QLatin1String( "07-06-15" ), QLatin1String( "yy-MM-dd" ) ), QDate( 2007, 06, 15 ) );
     //TODO
 }
