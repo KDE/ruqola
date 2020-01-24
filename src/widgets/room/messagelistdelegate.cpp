@@ -38,6 +38,11 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
 {
 }
 
+static qreal basicMargin()
+{
+    return 8;
+}
+
 static void drawRichText(QPainter *painter, const QRect &rect, const QString &text, qreal *pBaseLine)
 {
     // Possible optimisation: store the QTextDocument into the Message itself?
@@ -79,10 +84,12 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
 
 static void drawTimestamp(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, QRect *timeRect)
 {
+    const qreal margin = basicMargin();
+
     const QString timeStampText = makeTimeStampText(index);
     const QSize timeSize = timeStampSize(timeStampText, option);
 
-    *timeRect = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignRight | Qt::AlignVCenter, timeSize, option.rect);
+    *timeRect = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignRight | Qt::AlignVCenter, timeSize, option.rect.adjusted(0, 0, -margin/2, 0));
     const QPen oldPen = painter->pen();
     QColor col = painter->pen().color();
     col.setAlpha(128); // TimestampText.qml had opacity: .5
@@ -109,11 +116,6 @@ static QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight)
         }
     }
     return pix;
-}
-
-static qreal basicMargin()
-{
-    return 8;
 }
 
 struct PixmapAndSenderLayout {
@@ -165,11 +167,10 @@ QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReaction
         const QString emojiString = emojiManager->unicodeEmoticonForEmoji(reaction.reactionName()).unicode();
         if (!emojiString.isEmpty()) {
             const QSizeF emojiSize = emojiFontMetrics.boundingRect(emojiString).size();
-            const qreal y = option.rect.bottom() - emojiFontMetrics.height() - smallMargin;
             const QString countStr = QString::number(reaction.count());
             const int countWidth = option.fontMetrics.horizontalAdvance(countStr) + smallMargin;
-            const QRectF reactionRect(x, y, emojiSize.width() + countWidth + margin,
-                                      qMax<qreal>(emojiSize.height(), option.fontMetrics.height()) + margin - 1);
+            const qreal height = qMax<qreal>(emojiSize.height(), option.fontMetrics.height()) + margin - 1;
+            const QRectF reactionRect(x, option.rect.bottom() - height, emojiSize.width() + countWidth + margin, height);
             const qreal emojiOffset = margin / 2 + 1;
             const QRectF countRect = reactionRect.adjusted(emojiOffset + emojiSize.width(), smallMargin, 0, 0);
 
@@ -280,6 +281,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    const qreal margin = basicMargin();
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     // Avatar pixmap and sender text
@@ -294,10 +296,8 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     const QString messageText = makeMessageText(index);
     doc.setHtml(messageText);
     const int widthBeforeMessage = leftLayout.senderRect.right();
-    const int widthAfterMessage = timeSize.width();
+    const int widthAfterMessage = timeSize.width() + margin / 2;
     doc.setTextWidth(qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage));
-
-    const qreal margin = basicMargin();
 
     int additionalHeight = 0;
     if (!message->reactions().isEmpty()) {
