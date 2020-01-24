@@ -37,6 +37,7 @@
 #include <KSharedConfig>
 #include <KLocalizedString>
 #include <QPointer>
+#include <QIcon>
 
 namespace {
 static const char myConfigGroupName[] = "RuqolaMainWindow";
@@ -116,7 +117,7 @@ void RuqolaMainWindow::setupActions()
     connect(mShowSnipperedMessages, &QAction::triggered, this, &RuqolaMainWindow::slotSnipperedMessages);
     ac->addAction(QStringLiteral("show_snippered_messages"), mShowSnipperedMessages);
 
-    mSearchMessages = new QAction(i18n("Search Messages..."), this);
+    mSearchMessages = new QAction(QIcon::fromTheme(QStringLiteral("edit-find")), i18n("Search Messages..."), this);
     connect(mSearchMessages, &QAction::triggered, this, &RuqolaMainWindow::slotSearchMessages);
     ac->addAction(QStringLiteral("search_messages"), mSearchMessages);
 }
