@@ -18,42 +18,27 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "searchchanneldialog.h"
-#include "searchchannelwidget.h"
-#include <QDialogButtonBox>
-#include <KLocalizedString>
-#include <QVBoxLayout>
+#include "searchmessagedialog.h"
+
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <KLocalizedString>
 
 namespace {
-static const char myConfigGroupName[] = "SearchChannelDialog";
+static const char myConfigGroupName[] = "SearchMessageDialog";
 }
-SearchChannelDialog::SearchChannelDialog(QWidget *parent)
+SearchMessageDialog::SearchMessageDialog(QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(i18nc("@title:window", "Search Channel"));
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-
-    mSearchChannelWidget = new SearchChannelWidget(this);
-    mSearchChannelWidget->setObjectName(QStringLiteral("mSearchChannelWidget"));
-    mainLayout->addWidget(mSearchChannelWidget);
-
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
-    mainLayout->addWidget(button);
-    connect(button, &QDialogButtonBox::accepted, this, &SearchChannelDialog::accept);
-    connect(button, &QDialogButtonBox::rejected, this, &SearchChannelDialog::reject);
     readConfig();
 }
 
-SearchChannelDialog::~SearchChannelDialog()
+SearchMessageDialog::~SearchMessageDialog()
 {
     writeConfig();
 }
 
-void SearchChannelDialog::readConfig()
+void SearchMessageDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
@@ -62,7 +47,7 @@ void SearchChannelDialog::readConfig()
     }
 }
 
-void SearchChannelDialog::writeConfig()
+void SearchMessageDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());

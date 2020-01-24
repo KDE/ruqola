@@ -31,6 +31,7 @@
 #include "dialogs/showstarredmessagesdialog.h"
 #include "dialogs/showmentionsmessagesdialog.h"
 #include "dialogs/showsnipperedmessagesdialog.h"
+#include "dialogs/searchmessagedialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -114,6 +115,19 @@ void RuqolaMainWindow::setupActions()
     mShowSnipperedMessages = new QAction(i18n("Show Snippered Messages..."), this);
     connect(mShowSnipperedMessages, &QAction::triggered, this, &RuqolaMainWindow::slotSnipperedMessages);
     ac->addAction(QStringLiteral("show_snippered_messages"), mShowSnipperedMessages);
+
+    mSearchMessages = new QAction(i18n("Search Messages..."), this);
+    connect(mSearchMessages, &QAction::triggered, this, &RuqolaMainWindow::slotSearchMessages);
+    ac->addAction(QStringLiteral("search_messages"), mSearchMessages);
+}
+
+void RuqolaMainWindow::slotSearchMessages()
+{
+    QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
+    //dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
+    //Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::PinnedMessages);
+    dlg->exec();
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotStarredMessages()

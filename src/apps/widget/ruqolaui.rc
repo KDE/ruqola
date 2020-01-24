@@ -18,6 +18,7 @@
    <Action name="show_pinned_messages" />
    <Action name="show_starred_messages" />
    <Action name="show_snippered_messages" />
+   <Action name="search_messages" />
   </Menu>
  </MenuBar>
 </gui>
