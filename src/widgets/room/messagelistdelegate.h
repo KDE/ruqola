@@ -23,6 +23,7 @@
 
 #include <QFont>
 #include <QItemDelegate>
+#include "messages/reaction.h"
 
 class MessageListDelegate : public QItemDelegate
 {
@@ -33,10 +34,21 @@ public:
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
     QString makeMessageText(const QModelIndex &index) const;
     void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &messageRect, const QStyleOptionViewItem &option) const;
+
+    struct ReactionLayout {
+        QRectF reactionRect;
+        QRectF countRect;
+        QString emojiString;
+        QString countStr;
+        qreal emojiOffset;
+        Reaction reaction;
+    };
+    QVector<ReactionLayout> layoutReactions(const QVariantList &reactions, const qreal messageX, const QStyleOptionViewItem &option) const;
 
     QFont m_emojiFont;
 };

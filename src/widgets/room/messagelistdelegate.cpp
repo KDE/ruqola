@@ -116,15 +116,34 @@ static qreal basicMargin()
     return 8;
 }
 
+struct PixmapAndSenderLayout {
+    QString senderText;
+    QFont senderFont;
+    QRectF senderRect;
+    qreal ascent;
+    QPixmap avatarPixmap;
+    qreal avatarX;
+};
+
 // [margin] <pixmap> [margin] <sender>
-static QRect layoutPixmapAndSender(const QStyleOptionViewItem &option, const QSize &senderTextSize,
-                                   const QPixmap &avatarPixmap, qreal *pAvatarX)
+static PixmapAndSenderLayout layoutPixmapAndSender(const QStyleOptionViewItem &option,
+                                                   const QModelIndex &index)
 {
+    PixmapAndSenderLayout layout;
+    layout.senderText = makeSenderText(index);
+    layout.senderFont = option.font;
+    layout.senderFont.setBold(true);
+    const QFontMetricsF senderFontMetrics(layout.senderFont);
+    const QSizeF senderTextSize = senderFontMetrics.boundingRect(layout.senderText).size();
+
+    layout.avatarPixmap = makeAvatarPixmap(index, senderTextSize.height());
+    layout.ascent = senderFontMetrics.ascent();
+
     const qreal margin = basicMargin();
-    QRect senderRect(option.rect.x() + avatarPixmap.width() + 2 * margin, option.rect.y(),
-                     senderTextSize.width(), senderTextSize.height());
-    *pAvatarX = option.rect.x() + margin;
-    return senderRect;
+    layout.senderRect = QRectF(option.rect.x() + layout.avatarPixmap.width() + 2 * margin, option.rect.y(),
+                               senderTextSize.width(), senderTextSize.height());
+    layout.avatarX = option.rect.x() + margin;
+    return layout;
 }
 
 QString MessageListDelegate::makeMessageText(const QModelIndex &index) const
@@ -132,27 +151,17 @@ QString MessageListDelegate::makeMessageText(const QModelIndex &index) const
     return index.data(MessageModel::MessageConvertedText).toString();
 }
 
-void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &index, const QRect &messageRect, const QStyleOptionViewItem &option) const
+QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReactions(const QVariantList &reactions, const qreal messageX, const QStyleOptionViewItem &option) const
 {
-    const QVariantList reactions = index.data(MessageModel::Reactions).toList();
-    if (reactions.isEmpty()) {
-        return;
-    }
-
+    QVector<MessageListDelegate::ReactionLayout> layout;
+    layout.reserve(reactions.count());
     auto *emojiManager = Ruqola::self()->rocketChatAccount()->emojiManager();
     QFontMetricsF emojiFontMetrics(m_emojiFont);
-    const QPen origPen = painter->pen();
-    const QBrush origBrush = painter->brush();
     const qreal margin = basicMargin();
     const qreal smallMargin = margin/2.0;
-    qreal x = messageRect.x() + margin;
-    const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
-    QColor backgroundColor = option.palette.color(QPalette::Highlight);
-    backgroundColor.setAlpha(60);
-    const QBrush buttonBrush(backgroundColor);
+    qreal x = messageX + margin;
+
     for (const QVariant &v : reactions) {
-        // ### Optimization idea: MessageModel::Message role, and calling the Message API directly
-        // Especially interesting in sizeHint where we just need to know "there are reactions"
         const Reaction &reaction = v.value<Reaction>();
         const QString emojiString = emojiManager->unicodeEmoticonForEmoji(reaction.reactionName()).unicode();
         if (!emojiString.isEmpty()) {
@@ -162,6 +171,46 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
             const int countWidth = option.fontMetrics.horizontalAdvance(countStr) + smallMargin;
             const QRectF reactionRect(x, y, emojiSize.width() + countWidth + margin,
                                       qMax<qreal>(emojiSize.height(), option.fontMetrics.height()) + margin - 1);
+            const qreal emojiOffset = margin / 2 + 1;
+            const QRectF countRect = reactionRect.adjusted(emojiOffset + emojiSize.width(), smallMargin, 0, 0);
+
+            layout.append(ReactionLayout{reactionRect, countRect, emojiString, countStr, emojiOffset, reaction});
+            x += reactionRect.width() + margin;
+        } else {
+            // TODO other kinds of emojis (but how to handle an image URL? QTextDocument manages somehow, I don't get it)
+            static QString lastWarning;
+            if (lastWarning != reaction.reactionName()) {
+                lastWarning = reaction.reactionName();
+                qDebug() << "Not handled: emoji" << reaction.reactionName() << emojiManager->replaceEmojiIdentifier(reaction.reactionName(), true);
+            }
+        }
+    }
+    return layout;
+}
+
+void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &index, const QRect &messageRect, const QStyleOptionViewItem &option) const
+{
+    const QVariantList reactions = index.data(MessageModel::Reactions).toList();
+    if (reactions.isEmpty()) {
+        return;
+    }
+
+    const QVector<ReactionLayout> layout = layoutReactions(reactions, messageRect.x(), option);
+
+    const QPen origPen = painter->pen();
+    const QBrush origBrush = painter->brush();
+    const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
+    QColor backgroundColor = option.palette.color(QPalette::Highlight);
+    backgroundColor.setAlpha(60);
+    const QBrush buttonBrush(backgroundColor);
+    const qreal smallMargin = basicMargin()/2.0;
+    for (const ReactionLayout &reactionLayout : layout) {
+        // ### Optimization idea: MessageModel::Message role, and calling the Message API directly
+        // Especially interesting in sizeHint where we just need to know "there are reactions"
+
+        if (!reactionLayout.emojiString.isEmpty()) {
+
+            const QRectF reactionRect = reactionLayout.reactionRect;
 
             // Rounded rect
             painter->setFont(m_emojiFont);
@@ -172,21 +221,12 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
             painter->setPen(origPen);
 
             // Emoji
-            const qreal emojiOffset = margin / 2 + 1;
-            painter->drawText(reactionRect.adjusted(emojiOffset, smallMargin, 0, 0), emojiString);
+            painter->drawText(reactionRect.adjusted(reactionLayout.emojiOffset, smallMargin, 0, 0), reactionLayout.emojiString);
 
             // Count
             painter->setFont(option.font);
-            painter->drawText(reactionRect.adjusted(emojiOffset + emojiSize.width(), smallMargin, 0, 0), countStr);
+            painter->drawText(reactionLayout.countRect, reactionLayout.countStr);
 
-            x += reactionRect.width() + margin;
-        } else {
-            // TODO other kinds of emojis (but how to handle an image URL? QTextDocument manages somehow, I don't get it)
-            static QString lastWarning;
-            if (lastWarning != reaction.reactionName()) {
-                lastWarning = reaction.reactionName();
-                qDebug() << "Not handled: emoji" << reaction.reactionName() << emojiManager->replaceEmojiIdentifier(reaction.reactionName(), true);
-            }
         }
     }
 }
@@ -208,17 +248,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         qDebug() << "Urls" << urls;
     }*/
 
-    // Sender (calculate size, but don't draw it yet, we need to align vertically to the first line of the message)
-    const QString senderText = makeSenderText(index);
-    QFont boldFont = option.font;
-    boldFont.setBold(true);
-    const QFontMetrics senderFontMetrics(boldFont);
-    const QSize senderTextSize = senderFontMetrics.boundingRect(senderText).size();
-
-    // Pixmap (load and calculate size, but don't draw it yet, same reason)
-    const QPixmap avatarPixmap = makeAvatarPixmap(index, senderTextSize.height());
-    qreal avatarX = 0;
-    const QRect senderRect = layoutPixmapAndSender(option, senderTextSize, avatarPixmap, &avatarX);
+    // Sender and pixmap (calculate size, but don't draw it yet, we need to align vertically to the first line of the message)
+    const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
 
     // Timestamp
     QRect timeRect;
@@ -226,21 +257,21 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Message
     QRect messageRect = option.rect;
-    messageRect.setLeft(senderRect.right());
+    messageRect.setLeft(leftLayout.senderRect.right());
     messageRect.setRight(timeRect.left() - 1);
     const QString message = makeMessageText(index);
     qreal baseLine = 0;
     drawRichText(painter, messageRect, message, &baseLine);
 
     // Now draw the pixmap
-    painter->drawPixmap(avatarX, baseLine - senderFontMetrics.ascent(), avatarPixmap);
+    painter->drawPixmap(leftLayout.avatarX, baseLine - leftLayout.ascent, leftLayout.avatarPixmap);
     // If we need support for drawing as selected, we might want to do this:
     //QRect decorationRect(option.rect.x(), topOfFirstLine, avatarPixmap.width(), avatarPixmap.height());
     //drawDecoration(painter, option, decorationRect, avatarPixmap);
 
     // Now draw the sender
-    painter->setFont(boldFont);
-    painter->drawText(senderRect.x(), baseLine, senderText);
+    painter->setFont(leftLayout.senderFont);
+    painter->drawText(leftLayout.senderRect.x(), baseLine, leftLayout.senderText);
 
     // Reactions
     drawReactions(painter, index, messageRect, option);
@@ -253,16 +284,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // Sender
-    QFont boldFont = option.font;
-    boldFont.setBold(true);
-    const QFontMetrics senderFontMetrics(boldFont);
-    const QSize senderTextSize = senderFontMetrics.boundingRect(makeSenderText(index)).size();
-
-    // Pixmap
-    const QPixmap avatarPixmap = makeAvatarPixmap(index, senderTextSize.height());
-    qreal avatarX = 0;
-    const QRect senderRect = layoutPixmapAndSender(option, senderTextSize, avatarPixmap, &avatarX);
+    // Avatar pixmap and sender text
+    const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
 
     // Timestamp
     const QString timeStampText = makeTimeStampText(index);
@@ -272,7 +295,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     QTextDocument doc;
     const QString message = makeMessageText(index);
     doc.setHtml(message);
-    const int widthBeforeMessage = senderRect.right();
+    const int widthBeforeMessage = leftLayout.senderRect.right();
     const int widthAfterMessage = timeSize.width();
     doc.setTextWidth(qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage));
 
@@ -287,5 +310,28 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 
     // hopefully the width below is never more than option.rect.width() or we'll get a scrollbar
     return QSize(widthBeforeMessage + doc.idealWidth() + widthAfterMessage,
-                 qMax<int>(senderRect.height(), doc.size().height()) + additionalHeight);
+                 qMax<int>(leftLayout.senderRect.height(), doc.size().height()) + additionalHeight);
+}
+
+bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    if (event->type() == QEvent::MouseButtonRelease) {
+        QMouseEvent *mev = static_cast<QMouseEvent *>(event);
+        const QPoint pos = mev->pos();
+        const QVariantList reactions = index.data(MessageModel::Reactions).toList();
+        if (!reactions.isEmpty()) {
+            auto *rcAccount = Ruqola::self()->rocketChatAccount();
+            const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
+            const QVector<ReactionLayout> layout = layoutReactions(reactions, leftLayout.senderRect.right(), option);
+            for (const ReactionLayout &reactionLayout : layout) {
+                if (reactionLayout.reactionRect.contains(pos)) {
+                    const Reaction &reaction = reactionLayout.reaction;
+                    const bool doAdd = !reaction.userNames().contains(rcAccount->userName());
+                    rcAccount->reactOnMessage(index.data(MessageModel::MessageId).toString(), reaction.reactionName(), doAdd);
+                    break;
+                }
+            }
+        }
+    }
+    return QItemDelegate::editorEvent(event, model, option, index);
 }
