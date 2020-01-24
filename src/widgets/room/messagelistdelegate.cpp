@@ -33,8 +33,10 @@
 #include <QWindow>
 
 
-MessageListDelegate::MessageListDelegate(QObject *parent)
-    : QItemDelegate(parent), m_emojiFont(QStringLiteral("NotoColorEmoji"))
+MessageListDelegate::MessageListDelegate(RocketChatAccount *rcAccount, QObject *parent)
+    : QItemDelegate(parent),
+      m_emojiFont(QStringLiteral("NotoColorEmoji")),
+      m_rcAccount(rcAccount)
 {
 }
 
@@ -43,8 +45,15 @@ static qreal basicMargin()
     return 8;
 }
 
-static void drawRichText(QPainter *painter, const QRect &rect, const QString &text, qreal *pBaseLine)
+static QString makeMessageText(const QModelIndex &index)
 {
+    return index.data(MessageModel::MessageConvertedText).toString();
+}
+
+static void drawRichText(QPainter *painter, const QRect &rect, const QModelIndex &index, qreal *pBaseLine)
+{
+    const QString text = makeMessageText(index);
+
     // Possible optimisation: store the QTextDocument into the Message itself?
     QTextDocument doc;
     doc.setHtml(text);
@@ -96,14 +105,12 @@ static void drawTimestamp(QPainter *painter, const QModelIndex &index, const QSt
     painter->setPen(col);
     painter->drawText(*timeRect, timeStampText);
     painter->setPen(oldPen);
-
-    painter->setPen(oldPen);
 }
 
-static QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight)
+QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxHeight) const
 {
     const QString userId = index.data(MessageModel::UserId).toString();
-    const QString iconUrlStr = Ruqola::self()->rocketChatAccount()->avatarUrl(userId);
+    const QString iconUrlStr = m_rcAccount->avatarUrl(userId);
     QPixmap pix;
     if (!iconUrlStr.isEmpty() && !QPixmapCache::find(iconUrlStr, &pix)) {
         const QUrl iconUrl(iconUrlStr);
@@ -118,18 +125,9 @@ static QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight)
     return pix;
 }
 
-struct PixmapAndSenderLayout {
-    QString senderText;
-    QFont senderFont;
-    QRectF senderRect;
-    qreal ascent;
-    QPixmap avatarPixmap;
-    qreal avatarX;
-};
-
 // [margin] <pixmap> [margin] <sender>
-static PixmapAndSenderLayout layoutPixmapAndSender(const QStyleOptionViewItem &option,
-                                                   const QModelIndex &index)
+MessageListDelegate::PixmapAndSenderLayout MessageListDelegate::layoutPixmapAndSender(const QStyleOptionViewItem &option,
+                                                                                      const QModelIndex &index) const
 {
     PixmapAndSenderLayout layout;
     layout.senderText = makeSenderText(index);
@@ -148,16 +146,11 @@ static PixmapAndSenderLayout layoutPixmapAndSender(const QStyleOptionViewItem &o
     return layout;
 }
 
-QString MessageListDelegate::makeMessageText(const QModelIndex &index) const
-{
-    return index.data(MessageModel::MessageConvertedText).toString();
-}
-
 QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReactions(const QVector<Reaction> &reactions, const qreal messageX, const QStyleOptionViewItem &option) const
 {
     QVector<MessageListDelegate::ReactionLayout> layout;
     layout.reserve(reactions.count());
-    auto *emojiManager = Ruqola::self()->rocketChatAccount()->emojiManager();
+    auto *emojiManager = m_rcAccount->emojiManager();
     QFontMetricsF emojiFontMetrics(m_emojiFont);
     const qreal margin = basicMargin();
     const qreal smallMargin = margin/2.0;
@@ -228,6 +221,45 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
     }
 }
 
+
+MessageListDelegate::ImageLayout MessageListDelegate::layoutImage(const Message *message) const
+{
+    ImageLayout layout;
+    if (message->attachements().isEmpty()) {
+        qWarning() << "No attachments in Image message";
+        return layout;
+    }
+    if (message->attachements().count() > 1) {
+        qWarning() << "Multiple attachments in Image message? Can this happen?";
+    }
+    const MessageAttachment &msgAttach = message->attachements().at(0);
+    const QUrl url = m_rcAccount->attachmentUrl(msgAttach.link());
+    if (url.isLocalFile()) {
+        const QString path = url.toLocalFile();
+        QPixmap pixmap;
+        if (!QPixmapCache::find(path, &pixmap)) {
+            if (pixmap.load(path)) {
+                QPixmapCache::insert(path, pixmap);
+            } else {
+                qWarning() << "Could not load" << path;
+            }
+        }
+        layout.pixmap = pixmap;
+        layout.title = msgAttach.title();
+        //or we could do layout.attachment = msgAttach;
+    }
+    return layout;
+}
+
+void MessageListDelegate::drawImage(QPainter *painter, const QRect &messageRect, const Message *message) const
+{
+    ImageLayout layout = layoutImage(message);
+    if (!layout.pixmap.isNull()) {
+        painter->drawPixmap(messageRect.topLeft(), layout.pixmap.scaled(messageRect.size(), Qt::KeepAspectRatio));
+        // TODO show layout.title
+    }
+}
+
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     drawBackground(painter, option, index);
@@ -236,14 +268,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Compact mode : <pixmap> <sender> <message> <smiley> <timestamp>
 
-    /*auto lst = index.data(MessageModel::Attachments).toList();
-    if (!lst.isEmpty()) {
-        qDebug() << "Attachments" << lst;
-    }
-    auto urls = index.data(MessageModel::Urls).toList();
-    if (!urls.isEmpty()) {
-        qDebug() << "Urls" << urls;
-    }*/
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     // Sender and pixmap (calculate size, but don't draw it yet, we need to align vertically to the first line of the message)
     const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
@@ -256,9 +281,17 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     QRect messageRect = option.rect;
     messageRect.setLeft(leftLayout.senderRect.right());
     messageRect.setRight(timeRect.left() - 1);
-    const QString message = makeMessageText(index);
-    qreal baseLine = 0;
-    drawRichText(painter, messageRect, message, &baseLine);
+    qreal baseLine = option.fontMetrics.ascent();
+
+    switch (message->messageType()) {
+    case Message::NormalText:
+        drawRichText(painter, messageRect, index, &baseLine);
+        break;
+    case Message::Image:
+        drawImage(painter, messageRect, message);
+        break;
+    // TODO other message types (but some sort of dispatch would be good, virtual methods or templates)
+    }
 
     // Now draw the pixmap
     painter->drawPixmap(leftLayout.avatarX, baseLine - leftLayout.ascent, leftLayout.avatarPixmap);
@@ -292,12 +325,30 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     const QSize timeSize = timeStampSize(timeStampText, option);
 
     // Message (using the rest of the available width)
-    QTextDocument doc;
-    const QString messageText = makeMessageText(index);
-    doc.setHtml(messageText);
     const int widthBeforeMessage = leftLayout.senderRect.right();
     const int widthAfterMessage = timeSize.width() + margin / 2;
-    doc.setTextWidth(qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage));
+    const int maxWidth = qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage);
+    int idealWidth = 0;
+    int height = 0;
+
+    switch (message->messageType()) {
+    case Message::NormalText: {
+        QTextDocument doc;
+        const QString messageText = makeMessageText(index);
+        doc.setHtml(messageText);
+        doc.setTextWidth(maxWidth);
+        idealWidth = doc.idealWidth();
+        height = doc.size().height();
+        break;
+    }
+    case Message::Image: {
+        const ImageLayout layout = layoutImage(message);
+        idealWidth = qMin(layout.pixmap.width(), maxWidth);
+        height = qMin(layout.pixmap.height(), 200);
+        break;
+    }
+        // TODO other message types (but some sort of dispatch would be good, virtual methods or templates)
+    };
 
     int additionalHeight = 0;
     if (!message->reactions().isEmpty()) {
@@ -306,8 +357,8 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     }
 
     // hopefully the width below is never more than option.rect.width() or we'll get a scrollbar
-    return QSize(widthBeforeMessage + doc.idealWidth() + widthAfterMessage,
-                 qMax<int>(leftLayout.senderRect.height(), doc.size().height()) + additionalHeight);
+    return QSize(widthBeforeMessage + idealWidth + widthAfterMessage,
+                 qMax<int>(leftLayout.senderRect.height(), height) + additionalHeight);
 }
 
 bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -317,14 +368,13 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
         const QPoint pos = mev->pos();
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
         if (!message->reactions().isEmpty()) {
-            auto *rcAccount = Ruqola::self()->rocketChatAccount();
             const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
             const QVector<ReactionLayout> layout = layoutReactions(message->reactions().reactions(), leftLayout.senderRect.right(), option);
             for (const ReactionLayout &reactionLayout : layout) {
                 if (reactionLayout.reactionRect.contains(pos)) {
                     const Reaction &reaction = reactionLayout.reaction;
-                    const bool doAdd = !reaction.userNames().contains(rcAccount->userName());
-                    rcAccount->reactOnMessage(index.data(MessageModel::MessageId).toString(), reaction.reactionName(), doAdd);
+                    const bool doAdd = !reaction.userNames().contains(m_rcAccount->userName());
+                    m_rcAccount->reactOnMessage(index.data(MessageModel::MessageId).toString(), reaction.reactionName(), doAdd);
                     break;
                 }
             }

@@ -25,20 +25,29 @@
 #include <QItemDelegate>
 #include "messages/reaction.h"
 
+class RocketChatAccount;
+class Message;
+
 class MessageListDelegate : public QItemDelegate
 {
     Q_OBJECT
 
 public:
-    explicit MessageListDelegate(QObject *parent = nullptr);
+    explicit MessageListDelegate(RocketChatAccount *rcAccount, QObject *parent = nullptr);
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
-    QString makeMessageText(const QModelIndex &index) const;
+    struct ImageLayout {
+        QPixmap pixmap;
+        QString title;
+    };
+    ImageLayout layoutImage(const Message *message) const;
+    void drawImage(QPainter *painter, const QRect &messageRect, const Message *message) const;
     void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &messageRect, const QStyleOptionViewItem &option) const;
+    QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
 
     struct ReactionLayout {
         QRectF reactionRect;
@@ -50,7 +59,19 @@ private:
     };
     QVector<ReactionLayout> layoutReactions(const QVector<Reaction> &reactions, const qreal messageX, const QStyleOptionViewItem &option) const;
 
+    struct PixmapAndSenderLayout {
+        QString senderText;
+        QFont senderFont;
+        QRectF senderRect;
+        qreal ascent;
+        QPixmap avatarPixmap;
+        qreal avatarX;
+    };
+    PixmapAndSenderLayout layoutPixmapAndSender(const QStyleOptionViewItem &option,
+                                                const QModelIndex &index) const;
+
     QFont m_emojiFont;
+    RocketChatAccount *m_rcAccount;
 };
 
 #endif // MESSAGELISTDELEGATE_H
