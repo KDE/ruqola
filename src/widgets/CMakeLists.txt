@@ -32,6 +32,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/searchmessagedialog.cpp
     dialogs/searchmessagewidget.cpp
     dialogs/reportmessagedialog.cpp
+    dialogs/reportmessagewidget.cpp
     )
 
 set(Ruqola_channellist_SRCS

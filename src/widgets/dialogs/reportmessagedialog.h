@@ -24,16 +24,18 @@
 #include "libruqolawidgets_export.h"
 
 #include <QDialog>
-
+class ReportMessageWidget;
 class LIBRUQOLAWIDGETS_EXPORT ReportMessageDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ReportMessageDialog(QWidget *parent = nullptr);
     ~ReportMessageDialog();
+    Q_REQUIRED_RESULT QString message() const;
 private:
     void readConfig();
     void writeConfig();
+    ReportMessageWidget *mReportMessageWidget = nullptr;
 };
 
 #endif // REPORTMESSAGEDIALOG_H

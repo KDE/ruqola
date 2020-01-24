@@ -18,19 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef REPORTMESSAGEDIALOGTEST_H
-#define REPORTMESSAGEDIALOGTEST_H
+#ifndef REPORTMESSAGEWIDGET_H
+#define REPORTMESSAGEWIDGET_H
 
-#include <QObject>
+#include <QWidget>
 
-class ReportMessageDialogTest : public QObject
+#include "libruqolawidgets_export.h"
+class QLineEdit;
+class LIBRUQOLAWIDGETS_EXPORT ReportMessageWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ReportMessageDialogTest(QObject *parent = nullptr);
-    ~ReportMessageDialogTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
+    explicit ReportMessageWidget(QWidget *parent = nullptr);
+    ~ReportMessageWidget();
+    Q_REQUIRED_RESULT QString message() const;
+private:
+    QLineEdit *mMessageLineEdit = nullptr;
 };
 
-#endif // REPORTMESSAGEDIALOGTEST_H
+#endif // REPORTMESSAGEWIDGET_H

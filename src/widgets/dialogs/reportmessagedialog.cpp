@@ -19,6 +19,7 @@
 */
 
 #include "reportmessagedialog.h"
+#include "reportmessagewidget.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -35,7 +36,9 @@ ReportMessageDialog::ReportMessageDialog(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    //TODO
+    mReportMessageWidget = new ReportMessageWidget(this);
+    mReportMessageWidget->setObjectName(QStringLiteral("mReportMessageWidget"));
+    mainLayout->addWidget(mReportMessageWidget);
 
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
@@ -65,3 +68,7 @@ void ReportMessageDialog::writeConfig()
     group.writeEntry("Size", size());
 }
 
+QString ReportMessageDialog::message() const
+{
+    return mReportMessageWidget->message();
+}

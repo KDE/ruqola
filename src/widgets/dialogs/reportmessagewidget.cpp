@@ -18,19 +18,39 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef REPORTMESSAGEDIALOGTEST_H
-#define REPORTMESSAGEDIALOGTEST_H
 
-#include <QObject>
+#include "reportmessagewidget.h"
 
-class ReportMessageDialogTest : public QObject
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
+
+#include <KLocalizedString>
+
+ReportMessageWidget::ReportMessageWidget(QWidget *parent)
+    : QWidget(parent)
 {
-    Q_OBJECT
-public:
-    explicit ReportMessageDialogTest(QObject *parent = nullptr);
-    ~ReportMessageDialogTest() = default;
-private Q_SLOTS:
-    void shouldHaveDefaultValues();
-};
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
-#endif // REPORTMESSAGEDIALOGTEST_H
+    QLabel *lab = new QLabel(i18n("Message:"), this);
+    lab->setObjectName(QStringLiteral("label"));
+    mainLayout->addWidget(lab);
+
+    mMessageLineEdit = new QLineEdit(this);
+    mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
+    mMessageLineEdit->setClearButtonEnabled(true);
+    mMessageLineEdit->setPlaceholderText(i18n("Why you signal this message?"));
+    mainLayout->addWidget(mMessageLineEdit);
+}
+
+ReportMessageWidget::~ReportMessageWidget()
+{
+
+}
+
+QString ReportMessageWidget::message() const
+{
+    return mMessageLineEdit->text();
+}

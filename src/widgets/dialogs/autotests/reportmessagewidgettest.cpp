@@ -18,35 +18,34 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "reportmessagedialogtest.h"
-#include "dialogs/reportmessagedialog.h"
+#include "reportmessagewidgettest.h"
 #include "dialogs/reportmessagewidget.h"
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
 #include <QTest>
-#include <QStandardPaths>
-#include <QVBoxLayout>
-#include <QDialogButtonBox>
-
-QTEST_MAIN(ReportMessageDialogTest)
-
-ReportMessageDialogTest::ReportMessageDialogTest(QObject *parent)
+QTEST_MAIN(ReportMessageWidgetTest)
+ReportMessageWidgetTest::ReportMessageWidgetTest(QObject *parent)
     : QObject(parent)
 {
-    QStandardPaths::setTestModeEnabled(true);
+
 }
 
-void ReportMessageDialogTest::shouldHaveDefaultValues()
+void ReportMessageWidgetTest::shouldHaveDefaultValues()
 {
-    ReportMessageDialog w;
-    QVERIFY(!w.windowTitle().isEmpty());
-
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    ReportMessageWidget w;
+    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    ReportMessageWidget *mReportMessageWidget = w.findChild<ReportMessageWidget *>(QStringLiteral("mReportMessageWidget"));
-    QVERIFY(mReportMessageWidget);
+    QLabel *lab = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(lab);
+    QVERIFY(!lab->text().isEmpty());
 
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
-    QVERIFY(button);
+    QLineEdit *mMessageLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mMessageLineEdit"));
+    QVERIFY(mMessageLineEdit);
+    QVERIFY(mMessageLineEdit->isClearButtonEnabled());
+    QVERIFY(!mMessageLineEdit->placeholderText().isEmpty());
 
     QVERIFY(w.message().isEmpty());
 }

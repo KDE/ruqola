@@ -18,19 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef REPORTMESSAGEDIALOGTEST_H
-#define REPORTMESSAGEDIALOGTEST_H
+#ifndef REPORTMESSAGEWIDGETTEST_H
+#define REPORTMESSAGEWIDGETTEST_H
 
 #include <QObject>
 
-class ReportMessageDialogTest : public QObject
+class ReportMessageWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ReportMessageDialogTest(QObject *parent = nullptr);
-    ~ReportMessageDialogTest() = default;
+    explicit ReportMessageWidgetTest(QObject *parent = nullptr);
+    ~ReportMessageWidgetTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
 
-#endif // REPORTMESSAGEDIALOGTEST_H
+#endif // REPORTMESSAGEWIDGETTEST_H
