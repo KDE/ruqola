@@ -18,33 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "searchmessagedialogtest.h"
-#include "dialogs/searchmessagedialog.h"
-#include "dialogs/searchmessagewidget.h"
+#ifndef REPORTMESSAGEDIALOG_H
+#define REPORTMESSAGEDIALOG_H
 
-#include <QDialogButtonBox>
-#include <QStandardPaths>
-#include <QTest>
-#include <QVBoxLayout>
+#include "libruqolawidgets_export.h"
 
-QTEST_MAIN(SearchMessageDialogTest)
-SearchMessageDialogTest::SearchMessageDialogTest(QObject *parent)
-    : QObject(parent)
+#include <QDialog>
+
+class LIBRUQOLAWIDGETS_EXPORT ReportMessageDialog : public QDialog
 {
-    QStandardPaths::setTestModeEnabled(true);
-}
+    Q_OBJECT
+public:
+    explicit ReportMessageDialog(QWidget *parent = nullptr);
+    ~ReportMessageDialog();
+private:
+    void readConfig();
+    void writeConfig();
+};
 
-void SearchMessageDialogTest::shouldHaveDefaultValues()
-{
-    SearchMessageDialog w;
-    QVERIFY(!w.windowTitle().isEmpty());
-
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-
-    SearchMessageWidget *mSearchChannelWidget = w.findChild<SearchMessageWidget *>(QStringLiteral("mSearchMessageWidget"));
-    QVERIFY(mSearchChannelWidget);
-
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
-    QVERIFY(button);
-}
+#endif // REPORTMESSAGEDIALOG_H

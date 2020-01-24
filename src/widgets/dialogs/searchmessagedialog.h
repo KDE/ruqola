@@ -24,6 +24,7 @@
 #include "libruqolawidgets_private_export.h"
 
 #include <QDialog>
+class SearchMessageWidget;
 class LIBRUQOLAWIDGETS_EXPORT SearchMessageDialog : public QDialog
 {
     Q_OBJECT
@@ -34,6 +35,8 @@ public:
 private:
     void readConfig();
     void writeConfig();
+
+    SearchMessageWidget *mSearchMessageWidget = nullptr;
 };
 
 #endif // SEARCHMESSAGEDIALOG_H

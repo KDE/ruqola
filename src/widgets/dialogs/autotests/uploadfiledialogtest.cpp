@@ -20,15 +20,28 @@
 
 #include "uploadfiledialogtest.h"
 #include "dialogs/uploadfiledialog.h"
+#include "dialogs/uploadfilewidget.h"
+#include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(UploadFileDialogTest)
 
 UploadFileDialogTest::UploadFileDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void UploadFileDialogTest::shouldHaveDefaultValues()
 {
-    //TODO
+    UploadFileDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    UploadFileWidget *mUploadFileWidget = w.findChild<UploadFileWidget *>(QStringLiteral("mUploadFileWidget"));
+    QVERIFY(mUploadFileWidget);
+    QDialogButtonBox *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
+    QVERIFY(buttonBox);
 }

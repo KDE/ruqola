@@ -20,10 +20,12 @@
 
 #include "createnewchanneldialogtest.h"
 #include "dialogs/createnewchanneldialog.h"
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_MAIN(CreateNewChannelDialogTest)
 CreateNewChannelDialogTest::CreateNewChannelDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }

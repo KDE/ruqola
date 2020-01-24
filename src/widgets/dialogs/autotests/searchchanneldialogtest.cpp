@@ -22,12 +22,14 @@
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/searchchannelwidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(SearchChannelDialogTest)
 SearchChannelDialogTest::SearchChannelDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void SearchChannelDialogTest::shouldHaveDefaultValues()

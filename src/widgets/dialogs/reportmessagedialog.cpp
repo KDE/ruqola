@@ -18,52 +18,50 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "searchmessagedialog.h"
-#include "searchmessagewidget.h"
+#include "reportmessagedialog.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
-#include <KLocalizedString>
-#include <QVBoxLayout>
 #include <QDialogButtonBox>
-
+#include <QVBoxLayout>
+#include <KLocalizedString>
 namespace {
-static const char myConfigGroupName[] = "SearchMessageDialog";
+static const char myConfigGroupName[] = "ReportMessageDialog";
 }
-SearchMessageDialog::SearchMessageDialog(QWidget *parent)
+ReportMessageDialog::ReportMessageDialog(QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(i18nc("@title:window", "Search Messages"));
+    setWindowTitle(i18nc("@title:window", "Search Channel"));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    mSearchMessageWidget = new SearchMessageWidget(this);
-    mSearchMessageWidget->setObjectName(QStringLiteral("mSearchMessageWidget"));
-    mainLayout->addWidget(mSearchMessageWidget);
+    //TODO
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
-    connect(button, &QDialogButtonBox::rejected, this, &SearchMessageDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &ReportMessageDialog::accept);
+    connect(button, &QDialogButtonBox::rejected, this, &ReportMessageDialog::reject);
     readConfig();
 }
 
-SearchMessageDialog::~SearchMessageDialog()
+ReportMessageDialog::~ReportMessageDialog()
 {
     writeConfig();
 }
 
-void SearchMessageDialog::readConfig()
+void ReportMessageDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
+    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
     }
 }
 
-void SearchMessageDialog::writeConfig()
+void ReportMessageDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
 }
+

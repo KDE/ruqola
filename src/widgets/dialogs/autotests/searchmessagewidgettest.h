@@ -18,33 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "searchmessagedialogtest.h"
-#include "dialogs/searchmessagedialog.h"
-#include "dialogs/searchmessagewidget.h"
+#ifndef SEARCHMESSAGEWIDGETTEST_H
+#define SEARCHMESSAGEWIDGETTEST_H
 
-#include <QDialogButtonBox>
-#include <QStandardPaths>
-#include <QTest>
-#include <QVBoxLayout>
+#include <QObject>
 
-QTEST_MAIN(SearchMessageDialogTest)
-SearchMessageDialogTest::SearchMessageDialogTest(QObject *parent)
-    : QObject(parent)
+class SearchMessageWidgetTest : public QObject
 {
-    QStandardPaths::setTestModeEnabled(true);
-}
+    Q_OBJECT
+public:
+    explicit SearchMessageWidgetTest(QObject *parent = nullptr);
+    ~SearchMessageWidgetTest() = default;
+};
 
-void SearchMessageDialogTest::shouldHaveDefaultValues()
-{
-    SearchMessageDialog w;
-    QVERIFY(!w.windowTitle().isEmpty());
-
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-
-    SearchMessageWidget *mSearchChannelWidget = w.findChild<SearchMessageWidget *>(QStringLiteral("mSearchMessageWidget"));
-    QVERIFY(mSearchChannelWidget);
-
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
-    QVERIFY(button);
-}
+#endif // SEARCHMESSAGEWIDGETTEST_H

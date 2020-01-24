@@ -22,12 +22,14 @@
 #include "dialogs/serverinfodialog.h"
 #include "dialogs/serverinfowidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ServerInfoDialogTest)
 ServerInfoDialogTest::ServerInfoDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ServerInfoDialogTest::shouldHaveDefaultValues()

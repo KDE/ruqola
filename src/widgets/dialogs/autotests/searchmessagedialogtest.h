@@ -30,6 +30,8 @@ class SearchMessageDialogTest : public QObject
 public:
     explicit SearchMessageDialogTest(QObject *parent = nullptr);
     ~SearchMessageDialogTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // SEARCHMESSAGEDIALOGTEST_H

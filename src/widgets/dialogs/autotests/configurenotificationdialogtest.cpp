@@ -22,13 +22,14 @@
 #include "dialogs/configurenotificationdialog.h"
 #include "dialogs/configurenotificationwidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ConfigureNotificationDialogTest)
 ConfigureNotificationDialogTest::ConfigureNotificationDialogTest(QObject *parent)
     : QObject(parent)
 {
-
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ConfigureNotificationDialogTest::shouldHaveDefaultValues()

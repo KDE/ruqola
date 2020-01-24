@@ -22,12 +22,14 @@
 #include "dialogs/modifystatusdialog.h"
 #include "dialogs/modifystatuswidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ModifyStatusDialogTest)
 ModifyStatusDialogTest::ModifyStatusDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ModifyStatusDialogTest::shouldHaveDefaultValues()

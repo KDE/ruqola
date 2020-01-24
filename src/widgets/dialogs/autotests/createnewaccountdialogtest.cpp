@@ -22,12 +22,14 @@
 #include "dialogs/createnewaccountdialog.h"
 #include "dialogs/createnewaccountwidget.h"
 #include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(CreateNewAccountDialogTest)
 CreateNewAccountDialogTest::CreateNewAccountDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void CreateNewAccountDialogTest::shouldHaveDefaultValues()
