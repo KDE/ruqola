@@ -20,6 +20,7 @@
 
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "accountmanager.h"
 #include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
 #include "dialogs/serverinfodialog.h"
@@ -168,6 +169,8 @@ void RuqolaMainWindow::slotAddAccount()
 {
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
     if (dlg->exec()) {
+        const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
+        Ruqola::self()->accountManager()->addAccount(info.accountName, info.userName, info.serverName);
     }
     delete dlg;
 }

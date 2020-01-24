@@ -31,8 +31,14 @@ class LIBRUQOLAWIDGETS_EXPORT CreateNewAccountWidget : public QWidget
 public:
     explicit CreateNewAccountWidget(QWidget *parent = nullptr);
     ~CreateNewAccountWidget();
+
+    Q_REQUIRED_RESULT QString accountName() const;
+    Q_REQUIRED_RESULT QString userName() const;
+    Q_REQUIRED_RESULT QString serverName() const;
+
 Q_SIGNALS:
     void updateOkButton(bool state);
+
 private:
     void slotChangeOkButtonEnabled();
     QLineEdit *mAccountName = nullptr;

@@ -58,6 +58,21 @@ CreateNewAccountWidget::~CreateNewAccountWidget()
 {
 }
 
+QString CreateNewAccountWidget::accountName() const
+{
+    return mAccountName->text().trimmed();
+}
+
+QString CreateNewAccountWidget::serverName() const
+{
+    return mServerName->text().trimmed();
+}
+
+QString CreateNewAccountWidget::userName() const
+{
+    return mUserName->text().trimmed();
+}
+
 void CreateNewAccountWidget::slotChangeOkButtonEnabled()
 {
     Q_EMIT updateOkButton(!mAccountName->text().trimmed().isEmpty()

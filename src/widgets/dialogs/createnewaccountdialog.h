@@ -31,6 +31,13 @@ class LIBRUQOLAWIDGETS_EXPORT CreateNewAccountDialog : public QDialog
 public:
     explicit CreateNewAccountDialog(QWidget *parent = nullptr);
     ~CreateNewAccountDialog();
+    struct AccountInfo {
+        QString accountName;
+        QString serverName;
+        QString userName;
+    };
+
+    Q_REQUIRED_RESULT AccountInfo accountInfo() const;
 
 private:
     void readConfig();

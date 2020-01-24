@@ -60,6 +60,15 @@ CreateNewAccountDialog::~CreateNewAccountDialog()
     writeConfig();
 }
 
+CreateNewAccountDialog::AccountInfo CreateNewAccountDialog::accountInfo() const
+{
+    AccountInfo info;
+    info.accountName = mNewAccountWidget->accountName();
+    info.userName = mNewAccountWidget->userName();
+    info.serverName = mNewAccountWidget->serverName();
+    return info;
+}
+
 void CreateNewAccountDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
