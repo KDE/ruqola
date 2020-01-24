@@ -113,9 +113,6 @@ public:
     Q_REQUIRED_RESULT QString editedByUserId() const;
     void setEditedByUserId(const QString &editedByUserId);
 
-    Q_REQUIRED_RESULT QString imageUrl() const;
-    void setImageUrl(const QString &imageUrl);
-
     Q_REQUIRED_RESULT QString alias() const;
     void setAlias(const QString &alias);
 
@@ -140,7 +137,7 @@ public:
     Q_REQUIRED_RESULT Reactions reactions() const;
     void setReactions(const Reactions &reactions);
 
-    Q_REQUIRED_RESULT QString messageTypeText() const;
+    Q_REQUIRED_RESULT QString systemMessageText() const;
 
     Q_REQUIRED_RESULT QString role() const;
     void setRole(const QString &role);

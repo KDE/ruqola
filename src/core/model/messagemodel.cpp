@@ -234,7 +234,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.text();
     case MessageModel::MessageConvertedText:
         if (message.messageType() == Message::System) {
-            return message.messageTypeText();
+            return message.systemMessageText();
         } else {
             if (mRoom && mRoom->userIsIgnored(message.userId())) {
                 return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));

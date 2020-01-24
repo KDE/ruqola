@@ -422,7 +422,7 @@ Message::MessageType Message::messageType() const
     return mMessageType;
 }
 
-QString Message::messageTypeText() const
+QString Message::systemMessageText() const
 {
     if (mSystemMessageType == QLatin1String("uj")) {
         return i18n("%1 has joined the channel", mUsername);

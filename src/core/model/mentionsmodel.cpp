@@ -66,7 +66,7 @@ QVariant MentionsModel::data(const QModelIndex &index, int role) const
     case MentionsModel::MessageConvertedText:
         //TODO improve it.
         if (message.messageType() == Message::System) {
-            return message.messageTypeText();
+            return message.systemMessageText();
         } else {
 #if 0
             if (mRoom && mRoom->userIsIgnored(message.userId())) {
