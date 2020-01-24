@@ -21,12 +21,25 @@
 
 #include "searchmessagewidget.h"
 #include <KLocalizedString>
+#include <QLineEdit>
+#include <QListWidget>
 #include <QVBoxLayout>
 
 SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    mSearchLineEdit = new QLineEdit(this);
+    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setClearButtonEnabled(true);
+    mainLayout->addWidget(mSearchLineEdit);
+
+    mResultListWidget = new QListWidget(this);
+    mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
+    mainLayout->addWidget(mResultListWidget);
 }
 
 SearchMessageWidget::~SearchMessageWidget()
