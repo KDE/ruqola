@@ -111,16 +111,16 @@ static QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight)
     return pix;
 }
 
-static qreal basicMargin(const QStyleOptionViewItem &option)
+static qreal basicMargin()
 {
-    return 4 * option.widget->window()->windowHandle()->devicePixelRatio();
+    return 8;
 }
 
 // [margin] <pixmap> [margin] <sender>
 static QRect layoutPixmapAndSender(const QStyleOptionViewItem &option, const QSize &senderTextSize,
                                    const QPixmap &avatarPixmap, qreal *pAvatarX)
 {
-    const qreal margin = basicMargin(option);
+    const qreal margin = basicMargin();
     QRect senderRect(option.rect.x() + avatarPixmap.width() + 2 * margin, option.rect.y(),
                      senderTextSize.width(), senderTextSize.height());
     *pAvatarX = option.rect.x() + margin;
@@ -143,7 +143,8 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
     QFontMetricsF emojiFontMetrics(m_emojiFont);
     const QPen origPen = painter->pen();
     const QBrush origBrush = painter->brush();
-    const qreal margin = basicMargin(option);
+    const qreal margin = basicMargin();
+    const qreal smallMargin = margin/2.0;
     qreal x = messageRect.x() + margin;
     const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
     QColor backgroundColor = option.palette.color(QPalette::Highlight);
@@ -156,11 +157,11 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
         const QString emojiString = emojiManager->unicodeEmoticonForEmoji(reaction.reactionName()).unicode();
         if (!emojiString.isEmpty()) {
             const QSizeF emojiSize = emojiFontMetrics.boundingRect(emojiString).size();
-            const qreal y = option.rect.bottom() - emojiFontMetrics.height() - 2;
+            const qreal y = option.rect.bottom() - emojiFontMetrics.height() - smallMargin;
             const QString countStr = QString::number(reaction.count());
-            const int countWidth = option.fontMetrics.horizontalAdvance(countStr);
+            const int countWidth = option.fontMetrics.horizontalAdvance(countStr) + smallMargin;
             const QRectF reactionRect(x, y, emojiSize.width() + countWidth + margin,
-                                      qMax<qreal>(emojiSize.height(), option.fontMetrics.height()));
+                                      qMax<qreal>(emojiSize.height(), option.fontMetrics.height()) + margin - 1);
 
             // Rounded rect
             painter->setFont(m_emojiFont);
@@ -172,11 +173,11 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
 
             // Emoji
             const qreal emojiOffset = margin / 2 + 1;
-            painter->drawText(reactionRect.adjusted(emojiOffset, 1, 0, 0), emojiString);
+            painter->drawText(reactionRect.adjusted(emojiOffset, smallMargin, 0, 0), emojiString);
 
             // Count
             painter->setFont(option.font);
-            painter->drawText(reactionRect.adjusted(emojiOffset + emojiSize.width(), 0, 0, 0), countStr);
+            painter->drawText(reactionRect.adjusted(emojiOffset + emojiSize.width(), smallMargin, 0, 0), countStr);
 
             x += reactionRect.width() + margin;
         } else {
@@ -275,11 +276,13 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     const int widthAfterMessage = timeSize.width();
     doc.setTextWidth(qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage));
 
+    const qreal margin = basicMargin();
+
     int additionalHeight = 0;
     const QVariantList reactions = index.data(MessageModel::Reactions).toList();
     if (!reactions.isEmpty()) {
         QFontMetricsF emojiFontMetrics(m_emojiFont);
-        additionalHeight += emojiFontMetrics.height() + 4;
+        additionalHeight += emojiFontMetrics.height() + margin;
     }
 
     // hopefully the width below is never more than option.rect.width() or we'll get a scrollbar
