@@ -151,7 +151,7 @@ QString MessageListDelegate::makeMessageText(const QModelIndex &index) const
     return index.data(MessageModel::MessageConvertedText).toString();
 }
 
-QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReactions(const QVariantList &reactions, const qreal messageX, const QStyleOptionViewItem &option) const
+QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReactions(const QVector<Reaction> &reactions, const qreal messageX, const QStyleOptionViewItem &option) const
 {
     QVector<MessageListDelegate::ReactionLayout> layout;
     layout.reserve(reactions.count());
@@ -161,8 +161,7 @@ QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReaction
     const qreal smallMargin = margin/2.0;
     qreal x = messageX + margin;
 
-    for (const QVariant &v : reactions) {
-        const Reaction &reaction = v.value<Reaction>();
+    for (const Reaction &reaction : reactions) {
         const QString emojiString = emojiManager->unicodeEmoticonForEmoji(reaction.reactionName()).unicode();
         if (!emojiString.isEmpty()) {
             const QSizeF emojiSize = emojiFontMetrics.boundingRect(emojiString).size();
@@ -190,7 +189,9 @@ QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReaction
 
 void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &index, const QRect &messageRect, const QStyleOptionViewItem &option) const
 {
-    const QVariantList reactions = index.data(MessageModel::Reactions).toList();
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+
+    const QVector<Reaction> reactions = message->reactions().reactions();
     if (reactions.isEmpty()) {
         return;
     }
@@ -205,11 +206,7 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
     const QBrush buttonBrush(backgroundColor);
     const qreal smallMargin = basicMargin()/2.0;
     for (const ReactionLayout &reactionLayout : layout) {
-        // ### Optimization idea: MessageModel::Message role, and calling the Message API directly
-        // Especially interesting in sizeHint where we just need to know "there are reactions"
-
         if (!reactionLayout.emojiString.isEmpty()) {
-
             const QRectF reactionRect = reactionLayout.reactionRect;
 
             // Rounded rect
@@ -226,7 +223,6 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
             // Count
             painter->setFont(option.font);
             painter->drawText(reactionLayout.countRect, reactionLayout.countStr);
-
         }
     }
 }
@@ -284,6 +280,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+
     // Avatar pixmap and sender text
     const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
 
@@ -293,8 +291,8 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 
     // Message (using the rest of the available width)
     QTextDocument doc;
-    const QString message = makeMessageText(index);
-    doc.setHtml(message);
+    const QString messageText = makeMessageText(index);
+    doc.setHtml(messageText);
     const int widthBeforeMessage = leftLayout.senderRect.right();
     const int widthAfterMessage = timeSize.width();
     doc.setTextWidth(qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage));
@@ -302,8 +300,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     const qreal margin = basicMargin();
 
     int additionalHeight = 0;
-    const QVariantList reactions = index.data(MessageModel::Reactions).toList();
-    if (!reactions.isEmpty()) {
+    if (!message->reactions().isEmpty()) {
         QFontMetricsF emojiFontMetrics(m_emojiFont);
         additionalHeight += emojiFontMetrics.height() + margin;
     }
@@ -318,11 +315,11 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
     if (event->type() == QEvent::MouseButtonRelease) {
         QMouseEvent *mev = static_cast<QMouseEvent *>(event);
         const QPoint pos = mev->pos();
-        const QVariantList reactions = index.data(MessageModel::Reactions).toList();
-        if (!reactions.isEmpty()) {
+        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        if (!message->reactions().isEmpty()) {
             auto *rcAccount = Ruqola::self()->rocketChatAccount();
             const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
-            const QVector<ReactionLayout> layout = layoutReactions(reactions, leftLayout.senderRect.right(), option);
+            const QVector<ReactionLayout> layout = layoutReactions(message->reactions().reactions(), leftLayout.senderRect.right(), option);
             for (const ReactionLayout &reactionLayout : layout) {
                 if (reactionLayout.reactionRect.contains(pos)) {
                     const Reaction &reaction = reactionLayout.reaction;

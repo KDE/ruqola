@@ -39,6 +39,7 @@ class LIBRUQOLACORE_TESTS_EXPORT MessageModel : public QAbstractListModel
 public:
     enum MessageRoles {
         Username = Qt::UserRole + 1,
+        MessagePointer,
         OriginalMessage,
         MessageConvertedText,
         Timestamp,

@@ -226,6 +226,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     const Message &message = mAllMessages.at(idx);
 
     switch (role) {
+    case MessageModel::MessagePointer:
+        return QVariant::fromValue(&message);
     case MessageModel::Username:
         return message.username();
     case MessageModel::OriginalMessage:

@@ -48,7 +48,7 @@ private:
         qreal emojiOffset;
         Reaction reaction;
     };
-    QVector<ReactionLayout> layoutReactions(const QVariantList &reactions, const qreal messageX, const QStyleOptionViewItem &option) const;
+    QVector<ReactionLayout> layoutReactions(const QVector<Reaction> &reactions, const qreal messageX, const QStyleOptionViewItem &option) const;
 
     QFont m_emojiFont;
 };
