@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "reportmessagewidget.h"
 
 #include <QVBoxLayout>
@@ -47,7 +46,6 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
 
 ReportMessageWidget::~ReportMessageWidget()
 {
-
 }
 
 QString ReportMessageWidget::message() const

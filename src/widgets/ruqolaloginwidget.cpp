@@ -91,12 +91,11 @@ void RuqolaLoginWidget::slotLogin()
     rocketChatAccount->setPassword(mPasswordLineEdit->password());
     //twoFactorAuthenticationCode ?
     rocketChatAccount->tryLogin();
-
 }
 
 void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
 {
-    switch(status) {
+    switch (status) {
     case DDPClient::LoginStatus::NotConnected:
         mBusyIndicatorWidget->hide();
         break;

@@ -24,5 +24,4 @@ QTEST_MAIN(ConfigureNotificationWidgetTest)
 ConfigureNotificationWidgetTest::ConfigureNotificationWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

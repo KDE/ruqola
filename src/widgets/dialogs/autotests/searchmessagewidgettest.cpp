@@ -26,5 +26,4 @@ QTEST_MAIN(SearchMessageWidgetTest)
 SearchMessageWidgetTest::SearchMessageWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

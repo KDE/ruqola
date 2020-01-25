@@ -33,5 +33,4 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
 
 ConfigureNotificationWidget::~ConfigureNotificationWidget()
 {
-
 }

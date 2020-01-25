@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "searchmessagewidget.h"
 #include <KLocalizedString>
 #include <QLineEdit>
@@ -44,5 +43,4 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
 
 SearchMessageWidget::~SearchMessageWidget()
 {
-
 }

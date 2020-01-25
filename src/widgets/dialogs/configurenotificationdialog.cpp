@@ -43,5 +43,4 @@ ConfigureNotificationDialog::ConfigureNotificationDialog(QWidget *parent)
 
 ConfigureNotificationDialog::~ConfigureNotificationDialog()
 {
-
 }

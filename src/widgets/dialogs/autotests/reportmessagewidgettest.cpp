@@ -28,7 +28,6 @@ QTEST_MAIN(ReportMessageWidgetTest)
 ReportMessageWidgetTest::ReportMessageWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ReportMessageWidgetTest::shouldHaveDefaultValues()
