@@ -300,9 +300,12 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
                     const Reaction &reaction = reactionLayout.reaction;
                     const bool doAdd = !reaction.userNames().contains(m_rcAccount->userName());
                     m_rcAccount->reactOnMessage(index.data(MessageModel::MessageId).toString(), reaction.reactionName(), doAdd);
-                    break;
+                    return true;
                 }
             }
+        }
+        if (helper(message)->handleMouseEvent(mev, option, index)) {
+            return true;
         }
     }
     return QItemDelegate::editorEvent(event, model, option, index);

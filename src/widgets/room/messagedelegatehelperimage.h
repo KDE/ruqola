@@ -30,6 +30,7 @@ class MessageDelegateHelperImage : public MessageDelegateHelperBase
 public:
     void draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const override;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
+    bool handleMouseEvent(QMouseEvent *mouseEvent, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
     struct ImageLayout {

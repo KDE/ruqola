@@ -59,6 +59,21 @@ QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidt
                  descriptionSize.height() + height + titleSize.height());
 }
 
+bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    Q_UNUSED(mouseEvent)
+    Q_UNUSED(option)
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+
+    ImageLayout layout = layoutImage(message);
+    if (!layout.pixmap.isNull()) {
+        qDebug() << "Clicked!";
+        // TODO use ShowImageDialog or ShowImageWidget here, to show layout.pixmap
+        return true;
+    }
+    return false;
+}
+
 MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(const Message *message) const
 {
     ImageLayout layout;
