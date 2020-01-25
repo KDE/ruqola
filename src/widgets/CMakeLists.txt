@@ -34,7 +34,9 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/reportmessagedialog.cpp
     dialogs/reportmessagewidget.cpp
     dialogs/showimagedialog.cpp
+    dialogs/showimagewidget.cpp
     )
+
 
 set(Ruqola_channellist_SRCS
     channellist/channellistwidget.cpp
