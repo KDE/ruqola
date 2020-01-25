@@ -19,10 +19,16 @@
 */
 
 #include "createnewchanneldialog.h"
+#include "createnewchannelwidget.h"
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
 #include <KLocalizedString>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
+namespace {
+static const char myConfigGroupName[] = "CreateNewChannelDialog";
+}
 CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)
     : QDialog(parent)
 {
@@ -30,13 +36,34 @@ CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mCreateNewChannelWidget = new CreateNewChannelWidget(this);
+    mCreateNewChannelWidget->setObjectName(QStringLiteral("mCreateNewChannelWidget"));
+    mainLayout->addWidget(mCreateNewChannelWidget);
+
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::accepted, this, &CreateNewChannelDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &CreateNewChannelDialog::reject);
+    readConfig();
 }
 
 CreateNewChannelDialog::~CreateNewChannelDialog()
 {
+    writeConfig();
+}
+
+void CreateNewChannelDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void CreateNewChannelDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
 }

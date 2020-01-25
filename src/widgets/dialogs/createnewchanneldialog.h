@@ -23,13 +23,17 @@
 
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
-
+class CreateNewChannelWidget;
 class LIBRUQOLAWIDGETS_EXPORT CreateNewChannelDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit CreateNewChannelDialog(QWidget *parent = nullptr);
     ~CreateNewChannelDialog();
+private:
+    void writeConfig();
+    void readConfig();
+    CreateNewChannelWidget *mCreateNewChannelWidget = nullptr;
 };
 
 #endif // CREATENEWCHANNELDIALOG_H

@@ -20,14 +20,51 @@
 
 #include "createnewchannelwidget.h"
 
-#include <QVBoxLayout>
+#include <QFormLayout>
+#include <QLineEdit>
+#include <KLocalizedString>
+#include <QCheckBox>
+#include <KPasswordLineEdit>
 
 CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    QFormLayout *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mChannelName = new QLineEdit(this);
+    mChannelName->setObjectName(QStringLiteral("mChannelName"));
+    mainLayout->addRow(i18n("Name:"), mChannelName);
+
+    mUsers = new QLineEdit(this);
+    mUsers->setObjectName(QStringLiteral("mUsers"));
+    mUsers->setPlaceholderText(i18nc("List of users separated by ','", "User separate with ','"));
+    mainLayout->addRow(i18n("Users:"), mUsers);
+
+    mReadOnly = new QCheckBox(this);
+    mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
+    mReadOnly->setChecked(false);
+    mainLayout->addRow(i18n("Read-Only:"), mReadOnly);
+
+    mBroadcast = new QCheckBox(this);
+    mBroadcast->setObjectName(QStringLiteral("mBroadcast"));
+    mBroadcast->setChecked(false);
+    mainLayout->addRow(i18n("Broadcast:"), mBroadcast);
+
+    mPrivate = new QCheckBox(this);
+    mPrivate->setObjectName(QStringLiteral("mPrivate"));
+    mPrivate->setChecked(false);
+    mainLayout->addRow(i18n("Private Room:"), mPrivate);
+
+    mEncryptedRoom = new QCheckBox(this);
+    mEncryptedRoom->setObjectName(QStringLiteral("mEncryptedRoom"));
+    mEncryptedRoom->setChecked(false);
+    mainLayout->addRow(i18n("Encrypted Room:"), mEncryptedRoom);
+
+    mPasswordLineEdit = new KPasswordLineEdit(this);
+    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 }
 
 CreateNewChannelWidget::~CreateNewChannelWidget()

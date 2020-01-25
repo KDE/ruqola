@@ -24,13 +24,23 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-
+class QLineEdit;
+class QCheckBox;
+class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_EXPORT CreateNewChannelWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit CreateNewChannelWidget(QWidget *parent = nullptr);
     ~CreateNewChannelWidget();
+private:
+    QLineEdit *mChannelName = nullptr;
+    QLineEdit *mUsers = nullptr;
+    QCheckBox *mReadOnly = nullptr;
+    QCheckBox *mBroadcast = nullptr;
+    QCheckBox *mPrivate = nullptr;
+    QCheckBox *mEncryptedRoom = nullptr;
+    KPasswordLineEdit *mPasswordLineEdit = nullptr;
 };
 
 #endif // CREATENEWCHANNELWIDGET_H
