@@ -49,6 +49,8 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     mainLayout->addRow(i18n("User Name:"), mUserName);
 
     connect(mUserName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
+    connect(mServerName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
+    connect(mAccountName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
 
     //TODO add support for two factor ?
     //Disable ok button
