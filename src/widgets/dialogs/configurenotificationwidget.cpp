@@ -21,11 +21,14 @@
 #include "configurenotificationwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QFormLayout>
 
 ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     : QWidget(parent)
 {
-
+    QFormLayout *mainLayout = new QFormLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
 }
 
 ConfigureNotificationWidget::~ConfigureNotificationWidget()
