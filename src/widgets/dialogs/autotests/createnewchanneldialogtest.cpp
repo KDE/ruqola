@@ -20,12 +20,30 @@
 
 #include "createnewchanneldialogtest.h"
 #include "dialogs/createnewchanneldialog.h"
+#include "dialogs/createnewchannelwidget.h"
+#include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
+#include <QVBoxLayout>
 
 QTEST_MAIN(CreateNewChannelDialogTest)
 CreateNewChannelDialogTest::CreateNewChannelDialogTest(QObject *parent)
     : QObject(parent)
 {
     QStandardPaths::setTestModeEnabled(true);
+}
+
+void CreateNewChannelDialogTest::shouldHaveDefaultValues()
+{
+    CreateNewChannelDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    CreateNewChannelWidget *mCreateNewChannelWidget = w.findChild<CreateNewChannelWidget *>(QStringLiteral("mCreateNewChannelWidget"));
+    QVERIFY(mCreateNewChannelWidget);
+
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }
