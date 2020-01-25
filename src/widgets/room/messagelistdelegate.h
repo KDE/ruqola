@@ -27,6 +27,9 @@
 
 class RocketChatAccount;
 class Message;
+class MessageDelegateHelperBase;
+class MessageDelegateHelperText;
+class MessageDelegateHelperImage;
 
 class MessageListDelegate : public QItemDelegate
 {
@@ -34,18 +37,13 @@ class MessageListDelegate : public QItemDelegate
 
 public:
     explicit MessageListDelegate(RocketChatAccount *rcAccount, QObject *parent = nullptr);
+    ~MessageListDelegate();
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
-    struct ImageLayout {
-        QPixmap pixmap;
-        QString title;
-    };
-    ImageLayout layoutImage(const Message *message) const;
-    void drawImage(QPainter *painter, const QRect &messageRect, const Message *message) const;
     void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &messageRect, const QStyleOptionViewItem &option) const;
     QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
 
@@ -69,9 +67,13 @@ private:
     };
     PixmapAndSenderLayout layoutPixmapAndSender(const QStyleOptionViewItem &option,
                                                 const QModelIndex &index) const;
+    MessageDelegateHelperBase *helper(const Message *message) const;
 
     QFont m_emojiFont;
     RocketChatAccount *m_rcAccount;
+
+    MessageDelegateHelperText *m_helperText;
+    MessageDelegateHelperImage *m_helperImage;
 };
 
 #endif // MESSAGELISTDELEGATE_H

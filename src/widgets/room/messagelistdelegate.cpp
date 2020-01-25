@@ -19,59 +19,38 @@
 */
 
 #include "messagelistdelegate.h"
+#include "messagedelegatehelperbase.h"
+#include "messagedelegatehelpertext.h"
+#include "messagedelegatehelperimage.h"
 #include "model/messagemodel.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include "rocketchataccount.h"
 #include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticon.h"
 
+#include <QMouseEvent>
 #include <QPainter>
 #include <QPixmapCache>
-#include <QStyle>
-#include <QTextBlock>
-#include <QTextDocument>
-#include <QWindow>
-
 
 MessageListDelegate::MessageListDelegate(RocketChatAccount *rcAccount, QObject *parent)
     : QItemDelegate(parent),
       m_emojiFont(QStringLiteral("NotoColorEmoji")),
-      m_rcAccount(rcAccount)
+      m_rcAccount(rcAccount),
+      m_helperText(new MessageDelegateHelperText),
+      m_helperImage(new MessageDelegateHelperImage)
 {
+}
+
+MessageListDelegate::~MessageListDelegate()
+{
+    delete m_helperText;
+    delete m_helperImage;
 }
 
 static qreal basicMargin()
 {
     return 8;
-}
-
-static QString makeMessageText(const QModelIndex &index)
-{
-    return index.data(MessageModel::MessageConvertedText).toString();
-}
-
-static void drawRichText(QPainter *painter, const QRect &rect, const QModelIndex &index, qreal *pBaseLine)
-{
-    const QString text = makeMessageText(index);
-
-    // Possible optimisation: store the QTextDocument into the Message itself?
-    QTextDocument doc;
-    doc.setHtml(text);
-    doc.setTextWidth(rect.width());
-
-    //QStyleOptionViewItemV4 options = option;
-    //initStyleOption(&options, index);
-    //options.text = QString();
-    //options.widget->style()->drawControl(QStyle::CE_ItemViewItem, &options, painter);
-
-    painter->translate(rect.left(), rect.top());
-    const QRect clip(0, 0, rect.width(), rect.height());
-    doc.drawContents(painter, clip);
-    painter->translate(-rect.left(), -rect.top());
-
-    const qreal frameMargin = doc.frameAt(0)->frameFormat().topMargin();
-    const QTextLine &line = doc.firstBlock().layout()->lineAt(0);
-    *pBaseLine = rect.y() + frameMargin + line.y() + line.ascent();
 }
 
 static QString makeSenderText(const QModelIndex &index)
@@ -119,7 +98,7 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxH
             pix = pix.scaledToHeight(maxHeight);
             QPixmapCache::insert(iconUrlStr, pix);
         } else {
-            qWarning() << "Could not load" << iconUrl.toLocalFile();
+            qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << iconUrl.toLocalFile();
         }
     }
     return pix;
@@ -144,6 +123,19 @@ MessageListDelegate::PixmapAndSenderLayout MessageListDelegate::layoutPixmapAndS
                                senderTextSize.width(), senderTextSize.height());
     layout.avatarX = option.rect.x() + margin;
     return layout;
+}
+
+MessageDelegateHelperBase *MessageListDelegate::helper(const Message *message) const
+{
+    switch (message->messageType()) {
+    case Message::Image:
+        return m_helperImage;
+    case Message::NormalText:
+    default: // #### for now
+        return m_helperText;
+    }
+    Q_UNREACHABLE();
+    return nullptr;
 }
 
 QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReactions(const QVector<Reaction> &reactions, const qreal messageX, const QStyleOptionViewItem &option) const
@@ -221,45 +213,6 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
     }
 }
 
-
-MessageListDelegate::ImageLayout MessageListDelegate::layoutImage(const Message *message) const
-{
-    ImageLayout layout;
-    if (message->attachements().isEmpty()) {
-        qWarning() << "No attachments in Image message";
-        return layout;
-    }
-    if (message->attachements().count() > 1) {
-        qWarning() << "Multiple attachments in Image message? Can this happen?";
-    }
-    const MessageAttachment &msgAttach = message->attachements().at(0);
-    const QUrl url = m_rcAccount->attachmentUrl(msgAttach.link());
-    if (url.isLocalFile()) {
-        const QString path = url.toLocalFile();
-        QPixmap pixmap;
-        if (!QPixmapCache::find(path, &pixmap)) {
-            if (pixmap.load(path)) {
-                QPixmapCache::insert(path, pixmap);
-            } else {
-                qWarning() << "Could not load" << path;
-            }
-        }
-        layout.pixmap = pixmap;
-        layout.title = msgAttach.title();
-        //or we could do layout.attachment = msgAttach;
-    }
-    return layout;
-}
-
-void MessageListDelegate::drawImage(QPainter *painter, const QRect &messageRect, const Message *message) const
-{
-    ImageLayout layout = layoutImage(message);
-    if (!layout.pixmap.isNull()) {
-        painter->drawPixmap(messageRect.topLeft(), layout.pixmap.scaled(messageRect.size(), Qt::KeepAspectRatio));
-        // TODO show layout.title
-    }
-}
-
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     drawBackground(painter, option, index);
@@ -283,15 +236,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     messageRect.setRight(timeRect.left() - 1);
     qreal baseLine = option.fontMetrics.ascent();
 
-    switch (message->messageType()) {
-    case Message::NormalText:
-        drawRichText(painter, messageRect, index, &baseLine);
-        break;
-    case Message::Image:
-        drawImage(painter, messageRect, message);
-        break;
-    // TODO other message types (but some sort of dispatch would be good, virtual methods or templates)
-    }
+    helper(message)->draw(painter, messageRect, index, &baseLine);
 
     // Now draw the pixmap
     painter->drawPixmap(leftLayout.avatarX, baseLine - leftLayout.ascent, leftLayout.avatarPixmap);
@@ -328,27 +273,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     const int widthBeforeMessage = leftLayout.senderRect.right();
     const int widthAfterMessage = timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage);
-    int idealWidth = 0;
-    int height = 0;
-
-    switch (message->messageType()) {
-    case Message::NormalText: {
-        QTextDocument doc;
-        const QString messageText = makeMessageText(index);
-        doc.setHtml(messageText);
-        doc.setTextWidth(maxWidth);
-        idealWidth = doc.idealWidth();
-        height = doc.size().height();
-        break;
-    }
-    case Message::Image: {
-        const ImageLayout layout = layoutImage(message);
-        idealWidth = qMin(layout.pixmap.width(), maxWidth);
-        height = qMin(layout.pixmap.height(), 200);
-        break;
-    }
-        // TODO other message types (but some sort of dispatch would be good, virtual methods or templates)
-    };
+    const QSize size = helper(message)->sizeHint(index, maxWidth);
 
     int additionalHeight = 0;
     if (!message->reactions().isEmpty()) {
@@ -357,8 +282,8 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     }
 
     // hopefully the width below is never more than option.rect.width() or we'll get a scrollbar
-    return QSize(widthBeforeMessage + idealWidth + widthAfterMessage,
-                 qMax<int>(leftLayout.senderRect.height(), height) + additionalHeight);
+    return QSize(widthBeforeMessage + size.width() + widthAfterMessage,
+                 qMax<int>(leftLayout.senderRect.height(), size.height()) + additionalHeight);
 }
 
 bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)

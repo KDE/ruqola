@@ -50,6 +50,9 @@ set(Ruqola_roomwidget_SRCS
     room/messagelistview.cpp
     room/messagelineedit.cpp
     room/messagelistdelegate.cpp
+    room/messagedelegatehelperbase.cpp
+    room/messagedelegatehelpertext.cpp
+    room/messagedelegatehelperimage.cpp
     room/messagelinewidget.cpp
     )
 
