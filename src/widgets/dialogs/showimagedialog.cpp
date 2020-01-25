@@ -18,20 +18,27 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELINFODIALOG_H
-#define CHANNELINFODIALOG_H
+#include "showimagedialog.h"
 
-#include <QDialog>
-#include "libruqolawidgets_private_export.h"
-class ChannelInfoWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoDialog : public QDialog
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <KLocalizedString>
+
+ShowImageDialog::ShowImageDialog(QWidget *parent)
+    : QDialog(parent)
 {
-    Q_OBJECT
-public:
-    explicit ChannelInfoDialog(QWidget *parent = nullptr);
-    ~ChannelInfoDialog();
-private:
-    ChannelInfoWidget *mChannelInfoWidget = nullptr;
-};
+    setWindowTitle(i18nc("@title:window", "Display Image"));
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-#endif // CHANNELINFODIALOG_H
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    buttonBox->setObjectName(QStringLiteral("button"));
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ShowImageDialog::reject);
+    mainLayout->addWidget(buttonBox);
+}
+
+ShowImageDialog::~ShowImageDialog()
+{
+
+}

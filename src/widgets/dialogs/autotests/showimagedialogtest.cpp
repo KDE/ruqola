@@ -18,20 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELINFODIALOG_H
-#define CHANNELINFODIALOG_H
+#include "showimagedialogtest.h"
+#include "dialogs/showimagedialog.h"
+#include <QTest>
+QTEST_MAIN(ShowImageDialogTest)
 
-#include <QDialog>
-#include "libruqolawidgets_private_export.h"
-class ChannelInfoWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoDialog : public QDialog
+ShowImageDialogTest::ShowImageDialogTest(QObject *parent)
+    : QObject(parent)
 {
-    Q_OBJECT
-public:
-    explicit ChannelInfoDialog(QWidget *parent = nullptr);
-    ~ChannelInfoDialog();
-private:
-    ChannelInfoWidget *mChannelInfoWidget = nullptr;
-};
 
-#endif // CHANNELINFODIALOG_H
+}
