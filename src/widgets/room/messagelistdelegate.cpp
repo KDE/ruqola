@@ -234,9 +234,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     QRect messageRect = option.rect;
     messageRect.setLeft(leftLayout.senderRect.right());
     messageRect.setRight(timeRect.left() - 1);
-    qreal baseLine = option.fontMetrics.ascent();
+    qreal baseLine = option.rect.y() + option.fontMetrics.ascent(); // default value, modified by HelperText
 
-    helper(message)->draw(painter, messageRect, index, &baseLine);
+    helper(message)->draw(painter, messageRect, index, option, &baseLine);
 
     // Now draw the pixmap
     painter->drawPixmap(leftLayout.avatarX, baseLine - leftLayout.ascent, leftLayout.avatarPixmap);
@@ -273,7 +273,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     const int widthBeforeMessage = leftLayout.senderRect.right();
     const int widthAfterMessage = timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage);
-    const QSize size = helper(message)->sizeHint(index, maxWidth);
+    const QSize size = helper(message)->sizeHint(index, maxWidth, option);
 
     int additionalHeight = 0;
     if (!message->reactions().isEmpty()) {

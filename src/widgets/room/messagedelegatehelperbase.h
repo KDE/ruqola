@@ -25,6 +25,7 @@
 class QPainter;
 class QRect;
 class QModelIndex;
+class QStyleOptionViewItem;
 
 class Message;
 
@@ -33,8 +34,8 @@ class MessageDelegateHelperBase
 public:
     virtual ~MessageDelegateHelperBase();
 
-    virtual void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, qreal *pBaseLine) const = 0;
-    virtual QSize sizeHint(const QModelIndex &index, int maxWidth) const = 0;
+    virtual void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const = 0;
+    virtual QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
 };
 
 #endif // MESSAGEDELEGATEHELPERBASE_H

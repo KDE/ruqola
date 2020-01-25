@@ -31,8 +31,9 @@ static QString makeMessageText(const QModelIndex &index)
     return index.data(MessageModel::MessageConvertedText).toString();
 }
 
-void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, qreal *pBaseLine) const
+void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
+    Q_UNUSED(option)
     const QString text = makeMessageText(index);
 
     // Possible optimisation: store the QTextDocument into the Message itself?
@@ -55,8 +56,9 @@ void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const
     *pBaseLine = rect.y() + frameMargin + line.y() + line.ascent();
 }
 
-QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth) const
+QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
+    Q_UNUSED(option)
     QTextDocument doc;
     const QString messageText = makeMessageText(index);
     doc.setHtml(messageText);

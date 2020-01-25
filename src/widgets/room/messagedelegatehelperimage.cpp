@@ -25,26 +25,38 @@
 
 #include <QPainter>
 #include <QPixmapCache>
+#include <QStyleOptionViewItem>
 
-void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, qreal *) const
+void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     ImageLayout layout = layoutImage(message);
     if (!layout.pixmap.isNull()) {
-        painter->drawPixmap(messageRect.topLeft(), layout.pixmap.scaled(messageRect.size(), Qt::KeepAspectRatio));
-        // TODO show layout.title
+        const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+        const QSize descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
+        const QSize imageSize(messageRect.width(), messageRect.height() - descriptionSize.height() - titleSize.height());
+
+        const QPixmap scaledPixmap = layout.pixmap.scaled(imageSize, Qt::KeepAspectRatio);
+        painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
+        painter->drawPixmap(messageRect.x(), messageRect.y() + titleSize.height(), scaledPixmap);
+        if (!layout.description.isEmpty()) {
+            painter->drawText(messageRect.x(), messageRect.y() + titleSize.height() + scaledPixmap.height() + option.fontMetrics.ascent(), layout.description);
+        }
     }
 }
 
-QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidth) const
+QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     const ImageLayout layout = layoutImage(message);
     const int idealWidth = qMin(layout.pixmap.width(), maxWidth);
     const int height = qMin(layout.pixmap.height(), 200);
-    return QSize(idealWidth, height);
+    const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+    const QSize descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
+    return QSize(qMax(qMax(idealWidth, titleSize.width()), descriptionSize.width()),
+                 descriptionSize.height() + height + titleSize.height());
 }
 
 MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(const Message *message) const
@@ -71,6 +83,7 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
         }
         layout.pixmap = pixmap;
         layout.title = msgAttach.title();
+        layout.description = msgAttach.description();
         //or we could do layout.attachment = msgAttach;
     }
     return layout;

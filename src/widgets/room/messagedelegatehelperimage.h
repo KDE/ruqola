@@ -28,13 +28,14 @@
 class MessageDelegateHelperImage : public MessageDelegateHelperBase
 {
 public:
-    void draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, qreal *pBaseLine) const override;
-    QSize sizeHint(const QModelIndex &index, int maxWidth) const override;
+    void draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const override;
+    QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
 
 private:
     struct ImageLayout {
         QPixmap pixmap;
         QString title;
+        QString description;
     };
     ImageLayout layoutImage(const Message *message) const;
 
