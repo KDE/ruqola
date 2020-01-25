@@ -48,5 +48,3 @@ void MessageLineEdit::keyPressEvent(QKeyEvent *e)
     }
     QLineEdit::keyPressEvent(e);
 }
-
-//TODO add keyEvent
