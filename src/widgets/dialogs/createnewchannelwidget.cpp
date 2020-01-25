@@ -65,8 +65,15 @@ CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
+
+    connect(mChannelName, &QLineEdit::textChanged, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
 }
 
 CreateNewChannelWidget::~CreateNewChannelWidget()
 {
+}
+
+void CreateNewChannelWidget::slotChangeOkButtonEnabled()
+{
+    Q_EMIT updateOkButton(!mChannelName->text().trimmed().isEmpty());
 }

@@ -53,7 +53,6 @@ CreateNewAccountWidget::CreateNewAccountWidget(QWidget *parent)
     connect(mAccountName, &QLineEdit::textChanged, this, &CreateNewAccountWidget::slotChangeOkButtonEnabled);
 
     //TODO add support for two factor ?
-    //Disable ok button
 }
 
 CreateNewAccountWidget::~CreateNewAccountWidget()

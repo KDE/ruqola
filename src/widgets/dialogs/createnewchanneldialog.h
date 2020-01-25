@@ -24,6 +24,7 @@
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
 class CreateNewChannelWidget;
+class QPushButton;
 class LIBRUQOLAWIDGETS_EXPORT CreateNewChannelDialog : public QDialog
 {
     Q_OBJECT
@@ -34,6 +35,7 @@ private:
     void writeConfig();
     void readConfig();
     CreateNewChannelWidget *mCreateNewChannelWidget = nullptr;
+    QPushButton *mOkButton = nullptr;
 };
 
 #endif // CREATENEWCHANNELDIALOG_H

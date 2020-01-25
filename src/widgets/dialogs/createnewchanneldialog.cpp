@@ -22,6 +22,7 @@
 #include "createnewchannelwidget.h"
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <KLocalizedString>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -46,6 +47,8 @@ CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)
     connect(button, &QDialogButtonBox::accepted, this, &CreateNewChannelDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &CreateNewChannelDialog::reject);
     readConfig();
+    mOkButton = button->button(QDialogButtonBox::Ok);
+    connect(mCreateNewChannelWidget, &CreateNewChannelWidget::updateOkButton, mOkButton, &QPushButton::setEnabled);
 }
 
 CreateNewChannelDialog::~CreateNewChannelDialog()

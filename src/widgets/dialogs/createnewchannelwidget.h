@@ -33,7 +33,12 @@ class LIBRUQOLAWIDGETS_EXPORT CreateNewChannelWidget : public QWidget
 public:
     explicit CreateNewChannelWidget(QWidget *parent = nullptr);
     ~CreateNewChannelWidget();
+
+Q_SIGNALS:
+    void updateOkButton(bool state);
+
 private:
+    void slotChangeOkButtonEnabled();
     QLineEdit *mChannelName = nullptr;
     QLineEdit *mUsers = nullptr;
     QCheckBox *mReadOnly = nullptr;
