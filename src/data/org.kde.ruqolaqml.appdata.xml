@@ -7,9 +7,11 @@
   <name xml:lang="ca">RuqolaQml</name>
   <name xml:lang="es">RuqolaQml</name>
   <name xml:lang="et">RuqolaQml</name>
+  <name xml:lang="it">RuqolaQml</name>
   <name xml:lang="nl">RuqolaQml</name>
   <name xml:lang="pt">RuqolaQml</name>
   <name xml:lang="pt-BR">RuqolaQml</name>
+  <name xml:lang="sk">RuqolaQml</name>
   <name xml:lang="sv">Ruqola-QML</name>
   <name xml:lang="uk">RuqolaQml</name>
   <name xml:lang="x-test">xxRuqolaQmlxx</name>
@@ -18,9 +20,11 @@
   <summary xml:lang="ca">Client QML de xat del Rocket</summary>
   <summary xml:lang="es">Cliente QML para Rocket.Chat</summary>
   <summary xml:lang="et">Rocket Chati QML klient</summary>
+  <summary xml:lang="it">Client QML di Rocket Chat</summary>
   <summary xml:lang="nl">QML Rocket Chat-client</summary>
   <summary xml:lang="pt">Cliente de Rocket Chat em QML</summary>
   <summary xml:lang="pt-BR">Cliente Rocket Chat em QML</summary>
+  <summary xml:lang="sk">QML klient Rocket Chat</summary>
   <summary xml:lang="sv">QML Rocket chattklient</summary>
   <summary xml:lang="uk">Клієнт спілкування Rocket на QML</summary>
   <summary xml:lang="x-test">xxQML Rocket Chat Clientxx</summary>
@@ -33,6 +37,7 @@
     <p xml:lang="ca">El Ruqola és un client de xat del Rocket basat en el QML. La connexió s'activa directament en llançar el Ruqola.</p>
     <p xml:lang="es">Ruqola es un cliente para Rocket.Chat basado en QML. La conexión se activa directamente cuando se inicia Ruqola.</p>
     <p xml:lang="et">Ruqola on QML-ile tuginev Rocket Chati klient. Ühendus aktiveeritakse kohe Ruqola käivitamisel.</p>
+    <p xml:lang="it">Ruqola è un client Rocket Chat basato su QML. La connessione viene attivata direttamente quando avvii Ruqola.</p>
     <p xml:lang="nl">Ruqola is een client van Rocket Chat gebaseerd op QML. Verbinden wordt direct geactiveerd wanneer u Ruqola start.</p>
     <p xml:lang="pt">O Ruqola é um cliente de Rocket Chat baseado em QML. A ligação fica activada directamente quando invocar o Ruqola.</p>
     <p xml:lang="pt-BR">Ruqola é um cliente Rocket Chat baseado em QML. A conexão fica ativada diretamente ao executar o Ruqola.</p>
