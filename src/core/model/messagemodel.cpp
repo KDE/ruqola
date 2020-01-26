@@ -115,6 +115,11 @@ MessageModel::~MessageModel()
     delete mLoadRecentHistoryManager;
 }
 
+void MessageModel::enableQmlHacks(bool qmlHacks)
+{
+    mQmlHacks = qmlHacks;
+}
+
 void MessageModel::refresh()
 {
     beginResetModel();
@@ -183,32 +188,32 @@ void MessageModel::addMessage(const Message &message)
     auto it = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message,
                                [](const Message &lhs, const Message &rhs) -> bool {
         return lhs.timeStamp() < rhs.timeStamp();
-    }
-                               );
+    });
+
+    auto emitChanged = [this](int rowNumber) {
+        if (mQmlHacks) {
+            //For the moment !!!! It's not optimal but Q_EMIT dataChanged(index, index); doesn't work
+            beginRemoveRows(QModelIndex(), rowNumber, rowNumber);
+            endRemoveRows();
+
+            beginInsertRows(QModelIndex(), rowNumber, rowNumber);
+            endInsertRows();
+        } else {
+            const QModelIndex index = createIndex(rowNumber, 0);
+            Q_EMIT dataChanged(index, index);
+        }
+    };
+
     //When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
         (*mAllMessages.begin()) = message;
-        //const QModelIndex index = createIndex(0, 0);
         qCDebug(RUQOLA_LOG) << "Update Message";
-        //Q_EMIT dataChanged(index, index);
+        emitChanged(0);
 
-        //For the moment !!!! It's not optimal but Q_EMIT dataChanged(index, index); doesn't work
-        beginRemoveRows(QModelIndex(), 0, 0);
-        endRemoveRows();
-
-        beginInsertRows(QModelIndex(), 0, 0);
-        endInsertRows();
     } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
         qCDebug(RUQOLA_LOG) << "Update Message";
         (*(it-1)) = message;
-        //const QModelIndex index = createIndex(it - 1 - mAllMessages.begin(), 0);
-        //For the moment !!!! It's not optimal but Q_EMIT dataChanged(index, index); doesn't work
-        beginRemoveRows(QModelIndex(), it - 1 - mAllMessages.begin(), it - 1 - mAllMessages.begin());
-        endRemoveRows();
-
-        beginInsertRows(QModelIndex(), it - 1 - mAllMessages.begin(), it - 1 - mAllMessages.begin());
-        endInsertRows();
-        //Q_EMIT dataChanged(index, index);
+        emitChanged(std::distance(mAllMessages.begin(), it - 1));
     } else {
         const int pos = it - mAllMessages.begin();
         beginInsertRows(QModelIndex(), pos, pos);

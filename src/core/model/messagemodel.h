@@ -81,6 +81,8 @@ public:
     explicit MessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
     ~MessageModel() override;
 
+    Q_INVOKABLE void enableQmlHacks(bool qmlHacks);
+
     /**
     * @brief Adds a message to QVector m_allMessages
     *
@@ -134,6 +136,7 @@ private:
     TextConverter *mTextConverter = nullptr;
     Room *mRoom = nullptr;
     LoadRecentHistoryManager *mLoadRecentHistoryManager = nullptr;
+    bool mQmlHacks = false;
 };
 
 #endif
