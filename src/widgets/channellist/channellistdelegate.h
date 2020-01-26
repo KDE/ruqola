@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 David Faure <faure@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,30 +18,15 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "channellistview.h"
-#include "ruqola.h"
-#include "rocketchataccount.h"
-#include "channellistdelegate.h"
-#include "model/roomfilterproxymodel.h"
-#include <QDebug>
+#ifndef CHANNELLISTDELEGATE_H
+#define CHANNELLISTDELEGATE_H
 
-ChannelListView::ChannelListView(QWidget *parent)
-    : QListView(parent)
-{
-    auto *delegate = new ChannelListDelegate(this);
-    setItemDelegate(delegate);
-    //TODO update when we have multiaccount!
-    setModel(Ruqola::self()->rocketChatAccount()->roomFilterProxyModel());
-    connect(this, &ChannelListView::clicked, this, &ChannelListView::slotClicked);
-}
+#include <QItemDelegate>
 
-ChannelListView::~ChannelListView()
+class ChannelListDelegate : public QItemDelegate
 {
-}
+public:
+    explicit ChannelListDelegate(QObject *parent = nullptr);
+};
 
-void ChannelListView::slotClicked(const QModelIndex &index)
-{
-    if (index.isValid()) {
-        Q_EMIT channelSelected(index);
-    }
-}
+#endif // CHANNELLISTDELEGATE_H

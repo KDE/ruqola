@@ -42,6 +42,7 @@ set(Ruqola_channellist_SRCS
     channellist/channellistwidget.cpp
     channellist/statuscombobox.cpp
     channellist/channellistview.cpp
+    channellist/channellistdelegate.cpp
     )
 
 set(Ruqola_roomwidget_SRCS
