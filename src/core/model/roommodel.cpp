@@ -218,6 +218,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     case RoomModel::RoomOrder:
         return order(r);
     case RoomModel::RoomIcon:
+    case Qt::DecorationRole:
         return icon(r);
     case RoomModel::RoomOtr:
         //TODO implement it.

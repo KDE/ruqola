@@ -24,6 +24,11 @@
 #include <QSortFilterProxyModel>
 #include "libruqolacore_export.h"
 
+/**
+ * This proxy model sits on top of RoomModel and implements
+ * - filtering (on the RoomOpen role)
+ * - sorting (by RoomOrder and by RoomName)
+ */
 class LIBRUQOLACORE_EXPORT RoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
