@@ -36,8 +36,10 @@ class MessageListDelegate : public QItemDelegate
     Q_OBJECT
 
 public:
-    explicit MessageListDelegate(RocketChatAccount *rcAccount, QObject *parent = nullptr);
+    explicit MessageListDelegate(QObject *parent = nullptr);
     ~MessageListDelegate();
+
+    void setRocketChatAccount(RocketChatAccount *rcAccount);
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
@@ -70,7 +72,7 @@ private:
     MessageDelegateHelperBase *helper(const Message *message) const;
 
     QFont m_emojiFont;
-    RocketChatAccount *m_rcAccount;
+    RocketChatAccount *m_rcAccount = nullptr;
 
     MessageDelegateHelperText *m_helperText;
     MessageDelegateHelperImage *m_helperImage;

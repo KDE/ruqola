@@ -33,10 +33,9 @@
 #include <QPainter>
 #include <QPixmapCache>
 
-MessageListDelegate::MessageListDelegate(RocketChatAccount *rcAccount, QObject *parent)
+MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent),
       m_emojiFont(QStringLiteral("NotoColorEmoji")),
-      m_rcAccount(rcAccount),
       m_helperText(new MessageDelegateHelperText),
       m_helperImage(new MessageDelegateHelperImage)
 {
@@ -46,6 +45,14 @@ MessageListDelegate::~MessageListDelegate()
 {
     delete m_helperText;
     delete m_helperImage;
+}
+
+void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
+{
+//    if (m_rcAccount) {
+//        disconnect(m_rcAccount, 0, this, 0);
+//    }
+    m_rcAccount = rcAccount;
 }
 
 static qreal basicMargin()

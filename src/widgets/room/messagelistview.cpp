@@ -27,7 +27,9 @@
 MessageListView::MessageListView(QWidget *parent)
     : QListView(parent)
 {
-    setItemDelegate(new MessageListDelegate(Ruqola::self()->rocketChatAccount(), this));
+    auto *delegate = new MessageListDelegate(this);
+    delegate->setRocketChatAccount(Ruqola::self()->rocketChatAccount());
+    setItemDelegate(delegate);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setWordWrap(true); // so that the delegate sizeHint is called again when the width changes
 }
