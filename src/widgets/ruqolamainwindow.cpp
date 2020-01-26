@@ -171,7 +171,8 @@ void RuqolaMainWindow::slotCreateNewChannel()
 {
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
     if (dlg->exec()) {
-        //TODO
+        const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
+        Ruqola::self()->rocketChatAccount()->createNewChannel(info.channelName, info.readOnly, info.privateChannel, info.usersName, info.encryptedRoom, info.password, info.broadCast);
     }
     delete dlg;
 }
