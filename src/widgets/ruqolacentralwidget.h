@@ -35,6 +35,7 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
 private:
     void slotLoginStatusChanged();
+    void slotJobFailedInfo(const QString &messageError);
     QStackedWidget *mStackedWidget = nullptr;
     RuqolaMainWidget *mRuqolaMainWidget = nullptr;
     RuqolaLoginWidget *mRuqolaLoginWidget = nullptr;

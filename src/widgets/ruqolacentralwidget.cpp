@@ -26,6 +26,8 @@
 #include <QVBoxLayout>
 #include <QSplitter>
 #include <QStackedWidget>
+#include <KMessageBox>
+#include <KLocalizedString>
 
 RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     : QWidget(parent)
@@ -49,10 +51,17 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
 
     //Fix me multiaccount
     connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::loginStatusChanged, this, &RuqolaCentralWidget::slotLoginStatusChanged);
+    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::jobFailed, this, &RuqolaCentralWidget::slotJobFailedInfo);
 }
 
 RuqolaCentralWidget::~RuqolaCentralWidget()
 {
+}
+
+void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError)
+{
+    //TODO fix i18n
+    KMessageBox::error(this, messageError, i18n("Job Failed"));
 }
 
 QString RuqolaCentralWidget::roomId() const
