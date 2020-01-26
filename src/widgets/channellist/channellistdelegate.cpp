@@ -47,11 +47,12 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const QRect unreadRect(option.rect.width() - unreadSize.width() - margin,
                            option.rect.y(), unreadSize.width(), option.rect.height());
 
-    drawBackground(painter, option, index);
+    QStyleOptionViewItem optionCopy = option;
+    optionCopy.showDecorationSelected = true;
+    drawBackground(painter, optionCopy, index);
     const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
     icon.paint(painter, decorationRect, Qt::AlignCenter);
 
-    QStyleOptionViewItem optionCopy = option;
     if (unreadCount == 0)
         optionCopy.state &= ~QStyle::State_Enabled;
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
