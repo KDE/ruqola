@@ -31,7 +31,7 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    ImageLayout layout = layoutImage(message);
+    ImageLayout layout = layoutImage(message, option);
     if (!layout.pixmap.isNull()) {
         const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
         const QSize descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
@@ -39,7 +39,11 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
 
         const QPixmap scaledPixmap = layout.pixmap.scaled(imageSize, Qt::KeepAspectRatio);
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
-        painter->drawPixmap(messageRect.x(), messageRect.y() + titleSize.height(), scaledPixmap);
+        const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
+        hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        if (layout.isShown) {
+            painter->drawPixmap(messageRect.x(), messageRect.y() + titleSize.height(), scaledPixmap);
+        }
         if (!layout.description.isEmpty()) {
             painter->drawText(messageRect.x(), messageRect.y() + titleSize.height() + scaledPixmap.height() + option.fontMetrics.ascent(), layout.description);
         }
@@ -50,13 +54,16 @@ QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidt
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    const ImageLayout layout = layoutImage(message);
-    const int idealWidth = qMin(layout.pixmap.width(), maxWidth);
-    const int height = qMin(layout.pixmap.height(), 200);
+    const ImageLayout layout = layoutImage(message, option);
+    QSize pixmapSize(0, 0);
+    if (layout.isShown) {
+        pixmapSize.setWidth(qMin(layout.pixmap.width(), maxWidth));
+        pixmapSize.setHeight(qMin(layout.pixmap.height(), 200));
+    }
     const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     const QSize descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
-    return QSize(qMax(qMax(idealWidth, titleSize.width()), descriptionSize.width()),
-                 descriptionSize.height() + height + titleSize.height());
+    return QSize(qMax(qMax(pixmapSize.width(), titleSize.width()), descriptionSize.width()),
+                 descriptionSize.height() + pixmapSize.height() + titleSize.height());
 }
 
 bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -65,7 +72,7 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
     Q_UNUSED(option)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    ImageLayout layout = layoutImage(message);
+    ImageLayout layout = layoutImage(message, option);
     if (!layout.pixmap.isNull()) {
         qDebug() << "Clicked!";
         // TODO use ShowImageDialog or ShowImageWidget here, to show layout.pixmap
@@ -97,7 +104,7 @@ void MessageDelegateHelperImage::insertCachedPixmap(const QString &link, const Q
     }
 }
 
-MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(const Message *message) const
+MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(const Message *message, const QStyleOptionViewItem &option) const
 {
     ImageLayout layout;
     if (message->attachements().isEmpty()) {
@@ -121,9 +128,14 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
             }
         }
         layout.pixmap = pixmap;
+        //or we could do layout.attachment = msgAttach; if we need many fields from it
         layout.title = msgAttach.title();
         layout.description = msgAttach.description();
-        //or we could do layout.attachment = msgAttach;
+        layout.isShown = message->showAttachment();
+        const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+        const int margin = 8;
+        const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+        layout.hideShowButtonRect = QRect(titleSize.width() + margin, 0, iconSize, iconSize);
     }
     return layout;
 }

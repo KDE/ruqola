@@ -42,8 +42,10 @@ private:
         QPixmap pixmap;
         QString title;
         QString description;
+        QRect hideShowButtonRect;
+        bool isShown;
     };
-    ImageLayout layoutImage(const Message *message) const;
+    ImageLayout layoutImage(const Message *message, const QStyleOptionViewItem &option) const;
 
     struct CachedImage {
         QString link;

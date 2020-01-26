@@ -272,7 +272,7 @@ private:
 
     bool mShowTranslatedMessage = true;
 
-    bool mShowAttachment = false;
+    bool mShowAttachment = true;
 
     EmojiManager *mEmojiManager = nullptr;
 };
