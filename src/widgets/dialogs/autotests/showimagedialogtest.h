@@ -29,6 +29,8 @@ class ShowImageDialogTest : public QObject
 public:
     explicit ShowImageDialogTest(QObject *parent = nullptr);
     ~ShowImageDialogTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // SHOWIMAGEDIALOGTEST_H

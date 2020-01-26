@@ -19,6 +19,7 @@
 */
 
 #include "showimagedialog.h"
+#include "showimagewidget.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -31,6 +32,9 @@ ShowImageDialog::ShowImageDialog(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mShowImageWidget = new ShowImageWidget(this);
+    mShowImageWidget->setObjectName(QStringLiteral("mShowImageWidget"));
+    mainLayout->addWidget(mShowImageWidget);
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     buttonBox->setObjectName(QStringLiteral("button"));

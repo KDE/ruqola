@@ -22,12 +22,15 @@
 #define SHOWIMAGEDIALOG_H
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
+class ShowImageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ShowImageDialog(QWidget *parent = nullptr);
     ~ShowImageDialog();
+private:
+    ShowImageWidget *mShowImageWidget = nullptr;
 };
 
 #endif // SHOWIMAGEDIALOG_H

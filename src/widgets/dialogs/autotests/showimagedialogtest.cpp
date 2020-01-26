@@ -20,11 +20,29 @@
 
 #include "showimagedialogtest.h"
 #include "dialogs/showimagedialog.h"
+#include "dialogs/showimagewidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ShowImageDialogTest)
 
 ShowImageDialogTest::ShowImageDialogTest(QObject *parent)
     : QObject(parent)
 {
 
+}
+
+void ShowImageDialogTest::shouldHaveDefaultValues()
+{
+    ShowImageDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    ShowImageWidget *mShowImageWidget = w.findChild<ShowImageWidget *>(QStringLiteral("mShowImageWidget"));
+    QVERIFY(mShowImageWidget);
+
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }
