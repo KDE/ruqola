@@ -32,7 +32,7 @@ public:
     explicit CreateNewChannelDialog(QWidget *parent = nullptr);
     ~CreateNewChannelDialog();
     struct NewChannelInfo {
-        QStringList usersName;
+        QString usersName;
         QString channelName;
         QString password;
         bool readOnly = false;

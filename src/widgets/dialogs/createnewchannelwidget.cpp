@@ -83,10 +83,9 @@ QString CreateNewChannelWidget::channelName() const
     return mChannelName->text();
 }
 
-QStringList CreateNewChannelWidget::users() const
+QString CreateNewChannelWidget::users() const
 {
-    //TODO verify
-    return mUsers->text().split(QLatin1Char(';'));
+    return mUsers->text();
 }
 
 bool CreateNewChannelWidget::readOnly() const
