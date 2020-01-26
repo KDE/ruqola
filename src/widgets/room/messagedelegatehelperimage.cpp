@@ -23,6 +23,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 
+#include <QMouseEvent>
 #include <QPainter>
 #include <QPixmapCache>
 #include <QStyleOptionViewItem>
@@ -66,14 +67,18 @@ QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidt
                  descriptionSize.height() + pixmapSize.height() + titleSize.height());
 }
 
-bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const QRectF &senderRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(mouseEvent)
     Q_UNUSED(option)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     ImageLayout layout = layoutImage(message, option);
-    if (!layout.pixmap.isNull()) {
+    if (layout.hideShowButtonRect.translated(senderRect.topRight().toPoint()).contains(mouseEvent->pos())) {
+        QAbstractItemModel *model = const_cast<QAbstractItemModel *>(index.model());
+        model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
+        return true;
+    } else if (!layout.pixmap.isNull()) {
         qDebug() << "Clicked!";
         // TODO use ShowImageDialog or ShowImageWidget here, to show layout.pixmap
         return true;

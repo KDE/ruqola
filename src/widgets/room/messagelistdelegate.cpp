@@ -302,8 +302,8 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
         QMouseEvent *mev = static_cast<QMouseEvent *>(event);
         const QPoint pos = mev->pos();
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
         if (!message->reactions().isEmpty()) {
-            const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
             const QVector<ReactionLayout> layout = layoutReactions(message->reactions().reactions(), leftLayout.senderRect.right(), option);
             for (const ReactionLayout &reactionLayout : layout) {
                 if (reactionLayout.reactionRect.contains(pos)) {
@@ -314,7 +314,7 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
                 }
             }
         }
-        if (helper(message)->handleMouseEvent(mev, option, index)) {
+        if (helper(message)->handleMouseEvent(mev, leftLayout.senderRect, option, index)) {
             return true;
         }
     }

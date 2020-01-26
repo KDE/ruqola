@@ -354,6 +354,24 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
+bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+    if (!index.isValid()) {
+        qCWarning(RUQOLA_LOG) << "ERROR: invalid index";
+        return {};
+    }
+    const int idx = index.row();
+    Message &message = mAllMessages[idx];
+
+    switch (role) {
+    case MessageModel::DisplayAttachment:
+        message.setShowAttachment(value.toBool());
+        Q_EMIT dataChanged(index, index);
+        return true;
+    }
+    return false;
+}
+
 QStringList MessageModel::roomRoles(const QString &userId) const
 {
     if (mRoom) {

@@ -24,7 +24,7 @@ MessageDelegateHelperBase::~MessageDelegateHelperBase()
 {
 }
 
-bool MessageDelegateHelperBase::handleMouseEvent(QMouseEvent *mouseEvent, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperBase::handleMouseEvent(QMouseEvent *mouseEvent, const QRectF &senderRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(mouseEvent)
     Q_UNUSED(option)
