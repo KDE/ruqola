@@ -416,7 +416,7 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
     });
     if (it != mAllMessages.end()) {
         const QModelIndex idx = createIndex(std::distance(mAllMessages.begin(), it), 0);
-        dataChanged(idx, idx);
+        Q_EMIT dataChanged(idx, idx);
     }
 }
 
