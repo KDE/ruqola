@@ -81,6 +81,7 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
         connect(mRoom, &Room::rolesChanged, this, &MessageModel::refresh);
         connect(mRoom, &Room::ignoredUsersChanged, this, &MessageModel::refresh);
     }
+    connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageModel::slotFileDownloaded);
 }
 
 MessageModel::~MessageModel()
@@ -396,6 +397,26 @@ void MessageModel::changeShowOriginalMessage(const QString &messageId, bool show
     });
     if (it != mAllMessages.end()) {
         //TODO
+    }
+}
+
+void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
+{
+    Q_UNUSED(cacheImageUrl)
+    auto matchesFilePath = [&](const QVector<MessageAttachment> &msgAttachments) {
+        return std::find_if(msgAttachments.begin(), msgAttachments.end(), [&](const MessageAttachment &attach) {
+            return attach.link() == filePath;
+        }) != msgAttachments.end();
+    };
+    auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
+        if (msg.messageType() == Message::Image) {
+            return matchesFilePath(msg.attachements());
+        }
+        return false;
+    });
+    if (it != mAllMessages.end()) {
+        const QModelIndex idx = createIndex(std::distance(mAllMessages.begin(), it), 0);
+        dataChanged(idx, idx);
     }
 }
 

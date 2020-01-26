@@ -118,6 +118,10 @@ public:
     void changeDisplayAttachment(const QString &messageId, bool displayAttachment);
 
     void changeShowOriginalMessage(const QString &messageId, bool showOriginal);
+
+private Q_SLOTS:
+    void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
+
 private:
     Q_DISABLE_COPY(MessageModel)
     void refresh();
