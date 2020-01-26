@@ -56,6 +56,7 @@ private:
         QString countStr;
         qreal emojiOffset;
         Reaction reaction;
+        bool useEmojiFont;
     };
     QVector<ReactionLayout> layoutReactions(const QVector<Reaction> &reactions, const qreal messageX, const QStyleOptionViewItem &option) const;
 

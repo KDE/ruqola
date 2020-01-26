@@ -147,37 +147,38 @@ MessageDelegateHelperBase *MessageListDelegate::helper(const Message *message) c
 
 QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReactions(const QVector<Reaction> &reactions, const qreal messageX, const QStyleOptionViewItem &option) const
 {
-    QVector<MessageListDelegate::ReactionLayout> layout;
-    layout.reserve(reactions.count());
+    QVector<MessageListDelegate::ReactionLayout> layouts;
+    layouts.reserve(reactions.count());
     auto *emojiManager = m_rcAccount->emojiManager();
     QFontMetricsF emojiFontMetrics(m_emojiFont);
     const qreal margin = basicMargin();
     const qreal smallMargin = margin/2.0;
+    const qreal height = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + margin - 1;
     qreal x = messageX + margin;
 
     for (const Reaction &reaction : reactions) {
-        const QString emojiString = emojiManager->unicodeEmoticonForEmoji(reaction.reactionName()).unicode();
-        if (!emojiString.isEmpty()) {
-            const QSizeF emojiSize = emojiFontMetrics.boundingRect(emojiString).size();
-            const QString countStr = QString::number(reaction.count());
-            const int countWidth = option.fontMetrics.horizontalAdvance(countStr) + smallMargin;
-            const qreal height = qMax<qreal>(emojiSize.height(), option.fontMetrics.height()) + margin - 1;
-            const QRectF reactionRect(x, option.rect.bottom() - height, emojiSize.width() + countWidth + margin, height);
-            const qreal emojiOffset = margin / 2 + 1;
-            const QRectF countRect = reactionRect.adjusted(emojiOffset + emojiSize.width(), smallMargin, 0, 0);
-
-            layout.append(ReactionLayout{reactionRect, countRect, emojiString, countStr, emojiOffset, reaction});
-            x += reactionRect.width() + margin;
+        ReactionLayout layout;
+        layout.emojiString = emojiManager->unicodeEmoticonForEmoji(reaction.reactionName()).unicode();
+        qreal emojiWidth;
+        if (layout.emojiString.isEmpty()) {
+            layout.emojiString = reaction.reactionName(); // ugly fallback: ":1md"
+            emojiWidth = option.fontMetrics.horizontalAdvance(layout.emojiString) + smallMargin;
+            layout.useEmojiFont = false;
         } else {
-            // TODO other kinds of emojis (but how to handle an image URL? QTextDocument manages somehow, I don't get it)
-            static QString lastWarning;
-            if (lastWarning != reaction.reactionName()) {
-                lastWarning = reaction.reactionName();
-                qDebug() << "Not handled: emoji" << reaction.reactionName() << emojiManager->replaceEmojiIdentifier(reaction.reactionName(), true);
-            }
+            emojiWidth = emojiFontMetrics.horizontalAdvance(layout.emojiString);
+            layout.useEmojiFont = true;
         }
+        layout.countStr = QString::number(reaction.count());
+        const int countWidth = option.fontMetrics.horizontalAdvance(layout.countStr) + smallMargin;
+        layout.reactionRect = QRectF(x, option.rect.bottom() - height, emojiWidth + countWidth + margin, height);
+        layout.emojiOffset = margin / 2 + 1;
+        layout.countRect = layout.reactionRect.adjusted(layout.emojiOffset + emojiWidth, smallMargin, 0, 0);
+        layout.reaction = reaction;
+
+        layouts.append(layout);
+        x += layout.reactionRect.width() + margin;
     }
-    return layout;
+    return layouts;
 }
 
 void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &index, const QRect &messageRect, const QStyleOptionViewItem &option) const
@@ -203,7 +204,6 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
             const QRectF reactionRect = reactionLayout.reactionRect;
 
             // Rounded rect
-            painter->setFont(m_emojiFont);
             painter->setPen(buttonPen);
             painter->setBrush(buttonBrush);
             painter->drawRoundedRect(reactionRect, 5, 5);
@@ -211,6 +211,9 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
             painter->setPen(origPen);
 
             // Emoji
+            if (reactionLayout.useEmojiFont) {
+                painter->setFont(m_emojiFont);
+            }
             painter->drawText(reactionRect.adjusted(reactionLayout.emojiOffset, smallMargin, 0, 0), reactionLayout.emojiString);
 
             // Count
