@@ -171,6 +171,7 @@ void RuqolaMainWindow::slotCreateNewChannel()
 {
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
     if (dlg->exec()) {
+        //TODO
     }
     delete dlg;
 }

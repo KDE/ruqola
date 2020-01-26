@@ -31,6 +31,17 @@ class LIBRUQOLAWIDGETS_EXPORT CreateNewChannelDialog : public QDialog
 public:
     explicit CreateNewChannelDialog(QWidget *parent = nullptr);
     ~CreateNewChannelDialog();
+    struct NewChannelInfo {
+        QStringList usersName;
+        QString channelName;
+        QString password;
+        bool readOnly = false;
+        bool broadCast = false;
+        bool privateChannel = false;
+        bool encryptedRoom = false;
+    };
+    Q_REQUIRED_RESULT NewChannelInfo channelInfo() const;
+
 private:
     void writeConfig();
     void readConfig();

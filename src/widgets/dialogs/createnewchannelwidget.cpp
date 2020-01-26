@@ -77,3 +77,40 @@ void CreateNewChannelWidget::slotChangeOkButtonEnabled()
 {
     Q_EMIT updateOkButton(!mChannelName->text().trimmed().isEmpty());
 }
+
+QString CreateNewChannelWidget::channelName() const
+{
+    return mChannelName->text();
+}
+
+QStringList CreateNewChannelWidget::users() const
+{
+    //TODO verify
+    return mUsers->text().split(QLatin1Char(';'));
+}
+
+bool CreateNewChannelWidget::readOnly() const
+{
+    return mReadOnly->isChecked();
+}
+
+bool CreateNewChannelWidget::broadCast() const
+{
+    return mBroadcast->isChecked();
+}
+
+bool CreateNewChannelWidget::privateChannel() const
+{
+    return mPrivate->isChecked();
+}
+
+bool CreateNewChannelWidget::encryptedRoom() const
+{
+    return mEncryptedRoom->isChecked();
+}
+
+QString CreateNewChannelWidget::password() const
+{
+    return mPasswordLineEdit->password();
+}
+

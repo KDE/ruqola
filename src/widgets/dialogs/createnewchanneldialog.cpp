@@ -56,6 +56,19 @@ CreateNewChannelDialog::~CreateNewChannelDialog()
     writeConfig();
 }
 
+CreateNewChannelDialog::NewChannelInfo CreateNewChannelDialog::channelInfo() const
+{
+    NewChannelInfo info;
+    info.usersName = mCreateNewChannelWidget->users();
+    info.channelName = mCreateNewChannelWidget->channelName();
+    info.password = mCreateNewChannelWidget->password();
+    info.readOnly = mCreateNewChannelWidget->readOnly();
+    info.broadCast = mCreateNewChannelWidget->broadCast();
+    info.privateChannel = mCreateNewChannelWidget->privateChannel();
+    info.encryptedRoom = mCreateNewChannelWidget->encryptedRoom();
+    return info;
+}
+
 void CreateNewChannelDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);

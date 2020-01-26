@@ -34,6 +34,14 @@ public:
     explicit CreateNewChannelWidget(QWidget *parent = nullptr);
     ~CreateNewChannelWidget();
 
+    Q_REQUIRED_RESULT QString channelName() const;
+    Q_REQUIRED_RESULT QStringList users() const;
+    Q_REQUIRED_RESULT bool encryptedRoom() const;
+    Q_REQUIRED_RESULT bool privateChannel() const;
+    Q_REQUIRED_RESULT bool broadCast() const;
+    Q_REQUIRED_RESULT bool readOnly() const;
+    Q_REQUIRED_RESULT QString password() const;
+
 Q_SIGNALS:
     void updateOkButton(bool state);
 
