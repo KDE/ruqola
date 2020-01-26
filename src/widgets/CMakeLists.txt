@@ -59,6 +59,8 @@ set(Ruqola_roomwidget_SRCS
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
 
+qt5_add_resources(Ruqola_widgets_SRCS ruqolawidget.qrc)
+
 add_library(libruqolawidgets
     ${Ruqola_widgets_SRCS}
     ${Ruqola_widgets_dialog_SRCS}
@@ -67,7 +69,6 @@ add_library(libruqolawidgets
     )
 
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
-
 
 target_link_libraries(libruqolawidgets
     Qt5::Gui

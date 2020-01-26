@@ -50,7 +50,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     setCentralWidget(mMainWidget);
     setupActions();
-    setupGUI();
+    setupGUI(KXmlGuiWindow::Default, QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc"));
     readConfig();
 }
 

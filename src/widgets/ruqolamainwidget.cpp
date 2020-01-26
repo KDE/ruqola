@@ -22,8 +22,14 @@
 #include "channellist/channellistwidget.h"
 #include "room/roomwidget.h"
 
+#include <KConfigGroup>
+#include <KSharedConfig>
 #include <QSplitter>
 #include <QVBoxLayout>
+
+namespace {
+static const char myConfigGroupName[] = "RuqolaMainWidget";
+}
 
 RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     : QWidget(parent)
@@ -45,10 +51,15 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     mSplitter->addWidget(mRoomWidget);
 
     connect(mChannelList, &ChannelListWidget::channelSelected, mRoomWidget, &RoomWidget::channelSelected);
+
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
 }
 
 RuqolaMainWidget::~RuqolaMainWidget()
 {
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("SplitterSizes", mSplitter->saveState());
 }
 
 QString RuqolaMainWidget::roomId() const

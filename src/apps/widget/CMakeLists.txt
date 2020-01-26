@@ -1,7 +1,6 @@
 set(ruqola-widget_SRCS
 	main.cpp
 	)
-qt5_add_resources(ruqola-widget_SRCS ruqolawidget.qrc)
 
 add_executable(ruqola ${ruqola-widget_SRCS})
 

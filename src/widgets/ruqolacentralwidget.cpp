@@ -24,7 +24,6 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include <QVBoxLayout>
-#include <QSplitter>
 #include <QStackedWidget>
 #include <KMessageBox>
 #include <KLocalizedString>
