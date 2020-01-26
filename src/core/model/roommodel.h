@@ -80,10 +80,10 @@ public:
     Q_INVOKABLE void addRoom(const QString &roomID, const QString &roomName, bool selected = false);
 
     /**
-    * @brief Finds a room with @param roomID in m_roomsList
+    * @brief Finds a room with @param roomID in mRoomsList
     *
     * @param roomID The ID of the room to find
-    * @return RoomWrapper Pointer, The pointer to room with @param roomID in m_roomsList, if exists. Else return a new RoomWrapper object
+    * @return RoomWrapper Pointer, The pointer to room with @param roomID in mRoomsList, if exists. Else return a new RoomWrapper object
     */
     RoomWrapper *findRoomWrapper(const QString &roomID) const;
 
@@ -95,7 +95,7 @@ public:
     void updateRoom(const QJsonObject &array);
     Room *addRoom(const QJsonObject &room);
     /**
-    * @brief Adds a room to m_roomsList with @param room
+    * @brief Adds a room to mRoomsList with @param room
     *
     * @param room The room to be added
     */

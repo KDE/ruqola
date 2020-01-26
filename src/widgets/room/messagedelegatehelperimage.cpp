@@ -77,23 +77,23 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
 QPixmap MessageDelegateHelperImage::findCachedPixmap(const QString &link) const
 {
     auto matchesLink = [&](const CachedImage &cached) { return cached.link == link; };
-    auto it = std::find_if(m_cachedImages.begin(), m_cachedImages.end(), matchesLink);
-    if (it == m_cachedImages.end())
+    auto it = std::find_if(mCachedImages.begin(), mCachedImages.end(), matchesLink);
+    if (it == mCachedImages.end())
         return QPixmap();
     // Move it to the front
-    if (it != m_cachedImages.begin()) {
-        const auto idx = std::distance(m_cachedImages.begin(), it);
-        m_cachedImages.move(idx, 0);
+    if (it != mCachedImages.begin()) {
+        const auto idx = std::distance(mCachedImages.begin(), it);
+        mCachedImages.move(idx, 0);
     }
     return it->pixmap;
 }
 
 void MessageDelegateHelperImage::insertCachedPixmap(const QString &link, const QPixmap &pixmap) const
 {
-    m_cachedImages.prepend(CachedImage{link, pixmap});
+    mCachedImages.prepend(CachedImage{link, pixmap});
     static const int s_maxCacheSize = 5;
-    if (m_cachedImages.size() > s_maxCacheSize) {
-        m_cachedImages.resize(s_maxCacheSize);
+    if (mCachedImages.size() > s_maxCacheSize) {
+        mCachedImages.resize(s_maxCacheSize);
     }
 }
 

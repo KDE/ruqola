@@ -44,7 +44,7 @@ public:
     /**
     * @brief Singleton provider
     *
-    * @return Returns the singleton object m_self
+    * @return Returns the singleton object
     */
     static Ruqola *self();
 

@@ -35,24 +35,24 @@
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent),
-      m_emojiFont(QStringLiteral("NotoColorEmoji")),
-      m_helperText(new MessageDelegateHelperText),
-      m_helperImage(new MessageDelegateHelperImage)
+      mEmojiFont(QStringLiteral("NotoColorEmoji")),
+      mHelperText(new MessageDelegateHelperText),
+      mHelperImage(new MessageDelegateHelperImage)
 {
 }
 
 MessageListDelegate::~MessageListDelegate()
 {
-    delete m_helperText;
-    delete m_helperImage;
+    delete mHelperText;
+    delete mHelperImage;
 }
 
 void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {
-//    if (m_rcAccount) {
-//        disconnect(m_rcAccount, 0, this, 0);
+//    if (mRocketChatAccount) {
+//        disconnect(mRocketChatAccount, 0, this, 0);
 //    }
-    m_rcAccount = rcAccount;
+    mRocketChatAccount = rcAccount;
 }
 
 static qreal basicMargin()
@@ -96,7 +96,7 @@ static void drawTimestamp(QPainter *painter, const QModelIndex &index, const QSt
 QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxHeight) const
 {
     const QString userId = index.data(MessageModel::UserId).toString();
-    const QString iconUrlStr = m_rcAccount->avatarUrl(userId);
+    const QString iconUrlStr = mRocketChatAccount->avatarUrl(userId);
     QPixmap pix;
     if (!iconUrlStr.isEmpty() && !QPixmapCache::find(iconUrlStr, &pix)) {
         const QUrl iconUrl(iconUrlStr);
@@ -136,10 +136,10 @@ MessageDelegateHelperBase *MessageListDelegate::helper(const Message *message) c
 {
     switch (message->messageType()) {
     case Message::Image:
-        return m_helperImage;
+        return mHelperImage;
     case Message::NormalText:
     default: // #### for now
-        return m_helperText;
+        return mHelperText;
     }
     Q_UNREACHABLE();
     return nullptr;
@@ -149,8 +149,8 @@ QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReaction
 {
     QVector<MessageListDelegate::ReactionLayout> layouts;
     layouts.reserve(reactions.count());
-    auto *emojiManager = m_rcAccount->emojiManager();
-    QFontMetricsF emojiFontMetrics(m_emojiFont);
+    auto *emojiManager = mRocketChatAccount->emojiManager();
+    QFontMetricsF emojiFontMetrics(mEmojiFont);
     const qreal margin = basicMargin();
     const qreal smallMargin = margin/2.0;
     const qreal height = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + margin - 1;
@@ -212,7 +212,7 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
 
             // Emoji
             if (reactionLayout.useEmojiFont) {
-                painter->setFont(m_emojiFont);
+                painter->setFont(mEmojiFont);
             }
             painter->drawText(reactionRect.adjusted(reactionLayout.emojiOffset, smallMargin, 0, 0), reactionLayout.emojiString);
 
@@ -287,7 +287,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 
     int additionalHeight = 0;
     if (!message->reactions().isEmpty()) {
-        QFontMetricsF emojiFontMetrics(m_emojiFont);
+        QFontMetricsF emojiFontMetrics(mEmojiFont);
         additionalHeight += emojiFontMetrics.height() + margin;
     }
 
@@ -308,8 +308,8 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
             for (const ReactionLayout &reactionLayout : layout) {
                 if (reactionLayout.reactionRect.contains(pos)) {
                     const Reaction &reaction = reactionLayout.reaction;
-                    const bool doAdd = !reaction.userNames().contains(m_rcAccount->userName());
-                    m_rcAccount->reactOnMessage(index.data(MessageModel::MessageId).toString(), reaction.reactionName(), doAdd);
+                    const bool doAdd = !reaction.userNames().contains(mRocketChatAccount->userName());
+                    mRocketChatAccount->reactOnMessage(index.data(MessageModel::MessageId).toString(), reaction.reactionName(), doAdd);
                     return true;
                 }
             }

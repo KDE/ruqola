@@ -72,11 +72,11 @@ private:
                                                 const QModelIndex &index) const;
     MessageDelegateHelperBase *helper(const Message *message) const;
 
-    QFont m_emojiFont;
-    RocketChatAccount *m_rcAccount = nullptr;
+    QFont mEmojiFont;
+    RocketChatAccount *mRocketChatAccount = nullptr;
 
-    MessageDelegateHelperText *m_helperText;
-    MessageDelegateHelperImage *m_helperImage;
+    MessageDelegateHelperText *mHelperText;
+    MessageDelegateHelperImage *mHelperImage;
 };
 
 #endif // MESSAGELISTDELEGATE_H

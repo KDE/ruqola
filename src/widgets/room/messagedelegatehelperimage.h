@@ -49,7 +49,7 @@ private:
         QString link;
         QPixmap pixmap;
     };
-    mutable QVector<CachedImage> m_cachedImages; // most recent first
+    mutable QVector<CachedImage> mCachedImages; // most recent first
 };
 
 #endif // MESSAGEDELEGATEHELPERIMAGE_H

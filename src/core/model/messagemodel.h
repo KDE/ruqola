@@ -84,14 +84,14 @@ public:
     Q_INVOKABLE void enableQmlHacks(bool qmlHacks);
 
     /**
-    * @brief Adds a message to QVector m_allMessages
+    * @brief Adds a message to QVector mAllMessages
     *
     * @param message The message to be added
     */
     void addMessage(const Message &message);
 
     /**
-    * @brief returns number of messages in QVector m_allMessages
+    * @brief returns number of messages in QVector mAllMessages
     *
     * @param parent, it is void
     * @return int, The number of messages in QVector mAllMessages
