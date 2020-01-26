@@ -18,27 +18,28 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERBASE_H
-#define MESSAGEDELEGATEHELPERBASE_H
+#include "messagedelegatehelperimagetest.h"
+#include "room/messagedelegatehelperimage.h"
+#include <QTest>
 
-#include "libruqolawidgets_private_export.h"
-#include <QSize>
-class QPainter;
-class QRect;
-class QModelIndex;
-class QMouseEvent;
-class QStyleOptionViewItem;
+QTEST_MAIN(MessageDelegateHelperImageTest)
 
-class Message;
-
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase
+MessageDelegateHelperImageTest::MessageDelegateHelperImageTest(QObject *parent)
+    : QObject(parent)
 {
-public:
-    virtual ~MessageDelegateHelperBase();
+}
 
-    virtual void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const = 0;
-    virtual QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
-    virtual bool handleMouseEvent(QMouseEvent *mouseEvent, const QStyleOptionViewItem &option, const QModelIndex &index);
-};
+void MessageDelegateHelperImageTest::shouldCacheLastFivePixmaps()
+{
+    MessageDelegateHelperImage helper;
+    for (int i = 0; i < 6; ++i) {
+        const QString link = QStringLiteral("link") + QString::number(i);
+        const QPixmap pix(5, 5);
+        helper.insertCachedPixmap(link, pix);
+        QVERIFY(!helper.findCachedPixmap(link).isNull());
+        QVERIFY(!helper.findCachedPixmap(QStringLiteral("link0")).isNull()); // keeps being used
+    }
+    QVERIFY(!helper.findCachedPixmap(QStringLiteral("link3")).isNull());
+    QVERIFY(helper.findCachedPixmap(QStringLiteral("link1")).isNull()); // oldest one got evicted
+}
 
-#endif // MESSAGEDELEGATEHELPERBASE_H

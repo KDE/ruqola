@@ -74,6 +74,29 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
     return false;
 }
 
+QPixmap MessageDelegateHelperImage::findCachedPixmap(const QString &link) const
+{
+    auto matchesLink = [&](const CachedImage &cached) { return cached.link == link; };
+    auto it = std::find_if(m_cachedImages.begin(), m_cachedImages.end(), matchesLink);
+    if (it == m_cachedImages.end())
+        return QPixmap();
+    // Move it to the front
+    if (it != m_cachedImages.begin()) {
+        const auto idx = std::distance(m_cachedImages.begin(), it);
+        m_cachedImages.move(idx, 0);
+    }
+    return it->pixmap;
+}
+
+void MessageDelegateHelperImage::insertCachedPixmap(const QString &link, const QPixmap &pixmap) const
+{
+    m_cachedImages.prepend(CachedImage{link, pixmap});
+    static const int s_maxCacheSize = 5;
+    if (m_cachedImages.size() > s_maxCacheSize) {
+        m_cachedImages.resize(s_maxCacheSize);
+    }
+}
+
 MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(const Message *message) const
 {
     ImageLayout layout;
@@ -88,10 +111,11 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
     if (url.isLocalFile()) {
         const QString path = url.toLocalFile();
-        QPixmap pixmap;
-        if (!QPixmapCache::find(path, &pixmap)) {
+        // QPixmapCache is too small for this, let's have our own LRU cache
+        QPixmap pixmap = findCachedPixmap(path);
+        if (pixmap.isNull()) {
             if (pixmap.load(path)) {
-                QPixmapCache::insert(path, pixmap);
+                insertCachedPixmap(path, pixmap);
             } else {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Could not load" << path;
             }

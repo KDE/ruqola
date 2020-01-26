@@ -18,27 +18,19 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERBASE_H
-#define MESSAGEDELEGATEHELPERBASE_H
+#ifndef MESSAGEDELEGATEHELPERIMAGETEST_H
+#define MESSAGEDELEGATEHELPERIMAGETEST_H
 
-#include "libruqolawidgets_private_export.h"
-#include <QSize>
-class QPainter;
-class QRect;
-class QModelIndex;
-class QMouseEvent;
-class QStyleOptionViewItem;
+#include <QObject>
 
-class Message;
-
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase
+class MessageDelegateHelperImageTest : public QObject
 {
+    Q_OBJECT
 public:
-    virtual ~MessageDelegateHelperBase();
-
-    virtual void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const = 0;
-    virtual QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
-    virtual bool handleMouseEvent(QMouseEvent *mouseEvent, const QStyleOptionViewItem &option, const QModelIndex &index);
+    explicit MessageDelegateHelperImageTest(QObject *parent = nullptr);
+    ~MessageDelegateHelperImageTest() = default;
+private Q_SLOTS:
+    void shouldCacheLastFivePixmaps();
 };
 
-#endif // MESSAGEDELEGATEHELPERBASE_H
+#endif // MESSAGEDELEGATEHELPERIMAGETEST_H

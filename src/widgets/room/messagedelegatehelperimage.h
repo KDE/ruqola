@@ -24,8 +24,9 @@
 #include "messagedelegatehelperbase.h"
 
 #include <QPixmap>
+#include <QVector>
 
-class MessageDelegateHelperImage : public MessageDelegateHelperBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperImage : public MessageDelegateHelperBase
 {
 public:
     void draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const override;
@@ -33,6 +34,10 @@ public:
     bool handleMouseEvent(QMouseEvent *mouseEvent, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
+    friend class MessageDelegateHelperImageTest;
+    QPixmap findCachedPixmap(const QString &link) const;
+    void insertCachedPixmap(const QString &link, const QPixmap &pixmap) const;
+
     struct ImageLayout {
         QPixmap pixmap;
         QString title;
@@ -40,6 +45,11 @@ private:
     };
     ImageLayout layoutImage(const Message *message) const;
 
+    struct CachedImage {
+        QString link;
+        QPixmap pixmap;
+    };
+    mutable QVector<CachedImage> m_cachedImages; // most recent first
 };
 
 #endif // MESSAGEDELEGATEHELPERIMAGE_H
