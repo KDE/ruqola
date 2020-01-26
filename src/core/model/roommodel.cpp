@@ -177,7 +177,7 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
     Room *r = mRoomsList.at(index.row());
 
     if (role == Qt::DisplayRole) {
-        return r->name();
+        return r->displayFName();
     }
 
     switch (role) {
