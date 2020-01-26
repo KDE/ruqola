@@ -75,7 +75,6 @@ void GetAvatarJob::slotGetAvatar()
         if (replyObject.contains(QLatin1String("success"))) {
             if (!replyObject[QStringLiteral("success")].toBool()) {
                 addLoggerWarning(QByteArrayLiteral("GetAvatarJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-                qWarning() << "void GetAvatarJob::slotGetAvatar() ERROR :" << reply->property("userId").toString() << replyJson;
             } else {
                 addLoggerInfo(QByteArrayLiteral("GetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
                 qCWarning(ROCKETCHATQTRESTAPI_LOG) << " not implemented ! API changed !";

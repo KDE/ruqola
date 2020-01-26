@@ -288,8 +288,8 @@ void RoomModel::updateSubscriptionRoom(const QJsonObject &roomData)
             }
         }
     } else {
-        //qCWarning(RUQOLA_LOG) << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
-        qWarning() << "RoomModel::updateSubscriptionRoom incorrect jsonobject "<< roomData;
+        qCWarning(RUQOLA_LOG) << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
+        //qWarning() << "RoomModel::updateSubscriptionRoom incorrect jsonobject "<< roomData;
     }
 }
 
@@ -391,8 +391,8 @@ void RoomModel::updateRoom(const QJsonObject &roomData)
             }
         }
     } else {
-        //qCWarning(RUQOLA_LOG) << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
-        qWarning() << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
+        qCWarning(RUQOLA_LOG) << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
+        //qWarning() << "RoomModel::updateRoom incorrect jsonobject "<< roomData;
     }
 }
 
