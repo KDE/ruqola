@@ -45,6 +45,8 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     mRuqolaLoginWidget->setObjectName(QStringLiteral("mRuqolaLoginWidget"));
     mStackedWidget->addWidget(mRuqolaLoginWidget);
 
+    mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
+
     //Fix me multiaccount
     connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::loginStatusChanged, this, &RuqolaCentralWidget::slotLoginStatusChanged);
 }
