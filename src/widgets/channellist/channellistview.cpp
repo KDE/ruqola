@@ -30,6 +30,8 @@ ChannelListView::ChannelListView(QWidget *parent)
 {
     auto *delegate = new ChannelListDelegate(this);
     setItemDelegate(delegate);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     //TODO update when we have multiaccount!
     setModel(Ruqola::self()->rocketChatAccount()->roomFilterProxyModel());
     connect(this, &ChannelListView::clicked, this, &ChannelListView::slotClicked);
