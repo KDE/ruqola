@@ -19,12 +19,38 @@
 */
 
 #include "showimagewidget.h"
+#include <QVBoxLayout>
+#include <KLocalizedString>
+#include <QScrollArea>
+#include <QLabel>
 
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    QScrollArea *scrollArea = new QScrollArea(this);
+    scrollArea->setObjectName(QStringLiteral("scrollArea"));
+    mainLayout->addWidget(scrollArea);
+
+    mLabel = new QLabel(this);
+    mLabel->setObjectName(QStringLiteral("mLabel"));
+    mLabel->setBackgroundRole(QPalette::Base);
+    mLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    mLabel->setScaledContents(true);
+    //TODO fix me!
+    mLabel->resize(400,400);
+
+    scrollArea->setWidget(mLabel);
 }
 
 ShowImageWidget::~ShowImageWidget()
 {
+}
+
+void ShowImageWidget::setImage(const QPixmap &pix)
+{
+    mLabel->setPixmap(pix);
 }

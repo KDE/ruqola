@@ -24,12 +24,17 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ShowImageWidget(QWidget *parent = nullptr);
     ~ShowImageWidget();
+
+    void setImage(const QPixmap &pix);
+private:
+    QLabel *mLabel = nullptr;
 };
 
 #endif // SHOWIMAGEWIDGET_H

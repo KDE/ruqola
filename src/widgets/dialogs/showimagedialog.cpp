@@ -45,3 +45,8 @@ ShowImageDialog::ShowImageDialog(QWidget *parent)
 ShowImageDialog::~ShowImageDialog()
 {
 }
+
+void ShowImageDialog::setImage(const QPixmap &pix)
+{
+    mShowImageWidget->setImage(pix);
+}

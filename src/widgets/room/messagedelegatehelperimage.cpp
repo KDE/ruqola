@@ -22,11 +22,13 @@
 #include "ruqolawidgets_debug.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "dialogs/showimagedialog.h"
 
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPixmapCache>
 #include <QStyleOptionViewItem>
+#include <QPointer>
 
 static const int margin = 8; // vertical margin between title and pixmap, and between pixmap and description (if any)
 
@@ -98,8 +100,10 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
         model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
         return true;
     } else if (!layout.pixmap.isNull()) {
-        qDebug() << "Clicked!";
-        // TODO use ShowImageDialog or ShowImageWidget here, to show layout.pixmap
+        QPointer<ShowImageDialog> dlg = new ShowImageDialog();
+        dlg->setImage(layout.pixmap);
+        dlg->exec();
+        delete dlg;
         return true;
     }
     return false;
