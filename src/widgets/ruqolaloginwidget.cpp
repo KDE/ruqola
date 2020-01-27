@@ -93,29 +93,44 @@ void RuqolaLoginWidget::slotLogin()
     rocketChatAccount->tryLogin();
 }
 
+void RuqolaLoginWidget::changeWidgetStatus(bool enabled)
+{
+    mServerName->setEnabled(enabled);
+    mUserName->setEnabled(enabled);
+    mPasswordLineEdit->setEnabled(enabled);
+    mLoginButton->setEnabled(enabled);
+}
+
 void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
 {
     switch (status) {
     case DDPClient::LoginStatus::NotConnected:
         mBusyIndicatorWidget->hide();
+        changeWidgetStatus(true);
         break;
     case DDPClient::LoginStatus::LoggingIn:
         mBusyIndicatorWidget->show();
+        changeWidgetStatus(false);
         break;
     case DDPClient::LoginStatus::LoggedIn:
         mBusyIndicatorWidget->hide();
+        changeWidgetStatus(true);
         break;
     case DDPClient::LoginStatus::LoginFailed:
         mBusyIndicatorWidget->hide();
+        changeWidgetStatus(true);
         break;
     case DDPClient::LoginStatus::LoginCodeRequired:
         mBusyIndicatorWidget->hide();
+        changeWidgetStatus(true);
         break;
     case DDPClient::LoginStatus::LoggedOut:
         mBusyIndicatorWidget->hide();
+        changeWidgetStatus(true);
         break;
     case DDPClient::LoginStatus::FailedToLoginPluginProblem:
         mBusyIndicatorWidget->hide();
+        changeWidgetStatus(true);
         //Show warning !
         break;
     }

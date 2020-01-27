@@ -39,6 +39,7 @@ public:
     void initialize();
     void setLogginStatus(DDPClient::LoginStatus status);
 private:
+    void changeWidgetStatus(bool enabled);
     void slotLogin();
 
     QLabel *mAccountName = nullptr;
