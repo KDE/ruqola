@@ -43,7 +43,6 @@ void RuqolaMainWidgetTest::shouldHaveDefaultValues()
     QSplitter *mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
     QVERIFY(mSplitter);
     QVERIFY(!mSplitter->childrenCollapsible());
-    mSplitter->setChildrenCollapsible(false);
 
     ChannelListWidget *mChannelList = w.findChild<ChannelListWidget *>(QStringLiteral("mChannelList"));
     QVERIFY(mChannelList);
