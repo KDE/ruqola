@@ -72,6 +72,7 @@ void RoomWidget::slotSendMessage(const QString &msg)
 void RoomWidget::setChannelSelected(const QModelIndex &index)
 {
     setRoomId(index.data(RoomModel::RoomID).toString());
+    mMessageLineWidget->setFocus();
 }
 
 void RoomWidget::updateRoomHeader()

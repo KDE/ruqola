@@ -54,6 +54,8 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendMessageButton->setObjectName(QStringLiteral("mSendMessageButton"));
     mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent"))); //Change it when we edit message
     mainLayout->addWidget(mSendMessageButton);
+
+    setFocusProxy(mMessageLineEdit);
 }
 
 MessageLineWidget::~MessageLineWidget()
