@@ -40,6 +40,8 @@ public:
     Q_INVOKABLE void setFilterString(const QString &string);
 
     ListMessagesModel *listMessageModel() const;
+    Q_REQUIRED_RESULT int total() const;
+    Q_REQUIRED_RESULT bool hasFullList() const;
 
 Q_SIGNALS:
     void hasFullListChanged();
@@ -48,8 +50,6 @@ Q_SIGNALS:
 
 private:
     Q_REQUIRED_RESULT QString title() const;
-    Q_REQUIRED_RESULT bool hasFullList() const;
-    Q_REQUIRED_RESULT int total() const;
     Q_REQUIRED_RESULT ListMessagesModel::ListMessageType listMessageType() const;
     ListMessagesModel *mModel = nullptr;
 };

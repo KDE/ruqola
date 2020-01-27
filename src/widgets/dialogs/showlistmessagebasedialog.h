@@ -34,6 +34,10 @@ public:
     ~ShowListMessageBaseDialog();
 
     void setModel(ListMessagesModelFilterProxyModel *model);
+
+Q_SIGNALS:
+    void loadMoreElements();
+
 private:
     ShowListMessageBaseWidget *mShowListMessage = nullptr;
 };

@@ -67,6 +67,7 @@ void MessageListView::checkIfAtBottom()
 {
     auto *vbar = verticalScrollBar();
     mAtBottom = vbar->value() == vbar->maximum();
+    Q_EMIT modelChanged();
 }
 
 void MessageListView::maybeScrollToBottom()
@@ -74,4 +75,5 @@ void MessageListView::maybeScrollToBottom()
     if (mAtBottom) {
         scrollToBottom();
     }
+    Q_EMIT modelChanged();
 }

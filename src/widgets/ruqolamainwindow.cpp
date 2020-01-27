@@ -34,6 +34,8 @@
 #include "dialogs/showsnipperedmessagesdialog.h"
 #include "dialogs/searchmessagedialog.h"
 #include "dialogs/configurenotificationdialog.h"
+#include "dialogs/showattachmentdialog.h"
+#include "dialogs/configuresettingsdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -81,7 +83,6 @@ void RuqolaMainWindow::readConfig()
 
 void RuqolaMainWindow::slotClearNotification()
 {
-    //TODO need roomID ???
     statusBar()->clearMessage();
 }
 
@@ -143,6 +144,26 @@ void RuqolaMainWindow::setupActions()
     mConfigureNotification = new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification..."), this);
     connect(mConfigureNotification, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureNotification);
     ac->addAction(QStringLiteral("configure_notification"), mConfigureNotification);
+
+    mLoadChannelHistory = new QAction(i18n("Load Recent History"), this);
+    connect(mLoadChannelHistory, &QAction::triggered, this, &RuqolaMainWindow::slotLoadRecentHistory);
+    ac->addAction(QStringLiteral("load_recent_history"), mLoadChannelHistory);
+
+    mShowFileAttachments = new QAction(i18n("Show File Attachment..."), this);
+    connect(mShowFileAttachments, &QAction::triggered, this, &RuqolaMainWindow::slotShowFileAttachments);
+    ac->addAction(QStringLiteral("show_file_attachments"), mShowFileAttachments);
+}
+
+void RuqolaMainWindow::slotShowFileAttachments()
+{
+    QPointer<ShowAttachmentDialog> dlg = new ShowAttachmentDialog(this);
+    dlg->exec();
+    delete dlg;
+}
+
+void RuqolaMainWindow::slotLoadRecentHistory()
+{
+    Ruqola::self()->rocketChatAccount()->loadHistory(mMainWidget->roomId());
 }
 
 void RuqolaMainWindow::slotConfigureNotification()
@@ -208,7 +229,11 @@ void RuqolaMainWindow::slotCreateNewChannel()
 
 void RuqolaMainWindow::slotConfigure()
 {
-    //TODO
+    QPointer<ConfigureSettingsDialog> dlg = new ConfigureSettingsDialog(this);
+    if (dlg->exec()) {
+        //TODO
+    }
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotAddAccount()

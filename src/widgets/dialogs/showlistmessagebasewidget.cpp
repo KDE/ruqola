@@ -42,11 +42,14 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
 
     mMessageListInfo = new QLabel(this);
     mMessageListInfo->setObjectName(QStringLiteral("mMessageListInfo"));
+    mMessageListInfo->setTextFormat(Qt::RichText);
+    connect(mMessageListInfo, &QLabel::linkActivated, this, &ShowListMessageBaseWidget::loadMoreElements);
     mainLayout->addWidget(mMessageListInfo);
 
     mMessageListView = new MessageListView(this);
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView);
+    connect(mMessageListView, &MessageListView::modelChanged, this, &ShowListMessageBaseWidget::updateLabel);
 }
 
 ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
@@ -55,5 +58,22 @@ ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
 
 void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *model)
 {
+    mModel = model;
     mMessageListView->setModel(model);
+    updateLabel();
+}
+
+void ShowListMessageBaseWidget::updateLabel()
+{
+    mMessageListInfo->setText(mModel->rowCount() == 0 ? i18n("No Messages found") : displayShowMessageInRoom());
+}
+
+QString ShowListMessageBaseWidget::displayShowMessageInRoom() const
+{
+    QString displayMessageStr;
+    displayMessageStr = i18np("%1 Message in room (Total: %2)", "%1 Messages in room (Total: %2)", mModel->rowCount(), mModel->total());
+    if (!mModel->hasFullList()) {
+        displayMessageStr += QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
+    }
+    return displayMessageStr;
 }

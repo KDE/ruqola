@@ -35,6 +35,9 @@ public:
 
     void setModel(QAbstractItemModel *newModel) override;
 
+Q_SIGNALS:
+    void modelChanged();
+
 private Q_SLOTS:
     void checkIfAtBottom();
     void maybeScrollToBottom();

@@ -19,6 +19,8 @@
 */
 
 #include "showpinnedmessagesdialog.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -32,6 +34,7 @@ ShowPinnedMessagesDialog::ShowPinnedMessagesDialog(QWidget *parent)
 {
     setWindowTitle(i18nc("@title:window", "Show Pinned Messages"));
     readConfig();
+    connect(this, &ShowPinnedMessagesDialog::loadMoreElements, this, &ShowPinnedMessagesDialog::slotLoadMorePinnedMessages);
 }
 
 ShowPinnedMessagesDialog::~ShowPinnedMessagesDialog()
@@ -52,4 +55,9 @@ void ShowPinnedMessagesDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
+}
+
+void ShowPinnedMessagesDialog::slotLoadMorePinnedMessages()
+{
+    //Ruqola::self()->rocketChatAccount()->loadMoreListMessages(roomId);
 }

@@ -33,6 +33,7 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    void slotLoadMorePinnedMessages();
 };
 
 #endif // SHOWPINNEDMESSAGESDIALOG_H

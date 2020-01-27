@@ -36,12 +36,17 @@ public:
     ~ShowListMessageBaseWidget();
 
     void setModel(ListMessagesModelFilterProxyModel *model);
-    //TODO change text
+
+Q_SIGNALS:
+    void loadMoreElements();
 
 private:
+    void updateLabel();
+    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     KLineEdit *mSearchMessageLineEdit = nullptr;
     MessageListView *mMessageListView = nullptr;
     QLabel *mMessageListInfo = nullptr;
+    ListMessagesModelFilterProxyModel *mModel = nullptr;
 };
 
 #endif // SHOWLISTMESSAGEBASEWIDGET_H

@@ -49,6 +49,8 @@ private:
     void slotConfigureNotification();
     void slotTypingNotificationChanged(const QString &roomId, const QString &notificationStr);
     void slotClearNotification();
+    void slotLoadRecentHistory();
+    void slotShowFileAttachments();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
@@ -61,6 +63,8 @@ private:
     QAction *mShowSnipperedMessages = nullptr;
     QAction *mSearchMessages = nullptr;
     QAction *mConfigureNotification = nullptr;
+    QAction *mLoadChannelHistory = nullptr;
+    QAction *mShowFileAttachments = nullptr;
 };
 
 #endif // RUQOLAMAINWINDOW_H
