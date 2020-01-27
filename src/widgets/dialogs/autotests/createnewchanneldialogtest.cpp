@@ -25,6 +25,7 @@
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 QTEST_MAIN(CreateNewChannelDialogTest)
 CreateNewChannelDialogTest::CreateNewChannelDialogTest(QObject *parent)
@@ -46,4 +47,7 @@ void CreateNewChannelDialogTest::shouldHaveDefaultValues()
 
     QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
+
+    QPushButton *mOkButton = button->button(QDialogButtonBox::Ok);
+    QVERIFY(!mOkButton->isEnabled());
 }

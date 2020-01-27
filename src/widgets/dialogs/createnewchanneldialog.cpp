@@ -48,6 +48,7 @@ CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)
     connect(button, &QDialogButtonBox::rejected, this, &CreateNewChannelDialog::reject);
     readConfig();
     mOkButton = button->button(QDialogButtonBox::Ok);
+    mOkButton->setEnabled(false);
     connect(mCreateNewChannelWidget, &CreateNewChannelWidget::updateOkButton, mOkButton, &QPushButton::setEnabled);
 }
 
