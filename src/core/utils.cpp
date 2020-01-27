@@ -181,3 +181,35 @@ qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
         return -1;
     }
 }
+
+QString Utils::convertTextWithUrl(const QString &str)
+{
+    QString newStr;
+    bool isRef = false;
+    bool isUrl = false;
+    QString url;
+    QString references;
+    for (int i = 0; i < str.count(); ++i) {
+        if (str.at(i) == QLatin1Char('[')) {
+            isRef = true;
+        } else if (str.at(i) == QLatin1Char(']')) {
+            isRef = false;
+        } else if (str.at(i) == QLatin1Char('(') && !references.isEmpty()) {
+            isUrl = true;
+        } else if (str.at(i) == QLatin1Char(')') && !references.isEmpty()) {
+            isUrl = false;
+            newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(references).arg(url);
+            references.clear();
+            url.clear();
+        } else {
+            if (isRef) {
+                references += str.at(i);
+            } else if (isUrl) {
+                url += str.at(i);
+            } else {
+                newStr += str.at(i);
+            }
+        }
+    }
+    return newStr;
+}
