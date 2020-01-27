@@ -70,7 +70,7 @@ QString Utils::generateRichText(const QString &str, const QString &username)
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
-        const QString word = match.captured(2);
+        const QStringRef word = match.capturedRef(2);
         //Highlight only if it's yours
         if (word == username) {
             //Improve color
@@ -84,7 +84,7 @@ QString Utils::generateRichText(const QString &str, const QString &username)
     QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
     while (roomIterator.hasNext()) {
         const QRegularExpressionMatch match = roomIterator.next();
-        const QString word = match.captured(2);
+        const QStringRef word = match.capturedRef(2);
         newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%1</a>").arg(word));
     }
     return newStr;
