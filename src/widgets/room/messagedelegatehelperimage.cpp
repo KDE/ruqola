@@ -28,6 +28,8 @@
 #include <QPixmapCache>
 #include <QStyleOptionViewItem>
 
+static const int margin = 8; // vertical margin between title and pixmap, and between pixmap and description (if any)
+
 void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
@@ -36,17 +38,28 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
     if (!layout.pixmap.isNull()) {
         const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
         const QSize descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
-        const QSize imageSize(messageRect.width(), messageRect.height() - descriptionSize.height() - titleSize.height());
 
-        const QPixmap scaledPixmap = layout.pixmap.scaled(imageSize, Qt::KeepAspectRatio);
+        // Draw title and show/hide button
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
         const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+
+        // Draw main pixmap (if shown)
+        int nextY = messageRect.y() + titleSize.height() + margin;
         if (layout.isShown) {
-            painter->drawPixmap(messageRect.x(), messageRect.y() + titleSize.height(), scaledPixmap);
+            const int imageMaxWidth = messageRect.width();
+            int imageMaxHeight = messageRect.bottom() - nextY - margin;
+            if (!layout.description.isEmpty()) {
+                imageMaxHeight -= descriptionSize.height() + margin;
+            }
+            const QPixmap scaledPixmap = layout.pixmap.scaled(imageMaxWidth, imageMaxHeight, Qt::KeepAspectRatio);
+            painter->drawPixmap(messageRect.x(), nextY, scaledPixmap);
+            nextY += scaledPixmap.height() + margin;
         }
+
+        // Draw description (if any)
         if (!layout.description.isEmpty()) {
-            painter->drawText(messageRect.x(), messageRect.y() + titleSize.height() + scaledPixmap.height() + option.fontMetrics.ascent(), layout.description);
+            painter->drawText(messageRect.x(), nextY + option.fontMetrics.ascent(), layout.description);
         }
     }
 }
@@ -56,15 +69,21 @@ QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidt
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     const ImageLayout layout = layoutImage(message, option);
-    QSize pixmapSize(0, 0);
-    if (layout.isShown) {
-        pixmapSize.setWidth(qMin(layout.pixmap.width(), maxWidth));
-        pixmapSize.setHeight(qMin(layout.pixmap.height(), 200));
-    }
     const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    const QSize descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
-    return QSize(qMax(qMax(pixmapSize.width(), titleSize.width()), descriptionSize.width()),
-                 descriptionSize.height() + pixmapSize.height() + titleSize.height());
+    int height = titleSize.height() + margin;
+    int pixmapWidth = 0;
+    if (layout.isShown) {
+        pixmapWidth = qMin(layout.pixmap.width(), maxWidth);
+        height += qMin(layout.pixmap.height(), 200) + margin;
+    }
+    int descriptionWidth = 0;
+    if (!layout.description.isEmpty()) {
+        const QSize descriptionSize = option.fontMetrics.size(Qt::TextSingleLine, layout.description);
+        descriptionWidth = descriptionSize.width();
+        height += descriptionSize.height() + margin;
+    }
+    return QSize(qMax(qMax(pixmapWidth, titleSize.width()), descriptionWidth),
+                 height);
 }
 
 bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const QRectF &senderRect, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -138,9 +157,9 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
         layout.description = msgAttach.description();
         layout.isShown = message->showAttachment();
         const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-        const int margin = 8;
+        const int buttonMargin = 8;
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-        layout.hideShowButtonRect = QRect(titleSize.width() + margin, 0, iconSize, iconSize);
+        layout.hideShowButtonRect = QRect(titleSize.width() + buttonMargin, 0, iconSize, iconSize);
     }
     return layout;
 }
