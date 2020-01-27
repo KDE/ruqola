@@ -66,12 +66,14 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mAnnouncement = new QLabel(this);
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
     mAnnouncement->setWordWrap(true);
+    mAnnouncement->setTextFormat(Qt::RichText);
     infoLayout->addWidget(mAnnouncement);
     mAnnouncement->setOpenExternalLinks(true);
     mAnnouncement->setVisible(false);
 
     mDescription = new QLabel(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setTextFormat(Qt::RichText);
     mDescription->setWordWrap(true);
     infoLayout->addWidget(mDescription);
     mDescription->setOpenExternalLinks(true);
