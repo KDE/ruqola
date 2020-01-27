@@ -20,6 +20,7 @@
 
 #include "channellistview.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include "rocketchataccount.h"
 #include "channellistdelegate.h"
 #include "model/roomfilterproxymodel.h"
@@ -39,6 +40,21 @@ ChannelListView::ChannelListView(QWidget *parent)
 
 ChannelListView::~ChannelListView()
 {
+}
+
+RoomFilterProxyModel *ChannelListView::model() const
+{
+    return qobject_cast<RoomFilterProxyModel *>(QListView::model());
+}
+
+void ChannelListView::setModel(QAbstractItemModel *model)
+{
+    if (!qobject_cast<RoomFilterProxyModel *>(model)) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Need to pass a RoomFilterProxyModel instance!";
+        return;
+    }
+
+    QListView::setModel(model);
 }
 
 void ChannelListView::slotClicked(const QModelIndex &index)

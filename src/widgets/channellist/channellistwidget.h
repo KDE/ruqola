@@ -34,12 +34,19 @@ public:
     explicit ChannelListWidget(QWidget *parent = nullptr);
     ~ChannelListWidget();
 
+    ChannelListView *channelListView() const;
+
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
+
+protected:
+    bool eventFilter(QObject* object, QEvent* event) override;
 
 private:
     void setUserStatusUpdated(User::PresenceStatus status);
     void slotStatusChanged();
+    void slotSearchRoomTextChanged();
+
     StatusCombobox *mStatusComboBox = nullptr;
     ChannelListView *mChannelView = nullptr;
     QLineEdit *mSearchRoom = nullptr;

@@ -24,12 +24,19 @@
 #include <QListView>
 
 #include "libruqolawidgets_private_export.h"
+
+class RoomFilterProxyModel;
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QListView
 {
     Q_OBJECT
 public:
     explicit ChannelListView(QWidget *parent = nullptr);
     ~ChannelListView();
+
+    RoomFilterProxyModel *model() const;
+    void setModel(QAbstractItemModel *model) override;
+
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
 private:

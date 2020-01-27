@@ -31,6 +31,7 @@ public:
     ~ChannelListWidgetTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void searchRooms();
 };
 
 #endif // CHANNELLISTWIDGETTEST_H
