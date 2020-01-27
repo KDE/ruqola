@@ -21,6 +21,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "accountmanager.h"
+#include "receivetypingnotificationmanager.h"
 #include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
 #include "dialogs/serverinfodialog.h"
@@ -39,6 +40,7 @@
 #include <KLocalizedString>
 #include <QPointer>
 #include <QIcon>
+#include <QStatusBar>
 
 namespace {
 static const char myConfigGroupName[] = "RuqolaMainWindow";
@@ -53,6 +55,9 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     setupActions();
     setupGUI(KXmlGuiWindow::Default, QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc"));
     readConfig();
+    //TODO fix me multi account
+    connect(Ruqola::self()->rocketChatAccount()->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::notificationChanged, this, &RuqolaMainWindow::slotTypingNotificationChanged);
+    connect(Ruqola::self()->rocketChatAccount()->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::clearNotification, this, &RuqolaMainWindow::slotClearNotification);
 }
 
 RuqolaMainWindow::~RuqolaMainWindow()
@@ -71,6 +76,19 @@ void RuqolaMainWindow::readConfig()
     const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
+    }
+}
+
+void RuqolaMainWindow::slotClearNotification()
+{
+    //TODO need roomID ???
+    statusBar()->clearMessage();
+}
+
+void RuqolaMainWindow::slotTypingNotificationChanged(const QString &roomId, const QString &notificationStr)
+{
+    if (mMainWidget->roomId() == roomId) {
+        statusBar()->showMessage(notificationStr);
     }
 }
 

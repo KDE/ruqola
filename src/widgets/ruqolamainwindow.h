@@ -47,6 +47,8 @@ private:
     void slotSnipperedMessages();
     void slotSearchMessages();
     void slotConfigureNotification();
+    void slotTypingNotificationChanged(const QString &roomId, const QString &notificationStr);
+    void slotClearNotification();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
