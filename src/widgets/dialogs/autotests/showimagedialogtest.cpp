@@ -29,7 +29,6 @@ QTEST_MAIN(ShowImageDialogTest)
 ShowImageDialogTest::ShowImageDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ShowImageDialogTest::shouldHaveDefaultValues()

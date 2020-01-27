@@ -44,5 +44,4 @@ ShowImageDialog::ShowImageDialog(QWidget *parent)
 
 ShowImageDialog::~ShowImageDialog()
 {
-
 }

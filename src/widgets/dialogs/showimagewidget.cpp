@@ -23,10 +23,8 @@
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
 {
-
 }
 
 ShowImageWidget::~ShowImageWidget()
 {
-
 }

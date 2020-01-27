@@ -34,10 +34,10 @@
 #include <QPixmapCache>
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
-    : QItemDelegate(parent),
-      mEmojiFont(QStringLiteral("NotoColorEmoji")),
-      mHelperText(new MessageDelegateHelperText),
-      mHelperImage(new MessageDelegateHelperImage)
+    : QItemDelegate(parent)
+    , mEmojiFont(QStringLiteral("NotoColorEmoji"))
+    , mHelperText(new MessageDelegateHelperText)
+    , mHelperImage(new MessageDelegateHelperImage)
 {
 }
 
@@ -112,8 +112,7 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxH
 }
 
 // [margin] <pixmap> [margin] <sender>
-MessageListDelegate::PixmapAndSenderLayout MessageListDelegate::layoutPixmapAndSender(const QStyleOptionViewItem &option,
-                                                                                      const QModelIndex &index) const
+MessageListDelegate::PixmapAndSenderLayout MessageListDelegate::layoutPixmapAndSender(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     PixmapAndSenderLayout layout;
     layout.senderText = makeSenderText(index);

@@ -68,8 +68,7 @@ private:
         QPixmap avatarPixmap;
         qreal avatarX;
     };
-    PixmapAndSenderLayout layoutPixmapAndSender(const QStyleOptionViewItem &option,
-                                                const QModelIndex &index) const;
+    PixmapAndSenderLayout layoutPixmapAndSender(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     MessageDelegateHelperBase *helper(const Message *message) const;
 
     QFont mEmojiFont;

@@ -107,10 +107,13 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
 
 QPixmap MessageDelegateHelperImage::findCachedPixmap(const QString &link) const
 {
-    auto matchesLink = [&](const CachedImage &cached) { return cached.link == link; };
+    auto matchesLink = [&](const CachedImage &cached) {
+                           return cached.link == link;
+                       };
     auto it = std::find_if(mCachedImages.begin(), mCachedImages.end(), matchesLink);
-    if (it == mCachedImages.end())
+    if (it == mCachedImages.end()) {
         return QPixmap();
+    }
     // Move it to the front
     if (it != mCachedImages.begin()) {
         const auto idx = std::distance(mCachedImages.begin(), it);

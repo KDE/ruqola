@@ -26,5 +26,4 @@ QTEST_MAIN(ShowImageWidgetTest)
 ShowImageWidgetTest::ShowImageWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

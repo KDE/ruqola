@@ -112,4 +112,3 @@ QString CreateNewChannelWidget::password() const
 {
     return mPasswordLineEdit->password();
 }
-

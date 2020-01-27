@@ -48,7 +48,6 @@ SearchChannelDialog::SearchChannelDialog(QWidget *parent)
     connect(button, &QDialogButtonBox::accepted, this, &SearchChannelDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &SearchChannelDialog::reject);
     readConfig();
-
 }
 
 SearchChannelDialog::~SearchChannelDialog()

@@ -42,4 +42,3 @@ void MessageDelegateHelperImageTest::shouldCacheLastFivePixmaps()
     QVERIFY(!helper.findCachedPixmap(QStringLiteral("link3")).isNull());
     QVERIFY(helper.findCachedPixmap(QStringLiteral("link1")).isNull()); // oldest one got evicted
 }
-
