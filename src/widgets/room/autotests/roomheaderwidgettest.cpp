@@ -40,22 +40,26 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QLabel *mRoomName = w.findChild<QLabel *>(QStringLiteral("mRoomName"));
     QVERIFY(mRoomName);
     QVERIFY(mRoomName->text().isEmpty());
-    QVERIFY(!mRoomName->isVisible());
+    QVERIFY(!mRoomName->isVisible());    
 
     QLabel *mTopic = w.findChild<QLabel *>(QStringLiteral("mTopic"));
     QVERIFY(mTopic);
     QVERIFY(mTopic->text().isEmpty());
     QVERIFY(!mTopic->isVisible());
+    QVERIFY(mTopic->wordWrap());
 
     QLabel *mAnnouncement = w.findChild<QLabel *>(QStringLiteral("mAnnouncement"));
     QVERIFY(mAnnouncement);
     QVERIFY(mAnnouncement->text().isEmpty());
     QVERIFY(!mAnnouncement->isVisible());
+    QVERIFY(mAnnouncement->wordWrap());
 
     QLabel *mDescription = w.findChild<QLabel *>(QStringLiteral("mDescription"));
     QVERIFY(mDescription);
     QVERIFY(mDescription->text().isEmpty());
     QVERIFY(!mDescription->isVisible());
+    QVERIFY(mDescription->wordWrap());
+
 
     QToolButton *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
     QVERIFY(mFavoriteButton);

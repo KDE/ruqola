@@ -198,7 +198,7 @@ QString Utils::convertTextWithUrl(const QString &str)
             isUrl = true;
         } else if (str.at(i) == QLatin1Char(')') && !references.isEmpty()) {
             isUrl = false;
-            newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(references).arg(url);
+            newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
             references.clear();
             url.clear();
         } else {

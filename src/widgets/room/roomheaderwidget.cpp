@@ -19,6 +19,7 @@
 */
 
 #include "roomheaderwidget.h"
+#include "ruqolawidgets_debug.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QLabel>
@@ -57,17 +58,21 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mTopic = new QLabel(this);
     mTopic->setObjectName(QStringLiteral("mTopic"));
     infoLayout->addWidget(mTopic);
+    mTopic->setWordWrap(true);
     mTopic->setOpenExternalLinks(true);
+    mTopic->setTextFormat(Qt::RichText);
     mTopic->setVisible(false);
 
     mAnnouncement = new QLabel(this);
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
+    mAnnouncement->setWordWrap(true);
     infoLayout->addWidget(mAnnouncement);
     mAnnouncement->setOpenExternalLinks(true);
     mAnnouncement->setVisible(false);
 
     mDescription = new QLabel(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setWordWrap(true);
     infoLayout->addWidget(mDescription);
     mDescription->setOpenExternalLinks(true);
     mDescription->setVisible(false);
