@@ -20,6 +20,7 @@
 
 
 #include "showattachmentdialog.h"
+#include "showattachmentwidget.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -36,6 +37,10 @@ ShowAttachmentDialog::ShowAttachmentDialog(QWidget *parent)
     setWindowTitle(i18nc("@title:window", "Show Attachments"));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mShowAttachmentWidget = new ShowAttachmentWidget(this);
+    mShowAttachmentWidget->setObjectName(QStringLiteral("mShowAttachmentWidget"));
+    mainLayout->addWidget(mShowAttachmentWidget);
 
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));

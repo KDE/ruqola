@@ -21,16 +21,29 @@
 
 #include "showattachmentdialogtest.h"
 #include "dialogs/showattachmentdialog.h"
+#include "dialogs/showattachmentwidget.h"
+#include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ShowAttachmentDialogTest)
 ShowAttachmentDialogTest::ShowAttachmentDialogTest(QObject *parent)
     : QObject(parent)
 {
-
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ShowAttachmentDialogTest::shouldHaveDefaultValues()
 {
-    ShowAttachmentDialog d;
-    //TODO
+    ShowAttachmentDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    ShowAttachmentWidget *mShowAttachmentWidget = w.findChild<ShowAttachmentWidget *>(QStringLiteral("mShowAttachmentWidget"));
+    QVERIFY(mShowAttachmentWidget);
+
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }

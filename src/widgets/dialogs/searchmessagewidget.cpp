@@ -18,9 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include "searchmessagewidget.h"
+#include "room/messagelistview.h"
+#include "model/searchmessagefilterproxymodel.h"
+#include <KLineEdit>
 #include <KLocalizedString>
-#include <QLineEdit>
 #include <QListWidget>
 #include <QVBoxLayout>
 
@@ -31,16 +35,34 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSearchLineEdit = new QLineEdit(this);
+    mSearchLineEdit = new KLineEdit(this);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setClearButtonEnabled(true);
+    mSearchLineEdit->setTrapReturnKey(true);
     mainLayout->addWidget(mSearchLineEdit);
 
-    mResultListWidget = new QListWidget(this);
+    mResultListWidget = new MessageListView(this);
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
+    connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchMessages);
+    //TODO Laurent we need to fix searchMessageFilterProxyModel first mResultListWidget->setModel(Ruqola::self()->rocketChatAccount()->searchMessageFilterProxyModel());
 }
 
 SearchMessageWidget::~SearchMessageWidget()
 {
+}
+
+void SearchMessageWidget::slotSearchMessages()
+{
+    Ruqola::self()->rocketChatAccount()->messageSearch(mSearchLineEdit->text(), mRoomId);
+}
+
+QString SearchMessageWidget::roomId() const
+{
+    return mRoomId;
+}
+
+void SearchMessageWidget::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
 }

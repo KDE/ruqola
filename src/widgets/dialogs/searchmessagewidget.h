@@ -24,17 +24,23 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QLineEdit;
-class QListWidget;
+class KLineEdit;
+class MessageListView;
 class LIBRUQOLAWIDGETS_EXPORT SearchMessageWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit SearchMessageWidget(QWidget *parent = nullptr);
     ~SearchMessageWidget();
+
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &roomId);
+
 private:
-    QLineEdit *mSearchLineEdit = nullptr;
-    QListWidget *mResultListWidget = nullptr;
+    void slotSearchMessages();
+    QString mRoomId;
+    KLineEdit *mSearchLineEdit = nullptr;
+    MessageListView *mResultListWidget = nullptr;
 };
 
 #endif // SEARCHMESSAGEWIDGET_H

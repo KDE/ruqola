@@ -24,6 +24,7 @@
 #include "libruqolawidgets_private_export.h"
 
 #include <QDialog>
+class ShowAttachmentWidget;
 class LIBRUQOLAWIDGETS_EXPORT ShowAttachmentDialog : public QDialog
 {
     Q_OBJECT
@@ -34,6 +35,7 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    ShowAttachmentWidget *mShowAttachmentWidget = nullptr;
 };
 
 #endif // SHOWATTACHMENTDIALOG_H

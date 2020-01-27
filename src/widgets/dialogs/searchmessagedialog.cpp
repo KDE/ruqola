@@ -53,6 +53,11 @@ SearchMessageDialog::~SearchMessageDialog()
     writeConfig();
 }
 
+void SearchMessageDialog::setRoomId(const QString &roomId)
+{
+    mSearchMessageWidget->setRoomId(roomId);
+}
+
 void SearchMessageDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);

@@ -32,6 +32,7 @@ public:
     explicit SearchMessageDialog(QWidget *parent = nullptr);
     ~SearchMessageDialog();
 
+    void setRoomId(const QString &roomId);
 private:
     void readConfig();
     void writeConfig();

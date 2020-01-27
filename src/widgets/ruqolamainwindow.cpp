@@ -137,8 +137,7 @@ void RuqolaMainWindow::slotConfigureNotification()
 void RuqolaMainWindow::slotSearchMessages()
 {
     QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
-    //dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
-    //Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::PinnedMessages);
+    dlg->setRoomId(mMainWidget->roomId());
     dlg->exec();
     delete dlg;
 }
