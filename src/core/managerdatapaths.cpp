@@ -59,7 +59,6 @@ QString ManagerDataPaths::path(ManagerDataPaths::PathType type, const QString &a
     if (!subdirectory.isEmpty()) {
         path += QLatin1Char('/') + subdirectory;
     }
-    qCDebug(RUQOLA_LOG) << "ManagerDataPaths::path:" << path;
     return path;
 }
 
