@@ -18,32 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWLISTMESSAGEBASEDIALOG_H
-#define SHOWLISTMESSAGEBASEDIALOG_H
 
-#include <QDialog>
-#include "libruqolawidgets_export.h"
+#ifndef SHOWLISTMESSAGEBASEDIALOGTEST_H
+#define SHOWLISTMESSAGEBASEDIALOGTEST_H
 
-class ShowListMessageBaseWidget;
-class ListMessagesModelFilterProxyModel;
-class LIBRUQOLAWIDGETS_EXPORT ShowListMessageBaseDialog : public QDialog
+#include <QObject>
+
+class ShowListMessageBaseDialogTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ShowListMessageBaseDialog(QWidget *parent = nullptr);
-    ~ShowListMessageBaseDialog();
-
-    void setModel(ListMessagesModelFilterProxyModel *model);
-
-    void setRoomId(const QString &roomId);
-    Q_REQUIRED_RESULT QString roomId() const;
-
-Q_SIGNALS:
-    void loadMoreElements();
-
-private:
-    QString mRoomId;
-    ShowListMessageBaseWidget *mShowListMessage = nullptr;
+    explicit ShowListMessageBaseDialogTest(QObject *parent = nullptr);
+    ~ShowListMessageBaseDialogTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
-#endif // SHOWLISTMESSAGEBASEDIALOG_H
+#endif // SHOWLISTMESSAGEBASEDIALOGTEST_H

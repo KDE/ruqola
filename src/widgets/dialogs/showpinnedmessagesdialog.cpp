@@ -59,5 +59,5 @@ void ShowPinnedMessagesDialog::writeConfig()
 
 void ShowPinnedMessagesDialog::slotLoadMorePinnedMessages()
 {
-    //Ruqola::self()->rocketChatAccount()->loadMoreListMessages(roomId);
+    Ruqola::self()->rocketChatAccount()->loadMoreListMessages(roomId());
 }
