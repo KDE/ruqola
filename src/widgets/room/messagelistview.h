@@ -23,6 +23,7 @@
 
 #include <QListView>
 #include "libruqolawidgets_private_export.h"
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public QListView
 {
     Q_OBJECT
@@ -31,6 +32,15 @@ public:
     ~MessageListView();
 
     void setChannelSelected(const QString &roomId);
+
+    void setModel(QAbstractItemModel *newModel) override;
+
+private Q_SLOTS:
+    void checkIfAtBottom();
+    void maybeScrollToBottom();
+
+private:
+    bool mAtBottom = true;
 };
 
 #endif // MESSAGELISTVIEW_H

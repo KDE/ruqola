@@ -23,6 +23,7 @@
 #include "rocketchataccount.h"
 #include "messagelistdelegate.h"
 #include <QDebug>
+#include <QScrollBar>
 
 MessageListView::MessageListView(QWidget *parent)
     : QListView(parent)
@@ -44,4 +45,33 @@ void MessageListView::setChannelSelected(const QString &roomId)
     //TODO temporary
     Ruqola::self()->rocketChatAccount()->switchingToRoom(roomId);
     setModel(Ruqola::self()->rocketChatAccount()->messageModelForRoom(roomId));
+}
+
+void MessageListView::setModel(QAbstractItemModel *newModel)
+{
+    QAbstractItemModel *oldModel = model();
+    if (oldModel) {
+        disconnect(oldModel, nullptr, this, nullptr);
+    }
+    QListView::setModel(newModel);
+    connect(newModel, &QAbstractItemModel::rowsAboutToBeInserted, this, &MessageListView::checkIfAtBottom);
+    connect(newModel, &QAbstractItemModel::rowsAboutToBeRemoved, this, &MessageListView::checkIfAtBottom);
+    connect(newModel, &QAbstractItemModel::modelAboutToBeReset, this, &MessageListView::checkIfAtBottom);
+    connect(newModel, &QAbstractItemModel::rowsInserted, this, &MessageListView::maybeScrollToBottom);
+    connect(newModel, &QAbstractItemModel::rowsRemoved, this, &MessageListView::maybeScrollToBottom);
+    connect(newModel, &QAbstractItemModel::modelReset, this, &MessageListView::maybeScrollToBottom);
+    scrollToBottom();
+}
+
+void MessageListView::checkIfAtBottom()
+{
+    auto *vbar = verticalScrollBar();
+    mAtBottom = vbar->value() == vbar->maximum();
+}
+
+void MessageListView::maybeScrollToBottom()
+{
+    if (mAtBottom) {
+        scrollToBottom();
+    }
 }
