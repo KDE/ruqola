@@ -18,30 +18,20 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "searchchannelwidget.h"
-#include <QVBoxLayout>
-#include <KLocalizedString>
-#include <KLineEdit>
-#include <QListWidget>
 
-SearchChannelWidget::SearchChannelWidget(QWidget *parent)
-    : QWidget(parent)
+#ifndef SEARCHCHANNELWIDGETTEST_H
+#define SEARCHCHANNELWIDGETTEST_H
+
+#include <QObject>
+
+class SearchChannelWidgetTest : public QObject
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    Q_OBJECT
+public:
+    explicit SearchChannelWidgetTest(QObject *parent = nullptr);
+    ~SearchChannelWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
+};
 
-    mSearchLineEdit = new KLineEdit(this);
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setClearButtonEnabled(true);
-    mSearchLineEdit->setTrapReturnKey(true);
-    mainLayout->addWidget(mSearchLineEdit);
-
-    mResultListWidget = new QListWidget(this);
-    mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
-    mainLayout->addWidget(mResultListWidget);
-}
-
-SearchChannelWidget::~SearchChannelWidget()
-{
-}
+#endif // SEARCHCHANNELWIDGETTEST_H

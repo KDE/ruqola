@@ -18,30 +18,33 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "searchchannelwidget.h"
-#include <QVBoxLayout>
-#include <KLocalizedString>
+
+#include "searchchannelwidgettest.h"
+#include "dialogs/searchchannelwidget.h"
 #include <KLineEdit>
 #include <QListWidget>
-
-SearchChannelWidget::SearchChannelWidget(QWidget *parent)
-    : QWidget(parent)
+#include <QTest>
+#include <QVBoxLayout>
+QTEST_MAIN(SearchChannelWidgetTest)
+SearchChannelWidgetTest::SearchChannelWidgetTest(QObject *parent)
+    : QObject(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSearchLineEdit = new KLineEdit(this);
-    mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setClearButtonEnabled(true);
-    mSearchLineEdit->setTrapReturnKey(true);
-    mainLayout->addWidget(mSearchLineEdit);
-
-    mResultListWidget = new QListWidget(this);
-    mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
-    mainLayout->addWidget(mResultListWidget);
 }
 
-SearchChannelWidget::~SearchChannelWidget()
+void SearchChannelWidgetTest::shouldHaveDefaultValues()
 {
+    SearchChannelWidget w;
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    KLineEdit *mSearchLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    QVERIFY(mSearchLineEdit);
+    QVERIFY(mSearchLineEdit->isClearButtonEnabled());
+    QVERIFY(mSearchLineEdit->trapReturnKey());
+
+    QListWidget *mResultListWidget = w.findChild<QListWidget *>(QStringLiteral("mResultListWidget"));
+    QVERIFY(mResultListWidget);
 }
