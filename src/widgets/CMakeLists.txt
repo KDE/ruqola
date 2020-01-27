@@ -39,6 +39,12 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/showattachmentwidget.cpp
     )
 
+set(Ruqola_configure_SRCS
+    dialogs/configuresettingsdialog.cpp
+    dialogs/configuresettingswidget.cpp
+    dialogs/configureaccountwidget.cpp
+    )
+
 
 set(Ruqola_channellist_SRCS
     channellist/channellistwidget.cpp
@@ -69,6 +75,7 @@ add_library(libruqolawidgets
     ${Ruqola_widgets_dialog_SRCS}
     ${Ruqola_channellist_SRCS}
     ${Ruqola_roomwidget_SRCS}
+    ${Ruqola_configure_SRCS}
     )
 
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)

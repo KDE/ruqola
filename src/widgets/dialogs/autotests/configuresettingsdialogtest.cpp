@@ -18,37 +18,31 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "showlistmessagebasewidgettest.h"
-#include "dialogs/showlistmessagebasewidget.h"
-#include "room/messagelistview.h"
-#include <QLabel>
-#include <KLineEdit>
+#include "configuresettingsdialogtest.h"
+#include "dialogs/configuresettingsdialog.h"
+#include "dialogs/configuresettingswidget.h"
+#include <QDialogButtonBox>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 
-QTEST_MAIN(ShowListMessageBaseWidgetTest)
-ShowListMessageBaseWidgetTest::ShowListMessageBaseWidgetTest(QObject *parent)
+QTEST_MAIN(ConfigureSettingsDialogTest)
+ConfigureSettingsDialogTest::ConfigureSettingsDialogTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
-void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
+void ConfigureSettingsDialogTest::shouldHaveDefaultValues()
 {
-    ShowListMessageBaseWidget w;
-
+    ConfigureSettingsDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
     QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    KLineEdit *mSearchMessageLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mSearchMessageLineEdit"));
-    QVERIFY(mSearchMessageLineEdit);
-    QVERIFY(mSearchMessageLineEdit->isClearButtonEnabled());
+    ConfigureSettingsWidget *mConfigureSettingsWidget = w.findChild<ConfigureSettingsWidget *>(QStringLiteral("mConfigureSettingsWidget"));
+    QVERIFY(mConfigureSettingsWidget);
 
-    QLabel *mMessageListInfo = w.findChild<QLabel *>(QStringLiteral("mMessageListInfo"));
-    QVERIFY(mMessageListInfo);
-    QVERIFY(mMessageListInfo->text().isEmpty());
-    QCOMPARE(mMessageListInfo->textFormat(), Qt::RichText);
-
-    MessageListView *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
-    QVERIFY(mMessageListView);
+    QDialogButtonBox *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
+    QVERIFY(buttonBox);
 }
