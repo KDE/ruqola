@@ -24,7 +24,12 @@
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <KConfigGroup>
+#include <KSharedConfig>
 
+namespace {
+static const char myConfigGroupName[] = "UploadFileDialog";
+}
 UploadFileDialog::UploadFileDialog(QWidget *parent)
     : QDialog(parent)
 {
@@ -44,10 +49,27 @@ UploadFileDialog::UploadFileDialog(QWidget *parent)
     mOkButton = buttonBox->button(QDialogButtonBox::Ok);
     mOkButton->setEnabled(false);
     connect(mUploadFileWidget, &UploadFileWidget::updateOkButton, mOkButton, &QPushButton::setEnabled);
+    readConfig();
 }
 
 UploadFileDialog::~UploadFileDialog()
 {
+    writeConfig();
+}
+
+void UploadFileDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void UploadFileDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
+    group.writeEntry("Size", size());
 }
 
 UploadFileDialog::UploadFileInfo UploadFileDialog::fileInfo() const

@@ -46,6 +46,8 @@ public:
 
     Q_REQUIRED_RESULT UploadFileInfo fileInfo() const;
 private:
+    void readConfig();
+    void writeConfig();
     UploadFileWidget *mUploadFileWidget = nullptr;
     QPushButton *mOkButton = nullptr;
 };
