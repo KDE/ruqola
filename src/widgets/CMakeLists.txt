@@ -35,6 +35,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/reportmessagewidget.cpp
     dialogs/showimagedialog.cpp
     dialogs/showimagewidget.cpp
+    dialogs/showattachmentdialog.cpp
     )
 
 
