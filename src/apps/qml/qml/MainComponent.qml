@@ -255,6 +255,11 @@ Component {
                 anchors.left: parent.left
                 anchors.margins: 2*Kirigami.Units.smallSpacing
                 wrapMode: QQC2.Label.Wrap
+                textFormat: Qt.RichText
+                onLinkActivated: {
+                    RuqolaUtils.openUrl(link);
+                }
+
             }
             QQC2.Label {
                 visible: appid.selectedRoom && (appid.selectedRoom.announcement !== "")
@@ -266,6 +271,7 @@ Component {
                 onLinkActivated: {
                     RuqolaUtils.openUrl(link);
                 }
+                textFormat: Qt.RichText
             }
             QQC2.Label {
                 visible: appid.selectedRoom && (appid.selectedRoom.description !== "")
@@ -275,6 +281,10 @@ Component {
                 anchors.left: parent.left
                 anchors.margins: 2*Kirigami.Units.smallSpacing
                 wrapMode: QQC2.Label.Wrap
+                textFormat: Qt.RichText
+                onLinkActivated: {
+                    RuqolaUtils.openUrl(link);
+                }
             }
 
             Kirigami.Separator {
