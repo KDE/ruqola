@@ -443,7 +443,7 @@ void Room::setReadOnly(bool readOnly)
 
 QString Room::topic() const
 {
-    return mTopic;
+    return Utils::convertTextWithUrl(mTopic);
 }
 
 void Room::setTopic(const QString &topic)
