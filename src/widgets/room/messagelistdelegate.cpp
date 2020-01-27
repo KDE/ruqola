@@ -22,6 +22,7 @@
 #include "messagedelegatehelperbase.h"
 #include "messagedelegatehelpertext.h"
 #include "messagedelegatehelperimage.h"
+#include "messagedelegatehelperfile.h"
 #include "model/messagemodel.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -38,6 +39,7 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     , mEmojiFont(QStringLiteral("NotoColorEmoji"))
     , mHelperText(new MessageDelegateHelperText)
     , mHelperImage(new MessageDelegateHelperImage)
+    , mHelperFile(new MessageDelegateHelperFile)
 {
 }
 
@@ -136,6 +138,8 @@ MessageDelegateHelperBase *MessageListDelegate::helper(const Message *message) c
     switch (message->messageType()) {
     case Message::Image:
         return mHelperImage;
+    case Message::File:
+        return mHelperFile;
     case Message::NormalText:
     default: // #### for now
         return mHelperText;

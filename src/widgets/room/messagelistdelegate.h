@@ -30,6 +30,7 @@ class Message;
 class MessageDelegateHelperBase;
 class MessageDelegateHelperText;
 class MessageDelegateHelperImage;
+class MessageDelegateHelperFile;
 
 class MessageListDelegate : public QItemDelegate
 {
@@ -76,6 +77,7 @@ private:
 
     MessageDelegateHelperText *mHelperText;
     MessageDelegateHelperImage *mHelperImage;
+    MessageDelegateHelperFile *mHelperFile;
 };
 
 #endif // MESSAGELISTDELEGATE_H
