@@ -49,7 +49,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
-    if (unreadCount == 0)
+    if (unreadCount == 0 && !index.data(RoomModel::RoomAlert).toBool())
         optionCopy.state &= ~QStyle::State_Enabled;
     drawBackground(painter, optionCopy, index);
     const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
