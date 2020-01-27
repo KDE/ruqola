@@ -23,6 +23,7 @@
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 
 UploadFileDialog::UploadFileDialog(QWidget *parent)
     : QDialog(parent)
@@ -40,6 +41,9 @@ UploadFileDialog::UploadFileDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::accepted, this, &UploadFileDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &UploadFileDialog::reject);
     mainLayout->addWidget(buttonBox);
+    mOkButton = buttonBox->button(QDialogButtonBox::Ok);
+    mOkButton->setEnabled(false);
+    connect(mUploadFileWidget, &UploadFileWidget::updateOkButton, mOkButton, &QPushButton::setEnabled);
 }
 
 UploadFileDialog::~UploadFileDialog()

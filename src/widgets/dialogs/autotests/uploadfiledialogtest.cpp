@@ -22,6 +22,7 @@
 #include "dialogs/uploadfiledialog.h"
 #include "dialogs/uploadfilewidget.h"
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
@@ -44,4 +45,7 @@ void UploadFileDialogTest::shouldHaveDefaultValues()
     QVERIFY(mUploadFileWidget);
     QDialogButtonBox *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
     QVERIFY(buttonBox);
+
+    QPushButton *mOkButton = buttonBox->button(QDialogButtonBox::Ok);
+    QVERIFY(!mOkButton->isEnabled());
 }

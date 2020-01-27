@@ -35,6 +35,9 @@ public:
     Q_REQUIRED_RESULT QString description() const;
     Q_REQUIRED_RESULT QUrl fileUrl() const;
 
+Q_SIGNALS:
+    void updateOkButton(bool enabled);
+
 private:
     QLineEdit *mDescription = nullptr;
     QLineEdit *mMessage = nullptr;

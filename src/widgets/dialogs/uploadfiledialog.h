@@ -26,6 +26,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class UploadFileWidget;
+class QPushButton;
 class LIBRUQOLAWIDGETS_EXPORT UploadFileDialog : public QDialog
 {
     Q_OBJECT
@@ -46,6 +47,7 @@ public:
     Q_REQUIRED_RESULT UploadFileInfo fileInfo() const;
 private:
     UploadFileWidget *mUploadFileWidget = nullptr;
+    QPushButton *mOkButton = nullptr;
 };
 
 #endif // UPLOADFILEDIALOG_H

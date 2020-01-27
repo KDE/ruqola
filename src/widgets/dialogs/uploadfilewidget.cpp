@@ -24,6 +24,7 @@
 
 #include <QFormLayout>
 #include <QLineEdit>
+#include <KLineEdit>
 
 UploadFileWidget::UploadFileWidget(QWidget *parent)
     : QWidget(parent)
@@ -40,6 +41,10 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     mSelectFile = new KUrlRequester(this);
     mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
     layout->addRow(i18n("File:"), mSelectFile);
+
+    connect(mSelectFile->lineEdit(), &KLineEdit::textChanged, this, [this](const QString &str) {
+        Q_EMIT updateOkButton(!str.trimmed().isEmpty());
+    });
 }
 
 UploadFileWidget::~UploadFileWidget()
