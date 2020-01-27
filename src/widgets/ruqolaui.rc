@@ -19,6 +19,8 @@
    <Action name="show_starred_messages" />
    <Action name="show_snippered_messages" />
    <Action name="search_messages" />
+   <Separator/>
+   <Action name="configure_notification" />
   </Menu>
  </MenuBar>
 </gui>

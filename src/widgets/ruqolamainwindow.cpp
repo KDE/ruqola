@@ -32,6 +32,7 @@
 #include "dialogs/showmentionsmessagesdialog.h"
 #include "dialogs/showsnipperedmessagesdialog.h"
 #include "dialogs/searchmessagedialog.h"
+#include "dialogs/configurenotificationdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -120,6 +121,17 @@ void RuqolaMainWindow::setupActions()
     mSearchMessages = new QAction(QIcon::fromTheme(QStringLiteral("edit-find")), i18n("Search Messages..."), this);
     connect(mSearchMessages, &QAction::triggered, this, &RuqolaMainWindow::slotSearchMessages);
     ac->addAction(QStringLiteral("search_messages"), mSearchMessages);
+
+    mConfigureNotification = new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification..."), this);
+    connect(mConfigureNotification, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureNotification);
+    ac->addAction(QStringLiteral("configure_notification"), mConfigureNotification);
+}
+
+void RuqolaMainWindow::slotConfigureNotification()
+{
+    QPointer<ConfigureNotificationDialog> dlg = new ConfigureNotificationDialog(this);
+    dlg->exec();
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotSearchMessages()
