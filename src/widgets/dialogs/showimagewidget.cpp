@@ -33,6 +33,7 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
 
     QScrollArea *scrollArea = new QScrollArea(this);
     scrollArea->setObjectName(QStringLiteral("scrollArea"));
+    scrollArea->setWidgetResizable(true);
     mainLayout->addWidget(scrollArea);
 
     mLabel = new QLabel(this);
@@ -40,8 +41,7 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     mLabel->setBackgroundRole(QPalette::Base);
     mLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     mLabel->setScaledContents(true);
-    //TODO fix me!
-    mLabel->resize(400,400);
+    mLabel->resize(300, 200);
 
     scrollArea->setWidget(mLabel);
 }
