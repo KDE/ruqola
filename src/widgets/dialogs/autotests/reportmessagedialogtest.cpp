@@ -25,6 +25,8 @@
 #include <QStandardPaths>
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
+#include <QPushButton>
+#include <QLineEdit>
 
 QTEST_MAIN(ReportMessageDialogTest)
 
@@ -49,4 +51,20 @@ void ReportMessageDialogTest::shouldHaveDefaultValues()
     QVERIFY(button);
 
     QVERIFY(w.message().isEmpty());
+
+    QPushButton *okButton = button->button(QDialogButtonBox::Ok);
+    QVERIFY(!okButton->isEnabled());
+}
+
+void ReportMessageDialogTest::shouldUpdateOkButton()
+{
+    ReportMessageDialog w;
+    ReportMessageWidget *mReportMessageWidget = w.findChild<ReportMessageWidget *>(QStringLiteral("mReportMessageWidget"));
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+
+    QLineEdit *mMessageLineEdit = mReportMessageWidget->findChild<QLineEdit *>(QStringLiteral("mMessageLineEdit"));
+    QVERIFY(mMessageLineEdit);
+    mMessageLineEdit->setText(QStringLiteral("foo"));
+    QPushButton *okButton = button->button(QDialogButtonBox::Ok);
+    QVERIFY(okButton->isEnabled());
 }

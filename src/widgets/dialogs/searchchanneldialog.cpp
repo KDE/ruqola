@@ -25,6 +25,7 @@
 #include <QVBoxLayout>
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <QPushButton>
 
 namespace {
 static const char myConfigGroupName[] = "SearchChannelDialog";
@@ -43,9 +44,11 @@ SearchChannelDialog::SearchChannelDialog(QWidget *parent)
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
+
     connect(button, &QDialogButtonBox::accepted, this, &SearchChannelDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &SearchChannelDialog::reject);
     readConfig();
+
 }
 
 SearchChannelDialog::~SearchChannelDialog()

@@ -32,6 +32,8 @@ public:
     explicit ReportMessageWidget(QWidget *parent = nullptr);
     ~ReportMessageWidget();
     Q_REQUIRED_RESULT QString message() const;
+Q_SIGNALS:
+    void updateOkButton(bool enabled);
 private:
     QLineEdit *mMessageLineEdit = nullptr;
 };

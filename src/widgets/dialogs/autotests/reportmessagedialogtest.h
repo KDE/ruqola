@@ -31,6 +31,7 @@ public:
     ~ReportMessageDialogTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldUpdateOkButton();
 };
 
 #endif // REPORTMESSAGEDIALOGTEST_H

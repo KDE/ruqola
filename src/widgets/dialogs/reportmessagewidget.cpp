@@ -42,6 +42,9 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     mMessageLineEdit->setClearButtonEnabled(true);
     mMessageLineEdit->setPlaceholderText(i18n("Why you signal this message?"));
     mainLayout->addWidget(mMessageLineEdit);
+    connect(mMessageLineEdit, &QLineEdit::textChanged, this, [this]() {
+        Q_EMIT updateOkButton(!mMessageLineEdit->text().trimmed().isEmpty());
+    });
 }
 
 ReportMessageWidget::~ReportMessageWidget()

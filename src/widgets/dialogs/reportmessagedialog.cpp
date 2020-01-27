@@ -26,6 +26,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <QPushButton>
 namespace {
 static const char myConfigGroupName[] = "ReportMessageDialog";
 }
@@ -46,6 +47,10 @@ ReportMessageDialog::ReportMessageDialog(QWidget *parent)
     connect(button, &QDialogButtonBox::accepted, this, &ReportMessageDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &ReportMessageDialog::reject);
     readConfig();
+
+    QPushButton *okButton = button->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
+    connect(mReportMessageWidget, &ReportMessageWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
 ReportMessageDialog::~ReportMessageDialog()
