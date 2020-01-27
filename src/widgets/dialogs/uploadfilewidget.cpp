@@ -23,7 +23,6 @@
 #include <KUrlRequester>
 
 #include <QFormLayout>
-#include <QLineEdit>
 #include <KLineEdit>
 
 UploadFileWidget::UploadFileWidget(QWidget *parent)
@@ -33,7 +32,8 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
 
-    mDescription = new QLineEdit(this);
+    mDescription = new KLineEdit(this);
+    mDescription->setTrapReturnKey(true);
     mDescription->setObjectName(QStringLiteral("mDescription"));
     mDescription->setClearButtonEnabled(true);
     layout->addRow(i18n("Description:"), mDescription);

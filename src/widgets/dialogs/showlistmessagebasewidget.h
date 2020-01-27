@@ -24,7 +24,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QLineEdit;
+class KLineEdit;
 class MessageListView;
 class QLabel;
 class ListMessagesModelFilterProxyModel;
@@ -39,7 +39,7 @@ public:
     //TODO change text
 
 private:
-    QLineEdit *mSearchMessageLineEdit = nullptr;
+    KLineEdit *mSearchMessageLineEdit = nullptr;
     MessageListView *mMessageListView = nullptr;
     QLabel *mMessageListInfo = nullptr;
 };

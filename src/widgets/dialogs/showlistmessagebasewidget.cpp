@@ -24,7 +24,7 @@
 
 #include <QVBoxLayout>
 #include <KLocalizedString>
-#include <QLineEdit>
+#include <KLineEdit>
 #include <QLabel>
 
 ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
@@ -34,9 +34,10 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSearchMessageLineEdit = new QLineEdit(this);
+    mSearchMessageLineEdit = new KLineEdit(this);
     mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
     mSearchMessageLineEdit->setClearButtonEnabled(true);
+    mSearchMessageLineEdit->setTrapReturnKey(true);
     mainLayout->addWidget(mSearchMessageLineEdit);
 
     mMessageListInfo = new QLabel(this);

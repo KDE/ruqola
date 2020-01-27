@@ -19,7 +19,7 @@
 */
 
 #include "showattachmentwidget.h"
-#include <QLineEdit>
+#include <KLineEdit>
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QLabel>
@@ -31,9 +31,10 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSearchAttachmentFileLineEdit = new QLineEdit(this);
+    mSearchAttachmentFileLineEdit = new KLineEdit(this);
     mSearchAttachmentFileLineEdit->setObjectName(QStringLiteral("mSearchAttachmentFileLineEdit"));
     mSearchAttachmentFileLineEdit->setClearButtonEnabled(true);
+    mSearchAttachmentFileLineEdit->setTrapReturnKey(true);
     mainLayout->addWidget(mSearchAttachmentFileLineEdit);
 
     mInfo = new QLabel(this);

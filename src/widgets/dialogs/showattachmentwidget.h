@@ -23,7 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-class QLineEdit;
+class KLineEdit;
 class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowAttachmentWidget : public QWidget
 {
@@ -33,7 +33,7 @@ public:
     ~ShowAttachmentWidget();
 private:
     void updateInfo();
-    QLineEdit *mSearchAttachmentFileLineEdit = nullptr;
+    KLineEdit *mSearchAttachmentFileLineEdit = nullptr;
     QLabel *mInfo = nullptr;
 };
 
