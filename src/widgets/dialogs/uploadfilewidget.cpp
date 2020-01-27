@@ -37,11 +37,6 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     mDescription->setClearButtonEnabled(true);
     layout->addRow(i18n("Description:"), mDescription);
 
-    mMessage = new QLineEdit(this);
-    mMessage->setObjectName(QStringLiteral("mMessage"));
-    mMessage->setClearButtonEnabled(true);
-    layout->addRow(i18n("Message:"), mMessage);
-
     mSelectFile = new KUrlRequester(this);
     mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
     layout->addRow(i18n("File:"), mSelectFile);
@@ -54,11 +49,6 @@ UploadFileWidget::~UploadFileWidget()
 QString UploadFileWidget::description() const
 {
     return mDescription->text();
-}
-
-QString UploadFileWidget::message() const
-{
-    return mMessage->text();
 }
 
 QUrl UploadFileWidget::fileUrl() const

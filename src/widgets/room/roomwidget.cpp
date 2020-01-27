@@ -61,7 +61,7 @@ RoomWidget::~RoomWidget()
 
 void RoomWidget::slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
 {
-    Ruqola::self()->rocketChatAccount()->uploadFile(mRoomId, uploadFileInfo.description, uploadFileInfo.message, uploadFileInfo.fileUrl);
+    Ruqola::self()->rocketChatAccount()->uploadFile(mRoomId, uploadFileInfo.description, QString(), uploadFileInfo.fileUrl);
 }
 
 void RoomWidget::slotSendMessage(const QString &msg)

@@ -33,7 +33,6 @@ public:
     ~UploadFileWidget();
 
     Q_REQUIRED_RESULT QString description() const;
-    Q_REQUIRED_RESULT QString message() const;
     Q_REQUIRED_RESULT QUrl fileUrl() const;
 
 private:

@@ -42,10 +42,6 @@ void UploadFileWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDescription);
     QVERIFY(mDescription->isClearButtonEnabled());
 
-    QLineEdit *mMessage = w.findChild<QLineEdit *>(QStringLiteral("mMessage"));
-    QVERIFY(mMessage);
-    QVERIFY(mMessage->isClearButtonEnabled());
-
     KUrlRequester *mSelectFile = w.findChild<KUrlRequester *>(QStringLiteral("mSelectFile"));
     QVERIFY(mSelectFile);
 }
@@ -54,6 +50,5 @@ void UploadFileWidgetTest::shouldReturnEmptyResult()
 {
     UploadFileWidget w;
     QVERIFY(w.description().isEmpty());
-    QVERIFY(w.message().isEmpty());
     QVERIFY(w.fileUrl().isEmpty());
 }
