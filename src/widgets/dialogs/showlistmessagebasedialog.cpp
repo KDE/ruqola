@@ -20,6 +20,8 @@
 
 #include "showlistmessagebasedialog.h"
 #include "showlistmessagebasewidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -38,11 +40,16 @@ ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowListMessageBaseDialog::reject);
-    connect(mShowListMessage, &ShowListMessageBaseWidget::loadMoreElements, this, &ShowListMessageBaseDialog::loadMoreElements);
+    connect(mShowListMessage, &ShowListMessageBaseWidget::loadMoreElements, this, &ShowListMessageBaseDialog::slotLoadMoreMessages);
 }
 
 ShowListMessageBaseDialog::~ShowListMessageBaseDialog()
 {
+}
+
+void ShowListMessageBaseDialog::slotLoadMoreMessages()
+{
+    Ruqola::self()->rocketChatAccount()->loadMoreListMessages(roomId());
 }
 
 void ShowListMessageBaseDialog::setModel(ListMessagesModelFilterProxyModel *model)
