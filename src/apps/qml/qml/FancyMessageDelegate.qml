@@ -96,7 +96,10 @@ Rectangle {
     signal showDisplayAttachment(string messageId, bool displayAttachment)
     Loader {
         id: loaded
-        anchors.fill: parent
+        anchors {
+            fill: parent
+            margins: Kirigami.Units.largeSpacing
+        }
 
         Component.onCompleted: {
             if (i_messageType === Message.System) {

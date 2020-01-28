@@ -87,10 +87,7 @@ ListView {
 
     visible: count > 0
     delegate: FancyMessageDelegate {
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.rightMargin: Kirigami.Units.largeSpacing
-        anchors.leftMargin: Kirigami.Units.largeSpacing
+        width: activeChat.width
 
         i_originalMessage: originalMessage
         i_messageText: messageConverted
