@@ -59,6 +59,7 @@ ColumnLayout {
 
     QQC2.TextField {
         id: messageLine
+        selectByMouse: true
         //FIXME add multiline !!!
         inputMethodHints: Qt.ImhMultiLine
 
