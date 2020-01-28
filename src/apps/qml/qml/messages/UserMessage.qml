@@ -213,6 +213,9 @@ MessageBase {
                         RepeaterReactions {
                             id: repearterReactions
                             model: i_reactions
+                            onAddReaction: {
+                                messageMain.addReaction(i_messageID, emoji)
+                            }
                             onDeleteReaction: {
                                 messageMain.deleteReaction(i_messageID, emoji)
                             }

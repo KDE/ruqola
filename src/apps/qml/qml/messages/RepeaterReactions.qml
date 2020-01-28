@@ -26,12 +26,20 @@ import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Layouts 1.12
 Repeater {
     id: repearterReactions
+
+    signal addReaction(string emoji)
     signal deleteReaction(string emoji)
+
     Rectangle {
+        id: item
+
+        readonly property bool reactionAdded: model.modelData.userNames.indexOf(appid.rocketChatAccount.userName) !== -1
+
         radius: 5
         width: row.width + 2 * Kirigami.Units.smallSpacing
         height: row.height + 2 * Kirigami.Units.smallSpacing
         border.color: Kirigami.Theme.linkBackgroundColor
+        border.width: reactionAdded ? 2 : 1
 
         RowLayout {
             id: row
@@ -64,7 +72,6 @@ Repeater {
                 text: model.modelData.count
                 visible: model.modelData.count  > 0
                 wrapMode: QQC2.Label.NoWrap
-                font.italic: true
                 font.pixelSize: 9
             }
         }
@@ -76,7 +83,11 @@ Repeater {
             cursorShape: containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
             hoverEnabled: true
             onClicked: {
-                repearterReactions.deleteReaction(model.modelData.reactionName);
+                if (item.reactionAdded) {
+                    repearterReactions.deleteReaction(model.modelData.reactionName);
+                } else {
+                    repearterReactions.addReaction(model.modelData.reactionName);
+                }
             }
         }
 
