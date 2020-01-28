@@ -195,12 +195,27 @@ ListView {
             //TODO
         }
     }
-    section {
-        delegate: NewDateLabel {
-            date: section
-            width: activeChat.width
-        }
-        property: "date"
-        labelPositioning: ViewSection.InlineLabels | ViewSection.CurrentLabelAtStart
-    }
+
+// FIXME: Disabled this code path since it easily crashes the QML engine when switching quickly between rooms.
+//
+// See backtrace below
+//    #0  __GI_raise (sig=sig@entry=6) at ../sysdeps/unix/sysv/linux/raise.c:50
+//    #1  0x00007ffff45fa899 in __GI_abort () at abort.c:79
+//    #2  0x00007ffff4c13cd6 in qt_message_fatal (context=..., message=...) at /home/kfunk/devel/src/qt5.12/qtbase/src/corelib/global/qlogging.cpp:1907
+//    #3  0x00007ffff4c0fe40 in QMessageLogger::fatal (this=0x7fffffffb420, msg=0x7ffff4fb9ec8 "ASSERT: \"%s\" in file %s, line %d") at /home/kfunk/devel/src/qt5.12/qtbase/src/corelib/global/qlogging.cpp:888
+//    #4  0x00007ffff4c0698c in qt_assert (assertion=0x7ffff6f33000 "index >=0 && index < count(group)", file=0x7ffff6f32fb0 "/home/kfunk/devel/src/qt5.12/qtdeclarative/src/qml/util/qqmllistcompositor.cpp", line=365) at /home/kfunk/devel/src/qt5.12/qtbase/src/corelib/global/qglobal.cpp:3212
+//    #5  0x00007ffff6aa9872 in QQmlListCompositor::find (this=0x61700009f8e0, group=QQmlListCompositor::Default, index=99) at /home/kfunk/devel/src/qt5.12/qtdeclarative/src/qml/util/qqmllistcompositor.cpp:365
+//    #6  0x00007ffff6ea5159 in QQmlDelegateModelPrivate::stringValue (this=0x61700009f800, group=QQmlListCompositor::Default, index=99, name=...) at /home/kfunk/devel/src/qt5.12/qtdeclarative/src/qml/types/qqmldelegatemodel.cpp:1132
+//    #7  0x00007ffff6ea544e in QQmlDelegateModel::stringValue (this=0x60300090af00, index=99, name=...) at /home/kfunk/devel/src/qt5.12/qtdeclarative/src/qml/types/qqmldelegatemodel.cpp:1155
+//    #8  0x00007ffff75c5867 in QQuickListViewPrivate::updateSections (this=0x61d0001ed280) at /home/kfunk/devel/src/qt5.12/qtdeclarative/src/quick/items/qquicklistview.cpp:1205
+//    ...
+//
+//    section {
+//        delegate: NewDateLabel {
+//            date: section
+//            width: activeChat.width
+//        }
+//        property: "date"
+//        labelPositioning: ViewSection.InlineLabels | ViewSection.CurrentLabelAtStart
+//    }
 }
