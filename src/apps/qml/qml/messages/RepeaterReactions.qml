@@ -27,59 +27,60 @@ import QtQuick.Layouts 1.12
 Repeater {
     id: repearterReactions
     signal deleteReaction(string emoji)
-    Column {
-        AnimatedImage {
-            id: imageAnimated
-            visible: model.modelData.isAnimatedImage
-            source: model.modelData.isAnimatedImage ? model.modelData.convertedReactionName : ""
-            //Verify it
-            height: 20
-            width: height
-            asynchronous: true
+    Rectangle {
+        radius: 5
+        width: row.width + 2 * Kirigami.Units.smallSpacing
+        height: row.height + 2 * Kirigami.Units.smallSpacing
+        border.color: Kirigami.Theme.linkBackgroundColor
 
-            MouseArea {
-                id: imageAnimatedMA
-                anchors.fill: parent
-                acceptedButtons: Qt.RightButton | Qt.LeftButton
-                hoverEnabled: true
-                onClicked: {
-                    repearterReactions.deleteReaction(model.modelData.reactionName);
-                }
+        RowLayout {
+            id: row
+            anchors {
+                centerIn: parent
+                margins: Kirigami.Units.smallSpacing
             }
-            QQC2.ToolTip.visible: imageAnimatedMA.containsMouse
-            QQC2.ToolTip.text: model.modelData.convertedUsersNameAtToolTip
-        }
-        QQC2.Label {
-            id: reactionsType
-            visible: !model.modelData.isAnimatedImage
-            textFormat: Text.RichText
-            text: model.modelData.convertedReactionName
-            wrapMode: QQC2.Label.NoWrap
-            anchors.leftMargin: Kirigami.Units.smallSpacing
-            anchors.rightMargin: Kirigami.Units.smallSpacing
-            font.pixelSize: 8
+            spacing: Kirigami.Units.smallSpacing
 
-            MouseArea {
-                id: reactionsTypeMA
-                anchors.fill: parent
-                acceptedButtons: Qt.RightButton | Qt.LeftButton
-                hoverEnabled: true
-                onClicked: {
-                    repearterReactions.deleteReaction(model.modelData.reactionName);
-                }
+            AnimatedImage {
+                id: imageAnimated
+                visible: model.modelData.isAnimatedImage
+                source: model.modelData.isAnimatedImage ? model.modelData.convertedReactionName : ""
+                //Verify it
+                Layout.preferredWidth: 20
+                Layout.preferredHeight: height
+                asynchronous: true
             }
+            QQC2.Label {
+                id: reactionsType
+                visible: !model.modelData.isAnimatedImage
+                textFormat: Text.RichText
+                text: model.modelData.convertedReactionName
+                wrapMode: QQC2.Label.NoWrap
+                font.pixelSize: 8
+            }
+            QQC2.Label {
+                id: count
+                Layout.fillHeight: true
+                text: model.modelData.count
+                visible: model.modelData.count  > 0
+                wrapMode: QQC2.Label.NoWrap
+                font.italic: true
+                font.pixelSize: 9
+            }
+        }
 
-            QQC2.ToolTip.visible: reactionsTypeMA.containsMouse
-            QQC2.ToolTip.text: model.modelData.convertedUsersNameAtToolTip
+        MouseArea {
+            id: mouseArea
+            anchors.fill: parent
+            acceptedButtons: Qt.RightButton | Qt.LeftButton
+            cursorShape: containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
+            hoverEnabled: true
+            onClicked: {
+                repearterReactions.deleteReaction(model.modelData.reactionName);
+            }
         }
-        QQC2.Label {
-            id: count
-            textFormat: Text.RichText
-            text: (model.modelData.count === 1) ? "" : i18n("(By %1 persons)", model.modelData.count)
-            wrapMode: QQC2.Label.NoWrap
-            anchors.leftMargin: Kirigami.Units.smallSpacing
-            anchors.rightMargin: Kirigami.Units.smallSpacing
-            font.italic: true
-        }
+
+        QQC2.ToolTip.visible: mouseArea.containsMouse
+        QQC2.ToolTip.text: model.modelData.convertedUsersNameAtToolTip
     }
 }
