@@ -100,6 +100,22 @@ ChannelListView *ChannelListWidget::channelListView() const
     return mChannelView;
 }
 
+void ChannelListWidget::setCurrentSelectedRoom(const QString &currentRoom)
+{
+    if (!currentRoom.isEmpty()) {
+        //TODO Q_EMIT channelSelected(currentRoom);
+    }
+}
+
+QString ChannelListWidget::currentSelectedRoom() const
+{
+    const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
+    if (selectedIndex.isValid()) {
+        return selectedIndex.data(Qt::DisplayRole).toString();
+    }
+    return QString();
+}
+
 bool ChannelListWidget::eventFilter(QObject* object, QEvent* event)
 {
     if (object == mSearchRoom && event->type() == QEvent::KeyPress) {
@@ -142,7 +158,6 @@ bool ChannelListWidget::eventFilter(QObject* object, QEvent* event)
 void ChannelListWidget::setUserStatusUpdated(User::PresenceStatus status)
 {
     mStatusComboBox->setStatus(status);
-    //FIXME Store current Status
 }
 
 void ChannelListWidget::slotStatusChanged()

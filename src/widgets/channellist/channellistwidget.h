@@ -38,6 +38,8 @@ public:
     ChannelListView *channelListView() const;
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
+    Q_REQUIRED_RESULT QString currentSelectedRoom() const;
+    void setCurrentSelectedRoom(const QString &currentRoom);
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
 
