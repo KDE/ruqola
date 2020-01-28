@@ -317,7 +317,14 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
                 }
             }
         }
-        if (helper(message)->handleMouseEvent(mev, leftLayout.senderRect, option, index)) {
+        const QString timeStampText = makeTimeStampText(index);
+        const QSize timeSize = timeStampSize(timeStampText, option);
+
+        const qreal margin = basicMargin();
+        QRect messageRect = option.rect;
+        messageRect.setLeft(leftLayout.senderRect.right());
+        messageRect.setRight(option.rect.right() - timeSize.width() - margin/2);
+        if (helper(message)->handleMouseEvent(mev, messageRect, option, index)) {
             return true;
         }
     }

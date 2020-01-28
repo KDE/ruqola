@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperImage : public MessageD
 public:
     void draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const override;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
-    bool handleMouseEvent(QMouseEvent *mouseEvent, const QRectF &senderRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 private:
     friend class MessageDelegateHelperImageTest;
@@ -43,6 +43,7 @@ private:
         QString title;
         QString description;
         QRect hideShowButtonRect;
+        QRect downloadButtonRect;
         bool isShown;
     };
     ImageLayout layoutImage(const Message *message, const QStyleOptionViewItem &option) const;

@@ -39,7 +39,7 @@ public:
 
     virtual void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const = 0;
     virtual QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
-    virtual bool handleMouseEvent(QMouseEvent *mouseEvent, const QRectF &senderRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    virtual bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 };
 
 #endif // MESSAGEDELEGATEHELPERBASE_H

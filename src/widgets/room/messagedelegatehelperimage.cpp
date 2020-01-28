@@ -41,10 +41,12 @@ void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRec
         const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
         const QSize descriptionSize = layout.description.isEmpty() ? QSize(0, 0) : option.fontMetrics.size(Qt::TextSingleLine, layout.description);
 
-        // Draw title and show/hide button
+        // Draw title and buttons
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
         const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
+        const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
+        downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
         // Draw main pixmap (if shown)
         int nextY = messageRect.y() + titleSize.height() + margin;
@@ -88,18 +90,20 @@ QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidt
                  height);
 }
 
-bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const QRectF &senderRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    Q_UNUSED(mouseEvent)
-    Q_UNUSED(option)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const QPoint pos = mouseEvent->pos();
 
     ImageLayout layout = layoutImage(message, option);
-    if (layout.hideShowButtonRect.translated(senderRect.topRight().toPoint()).contains(mouseEvent->pos())) {
+    if (layout.hideShowButtonRect.translated(messageRect.topLeft()).contains(pos)) {
         QAbstractItemModel *model = const_cast<QAbstractItemModel *>(index.model());
         model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
         return true;
-    } else if (!layout.pixmap.isNull()) {
+    } else if (layout.downloadButtonRect.translated(messageRect.topLeft()).contains(pos)) {
+        qDebug() << "TODO: download";
+        return true;
+    } else if (!layout.pixmap.isNull() && messageRect.contains(pos)) { // TODO reduce by titleSize and descriptionSize
         QPointer<ShowImageDialog> dlg = new ShowImageDialog();
         dlg->setImage(layout.pixmap);
         dlg->exec();
@@ -167,6 +171,7 @@ MessageDelegateHelperImage::ImageLayout MessageDelegateHelperImage::layoutImage(
         const int buttonMargin = 8;
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.hideShowButtonRect = QRect(titleSize.width() + buttonMargin, 0, iconSize, iconSize);
+        layout.downloadButtonRect = layout.hideShowButtonRect.translated(iconSize + buttonMargin, 0);
     }
     return layout;
 }
