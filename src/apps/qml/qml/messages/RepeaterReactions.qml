@@ -38,17 +38,16 @@ Repeater {
             asynchronous: true
 
             MouseArea {
+                id: imageAnimatedMA
                 anchors.fill: parent
                 acceptedButtons: Qt.RightButton | Qt.LeftButton
                 hoverEnabled: true
                 onClicked: {
                     repearterReactions.deleteReaction(model.modelData.reactionName);
                 }
-
-                QQC2.ToolTip {
-                    text: model.modelData.convertedUsersNameAtToolTip
-                }
             }
+            QQC2.ToolTip.visible: imageAnimatedMA.containsMouse
+            QQC2.ToolTip.text: model.modelData.convertedUsersNameAtToolTip
         }
         QQC2.Label {
             id: reactionsType
@@ -60,18 +59,19 @@ Repeater {
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
             font.pixelSize: 8
+
             MouseArea {
+                id: reactionsTypeMA
                 anchors.fill: parent
                 acceptedButtons: Qt.RightButton | Qt.LeftButton
                 hoverEnabled: true
                 onClicked: {
                     repearterReactions.deleteReaction(model.modelData.reactionName);
                 }
-
-                QQC2.ToolTip {
-                    text: model.modelData.convertedUsersNameAtToolTip
-                }
             }
+
+            QQC2.ToolTip.visible: reactionsTypeMA.containsMouse
+            QQC2.ToolTip.text: model.modelData.convertedUsersNameAtToolTip
         }
         QQC2.Label {
             id: count
