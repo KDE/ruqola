@@ -101,7 +101,6 @@ Rectangle {
         Component.onCompleted: {
             if (i_messageType === Message.System) {
                 if (i_systemMessageType === "jitsi_call_started") {
-                    console.log(RuqolaDebugCategorySingleton.category, "Jitsi");
                     setSource("messages/JitsiVideoMessage.qml",
                               {
                                   i_messageText: i_messageText,
@@ -118,7 +117,6 @@ Rectangle {
                               }
                               )
                 } else {
-                    console.log(RuqolaDebugCategorySingleton.category, "System Message");
                     setSource("messages/SystemMessage.qml",
                               {
                                   i_messageText: i_messageText,
@@ -140,7 +138,6 @@ Rectangle {
                               )
                 }
             } else if (i_messageType === Message.NormalText || i_messageType === Message.File) {
-                console.log(RuqolaDebugCategorySingleton.category, "User Message");
                 setSource("messages/UserMessage.qml",
                           {
                               i_originalMessage: i_originalMessage,
@@ -175,7 +172,6 @@ Rectangle {
                           }
                           )
             } else if (i_messageType === Message.Audio) {
-                console.log(RuqolaDebugCategorySingleton.category, "Audio");
                 setSource("messages/AttachmentMessageAudio.qml",
                           {
                               i_messageText: i_messageText,
@@ -204,7 +200,6 @@ Rectangle {
                               i_tmid: i_tmid
                           })
             } else if (i_messageType === Message.Video) {
-                console.log(RuqolaDebugCategorySingleton.category, "Video");
                 setSource("messages/AttachmentMessageVideo.qml",
                           {
                               i_messageText: i_messageText,
@@ -233,7 +228,6 @@ Rectangle {
                               i_tmid: i_tmid
                           })
             } else if (i_messageType === Message.Image) {
-                console.log(RuqolaDebugCategorySingleton.category, "Image");
                 setSource("messages/AttachmentMessageImage.qml",
                           {
                               i_messageText: i_messageText,
