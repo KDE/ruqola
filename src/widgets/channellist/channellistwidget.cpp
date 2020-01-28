@@ -97,16 +97,17 @@ bool ChannelListWidget::eventFilter(QObject* object, QEvent* event)
     if (object == mSearchRoom && event->type() == QEvent::KeyPress) {
         const auto *model = mChannelView->model();
         const auto *keyEvent = static_cast<QKeyEvent *>(event);
-        if (keyEvent->key() == Qt::Key_Return) {
+        const int keyValue = keyEvent->key();
+        if (keyValue == Qt::Key_Return || keyValue == Qt::Key_Enter) {
             const auto selectedIndex = mChannelView->selectionModel()->currentIndex();
             if (selectedIndex.isValid()) {
                 Q_EMIT channelSelected(selectedIndex);
                 mSearchRoom->setText({});
             }
-        } else if (keyEvent->key() == Qt::Key_Up || keyEvent->key() == Qt::Key_Down) {
+        } else if (keyValue == Qt::Key_Up || keyValue == Qt::Key_Down) {
             const QModelIndex currentIndex = mChannelView->selectionModel()->currentIndex();
             int selectRow = -1;
-            if (keyEvent->key() == Qt::Key_Up) {
+            if (keyValue == Qt::Key_Up) {
                 if (!currentIndex.isValid()) {
                     selectRow = model->rowCount() - 1;
                 } else if (currentIndex.row()-1 >= 0) {
