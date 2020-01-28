@@ -30,3 +30,13 @@ ConfigureAccountWidget::~ConfigureAccountWidget()
 {
 
 }
+
+void ConfigureAccountWidget::save()
+{
+        //TODO
+}
+
+void ConfigureAccountWidget::load()
+{
+    //TODO
+}

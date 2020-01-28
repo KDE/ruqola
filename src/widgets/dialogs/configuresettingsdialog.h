@@ -24,6 +24,7 @@
 
 #include <KPageDialog>
 #include "libruqolawidgets_private_export.h"
+class ConfigureAccountWidget;
 class LIBRUQOLAWIDGETS_EXPORT ConfigureSettingsDialog : public KPageDialog
 {
     Q_OBJECT
@@ -33,6 +34,9 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    void slotAccepted();
+    KPageWidgetItem *mConfigureAccountWidgetPage = nullptr;
+    ConfigureAccountWidget *mConfigureAccountWidget = nullptr;
 };
 
 #endif // CONFIGURESETTINGSDIALOG_H

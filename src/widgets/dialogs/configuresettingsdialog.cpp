@@ -19,11 +19,14 @@
 */
 
 #include "configuresettingsdialog.h"
+#include "configureaccountwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <QIcon>
+#include <QPushButton>
 
 namespace {
 static const char myConfigGroupName[] = "ConfigureSettingsDialog";
@@ -36,18 +39,16 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 
     buttonBox()->setStandardButtons(QDialogButtonBox::Ok| QDialogButtonBox::Cancel);
 
-//    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-//    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    const QString accountPageName = i18nc("@title Preferences page name", "Account");
+    mConfigureAccountWidget = new ConfigureAccountWidget(this);
+    mConfigureAccountWidgetPage = new KPageWidgetItem(mConfigureAccountWidget, accountPageName);
+    mConfigureAccountWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
+    addPage(mConfigureAccountWidgetPage);
 
-//    mConfigureSettingsWidget = new ConfigureSettingsWidget(this);
-//    mConfigureSettingsWidget->setObjectName(QStringLiteral("mConfigureSettingsWidget"));
-//    mainLayout->addWidget(mConfigureSettingsWidget);
-
-//    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-//    buttonBox->setObjectName(QStringLiteral("buttonBox"));
-//    connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfigureSettingsDialog::reject);
-//    connect(buttonBox, &QDialogButtonBox::accepted, this, &ConfigureSettingsDialog::accept);
-//    mainLayout->addWidget(buttonBox);
+    connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked,
+            this, &ConfigureSettingsDialog::slotAccepted);
+    connect(buttonBox()->button(QDialogButtonBox::Cancel), &QPushButton::clicked,
+            this, &ConfigureSettingsDialog::reject);
     readConfig();
 }
 
@@ -69,4 +70,10 @@ void ConfigureSettingsDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
+}
+
+void ConfigureSettingsDialog::slotAccepted()
+{
+    //TODO save();
+    mConfigureAccountWidget->save();
 }

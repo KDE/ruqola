@@ -30,6 +30,8 @@ class LIBRUQOLAWIDGETS_EXPORT ConfigureAccountWidget : public QWidget
 public:
     explicit ConfigureAccountWidget(QWidget *parent = nullptr);
     ~ConfigureAccountWidget();
+    void save();
+    void load();
 };
 
 #endif // CONFIGUREACCOUNTWIDGET_H
