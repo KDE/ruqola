@@ -20,6 +20,14 @@
 
 #include "messagedelegatehelperimagetest.h"
 #include "room/messagedelegatehelperimage.h"
+#include "managerdatapaths.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+#include "messages/message.h"
+#include "messages/messageattachment.h"
+
+#include <QStandardPaths>
+#include <QStyleOptionViewItem>
 #include <QTest>
 
 QTEST_MAIN(MessageDelegateHelperImageTest)
@@ -27,6 +35,35 @@ QTEST_MAIN(MessageDelegateHelperImageTest)
 MessageDelegateHelperImageTest::MessageDelegateHelperImageTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
+    Ruqola::self()->rocketChatAccount()->setAccountName(QStringLiteral("accountName"));
+}
+
+void MessageDelegateHelperImageTest::shouldExtractMessageData()
+{
+    MessageDelegateHelperImage helper;
+    QStyleOptionViewItem option;
+    QWidget fakeWidget;
+    option.widget = &fakeWidget;
+    Message message;
+    MessageAttachment msgAttach;
+    const QString title = QStringLiteral("This is the title");
+    msgAttach.setTitle(title);
+    const QString description = QStringLiteral("A description");
+    msgAttach.setDescription(description);
+    QPixmap pix(50, 50);
+    pix.fill(Qt::white);
+    // Save the pixmap directly into the cache so that no download hpapens
+    const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, Ruqola::self()->rocketChatAccount()->accountName());
+    const QString link = QLatin1String("/testfile.png");
+    const QString pixFileName = cachePath + link;
+    pix.save(pixFileName, "png");
+    msgAttach.setLink(link);
+    message.setAttachements({msgAttach});
+    const MessageDelegateHelperImage::ImageLayout layout = helper.layoutImage(&message, option);
+    QCOMPARE(layout.title, title);
+    QCOMPARE(layout.description, description);
+    QVERIFY(layout.isShown);
 }
 
 void MessageDelegateHelperImageTest::shouldCacheLastFivePixmaps()

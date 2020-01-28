@@ -30,7 +30,10 @@ public:
     explicit MessageDelegateHelperImageTest(QObject *parent = nullptr);
     ~MessageDelegateHelperImageTest() = default;
 private Q_SLOTS:
+    void shouldExtractMessageData();
     void shouldCacheLastFivePixmaps();
+
+private:
 };
 
 #endif // MESSAGEDELEGATEHELPERIMAGETEST_H
