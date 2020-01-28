@@ -887,6 +887,7 @@ Component {
 
                 QQC2.Label {
                     id: typingInfo
+                    Layout.leftMargin: Kirigami.Units.smallSpacing
                     visible: text.length > 0
                 }
 
