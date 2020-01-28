@@ -22,7 +22,7 @@
 #include "channellist/statuscombobox.h"
 #include <KLocalizedString>
 #include <QFormLayout>
-#include <QLineEdit>
+#include <KLineEdit>
 
 ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
     : QWidget(parent)
@@ -34,9 +34,10 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
     mStatusCombobox = new StatusCombobox(false, this);
     mStatusCombobox->setObjectName(QStringLiteral("mStatusCombobox"));
 
-    mStatusLineEdit = new QLineEdit(this);
+    mStatusLineEdit = new KLineEdit(this);
     mStatusLineEdit->setObjectName(QStringLiteral("mStatusLineEdit"));
     mStatusLineEdit->setClearButtonEnabled(true);
+    mStatusLineEdit->setTrapReturnKey(true);
 
     mainLayout->addRow(i18n("Message Status:"), mStatusLineEdit);
     mainLayout->addRow(i18n("Status:"), mStatusCombobox);
@@ -44,6 +45,11 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
 
 ModifyStatusWidget::~ModifyStatusWidget()
 {
+}
+
+void ModifyStatusWidget::setMessageStatus(const QString &statusStr)
+{
+    mStatusLineEdit->setText(statusStr);
 }
 
 QString ModifyStatusWidget::messageStatus() const

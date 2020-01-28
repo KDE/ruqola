@@ -22,7 +22,7 @@
 #include "dialogs/modifystatuswidget.h"
 #include "channellist/statuscombobox.h"
 #include <QFormLayout>
-#include <QLineEdit>
+#include <KLineEdit>
 #include <QTest>
 QTEST_MAIN(ModifyStatusWidgetTest)
 
@@ -41,9 +41,18 @@ void ModifyStatusWidgetTest::shouldHaveDefaultValues()
     StatusCombobox *mStatusCombobox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusCombobox"));
     QVERIFY(mStatusCombobox);
 
-    QLineEdit *mStatusLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mStatusLineEdit"));
+    KLineEdit *mStatusLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mStatusLineEdit"));
     QVERIFY(mStatusLineEdit);
     QVERIFY(mStatusLineEdit->isClearButtonEnabled());
+    QVERIFY(mStatusLineEdit->trapReturnKey());
 
     QVERIFY(w.messageStatus().isEmpty());
+}
+
+void ModifyStatusWidgetTest::changeStatusMessage()
+{
+    ModifyStatusWidget w;
+    const QString messages = QStringLiteral("messages");
+    w.setMessageStatus(messages);
+    QCOMPARE(w.messageStatus(), messages);
 }

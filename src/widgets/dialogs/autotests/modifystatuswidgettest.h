@@ -31,6 +31,7 @@ public:
     ~ModifyStatusWidgetTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void changeStatusMessage();
 };
 
 #endif // MODIFYSTATUSWIDGETTEST_H
