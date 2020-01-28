@@ -415,6 +415,7 @@ Component {
             rcAccount: appid.rocketChatAccount
             roomId: appid.selectedRoomID
             anchors.fill: parent
+            anchors.bottomMargin: Kirigami.Units.largeSpacing
             clip: true
             useMenuMessage: true
 

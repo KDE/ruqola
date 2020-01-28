@@ -36,7 +36,7 @@ Kirigami.Icon {
 
     source: isHidden ? "hint" : "visibility"
     width: height
-    height: Kirigami.Units.iconSizes.medium
+    height: Kirigami.Units.iconSizes.small
     MouseArea {
         anchors.fill: parent
         onClicked: {

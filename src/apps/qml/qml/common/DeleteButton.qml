@@ -29,9 +29,8 @@ Kirigami.Icon {
     source: "edit-delete-shred"
     signal deleteButtonClicked()
 
-    //TODO customize size. Avoid to hardcode it.
     width: height
-    height: Kirigami.Units.iconSizes.medium
+    height: Kirigami.Units.iconSizes.small
 
     MouseArea {
         anchors.fill: parent

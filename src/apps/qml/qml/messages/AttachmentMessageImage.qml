@@ -93,6 +93,7 @@ MessageBase {
 
                 model: i_attachments
                 Row {
+                    spacing: Kirigami.Units.smallSpacing
                     Column {
                         QQC2.Label {
                             id: imageTitle
