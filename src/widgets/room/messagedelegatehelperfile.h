@@ -23,6 +23,7 @@
 
 #include "messagedelegatehelperbase.h"
 
+#include <QRect>
 #include <QString>
 
 class MessageDelegateHelperFile : public MessageDelegateHelperBase
@@ -32,12 +33,14 @@ public:
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
 
 private:
-    struct FileInfo
+    struct FileLayout
     {
       QString title;
       QString description;
+      QSize titleSize;
+      QRect downloadButtonRect;
     };
-    FileInfo gatherInfo(const Message *message, const QStyleOptionViewItem &option) const;
+    FileLayout doLayout(const Message *message, const QStyleOptionViewItem &option) const;
 };
 
 #endif // MESSAGEDELEGATEHELPERFILE_H

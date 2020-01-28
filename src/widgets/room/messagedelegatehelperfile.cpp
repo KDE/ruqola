@@ -30,45 +30,53 @@
 
 static const int vMargin = 8;
 
-void MessageDelegateHelperFile::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const
+void MessageDelegateHelperFile::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
     Q_UNUSED(pBaseLine)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    const FileInfo info = gatherInfo(message, option);
-    const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, info.title);
-    //const QSize descriptionSize = option.fontMetrics.size(Qt::TextSingleLine, info.description);
+    const FileLayout layout = doLayout(message, option);
+    const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
 
-    painter->drawText(rect.x(), rect.y() + option.fontMetrics.ascent(), info.title);
-    const int nextY = rect.y() + titleSize.height() + vMargin;
-    painter->drawText(rect.x(), nextY + option.fontMetrics.ascent(), info.description);
+    painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
+    const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
+    downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+
+    const int nextY = messageRect.y() + titleSize.height() + vMargin;
+    painter->drawText(messageRect.x(), nextY + option.fontMetrics.ascent(), layout.description);
 }
 
 QSize MessageDelegateHelperFile::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(maxWidth)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    const FileInfo info = gatherInfo(message, option);
+    const FileLayout info = doLayout(message, option);
     const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, info.title);
     const QSize descriptionSize = option.fontMetrics.size(Qt::TextSingleLine, info.description);
     return QSize(qMax(titleSize.width(), descriptionSize.width()),
                  titleSize.height() + vMargin + descriptionSize.height());
 }
 
-MessageDelegateHelperFile::FileInfo MessageDelegateHelperFile::gatherInfo(const Message *message, const QStyleOptionViewItem &option) const
+MessageDelegateHelperFile::FileLayout MessageDelegateHelperFile::doLayout(const Message *message, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(option);
 
-    FileInfo info;
+    FileLayout layout;
     if (message->attachements().isEmpty()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "No attachments in File message";
-        return info;
+        return layout;
     }
     if (message->attachements().count() > 1) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Multiple attachments in File message? Can this happen?";
     }
     const MessageAttachment &msgAttach = message->attachements().at(0);
     //const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
-    info.title = msgAttach.title();
-    info.description = msgAttach.description();
-    return info;
+    layout.title = msgAttach.title();
+    layout.description = msgAttach.description();
+
+    layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+    const int buttonMargin = 8;
+    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+    layout.downloadButtonRect = QRect(layout.titleSize.width() + buttonMargin, 0, iconSize, iconSize);
+
+    return layout;
 }
