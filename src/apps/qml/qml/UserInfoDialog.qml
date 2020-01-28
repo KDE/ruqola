@@ -47,7 +47,6 @@ QQC2.Dialog {
             text: userInfo.name
             elide: Text.ElideRight
             wrapMode: QQC2.Label.Wrap
-            renderType: Text.NativeRendering
             Layout.preferredWidth: parent.width
         }
     }

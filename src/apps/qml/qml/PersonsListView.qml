@@ -52,21 +52,18 @@ QQC2.ScrollView {
                         text: "<b>" + model.username + "</b>"
                         wrapMode: QQC2.Label.NoWrap
                         horizontalAlignment: Text.AlignHCenter
-                        renderType: Text.NativeRendering
                         textFormat: Text.RichText
                         font.bold: true
                     }
                     QQC2.Label {
                         text: "<i>" + model.task + "<i>"
                         wrapMode: QQC2.Label.NoWrap
-                        renderType: Text.NativeRendering
                         textFormat: Text.RichText
                     }
                     QQC2.Label {
                         text: model.email
                         wrapMode: QQC2.Label.NoWrap
                         horizontalAlignment: Text.AlignHCenter
-                        renderType: Text.NativeRendering
                         textFormat: Text.RichText
                         onLinkActivated: {
                             aboutDialog.openurl(link);

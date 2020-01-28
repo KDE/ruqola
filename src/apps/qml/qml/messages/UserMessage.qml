@@ -138,7 +138,6 @@ MessageBase {
                     id: threadPreview
                     width: parent.width
                     visible: i_threadPreview.length > 0
-                    renderType: Text.NativeRendering
                     textFormat: Text.RichText
                     color: "red" //Convert to kirigami color
                     font.pointSize: textLabel.font.pointSize - 1
@@ -158,7 +157,6 @@ MessageBase {
                     id: textLabel
                     width: parent.width
 
-                    renderType: Text.NativeRendering
                     textFormat: Text.RichText
 
 
@@ -204,7 +202,6 @@ MessageBase {
                     //                                      RuqolaUtils.markdownToRichText(model.modelData.url) :
                     //                                      RuqolaUtils.markdownToRichText(model.modelData.description)
                     //                            wrapMode: QQC2.Label.Wrap
-                    //                            renderType: Text.NativeRendering
                     //                            textFormat: Text.RichText
 
                     //                            onLinkActivated: messageMain.linkActivated(link)
@@ -237,7 +234,6 @@ MessageBase {
                             Row {
                                 QQC2.Label {
                                     id: attachmentTitle
-                                    renderType: Text.NativeRendering
                                     textFormat: Text.RichText
                                     visible: model.modelData.title !== ""
                                     width: urlColumn.width

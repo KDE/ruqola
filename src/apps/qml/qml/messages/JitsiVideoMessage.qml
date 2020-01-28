@@ -72,7 +72,6 @@ MessageBase {
 
                 wrapMode: QQC2.Label.Wrap
 
-                renderType: Text.NativeRendering
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {

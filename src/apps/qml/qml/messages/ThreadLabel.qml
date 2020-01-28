@@ -29,7 +29,6 @@ QQC2.Label {
 
     width: parent.width
 
-    renderType: Text.NativeRendering
     textFormat: Text.RichText
 
     color: "red" //Convert to kirigami color

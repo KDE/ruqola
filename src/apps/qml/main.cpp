@@ -34,6 +34,7 @@
 #include <KAboutData>
 #include <QIcon>
 #include <QDirIterator>
+#include <QQuickWindow>
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC)
 #include <KIconTheme>
@@ -106,6 +107,9 @@ int main(int argc, char *argv[])
     if (!loadAccount.isEmpty()) {
         Ruqola::self()->setCurrentAccount(loadAccount);
     }
+
+    // For desktop we'd like to use native text rendering
+    QQuickWindow::setTextRenderType(QQuickWindow::NativeTextRendering);
 
     RuqolaRegisterEngine ruqolaEngine;
 

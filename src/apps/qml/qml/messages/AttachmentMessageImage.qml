@@ -101,7 +101,6 @@ MessageBase {
                             wrapMode: QQC2.Label.NoWrap
                             anchors.leftMargin: Kirigami.Units.smallSpacing
                             anchors.rightMargin: Kirigami.Units.smallSpacing
-                            renderType: Text.NativeRendering
                             textFormat: Text.RichText
                             onLinkActivated: {
                                 messageMain.displayImage(imageUrl.source, model.modelData.title, model.modelData.isAnimatedImage)

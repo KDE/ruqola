@@ -52,8 +52,6 @@ MessageBase {
                 text: i_messageText
 
                 wrapMode: QQC2.Label.Wrap
-
-                renderType: Text.NativeRendering
                 font.italic: true
             }
             DiscussionLabel {

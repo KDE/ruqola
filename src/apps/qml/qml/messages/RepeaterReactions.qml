@@ -52,7 +52,6 @@ Repeater {
         QQC2.Label {
             id: reactionsType
             visible: !model.modelData.isAnimatedImage
-            renderType: Text.NativeRendering
             textFormat: Text.RichText
             text: model.modelData.convertedReactionName
             wrapMode: QQC2.Label.NoWrap
@@ -75,7 +74,6 @@ Repeater {
         }
         QQC2.Label {
             id: count
-            renderType: Text.NativeRendering
             textFormat: Text.RichText
             text: (model.modelData.count === 1) ? "" : i18n("(By %1 persons)", model.modelData.count)
             wrapMode: QQC2.Label.NoWrap

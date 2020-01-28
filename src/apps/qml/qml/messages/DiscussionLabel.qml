@@ -29,7 +29,6 @@ QQC2.Label {
     
     width: parent.width
 
-    renderType: Text.NativeRendering
     textFormat: Text.RichText
     color: "red" //Convert to kirigami color
     text: i_dcount > 0 ? i18np("1 message", "%1 messages",i_dcount) : i18n("Any message yet")
