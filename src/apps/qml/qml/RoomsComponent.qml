@@ -155,9 +155,7 @@ Component {
             }
         }
 
-
-        mainItem:
-            RoomsView {
+        mainItem: RoomsView {
             id: roomsList
             editingMode: appid.rocketChatAccount.editingMode
             implicitWidth: Kirigami.Units.gridUnit * 10
