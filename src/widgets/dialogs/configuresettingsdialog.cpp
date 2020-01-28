@@ -50,6 +50,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     connect(buttonBox()->button(QDialogButtonBox::Cancel), &QPushButton::clicked,
             this, &ConfigureSettingsDialog::reject);
     readConfig();
+    load();
 }
 
 ConfigureSettingsDialog::~ConfigureSettingsDialog()
@@ -74,6 +75,10 @@ void ConfigureSettingsDialog::writeConfig()
 
 void ConfigureSettingsDialog::slotAccepted()
 {
-    //TODO save();
     mConfigureAccountWidget->save();
+}
+
+void ConfigureSettingsDialog::load()
+{
+    mConfigureAccountWidget->load();
 }

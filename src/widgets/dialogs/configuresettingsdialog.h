@@ -35,6 +35,7 @@ private:
     void readConfig();
     void writeConfig();
     void slotAccepted();
+    void load();
     KPageWidgetItem *mConfigureAccountWidgetPage = nullptr;
     ConfigureAccountWidget *mConfigureAccountWidget = nullptr;
 };
