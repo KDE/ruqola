@@ -54,7 +54,7 @@ Kirigami.Page {
         QQC2.Label {
             id: loginLabel
 
-            text: i18n("Ruqola Log in")
+            text: i18n("Rocket.Chat Login")
             textFormat: Text.PlainText
             color: "#555"
             font.pointSize: 40
@@ -81,12 +81,12 @@ Kirigami.Page {
             text: originalAccountName
             readOnly: originalAccountName !== ""
             width: parent.width
-            placeholderText: i18n("Enter Account Name")
+            placeholderText: i18n("Enter account name")
         }
 
         QQC2.Label {
             width: parent.width
-            text: i18n("Rocket Chat Server")
+            text: i18n("Rocket.Chat Server")
             textFormat: Text.PlainText
         }
 
@@ -137,21 +137,21 @@ Kirigami.Page {
             id:username
 
             width: parent.width
-            text: i18n("Enter your username")
+            text: i18n("Username")
         }
 
         QQC2.TextField {
             selectByMouse: true
             width: parent.width
             id: usernameField
-            placeholderText: i18n("Enter Username")
+            placeholderText: i18n("Enter username")
         }
         
         QQC2.Label {
             id: passLabel
 
             width: parent.width
-            text: i18n("Enter your password")
+            text: i18n("Password")
         }
         
         PasswordLineEdit {
