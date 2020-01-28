@@ -24,11 +24,14 @@
 #include "rocketchataccount.h"
 #include "dialogs/showimagedialog.h"
 
+#include <KLocalizedString>
+
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPixmapCache>
 #include <QStyleOptionViewItem>
 #include <QPointer>
+#include <QFileDialog>
 
 static const int margin = 8; // vertical margin between title and pixmap, and between pixmap and description (if any)
 
@@ -101,7 +104,10 @@ bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const
         model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
         return true;
     } else if (layout.downloadButtonRect.translated(messageRect.topLeft()).contains(pos)) {
-        qDebug() << "TODO: download";
+        const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save Image"));
+        if (!file.isEmpty()) {
+            layout.pixmap.save(file);
+        }
         return true;
     } else if (!layout.pixmap.isNull() && messageRect.contains(pos)) { // TODO reduce by titleSize and descriptionSize
         QPointer<ShowImageDialog> dlg = new ShowImageDialog();
