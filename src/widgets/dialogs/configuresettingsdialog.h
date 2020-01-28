@@ -22,10 +22,9 @@
 #ifndef CONFIGURESETTINGSDIALOG_H
 #define CONFIGURESETTINGSDIALOG_H
 
-#include <QDialog>
+#include <KPageDialog>
 #include "libruqolawidgets_private_export.h"
-class ConfigureSettingsWidget;
-class LIBRUQOLAWIDGETS_EXPORT ConfigureSettingsDialog : public QDialog
+class LIBRUQOLAWIDGETS_EXPORT ConfigureSettingsDialog : public KPageDialog
 {
     Q_OBJECT
 public:
@@ -34,7 +33,6 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    ConfigureSettingsWidget *mConfigureSettingsWidget = nullptr;
 };
 
 #endif // CONFIGURESETTINGSDIALOG_H

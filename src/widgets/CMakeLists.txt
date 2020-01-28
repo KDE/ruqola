@@ -41,7 +41,6 @@ set(Ruqola_widgets_dialog_SRCS
 
 set(Ruqola_configure_SRCS
     dialogs/configuresettingsdialog.cpp
-    dialogs/configuresettingswidget.cpp
     dialogs/configureaccountwidget.cpp
     )
 

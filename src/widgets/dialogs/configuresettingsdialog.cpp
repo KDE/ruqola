@@ -19,7 +19,6 @@
 */
 
 #include "configuresettingsdialog.h"
-#include "configuresettingswidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -30,21 +29,25 @@ namespace {
 static const char myConfigGroupName[] = "ConfigureSettingsDialog";
 }
 ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
-    : QDialog(parent)
+    : KPageDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Configure Ruqola"));
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    setFaceType(KPageDialog::List);
 
-    mConfigureSettingsWidget = new ConfigureSettingsWidget(this);
-    mConfigureSettingsWidget->setObjectName(QStringLiteral("mConfigureSettingsWidget"));
-    mainLayout->addWidget(mConfigureSettingsWidget);
+    buttonBox()->setStandardButtons(QDialogButtonBox::Ok| QDialogButtonBox::Cancel);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    buttonBox->setObjectName(QStringLiteral("buttonBox"));
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfigureSettingsDialog::reject);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &ConfigureSettingsDialog::accept);
-    mainLayout->addWidget(buttonBox);
+//    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+//    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+//    mConfigureSettingsWidget = new ConfigureSettingsWidget(this);
+//    mConfigureSettingsWidget->setObjectName(QStringLiteral("mConfigureSettingsWidget"));
+//    mainLayout->addWidget(mConfigureSettingsWidget);
+
+//    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+//    buttonBox->setObjectName(QStringLiteral("buttonBox"));
+//    connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfigureSettingsDialog::reject);
+//    connect(buttonBox, &QDialogButtonBox::accepted, this, &ConfigureSettingsDialog::accept);
+//    mainLayout->addWidget(buttonBox);
     readConfig();
 }
 

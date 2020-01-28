@@ -20,11 +20,9 @@
 
 #include "configuresettingsdialogtest.h"
 #include "dialogs/configuresettingsdialog.h"
-#include "dialogs/configuresettingswidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
-#include <QVBoxLayout>
 
 QTEST_MAIN(ConfigureSettingsDialogTest)
 ConfigureSettingsDialogTest::ConfigureSettingsDialogTest(QObject *parent)
@@ -37,12 +35,4 @@ void ConfigureSettingsDialogTest::shouldHaveDefaultValues()
 {
     ConfigureSettingsDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-
-    ConfigureSettingsWidget *mConfigureSettingsWidget = w.findChild<ConfigureSettingsWidget *>(QStringLiteral("mConfigureSettingsWidget"));
-    QVERIFY(mConfigureSettingsWidget);
-
-    QDialogButtonBox *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
-    QVERIFY(buttonBox);
 }
