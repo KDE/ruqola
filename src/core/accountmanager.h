@@ -49,7 +49,7 @@ public:
     void addAccount(RocketChatAccount *account);
 
     void setCurrentAccount(const QString &accountName);
-    QString currentAccount() const;
+    Q_REQUIRED_RESULT QString currentAccount() const;
     void selectAccount(const QString &accountName);
 
 Q_SIGNALS:
