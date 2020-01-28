@@ -365,6 +365,7 @@ public:
     ListMessagesModelFilterProxyModel *listMessagesFilterProxyModel() const;
     Q_REQUIRED_RESULT ServerConfigInfo *serverConfigInfo() const;
     Q_REQUIRED_RESULT QString serverUrl() const;
+    Q_REQUIRED_RESULT StatusModel *statusModel() const;
 
     void customUsersStatus();
 Q_SIGNALS:
@@ -406,7 +407,6 @@ private:
     Q_REQUIRED_RESULT bool threadsEnabled() const;
 
     Q_REQUIRED_RESULT bool discussionEnabled() const;
-    Q_REQUIRED_RESULT StatusModel *statusModel() const;
     Q_REQUIRED_RESULT QString recordingVideoPath() const;
     Q_REQUIRED_RESULT QString recordingImagePath() const;
 

@@ -37,6 +37,7 @@ public:
     Q_REQUIRED_RESULT QString messageStatus() const;
     Q_REQUIRED_RESULT User::PresenceStatus status() const;
 
+    void setStatus(User::PresenceStatus status);
     void setMessageStatus(const QString &statusStr);
 private:
     StatusCombobox *mStatusCombobox = nullptr;

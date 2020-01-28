@@ -22,6 +22,7 @@
 #include "channellistwidget.h"
 #include "statuscombobox.h"
 #include "dialogs/modifystatusdialog.h"
+#include "model/statusmodel.h"
 
 #include "ruqola.h"
 #include "rocketchataccount.h"
@@ -81,13 +82,14 @@ void ChannelListWidget::slotStatusChanged()
     QString messageStatus;
     if (status == User::PresenceStatus::Unknown) {
         QPointer<ModifyStatusDialog> dlg = new ModifyStatusDialog(this);
-        //Set current Status
+        dlg->setMessageStatus(Ruqola::self()->rocketChatAccount()->statusModel()->currentStatusInfo().displayText);
+        dlg->setStatus(Ruqola::self()->rocketChatAccount()->statusModel()->currentStatusInfo().status);
         if (dlg->exec()) {
             messageStatus = dlg->messageStatus();
             status = dlg->status();
             delete dlg;
         } else {
-            //restore status
+            mStatusComboBox->setStatus(Ruqola::self()->rocketChatAccount()->statusModel()->currentUserStatus());
             delete dlg;
             return;
         }

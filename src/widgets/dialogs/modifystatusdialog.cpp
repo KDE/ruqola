@@ -51,7 +51,17 @@ User::PresenceStatus ModifyStatusDialog::status() const
     return mModifyStatusWidget->status();
 }
 
+void ModifyStatusDialog::setStatus(User::PresenceStatus status)
+{
+    mModifyStatusWidget->setStatus(status);
+}
+
 QString ModifyStatusDialog::messageStatus() const
 {
     return mModifyStatusWidget->messageStatus();
+}
+
+void ModifyStatusDialog::setMessageStatus(const QString &statusStr)
+{
+    mModifyStatusWidget->setMessageStatus(statusStr);
 }

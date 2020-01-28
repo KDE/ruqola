@@ -61,3 +61,8 @@ User::PresenceStatus ModifyStatusWidget::status() const
 {
     return mStatusCombobox->status();
 }
+
+void ModifyStatusWidget::setStatus(User::PresenceStatus status)
+{
+    mStatusCombobox->setStatus(status);
+}

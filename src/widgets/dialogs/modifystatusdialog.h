@@ -31,9 +31,13 @@ class LIBRUQOLAWIDGETS_EXPORT ModifyStatusDialog : public QDialog
 public:
     explicit ModifyStatusDialog(QWidget *parent = nullptr);
     ~ModifyStatusDialog();
+
     Q_REQUIRED_RESULT User::PresenceStatus status() const;
+    void setStatus(User::PresenceStatus status);
 
     Q_REQUIRED_RESULT QString messageStatus() const;
+    void setMessageStatus(const QString &statusStr);
+
 private:
     ModifyStatusWidget *mModifyStatusWidget = nullptr;
 };
