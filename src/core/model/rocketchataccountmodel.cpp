@@ -65,9 +65,10 @@ RocketChatAccount *RocketChatAccountModel::account(const QString &accountName) c
         qCWarning(RUQOLA_LOG) << " Empty account";
         return nullptr;
     }
-    for (int i = 0; i < mRocketChatAccount.count(); ++i) {
-        if (mRocketChatAccount.at(i)->accountName() == accountName) {
-            return mRocketChatAccount.at(i);
+    for (int i = 0, total = mRocketChatAccount.count(); i < total; ++i) {
+        RocketChatAccount *model =  mRocketChatAccount.at(i);
+        if (model->accountName() == accountName) {
+            return model;
         }
     }
     return nullptr;

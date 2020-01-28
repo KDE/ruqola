@@ -18,21 +18,34 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "configuresettingsdialogtest.h"
-#include "configuredialog/configuresettingsdialog.h"
-#include <QDialogButtonBox>
-#include <QStandardPaths>
-#include <QTest>
+#ifndef ACCOUNTSERVERLISTWIDGET_H
+#define ACCOUNTSERVERLISTWIDGET_H
 
-QTEST_MAIN(ConfigureSettingsDialogTest)
-ConfigureSettingsDialogTest::ConfigureSettingsDialogTest(QObject *parent)
-    : QObject(parent)
+#include <QListWidget>
+#include "libruqolawidgets_private_export.h"
+#include "user.h"
+class ModifyStatusWidget;
+class AccountServerListWidgetItem : public QListWidgetItem
 {
-    QStandardPaths::setTestModeEnabled(true);
-}
+public:
+    explicit AccountServerListWidgetItem(QListWidget *parent = nullptr);
+    ~AccountServerListWidgetItem();
+};
 
-void ConfigureSettingsDialogTest::shouldHaveDefaultValues()
+class LIBRUQOLAWIDGETS_EXPORT AccountServerListWidget : public QListWidget
 {
-    ConfigureSettingsDialog w;
-    QVERIFY(!w.windowTitle().isEmpty());
-}
+    Q_OBJECT
+public:
+    explicit AccountServerListWidget(QWidget *parent = nullptr);
+    ~AccountServerListWidget();
+
+    void readConfig();
+    void writeConfig();
+    void addServerConfig();
+    void deleteServerConfig(QListWidgetItem *item);
+
+public Q_SLOTS:
+    void modifyServerConfig();
+};
+
+#endif // ACCOUNTSERVERLISTWIDGET_H

@@ -36,7 +36,7 @@
 #include "dialogs/searchmessagedialog.h"
 #include "dialogs/configurenotificationdialog.h"
 #include "dialogs/showattachmentdialog.h"
-#include "dialogs/configuresettingsdialog.h"
+#include "configuredialog/configuresettingsdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -58,7 +58,6 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     setupActions();
     setupGUI(KXmlGuiWindow::Default, QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc"));
     readConfig();
-    //TODO fix me multi account
     connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
     slotAccountChanged();
 }
@@ -74,7 +73,6 @@ RuqolaMainWindow::~RuqolaMainWindow()
 
 void RuqolaMainWindow::slotAccountChanged()
 {
-    qDebug() << " void RuqolaMainWindow::slotAccountChanged()";
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
     }
