@@ -38,6 +38,7 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
     mSearchMessageLineEdit->setClearButtonEnabled(true);
     mSearchMessageLineEdit->setTrapReturnKey(true);
+    connect(mSearchMessageLineEdit, &KLineEdit::textChanged, this, &ShowListMessageBaseWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchMessageLineEdit);
 
     mMessageListInfo = new QLabel(this);
@@ -79,4 +80,9 @@ QString ShowListMessageBaseWidget::displayShowMessageInRoom() const
         displayMessageStr += QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }
     return displayMessageStr;
+}
+
+void ShowListMessageBaseWidget::slotSearchMessageTextChanged(const QString &str)
+{
+    mModel->setFilterString(str);
 }

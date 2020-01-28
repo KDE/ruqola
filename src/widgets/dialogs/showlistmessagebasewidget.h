@@ -42,6 +42,7 @@ Q_SIGNALS:
 
 private:
     void updateLabel();
+    void slotSearchMessageTextChanged(const QString &str);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     KLineEdit *mSearchMessageLineEdit = nullptr;
     MessageListView *mMessageListView = nullptr;
