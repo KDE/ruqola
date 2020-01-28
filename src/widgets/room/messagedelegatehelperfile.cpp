@@ -20,10 +20,16 @@
 
 #include "messagedelegatehelperfile.h"
 #include "model/messagemodel.h"
+#include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 
+#include <KLocalizedString>
+
+#include <QFileDialog>
+#include <QMouseEvent>
 #include <QPainter>
 #include <QStyleOptionViewItem>
+#include <ruqola.h>
 
 //  Name <download icon>
 //  Description
@@ -49,9 +55,9 @@ QSize MessageDelegateHelperFile::sizeHint(const QModelIndex &index, int maxWidth
 {
     Q_UNUSED(maxWidth)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    const FileLayout info = doLayout(message, option);
-    const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, info.title);
-    const QSize descriptionSize = option.fontMetrics.size(Qt::TextSingleLine, info.description);
+    const FileLayout layout = doLayout(message, option);
+    const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+    const QSize descriptionSize = option.fontMetrics.size(Qt::TextSingleLine, layout.description);
     return QSize(qMax(titleSize.width(), descriptionSize.width()),
                  titleSize.height() + vMargin + descriptionSize.height());
 }
@@ -69,9 +75,9 @@ MessageDelegateHelperFile::FileLayout MessageDelegateHelperFile::doLayout(const 
         qCWarning(RUQOLAWIDGETS_LOG) << "Multiple attachments in File message? Can this happen?";
     }
     const MessageAttachment &msgAttach = message->attachements().at(0);
-    //const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
+    layout.link = msgAttach.link();
 
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     const int buttonMargin = 8;
@@ -79,4 +85,21 @@ MessageDelegateHelperFile::FileLayout MessageDelegateHelperFile::doLayout(const 
     layout.downloadButtonRect = QRect(layout.titleSize.width() + buttonMargin, 0, iconSize, iconSize);
 
     return layout;
+}
+
+bool MessageDelegateHelperFile::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const FileLayout layout = doLayout(message, option);
+    const QPoint pos = mouseEvent->pos();
+
+    if (layout.downloadButtonRect.translated(messageRect.topLeft()).contains(pos)) {
+        const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"));
+        if (!file.isEmpty()) {
+            const QUrl fileUrl = QUrl::fromLocalFile(file);
+            Ruqola::self()->rocketChatAccount()->downloadFile(layout.link, fileUrl);
+            return true;
+        }
+    }
+    return false;
 }
