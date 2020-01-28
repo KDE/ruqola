@@ -59,14 +59,27 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
     connect(newModel, &QAbstractItemModel::rowsInserted, this, &MessageListView::maybeScrollToBottom);
     connect(newModel, &QAbstractItemModel::rowsRemoved, this, &MessageListView::maybeScrollToBottom);
     connect(newModel, &QAbstractItemModel::modelReset, this, &MessageListView::maybeScrollToBottom);
+
+    connect(newModel, &QAbstractItemModel::rowsInserted, this, &MessageListView::modelChanged);
+    connect(newModel, &QAbstractItemModel::rowsRemoved, this, &MessageListView::modelChanged);
+    connect(newModel, &QAbstractItemModel::modelReset, this, &MessageListView::modelChanged);
+
     scrollToBottom();
+}
+
+void MessageListView::resizeEvent(QResizeEvent *ev)
+{
+    QListView::resizeEvent(ev);
+
+    // Fix not being really at bottom when the view gets reduced by the header widget becoming taller
+    checkIfAtBottom();
+    maybeScrollToBottom(); // this forces a layout in QAIV, which then changes the vbar max value
 }
 
 void MessageListView::checkIfAtBottom()
 {
     auto *vbar = verticalScrollBar();
     mAtBottom = vbar->value() == vbar->maximum();
-    Q_EMIT modelChanged();
 }
 
 void MessageListView::maybeScrollToBottom()
@@ -74,5 +87,4 @@ void MessageListView::maybeScrollToBottom()
     if (mAtBottom) {
         scrollToBottom();
     }
-    Q_EMIT modelChanged();
 }

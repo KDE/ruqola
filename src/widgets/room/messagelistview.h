@@ -35,6 +35,9 @@ public:
 
     void setModel(QAbstractItemModel *newModel) override;
 
+protected:
+    void resizeEvent(QResizeEvent *ev) override;
+
 Q_SIGNALS:
     void modelChanged();
 
