@@ -25,6 +25,8 @@
 #include "libruqolawidgets_export.h"
 class RuqolaCentralWidget;
 class QAction;
+class AccountMenu;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -51,6 +53,7 @@ private:
     void slotClearNotification();
     void slotLoadRecentHistory();
     void slotShowFileAttachments();
+    void slotAccountChanged();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
@@ -65,6 +68,8 @@ private:
     QAction *mConfigureNotification = nullptr;
     QAction *mLoadChannelHistory = nullptr;
     QAction *mShowFileAttachments = nullptr;
+    AccountMenu *mAccountMenu = nullptr;
+    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
 };
 
 #endif // RUQOLAMAINWINDOW_H

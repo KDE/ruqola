@@ -47,10 +47,6 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     mStackedWidget->addWidget(mRuqolaLoginWidget);
 
     mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
-
-    //Fix me multiaccount
-    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::loginStatusChanged, this, &RuqolaCentralWidget::slotLoginStatusChanged);
-    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::jobFailed, this, &RuqolaCentralWidget::slotJobFailedInfo);
 }
 
 RuqolaCentralWidget::~RuqolaCentralWidget()
@@ -68,6 +64,17 @@ QString RuqolaCentralWidget::roomId() const
     return mRuqolaMainWidget->roomId();
 }
 
+void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
+    }
+    mCurrentRocketChatAccount = account;
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RuqolaCentralWidget::slotLoginStatusChanged);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::jobFailed, this, &RuqolaCentralWidget::slotJobFailedInfo);
+    mRuqolaMainWidget->setCurrentRocketChatAccount(account);
+}
+
 void RuqolaCentralWidget::slotLoginStatusChanged()
 {
     /*        NotConnected,
@@ -78,7 +85,7 @@ void RuqolaCentralWidget::slotLoginStatusChanged()
         LoggedOut,
         FailedToLoginPluginProblem
         */
-    const auto loginStatus = Ruqola::self()->rocketChatAccount()->loginStatus();
+    const auto loginStatus = mCurrentRocketChatAccount->loginStatus();
     mRuqolaLoginWidget->setLogginStatus(loginStatus);
     if (loginStatus == DDPClient::LoggedIn) {
         mStackedWidget->setCurrentWidget(mRuqolaMainWidget);

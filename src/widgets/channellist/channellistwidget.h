@@ -27,6 +27,7 @@
 class StatusCombobox;
 class ChannelListView;
 class QLineEdit;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListWidget : public QWidget
 {
     Q_OBJECT
@@ -36,6 +37,7 @@ public:
 
     ChannelListView *channelListView() const;
 
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
 
@@ -50,6 +52,7 @@ private:
     StatusCombobox *mStatusComboBox = nullptr;
     ChannelListView *mChannelView = nullptr;
     QLineEdit *mSearchRoom = nullptr;
+    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
 };
 
 #endif // CHANNELLISTWIDGET_H

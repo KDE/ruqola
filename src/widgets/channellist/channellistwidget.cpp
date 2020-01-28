@@ -70,9 +70,6 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     statusComboBoxLayout->addWidget(mStatusComboBox);
     connect(mStatusComboBox, QOverload<int>::of(&StatusCombobox::currentIndexChanged), this, &ChannelListWidget::slotStatusChanged);
 
-    //TODO fix multiaccount
-    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::userStatusUpdated, this, &ChannelListWidget::setUserStatusUpdated);
-
     //BEGIN: Actions
     auto searchRoomAction = new QAction(i18n("Search Rooms"), this);
     searchRoomAction->setShortcut(Qt::CTRL + Qt::Key_K);
@@ -85,6 +82,17 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
 
 ChannelListWidget::~ChannelListWidget()
 {
+}
+
+void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
+    }
+    mCurrentRocketChatAccount = account;
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::userStatusUpdated, this, &ChannelListWidget::setUserStatusUpdated);
+    mChannelView->setModel(mCurrentRocketChatAccount->roomFilterProxyModel());
+
 }
 
 ChannelListView *ChannelListWidget::channelListView() const

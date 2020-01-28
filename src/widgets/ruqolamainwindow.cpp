@@ -24,6 +24,7 @@
 #include "receivetypingnotificationmanager.h"
 #include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
+#include "accountmenu.h"
 #include "dialogs/serverinfodialog.h"
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/createnewchanneldialog.h"
@@ -58,8 +59,8 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     setupGUI(KXmlGuiWindow::Default, QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc"));
     readConfig();
     //TODO fix me multi account
-    connect(Ruqola::self()->rocketChatAccount()->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::notificationChanged, this, &RuqolaMainWindow::slotTypingNotificationChanged);
-    connect(Ruqola::self()->rocketChatAccount()->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::clearNotification, this, &RuqolaMainWindow::slotClearNotification);
+    connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
+    slotAccountChanged();
 }
 
 RuqolaMainWindow::~RuqolaMainWindow()
@@ -69,6 +70,18 @@ RuqolaMainWindow::~RuqolaMainWindow()
     group.writeEntry("Size", size());
 
     Ruqola::destroy();
+}
+
+void RuqolaMainWindow::slotAccountChanged()
+{
+    qDebug() << " void RuqolaMainWindow::slotAccountChanged()";
+    if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
+    }
+    mCurrentRocketChatAccount = Ruqola::self()->rocketChatAccount();
+    connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::notificationChanged, this, &RuqolaMainWindow::slotTypingNotificationChanged);
+    connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::clearNotification, this, &RuqolaMainWindow::slotClearNotification);
+    mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
 }
 
 void RuqolaMainWindow::readConfig()
@@ -152,6 +165,9 @@ void RuqolaMainWindow::setupActions()
     mShowFileAttachments = new QAction(i18n("Show File Attachment..."), this);
     connect(mShowFileAttachments, &QAction::triggered, this, &RuqolaMainWindow::slotShowFileAttachments);
     ac->addAction(QStringLiteral("show_file_attachments"), mShowFileAttachments);
+
+    mAccountMenu = new AccountMenu(this);
+    ac->addAction(QStringLiteral("account_menu"), mAccountMenu);
 }
 
 void RuqolaMainWindow::slotShowFileAttachments()

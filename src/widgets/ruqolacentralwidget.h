@@ -26,6 +26,7 @@
 class QStackedWidget;
 class RuqolaMainWidget;
 class RuqolaLoginWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaCentralWidget : public QWidget
 {
     Q_OBJECT
@@ -33,12 +34,15 @@ public:
     explicit RuqolaCentralWidget(QWidget *parent = nullptr);
     ~RuqolaCentralWidget();
     Q_REQUIRED_RESULT QString roomId() const;
+
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
 private:
     void slotLoginStatusChanged();
     void slotJobFailedInfo(const QString &messageError);
     QStackedWidget *mStackedWidget = nullptr;
     RuqolaMainWidget *mRuqolaMainWidget = nullptr;
     RuqolaLoginWidget *mRuqolaLoginWidget = nullptr;
+    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
 };
 
 #endif // RUQOLACENTRALWIDGET_H
