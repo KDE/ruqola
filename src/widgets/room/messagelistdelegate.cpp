@@ -45,8 +45,6 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
 
 MessageListDelegate::~MessageListDelegate()
 {
-    delete mHelperText;
-    delete mHelperImage;
 }
 
 void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
@@ -137,12 +135,12 @@ MessageDelegateHelperBase *MessageListDelegate::helper(const Message *message) c
 {
     switch (message->messageType()) {
     case Message::Image:
-        return mHelperImage;
+        return mHelperImage.data();
     case Message::File:
-        return mHelperFile;
+        return mHelperFile.data();
     case Message::NormalText:
     default: // #### for now
-        return mHelperText;
+        return mHelperText.data();
     }
     Q_UNREACHABLE();
     return nullptr;

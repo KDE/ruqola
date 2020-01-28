@@ -23,6 +23,7 @@
 
 #include <QFont>
 #include <QItemDelegate>
+#include <QScopedPointer>
 #include "messages/reaction.h"
 
 class RocketChatAccount;
@@ -70,14 +71,16 @@ private:
         qreal avatarX;
     };
     PixmapAndSenderLayout layoutPixmapAndSender(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+
+    /// @note Ownership is not transferred
     MessageDelegateHelperBase *helper(const Message *message) const;
 
     QFont mEmojiFont;
     RocketChatAccount *mRocketChatAccount = nullptr;
 
-    MessageDelegateHelperText *mHelperText;
-    MessageDelegateHelperImage *mHelperImage;
-    MessageDelegateHelperFile *mHelperFile;
+    QScopedPointer<MessageDelegateHelperText> mHelperText;
+    QScopedPointer<MessageDelegateHelperImage> mHelperImage;
+    QScopedPointer<MessageDelegateHelperFile> mHelperFile;
 };
 
 #endif // MESSAGELISTDELEGATE_H
