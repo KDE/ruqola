@@ -42,7 +42,6 @@ MessageListView::~MessageListView()
 
 void MessageListView::setChannelSelected(const QString &roomId)
 {
-    //TODO temporary
     Ruqola::self()->rocketChatAccount()->switchingToRoom(roomId);
     setModel(Ruqola::self()->rocketChatAccount()->messageModelForRoom(roomId));
 }
