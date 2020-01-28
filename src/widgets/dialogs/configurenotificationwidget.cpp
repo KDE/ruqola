@@ -23,6 +23,7 @@
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QCheckBox>
+#include <QGroupBox>
 
 ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     : QWidget(parent)
@@ -42,6 +43,13 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mMuteGroupMentions = new QCheckBox(this);
     mMuteGroupMentions->setObjectName(QStringLiteral("mMuteGroupMentions"));
     mainLayout->addRow(i18n("Mute Group Mentions:"), mMuteGroupMentions);
+
+    QGroupBox *desktopGroupBox = new QGroupBox(i18n("Desktop"), this);
+    desktopGroupBox->setObjectName(QStringLiteral("desktopGroupBox"));
+    mainLayout->addWidget(desktopGroupBox);
+
+    QFormLayout *desktopGroupBoxLayout = new QFormLayout(desktopGroupBox);
+
 }
 
 ConfigureNotificationWidget::~ConfigureNotificationWidget()

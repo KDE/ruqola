@@ -19,9 +19,16 @@
 */
 
 #include "configurenotificationwidgettest.h"
+#include "dialogs/configurenotificationwidget.h"
 #include <QTest>
 QTEST_MAIN(ConfigureNotificationWidgetTest)
 ConfigureNotificationWidgetTest::ConfigureNotificationWidgetTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
+{
+    ConfigureNotificationWidget w;
+    //TODO
 }
