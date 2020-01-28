@@ -64,7 +64,6 @@ void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *mode
 {
     mModel = model;
     mMessageListView->setModel(model);
-    updateLabel();
 }
 
 void ShowListMessageBaseWidget::updateLabel()
