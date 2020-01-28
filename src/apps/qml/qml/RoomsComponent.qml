@@ -108,7 +108,9 @@ Component {
                 anchors {
                     verticalCenter: parent.verticalCenter
                     left: parent.left
+                    margins: Kirigami.Units.smallSpacing
                 }
+
                 QQC2.ToolButton {
                     id: accountButton
                     icon.name: "network-workgroup"
