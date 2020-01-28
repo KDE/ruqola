@@ -52,7 +52,7 @@ ListView {
                     Layout.minimumHeight: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)
                     elide: Text.ElideRight
                     Layout.alignment: Qt.AlignHCenter
-                    Component.onCompleted: font.bold = true
+                    font.bold: true
                 }
             }
         }

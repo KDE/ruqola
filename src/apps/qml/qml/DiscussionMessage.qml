@@ -48,9 +48,7 @@ Kirigami.BasicListItem {
             text: i_description
             elide: Text.ElideRight
             wrapMode: QQC2.Label.Wrap
-            Component.onCompleted: {
-                font.italic = true
-            }
+            font.italic: true
         }
         RowLayout {
             QQC2.Label {
@@ -58,9 +56,7 @@ Kirigami.BasicListItem {
                 elide: Text.ElideRight
                 textFormat: Text.PlainText
                 wrapMode: QQC2.Label.Wrap
-                Component.onCompleted: {
-                    font.bold = true
-                }
+                font.bold: true
             }
             QQC2.Label {
                 id: lastMessageText

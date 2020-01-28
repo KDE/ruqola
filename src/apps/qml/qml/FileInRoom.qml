@@ -52,9 +52,7 @@ Kirigami.BasicListItem {
                 visible: i_description !== ""
                 wrapMode: QQC2.Label.Wrap
                 elide: Text.ElideRight
-                Component.onCompleted: {
-                    font.italic = true
-                }
+                font.italic: true
             }
             QQC2.Label {
                 text: i_username
@@ -62,9 +60,7 @@ Kirigami.BasicListItem {
                 elide: Text.ElideRight
                 color: Kirigami.Theme.disabledTextColor
                 Layout.fillWidth: true
-                Component.onCompleted: {
-                    font.italic = true
-                }
+                font.italic: true
             }
             QQC2.Label {
                 text: i_timestamp
@@ -72,9 +68,7 @@ Kirigami.BasicListItem {
                 wrapMode: QQC2.Label.NoWrap
                 color: Kirigami.Theme.disabledTextColor
                 Layout.fillWidth: true
-                Component.onCompleted: {
-                    font.italic = true
-                }
+                font.italic: true
             }
         }
         Item {

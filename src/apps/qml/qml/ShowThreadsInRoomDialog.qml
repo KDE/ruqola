@@ -100,9 +100,7 @@ QQC2.Dialog {
                         QQC2.Label {
                             text: description
                             elide: Text.ElideRight
-                            Component.onCompleted: {
-                                font.italic = true
-                            }
+                            font.italic: true
                             wrapMode: QQC2.Label.Wrap
                             renderType: Text.NativeRendering
                             Layout.preferredWidth: parent.width
@@ -113,9 +111,7 @@ QQC2.Dialog {
                                 text: i18np("1 reply", "%1 replies", numberofmessages)
                                 elide: Text.ElideRight
                                 wrapMode: QQC2.Label.Wrap
-                                Component.onCompleted: {
-                                    font.bold = true
-                                }
+                                font.bold: true
                                 renderType: Text.NativeRendering
                             }
                             QQC2.Label {

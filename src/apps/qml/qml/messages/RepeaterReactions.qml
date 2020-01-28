@@ -81,9 +81,7 @@ Repeater {
             wrapMode: QQC2.Label.NoWrap
             anchors.leftMargin: Kirigami.Units.smallSpacing
             anchors.rightMargin: Kirigami.Units.smallSpacing
-            Component.onCompleted: {
-                font.italic = true
-            }
+            font.italic: true
         }
     }
 }

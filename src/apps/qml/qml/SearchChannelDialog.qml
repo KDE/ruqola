@@ -62,10 +62,8 @@ QQC2.Dialog {
         QQC2.Label {
             text: listview.count === 0 ? i18n("No Channel found") : ""
             textFormat: Text.PlainText
-            Component.onCompleted: {
-                font.italic = true
-                font.bold = true
-            }
+            font.italic: true
+            font.bold: true
         }
         ListView {
             id: listview

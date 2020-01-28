@@ -32,19 +32,16 @@ RowLayout {
     QQC2.Label {
         visible: searchLabel.labelText.length > 0
         text: searchLabel.labelText
-        Component.onCompleted: {
-            font.italic = true
-            font.bold = true
-        }
+        font.italic: true
+        font.bold: true
     }
     QQC2.Label {
         visible: numberOfElements > 0 && !hasFullList
         text: i18n("(Click here for Loading more...)")
         textFormat: Text.PlainText
         color: Kirigami.Theme.linkColor
-        Component.onCompleted: {
-            font.italic = true
-        }
+        font.italic: true
+
         MouseArea {
             anchors.fill: parent
             onClicked: {

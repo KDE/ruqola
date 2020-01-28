@@ -54,9 +54,7 @@ MessageBase {
                 wrapMode: QQC2.Label.Wrap
 
                 renderType: Text.NativeRendering
-                Component.onCompleted: {
-                    font.italic = true
-                }
+                font.italic: true
             }
             DiscussionLabel {
                 id: discussionLabel
