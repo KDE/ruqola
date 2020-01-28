@@ -90,6 +90,11 @@ Component {
             onTextChanged: {
                 appid.rocketChatAccount.roomFilterProxyModel.setFilterString(text);
             }
+            onAccepted: {
+                var roomID = roomsList.currentItem.d_roomID;
+                appid.switchToRoom(roomID);
+                searchField.text = "";
+            }
             focusSequence: "Ctrl+K"
         }
         background: Rectangle {
