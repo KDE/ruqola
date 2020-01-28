@@ -112,7 +112,8 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxH
 }
 
 // [margin] <pixmap> [margin] <sender>
-MessageListDelegate::PixmapAndSenderLayout MessageListDelegate::layoutPixmapAndSender(const QStyleOptionViewItem &option, const QModelIndex &index) const
+MessageListDelegate::PixmapAndSenderLayout MessageListDelegate::layoutPixmapAndSender(const QStyleOptionViewItem &option,
+                                                                                      const QRect &usableRect, const QModelIndex &index) const
 {
     PixmapAndSenderLayout layout;
     layout.senderText = makeSenderText(index);
@@ -125,9 +126,9 @@ MessageListDelegate::PixmapAndSenderLayout MessageListDelegate::layoutPixmapAndS
     layout.ascent = senderFontMetrics.ascent();
 
     const qreal margin = basicMargin();
-    layout.senderRect = QRectF(option.rect.x() + layout.avatarPixmap.width() + 2 * margin, option.rect.y(),
+    layout.senderRect = QRectF(usableRect.x() + layout.avatarPixmap.width() + 2 * margin, usableRect.y(),
                                senderTextSize.width(), senderTextSize.height());
-    layout.avatarX = option.rect.x() + margin;
+    layout.avatarX = usableRect.x() + margin;
     return layout;
 }
 
@@ -224,28 +225,55 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
     }
 }
 
+void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
+{
+    const QPen origPen = painter->pen();
+    const qreal margin = basicMargin();
+    const QString dateStr = index.data(MessageModel::Date).toString();
+    const QSize dateSize = option.fontMetrics.size(Qt::TextSingleLine, dateStr);
+    const QRect dateAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), dateSize.height()); // the whole row
+    const QRect dateTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, dateSize, dateAreaRect);
+    painter->drawText(dateTextRect, dateStr);
+    const int lineY = (dateAreaRect.top() + dateAreaRect.bottom()) / 2;
+    QColor lightColor(painter->pen().color());
+    lightColor.setAlpha(60);
+    painter->setPen(lightColor);
+    painter->drawLine(dateAreaRect.left(), lineY, dateTextRect.left() - margin, lineY);
+    painter->drawLine(dateTextRect.right() + margin, lineY, dateAreaRect.right(), lineY);
+    painter->setPen(origPen);
+}
+
 void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    painter->save();
+
     drawBackground(painter, option, index);
 
-    const QPen origPen = painter->pen();
+    QRect usableRect = option.rect;
+
+    // Draw date if it differs from the previous message
+    if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
+        drawDate(painter, index, option);
+        painter->translate(0, option.fontMetrics.height());
+        usableRect.setBottom(usableRect.bottom() - option.fontMetrics.height());
+    }
 
     // Compact mode : <pixmap> <sender> <message> <smiley> <timestamp>
 
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     // Sender and pixmap (calculate size, but don't draw it yet, we need to align vertically to the first line of the message)
-    const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
+    const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, usableRect, index);
 
     // Timestamp
     QRect timeRect;
     drawTimestamp(painter, index, option, &timeRect);
 
     // Message
-    QRect messageRect = option.rect;
+    QRect messageRect = usableRect;
     messageRect.setLeft(leftLayout.senderRect.right());
     messageRect.setRight(timeRect.left() - 1);
-    qreal baseLine = option.rect.y() + option.fontMetrics.ascent(); // default value, modified by HelperText
+    qreal baseLine = usableRect.y() + option.fontMetrics.ascent(); // default value, modified by HelperText
 
     helper(message)->draw(painter, messageRect, index, option, &baseLine);
 
@@ -262,10 +290,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // Reactions
     drawReactions(painter, index, messageRect, option);
 
-    painter->setFont(option.font);
-    painter->setPen(origPen);
-
-    //drawFocus(painter, option, displayRect);
+    painter->restore();
 }
 
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -274,7 +299,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     // Avatar pixmap and sender text
-    const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
+    const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, option.rect, index);
 
     // Timestamp
     const QString timeStampText = makeTimeStampText(index);
@@ -292,6 +317,10 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
         additionalHeight += emojiFontMetrics.height() + margin;
     }
 
+    if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
+        additionalHeight += option.fontMetrics.height();
+    }
+
     // hopefully the width below is never more than option.rect.width() or we'll get a scrollbar
     return QSize(widthBeforeMessage + size.width() + widthAfterMessage,
                  qMax<int>(leftLayout.senderRect.height(), size.height()) + additionalHeight);
@@ -303,7 +332,11 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
         QMouseEvent *mev = static_cast<QMouseEvent *>(event);
         const QPoint pos = mev->pos();
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-        const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, index);
+        QRect usableRect = option.rect;
+        if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
+            usableRect.moveTop(usableRect.top() + option.fontMetrics.height());
+        }
+        const PixmapAndSenderLayout leftLayout = layoutPixmapAndSender(option, usableRect, index);
         if (!message->reactions().isEmpty()) {
             const QVector<ReactionLayout> layout = layoutReactions(message->reactions().reactions(), leftLayout.senderRect.right(), option);
             for (const ReactionLayout &reactionLayout : layout) {

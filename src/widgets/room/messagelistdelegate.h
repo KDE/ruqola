@@ -47,6 +47,8 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
+    void drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
+
 private:
     void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &messageRect, const QStyleOptionViewItem &option) const;
     QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
@@ -70,7 +72,7 @@ private:
         QPixmap avatarPixmap;
         qreal avatarX;
     };
-    PixmapAndSenderLayout layoutPixmapAndSender(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    PixmapAndSenderLayout layoutPixmapAndSender(const QStyleOptionViewItem &option, const QRect &usableRect, const QModelIndex &index) const;
 
     /// @note Ownership is not transferred
     MessageDelegateHelperBase *helper(const Message *message) const;
