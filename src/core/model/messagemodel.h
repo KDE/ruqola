@@ -59,6 +59,7 @@ public:
         Attachments,
         Urls,
         Date,
+        DateDiffersFromPrevious,
         CanEditMessage,
         Starred,
         UsernameUrl,

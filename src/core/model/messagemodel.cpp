@@ -81,7 +81,9 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
         connect(mRoom, &Room::rolesChanged, this, &MessageModel::refresh);
         connect(mRoom, &Room::ignoredUsersChanged, this, &MessageModel::refresh);
     }
-    connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageModel::slotFileDownloaded);
+    if (mRocketChatAccount) {
+        connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageModel::slotFileDownloaded);
+    }
 }
 
 MessageModel::~MessageModel()
@@ -289,9 +291,18 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     }
     case MessageModel::Date:
     {
-        QDateTime currentDate;
-        currentDate.setMSecsSinceEpoch(message.timeStamp());
+        const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
         return currentDate.date().toString();
+    }
+    case MessageModel::DateDiffersFromPrevious:
+    {
+        if (idx > 0) {
+            const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
+            const Message &previousMessage = mAllMessages.at(idx - 1);
+            const QDateTime previousDate = QDateTime::fromMSecsSinceEpoch(previousMessage.timeStamp());
+            return currentDate.date() != previousDate.date();
+        }
+        return true; // show date at the top
     }
     case MessageModel::CanEditMessage:
         return (message.timeStamp() + (mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000 : 0))

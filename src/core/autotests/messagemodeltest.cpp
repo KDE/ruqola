@@ -187,6 +187,30 @@ void MessageModelTest::shouldRemoveNotExistingMessage()
     QCOMPARE(w.rowCount(), 2);
 }
 
+void MessageModelTest::shouldDetectDateChange()
+{
+    MessageModel model;
+    Message first;
+    first.setMessageId(QStringLiteral("first"));
+    first.setTimeStamp(QDateTime(QDate(2019, 6, 7), QTime(23, 50, 50)).toMSecsSinceEpoch());
+    model.addMessage(first);
+    QVERIFY(model.index(0, 0).data(MessageModel::DateDiffersFromPrevious).toBool()); // first message
+
+    Message second;
+    second.setMessageId(QStringLiteral("second"));
+    second.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(1, 2, 3)).toMSecsSinceEpoch());
+    model.addMessage(second);
+    QCOMPARE(model.rowCount(), 2);
+    QVERIFY(model.index(1, 0).data(MessageModel::DateDiffersFromPrevious).toBool()); // next day
+
+    Message third;
+    third.setTimeStamp(QDateTime(QDate(2019, 6, 8), QTime(1, 4, 3)).toMSecsSinceEpoch());
+    third.setMessageId(QStringLiteral("third"));
+    model.addMessage(third);
+    QCOMPARE(model.rowCount(), 3);
+    QVERIFY(!model.index(2, 0).data(MessageModel::DateDiffersFromPrevious).toBool()); // same day
+}
+
 void MessageModelTest::shouldAddMessage()
 {
     MessageModel w;
