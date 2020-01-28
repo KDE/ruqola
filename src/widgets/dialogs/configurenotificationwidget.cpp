@@ -22,6 +22,7 @@
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QFormLayout>
+#include <QCheckBox>
 
 ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     : QWidget(parent)
@@ -29,6 +30,18 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     QFormLayout *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mDisableNotification = new QCheckBox(this);
+    mDisableNotification->setObjectName(QStringLiteral("mDisableNotification"));
+    mainLayout->addRow(i18n("Disable Notification:"), mDisableNotification);
+
+    mHideUnreadRoomStatus = new QCheckBox(this);
+    mHideUnreadRoomStatus->setObjectName(QStringLiteral("mHideUnreadRoomStatus"));
+    mainLayout->addRow(i18n("Hide Unread Room Status:"), mHideUnreadRoomStatus);
+
+    mMuteGroupMentions = new QCheckBox(this);
+    mMuteGroupMentions->setObjectName(QStringLiteral("mMuteGroupMentions"));
+    mainLayout->addRow(i18n("Mute Group Mentions:"), mMuteGroupMentions);
 }
 
 ConfigureNotificationWidget::~ConfigureNotificationWidget()

@@ -24,12 +24,17 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QCheckBox;
 class LIBRUQOLAWIDGETS_EXPORT ConfigureNotificationWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ConfigureNotificationWidget(QWidget *parent = nullptr);
     ~ConfigureNotificationWidget();
+private:
+    QCheckBox *mDisableNotification = nullptr;
+    QCheckBox *mHideUnreadRoomStatus = nullptr;
+    QCheckBox *mMuteGroupMentions = nullptr;
 };
 
 #endif // CONFIGURENOTIFICATIONWIDGET_H
