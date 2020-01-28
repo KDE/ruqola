@@ -30,6 +30,7 @@ class LIBRUQOLACORE_TESTS_EXPORT Reaction
     Q_PROPERTY(QString reactionName READ reactionName CONSTANT)
     Q_PROPERTY(QString convertedReactionName READ convertedReactionName CONSTANT)
     Q_PROPERTY(QString convertedUsersNameAtToolTip READ convertedUsersNameAtToolTip CONSTANT)
+    Q_PROPERTY(QStringList userNames READ userNames CONSTANT)
     Q_PROPERTY(bool isAnimatedImage READ isAnimatedImage CONSTANT)
 public:
     Reaction();
