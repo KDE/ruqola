@@ -68,22 +68,23 @@ QString ReceiveTypingNotificationManager::generateNotification(const QStringList
 {
     if (userNames.isEmpty()) {
         return QString();
-    } else if (userNames.count() == 1) {
-        return i18n("%1 is typing...", userNames[0]);
-    } else {
-        QString notificationStr;
-        for (int i = 0; i < userNames.count(); ++i) {
-            const QString user = userNames.at(i);
-            if (i == 0) {
-                notificationStr = user;
-            } else if (i < userNames.count() - 1) {
-                notificationStr = i18n("%1, %2", notificationStr, user);
-            } else {
-                notificationStr = i18n("%1 and %2", notificationStr, user);
-            }
-        }
-        return i18n("%1 are typing...", notificationStr);
     }
+    if (userNames.count() == 1) {
+        return i18n("<strong>%1</strong> is typing...", userNames[0]);
+    }
+
+    QString notificationStr;
+    for (int i = 0; i < userNames.count(); ++i) {
+        const QString &user = userNames.at(i);
+        if (i == 0) {
+            notificationStr = user;
+        } else if (i < userNames.count() - 1) {
+            notificationStr = i18n("%1, %2", notificationStr, user);
+        } else {
+            notificationStr = i18n("%1 and %2", notificationStr, user);
+        }
+    }
+    return i18n("<strong>%1</strong> are typing...", notificationStr);
 }
 
 QString ReceiveTypingNotificationManager::typingNotification(const QString &roomId) const
