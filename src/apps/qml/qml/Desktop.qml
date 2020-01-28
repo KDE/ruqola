@@ -74,6 +74,7 @@ Kirigami.ApplicationWindow {
         appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(roomID)
     }
 
+    pageStack.defaultColumnWidth: Kirigami.Units.gridUnit * 15
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
     pageStack.initialPage: [roomsComponent, mainComponent]
     pageStack.visible: rocketChatAccount.loginStatus === DDPClient.LoggedIn
