@@ -20,6 +20,7 @@
 
 #include "showlistmessagebasedialog.h"
 #include "showlistmessagebasewidget.h"
+#include "ruqolawidgets_debug.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include <QVBoxLayout>
@@ -49,6 +50,10 @@ ShowListMessageBaseDialog::~ShowListMessageBaseDialog()
 
 void ShowListMessageBaseDialog::slotLoadMoreMessages()
 {
+    if (mRoomId.isEmpty()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "RoomId is empty. It's a bug";
+        return;
+    }
     Ruqola::self()->rocketChatAccount()->loadMoreListMessages(roomId());
 }
 

@@ -184,6 +184,7 @@ void RuqolaMainWindow::slotSearchMessages()
 void RuqolaMainWindow::slotStarredMessages()
 {
     QPointer<ShowStarredMessagesDialog> dlg = new ShowStarredMessagesDialog(this);
+    dlg->setRoomId(mMainWidget->roomId());
     dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
     Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::StarredMessages);
     dlg->exec();
@@ -193,6 +194,7 @@ void RuqolaMainWindow::slotStarredMessages()
 void RuqolaMainWindow::slotPinnedMessages()
 {
     QPointer<ShowPinnedMessagesDialog> dlg = new ShowPinnedMessagesDialog(this);
+    dlg->setRoomId(mMainWidget->roomId());
     dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
     Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::PinnedMessages);
     dlg->exec();
@@ -211,6 +213,7 @@ void RuqolaMainWindow::slotShowMentions()
 void RuqolaMainWindow::slotSnipperedMessages()
 {
     QPointer<ShowSnipperedMessagesDialog> dlg = new ShowSnipperedMessagesDialog(this);
+    dlg->setRoomId(mMainWidget->roomId());
     dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
     Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::SnipperedMessages);
     dlg->exec();
