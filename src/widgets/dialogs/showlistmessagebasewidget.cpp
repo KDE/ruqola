@@ -38,6 +38,7 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
     mSearchMessageLineEdit->setClearButtonEnabled(true);
     mSearchMessageLineEdit->setTrapReturnKey(true);
+    mSearchMessageLineEdit->setPlaceholderText(i18n("Search Messages..."));
     connect(mSearchMessageLineEdit, &KLineEdit::textChanged, this, &ShowListMessageBaseWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchMessageLineEdit);
 

@@ -43,6 +43,7 @@ void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
     KLineEdit *mSearchMessageLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mSearchMessageLineEdit"));
     QVERIFY(mSearchMessageLineEdit);
     QVERIFY(mSearchMessageLineEdit->isClearButtonEnabled());
+    QVERIFY(!mSearchMessageLineEdit->placeholderText().isEmpty());
 
     QLabel *mMessageListInfo = w.findChild<QLabel *>(QStringLiteral("mMessageListInfo"));
     QVERIFY(mMessageListInfo);
