@@ -75,6 +75,7 @@ MessageBase {
         }
         ColumnLayout {
             Layout.fillHeight: true
+            spacing: Kirigami.Units.smallSpacing / 2 // reduce spacing a little
             RowLayout {
                 QQC2.Label {
                     id: usernameLabel

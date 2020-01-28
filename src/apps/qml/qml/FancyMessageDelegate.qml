@@ -68,7 +68,7 @@ Rectangle {
 
 
     color: RuqolaSingleton.backgroundColor
-    implicitHeight: 4*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
+    implicitHeight: 2*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
     
     implicitWidth: 150
     
