@@ -42,6 +42,8 @@ private:
         QPixmap pixmap;
         QString title;
         QString description;
+        QSize titleSize;
+        QSize descriptionSize;
         QRect hideShowButtonRect;
         QRect downloadButtonRect;
         bool isShown;
