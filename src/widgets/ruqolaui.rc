@@ -4,6 +4,8 @@
   <Menu name="file" >
    <Action name="add_account" />
    <Separator/>
+   <Action name="account_menu" />
+   <Separator/>
    <Action name="server_info" />
    <Separator/>
    <Action name="logout" />

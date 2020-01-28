@@ -37,6 +37,8 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/showimagewidget.cpp
     dialogs/showattachmentdialog.cpp
     dialogs/showattachmentwidget.cpp
+    dialogs/directchannelinfodialog.cpp
+    dialogs/directchannelinfowidget.cpp
     )
 
 set(Ruqola_configure_SRCS
@@ -65,6 +67,10 @@ set(Ruqola_roomwidget_SRCS
     room/messagelinewidget.cpp
     )
 
+set(Ruqola_misc_widget_SRCS
+    accountmenu.cpp
+    )
+
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
 
 qt5_add_resources(Ruqola_widgets_SRCS ruqolawidget.qrc)
@@ -75,6 +81,7 @@ add_library(libruqolawidgets
     ${Ruqola_channellist_SRCS}
     ${Ruqola_roomwidget_SRCS}
     ${Ruqola_configure_SRCS}
+    ${Ruqola_misc_widget_SRCS}
     )
 
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
