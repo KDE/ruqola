@@ -26,11 +26,20 @@ import org.kde.kirigami 2.7 as Kirigami
 
 Kirigami.Page {
     id: configureServer
-    anchors.fill: parent
 
     property QtObject accountModel
 
-    signal closeConfigureServer()
+    actions.main: Kirigami.Action {
+        icon.name: "list-add"
+        text: i18n("Add Account")
+        onTriggered: createNewAccountDialog.initializeAndOpen()
+    }
+
+    actions.right: Kirigami.Action {
+        icon.name: "window-close-symbolic"
+        text: i18n("Close")
+        onTriggered: pageStack.pop()
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -75,35 +84,6 @@ Kirigami.Page {
                         Layout.fillWidth: true
                     }
                 }
-            }
-        }
-        RowLayout {
-            Kirigami.Icon {
-                //Fix icon ??
-                source: "list-add"
-                height: Kirigami.Units.iconSizes.medium
-                width: height
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        createNewAccountDialog.initializeAndOpen()
-                    }
-                }
-            }
-            QQC2.Label {
-                text: i18n("Add Account");
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        createNewAccountDialog.initializeAndOpen()
-                    }
-                }
-            }
-        }
-        QQC2.Button {
-            text: i18n("Close")
-            onClicked: {
-                configureServer.closeConfigureServer()
             }
         }
     }

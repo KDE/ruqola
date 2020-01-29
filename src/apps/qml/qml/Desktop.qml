@@ -75,7 +75,6 @@ Kirigami.ApplicationWindow {
     }
 
     pageStack.defaultColumnWidth: Kirigami.Units.gridUnit * 15
-    pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
     pageStack.initialPage: [roomsComponent, mainComponent]
     pageStack.visible: rocketChatAccount.loginStatus === DDPClient.LoggedIn
 
@@ -109,10 +108,7 @@ Kirigami.ApplicationWindow {
             Kirigami.Action {
                 text: i18n("Configure Account")
                 iconName: "settings-configure"
-                onTriggered: {
-                    configureServerList.visible = true
-                    pageStack.visible = false
-                }
+                onTriggered: pageStack.push(Qt.resolvedUrl("ConfigureServerList.qml"), {accountModel: accountManagerModel})
             },
             Kirigami.Action {
                 text: i18n("Handbook")
@@ -150,16 +146,6 @@ Kirigami.ApplicationWindow {
                 }
             }
         ]
-    }
-    
-    ConfigureServerList {
-        id: configureServerList
-        accountModel: accountManagerModel
-        visible: false
-        onCloseConfigureServer: {
-            configureServerList.visible = false
-            pageStack.visible = true
-        }
     }
 
     LoginPage {
