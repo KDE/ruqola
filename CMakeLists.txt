@@ -64,8 +64,11 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Crash
     Notifications
     SyntaxHighlighting
-    DocTools
 )
+
+if (NOT ANDROID)
+    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS DocTools)
+endif()
 
 if (WIN32 OR APPLE)
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
@@ -118,7 +121,10 @@ if (BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
-add_subdirectory(doc)
+if (TARGET KF5::DocTools)
+    add_subdirectory(doc)
+endif()
+
 install(FILES ruqola.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
