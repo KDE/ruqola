@@ -24,10 +24,12 @@
 #include <QWidget>
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
+
 class MessageLineEdit;
 class QToolButton;
 class EmoticonMenuWidget;
 class RocketChatAccount;
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
     Q_OBJECT
@@ -37,6 +39,8 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
+    void setText(const QString &text);
+
 Q_SIGNALS:
     void sendMessage(const QString &str);
     void clearNotification();
@@ -44,6 +48,7 @@ Q_SIGNALS:
 
 private:
     void slotSendFile();
+
     MessageLineEdit *mMessageLineEdit = nullptr;
     QToolButton *mSendFile = nullptr;
     QToolButton *mEmoticonButton = nullptr;

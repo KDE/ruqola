@@ -22,8 +22,12 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "messagelistdelegate.h"
+
+#include <KLocalizedString>
+
 #include <QDebug>
 #include <QKeyEvent>
+#include <QMenu>
 #include <QScrollBar>
 
 MessageListView::MessageListView(QWidget *parent)
@@ -32,6 +36,7 @@ MessageListView::MessageListView(QWidget *parent)
     auto *delegate = new MessageListDelegate(this);
     delegate->setRocketChatAccount(Ruqola::self()->rocketChatAccount());
     setItemDelegate(delegate);
+
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // nicer in case of huge messages
     setWordWrap(true); // so that the delegate sizeHint is called again when the width changes
@@ -101,4 +106,27 @@ void MessageListView::maybeScrollToBottom()
     if (mAtBottom) {
         scrollToBottom();
     }
+}
+
+void MessageListView::contextMenuEvent(QContextMenuEvent *event)
+{
+    const QModelIndex index = indexAt(event->pos());
+    if (!index.isValid())
+        return;
+    QMenu menu(this);
+    if (index.data(MessageModel::CanEditMessage).toBool()) {
+        QAction *editAction = new QAction(i18n("Edit"), &menu);
+        connect(editAction, &QAction::triggered, this, [=]() { slotEditMessage(index); });
+        menu.addAction(editAction);
+    }
+    if (!menu.actions().isEmpty()) {
+        menu.exec(event->globalPos());
+    }
+}
+
+void MessageListView::slotEditMessage(const QModelIndex &index)
+{
+    const QString text = index.data(MessageModel::OriginalMessage).toString();
+    const QString messageId = index.data(MessageModel::MessageId).toString();
+    Q_EMIT editMessageRequested(messageId, text);
 }

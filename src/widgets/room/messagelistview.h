@@ -38,14 +38,17 @@ public:
 protected:
     void resizeEvent(QResizeEvent *ev) override;
     void keyPressEvent(QKeyEvent *ev) override;
+    void contextMenuEvent(QContextMenuEvent *event) override;
 
 Q_SIGNALS:
     void modelChanged();
     void keyPressed(QKeyEvent *ev);
+    void editMessageRequested(const QString &messageId, const QString &text);
 
-private Q_SLOTS:
+private:
     void checkIfAtBottom();
     void maybeScrollToBottom();
+    void slotEditMessage(const QModelIndex &index);
 
 private:
     bool mAtBottom = true;

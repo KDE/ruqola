@@ -24,6 +24,7 @@
 #include <QWidget>
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
+
 class RoomHeaderWidget;
 class MessageListView;
 class MessageLineWidget;
@@ -31,6 +32,7 @@ class RoomWrapper;
 class ReadOnlyLineEditWidget;
 class QStackedWidget;
 class RocketChatAccount;
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -48,6 +50,7 @@ Q_SIGNALS:
 private:
     void setChannelSelected(const QModelIndex &index);
     void slotSendMessage(const QString &msg);
+    void slotEditMessage(const QString &messageId, const QString &text);
     void slotClearNotification();
     void slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void updateRoomHeader();
@@ -56,6 +59,7 @@ private:
     void keyPressedInListView(QKeyEvent *ev);
 
     QString mRoomId;
+    QString mMessageIdBeingEdited;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;
     MessageLineWidget *mMessageLineWidget = nullptr;

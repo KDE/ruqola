@@ -328,7 +328,8 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 
 bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    if (event->type() == QEvent::MouseButtonRelease) {
+    const QEvent::Type eventType = event->type();
+    if (eventType == QEvent::MouseButtonRelease) {
         QMouseEvent *mev = static_cast<QMouseEvent *>(event);
         const QPoint pos = mev->pos();
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();

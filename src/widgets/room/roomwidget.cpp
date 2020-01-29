@@ -71,6 +71,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
 
     connect(mMessageListView, &MessageListView::keyPressed, this, &RoomWidget::keyPressedInListView);
+    connect(mMessageListView, &MessageListView::editMessageRequested, this, &RoomWidget::slotEditMessage);
 }
 
 RoomWidget::~RoomWidget()
@@ -85,7 +86,19 @@ void RoomWidget::slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFile
 
 void RoomWidget::slotSendMessage(const QString &msg)
 {
-    mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
+    if (mMessageIdBeingEdited.isEmpty()) {
+        mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
+    } else {
+        mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
+        mMessageIdBeingEdited.clear();
+    }
+}
+
+void RoomWidget::slotEditMessage(const QString &messageId, const QString &text)
+{
+    mMessageIdBeingEdited = messageId;
+    mMessageLineWidget->setText(text);
+    mMessageLineWidget->setFocus();
 }
 
 void RoomWidget::setChannelSelected(const QModelIndex &index)

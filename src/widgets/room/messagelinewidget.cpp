@@ -79,6 +79,11 @@ void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
 }
 
+void MessageLineWidget::setText(const QString &text)
+{
+    mMessageLineEdit->setText(text);
+}
+
 void MessageLineWidget::slotSendFile()
 {
     QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
