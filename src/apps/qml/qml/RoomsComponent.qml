@@ -85,7 +85,7 @@ Component {
         globalToolBarStyle: Kirigami.ApplicationHeaderStyle.ToolBar
         titleDelegate: LineEditWithClearButton {
             id: searchField
-            placeholderText: i18n("Search Room...")
+            placeholderText: i18n("Search Room... (%1)", focusSequence)
             Layout.fillWidth: true
             onTextChanged: {
                 appid.rocketChatAccount.roomFilterProxyModel.setFilterString(text);
