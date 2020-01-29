@@ -50,6 +50,7 @@ void MessageListView::setChannelSelected(const QString &roomId)
 {
     Ruqola::self()->rocketChatAccount()->switchingToRoom(roomId);
     setModel(Ruqola::self()->rocketChatAccount()->messageModelForRoom(roomId));
+    mRoomID = roomId;
 }
 
 void MessageListView::setModel(QAbstractItemModel *newModel)
@@ -113,11 +114,17 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     const QModelIndex index = indexAt(event->pos());
     if (!index.isValid())
         return;
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
-    if (index.data(MessageModel::CanEditMessage).toBool()) {
+    if (rcAccount->allowEditingMessages() && index.data(MessageModel::CanEditMessage).toBool()) {
         QAction *editAction = new QAction(i18n("Edit"), &menu);
         connect(editAction, &QAction::triggered, this, [=]() { slotEditMessage(index); });
         menu.addAction(editAction);
+    }
+    if (rcAccount->allowMessageDeletingEnabled() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
+        QAction *deleteAction = new QAction(i18n("Delete"), &menu);
+        connect(deleteAction, &QAction::triggered, this, [=]() { slotDeleteMessage(index); });
+        menu.addAction(deleteAction);
     }
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
@@ -129,4 +136,11 @@ void MessageListView::slotEditMessage(const QModelIndex &index)
     const QString text = index.data(MessageModel::OriginalMessage).toString();
     const QString messageId = index.data(MessageModel::MessageId).toString();
     Q_EMIT editMessageRequested(messageId, text);
+}
+
+void MessageListView::slotDeleteMessage(const QModelIndex &index)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    const QString messageId = index.data(MessageModel::MessageId).toString();
+    rcAccount->deleteMessage(messageId, mRoomID);
 }

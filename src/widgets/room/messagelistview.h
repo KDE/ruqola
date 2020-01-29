@@ -49,9 +49,11 @@ private:
     void checkIfAtBottom();
     void maybeScrollToBottom();
     void slotEditMessage(const QModelIndex &index);
+    void slotDeleteMessage(const QModelIndex &index);
 
 private:
     bool mAtBottom = true;
+    QString mRoomID;
 };
 
 #endif // MESSAGELISTVIEW_H
