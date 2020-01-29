@@ -419,7 +419,7 @@ Component {
             clip: true
             useMenuMessage: true
 
-            onDragEnded : {
+            onMovementEnded: {
                 if (roomId !== "" && activeChat.atYBeginning) {
                     rcAccount.loadHistory(roomId)
                 }
