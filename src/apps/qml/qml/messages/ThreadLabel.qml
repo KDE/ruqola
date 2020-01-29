@@ -27,8 +27,6 @@ QQC2.Label {
     id: threadLabel
     signal openThread()
 
-    width: parent.width
-
     textFormat: Text.RichText
 
     color: "red" //Convert to kirigami color

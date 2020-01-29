@@ -130,13 +130,13 @@ MessageBase {
                 }
             }
 
-            Column {
+            ColumnLayout {
                 id: fullTextColumn
 
                 Layout.fillWidth: true
                 QQC2.Label {
                     id: threadPreview
-                    width: parent.width
+                    Layout.fillWidth: true
                     visible: i_threadPreview.length > 0
                     textFormat: Text.RichText
                     color: "red" //Convert to kirigami color
@@ -155,7 +155,7 @@ MessageBase {
                 }
                 QQC2.Label {
                     id: textLabel
-                    width: parent.width
+                    Layout.fillWidth: true
 
                     textFormat: Text.RichText
 
@@ -183,9 +183,9 @@ MessageBase {
                     }
                 }
 
-                Column {
+                ColumnLayout {
                     id: urlColumn
-                    width: parent.width
+                    Layout.fillWidth: true
                     //TODO
                     //Reactivate when we have a parsed url !
                     //see info about bugs
@@ -272,6 +272,7 @@ MessageBase {
                 }
             }
             ThreadLabel {
+                Layout.fillWidth: true
                 onOpenThread: {
                     console.log(RuqolaDebugCategorySingleton.category, " OPen thread " + i_messageID)
                     messageMain.openThread(i_messageID, i_messageText)
