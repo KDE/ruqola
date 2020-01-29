@@ -28,7 +28,7 @@
 AccountServerListWidget::AccountServerListWidget(QWidget *parent)
     : QListWidget(parent)
 {
-    connect(this, &AccountServerListWidget::itemDoubleClicked, this, &AccountServerListWidget::modifyServerConfig);
+    connect(this, &AccountServerListWidget::itemDoubleClicked, this, &AccountServerListWidget::modifyAccountConfig);
 }
 
 AccountServerListWidget::~AccountServerListWidget()
@@ -43,7 +43,7 @@ void AccountServerListWidget::writeConfig()
 {
 }
 
-void AccountServerListWidget::modifyServerConfig()
+void AccountServerListWidget::modifyAccountConfig()
 {
     QListWidgetItem *item = currentItem();
     if (!item) {
@@ -54,11 +54,11 @@ void AccountServerListWidget::modifyServerConfig()
     //TODO
 }
 
-void AccountServerListWidget::deleteServerConfig(QListWidgetItem *item)
+void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item)
 {
 }
 
-void AccountServerListWidget::addServerConfig()
+void AccountServerListWidget::addAccountConfig()
 {
 }
 

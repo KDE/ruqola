@@ -15,7 +15,7 @@
     <number>0</number>
    </property>
    <item row="0" column="0" rowspan="2">
-    <widget class="AccountServerListWidget" name="accountServerListidget"/>
+    <widget class="AccountServerListWidget" name="accountServerListwidget"/>
    </item>
    <item row="0" column="1">
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -61,7 +61,7 @@
   <customwidget>
    <class>AccountServerListWidget</class>
    <extends>QListWidget</extends>
-   <header>accountserverlistwidget.h</header>
+   <header>configuredialog/accountserverlistwidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

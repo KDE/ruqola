@@ -45,6 +45,7 @@ set(Ruqola_configure_SRCS
     configuredialog/configuresettingsdialog.cpp
     configuredialog/configureaccountwidget.cpp
     configuredialog/accountserverlistwidget.cpp
+    configuredialog/configureaccountserverwidget.cpp
     )
 
 ki18n_wrap_ui(Ruqola_configure_SRCS

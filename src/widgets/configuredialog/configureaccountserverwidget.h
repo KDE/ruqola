@@ -18,34 +18,34 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef ACCOUNTSERVERLISTWIDGET_H
-#define ACCOUNTSERVERLISTWIDGET_H
+#ifndef CONFIGUREACCOUNTSERVERWIDGET_H
+#define CONFIGUREACCOUNTSERVERWIDGET_H
 
-#include <QListWidget>
-#include "libruqolawidgets_private_export.h"
-#include "user.h"
-class ModifyStatusWidget;
-class AccountServerListWidgetItem : public QListWidgetItem
-{
-public:
-    explicit AccountServerListWidgetItem(QListWidget *parent = nullptr);
-    ~AccountServerListWidgetItem();
-};
+#include <QWidget>
 
-class LIBRUQOLAWIDGETS_EXPORT AccountServerListWidget : public QListWidget
+namespace Ui {
+class ConfigureAccountServerWidget;
+}
+
+class ConfigureAccountServerWidget : public QWidget
 {
     Q_OBJECT
+
 public:
-    explicit AccountServerListWidget(QWidget *parent = nullptr);
-    ~AccountServerListWidget();
+    explicit ConfigureAccountServerWidget(QWidget *parent = nullptr);
+    ~ConfigureAccountServerWidget();
 
     void readConfig();
     void writeConfig();
-    void addAccountConfig();
-    void deleteAccountConfig(QListWidgetItem *item);
 
-public Q_SLOTS:
-    void modifyAccountConfig();
+private:
+    void slotModifyServer();
+    void slotAddServer();
+    void slotDeleteServer();
+    void slotItemSelectionChanged();
+
+private:
+    Ui::ConfigureAccountServerWidget *ui = nullptr;
 };
 
-#endif // ACCOUNTSERVERLISTWIDGET_H
+#endif // CONFIGUREACCOUNTSERVERWIDGET_H
