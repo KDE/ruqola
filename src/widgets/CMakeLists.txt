@@ -41,6 +41,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/directchannelinfowidget.cpp
     dialogs/listattachmentdelegate.cpp
     dialogs/showdiscussionsdialog.cpp
+    dialogs/showdiscussionswidget.cpp
     )
 
 set(Ruqola_configure_SRCS
