@@ -22,6 +22,7 @@
    <Action name="show_snippered_messages" />
    <Action name="show_file_attachments" />
    <Action name="show_discussions" />
+   <Action name="show_threads" />
    <Separator/>
    <Action name="search_messages" />
    <Separator/>

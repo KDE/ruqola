@@ -19,6 +19,7 @@
 */
 
 #include "showdiscussionsdialog.h"
+#include "showdiscussionswidget.h"
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
@@ -37,11 +38,15 @@ ShowDiscussionsDialog::ShowDiscussionsDialog(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    mShowDiscussionsWidget = new ShowDiscussionsWidget(this);
+    mShowDiscussionsWidget->setObjectName(QStringLiteral("mShowDiscussionsWidget"));
+    mainLayout->addWidget(mShowDiscussionsWidget);
+
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowDiscussionsDialog::reject);
-    //connect(mShowAttachmentWidget, &ShowAttachmentWidget::loadMoreFileAttachment, this, &ShowAttachmentDialog::slotLoadMoreAttachment);
+    connect(mShowDiscussionsWidget, &ShowDiscussionsWidget::loadMoreDiscussion, this, &ShowDiscussionsDialog::slotLoadMoreDiscussions);
     readConfig();
 }
 
@@ -63,4 +68,9 @@ void ShowDiscussionsDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
+}
+
+void ShowDiscussionsDialog::slotLoadMoreDiscussions()
+{
+    //TODO
 }

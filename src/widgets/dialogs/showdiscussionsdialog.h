@@ -22,6 +22,7 @@
 #define SHOWDISCUSSIONSDIALOG_H
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
+class ShowDiscussionsWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsDialog : public QDialog
 {
     Q_OBJECT
@@ -32,6 +33,8 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    void slotLoadMoreDiscussions();
+    ShowDiscussionsWidget *mShowDiscussionsWidget = nullptr;
 };
 
 #endif // SHOWDISCUSSIONSDIALOG_H

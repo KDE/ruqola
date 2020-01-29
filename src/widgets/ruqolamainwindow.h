@@ -57,6 +57,7 @@ private:
     void slotShowFileAttachments();
     void slotAccountChanged();
     void slotShowDiscussions();
+    void slotShowThreads();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
@@ -72,6 +73,7 @@ private:
     QAction *mLoadChannelHistory = nullptr;
     QAction *mShowFileAttachments = nullptr;
     QAction *mShowDiscussions = nullptr;
+    QAction *mShowThreads = nullptr;
     AccountMenu *mAccountMenu = nullptr;
     RocketChatAccount *mCurrentRocketChatAccount = nullptr;
     QLabel *mStatusBarTypingMessage = nullptr;

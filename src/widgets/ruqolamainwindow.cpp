@@ -181,6 +181,19 @@ void RuqolaMainWindow::setupActions()
     mShowDiscussions = new QAction(i18n("Show Discussions..."), this);
     connect(mShowDiscussions, &QAction::triggered, this, &RuqolaMainWindow::slotShowDiscussions);
     ac->addAction(QStringLiteral("show_discussions"), mShowDiscussions);
+
+    mShowThreads = new QAction(i18n("Show Threads..."), this);
+    connect(mShowThreads, &QAction::triggered, this, &RuqolaMainWindow::slotShowThreads);
+    ac->addAction(QStringLiteral("show_threads"), mShowThreads);
+}
+
+void RuqolaMainWindow::slotShowThreads()
+{
+//    QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(this);
+//    //TODO dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
+//    dlg->exec();
+//    delete dlg;
+
 }
 
 void RuqolaMainWindow::slotShowDiscussions()
