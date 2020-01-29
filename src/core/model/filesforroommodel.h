@@ -24,9 +24,9 @@
 #include <QAbstractListModel>
 #include "file.h"
 #include "fileattachments.h"
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 class RocketChatAccount;
-class LIBRUQOLACORE_TESTS_EXPORT FilesForRoomModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT FilesForRoomModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)

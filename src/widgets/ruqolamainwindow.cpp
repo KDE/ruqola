@@ -181,13 +181,15 @@ void RuqolaMainWindow::setupActions()
 void RuqolaMainWindow::slotShowFileAttachments()
 {
     QPointer<ShowAttachmentDialog> dlg = new ShowAttachmentDialog(this);
+    mCurrentRocketChatAccount->roomFiles(mMainWidget->roomId(), QStringLiteral("c")/*FIXME*//*appid.selectedRoom.channelType*/);
+    dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
     dlg->exec();
     delete dlg;
 }
 
 void RuqolaMainWindow::slotLoadRecentHistory()
 {
-    Ruqola::self()->rocketChatAccount()->loadHistory(mMainWidget->roomId());
+    mCurrentRocketChatAccount->loadHistory(mMainWidget->roomId());
 }
 
 void RuqolaMainWindow::slotConfigureNotification()
@@ -209,8 +211,8 @@ void RuqolaMainWindow::slotStarredMessages()
 {
     QPointer<ShowStarredMessagesDialog> dlg = new ShowStarredMessagesDialog(this);
     dlg->setRoomId(mMainWidget->roomId());
-    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
-    Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::StarredMessages);
+    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
+    mCurrentRocketChatAccount->getListMessages(mMainWidget->roomId(), ListMessagesModel::StarredMessages);
     dlg->exec();
     delete dlg;
 }
@@ -219,8 +221,8 @@ void RuqolaMainWindow::slotPinnedMessages()
 {
     QPointer<ShowPinnedMessagesDialog> dlg = new ShowPinnedMessagesDialog(this);
     dlg->setRoomId(mMainWidget->roomId());
-    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
-    Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::PinnedMessages);
+    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
+    mCurrentRocketChatAccount->getListMessages(mMainWidget->roomId(), ListMessagesModel::PinnedMessages);
     dlg->exec();
     delete dlg;
 }
@@ -238,8 +240,8 @@ void RuqolaMainWindow::slotSnipperedMessages()
 {
     QPointer<ShowSnipperedMessagesDialog> dlg = new ShowSnipperedMessagesDialog(this);
     dlg->setRoomId(mMainWidget->roomId());
-    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
-    Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::SnipperedMessages);
+    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
+    mCurrentRocketChatAccount->getListMessages(mMainWidget->roomId(), ListMessagesModel::SnipperedMessages);
     dlg->exec();
     delete dlg;
 }
@@ -249,7 +251,7 @@ void RuqolaMainWindow::slotCreateNewChannel()
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
     if (dlg->exec()) {
         const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
-        Ruqola::self()->rocketChatAccount()->createNewChannel(info.channelName, info.readOnly, info.privateChannel, info.usersName, info.encryptedRoom, info.password, info.broadCast);
+        mCurrentRocketChatAccount->createNewChannel(info.channelName, info.readOnly, info.privateChannel, info.usersName, info.encryptedRoom, info.password, info.broadCast);
     }
     delete dlg;
 }
@@ -276,14 +278,14 @@ void RuqolaMainWindow::slotAddAccount()
 void RuqolaMainWindow::slotServerInfo()
 {
     QPointer<ServerInfoDialog> dlg = new ServerInfoDialog(this);
-    dlg->setServerConfigInfo(Ruqola::self()->rocketChatAccount()->serverConfigInfo());
+    dlg->setServerConfigInfo(mCurrentRocketChatAccount->serverConfigInfo());
     dlg->exec();
     delete dlg;
 }
 
 void RuqolaMainWindow::slotLogout()
 {
-    Ruqola::self()->rocketChatAccount()->logOut();
+    mCurrentRocketChatAccount->logOut();
 }
 
 void RuqolaMainWindow::slotSearchChannel()

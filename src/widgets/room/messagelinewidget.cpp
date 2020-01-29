@@ -51,6 +51,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mEmoticonButton = new QToolButton(this);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
     mEmoticonButton->setIcon(QIcon::fromTheme(QStringLiteral("face-smile")));
+    mEmoticonButton->setPopupMode(QToolButton::InstantPopup);
     mainLayout->addWidget(mEmoticonButton);
 
     mSendMessageButton = new QToolButton(this);
@@ -58,11 +59,13 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent"))); //Change it when we edit message
     mainLayout->addWidget(mSendMessageButton);
 
-    QMenu *menu = new QMenu(this);
-    QWidgetAction *action = new QWidgetAction(menu);
-    action->setDefaultWidget(new EmoticonMenuWidget(this));
-    menu->addAction(action);
-    mEmoticonButton->setMenu(menu);
+    QMenu *emoticonMenu = new QMenu(this);
+    QWidgetAction *action = new QWidgetAction(emoticonMenu);
+    mEmoticonMenuWidget = new EmoticonMenuWidget(this);
+    action->setDefaultWidget(mEmoticonMenuWidget);
+    emoticonMenu->addAction(action);
+    mEmoticonButton->setMenu(emoticonMenu);
+    connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, mMessageLineEdit, &MessageLineEdit::insert);
 
     setFocusProxy(mMessageLineEdit);
 }
@@ -71,13 +74,18 @@ MessageLineWidget::~MessageLineWidget()
 {
 }
 
+void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
+}
+
 void MessageLineWidget::slotSendFile()
 {
     QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
     if (dlg->exec()) {
         const UploadFileDialog::UploadFileInfo result = dlg->fileInfo();
         Q_EMIT sendFile(result);
-        //TODO
     }
     delete dlg;
 }
+

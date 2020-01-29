@@ -26,12 +26,16 @@
 #include "libruqolawidgets_private_export.h"
 class MessageLineEdit;
 class QToolButton;
+class EmoticonMenuWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit MessageLineWidget(QWidget *parent = nullptr);
     ~MessageLineWidget();
+
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
 
 Q_SIGNALS:
     void sendMessage(const QString &str);
@@ -44,6 +48,7 @@ private:
     QToolButton *mSendFile = nullptr;
     QToolButton *mEmoticonButton = nullptr;
     QToolButton *mSendMessageButton = nullptr;
+    EmoticonMenuWidget *mEmoticonMenuWidget = nullptr;
 };
 
 #endif // MESSAGELINEWIDGET_H

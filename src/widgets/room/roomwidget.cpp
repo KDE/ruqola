@@ -80,12 +80,12 @@ RoomWidget::~RoomWidget()
 
 void RoomWidget::slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
 {
-    Ruqola::self()->rocketChatAccount()->uploadFile(mRoomId, uploadFileInfo.description, QString(), uploadFileInfo.fileUrl);
+    mCurrentRocketChatAccount->uploadFile(mRoomId, uploadFileInfo.description, QString(), uploadFileInfo.fileUrl);
 }
 
 void RoomWidget::slotSendMessage(const QString &msg)
 {
-    Ruqola::self()->rocketChatAccount()->sendMessage(mRoomId, msg);
+    mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
 }
 
 void RoomWidget::setChannelSelected(const QModelIndex &index)
@@ -124,7 +124,7 @@ void RoomWidget::setRoomId(const QString &roomId)
         mRoomId = roomId;
         mMessageListView->setChannelSelected(roomId);
         delete mRoomWrapper;
-        mRoomWrapper = Ruqola::self()->rocketChatAccount()->roomWrapper(mRoomId);
+        mRoomWrapper = mCurrentRocketChatAccount->roomWrapper(mRoomId);
         connectRoomWrapper();
     }
 }
@@ -150,12 +150,12 @@ void RoomWidget::connectRoomWrapper()
 
 void RoomWidget::slotClearNotification()
 {
-    Ruqola::self()->rocketChatAccount()->clearUnreadMessages(mRoomId);
+    mCurrentRocketChatAccount->clearUnreadMessages(mRoomId);
 }
 
 void RoomWidget::slotChangeFavorite(bool b)
 {
-    Ruqola::self()->rocketChatAccount()->changeFavorite(mRoomId, b);
+    mCurrentRocketChatAccount->changeFavorite(mRoomId, b);
 }
 
 void RoomWidget::keyPressedInListView(QKeyEvent *ev)
@@ -166,4 +166,10 @@ void RoomWidget::keyPressedInListView(QKeyEvent *ev)
         mMessageLineWidget->setFocus();
         qApp->sendEvent(mMessageLineWidget, ev);
     }
+}
+
+void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    mCurrentRocketChatAccount = account;
+    mMessageLineWidget->setCurrentRocketChatAccount(account);
 }

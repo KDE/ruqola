@@ -49,6 +49,7 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
     QToolButton *mEmoticonButton = w.findChild<QToolButton *>(QStringLiteral("mEmoticonButton"));
     QVERIFY(mEmoticonButton);
     QVERIFY(!mEmoticonButton->icon().isNull());
+    QCOMPARE(mEmoticonButton->popupMode(), QToolButton::InstantPopup);
 
     QToolButton *mSendMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSendMessageButton"));
     QVERIFY(mSendMessageButton);

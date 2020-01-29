@@ -30,6 +30,7 @@ class MessageLineWidget;
 class RoomWrapper;
 class ReadOnlyLineEditWidget;
 class QStackedWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -40,6 +41,7 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
 
@@ -60,6 +62,7 @@ private:
     RoomWrapper *mRoomWrapper = nullptr;
     QStackedWidget *mStackedWidget = nullptr;
     ReadOnlyLineEditWidget *mReadOnlyLineEditWidget = nullptr;
+    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
 };
 
 #endif // ROOMWIDGET_H

@@ -40,8 +40,6 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     f.setPointSize(22);
     f.setFamily(QStringLiteral("NotoColorEmoji"));
     mTabWidget->setFont(f);
-
-    initializeTab();
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget()
@@ -49,10 +47,15 @@ EmoticonMenuWidget::~EmoticonMenuWidget()
 
 }
 
-void EmoticonMenuWidget::initializeTab()
+void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
-    //FIXMe multi-account
-    EmoticonModel *model = Ruqola::self()->rocketChatAccount()->emoticonModel();
+    mTabWidget->clear();
+    initializeTab(account);
+}
+
+void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
+{
+    EmoticonModel *model = account->emoticonModel();
     const QMap<QString, QVector<UnicodeEmoticon> > emojiMap = model->emoticons();
 
     QMapIterator<QString, QVector<UnicodeEmoticon>> i(emojiMap);

@@ -25,16 +25,19 @@
 
 #include "libruqolawidgets_private_export.h"
 class QTabWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit EmoticonMenuWidget(QWidget *parent = nullptr);
     ~EmoticonMenuWidget();
+
+    void setCurrentRocketChatAccount(RocketChatAccount *account);
 Q_SIGNALS:
     void insertEmoticons(const QString &emoticon);
 private:
-    void initializeTab();
+    void initializeTab(RocketChatAccount *account);
     QTabWidget *mTabWidget = nullptr;
 };
 

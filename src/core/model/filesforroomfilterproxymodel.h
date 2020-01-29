@@ -22,9 +22,9 @@
 #define FILESFORROOMFILTERPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 class FilesForRoomModel;
-class LIBRUQOLACORE_TESTS_EXPORT FilesForRoomFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT FilesForRoomFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)

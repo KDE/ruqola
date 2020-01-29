@@ -77,5 +77,6 @@ QString RuqolaMainWidget::roomId() const
 void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     mChannelList->setCurrentRocketChatAccount(account);
+    mRoomWidget->setCurrentRocketChatAccount(account);
 }
 
