@@ -582,7 +582,7 @@ void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::joinJitsiConfCall(const QString &roomId)"<<roomId;
     const QString hash = QString::fromLatin1(QCryptographicHash::hash((mRuqolaServerConfig->uniqueId() + roomId).toUtf8(), QCryptographicHash::Md5).toHex());
 #if defined(Q_OS_IOS) || defined(Q_OS_ANDROID)
-    const QString scheme = "org.jitsi.meet://";
+    const QString scheme = QStringLiteral("org.jitsi.meet://");
 #else
     const QString scheme = QStringLiteral("https://");
 #endif
