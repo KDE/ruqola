@@ -44,6 +44,7 @@
 #include <QPointer>
 #include <QIcon>
 #include <QStatusBar>
+#include <QLabel>
 
 namespace {
 static const char myConfigGroupName[] = "RuqolaMainWindow";
@@ -56,6 +57,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     setCentralWidget(mMainWidget);
     setupActions();
+    setupStatusBar();
     setupGUI(KXmlGuiWindow::Default, QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc"));
     readConfig();
     connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
@@ -69,6 +71,14 @@ RuqolaMainWindow::~RuqolaMainWindow()
     group.writeEntry("Size", size());
 
     Ruqola::destroy();
+}
+
+void RuqolaMainWindow::setupStatusBar()
+{
+    mStatusBarTypingMessage = new QLabel(this);
+    mStatusBarTypingMessage->setTextFormat(Qt::RichText);
+    mStatusBarTypingMessage->setObjectName(QStringLiteral("mStatusBarTypingMessage"));
+    statusBar()->addPermanentWidget(mStatusBarTypingMessage);
 }
 
 void RuqolaMainWindow::slotAccountChanged()
@@ -94,13 +104,13 @@ void RuqolaMainWindow::readConfig()
 
 void RuqolaMainWindow::slotClearNotification()
 {
-    statusBar()->clearMessage();
+    mStatusBarTypingMessage->clear();
 }
 
 void RuqolaMainWindow::slotTypingNotificationChanged(const QString &roomId, const QString &notificationStr)
 {
     if (mMainWidget->roomId() == roomId) {
-        statusBar()->showMessage(notificationStr);
+        mStatusBarTypingMessage->setText(notificationStr);
     }
 }
 

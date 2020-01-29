@@ -27,6 +27,7 @@ class RuqolaCentralWidget;
 class QAction;
 class AccountMenu;
 class RocketChatAccount;
+class QLabel;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -37,6 +38,7 @@ public:
 private:
     void setupActions();
     void readConfig();
+    void setupStatusBar();
     void slotAddAccount();
     void slotServerInfo();
     void slotConfigure();
@@ -70,6 +72,7 @@ private:
     QAction *mShowFileAttachments = nullptr;
     AccountMenu *mAccountMenu = nullptr;
     RocketChatAccount *mCurrentRocketChatAccount = nullptr;
+    QLabel *mStatusBarTypingMessage = nullptr;
 };
 
 #endif // RUQOLAMAINWINDOW_H
