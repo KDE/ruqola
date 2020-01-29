@@ -26,6 +26,7 @@ import "messages"
 ListView {
     id: activeChat
     clip: true
+    cacheBuffer: height > 0 ? height : 0 // full height, so page-up/page-down is smooth
 
     function scrollPageUp() {
         var newContentY = Math.max(contentY - originY - height, 0);
