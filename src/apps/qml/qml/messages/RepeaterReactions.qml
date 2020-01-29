@@ -40,6 +40,7 @@ Repeater {
         height: row.height + 2 * Kirigami.Units.smallSpacing
         border.color: Kirigami.Theme.linkBackgroundColor
         border.width: reactionAdded ? 2 : 1
+        opacity: mouseArea.containsMouse ? 1 : 0.6
 
         RowLayout {
             id: row

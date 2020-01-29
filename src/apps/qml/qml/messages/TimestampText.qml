@@ -29,7 +29,7 @@ QQC2.Label {
     property string timestamp
     Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
     text: timestamp
-    opacity: .5
+    opacity: .6
     textFormat: Text.PlainText
     
     z: 10

@@ -29,24 +29,17 @@ import "../common"
 Kirigami.Icon {
     id: reactIcon
 
-    property var opacityDefaultValue: 0.5
     signal insertReaction(string emoji)
     source: "face-smile"
     width: height
     height: 18
-    opacity: opacityDefaultValue
+    opacity: mouseArea.containsMouse ? 1.0 : 0.6
 
     MouseArea {
-        hoverEnabled: true
-        onEntered: {
-           reactIcon.opacity = 1.0
-        }
-
-        onExited: {
-            reactIcon.opacity = opacityDefaultValue
-        }
-
+        id: mouseArea
         anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
         onClicked: {
             if (emoticonMenuLoader.active)
                 emoticonMenuLoader.active = false
