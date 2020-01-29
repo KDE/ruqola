@@ -25,16 +25,27 @@
 #include "libruqolawidgets_private_export.h"
 class KLineEdit;
 class QLabel;
+class QListView;
+class FilesForRoomFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowAttachmentWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ShowAttachmentWidget(QWidget *parent = nullptr);
     ~ShowAttachmentWidget();
+    void setModel(FilesForRoomFilterProxyModel *model);
+
+Q_SIGNALS:
+    void loadMoreFileAttachment();
+
 private:
-    void updateInfo();
+    void slotSearchMessageTextChanged(const QString &str);
+    void updateLabel();
+    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     KLineEdit *mSearchAttachmentFileLineEdit = nullptr;
     QLabel *mInfo = nullptr;
+    QListView *mListAttachment = nullptr;
+    FilesForRoomFilterProxyModel *mModel = nullptr;
 };
 
 #endif // SHOWATTACHMENTWIDGET_H

@@ -23,6 +23,7 @@
 #include "dialogs/showattachmentwidget.h"
 #include <KLineEdit>
 #include <QLabel>
+#include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ShowAttachmentWidgetTest)
@@ -48,4 +49,7 @@ void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
     QLabel *mInfo = w.findChild<QLabel*>(QStringLiteral("mInfo"));
     QVERIFY(mInfo);
     QVERIFY(mInfo->text().isEmpty());
+
+    QListView *mListAttachment = w.findChild<QListView *>(QStringLiteral("mListAttachment"));
+    QVERIFY(mListAttachment);
 }

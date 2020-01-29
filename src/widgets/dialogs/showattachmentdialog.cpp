@@ -21,6 +21,9 @@
 
 #include "showattachmentdialog.h"
 #include "showattachmentwidget.h"
+#include "ruqolawidgets_debug.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -46,12 +49,28 @@ ShowAttachmentDialog::ShowAttachmentDialog(QWidget *parent)
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ShowAttachmentDialog::reject);
+    connect(mShowAttachmentWidget, &ShowAttachmentWidget::loadMoreFileAttachment, this, &ShowAttachmentDialog::slotLoadMoreAttachment);
     readConfig();
 }
 
 ShowAttachmentDialog::~ShowAttachmentDialog()
 {
     writeConfig();
+}
+
+void ShowAttachmentDialog::setModel(FilesForRoomFilterProxyModel *model)
+{
+    mShowAttachmentWidget->setModel(model);
+}
+
+void ShowAttachmentDialog::setRoomId(const QString &roomId)
+{
+    mRoomId = roomId;
+}
+
+QString ShowAttachmentDialog::roomId() const
+{
+    return mRoomId;
 }
 
 void ShowAttachmentDialog::readConfig()
@@ -67,4 +86,13 @@ void ShowAttachmentDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
+}
+
+void ShowAttachmentDialog::slotLoadMoreAttachment()
+{
+    if (mRoomId.isEmpty()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "RoomId is empty. It's a bug";
+        return;
+    }
+    Ruqola::self()->rocketChatAccount()->loadMoreFileAttachments(roomId(), /*FIXME*/ QStringLiteral("c"));
 }

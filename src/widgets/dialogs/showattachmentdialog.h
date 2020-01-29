@@ -25,6 +25,7 @@
 
 #include <QDialog>
 class ShowAttachmentWidget;
+class FilesForRoomFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowAttachmentDialog : public QDialog
 {
     Q_OBJECT
@@ -32,9 +33,16 @@ public:
     explicit ShowAttachmentDialog(QWidget *parent = nullptr);
     ~ShowAttachmentDialog();
 
+    void setModel(FilesForRoomFilterProxyModel *model);
+
+    void setRoomId(const QString &roomId);
+
+    Q_REQUIRED_RESULT QString roomId() const;
 private:
     void readConfig();
     void writeConfig();
+    void slotLoadMoreAttachment();
+    QString mRoomId;
     ShowAttachmentWidget *mShowAttachmentWidget = nullptr;
 };
 
