@@ -20,7 +20,9 @@
 
 #include "showdiscussionsdialogtest.h"
 #include "dialogs/showdiscussionsdialog.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ShowDiscussionsDialogTest)
 
 ShowDiscussionsDialogTest::ShowDiscussionsDialogTest(QObject *parent)
@@ -31,5 +33,12 @@ ShowDiscussionsDialogTest::ShowDiscussionsDialogTest(QObject *parent)
 
 void ShowDiscussionsDialogTest::shouldHaveDefaultValues()
 {
+    ShowDiscussionsDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
 
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }
