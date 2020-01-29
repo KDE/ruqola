@@ -48,7 +48,6 @@
         <file>ShowMentionsInRoomDialog.qml</file>
         <file>UserMenu.qml</file>
         <file>JobErrorMessageDialog.qml</file>
-        <file>LineEditWithClearButton.qml</file>
         <file>ReportMessageDialog.qml</file>
         <file>CreateDiscussionDialog.qml</file>
         <file>ShowDiscussionsInRoomDialog.qml</file>

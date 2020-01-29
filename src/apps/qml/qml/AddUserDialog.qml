@@ -25,7 +25,7 @@ import QtQuick.Window 2.2
 import Ruqola 1.0
 
 
-import org.kde.kirigami 2.7 as Kirigami
+import org.kde.kirigami 2.8 as Kirigami
 
 QQC2.Dialog {
     id: addUserDialog
@@ -56,7 +56,7 @@ QQC2.Dialog {
     }
 
     contentItem: ColumnLayout {
-        LineEditWithClearButton {
+        Kirigami.SearchField {
             id: username
             placeholderText: i18n("Search User...")
             Layout.fillWidth: true

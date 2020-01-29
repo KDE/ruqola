@@ -25,7 +25,7 @@ import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
-import org.kde.kirigami 2.7 as Kirigami
+import org.kde.kirigami 2.8 as Kirigami
 
 import Ruqola 1.0
 import "common"
@@ -83,7 +83,7 @@ Component {
 
         // Since we can't have actions at the bottom on mobile, force always toolbar mode
         globalToolBarStyle: Kirigami.ApplicationHeaderStyle.ToolBar
-        titleDelegate: LineEditWithClearButton {
+        titleDelegate: Kirigami.SearchField {
             id: searchField
             placeholderText: i18n("Search Room... (%1)", focusSequence)
             Layout.fillWidth: true
