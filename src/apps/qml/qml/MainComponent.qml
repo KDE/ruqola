@@ -419,7 +419,6 @@ Component {
             clip: true
             useMenuMessage: true
 
-            QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
             onDragEnded : {
                 if (roomId !== "" && activeChat.atYBeginning) {
                     rcAccount.loadHistory(roomId)

@@ -19,6 +19,7 @@
 */
 
 import QtQuick 2.9
+import QtQuick.Controls 2.5 as QQC2
 import org.kde.kirigami 2.7 as Kirigami
 import "messages"
 
@@ -191,6 +192,12 @@ ListView {
             activeChat.showDisplayAttachment(messageId, displayAttachment)
             //TODO
         }
+    }
+
+    // always show the scrollbar, also to tell whether we're really looking at the bottom of the list right away
+    QQC2.ScrollBar.vertical: QQC2.ScrollBar {
+        id: __verticalScrollBar
+        policy: QQC2.ScrollBar.AlwaysOn
     }
 
 // FIXME: Disabled this code path since it easily crashes the QML engine when switching quickly between rooms.

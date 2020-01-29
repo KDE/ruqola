@@ -54,7 +54,6 @@ QQC2.Dialog {
             clip: true
             useMenuMessage: true
 
-            QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
             onPinMessage: {
                 appid.rocketChatAccount.pinMessage(messageId, pinned)
             }

@@ -79,7 +79,6 @@ QQC2.Dialog {
             clip: true
             useMenuMessage: false
 
-            QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
             onDragEnded : {
                 if (roomId !== "" && listview.atYBeginning ) {
                     appid.rocketChatAccount.loadMoreMentions(roomId)

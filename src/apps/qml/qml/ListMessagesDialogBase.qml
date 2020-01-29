@@ -89,8 +89,6 @@ QQC2.Dialog {
             roomId: appid.selectedRoomID // ??????
             clip: true
             useMenuMessage: false
-
-            QQC2.ScrollBar.vertical: QQC2.ScrollBar { }
         }
     }
 }
