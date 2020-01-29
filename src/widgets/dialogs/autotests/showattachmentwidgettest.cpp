@@ -21,7 +21,10 @@
 
 #include "showattachmentwidgettest.h"
 #include "dialogs/showattachmentwidget.h"
+#include <KLineEdit>
+#include <QLabel>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ShowAttachmentWidgetTest)
 ShowAttachmentWidgetTest::ShowAttachmentWidgetTest(QObject *parent)
     : QObject(parent)
@@ -31,5 +34,18 @@ ShowAttachmentWidgetTest::ShowAttachmentWidgetTest(QObject *parent)
 
 void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
 {
-    //TODO
+    ShowAttachmentWidget w;
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    KLineEdit *mSearchAttachmentFileLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mSearchAttachmentFileLineEdit"));
+    QVERIFY(mSearchAttachmentFileLineEdit);
+    QVERIFY(mSearchAttachmentFileLineEdit->isClearButtonEnabled());
+    QVERIFY(mSearchAttachmentFileLineEdit->trapReturnKey());
+    QVERIFY(!mSearchAttachmentFileLineEdit->placeholderText().isEmpty());
+
+    QLabel *mInfo = w.findChild<QLabel*>(QStringLiteral("mInfo"));
+    QVERIFY(mInfo);
+    QVERIFY(mInfo->text().isEmpty());
 }

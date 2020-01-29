@@ -35,6 +35,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
     mSearchAttachmentFileLineEdit->setObjectName(QStringLiteral("mSearchAttachmentFileLineEdit"));
     mSearchAttachmentFileLineEdit->setClearButtonEnabled(true);
     mSearchAttachmentFileLineEdit->setTrapReturnKey(true);
+    mSearchAttachmentFileLineEdit->setPlaceholderText(i18n("Search Attachments..."));
     mainLayout->addWidget(mSearchAttachmentFileLineEdit);
 
     mInfo = new QLabel(this);
