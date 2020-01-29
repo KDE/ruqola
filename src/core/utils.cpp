@@ -66,6 +66,8 @@ QString Utils::markdownToRichText(const QString &markDown)
 QString Utils::generateRichText(const QString &str, const QString &username)
 {
     QString newStr = Utils::markdownToRichText(str);
+    //Need to convert [foo](http:///...)
+    newStr = Utils::convertTextWithUrl(newStr);
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"));
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
     while (userIterator.hasNext()) {
