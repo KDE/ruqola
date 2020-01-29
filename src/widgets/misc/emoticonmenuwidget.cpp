@@ -19,6 +19,10 @@
 */
 
 #include "emoticonmenuwidget.h"
+#include "emoticonselectorwidget.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+#include "model/emoticonmodel.h"
 #include <QTabWidget>
 #include <QVBoxLayout>
 
@@ -32,6 +36,10 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     mTabWidget = new QTabWidget(this);
     mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
     layout->addWidget(mTabWidget);
+    QFont f = mTabWidget->font();
+    f.setPointSize(22);
+    f.setFamily(QStringLiteral("NotoColorEmoji"));
+    mTabWidget->setFont(f);
 
     initializeTab();
 }
@@ -43,5 +51,16 @@ EmoticonMenuWidget::~EmoticonMenuWidget()
 
 void EmoticonMenuWidget::initializeTab()
 {
-    //TODO
+    //FIXMe multi-account
+    EmoticonModel *model = Ruqola::self()->rocketChatAccount()->emoticonModel();
+    const QMap<QString, QVector<UnicodeEmoticon> > emojiMap = model->emoticons();
+
+    QMapIterator<QString, QVector<UnicodeEmoticon>> i(emojiMap);
+    while (i.hasNext()) {
+        i.next();
+        EmoticonSelectorWidget *w = new EmoticonSelectorWidget(this);
+        mTabWidget->addTab(w, i.value().at(0).unicode());
+        w->setEmoticon(i.value());
+        connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::insertEmoticons);
+    }
 }

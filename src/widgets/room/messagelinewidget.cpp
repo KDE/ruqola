@@ -20,10 +20,13 @@
 
 #include "messagelineedit.h"
 #include "messagelinewidget.h"
+#include "misc/emoticonmenuwidget.h"
 #include "dialogs/uploadfiledialog.h"
 #include <QPointer>
 #include <QHBoxLayout>
 #include <QToolButton>
+#include <QMenu>
+#include <QWidgetAction>
 
 MessageLineWidget::MessageLineWidget(QWidget *parent)
     : QWidget(parent)
@@ -54,6 +57,12 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendMessageButton->setObjectName(QStringLiteral("mSendMessageButton"));
     mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent"))); //Change it when we edit message
     mainLayout->addWidget(mSendMessageButton);
+
+    QMenu *menu = new QMenu(this);
+    QWidgetAction *action = new QWidgetAction(menu);
+    action->setDefaultWidget(new EmoticonMenuWidget(this));
+    menu->addAction(action);
+    mEmoticonButton->setMenu(menu);
 
     setFocusProxy(mMessageLineEdit);
 }

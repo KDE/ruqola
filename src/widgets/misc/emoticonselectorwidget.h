@@ -22,13 +22,37 @@
 #define EMOTICONSELECTORWIDGET_H
 
 #include <QListWidget>
+#include "emoticons/unicodeemoticon.h"
+#include "libruqolawidgets_private_export.h"
 
-class EmoticonSelectorWidget : public QListWidget
+class RoomFilterProxyModel;
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonTextEditItem : public QListWidgetItem
+{
+public:
+    explicit EmoticonTextEditItem(const QString &identifier, const QString &emoticonText, QListWidget *parent);
+    Q_REQUIRED_RESULT QString text() const;
+    Q_REQUIRED_RESULT QString identifier() const;
+
+private:
+    QString mText;
+    QString mIdentifier;
+};
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonSelectorWidget : public QListWidget
 {
     Q_OBJECT
 public:
     explicit EmoticonSelectorWidget(QWidget *parent = nullptr);
     ~EmoticonSelectorWidget();
+
+    void setEmoticon(const QVector<UnicodeEmoticon> &emoticons);
+
+Q_SIGNALS:
+    void itemSelected(const QString &str);
+private:
+    void slotMouseOverItem(QListWidgetItem *item);
+    void slotEmoticonClicked(QListWidgetItem *item);
 };
 
 #endif // EMOTICONSELECTORWIDGET_H
