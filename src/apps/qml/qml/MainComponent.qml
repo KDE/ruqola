@@ -419,11 +419,13 @@ Component {
             clip: true
             useMenuMessage: true
 
-            onMovementEnded: {
-                if (roomId !== "" && activeChat.atYBeginning) {
+            onMoreHistoryRequested: {
+                if (roomId !== "") {
+                    console.log("Fetching more history for room: " + roomId);
                     rcAccount.loadHistory(roomId)
                 }
             }
+
 
             onPinMessage: {
                 appid.rocketChatAccount.pinMessage(messageId, pinned)
@@ -871,16 +873,7 @@ Component {
             appid.rocketChatAccount.clearUnreadMessages(appid.selectedRoomID);
         }
 
-        Keys.onPressed: {
-            if (event.key === Qt.Key_PageUp || event.key === Qt.Key_PageDown) {
-                if (event.key === Qt.Key_PageUp) {
-                    activeChat.scrollPageUp();
-                } else {
-                    activeChat.scrollPageDown();
-                }
-                event.accepted = true;
-            }
-        }
+        Keys.forwardTo: [activeChat]
 
         footer: QQC2.ToolBar {
             position: QQC2.ToolBar.Footer

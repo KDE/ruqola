@@ -29,12 +29,19 @@ ListView {
     cacheBuffer: height > 0 ? height : 0 // full height, so page-up/page-down is smooth
 
     function scrollPageUp() {
-        var newContentY = Math.max(contentY - originY - height, 0);
-        activeChat.contentY = newContentY + originY;
+        var y = contentY - originY;
+        if (y === 0) {
+            // we're already at the top => try to request more history
+            activeChat.moreHistoryRequested()
+        }
+
+        var newY = Math.max(y - height, 0);
+        activeChat.contentY = newY + originY;
     }
     function scrollPageDown() {
-        var newContentY = Math.min(contentY - originY + height, contentHeight - height);
-        activeChat.contentY = newContentY + originY;
+        var y = contentY - originY;
+        var newY = Math.min(contentY - originY + height, contentHeight - height);
+        activeChat.contentY = newY + originY;
     }
 
     signal openDirectChannel(string userName)
@@ -59,6 +66,7 @@ ListView {
     signal showUserInfo(string userId)
     signal showOriginalOrTranslatedMessage(string messageId, bool showOriginal)
     signal showDisplayAttachment(string messageId, bool displayAttachment)
+    signal moreHistoryRequested()
 
     property QtObject rcAccount
     property string roomId: ""
@@ -70,6 +78,23 @@ ListView {
     highlightRangeMode: ListView.ApplyRange
     preferredHighlightBegin: currentItem === null ? parent.height : parent.height - currentItem.height
     preferredHighlightEnd: parent.height
+
+    Keys.onPressed: {
+        if (event.key === Qt.Key_PageUp || event.key === Qt.Key_PageDown) {
+            if (event.key === Qt.Key_PageUp) {
+                activeChat.scrollPageUp();
+            } else {
+                activeChat.scrollPageDown();
+            }
+            event.accepted = true;
+        }
+    }
+
+    onMovementEnded: {
+        if (activeChat.atYBeginning) {
+            activeChat.moreHistoryRequested()
+        }
+    }
 
     onAtYEndChanged: {
         // Remember if we were at the bottom, for when onContentHeight is called
