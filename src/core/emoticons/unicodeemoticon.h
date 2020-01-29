@@ -24,9 +24,9 @@
 #include <QObject>
 #include <QDebug>
 #include <QString>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT UnicodeEmoticon
+class LIBRUQOLACORE_EXPORT UnicodeEmoticon
 {
     Q_GADGET
 public:

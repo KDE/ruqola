@@ -22,7 +22,7 @@
 #define STATUSMODEL_H
 
 #include "user.h"
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 
 #include <QAbstractListModel>
 #include <QIcon>
@@ -33,7 +33,7 @@ struct StatusInfo {
     User::PresenceStatus status;
 };
 
-class LIBRUQOLACORE_TESTS_EXPORT StatusModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT StatusModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(int currentStatus READ currentStatus NOTIFY currentStatusChanged)

@@ -21,9 +21,9 @@
 #ifndef MESSAGEATTACHMENT_H
 #define MESSAGEATTACHMENT_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QDebug>
-class LIBRUQOLACORE_TESTS_EXPORT MessageAttachment
+class LIBRUQOLACORE_EXPORT MessageAttachment
 {
     Q_GADGET
     Q_PROPERTY(QString description READ description CONSTANT)

@@ -25,7 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 class CreateNewAccountWidget;
 class QPushButton;
-class LIBRUQOLAWIDGETS_EXPORT CreateNewAccountDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountDialog : public QDialog
 {
     Q_OBJECT
 public:

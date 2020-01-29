@@ -23,8 +23,8 @@
 
 #include <QString>
 #include <QDebug>
-#include "libruqola_private_export.h"
-class LIBRUQOLACORE_TESTS_EXPORT User : public QObject
+#include "libruqolacore_export.h"
+class LIBRUQOLACORE_EXPORT User : public QObject
 {
     Q_OBJECT
 public:

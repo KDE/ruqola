@@ -22,9 +22,9 @@
 #define ROCKETCHATACCOUNTMODEL_H
 
 #include <QAbstractListModel>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 class RocketChatAccount;
-class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccountModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT RocketChatAccountModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(int accountNumber READ accountNumber NOTIFY accountNumberChanged)

@@ -25,7 +25,7 @@
 
 #include <QDialog>
 class ShowAttachmentWidget;
-class LIBRUQOLAWIDGETS_EXPORT ShowAttachmentDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowAttachmentDialog : public QDialog
 {
     Q_OBJECT
 public:

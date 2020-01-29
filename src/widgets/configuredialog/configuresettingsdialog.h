@@ -25,7 +25,7 @@
 #include <KPageDialog>
 #include "libruqolawidgets_private_export.h"
 class ConfigureAccountWidget;
-class LIBRUQOLAWIDGETS_EXPORT ConfigureSettingsDialog : public KPageDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSettingsDialog : public KPageDialog
 {
     Q_OBJECT
 public:

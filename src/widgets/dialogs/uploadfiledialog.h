@@ -27,7 +27,7 @@
 #include "libruqolawidgets_private_export.h"
 class UploadFileWidget;
 class QPushButton;
-class LIBRUQOLAWIDGETS_EXPORT UploadFileDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileDialog : public QDialog
 {
     Q_OBJECT
 public:

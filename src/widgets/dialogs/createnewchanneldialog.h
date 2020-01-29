@@ -25,7 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 class CreateNewChannelWidget;
 class QPushButton;
-class LIBRUQOLAWIDGETS_EXPORT CreateNewChannelDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelDialog : public QDialog
 {
     Q_OBJECT
 public:

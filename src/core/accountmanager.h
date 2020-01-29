@@ -22,12 +22,12 @@
 #define ACCOUNTMANAGER_H
 
 #include <QObject>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 class RocketChatAccountModel;
 class RocketChatAccount;
 class RocketChatAccountFilterProxyModel;
 
-class LIBRUQOLACORE_TESTS_EXPORT AccountManager : public QObject
+class LIBRUQOLACORE_EXPORT AccountManager : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString currentAccount READ currentAccount WRITE setCurrentAccount NOTIFY currentAccountChanged)

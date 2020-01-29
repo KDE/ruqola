@@ -21,9 +21,9 @@
 #define RECEIVETYPINGNOTIFICATIONMANAGER_H
 
 #include <QObject>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QMap>
-class LIBRUQOLACORE_TESTS_EXPORT ReceiveTypingNotificationManager : public QObject
+class LIBRUQOLACORE_EXPORT ReceiveTypingNotificationManager : public QObject
 {
     Q_OBJECT
 public:

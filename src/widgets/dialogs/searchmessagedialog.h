@@ -25,7 +25,7 @@
 
 #include <QDialog>
 class SearchMessageWidget;
-class LIBRUQOLAWIDGETS_EXPORT SearchMessageDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageDialog : public QDialog
 {
     Q_OBJECT
 public:

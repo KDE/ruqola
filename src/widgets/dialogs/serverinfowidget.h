@@ -22,7 +22,7 @@
 #define SERVERINFOWIDGET_H
 
 #include <QWidget>
-#include "libruqolawidgets_private_export.h"
+#include "libruqolawidgets_export.h"
 class QLabel;
 class ServerConfigInfo;
 class LIBRUQOLAWIDGETS_EXPORT ServerInfoWidget : public QWidget

@@ -25,7 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "user.h"
 class ModifyStatusWidget;
-class LIBRUQOLAWIDGETS_EXPORT ModifyStatusDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ModifyStatusDialog : public QDialog
 {
     Q_OBJECT
 public:

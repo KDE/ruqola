@@ -20,10 +20,10 @@
 #ifndef REACTION_H
 #define REACTION_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QDebug>
 class EmojiManager;
-class LIBRUQOLACORE_TESTS_EXPORT Reaction
+class LIBRUQOLACORE_EXPORT Reaction
 {
     Q_GADGET
     Q_PROPERTY(int count READ count CONSTANT)

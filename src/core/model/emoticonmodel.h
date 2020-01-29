@@ -22,11 +22,11 @@
 #define EMOTICONMODEL_H
 
 #include <QAbstractListModel>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "emoticons/unicodeemoticon.h"
 #include "emoticoncategoriesmodel.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT EmoticonModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT EmoticonModel : public QAbstractListModel
 {
     Q_OBJECT
 public:

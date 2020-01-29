@@ -25,7 +25,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
-class LIBRUQOLAWIDGETS_EXPORT ConfigureNotificationWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationWidget : public QWidget
 {
     Q_OBJECT
 public:

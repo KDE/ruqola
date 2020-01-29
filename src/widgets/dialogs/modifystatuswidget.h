@@ -27,7 +27,7 @@
 #include "user.h"
 class KLineEdit;
 class StatusCombobox;
-class LIBRUQOLAWIDGETS_EXPORT ModifyStatusWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ModifyStatusWidget : public QWidget
 {
     Q_OBJECT
 public:

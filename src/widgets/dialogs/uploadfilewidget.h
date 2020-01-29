@@ -25,7 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 class KLineEdit;
 class KUrlRequester;
-class LIBRUQOLAWIDGETS_EXPORT UploadFileWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileWidget : public QWidget
 {
     Q_OBJECT
 public:

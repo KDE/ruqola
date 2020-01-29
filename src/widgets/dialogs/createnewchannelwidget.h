@@ -27,7 +27,7 @@
 class QLineEdit;
 class QCheckBox;
 class KPasswordLineEdit;
-class LIBRUQOLAWIDGETS_EXPORT CreateNewChannelWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelWidget : public QWidget
 {
     Q_OBJECT
 public:

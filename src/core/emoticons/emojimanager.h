@@ -24,9 +24,9 @@
 #include <QObject>
 #include "emoji.h"
 #include "unicodeemoticon.h"
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT EmojiManager : public QObject
+class LIBRUQOLACORE_EXPORT EmojiManager : public QObject
 {
     Q_OBJECT
 public:

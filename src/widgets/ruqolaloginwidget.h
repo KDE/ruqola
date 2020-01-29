@@ -29,7 +29,7 @@ class QPushButton;
 class KPasswordLineEdit;
 class QLabel;
 class KBusyIndicatorWidget;
-class LIBRUQOLAWIDGETS_EXPORT RuqolaLoginWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaLoginWidget : public QWidget
 {
     Q_OBJECT
 public:

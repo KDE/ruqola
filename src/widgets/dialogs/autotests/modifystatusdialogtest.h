@@ -23,7 +23,7 @@
 
 #include <QObject>
 #include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_EXPORT ModifyStatusDialogTest : public QObject
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ModifyStatusDialogTest : public QObject
 {
     Q_OBJECT
 public:

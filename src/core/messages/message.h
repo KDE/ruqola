@@ -21,7 +21,7 @@
 #ifndef MESSAGE_H
 #define MESSAGE_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "messageattachment.h"
 #include "messageurl.h"
 #include "messagepinned.h"
@@ -32,7 +32,7 @@
 #include <QString>
 #include <QVector>
 class EmojiManager;
-class LIBRUQOLACORE_TESTS_EXPORT Message
+class LIBRUQOLACORE_EXPORT Message
 {
     Q_GADGET
 public:

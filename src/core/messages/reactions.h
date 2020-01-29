@@ -20,11 +20,11 @@
 #ifndef REACTIONS_H
 #define REACTIONS_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "reaction.h"
 #include <QVector>
 class EmojiManager;
-class LIBRUQOLACORE_TESTS_EXPORT Reactions
+class LIBRUQOLACORE_EXPORT Reactions
 {
 public:
     Reactions();

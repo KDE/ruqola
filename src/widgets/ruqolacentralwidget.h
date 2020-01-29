@@ -27,7 +27,7 @@ class QStackedWidget;
 class RuqolaMainWidget;
 class RuqolaLoginWidget;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_EXPORT RuqolaCentralWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaCentralWidget : public QWidget
 {
     Q_OBJECT
 public:

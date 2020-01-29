@@ -25,7 +25,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class ConfigureAccountServerWidget;
-class LIBRUQOLAWIDGETS_EXPORT ConfigureAccountWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAccountWidget : public QWidget
 {
     Q_OBJECT
 public:

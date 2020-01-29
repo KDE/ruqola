@@ -27,7 +27,7 @@ class ChannelListWidget;
 class RoomWidget;
 class QSplitter;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaMainWidget : public QWidget
 {
     Q_OBJECT
 public:

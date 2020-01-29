@@ -25,7 +25,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
-class LIBRUQOLAWIDGETS_EXPORT CreateNewAccountWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewAccountWidget : public QWidget
 {
     Q_OBJECT
 public:

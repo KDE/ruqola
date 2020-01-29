@@ -23,8 +23,8 @@
 
 #include <QSortFilterProxyModel>
 #include "listmessagesmodel.h"
-#include "libruqola_private_export.h"
-class LIBRUQOLACORE_TESTS_EXPORT ListMessagesModelFilterProxyModel : public QSortFilterProxyModel
+#include "libruqolacore_export.h"
+class LIBRUQOLACORE_EXPORT ListMessagesModelFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)

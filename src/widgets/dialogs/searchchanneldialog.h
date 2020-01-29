@@ -24,7 +24,7 @@
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
 class SearchChannelWidget;
-class LIBRUQOLAWIDGETS_EXPORT SearchChannelDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelDialog : public QDialog
 {
     Q_OBJECT
 public:

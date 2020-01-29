@@ -25,7 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 class ServerInfoWidget;
 class ServerConfigInfo;
-class LIBRUQOLAWIDGETS_EXPORT ServerInfoDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerInfoDialog : public QDialog
 {
     Q_OBJECT
 public:

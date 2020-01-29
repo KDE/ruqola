@@ -25,7 +25,7 @@
 #include "libruqolawidgets_private_export.h"
 class KLineEdit;
 class QListWidget;
-class LIBRUQOLAWIDGETS_EXPORT SearchChannelWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelWidget : public QWidget
 {
     Q_OBJECT
 public:

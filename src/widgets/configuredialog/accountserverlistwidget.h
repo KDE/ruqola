@@ -32,7 +32,7 @@ public:
     ~AccountServerListWidgetItem();
 };
 
-class LIBRUQOLAWIDGETS_EXPORT AccountServerListWidget : public QListWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountServerListWidget : public QListWidget
 {
     Q_OBJECT
 public:

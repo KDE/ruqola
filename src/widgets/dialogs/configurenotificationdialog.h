@@ -25,7 +25,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class ConfigureNotificationWidget;
-class LIBRUQOLAWIDGETS_EXPORT ConfigureNotificationDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationDialog : public QDialog
 {
     Q_OBJECT
 public:

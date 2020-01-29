@@ -22,9 +22,9 @@
 #define SERVERCONFIGINFO_H
 
 #include <QObject>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 class RocketChatAccount;
-class LIBRUQOLACORE_TESTS_EXPORT ServerConfigInfo : public QObject
+class LIBRUQOLACORE_EXPORT ServerConfigInfo : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString serverVersionStr READ serverVersionStr CONSTANT)

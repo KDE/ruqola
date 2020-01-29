@@ -27,8 +27,6 @@
 namespace Ui {
 class ConfigureAccountServerWidget;
 }
-
-#include "libruqolawidgets_private_export.h"
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAccountServerWidget : public QWidget
 {
     Q_OBJECT

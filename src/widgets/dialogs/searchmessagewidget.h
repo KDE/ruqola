@@ -26,7 +26,7 @@
 #include "libruqolawidgets_private_export.h"
 class KLineEdit;
 class MessageListView;
-class LIBRUQOLAWIDGETS_EXPORT SearchMessageWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageWidget : public QWidget
 {
     Q_OBJECT
 public:
