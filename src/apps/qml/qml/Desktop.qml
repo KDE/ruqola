@@ -82,6 +82,7 @@ Kirigami.ApplicationWindow {
         drawerOpen: false
         handleVisible: true
         resetMenuOnTriggered: true
+        isMenu: true
         
         topContent: [
             QQC2.Label {
