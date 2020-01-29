@@ -18,20 +18,16 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef EMOTICONMENUWIDGET_H
-#define EMOTICONMENUWIDGET_H
 
-#include <QWidget>
+#include "emoticonselectorwidget.h"
 
-#include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
+EmoticonSelectorWidget::EmoticonSelectorWidget(QWidget *parent)
+    : QListWidget(parent)
 {
-    Q_OBJECT
-public:
-    explicit EmoticonMenuWidget(QWidget *parent = nullptr);
-    ~EmoticonMenuWidget();
-Q_SIGNALS:
-    void insertEmoticons(const QString &emoticon);
-};
 
-#endif // EMOTICONMENUWIDGET_H
+}
+
+EmoticonSelectorWidget::~EmoticonSelectorWidget()
+{
+
+}

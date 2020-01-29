@@ -57,7 +57,7 @@ set(Ruqola_channellist_SRCS
     channellist/channellistwidget.cpp
     channellist/statuscombobox.cpp
     channellist/channellistview.cpp
-    channellist/channellistdelegate.cpp
+    channellist/channellistdelegate.cpp    
     )
 
 set(Ruqola_roomwidget_SRCS
@@ -76,6 +76,7 @@ set(Ruqola_roomwidget_SRCS
 set(Ruqola_misc_widget_SRCS
     misc/accountmenu.cpp
     misc/emoticonmenuwidget.cpp
+    misc/emoticonselectorwidget.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)

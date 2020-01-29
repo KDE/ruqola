@@ -24,7 +24,9 @@
 EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     : QWidget(parent)
 {
-
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->setObjectName(QStringLiteral("layout"));
+    layout->setContentsMargins(0, 0, 0, 0);
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget()
