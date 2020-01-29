@@ -71,6 +71,7 @@ set(Ruqola_roomwidget_SRCS
     room/messagedelegatehelperimage.cpp
     room/messagedelegatehelperfile.cpp
     room/messagelinewidget.cpp
+    room/readonlylineeditwidget.cpp
     )
 
 set(Ruqola_misc_widget_SRCS

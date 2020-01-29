@@ -25,12 +25,14 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "roomwrapper.h"
+#include "readonlylineeditwidget.h"
 
 #include <KLocalizedString>
 
 #include <QKeyEvent>
 #include <QHBoxLayout>
 #include <QApplication>
+#include <QStackedWidget>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -47,9 +49,20 @@ RoomWidget::RoomWidget(QWidget *parent)
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView);
 
+    mStackedWidget = new QStackedWidget(this);
+    mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
+    mainLayout->addWidget(mStackedWidget);
+
     mMessageLineWidget = new MessageLineWidget(this);
     mMessageLineWidget->setObjectName(QStringLiteral("mMessageLineWidget"));
-    mainLayout->addWidget(mMessageLineWidget);
+    mStackedWidget->addWidget(mMessageLineWidget);
+
+    mReadOnlyLineEditWidget = new ReadOnlyLineEditWidget(this);
+    mReadOnlyLineEditWidget->setObjectName(QStringLiteral("mReadOnlyLineEditWidget"));
+    mStackedWidget->addWidget(mReadOnlyLineEditWidget);
+
+    mStackedWidget->setCurrentWidget(mMessageLineWidget);
+    mStackedWidget->setMaximumHeight(mMessageLineWidget->height());
 
     connect(this, &RoomWidget::channelSelected, this, &RoomWidget::setChannelSelected);
     connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &RoomWidget::slotSendMessage);
@@ -88,7 +101,13 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
         mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
         mRoomHeaderWidget->setFavoriteStatus(mRoomWrapper->favorite());
-        //Description
+        //TODO Description ?
+
+        if (mRoomWrapper->readOnly()) {
+            mStackedWidget->setCurrentWidget(mReadOnlyLineEditWidget);
+        } else {
+            mStackedWidget->setCurrentWidget(mMessageLineWidget);
+        }
     } else {
         //Hide it
     }

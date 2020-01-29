@@ -28,6 +28,8 @@ class RoomHeaderWidget;
 class MessageListView;
 class MessageLineWidget;
 class RoomWrapper;
+class ReadOnlyLineEditWidget;
+class QStackedWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -56,6 +58,8 @@ private:
     MessageListView *mMessageListView = nullptr;
     MessageLineWidget *mMessageLineWidget = nullptr;
     RoomWrapper *mRoomWrapper = nullptr;
+    QStackedWidget *mStackedWidget = nullptr;
+    ReadOnlyLineEditWidget *mReadOnlyLineEditWidget = nullptr;
 };
 
 #endif // ROOMWIDGET_H

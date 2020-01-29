@@ -18,48 +18,26 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "roomwidgettest.h"
-#include "room/roomwidget.h"
-#include "room/messagelinewidget.h"
-#include "room/roomheaderwidget.h"
-#include "room/messagelistview.h"
+#include "readonlylineeditwidgettest.h"
 #include "room/readonlylineeditwidget.h"
-
-#include <QStackedWidget>
+#include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
-
-
-QTEST_MAIN(RoomWidgetTest)
-RoomWidgetTest::RoomWidgetTest(QObject *parent)
+QTEST_MAIN(ReadOnlyLineEditWidgetTest)
+ReadOnlyLineEditWidgetTest::ReadOnlyLineEditWidgetTest(QObject *parent)
     : QObject(parent)
 {
+
 }
 
-void RoomWidgetTest::shouldHaveDefaultValues()
+void ReadOnlyLineEditWidgetTest::shouldHaveDefaultValues()
 {
-    RoomWidget w;
+    ReadOnlyLineEditWidget w;
     QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    RoomHeaderWidget *mRoomHeaderWidget = w.findChild<RoomHeaderWidget *>(QStringLiteral("mRoomHeaderWidget"));
-    QVERIFY(mRoomHeaderWidget);
-
-    MessageListView *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
-    QVERIFY(mMessageListView);
-
-    QStackedWidget *mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
-    QVERIFY(mStackedWidget);
-    QCOMPARE(mStackedWidget->count(), 2);
-
-    MessageLineWidget *mMessageLineWidget = w.findChild<MessageLineWidget *>(QStringLiteral("mMessageLineWidget"));
-    QVERIFY(mMessageLineWidget);
-
-    ReadOnlyLineEditWidget *mReadOnlyLineEditWidget = w.findChild<ReadOnlyLineEditWidget *>(QStringLiteral("mReadOnlyLineEditWidget"));
-    QVERIFY(mReadOnlyLineEditWidget);
-    QCOMPARE(mStackedWidget->currentWidget(), mMessageLineWidget);
-
-
-    QVERIFY(w.roomId().isEmpty());
+    QLabel *label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
 }
