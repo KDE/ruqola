@@ -39,8 +39,8 @@ public:
     explicit AccountServerListWidget(QWidget *parent = nullptr);
     ~AccountServerListWidget();
 
-    void readConfig();
-    void writeConfig();
+    void load();
+    void save();
     void addAccountConfig();
     void deleteAccountConfig(QListWidgetItem *item);
 

@@ -37,8 +37,8 @@ public:
     explicit ConfigureAccountServerWidget(QWidget *parent = nullptr);
     ~ConfigureAccountServerWidget();
 
-    void readConfig();
-    void writeConfig();
+    void load();
+    void save();
 
 private:
     void slotModifyServer();

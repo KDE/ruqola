@@ -35,11 +35,11 @@ AccountServerListWidget::~AccountServerListWidget()
 {
 }
 
-void AccountServerListWidget::readConfig()
+void AccountServerListWidget::load()
 {
 }
 
-void AccountServerListWidget::writeConfig()
+void AccountServerListWidget::save()
 {
 }
 

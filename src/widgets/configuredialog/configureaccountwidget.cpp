@@ -42,10 +42,10 @@ ConfigureAccountWidget::~ConfigureAccountWidget()
 
 void ConfigureAccountWidget::save()
 {
-    mConfigureAccountServerWidget->writeConfig();
+    mConfigureAccountServerWidget->save();
 }
 
 void ConfigureAccountWidget::load()
 {
-    mConfigureAccountServerWidget->readConfig();
+    mConfigureAccountServerWidget->load();
 }

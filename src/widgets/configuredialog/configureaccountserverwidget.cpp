@@ -41,14 +41,14 @@ ConfigureAccountServerWidget::~ConfigureAccountServerWidget()
     delete ui;
 }
 
-void ConfigureAccountServerWidget::readConfig()
+void ConfigureAccountServerWidget::save()
 {
-    ui->accountServerListwidget->readConfig();
+    ui->accountServerListwidget->save();
 }
 
-void ConfigureAccountServerWidget::writeConfig()
+void ConfigureAccountServerWidget::load()
 {
-    ui->accountServerListwidget->writeConfig();
+    ui->accountServerListwidget->load();
 }
 
 void ConfigureAccountServerWidget::slotModifyServer()
