@@ -18,29 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef SHOWDISCUSSIONSWIDGET_H
-#define SHOWDISCUSSIONSWIDGET_H
 
-#include <QWidget>
+#ifndef LISTDISCUSSIONDELEGATE_H
+#define LISTDISCUSSIONDELEGATE_H
+
 #include "libruqolawidgets_private_export.h"
-class KLineEdit;
-class QLabel;
-class QListView;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsWidget : public QWidget
+#include <QItemDelegate>
+class CreateNewAccountWidget;
+class QPushButton;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ListDiscussionDelegate : public QItemDelegate
 {
     Q_OBJECT
 public:
-    explicit ShowDiscussionsWidget(QWidget *parent = nullptr);
-    ~ShowDiscussionsWidget();
-
-Q_SIGNALS:
-    void loadMoreDiscussion();
-
-private:
-    void slotSearchMessageTextChanged(const QString &str);
-    KLineEdit *mSearchDiscussionLineEdit = nullptr;
-    QLabel *mInfo = nullptr;
-    QListView *mListDiscussions = nullptr;
+    explicit ListDiscussionDelegate(QObject *parent = nullptr);
+    ~ListDiscussionDelegate();
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
-#endif // SHOWDISCUSSIONSWIDGET_H
+#endif

@@ -36,6 +36,7 @@
 #include "dialogs/searchmessagedialog.h"
 #include "dialogs/configurenotificationdialog.h"
 #include "dialogs/showattachmentdialog.h"
+#include "dialogs/showdiscussionsdialog.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -176,6 +177,18 @@ void RuqolaMainWindow::setupActions()
 
     mAccountMenu = new AccountMenu(this);
     ac->addAction(QStringLiteral("account_menu"), mAccountMenu);
+
+    mShowDiscussions = new QAction(i18n("Show Discussions..."), this);
+    connect(mShowDiscussions, &QAction::triggered, this, &RuqolaMainWindow::slotShowDiscussions);
+    ac->addAction(QStringLiteral("show_discussions"), mShowDiscussions);
+}
+
+void RuqolaMainWindow::slotShowDiscussions()
+{
+    QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(this);
+    //TODO dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
+    dlg->exec();
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotShowFileAttachments()

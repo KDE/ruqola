@@ -20,9 +20,12 @@
 
 
 #include "showdiscussionswidget.h"
+#include "listdiscussiondelegate.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <KLineEdit>
+#include <QLabel>
+#include <QListView>
 
 ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
     : QWidget(parent)
@@ -38,6 +41,23 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
     mSearchDiscussionLineEdit->setPlaceholderText(i18n("Search Discussion..."));
     connect(mSearchDiscussionLineEdit, &KLineEdit::textChanged, this, &ShowDiscussionsWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchDiscussionLineEdit);
+
+    mInfo = new QLabel(this);
+    mInfo->setObjectName(QStringLiteral("mInfo"));
+    mInfo->setTextFormat(Qt::RichText);
+    mainLayout->addWidget(mInfo);
+    QFont labFont = mInfo->font();
+    labFont.setBold(true);
+    mInfo->setFont(labFont);
+    connect(mInfo, &QLabel::linkActivated, this, &ShowDiscussionsWidget::loadMoreDiscussion);
+
+    mListDiscussions = new QListView(this);
+    mListDiscussions->setObjectName(QStringLiteral("mListDiscussions"));
+    mainLayout->addWidget(mListDiscussions);
+    mListDiscussions->setItemDelegate(new ListDiscussionDelegate(this));
+
+    //TODO need to update label !!!
+
 }
 
 ShowDiscussionsWidget::~ShowDiscussionsWidget()
