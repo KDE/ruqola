@@ -40,7 +40,7 @@ Component {
                 Kirigami.Action {
                     id: editAction
                     iconName: "list-add"
-                    text: i18n("Open room");
+                    text: i18n("Open Room");
                     onTriggered: {
                         searchChannelDialog.initializeAndOpen();
                     }
