@@ -30,7 +30,10 @@
 #include "ddpapi/ddpclient.h"
 #include "model/roommodel.h"
 #include "model/messagemodel.h"
+
+#ifndef Q_OS_ANDROID
 #include "notification.h"
+#endif
 
 class QmlAboutData;
 
@@ -50,7 +53,9 @@ public:
 
     static void destroy();
 
+#ifndef Q_OS_ANDROID
     Notification *notification();
+#endif
 
     Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
 
@@ -66,9 +71,12 @@ private:
     void sendNotification(const QString &title, const QString &message, const QPixmap &pixmap);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void logout(const QString &accountName);
-    Notification *mNotification = nullptr;
     QmlAboutData *mRuqolaAboutData = nullptr;
     AccountManager *mAccountManager = nullptr;
+
+#ifndef Q_OS_ANDROID
+    Notification *mNotification = nullptr;
+#endif
 };
 
 inline static QObject *ruqola_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)

@@ -506,6 +506,11 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
+
+        if (Qt.platform.os == "android") {
+            return;
+        }
+
         systrayIcon.activateRequested.connect(toggleShow);
     }
 }

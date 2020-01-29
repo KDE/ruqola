@@ -112,7 +112,6 @@ set (Ruqola_core_srcs
     ruqola.cpp
     ruqolautils.cpp
     rocketchatbackend.cpp
-    notification.cpp
     messagequeue.cpp
     rocketchatmessage.cpp
     typingnotification.cpp
@@ -180,6 +179,9 @@ if (NOT WIN32)
     set(Ruqola_core_srcs ${Ruqola_core_srcs} unityservicemanager.cpp)
 endif()
 
+if (NOT ANDROID)
+    list(APPEND Ruqola_core_srcs notification.cpp)
+endif()
 
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola)
 ecm_qt_declare_logging_category(Ruqola_core_srcs HEADER ruqola_message_debug.h IDENTIFIER RUQOLA_MESSAGE_LOG CATEGORY_NAME org.kde.ruqola.message)

@@ -137,7 +137,7 @@ bool RuqolaRegisterEngine::initialize()
     mEngine = new QQmlApplicationEngine;
 
     QQmlContext *ctxt = mEngine->rootContext();
-#if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
     qmlRegisterType<Notification>(URI, 1, 0, "Notification");
     ctxt->setContextProperty(QStringLiteral("systrayIcon"), Ruqola::self()->notification());
 #endif

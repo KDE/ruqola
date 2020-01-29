@@ -23,7 +23,6 @@
 #include "ruqola.h"
 #include "typingnotification.h"
 #include "ddpapi/ddpclient.h"
-#include "notification.h"
 #include "messagequeue.h"
 #include "ruqola_debug.h"
 #include "rocketchataccount.h"
@@ -40,7 +39,7 @@ Ruqola *Ruqola::self()
     if (!s_self) {
         s_self = new Ruqola;
         // Create systray to show notifications on Desktop
-#if !defined(Q_OS_ANDROID) || !defined(Q_OS_IOS)
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
         s_self->notification();
 #endif
     }
@@ -92,6 +91,7 @@ void Ruqola::sendNotification(const QString &title, const QString &message, cons
                          message, pixmap);
 }
 
+#ifndef Q_OS_ANDROID
 Notification *Ruqola::notification()
 {
     if (!mNotification) {
@@ -99,13 +99,20 @@ Notification *Ruqola::notification()
     }
     return mNotification;
 }
+#endif
 
 void Ruqola::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)
 {
+#ifndef Q_OS_ANDROID
     notification()->updateNotification(hasAlert, nbUnread, accountName);
+#endif
 }
 
 void Ruqola::logout(const QString &accountName)
 {
+#ifdef Q_OS_ANDROID
+    Q_UNUSED(accountName)
+#else
     notification()->clearNotification(accountName);
+#endif
 }
