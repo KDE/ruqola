@@ -94,7 +94,7 @@ Kirigami.ApplicationWindow {
         actions: [
             Kirigami.Action {
                 text: i18n("About")
-                iconName: ":/icons/systray.png"
+                iconName: "ruqola"
                 onTriggered: {
                     aboutDataDialogLoader.active = true
                 }
