@@ -77,14 +77,14 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
     return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
 }
 
-static void drawTimestamp(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, QRect *timeRect)
+static void drawTimestamp(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QRect &usableRect, QRect *timeRect)
 {
     const qreal margin = basicMargin();
 
     const QString timeStampText = makeTimeStampText(index);
     const QSize timeSize = timeStampSize(timeStampText, option);
 
-    *timeRect = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignRight | Qt::AlignVCenter, timeSize, option.rect.adjusted(0, 0, -margin/2, 0));
+    *timeRect = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignRight | Qt::AlignVCenter, timeSize, usableRect.adjusted(0, 0, -margin/2, 0));
     const QPen oldPen = painter->pen();
     QColor col = painter->pen().color();
     col.setAlpha(128); // TimestampText.qml had opacity: .5
@@ -267,7 +267,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Timestamp
     QRect timeRect;
-    drawTimestamp(painter, index, option, &timeRect);
+    drawTimestamp(painter, index, option, usableRect, &timeRect);
 
     // Message
     QRect messageRect = usableRect;
