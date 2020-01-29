@@ -109,9 +109,11 @@ void ChannelListWidget::setCurrentSelectedRoom(const QString &currentRoom)
 
 QString ChannelListWidget::currentSelectedRoom() const
 {
-    const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
-    if (selectedIndex.isValid()) {
-        return selectedIndex.data(Qt::DisplayRole).toString();
+    if (mChannelView->selectionModel()) { //For autotest
+        const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
+        if (selectedIndex.isValid()) {
+            return selectedIndex.data(Qt::DisplayRole).toString();
+        }
     }
     return QString();
 }
