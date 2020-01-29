@@ -368,6 +368,22 @@ public:
     Q_REQUIRED_RESULT StatusModel *statusModel() const;
 
     void customUsersStatus();
+
+    Q_REQUIRED_RESULT bool jitsiEnabled() const;
+    Q_REQUIRED_RESULT bool allowMessagePinningEnabled() const;
+    Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
+    Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
+    Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
+    Q_REQUIRED_RESULT bool hasPinnedMessagesSupport() const;
+    Q_REQUIRED_RESULT bool hasStarredMessagesSupport() const;
+    Q_REQUIRED_RESULT bool hasSnippetedMessagesSupport() const;
+
+    Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
+    Q_REQUIRED_RESULT bool threadsEnabled() const;
+
+    Q_REQUIRED_RESULT bool discussionEnabled() const;
+    Q_REQUIRED_RESULT QString recordingVideoPath() const;
+    Q_REQUIRED_RESULT QString recordingImagePath() const;
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -394,21 +410,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RocketChatAccount)
     Room *getRoom(const QString &roomId);
-    Q_REQUIRED_RESULT bool jitsiEnabled() const;
-    Q_REQUIRED_RESULT bool allowMessagePinningEnabled() const;
-    Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
-    Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
-    Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
-    Q_REQUIRED_RESULT bool hasPinnedMessagesSupport() const;
-    Q_REQUIRED_RESULT bool hasStarredMessagesSupport() const;
-    Q_REQUIRED_RESULT bool hasSnippetedMessagesSupport() const;
-
-    Q_REQUIRED_RESULT bool autoTranslateEnabled() const;
-    Q_REQUIRED_RESULT bool threadsEnabled() const;
-
-    Q_REQUIRED_RESULT bool discussionEnabled() const;
-    Q_REQUIRED_RESULT QString recordingVideoPath() const;
-    Q_REQUIRED_RESULT QString recordingImagePath() const;
 
     void slotChannelFilesDone(const QJsonObject &obj, const QString &roomId);
     void slotChannelRolesDone(const QJsonObject &obj, const QString &roomId);
