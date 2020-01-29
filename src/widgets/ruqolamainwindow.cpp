@@ -24,7 +24,7 @@
 #include "receivetypingnotificationmanager.h"
 #include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
-#include "accountmenu.h"
+#include "misc/accountmenu.h"
 #include "dialogs/serverinfodialog.h"
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/createnewchanneldialog.h"
