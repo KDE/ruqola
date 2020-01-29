@@ -2,7 +2,10 @@
 add_subdirectory(rocketchatrestapi-qt5)
 
 add_subdirectory(core)
-add_subdirectory(widgets)
+
+if (NOT ANDROID)
+    add_subdirectory(widgets)
+endif()
 
 add_subdirectory(plugins)
 
