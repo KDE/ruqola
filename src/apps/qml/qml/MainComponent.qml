@@ -871,6 +871,17 @@ Component {
             appid.rocketChatAccount.clearUnreadMessages(appid.selectedRoomID);
         }
 
+        Keys.onPressed: {
+            if (event.key === Qt.Key_PageUp || event.key === Qt.Key_PageDown) {
+                if (event.key === Qt.Key_PageUp) {
+                    activeChat.scrollPageUp();
+                } else {
+                    activeChat.scrollPageDown();
+                }
+                event.accepted = true;
+            }
+        }
+
         footer: QQC2.ToolBar {
             position: QQC2.ToolBar.Footer
             visible: appid.selectedRoom

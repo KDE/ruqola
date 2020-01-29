@@ -27,6 +27,15 @@ ListView {
     id: activeChat
     clip: true
 
+    function scrollPageUp() {
+        var newContentY = Math.max(contentY - originY - height, 0);
+        activeChat.contentY = newContentY + originY;
+    }
+    function scrollPageDown() {
+        var newContentY = Math.min(contentY - originY + height, contentHeight - height);
+        activeChat.contentY = newContentY + originY;
+    }
+
     signal openDirectChannel(string userName)
     signal openChannel(string channel)
     signal jitsiCallConfActivated()
