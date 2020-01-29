@@ -49,6 +49,8 @@ private:
     void updateRoomHeader();
     void connectRoomWrapper();
     void slotChangeFavorite(bool b);
+    void keyPressedInListView(QKeyEvent *ev);
+
     QString mRoomId;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;

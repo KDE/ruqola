@@ -23,6 +23,7 @@
 #include "rocketchataccount.h"
 #include "messagelistdelegate.h"
 #include <QDebug>
+#include <QKeyEvent>
 #include <QScrollBar>
 
 MessageListView::MessageListView(QWidget *parent)
@@ -74,6 +75,19 @@ void MessageListView::resizeEvent(QResizeEvent *ev)
     // Fix not being really at bottom when the view gets reduced by the header widget becoming taller
     checkIfAtBottom();
     maybeScrollToBottom(); // this forces a layout in QAIV, which then changes the vbar max value
+}
+
+void MessageListView::keyPressEvent(QKeyEvent *ev)
+{
+    const int key = ev->key();
+    if (key == Qt::Key_Up || key == Qt::Key_Down || key == Qt::Key_PageDown || key == Qt::Key_PageUp
+            || key == Qt::Key_Home || key == Qt::Key_End) {
+        QListView::keyPressEvent(ev);
+    } else {
+        // If the user starts typing a message focus the lineedit and send the event there
+        emit keyPressed(ev);
+        ev->accept();
+    }
 }
 
 void MessageListView::checkIfAtBottom()

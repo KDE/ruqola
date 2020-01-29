@@ -22,11 +22,15 @@
 #include "roomheaderwidget.h"
 #include "messagelistview.h"
 #include "messagelinewidget.h"
-#include <QHBoxLayout>
-#include <KLocalizedString>
 #include "ruqola.h"
 #include "rocketchataccount.h"
-#include <roomwrapper.h>
+#include "roomwrapper.h"
+
+#include <KLocalizedString>
+
+#include <QKeyEvent>
+#include <QHBoxLayout>
+#include <QApplication>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -52,6 +56,8 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mMessageLineWidget, &MessageLineWidget::clearNotification, this, &RoomWidget::slotClearNotification);
     connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
+
+    connect(mMessageListView, &MessageListView::keyPressed, this, &RoomWidget::keyPressedInListView);
 }
 
 RoomWidget::~RoomWidget()
@@ -131,4 +137,14 @@ void RoomWidget::slotClearNotification()
 void RoomWidget::slotChangeFavorite(bool b)
 {
     Ruqola::self()->rocketChatAccount()->changeFavorite(mRoomId, b);
+}
+
+void RoomWidget::keyPressedInListView(QKeyEvent *ev)
+{
+    if (ev->key() == Qt::Key_Escape) {
+        slotClearNotification();
+    } else {
+        mMessageLineWidget->setFocus();
+        qApp->sendEvent(mMessageLineWidget, ev);
+    }
 }

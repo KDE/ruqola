@@ -37,9 +37,11 @@ public:
 
 protected:
     void resizeEvent(QResizeEvent *ev) override;
+    void keyPressEvent(QKeyEvent *ev) override;
 
 Q_SIGNALS:
     void modelChanged();
+    void keyPressed(QKeyEvent *ev);
 
 private Q_SLOTS:
     void checkIfAtBottom();
