@@ -19,7 +19,7 @@
 */
 
 #include "accountserverlistwidget.h"
-
+#include "dialogs/createnewaccountdialog.h"
 #include <KLocalizedString>
 
 #include <QListWidgetItem>
@@ -51,15 +51,24 @@ void AccountServerListWidget::modifyAccountConfig()
     }
 
     //AccountServerListWidgetItem *serverSieveListItem = static_cast<AccountServerListWidgetItem *>(item);
-    //TODO
+    //TODO change title
+    QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
+    if (dlg->exec()) {
+        //TODO add account
+    }
 }
 
 void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item)
 {
+    //TODO
 }
 
 void AccountServerListWidget::addAccountConfig()
 {
+    QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
+    if (dlg->exec()) {
+        //TODO add account
+    }
 }
 
 AccountServerListWidgetItem::AccountServerListWidgetItem(QListWidget *parent)
