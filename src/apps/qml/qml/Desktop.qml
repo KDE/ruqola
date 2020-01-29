@@ -96,7 +96,7 @@ Kirigami.ApplicationWindow {
                 text: i18n("About")
                 iconName: "ruqola"
                 onTriggered: {
-                    aboutDataDialogLoader.active = true
+                    pageStack.push(aboutPage)
                 }
             },
             Kirigami.Action {
@@ -154,22 +154,16 @@ Kirigami.ApplicationWindow {
         rcAccount: rocketChatAccount
     }
 
-    Loader {
-        id: aboutDataDialogLoader
-        active: false
-        sourceComponent: AboutDialog {
-            id: aboutDataDialog
-            parent: appid.pageStack
-            applicationData: Ruqola.applicationData()
-            Component.onCompleted: {
-                open()
-            }
+    Component {
+        id: aboutPage
 
-            onOpenurl: {
-                RuqolaUtils.openUrl(link);
-            }
-            onRejected: {
-                aboutDataDialogLoader.active = false
+        Kirigami.AboutPage {
+            aboutData: Ruqola.applicationData()
+
+            actions.main: Kirigami.Action {
+                text: i18n("Close")
+                icon.name: "window-close-symbolic"
+                onTriggered: pageStack.pop()
             }
         }
     }

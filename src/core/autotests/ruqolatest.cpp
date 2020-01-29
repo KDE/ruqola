@@ -34,7 +34,6 @@ void RuqolaTest::shouldHaveDefaultValue()
 {
     Ruqola r(nullptr);
     QVERIFY(r.accountManager());
-    QVERIFY(r.applicationData());
 }
 
 void RuqolaTest::shouldDestroy()

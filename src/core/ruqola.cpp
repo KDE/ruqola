@@ -28,7 +28,6 @@
 #include "rocketchataccount.h"
 #include "accountmanager.h"
 #include "managerdatapaths.h"
-#include "aboutdata/qmlaboutdata.h"
 #include "restapirequest.h"
 #include <KNotification>
 
@@ -62,9 +61,7 @@ Ruqola::Ruqola(QObject *parent)
     connect(mAccountManager, &AccountManager::updateNotification, this, &Ruqola::updateNotification);
     connect(mAccountManager, &AccountManager::logoutAccountDone, this, &Ruqola::logout);
 
-    mRuqolaAboutData = new QmlAboutData(this);
 }
-
 void Ruqola::setCurrentAccount(const QString &accountName)
 {
     mAccountManager->setCurrentAccount(accountName);
@@ -75,9 +72,9 @@ AccountManager *Ruqola::accountManager() const
     return mAccountManager;
 }
 
-QmlAboutData *Ruqola::applicationData() const
+KAboutData Ruqola::applicationData() const
 {
-    return mRuqolaAboutData;
+    return KAboutData::applicationData();
 }
 
 RocketChatAccount *Ruqola::rocketChatAccount() const

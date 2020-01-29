@@ -63,11 +63,6 @@ set(Ruqola_plugins_srcs
     plugins/pluginauthentication.cpp
     )
 
-set(Ruqola_aboutdata_srcs
-    aboutdata/qmlaboutdata.cpp
-    aboutdata/qmlaboutdataauthormodel.cpp
-    )
-
 set(Ruqola_emoticons_srcs 
     emoticons/emoji.cpp
     emoticons/emojimanager.cpp
@@ -103,7 +98,6 @@ set (Ruqola_core_srcs
     ${Ruqola_messages_srcs}
     ${Ruqola_model_core_srcs}
     ${Ruqola_plugins_srcs}
-    ${Ruqola_aboutdata_srcs}
     ${Ruqola_ddpapi_SRCS}
     authenticationinfo.cpp
     room.cpp

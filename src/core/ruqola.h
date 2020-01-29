@@ -35,7 +35,7 @@
 #include "notification.h"
 #endif
 
-class QmlAboutData;
+#include <KAboutData>
 
 class RocketChatAccount;
 class AccountManager;
@@ -59,7 +59,7 @@ public:
 
     Q_INVOKABLE RocketChatAccount *rocketChatAccount() const;
 
-    Q_INVOKABLE QmlAboutData *applicationData() const;
+    Q_INVOKABLE KAboutData applicationData() const;
 
     Q_INVOKABLE AccountManager *accountManager() const;
 
@@ -71,7 +71,6 @@ private:
     void sendNotification(const QString &title, const QString &message, const QPixmap &pixmap);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void logout(const QString &accountName);
-    QmlAboutData *mRuqolaAboutData = nullptr;
     AccountManager *mAccountManager = nullptr;
 
 #ifndef Q_OS_ANDROID

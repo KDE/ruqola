@@ -23,8 +23,6 @@
 #include "roomwrapper.h"
 #include "ruqola.h"
 #include "ruqola_debug.h"
-#include "aboutdata/qmlaboutdata.h"
-#include "aboutdata/qmlaboutdataauthormodel.h"
 #include "ruqolaregisterengine.h"
 #include "ruqolautils.h"
 #include "clipboardproxy.h"
@@ -98,8 +96,6 @@ bool RuqolaRegisterEngine::initialize()
     qmlRegisterType<UserCompleterFilterProxyModel>(URI, 1, 0, "UserCompleterFilterModelProxy");
     qmlRegisterType<FilesForRoomFilterProxyModel>(URI, 1, 0, "FilesForRoomFilterProxyModel");
     qmlRegisterType<MentionsFilterProxyModel>(URI, 1, 0, "MentionsFilterProxyModel");
-    qmlRegisterType<QmlAboutData>(URI, 1, 0, "RuqolaAboutData");
-    qmlRegisterType<QmlAboutDataAuthorModel>(URI, 1, 0, "RuqolaAboutDataAuthorModel");
     qmlRegisterType<UserCompleterModel>(URI, 1, 0, "UserCompleterModel");
     qmlRegisterType<StatusModel>(URI, 1, 0, "StatusModel");
     qmlRegisterType<NotificationPreferenceModel>(URI, 1, 0, "NotificationPreferenceModel");
@@ -134,6 +130,7 @@ bool RuqolaRegisterEngine::initialize()
     qRegisterMetaType<ListMessagesModel::ListMessageType>();
     qRegisterMetaType<User::PresenceStatus>();
     qRegisterMetaType<AuthenticationManager::OauthType>();
+    qRegisterMetaType<KAboutData>();
     mEngine = new QQmlApplicationEngine;
 
     QQmlContext *ctxt = mEngine->rootContext();
