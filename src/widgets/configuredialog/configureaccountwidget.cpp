@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "configureaccountserverwidget.h"
 #include "configureaccountwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -28,6 +29,10 @@ ConfigureAccountWidget::ConfigureAccountWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mConfigureAccountServerWidget = new ConfigureAccountServerWidget(this);
+    mConfigureAccountServerWidget->setObjectName(QStringLiteral("mConfigureAccountServerWidget"));
+    mainLayout->addWidget(mConfigureAccountServerWidget);
 }
 
 ConfigureAccountWidget::~ConfigureAccountWidget()
@@ -37,10 +42,10 @@ ConfigureAccountWidget::~ConfigureAccountWidget()
 
 void ConfigureAccountWidget::save()
 {
-    //TODO
+    mConfigureAccountServerWidget->writeConfig();
 }
 
 void ConfigureAccountWidget::load()
 {
-    //TODO
+    mConfigureAccountServerWidget->readConfig();
 }

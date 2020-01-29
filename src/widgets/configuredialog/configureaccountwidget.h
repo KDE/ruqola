@@ -24,6 +24,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class ConfigureAccountServerWidget;
 class LIBRUQOLAWIDGETS_EXPORT ConfigureAccountWidget : public QWidget
 {
     Q_OBJECT
@@ -32,6 +33,8 @@ public:
     ~ConfigureAccountWidget();
     void save();
     void load();
+private:
+    ConfigureAccountServerWidget *mConfigureAccountServerWidget = nullptr;
 };
 
 #endif // CONFIGUREACCOUNTWIDGET_H

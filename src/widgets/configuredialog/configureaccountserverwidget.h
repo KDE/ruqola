@@ -22,12 +22,14 @@
 #define CONFIGUREACCOUNTSERVERWIDGET_H
 
 #include <QWidget>
+#include "libruqolawidgets_private_export.h"
 
 namespace Ui {
 class ConfigureAccountServerWidget;
 }
 
-class ConfigureAccountServerWidget : public QWidget
+#include "libruqolawidgets_private_export.h"
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAccountServerWidget : public QWidget
 {
     Q_OBJECT
 
