@@ -30,7 +30,7 @@ import QtQuick.Layouts 1.12
 import Ruqola 1.0
 
 MessageBase {
-    id: messageMain
+    id: root
 
     property string i_systemMessageType
 

@@ -69,6 +69,7 @@ ListView {
     signal moreHistoryRequested()
 
     property QtObject rcAccount
+
     property string roomId: ""
     property bool enableEditingMode: false
     property bool wasAtYEnd: true
@@ -134,13 +135,13 @@ ListView {
         i_timestamp: timestamp
         i_messageID: messageID
         i_messageType: messagetype
-        i_avatar: avatar == "" ? rcAccount.avatarUrl(userID) : avatar
+        i_avatar: avatar == "" ? activeChat.rcAccount.avatarUrl(userID) : avatar
         i_urls: urls
         i_attachments: attachments
         i_reactions: reactions
         i_roles: roles
         i_date: date
-        i_own_username: rcAccount.userName
+        i_own_username: activeChat.rcAccount.userName
         i_can_edit_message: canEditMessage
         i_starred: starred
         i_pinned: pinned
@@ -155,6 +156,8 @@ ListView {
         i_groupable: groupable
         i_useMenuMessage: useMenuMessage
         i_showTranslatedMessage: showTranslatedMessage
+
+        rcAccount: activeChat.rcAccount
 
         onOpenChannel: {
             activeChat.openChannel(channel)

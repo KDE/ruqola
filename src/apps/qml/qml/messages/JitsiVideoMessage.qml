@@ -31,7 +31,7 @@ import "../js/message.js" as MessageScript;
 import "../common"
 
 MessageBase {
-    id: messageMain
+    id: root
 
     RowLayout {
         AvatarImage {

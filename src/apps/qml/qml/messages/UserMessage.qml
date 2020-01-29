@@ -30,14 +30,10 @@ import QtQuick.Layouts 1.12
 import Ruqola 1.0
 
 import "../common"
+
 MessageBase {
+    id: root
 
-    property string i_messageID
-    property var i_urls
-    property var i_attachments
-    property string i_own_username
-
-    id: messageMain
     Layout.alignment: Qt.AlignTop
     Loader {
         id: messageMenuLoader

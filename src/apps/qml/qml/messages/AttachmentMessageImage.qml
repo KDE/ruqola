@@ -28,7 +28,7 @@ import QtQuick.Layouts 1.12
 import "../common"
 
 MessageBase {
-    id: messageMain
+    id: root
 
     Loader {
         id: messageMenuLoader

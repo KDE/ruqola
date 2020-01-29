@@ -30,8 +30,7 @@ import "../js/convert.js" as ConvertScript;
 import "../common"
 
 MessageBase {
-    id: attachmentAudio
-
+    id: root
 
     RowLayout {
         AvatarImage {
@@ -152,7 +151,7 @@ MessageBase {
                     messageMain.addReaction(i_messageID, emoji)
                 }
                 onDeleteReaction: {
-                    attachmentAudio.deleteReaction(i_messageID, emoji)
+                    messageMain.deleteReaction(i_messageID, emoji)
                 }
             }
         }

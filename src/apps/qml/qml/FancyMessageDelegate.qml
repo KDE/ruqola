@@ -29,9 +29,10 @@ import org.kde.kirigami 2.7 as Kirigami
 import QtQuick.Layouts 1.12
 import Ruqola 1.0
 
-Rectangle {
+import "messages/"
 
-    id: messageMain
+Rectangle {
+    id: root
 
     property string i_messageID
     property string i_originalMessage
@@ -65,23 +66,24 @@ Rectangle {
     property bool i_useMenuMessage
     property bool i_showTranslatedMessage
 
-
+    property QtObject rcAccount
 
     color: RuqolaSingleton.backgroundColor
-    implicitHeight: 2*Kirigami.Units.smallSpacing + loaded.item.implicitHeight
+    implicitHeight: loaded.item ? 2*Kirigami.Units.smallSpacing + loaded.item.implicitHeight : 0
     
     implicitWidth: 150
-    
+
     signal openDirectChannel(string userName)
     signal openChannel(string channel)
+    signal linkActivated(string link)
     signal jitsiCallConfActivated()
     signal deleteMessage(string messageId)
     signal reportMessage(string messageId)
-    signal downloadAttachment(string url)
-    signal editMessage(string messageId, string messageStr)
     signal copyMessage(string messageId, string messageStr)
+    signal editMessage(string messageId, string messageStr)
     signal replyMessage(string messageId)
     signal setFavoriteMessage(string messageId, bool starred)
+    signal downloadAttachment(string url)
     signal displayImage(url imageUrl, string title, bool isAnimatedImage)
     signal deleteReaction(string messageId, string emoji)
     signal addReaction(string messageId, string emoji)
@@ -94,6 +96,32 @@ Rectangle {
     signal showUserInfo()
     signal showOriginalOrTranslatedMessage(string messageId, bool showOriginal)
     signal showDisplayAttachment(string messageId, bool displayAttachment)
+
+    Component {
+        id: jitsiMessageComponent
+        JitsiVideoMessage { messageMain: root }
+    }
+    Component {
+        id: systemMessageComponent
+        SystemMessage { messageMain: root }
+    }
+    Component {
+        id: userMessageComponent
+        UserMessage { messageMain: root }
+    }
+    Component {
+        id: attachmentMessageAudioComponent
+        AttachmentMessageAudio { messageMain: root }
+    }
+    Component {
+        id: attachmentMessageVideoComponent
+        AttachmentMessageVideo { messageMain: root }
+    }
+    Component {
+        id: attachmentMessageImageComponent
+        AttachmentMessageImage { messageMain: root }
+    }
+
     Loader {
         id: loaded
         anchors {
@@ -101,248 +129,39 @@ Rectangle {
             margins: Kirigami.Units.largeSpacing
         }
 
-        Component.onCompleted: {
+        function getComponent() {
             if (i_messageType === Message.System) {
                 if (i_systemMessageType === "jitsi_call_started") {
-                    setSource("messages/JitsiVideoMessage.qml",
-                              {
-                                  i_messageText: i_messageText,
-                                  i_username: i_username,
-                                  i_aliasname: i_aliasname,
-                                  i_timestamp: i_timestamp,
-                                  i_systemMessageType: i_systemMessageType,
-                                  i_messageID: i_messageID,
-                                  i_avatar: i_avatar,
-                                  i_date: i_date,
-                                  i_useMenuMessage: i_useMenuMessage,
-                                  i_showTranslatedMessage: i_showTranslatedMessage,
-                                  rcAccount: appid.rocketChatAccount
-                              }
-                              )
+                    return jitsiMessageComponent;
                 } else {
-                    setSource("messages/SystemMessage.qml",
-                              {
-                                  i_messageText: i_messageText,
-                                  i_username: i_username,
-                                  i_aliasname: i_aliasname,
-                                  i_timestamp: i_timestamp,
-                                  i_systemMessageType: i_systemMessageType,
-                                  i_messageID: i_messageID,
-                                  i_date: i_date,
-                                  rcAccount: appid.rocketChatAccount,
-                                  i_dcount: i_dcount,
-                                  i_drid: i_drid,
-                                  i_tcount: i_tcount,
-                                  i_useMenuMessage: i_useMenuMessage,
-                                  i_showTranslatedMessage: i_showTranslatedMessage,
-                                  i_groupable: i_groupable,
-                                  i_tmid: i_tmid
-                              }
-                              )
+                    return systemMessageComponent;
                 }
             } else if (i_messageType === Message.NormalText || i_messageType === Message.File) {
-                setSource("messages/UserMessage.qml",
-                          {
-                              i_originalMessage: i_originalMessage,
-                              i_messageText: i_messageText,
-                              i_username: i_username,
-                              i_usernameurl: i_usernameurl,
-                              i_aliasname: i_aliasname,
-                              i_timestamp: i_timestamp,
-                              i_messageID: i_messageID,
-                              i_avatar: i_avatar,
-                              i_urls: i_urls,
-                              i_reactions: i_reactions,
-                              i_roles: i_roles,
-                              i_attachments: i_attachments,
-                              i_date: i_date,
-                              i_own_username: i_own_username,
-                              rcAccount: appid.rocketChatAccount,
-                              i_can_edit_message: i_can_edit_message,
-                              i_editedByUserName: i_editedByUserName,
-                              i_starred: i_starred,
-                              i_pinned: i_pinned,
-                              i_user_ignored : i_user_ignored,
-                              i_dcount: i_dcount,
-                              i_drid: i_drid,
-                              i_tcount: i_tcount,
-                              i_groupable: i_groupable,
-                              i_tmid: i_tmid,
-                              i_useMenuMessage: i_useMenuMessage,
-                              i_showTranslatedMessage: i_showTranslatedMessage,
-                              i_threadPreview: i_threadPreview
-
-                          }
-                          )
+                return userMessageComponent;
             } else if (i_messageType === Message.Audio) {
-                setSource("messages/AttachmentMessageAudio.qml",
-                          {
-                              i_messageText: i_messageText,
-                              i_username: i_username,
-                              i_usernameurl: i_usernameurl,
-                              i_aliasname: i_aliasname,
-                              i_timestamp: i_timestamp,
-                              i_messageID: i_messageID,
-                              i_avatar: i_avatar,
-                              i_reactions: i_reactions,
-                              i_roles: i_roles,
-                              i_urls: i_urls,
-                              i_attachments: i_attachments,
-                              i_date: i_date,
-                              i_editedByUserName: i_editedByUserName,
-                              rcAccount: appid.rocketChatAccount,
-                              i_editedByUserName: i_editedByUserName,
-                              i_starred: i_starred,
-                              i_pinned: i_pinned,
-                              i_dcount: i_dcount,
-                              i_drid: i_drid,
-                              i_tcount: i_tcount,
-                              i_groupable: i_groupable,
-                              i_useMenuMessage: i_useMenuMessage,
-                              i_showTranslatedMessage: i_showTranslatedMessage,
-                              i_tmid: i_tmid
-                          })
+                return attachmentMessageAudioComponent;
             } else if (i_messageType === Message.Video) {
-                setSource("messages/AttachmentMessageVideo.qml",
-                          {
-                              i_messageText: i_messageText,
-                              i_username: i_username,
-                              i_usernameurl: i_usernameurl,
-                              i_aliasname: i_aliasname,
-                              i_timestamp: i_timestamp,
-                              i_messageID: i_messageID,
-                              i_avatar: i_avatar,
-                              i_reactions: i_reactions,
-                              i_roles: i_roles,
-                              i_urls: i_urls,
-                              i_attachments: i_attachments,
-                              i_date: i_date,
-                              i_editedByUserName: i_editedByUserName,
-                              rcAccount: appid.rocketChatAccount,
-                              i_editedByUserName: i_editedByUserName,
-                              i_starred: i_starred,
-                              i_pinned: i_pinned,
-                              i_dcount: i_dcount,
-                              i_drid: i_drid,
-                              i_tcount: i_tcount,
-                              i_groupable: i_groupable,
-                              i_useMenuMessage: i_useMenuMessage,
-                              i_showTranslatedMessage: i_showTranslatedMessage,
-                              i_tmid: i_tmid
-                          })
+                return attachmentMessageVideoComponent;
             } else if (i_messageType === Message.Image) {
-                setSource("messages/AttachmentMessageImage.qml",
-                          {
-                              i_messageText: i_messageText,
-                              i_username: i_username,
-                              i_usernameurl: i_usernameurl,
-                              i_aliasname: i_aliasname,
-                              i_timestamp: i_timestamp,
-                              i_messageID: i_messageID,
-                              i_avatar: i_avatar,
-                              i_reactions: i_reactions,
-                              i_roles: i_roles,
-                              i_urls: i_urls,
-                              i_attachments: i_attachments,
-                              i_date: i_date,
-                              i_editedByUserName: i_editedByUserName,
-                              rcAccount: appid.rocketChatAccount,
-                              i_editedByUserName: i_editedByUserName,
-                              i_starred: i_starred,
-                              i_pinned: i_pinned,
-                              i_dcount: i_dcount,
-                              i_drid: i_drid,
-                              i_tcount: i_tcount,
-                              i_useMenuMessage: i_useMenuMessage,
-                              i_groupable: i_groupable,
-                              i_showTranslatedMessage: i_showTranslatedMessage,
-                              i_tmid: i_tmid
-                          })
-
-            } else {
-                console.log(RuqolaDebugCategorySingleton.category, "Unknown message type: " + i_messageType)
+                return attachmentMessageImageComponent;
             }
+            console.warning(RuqolaDebugCategorySingleton.category, "Unknown message type: " + i_messageType)
+            return null;
         }
+
+        sourceComponent: getComponent()
     }
-    Connections {
-        target: loaded.item
-        onLinkActivated: {
-            var username = RuqolaUtils.extractRoomUserFromUrl(link);
-            if (link.startsWith("ruqola:/room/")) {
-                messageMain.openChannel(username)
-            } else if (link.startsWith("ruqola:/user/")) {
-                if (username !== appid.rocketChatAccount.userName) {
-                    messageMain.openDirectChannel(username)
-                }
-            } else {
-                RuqolaUtils.openUrl(link);
-            }
-        }
-        onJitsiCallConfActivated: {
-            messageMain.jitsiCallConfActivated()
-        }
-        onPinMessage: {
-            messageMain.pinMessage(messageId, pinned)
-        }
-        onReportMessage: {
-            messageMain.reportMessage(messageId)
-        }
-        onDeleteMessage: {
-            messageMain.deleteMessage(messageId)
-        }
-        onDownloadAttachment: {
-            messageMain.downloadAttachment(url)
-        }
-        onEditMessage: {
-            //console.log(RuqolaDebugCategorySingleton.category, "i_messageText " + i_messageText);
-            messageMain.editMessage(messageId, messageStr)
-        }
-        onCopyMessage: {
-            //console.log(RuqolaDebugCategorySingleton.category, "i_messageText " + i_messageText);
-            messageMain.copyMessage(messageId, messageStr)
-        }
-        onReplyMessage: {
-            messageMain.replyMessage(messageId)
-        }
-        onSetFavoriteMessage: {
-            messageMain.setFavoriteMessage(messageId, starred)
-        }
-        onDisplayImage: {
-            messageMain.displayImage(imageUrl, title, isAnimatedImage)
-        }
-        onDeleteReaction: {
-            messageMain.deleteReaction(messageId, emoji)
-        }
-        onAddReaction: {
-            messageMain.addReaction(messageId, emoji)
-        }
-        onIgnoreUser: {
-            messageMain.ignoreUser(ignored)
-        }
-        onCreateDiscussion: {
-            messageMain.createDiscussion(messageId, originalMessage)
-        }
-        onOpenDiscussion: {
-            messageMain.openDiscussion(discussionRoomId)
-        }
-        onOpenThread: {
-            messageMain.openThread(threadMessageId, threadPreviewText)
-        }
-        onReplyInThread: {
-            //console.log(RuqolaDebugCategorySingleton.category, "onReplyInThread: " + messageId)
-            messageMain.replyInThread(messageId)
-        }
-        onShowUserInfo: {
-            messageMain.showUserInfo()
-        }
-        onShowOriginalOrTranslatedMessage: {
-            messageMain.showOriginalOrTranslatedMessage(messageId, showOriginal)
-            console.log("onShowOriginalOrTranslatedMessage: " + messageId)
-        }
-        onShowDisplayAttachment: {
-            messageMain.showDisplayAttachment(messageId, displayAttachment)
-            //TODO
-        }
 
+    onLinkActivated: {
+        var username = RuqolaUtils.extractRoomUserFromUrl(link);
+        if (link.startsWith("ruqola:/room/")) {
+            messageMain.openChannel(username)
+        } else if (link.startsWith("ruqola:/user/")) {
+            if (username !== appid.rocketChatAccount.userName) {
+                messageMain.openDirectChannel(username)
+            }
+        } else {
+            RuqolaUtils.openUrl(link);
+        }
     }
 }
