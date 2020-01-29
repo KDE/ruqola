@@ -21,7 +21,9 @@
 
 #include "emoticonmenuwidgettest.h"
 #include "misc/emoticonmenuwidget.h"
+#include <QTabWidget>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(EmoticonMenuWidgetTest)
 EmoticonMenuWidgetTest::EmoticonMenuWidgetTest(QObject *parent)
     : QObject(parent)
@@ -32,4 +34,9 @@ EmoticonMenuWidgetTest::EmoticonMenuWidgetTest(QObject *parent)
 void EmoticonMenuWidgetTest::shouldHaveDefaultValues()
 {
     EmoticonMenuWidget w;
+    QVBoxLayout *layout = w.findChild<QVBoxLayout *>(QStringLiteral("layout"));
+    QVERIFY(layout);
+    QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
+    QTabWidget *mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
+    QVERIFY(mTabWidget);
 }

@@ -19,6 +19,7 @@
 */
 
 #include "emoticonmenuwidget.h"
+#include <QTabWidget>
 #include <QVBoxLayout>
 
 EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
@@ -27,9 +28,20 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
+
+    mTabWidget = new QTabWidget(this);
+    mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
+    layout->addWidget(mTabWidget);
+
+    initializeTab();
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget()
 {
 
+}
+
+void EmoticonMenuWidget::initializeTab()
+{
+    //TODO
 }

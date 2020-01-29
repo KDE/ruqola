@@ -24,6 +24,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QTabWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
 {
     Q_OBJECT
@@ -32,6 +33,9 @@ public:
     ~EmoticonMenuWidget();
 Q_SIGNALS:
     void insertEmoticons(const QString &emoticon);
+private:
+    void initializeTab();
+    QTabWidget *mTabWidget = nullptr;
 };
 
 #endif // EMOTICONMENUWIDGET_H
