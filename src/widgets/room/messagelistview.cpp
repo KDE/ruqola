@@ -23,6 +23,7 @@
 #include "rocketchataccount.h"
 #include "messagelistdelegate.h"
 #include "dialogs/reportmessagedialog.h"
+#include "dialogs/createnewdiscussiondialog.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -32,6 +33,8 @@
 #include <QScrollBar>
 #include <QIcon>
 #include <QPointer>
+#include <QClipboard>
+#include <QApplication>
 
 MessageListView::MessageListView(QWidget *parent)
     : QListView(parent)
@@ -121,6 +124,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
 
+
+    QAction *startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
+    connect(startDiscussion, &QAction::triggered, this, [=]() {
+        slotStartDiscussion(index);
+    });
+    menu.addAction(startDiscussion);
+
+
     const bool isPinned = index.data(MessageModel::Pinned).toBool();
     QAction *setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
     connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
@@ -142,6 +153,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
         menu.addAction(editAction);
     }
+
+    QAction *copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"), &menu);
+    connect(copyAction, &QAction::triggered, this, [=]() {
+        slotCopyText(index);
+    });
+    menu.addAction(copyAction);
+
     if (rcAccount->allowMessageDeletingEnabled() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
         if (!menu.isEmpty()) {
             QAction *separator = new QAction(&menu);
@@ -209,4 +227,24 @@ void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinn
     const QString messageId = index.data(MessageModel::MessageId).toString();
     rcAccount->pinMessage(messageId, !isPinned);
     //TODO fix pinMessage it seems that it doesn't work
+}
+
+void MessageListView::slotStartDiscussion(const QModelIndex &index)
+{
+    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
+    if (dlg->exec()) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        const QString messageId = index.data(MessageModel::MessageId).toString();
+        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
+        rcAccount->createDiscussion(info.channelName, info.discussionName, info.message, messageId, info.users);
+    }
+    delete dlg;
+}
+
+void MessageListView::slotCopyText(const QModelIndex &index)
+{
+    const QString messageStr = index.data(MessageModel::OriginalMessage).toString();
+    QClipboard *clip = QApplication::clipboard();
+    clip->setText(messageStr, QClipboard::Clipboard);
+    clip->setText(messageStr, QClipboard::Selection);
 }
