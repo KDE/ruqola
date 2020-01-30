@@ -36,13 +36,17 @@ public:
     void setModel(FilesForRoomFilterProxyModel *model);
 
     void setRoomId(const QString &roomId);
-
     Q_REQUIRED_RESULT QString roomId() const;
+
+    Q_REQUIRED_RESULT QString roomType() const;
+    void setRoomType(const QString &roomType);
+
 private:
     void readConfig();
     void writeConfig();
     void slotLoadMoreAttachment();
     QString mRoomId;
+    QString mRoomType;
     ShowAttachmentWidget *mShowAttachmentWidget = nullptr;
 };
 

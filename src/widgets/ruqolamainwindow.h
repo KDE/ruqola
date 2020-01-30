@@ -58,6 +58,8 @@ private:
     void slotAccountChanged();
     void slotShowDiscussions();
     void slotShowThreads();
+    void slotUnreadOnTop(bool checked);
+    void updateActions();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
@@ -74,6 +76,7 @@ private:
     QAction *mShowFileAttachments = nullptr;
     QAction *mShowDiscussions = nullptr;
     QAction *mShowThreads = nullptr;
+    QAction *mUnreadOnTop = nullptr;
     AccountMenu *mAccountMenu = nullptr;
     RocketChatAccount *mCurrentRocketChatAccount = nullptr;
     QLabel *mStatusBarTypingMessage = nullptr;

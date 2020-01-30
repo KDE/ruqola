@@ -93,5 +93,15 @@ void ShowAttachmentDialog::slotLoadMoreAttachment()
         qCWarning(RUQOLAWIDGETS_LOG) << "RoomId is empty. It's a bug";
         return;
     }
-    Ruqola::self()->rocketChatAccount()->loadMoreFileAttachments(roomId(), /*FIXME*/ QStringLiteral("c"));
+    Ruqola::self()->rocketChatAccount()->loadMoreFileAttachments(mRoomId, mRoomType);
+}
+
+QString ShowAttachmentDialog::roomType() const
+{
+    return mRoomType;
+}
+
+void ShowAttachmentDialog::setRoomType(const QString &roomType)
+{
+    mRoomType = roomType;
 }

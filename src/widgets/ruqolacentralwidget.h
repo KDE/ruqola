@@ -36,6 +36,7 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
+    Q_REQUIRED_RESULT QString roomType() const;
 private:
     void slotLoginStatusChanged();
     void slotJobFailedInfo(const QString &messageError);

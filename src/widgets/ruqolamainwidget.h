@@ -35,6 +35,7 @@ public:
     ~RuqolaMainWidget();
     Q_REQUIRED_RESULT QString roomId() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);
+    Q_REQUIRED_RESULT QString roomType() const;
 private:
     ChannelListWidget *mChannelList = nullptr;
     RoomWidget *mRoomWidget = nullptr;

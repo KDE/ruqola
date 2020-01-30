@@ -91,6 +91,12 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::notificationChanged, this, &RuqolaMainWindow::slotTypingNotificationChanged);
     connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::clearNotification, this, &RuqolaMainWindow::slotClearNotification);
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    updateActions();
+}
+
+void RuqolaMainWindow::updateActions()
+{
+    mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
 }
 
 void RuqolaMainWindow::readConfig()
@@ -185,6 +191,11 @@ void RuqolaMainWindow::setupActions()
     mShowThreads = new QAction(i18n("Show Threads..."), this);
     connect(mShowThreads, &QAction::triggered, this, &RuqolaMainWindow::slotShowThreads);
     ac->addAction(QStringLiteral("show_threads"), mShowThreads);
+
+    mUnreadOnTop = new QAction(i18n("Unread on Top"), this);
+    mUnreadOnTop->setCheckable(true);
+    connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
+    ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
 }
 
 void RuqolaMainWindow::slotShowThreads()
@@ -206,8 +217,12 @@ void RuqolaMainWindow::slotShowDiscussions()
 void RuqolaMainWindow::slotShowFileAttachments()
 {
     QPointer<ShowAttachmentDialog> dlg = new ShowAttachmentDialog(this);
-    mCurrentRocketChatAccount->roomFiles(mMainWidget->roomId(), QStringLiteral("c") /*FIXME*//*appid.selectedRoom.channelType*/);
+    const QString roomId = mMainWidget->roomId();
+    const QString roomType = mMainWidget->roomType();
+    mCurrentRocketChatAccount->roomFiles(roomId, roomType);
     dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
+    dlg->setRoomId(roomId);
+    dlg->setRoomType(roomType);
     dlg->exec();
     delete dlg;
 }
@@ -318,4 +333,9 @@ void RuqolaMainWindow::slotSearchChannel()
     QPointer<SearchChannelDialog> dlg = new SearchChannelDialog(this);
     dlg->exec();
     delete dlg;
+}
+
+void RuqolaMainWindow::slotUnreadOnTop(bool checked)
+{
+    mCurrentRocketChatAccount->setSortUnreadOnTop(checked);
 }

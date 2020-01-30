@@ -107,6 +107,7 @@ void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
     case DDPClient::LoginStatus::NotConnected:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
+        //Show info
         break;
     case DDPClient::LoginStatus::LoggingIn:
         mBusyIndicatorWidget->show();
@@ -119,10 +120,12 @@ void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
     case DDPClient::LoginStatus::LoginFailed:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
+        //Add warning!
         break;
     case DDPClient::LoginStatus::LoginCodeRequired:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
+        //Add two authentication factor
         break;
     case DDPClient::LoginStatus::LoggedOut:
         mBusyIndicatorWidget->hide();

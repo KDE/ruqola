@@ -104,6 +104,7 @@ void RoomWidget::slotEditMessage(const QString &messageId, const QString &text)
 void RoomWidget::setChannelSelected(const QModelIndex &index)
 {
     setRoomId(index.data(RoomModel::RoomID).toString());
+    setRoomType(index.data(RoomModel::RoomType).toString());
     mMessageLineWidget->setFocus();
 }
 
@@ -129,6 +130,11 @@ void RoomWidget::updateRoomHeader()
 QString RoomWidget::roomId() const
 {
     return mRoomId;
+}
+
+void RoomWidget::setRoomType(const QString &roomType)
+{
+    mRoomType = roomType;
 }
 
 void RoomWidget::setRoomId(const QString &roomId)
@@ -179,6 +185,11 @@ void RoomWidget::keyPressedInListView(QKeyEvent *ev)
         mMessageLineWidget->setFocus();
         qApp->sendEvent(mMessageLineWidget, ev);
     }
+}
+
+QString RoomWidget::roomType() const
+{
+    return mRoomType;
 }
 
 void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)

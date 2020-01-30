@@ -30,6 +30,10 @@
    <Separator/>
    <Action name="load_recent_history" />
   </Menu>
+  <Menu name="display" >
+   <text>Display</text>
+   <Action name="unread_on_top" />
+  </Menu>
  </MenuBar>
 </gui>
 

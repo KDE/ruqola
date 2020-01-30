@@ -44,6 +44,8 @@ public:
     void setRoomId(const QString &roomId);
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
+    Q_REQUIRED_RESULT QString roomType() const;
+
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
 
@@ -57,8 +59,10 @@ private:
     void connectRoomWrapper();
     void slotChangeFavorite(bool b);
     void keyPressedInListView(QKeyEvent *ev);
+    void setRoomType(const QString &roomType);
 
     QString mRoomId;
+    QString mRoomType;
     QString mMessageIdBeingEdited;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;

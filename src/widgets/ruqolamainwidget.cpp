@@ -74,6 +74,11 @@ QString RuqolaMainWidget::roomId() const
     return mRoomWidget->roomId();
 }
 
+QString RuqolaMainWidget::roomType() const
+{
+    return mRoomWidget->roomType();
+}
+
 void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     mChannelList->setCurrentRocketChatAccount(account);
