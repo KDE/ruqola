@@ -39,6 +39,7 @@ void RuqolaTest::shouldHaveDefaultValue()
 
 void RuqolaTest::shouldDestroy()
 {
+#ifndef Q_OS_ANDROID
     // GIVEN
     Ruqola *obj = Ruqola::self();
     QPointer<Notification> pNotification(obj->notification());
@@ -50,4 +51,5 @@ void RuqolaTest::shouldDestroy()
     // THEN
     QVERIFY(pNotification.isNull());
     // otherwise the process won't exit...
+#endif
 }
