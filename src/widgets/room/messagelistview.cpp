@@ -22,6 +22,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "messagelistdelegate.h"
+#include "dialogs/reportmessagedialog.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -30,6 +31,7 @@
 #include <QMenu>
 #include <QScrollBar>
 #include <QIcon>
+#include <QPointer>
 
 MessageListView::MessageListView(QWidget *parent)
     : QListView(parent)
@@ -132,6 +134,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         connect(deleteAction, &QAction::triggered, this, [=]() { slotDeleteMessage(index); });
         menu.addAction(deleteAction);
     }
+    if (!menu.isEmpty()) {
+        QAction *separator = new QAction(&menu);
+        separator->setSeparator(true);
+        menu.addAction(separator);
+    }
+    QAction *reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
+    connect(reportMessageAction, &QAction::triggered, this, [=]() { slotReportMessage(index); });
+    menu.addAction(reportMessageAction);
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
@@ -151,4 +161,15 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
         const QString messageId = index.data(MessageModel::MessageId).toString();
         rcAccount->deleteMessage(messageId, mRoomID);
     }
+}
+
+void MessageListView::slotReportMessage(const QModelIndex &index)
+{
+    QPointer<ReportMessageDialog> dlg = new ReportMessageDialog(this);
+    if (dlg->exec()) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        const QString messageId = index.data(MessageModel::MessageId).toString();
+        rcAccount->reportMessage(messageId, dlg->message());
+    }
+    delete dlg;
 }
