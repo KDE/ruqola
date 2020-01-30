@@ -32,7 +32,7 @@ import Ruqola 1.0
 
 Rectangle {
     id: avatarRect
-    
+
     property string avatarurl
     property string aliasname
     property string username
@@ -44,15 +44,15 @@ Rectangle {
     //Customize it.
     implicitWidth: defaultWidth
     implicitHeight: implicitWidth
-    
+
     radius: 3
-    
+
     anchors.rightMargin: 2*Kirigami.Units.smallSpacing
-    
+
     color: avatarurl !== "" ? "transparent" : MessageScript.stringToColour(username)
     Image {
         id: avatarImage
-        
+
         anchors.fill: parent
         visible: avatarurl !== ""
         smooth: true
@@ -87,11 +87,11 @@ Rectangle {
     }
     QQC2.Label {
         id: avatarText
-        
+
         visible: avatarurl == ""
         anchors.fill: parent
         anchors.margins: Kirigami.Units.smallSpacing
-        
+
         renderType: Text.QtRendering
         color: Kirigami.Theme.backgroundColor
 
@@ -100,7 +100,7 @@ Rectangle {
             pointSize: 40
         }
         fontSizeMode: Text.Fit
-        
+
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
 
