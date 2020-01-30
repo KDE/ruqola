@@ -51,6 +51,10 @@ endif()
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth Test)
 
+if (ANDROID)
+    find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Svg)
+endif()
+
 if (COMPILE_RUQOLA_QML)
     find_package(Qt5 CONFIG QUIET OPTIONAL_COMPONENTS QuickCompiler)
     find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Qml Quick)
