@@ -111,22 +111,6 @@ MessageBase {
                     }
 
                     Kirigami.Icon {
-                        id: editedInfo
-                        source: "document-edit"
-                        width: height
-                        height: 18
-                        visible: i_editedByUserName !== ""
-                        opacity: editedInfoMA.containsMouse ? 1.0 : 0.6
-                        MouseArea {
-                            id: editedInfoMA
-                            hoverEnabled: true
-                            anchors.fill: parent
-                        }
-                        QQC2.ToolTip.visible: editedInfoMA.containsMouse
-                        QQC2.ToolTip.text: visible ? i18n("Edited by %1", i_editedByUserName) : ""
-                    }
-
-                    Kirigami.Icon {
                         id: rolesInfo
                         source: "documentinfo"
                         width: height
@@ -140,6 +124,22 @@ MessageBase {
                         }
                         QQC2.ToolTip.visible: rolesInfoMA.containsMouse
                         QQC2.ToolTip.text: i_roles
+                    }
+
+                    Kirigami.Icon {
+                        id: editedInfo
+                        source: "document-edit"
+                        width: height
+                        height: 18
+                        visible: i_editedByUserName !== ""
+                        opacity: editedInfoMA.containsMouse ? 1.0 : 0.6
+                        MouseArea {
+                            id: editedInfoMA
+                            hoverEnabled: true
+                            anchors.fill: parent
+                        }
+                        QQC2.ToolTip.visible: editedInfoMA.containsMouse
+                        QQC2.ToolTip.text: visible ? i18n("Edited by %1", i_editedByUserName) : ""
                     }
                 }
 
