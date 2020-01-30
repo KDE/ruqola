@@ -24,17 +24,31 @@
 #include <QLineEdit>
 
 #include "libruqolawidgets_private_export.h"
+
+class QListView;
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineEdit : public QLineEdit
 {
     Q_OBJECT
 public:
     explicit MessageLineEdit(QWidget *parent = nullptr);
     ~MessageLineEdit();
+
 Q_SIGNALS:
     void sendMessage(const QString &str);
     void clearNotification();
+
 protected:
     void keyPressEvent(QKeyEvent *e) override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
+
+private:
+    void slotTextChanged(const QString &text);
+    void slotCompletionAvailable();
+    void slotComplete(const QModelIndex &index);
+
+private:
+    QListView *mCompletionListView;
 };
 
 #endif // MESSAGELINEEDIT_H

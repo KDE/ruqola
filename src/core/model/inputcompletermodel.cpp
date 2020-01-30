@@ -95,10 +95,12 @@ QVariant InputCompleterModel::data(const QModelIndex &index, int role) const
     const Channel channel = mChannel.at(index.row());
     switch (role) {
     case InputCompleterModel::DisplayName:
+    case Qt::DisplayRole:
         return channelName(channel);
     case InputCompleterModel::CompleterName:
         return completerName(channel);
     case InputCompleterModel::IconName:
+    case Qt::DecorationRole:
         return channelIconName(channel);
     case InputCompleterModel::ChannelType:
         return channel.type();
