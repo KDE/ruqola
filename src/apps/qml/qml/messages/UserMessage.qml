@@ -75,50 +75,69 @@ MessageBase {
             GridLayout {
                 rowSpacing: 0
                 columnSpacing: Kirigami.Units.smallSpacing
-                columns: compactViewMode ? -1 : 2 // user name label + roles info in one row
+                columns: compactViewMode ? -1 : 1 // user name label + roles info in one row
 
-                QQC2.Label {
-                    id: usernameLabel
-                    Layout.columnSpan: rolesInfo.visible ? 1 : 2
-                    Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                    font.bold: true
-                    text: i_aliasname +  ' ' + i_usernameurl + (i_editedByUserName === "" ? "" : " " + i18n("(edited by %1)", i_editedByUserName))
+                RowLayout {
+                    QQC2.Label {
+                        id: usernameLabel
+                        Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                        font.bold: true
+                        text: i_aliasname +  ' ' + i_usernameurl
 
-                    onLinkActivated: messageMain.linkActivated(link)
-                    MouseArea {
-                        anchors.fill: parent
-                        acceptedButtons: Qt.RightButton
+                        onLinkActivated: messageMain.linkActivated(link)
+                        MouseArea {
+                            anchors.fill: parent
+                            acceptedButtons: Qt.RightButton
 
-                        onClicked: {
-                            if (i_useMenuMessage) {
-                                if (mouse.button === Qt.RightButton) {
-                                    messageMenuLoader.posX = mouse.x
-                                    messageMenuLoader.posY = mouse.y
-                                    if (messageMenuLoader.active)
-                                        messageMenuLoader.active = false
-                                    else
-                                        messageMenuLoader.active = true
+                            onClicked: {
+                                if (i_useMenuMessage) {
+                                    if (mouse.button === Qt.RightButton) {
+                                        messageMenuLoader.posX = mouse.x
+                                        messageMenuLoader.posY = mouse.y
+                                        if (messageMenuLoader.active)
+                                            messageMenuLoader.active = false
+                                        else
+                                            messageMenuLoader.active = true
+                                    }
                                 }
                             }
                         }
+                        visible: !i_groupable
                     }
-                    visible: !i_groupable
-                }
-                Kirigami.Icon {
-                    id: rolesInfo
-                    Layout.alignment: Qt.AlignTop
-                    source: "documentinfo"
-                    width: height
-                    height: 18
-                    visible: i_roles.length > 0
-                    opacity: rolesInfoMA.containsMouse ? 1.0 : 0.6
-                    MouseArea {
-                        id: rolesInfoMA
-                        hoverEnabled: true
-                        anchors.fill: parent
+
+                    Kirigami.Icon {
+                        id: editedInfo
+                        Layout.alignment: Qt.AlignTop
+                        source: "document-edit"
+                        width: height
+                        height: 18
+                        visible: i_editedByUserName !== ""
+                        opacity: editedInfoMA.containsMouse ? 1.0 : 0.6
+                        MouseArea {
+                            id: editedInfoMA
+                            hoverEnabled: true
+                            anchors.fill: parent
+                        }
+                        QQC2.ToolTip.visible: editedInfoMA.containsMouse
+                        QQC2.ToolTip.text: visible ? i18n("Edited by %1", i_editedByUserName) : ""
                     }
-                    QQC2.ToolTip.visible: rolesInfoMA.containsMouse
-                    QQC2.ToolTip.text: i_roles
+
+                    Kirigami.Icon {
+                        id: rolesInfo
+                        Layout.alignment: Qt.AlignTop
+                        source: "documentinfo"
+                        width: height
+                        height: 18
+                        visible: i_roles.length > 0
+                        opacity: rolesInfoMA.containsMouse ? 1.0 : 0.6
+                        MouseArea {
+                            id: rolesInfoMA
+                            hoverEnabled: true
+                            anchors.fill: parent
+                        }
+                        QQC2.ToolTip.visible: rolesInfoMA.containsMouse
+                        QQC2.ToolTip.text: i_roles
+                    }
                 }
 
                 QQC2.Label {
