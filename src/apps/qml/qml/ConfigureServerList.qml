@@ -41,48 +41,44 @@ Kirigami.Page {
         onTriggered: pageStack.pop()
     }
 
-    ColumnLayout {
+    ListView {
+        id: listview
         anchors.fill: parent
-        ListView {
-            id: listview
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            clip: true
+        clip: true
 
-            model: accountModel
-            delegate: Kirigami.BasicListItem {
-                reserveSpaceForIcon: false
-                RowLayout {
-                    QQC2.Label {
-                        text: name
-                    }
-                    Kirigami.Icon {
-                        //Fix icon ??
-                        source: "list-remove"
-                        height: Kirigami.Units.iconSizes.medium
-                        width: height
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                deleteAccountDialog.accountName = name
-                                deleteAccountDialog.open()
-                            }
+        model: accountModel
+        delegate: Kirigami.BasicListItem {
+            reserveSpaceForIcon: false
+            RowLayout {
+                QQC2.Label {
+                    text: name
+                }
+                Kirigami.Icon {
+                    //Fix icon ??
+                    source: "list-remove"
+                    height: Kirigami.Units.iconSizes.medium
+                    width: height
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            deleteAccountDialog.accountName = name
+                            deleteAccountDialog.open()
                         }
                     }
-                    Kirigami.Icon {
-                        //Fix icon ??
-                        source: "document-edit"
-                        height: Kirigami.Units.iconSizes.medium
-                        width: height
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                            }
+                }
+                Kirigami.Icon {
+                    //Fix icon ??
+                    source: "document-edit"
+                    height: Kirigami.Units.iconSizes.medium
+                    width: height
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
                         }
                     }
-                    Item {
-                        Layout.fillWidth: true
-                    }
+                }
+                Item {
+                    Layout.fillWidth: true
                 }
             }
         }
