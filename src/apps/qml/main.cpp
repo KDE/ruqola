@@ -109,7 +109,9 @@ int Q_DECL_EXPORT main(int argc, char *argv[])
     }
 
     // For desktop we'd like to use native text rendering
+#ifndef Q_OS_ANDROID
     QQuickWindow::setTextRenderType(QQuickWindow::NativeTextRendering);
+#endif
 
     RuqolaRegisterEngine ruqolaEngine;
 
