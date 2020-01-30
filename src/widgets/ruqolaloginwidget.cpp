@@ -134,6 +134,7 @@ void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
         //Add two authentication factor
+        //i18n("You have enabled second factor authentication. Please enter the generated code or a backup code.")
         break;
     case DDPClient::LoginStatus::LoggedOut:
         mBusyIndicatorWidget->hide();
