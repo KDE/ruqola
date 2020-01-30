@@ -106,6 +106,7 @@ MessageBase {
                 }
                 Kirigami.Icon {
                     id: rolesInfo
+                    Layout.alignment: Qt.AlignTop
                     source: "documentinfo"
                     width: height
                     height: 18
