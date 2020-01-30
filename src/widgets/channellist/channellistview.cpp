@@ -24,7 +24,13 @@
 #include "rocketchataccount.h"
 #include "channellistdelegate.h"
 #include "model/roomfilterproxymodel.h"
+
+#include <KLocalizedString>
+
+#include <QAction>
+#include <QContextMenuEvent>
 #include <QDebug>
+#include <QMenu>
 
 ChannelListView::ChannelListView(QWidget *parent)
     : QListView(parent)
@@ -60,4 +66,64 @@ void ChannelListView::slotClicked(const QModelIndex &index)
     if (index.isValid()) {
         Q_EMIT channelSelected(index);
     }
+}
+
+void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
+{
+    const QModelIndex index = indexAt(event->pos());
+    if (!index.isValid()) {
+        return;
+    }
+    QMenu menu(this);
+
+    const QString roomType = index.data(RoomModel::RoomType).toString();
+    QAction *hideChannel = new QAction(QIcon::fromTheme(QStringLiteral("hide_table_row")), i18n("Hide Channel"), &menu);
+    connect(hideChannel, &QAction::triggered, this, [=]() {
+        slotHideChannel(index, roomType);
+    });
+    menu.addAction(hideChannel);
+
+    const bool isFavorite = index.data(RoomModel::RoomFavorite).toBool();
+    const QString actionFavoriteText = isFavorite ? i18n("Unset as Favorite") : i18n("Set as Favorite");
+    QAction *favoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), actionFavoriteText, &menu);
+    connect(favoriteAction, &QAction::triggered, this, [=]() {
+        slotChangeFavorite(index, isFavorite);
+    });
+    menu.addAction(favoriteAction);
+
+
+    if (roomType == QLatin1String("c") || roomType == QLatin1String("p")) { //Not direct channel
+        QAction *separator = new QAction(&menu);
+        separator->setSeparator(true);
+        menu.addAction(separator);
+        QAction *quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18n("Quit Channel"), &menu);
+        connect(quitChannel, &QAction::triggered, this, [=]() {
+            slotLeaveChannel(index, roomType);
+        });
+        menu.addAction(quitChannel);
+    }
+    if (!menu.actions().isEmpty()) {
+        menu.exec(event->globalPos());
+    }
+}
+
+void ChannelListView::slotHideChannel(const QModelIndex &index, const QString &roomType)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    const QString roomId = index.data(RoomModel::RoomID).toString();
+    rcAccount->hideRoom(roomId, roomType);
+}
+
+void ChannelListView::slotLeaveChannel(const QModelIndex &index, const QString &roomType)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    const QString roomId = index.data(RoomModel::RoomID).toString();
+    rcAccount->leaveRoom(roomId, roomType);
+}
+
+void ChannelListView::slotChangeFavorite(const QModelIndex &index, bool isFavorite)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    const QString roomId = index.data(RoomModel::RoomID).toString();
+    rcAccount->changeFavorite(roomId, !isFavorite);
 }

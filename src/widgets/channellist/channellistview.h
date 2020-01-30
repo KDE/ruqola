@@ -39,8 +39,15 @@ public:
 
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
+
+protected:
+    void contextMenuEvent(QContextMenuEvent *event) override;
+
 private:
     void slotClicked(const QModelIndex &index);
+    void slotHideChannel(const QModelIndex &index, const QString &roomType);
+    void slotLeaveChannel(const QModelIndex &index, const QString &roomType);
+    void slotChangeFavorite(const QModelIndex &index, bool isFavorite);
 };
 
 #endif // CHANNELLISTVIEW_H
