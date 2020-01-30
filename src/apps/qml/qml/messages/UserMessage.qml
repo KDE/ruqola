@@ -78,9 +78,10 @@ MessageBase {
                 columns: compactViewMode ? -1 : 1 // user name label + roles info in one row
 
                 RowLayout {
+                    Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
                     QQC2.Label {
                         id: usernameLabel
-                        Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                         font.bold: true
                         text: i_aliasname +  ' ' + i_usernameurl
 
@@ -107,7 +108,6 @@ MessageBase {
 
                     Kirigami.Icon {
                         id: editedInfo
-                        Layout.alignment: Qt.AlignTop
                         source: "document-edit"
                         width: height
                         height: 18
@@ -124,7 +124,6 @@ MessageBase {
 
                     Kirigami.Icon {
                         id: rolesInfo
-                        Layout.alignment: Qt.AlignTop
                         source: "documentinfo"
                         width: height
                         height: 18
