@@ -99,6 +99,7 @@ Notification *Ruqola::notification()
     }
     return mNotification;
 }
+
 #endif
 
 void Ruqola::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)

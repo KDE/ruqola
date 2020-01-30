@@ -44,7 +44,6 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
 
 EmoticonMenuWidget::~EmoticonMenuWidget()
 {
-
 }
 
 void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
@@ -58,7 +57,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     EmoticonModel *model = account->emoticonModel();
     const QMap<QString, QVector<UnicodeEmoticon> > emojiMap = model->emoticons();
 
-    QMapIterator<QString, QVector<UnicodeEmoticon>> i(emojiMap);
+    QMapIterator<QString, QVector<UnicodeEmoticon> > i(emojiMap);
     while (i.hasNext()) {
         i.next();
         EmoticonSelectorWidget *w = new EmoticonSelectorWidget(this);

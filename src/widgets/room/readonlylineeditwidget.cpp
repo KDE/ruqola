@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "readonlylineeditwidget.h"
 #include <QVBoxLayout>
 #include <QLabel>
@@ -41,5 +40,4 @@ ReadOnlyLineEditWidget::ReadOnlyLineEditWidget(QWidget *parent)
 
 ReadOnlyLineEditWidget::~ReadOnlyLineEditWidget()
 {
-
 }

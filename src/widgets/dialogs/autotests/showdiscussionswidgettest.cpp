@@ -24,5 +24,4 @@ QTEST_MAIN(ShowDiscussionsWidgetTest)
 ShowDiscussionsWidgetTest::ShowDiscussionsWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

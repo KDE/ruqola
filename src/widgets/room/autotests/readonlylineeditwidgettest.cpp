@@ -27,7 +27,6 @@ QTEST_MAIN(ReadOnlyLineEditWidgetTest)
 ReadOnlyLineEditWidgetTest::ReadOnlyLineEditWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ReadOnlyLineEditWidgetTest::shouldHaveDefaultValues()

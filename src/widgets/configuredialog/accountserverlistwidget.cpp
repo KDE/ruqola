@@ -79,4 +79,3 @@ AccountServerListWidgetItem::AccountServerListWidgetItem(QListWidget *parent)
 AccountServerListWidgetItem::~AccountServerListWidgetItem()
 {
 }
-

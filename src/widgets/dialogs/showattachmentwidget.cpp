@@ -61,7 +61,6 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
 
 ShowAttachmentWidget::~ShowAttachmentWidget()
 {
-
 }
 
 void ShowAttachmentWidget::setModel(FilesForRoomFilterProxyModel *model)

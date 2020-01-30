@@ -37,7 +37,6 @@ ConfigureAccountWidget::ConfigureAccountWidget(QWidget *parent)
 
 ConfigureAccountWidget::~ConfigureAccountWidget()
 {
-
 }
 
 void ConfigureAccountWidget::save()

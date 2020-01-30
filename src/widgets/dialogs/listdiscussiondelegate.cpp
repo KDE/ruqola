@@ -24,12 +24,10 @@
 ListDiscussionDelegate::ListDiscussionDelegate(QObject *parent)
     : QItemDelegate(parent)
 {
-
 }
 
 ListDiscussionDelegate::~ListDiscussionDelegate()
 {
-
 }
 
 void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const

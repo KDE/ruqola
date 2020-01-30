@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "showlistmessagebasedialogtest.h"
 #include "dialogs/showlistmessagebasedialog.h"
 #include <QTest>
@@ -27,12 +26,10 @@ QTEST_MAIN(ShowListMessageBaseDialogTest)
 ShowListMessageBaseDialogTest::ShowListMessageBaseDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ShowListMessageBaseDialogTest::shouldHaveDefaultValues()
 {
     //TODO
     ShowListMessageBaseDialog w;
-
 }

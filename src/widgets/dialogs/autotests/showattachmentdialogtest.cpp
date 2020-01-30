@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "showattachmentdialogtest.h"
 #include "dialogs/showattachmentdialog.h"
 #include "dialogs/showattachmentwidget.h"

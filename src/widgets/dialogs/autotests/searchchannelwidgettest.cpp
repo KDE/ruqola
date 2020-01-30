@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "searchchannelwidgettest.h"
 #include "dialogs/searchchannelwidget.h"
 #include <KLineEdit>
@@ -29,7 +28,6 @@ QTEST_MAIN(SearchChannelWidgetTest)
 SearchChannelWidgetTest::SearchChannelWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void SearchChannelWidgetTest::shouldHaveDefaultValues()

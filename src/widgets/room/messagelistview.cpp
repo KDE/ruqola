@@ -90,7 +90,7 @@ void MessageListView::keyPressEvent(QKeyEvent *ev)
 {
     const int key = ev->key();
     if (key == Qt::Key_Up || key == Qt::Key_Down || key == Qt::Key_PageDown || key == Qt::Key_PageUp
-            || key == Qt::Key_Home || key == Qt::Key_End) {
+        || key == Qt::Key_Home || key == Qt::Key_End) {
         QListView::keyPressEvent(ev);
     } else {
         // If the user starts typing a message focus the lineedit and send the event there
@@ -115,25 +115,31 @@ void MessageListView::maybeScrollToBottom()
 void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 {
     const QModelIndex index = indexAt(event->pos());
-    if (!index.isValid())
+    if (!index.isValid()) {
         return;
+    }
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
 
     const bool isPinned = index.data(MessageModel::Pinned).toBool();
     QAction *setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
-    connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() { slotSetPinnedMessage(index, isPinned); });
+    connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
+        slotSetPinnedMessage(index, isPinned);
+    });
     menu.addAction(setPinnedMessage);
-
 
     const bool isStarred = index.data(MessageModel::Starred).toBool();
     QAction *setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
-    connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() { slotSetAsFavorite(index, isStarred); });
+    connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() {
+        slotSetAsFavorite(index, isStarred);
+    });
     menu.addAction(setAsFavoriteAction);
 
     if (rcAccount->allowEditingMessages() && index.data(MessageModel::CanEditMessage).toBool()) {
         QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
-        connect(editAction, &QAction::triggered, this, [=]() { slotEditMessage(index); });
+        connect(editAction, &QAction::triggered, this, [=]() {
+            slotEditMessage(index);
+        });
         menu.addAction(editAction);
     }
     if (rcAccount->allowMessageDeletingEnabled() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
@@ -143,7 +149,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(separator);
         }
         QAction *deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete"), &menu);
-        connect(deleteAction, &QAction::triggered, this, [=]() { slotDeleteMessage(index); });
+        connect(deleteAction, &QAction::triggered, this, [=]() {
+            slotDeleteMessage(index);
+        });
         menu.addAction(deleteAction);
     }
     if (!menu.isEmpty()) {
@@ -152,7 +160,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(separator);
     }
     QAction *reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
-    connect(reportMessageAction, &QAction::triggered, this, [=]() { slotReportMessage(index); });
+    connect(reportMessageAction, &QAction::triggered, this, [=]() {
+        slotReportMessage(index);
+    });
     menu.addAction(reportMessageAction);
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
@@ -192,7 +202,6 @@ void MessageListView::slotSetAsFavorite(const QModelIndex &index, bool isStarred
     const QString messageId = index.data(MessageModel::MessageId).toString();
     rcAccount->starMessage(messageId, !isStarred);
 }
-
 
 void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinned)
 {

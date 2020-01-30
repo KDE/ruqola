@@ -193,7 +193,6 @@ void RuqolaMainWindow::slotShowThreads()
 //    //TODO dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
 //    dlg->exec();
 //    delete dlg;
-
 }
 
 void RuqolaMainWindow::slotShowDiscussions()
@@ -207,7 +206,7 @@ void RuqolaMainWindow::slotShowDiscussions()
 void RuqolaMainWindow::slotShowFileAttachments()
 {
     QPointer<ShowAttachmentDialog> dlg = new ShowAttachmentDialog(this);
-    mCurrentRocketChatAccount->roomFiles(mMainWidget->roomId(), QStringLiteral("c")/*FIXME*//*appid.selectedRoom.channelType*/);
+    mCurrentRocketChatAccount->roomFiles(mMainWidget->roomId(), QStringLiteral("c") /*FIXME*//*appid.selectedRoom.channelType*/);
     dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
     dlg->exec();
     delete dlg;

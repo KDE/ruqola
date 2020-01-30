@@ -29,7 +29,6 @@
 #include <QTest>
 #include <QVBoxLayout>
 
-
 QTEST_MAIN(RoomWidgetTest)
 RoomWidgetTest::RoomWidgetTest(QObject *parent)
     : QObject(parent)
@@ -59,7 +58,6 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     ReadOnlyLineEditWidget *mReadOnlyLineEditWidget = w.findChild<ReadOnlyLineEditWidget *>(QStringLiteral("mReadOnlyLineEditWidget"));
     QVERIFY(mReadOnlyLineEditWidget);
     QCOMPARE(mStackedWidget->currentWidget(), mMessageLineWidget);
-
 
     QVERIFY(w.roomId().isEmpty());
 }

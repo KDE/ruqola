@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "directchannelinfodialog.h"
 #include <KLocalizedString>
 #include <QVBoxLayout>
@@ -27,10 +26,8 @@
 DirectChannelInfoDialog::DirectChannelInfoDialog(QWidget *parent)
     : QDialog(parent)
 {
-
 }
 
 DirectChannelInfoDialog::~DirectChannelInfoDialog()
 {
-
 }

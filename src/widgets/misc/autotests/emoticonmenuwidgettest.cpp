@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "emoticonmenuwidgettest.h"
 #include "misc/emoticonmenuwidget.h"
 #include <QTabWidget>
@@ -28,7 +27,6 @@ QTEST_MAIN(EmoticonMenuWidgetTest)
 EmoticonMenuWidgetTest::EmoticonMenuWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void EmoticonMenuWidgetTest::shouldHaveDefaultValues()

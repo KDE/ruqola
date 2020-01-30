@@ -44,7 +44,7 @@ Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
 
 protected:
-    bool eventFilter(QObject* object, QEvent* event) override;
+    bool eventFilter(QObject *object, QEvent *event) override;
 
 private:
     void setUserStatusUpdated(User::PresenceStatus status);

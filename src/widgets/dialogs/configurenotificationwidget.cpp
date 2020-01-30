@@ -49,7 +49,6 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mainLayout->addWidget(desktopGroupBox);
 
     QFormLayout *desktopGroupBoxLayout = new QFormLayout(desktopGroupBox);
-
 }
 
 ConfigureNotificationWidget::~ConfigureNotificationWidget()

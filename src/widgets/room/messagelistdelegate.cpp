@@ -112,8 +112,7 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxH
 }
 
 // [margin] <pixmap> [margin] <sender>
-MessageListDelegate::PixmapAndSenderLayout MessageListDelegate::layoutPixmapAndSender(const QStyleOptionViewItem &option,
-                                                                                      const QRect &usableRect, const QModelIndex &index) const
+MessageListDelegate::PixmapAndSenderLayout MessageListDelegate::layoutPixmapAndSender(const QStyleOptionViewItem &option, const QRect &usableRect, const QModelIndex &index) const
 {
     PixmapAndSenderLayout layout;
     layout.senderText = makeSenderText(index);

@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "emoticonselectorwidget.h"
 #include <QFont>
 EmoticonTextEditItem::EmoticonTextEditItem(const QString &identifier, const QString &emoticonText, QListWidget *parent)
@@ -58,12 +57,11 @@ EmoticonSelectorWidget::EmoticonSelectorWidget(QWidget *parent)
 
 EmoticonSelectorWidget::~EmoticonSelectorWidget()
 {
-
 }
 
 void EmoticonSelectorWidget::setEmoticon(const QVector<UnicodeEmoticon> &emoticons)
 {
-    for(const UnicodeEmoticon & emoticon : emoticons) {
+    for (const UnicodeEmoticon &emoticon : emoticons) {
         new EmoticonTextEditItem(emoticon.identifier(), emoticon.unicode(), this);
     }
 }
@@ -85,4 +83,3 @@ void EmoticonSelectorWidget::slotMouseOverItem(QListWidgetItem *item)
         setFocus();
     }
 }
-

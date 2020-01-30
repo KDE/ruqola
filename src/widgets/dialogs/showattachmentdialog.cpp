@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "showattachmentdialog.h"
 #include "showattachmentwidget.h"
 #include "ruqolawidgets_debug.h"

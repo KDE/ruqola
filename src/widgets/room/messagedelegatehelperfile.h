@@ -36,11 +36,11 @@ public:
 private:
     struct FileLayout
     {
-      QString title;
-      QString description;
-      QSize titleSize;
-      QRect downloadButtonRect;
-      QString link;
+        QString title;
+        QString description;
+        QSize titleSize;
+        QRect downloadButtonRect;
+        QString link;
     };
     FileLayout doLayout(const Message *message, const QStyleOptionViewItem &option) const;
 };

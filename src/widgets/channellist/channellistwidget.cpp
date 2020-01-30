@@ -117,7 +117,7 @@ QString ChannelListWidget::currentSelectedRoom() const
     return QString();
 }
 
-bool ChannelListWidget::eventFilter(QObject* object, QEvent* event)
+bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
 {
     if (object == mSearchRoom && event->type() == QEvent::KeyPress) {
         const auto *model = mChannelView->model();

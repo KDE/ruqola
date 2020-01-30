@@ -193,25 +193,24 @@ void MessageModel::addMessage(const Message &message)
     });
 
     auto emitChanged = [this](int rowNumber) {
-        if (mQmlHacks) {
-            //For the moment !!!! It's not optimal but Q_EMIT dataChanged(index, index); doesn't work
-            beginRemoveRows(QModelIndex(), rowNumber, rowNumber);
-            endRemoveRows();
+                           if (mQmlHacks) {
+                               //For the moment !!!! It's not optimal but Q_EMIT dataChanged(index, index); doesn't work
+                               beginRemoveRows(QModelIndex(), rowNumber, rowNumber);
+                               endRemoveRows();
 
-            beginInsertRows(QModelIndex(), rowNumber, rowNumber);
-            endInsertRows();
-        } else {
-            const QModelIndex index = createIndex(rowNumber, 0);
-            Q_EMIT dataChanged(index, index);
-        }
-    };
+                               beginInsertRows(QModelIndex(), rowNumber, rowNumber);
+                               endInsertRows();
+                           } else {
+                               const QModelIndex index = createIndex(rowNumber, 0);
+                               Q_EMIT dataChanged(index, index);
+                           }
+                       };
 
     //When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
         (*mAllMessages.begin()) = message;
         qCDebug(RUQOLA_LOG) << "Update Message";
         emitChanged(0);
-
     } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
         qCDebug(RUQOLA_LOG) << "Update Message";
         (*(it-1)) = message;
@@ -295,7 +294,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return currentDate.date().toString();
     }
     case MessageModel::DateDiffersFromPrevious:
-    {
         if (idx > 0) {
             const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(message.timeStamp());
             const Message &previousMessage = mAllMessages.at(idx - 1);
@@ -303,7 +301,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             return currentDate.date() != previousDate.date();
         }
         return true; // show date at the top
-    }
     case MessageModel::CanEditMessage:
         return (message.timeStamp() + (mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->blockEditingMessageInMinutes() * 60 * 1000 : 0))
                > QDateTime::currentMSecsSinceEpoch();
@@ -438,10 +435,10 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
 {
     Q_UNUSED(cacheImageUrl)
     auto matchesFilePath = [&](const QVector<MessageAttachment> &msgAttachments) {
-        return std::find_if(msgAttachments.begin(), msgAttachments.end(), [&](const MessageAttachment &attach) {
+                               return std::find_if(msgAttachments.begin(), msgAttachments.end(), [&](const MessageAttachment &attach) {
             return attach.link() == filePath;
         }) != msgAttachments.end();
-    };
+                           };
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
         if (msg.messageType() == Message::Image) {
             return matchesFilePath(msg.attachements());

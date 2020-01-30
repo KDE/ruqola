@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "configuresettingswidgettest.h"
 #include "dialogs/configuresettingswidget.h"
 #include <QTest>
@@ -27,5 +26,4 @@ QTEST_MAIN(ConfigureSettingsWidgetTest)
 ConfigureSettingsWidgetTest::ConfigureSettingsWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

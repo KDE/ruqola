@@ -24,12 +24,10 @@
 ListAttachmentDelegate::ListAttachmentDelegate(QObject *parent)
     : QItemDelegate(parent)
 {
-
 }
 
 ListAttachmentDelegate::~ListAttachmentDelegate()
 {
-
 }
 
 void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const

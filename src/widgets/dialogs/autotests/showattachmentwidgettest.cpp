@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "showattachmentwidgettest.h"
 #include "dialogs/showattachmentwidget.h"
 #include <KLineEdit>
@@ -30,7 +29,6 @@ QTEST_MAIN(ShowAttachmentWidgetTest)
 ShowAttachmentWidgetTest::ShowAttachmentWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
@@ -46,7 +44,7 @@ void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchAttachmentFileLineEdit->trapReturnKey());
     QVERIFY(!mSearchAttachmentFileLineEdit->placeholderText().isEmpty());
 
-    QLabel *mInfo = w.findChild<QLabel*>(QStringLiteral("mInfo"));
+    QLabel *mInfo = w.findChild<QLabel *>(QStringLiteral("mInfo"));
     QVERIFY(mInfo);
     QVERIFY(mInfo->text().isEmpty());
 

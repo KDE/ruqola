@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "directchannelinfodialogtest.h"
 #include <QTest>
 QTEST_MAIN(DirectChannelInfoDialogTest)
@@ -26,5 +25,4 @@ QTEST_MAIN(DirectChannelInfoDialogTest)
 DirectChannelInfoDialogTest::DirectChannelInfoDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }

@@ -35,7 +35,6 @@ AccountMenu::AccountMenu(QWidget *parent)
 
 AccountMenu::~AccountMenu()
 {
-
 }
 
 void AccountMenu::slotUpdateAccountMenu()

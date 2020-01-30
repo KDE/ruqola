@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "showdiscussionswidget.h"
 #include "listdiscussiondelegate.h"
 #include <QVBoxLayout>
@@ -57,12 +56,10 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
     mListDiscussions->setItemDelegate(new ListDiscussionDelegate(this));
 
     //TODO need to update label !!!
-
 }
 
 ShowDiscussionsWidget::~ShowDiscussionsWidget()
 {
-
 }
 
 void ShowDiscussionsWidget::slotSearchMessageTextChanged(const QString &str)

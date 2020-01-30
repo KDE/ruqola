@@ -24,5 +24,4 @@ QTEST_MAIN(DirectChannelInfoWidgetTest)
 DirectChannelInfoWidgetTest::DirectChannelInfoWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

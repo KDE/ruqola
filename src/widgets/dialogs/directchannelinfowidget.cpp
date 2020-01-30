@@ -23,10 +23,8 @@
 DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
 {
-
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget()
 {
-
 }

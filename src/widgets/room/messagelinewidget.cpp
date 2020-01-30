@@ -93,4 +93,3 @@ void MessageLineWidget::slotSendFile()
     }
     delete dlg;
 }
-
