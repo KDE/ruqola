@@ -135,7 +135,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     });
     menu.addAction(setAsFavoriteAction);
 
-    if (rcAccount->allowEditingMessages() && index.data(MessageModel::CanEditMessage).toBool()) {
+    if (rcAccount->allowEditingMessages() && index.data(MessageModel::CanEditMessage).toBool() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
         QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
         connect(editAction, &QAction::triggered, this, [=]() {
             slotEditMessage(index);
