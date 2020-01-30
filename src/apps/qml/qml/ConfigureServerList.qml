@@ -27,6 +27,8 @@ import org.kde.kirigami 2.7 as Kirigami
 Kirigami.Page {
     id: configureServer
 
+    title: i18n("Configure Accounts")
+
     property QtObject accountModel
 
     actions.main: Kirigami.Action {
