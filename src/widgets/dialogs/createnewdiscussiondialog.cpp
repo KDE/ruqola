@@ -76,3 +76,13 @@ void CreateNewDiscussionDialog::writeConfig()
     group.writeEntry("Size", size());
 }
 
+
+CreateNewDiscussionDialog::NewDiscussionInfo CreateNewDiscussionDialog::newDiscussionInfo() const
+{
+    NewDiscussionInfo info;
+    info.channelName = mCreateNewDiscussionWidget->channelName();
+    info.message = mCreateNewDiscussionWidget->message();
+    info.users = mCreateNewDiscussionWidget->users();
+    info.discussionName = mCreateNewDiscussionWidget->discussionName();
+    return info;
+}

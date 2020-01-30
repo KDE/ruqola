@@ -32,8 +32,22 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewDiscussionWidget : public QWidget
 public:
     explicit CreateNewDiscussionWidget(QWidget *parent = nullptr);
     ~CreateNewDiscussionWidget();
+
+    void setChannelName(const QString &name);
+    Q_REQUIRED_RESULT QString channelName() const;
+
+    void setDiscussionName(const QString &name);
+    Q_REQUIRED_RESULT QString discussionName() const;
+
+    void setMessage(const QString &name);
+    Q_REQUIRED_RESULT QString message() const;
+
+    void setUsers(const QStringList &users);
+    Q_REQUIRED_RESULT QStringList users() const;
+
 Q_SIGNALS:
     void updateOkButton(bool state);
+
 private:
     KLineEdit *mChannelNameLineEdit = nullptr;
     KLineEdit *mDiscussionNameLineEdit = nullptr;

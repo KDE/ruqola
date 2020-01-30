@@ -29,8 +29,16 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewDiscussionDialog : public QDialog
 {
     Q_OBJECT
 public:
+    struct NewDiscussionInfo {
+        QStringList users;
+        QString discussionName;
+        QString channelName;
+        QString message;
+    };
     explicit CreateNewDiscussionDialog(QWidget *parent = nullptr);
     ~CreateNewDiscussionDialog();
+
+    Q_REQUIRED_RESULT NewDiscussionInfo newDiscussionInfo() const;
 private:
     void readConfig();
     void writeConfig();

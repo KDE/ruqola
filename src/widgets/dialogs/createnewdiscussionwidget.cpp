@@ -38,8 +38,11 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
 
     mChannelNameLineEdit = new KLineEdit(this);
     mChannelNameLineEdit->setObjectName(QStringLiteral("mChannelNameLineEdit"));
+    mChannelNameLineEdit->setTrapReturnKey(true);
+    connect(mChannelNameLineEdit, &KLineEdit::textChanged, this, [this](const QString &str) {
+        Q_EMIT updateOkButton(!str.trimmed().isEmpty());
+    });
     mainLayout->addWidget(mChannelNameLineEdit);
-    //TODO set readonly
 
     QLabel *discussionName = new QLabel(i18n("Discussion Name"), this);
     discussionName->setObjectName(QStringLiteral("discussionName"));
@@ -47,6 +50,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
 
     mDiscussionNameLineEdit = new KLineEdit(this);
     mDiscussionNameLineEdit->setObjectName(QStringLiteral("mDiscussionNameLineEdit"));
+    mDiscussionNameLineEdit->setTrapReturnKey(true);
     mainLayout->addWidget(mDiscussionNameLineEdit);
 
     QLabel *usersLabel = new QLabel(i18n("Invite Users"), this);
@@ -55,6 +59,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
 
     mUsersLineEdit = new KLineEdit(this);
     mUsersLineEdit->setObjectName(QStringLiteral("mUsersLineEdit"));
+    mUsersLineEdit->setTrapReturnKey(true);
     mainLayout->addWidget(mUsersLineEdit);
 
     QLabel *messageLabel = new QLabel(i18n("Invite Users"), this);
@@ -63,12 +68,54 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
 
     //TODO use ktextedit ? QPlainTextEdit ?
     mMessageTextEdit = new QTextEdit(this);
+    mMessageTextEdit->setAcceptRichText(false);
     mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
     mainLayout->addWidget(mMessageTextEdit);
-
 }
 
 CreateNewDiscussionWidget::~CreateNewDiscussionWidget()
 {
 
+}
+
+void CreateNewDiscussionWidget::setChannelName(const QString &name)
+{
+    mChannelNameLineEdit->setText(name);
+    mChannelNameLineEdit->setReadOnly(true);
+}
+
+QString CreateNewDiscussionWidget::channelName() const
+{
+    return mChannelNameLineEdit->text();
+}
+
+void CreateNewDiscussionWidget::setDiscussionName(const QString &name)
+{
+    mDiscussionNameLineEdit->setText(name);
+}
+
+QString CreateNewDiscussionWidget::discussionName() const
+{
+    return mDiscussionNameLineEdit->text();
+}
+
+void CreateNewDiscussionWidget::setMessage(const QString &name)
+{
+    mMessageTextEdit->setText(name);
+}
+
+QString CreateNewDiscussionWidget::message() const
+{
+    return mMessageTextEdit->toPlainText();
+}
+
+void CreateNewDiscussionWidget::setUsers(const QStringList &users)
+{
+    mUsersLineEdit->setText(users.join(QLatin1Char(',')));
+}
+
+QStringList CreateNewDiscussionWidget::users() const
+{
+    //Use , or ; ?
+    return mUsersLineEdit->text().split(QLatin1Char(','));
 }
