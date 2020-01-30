@@ -43,6 +43,8 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/showdiscussionsdialog.cpp
     dialogs/showdiscussionswidget.cpp
     dialogs/listdiscussiondelegate.cpp
+    dialogs/createnewdiscussiondialog.cpp
+    dialogs/createnewdiscussionwidget.cpp
     )
 
 set(Ruqola_configure_SRCS
