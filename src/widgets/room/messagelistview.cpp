@@ -25,7 +25,6 @@
 
 #include <KLocalizedString>
 
-#include <QDebug>
 #include <QKeyEvent>
 #include <QMenu>
 #include <QScrollBar>
@@ -123,6 +122,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(editAction);
     }
     if (rcAccount->allowMessageDeletingEnabled() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
+        if (!menu.isEmpty()) {
+            QAction *separator = new QAction(&menu);
+            separator->setSeparator(true);
+            menu.addAction(separator);
+        }
         QAction *deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete"), &menu);
         connect(deleteAction, &QAction::triggered, this, [=]() { slotDeleteMessage(index); });
         menu.addAction(deleteAction);
