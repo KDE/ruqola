@@ -24,12 +24,21 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class KLineEdit;
+class QTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewDiscussionWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit CreateNewDiscussionWidget(QWidget *parent = nullptr);
     ~CreateNewDiscussionWidget();
+Q_SIGNALS:
+    void updateOkButton(bool state);
+private:
+    KLineEdit *mChannelNameLineEdit = nullptr;
+    KLineEdit *mDiscussionNameLineEdit = nullptr;
+    KLineEdit *mUsersLineEdit = nullptr;
+    QTextEdit *mMessageTextEdit = nullptr;
 };
 
 #endif // CREATENEWDISCUSSIONWIDGET_H

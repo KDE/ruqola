@@ -19,8 +19,11 @@
 */
 
 #include "createnewdiscussiondialogtest.h"
+#include "dialogs/createnewdiscussionwidget.h"
 #include "dialogs/createnewdiscussiondialog.h"
+#include <QVBoxLayout>
 #include <QTest>
+#include <QDialogButtonBox>
 QTEST_MAIN(CreateNewDiscussionDialogTest)
 CreateNewDiscussionDialogTest::CreateNewDiscussionDialogTest(QObject *parent)
     : QObject(parent)
@@ -30,5 +33,15 @@ CreateNewDiscussionDialogTest::CreateNewDiscussionDialogTest(QObject *parent)
 
 void CreateNewDiscussionDialogTest::shouldHaveDefaultValues()
 {
+    CreateNewDiscussionDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
 
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    CreateNewDiscussionWidget *mCreateNewDiscussionWidget = w.findChild<CreateNewDiscussionWidget *>(QStringLiteral("mCreateNewDiscussionWidget"));
+    QVERIFY(mCreateNewDiscussionWidget);
+
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }

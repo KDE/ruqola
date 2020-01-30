@@ -26,6 +26,7 @@
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 namespace {
 static const char myConfigGroupName[] = "CreateNewDiscussionDialog";
@@ -33,7 +34,7 @@ static const char myConfigGroupName[] = "CreateNewDiscussionDialog";
 CreateNewDiscussionDialog::CreateNewDiscussionDialog(QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(i18nc("@title:window", "Add Account"));
+    setWindowTitle(i18nc("@title:window", "Create Discussion"));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -47,11 +48,12 @@ CreateNewDiscussionDialog::CreateNewDiscussionDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &CreateNewDiscussionDialog::reject);
     mainLayout->addWidget(buttonBox);
     readConfig();
-//    mOkButton = buttonBox->button(QDialogButtonBox::Ok);
-//    mOkButton->setEnabled(false);
-//    connect(mNewAccountWidget, &CreateNewAccountWidget::updateOkButton, this, [this](bool state) {
-//        mOkButton->setEnabled(state);
-//    });
+    QPushButton *button = buttonBox->button(QDialogButtonBox::Ok);
+    button->setText(i18n("Create"));
+    button->setEnabled(false);
+    connect(mCreateNewDiscussionWidget, &CreateNewDiscussionWidget::updateOkButton, this, [this, button](bool state) {
+        button->setEnabled(state);
+    });
 }
 
 CreateNewDiscussionDialog::~CreateNewDiscussionDialog()
