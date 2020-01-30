@@ -80,7 +80,7 @@ Rectangle {
             id: avatarImageMask
             width: parent.width
             height: parent.height
-            radius: 3
+            radius: avatarRect.radius
             visible: false
         }
 
