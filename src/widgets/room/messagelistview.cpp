@@ -24,6 +24,7 @@
 #include "messagelistdelegate.h"
 
 #include <KLocalizedString>
+#include <KMessageBox>
 
 #include <QKeyEvent>
 #include <QMenu>
@@ -145,7 +146,9 @@ void MessageListView::slotEditMessage(const QModelIndex &index)
 
 void MessageListView::slotDeleteMessage(const QModelIndex &index)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    const QString messageId = index.data(MessageModel::MessageId).toString();
-    rcAccount->deleteMessage(messageId, mRoomID);
+    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this message?"), i18n("Delete Message"))) {
+        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        const QString messageId = index.data(MessageModel::MessageId).toString();
+        rcAccount->deleteMessage(messageId, mRoomID);
+    }
 }
