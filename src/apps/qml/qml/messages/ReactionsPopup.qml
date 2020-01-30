@@ -33,7 +33,7 @@ Kirigami.Icon {
     source: "face-smile"
     width: height
     height: 18
-    opacity: mouseArea.containsMouse ? 1.0 : 0.6
+    opacity: mouseArea.containsMouse ? 1.0 : 0.3
 
     MouseArea {
         id: mouseArea
