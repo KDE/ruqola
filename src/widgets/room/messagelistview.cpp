@@ -119,9 +119,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
-    QAction *setAsFavoriteAction = new QAction(&menu);
     const bool isStarred = index.data(MessageModel::Starred).toBool();
-    setAsFavoriteAction->setText(isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"));
+    QAction *setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
     connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() { slotSetAsFavorite(index, isStarred); });
     menu.addAction(setAsFavoriteAction);
 
