@@ -39,9 +39,6 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     mLabel = new QLabel(this);
     mLabel->setObjectName(QStringLiteral("mLabel"));
     mLabel->setBackgroundRole(QPalette::Base);
-    mLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
-    mLabel->setScaledContents(true);
-    mLabel->resize(300, 200);
 
     scrollArea->setWidget(mLabel);
 }
@@ -52,5 +49,29 @@ ShowImageWidget::~ShowImageWidget()
 
 void ShowImageWidget::setImage(const QPixmap &pix)
 {
-    mLabel->setPixmap(pix);
+    mPixmap = pix;
+    applyPixmap();
+    updateGeometry(); // sizeHint changed
+}
+
+QSize ShowImageWidget::sizeHint() const
+{
+    return mPixmap.size().boundedTo(QSize(800, 800));
+}
+
+void ShowImageWidget::showEvent(QShowEvent *event)
+{
+    applyPixmap();
+    QWidget::showEvent(event);
+}
+
+void ShowImageWidget::resizeEvent(QResizeEvent *event)
+{
+    applyPixmap();
+    QWidget::resizeEvent(event);
+}
+
+void ShowImageWidget::applyPixmap()
+{
+    mLabel->setPixmap(mPixmap.scaled(mLabel->size(), Qt::KeepAspectRatio));
 }

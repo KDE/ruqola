@@ -33,8 +33,18 @@ public:
     ~ShowImageWidget();
 
     void setImage(const QPixmap &pix);
+
+    QSize sizeHint() const override;
+
+protected:
+    void showEvent(QShowEvent *event) override;
+    void resizeEvent(QResizeEvent *event) override;
+
 private:
+    void applyPixmap();
+
     QLabel *mLabel = nullptr;
+    QPixmap mPixmap;
 };
 
 #endif // SHOWIMAGEWIDGET_H
