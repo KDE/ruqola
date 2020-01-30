@@ -39,6 +39,10 @@ public:
     ~CreateNewDiscussionDialog();
 
     Q_REQUIRED_RESULT NewDiscussionInfo newDiscussionInfo() const;
+
+    void setChannelName(const QString &name);
+    void setDiscussionName(const QString &name);
+
 private:
     void readConfig();
     void writeConfig();

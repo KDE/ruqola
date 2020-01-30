@@ -86,3 +86,13 @@ CreateNewDiscussionDialog::NewDiscussionInfo CreateNewDiscussionDialog::newDiscu
     info.discussionName = mCreateNewDiscussionWidget->discussionName();
     return info;
 }
+
+void CreateNewDiscussionDialog::setChannelName(const QString &name)
+{
+    mCreateNewDiscussionWidget->setChannelName(name);
+}
+
+void CreateNewDiscussionDialog::setDiscussionName(const QString &name)
+{
+    mCreateNewDiscussionWidget->setDiscussionName(name);
+}
