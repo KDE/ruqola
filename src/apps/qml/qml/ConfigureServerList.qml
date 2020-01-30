@@ -44,42 +44,30 @@ Kirigami.Page {
     ListView {
         id: listview
         anchors.fill: parent
-        clip: true
 
         model: accountModel
-        delegate: Kirigami.BasicListItem {
-            reserveSpaceForIcon: false
-            RowLayout {
-                QQC2.Label {
-                    text: name
-                }
-                Kirigami.Icon {
-                    //Fix icon ??
-                    source: "list-remove"
-                    height: Kirigami.Units.iconSizes.medium
-                    width: height
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            deleteAccountDialog.accountName = name
-                            deleteAccountDialog.open()
-                        }
+        delegate: Kirigami.SwipeListItem {
+            supportsMouseEvents: false
+            actions: [
+                Kirigami.Action {
+                    icon.name: "list-remove"
+                    text: i18n("Remove")
+                    onTriggered: {
+                        deleteAccountDialog.accountName = name
+                        deleteAccountDialog.open()
+                    }
+                },
+                Kirigami.Action {
+                    icon.name: "document-edit"
+                    text: i18n("Edit")
+                    onTriggered: {
+                        // TODO
                     }
                 }
-                Kirigami.Icon {
-                    //Fix icon ??
-                    source: "document-edit"
-                    height: Kirigami.Units.iconSizes.medium
-                    width: height
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                        }
-                    }
-                }
-                Item {
-                    Layout.fillWidth: true
-                }
+            ]
+
+            QQC2.Label {
+                text: name
             }
         }
     }
