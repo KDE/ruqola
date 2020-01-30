@@ -157,7 +157,6 @@ MessageBase {
 
                     Layout.fillWidth: !compactViewMode
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                    Layout.columnSpan: 2
                     visible: i_threadPreview.length > 0
                     textFormat: Text.RichText
                     color: "red" //Convert to kirigami color
