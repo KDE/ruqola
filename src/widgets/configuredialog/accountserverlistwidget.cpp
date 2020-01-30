@@ -57,7 +57,8 @@ void AccountServerListWidget::modifyAccountConfig()
     //TODO change title
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
     if (dlg->exec()) {
-        //TODO add account
+        const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
+        //TODO modify account
     }
 }
 

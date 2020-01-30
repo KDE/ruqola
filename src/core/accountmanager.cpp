@@ -96,7 +96,6 @@ RocketChatAccount *AccountManager::account() const
 
 void AccountManager::addAccount(const QString &accountName, const QString &username, const QString &url)
 {
-    //qDebug() << " void AccountManager::addAccount(const QString &accountName, const QString &username, const QString &url)";
     //TODO verify if account exist or not ?
     RocketChatAccount *account = new RocketChatAccount();
     account->setAccountName(accountName);
