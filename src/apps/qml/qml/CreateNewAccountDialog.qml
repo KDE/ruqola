@@ -51,18 +51,18 @@ QQC2.Dialog {
     contentItem: Kirigami.FormLayout {
         QQC2.TextField {
             id: accountName
-            placeholderText: i18n("Account Name")
+            placeholderText: "Rocket.Chat"
             Kirigami.FormData.label: i18n("Name:")
         }
         QQC2.TextField {
             id: server
-            placeholderText: i18n("Server Url")
+            placeholderText: "https://open.rocket.chat"
             Kirigami.FormData.label: i18n("Server Url:")
         }
         QQC2.TextField {
             id: usernameField
-            placeholderText: i18n("Enter Username")
-            Kirigami.FormData.label: i18n("Enter your Username:")
+            placeholderText: i18n("john.doe")
+            Kirigami.FormData.label: i18n("Username:")
         }
     }
     onAccepted: {
