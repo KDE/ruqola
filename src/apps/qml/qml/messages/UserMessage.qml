@@ -70,7 +70,6 @@ MessageBase {
             visible: !i_groupable
         }
         ColumnLayout {
-            Layout.fillHeight: true
             spacing: Kirigami.Units.smallSpacing / 2 // reduce spacing a little
             GridLayout {
                 rowSpacing: 0

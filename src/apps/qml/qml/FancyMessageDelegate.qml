@@ -124,10 +124,8 @@ Rectangle {
 
     Loader {
         id: loaded
-        anchors {
-            fill: parent
-            margins: Kirigami.Units.largeSpacing
-        }
+
+        width: parent.width
 
         function getComponent() {
             if (i_messageType === Message.System) {
