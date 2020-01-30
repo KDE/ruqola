@@ -23,15 +23,19 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-
+class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelPasswordWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ChannelPasswordWidget(QWidget *parent = nullptr);
     ~ChannelPasswordWidget();
+
+    Q_REQUIRED_RESULT QString password() const;
 Q_SIGNALS:
     void updateOkButton(bool state);
+private:
+    KPasswordLineEdit *mPasswordLineEdit = nullptr;
 };
 
 #endif // CHANNELPASSWORDWIDGET_H

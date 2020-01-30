@@ -27,13 +27,25 @@
 ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
+    QLabel *label = new QLabel(i18n("Channel Password:"), this);
+    label->setObjectName(QStringLiteral("label"));
+    mainLayout->addWidget(label);
+
+    mPasswordLineEdit = new KPasswordLineEdit(this);
+    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    mainLayout->addWidget(mPasswordLineEdit);
 }
 
 ChannelPasswordWidget::~ChannelPasswordWidget()
 {
 
+}
+
+QString ChannelPasswordWidget::password() const
+{
+    return mPasswordLineEdit->password();
 }

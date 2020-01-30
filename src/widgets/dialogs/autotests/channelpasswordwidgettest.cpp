@@ -20,6 +20,9 @@
 
 #include "channelpasswordwidgettest.h"
 #include "dialogs/channelpasswordwidget.h"
+#include <KPasswordLineEdit>
+#include <QHBoxLayout>
+#include <QLabel>
 #include <QTest>
 QTEST_MAIN(ChannelPasswordWidgetTest)
 ChannelPasswordWidgetTest::ChannelPasswordWidgetTest(QObject *parent)
@@ -31,5 +34,16 @@ ChannelPasswordWidgetTest::ChannelPasswordWidgetTest(QObject *parent)
 void ChannelPasswordWidgetTest::shouldHaveDefaultValues()
 {
     ChannelPasswordWidget w;
-    //TODO
+    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout* >(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QLabel *label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
+
+    KPasswordLineEdit *mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    QVERIFY(mPasswordLineEdit);
+
+    QVERIFY(w.password().isEmpty());
 }

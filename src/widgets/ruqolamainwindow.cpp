@@ -348,7 +348,7 @@ void RuqolaMainWindow::slotMissingChannelPassword(const QString &roomId)
     QPointer<ChannelPasswordDialog> dlg = new ChannelPasswordDialog(this);
     //TODO add channel name!
     if (dlg->exec()) {
-        mCurrentRocketChatAccount->joinRoom(roomId, QString() /*TODO password*/);
+        mCurrentRocketChatAccount->joinRoom(roomId, dlg->password());
     }
     delete dlg;
 }
