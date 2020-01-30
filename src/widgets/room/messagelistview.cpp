@@ -232,6 +232,9 @@ void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinn
 void MessageListView::slotStartDiscussion(const QModelIndex &index)
 {
     QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
+    const QString message = index.data(MessageModel::OriginalMessage).toString();
+    dlg->setDiscussionName(message);
+    //FIXME dlg->setChannelName(message);
     if (dlg->exec()) {
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
         const QString messageId = index.data(MessageModel::MessageId).toString();
