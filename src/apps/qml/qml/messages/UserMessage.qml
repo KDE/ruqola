@@ -76,23 +76,24 @@ MessageBase {
                 rowSpacing: 0
                 columnSpacing: Kirigami.Units.smallSpacing
                 columns: compactViewMode ? -1 : 1 // user name label + roles info in one row
-
                 RowLayout {
                     Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                    Layout.rightMargin: Kirigami.Units.smallSpacing
 
                     QQC2.Label {
                         id: usernameLabel
                         font.bold: true
-                        text: i_aliasname +  ' ' + i_usernameurl
+                        text: i_aliasname !== "" ? i_aliasname +  ' @' + i_username : '@' + i_username
 
-                        onLinkActivated: messageMain.linkActivated(link)
                         MouseArea {
                             anchors.fill: parent
-                            acceptedButtons: Qt.RightButton
-
+                            enabled: i_username !== appid.rocketChatAccount.userName
+                            hoverEnabled: true
+                            cursorShape: containsMouse ? Qt.PointingHandCursor : Qt.ArrowCursor
+                            acceptedButtons: Qt.LeftButton | Qt.RightButton
                             onClicked: {
-                                if (i_useMenuMessage) {
-                                    if (mouse.button === Qt.RightButton) {
+                                if (mouse.button === Qt.RightButton) {
+                                    if (i_useMenuMessage) {
                                         messageMenuLoader.posX = mouse.x
                                         messageMenuLoader.posY = mouse.y
                                         if (messageMenuLoader.active)
@@ -100,6 +101,8 @@ MessageBase {
                                         else
                                             messageMenuLoader.active = true
                                     }
+                                } else {
+                                    messageMain.linkActivated("ruqola:/user/" + i_username)
                                 }
                             }
                         }
