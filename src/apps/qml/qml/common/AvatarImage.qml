@@ -26,6 +26,7 @@ import org.kde.kirigami 2.7 as Kirigami
 import QtQuick.Layouts 1.12
 import "../js/message.js" as MessageScript;
 import QtQuick.Window 2.2
+import QtGraphicalEffects 1.0
 
 import Ruqola 1.0
 
@@ -54,9 +55,15 @@ Rectangle {
         
         anchors.fill: parent
         visible: avatarurl !== ""
+        smooth: true
         source: avatarurl
         fillMode: Image.PreserveAspectFit
         asynchronous: true
+        layer.enabled: true
+        layer.effect: OpacityMask {
+            maskSource: avatarImageMask
+        }
+
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -67,6 +74,14 @@ Rectangle {
             if (avatarImage.status === Image.Error) {
                 console.log(RuqolaDebugCategorySingleton.category, "An error occurred when we try to load image");
             }
+        }
+
+        Rectangle {
+            id: avatarImageMask
+            width: parent.width
+            height: parent.height
+            radius: 3
+            visible: false
         }
 
     }
