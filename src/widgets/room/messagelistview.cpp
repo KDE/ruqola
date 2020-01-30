@@ -119,6 +119,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
+    QAction *setAsFavoriteAction = new QAction(&menu);
+    const bool isStarred = index.data(MessageModel::Starred).toBool();
+    setAsFavoriteAction->setText(isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"));
+    connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() { slotSetAsFavorite(index, isStarred); });
+    menu.addAction(setAsFavoriteAction);
+
+
     if (rcAccount->allowEditingMessages() && index.data(MessageModel::CanEditMessage).toBool()) {
         QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
         connect(editAction, &QAction::triggered, this, [=]() { slotEditMessage(index); });
@@ -172,4 +179,11 @@ void MessageListView::slotReportMessage(const QModelIndex &index)
         rcAccount->reportMessage(messageId, dlg->message());
     }
     delete dlg;
+}
+
+void MessageListView::slotSetAsFavorite(const QModelIndex &index, bool isStarred)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    const QString messageId = index.data(MessageModel::MessageId).toString();
+    rcAccount->starMessage(messageId, !isStarred);
 }
