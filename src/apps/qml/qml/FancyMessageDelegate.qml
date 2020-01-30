@@ -110,6 +110,10 @@ Rectangle {
         UserMessage { messageMain: root }
     }
     Component {
+        id: attachmentMessageFileComponent
+        AttachmentMessageFile { messageMain: root }
+    }
+    Component {
         id: attachmentMessageAudioComponent
         AttachmentMessageAudio { messageMain: root }
     }
@@ -139,8 +143,10 @@ Rectangle {
                 } else {
                     return systemMessageComponent;
                 }
-            } else if (i_messageType === Message.NormalText || i_messageType === Message.File) {
+            } else if (i_messageType === Message.NormalText) {
                 return userMessageComponent;
+            } else if (i_messageType === Message.File) {
+                return attachmentMessageFileComponent;
             } else if (i_messageType === Message.Audio) {
                 return attachmentMessageAudioComponent;
             } else if (i_messageType === Message.Video) {

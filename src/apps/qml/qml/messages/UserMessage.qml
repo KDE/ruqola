@@ -34,6 +34,8 @@ import "../common"
 MessageBase {
     id: root
 
+    property alias attachments: attachmentsLayout.children
+
     Layout.alignment: Qt.AlignTop
     Loader {
         id: messageMenuLoader
@@ -240,56 +242,14 @@ MessageBase {
                             }
                         }
                     }
-                    Repeater {
-                        id: repearterAttachments
-
-                        model: i_attachments
-                        Column {
-                            Text {
-                                visible: model.modelData.authorName !== ""
-                                width: urlColumn.width
-                                text: model.modelData.authorName
-                                wrapMode: QQC2.Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                            }
-                            Row {
-                                QQC2.Label {
-                                    id: attachmentTitle
-                                    textFormat: Text.RichText
-                                    visible: model.modelData.title !== ""
-                                    width: urlColumn.width
-                                    text: model.modelData.displayTitle
-                                    wrapMode: QQC2.Label.Wrap
-                                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                                    onLinkActivated: {
-                                        messageMain.linkActivated(link)
-                                    }
-                                }
-                                DownloadButton {
-                                    id: downloadButton
-                                    visible: model.modelData.canDownloadAttachment
-                                    onDownloadButtonClicked: {
-                                        messageMain.downloadAttachment(model.modelData.link)
-                                    }
-                                }
-                                Item {
-                                    Layout.fillWidth: true
-                                }
-                            }
-                            QQC2.Label {
-                                visible: model.modelData.description !== ""
-                                width: urlColumn.width
-                                text: model.modelData.description
-                                wrapMode: QQC2.Label.Wrap
-                                anchors.leftMargin: Kirigami.Units.smallSpacing
-                                anchors.rightMargin: Kirigami.Units.smallSpacing
-                            }
-                        }
-                    }
                 }
             }
+
+            ColumnLayout {
+                id: attachmentsLayout
+                Layout.fillWidth: true
+            }
+
             ThreadLabel {
                 Layout.fillWidth: true
                 onOpenThread: {

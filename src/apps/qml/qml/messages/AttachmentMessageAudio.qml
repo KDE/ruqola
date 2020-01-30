@@ -29,136 +29,107 @@ import Ruqola 1.0
 import "../js/convert.js" as ConvertScript;
 import "../common"
 
-MessageBase {
+UserMessage {
     id: root
 
-    RowLayout {
-        AvatarImage {
-            id: avatarRect
-            avatarurl: i_avatar
-            aliasname: i_aliasname
-            username: i_username
-            onShowUserInfo: {
-                //TODO
+    attachments: Repeater {
+        id: repearterAttachments
+        model: i_attachments
+
+        MediaPlayer {
+            id: audioPlayer
+            autoPlay: false
+            onPaused: {
+                playerButton.source = "media-playback-start"
             }
+            onPlaying: {
+                playerButton.source = "media-playback-pause"
+            }
+            onStopped: {
+                playerButton.source = "media-playback-start"
+                playerSlider.value=0
+            }
+            onPositionChanged: {
+                playerSlider.sync = true
+                playerSlider.value = audioPlayer.position / audioPlayer.duration
+                playerSlider.sync = false
+                timeLabel.text = ConvertScript.convertTimeString(audioPlayer.position) + "/" + ConvertScript.convertTimeString(audioPlayer.duration)
+            }
+            source: rcAccount.attachmentUrl(model.modelData.link)
         }
 
 
-        Repeater {
-            id: repearterAttachments
-            model: i_attachments
+        ColumnLayout {
+            Layout.fillWidth: true
 
-            MediaPlayer {
-                id: audioPlayer
-                autoPlay: false
-                onPaused: {
-                    playerButton.source = "media-playback-start"
-                }
-                onPlaying: {
-                    playerButton.source = "media-playback-pause"
-                }
-                onStopped: {
-                    playerButton.source = "media-playback-start"
-                    playerSlider.value=0
-                }
-                onPositionChanged: {
-                    playerSlider.sync = true
-                    playerSlider.value = audioPlayer.position / audioPlayer.duration
-                    playerSlider.sync = false
-                    timeLabel.text = ConvertScript.convertTimeString(audioPlayer.position) + "/" + ConvertScript.convertTimeString(audioPlayer.duration)
-                }
-                source: rcAccount.attachmentUrl(model.modelData.link)
+            QQC2.Label {
+                //TODO remove duplicate code
+                text: model.modelData.title === "" ? "" :  i18n("File Uploaded: %1", model.modelData.title)
+                textFormat: Text.PlainText
+                visible: model.modelData.title !== ""
+                wrapMode: QQC2.Label.Wrap
+                anchors.leftMargin: Kirigami.Units.smallSpacing
+                anchors.rightMargin: Kirigami.Units.smallSpacing
             }
 
-
-            ColumnLayout {
-                Layout.fillWidth: true
-
-                QQC2.Label {
-                    //TODO remove duplicate code
-                    text: model.modelData.title === "" ? "" :  i18n("File Uploaded: %1", model.modelData.title)
-                    textFormat: Text.PlainText
-                    visible: model.modelData.title !== ""
-                    wrapMode: QQC2.Label.Wrap
-                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                    anchors.rightMargin: Kirigami.Units.smallSpacing
-                }
-
-                RowLayout {
-                    Kirigami.Icon {
-                        id: playerButton
-                        source: "media-playback-start"
-                        width: height
-                        height: Kirigami.Units.iconSizes.huge
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                console.log(RuqolaDebugCategorySingleton.category, "Click on download audio file");
-                                if (repearterAttachments.audioPlayer.source !== "") {
-                                    if (repearterAttachments.audioPlayer.playbackState === MediaPlayer.PlayingState) {
-                                        repearterAttachments.audioPlayer.pause()
-                                        playerButton.source = "media-playback-start"
-                                    } else {
-                                        repearterAttachments.audioPlayer.play()
-                                        playerButton.source = "media-playback-pause"
-                                    }
+            RowLayout {
+                Kirigami.Icon {
+                    id: playerButton
+                    source: "media-playback-start"
+                    width: height
+                    height: Kirigami.Units.iconSizes.huge
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            console.log(RuqolaDebugCategorySingleton.category, "Click on download audio file");
+                            if (repearterAttachments.audioPlayer.source !== "") {
+                                if (repearterAttachments.audioPlayer.playbackState === MediaPlayer.PlayingState) {
+                                    repearterAttachments.audioPlayer.pause()
+                                    playerButton.source = "media-playback-start"
                                 } else {
-                                    console.log(RuqolaDebugCategorySingleton.category, "Audio file no found");
+                                    repearterAttachments.audioPlayer.play()
+                                    playerButton.source = "media-playback-pause"
                                 }
+                            } else {
+                                console.log(RuqolaDebugCategorySingleton.category, "Audio file no found");
                             }
-                        }
-                    }
-                    QQC2.Slider {
-                        id: playerSlider
-                        Layout.fillWidth: true
-
-                        property bool sync: false
-
-                        onValueChanged: {
-                            if (!sync) {
-                                audioPlayer.seek(value * audioPlayer.duration)
-                            }
-                        }
-                    }
-
-                    QQC2.Label {
-                        id: timeLabel
-                        //TODO display real value
-                        text: "00:00/00:00"
-                    }
-
-                    DownloadButton {
-                        id: download
-                        onDownloadButtonClicked: {
-                            messageMain.downloadAttachment(model.modelData.link)
                         }
                     }
                 }
+                QQC2.Slider {
+                    id: playerSlider
+                    Layout.fillWidth: true
+
+                    property bool sync: false
+
+                    onValueChanged: {
+                        if (!sync) {
+                            audioPlayer.seek(value * audioPlayer.duration)
+                        }
+                    }
+                }
+
                 QQC2.Label {
-                    text: model.modelData.description
-                    visible: model.modelData.description !== ""
-                    wrapMode: QQC2.Label.Wrap
-                    anchors.leftMargin: Kirigami.Units.smallSpacing
-                    anchors.rightMargin: Kirigami.Units.smallSpacing
+                    id: timeLabel
+                    //TODO display real value
+                    text: "00:00/00:00"
                 }
-            }
-        }
-        RowLayout {
-            RepeaterReactions {
-                id: repearterReactions
-                model: i_reactions
-                onAddReaction: {
-                    messageMain.addReaction(i_messageID, emoji)
-                }
-                onDeleteReaction: {
-                    messageMain.deleteReaction(i_messageID, emoji)
-                }
-            }
-        }
 
-        TimestampText {
-            id: timestampText
-            timestamp: i_timestamp
+                DownloadButton {
+                    id: download
+                    onDownloadButtonClicked: {
+                        messageMain.downloadAttachment(model.modelData.link)
+                    }
+                }
+            }
+            QQC2.Label {
+                text: model.modelData.description
+                visible: model.modelData.description !== ""
+                wrapMode: QQC2.Label.Wrap
+                anchors.leftMargin: Kirigami.Units.smallSpacing
+                anchors.rightMargin: Kirigami.Units.smallSpacing
+            }
         }
     }
+
 }
