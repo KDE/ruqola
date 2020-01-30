@@ -155,10 +155,10 @@ Rectangle {
     onLinkActivated: {
         var username = RuqolaUtils.extractRoomUserFromUrl(link);
         if (link.startsWith("ruqola:/room/")) {
-            messageMain.openChannel(username)
+            root.openChannel(username)
         } else if (link.startsWith("ruqola:/user/")) {
             if (username !== appid.rocketChatAccount.userName) {
-                messageMain.openDirectChannel(username)
+                root.openDirectChannel(username)
             }
         } else {
             RuqolaUtils.openUrl(link);
