@@ -52,6 +52,7 @@ private:
     void slotDeleteMessage(const QModelIndex &index);
     void slotReportMessage(const QModelIndex &index);
     void slotSetAsFavorite(const QModelIndex &index, bool isStarred);
+    void slotSetPinnedMessage(const QModelIndex &index, bool isPinned);
 
 private:
     bool mAtBottom = true;

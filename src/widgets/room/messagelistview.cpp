@@ -119,11 +119,17 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
+
+    const bool isPinned = index.data(MessageModel::Pinned).toBool();
+    QAction *setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
+    connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() { slotSetPinnedMessage(index, isPinned); });
+    menu.addAction(setPinnedMessage);
+
+
     const bool isStarred = index.data(MessageModel::Starred).toBool();
     QAction *setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
     connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() { slotSetAsFavorite(index, isStarred); });
     menu.addAction(setAsFavoriteAction);
-
 
     if (rcAccount->allowEditingMessages() && index.data(MessageModel::CanEditMessage).toBool()) {
         QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
@@ -185,4 +191,13 @@ void MessageListView::slotSetAsFavorite(const QModelIndex &index, bool isStarred
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString messageId = index.data(MessageModel::MessageId).toString();
     rcAccount->starMessage(messageId, !isStarred);
+}
+
+
+void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinned)
+{
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    const QString messageId = index.data(MessageModel::MessageId).toString();
+    rcAccount->pinMessage(messageId, !isPinned);
+    //TODO fix pinMessage it seems that it doesn't work
 }
