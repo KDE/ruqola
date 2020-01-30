@@ -157,7 +157,7 @@ public:
     void desktopSoundNotifications(const QString &roomId, const QString &value);
     void followMessage(const QString &messageId);
     void unFollowMessage(const QString &messageId);
-    void createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &replyMessage, const QString &parentMessageId);
+    void createDiscussion(const QString &parentRoomId, const QString &discussionName, const QString &replyMessage, const QString &parentMessageId, const QStringList &users);
     void getDiscussions(const QString &roomId, int offset = 0, int count = 50);
     void getThreadsList(const QString &roomId, int offset = 0, int count = 50);
     void getThreadMessages(const QString &threadMessageId);
