@@ -106,23 +106,15 @@ MessageBase {
                 }
                 Kirigami.Icon {
                     id: rolesInfo
-                    property var opacityDefaultValue: 0.5
                     source: "documentinfo"
                     width: height
                     height: 18
                     visible: i_roles.length > 0
-                    opacity: opacityDefaultValue
+                    opacity: rolesInfoMA.containsMouse ? 1.0 : 0.6
                     MouseArea {
                         id: rolesInfoMA
                         hoverEnabled: true
                         anchors.fill: parent
-                        onEntered: {
-                            rolesInfo.opacity = 1.0
-                        }
-
-                        onExited: {
-                            rolesInfo.opacity = rolesInfo.opacityDefaultValue
-                        }
                     }
                     QQC2.ToolTip.visible: rolesInfoMA.containsMouse
                     QQC2.ToolTip.text: i_roles
