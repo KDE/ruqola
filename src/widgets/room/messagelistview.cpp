@@ -29,6 +29,7 @@
 #include <QKeyEvent>
 #include <QMenu>
 #include <QScrollBar>
+#include <QIcon>
 
 MessageListView::MessageListView(QWidget *parent)
     : QListView(parent)
@@ -117,12 +118,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
     if (rcAccount->allowEditingMessages() && index.data(MessageModel::CanEditMessage).toBool()) {
-        QAction *editAction = new QAction(i18n("Edit"), &menu);
+        QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
         connect(editAction, &QAction::triggered, this, [=]() { slotEditMessage(index); });
         menu.addAction(editAction);
     }
     if (rcAccount->allowMessageDeletingEnabled() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
-        QAction *deleteAction = new QAction(i18n("Delete"), &menu);
+        QAction *deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete"), &menu);
         connect(deleteAction, &QAction::triggered, this, [=]() { slotDeleteMessage(index); });
         menu.addAction(deleteAction);
     }
