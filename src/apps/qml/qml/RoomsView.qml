@@ -22,7 +22,7 @@
  */
 
 import QtQuick 2.9
-import org.kde.kirigami 2.7 as Kirigami
+import org.kde.kirigami 2.10 as Kirigami
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
 
@@ -38,23 +38,8 @@ ListView {
 
     section {
         property: "sectionname"
-        delegate: Kirigami.AbstractListItem {
-            enabled: false
-            RowLayout {
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    leftMargin: Kirigami.Units.smallSpacing
-                }
-                QQC2.Label {
-                    id: sectionLabel
-                    text: section
-                    Layout.minimumHeight: Math.max(implicitHeight, Kirigami.Units.iconSizes.smallMedium)
-                    elide: Text.ElideRight
-                    Layout.alignment: Qt.AlignHCenter
-                    font.bold: true
-                }
-            }
+        delegate: Kirigami.ListSectionHeader {
+            text: section
         }
     }
 
