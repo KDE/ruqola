@@ -39,6 +39,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     mChannelNameLineEdit = new KLineEdit(this);
     mChannelNameLineEdit->setObjectName(QStringLiteral("mChannelNameLineEdit"));
     mChannelNameLineEdit->setTrapReturnKey(true);
+    mChannelNameLineEdit->setClearButtonEnabled(true);
     connect(mChannelNameLineEdit, &KLineEdit::textChanged, this, [this](const QString &str) {
         Q_EMIT updateOkButton(!str.trimmed().isEmpty());
     });
@@ -51,6 +52,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     mDiscussionNameLineEdit = new KLineEdit(this);
     mDiscussionNameLineEdit->setObjectName(QStringLiteral("mDiscussionNameLineEdit"));
     mDiscussionNameLineEdit->setTrapReturnKey(true);
+    mDiscussionNameLineEdit->setClearButtonEnabled(true);
     mainLayout->addWidget(mDiscussionNameLineEdit);
 
     QLabel *usersLabel = new QLabel(i18n("Invite Users"), this);
@@ -60,6 +62,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     mUsersLineEdit = new KLineEdit(this);
     mUsersLineEdit->setObjectName(QStringLiteral("mUsersLineEdit"));
     mUsersLineEdit->setTrapReturnKey(true);
+    mUsersLineEdit->setClearButtonEnabled(true);
     mainLayout->addWidget(mUsersLineEdit);
 
     QLabel *messageLabel = new QLabel(i18n("Invite Users"), this);
