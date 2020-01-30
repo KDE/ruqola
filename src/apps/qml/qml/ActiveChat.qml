@@ -75,6 +75,10 @@ ListView {
     property bool wasAtYEnd: true
     property bool useMenuMessage: true
 
+    // TODO: Move prop to C++ settings class
+    // note: This is a server-side setting (/api/v1/settings)-- adhere to it!
+    property bool compactViewMode: true
+
     spacing: 0//Kirigami.Units.smallSpacing
     highlightRangeMode: ListView.ApplyRange
     preferredHighlightBegin: currentItem === null ? parent.height : parent.height - currentItem.height

@@ -36,7 +36,7 @@ Rectangle {
     property string avatarurl
     property string aliasname
     property string username
-    property int defaultWidth: Kirigami.Units.iconSizes.medium
+    readonly property int defaultWidth: compactViewMode ? Kirigami.Units.fontMetrics.height :Kirigami.Units.iconSizes.medium
     signal showUserInfo()
 
     Layout.alignment: Qt.AlignTop | Qt.AlignCenter
@@ -124,6 +124,15 @@ Rectangle {
             if (filePath === "/avatar/" + username) {
                 avatarurl = cacheImageUrl
             }
+        }
+    }
+
+    MouseArea {
+        // HACK: Remove me, just for demonstration
+        anchors.fill: parent
+        onClicked: {
+            activeChat.compactViewMode = !activeChat.compactViewMode // toggle
+            console.log("compactViewMode: " + activeChat.compactViewMode);
         }
     }
 }

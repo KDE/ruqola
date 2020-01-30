@@ -72,14 +72,18 @@ MessageBase {
         ColumnLayout {
             Layout.fillHeight: true
             spacing: Kirigami.Units.smallSpacing / 2 // reduce spacing a little
-            RowLayout {
+            GridLayout {
+                rowSpacing: 0
+                columnSpacing: Kirigami.Units.smallSpacing
+                columns: compactViewMode ? -1 : 2 // user name label + roles info in one row
+
                 QQC2.Label {
                     id: usernameLabel
-                    Layout.alignment: Qt.AlignLeft
+                    Layout.columnSpan: rolesInfo.visible ? 1 : 2
+                    Layout.alignment: Qt.AlignLeft | Qt.AlignTop
                     font.bold: true
                     text: i_aliasname +  ' ' + i_usernameurl + (i_editedByUserName === "" ? "" : " " + i18n("(edited by %1)", i_editedByUserName))
 
-                    height: avatarRect.height
                     onLinkActivated: messageMain.linkActivated(link)
                     MouseArea {
                         anchors.fill: parent
@@ -124,21 +128,29 @@ MessageBase {
                         }
                     }
                 }
-            }
 
-            ColumnLayout {
-                id: fullTextColumn
-
-                Layout.fillWidth: true
                 QQC2.Label {
                     id: threadPreview
-                    Layout.fillWidth: true
+
+                    // TODO: I think the whole thread preview item needs to be visually redesigned...
+                    /// no eliding possible with rich text, cf. QTBUG-16567, fake it
+                    /// not ideal, see: https://stackoverflow.com/a/29923358
+                    function elidedText(s, length) {
+                        var elidedText = s.substring(0, length)
+                            if (s.length > length)
+                                elidedText += "..."
+                        return elidedText
+                    }
+
+                    Layout.fillWidth: !compactViewMode
+                    Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+                    Layout.columnSpan: 2
                     visible: i_threadPreview.length > 0
                     textFormat: Text.RichText
                     color: "red" //Convert to kirigami color
                     font.pointSize: textLabel.font.pointSize - 1
-                    text: i_threadPreview
-                    wrapMode: QQC2.Label.Wrap
+                    text: compactViewMode ? elidedText(i_threadPreview, 30) : i_threadPreview
+                    wrapMode: compactViewMode ? Text.NoWrap : Text.Wrap
                     MouseArea {
                         anchors.fill: parent
                         acceptedButtons: Qt.RightButton | Qt.LeftButton
