@@ -189,7 +189,6 @@ QQC2.Menu {
         }
 
         editMessageItem.visible = (i_username === i_own_username) && rcAccount.allowEditingMessages && can_edit_message
-        ignoreLabel.text = updateIgnoreLabelText()
         ignoreUserItem.visible = (i_username != i_own_username)
     }
 }
