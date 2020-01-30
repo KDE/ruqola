@@ -235,3 +235,7 @@ if (BUILD_TESTING)
 endif()
 
 install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+
+if (ANDROID)
+    install(FILES ruqolacore-android-dependencies.xml DESTINATION ${KDE_INSTALL_LIBDIR})
+endif()

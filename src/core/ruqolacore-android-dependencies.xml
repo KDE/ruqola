@@ -1,0 +1,10 @@
+<rules>
+    <dependencies>
+        <lib name="ruqolacore">
+            <depends>
+                <bundled file="plugins/ruqolaplugins/authentication" />
+            </depends>
+        </lib>
+    </dependencies>
+</rules>
+
