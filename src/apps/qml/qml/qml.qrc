@@ -17,7 +17,6 @@
         <file>AddUserDialog.qml</file>
         <file>DeleteRoomDialog.qml</file>
         <file>TakeVideoMessageDialog.qml</file>
-        <file>TextFieldEditor.qml</file>
         <file alias="DebugCategory.qml">DebugCategory.qml</file>
         <file>ConfigureServerList.qml</file>
         <file>MainComponent.qml</file>

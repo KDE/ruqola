@@ -254,7 +254,7 @@ Kirigami.ApplicationWindow {
                 channelInfoDialogLoader.active = false
             }
             Component.onCompleted: {
-                initializeAndOpen()
+                open()
             }
 
         }

@@ -22,8 +22,10 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.2
-import Ruqola 1.0
 
+import org.kde.kirigami 2.5 as Kirigami
+
+import Ruqola 1.0
 
 import "common"
 QQC2.Dialog {
@@ -45,46 +47,17 @@ QQC2.Dialog {
     signal modifyChannelSetting(string roomId, int type, var newVal, string channelType)
     signal deleteRoom(string roomId)
 
-    function initializeAndOpen()
-    {
-        var enabledField = !roomInfo.canBeModify;
-        channelNameField.setReadOnly(enabledField);
-        channelCommentField.setReadOnly(enabledField);
-        channelAnnouncementField.setReadOnly(enabledField);
-        channelDescriptionField.setReadOnly(enabledField);
-        labelReadOnlyRoom.visible = !enabledField
-        readOnlyRoom.visible = !enabledField
-        labelArchiveRoom.visible = !enabledField
-        archiveRoom.visible = !enabledField
-        labelDeleteButton.visible = !enabledField
-        deleteButton.visible = !enabledField
-        labelRoomType.visible = !enabledField
-        roomType.visible = !enabledField
-        labelEncrypted.visible = !enabledField && roomInfo.encryptedEnabled
-        encrypted.visible = !enabledField && roomInfo.encryptedEnabled
-        labelPassword.visible = !enabledField
-        password.visible = !enabledField
-        labelBroadcast.visible = !enabledField
-        broadcast.visible = !enabledField
-        //TODO fix me! Readd password
-        password.text = "";
-        open();
-    }
+    contentItem: Kirigami.FormLayout {
 
-    contentItem: GridLayout {
-        columns: 2
-        QQC2.Label {
-            text: i18n("Name:");
-        }
-        TextFieldEditor {
-            id: channelNameField
-            Layout.fillWidth: true
-            textField: roomInfo === null ? "" : roomInfo.name
-
-            onUpdateValue: {
-                if (newVal != "") {
-                    if (roomInfo.name !== newVal) {
-                        channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newVal, roomInfo.channelType)
+        QQC2.TextField {
+            id: channelNameEdit
+            visible: roomInfo.canBeModify
+            text: roomInfo.name
+            Kirigami.FormData.label: i18n("Name:")
+            onTextChanged: newText => {
+                if (newText != "") {
+                    if (roomInfo.name !== newText) {
+                        channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Name, newText, roomInfo.channelType)
                     }
                 } else {
                     //see https://doc.qt.io/qt-5/qml-qtqml-loggingcategory.html
@@ -92,143 +65,135 @@ QQC2.Dialog {
                 }
             }
         }
+
         QQC2.Label {
-            text: i18n("Comment:");
+            visible: !channelNameEdit.visible
+            text: roomInfo.name
+            Kirigami.FormData.label: i18n("Name:")
         }
-        TextFieldEditor {
-            id: channelCommentField
-            Layout.fillWidth: true
-            textField: roomInfo === null ? "" : roomInfo.topic
-            onUpdateValue: {
-                if (roomInfo.topic !== newVal) {
-                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, newVal, roomInfo.channelType)
-                }
-            }
-        }
-        QQC2.Label {
-            text: i18n("Announcement:");
-        }
-        TextFieldEditor {
-            id: channelAnnouncementField
-            Layout.fillWidth: true
-            textField: roomInfo === null ? "" : roomInfo.announcement;
-            onUpdateValue: {
-                if (roomInfo.announcement !== newVal) {
-                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Announcement, newVal, roomInfo.channelType)
-                }
-            }
-        }
-        QQC2.Label {
-            text: i18n("Description:");
-        }
-        TextFieldEditor {
-            id: channelDescriptionField
-            Layout.fillWidth: true
-            textField: roomInfo === null ? "" : roomInfo.description;
-            onUpdateValue: {
-                if (roomInfo.description !== newVal) {
-                    channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newVal, roomInfo.channelType)
-                }
+
+        QQC2.TextField {
+            id: channelCommentEdit
+            visible: roomInfo.canBeModify
+            text: roomInfo.topic
+            Kirigami.FormData.label: i18n("Comment:")
+            onTextChanged: newText => {
+                if (newText === roomInfo.topic)
+                    return
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Topic, newText, roomInfo.channelType)
             }
         }
 
         QQC2.Label {
-            id: labelPassword
-            text: i18n("Password:");
+            visible: !channelCommentEdit.visible
+            text: roomInfo.topic
+            Kirigami.FormData.label: i18n("Comment:")
         }
+
+        QQC2.TextField {
+            id: channelAnnouncementEdit
+            visible: roomInfo.canBeModify
+            text: roomInfo.announcement
+            Kirigami.FormData.label: i18n("Announcement:")
+            onTextChanged: newText => {
+                if (newText === roomInfo.announcement)
+                    return
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Announcement, newText, roomInfo.channelType)
+            }
+        }
+
+        QQC2.Label {
+            visible: !channelAnnouncementEdit.visible
+            text: roomInfo.announcement
+            Kirigami.FormData.label: i18n("Announcement:")
+        }
+
+        QQC2.TextField {
+            id: channelDescriptionEdit
+            visible: roomInfo.canBeModify
+            text: roomInfo.description
+            Kirigami.FormData.label: i18n("Description:")
+            onTextChanged: newText => {
+                if (newText === roomInfo.description)
+                    return
+                channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Description, newText, roomInfo.channelType)
+            }
+        }
+
+        QQC2.Label {
+            visible: !channelDescriptionEdit.visible
+            text: roomInfo.description
+            Kirigami.FormData.label: i18n("Description:")
+        }
+
         PasswordLineEdit {
             id: password
-            Layout.fillWidth: true
-            selectByMouse: true
+            visible: roomInfo.canBeModify
             //Add i18n context ?
             placeholderText: roomInfo === null ? i18n("Add password") : (roomInfo.joinCodeRequired ? i18n("This Room has a password") : i18n("Add password"))
+            Kirigami.FormData.label: i18n("Password:")
         }
 
-        QQC2.Label {
-            id: labelReadOnlyRoom
-            text: i18n("Read-Only:");
-            MouseArea {
-                anchors.fill: parent
-                acceptedButtons: Qt.RightButton | Qt.LeftButton
-                hoverEnabled: true
-                QQC2.ToolTip {
-                    id: tooltipReact
-                    text: i18n("Only Authorized people can write.")
-                }
-            }
-        }
         QQC2.Switch {
             id: readOnlyRoom
-            checked: roomInfo === null ? false : roomInfo.readOnly
+            visible: roomInfo.canBeModify
+            checked: roomInfo.readOnly
             onClicked: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.ReadOnly, checked, roomInfo.channelType)
             }
+            Kirigami.FormData.label: i18n("Read-Only:")
         }
 
-        QQC2.Label {
-            id: labelBroadcast
-            text: i18n("Broadcast:");
-        }
         QQC2.Switch {
             id: broadcast
-            checked: roomInfo === null ? false : roomInfo.broadcast
+            visible: roomInfo.canBeModify
+            checked: roomInfo.broadcast
             onClicked: {
                 console.log(RuqolaDebugCategorySingleton.category, "Broadcast not implemented yet")
                 //TODO
             }
+            Kirigami.FormData.label: i18n("Broadcast:")
         }
 
-        QQC2.Label {
-            id: labelArchiveRoom
-            text: i18n("Archive:");
-        }
         QQC2.Switch {
             id: archiveRoom
-            checked: roomInfo === null ? false : roomInfo.archived
+            visible: roomInfo.canBeModify
+            checked: roomInfo.archived
             onClicked: {
                 archiveRoomDialog.archive = checked
                 archiveRoomDialog.open()
             }
+            Kirigami.FormData.label: i18n("Archive:")
         }
 
-        QQC2.Label {
-            id: labelRoomType
-            text: i18n("Private:")
-        }
         QQC2.Switch {
             id: roomType
-            checked: roomInfo === null ? false : roomInfo.channelType === "p"
+            visible: roomInfo.canBeModify
+            checked: roomInfo.channelType === "p"
             onClicked: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.RoomType, checked, roomInfo.channelType)
             }
+            Kirigami.FormData.label: i18n("Private:")
         }
 
-        //TODO hide it if we don't have this support
-        QQC2.Label {
-            id: labelEncrypted
-            text: i18n("Encrypted:")
-        }
         QQC2.Switch {
             id: encrypted
-            checked: roomInfo === null ? false : roomInfo.encrypted
+            visible: roomInfo.canBeModify && roomInfo.encryptedEnabled
+            checked: roomInfo.encrypted
             onClicked: {
                 channelInfoDialog.modifyChannelSetting(channelName, RocketChatAccount.Encrypted, checked, roomInfo.channelType)
             }
+            Kirigami.FormData.label: i18n("Encrypted:")
         }
 
-        QQC2.Label {
-            id: labelDeleteButton
-            text: i18n("Delete Room:");
-        }
         DeleteButton {
             id: deleteButton
+            visible: roomInfo.canBeModify
             onDeleteButtonClicked: {
                 deleteRoomDialog.rId = roomInfo.rid
                 deleteRoomDialog.open();
             }
-        }
-        Item {
-            Layout.fillHeight: true
+            Kirigami.FormData.label: i18n("Delete Room:")
         }
     }
 
