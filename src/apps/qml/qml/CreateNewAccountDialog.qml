@@ -23,6 +23,8 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.2
 
+import org.kde.kirigami 2.5 as Kirigami
+
 QQC2.Dialog {
     id: createNewAccountDialog
 
@@ -41,47 +43,26 @@ QQC2.Dialog {
     function initializeAndOpen()
     {
         accountName.text = ""
-        usernameField.text = ""
         server.text = ""
+        usernameField.text = ""
         open()
     }
 
-    contentItem: GridLayout {
-        columns: 2
-        QQC2.Label {
-            text: i18n("Name:");
-        }
+    contentItem: Kirigami.FormLayout {
         QQC2.TextField {
             id: accountName
-            Layout.fillWidth: true
-            selectByMouse: true
             placeholderText: i18n("Account Name")
-        }
-        QQC2.Label {
-            text: i18n("Server Url:");
+            Kirigami.FormData.label: i18n("Name:")
         }
         QQC2.TextField {
             id: server
-            Layout.fillWidth: true
-            selectByMouse: true
             placeholderText: i18n("Server Url")
+            Kirigami.FormData.label: i18n("Server Url:")
         }
-        QQC2.Label {
-            id: username
-
-            width: parent.width
-            text: i18n("Enter your Username:")
-        }
-
         QQC2.TextField {
             id: usernameField
-            Layout.fillWidth: true
-            selectByMouse: true
-            width: parent.width
             placeholderText: i18n("Enter Username")
-        }
-        Item {
-            Layout.fillHeight: true
+            Kirigami.FormData.label: i18n("Enter your Username:")
         }
     }
     onAccepted: {
