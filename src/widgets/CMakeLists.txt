@@ -45,6 +45,8 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/listdiscussiondelegate.cpp
     dialogs/createnewdiscussiondialog.cpp
     dialogs/createnewdiscussionwidget.cpp
+    dialogs/channelpassworddialog.cpp
+    dialogs/channelpasswordwidget.cpp
     )
 
 set(Ruqola_configure_SRCS

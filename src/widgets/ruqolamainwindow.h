@@ -60,6 +60,7 @@ private:
     void slotShowThreads();
     void slotUnreadOnTop(bool checked);
     void updateActions();
+    void slotMissingChannelPassword(const QString &roomId);
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;

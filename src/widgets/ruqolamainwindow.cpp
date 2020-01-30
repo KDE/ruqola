@@ -37,6 +37,7 @@
 #include "dialogs/configurenotificationdialog.h"
 #include "dialogs/showattachmentdialog.h"
 #include "dialogs/showdiscussionsdialog.h"
+#include "dialogs/channelpassworddialog.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -90,6 +91,7 @@ void RuqolaMainWindow::slotAccountChanged()
     mCurrentRocketChatAccount = Ruqola::self()->rocketChatAccount();
     connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::notificationChanged, this, &RuqolaMainWindow::slotTypingNotificationChanged);
     connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::clearNotification, this, &RuqolaMainWindow::slotClearNotification);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::missingChannelPassword, this, &RuqolaMainWindow::slotMissingChannelPassword);
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     updateActions();
 }
@@ -338,4 +340,15 @@ void RuqolaMainWindow::slotSearchChannel()
 void RuqolaMainWindow::slotUnreadOnTop(bool checked)
 {
     mCurrentRocketChatAccount->setSortUnreadOnTop(checked);
+}
+
+void RuqolaMainWindow::slotMissingChannelPassword(const QString &roomId)
+{
+    //TODO move in room page ?
+    QPointer<ChannelPasswordDialog> dlg = new ChannelPasswordDialog(this);
+    //TODO add channel name!
+    if (dlg->exec()) {
+        mCurrentRocketChatAccount->joinRoom(roomId, QString() /*TODO password*/);
+    }
+    delete dlg;
 }

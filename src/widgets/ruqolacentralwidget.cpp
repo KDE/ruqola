@@ -82,14 +82,6 @@ void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account
 
 void RuqolaCentralWidget::slotLoginStatusChanged()
 {
-    /*        NotConnected,
-        LoggingIn,
-        LoggedIn,
-        LoginFailed,
-        LoginCodeRequired,
-        LoggedOut,
-        FailedToLoginPluginProblem
-        */
     const auto loginStatus = mCurrentRocketChatAccount->loginStatus();
     mRuqolaLoginWidget->setLogginStatus(loginStatus);
     if (loginStatus == DDPClient::LoggedIn) {
@@ -97,6 +89,5 @@ void RuqolaCentralWidget::slotLoginStatusChanged()
     } else {
         mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
         mRuqolaLoginWidget->initialize();
-        //TODO assign value in mRuqolaLoginWidget directly
     }
 }
