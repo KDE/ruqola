@@ -61,4 +61,9 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
 
     KBusyIndicatorWidget *mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(QStringLiteral("mBusyIndicatorWidget"));
     QVERIFY(mBusyIndicatorWidget);
+
+    QLabel *mFailedError = w.findChild<QLabel *>(QStringLiteral("mFailedError"));
+    QVERIFY(mFailedError);
+    QVERIFY(mFailedError->text().isEmpty());
+    QVERIFY(mFailedError->isHidden());
 }

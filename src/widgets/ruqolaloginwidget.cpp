@@ -67,6 +67,12 @@ twoFactorAuthenticationCode: rcAccount.twoFactorAuthenticationCode
     mainLayout->addWidget(mBusyIndicatorWidget);
     //Hide by default
     mBusyIndicatorWidget->hide();
+
+    mFailedError = new QLabel(this);
+    mFailedError->setObjectName(QStringLiteral("mFailedError"));
+    mainLayout->addWidget(mFailedError);
+    //Hide by default
+    mFailedError->hide();
 }
 
 RuqolaLoginWidget::~RuqolaLoginWidget()
@@ -103,6 +109,7 @@ void RuqolaLoginWidget::changeWidgetStatus(bool enabled)
 
 void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
 {
+    mFailedError->setHidden(true);
     switch (status) {
     case DDPClient::LoginStatus::NotConnected:
         mBusyIndicatorWidget->hide();
@@ -120,7 +127,8 @@ void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
     case DDPClient::LoginStatus::LoginFailed:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
-        //Add warning!
+        mFailedError->setVisible(true);
+        mFailedError->setText(i18n("Login Failed"));
         break;
     case DDPClient::LoginStatus::LoginCodeRequired:
         mBusyIndicatorWidget->hide();
@@ -134,7 +142,8 @@ void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
     case DDPClient::LoginStatus::FailedToLoginPluginProblem:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
-        //Show warning !
+        mFailedError->setVisible(true);
+        mFailedError->setText(i18n("Installation Problem found. No plugins found here."));
         break;
     }
 }

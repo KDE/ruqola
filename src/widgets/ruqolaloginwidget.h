@@ -48,6 +48,7 @@ private:
     KPasswordLineEdit *mPasswordLineEdit = nullptr;
     QPushButton *mLoginButton = nullptr;
     KBusyIndicatorWidget *mBusyIndicatorWidget = nullptr;
+    QLabel *mFailedError = nullptr;
     //Add login method combobox
 };
 
