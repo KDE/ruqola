@@ -56,7 +56,7 @@ QQC2.Dialog {
         }
         QQC2.TextField {
             id: server
-            placeholderText: "https://open.rocket.chat"
+            placeholderText: "open.rocket.chat"
             Kirigami.FormData.label: i18n("Server Url:")
         }
         QQC2.TextField {
