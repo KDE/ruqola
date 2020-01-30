@@ -29,7 +29,7 @@ Kirigami.Page {
 
     title: i18n("Configure Accounts")
 
-    property QtObject accountModel
+    property alias accountModel : listview.model
 
     actions.main: Kirigami.Action {
         icon.name: "list-add"
@@ -47,7 +47,6 @@ Kirigami.Page {
         id: listview
         anchors.fill: parent
 
-        model: accountModel
         delegate: Kirigami.SwipeListItem {
             supportsMouseEvents: false
             actions: [
