@@ -19,7 +19,10 @@
 */
 
 #include "accountserverlistwidget.h"
+#include "ruqola.h"
+#include "accountmanager.h"
 #include "dialogs/createnewaccountdialog.h"
+#include "model/rocketchataccountmodel.h"
 #include <KLocalizedString>
 
 #include <QListWidgetItem>
@@ -60,15 +63,17 @@ void AccountServerListWidget::modifyAccountConfig()
 
 void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item)
 {
-    //TODO
+    Ruqola::self()->accountManager()->removeAccount(item->text());
 }
 
 void AccountServerListWidget::addAccountConfig()
 {
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
     if (dlg->exec()) {
-        //TODO add account
+        const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
+        Ruqola::self()->accountManager()->addAccount(info.accountName, info.userName, info.serverName);
     }
+    delete dlg;
 }
 
 AccountServerListWidgetItem::AccountServerListWidgetItem(QListWidget *parent)
