@@ -21,7 +21,10 @@
 
 #include "channelpassworddialogtest.h"
 #include "dialogs/channelpassworddialog.h"
+#include "dialogs/channelpasswordwidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ChannelPasswordDialogTest)
 ChannelPasswordDialogTest::ChannelPasswordDialogTest(QObject *parent)
     : QObject(parent)
@@ -32,4 +35,13 @@ ChannelPasswordDialogTest::ChannelPasswordDialogTest(QObject *parent)
 void ChannelPasswordDialogTest::shouldHaveDefaultValues()
 {
     ChannelPasswordDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    ChannelPasswordWidget *mChannelPasswordWidget = w.findChild<ChannelPasswordWidget *>(QStringLiteral("mChannelPasswordWidget"));
+    QVERIFY(mChannelPasswordWidget);
+
+    QDialogButtonBox *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(buttonBox);
 }
