@@ -23,6 +23,8 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
 import QtQuick.Window 2.2
 
+import org.kde.kirigami 2.5 as Kirigami
+
 import Ruqola 1.0
 
 QQC2.Dialog {
@@ -36,22 +38,21 @@ QQC2.Dialog {
 
     modal: true
     focus: true
-    ColumnLayout {
+
+    Kirigami.FormLayout {
+        visible: rcAccount
+
         QQC2.Label {
-            text: rcAccount ? i18n("Account name: %1", rcAccount.serverConfigInfo.serverName) : ""
-            font.pointSize: 15
-            textFormat: Text.PlainText
+            text: rcAccount.serverConfigInfo.serverName
+            Kirigami.FormData.label: i18n("Account name:")
         }
         QQC2.Label {
-            text: rcAccount ? i18n("User name: %1", rcAccount.serverConfigInfo.userName) : ""
-            font.pointSize: 15
-            textFormat: Text.PlainText
+            text: rcAccount.serverConfigInfo.userName
+            Kirigami.FormData.label: i18n("User name:")
         }
         QQC2.Label {
-            text: rcAccount ? i18n("Server version: %1", rcAccount.serverConfigInfo.serverVersionStr) : ""
-            font.pointSize: 15
-            textFormat: Text.PlainText
+            text: rcAccount.serverConfigInfo.serverVersionStr
+            Kirigami.FormData.label: i18n("Server version:")
         }
     }
-
 }
