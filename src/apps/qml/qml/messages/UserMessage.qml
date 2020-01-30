@@ -113,6 +113,7 @@ MessageBase {
                     visible: i_roles.length > 0
                     opacity: opacityDefaultValue
                     MouseArea {
+                        id: rolesInfoMA
                         hoverEnabled: true
                         anchors.fill: parent
                         onEntered: {
@@ -122,11 +123,9 @@ MessageBase {
                         onExited: {
                             rolesInfo.opacity = rolesInfo.opacityDefaultValue
                         }
-                        QQC2.ToolTip {
-                            id: tooltipRoleInfo
-                            text: i_roles
-                        }
                     }
+                    QQC2.ToolTip.visible: rolesInfoMA.containsMouse
+                    QQC2.ToolTip.text: i_roles
                 }
 
                 QQC2.Label {
