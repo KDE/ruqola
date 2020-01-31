@@ -58,6 +58,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mExpireToken = mSetting->value(QStringLiteral("expireToken")).toLongLong();
     mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
     mShowUnreadOnTop = mSetting->value(QStringLiteral("showunreadontop")).toBool();
+    mAccountEnabled =  mSetting->value(QStringLiteral("enabled"), true).toBool();
 #if HAVE_QT5KEYCHAIN
     auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
     connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
@@ -90,14 +91,19 @@ void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
 #endif
 }
 
-bool RocketChatAccountSettings::enabled() const
+bool RocketChatAccountSettings::accountEnabled() const
 {
-    return mEnabled;
+    return mAccountEnabled;
 }
 
-void RocketChatAccountSettings::setEnabled(bool enabled)
+void RocketChatAccountSettings::setAccountEnabled(bool enabled)
 {
-    mEnabled = enabled;
+    if (mAccountEnabled != enabled) {
+        mAccountEnabled = enabled;
+        mSetting->setValue(QStringLiteral("enabled"), mAccountEnabled);
+        mSetting->sync();
+        Q_EMIT enableAccountChanged();
+    }
 }
 
 qint64 RocketChatAccountSettings::expireToken() const

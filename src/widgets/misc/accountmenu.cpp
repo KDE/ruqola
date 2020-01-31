@@ -43,7 +43,9 @@ void AccountMenu::slotUpdateAccountMenu()
     RocketChatAccountModel *model = Ruqola::self()->accountManager()->rocketChatAccountModel();
     const QString currentAccountName = Ruqola::self()->accountManager()->currentAccount();
     const int accountNumber = model->accountNumber();
-    if (accountNumber == 1) {
+    if (accountNumber == 0) {
+        //Nothing
+    } else if (accountNumber == 1) {
         QAction *action = new QAction(model->account(0)->accountName(), this);
         menu()->addAction(action);
         action->setEnabled(false);
@@ -52,17 +54,19 @@ void AccountMenu::slotUpdateAccountMenu()
         group->setExclusive(true);
         for (int i = 0; i < accountNumber; ++i) {
             RocketChatAccount *account = model->account(i);
-            const QString accountName = account->accountName();
-            QAction *action = new QAction(accountName, this);
-            action->setCheckable(true);
-            group->addAction(action);
-            if (currentAccountName == accountName) {
-                action->setChecked(true);
+            if (account->accountEnabled()) {
+                const QString accountName = account->accountName();
+                QAction *action = new QAction(accountName, this);
+                action->setCheckable(true);
+                group->addAction(action);
+                if (currentAccountName == accountName) {
+                    action->setChecked(true);
+                }
+                menu()->addAction(action);
+                connect(action, &QAction::triggered, this, [this, accountName](){
+                    Ruqola::self()->accountManager()->setCurrentAccount(accountName);
+                });
             }
-            menu()->addAction(action);
-            connect(action, &QAction::triggered, this, [this, accountName](){
-                Ruqola::self()->accountManager()->setCurrentAccount(accountName);
-            });
         }
     }
 }

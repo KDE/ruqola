@@ -213,5 +213,5 @@ void RocketChatAccountSettingsTest::shouldHaveDefaultValues()
     QCOMPARE(chat.serverUrl(), QStringLiteral("open.rocket.chat"));
     QVERIFY(!chat.showUnreadOnTop());
     QVERIFY(chat.twoFactorAuthenticationCode().isEmpty());
-    QVERIFY(chat.enabled());
+    QVERIFY(chat.accountEnabled());
 }

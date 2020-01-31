@@ -39,7 +39,7 @@ public:
     ~AccountManager();
 
     Q_INVOKABLE void removeAccount(const QString &accountName);
-    Q_INVOKABLE void addAccount(const QString &accountName, const QString &username, const QString &url);
+    Q_INVOKABLE void addAccount(const QString &accountName, const QString &username, const QString &url, bool enabled = true);
 
     RocketChatAccount *account() const;
     RocketChatAccountModel *rocketChatAccountModel() const;
@@ -51,6 +51,8 @@ public:
     void setCurrentAccount(const QString &accountName);
     Q_REQUIRED_RESULT QString currentAccount() const;
     void selectAccount(const QString &accountName);
+
+    void modifyAccount(const QString &accountName, const QString &username, const QString &url, bool enabled);
 
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);

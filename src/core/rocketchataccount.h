@@ -384,6 +384,10 @@ public:
     Q_REQUIRED_RESULT bool discussionEnabled() const;
     Q_REQUIRED_RESULT QString recordingVideoPath() const;
     Q_REQUIRED_RESULT QString recordingImagePath() const;
+
+    void setAccountEnabled(bool enabled);
+    Q_REQUIRED_RESULT bool accountEnabled() const;
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();

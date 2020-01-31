@@ -50,12 +50,29 @@ void AccountServerListWidget::load()
         info.serverName = model->account(i)->serverUrl();
         info.userName = model->account(i)->userName();
         item->setAccountInfo(info);
+        item->setNewAccount(false);
+        item->setCheckState(model->account(i)->accountEnabled() ? Qt::Checked : Qt::Unchecked);
     }
 }
 
 void AccountServerListWidget::save()
 {
-    //TODO
+    //First remove account
+    for (const QString &accountName : qAsConst(mListRemovedAccount)) {
+        Ruqola::self()->accountManager()->removeAccount(accountName);
+    }
+
+    //Add account or modify it
+    for (int i = 0; i < count(); ++i) {
+        QListWidgetItem *it = item(i);
+        AccountServerListWidgetItem *serverListItem = static_cast<AccountServerListWidgetItem *>(it);
+        const CreateNewAccountDialog::AccountInfo info = serverListItem->accountInfo();
+        if (serverListItem->newAccount()) {
+            Ruqola::self()->accountManager()->addAccount(info.accountName, info.userName, info.serverName, serverListItem->checkState() == Qt::Checked);
+        } else {
+            Ruqola::self()->accountManager()->modifyAccount(info.accountName, info.userName, info.serverName, serverListItem->checkState() == Qt::Checked);
+        }
+    }
 }
 
 void AccountServerListWidget::modifyAccountConfig()
@@ -77,7 +94,7 @@ void AccountServerListWidget::modifyAccountConfig()
 
 void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item)
 {
-    Ruqola::self()->accountManager()->removeAccount(item->text());
+    mListRemovedAccount.append(item->text());
 }
 
 void AccountServerListWidget::addAccountConfig()
@@ -85,9 +102,10 @@ void AccountServerListWidget::addAccountConfig()
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
     if (dlg->exec()) {
         const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
-        Ruqola::self()->accountManager()->addAccount(info.accountName, info.userName, info.serverName);
         AccountServerListWidgetItem *item = new AccountServerListWidgetItem(this);
+        item->setCheckState(Qt::Checked);
         item->setAccountInfo(info);
+        item->setNewAccount(true);
         //Check if account name already exist !:
     }
     delete dlg;
@@ -112,4 +130,14 @@ void AccountServerListWidgetItem::setAccountInfo(const CreateNewAccountDialog::A
 {
     mInfo = info;
     setText(info.accountName);
+}
+
+bool AccountServerListWidgetItem::newAccount() const
+{
+    return mNewAccount;
+}
+
+void AccountServerListWidgetItem::setNewAccount(bool newAccount)
+{
+    mNewAccount = newAccount;
 }

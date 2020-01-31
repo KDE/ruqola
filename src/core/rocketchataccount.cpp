@@ -1419,9 +1419,19 @@ void RocketChatAccount::setTwoFactorAuthenticationCode(const QString &twoFactorA
     settings()->setTwoFactorAuthenticationCode(twoFactorAuthenticationCode);
 }
 
+void RocketChatAccount::setAccountEnabled(bool enabled)
+{
+    settings()->setAccountEnabled(enabled);
+}
+
 void RocketChatAccount::setUserName(const QString &username)
 {
     settings()->setUserName(username);
+}
+
+bool RocketChatAccount::accountEnabled() const
+{
+    return settings()->accountEnabled();
 }
 
 void RocketChatAccount::setUserID(const QString &userID)

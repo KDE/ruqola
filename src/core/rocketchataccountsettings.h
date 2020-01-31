@@ -73,8 +73,8 @@ public:
 
     Q_REQUIRED_RESULT bool tokenExpired() const;
 
-    Q_REQUIRED_RESULT bool enabled() const;
-    void setEnabled(bool enabled);
+    Q_REQUIRED_RESULT bool accountEnabled() const;
+    void setAccountEnabled(bool accountEnabled);
 
 Q_SIGNALS:
     void serverURLChanged();
@@ -83,6 +83,7 @@ Q_SIGNALS:
     void accountNameChanged();
     void passwordChanged();
     void twoFactorAuthenticationCodeChanged();
+    void enableAccountChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccountSettings)
@@ -101,7 +102,7 @@ private:
     qint64 mExpireToken = -1;
     QSettings *mSetting = nullptr;
     bool mShowUnreadOnTop = false;
-    bool mEnabled = true;
+    bool mAccountEnabled = true;
 };
 
 #endif // ROCKETCHATACCOUNTSETTINGS_H

@@ -34,8 +34,12 @@ public:
     Q_REQUIRED_RESULT CreateNewAccountDialog::AccountInfo accountInfo() const;
     void setAccountInfo(const CreateNewAccountDialog::AccountInfo &accountInfo);
 
+    Q_REQUIRED_RESULT bool newAccount() const;
+    void setNewAccount(bool newAccount);
+
 private:
     CreateNewAccountDialog::AccountInfo mInfo;
+    bool mNewAccount = false;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountServerListWidget : public QListWidget
@@ -50,8 +54,9 @@ public:
     void addAccountConfig();
     void deleteAccountConfig(QListWidgetItem *item);
 
-public Q_SLOTS:
     void modifyAccountConfig();
+private:
+    QStringList mListRemovedAccount;
 };
 
 #endif // ACCOUNTSERVERLISTWIDGET_H
