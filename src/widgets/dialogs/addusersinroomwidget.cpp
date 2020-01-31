@@ -21,13 +21,38 @@
 
 #include "addusersinroomwidget.h"
 
+#include <KLineEdit>
+#include <QListView>
+#include <QVBoxLayout>
+
 AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
     : QWidget(parent)
 {
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mSearchUserLineEdit = new KLineEdit(this);
+    mSearchUserLineEdit->setObjectName(QStringLiteral("mSearchUserLineEdit"));
+    mSearchUserLineEdit->setClearButtonEnabled(true);
+    mSearchUserLineEdit->setTrapReturnKey(true);
+    mSearchUserLineEdit->setPlaceholderText(i18n("Search Users..."));
+    connect(mSearchUserLineEdit, &KLineEdit::textChanged, this, &AddUsersInRoomWidget::slotSearchMessageTextChanged);
+    mainLayout->addWidget(mSearchUserLineEdit);
+
+    mListUsers = new QListView(this);
+    mListUsers->setObjectName(QStringLiteral("mListUsers"));
+    mainLayout->addWidget(mListUsers);
+    mListUsers->setItemDelegate(new ListDiscussionDelegate(this));
 
 }
 
 AddUsersInRoomWidget::~AddUsersInRoomWidget()
 {
 
+}
+
+void AddUsersInRoomWidget::slotSearchMessageTextChanged(const QString &str)
+{
+    //TODO
 }
