@@ -164,7 +164,7 @@ void MessageLineEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(InputCompleterModel::CompleterName).toString();
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    const QString newText = rcAccount->replaceWord(completerName, text(), cursorPosition());
+    const QString newText = rcAccount->replaceWord(completerName + QLatin1Char(' '), text(), cursorPosition());
 
     mCompletionListView->hide();
 
