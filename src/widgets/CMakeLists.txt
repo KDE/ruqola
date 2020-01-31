@@ -47,6 +47,8 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/createnewdiscussionwidget.cpp
     dialogs/channelpassworddialog.cpp
     dialogs/channelpasswordwidget.cpp
+    dialogs/addusersinroomdialog.cpp
+    dialogs/addusersinroomwidget.cpp
     )
 
 set(Ruqola_configure_SRCS
