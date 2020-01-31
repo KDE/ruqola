@@ -61,6 +61,7 @@ private:
     void slotUnreadOnTop(bool checked);
     void updateActions();
     void slotMissingChannelPassword(const QString &roomId);
+    void slotShowChannelInfo();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
@@ -78,6 +79,7 @@ private:
     QAction *mShowDiscussions = nullptr;
     QAction *mShowThreads = nullptr;
     QAction *mUnreadOnTop = nullptr;
+    QAction *mChannelInfo = nullptr;
     AccountMenu *mAccountMenu = nullptr;
     RocketChatAccount *mCurrentRocketChatAccount = nullptr;
     QLabel *mStatusBarTypingMessage = nullptr;

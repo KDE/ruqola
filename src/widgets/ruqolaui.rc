@@ -24,6 +24,8 @@
    <Action name="show_discussions" />
    <Action name="show_threads" />
    <Separator/>
+   <Action name="channel_info" />
+   <Separator/>
    <Action name="search_messages" />
    <Separator/>
    <Action name="configure_notification" />

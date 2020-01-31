@@ -35,8 +35,7 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     mChannelInfoWidget->setObjectName(QStringLiteral("mChannelInfoWidget"));
     mainLayout->addWidget(mChannelInfoWidget);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel, this);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &ChannelInfoDialog::accept);
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelInfoDialog::reject);
     mainLayout->addWidget(buttonBox);
 }

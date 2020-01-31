@@ -38,6 +38,8 @@
 #include "dialogs/showattachmentdialog.h"
 #include "dialogs/showdiscussionsdialog.h"
 #include "dialogs/channelpassworddialog.h"
+#include "dialogs/channelinfodialog.h"
+#include "dialogs/directchannelinfodialog.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -198,6 +200,10 @@ void RuqolaMainWindow::setupActions()
     mUnreadOnTop->setCheckable(true);
     connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
     ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
+
+    mChannelInfo = new QAction(i18n("Channel Info..."), this);
+    connect(mChannelInfo, &QAction::triggered, this, &RuqolaMainWindow::slotShowChannelInfo);
+    ac->addAction(QStringLiteral("channel_info"), mChannelInfo);
 }
 
 void RuqolaMainWindow::slotShowThreads()
@@ -214,6 +220,20 @@ void RuqolaMainWindow::slotShowDiscussions()
     //TODO dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
     dlg->exec();
     delete dlg;
+}
+
+void RuqolaMainWindow::slotShowChannelInfo()
+{
+    const QString roomType = mMainWidget->roomType();
+    if (roomType == QLatin1String("d")) {
+        QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
+        dlg->exec();
+        delete dlg;
+    } else {
+        QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(this);
+        dlg->exec();
+        delete dlg;
+    }
 }
 
 void RuqolaMainWindow::slotShowFileAttachments()
