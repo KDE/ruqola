@@ -19,10 +19,29 @@
 */
 
 #include "directchannelinfodialogtest.h"
+#include "dialogs/directchannelinfodialog.h"
+#include "dialogs/directchannelinfowidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(DirectChannelInfoDialogTest)
 
 DirectChannelInfoDialogTest::DirectChannelInfoDialogTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void DirectChannelInfoDialogTest::shouldHaveDefaultValue()
+{
+    DirectChannelInfoDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    DirectChannelInfoWidget *mDirectChannelInfoWidget = w.findChild<DirectChannelInfoWidget *>(QStringLiteral("mDirectChannelInfoWidget"));
+    QVERIFY(mDirectChannelInfoWidget);
+
+    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
+    QVERIFY(button);
 }

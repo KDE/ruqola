@@ -29,6 +29,8 @@ class DirectChannelInfoDialogTest : public QObject
 public:
     explicit DirectChannelInfoDialogTest(QObject *parent = nullptr);
     ~DirectChannelInfoDialogTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValue();
 };
 
 #endif // DIRECTCHANNELINFODIALOGTEST_H

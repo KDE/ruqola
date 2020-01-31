@@ -19,6 +19,7 @@
 */
 
 #include "directchannelinfodialog.h"
+#include "directchannelinfowidget.h"
 #include <KLocalizedString>
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
@@ -26,6 +27,18 @@
 DirectChannelInfoDialog::DirectChannelInfoDialog(QWidget *parent)
     : QDialog(parent)
 {
+    setWindowTitle(i18nc("@title:window", "Channel Info"));
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mDirectChannelInfoWidget = new DirectChannelInfoWidget(this);
+    mDirectChannelInfoWidget->setObjectName(QStringLiteral("mDirectChannelInfoWidget"));
+    mainLayout->addWidget(mDirectChannelInfoWidget);
+
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    buttonBox->setObjectName(QStringLiteral("buttonBox"));
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &DirectChannelInfoDialog::reject);
+    mainLayout->addWidget(buttonBox);
 }
 
 DirectChannelInfoDialog::~DirectChannelInfoDialog()

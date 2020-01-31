@@ -23,7 +23,8 @@
 
 #include <QWidget>
 
-class DirectChannelInfoWidget : public QWidget
+#include "libruqolawidgets_private_export.h"
+class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
