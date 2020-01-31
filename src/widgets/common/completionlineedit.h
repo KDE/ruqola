@@ -44,7 +44,6 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
-    void slotTextChanged(const QString &text);
     void slotCompletionAvailable();
 
 protected:

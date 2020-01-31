@@ -36,7 +36,6 @@ CompletionLineEdit::CompletionLineEdit(QWidget *parent)
     : QLineEdit(parent)
 {
     setClearButtonEnabled(true);
-    connect(this, &QLineEdit::textChanged, this, &CompletionLineEdit::slotTextChanged);
 
     // QCompleter does the filtering itself... so we need to implement our own popup
     mCompletionListView = new QListView;
@@ -95,12 +94,6 @@ bool CompletionLineEdit::eventFilter(QObject *watched, QEvent *ev)
         }
     }
     return QLineEdit::eventFilter(watched, ev);
-}
-
-void CompletionLineEdit::slotTextChanged(const QString &text)
-{
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    //rcAccount->setInputTextChanged(text, cursorPosition());
 }
 
 void CompletionLineEdit::slotCompletionAvailable()
