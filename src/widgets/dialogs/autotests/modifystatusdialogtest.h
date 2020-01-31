@@ -22,8 +22,7 @@
 #define MODIFYSTATUSDIALOGTEST_H
 
 #include <QObject>
-#include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ModifyStatusDialogTest : public QObject
+class ModifyStatusDialogTest : public QObject
 {
     Q_OBJECT
 public:
