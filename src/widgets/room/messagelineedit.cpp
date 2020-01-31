@@ -28,6 +28,10 @@
 #include <QScreen>
 #include <QScrollBar>
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 14, 0)
+#include <QApplication>
+#include <QDesktopWidget>
+#endif
 
 MessageLineEdit::MessageLineEdit(QWidget *parent)
     : QLineEdit(parent)
@@ -107,7 +111,14 @@ void MessageLineEdit::slotCompletionAvailable()
     const int maxVisibleItems = 15;
 
     // Not entirely unlike QCompletionPrivate::showPopup
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     const QRect screenRect = screen()->availableGeometry();
+#else
+    const int screenNum = QApplication::desktop()->screenNumber(this);
+    auto *screen = QApplication::screens().value(screenNum);
+    Q_ASSERT(screen);
+    const QRect screenRect = screen->availableGeometry();
+#endif
     int h = (mCompletionListView->sizeHintForRow(0) * qMin(maxVisibleItems, rowCount) + 3) + 3;
     QScrollBar *hsb = mCompletionListView->horizontalScrollBar();
     if (hsb && hsb->isVisible())
