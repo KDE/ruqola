@@ -39,7 +39,6 @@ public:
 
     Q_REQUIRED_RESULT AccountInfo accountInfo() const;
     void setAccountInfo(const AccountInfo &info);
-    void setAccountName(const QString &name);
 private:
     void readConfig();
     void writeConfig();

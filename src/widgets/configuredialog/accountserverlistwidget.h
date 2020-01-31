@@ -24,25 +24,18 @@
 #include <QListWidget>
 #include "libruqolawidgets_private_export.h"
 #include "user.h"
+#include "dialogs/createnewaccountdialog.h"
 class ModifyStatusWidget;
 class AccountServerListWidgetItem : public QListWidgetItem
 {
 public:
     explicit AccountServerListWidgetItem(QListWidget *parent = nullptr);
     ~AccountServerListWidgetItem();
-    Q_REQUIRED_RESULT QString accountName() const;
-    void setAccountName(const QString &accountName);
-
-    Q_REQUIRED_RESULT QString serverUrl() const;
-    void setServerUrl(const QString &serverUrl);
-
-    Q_REQUIRED_RESULT QString userName() const;
-    void setUserName(const QString &userName);
+    Q_REQUIRED_RESULT CreateNewAccountDialog::AccountInfo accountInfo() const;
+    void setAccountInfo(const CreateNewAccountDialog::AccountInfo &accountInfo);
 
 private:
-    QString mAccountName;
-    QString mServerUrl;
-    QString mUserName;
+    CreateNewAccountDialog::AccountInfo mInfo;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountServerListWidget : public QListWidget

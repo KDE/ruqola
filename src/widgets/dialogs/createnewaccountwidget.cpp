@@ -75,6 +75,16 @@ void CreateNewAccountWidget::setAccountName(const QString &name)
     mAccountName->setReadOnly(true);
 }
 
+void CreateNewAccountWidget::setUserName(const QString &username)
+{
+    mUserName->setText(username);
+}
+
+void CreateNewAccountWidget::setServerName(const QString &servername)
+{
+    mServerName->setText(servername);
+}
+
 QString CreateNewAccountWidget::userName() const
 {
     return mUserName->text().trimmed();

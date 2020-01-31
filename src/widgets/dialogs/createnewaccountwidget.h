@@ -37,6 +37,8 @@ public:
     Q_REQUIRED_RESULT QString serverName() const;
 
     void setAccountName(const QString &name);
+    void setUserName(const QString &username);
+    void setServerName(const QString &servername);
 
 Q_SIGNALS:
     void updateOkButton(bool state);

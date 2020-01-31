@@ -71,15 +71,10 @@ CreateNewAccountDialog::AccountInfo CreateNewAccountDialog::accountInfo() const
 
 void CreateNewAccountDialog::setAccountInfo(const CreateNewAccountDialog::AccountInfo &info)
 {
-    mNewAccountWidget->setAccountName(info.accountName);
-    //mNewAccountWidget->(info.accountName);
-    //mNewAccountWidget->setAccountName(info.accountName);
-}
-
-void CreateNewAccountDialog::setAccountName(const QString &name)
-{
-    mNewAccountWidget->setAccountName(name);
     setWindowTitle(i18nc("@title:window", "Modify Account"));
+    mNewAccountWidget->setAccountName(info.accountName);
+    mNewAccountWidget->setServerName(info.serverName);
+    mNewAccountWidget->setUserName(info.userName);
 }
 
 void CreateNewAccountDialog::readConfig()

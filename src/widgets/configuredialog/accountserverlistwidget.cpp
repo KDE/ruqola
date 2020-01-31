@@ -45,12 +45,17 @@ void AccountServerListWidget::load()
     const int accountNumber = model->accountNumber();
     for (int i = 0; i < accountNumber; ++i) {
         AccountServerListWidgetItem *item = new AccountServerListWidgetItem(this);
-        item->setText(model->account(i)->accountName());
+        CreateNewAccountDialog::AccountInfo info;
+        info.accountName = model->account(i)->accountName();
+        info.serverName = model->account(i)->serverUrl();
+        info.userName = model->account(i)->userName();
+        item->setAccountInfo(info);
     }
 }
 
 void AccountServerListWidget::save()
 {
+    //TODO
 }
 
 void AccountServerListWidget::modifyAccountConfig()
@@ -61,11 +66,11 @@ void AccountServerListWidget::modifyAccountConfig()
     }
 
     AccountServerListWidgetItem *serverListItem = static_cast<AccountServerListWidgetItem *>(item);
-    //TODO change title
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
-    dlg->setAccountName(item->text());
+    dlg->setAccountInfo(serverListItem->accountInfo());
     if (dlg->exec()) {
         const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
+        serverListItem->setAccountInfo(info);
         //TODO modify account
     }
 }
@@ -81,6 +86,9 @@ void AccountServerListWidget::addAccountConfig()
     if (dlg->exec()) {
         const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
         Ruqola::self()->accountManager()->addAccount(info.accountName, info.userName, info.serverName);
+        AccountServerListWidgetItem *item = new AccountServerListWidgetItem(this);
+        item->setAccountInfo(info);
+        //Check if account name already exist !:
     }
     delete dlg;
 }
@@ -94,32 +102,14 @@ AccountServerListWidgetItem::~AccountServerListWidgetItem()
 {
 }
 
-QString AccountServerListWidgetItem::accountName() const
+
+CreateNewAccountDialog::AccountInfo AccountServerListWidgetItem::accountInfo() const
 {
-    return mAccountName;
+    return mInfo;
 }
 
-void AccountServerListWidgetItem::setAccountName(const QString &accountName)
+void AccountServerListWidgetItem::setAccountInfo(const CreateNewAccountDialog::AccountInfo &info)
 {
-    mAccountName = accountName;
-}
-
-QString AccountServerListWidgetItem::serverUrl() const
-{
-    return mServerUrl;
-}
-
-void AccountServerListWidgetItem::setServerUrl(const QString &serverUrl)
-{
-    mServerUrl = serverUrl;
-}
-
-QString AccountServerListWidgetItem::userName() const
-{
-    return mUserName;
-}
-
-void AccountServerListWidgetItem::setUserName(const QString &userName)
-{
-    mUserName = userName;
+    mInfo = info;
+    setText(info.accountName);
 }
