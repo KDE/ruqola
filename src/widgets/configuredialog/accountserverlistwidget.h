@@ -30,6 +30,19 @@ class AccountServerListWidgetItem : public QListWidgetItem
 public:
     explicit AccountServerListWidgetItem(QListWidget *parent = nullptr);
     ~AccountServerListWidgetItem();
+    Q_REQUIRED_RESULT QString accountName() const;
+    void setAccountName(const QString &accountName);
+
+    Q_REQUIRED_RESULT QString serverUrl() const;
+    void setServerUrl(const QString &serverUrl);
+
+    Q_REQUIRED_RESULT QString userName() const;
+    void setUserName(const QString &userName);
+
+private:
+    QString mAccountName;
+    QString mServerUrl;
+    QString mUserName;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountServerListWidget : public QListWidget

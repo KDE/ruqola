@@ -21,6 +21,7 @@
 #include "accountserverlistwidget.h"
 #include "ruqola.h"
 #include "accountmanager.h"
+#include "rocketchataccount.h"
 #include "dialogs/createnewaccountdialog.h"
 #include "model/rocketchataccountmodel.h"
 #include <KLocalizedString>
@@ -40,6 +41,12 @@ AccountServerListWidget::~AccountServerListWidget()
 
 void AccountServerListWidget::load()
 {
+    RocketChatAccountModel *model = Ruqola::self()->accountManager()->rocketChatAccountModel();
+    const int accountNumber = model->accountNumber();
+    for (int i = 0; i < accountNumber; ++i) {
+        AccountServerListWidgetItem *item = new AccountServerListWidgetItem(this);
+        item->setText(model->account(i)->accountName());
+    }
 }
 
 void AccountServerListWidget::save()
@@ -53,10 +60,10 @@ void AccountServerListWidget::modifyAccountConfig()
         return;
     }
 
-    //AccountServerListWidgetItem *serverSieveListItem = static_cast<AccountServerListWidgetItem *>(item);
+    AccountServerListWidgetItem *serverListItem = static_cast<AccountServerListWidgetItem *>(item);
     //TODO change title
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
-    dlg->setAccessibleName(item->text());
+    dlg->setAccountName(item->text());
     if (dlg->exec()) {
         const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
         //TODO modify account
@@ -85,4 +92,34 @@ AccountServerListWidgetItem::AccountServerListWidgetItem(QListWidget *parent)
 
 AccountServerListWidgetItem::~AccountServerListWidgetItem()
 {
+}
+
+QString AccountServerListWidgetItem::accountName() const
+{
+    return mAccountName;
+}
+
+void AccountServerListWidgetItem::setAccountName(const QString &accountName)
+{
+    mAccountName = accountName;
+}
+
+QString AccountServerListWidgetItem::serverUrl() const
+{
+    return mServerUrl;
+}
+
+void AccountServerListWidgetItem::setServerUrl(const QString &serverUrl)
+{
+    mServerUrl = serverUrl;
+}
+
+QString AccountServerListWidgetItem::userName() const
+{
+    return mUserName;
+}
+
+void AccountServerListWidgetItem::setUserName(const QString &userName)
+{
+    mUserName = userName;
 }

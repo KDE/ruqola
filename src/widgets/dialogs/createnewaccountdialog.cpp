@@ -69,6 +69,13 @@ CreateNewAccountDialog::AccountInfo CreateNewAccountDialog::accountInfo() const
     return info;
 }
 
+void CreateNewAccountDialog::setAccountInfo(const CreateNewAccountDialog::AccountInfo &info)
+{
+    mNewAccountWidget->setAccountName(info.accountName);
+    //mNewAccountWidget->(info.accountName);
+    //mNewAccountWidget->setAccountName(info.accountName);
+}
+
 void CreateNewAccountDialog::setAccountName(const QString &name)
 {
     mNewAccountWidget->setAccountName(name);
