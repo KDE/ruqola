@@ -28,9 +28,14 @@
 ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QFormLayout *mainLayout = new QFormLayout(this);
+    QVBoxLayout *topLayout = new QVBoxLayout(this);
+    topLayout->setObjectName(QStringLiteral("topLayout"));
+    topLayout->setContentsMargins(0, 0, 0, 0);
+
+    QFormLayout *mainLayout = new QFormLayout;
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
+    topLayout->addLayout(mainLayout);
 
     mDisableNotification = new QCheckBox(this);
     mDisableNotification->setObjectName(QStringLiteral("mDisableNotification"));
@@ -46,7 +51,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
 
     QGroupBox *desktopGroupBox = new QGroupBox(i18n("Desktop"), this);
     desktopGroupBox->setObjectName(QStringLiteral("desktopGroupBox"));
-    mainLayout->addWidget(desktopGroupBox);
+    topLayout->addWidget(desktopGroupBox);
 
     QFormLayout *desktopGroupBoxLayout = new QFormLayout(desktopGroupBox);
 }
