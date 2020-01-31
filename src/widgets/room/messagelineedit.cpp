@@ -85,8 +85,12 @@ bool MessageLineEdit::eventFilter(QObject *watched, QEvent *ev)
         const QEvent::Type eventType = ev->type();
         if (eventType == QEvent::KeyPress) {
             QKeyEvent *kev = static_cast<QKeyEvent *>(ev);
-            if (kev->key() == Qt::Key_Escape) {
+            const int key = kev->key();
+            if (key == Qt::Key_Escape) {
                 mCompletionListView->hide();
+                return true;
+            } else if (key == Qt::Key_Return) {
+                slotComplete(mCompletionListView->currentIndex());
                 return true;
             }
             event(ev);
@@ -149,6 +153,8 @@ void MessageLineEdit::slotCompletionAvailable()
     mCompletionListView->setGeometry(pos.x(), pos.y(), w, h);
 
     if (!mCompletionListView->isVisible()) {
+        if (!mCompletionListView->currentIndex().isValid())
+            mCompletionListView->setCurrentIndex(mCompletionListView->model()->index(0, 0));
         mCompletionListView->show();
     }
 }
