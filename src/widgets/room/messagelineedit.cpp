@@ -89,7 +89,8 @@ bool MessageLineEdit::eventFilter(QObject *watched, QEvent *ev)
             if (key == Qt::Key_Escape) {
                 mCompletionListView->hide();
                 return true;
-            } else if (key == Qt::Key_Return) {
+            } else if (key == Qt::Key_Return ||
+                       key == Qt::Key_Enter) {
                 slotComplete(mCompletionListView->currentIndex());
                 return true;
             }
