@@ -43,3 +43,8 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
 ChannelInfoDialog::~ChannelInfoDialog()
 {
 }
+
+void ChannelInfoDialog::setCanBeModified(bool editable)
+{
+    mChannelInfoWidget->setCanBeModified(editable);
+}

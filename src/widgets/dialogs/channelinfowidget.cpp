@@ -82,3 +82,12 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
 ChannelInfoWidget::~ChannelInfoWidget()
 {
 }
+//Set roomWrapper here directly
+void ChannelInfoWidget::setCanBeModified(bool editable)
+{
+    //TODO
+    mName->setReadOnly(!editable);
+    mComment->setReadOnly(!editable);
+    mAnnouncement->setReadOnly(!editable);
+    mDescription->setReadOnly(!editable);
+}

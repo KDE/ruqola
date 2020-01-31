@@ -21,6 +21,7 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include "accountmanager.h"
+#include "roomwrapper.h"
 #include "receivetypingnotificationmanager.h"
 #include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
@@ -224,15 +225,19 @@ void RuqolaMainWindow::slotShowDiscussions()
 
 void RuqolaMainWindow::slotShowChannelInfo()
 {
-    const QString roomType = mMainWidget->roomType();
-    if (roomType == QLatin1String("d")) {
-        QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
-        dlg->exec();
-        delete dlg;
-    } else {
-        QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(this);
-        dlg->exec();
-        delete dlg;
+    RoomWrapper *roomWrapper = mMainWidget->roomWrapper();
+    if (roomWrapper) {
+        const QString roomType = mMainWidget->roomType();
+        if (roomType == QLatin1String("d")) {
+            QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
+            dlg->exec();
+            delete dlg;
+        } else {
+            QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(this);
+            dlg->setCanBeModified(roomWrapper->canBeModify());
+            dlg->exec();
+            delete dlg;
+        }
     }
 }
 

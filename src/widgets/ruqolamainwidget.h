@@ -27,6 +27,7 @@ class ChannelListWidget;
 class RoomWidget;
 class QSplitter;
 class RocketChatAccount;
+class RoomWrapper;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaMainWidget : public QWidget
 {
     Q_OBJECT
@@ -36,6 +37,7 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     Q_REQUIRED_RESULT QString roomType() const;
+    RoomWrapper *roomWrapper() const;
 private:
     ChannelListWidget *mChannelList = nullptr;
     RoomWidget *mRoomWidget = nullptr;

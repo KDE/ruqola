@@ -27,6 +27,7 @@ class QStackedWidget;
 class RuqolaMainWidget;
 class RuqolaLoginWidget;
 class RocketChatAccount;
+class RoomWrapper;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaCentralWidget : public QWidget
 {
     Q_OBJECT
@@ -37,6 +38,7 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     Q_REQUIRED_RESULT QString roomType() const;
+    RoomWrapper *roomWrapper() const;
 private:
     void slotLoginStatusChanged();
     void slotJobFailedInfo(const QString &messageError);

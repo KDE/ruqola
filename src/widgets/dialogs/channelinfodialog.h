@@ -30,6 +30,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoDialog : public QDialog
 public:
     explicit ChannelInfoDialog(QWidget *parent = nullptr);
     ~ChannelInfoDialog();
+    void setCanBeModified(bool editable);
 private:
     ChannelInfoWidget *mChannelInfoWidget = nullptr;
 };

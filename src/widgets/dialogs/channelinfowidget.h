@@ -33,6 +33,7 @@ class LIBRUQOLAWIDGETS_EXPORT ChannelInfoWidget : public QWidget
 public:
     explicit ChannelInfoWidget(QWidget *parent = nullptr);
     ~ChannelInfoWidget();
+    void setCanBeModified(bool editable);
 private:
     KLineEdit *mName = nullptr;
     KLineEdit *mComment = nullptr;

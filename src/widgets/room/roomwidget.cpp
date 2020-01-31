@@ -137,6 +137,11 @@ void RoomWidget::setRoomType(const QString &roomType)
     mRoomType = roomType;
 }
 
+RoomWrapper *RoomWidget::roomWrapper() const
+{
+    return mRoomWrapper;
+}
+
 void RoomWidget::setRoomId(const QString &roomId)
 {
     if (mRoomId != roomId) {

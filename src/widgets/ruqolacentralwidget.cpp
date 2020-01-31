@@ -59,6 +59,11 @@ void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError)
     KMessageBox::error(this, messageError, i18n("Job Failed"));
 }
 
+RoomWrapper *RuqolaCentralWidget::roomWrapper() const
+{
+    return mRuqolaMainWidget->roomWrapper();
+}
+
 QString RuqolaCentralWidget::roomId() const
 {
     return mRuqolaMainWidget->roomId();

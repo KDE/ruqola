@@ -69,6 +69,11 @@ RuqolaMainWidget::~RuqolaMainWidget()
     }
 }
 
+RoomWrapper *RuqolaMainWidget::roomWrapper() const
+{
+    return mRoomWidget->roomWrapper();
+}
+
 QString RuqolaMainWidget::roomId() const
 {
     return mRoomWidget->roomId();
