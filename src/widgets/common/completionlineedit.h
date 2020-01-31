@@ -18,35 +18,37 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGELINEEDIT_H
-#define MESSAGELINEEDIT_H
+#ifndef COMPLETIONLINEEDIT_H
+#define COMPLETIONLINEEDIT_H
 
 #include <QLineEdit>
-
-#include "common/completionlineedit.h"
 
 #include "libruqolawidgets_private_export.h"
 
 class QListView;
-
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineEdit : public CompletionLineEdit
+class QAbstractItemModel;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT CompletionLineEdit : public QLineEdit
 {
     Q_OBJECT
 public:
-    explicit MessageLineEdit(QWidget *parent = nullptr);
-    ~MessageLineEdit();
+    explicit CompletionLineEdit(QWidget *parent = nullptr);
+    ~CompletionLineEdit();
+
+    void setCompletionModel(QAbstractItemModel *model);
 
 Q_SIGNALS:
-    void sendMessage(const QString &str);
-    void clearNotification();
+    void complete(const QModelIndex &index);
 
 protected:
     void keyPressEvent(QKeyEvent *e) override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     void slotTextChanged(const QString &text);
     void slotCompletionAvailable();
-    void slotComplete(const QModelIndex &index);
+
+protected:
+    QListView *mCompletionListView;
 };
 
-#endif // MESSAGELINEEDIT_H
+#endif // COMPLETIONLINEEDIT_H

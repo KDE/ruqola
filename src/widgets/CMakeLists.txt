@@ -90,11 +90,16 @@ set(Ruqola_misc_widget_SRCS
     misc/emoticonselectorwidget.cpp
     )
 
+set(Ruqola_common_SRCS
+    common/completionlineedit.cpp
+    )
+
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
 
 qt5_add_resources(Ruqola_widgets_SRCS ruqolawidget.qrc)
 
 add_library(libruqolawidgets
+    ${Ruqola_common_SRCS}
     ${Ruqola_widgets_SRCS}
     ${Ruqola_widgets_dialog_SRCS}
     ${Ruqola_channellist_SRCS}
