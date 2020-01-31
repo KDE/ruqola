@@ -69,6 +69,12 @@ CreateNewAccountDialog::AccountInfo CreateNewAccountDialog::accountInfo() const
     return info;
 }
 
+void CreateNewAccountDialog::setAccountName(const QString &name)
+{
+    mNewAccountWidget->setAccountName(name);
+    setWindowTitle(i18nc("@title:window", "Modify Account"));
+}
+
 void CreateNewAccountDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);

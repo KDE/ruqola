@@ -69,6 +69,12 @@ QString CreateNewAccountWidget::serverName() const
     return mServerName->text().trimmed();
 }
 
+void CreateNewAccountWidget::setAccountName(const QString &name)
+{
+    mAccountName->setText(name);
+    mAccountName->setReadOnly(true);
+}
+
 QString CreateNewAccountWidget::userName() const
 {
     return mUserName->text().trimmed();
