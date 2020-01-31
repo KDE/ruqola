@@ -24,6 +24,7 @@
 #include <KLineEdit>
 #include <QListView>
 #include <QVBoxLayout>
+#include <KLocalizedString>
 
 AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
     : QWidget(parent)
