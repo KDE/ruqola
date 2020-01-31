@@ -56,6 +56,7 @@ void AccountServerListWidget::modifyAccountConfig()
     //AccountServerListWidgetItem *serverSieveListItem = static_cast<AccountServerListWidgetItem *>(item);
     //TODO change title
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
+    dlg->setAccessibleName(item->text());
     if (dlg->exec()) {
         const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
         //TODO modify account
