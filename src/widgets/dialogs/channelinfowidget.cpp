@@ -19,8 +19,12 @@
 */
 
 #include "channelinfowidget.h"
+#include <KLineEdit>
 #include <KLocalizedString>
+#include <KPasswordLineEdit>
+#include <QCheckBox>
 #include <QFormLayout>
+#include <QPushButton>
 
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
@@ -28,6 +32,51 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     QFormLayout *layout = new QFormLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
+
+    mName = new KLineEdit(this);
+    mName->setObjectName(QStringLiteral("mName"));
+    mName->setTrapReturnKey(true);
+    mName->setClearButtonEnabled(true);
+    layout->addRow(i18n("Name:"), mName);
+
+    mComment = new KLineEdit(this);
+    mComment->setObjectName(QStringLiteral("mComment"));
+    mComment->setTrapReturnKey(true);
+    mComment->setClearButtonEnabled(true);
+    layout->addRow(i18n("Comment:"), mComment);
+
+    mAnnouncement = new KLineEdit(this);
+    mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
+    mAnnouncement->setTrapReturnKey(true);
+    mAnnouncement->setClearButtonEnabled(true);
+    layout->addRow(i18n("Annoucement:"), mAnnouncement);
+
+    mDescription = new KLineEdit(this);
+    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mDescription->setTrapReturnKey(true);
+    mDescription->setClearButtonEnabled(true);
+    layout->addRow(i18n("Description:"), mDescription);
+
+    mPasswordLineEdit = new KPasswordLineEdit(this);
+    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
+    layout->addRow(i18n("Password:"), mPasswordLineEdit);
+
+    mReadOnly = new QCheckBox(this);
+    mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
+    layout->addRow(i18n("ReadOnly:"), mReadOnly);
+
+    mArchive = new QCheckBox(this);
+    mArchive->setObjectName(QStringLiteral("mArchive"));
+    layout->addRow(i18n("Archive:"), mArchive);
+
+    mPrivate = new QCheckBox(this);
+    mPrivate->setObjectName(QStringLiteral("mPrivate"));
+    layout->addRow(i18n("Private:"), mPrivate);
+
+    mDeleteChannel = new QPushButton(i18n("Delete"), this); //TODO add icons!
+    mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
+    layout->addRow(QStringLiteral(" "), mPrivate);
+
 }
 
 ChannelInfoWidget::~ChannelInfoWidget()

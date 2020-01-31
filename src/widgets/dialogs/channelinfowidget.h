@@ -23,12 +23,26 @@
 
 #include <QWidget>
 #include "libruqolawidgets_export.h"
+class KLineEdit;
+class KPasswordLineEdit;
+class QCheckBox;
+class QPushButton;
 class LIBRUQOLAWIDGETS_EXPORT ChannelInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ChannelInfoWidget(QWidget *parent = nullptr);
     ~ChannelInfoWidget();
+private:
+    KLineEdit *mName = nullptr;
+    KLineEdit *mComment = nullptr;
+    KLineEdit *mAnnouncement = nullptr;
+    KLineEdit *mDescription = nullptr;
+    KPasswordLineEdit *mPasswordLineEdit = nullptr;
+    QCheckBox *mReadOnly = nullptr;
+    QCheckBox *mArchive = nullptr;
+    QCheckBox *mPrivate = nullptr;
+    QPushButton *mDeleteChannel = nullptr;
 };
 
 #endif // CHANNELINFOWIDGET_H
