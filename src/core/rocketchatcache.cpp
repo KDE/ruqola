@@ -66,10 +66,10 @@ QString RocketChatCache::fileCachePath(const QUrl &url)
 
 void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl)
 {
-    const QString newPath = storeInCache ? fileCachePath(url) : localFileUrl.path();
+    const QString newPath = storeInCache ? fileCachePath(url) : localFileUrl.toLocalFile();
     //Split between image/video/audio
     const QUrl urldir = QUrl::fromUserInput(newPath).adjusted(QUrl::RemoveFilename);
-    QDir().mkpath(urldir.path());
+    QDir().mkpath(urldir.toLocalFile());
     QFile file(newPath);
     if (file.open(QIODevice::ReadWrite)) {
         file.write(data);
