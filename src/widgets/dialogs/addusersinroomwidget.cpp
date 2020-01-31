@@ -19,6 +19,7 @@
 */
 
 
+#include "adduserscompletionlineedit.h"
 #include "addusersinroomwidget.h"
 
 #include <KLineEdit>
@@ -33,12 +34,10 @@ AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    mSearchUserLineEdit = new KLineEdit(this);
+    mSearchUserLineEdit = new AddUsersCompletionLineEdit(this);
     mSearchUserLineEdit->setObjectName(QStringLiteral("mSearchUserLineEdit"));
-    mSearchUserLineEdit->setClearButtonEnabled(true);
-    mSearchUserLineEdit->setTrapReturnKey(true);
     mSearchUserLineEdit->setPlaceholderText(i18n("Search Users..."));
-    connect(mSearchUserLineEdit, &KLineEdit::textChanged, this, &AddUsersInRoomWidget::slotSearchMessageTextChanged);
+    //connect(mSearchUserLineEdit, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersInRoomWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchUserLineEdit);
     mainLayout->addStretch(1);
 }

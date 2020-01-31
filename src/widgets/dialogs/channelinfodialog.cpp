@@ -23,6 +23,7 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <KLocalizedString>
+#include <KMessageBox>
 
 ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     : QDialog(parent)
@@ -38,6 +39,8 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelInfoDialog::reject);
     mainLayout->addWidget(buttonBox);
+    resize(600, 400);
+    connect(mChannelInfoWidget, &ChannelInfoWidget::deleteChannel, this, &ChannelInfoDialog::slotDeleteChannel);
 }
 
 ChannelInfoDialog::~ChannelInfoDialog()
@@ -47,4 +50,12 @@ ChannelInfoDialog::~ChannelInfoDialog()
 void ChannelInfoDialog::setCanBeModified(bool editable)
 {
     mChannelInfoWidget->setCanBeModified(editable);
+}
+
+void ChannelInfoDialog::slotDeleteChannel()
+{
+    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
+        //TODO delete it !
+        accept();
+    }
 }

@@ -70,9 +70,11 @@ QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
     const User *user = mUsers.at(index.row());
     switch (role) {
     case UserName:
+    case Qt::DisplayRole:
         return user->userName();
     case UserId:
         return user->userId();
+    case Qt::DecorationRole:
     case UserIconStatus:
         return user->iconFromStatus();
     }

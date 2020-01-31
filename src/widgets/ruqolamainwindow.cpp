@@ -41,6 +41,7 @@
 #include "dialogs/channelpassworddialog.h"
 #include "dialogs/channelinfodialog.h"
 #include "dialogs/directchannelinfodialog.h"
+#include "dialogs/addusersinroomdialog.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -205,6 +206,19 @@ void RuqolaMainWindow::setupActions()
     mChannelInfo = new QAction(i18n("Channel Info..."), this);
     connect(mChannelInfo, &QAction::triggered, this, &RuqolaMainWindow::slotShowChannelInfo);
     ac->addAction(QStringLiteral("channel_info"), mChannelInfo);
+
+    mAddUserInRooms =  new QAction(i18n("Add Users in Channel..."), this);
+    connect(mAddUserInRooms, &QAction::triggered, this, &RuqolaMainWindow::slotAddUsersInRoom);
+    ac->addAction(QStringLiteral("add_user_in_room"), mAddUserInRooms);
+}
+
+void RuqolaMainWindow::slotAddUsersInRoom()
+{
+    QPointer<AddUsersInRoomDialog> dlg = new AddUsersInRoomDialog(this);
+    if (dlg->exec()) {
+        //TODO
+    }
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotShowThreads()

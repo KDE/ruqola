@@ -31,18 +31,20 @@ static const char myConfigGroupName[] = "AddUsersInRoomDialog";
 AddUsersInRoomDialog::AddUsersInRoomDialog(QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(i18nc("@title:window", "Create Channel"));
+    setWindowTitle(i18nc("@title:window", "Add Users in Room"));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    //TODO add label
     mAddUsersInRoomWidget = new AddUsersInRoomWidget(this);
     mAddUsersInRoomWidget->setObjectName(QStringLiteral("mAddUsersInRoomWidget"));
     mainLayout->addWidget(mAddUsersInRoomWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AddUsersInRoomDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &AddUsersInRoomDialog::accept);
     readConfig();
 }
 
@@ -54,7 +56,7 @@ AddUsersInRoomDialog::~AddUsersInRoomDialog()
 void AddUsersInRoomDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
+    const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
     }

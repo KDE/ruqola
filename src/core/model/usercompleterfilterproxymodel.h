@@ -21,10 +21,10 @@
 #ifndef USERCOMPLETERFILTERPROXYMODEL_H
 #define USERCOMPLETERFILTERPROXYMODEL_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
 
-class LIBRUQOLACORE_TESTS_EXPORT UserCompleterFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT UserCompleterFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:

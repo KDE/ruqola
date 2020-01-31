@@ -34,6 +34,10 @@ public:
     explicit ChannelInfoWidget(QWidget *parent = nullptr);
     ~ChannelInfoWidget();
     void setCanBeModified(bool editable);
+
+Q_SIGNALS:
+    void deleteChannel();
+
 private:
     KLineEdit *mName = nullptr;
     KLineEdit *mComment = nullptr;

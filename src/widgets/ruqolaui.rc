@@ -26,6 +26,8 @@
    <Separator/>
    <Action name="channel_info" />
    <Separator/>
+   <Action name="add_user_in_room" />
+   <Separator/>
    <Action name="search_messages" />
    <Separator/>
    <Action name="configure_notification" />

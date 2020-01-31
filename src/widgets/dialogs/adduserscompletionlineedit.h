@@ -18,22 +18,23 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELINFODIALOG_H
-#define CHANNELINFODIALOG_H
 
-#include <QDialog>
+#ifndef ADDUSERSCOMPLETIONLINEEDIT_H
+#define ADDUSERSCOMPLETIONLINEEDIT_H
+
+#include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
-class ChannelInfoWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoDialog : public QDialog
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersCompletionLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
 public:
-    explicit ChannelInfoDialog(QWidget *parent = nullptr);
-    ~ChannelInfoDialog();
-    void setCanBeModified(bool editable);
+    explicit AddUsersCompletionLineEdit(QWidget *parent = nullptr);
+    ~AddUsersCompletionLineEdit();
+
 private:
-    void slotDeleteChannel();
-    ChannelInfoWidget *mChannelInfoWidget = nullptr;
+    void slotTextChanged(const QString &text);
+    void slotComplete(const QModelIndex &index);
 };
 
-#endif // CHANNELINFODIALOG_H
+#endif // ADDUSERSCOMPLETIONLINEEDIT_H

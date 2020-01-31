@@ -49,6 +49,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/channelpasswordwidget.cpp
     dialogs/addusersinroomdialog.cpp
     dialogs/addusersinroomwidget.cpp
+    dialogs/adduserscompletionlineedit.cpp
     )
 
 set(Ruqola_configure_SRCS

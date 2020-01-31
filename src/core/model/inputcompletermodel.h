@@ -53,9 +53,9 @@ public:
 
 private:
     Q_DISABLE_COPY(InputCompleterModel)
-    QIcon channelIconName(const Channel &channel) const;
-    QString completerName(const Channel &channel) const;
-    QString channelName(const Channel &channel) const;
+    Q_REQUIRED_RESULT QIcon channelIconName(const Channel &channel) const;
+    Q_REQUIRED_RESULT QString completerName(const Channel &channel) const;
+    Q_REQUIRED_RESULT QString channelName(const Channel &channel) const;
     QVector<Channel> mChannel;
 };
 

@@ -23,7 +23,7 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
-class KLineEdit;
+class AddUsersCompletionLineEdit;
 class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersInRoomWidget : public QWidget
 {
@@ -33,7 +33,7 @@ public:
     ~AddUsersInRoomWidget();
 private:
     void slotSearchMessageTextChanged(const QString &str);
-    KLineEdit *mSearchUserLineEdit = nullptr;
+    AddUsersCompletionLineEdit *mSearchUserLineEdit = nullptr;
     QListView *mListUsers = nullptr;
 };
 
