@@ -100,8 +100,8 @@ Component {
                     visible: appid.selectedRoom
                     text: i18n("Mentions")
                     onTriggered: {
-                        appid.rocketChatAccount.channelGetAllUserMentions(appid.selectedRoomID);
-                        showMentionsInRoomDialogLoader.active = true;
+                        appid.rocketChatAccount.getListMessages(appid.selectedRoomID, ListMessagesModel.MentionsMessages);
+                        showListMessageDialogLoader.active = true;
                     }
                 },
                 Kirigami.Action {
@@ -722,28 +722,6 @@ Component {
                 }
             }
 
-            Loader {
-                id: showMentionsInRoomDialogLoader
-                active: false
-                sourceComponent: ShowMentionsInRoomDialog {
-                    id: showMentionsInRoomDialog
-                    parent: appid.pageStack
-                    roomId: appid.selectedRoomID
-                    mentionsModel: appid.mentionsModel
-                    onGoToMessage: {
-                        console.log(RuqolaDebugCategorySingleton.category, "Go to Message not implemented yet")
-                    }
-                    onRejected: {
-                        showMentionsInRoomDialogLoader.active = false
-                    }
-                    onAccepted: {
-                        showMentionsInRoomDialogLoader.active = false
-                    }
-                    Component.onCompleted: {
-                        initializeAndOpen()
-                    }
-                }
-            }
             Loader {
                 id: showDiscussionsInRoomDialogLoader
                 active: false
