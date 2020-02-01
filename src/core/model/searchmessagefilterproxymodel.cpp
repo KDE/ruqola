@@ -28,7 +28,7 @@ SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(SearchMessageModel 
     setSourceModel(mSearchMessageModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    //FIXME setFilterRole(SearchMessageModel::SortByTimeStamp);
+    setFilterRole(SearchMessageModel::Timestamp);
     sort(0, Qt::DescendingOrder);
     connect(mSearchMessageModel, &SearchMessageModel::stringNotFoundChanged, this, &SearchMessageFilterProxyModel::stringNotFoundChanged);
 }
