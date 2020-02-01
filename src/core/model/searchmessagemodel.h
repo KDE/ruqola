@@ -35,15 +35,16 @@ public:
     ~SearchMessageModel();
     void parse(const QJsonObject &obj);
 
+    Q_REQUIRED_RESULT bool stringNotFound() const;
 Q_SIGNALS:
     void listMessageTypeChanged();
     void stringNotFoundChanged();
 private:
     void checkFullList();
+    void setStringNotFound(bool stringNotFound);
     QString mRoomId;
     int mTotal = 0;
-    bool mLoadingInProgress = false;
-    bool mHasFullList = false;
+    bool mStringNotFound = false;
 };
 
 #endif // SEARCHMESSAGEMODEL_H

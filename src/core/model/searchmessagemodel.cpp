@@ -39,41 +39,27 @@ SearchMessageModel::~SearchMessageModel()
 
 void SearchMessageModel::parse(const QJsonObject &obj)
 {
+    clear();
     ListMessages messages;
     messages.parseMessages(obj, QStringLiteral("messages"));
     mTotal = messages.total();
     for (int i = 0, total = messages.count(); i < total; ++i) {
         addMessage(messages.at(i));
     }
-    checkFullList();
+    setStringNotFound(rowCount() == 0);
 }
 
-//void SearchMessageModel::parseListMessages(const QJsonObject &obj)
-//{
-//    clear();
-//    parse(obj);
-//}
-
-//bool SearchMessageModel::hasFullList() const
-//{
-//    return mHasFullList;
-//}
-
-void SearchMessageModel::checkFullList()
+void SearchMessageModel::setStringNotFound(bool stringNotFound)
 {
-    //TODO setHasFullList(rowCount() == total());
+    if (mStringNotFound != stringNotFound) {
+        mStringNotFound = stringNotFound;
+        Q_EMIT stringNotFoundChanged();
+    }
 }
 
 
-//bool SearchMessageModel::stringNotFound() const
-//{
-//    return mStringNotFound;
-//}
+bool SearchMessageModel::stringNotFound() const
+{
+    return mStringNotFound;
+}
 
-//void SearchMessageModel::setStringNotFound(bool stringNotFound)
-//{
-//    if (mStringNotFound != stringNotFound) {
-//        mStringNotFound = stringNotFound;
-//        Q_EMIT stringNotFoundChanged();
-//    }
-//}
