@@ -129,7 +129,6 @@ set (Ruqola_core_srcs
     channel.cpp
     inputtextmanager.cpp
     authenticationmanager.cpp
-    searchmessage.cpp
 
     accountmanager.cpp
     managerdatapaths.cpp
