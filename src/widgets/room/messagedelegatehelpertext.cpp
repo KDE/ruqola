@@ -20,10 +20,12 @@
 
 #include "messagedelegatehelpertext.h"
 #include <model/messagemodel.h>
+#include "ruqolautils.h"
 
 #include <QPainter>
 #include <QTextBlock>
 #include <QTextDocument>
+#include <QAbstractTextDocumentLayout>
 
 // move to Message
 static QString makeMessageText(const QModelIndex &index)
@@ -64,4 +66,26 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
     doc.setHtml(messageText);
     doc.setTextWidth(maxWidth);
     return QSize(doc.idealWidth(), doc.size().height());
+}
+
+bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    Q_UNUSED(option)
+    // ## we should really cache that QTextDocument...
+    QTextDocument doc;
+    const QString messageText = makeMessageText(index);
+    doc.setHtml(messageText);
+    doc.setTextWidth(messageRect.width());
+
+    const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
+    const QString anchor = doc.documentLayout()->anchorAt(pos);
+    if (!anchor.isEmpty()) {
+        if (anchor.startsWith(QLatin1String("ruqola:"))) {
+            qDebug() << "TODO: handle" << anchor;
+        } else {
+            RuqolaUtils::self()->openUrl(anchor);
+        }
+        return true;
+    }
+    return false;
 }

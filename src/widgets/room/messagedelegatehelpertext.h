@@ -28,6 +28,7 @@ class MessageDelegateHelperText : public MessageDelegateHelperBase
 public:
     void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const override;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
+    bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 };
 
 #endif // MESSAGEDELEGATEHELPERTEXT_H
