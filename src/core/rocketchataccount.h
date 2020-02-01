@@ -67,8 +67,6 @@ class EmoticonModel;
 class DiscussionsFilterProxyModel;
 class DiscussionsModel;
 class ThreadsModel;
-class MentionsModel;
-class MentionsFilterProxyModel;
 class ThreadMessageModel;
 class ListMessagesModel;
 class ListMessagesModelFilterProxyModel;
@@ -117,7 +115,6 @@ class LIBRUQOLACORE_EXPORT RocketChatAccount : public QObject
     Q_PROPERTY(InputCompleterModel* inputCompleterModel READ inputCompleterModel CONSTANT)
     Q_PROPERTY(InputCompleterModel* inputThreadMessageCompleterModel READ inputThreadMessageCompleterModel CONSTANT)
     Q_PROPERTY(ThreadsFilterProxyModel* threadsFilterProxyModel READ threadsFilterProxyModel CONSTANT)
-    Q_PROPERTY(MentionsFilterProxyModel* mentionsFilterProxyModel READ mentionsFilterProxyModel CONSTANT)
     Q_PROPERTY(MessageModel* threadMessageModel READ threadMessageModel CONSTANT)
     Q_PROPERTY(EmoticonModel* emoticonModel READ emoticonModel CONSTANT)
     Q_PROPERTY(FilesForRoomFilterProxyModel* filesForRoomFilterProxyModel READ filesForRoomFilterProxyModel CONSTANT)
@@ -217,7 +214,6 @@ public:
     Q_INVOKABLE void ignoreUser(const QString &rid, const QString &userId, bool ignore);
     Q_INVOKABLE void channelInfo(const QString &roomId);
     Q_INVOKABLE void groupInfo(const QString &roomId);
-    Q_INVOKABLE void channelGetAllUserMentions(const QString &roomId);
     Q_INVOKABLE void switchEditingMode(bool b);
     Q_INVOKABLE void setSortUnreadOnTop(bool b);
     Q_INVOKABLE void kickUser(const QString &rid, const QString &userId, const QString &channelType);
@@ -235,7 +231,6 @@ public:
     Q_INVOKABLE void loadMoreDiscussions(const QString &roomId);
     Q_INVOKABLE void loadMoreThreads(const QString &roomId);
     Q_INVOKABLE void loadThreadMessagesHistory(const QString &roomId);
-    Q_INVOKABLE void loadMoreMentions(const QString &roomId);
     Q_INVOKABLE void loadMoreUsersInRoom(const QString &roomId, const QString &channelType);
 
     Q_INVOKABLE void getPinnedMessages(const QString &roomId);
@@ -276,7 +271,6 @@ public:
     InputCompleterModel *inputCompleterModel() const;
     InputCompleterModel *inputThreadMessageCompleterModel() const;
     ThreadsFilterProxyModel *threadsFilterProxyModel() const;
-    MentionsFilterProxyModel *mentionsFilterProxyModel() const;
 
     DDPClient *ddp();
     RoomModel *roomModel() const;
@@ -355,8 +349,6 @@ public:
 
     ThreadsModel *threadsModel() const;
 
-    MentionsModel *mentionsModel() const;
-
     Q_REQUIRED_RESULT bool encryptedEnabled() const;
     void updateThreadMessageList(const Message &m);
 
@@ -426,7 +418,6 @@ private:
     void slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
     void slotGetThreadsListDone(const QJsonObject &obj, const QString &roomId);
     void slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId);
-    void slotGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId);
     void slotGetSupportedLanguagesDone(const QJsonObject &obj);
     void slotUsersPresenceDone(const QJsonObject &obj);
 
@@ -493,8 +484,6 @@ private:
     ThreadsModel *mThreadsModel = nullptr;
     ThreadsFilterProxyModel *mThreadsFilterProxyModel = nullptr;
 
-    MentionsModel *mMentionsModel = nullptr;
-    MentionsFilterProxyModel *mMentionsFilterProxyModel = nullptr;
     EmoticonModel *mEmoticonModel = nullptr;
     ThreadMessageModel *mThreadMessageModel = nullptr;
 

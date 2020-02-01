@@ -28,8 +28,6 @@
 #include "model/discussionsmodel.h"
 #include "model/threadsfilterproxymodel.h"
 #include "model/threadsmodel.h"
-#include "model/mentionsmodel.h"
-#include "model/mentionsfilterproxymodel.h"
 #include "model/listmessagesmodel.h"
 #include "model/listmessagesmodelfilterproxymodel.h"
 #include <QTest>
@@ -69,8 +67,6 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.threadsModel());
     QVERIFY(w.threadsFilterProxyModel());
     QCOMPARE(w.threadsFilterProxyModel()->sourceModel(), w.threadsModel());
-    QVERIFY(w.mentionsFilterProxyModel());
-    QCOMPARE(w.mentionsFilterProxyModel()->sourceModel(), w.mentionsModel());
 
     QVERIFY(w.listMessageModel());
     QCOMPARE(w.listMessagesFilterProxyModel()->sourceModel(), w.listMessageModel());

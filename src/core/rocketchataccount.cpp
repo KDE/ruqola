@@ -54,8 +54,6 @@
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "model/threadsfilterproxymodel.h"
-#include "model/mentionsmodel.h"
-#include "model/mentionsfilterproxymodel.h"
 #include "model/listmessagesmodel.h"
 #include "model/threadmessagemodel.h"
 #include "model/listmessagesmodelfilterproxymodel.h"
@@ -70,7 +68,6 @@
 #include "serverconfiginfo.h"
 #include "listmessages.h"
 #include "threads.h"
-#include "mentions.h"
 
 #include <QDesktopServices>
 #include <QRegularExpression>
@@ -147,12 +144,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mThreadsFilterProxyModel = new ThreadsFilterProxyModel(mThreadsModel, this);
     mThreadsFilterProxyModel->setObjectName(QStringLiteral("threadsfiltermodelproxy"));
-
-    mMentionsModel = new MentionsModel(this, this);
-    mMentionsModel->setObjectName(QStringLiteral("mentionsmodel"));
-
-    mMentionsFilterProxyModel = new MentionsFilterProxyModel(mMentionsModel, this);
-    mMentionsFilterProxyModel->setObjectName(QStringLiteral("mentionsfiltermodelproxy"));
 
     mThreadMessageModel = new ThreadMessageModel(QString(), this, nullptr, this);
     mThreadMessageModel->setObjectName(QStringLiteral("threadmessagemodel"));
@@ -755,16 +746,6 @@ MessageModel *RocketChatAccount::threadMessageModel() const
     return mThreadMessageModel;
 }
 
-MentionsFilterProxyModel *RocketChatAccount::mentionsFilterProxyModel() const
-{
-    return mMentionsFilterProxyModel;
-}
-
-MentionsModel *RocketChatAccount::mentionsModel() const
-{
-    return mMentionsModel;
-}
-
 ThreadsModel *RocketChatAccount::threadsModel() const
 {
     return mThreadsModel;
@@ -820,16 +801,6 @@ void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const
         mDiscussionsModel->addMoreDiscussions(obj);
     }
     mDiscussionsModel->setLoadMoreDiscussionsInProgress(false);
-}
-
-void RocketChatAccount::slotGetAllUserMentionsDone(const QJsonObject &obj, const QString &roomId)
-{
-    if (mMentionsModel->roomId() != roomId) {
-        mMentionsModel->parseMentions(obj, roomId);
-    } else {
-        mMentionsModel->addMoreMentions(obj);
-    }
-    mMentionsModel->setLoadMoreMentionsInProgress(false);
 }
 
 void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type)
@@ -1040,17 +1011,6 @@ void RocketChatAccount::loadMoreListMessages(const QString &roomId)
 void RocketChatAccount::loadThreadMessagesHistory(const QString &threadMessageId)
 {
     restApi()->getThreadMessages(threadMessageId);
-}
-
-void RocketChatAccount::loadMoreMentions(const QString &roomId)
-{
-    if (!mMentionsModel->loadMoreMentionsInProgress()) {
-        const int offset = mMentionsModel->mentions()->mentionsCount();
-        if (offset < mMentionsModel->mentions()->total()) {
-            mMentionsModel->setLoadMoreMentionsInProgress(true);
-            restApi()->channelGetAllUserMentions(roomId, offset, qMin(50, mMentionsModel->mentions()->total() - offset));
-        }
-    }
 }
 
 void RocketChatAccount::createJitsiConfCall(const QString &roomId)
@@ -1850,12 +1810,6 @@ void RocketChatAccount::checkInitializedRoom(const QString &roomId)
 void RocketChatAccount::openDocumentation()
 {
     QDesktopServices::openUrl(QUrl(QStringLiteral("help:/")));
-}
-
-void RocketChatAccount::channelGetAllUserMentions(const QString &roomId)
-{
-    mMentionsModel->initialize();
-    restApi()->channelGetAllUserMentions(roomId);
 }
 
 void RocketChatAccount::rolesChanged(const QJsonArray &contents)
