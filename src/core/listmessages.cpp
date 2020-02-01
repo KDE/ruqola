@@ -32,10 +32,10 @@ void ListMessages::parseMessages(const QJsonObject &threadsObj)
     mMessagesCount = threadsObj[QStringLiteral("count")].toInt();
     mOffset = threadsObj[QStringLiteral("offset")].toInt();
     mTotal = threadsObj[QStringLiteral("total")].toInt();
-    const QJsonArray threadsArray = threadsObj[QStringLiteral("messages")].toArray();
+    const QJsonArray messagesArray = threadsObj[QStringLiteral("messages")].toArray();
     mListMessages.clear();
-    mListMessages.reserve(threadsArray.count());
-    for (const QJsonValue &current : threadsArray) {
+    mListMessages.reserve(messagesArray.count());
+    for (const QJsonValue &current : messagesArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject threadMessageObject = current.toObject();
             Message m;
