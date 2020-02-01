@@ -27,7 +27,7 @@ class LIBRUQOLACORE_TESTS_EXPORT ListMessages
 {
 public:
     ListMessages();
-    void parseMessages(const QJsonObject &threadsObj);
+    void parseMessages(const QJsonObject &threadsObj, const QString &arrayName = QStringLiteral("messages"));
 
     Q_REQUIRED_RESULT int offset() const;
     void setOffset(int offset);
