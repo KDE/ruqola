@@ -45,7 +45,7 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchMessages);
-    //TODO Laurent we need to fix searchMessageFilterProxyModel first mResultListWidget->setModel(Ruqola::self()->rocketChatAccount()->searchMessageFilterProxyModel());
+    mResultListWidget->setModel(Ruqola::self()->rocketChatAccount()->searchMessageFilterProxyModel());
 }
 
 SearchMessageWidget::~SearchMessageWidget()
@@ -53,7 +53,7 @@ SearchMessageWidget::~SearchMessageWidget()
 }
 
 void SearchMessageWidget::slotSearchMessages()
-{
+{    
     Ruqola::self()->rocketChatAccount()->messageSearch(mSearchLineEdit->text(), mRoomId);
 }
 
