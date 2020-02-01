@@ -41,9 +41,10 @@ public:
 
     void setText(const QString &text);
 
+    MessageLineEdit *messageLineEdit() const { return mMessageLineEdit; }
+
 Q_SIGNALS:
     void sendMessage(const QString &str);
-    void clearNotification();
     void sendFile(const UploadFileDialog::UploadFileInfo &result);
 
 private:

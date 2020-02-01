@@ -51,14 +51,13 @@ MessageLineEdit::~MessageLineEdit()
 
 void MessageLineEdit::keyPressEvent(QKeyEvent *e)
 {
-    switch (e->key()) {
-    case Qt::Key_Escape:
-        e->ignore();
-        Q_EMIT clearNotification();
+    e->ignore();
+    // Check if the listview or room widget want to handle the key (e.g Esc, PageUp)
+    Q_EMIT keyPressed(e);
+    if (e->isAccepted()) {
         return;
-    default:
-        break;
     }
+
     CompletionLineEdit::keyPressEvent(e);
 }
 

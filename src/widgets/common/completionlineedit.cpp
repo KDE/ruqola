@@ -89,8 +89,13 @@ bool CompletionLineEdit::eventFilter(QObject *watched, QEvent *ev)
                        key == Qt::Key_Enter) {
                 Q_EMIT complete(mCompletionListView->currentIndex());
                 return true;
+            } else if (key != Qt::Key_Down && key != Qt::Key_Up &&
+                       key != Qt::Key_PageDown && key != Qt::Key_PageUp &&
+                       key != Qt::Key_Home && key != Qt::Key_End &&
+                       key != Qt::Key_Left && key != Qt::Key_Right) {
+                // send keypresses to the linedit
+                event(ev);
             }
-            event(ev);
         }
     }
     return QLineEdit::eventFilter(watched, ev);

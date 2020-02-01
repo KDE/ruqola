@@ -26,6 +26,7 @@
 #include "rocketchataccount.h"
 #include "roomwrapper.h"
 #include "readonlylineeditwidget.h"
+#include "messagelineedit.h"
 
 #include <KLocalizedString>
 
@@ -66,11 +67,10 @@ RoomWidget::RoomWidget(QWidget *parent)
 
     connect(this, &RoomWidget::channelSelected, this, &RoomWidget::setChannelSelected);
     connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &RoomWidget::slotSendMessage);
-    connect(mMessageLineWidget, &MessageLineWidget::clearNotification, this, &RoomWidget::slotClearNotification);
     connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
+    connect(mMessageLineWidget->messageLineEdit(), &MessageLineEdit::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
 
-    connect(mMessageListView, &MessageListView::keyPressed, this, &RoomWidget::keyPressedInListView);
     connect(mMessageListView, &MessageListView::editMessageRequested, this, &RoomWidget::slotEditMessage);
 }
 
@@ -182,13 +182,13 @@ void RoomWidget::slotChangeFavorite(bool b)
     mCurrentRocketChatAccount->changeFavorite(mRoomId, b);
 }
 
-void RoomWidget::keyPressedInListView(QKeyEvent *ev)
+void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
 {
     if (ev->key() == Qt::Key_Escape) {
         slotClearNotification();
+        ev->accept();
     } else {
-        mMessageLineWidget->setFocus();
-        qApp->sendEvent(mMessageLineWidget, ev);
+        mMessageListView->handleKeyPressEvent(ev);
     }
 }
 

@@ -60,7 +60,7 @@ private:
     void updateRoomHeader();
     void connectRoomWrapper();
     void slotChangeFavorite(bool b);
-    void keyPressedInListView(QKeyEvent *ev);
+    void keyPressedInLineEdit(QKeyEvent *ev);
     void setRoomType(const QString &roomType);
 
     QString mRoomId;

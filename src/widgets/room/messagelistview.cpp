@@ -47,6 +47,9 @@ MessageListView::MessageListView(QWidget *parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // nicer in case of huge messages
     setWordWrap(true); // so that the delegate sizeHint is called again when the width changes
+
+    // only the lineedit takes focus
+    setFocusPolicy(Qt::NoFocus);
 }
 
 MessageListView::~MessageListView()
@@ -90,7 +93,7 @@ void MessageListView::resizeEvent(QResizeEvent *ev)
     maybeScrollToBottom(); // this forces a layout in QAIV, which then changes the vbar max value
 }
 
-void MessageListView::keyPressEvent(QKeyEvent *ev)
+void MessageListView::handleKeyPressEvent(QKeyEvent *ev)
 {
     const int key = ev->key();
     if (key == Qt::Key_Up || key == Qt::Key_Down || key == Qt::Key_PageDown || key == Qt::Key_PageUp) {
@@ -98,13 +101,12 @@ void MessageListView::keyPressEvent(QKeyEvent *ev)
         // before it triggers scrolling around. Let's just let the scrollarea handle it,
         // since we don't show the current item.
         QAbstractScrollArea::keyPressEvent(ev);
-    } else if (key == Qt::Key_Home) {
+        ev->accept();
+    } else if (key == Qt::Key_Home && ev->modifiers() & Qt::ControlModifier) {
         scrollToTop();
-    } else if (key == Qt::Key_End) {
+        ev->accept();
+    } else if (key == Qt::Key_End && ev->modifiers() & Qt::ControlModifier) {
         scrollToBottom();
-    } else {
-        // If the user starts typing a message focus the lineedit and send the event there
-        emit keyPressed(ev);
         ev->accept();
     }
 }

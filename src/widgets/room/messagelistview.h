@@ -35,14 +35,14 @@ public:
 
     void setModel(QAbstractItemModel *newModel) override;
 
+    void handleKeyPressEvent(QKeyEvent *ev);
+
 protected:
     void resizeEvent(QResizeEvent *ev) override;
-    void keyPressEvent(QKeyEvent *ev) override;
     void contextMenuEvent(QContextMenuEvent *event) override;
 
 Q_SIGNALS:
     void modelChanged();
-    void keyPressed(QKeyEvent *ev);
     void editMessageRequested(const QString &messageId, const QString &text);
 
 private:
