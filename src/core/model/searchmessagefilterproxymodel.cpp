@@ -28,7 +28,7 @@ SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(SearchMessageModel 
     setSourceModel(mSearchMessageModel);
     setDynamicSortFilter(true);
     setFilterCaseSensitivity(Qt::CaseInsensitive);
-    setFilterRole(SearchMessageModel::SortByTimeStamp);
+    //FIXME setFilterRole(SearchMessageModel::SortByTimeStamp);
     sort(0, Qt::DescendingOrder);
     connect(mSearchMessageModel, &SearchMessageModel::stringNotFoundChanged, this, &SearchMessageFilterProxyModel::stringNotFoundChanged);
 }
@@ -47,5 +47,6 @@ QHash<int, QByteArray> SearchMessageFilterProxyModel::roleNames() const
 
 bool SearchMessageFilterProxyModel::stringNotFound() const
 {
-    return mSearchMessageModel->stringNotFound();
+    //FIXME return mSearchMessageModel->stringNotFound();
+    return false;
 }

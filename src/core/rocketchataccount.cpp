@@ -126,7 +126,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mSearchChannelFilterProxyModel = new SearchChannelFilterProxyModel(this);
     mSearchChannelFilterProxyModel->setSourceModel(mSearchChannelModel);
 
-    mSearchMessageModel = new SearchMessageModel(this, this);
+    mSearchMessageModel = new SearchMessageModel(QString(), this, nullptr, this);
     mSearchMessageFilterProxyModel = new SearchMessageFilterProxyModel(mSearchMessageModel, this);
 
     mFilesModelForRoom = new FilesForRoomModel(this, this);
@@ -1045,7 +1045,7 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
 
 void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
 {
-    mSearchMessageModel->parseResult(obj);
+    mSearchMessageModel->parse(obj);
 }
 
 void RocketChatAccount::starMessage(const QString &messageId, bool starred)

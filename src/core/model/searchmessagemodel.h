@@ -24,79 +24,26 @@
 #include <QAbstractListModel>
 #include <QJsonObject>
 #include "libruqola_private_export.h"
-#include "searchmessage.h"
+#include "messagemodel.h"
 class TextConverter;
 class RocketChatAccount;
-class LIBRUQOLACORE_TESTS_EXPORT SearchMessageModel : public QAbstractListModel
+class LIBRUQOLACORE_TESTS_EXPORT SearchMessageModel : public MessageModel
 {
     Q_OBJECT
-    Q_PROPERTY(bool stringNotFound READ stringNotFound WRITE setStringNotFound NOTIFY stringNotFoundChanged)
 public:
-    enum SearchMessageRoles {
-        Username = Qt::UserRole + 1,
-        OriginalMessage,
-        MessageConvertedText,
-        Timestamp,
-        UserId,
-        SystemMessageType,
-        MessageId,
-        RoomId,
-        UpdatedAt,
-        EditedAt,
-        EditedByUserName,
-        EditedByUserId,
-        Alias,
-        Avatar,
-        Groupable,
-        ParseUrls,
-        MessageType,
-        Attachments,
-        Urls,
-        Date,
-        CanEditMessage,
-        Starred,
-        UsernameUrl,
-        Roles,
-        Reactions,
-        Ignored,
-        Pinned,
-        DiscussionCount,
-        DiscussionRoomId,
-        DiscussionLastMessage,
-        ThreadCount,
-        ThreadLastMessage,
-        ThreadMessageId,
-        ThreadMessagePreview,
-        SortByTimeStamp,
-        ShowTranslatedMessage,
-    };
-    Q_ENUM(SearchMessageRoles)
-
-    explicit SearchMessageModel(RocketChatAccount *account, QObject *parent = nullptr);
-    ~SearchMessageModel() override;
-
-    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-
-    Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-
-    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = {}) const override;
-    void parseResult(const QJsonObject &obj);
-    void clear();
-
-    Q_REQUIRED_RESULT bool stringNotFound() const;
-    void setStringNotFound(bool stringNotFound);
+    explicit SearchMessageModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
+    ~SearchMessageModel();
+    void parse(const QJsonObject &obj);
 
 Q_SIGNALS:
+    void listMessageTypeChanged();
     void stringNotFoundChanged();
-
 private:
-    Q_DISABLE_COPY(SearchMessageModel)
-    QString convertMessageText(const QString &str, const QString &userName) const;
-    void setMessages(const QVector<SearchMessage> &channels);
-    QVector<SearchMessage> mSearchMessages;
-    bool mStringNotFound = false;
-    TextConverter *mTextConverter = nullptr;
-    RocketChatAccount *mRocketChatAccount = nullptr;
+    void checkFullList();
+    QString mRoomId;
+    int mTotal = 0;
+    bool mLoadingInProgress = false;
+    bool mHasFullList = false;
 };
 
 #endif // SEARCHMESSAGEMODEL_H
