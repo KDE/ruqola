@@ -36,7 +36,8 @@ public:
         Unknown = 0,
         StarredMessages,
         SnipperedMessages,
-        PinnedMessages
+        PinnedMessages,
+        MentionsMessages,
     };
     Q_ENUM(ListMessageType)
 
@@ -65,9 +66,6 @@ Q_SIGNALS:
     void hasFullListChanged();
     void listMessageTypeChanged();
     void totalChanged();
-
-protected:
-    QString mParseMessageName;
 
 private:
     void parse(const QJsonObject &obj);

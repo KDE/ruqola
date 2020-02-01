@@ -446,8 +446,9 @@ RocketChatRestApi::RestApiRequest *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getThreadsDone, this, &RocketChatAccount::slotGetThreadsListDone);
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getDiscussionsDone, this, &RocketChatAccount::slotGetDiscussionsListDone);
-        connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetAllUserMentionsDone, this, &RocketChatAccount::slotGetAllUserMentionsDone);
-
+        connect(mRestApi, &RocketChatRestApi::RestApiRequest::channelGetAllUserMentionsDone, this, [this](const QJsonObject &obj, const QString &roomId) {
+            slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::MentionsMessages);
+        });
         connect(mRestApi, &RocketChatRestApi::RestApiRequest::getPinnedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::PinnedMessages);
         });
@@ -890,6 +891,12 @@ void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, const QString
     }
 }
 
+void RocketChatAccount::getMentionsMessages(const QString &roomId)
+{
+    mListMessageModel->clear();
+    restApi()->channelGetAllUserMentions(roomId);
+}
+
 void RocketChatAccount::getPinnedMessages(const QString &roomId)
 {
     if (hasPinnedMessagesSupport()) {
@@ -994,6 +1001,9 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
     case ListMessagesModel::PinnedMessages:
         getPinnedMessages(roomId);
         break;
+    case ListMessagesModel::MentionsMessages:
+        getMentionsMessages(roomId);
+        break;
     }
 }
 
@@ -1018,6 +1028,9 @@ void RocketChatAccount::loadMoreListMessages(const QString &roomId)
                 break;
             case ListMessagesModel::PinnedMessages:
                 restApi()->getPinnedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
+                break;
+            case ListMessagesModel::MentionsMessages:
+                restApi()->channelGetAllUserMentions(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             }
         }

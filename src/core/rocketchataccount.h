@@ -241,6 +241,7 @@ public:
     Q_INVOKABLE void getPinnedMessages(const QString &roomId);
     Q_INVOKABLE void getStarredMessages(const QString &roomId);
     Q_INVOKABLE void getSnippetedMessages(const QString &roomId);
+    Q_INVOKABLE void getMentionsMessages(const QString &roomId);
 
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
@@ -254,6 +255,8 @@ public:
 
     Q_INVOKABLE void loadMoreListMessages(const QString &roomId);
     Q_INVOKABLE void getListMessages(const QString &roomId, ListMessagesModel::ListMessageType type);
+
+
 
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;

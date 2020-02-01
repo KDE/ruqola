@@ -315,11 +315,11 @@ void RuqolaMainWindow::slotPinnedMessages()
 
 void RuqolaMainWindow::slotShowMentions()
 {
-//    QPointer<ShowMentionsMessagesDialog> dlg = new ShowMentionsMessagesDialog(this);
-//    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
-//    Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::);
-//    dlg->exec();
-//    delete dlg;
+    QPointer<ShowMentionsMessagesDialog> dlg = new ShowMentionsMessagesDialog(this);
+    dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
+    Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::MentionsMessages);
+    dlg->exec();
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotSnipperedMessages()
