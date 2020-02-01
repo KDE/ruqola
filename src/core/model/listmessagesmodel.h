@@ -66,6 +66,9 @@ Q_SIGNALS:
     void listMessageTypeChanged();
     void totalChanged();
 
+protected:
+    QString mParseMessageName;
+
 private:
     void parse(const QJsonObject &obj);
     void checkFullList();

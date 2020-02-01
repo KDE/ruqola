@@ -44,7 +44,7 @@ void ListMessagesModel::setRoomId(const QString &roomId)
 void ListMessagesModel::parse(const QJsonObject &obj)
 {
     ListMessages messages;
-    messages.parseMessages(obj);
+    messages.parseMessages(obj, mParseMessageName);
     mTotal = messages.total();
     for (int i = 0, total = messages.count(); i < total; ++i) {
         addMessage(messages.at(i));
