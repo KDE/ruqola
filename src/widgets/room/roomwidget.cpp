@@ -185,7 +185,12 @@ void RoomWidget::slotChangeFavorite(bool b)
 void RoomWidget::keyPressedInLineEdit(QKeyEvent *ev)
 {
     if (ev->key() == Qt::Key_Escape) {
-        slotClearNotification();
+        if (!mMessageIdBeingEdited.isEmpty()) {
+            mMessageIdBeingEdited.clear();
+            mMessageLineWidget->setText(QString());
+        } else {
+            slotClearNotification();
+        }
         ev->accept();
     } else {
         mMessageListView->handleKeyPressEvent(ev);
