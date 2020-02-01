@@ -43,6 +43,7 @@ MessageListView::MessageListView(QWidget *parent)
     delegate->setRocketChatAccount(Ruqola::self()->rocketChatAccount());
     setItemDelegate(delegate);
 
+    setSelectionMode(QAbstractItemView::NoSelection);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // nicer in case of huge messages
     setWordWrap(true); // so that the delegate sizeHint is called again when the width changes
@@ -92,9 +93,15 @@ void MessageListView::resizeEvent(QResizeEvent *ev)
 void MessageListView::keyPressEvent(QKeyEvent *ev)
 {
     const int key = ev->key();
-    if (key == Qt::Key_Up || key == Qt::Key_Down || key == Qt::Key_PageDown || key == Qt::Key_PageUp
-        || key == Qt::Key_Home || key == Qt::Key_End) {
-        QListView::keyPressEvent(ev);
+    if (key == Qt::Key_Up || key == Qt::Key_Down || key == Qt::Key_PageDown || key == Qt::Key_PageUp) {
+        // QListView/QAIV PageUp/PageDown moves the current item, first inside visible bounds
+        // before it triggers scrolling around. Let's just let the scrollarea handle it,
+        // since we don't show the current item.
+        QAbstractScrollArea::keyPressEvent(ev);
+    } else if (key == Qt::Key_Home) {
+        scrollToTop();
+    } else if (key == Qt::Key_End) {
+        scrollToBottom();
     } else {
         // If the user starts typing a message focus the lineedit and send the event there
         emit keyPressed(ev);

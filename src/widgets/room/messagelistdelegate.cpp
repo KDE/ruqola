@@ -289,6 +289,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // Reactions
     drawReactions(painter, index, messageRect, option);
 
+    //drawFocus(painter, option, messageRect);
+
     painter->restore();
 }
 
