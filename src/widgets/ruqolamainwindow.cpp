@@ -103,6 +103,12 @@ void RuqolaMainWindow::slotAccountChanged()
 void RuqolaMainWindow::updateActions()
 {
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
+    //TODO fix me.
+#if 0 //We don't load settings before activate it
+    mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->hasPinnedMessagesSupport());
+    mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport());
+    mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport());
+#endif
 }
 
 void RuqolaMainWindow::readConfig()
