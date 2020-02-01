@@ -43,7 +43,6 @@ Kirigami.ApplicationWindow {
 
     property QtObject filesModel: appid.rocketChatAccount.filesForRoomFilterProxyModel
     property QtObject discussionsModel: appid.rocketChatAccount.discussionsFilterProxyModel
-    property QtObject mentionsModel: appid.rocketChatAccount.mentionsFilterProxyModel
     property QtObject accountManager: Ruqola.accountManager()
     property QtObject accountManagerModel: accountManager.rocketChatAccountModel
     property QtObject searchMessageModel: rocketChatAccount.searchMessageFilterProxyModel
