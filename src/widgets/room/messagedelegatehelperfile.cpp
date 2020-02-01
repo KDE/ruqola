@@ -36,16 +36,17 @@
 
 static const int vMargin = 8;
 
-void MessageDelegateHelperFile::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const
+void MessageDelegateHelperFile::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(pBaseLine)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     const QVector<FileLayout> layouts = doLayout(message, option);
+    const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
     for (const FileLayout &layout : layouts) {
         const int y = messageRect.y() + layout.y;
         painter->drawText(messageRect.x(), y + option.fontMetrics.ascent(), layout.title);
-        const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
-        downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+        if (layout.downloadButtonRect.isValid()) {
+            downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
+        }
 
         if (!layout.description.isEmpty()) {
             const int descriptionY = y + layout.titleSize.height() + vMargin;
@@ -56,7 +57,6 @@ void MessageDelegateHelperFile::draw(QPainter *painter, const QRect &messageRect
 
 QSize MessageDelegateHelperFile::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(maxWidth)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     const QVector<FileLayout> layouts = doLayout(message, option);
     if (layouts.isEmpty())
@@ -67,8 +67,6 @@ QSize MessageDelegateHelperFile::sizeHint(const QModelIndex &index, int maxWidth
 
 QVector<MessageDelegateHelperFile::FileLayout> MessageDelegateHelperFile::doLayout(const Message *message, const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(option);
-
     QVector<FileLayout> layouts;
     const QVector<MessageAttachment> &attachments = message->attachements();
     layouts.reserve(attachments.count());
@@ -77,14 +75,16 @@ QVector<MessageDelegateHelperFile::FileLayout> MessageDelegateHelperFile::doLayo
     int y = 0;
     for (const MessageAttachment &msgAttach : attachments) {
         FileLayout layout;
-        layout.title = msgAttach.title();
+        layout.title = msgAttach.title(); // TODO msgAttach.displayTitle(); but we don't render HTML
         layout.description = msgAttach.description();
         layout.link = msgAttach.link();
         layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
         layout.descriptionSize = option.fontMetrics.size(Qt::TextSingleLine, layout.description);
         layout.y = y;
         layout.height = layout.titleSize.height() + (layout.description.isEmpty() ? 0 : vMargin + layout.descriptionSize.height());
-        layout.downloadButtonRect = QRect(layout.titleSize.width() + buttonMargin, y, iconSize, iconSize);
+        if (msgAttach.canDownloadAttachment()) {
+            layout.downloadButtonRect = QRect(layout.titleSize.width() + buttonMargin, y, iconSize, iconSize);
+        }
         layouts.push_back(layout);
         y += layout.height + vMargin;
     }
@@ -92,14 +92,14 @@ QVector<MessageDelegateHelperFile::FileLayout> MessageDelegateHelperFile::doLayo
     return layouts;
 }
 
-bool MessageDelegateHelperFile::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperFile::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     const QVector<FileLayout> layouts = doLayout(message, option);
     const QPoint pos = mouseEvent->pos();
 
     for (const FileLayout &layout : layouts) {
-        if (layout.downloadButtonRect.translated(messageRect.topLeft()).contains(pos)) {
+        if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"));
             if (!file.isEmpty()) {
                 const QUrl fileUrl = QUrl::fromLocalFile(file);

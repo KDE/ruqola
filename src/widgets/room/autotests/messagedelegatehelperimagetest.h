@@ -23,12 +23,15 @@
 
 #include <QObject>
 
+#include <messages/messageattachment.h>
+
 class MessageDelegateHelperImageTest : public QObject
 {
     Q_OBJECT
 public:
     explicit MessageDelegateHelperImageTest(QObject *parent = nullptr);
     ~MessageDelegateHelperImageTest() = default;
+
 private Q_SLOTS:
     void shouldExtractMessageData();
     void shouldCacheLastFivePixmaps();

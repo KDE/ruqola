@@ -24,10 +24,10 @@ MessageDelegateHelperBase::~MessageDelegateHelperBase()
 {
 }
 
-bool MessageDelegateHelperBase::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperBase::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(mouseEvent)
-    Q_UNUSED(messageRect)
+    Q_UNUSED(attachmentsRect)
     Q_UNUSED(option)
     Q_UNUSED(index)
     return false;

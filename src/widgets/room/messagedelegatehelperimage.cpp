@@ -35,7 +35,7 @@
 
 static const int margin = 8; // vertical margin between title and pixmap, and between pixmap and description (if any)
 
-void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *) const
+void MessageDelegateHelperImage::draw(QPainter *painter, const QRect &messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
@@ -88,30 +88,30 @@ QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidt
                  height);
 }
 
-bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     const QPoint pos = mouseEvent->pos();
 
     ImageLayout layout = layoutImage(message, option);
-    if (layout.hideShowButtonRect.translated(messageRect.topLeft()).contains(pos)) {
+    if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
         QAbstractItemModel *model = const_cast<QAbstractItemModel *>(index.model());
         model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
         return true;
-    } else if (layout.downloadButtonRect.translated(messageRect.topLeft()).contains(pos)) {
+    } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
         const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save Image"));
         if (!file.isEmpty()) {
             layout.pixmap.save(file);
         }
         return true;
     } else if (!layout.pixmap.isNull()) {
-        const int imageY = messageRect.y() + layout.titleSize.height() + margin;
-        int imageMaxHeight = messageRect.bottom() - imageY - margin;
+        const int imageY = attachmentsRect.y() + layout.titleSize.height() + margin;
+        int imageMaxHeight = attachmentsRect.bottom() - imageY - margin;
         if (!layout.description.isEmpty()) {
             imageMaxHeight -= layout.descriptionSize.height() + margin;
         }
         // ## the width is often less than that, due to aspect ratio
-        const QRect imageRect(messageRect.x(), imageY, messageRect.width(), imageMaxHeight);
+        const QRect imageRect(attachmentsRect.x(), imageY, attachmentsRect.width(), imageMaxHeight);
         if (imageRect.contains(pos)) {
             QPointer<ShowImageDialog> dlg = new ShowImageDialog();
             dlg->setImage(layout.pixmap);

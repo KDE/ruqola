@@ -21,6 +21,8 @@
 #ifndef MESSAGELISTDELEGATE_H
 #define MESSAGELISTDELEGATE_H
 
+#include "libruqolawidgets_private_export.h"
+
 #include <QFont>
 #include <QItemDelegate>
 #include <QScopedPointer>
@@ -33,7 +35,7 @@ class MessageDelegateHelperText;
 class MessageDelegateHelperImage;
 class MessageDelegateHelperFile;
 
-class MessageListDelegate : public QItemDelegate
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
 {
     Q_OBJECT
 
@@ -50,7 +52,7 @@ public:
     void drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
 
 private:
-    void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &messageRect, const QStyleOptionViewItem &option) const;
+    void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &usableRect, const QStyleOptionViewItem &option) const;
     QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
 
     struct ReactionLayout {
@@ -64,18 +66,38 @@ private:
     };
     QVector<ReactionLayout> layoutReactions(const QVector<Reaction> &reactions, const qreal messageX, const QStyleOptionViewItem &option) const;
 
-    struct PixmapAndSenderLayout {
+    struct Layout {
+        // Sender
         QString senderText;
         QFont senderFont;
         QRectF senderRect;
         qreal ascent;
+
+        // Avatar pixmap
         QPixmap avatarPixmap;
         qreal avatarX;
+
+        // Timestamp
+        QString timeStampText;
+        QSize timeSize;
+
+        QRect usableRect; // rect for everything except the date header (at the top) and the sender (on the left)
+
+        // Text message
+        QRect textRect;
+
+        // Attachments
+        QRect attachmentsRect;
+
+        // Reactions
+        qreal reactionsHeight;
     };
-    PixmapAndSenderLayout layoutPixmapAndSender(const QStyleOptionViewItem &option, const QRect &usableRect, const QModelIndex &index) const;
+    Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
     /// @note Ownership is not transferred
-    MessageDelegateHelperBase *helper(const Message *message) const;
+    MessageDelegateHelperBase *attachmentsHelper(const Message *message) const;
+
+    friend class MessageListDelegateTest;
 
     QFont mEmojiFont;
     RocketChatAccount *mRocketChatAccount = nullptr;

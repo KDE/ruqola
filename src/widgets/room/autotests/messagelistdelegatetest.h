@@ -18,22 +18,22 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef MESSAGEDELEGATEHELPERTEXT_H
-#define MESSAGEDELEGATEHELPERTEXT_H
+#ifndef MESSAGELISTDELEGATETEST_H
+#define MESSAGELISTDELEGATETEST_H
 
-#include <QSize>
-class QPainter;
-class QRect;
-class QModelIndex;
-class QMouseEvent;
-class QStyleOptionViewItem;
+#include <QObject>
 
-class MessageDelegateHelperText
+class MessageListDelegateTest : public QObject
 {
+    Q_OBJECT
 public:
-    void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
-    QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
-    bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    explicit MessageListDelegateTest(QObject *parent = nullptr);
+    ~MessageListDelegateTest() = default;
+
+private Q_SLOTS:
+    void layoutChecks();
+
+private:
 };
 
-#endif // MESSAGEDELEGATEHELPERTEXT_H
+#endif // MESSAGELISTDELEGATETEST_H

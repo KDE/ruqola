@@ -26,6 +26,7 @@
 #include <QTextBlock>
 #include <QTextDocument>
 #include <QAbstractTextDocumentLayout>
+#include <QStyleOptionViewItem>
 
 // move to Message
 static QString makeMessageText(const QModelIndex &index)
@@ -33,38 +34,48 @@ static QString makeMessageText(const QModelIndex &index)
     return index.data(MessageModel::MessageConvertedText).toString();
 }
 
-void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const
+// QTextDocument lacks a move constructor
+static void fillTextDocument(QTextDocument &doc, const QString &text, int width)
 {
-    Q_UNUSED(option)
+    doc.setHtml(text);
+    doc.setTextWidth(width);
+    QTextFrame *frame = doc.frameAt(0);
+    QTextFrameFormat frameFormat = frame->frameFormat();
+    frameFormat.setMargin(0);
+    frame->setFrameFormat(frameFormat);
+}
+
+void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index,
+                                     const QStyleOptionViewItem &option, qreal *pBaseLine) const
+{
+    Q_UNUSED(option);
     const QString text = makeMessageText(index);
 
+    if (text.isEmpty()) {
+        return;
+    }
     // Possible optimisation: store the QTextDocument into the Message itself?
     QTextDocument doc;
-    doc.setHtml(text);
-    doc.setTextWidth(rect.width());
-
-    //QStyleOptionViewItemV4 options = option;
-    //initStyleOption(&options, index);
-    //options.text = QString();
-    //options.widget->style()->drawControl(QStyle::CE_ItemViewItem, &options, painter);
+    fillTextDocument(doc, text, rect.width());
 
     painter->translate(rect.left(), rect.top());
     const QRect clip(0, 0, rect.width(), rect.height());
     doc.drawContents(painter, clip);
     painter->translate(-rect.left(), -rect.top());
 
-    const qreal frameMargin = doc.frameAt(0)->frameFormat().topMargin();
     const QTextLine &line = doc.firstBlock().layout()->lineAt(0);
-    *pBaseLine = rect.y() + frameMargin + line.y() + line.ascent();
+    *pBaseLine = rect.y() + line.y() + line.ascent();
 }
 
 QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(option)
+    const QString text = makeMessageText(index);
+    if (text.isEmpty()) {
+        return QSize();
+    }
     QTextDocument doc;
-    const QString messageText = makeMessageText(index);
-    doc.setHtml(messageText);
-    doc.setTextWidth(maxWidth);
+    fillTextDocument(doc, text, maxWidth);
     return QSize(doc.idealWidth(), doc.size().height());
 }
 
@@ -72,10 +83,9 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
 {
     Q_UNUSED(option)
     // ## we should really cache that QTextDocument...
+    const QString text = makeMessageText(index);
     QTextDocument doc;
-    const QString messageText = makeMessageText(index);
-    doc.setHtml(messageText);
-    doc.setTextWidth(messageRect.width());
+    fillTextDocument(doc, text, messageRect.width());
 
     const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
     const QString anchor = doc.documentLayout()->anchorAt(pos);
