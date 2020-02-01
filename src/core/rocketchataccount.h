@@ -335,8 +335,6 @@ public:
 
     SearchMessageModel *searchMessageModel() const;
 
-    void displaySearchedMessage(const QJsonObject &obj);
-
     void updateUser(const QJsonObject &object);
 
     void removeSettings();

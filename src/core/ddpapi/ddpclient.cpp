@@ -64,14 +64,6 @@ void unblock_user(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
-void message_search(const QJsonObject &root, RocketChatAccount *account)
-{
-    if (account->ruqolaLogger()) {
-        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Search Message:") + QJsonDocument(root).toJson());
-    }
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
-    account->displaySearchedMessage(obj);
-}
 
 void input_user_channel_autocomplete(const QJsonObject &root, RocketChatAccount *account)
 {
@@ -664,12 +656,6 @@ quint64 DDPClient::starMessage(const QString &messageId, const QString &rid, boo
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->starMessage(messageId, rid, starred, m_uid);
     return method(result, star_message, DDPClient::Persistent);
-}
-
-quint64 DDPClient::messageSearch(const QString &rid, const QString &pattern)
-{
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->messageSearch(rid, pattern, m_uid);
-    return method(result, message_search, DDPClient::Persistent);
 }
 
 quint64 DDPClient::unBlockUser(const QString &rid, const QString &userId)

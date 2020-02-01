@@ -171,7 +171,6 @@ public:
     Q_REQUIRED_RESULT quint64  inputUserAutocomplete(const QString &pattern, const QString &exceptions);
     Q_REQUIRED_RESULT quint64  login(const QString &username, const QString &password);
     Q_REQUIRED_RESULT quint64  loginProvider(const QString &credentialToken, const QString &credentialSecret);
-    Q_REQUIRED_RESULT quint64  messageSearch(const QString &rid, const QString &pattern);
     Q_REQUIRED_RESULT quint64  unBlockUser(const QString &rid, const QString &userId);
     Q_REQUIRED_RESULT quint64  blockUser(const QString &rid, const QString &userId);
     Q_REQUIRED_RESULT quint64  disableNotifications(const QString &roomId, bool disabled);

@@ -1740,11 +1740,6 @@ void RocketChatAccount::inputTextCompleter(const QJsonObject &obj)
     mInputTextManager->inputTextCompleter(obj);
 }
 
-void RocketChatAccount::displaySearchedMessage(const QJsonObject &obj)
-{
-    mSearchMessageModel->parseResult(obj);
-}
-
 void RocketChatAccount::updateUser(const QJsonObject &object)
 {
     mUserModel->updateUser(object);
