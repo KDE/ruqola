@@ -26,7 +26,7 @@
 #include <QRect>
 #include <QString>
 
-class MessageDelegateHelperFile : public MessageDelegateHelperBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperFile : public MessageDelegateHelperBase
 {
 public:
     void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option, qreal *pBaseLine) const override;
@@ -39,10 +39,14 @@ private:
         QString title;
         QString description;
         QSize titleSize;
+        QSize descriptionSize;
         QRect downloadButtonRect;
+        int y; // relative
+        int height;
         QString link;
     };
-    FileLayout doLayout(const Message *message, const QStyleOptionViewItem &option) const;
+    QVector<FileLayout> doLayout(const Message *message, const QStyleOptionViewItem &option) const;
+    friend class MessageDelegateHelperFileTest;
 };
 
 #endif // MESSAGEDELEGATEHELPERFILE_H

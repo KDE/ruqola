@@ -40,65 +40,72 @@ void MessageDelegateHelperFile::draw(QPainter *painter, const QRect &messageRect
 {
     Q_UNUSED(pBaseLine)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    const FileLayout layout = doLayout(message, option);
-    const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+    const QVector<FileLayout> layouts = doLayout(message, option);
+    for (const FileLayout &layout : layouts) {
+        const int y = messageRect.y() + layout.y;
+        painter->drawText(messageRect.x(), y + option.fontMetrics.ascent(), layout.title);
+        const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
+        downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
-    painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
-    const QIcon downloadIcon = QIcon::fromTheme(QStringLiteral("cloud-download"));
-    downloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
-
-    const int nextY = messageRect.y() + titleSize.height() + vMargin;
-    painter->drawText(messageRect.x(), nextY + option.fontMetrics.ascent(), layout.description);
+        if (!layout.description.isEmpty()) {
+            const int descriptionY = y + layout.titleSize.height() + vMargin;
+            painter->drawText(messageRect.x(), descriptionY + option.fontMetrics.ascent(), layout.description);
+        }
+    }
 }
 
 QSize MessageDelegateHelperFile::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(maxWidth)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    const FileLayout layout = doLayout(message, option);
-    const QSize titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    const QSize descriptionSize = option.fontMetrics.size(Qt::TextSingleLine, layout.description);
-    return QSize(qMax(titleSize.width(), descriptionSize.width()),
-                 titleSize.height() + vMargin + descriptionSize.height());
+    const QVector<FileLayout> layouts = doLayout(message, option);
+    if (layouts.isEmpty())
+        return QSize();
+    return QSize(maxWidth, // should be qMax of all sizes, but doesn't really matter
+                 layouts.last().y + layouts.last().height);
 }
 
-MessageDelegateHelperFile::FileLayout MessageDelegateHelperFile::doLayout(const Message *message, const QStyleOptionViewItem &option) const
+QVector<MessageDelegateHelperFile::FileLayout> MessageDelegateHelperFile::doLayout(const Message *message, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(option);
 
-    FileLayout layout;
-    if (message->attachements().isEmpty()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "No attachments in File message";
-        return layout;
-    }
-    if (message->attachements().count() > 1) {
-        qCWarning(RUQOLAWIDGETS_LOG) << "Multiple attachments in File message? Can this happen?";
-    }
-    const MessageAttachment &msgAttach = message->attachements().at(0);
-    layout.title = msgAttach.title();
-    layout.description = msgAttach.description();
-    layout.link = msgAttach.link();
-
-    layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+    QVector<FileLayout> layouts;
+    const QVector<MessageAttachment> &attachments = message->attachements();
+    layouts.reserve(attachments.count());
     const int buttonMargin = 8;
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-    layout.downloadButtonRect = QRect(layout.titleSize.width() + buttonMargin, 0, iconSize, iconSize);
+    int y = 0;
+    for (const MessageAttachment &msgAttach : attachments) {
+        FileLayout layout;
+        layout.title = msgAttach.title();
+        layout.description = msgAttach.description();
+        layout.link = msgAttach.link();
+        layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+        layout.descriptionSize = option.fontMetrics.size(Qt::TextSingleLine, layout.description);
+        layout.y = y;
+        layout.height = layout.titleSize.height() + (layout.description.isEmpty() ? 0 : vMargin + layout.descriptionSize.height());
+        layout.downloadButtonRect = QRect(layout.titleSize.width() + buttonMargin, y, iconSize, iconSize);
+        layouts.push_back(layout);
+        y += layout.height + vMargin;
+    }
 
-    return layout;
+    return layouts;
 }
 
 bool MessageDelegateHelperFile::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    const FileLayout layout = doLayout(message, option);
+    const QVector<FileLayout> layouts = doLayout(message, option);
     const QPoint pos = mouseEvent->pos();
 
-    if (layout.downloadButtonRect.translated(messageRect.topLeft()).contains(pos)) {
-        const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"));
-        if (!file.isEmpty()) {
-            const QUrl fileUrl = QUrl::fromLocalFile(file);
-            Ruqola::self()->rocketChatAccount()->downloadFile(layout.link, fileUrl);
-            return true;
+    for (const FileLayout &layout : layouts) {
+        if (layout.downloadButtonRect.translated(messageRect.topLeft()).contains(pos)) {
+            const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"));
+            if (!file.isEmpty()) {
+                const QUrl fileUrl = QUrl::fromLocalFile(file);
+                Ruqola::self()->rocketChatAccount()->downloadFile(layout.link, fileUrl);
+                return true;
+            }
         }
     }
     return false;
