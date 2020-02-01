@@ -316,6 +316,7 @@ void RuqolaMainWindow::slotPinnedMessages()
 void RuqolaMainWindow::slotShowMentions()
 {
     QPointer<ShowMentionsMessagesDialog> dlg = new ShowMentionsMessagesDialog(this);
+    dlg->setRoomId(mMainWidget->roomId());
     dlg->setModel(Ruqola::self()->rocketChatAccount()->listMessagesFilterProxyModel());
     Ruqola::self()->rocketChatAccount()->getListMessages(mMainWidget->roomId(), ListMessagesModel::MentionsMessages);
     dlg->exec();
