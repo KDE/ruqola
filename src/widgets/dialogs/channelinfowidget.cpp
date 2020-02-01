@@ -49,7 +49,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
     mAnnouncement->setTrapReturnKey(true);
     mAnnouncement->setClearButtonEnabled(true);
-    layout->addRow(i18n("Annoucement:"), mAnnouncement);
+    layout->addRow(i18n("Announcement:"), mAnnouncement);
 
     mDescription = new KLineEdit(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
