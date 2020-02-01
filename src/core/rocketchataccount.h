@@ -410,6 +410,8 @@ Q_SIGNALS:
     void jobFailed(const QString &message);
     void switchedRooms();
     void userStatusUpdated(User::PresenceStatus status);
+    void publicSettingChanged();
+    void serverVersionChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

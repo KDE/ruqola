@@ -1273,6 +1273,7 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
         //TODO add Accounts_AllowUserStatusMessageChange when we will have a RestAPI method for it.
     }
     fillOauthModel();
+    Q_EMIT publicSettingChanged();
 }
 
 void RocketChatAccount::fillOauthModel()
@@ -1514,6 +1515,7 @@ void RocketChatAccount::setServerVersion(const QString &version)
 {
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::setServerVersion(const QString &version)" << version;
     mRuqolaServerConfig->setServerVersion(version);
+    Q_EMIT serverVersionChanged();
 }
 
 bool RocketChatAccount::needAdaptNewSubscriptionRC60() const

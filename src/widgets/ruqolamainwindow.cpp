@@ -96,6 +96,8 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::notificationChanged, this, &RuqolaMainWindow::slotTypingNotificationChanged);
     connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), &ReceiveTypingNotificationManager::clearNotification, this, &RuqolaMainWindow::slotClearNotification);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::missingChannelPassword, this, &RuqolaMainWindow::slotMissingChannelPassword);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::updateActions);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::updateActions);
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     updateActions();
 }
@@ -103,12 +105,9 @@ void RuqolaMainWindow::slotAccountChanged()
 void RuqolaMainWindow::updateActions()
 {
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
-    //TODO fix me.
-#if 0 //We don't load settings before activate it
-    mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->hasPinnedMessagesSupport());
-    mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport());
-    mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport());
-#endif
+    mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->hasPinnedMessagesSupport() && mCurrentRocketChatAccount->allowMessagePinningEnabled());
+    mShowStarredMessages->setVisible(mCurrentRocketChatAccount->hasStarredMessagesSupport() && mCurrentRocketChatAccount->allowMessageStarringEnabled());
+    mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->hasSnippetedMessagesSupport() && mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
 }
 
 void RuqolaMainWindow::readConfig()
