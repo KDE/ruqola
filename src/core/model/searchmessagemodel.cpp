@@ -210,14 +210,14 @@ int SearchMessageModel::rowCount(const QModelIndex &parent) const
     return mSearchMessages.count();
 }
 
-void SearchMessageModel::parseResult(const QJsonObject &obj, bool restApi)
+void SearchMessageModel::parseResult(const QJsonObject &obj)
 {
     QVector<SearchMessage> messages;
     const QJsonArray messagesObj = obj.value(QLatin1String("messages")).toArray();
     for (int i = 0; i < messagesObj.size(); i++) {
         const QJsonObject o = messagesObj.at(i).toObject();
         SearchMessage msg;
-        msg.parseMessage(o, restApi);
+        msg.parseMessage(o, true);
         //Verify that it's valid
         messages.append(msg);
     }

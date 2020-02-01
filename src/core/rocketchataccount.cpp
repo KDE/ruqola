@@ -1045,7 +1045,7 @@ void RocketChatAccount::messageSearch(const QString &pattern, const QString &rid
 
 void RocketChatAccount::slotSearchMessages(const QJsonObject &obj)
 {
-    mSearchMessageModel->parseResult(obj, true);
+    mSearchMessageModel->parseResult(obj);
 }
 
 void RocketChatAccount::starMessage(const QString &messageId, bool starred)

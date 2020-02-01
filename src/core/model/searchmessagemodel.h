@@ -80,7 +80,7 @@ public:
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = {}) const override;
-    void parseResult(const QJsonObject &obj, bool restApi = false);
+    void parseResult(const QJsonObject &obj);
     void clear();
 
     Q_REQUIRED_RESULT bool stringNotFound() const;
