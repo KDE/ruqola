@@ -21,10 +21,10 @@
 #ifndef LISTMESSAGESMODEL_H
 #define LISTMESSAGESMODEL_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "messagemodel.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT ListMessagesModel : public MessageModel
+class LIBRUQOLACORE_EXPORT ListMessagesModel : public MessageModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)
