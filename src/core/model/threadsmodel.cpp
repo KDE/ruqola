@@ -18,6 +18,7 @@
 */
 
 #include "threadsmodel.h"
+#include "messages/message.h"
 #include "threads.h"
 #include <QDateTime>
 
@@ -65,7 +66,7 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mThreads->count()) {
         return {};
     }
-    const Thread thread = mThreads->at(index.row());
+    const Message thread = mThreads->at(index.row());
     switch (role) {
     case ThreadMessageId:
         return thread.messageId();

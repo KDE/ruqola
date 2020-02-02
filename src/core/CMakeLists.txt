@@ -151,7 +151,6 @@ set (Ruqola_core_srcs
     discussion.cpp
     discussions.cpp
 
-    thread.cpp
     threads.cpp
 
     emoticoncategory.cpp

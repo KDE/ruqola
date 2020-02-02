@@ -25,12 +25,12 @@ Threads::Threads()
 {
 }
 
-QVector<Thread> Threads::threads() const
+QVector<Message> Threads::threads() const
 {
     return mThreads;
 }
 
-void Threads::setThreads(const QVector<Thread> &threads)
+void Threads::setThreads(const QVector<Message> &threads)
 {
     mThreads = threads;
 }
@@ -51,11 +51,11 @@ void Threads::parseThreadsObj(const QJsonObject &threadsObj)
     for (const QJsonValue &current : threadsArray) {
         if (current.type() == QJsonValue::Object) {
             const QJsonObject threadObject = current.toObject();
-            Thread m;
+            Message m;
             m.parseMessage(threadObject, true);
             mThreads.append(m);
         } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
+            qCWarning(RUQOLA_LOG) << "Problem when parsing message" << current;
         }
     }
 }
@@ -84,7 +84,7 @@ int Threads::count() const
     return mThreads.count();
 }
 
-Thread Threads::at(int index) const
+Message Threads::at(int index) const
 {
     return mThreads.at(index);
 }
@@ -130,7 +130,7 @@ QDebug operator <<(QDebug d, const Threads &t)
     return d;
 }
 
-void Threads::append(const Thread &thread)
+void Threads::append(const Message &message)
 {
-    mThreads.append(thread);
+    mThreads.append(message);
 }

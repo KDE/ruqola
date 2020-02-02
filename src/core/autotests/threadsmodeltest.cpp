@@ -60,7 +60,7 @@ void ThreadsModelTest::shouldAssignValues()
 
     Threads ThreadList;
     for (int i = 0; i < 10; ++i) {
-        Thread c;
+        Message c;
         c.setMessageId(QStringLiteral("roomid%1").arg(i));
         ThreadList.append(c);
     }
@@ -116,7 +116,7 @@ void ThreadsModelTest::shouldAssignValues()
     rowABTRemoved.clear();
 
     for (int i = 0; i < 5; ++i) {
-        Thread c;
+        Message c;
         c.setMessageId(QStringLiteral("roomid%1").arg(i));
         ThreadList.append(c);
     }

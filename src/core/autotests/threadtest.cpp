@@ -18,7 +18,6 @@
 */
 
 #include "threadtest.h"
-#include "thread.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(ThreadTest)
 ThreadTest::ThreadTest(QObject *parent)

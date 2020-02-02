@@ -21,7 +21,7 @@
 #define THREADS_H
 
 #include "libruqola_private_export.h"
-#include "thread.h"
+#include "messages/message.h"
 #include <QVector>
 #include <QDebug>
 class LIBRUQOLACORE_TESTS_EXPORT Threads
@@ -29,15 +29,15 @@ class LIBRUQOLACORE_TESTS_EXPORT Threads
 public:
     Threads();
 
-    Q_REQUIRED_RESULT QVector<Thread> threads() const;
-    void setThreads(const QVector<Thread> &threads);
+    Q_REQUIRED_RESULT QVector<Message> threads() const;
+    void setThreads(const QVector<Message> &threads);
 
     void parseThreads(const QJsonObject &threadsObj);
 
     Q_REQUIRED_RESULT bool isEmpty() const;
     void clear();
     Q_REQUIRED_RESULT int count() const;
-    Q_REQUIRED_RESULT Thread at(int index) const;
+    Q_REQUIRED_RESULT Message at(int index) const;
 
     Q_REQUIRED_RESULT int threadsCount() const;
     void setThreadsCount(int threadsCount);
@@ -48,11 +48,11 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
-    void append(const Thread &thread);
+    void append(const Message &message);
     void parseMoreThreads(const QJsonObject &threadsObj);
 private:
     void parseThreadsObj(const QJsonObject &threadsObj);
-    QVector<Thread> mThreads;
+    QVector<Message> mThreads;
     int mThreadsCount = 0;
     int mOffset = 0;
     int mTotal = 0;

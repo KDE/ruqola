@@ -23,7 +23,6 @@
 
 #include "file.h"
 #include "libruqola_private_export.h"
-#include "thread.h"
 #include <QVector>
 #include <QDebug>
 
