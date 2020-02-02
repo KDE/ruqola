@@ -129,7 +129,29 @@ void ChannelInfoWidget::setRoomWrapper(RoomWrapper *roomWrapper)
    if (mRoomWrapper->canBeModify()) {
        mStackedWidget->setCurrentWidget(mEditableChannel);
        //TODO connect signal/slot
+       updateEditableChannelInfo();
    } else {
        mStackedWidget->setCurrentWidget(mReadOnlyChannel);
+       updateReadOnlyChannelInfo();
    }
+}
+
+void ChannelInfoWidget::updateReadOnlyChannelInfo()
+{
+    mNameReadOnly->setText(mRoomWrapper->name());
+    mCommentReadOnly->setText(mRoomWrapper->topic());
+    mAnnouncementReadOnly->setText(mRoomWrapper->announcement());
+    mDescriptionReadOnly->setText(mRoomWrapper->description());
+}
+
+void ChannelInfoWidget::updateEditableChannelInfo()
+{
+    mName->setText(mRoomWrapper->name());
+    mComment->setText(mRoomWrapper->topic());
+    mAnnouncement->setText(mRoomWrapper->announcement());
+    mDescription->setText(mRoomWrapper->description());
+    mReadOnly->setChecked(mRoomWrapper->readOnly());
+    mArchive->setChecked(mRoomWrapper->archived());
+    mPrivate->setChecked(mRoomWrapper->channelType() == QStringLiteral("p"));
+
 }

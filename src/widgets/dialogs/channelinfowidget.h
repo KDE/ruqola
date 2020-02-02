@@ -43,6 +43,9 @@ Q_SIGNALS:
     void deleteChannel();
 
 private:
+    void updateReadOnlyChannelInfo();
+    void updateEditableChannelInfo();
+
     KLineEdit *mName = nullptr;
     KLineEdit *mComment = nullptr;
     KLineEdit *mAnnouncement = nullptr;
