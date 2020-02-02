@@ -45,6 +45,8 @@ Q_SIGNALS:
 private:
     void updateReadOnlyChannelInfo();
     void updateEditableChannelInfo();
+    void connectReadOnlyWidget();
+    void connectEditableWidget();
 
     KLineEdit *mName = nullptr;
     KLineEdit *mComment = nullptr;

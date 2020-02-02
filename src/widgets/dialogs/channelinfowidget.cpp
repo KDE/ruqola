@@ -128,11 +128,12 @@ void ChannelInfoWidget::setRoomWrapper(RoomWrapper *roomWrapper)
    mRoomWrapper = roomWrapper;
    if (mRoomWrapper->canBeModify()) {
        mStackedWidget->setCurrentWidget(mEditableChannel);
-       //TODO connect signal/slot
        updateEditableChannelInfo();
+       connectReadOnlyWidget();
    } else {
        mStackedWidget->setCurrentWidget(mReadOnlyChannel);
        updateReadOnlyChannelInfo();
+       connectReadOnlyWidget();
    }
 }
 
@@ -153,5 +154,46 @@ void ChannelInfoWidget::updateEditableChannelInfo()
     mReadOnly->setChecked(mRoomWrapper->readOnly());
     mArchive->setChecked(mRoomWrapper->archived());
     mPrivate->setChecked(mRoomWrapper->channelType() == QStringLiteral("p"));
+}
 
+void ChannelInfoWidget::connectReadOnlyWidget()
+{
+    connect(mRoomWrapper, &RoomWrapper::announcementChanged, this, [this]() {
+        mAnnouncementReadOnly->setText(mRoomWrapper->announcement());
+    });
+    connect(mRoomWrapper, &RoomWrapper::topicChanged, this, [this]() {
+        mCommentReadOnly->setText(mRoomWrapper->topic());
+    });
+    connect(mRoomWrapper, &RoomWrapper::nameChanged, this, [this]() {
+        mNameReadOnly->setText(mRoomWrapper->name());
+    });
+    connect(mRoomWrapper, &RoomWrapper::descriptionChanged, this, [this]() {
+        mDescriptionReadOnly->setText(mRoomWrapper->description());
+    });
+}
+
+void ChannelInfoWidget::connectEditableWidget()
+{
+    connect(mRoomWrapper, &RoomWrapper::announcementChanged, this, [this]() {
+        mAnnouncement->setText(mRoomWrapper->announcement());
+    });
+    connect(mRoomWrapper, &RoomWrapper::topicChanged, this, [this]() {
+        mComment->setText(mRoomWrapper->topic());
+    });
+    connect(mRoomWrapper, &RoomWrapper::nameChanged, this, [this]() {
+        mName->setText(mRoomWrapper->name());
+    });
+    connect(mRoomWrapper, &RoomWrapper::descriptionChanged, this, [this]() {
+        mDescription->setText(mRoomWrapper->description());
+    });
+    connect(mRoomWrapper, &RoomWrapper::readOnlyChanged, this, [this]() {
+        mReadOnly->setChecked(mRoomWrapper->readOnly());
+    });
+    connect(mRoomWrapper, &RoomWrapper::archivedChanged, this, [this]() {
+        mArchive->setChecked(mRoomWrapper->archived());
+    });
+    connect(mRoomWrapper, &RoomWrapper::channelTypeChanged, this, [this]() {
+        mPrivate->setChecked(mRoomWrapper->channelType() == QStringLiteral("p"));
+    });
+    //TODO react when we change settings
 }
