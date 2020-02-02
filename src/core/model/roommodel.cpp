@@ -557,3 +557,14 @@ QIcon RoomModel::icon(Room *r) const
     }
     return {};
 }
+
+QModelIndex RoomModel::indexForRoomName(const QString &roomName) const
+{
+    for (int row = 0; row < rowCount(); ++row) {
+        const QModelIndex modelIndex = index(row, 0);
+        if (modelIndex.data(RoomModel::RoomName) == roomName) {
+            return modelIndex;
+        }
+    }
+    return {};
+}

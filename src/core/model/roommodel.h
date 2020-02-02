@@ -119,6 +119,7 @@ public:
     void updateSubscriptionRoom(const QJsonObject &room);
     Q_REQUIRED_RESULT QString insertRoom(const QJsonObject &room);
 
+    Q_REQUIRED_RESULT QModelIndex indexForRoomName(const QString &roomName) const;
 Q_SIGNALS:
     void needToUpdateNotification();
 
