@@ -54,7 +54,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
-    mChannelList->setCurrentSelectedRoom(group.readEntry("SelectedGroup", QString()));
+    mChannelList->setCurrentSelectedRoom(group.readEntry("SelectedRoom", QString()));
 }
 
 RuqolaMainWidget::~RuqolaMainWidget()
@@ -63,9 +63,9 @@ RuqolaMainWidget::~RuqolaMainWidget()
     group.writeEntry("SplitterSizes", mSplitter->saveState());
     const QString selectedRoom = mChannelList->currentSelectedRoom();
     if (selectedRoom.isEmpty()) {
-        group.deleteEntry("SelectedGroup");
+        group.deleteEntry("SelectedRoom");
     } else {
-        group.writeEntry("SelectedGroup", selectedRoom);
+        group.writeEntry("SelectedRoom", selectedRoom);
     }
 }
 
