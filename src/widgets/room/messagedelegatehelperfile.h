@@ -29,7 +29,7 @@
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperFile : public MessageDelegateHelperBase
 {
 public:
-    void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
+    void draw(QPainter *painter, const QRect &attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
     bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 

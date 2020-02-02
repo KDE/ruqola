@@ -37,7 +37,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase
 public:
     virtual ~MessageDelegateHelperBase();
 
-    virtual void draw(QPainter *painter, const QRect &rect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
+    virtual void draw(QPainter *painter, const QRect &attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
     virtual QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
     virtual bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 };
