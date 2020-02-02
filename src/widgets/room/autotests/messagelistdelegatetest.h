@@ -31,6 +31,7 @@ public:
     ~MessageListDelegateTest() = default;
 
 private Q_SLOTS:
+    void layoutChecks_data();
     void layoutChecks();
 
 private:

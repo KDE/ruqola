@@ -38,10 +38,44 @@ MessageListDelegateTest::MessageListDelegateTest(QObject *parent)
     : QObject(parent)
 {
     QStandardPaths::setTestModeEnabled(true);
+    Ruqola::self()->rocketChatAccount()->setAccountName(QStringLiteral("accountName"));
+}
+
+void MessageListDelegateTest::layoutChecks_data()
+{
+    QTest::addColumn<Message>("message");
+    QTest::addColumn<bool>("withDateHeader");
+
+    Message message;
+    message.setUserId(QStringLiteral("userId"));
+    message.setUsername(QStringLiteral("dfaure"));
+    message.setTimeStamp(QDateTime(QDate(2020, 2, 1), QTime(4, 7, 15)).toMSecsSinceEpoch());
+    message.setMessageType(Message::NormalText);
+
+    QTest::newRow("text_no_date") << message << false;
+    QTest::newRow("text_with_date") << message << true;
+
+    message.setMessageType(Message::Image);
+    const MessageAttachment msgAttach = testAttachment();
+    message.setAttachements({msgAttach});
+
+    QTest::newRow("attachment_no_text_no_date") << message << false;
+    QTest::newRow("attachment_no_text_with_date") << message << true;
+
+    // TODO tests with reactions
+
+    message.setText(QStringLiteral("The <b>text</b>"));
+
+    QTest::newRow("attachment_with_text_no_date") << message << false;
+    QTest::newRow("attachment_with_text_with_date") << message << true;
+
 }
 
 void MessageListDelegateTest::layoutChecks()
 {
+    QFETCH(Message, message);
+    QFETCH(bool, withDateHeader);
+
     // GIVEN a delegate and an index pointing to a message
     MessageListDelegate delegate;
     delegate.setRocketChatAccount(Ruqola::self()->rocketChatAccount());
@@ -49,24 +83,25 @@ void MessageListDelegateTest::layoutChecks()
     QWidget fakeWidget;
     option.widget = &fakeWidget;
     option.rect = QRect(100, 100, 500, 500);
-    Message message;
-    message.setUserId(QStringLiteral("userId"));
-    message.setUsername(QStringLiteral("dfaure"));
-    message.setTimeStamp(QDateTime(QDate(2020, 2, 1), QTime(4, 7, 15)).toMSecsSinceEpoch());
-    const MessageAttachment msgAttach = testAttachment();
-    message.setAttachements({msgAttach});
 
     QStandardItemModel model;
     QStandardItem *item = new QStandardItem;
     item->setData(message.username(), MessageModel::Username);
     item->setData(message.userId(), MessageModel::UserId);
-    item->setData(true, MessageModel::DateDiffersFromPrevious);
+    item->setData(withDateHeader, MessageModel::DateDiffersFromPrevious);
     item->setData(message.displayTime(), MessageModel::Timestamp);
     item->setData(QVariant::fromValue(&message), MessageModel::MessagePointer);
+    item->setData(message.text(), MessageModel::OriginalMessage);
+    item->setData(message.text(), MessageModel::MessageConvertedText);
     model.setItem(0, 0, item);
     const QModelIndex index = model.index(0, 0);
 
-    // WHEN
+    // WHEN calculating sizehint
+    const QSize sizeHint = delegate.sizeHint(option, index);
+    QVERIFY(sizeHint.isValid());
+    option.rect.setSize(sizeHint);
+
+    // ... and redoing layout while painting
     const MessageListDelegate::Layout layout = delegate.doLayout(option, index);
 
     // THEN
@@ -75,25 +110,21 @@ void MessageListDelegateTest::layoutChecks()
     QVERIFY(layout.timeSize.isValid());
     QVERIFY(option.rect.contains(layout.usableRect));
     QVERIFY(option.rect.contains(layout.senderRect.toRect()));
-    QVERIFY(option.rect.contains(layout.attachmentsRect));
-    QVERIFY(!layout.textRect.isValid());
-
-    // Add a text message, the height should increase
-    message.setText(QStringLiteral("The <b>text</b>"));
-    item->setData(message.text(), MessageModel::OriginalMessage);
-    item->setData(message.text(), MessageModel::MessageConvertedText);
-
-    // WHEN
-    const MessageListDelegate::Layout layoutWithText = delegate.doLayout(option, index);
-
-    // THEN
-    QVERIFY(option.rect.contains(layoutWithText.textRect));
-    QVERIFY(option.rect.contains(layout.senderRect.toRect()));
-    QCOMPARE(layoutWithText.usableRect.left(), layoutWithText.textRect.left());
-    QVERIFY(layoutWithText.textRect.top() >= layoutWithText.usableRect.top());
-    QVERIFY(!layoutWithText.senderRect.intersects(layoutWithText.textRect));
-    QVERIFY(layoutWithText.textRect.height() >= layout.textRect.height() + 4);
-    QCOMPARE(layoutWithText.attachmentsRect.top(), layoutWithText.textRect.bottom());
-    QVERIFY(option.rect.contains(layout.attachmentsRect));
-
+    if (message.attachements().isEmpty()) {
+        QVERIFY(layout.attachmentsRect.isNull());
+    } else {
+        QVERIFY(sizeHint.height() > layout.senderRect.height() + 1);
+        QVERIFY(option.rect.contains(layout.attachmentsRect));
+    }
+    if (message.text().isEmpty()) {
+        QVERIFY(!layout.textRect.isValid());
+    } else {
+        QVERIFY(option.rect.contains(layout.textRect));
+        QCOMPARE(layout.usableRect.left(), layout.textRect.left());
+        QVERIFY(layout.textRect.top() >= layout.usableRect.top());
+        QVERIFY(!layout.senderRect.intersects(layout.textRect));
+        if (!message.attachements().isEmpty()) {
+            QCOMPARE(layout.attachmentsRect.top(), layout.textRect.bottom());
+        }
+    }
 }

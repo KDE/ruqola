@@ -106,7 +106,7 @@ bool DownloadFileJob::requireHttpAuthentication() const
 bool DownloadFileJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start DownloadFileJob";
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start DownloadFileJob for" << mUrl;
         return false;
     }
     if (!mUrl.isValid()) {

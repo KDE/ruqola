@@ -123,7 +123,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     layout.senderFont.setBold(true);
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     layout.ascent = senderFontMetrics.ascent();
-    const QSizeF senderTextSize = senderFontMetrics.boundingRect(layout.senderText).size();
+    const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
 
     layout.avatarPixmap = makeAvatarPixmap(index, senderTextSize.height());
 
@@ -147,7 +147,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     const int widthAfterMessage = layout.timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage);
     const QSize textSize = mHelperText->sizeHint(index, maxWidth, option); // TODO share the QTextDocument
-    const int textLeft = layout.senderRect.right();
+    const int textLeft = layout.senderRect.right() + margin;
     int attachmentsY;
     if (textSize.isValid()) {
         layout.textRect = QRect(textLeft, usableRect.top() + margin,
@@ -167,8 +167,10 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         layout.reactionsHeight = 0;
     }
 
-    layout.attachmentsRect = QRect(textLeft, attachmentsY,
-                                   maxWidth, usableRect.height() - (attachmentsY - usableRect.top()) - layout.reactionsHeight);
+    if (!message->attachements().isEmpty()) {
+        layout.attachmentsRect = QRect(textLeft, attachmentsY,
+                                       maxWidth, usableRect.height() - (attachmentsY - usableRect.top()) - layout.reactionsHeight);
+    }
 
     return layout;
 }
@@ -338,13 +340,14 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    // Note: option.rect in this method is huge (as big as the viewport)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     // Avatar pixmap and sender text
     const Layout layout = doLayout(option, index);
 
     const MessageDelegateHelperBase *helper = attachmentsHelper(message);
-    const QSize attachmentsSize = helper ? helper->sizeHint(index, layout.textRect.width(), option) : QSize();
+    const QSize attachmentsSize = helper ? helper->sizeHint(index, layout.textRect.width(), option) : QSize(0, 0);
 
     int additionalHeight = layout.reactionsHeight;
     if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
