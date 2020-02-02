@@ -52,10 +52,12 @@ QString avatarLink()
     const QString link = QLatin1String("/avatarpix.png");
     const QString pixFileName = cachePath + link;
 
-    const QString srcPath = QFINDTESTDATA("../../../../src/icons/32-apps-ruqola.png");
-    Q_ASSERT(!srcPath.isEmpty());
-    if (!QFile::copy(srcPath, pixFileName)) {
-        qWarning() << "Couldn't copy" << srcPath << "to" << pixFileName;
+    if (!QFileInfo::exists(pixFileName)) {
+        const QString srcPath = QFINDTESTDATA("../../../../src/icons/32-apps-ruqola.png");
+        Q_ASSERT(!srcPath.isEmpty());
+        if (!QFile::copy(srcPath, pixFileName)) {
+            qWarning() << "Couldn't copy" << srcPath << "to" << pixFileName;
+        }
     }
 
     return link;
