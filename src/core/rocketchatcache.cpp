@@ -175,7 +175,7 @@ QString RocketChatCache::avatarUrl(const QString &userId)
 void RocketChatCache::insertAvatarUrl(const QString &userId, const QString &url)
 {
     mUserAvatarUrl.insert(userId, url);
-    if (!url.isEmpty()) {
+    if (!url.isEmpty() && !fileInCache(QUrl(url))) {
         mAccount->restApi()->downloadFile(QUrl(url));
     }
 }
