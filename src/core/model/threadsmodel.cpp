@@ -34,7 +34,7 @@ ThreadsModel::~ThreadsModel()
 
 void ThreadsModel::checkFullList()
 {
-    setHasFullList(mThreads->threads().count() == mThreads->total());
+    setHasFullList(mThreads->count() == mThreads->total());
 }
 
 bool ThreadsModel::loadMoreThreadsInProgress() const
@@ -138,9 +138,9 @@ void ThreadsModel::setRoomId(const QString &roomId)
 
 void ThreadsModel::addMoreThreads(const QJsonObject &threadsObj)
 {
-    const int numberOfElement = mThreads->threads().count();
+    const int numberOfElement = mThreads->count();
     mThreads->parseMoreThreads(threadsObj);
-    beginInsertRows(QModelIndex(), numberOfElement, mThreads->threads().count() - 1);
+    beginInsertRows(QModelIndex(), numberOfElement, mThreads->count() - 1);
     endInsertRows();
     checkFullList();
 }
@@ -154,13 +154,13 @@ void ThreadsModel::parseThreads(const QJsonObject &threadsObj, const QString &ro
 {
     mRoomId = roomId;
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mThreads->threads().count() - 1);
+        beginRemoveRows(QModelIndex(), 0, mThreads->count() - 1);
         mThreads->clear();
         endRemoveRows();
     }
     mThreads->parseThreads(threadsObj);
     if (!mThreads->isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, mThreads->threads().count() - 1);
+        beginInsertRows(QModelIndex(), 0, mThreads->count() - 1);
         endInsertRows();
     }
     checkFullList();
