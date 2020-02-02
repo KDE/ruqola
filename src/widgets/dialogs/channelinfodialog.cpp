@@ -47,9 +47,9 @@ ChannelInfoDialog::~ChannelInfoDialog()
 {
 }
 
-void ChannelInfoDialog::setCanBeModified(bool editable)
+void ChannelInfoDialog::setRoomWrapper(RoomWrapper *roomWrapper)
 {
-    mChannelInfoWidget->setCanBeModified(editable);
+    mChannelInfoWidget->setRoomWrapper(roomWrapper);
 }
 
 void ChannelInfoDialog::slotDeleteChannel()

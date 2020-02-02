@@ -27,13 +27,17 @@ class KLineEdit;
 class KPasswordLineEdit;
 class QCheckBox;
 class QPushButton;
+class QStackedWidget;
+class QLabel;
+class RoomWrapper;
 class LIBRUQOLAWIDGETS_EXPORT ChannelInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ChannelInfoWidget(QWidget *parent = nullptr);
     ~ChannelInfoWidget();
-    void setCanBeModified(bool editable);
+
+    void setRoomWrapper(RoomWrapper *roomWrapper);
 
 Q_SIGNALS:
     void deleteChannel();
@@ -48,6 +52,14 @@ private:
     QCheckBox *mArchive = nullptr;
     QCheckBox *mPrivate = nullptr;
     QPushButton *mDeleteChannel = nullptr;
+    QStackedWidget *mStackedWidget = nullptr;
+    QWidget *mEditableChannel = nullptr;
+    QWidget *mReadOnlyChannel = nullptr;
+    QLabel *mNameReadOnly = nullptr;
+    QLabel *mCommentReadOnly = nullptr;
+    QLabel *mAnnouncementReadOnly = nullptr;
+    QLabel *mDescriptionReadOnly = nullptr;
+    RoomWrapper *mRoomWrapper = nullptr;
 };
 
 #endif // CHANNELINFOWIDGET_H

@@ -253,7 +253,7 @@ void RuqolaMainWindow::slotShowChannelInfo()
             delete dlg;
         } else {
             QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(this);
-            dlg->setCanBeModified(roomWrapper->canBeModify());
+            dlg->setRoomWrapper(roomWrapper);
             dlg->exec();
             delete dlg;
         }

@@ -19,17 +19,33 @@
 */
 
 #include "channelinfowidget.h"
+#include "roomwrapper.h"
 #include <KLineEdit>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QPushButton>
+#include <QStackedWidget>
 
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QFormLayout *layout = new QFormLayout(this);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    mStackedWidget = new QStackedWidget(this);
+    mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
+    mainLayout->addWidget(mStackedWidget);
+
+    //Editable channel
+    mEditableChannel = new QWidget(this);
+    mEditableChannel->setObjectName(QStringLiteral("mEditableChannel"));
+    mStackedWidget->addWidget(mEditableChannel);
+
+    QFormLayout *layout = new QFormLayout(mEditableChannel);
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
 
@@ -77,17 +93,43 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
 
+    //ReadOnly Channel
+    mReadOnlyChannel = new QWidget(this);
+    mReadOnlyChannel->setObjectName(QStringLiteral("mReadOnlyChannel"));
+    mStackedWidget->addWidget(mReadOnlyChannel);
+
+    QFormLayout *layoutReadOnly = new QFormLayout(mReadOnlyChannel);
+    layoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
+    layoutReadOnly->setContentsMargins(0, 0, 0, 0);
+
+    mNameReadOnly = new QLabel(this);
+    mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
+    layoutReadOnly->addRow(i18n("Name:"), mNameReadOnly);
+
+    mCommentReadOnly = new QLabel(this);
+    mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
+    layoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
+
+    mAnnouncementReadOnly = new QLabel(this);
+    mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
+    layoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
+
+    mDescriptionReadOnly = new QLabel(this);
+    mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
+    layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
 }
 
 ChannelInfoWidget::~ChannelInfoWidget()
 {
 }
-//Set roomWrapper here directly
-void ChannelInfoWidget::setCanBeModified(bool editable)
+
+void ChannelInfoWidget::setRoomWrapper(RoomWrapper *roomWrapper)
 {
-    //TODO
-    mName->setReadOnly(!editable);
-    mComment->setReadOnly(!editable);
-    mAnnouncement->setReadOnly(!editable);
-    mDescription->setReadOnly(!editable);
+   mRoomWrapper = roomWrapper;
+   if (mRoomWrapper->canBeModify()) {
+       mStackedWidget->setCurrentWidget(mEditableChannel);
+       //TODO connect signal/slot
+   } else {
+       mStackedWidget->setCurrentWidget(mReadOnlyChannel);
+   }
 }
