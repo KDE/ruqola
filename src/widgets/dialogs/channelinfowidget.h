@@ -40,7 +40,7 @@ public:
     void setRoomWrapper(RoomWrapper *roomWrapper);
 
 Q_SIGNALS:
-    void deleteChannel();
+    void channelDeleted();
 
 private:
     void updateReadOnlyChannelInfo();

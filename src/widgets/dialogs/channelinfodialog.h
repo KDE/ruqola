@@ -33,7 +33,6 @@ public:
     ~ChannelInfoDialog();
     void setRoomWrapper(RoomWrapper *roomWrapper);
 private:
-    void slotDeleteChannel();
     ChannelInfoWidget *mChannelInfoWidget = nullptr;
 };
 

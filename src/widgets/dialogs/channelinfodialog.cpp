@@ -20,6 +20,7 @@
 
 #include "channelinfodialog.h"
 #include "channelinfowidget.h"
+
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <KLocalizedString>
@@ -40,7 +41,7 @@ ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ChannelInfoDialog::reject);
     mainLayout->addWidget(buttonBox);
     resize(600, 400);
-    connect(mChannelInfoWidget, &ChannelInfoWidget::deleteChannel, this, &ChannelInfoDialog::slotDeleteChannel);
+    connect(mChannelInfoWidget, &ChannelInfoWidget::channelDeleted, this, &ChannelInfoDialog::close);
 }
 
 ChannelInfoDialog::~ChannelInfoDialog()
@@ -50,12 +51,4 @@ ChannelInfoDialog::~ChannelInfoDialog()
 void ChannelInfoDialog::setRoomWrapper(RoomWrapper *roomWrapper)
 {
     mChannelInfoWidget->setRoomWrapper(roomWrapper);
-}
-
-void ChannelInfoDialog::slotDeleteChannel()
-{
-    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
-        //TODO delete it !
-        accept();
-    }
 }

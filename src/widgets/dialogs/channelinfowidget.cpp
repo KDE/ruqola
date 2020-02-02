@@ -20,9 +20,13 @@
 
 #include "channelinfowidget.h"
 #include "roomwrapper.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
+
 #include <KLineEdit>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>
+#include <KMessageBox>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
@@ -92,7 +96,12 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mDeleteChannel = new QPushButton(i18n("Delete"), this); //TODO add icons!
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
-    connect(mDeleteChannel, &QPushButton::clicked, this, &ChannelInfoWidget::deleteChannel);
+    connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
+        if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
+            Ruqola::self()->rocketChatAccount()->eraseRoom(mRoomWrapper->rid(), mRoomWrapper->channelType());
+            Q_EMIT channelDeleted();
+        }
+    });
 
     //ReadOnly Channel
     mReadOnlyChannel = new QWidget(this);
