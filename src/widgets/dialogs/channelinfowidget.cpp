@@ -92,6 +92,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mDeleteChannel = new QPushButton(i18n("Delete"), this); //TODO add icons!
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
+    connect(mDeleteChannel, &QPushButton::clicked, this, &ChannelInfoWidget::deleteChannel);
 
     //ReadOnly Channel
     mReadOnlyChannel = new QWidget(this);
