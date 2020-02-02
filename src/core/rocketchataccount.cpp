@@ -554,7 +554,7 @@ void RocketChatAccount::changeFavorite(const QString &roomId, bool checked)
 
 void RocketChatAccount::openChannel(const QString &url)
 {
-    //qCDebug(RUQOLA_LOG) << " void RocketChatAccount::openChannel(const QString &url)"<<url;
+    qCDebug(RUQOLA_LOG) << "opening channel" << url;
     restApi()->channelJoin(url, QString());
     //TODO search correct room + select it.
 }
@@ -601,6 +601,7 @@ void RocketChatAccount::openDirectChannel(const QString &username)
 //#ifdef USE_REASTAPI_JOB
 //    restApi()->openDirectMessage(username);
 //#else
+    qDebug() << "Open direct conversation channel with" << username;
     ddp()->openDirectChannel(username);
 //#endif
 }

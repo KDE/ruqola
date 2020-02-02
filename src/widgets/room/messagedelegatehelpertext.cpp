@@ -20,6 +20,8 @@
 
 #include "messagedelegatehelpertext.h"
 #include <model/messagemodel.h>
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include "ruqolautils.h"
 
 #include <QPainter>
@@ -90,12 +92,20 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
     fillTextDocument(doc, text, messageRect.width());
 
     const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
-    const QString anchor = doc.documentLayout()->anchorAt(pos);
-    if (!anchor.isEmpty()) {
-        if (anchor.startsWith(QLatin1String("ruqola:"))) {
-            qDebug() << "TODO: handle" << anchor;
+    const QString link = doc.documentLayout()->anchorAt(pos);
+    if (!link.isEmpty()) {
+        if (link.startsWith(QLatin1String("ruqola:"))) {
+            auto *rcAccount = Ruqola::self()->rocketChatAccount();
+            const QString roomOrUser = RuqolaUtils::self()->extractRoomUserFromUrl(link);
+            if (link.startsWith(QLatin1String("ruqola:/room/"))) {
+                rcAccount->openChannel(roomOrUser);
+            } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
+                if (roomOrUser != rcAccount->userName()) {
+                    rcAccount->openDirectChannel(roomOrUser);
+                }
+            }
         } else {
-            RuqolaUtils::self()->openUrl(anchor);
+            RuqolaUtils::self()->openUrl(link);
         }
         return true;
     }
