@@ -50,6 +50,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/addusersinroomdialog.cpp
     dialogs/addusersinroomwidget.cpp
     dialogs/adduserscompletionlineedit.cpp
+    dialogs/lineeditwithdelaybeforeemittingsignal.cpp
     )
 
 set(Ruqola_configure_SRCS
