@@ -93,6 +93,8 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mPrivate->setObjectName(QStringLiteral("mPrivate"));
     layout->addRow(i18n("Private:"), mPrivate);
 
+    //TODO add encrypted too!
+
     mDeleteChannel = new QPushButton(i18n("Delete"), this); //TODO add icons!
     mDeleteChannel->setObjectName(QStringLiteral("mDeleteChannel"));
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
