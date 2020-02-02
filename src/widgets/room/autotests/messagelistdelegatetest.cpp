@@ -38,7 +38,11 @@ MessageListDelegateTest::MessageListDelegateTest(QObject *parent)
     : QObject(parent)
 {
     QStandardPaths::setTestModeEnabled(true);
-    Ruqola::self()->rocketChatAccount()->setAccountName(QStringLiteral("accountName"));
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    rcAccount->setAccountName(QStringLiteral("accountName"));
+
+    const QString userId = QStringLiteral("dfaureUserId");
+    rcAccount->insertAvatarUrl(userId, avatarLink());
 }
 
 void MessageListDelegateTest::layoutChecks_data()
@@ -47,7 +51,7 @@ void MessageListDelegateTest::layoutChecks_data()
     QTest::addColumn<bool>("withDateHeader");
 
     Message message;
-    message.setUserId(QStringLiteral("userId"));
+    message.setUserId(QStringLiteral("dfaureUserId"));
     message.setUsername(QStringLiteral("dfaure"));
     message.setTimeStamp(QDateTime(QDate(2020, 2, 1), QTime(4, 7, 15)).toMSecsSinceEpoch());
     message.setMessageType(Message::NormalText);
@@ -62,13 +66,12 @@ void MessageListDelegateTest::layoutChecks_data()
     QTest::newRow("attachment_no_text_no_date") << message << false;
     QTest::newRow("attachment_no_text_with_date") << message << true;
 
-    // TODO tests with reactions
-
     message.setText(QStringLiteral("The <b>text</b>"));
 
     QTest::newRow("attachment_with_text_no_date") << message << false;
     QTest::newRow("attachment_with_text_with_date") << message << true;
 
+    // TODO tests with reactions
 }
 
 void MessageListDelegateTest::layoutChecks()
@@ -127,4 +130,6 @@ void MessageListDelegateTest::layoutChecks()
             QCOMPARE(layout.attachmentsRect.top(), layout.textRect.bottom());
         }
     }
+    QCOMPARE(layout.avatarPixmap.height(), layout.senderRect.height());
+    QVERIFY(layout.avatarPos.y() + layout.avatarPixmap.height() <= layout.usableRect.bottom());
 }

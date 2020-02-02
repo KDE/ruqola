@@ -22,8 +22,10 @@
 #include "ruqola.h"
 #include "rocketchataccount.h"
 
+#include <QFile>
 #include <QPixmap>
 #include <QStandardPaths>
+#include <QTest>
 
 MessageAttachment testAttachment()
 {
@@ -41,4 +43,20 @@ MessageAttachment testAttachment()
     pix.save(pixFileName, "png");
     msgAttach.setLink(link);
     return msgAttach;
+}
+
+QString avatarLink()
+{
+    // Save the pixmap directly into the cache so that no download hpapens
+    const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, Ruqola::self()->rocketChatAccount()->accountName());
+    const QString link = QLatin1String("/avatarpix.png");
+    const QString pixFileName = cachePath + link;
+
+    const QString srcPath = QFINDTESTDATA("../../../../src/icons/32-apps-ruqola.png");
+    Q_ASSERT(!srcPath.isEmpty());
+    if (!QFile::copy(srcPath, pixFileName)) {
+        qWarning() << "Couldn't copy" << srcPath << "to" << pixFileName;
+    }
+
+    return link;
 }

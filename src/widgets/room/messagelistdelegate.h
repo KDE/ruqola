@@ -71,11 +71,10 @@ private:
         QString senderText;
         QFont senderFont;
         QRectF senderRect;
-        qreal ascent;
 
         // Avatar pixmap
         QPixmap avatarPixmap;
-        qreal avatarX;
+        QPointF avatarPos;
 
         // Timestamp
         QString timeStampText;
@@ -85,6 +84,7 @@ private:
 
         // Text message
         QRect textRect;
+        qreal baseLine; // used to draw sender/timestamp
 
         // Attachments
         QRect attachmentsRect;

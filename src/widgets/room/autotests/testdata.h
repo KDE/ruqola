@@ -21,3 +21,4 @@
 #include "messages/messageattachment.h"
 
 MessageAttachment testAttachment();
+QString avatarLink();

@@ -381,6 +381,8 @@ public:
     void setAccountEnabled(bool enabled);
     Q_REQUIRED_RESULT bool accountEnabled() const;
 
+    void insertAvatarUrl(const QString &userId, const QString &url);
+
 Q_SIGNALS:
     void connectedChanged();
     void accountNameChanged();
@@ -422,7 +424,6 @@ private:
     void loadEmoji(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);
     void slotNeedToUpdateNotification();
-    void insertAvatarUrl(const QString &userId, const QString &url);
     void loadSettings(const QString &accountFileName);
     void clearModels();
     void fillOauthModel();

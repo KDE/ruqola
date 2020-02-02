@@ -46,7 +46,7 @@ static void fillTextDocument(QTextDocument &doc, const QString &text, int width)
 }
 
 void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index,
-                                     const QStyleOptionViewItem &option, qreal *pBaseLine) const
+                                     const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(option);
     const QString text = makeMessageText(index);
@@ -62,12 +62,9 @@ void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const
     const QRect clip(0, 0, rect.width(), rect.height());
     doc.drawContents(painter, clip);
     painter->translate(-rect.left(), -rect.top());
-
-    const QTextLine &line = doc.firstBlock().layout()->lineAt(0);
-    *pBaseLine = rect.y() + line.y() + line.ascent();
 }
 
-QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
+QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
     Q_UNUSED(option)
     const QString text = makeMessageText(index);
@@ -76,7 +73,12 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
     }
     QTextDocument doc;
     fillTextDocument(doc, text, maxWidth);
-    return QSize(doc.idealWidth(), doc.size().height());
+    const QSize size(doc.idealWidth(), doc.size().height()); // do the layouting, required by lineAt(0) below
+
+    const QTextLine &line = doc.firstBlock().layout()->lineAt(0);
+    *pBaseLine = line.y() + line.ascent(); // relative
+
+    return size;
 }
 
 bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)

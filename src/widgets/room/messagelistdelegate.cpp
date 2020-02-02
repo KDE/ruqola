@@ -122,7 +122,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
     const QFontMetricsF senderFontMetrics(layout.senderFont);
-    layout.ascent = senderFontMetrics.ascent();
+    const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
 
     layout.avatarPixmap = makeAvatarPixmap(index, senderTextSize.height());
@@ -136,7 +136,6 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     const qreal margin = basicMargin();
     layout.senderRect = QRectF(option.rect.x() + layout.avatarPixmap.width() + 2 * margin, usableRect.y(),
                                senderTextSize.width(), senderTextSize.height());
-    layout.avatarX = option.rect.x() + margin;
 
     // Timestamp
     layout.timeStampText = makeTimeStampText(index);
@@ -146,17 +145,24 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     const int widthBeforeMessage = layout.senderRect.right() + margin;
     const int widthAfterMessage = layout.timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage);
-    const QSize textSize = mHelperText->sizeHint(index, maxWidth, option); // TODO share the QTextDocument
+    layout.baseLine = 0;
+    const QSize textSize = mHelperText->sizeHint(index, maxWidth, option, &layout.baseLine); // TODO share the QTextDocument
     const int textLeft = layout.senderRect.right() + margin;
     int attachmentsY;
     if (textSize.isValid()) {
         layout.textRect = QRect(textLeft, usableRect.top() + margin,
                                 maxWidth, textSize.height() + margin);
         attachmentsY = layout.textRect.bottom();
+        layout.baseLine += layout.textRect.top(); // make it absolute
     } else {
         attachmentsY = usableRect.top() + margin;
+        layout.baseLine = attachmentsY + option.fontMetrics.ascent();
     }
     layout.usableRect.setLeft(textLeft);
+
+    layout.avatarPos = QPointF(option.rect.x() + margin,
+                               layout.baseLine - senderAscent);
+
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
     const QVector<Reaction> reactions = message->reactions().reactions();
@@ -306,21 +312,18 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     QRect timeRect; // REMOVE
     drawTimestamp(painter, index, option, layout.usableRect, &timeRect);
 
-    qreal baseLine = 0;
     // Message
     if (layout.textRect.isValid()) {
         const QRect messageRect = layout.textRect;
-        mHelperText->draw(painter, messageRect, index, option, &baseLine);
-    } else {
-        baseLine = layout.attachmentsRect.y() + option.fontMetrics.ascent();
+        mHelperText->draw(painter, messageRect, index, option);
     }
 
     // Now draw the pixmap
-    painter->drawPixmap(layout.avatarX, baseLine - layout.ascent, layout.avatarPixmap);
+    painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
 
     // Now draw the sender
     painter->setFont(layout.senderFont);
-    painter->drawText(layout.senderRect.x(), baseLine, layout.senderText);
+    painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
 
     // Attachments
     const MessageDelegateHelperBase *helper = attachmentsHelper(message);
@@ -343,7 +346,6 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     // Note: option.rect in this method is huge (as big as the viewport)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    // Avatar pixmap and sender text
     const Layout layout = doLayout(option, index);
 
     const MessageDelegateHelperBase *helper = attachmentsHelper(message);
@@ -356,9 +358,14 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 
     //const QSize size(qMax(layout.textRect.width(), attachmentsSize.width()), layout.textRect.height() + attachmentsSize.height());
     const int textAndAttachHeight = layout.textRect.height() + attachmentsSize.height();
+    const int senderAndAvatarHeight = qMax<int>(layout.senderRect.height(),
+                                                layout.avatarPos.y() + layout.avatarPixmap.height() - layout.usableRect.y());
+
+    //qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "attachments" << attachmentsSize.height() << "reactions" << layout.reactionsHeight << "total additional" << additionalHeight;
+    //qDebug() << "=> returning" << qMax(senderAndAvatarHeight, textAndAttachHeight) + additionalHeight + 1;
 
     return QSize(option.rect.width(),
-                 qMax<int>(layout.senderRect.height(), textAndAttachHeight) + additionalHeight + 1);
+                 qMax(senderAndAvatarHeight, textAndAttachHeight) + additionalHeight + 1);
 }
 
 bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
