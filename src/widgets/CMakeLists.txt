@@ -90,6 +90,7 @@ set(Ruqola_roomwidget_SRCS
 
 set(Ruqola_misc_widget_SRCS
     misc/accountmenu.cpp
+    misc/accountsoverviewwidget.cpp
     misc/emoticonmenuwidget.cpp
     misc/emoticonselectorwidget.cpp
     )

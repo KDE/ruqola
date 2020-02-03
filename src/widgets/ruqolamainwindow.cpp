@@ -26,6 +26,7 @@
 #include "ruqolamainwindow.h"
 #include "ruqolacentralwidget.h"
 #include "misc/accountmenu.h"
+#include "misc/accountsoverviewwidget.h"
 #include "dialogs/serverinfodialog.h"
 #include "dialogs/searchchanneldialog.h"
 #include "dialogs/createnewchanneldialog.h"
@@ -86,6 +87,7 @@ void RuqolaMainWindow::setupStatusBar()
     mStatusBarTypingMessage->setTextFormat(Qt::RichText);
     mStatusBarTypingMessage->setObjectName(QStringLiteral("mStatusBarTypingMessage"));
     statusBar()->addPermanentWidget(mStatusBarTypingMessage);
+    statusBar()->addPermanentWidget(new AccountsOverviewWidget(this));
 }
 
 void RuqolaMainWindow::slotAccountChanged()
