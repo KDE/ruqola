@@ -552,6 +552,11 @@ void Message::setEditedByUsername(const QString &editedByUsername)
     mEditedByUsername = editedByUsername;
 }
 
+bool Message::wasEdited() const
+{
+    return !mEditedByUsername.isEmpty();
+}
+
 qint64 Message::editedAt() const
 {
     return mEditedAt;

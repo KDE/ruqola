@@ -71,6 +71,10 @@ void MessageListDelegateTest::layoutChecks_data()
     QTest::newRow("attachment_with_text_no_date") << message << false;
     QTest::newRow("attachment_with_text_with_date") << message << true;
 
+    message.setEditedByUsername(message.username());
+
+    QTest::newRow("edited_with_attachment_with_text_with_date") << message << true;
+
     // TODO tests with reactions
 }
 
@@ -150,5 +154,12 @@ void MessageListDelegateTest::layoutChecks()
     } else {
         QVERIFY(layout.reactionsHeight > 15);
         QVERIFY(layout.reactionsY + layout.reactionsHeight <= bottom);
+    }
+
+    // Edited
+    if (message.wasEdited()) {
+        QVERIFY(option.rect.contains(layout.editedIconRect));
+        QVERIFY(!layout.editedIconRect.intersects(layout.textRect));
+        QVERIFY(!layout.editedIconRect.intersects(layout.senderRect.toRect()));
     }
 }

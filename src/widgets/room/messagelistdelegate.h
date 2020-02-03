@@ -74,6 +74,9 @@ private:
         QPixmap avatarPixmap;
         QPointF avatarPos;
 
+        // Edited icon
+        QRect editedIconRect;
+
         // Timestamp
         QString timeStampText;
         QSize timeSize;
@@ -101,6 +104,7 @@ private:
     friend class MessageListDelegateTest;
 
     QFont mEmojiFont;
+    QIcon mEditedIcon;
     RocketChatAccount *mRocketChatAccount = nullptr;
 
     QScopedPointer<MessageDelegateHelperText> mHelperText;

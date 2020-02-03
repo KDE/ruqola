@@ -110,6 +110,8 @@ public:
     Q_REQUIRED_RESULT QString editedByUsername() const;
     void setEditedByUsername(const QString &editedByUsername);
 
+    Q_REQUIRED_RESULT bool wasEdited() const;
+
     Q_REQUIRED_RESULT QString editedByUserId() const;
     void setEditedByUserId(const QString &editedByUserId);
 

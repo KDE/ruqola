@@ -309,6 +309,8 @@ void MessageTest::shouldSerializeData()
     Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
     QCOMPARE(input, output);
     //TODO add Mentions
+
+    QVERIFY(output.wasEdited());
 }
 
 void MessageTest::shouldParseJsonMessage_data()

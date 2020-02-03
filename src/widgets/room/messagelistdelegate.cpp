@@ -37,6 +37,7 @@
 MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent)
     , mEmojiFont(QStringLiteral("NotoColorEmoji"))
+    , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
     , mHelperText(new MessageDelegateHelperText)
     , mHelperImage(new MessageDelegateHelperImage)
     , mHelperFile(new MessageDelegateHelperFile)
@@ -112,11 +113,14 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxH
 }
 
 // [Optional date header]
-// [margin] <pixmap> [margin] <sender> [margin] <text message> [margin] <timestamp>
-//                                              <attachments>
-//                                              <reactions>
+// [margin] <pixmap> [margin] <sender> [margin] <editicon> [margin] <text message> [margin] <timestamp>
+//                                                                  <attachments>
+//                                                                  <reactions>
 MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+
     Layout layout;
     layout.senderText = makeSenderText(index);
     layout.senderFont = option.font;
@@ -131,23 +135,26 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
         usableRect.setTop(usableRect.top() + option.fontMetrics.height());
     }
-    layout.usableRect = usableRect;
+    layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
 
     const qreal margin = basicMargin();
-    layout.senderRect = QRectF(option.rect.x() + layout.avatarPixmap.width() + 2 * margin, usableRect.y(),
-                               senderTextSize.width(), senderTextSize.height());
+    const int senderX = option.rect.x() + layout.avatarPixmap.width() + 2 * margin;
+    int textLeft = senderX + senderTextSize.width() + margin;
+
+    // Edit icon
+    if (message->wasEdited()) {
+        textLeft += iconSize + margin;
+    }
 
     // Timestamp
     layout.timeStampText = makeTimeStampText(index);
     layout.timeSize = timeStampSize(layout.timeStampText, option);
 
     // Message (using the rest of the available width)
-    const int widthBeforeMessage = layout.senderRect.right() + margin;
     const int widthAfterMessage = layout.timeSize.width() + margin / 2;
-    const int maxWidth = qMax(30, option.rect.width() - widthBeforeMessage - widthAfterMessage);
+    const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
     layout.baseLine = 0;
     const QSize textSize = mHelperText->sizeHint(index, maxWidth, option, &layout.baseLine); // TODO share the QTextDocument
-    const int textLeft = layout.senderRect.right() + margin;
     int attachmentsY;
     const int textVMargin = 3; // adjust this for "compactness"
     if (textSize.isValid()) {
@@ -161,10 +168,14 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     }
     layout.usableRect.setLeft(textLeft);
 
-    layout.avatarPos = QPointF(option.rect.x() + margin,
-                               layout.baseLine - senderAscent);
+    // Align top of sender rect so it matches the baseline of the richtext
+    layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent,
+                               senderTextSize.width(), senderTextSize.height());
+    // Align top of avatar with top of sender rect
+    layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
+    // Same for the edit icon
+    layout.editedIconRect = QRect(textLeft - iconSize - margin, layout.senderRect.y(), iconSize, iconSize);
 
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     if (!message->attachements().isEmpty()) {
         const MessageDelegateHelperBase *helper = attachmentsHelper(message);
         const QSize attachmentsSize = helper ? helper->sizeHint(index, maxWidth, option) : QSize(0, 0);
@@ -307,11 +318,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         drawDate(painter, index, option);
     }
 
-    // Compact mode : <pixmap> <sender> <message> <smiley> <timestamp>
-
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-
-    // Sender and pixmap (calculate size, but don't draw it yet, we need to align vertically to the first line of the message)
     const Layout layout = doLayout(option, index);
 
     // Timestamp
@@ -323,12 +330,17 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         mHelperText->draw(painter, messageRect, index, option);
     }
 
-    // Now draw the pixmap
+    // Draw the pixmap
     painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
 
-    // Now draw the sender
+    // Draw the sender
     painter->setFont(layout.senderFont);
     painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
+
+    // Draw the edited icon
+    if (message->wasEdited()) {
+        mEditedIcon.paint(painter, layout.editedIconRect);
+    }
 
     // Attachments
     const MessageDelegateHelperBase *helper = attachmentsHelper(message);
