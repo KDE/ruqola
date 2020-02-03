@@ -120,8 +120,10 @@ protected:
 
         QPainter p(this);
 
+        const auto mngr = Ruqola::self()->accountManager();
+        if (mngr->rocketChatAccountModel()->rowCount() > 1)
         {
-            const bool isCurrent = Ruqola::self()->accountManager()->currentAccount() == mAccount->accountName();
+            const bool isCurrent = mngr->currentAccount() == mAccount->accountName();
 
             QStyleOption opt;
             opt.init(this);
