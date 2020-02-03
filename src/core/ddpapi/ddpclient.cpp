@@ -64,7 +64,6 @@ void unblock_user(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
-
 void input_user_channel_autocomplete(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {

@@ -85,14 +85,14 @@ bool CompletionLineEdit::eventFilter(QObject *watched, QEvent *ev)
             if (key == Qt::Key_Escape) {
                 mCompletionListView->hide();
                 return true;
-            } else if (key == Qt::Key_Return ||
-                       key == Qt::Key_Enter) {
+            } else if (key == Qt::Key_Return
+                       || key == Qt::Key_Enter) {
                 Q_EMIT complete(mCompletionListView->currentIndex());
                 return true;
-            } else if (key != Qt::Key_Down && key != Qt::Key_Up &&
-                       key != Qt::Key_PageDown && key != Qt::Key_PageUp &&
-                       key != Qt::Key_Home && key != Qt::Key_End &&
-                       key != Qt::Key_Left && key != Qt::Key_Right) {
+            } else if (key != Qt::Key_Down && key != Qt::Key_Up
+                       && key != Qt::Key_PageDown && key != Qt::Key_PageUp
+                       && key != Qt::Key_Home && key != Qt::Key_End
+                       && key != Qt::Key_Left && key != Qt::Key_Right) {
                 // send keypresses to the linedit
                 event(ev);
             }
@@ -121,19 +121,23 @@ void CompletionLineEdit::slotCompletionAvailable()
 #endif
     int h = (mCompletionListView->sizeHintForRow(0) * qMin(maxVisibleItems, rowCount) + 3) + 3;
     QScrollBar *hsb = mCompletionListView->horizontalScrollBar();
-    if (hsb && hsb->isVisible())
+    if (hsb && hsb->isVisible()) {
         h += mCompletionListView->horizontalScrollBar()->sizeHint().height();
+    }
 
     const int rh = height();
     QPoint pos = mapToGlobal(QPoint(0, height() - 2));
     int w = width();
 
-    if (w > screenRect.width())
+    if (w > screenRect.width()) {
         w = screenRect.width();
-    if ((pos.x() + w) > (screenRect.x() + screenRect.width()))
+    }
+    if ((pos.x() + w) > (screenRect.x() + screenRect.width())) {
         pos.setX(screenRect.x() + screenRect.width() - w);
-    if (pos.x() < screenRect.x())
+    }
+    if (pos.x() < screenRect.x()) {
         pos.setX(screenRect.x());
+    }
 
     int top = pos.y() - rh - screenRect.top() + 2;
     int bottom = screenRect.bottom() - pos.y();
@@ -141,16 +145,18 @@ void CompletionLineEdit::slotCompletionAvailable()
     if (h > bottom) {
         h = qMin(qMax(top, bottom), h);
 
-        if (top > bottom)
+        if (top > bottom) {
             pos.setY(pos.y() - h - rh + 2);
+        }
     }
 
     //qDebug() << "showing at" << pos << "size" << w << "x" << h;
     mCompletionListView->setGeometry(pos.x(), pos.y(), w, h);
 
     if (!mCompletionListView->isVisible()) {
-        if (!mCompletionListView->currentIndex().isValid())
+        if (!mCompletionListView->currentIndex().isValid()) {
             mCompletionListView->setCurrentIndex(mCompletionListView->model()->index(0, 0));
+        }
         mCompletionListView->show();
     }
 }

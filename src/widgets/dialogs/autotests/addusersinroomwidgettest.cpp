@@ -26,7 +26,6 @@ QTEST_MAIN(AddUsersInRoomWidgetTest)
 AddUsersInRoomWidgetTest::AddUsersInRoomWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AddUsersInRoomWidgetTest::shouldHaveDefaultValues()

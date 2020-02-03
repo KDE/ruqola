@@ -53,7 +53,7 @@ SearchMessageWidget::~SearchMessageWidget()
 }
 
 void SearchMessageWidget::slotSearchMessages()
-{    
+{
     Ruqola::self()->rocketChatAccount()->messageSearch(mSearchLineEdit->text(), mRoomId);
 }
 

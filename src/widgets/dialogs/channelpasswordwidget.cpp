@@ -42,7 +42,6 @@ ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
 
 ChannelPasswordWidget::~ChannelPasswordWidget()
 {
-
 }
 
 QString ChannelPasswordWidget::password() const

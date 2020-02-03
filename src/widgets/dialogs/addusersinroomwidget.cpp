@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "adduserscompletionlineedit.h"
 #include "addusersinroomwidget.h"
 
@@ -44,7 +43,6 @@ AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
 
 AddUsersInRoomWidget::~AddUsersInRoomWidget()
 {
-
 }
 
 void AddUsersInRoomWidget::slotSearchMessageTextChanged(const QString &str)

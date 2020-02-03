@@ -50,7 +50,6 @@ ChannelPasswordDialog::ChannelPasswordDialog(QWidget *parent)
 
 ChannelPasswordDialog::~ChannelPasswordDialog()
 {
-
 }
 
 QString ChannelPasswordDialog::password() const

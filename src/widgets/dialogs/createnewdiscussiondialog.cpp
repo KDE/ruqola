@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "createnewdiscussiondialog.h"
 #include "createnewdiscussionwidget.h"
 #include <KConfigGroup>
@@ -75,7 +74,6 @@ void CreateNewDiscussionDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     group.writeEntry("Size", size());
 }
-
 
 CreateNewDiscussionDialog::NewDiscussionInfo CreateNewDiscussionDialog::newDiscussionInfo() const
 {

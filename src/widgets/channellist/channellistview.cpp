@@ -91,7 +91,6 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     });
     menu.addAction(favoriteAction);
 
-
     if (roomType == QLatin1String("c") || roomType == QLatin1String("p")) { //Not direct channel
         QAction *separator = new QAction(&menu);
         separator->setSeparator(true);

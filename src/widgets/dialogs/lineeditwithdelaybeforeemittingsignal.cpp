@@ -23,10 +23,8 @@
 LineEditWithDelayBeforeEmittingSignal::LineEditWithDelayBeforeEmittingSignal(QWidget *parent)
     : KLineEdit(parent)
 {
-
 }
 
 LineEditWithDelayBeforeEmittingSignal::~LineEditWithDelayBeforeEmittingSignal()
 {
-
 }

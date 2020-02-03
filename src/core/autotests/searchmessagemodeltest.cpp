@@ -34,5 +34,4 @@ void SearchMessageModelTest::shouldHaveDefaultValue()
 {
     SearchMessageModel w;
     QCOMPARE(w.rowCount(), 0);
-
 }

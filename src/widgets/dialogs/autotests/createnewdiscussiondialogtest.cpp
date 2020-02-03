@@ -28,7 +28,6 @@ QTEST_MAIN(CreateNewDiscussionDialogTest)
 CreateNewDiscussionDialogTest::CreateNewDiscussionDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void CreateNewDiscussionDialogTest::shouldHaveDefaultValues()

@@ -137,16 +137,16 @@ ChannelInfoWidget::~ChannelInfoWidget()
 
 void ChannelInfoWidget::setRoomWrapper(RoomWrapper *roomWrapper)
 {
-   mRoomWrapper = roomWrapper;
-   if (mRoomWrapper->canBeModify()) {
-       mStackedWidget->setCurrentWidget(mEditableChannel);
-       updateEditableChannelInfo();
-       connectReadOnlyWidget();
-   } else {
-       mStackedWidget->setCurrentWidget(mReadOnlyChannel);
-       updateReadOnlyChannelInfo();
-       connectReadOnlyWidget();
-   }
+    mRoomWrapper = roomWrapper;
+    if (mRoomWrapper->canBeModify()) {
+        mStackedWidget->setCurrentWidget(mEditableChannel);
+        updateEditableChannelInfo();
+        connectReadOnlyWidget();
+    } else {
+        mStackedWidget->setCurrentWidget(mReadOnlyChannel);
+        updateReadOnlyChannelInfo();
+        connectReadOnlyWidget();
+    }
 }
 
 void ChannelInfoWidget::updateReadOnlyChannelInfo()

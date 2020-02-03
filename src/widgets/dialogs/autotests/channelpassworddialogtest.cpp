@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "channelpassworddialogtest.h"
 #include "dialogs/channelpassworddialog.h"
 #include "dialogs/channelpasswordwidget.h"
@@ -29,7 +28,6 @@ QTEST_MAIN(ChannelPasswordDialogTest)
 ChannelPasswordDialogTest::ChannelPasswordDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ChannelPasswordDialogTest::shouldHaveDefaultValues()

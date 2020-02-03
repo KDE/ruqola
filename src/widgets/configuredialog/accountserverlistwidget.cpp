@@ -120,7 +120,6 @@ AccountServerListWidgetItem::~AccountServerListWidgetItem()
 {
 }
 
-
 CreateNewAccountDialog::AccountInfo AccountServerListWidgetItem::accountInfo() const
 {
     return mInfo;

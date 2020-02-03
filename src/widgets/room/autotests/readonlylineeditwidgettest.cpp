@@ -43,5 +43,4 @@ void ReadOnlyLineEditWidgetTest::shouldHaveDefaultValues()
     QFont font = label->font();
     QVERIFY(font.bold());
     QVERIFY(font.italic());
-
 }

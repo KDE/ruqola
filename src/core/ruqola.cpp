@@ -60,8 +60,8 @@ Ruqola::Ruqola(QObject *parent)
     connect(mAccountManager, &AccountManager::notification, this, &Ruqola::sendNotification);
     connect(mAccountManager, &AccountManager::updateNotification, this, &Ruqola::updateNotification);
     connect(mAccountManager, &AccountManager::logoutAccountDone, this, &Ruqola::logout);
-
 }
+
 void Ruqola::setCurrentAccount(const QString &accountName)
 {
     mAccountManager->setCurrentAccount(accountName);

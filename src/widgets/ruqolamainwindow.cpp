@@ -213,7 +213,7 @@ void RuqolaMainWindow::setupActions()
     connect(mChannelInfo, &QAction::triggered, this, &RuqolaMainWindow::slotShowChannelInfo);
     ac->addAction(QStringLiteral("channel_info"), mChannelInfo);
 
-    mAddUserInRooms =  new QAction(i18n("Add Users in Channel..."), this);
+    mAddUserInRooms = new QAction(i18n("Add Users in Channel..."), this);
     connect(mAddUserInRooms, &QAction::triggered, this, &RuqolaMainWindow::slotAddUsersInRoom);
     ac->addAction(QStringLiteral("add_user_in_room"), mAddUserInRooms);
 }

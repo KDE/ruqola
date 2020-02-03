@@ -52,21 +52,20 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    KLineEdit *mComment = mEditableChannel->findChild<KLineEdit*>(QStringLiteral("mComment"));
+    KLineEdit *mComment = mEditableChannel->findChild<KLineEdit *>(QStringLiteral("mComment"));
     QVERIFY(mComment);
     QVERIFY(mComment->trapReturnKey());
     QVERIFY(mComment->isClearButtonEnabled());
 
-    KLineEdit *mAnnouncement = mEditableChannel->findChild<KLineEdit*>(QStringLiteral("mAnnouncement"));
+    KLineEdit *mAnnouncement = mEditableChannel->findChild<KLineEdit *>(QStringLiteral("mAnnouncement"));
     QVERIFY(mAnnouncement);
     QVERIFY(mAnnouncement->trapReturnKey());
     QVERIFY(mAnnouncement->isClearButtonEnabled());
 
-    KLineEdit *mDescription = mEditableChannel->findChild<KLineEdit*>(QStringLiteral("mDescription"));
+    KLineEdit *mDescription = mEditableChannel->findChild<KLineEdit *>(QStringLiteral("mDescription"));
     QVERIFY(mDescription);
     QVERIFY(mDescription->trapReturnKey());
     QVERIFY(mDescription->isClearButtonEnabled());
-
 
     KPasswordLineEdit *mPasswordLineEdit = mEditableChannel->findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);
@@ -86,7 +85,6 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     QPushButton *mDeleteChannel = mEditableChannel->findChild<QPushButton *>(QStringLiteral("mDeleteChannel"));
     QVERIFY(mDeleteChannel);
     QVERIFY(!mDeleteChannel->text().isEmpty());
-
 
     //ReadOnly Channel
     QWidget *mReadOnlyChannel = w.findChild<QWidget *>(QStringLiteral("mReadOnlyChannel"));

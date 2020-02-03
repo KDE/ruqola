@@ -78,7 +78,6 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
 
 CreateNewDiscussionWidget::~CreateNewDiscussionWidget()
 {
-
 }
 
 void CreateNewDiscussionWidget::setChannelName(const QString &name)

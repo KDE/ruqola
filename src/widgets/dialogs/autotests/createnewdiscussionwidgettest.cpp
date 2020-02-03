@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "createnewdiscussionwidgettest.h"
 #include "dialogs/createnewaccountwidget.h"
 #include <QTest>
@@ -27,5 +26,4 @@ QTEST_MAIN(CreateNewDiscussionWidgetTest)
 CreateNewDiscussionWidgetTest::CreateNewDiscussionWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }

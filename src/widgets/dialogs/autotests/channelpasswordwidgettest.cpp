@@ -28,13 +28,12 @@ QTEST_MAIN(ChannelPasswordWidgetTest)
 ChannelPasswordWidgetTest::ChannelPasswordWidgetTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void ChannelPasswordWidgetTest::shouldHaveDefaultValues()
 {
     ChannelPasswordWidget w;
-    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout* >(QStringLiteral("mainLayout"));
+    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout * >(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 

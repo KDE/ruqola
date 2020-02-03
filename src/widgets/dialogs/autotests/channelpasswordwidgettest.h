@@ -31,7 +31,6 @@ public:
     ~ChannelPasswordWidgetTest() = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
-
 };
 
 #endif // CHANNELPASSWORDWIDGETTEST_H

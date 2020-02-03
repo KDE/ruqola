@@ -57,9 +57,7 @@ void SearchMessageModel::setStringNotFound(bool stringNotFound)
     }
 }
 
-
 bool SearchMessageModel::stringNotFound() const
 {
     return mStringNotFound;
 }
-

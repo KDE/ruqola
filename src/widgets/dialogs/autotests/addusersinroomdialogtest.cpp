@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "addusersinroomdialogtest.h"
 #include "dialogs/addusersinroomdialog.h"
 #include "dialogs/addusersinroomwidget.h"
@@ -29,7 +28,6 @@ QTEST_MAIN(AddUsersInRoomDialogTest)
 AddUsersInRoomDialogTest::AddUsersInRoomDialogTest(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void AddUsersInRoomDialogTest::shouldHaveDefaultValues()

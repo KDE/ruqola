@@ -58,10 +58,8 @@ public:
     void logout();
     Q_REQUIRED_RESULT QString cacheBasePath();
 
-
     Q_REQUIRED_RESULT QString password() const;
     void setPassword(const QString &password);
-
 
     void removeSettings();
 

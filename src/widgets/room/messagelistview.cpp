@@ -133,13 +133,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
 
-
     QAction *startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
     connect(startDiscussion, &QAction::triggered, this, [=]() {
         slotStartDiscussion(index);
     });
     menu.addAction(startDiscussion);
-
 
     const bool isPinned = index.data(MessageModel::Pinned).toBool();
     QAction *setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);

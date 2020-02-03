@@ -18,7 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "adduserscompletionlineedit.h"
 #include "model/usercompleterfilterproxymodel.h"
 #include "ruqola.h"
@@ -37,7 +36,6 @@ AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(QWidget *parent)
 
 AddUsersCompletionLineEdit::~AddUsersCompletionLineEdit()
 {
-
 }
 
 void AddUsersCompletionLineEdit::slotTextChanged(const QString &text)
