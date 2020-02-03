@@ -42,6 +42,7 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mainLayout->addWidget(mSearchLineEdit);
 
     mResultListWidget = new MessageListView(this);
+    mResultListWidget->setMode(MessageListView::Mode::Viewing);
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchMessages);

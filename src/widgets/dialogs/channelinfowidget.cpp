@@ -33,6 +33,7 @@
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QToolButton>
+#include <QInputDialog>
 
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
@@ -54,28 +55,35 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
 
-    mName = new KLineEdit(this);
+    mName = new ChangeTextWidget(this);
     mName->setObjectName(QStringLiteral("mName"));
-    mName->setTrapReturnKey(true);
-    mName->setClearButtonEnabled(true);
+    connect(mName, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
+        //TODO
+    });
     layout->addRow(i18n("Name:"), mName);
 
-    mComment = new KLineEdit(this);
+    mComment = new ChangeTextWidget(this);
     mComment->setObjectName(QStringLiteral("mComment"));
-    mComment->setTrapReturnKey(true);
-    mComment->setClearButtonEnabled(true);
     layout->addRow(i18n("Comment:"), mComment);
+    connect(mComment, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
+        //TODO
+    });
 
-    mAnnouncement = new KLineEdit(this);
+
+    mAnnouncement = new ChangeTextWidget(this);
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
-    mAnnouncement->setTrapReturnKey(true);
-    mAnnouncement->setClearButtonEnabled(true);
+    connect(mAnnouncement, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
+
+        //TODO
+    });
     layout->addRow(i18n("Announcement:"), mAnnouncement);
 
-    mDescription = new KLineEdit(this);
+    mDescription = new ChangeTextWidget(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
-    mDescription->setTrapReturnKey(true);
-    mDescription->setClearButtonEnabled(true);
+    connect(mDescription, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
+        //TODO
+    });
+
     layout->addRow(i18n("Description:"), mDescription);
 
     mPasswordLineEdit = new KPasswordLineEdit(this);
@@ -116,18 +124,22 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     layoutReadOnly->setContentsMargins(0, 0, 0, 0);
 
     mNameReadOnly = new QLabel(this);
+    mNameReadOnly->setWordWrap(true);
     mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
     layoutReadOnly->addRow(i18n("Name:"), mNameReadOnly);
 
     mCommentReadOnly = new QLabel(this);
+    mCommentReadOnly->setWordWrap(true);
     mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
     layoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
 
     mAnnouncementReadOnly = new QLabel(this);
+    mAnnouncementReadOnly->setWordWrap(true);
     mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
     layoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
 
     mDescriptionReadOnly = new QLabel(this);
+    mDescriptionReadOnly->setWordWrap(true);
     mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
     layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
 }
@@ -230,13 +242,18 @@ ChangeTextWidget::ChangeTextWidget(QWidget *parent)
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mLabel = new QLabel(this);
     mLabel->setObjectName(QStringLiteral("mLabel"));
+    mLabel->setWordWrap(true);
     mainLayout->addWidget(mLabel);
+    mainLayout->addStretch(1);
     mChangeTextToolButton = new QToolButton(this);
+    mChangeTextToolButton->setIcon(QIcon::fromTheme(QStringLiteral("document-edit")));
     mChangeTextToolButton->setObjectName(QStringLiteral("mChangeTextToolButton"));
     mainLayout->addWidget(mChangeTextToolButton);
-    //TODO add icon.
     connect(mChangeTextToolButton, &QToolButton::clicked, this, [this]() {
-        //TODO
+        const QString result = QInputDialog::getText(this, i18n("Change Text"), i18n("Text:"), QLineEdit::Normal, mLabel->text());
+        if (!result.isEmpty()) {
+            Q_EMIT textChanged(result);
+        }
     });
 }
 

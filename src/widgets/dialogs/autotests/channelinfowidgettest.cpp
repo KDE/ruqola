@@ -52,20 +52,14 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    KLineEdit *mComment = mEditableChannel->findChild<KLineEdit *>(QStringLiteral("mComment"));
+    ChangeTextWidget *mComment = mEditableChannel->findChild<ChangeTextWidget *>(QStringLiteral("mComment"));
     QVERIFY(mComment);
-    QVERIFY(mComment->trapReturnKey());
-    QVERIFY(mComment->isClearButtonEnabled());
 
-    KLineEdit *mAnnouncement = mEditableChannel->findChild<KLineEdit *>(QStringLiteral("mAnnouncement"));
+    ChangeTextWidget *mAnnouncement = mEditableChannel->findChild<ChangeTextWidget *>(QStringLiteral("mAnnouncement"));
     QVERIFY(mAnnouncement);
-    QVERIFY(mAnnouncement->trapReturnKey());
-    QVERIFY(mAnnouncement->isClearButtonEnabled());
 
-    KLineEdit *mDescription = mEditableChannel->findChild<KLineEdit *>(QStringLiteral("mDescription"));
+    ChangeTextWidget *mDescription = mEditableChannel->findChild<ChangeTextWidget *>(QStringLiteral("mDescription"));
     QVERIFY(mDescription);
-    QVERIFY(mDescription->trapReturnKey());
-    QVERIFY(mDescription->isClearButtonEnabled());
 
     KPasswordLineEdit *mPasswordLineEdit = mEditableChannel->findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);

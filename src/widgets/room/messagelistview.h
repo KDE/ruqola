@@ -28,6 +28,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public QListView
 {
     Q_OBJECT
 public:
+    enum class Mode {
+        Editing,
+        Viewing, /*when we show list of message as mentions, search etc.*/
+    };
+
     explicit MessageListView(QWidget *parent = nullptr);
     ~MessageListView();
 
@@ -36,6 +41,9 @@ public:
     void setModel(QAbstractItemModel *newModel) override;
 
     void handleKeyPressEvent(QKeyEvent *ev);
+
+    Q_REQUIRED_RESULT MessageListView::Mode mode() const;
+    void setMode(const MessageListView::Mode &mode);
 
 protected:
     void resizeEvent(QResizeEvent *ev) override;
@@ -55,10 +63,12 @@ private:
     void slotSetPinnedMessage(const QModelIndex &index, bool isPinned);
     void slotStartDiscussion(const QModelIndex &index);
     void slotCopyText(const QModelIndex &index);
+    void slotGoToMessage(const QModelIndex &index);
 
 private:
-    bool mAtBottom = true;
     QString mRoomID;
+    MessageListView::Mode mMode = MessageListView::Mode::Editing;
+    bool mAtBottom = true;
 };
 
 #endif // MESSAGELISTVIEW_H

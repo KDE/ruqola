@@ -132,66 +132,79 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
-
-    QAction *startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
-    connect(startDiscussion, &QAction::triggered, this, [=]() {
-        slotStartDiscussion(index);
-    });
-    menu.addAction(startDiscussion);
-
-    const bool isPinned = index.data(MessageModel::Pinned).toBool();
-    QAction *setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
-    connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
-        slotSetPinnedMessage(index, isPinned);
-    });
-    menu.addAction(setPinnedMessage);
-
-    const bool isStarred = index.data(MessageModel::Starred).toBool();
-    QAction *setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
-    connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() {
-        slotSetAsFavorite(index, isStarred);
-    });
-    menu.addAction(setAsFavoriteAction);
-
-    if (rcAccount->allowEditingMessages() && index.data(MessageModel::CanEditMessage).toBool() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
-        QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
-        connect(editAction, &QAction::triggered, this, [=]() {
-            slotEditMessage(index);
+    if (mMode == Mode::Editing) {
+        QAction *startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
+        connect(startDiscussion, &QAction::triggered, this, [=]() {
+            slotStartDiscussion(index);
         });
-        menu.addAction(editAction);
-    }
+        menu.addAction(startDiscussion);
 
-    QAction *copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"), &menu);
-    connect(copyAction, &QAction::triggered, this, [=]() {
-        slotCopyText(index);
-    });
-    menu.addAction(copyAction);
+        const bool isPinned = index.data(MessageModel::Pinned).toBool();
+        QAction *setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
+        connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
+            slotSetPinnedMessage(index, isPinned);
+        });
+        menu.addAction(setPinnedMessage);
 
-    if (rcAccount->allowMessageDeletingEnabled() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
+        const bool isStarred = index.data(MessageModel::Starred).toBool();
+        QAction *setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
+        connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() {
+            slotSetAsFavorite(index, isStarred);
+        });
+        menu.addAction(setAsFavoriteAction);
+
+        if (rcAccount->allowEditingMessages() && index.data(MessageModel::CanEditMessage).toBool() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
+            QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
+            connect(editAction, &QAction::triggered, this, [=]() {
+                slotEditMessage(index);
+            });
+            menu.addAction(editAction);
+        }
+
+        QAction *copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"), &menu);
+        connect(copyAction, &QAction::triggered, this, [=]() {
+            slotCopyText(index);
+        });
+        menu.addAction(copyAction);
+
+        if (rcAccount->allowMessageDeletingEnabled() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
+            if (!menu.isEmpty()) {
+                QAction *separator = new QAction(&menu);
+                separator->setSeparator(true);
+                menu.addAction(separator);
+            }
+            QAction *deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete"), &menu);
+            connect(deleteAction, &QAction::triggered, this, [=]() {
+                slotDeleteMessage(index);
+            });
+            menu.addAction(deleteAction);
+        }
         if (!menu.isEmpty()) {
             QAction *separator = new QAction(&menu);
             separator->setSeparator(true);
             menu.addAction(separator);
         }
-        QAction *deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete"), &menu);
-        connect(deleteAction, &QAction::triggered, this, [=]() {
-            slotDeleteMessage(index);
+        QAction *reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
+        connect(reportMessageAction, &QAction::triggered, this, [=]() {
+            slotReportMessage(index);
         });
-        menu.addAction(deleteAction);
+        menu.addAction(reportMessageAction);
+    } else {
+        QAction *goToMessageAction = new QAction(i18n("Go to Message"), &menu); //Add icon
+        connect(goToMessageAction, &QAction::triggered, this, [=]() {
+            slotGoToMessage(index);
+        });
+        menu.addAction(goToMessageAction);
     }
-    if (!menu.isEmpty()) {
-        QAction *separator = new QAction(&menu);
-        separator->setSeparator(true);
-        menu.addAction(separator);
-    }
-    QAction *reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
-    connect(reportMessageAction, &QAction::triggered, this, [=]() {
-        slotReportMessage(index);
-    });
-    menu.addAction(reportMessageAction);
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
+}
+
+void MessageListView::slotGoToMessage(const QModelIndex &index)
+{
+    qDebug() << "No implemented yet";
+    //TODO
 }
 
 void MessageListView::slotEditMessage(const QModelIndex &index)
@@ -257,4 +270,14 @@ void MessageListView::slotCopyText(const QModelIndex &index)
     QClipboard *clip = QApplication::clipboard();
     clip->setText(messageStr, QClipboard::Clipboard);
     clip->setText(messageStr, QClipboard::Selection);
+}
+
+MessageListView::Mode MessageListView::mode() const
+{
+    return mMode;
+}
+
+void MessageListView::setMode(const MessageListView::Mode &mode)
+{
+    mMode = mode;
 }

@@ -52,4 +52,5 @@ void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
 
     MessageListView *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
     QVERIFY(mMessageListView);
+    QCOMPARE(mMessageListView->mode(), MessageListView::Mode::Viewing);
 }

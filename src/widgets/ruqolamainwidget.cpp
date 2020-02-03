@@ -46,11 +46,24 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     mChannelList->setObjectName(QStringLiteral("mChannelList"));
     mSplitter->addWidget(mChannelList);
 
+    mStackedRoomWidget = new QStackedWidget(this);
+    mStackedRoomWidget->setObjectName(QStringLiteral("mStackedRoomWidget"));
+    mSplitter->addWidget(mStackedRoomWidget);
+
     mRoomWidget = new RoomWidget(this);
     mRoomWidget->setObjectName(QStringLiteral("mRoomWidget"));
-    mSplitter->addWidget(mRoomWidget);
+    mStackedRoomWidget->addWidget(mRoomWidget);
 
-    connect(mChannelList, &ChannelListWidget::channelSelected, mRoomWidget, &RoomWidget::channelSelected);
+    mEmptyRoomWidget = new QWidget(this);
+    mEmptyRoomWidget->setObjectName(QStringLiteral("mEmptyRoomWidget"));
+    mStackedRoomWidget->addWidget(mEmptyRoomWidget);
+
+    mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
+
+    connect(mChannelList, &ChannelListWidget::channelSelected, this, [this](const QModelIndex &index) {
+        Q_EMIT mRoomWidget->channelSelected(index);
+        mStackedRoomWidget->setCurrentWidget(mRoomWidget);
+    });
 
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
@@ -88,4 +101,5 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     mChannelList->setCurrentRocketChatAccount(account);
     mRoomWidget->setCurrentRocketChatAccount(account);
+    mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
 }

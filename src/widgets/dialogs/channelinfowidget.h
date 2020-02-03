@@ -65,10 +65,10 @@ private:
     void connectReadOnlyWidget();
     void connectEditableWidget();
 
-    KLineEdit *mName = nullptr;
-    KLineEdit *mComment = nullptr;
-    KLineEdit *mAnnouncement = nullptr;
-    KLineEdit *mDescription = nullptr;
+    ChangeTextWidget *mName = nullptr;
+    ChangeTextWidget *mComment = nullptr;
+    ChangeTextWidget *mAnnouncement = nullptr;
+    ChangeTextWidget *mDescription = nullptr;
     KPasswordLineEdit *mPasswordLineEdit = nullptr;
     QCheckBox *mReadOnly = nullptr;
     QCheckBox *mArchive = nullptr;
