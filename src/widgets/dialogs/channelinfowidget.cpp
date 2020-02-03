@@ -208,4 +208,15 @@ void ChannelInfoWidget::connectEditableWidget()
         mPrivate->setChecked(mRoomWrapper->channelType() == QStringLiteral("p"));
     });
     //TODO react when we change settings
+    connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->rid(), RocketChatAccount::ReadOnly, checked, mRoomWrapper->channelType());
+    });
+    connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
+        if (KMessageBox::Yes == KMessageBox::questionYesNo(this, checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?"), i18n("Archive room"))) {
+            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->rid(), RocketChatAccount::Archive, checked, mRoomWrapper->channelType());
+        }
+    });
+    connect(mPrivate, &QCheckBox::clicked, this, [this](bool checked) {
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->rid(), RocketChatAccount::RoomType, checked, mRoomWrapper->channelType());
+    });
 }
