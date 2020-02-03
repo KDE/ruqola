@@ -97,6 +97,10 @@ void MessageListDelegateTest::layoutChecks()
     item->setData(message.text(), MessageModel::OriginalMessage);
     item->setData(message.text(), MessageModel::MessageConvertedText);
     model.setItem(0, 0, item);
+    // Ensure it's not last, that's a special case in sizeHint
+    QStandardItem *item2 = new QStandardItem;
+    model.setItem(1, 0, item2);
+
     const QModelIndex index = model.index(0, 0);
 
     // WHEN calculating sizehint
@@ -119,6 +123,8 @@ void MessageListDelegateTest::layoutChecks()
         QVERIFY(sizeHint.height() > layout.senderRect.height() + 1);
         QVERIFY(option.rect.contains(layout.attachmentsRect));
     }
+
+    // Text
     if (message.text().isEmpty()) {
         QVERIFY(!layout.textRect.isValid());
     } else {
@@ -127,9 +133,22 @@ void MessageListDelegateTest::layoutChecks()
         QVERIFY(layout.textRect.top() >= layout.usableRect.top());
         QVERIFY(!layout.senderRect.intersects(layout.textRect));
         if (!message.attachements().isEmpty()) {
-            QCOMPARE(layout.attachmentsRect.top(), layout.textRect.bottom());
+            QCOMPARE(layout.attachmentsRect.top(), layout.textRect.y() + layout.textRect.height());
         }
     }
+
+    const int bottom = layout.usableRect.y() + layout.usableRect.height();
+
+    // Avatar
     QCOMPARE(layout.avatarPixmap.height(), layout.senderRect.height());
-    QVERIFY(layout.avatarPos.y() + layout.avatarPixmap.height() <= layout.usableRect.bottom());
+    //qDebug() << layout.avatarPos.y() << "+" << layout.avatarPixmap.height() << "must be <=" << bottom;
+    QVERIFY(layout.avatarPos.y() + layout.avatarPixmap.height() <= bottom);
+
+    // Reactions
+    if (message.reactions().isEmpty()) {
+        QCOMPARE(layout.reactionsHeight, 0);
+    } else {
+        QVERIFY(layout.reactionsHeight > 15);
+        QVERIFY(layout.reactionsY + layout.reactionsHeight <= bottom);
+    }
 }

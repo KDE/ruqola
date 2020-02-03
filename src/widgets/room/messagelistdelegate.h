@@ -52,7 +52,6 @@ public:
     void drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
 
 private:
-    void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &usableRect, const QStyleOptionViewItem &option) const;
     QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
 
     struct ReactionLayout {
@@ -64,7 +63,6 @@ private:
         Reaction reaction;
         bool useEmojiFont;
     };
-    QVector<ReactionLayout> layoutReactions(const QVector<Reaction> &reactions, const qreal messageX, const QStyleOptionViewItem &option) const;
 
     struct Layout {
         // Sender
@@ -90,9 +88,12 @@ private:
         QRect attachmentsRect;
 
         // Reactions
+        qreal reactionsY;
         qreal reactionsHeight;
     };
+    QVector<ReactionLayout> layoutReactions(const QVector<Reaction> &reactions, const Layout &mainLayout, const QStyleOptionViewItem &option) const;
     Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void drawReactions(QPainter *painter, const QModelIndex &index, const Layout &mainLayout, const QStyleOptionViewItem &option) const;
 
     /// @note Ownership is not transferred
     MessageDelegateHelperBase *attachmentsHelper(const Message *message) const;

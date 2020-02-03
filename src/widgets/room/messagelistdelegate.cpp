@@ -77,19 +77,19 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
     return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
 }
 
-static void drawTimestamp(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QRect &usableRect, QRect *timeRect)
+static void drawTimestamp(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QRect &usableRect)
 {
     const qreal margin = basicMargin();
 
     const QString timeStampText = makeTimeStampText(index);
     const QSize timeSize = timeStampSize(timeStampText, option);
 
-    *timeRect = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignRight | Qt::AlignVCenter, timeSize, usableRect.adjusted(0, 0, -margin/2, 0));
+    const QRect timeRect = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignRight | Qt::AlignVCenter, timeSize, usableRect.adjusted(0, 0, -margin/2, 0));
     const QPen oldPen = painter->pen();
     QColor col = painter->pen().color();
     col.setAlpha(128); // TimestampText.qml had opacity: .5
     painter->setPen(col);
-    painter->drawText(*timeRect, timeStampText);
+    painter->drawText(timeRect, timeStampText);
     painter->setPen(oldPen);
 }
 
@@ -149,13 +149,14 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     const QSize textSize = mHelperText->sizeHint(index, maxWidth, option, &layout.baseLine); // TODO share the QTextDocument
     const int textLeft = layout.senderRect.right() + margin;
     int attachmentsY;
+    const int textVMargin = 3; // adjust this for "compactness"
     if (textSize.isValid()) {
-        layout.textRect = QRect(textLeft, usableRect.top() + margin,
-                                maxWidth, textSize.height() + margin);
-        attachmentsY = layout.textRect.bottom();
+        layout.textRect = QRect(textLeft, usableRect.top() + textVMargin,
+                                maxWidth, textSize.height() + textVMargin);
+        attachmentsY = layout.textRect.y() + layout.textRect.height();
         layout.baseLine += layout.textRect.top(); // make it absolute
     } else {
-        attachmentsY = usableRect.top() + margin;
+        attachmentsY = usableRect.top() + textVMargin;
         layout.baseLine = attachmentsY + option.fontMetrics.ascent();
     }
     layout.usableRect.setLeft(textLeft);
@@ -164,18 +165,21 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
                                layout.baseLine - senderAscent);
 
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    if (!message->attachements().isEmpty()) {
+        const MessageDelegateHelperBase *helper = attachmentsHelper(message);
+        const QSize attachmentsSize = helper ? helper->sizeHint(index, maxWidth, option) : QSize(0, 0);
+        layout.attachmentsRect = QRect(textLeft, attachmentsY, attachmentsSize.width(), attachmentsSize.height());
+        layout.reactionsY = attachmentsY + attachmentsSize.height();
+    } else {
+        layout.reactionsY = attachmentsY;
+    }
 
     const QVector<Reaction> reactions = message->reactions().reactions();
     if (!reactions.isEmpty()) {
         QFontMetricsF emojiFontMetrics(mEmojiFont);
-        layout.reactionsHeight = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + 7 + margin;
+        layout.reactionsHeight = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + margin;
     } else {
         layout.reactionsHeight = 0;
-    }
-
-    if (!message->attachements().isEmpty()) {
-        layout.attachmentsRect = QRect(textLeft, attachmentsY,
-                                       maxWidth, usableRect.height() - (attachmentsY - usableRect.top()) - layout.reactionsHeight);
     }
 
     return layout;
@@ -194,7 +198,9 @@ MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const Message 
     return nullptr;
 }
 
-QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReactions(const QVector<Reaction> &reactions, const qreal messageX, const QStyleOptionViewItem &option) const
+QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReactions(const QVector<Reaction> &reactions,
+                                                                                  const Layout &mainLayout,
+                                                                                  const QStyleOptionViewItem &option) const
 {
     QVector<MessageListDelegate::ReactionLayout> layouts;
     layouts.reserve(reactions.count());
@@ -202,8 +208,7 @@ QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReaction
     QFontMetricsF emojiFontMetrics(mEmojiFont);
     const qreal margin = basicMargin();
     const qreal smallMargin = margin/2.0;
-    const qreal height = qMax<qreal>(emojiFontMetrics.height(), option.fontMetrics.height()) + 7; // also stored in Layout
-    qreal x = messageX + margin;
+    qreal x = mainLayout.usableRect.x();
 
     for (const Reaction &reaction : reactions) {
         ReactionLayout layout;
@@ -219,8 +224,9 @@ QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReaction
         }
         layout.countStr = QString::number(reaction.count());
         const int countWidth = option.fontMetrics.horizontalAdvance(layout.countStr) + smallMargin;
-        layout.reactionRect = QRectF(x, option.rect.bottom() - height, emojiWidth + countWidth + margin, height);
-        layout.emojiOffset = margin / 2 + 1;
+        layout.reactionRect = QRectF(x, mainLayout.reactionsY,
+                                     emojiWidth + countWidth + margin, mainLayout.reactionsHeight);
+        layout.emojiOffset = smallMargin + 1;
         layout.countRect = layout.reactionRect.adjusted(layout.emojiOffset + emojiWidth, smallMargin, 0, 0);
         layout.reaction = reaction;
 
@@ -230,7 +236,7 @@ QVector<MessageListDelegate::ReactionLayout> MessageListDelegate::layoutReaction
     return layouts;
 }
 
-void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &index, const QRect &usableRect, const QStyleOptionViewItem &option) const
+void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &index, const Layout &mainLayout, const QStyleOptionViewItem &option) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
@@ -239,7 +245,7 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
         return;
     }
 
-    const QVector<ReactionLayout> layout = layoutReactions(reactions, usableRect.x(), option);
+    const QVector<ReactionLayout> layouts = layoutReactions(reactions, mainLayout, option);
 
     const QPen origPen = painter->pen();
     const QBrush origBrush = painter->brush();
@@ -248,7 +254,7 @@ void MessageListDelegate::drawReactions(QPainter *painter, const QModelIndex &in
     backgroundColor.setAlpha(60);
     const QBrush buttonBrush(backgroundColor);
     const qreal smallMargin = basicMargin()/2.0;
-    for (const ReactionLayout &reactionLayout : layout) {
+    for (const ReactionLayout &reactionLayout : layouts) {
         if (!reactionLayout.emojiString.isEmpty()) {
             const QRectF reactionRect = reactionLayout.reactionRect;
 
@@ -309,8 +315,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const Layout layout = doLayout(option, index);
 
     // Timestamp
-    QRect timeRect; // REMOVE
-    drawTimestamp(painter, index, option, layout.usableRect, &timeRect);
+    drawTimestamp(painter, index, option, layout.usableRect);
 
     // Message
     if (layout.textRect.isValid()) {
@@ -332,7 +337,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     // Reactions
-    drawReactions(painter, index, layout.usableRect, option);
+    drawReactions(painter, index, layout, option);
 
     //drawFocus(painter, option, messageRect);
 
@@ -344,28 +349,25 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // Note: option.rect in this method is huge (as big as the viewport)
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-
     const Layout layout = doLayout(option, index);
 
-    const MessageDelegateHelperBase *helper = attachmentsHelper(message);
-    const QSize attachmentsSize = helper ? helper->sizeHint(index, layout.textRect.width(), option) : QSize(0, 0);
-
-    int additionalHeight = layout.reactionsHeight;
-    if (index.data(MessageModel::DateDiffersFromPrevious).toBool()) {
-        additionalHeight += option.fontMetrics.height();
+    int additionalHeight = 0;
+    // A little bit of margin below the very last item, it just looks better
+    if (index.row() == index.model()->rowCount() - 1) {
+       additionalHeight += 4;
     }
 
-    //const QSize size(qMax(layout.textRect.width(), attachmentsSize.width()), layout.textRect.height() + attachmentsSize.height());
-    const int textAndAttachHeight = layout.textRect.height() + attachmentsSize.height();
-    const int senderAndAvatarHeight = qMax<int>(layout.senderRect.height(),
-                                                layout.avatarPos.y() + layout.avatarPixmap.height() - layout.usableRect.y());
+    // contents is date + text + attachments + reactions (where all of those are optional)
+    const int contentsHeight = layout.reactionsY + layout.reactionsHeight - option.rect.y();
+    const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
+                                                layout.avatarPos.y() + layout.avatarPixmap.height() - option.rect.y());
 
-    //qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "attachments" << attachmentsSize.height() << "reactions" << layout.reactionsHeight << "total additional" << additionalHeight;
-    //qDebug() << "=> returning" << qMax(senderAndAvatarHeight, textAndAttachHeight) + additionalHeight + 1;
+    //qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height()
+    //         << "attachments" << layout.attachmentsRect.height() << "reactions" << layout.reactionsHeight << "total contents" << contentsHeight;
+    //qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
     return QSize(option.rect.width(),
-                 qMax(senderAndAvatarHeight, textAndAttachHeight) + additionalHeight + 1);
+                 qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight);
 }
 
 bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
@@ -378,7 +380,7 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
 
         const Layout layout = doLayout(option, index);
         if (!message->reactions().isEmpty()) {
-            const QVector<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), layout.senderRect.right(), option);
+            const QVector<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), layout, option);
             for (const ReactionLayout &reactionLayout : reactions) {
                 if (reactionLayout.reactionRect.contains(pos)) {
                     const Reaction &reaction = reactionLayout.reaction;
