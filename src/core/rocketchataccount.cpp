@@ -807,7 +807,7 @@ void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const
 void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type)
 {
     if (mListMessageModel->roomId() != roomId || mListMessageModel->listMessageType() != type) {
-        mListMessageModel->setRoomID(roomId);
+        mListMessageModel->setRoomId(roomId);
         mListMessageModel->setListMessageType(type);
         mListMessageModel->parseListMessages(obj);
     } else {
@@ -866,6 +866,7 @@ void RocketChatAccount::loadMoreUsersInRoom(const QString &roomId, const QString
 void RocketChatAccount::getMentionsMessages(const QString &roomId)
 {
     mListMessageModel->clear();
+    mListMessageModel->setRoomId(roomId);
     restApi()->channelGetAllUserMentions(roomId);
 }
 
@@ -873,6 +874,7 @@ void RocketChatAccount::getPinnedMessages(const QString &roomId)
 {
     if (hasPinnedMessagesSupport()) {
         mListMessageModel->clear();
+        mListMessageModel->setRoomId(roomId);
         restApi()->getPinnedMessages(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getPinnedMessages is not supported before server 2.0.0";
@@ -893,6 +895,7 @@ void RocketChatAccount::getStarredMessages(const QString &roomId)
 {
     if (hasStarredMessagesSupport()) {
         mListMessageModel->clear();
+        mListMessageModel->setRoomId(roomId);
         restApi()->getStarredMessages(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getStarredMessages is not supported before server 2.3.0";
@@ -908,6 +911,7 @@ void RocketChatAccount::getSnippetedMessages(const QString &roomId)
 {
     if (hasSnippetedMessagesSupport()) {
         mListMessageModel->clear();
+        mListMessageModel->setRoomId(roomId);
         restApi()->getSnippetedMessages(roomId);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSnippetedMessages is not supported before server 2.3.0";
