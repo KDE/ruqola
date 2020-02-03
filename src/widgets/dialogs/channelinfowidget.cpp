@@ -32,6 +32,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QStackedWidget>
+#include <QToolButton>
 
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
@@ -219,4 +220,32 @@ void ChannelInfoWidget::connectEditableWidget()
     connect(mPrivate, &QCheckBox::clicked, this, [this](bool checked) {
         Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::RoomType, checked, mRoomWrapper->channelType());
     });
+}
+
+ChangeTextWidget::ChangeTextWidget(QWidget *parent)
+    : QWidget(parent)
+{
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mLabel = new QLabel(this);
+    mLabel->setObjectName(QStringLiteral("mLabel"));
+    mainLayout->addWidget(mLabel);
+    mChangeTextToolButton = new QToolButton(this);
+    mChangeTextToolButton->setObjectName(QStringLiteral("mChangeTextToolButton"));
+    mainLayout->addWidget(mChangeTextToolButton);
+    //TODO add icon.
+    connect(mChangeTextToolButton, &QToolButton::clicked, this, [this]() {
+        //TODO
+    });
+}
+
+ChangeTextWidget::~ChangeTextWidget()
+{
+
+}
+
+void ChangeTextWidget::setText(const QString &str)
+{
+    mLabel->setText(str);
 }

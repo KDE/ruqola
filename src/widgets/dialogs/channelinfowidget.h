@@ -30,6 +30,23 @@ class QPushButton;
 class QStackedWidget;
 class QLabel;
 class RoomWrapper;
+class QToolButton;
+class LIBRUQOLAWIDGETS_EXPORT ChangeTextWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit ChangeTextWidget(QWidget *parent = nullptr);
+    ~ChangeTextWidget();
+    void setText(const QString &str);
+
+Q_SIGNALS:
+    void textChanged(const QString &str);
+
+private:
+    QLabel *mLabel = nullptr;
+    QToolButton *mChangeTextToolButton = nullptr;
+};
+
 class LIBRUQOLAWIDGETS_EXPORT ChannelInfoWidget : public QWidget
 {
     Q_OBJECT
