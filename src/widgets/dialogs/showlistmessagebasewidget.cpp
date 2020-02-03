@@ -55,7 +55,6 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView);
     connect(mMessageListView, &MessageListView::modelChanged, this, &ShowListMessageBaseWidget::updateLabel);
-    connect(mModel, &ListMessagesModelFilterProxyModel::hasFullListChanged, this, &ShowListMessageBaseWidget::updateLabel);
 }
 
 ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
@@ -66,6 +65,7 @@ void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *mode
 {
     mModel = model;
     mMessageListView->setModel(model);
+    connect(mModel, &ListMessagesModelFilterProxyModel::hasFullListChanged, this, &ShowListMessageBaseWidget::updateLabel);
     updateLabel();
 }
 
