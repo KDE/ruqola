@@ -240,6 +240,11 @@ void RuqolaMainWindow::setupActions()
     mAddUserInRooms = new QAction(i18n("Add Users in Channel..."), this);
     connect(mAddUserInRooms, &QAction::triggered, this, &RuqolaMainWindow::slotAddUsersInRoom);
     ac->addAction(QStringLiteral("add_user_in_room"), mAddUserInRooms);
+
+    auto clearAlerts = new QAction(i18n("Mark all channels read"), this);
+    clearAlerts->setShortcut(Qt::SHIFT + Qt::Key_Escape);
+    connect(clearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
+    ac->addAction(QStringLiteral("mark_all_channels_read"), clearAlerts);
 }
 
 void RuqolaMainWindow::slotAddUsersInRoom()
@@ -249,6 +254,12 @@ void RuqolaMainWindow::slotAddUsersInRoom()
         //TODO
     }
     delete dlg;
+}
+
+void RuqolaMainWindow::slotClearAccountAlerts()
+{
+    if (auto acct = Ruqola::self()->accountManager()->account())
+        acct->clearAllUnreadMessages();
 }
 
 void RuqolaMainWindow::slotShowThreads()

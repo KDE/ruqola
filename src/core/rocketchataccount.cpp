@@ -542,6 +542,18 @@ void RocketChatAccount::logOut()
     qCDebug(RUQOLA_LOG) << "Successfully logged out!";
 }
 
+void RocketChatAccount::clearAllUnreadMessages()
+{
+    for (int roomIdx = 0, nRooms = mRoomModel->rowCount(); roomIdx < nRooms; ++roomIdx)
+    {
+        const auto roomModelIndex = mRoomModel->index(roomIdx);
+        const auto roomId = roomModelIndex.data(RoomModel::RoomID).toString();
+        const bool roomHasAlert = roomModelIndex.data(RoomModel::RoomAlert).toBool();
+        if (roomHasAlert)
+            clearUnreadMessages(roomId);
+    }
+}
+
 void RocketChatAccount::clearUnreadMessages(const QString &roomId)
 {
     restApi()->markAsRead(roomId);

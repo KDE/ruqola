@@ -65,6 +65,7 @@ private:
     void slotShowChannelInfo();
     void slotAddUsersInRoom();
     void changeActionStatus(bool enabled);
+    void slotClearAccountAlerts();
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
