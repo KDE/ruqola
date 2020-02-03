@@ -92,8 +92,10 @@ public:
 
     QSize sizeHint() const override
     {
+        const auto mngr = Ruqola::self()->accountManager();
+        const bool singleAccount = mngr->rocketChatAccountModel()->rowCount() == 1;
         const double height = fontMetrics().height();
-        const double padding = height * PAD;
+        const double padding = singleAccount ? 0 : height * PAD;
         const QSize textSize = fontMetrics().size(Qt::TextSingleLine, currentText());
         return QSize(textSize.width() + padding * 2, height + padding * 2);
     }
