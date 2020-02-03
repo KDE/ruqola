@@ -1180,7 +1180,7 @@ void RestApiRequest::channelJoin(const QString &roomId, const QString &joinCode)
     ChannelJoinJob *job = new ChannelJoinJob(this);
     initializeRestApiJob(job);
     job->setJoinCode(joinCode);
-    job->setRoomId(roomId);
+    job->setRoomName(roomId);
     connect(job, &ChannelJoinJob::setChannelJoinDone, this, &RestApiRequest::setChannelJoinDone);
     connect(job, &ChannelJoinJob::missingChannelPassword, this, &RestApiRequest::missingChannelPassword);
     connect(job, &ChannelJoinJob::openArchivedRoom, this, &RestApiRequest::openArchivedRoom);
