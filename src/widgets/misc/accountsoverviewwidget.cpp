@@ -46,7 +46,7 @@ class AccountButton : public QAbstractButton
     };
 
 public:
-    AccountButton(QWidget *parent = nullptr)
+    explicit AccountButton(QWidget *parent = nullptr)
         : QAbstractButton(parent)
         , mAccount(nullptr)
     {
@@ -94,8 +94,8 @@ public:
     {
         const double height = fontMetrics().height();
         const double padding = height * PAD;
-        const QSize text = fontMetrics().boundingRect(currentText()).size();
-        return QSize(text.width() + padding * 2, height + padding * 2);
+        const QSize textSize = fontMetrics().size(Qt::TextSingleLine, currentText());
+        return QSize(textSize.width() + padding * 2, height + padding * 2);
     }
 
 protected:
