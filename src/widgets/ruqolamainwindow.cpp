@@ -38,6 +38,7 @@
 #include "dialogs/configurenotificationdialog.h"
 #include "dialogs/showattachmentdialog.h"
 #include "dialogs/showdiscussionsdialog.h"
+#include "dialogs/showthreadsdialog.h"
 #include "dialogs/channelpassworddialog.h"
 #include "dialogs/channelinfodialog.h"
 #include "dialogs/directchannelinfodialog.h"
@@ -228,10 +229,10 @@ void RuqolaMainWindow::slotAddUsersInRoom()
 
 void RuqolaMainWindow::slotShowThreads()
 {
-//    QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(this);
-//    //TODO dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
-//    dlg->exec();
-//    delete dlg;
+    QPointer<ShowThreadsDialog> dlg = new ShowThreadsDialog(this);
+    //TODO dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
+    dlg->exec();
+    delete dlg;
 }
 
 void RuqolaMainWindow::slotShowDiscussions()
