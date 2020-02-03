@@ -385,7 +385,7 @@ void Room::setRoomId(const QString &id)
 {
     if (mRoomId != id) {
         mRoomId = id;
-        mMessageModel->setRoomID(id);
+        mMessageModel->setRoomId(id);
     }
 }
 

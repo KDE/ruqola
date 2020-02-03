@@ -31,16 +31,6 @@ ListMessagesModel::~ListMessagesModel()
 {
 }
 
-QString ListMessagesModel::roomId() const
-{
-    return mRoomId;
-}
-
-void ListMessagesModel::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
-}
-
 void ListMessagesModel::parse(const QJsonObject &obj)
 {
     ListMessages messages;

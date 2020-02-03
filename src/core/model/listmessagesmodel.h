@@ -44,9 +44,6 @@ public:
     explicit ListMessagesModel(const QString &roomID = QStringLiteral("no_room"), RocketChatAccount *account = nullptr, Room *room = nullptr, QObject *parent = nullptr);
     ~ListMessagesModel();
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
     void parseListMessages(const QJsonObject &obj);
     void loadMoreListMessages(const QJsonObject &obj);
 
@@ -70,7 +67,6 @@ Q_SIGNALS:
 private:
     void parse(const QJsonObject &obj);
     void checkFullList();
-    QString mRoomId;
     int mTotal = 0;
     bool mLoadingInProgress = false;
     bool mHasFullList = false;

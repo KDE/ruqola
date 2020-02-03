@@ -43,7 +43,7 @@
 
 MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
     : QAbstractListModel(parent)
-    , mRoomID(roomID)
+    , mRoomId(roomID)
     , mRocketChatAccount(account)
     , mRoom(room)
 {
@@ -402,9 +402,9 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
     return mTextConverter->convertMessageText(messageStr, userName, mAllMessages);
 }
 
-void MessageModel::setRoomID(const QString &roomID)
+void MessageModel::setRoomId(const QString &roomID)
 {
-    mRoomID = roomID;
+    mRoomId = roomID;
 }
 
 bool MessageModel::isEmpty() const
@@ -496,4 +496,9 @@ QString MessageModel::threadMessagePreview(const QString &threadMessageId, const
         }
     }
     return {};
+}
+
+QString MessageModel::roomId() const
+{
+    return mRoomId;
 }

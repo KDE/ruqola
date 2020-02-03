@@ -114,7 +114,7 @@ public:
     Q_REQUIRED_RESULT qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
-    void setRoomID(const QString &roomID);
+    void setRoomId(const QString &roomID);
     Q_REQUIRED_RESULT bool isEmpty() const;
 
     void clear();
@@ -122,6 +122,8 @@ public:
     void changeDisplayAttachment(const QString &messageId, bool displayAttachment);
 
     void changeShowOriginalMessage(const QString &messageId, bool showOriginal);
+
+    Q_REQUIRED_RESULT QString roomId() const;
 
 private Q_SLOTS:
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
@@ -132,7 +134,7 @@ private:
     QStringList roomRoles(const QString &userId) const;
     QString convertMessageText(const Message &message, const QString &userName) const;
     QString threadMessagePreview(const QString &threadMessageId, const QString &userName) const;
-    QString mRoomID;
+    QString mRoomId;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
     TextConverter *mTextConverter = nullptr;
