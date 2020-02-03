@@ -29,7 +29,7 @@
 #include <QUrlQuery>
 using namespace RocketChatRestApi;
 ChannelInfoJob::ChannelInfoJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelBaseJob(parent)
 {
 }
 
@@ -59,7 +59,7 @@ void ChannelInfoJob::slotFilesinChannelFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("channelInfoDone success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelInfoDone(replyObject, mRoomId);
+            Q_EMIT channelInfoDone(replyObject, roomId());
         } else {
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("channelInfoDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -76,8 +76,8 @@ bool ChannelInfoJob::requireHttpAuthentication() const
 
 bool ChannelInfoJob::canStart() const
 {
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelInfoJob: RoomId is empty";
+    if (!hasRoomIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelInfoJob: RoomId and RoomName are empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -87,21 +87,11 @@ bool ChannelInfoJob::canStart() const
     return true;
 }
 
-QString ChannelInfoJob::roomId() const
-{
-    return mRoomId;
-}
-
-void ChannelInfoJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
-}
-
 QNetworkRequest ChannelInfoJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsInfo);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    generateQuery(queryUrl);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     addAuthRawHeader(request);

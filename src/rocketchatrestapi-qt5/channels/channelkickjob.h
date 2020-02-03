@@ -21,10 +21,10 @@
 #ifndef CHANNELKICKJOB_H
 #define CHANNELKICKJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelKickJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelKickJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
@@ -39,9 +39,6 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
     Q_REQUIRED_RESULT QString kickUserId() const;
     void setKickUserId(const QString &kickUserId);
 
@@ -52,7 +49,6 @@ private:
     Q_DISABLE_COPY(ChannelKickJob)
     void slotKickUsersFinished();
     QString mKickUserId;
-    QString mRoomId;
 };
 }
 #endif // CHANGECHANNELANNOUNCEMENT_H

@@ -21,10 +21,10 @@
 #ifndef CHANNELADDMODERATORJOB_H
 #define CHANNELADDMODERATORJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelAddModeratorJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelAddModeratorJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
@@ -38,10 +38,6 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
-
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
     Q_REQUIRED_RESULT QString addModeratorUserId() const;
     void setAddModeratorUserId(const QString &addModeratorUserId);
 
@@ -51,7 +47,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ChannelAddModeratorJob)
     void slotAddModeratorFinished();
-    QString mRoomId;
     QString mAddModeratorUserId;
 };
 }

@@ -21,10 +21,10 @@
 #ifndef CHANNELINVITEJOB_H
 #define CHANNELINVITEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelInviteJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelInviteJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
@@ -38,9 +38,6 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
-
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
 
     Q_REQUIRED_RESULT QString inviteUserId() const;
     void setInviteUserId(const QString &userId);
@@ -56,7 +53,6 @@ private:
     void slotInvitationFinished();
     QString mInviteUserId;
     QString mInviteUserName;
-    QString mRoomId;
 };
 }
 

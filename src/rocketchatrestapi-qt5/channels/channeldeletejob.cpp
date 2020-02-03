@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelDeleteJob::ChannelDeleteJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelBaseJob(parent)
 {
 }
 
@@ -75,8 +75,8 @@ bool ChannelDeleteJob::requireHttpAuthentication() const
 
 bool ChannelDeleteJob::canStart() const
 {
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelDeleteJob: RoomId is empty";
+    if (!hasRoomIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelDeleteJob: RoomId and RoomName are empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -89,20 +89,10 @@ bool ChannelDeleteJob::canStart() const
 QJsonDocument ChannelDeleteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJSon(jsonObj);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString ChannelDeleteJob::roomId() const
-{
-    return mRoomId;
-}
-
-void ChannelDeleteJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest ChannelDeleteJob::request() const

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 2019-2020 Laurent Montel <montel@kde.org>
+   Copyright (c) 2020 Laurent Montel <montel@kde.org>
 
    This library is free software; you can redistribute it and/or modify
    it under the terms of the GNU Library General Public License as published
@@ -18,37 +18,38 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CHANNELREMOVELEADERJOB_H
-#define CHANNELREMOVELEADERJOB_H
+#ifndef CHANNELBASEJOB_H
+#define CHANNELBASEJOB_H
 
+#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
-#include "channelbasejob.h"
+
+#include <QJsonObject>
+#include <QUrlQuery>
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelRemoveLeaderJob : public ChannelBaseJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelBaseJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit ChannelRemoveLeaderJob(QObject *parent = nullptr);
-    ~ChannelRemoveLeaderJob() override;
+    explicit ChannelBaseJob(QObject *parent = nullptr);
+    ~ChannelBaseJob() override;
 
-    Q_REQUIRED_RESULT bool start() override;
-    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-    Q_REQUIRED_RESULT bool canStart() const override;
+    Q_REQUIRED_RESULT QString roomId() const;
+    void setRoomId(const QString &roomId);
 
-    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QString roomName() const;
+    void setRoomName(const QString &roomName);
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    Q_REQUIRED_RESULT bool hasRoomIdentifier() const;
 
-    Q_REQUIRED_RESULT QString removeUserId() const;
-    void setRemoveUserId(const QString &removeUserId);
-
-Q_SIGNALS:
-    void removeLeaderDone();
+protected:
+    void generateJSon(QJsonObject &obj) const;
+    void generateQuery(QUrlQuery &queryUrl) const;
 
 private:
-    Q_DISABLE_COPY(ChannelRemoveLeaderJob)
-    void slotRemoveLeaderFinished();
-    QString mRemoveUserId;
+    QString mRoomId;
+    QString mRoomName;
 };
 }
-#endif // CHANGECHANNELANNOUNCEMENT_H
+
+#endif // CHANNELBASEJOB_H

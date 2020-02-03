@@ -31,7 +31,7 @@
 
 using namespace RocketChatRestApi;
 GetChannelRolesJob::GetChannelRolesJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelBaseJob(parent)
 {
 }
 
@@ -41,8 +41,8 @@ GetChannelRolesJob::~GetChannelRolesJob()
 
 bool GetChannelRolesJob::canStart() const
 {
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetChannelRolesJob: RoomId is empty";
+    if (!hasRoomIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "GetChannelRolesJob: RoomId and RoomName are empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -71,7 +71,7 @@ QNetworkRequest GetChannelRolesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChannelsRoles);
     QUrlQuery queryUrl;
-    queryUrl.addQueryItem(QStringLiteral("roomId"), mRoomId);
+    generateQuery(queryUrl);
     url.setQuery(queryUrl);
     QNetworkRequest request(url);
     request.setAttribute(QNetworkRequest::HttpPipeliningAllowedAttribute, true);
@@ -94,7 +94,7 @@ void GetChannelRolesJob::slotGetChannelRolesFinished()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GetChannelRolesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelRolesDone(replyObject, mRoomId);
+            Q_EMIT channelRolesDone(replyObject, roomId());
         } else {
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("GetChannelRolesJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -102,16 +102,6 @@ void GetChannelRolesJob::slotGetChannelRolesFinished()
         reply->deleteLater();
     }
     deleteLater();
-}
-
-QString GetChannelRolesJob::roomId() const
-{
-    return mRoomId;
-}
-
-void GetChannelRolesJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QString RocketChatRestApi::GetChannelRolesJob::jobName() const

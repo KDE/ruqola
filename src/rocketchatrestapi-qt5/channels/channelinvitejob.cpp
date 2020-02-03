@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelInviteJob::ChannelInviteJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelBaseJob(parent)
 {
 }
 
@@ -99,8 +99,8 @@ bool ChannelInviteJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelInviteJob: inviteUserId is empty or inviteUserName is empty";
         return false;
     }
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelInviteJob: RoomId is empty";
+    if (!hasRoomIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelInviteJob: RoomId and RoomName are empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -113,7 +113,7 @@ bool ChannelInviteJob::canStart() const
 QJsonDocument ChannelInviteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJSon(jsonObj);
     if (!inviteUserId().isEmpty()) {
         jsonObj[QLatin1String("userId")] = inviteUserId();
     } else if (!inviteUserName().isEmpty()) {
@@ -122,16 +122,6 @@ QJsonDocument ChannelInviteJob::json() const
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString ChannelInviteJob::roomId() const
-{
-    return mRoomId;
-}
-
-void ChannelInviteJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest ChannelInviteJob::request() const

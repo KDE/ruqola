@@ -21,10 +21,10 @@
 #ifndef CHANNELDELETEJOB_H
 #define CHANNELDELETEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelDeleteJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelDeleteJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
@@ -39,16 +39,12 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
 Q_SIGNALS:
     void deletechannelDone();
 
 private:
     Q_DISABLE_COPY(ChannelDeleteJob)
     void slotChanneldeleteFinished();
-    QString mRoomId;
 };
 }
 

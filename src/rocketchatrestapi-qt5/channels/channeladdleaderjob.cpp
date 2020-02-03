@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelAddLeaderJob::ChannelAddLeaderJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelBaseJob(parent)
 {
 }
 
@@ -89,8 +89,8 @@ bool ChannelAddLeaderJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddLeaderJob: remove userid is empty";
         return false;
     }
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddLeaderJob: RoomId is empty";
+    if (!hasRoomIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelAddLeaderJob: RoomId or RoomName are empty";
         return false;
     }
     if (!RestApiAbstractJob::canStart()) {
@@ -103,21 +103,11 @@ bool ChannelAddLeaderJob::canStart() const
 QJsonDocument ChannelAddLeaderJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJSon(jsonObj);
     jsonObj[QLatin1String("userId")] = addLeaderUserId();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString ChannelAddLeaderJob::roomId() const
-{
-    return mRoomId;
-}
-
-void ChannelAddLeaderJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest ChannelAddLeaderJob::request() const

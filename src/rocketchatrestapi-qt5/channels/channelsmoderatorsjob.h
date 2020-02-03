@@ -21,10 +21,10 @@
 #ifndef ChannelsModeratorsJob_H
 #define ChannelsModeratorsJob_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelsModeratorsJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelsModeratorsJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
@@ -37,16 +37,12 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
 Q_SIGNALS:
     void channelFilesDone(const QJsonObject &replyObjectj, const QString &roomId);
 
 private:
     Q_DISABLE_COPY(ChannelsModeratorsJob)
     void slotFilesinChannelFinished();
-    QString mRoomId;
 };
 }
 

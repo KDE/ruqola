@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelCloseJob::ChannelCloseJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelBaseJob(parent)
 {
 }
 
@@ -85,8 +85,8 @@ bool ChannelCloseJob::requireHttpAuthentication() const
 
 bool ChannelCloseJob::canStart() const
 {
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelCloseJob: RoomId is empty";
+    if (!hasRoomIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelCloseJob: RoomId and RoomName are empty";
         return false;
     }
     if (mChannelType == ChannelCloseJob::Unknown) {
@@ -103,20 +103,10 @@ bool ChannelCloseJob::canStart() const
 QJsonDocument ChannelCloseJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJSon(jsonObj);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString ChannelCloseJob::roomId() const
-{
-    return mRoomId;
-}
-
-void ChannelCloseJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest ChannelCloseJob::request() const

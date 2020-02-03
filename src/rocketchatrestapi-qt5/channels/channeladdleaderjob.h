@@ -21,28 +21,25 @@
 #ifndef CHANNELADDLEADERJOB_H
 #define CHANNELADDLEADERJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelAddLeaderJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelAddLeaderJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
     explicit ChannelAddLeaderJob(QObject *parent = nullptr);
     ~ChannelAddLeaderJob() override;
 
-    bool start() override;
-    bool requireHttpAuthentication() const override;
-    bool canStart() const override;
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+    Q_REQUIRED_RESULT bool canStart() const override;
 
-    QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    QJsonDocument json() const;
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    QString roomId() const;
-    void setRoomId(const QString &roomId);
-
-    QString addLeaderUserId() const;
+    Q_REQUIRED_RESULT QString addLeaderUserId() const;
     void setAddLeaderUserId(const QString &addLeaderUserId);
 
 Q_SIGNALS:
@@ -51,7 +48,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ChannelAddLeaderJob)
     void slotAddLeaderFinished();
-    QString mRoomId;
     QString mAddLeaderUserId;
 };
 }

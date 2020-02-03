@@ -23,8 +23,9 @@
 
 #include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelFilesJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelFilesJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
@@ -44,9 +45,6 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
     Q_REQUIRED_RESULT ChannelType channelType() const;
     void setChannelType(RocketChatRestApi::ChannelFilesJob::ChannelType channelType);
 
@@ -57,7 +55,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ChannelFilesJob)
     void slotFilesinChannelFinished();
-    QString mRoomId;
     ChannelType mChannelType = Unknown;
 };
 }

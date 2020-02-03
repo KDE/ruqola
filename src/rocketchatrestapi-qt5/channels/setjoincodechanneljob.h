@@ -21,10 +21,10 @@
 #ifndef SETJOINCODECHANNELJOB_H
 #define SETJOINCODECHANNELJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SetJoinCodeChannelJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SetJoinCodeChannelJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
@@ -39,9 +39,6 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
     Q_REQUIRED_RESULT QString joinCode() const;
     void setJoinCode(const QString &joinCode);
 
@@ -51,7 +48,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(SetJoinCodeChannelJob)
     void slotSetJoinCodeFinished();
-    QString mRoomId;
     QString mJoinCode;
 };
 }

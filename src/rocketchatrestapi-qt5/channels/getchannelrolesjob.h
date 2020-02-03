@@ -21,11 +21,11 @@
 #ifndef GETCHANNELROLESJOB_H
 #define GETCHANNELROLESJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "channelbasejob.h"
 class QNetworkRequest;
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetChannelRolesJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetChannelRolesJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
@@ -39,10 +39,6 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
-
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
 protected:
     QString jobName() const override;
 
@@ -52,7 +48,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(GetChannelRolesJob)
     void slotGetChannelRolesFinished();
-    QString mRoomId;
 };
 }
 #endif // GETCHANNELROLESJOB_H

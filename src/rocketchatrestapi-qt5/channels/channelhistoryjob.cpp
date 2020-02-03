@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelHistoryJob::ChannelHistoryJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelBaseJob(parent)
 {
 }
 
@@ -95,8 +95,8 @@ bool ChannelHistoryJob::requireHttpAuthentication() const
 
 bool ChannelHistoryJob::canStart() const
 {
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: RoomId is empty";
+    if (!hasRoomIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelHistoryJob: RoomId and RoomName are empty";
         return false;
     }
     if (mChannelType == ChannelHistoryJob::Unknown) {
@@ -113,20 +113,10 @@ bool ChannelHistoryJob::canStart() const
 QJsonDocument ChannelHistoryJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJSon(jsonObj);
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString ChannelHistoryJob::roomId() const
-{
-    return mRoomId;
-}
-
-void ChannelHistoryJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest ChannelHistoryJob::request() const

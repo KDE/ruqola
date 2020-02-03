@@ -21,10 +21,10 @@
 #ifndef CHANNELCLOSEJOB_H
 #define CHANNELCLOSEJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelCloseJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelCloseJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
@@ -46,8 +46,6 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
 
     Q_REQUIRED_RESULT ChannelType channelType() const;
     void setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType channelType);
@@ -58,7 +56,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(ChannelCloseJob)
     void slotCloseChannelFinished();
-    QString mRoomId;
     ChannelType mChannelType = Unknown;
 };
 }

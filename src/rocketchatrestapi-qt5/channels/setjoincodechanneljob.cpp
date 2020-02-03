@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 SetJoinCodeChannelJob::SetJoinCodeChannelJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelBaseJob(parent)
 {
 }
 
@@ -89,8 +89,8 @@ bool SetJoinCodeChannelJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start SetJoinCodeChannelJob job";
         return false;
     }
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetJoinCodeChannelJob: RoomId is empty";
+    if (!hasRoomIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "SetJoinCodeChannelJob: RoomId and RoomName are empty";
         return false;
     }
     if (mJoinCode.isEmpty()) {
@@ -103,21 +103,11 @@ bool SetJoinCodeChannelJob::canStart() const
 QJsonDocument SetJoinCodeChannelJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJSon(jsonObj);
     jsonObj[QLatin1String("joinCode")] = joinCode();
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString SetJoinCodeChannelJob::roomId() const
-{
-    return mRoomId;
-}
-
-void SetJoinCodeChannelJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest SetJoinCodeChannelJob::request() const

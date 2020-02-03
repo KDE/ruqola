@@ -27,7 +27,7 @@
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 ChannelJoinJob::ChannelJoinJob(QObject *parent)
-    : RestApiAbstractJob(parent)
+    : ChannelBaseJob(parent)
 {
 }
 
@@ -58,16 +58,16 @@ void ChannelJoinJob::slotChannelJoinFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT setChannelJoinDone(mRoomId);
+            Q_EMIT setChannelJoinDone(roomId());
         } else {
             emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("ChannelJoinJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
             //Invalid password
             const QString errorType = replyObject[QStringLiteral("errorType")].toString();
             if (errorType == QLatin1String("error-code-invalid")) {
-                Q_EMIT missingChannelPassword(mRoomId);
+                Q_EMIT missingChannelPassword(roomId());
             } else if (errorType == QLatin1String("error-room-archived")) {
-                Q_EMIT openArchivedRoom(mRoomId);
+                Q_EMIT openArchivedRoom(roomId());
             }
         }
         reply->deleteLater();
@@ -96,8 +96,8 @@ bool ChannelJoinJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start ChannelJoinJob job";
         return false;
     }
-    if (mRoomId.isEmpty()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelJoinJob: RoomId is empty";
+    if (!hasRoomIdentifier()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ChannelJoinJob: RoomId and RoomName are empty";
         return false;
     }
     return true;
@@ -106,23 +106,13 @@ bool ChannelJoinJob::canStart() const
 QJsonDocument ChannelJoinJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomId")] = roomId();
+    generateJSon(jsonObj);
     if (!mJoinCode.isEmpty()) {
         jsonObj[QLatin1String("joinCode")] = mJoinCode;
     }
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
-}
-
-QString ChannelJoinJob::roomId() const
-{
-    return mRoomId;
-}
-
-void ChannelJoinJob::setRoomId(const QString &roomId)
-{
-    mRoomId = roomId;
 }
 
 QNetworkRequest ChannelJoinJob::request() const

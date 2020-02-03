@@ -21,10 +21,10 @@
 #ifndef LEAVECHANNELJOB_H
 #define LEAVECHANNELJOB_H
 
-#include "restapiabstractjob.h"
 #include "librestapi_private_export.h"
+#include "channelbasejob.h"
 namespace RocketChatRestApi {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT LeaveChannelJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT LeaveChannelJob : public ChannelBaseJob
 {
     Q_OBJECT
 public:
@@ -39,16 +39,12 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
 Q_SIGNALS:
     void leaveChannelDone();
 
 private:
     Q_DISABLE_COPY(LeaveChannelJob)
     void slotLeaveChannelFinished();
-    QString mRoomId;
 };
 }
 #endif // LEAVECHANNELJOB_H
