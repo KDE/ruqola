@@ -39,12 +39,15 @@ void ServerInfoWidgetTest::shouldHaveDefaultValues()
     QLabel *mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
+    QCOMPARE(mAccountName->textInteractionFlags(), Qt::TextSelectableByMouse);
 
     QLabel *mUserName = w.findChild<QLabel *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
+    QCOMPARE(mUserName->textInteractionFlags(), Qt::TextSelectableByMouse);
 
     QLabel *mServerVersion = w.findChild<QLabel *>(QStringLiteral("mServerVersion"));
     QVERIFY(mServerVersion);
     QVERIFY(mServerVersion->text().isEmpty());
+    QCOMPARE(mServerVersion->textInteractionFlags(), Qt::TextSelectableByMouse);
 }
