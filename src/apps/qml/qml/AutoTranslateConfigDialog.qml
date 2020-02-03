@@ -49,7 +49,7 @@ QQC2.Dialog {
             id: autoTranslate
             checked: roomInfo === null ? false : roomInfo.autoTranslate
             onClicked: {
-                autoTranslateConfigDialog.changeAutoTranslateSettings(roomInfo.rid, autoTranslate.checked)
+                autoTranslateConfigDialog.changeAutoTranslateSettings(roomInfo.roomId, autoTranslate.checked)
             }
         }
         QQC2.Label {
@@ -60,7 +60,7 @@ QQC2.Dialog {
             model: appid.autotranslateLanguagesModel
             currentIndex: roomInfo === null ? 1 : appid.autotranslateLanguagesModel.currentLanguage(roomInfo.autoTranslateLanguage)
             onActivated: {
-                autoTranslateConfigDialog.changeAutoTranslateLanguageSettings(roomInfo.rid, appid.autotranslateLanguagesModel.selectedLanguage(index))
+                autoTranslateConfigDialog.changeAutoTranslateLanguageSettings(roomInfo.roomId, appid.autotranslateLanguagesModel.selectedLanguage(index))
             }
         }
         Item {

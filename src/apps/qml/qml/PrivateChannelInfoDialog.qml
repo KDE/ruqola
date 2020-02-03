@@ -42,7 +42,7 @@ QQC2.Dialog {
 
     function initializeAndOpen()
     {
-        avatarRect.avatarurl = appid.rocketChatAccount.avatarUrlFromDirectChannel(roomInfo.rid)
+        avatarRect.avatarurl = appid.rocketChatAccount.avatarUrlFromDirectChannel(roomInfo.roomId)
         open();
     }
 
@@ -58,7 +58,7 @@ QQC2.Dialog {
             Layout.fillWidth: true
             text: roomInfo === null ? "" : (roomInfo.blocker ? i18n("Unblock user") : i18n("Block user"))
             onClicked: {
-                privateChannelInfoDialog.blockUser(roomInfo.rid, !roomInfo.blocker)
+                privateChannelInfoDialog.blockUser(roomInfo.roomId, !roomInfo.blocker)
             }
         }
         Item {

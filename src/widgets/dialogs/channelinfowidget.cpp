@@ -100,7 +100,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
     connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
         if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18n("Delete Room"))) {
-            Ruqola::self()->rocketChatAccount()->eraseRoom(mRoomWrapper->rid(), mRoomWrapper->channelType());
+            Ruqola::self()->rocketChatAccount()->eraseRoom(mRoomWrapper->roomId(), mRoomWrapper->channelType());
             Q_EMIT channelDeleted();
         }
     });
@@ -209,14 +209,14 @@ void ChannelInfoWidget::connectEditableWidget()
     });
     //TODO react when we change settings
     connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->rid(), RocketChatAccount::ReadOnly, checked, mRoomWrapper->channelType());
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::ReadOnly, checked, mRoomWrapper->channelType());
     });
     connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
         if (KMessageBox::Yes == KMessageBox::questionYesNo(this, checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?"), i18n("Archive room"))) {
-            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->rid(), RocketChatAccount::Archive, checked, mRoomWrapper->channelType());
+            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Archive, checked, mRoomWrapper->channelType());
         }
     });
     connect(mPrivate, &QCheckBox::clicked, this, [this](bool checked) {
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->rid(), RocketChatAccount::RoomType, checked, mRoomWrapper->channelType());
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::RoomType, checked, mRoomWrapper->channelType());
     });
 }

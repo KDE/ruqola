@@ -190,7 +190,7 @@ QQC2.Dialog {
             id: deleteButton
             visible: roomInfo.canBeModify
             onDeleteButtonClicked: {
-                deleteRoomDialog.rId = roomInfo.rid
+                deleteRoomDialog.rId = roomInfo.roomId
                 deleteRoomDialog.open();
             }
             Kirigami.FormData.label: i18n("Delete Room:")

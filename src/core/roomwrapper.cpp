@@ -131,7 +131,7 @@ QString RoomWrapper::roomCreatorUserId() const
     return mRoom->roomCreatorUserId();
 }
 
-QString RoomWrapper::rid() const
+QString RoomWrapper::roomId() const
 {
     return mRoom->roomId();
 }

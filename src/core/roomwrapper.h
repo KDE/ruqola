@@ -36,7 +36,7 @@ class LIBRUQOLACORE_EXPORT RoomWrapper : public QObject
     Q_PROPERTY(QString announcement READ announcement NOTIFY announcementChanged)
     Q_PROPERTY(QString channelType READ channelType NOTIFY channelTypeChanged)
     Q_PROPERTY(QString roomCreatorUserId READ roomCreatorUserId CONSTANT)
-    Q_PROPERTY(QString rid READ rid CONSTANT)
+    Q_PROPERTY(QString roomId READ roomId CONSTANT)
     Q_PROPERTY(QString description READ description NOTIFY descriptionChanged)
     Q_PROPERTY(bool favorite READ favorite NOTIFY favoriteChanged)
     Q_PROPERTY(bool readOnly READ readOnly NOTIFY readOnlyChanged)
@@ -75,7 +75,7 @@ public:
     Q_REQUIRED_RESULT bool broadcast() const;
     Q_REQUIRED_RESULT QString channelType() const;
     Q_REQUIRED_RESULT QString roomCreatorUserId() const;
-    Q_REQUIRED_RESULT QString rid() const;
+    Q_REQUIRED_RESULT QString roomId() const;
     Q_REQUIRED_RESULT QString description() const;
     Q_REQUIRED_RESULT bool archived() const;
     Q_REQUIRED_RESULT bool canBeModify() const;
