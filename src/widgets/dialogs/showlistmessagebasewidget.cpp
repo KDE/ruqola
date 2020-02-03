@@ -55,6 +55,7 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView);
     connect(mMessageListView, &MessageListView::modelChanged, this, &ShowListMessageBaseWidget::updateLabel);
+    connect(mModel, &ListMessagesModelFilterProxyModel::hasFullListChanged, this, &ShowListMessageBaseWidget::updateLabel);
 }
 
 ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
