@@ -33,12 +33,15 @@ ServerInfoWidget::ServerInfoWidget(QWidget *parent)
 
     mAccountName = new QLabel(this);
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
+    mAccountName->setTextInteractionFlags(Qt::TextSelectableByMouse);
     layout->addRow(i18n("Account Name:"), mAccountName);
     mUserName = new QLabel(this);
     mUserName->setObjectName(QStringLiteral("mUserName"));
+    mUserName->setTextInteractionFlags(Qt::TextSelectableByMouse);
     layout->addRow(i18n("User Name:"), mUserName);
     mServerVersion = new QLabel(this);
     mServerVersion->setObjectName(QStringLiteral("mServerVersion"));
+    mServerVersion->setTextInteractionFlags(Qt::TextSelectableByMouse);
     layout->addRow(i18n("Server Version:"), mServerVersion);
 }
 
