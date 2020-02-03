@@ -53,6 +53,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/lineeditwithdelaybeforeemittingsignal.cpp
     dialogs/showthreadswidget.cpp
     dialogs/showthreadsdialog.cpp
+    dialogs/listthreadsdelegate.cpp
     )
 
 set(Ruqola_configure_SRCS

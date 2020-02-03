@@ -19,7 +19,7 @@
 */
 
 #include "showthreadswidget.h"
-#include "listdiscussiondelegate.h"
+#include "listthreadsdelegate.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <KLineEdit>
@@ -53,7 +53,7 @@ ShowThreadsWidget::ShowThreadsWidget(QWidget *parent)
     mListThreads = new QListView(this);
     mListThreads->setObjectName(QStringLiteral("mListThreads"));
     mainLayout->addWidget(mListThreads);
-    mListThreads->setItemDelegate(new ListDiscussionDelegate(this));
+    mListThreads->setItemDelegate(new ListThreadsDelegate(this));
 
     //TODO need to update label !!!
 }

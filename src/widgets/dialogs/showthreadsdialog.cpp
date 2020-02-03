@@ -39,7 +39,7 @@ ShowThreadsDialog::ShowThreadsDialog(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mShowThreadsWidget = new ShowThreadsWidget(this);
-    mShowThreadsWidget->setObjectName(QStringLiteral("mShowDiscussionsWidget"));
+    mShowThreadsWidget->setObjectName(QStringLiteral("mShowThreadsWidget"));
     mainLayout->addWidget(mShowThreadsWidget);
 
     QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
