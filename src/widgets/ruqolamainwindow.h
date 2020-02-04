@@ -28,6 +28,7 @@ class QAction;
 class AccountMenu;
 class RocketChatAccount;
 class QLabel;
+class AccountsOverviewWidget;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -85,6 +86,7 @@ private:
     AccountMenu *mAccountMenu = nullptr;
     RocketChatAccount *mCurrentRocketChatAccount = nullptr;
     QLabel *mStatusBarTypingMessage = nullptr;
+    AccountsOverviewWidget *mAccountOverviewWidget = nullptr;
 };
 
 #endif // RUQOLAMAINWINDOW_H

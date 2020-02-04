@@ -87,7 +87,8 @@ void RuqolaMainWindow::setupStatusBar()
     mStatusBarTypingMessage->setTextFormat(Qt::RichText);
     mStatusBarTypingMessage->setObjectName(QStringLiteral("mStatusBarTypingMessage"));
     statusBar()->addPermanentWidget(mStatusBarTypingMessage);
-    statusBar()->addPermanentWidget(new AccountsOverviewWidget(this));
+    mAccountOverviewWidget = new AccountsOverviewWidget(this);
+    statusBar()->addPermanentWidget(mAccountOverviewWidget);
 }
 
 void RuqolaMainWindow::slotAccountChanged()
@@ -284,7 +285,8 @@ void RuqolaMainWindow::slotLoadRecentHistory()
 void RuqolaMainWindow::slotConfigureNotification()
 {
     QPointer<ConfigureNotificationDialog> dlg = new ConfigureNotificationDialog(this);
-    dlg->exec();
+    if (dlg->exec()) {
+    }
     delete dlg;
 }
 
@@ -350,7 +352,7 @@ void RuqolaMainWindow::slotConfigure()
 {
     QPointer<ConfigureSettingsDialog> dlg = new ConfigureSettingsDialog(this);
     if (dlg->exec()) {
-        //TODO
+        mAccountOverviewWidget->updateButtons();
     }
     delete dlg;
 }

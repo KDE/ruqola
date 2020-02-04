@@ -214,10 +214,9 @@ void AccountsOverviewWidget::updateButtons()
         {
             AccountButton *button = new AccountButton(this);
             mAccounts.append(button);
-            button->setVisible(account->accountEnabled());
             layout()->addWidget(mAccounts.last());
-
         }
+        mAccounts[i]->setVisible(account->accountEnabled());
         mAccounts[i]->setAccount(model->account(i));
     }
     for (int i = count; i < mAccounts.size(); ++i)

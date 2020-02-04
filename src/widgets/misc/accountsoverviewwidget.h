@@ -31,8 +31,6 @@ class AccountsOverviewWidget : public QWidget
     Q_OBJECT
 public:
     explicit AccountsOverviewWidget(QWidget *parent = nullptr);
-
-private:
     void updateButtons();
 
 private:
