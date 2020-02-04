@@ -26,7 +26,6 @@
 #include <QFont>
 #include <QItemDelegate>
 #include <QScopedPointer>
-#include "messages/reaction.h"
 
 class RocketChatAccount;
 class Message;
@@ -34,6 +33,7 @@ class MessageDelegateHelperBase;
 class MessageDelegateHelperText;
 class MessageDelegateHelperImage;
 class MessageDelegateHelperFile;
+class MessageDelegateHelperReactions;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
 {
@@ -53,16 +53,6 @@ public:
 
 private:
     QPixmap makeAvatarPixmap(const QModelIndex &index, int maxHeight) const;
-
-    struct ReactionLayout {
-        QRectF reactionRect;
-        QRectF countRect;
-        QString emojiString;
-        QString countStr;
-        qreal emojiOffset;
-        Reaction reaction;
-        bool useEmojiFont;
-    };
 
     struct Layout {
         // Sender
@@ -94,22 +84,21 @@ private:
         qreal reactionsY;
         qreal reactionsHeight;
     };
-    QVector<ReactionLayout> layoutReactions(const QVector<Reaction> &reactions, const Layout &mainLayout, const QStyleOptionViewItem &option) const;
     Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    void drawReactions(QPainter *painter, const QModelIndex &index, const Layout &mainLayout, const QStyleOptionViewItem &option) const;
+    void drawReactions(QPainter *painter, const QModelIndex &index, const QRect &reactionsRect, const QStyleOptionViewItem &option) const;
 
     /// @note Ownership is not transferred
     MessageDelegateHelperBase *attachmentsHelper(const Message *message) const;
 
     friend class MessageListDelegateTest;
 
-    QFont mEmojiFont;
     QIcon mEditedIcon;
     RocketChatAccount *mRocketChatAccount = nullptr;
 
     QScopedPointer<MessageDelegateHelperText> mHelperText;
     QScopedPointer<MessageDelegateHelperImage> mHelperImage;
     QScopedPointer<MessageDelegateHelperFile> mHelperFile;
+    QScopedPointer<MessageDelegateHelperReactions> mHelperReactions;
 };
 
 #endif // MESSAGELISTDELEGATE_H
