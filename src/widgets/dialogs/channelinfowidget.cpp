@@ -69,11 +69,9 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
         //TODO
     });
 
-
     mAnnouncement = new ChangeTextWidget(this);
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
     connect(mAnnouncement, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-
         //TODO
     });
     layout->addRow(i18n("Announcement:"), mAnnouncement);
@@ -259,7 +257,6 @@ ChangeTextWidget::ChangeTextWidget(QWidget *parent)
 
 ChangeTextWidget::~ChangeTextWidget()
 {
-
 }
 
 void ChangeTextWidget::setText(const QString &str)

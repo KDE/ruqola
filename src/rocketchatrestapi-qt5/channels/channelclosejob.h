@@ -46,7 +46,6 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-
     Q_REQUIRED_RESULT ChannelType channelType() const;
     void setChannelType(RocketChatRestApi::ChannelCloseJob::ChannelType channelType);
 

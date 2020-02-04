@@ -18,25 +18,21 @@
    Boston, MA 02110-1301, USA.
 */
 
-
 #include "channelbasejob.h"
 #include "rocketchatqtrestapi_debug.h"
 using namespace RocketChatRestApi;
 ChannelBaseJob::ChannelBaseJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
-
 }
 
 ChannelBaseJob::~ChannelBaseJob()
 {
-
 }
 
 QString ChannelBaseJob::roomId() const
 {
     return mRoomId;
-
 }
 
 void ChannelBaseJob::setRoomId(const QString &roomId)

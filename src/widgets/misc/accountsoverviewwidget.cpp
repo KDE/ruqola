@@ -60,8 +60,7 @@ public:
 
     void setAccount(RocketChatAccount *acct)
     {
-        if (mAccount)
-        {
+        if (mAccount) {
             mAccount->disconnect(this);
             mAccount->roomModel()->disconnect(this);
             this->disconnect(acct);
@@ -69,19 +68,18 @@ public:
 
         mAccount = acct;
 
-        if (mAccount)
-        {
-            auto updateFont = [this]{
-                QFont f = font();
-                f.setBold(currentUnreadAlert().alert);
-                setFont(f);
-                updateGeometry();
-            };
+        if (mAccount) {
+            auto updateFont = [this] {
+                                  QFont f = font();
+                                  f.setBold(currentUnreadAlert().alert);
+                                  setFont(f);
+                                  updateGeometry();
+                              };
             connect(acct, &RocketChatAccount::accountNameChanged, this, &AccountButton::updateGeometry);
             connect(acct, &RocketChatAccount::loginStatusChanged, this, &AccountButton::updateGeometry);
             connect(acct, &RocketChatAccount::loginStatusChanged, this, &AccountButton::updateTooltip);
             connect(acct->roomModel(), &RoomModel::needToUpdateNotification, this, updateFont);
-            connect(this, &AccountButton::clicked, acct, [acct]{
+            connect(this, &AccountButton::clicked, acct, [acct] {
                 Ruqola::self()->accountManager()->setCurrentAccount(acct->accountName());
             });
 
@@ -103,34 +101,37 @@ public:
 protected:
     void enterEvent(QEvent *event) override
     {
-        if (isEnabled())
+        if (isEnabled()) {
             update();
+        }
         QAbstractButton::enterEvent(event);
     }
 
     void leaveEvent(QEvent *event) override
     {
-        if (isEnabled())
+        if (isEnabled()) {
             update();
+        }
         QAbstractButton::leaveEvent(event);
     }
 
     void paintEvent(QPaintEvent *) override
     {
-        if (!mAccount)
+        if (!mAccount) {
             return;
+        }
 
         QPainter p(this);
 
         const auto mngr = Ruqola::self()->accountManager();
-        if (mngr->rocketChatAccountModel()->rowCount() > 1)
-        {
+        if (mngr->rocketChatAccountModel()->rowCount() > 1) {
             const bool isCurrent = mngr->currentAccount() == mAccount->accountName();
 
             QStyleOption opt;
             opt.init(this);
-            if (isDown() || isCurrent)
+            if (isDown() || isCurrent) {
                 opt.state |= QStyle::State_Sunken;
+            }
             style()->drawPrimitive(QStyle::PE_PanelButtonTool, &opt, &p, this);
         }
 
@@ -143,13 +144,15 @@ private:
     QString currentText() const
     {
         QString text = mAccount->accountName();
-        if (text.isEmpty())
+        if (text.isEmpty()) {
             text = i18n("(Unnamed)");
+        }
 
-        if (mAccount->loginStatus() != DDPClient::LoggedIn)
+        if (mAccount->loginStatus() != DDPClient::LoggedIn) {
             text += QStringLiteral(": %1").arg(currentLoginStatusText());
-        else if (int unread = currentUnreadAlert().unread)
+        } else if (int unread = currentUnreadAlert().unread) {
             text += QStringLiteral(" (%1)").arg(unread);
+        }
 
         return text;
     }
@@ -163,10 +166,8 @@ private:
 
     QString currentLoginStatusText() const
     {
-        if (mAccount)
-        {
-            switch (mAccount->loginStatus())
-            {
+        if (mAccount) {
+            switch (mAccount->loginStatus()) {
             case DDPClient::NotConnected:
                 return i18n("Not connected");
             case DDPClient::LoginCodeRequired:
@@ -207,11 +208,9 @@ void AccountsOverviewWidget::updateButtons()
 {
     const auto model = Ruqola::self()->accountManager()->rocketChatAccountModel();
     const auto count = model->rowCount();
-    for (int i = 0; i < count; ++i)
-    {
+    for (int i = 0; i < count; ++i) {
         RocketChatAccount *account = model->account(i);
-        if (i >= mAccounts.size())
-        {
+        if (i >= mAccounts.size()) {
             AccountButton *button = new AccountButton(this);
             mAccounts.append(button);
             layout()->addWidget(mAccounts.last());
@@ -219,8 +218,7 @@ void AccountsOverviewWidget::updateButtons()
         mAccounts[i]->setVisible(account->accountEnabled());
         mAccounts[i]->setAccount(model->account(i));
     }
-    for (int i = count; i < mAccounts.size(); ++i)
-    {
+    for (int i = count; i < mAccounts.size(); ++i) {
         mAccounts[i]->deleteLater();
     }
     mAccounts.resize(count);

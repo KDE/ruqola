@@ -50,9 +50,9 @@ MessageListDelegate::~MessageListDelegate()
 
 void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {
-//    if (mRocketChatAccount) {
-//        disconnect(mRocketChatAccount, 0, this, 0);
-//    }
+    //    if (mRocketChatAccount) {
+    //        disconnect(mRocketChatAccount, 0, this, 0);
+    //    }
     mRocketChatAccount = rcAccount;
 }
 
@@ -366,7 +366,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     int additionalHeight = 0;
     // A little bit of margin below the very last item, it just looks better
     if (index.row() == index.model()->rowCount() - 1) {
-       additionalHeight += 4;
+        additionalHeight += 4;
     }
 
     // contents is date + text + attachments + reactions (where all of those are optional)

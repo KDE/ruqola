@@ -34,5 +34,5 @@ public:
     void updateButtons();
 
 private:
-    QVector<AccountButton*> mAccounts;
+    QVector<AccountButton *> mAccounts;
 };

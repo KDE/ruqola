@@ -55,7 +55,6 @@ void RuqolaMainWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSplitter->indexOf(mChannelList) >= 0);
     QVERIFY(mSplitter->indexOf(mStackedRoomWidget) >= 0);
 
-
     QWidget *mEmptyRoomWidget = w.findChild<QWidget *>(QStringLiteral("mEmptyRoomWidget"));
     QVERIFY(mEmptyRoomWidget);
     QCOMPARE(mStackedRoomWidget->currentWidget(), mEmptyRoomWidget);
