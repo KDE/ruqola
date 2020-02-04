@@ -199,9 +199,7 @@ AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
 {
     setLayout(new QHBoxLayout);
     const auto model = Ruqola::self()->accountManager()->rocketChatAccountModel();
-    connect(model, &RocketChatAccountModel::rowsInserted, this, &AccountsOverviewWidget::updateButtons);
-    connect(model, &RocketChatAccountModel::rowsRemoved, this, &AccountsOverviewWidget::updateButtons);
-    connect(model, &RocketChatAccountModel::modelReset, this, &AccountsOverviewWidget::updateButtons);
+    connect(model, &RocketChatAccountModel::accountNumberChanged, this, &AccountsOverviewWidget::updateButtons);
     updateButtons();
 }
 
