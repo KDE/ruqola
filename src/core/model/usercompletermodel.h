@@ -43,13 +43,13 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
-    void insertUsers(const QVector<User *> &users);
+    void insertUsers(const QVector<User> &users);
 
     Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
 
 private:
     Q_DISABLE_COPY(UserCompleterModel)
-    QVector<User *> mUsers;
+    QVector<User> mUsers;
 };
 
 #endif // USERCOMPLETERMODEL_H

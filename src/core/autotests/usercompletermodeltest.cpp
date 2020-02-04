@@ -50,15 +50,15 @@ void UserCompleterModelTest::shouldHaveDefaultValue()
 void UserCompleterModelTest::shouldAddValues()
 {
     UserCompleterModel w;
-    QVector<User *> users;
+    QVector<User> users;
     QSignalSpy rowInsertedSpy(&w, &UserCompleterModel::rowsInserted);
     QSignalSpy rowABTInserted(&w, &UserCompleterModel::rowsAboutToBeInserted);
     for (int i = 0; i < 10; i++) {
-        User *user = new User;
-        user->setName(QStringLiteral("name%1").arg(i));
-        user->setStatus(QStringLiteral("status%1").arg(i));
-        user->setUserId(QStringLiteral("userId%1").arg(i));
-        user->setUserName(QStringLiteral("username%1").arg(i));
+        User user;
+        user.setName(QStringLiteral("name%1").arg(i));
+        user.setStatus(QStringLiteral("status%1").arg(i));
+        user.setUserId(QStringLiteral("userId%1").arg(i));
+        user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
     }
     w.insertUsers(users);
@@ -68,14 +68,13 @@ void UserCompleterModelTest::shouldAddValues()
     QCOMPARE(TestModelHelpers::rowSpyToText(rowInsertedSpy), QStringLiteral("0,9"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTInserted), QStringLiteral("0,9"));
 
-    qDeleteAll(users);
     users.clear();
     for (int i = 0; i < 3; ++i) {
-        User *user = new User;
-        user->setName(QStringLiteral("name%1").arg(i));
-        user->setStatus(QStringLiteral("status%1").arg(i));
-        user->setUserId(QStringLiteral("userId%1").arg(i));
-        user->setUserName(QStringLiteral("username%1").arg(i));
+        User user;
+        user.setName(QStringLiteral("name%1").arg(i));
+        user.setStatus(QStringLiteral("status%1").arg(i));
+        user.setUserId(QStringLiteral("userId%1").arg(i));
+        user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
     }
     w.insertUsers(users);
@@ -89,13 +88,13 @@ void UserCompleterModelTest::shouldAddValues()
 void UserCompleterModelTest::shouldVerifyData()
 {
     UserCompleterModel w;
-    QVector<User *> users;
+    QVector<User> users;
     for (int i = 0; i < 10; i++) {
-        User *user = new User;
-        user->setName(QStringLiteral("name%1").arg(i));
-        user->setStatus(QStringLiteral("status%1").arg(i));
-        user->setUserId(QStringLiteral("userId%1").arg(i));
-        user->setUserName(QStringLiteral("username%1").arg(i));
+        User user;
+        user.setName(QStringLiteral("name%1").arg(i));
+        user.setStatus(QStringLiteral("status%1").arg(i));
+        user.setUserId(QStringLiteral("userId%1").arg(i));
+        user.setUserName(QStringLiteral("username%1").arg(i));
         users.append(user);
     }
     w.insertUsers(users);

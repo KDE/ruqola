@@ -1587,11 +1587,6 @@ bool RocketChatAccount::sortUnreadOnTop() const
     return settings()->showUnreadOnTop();
 }
 
-UserWrapper *RocketChatAccount::userWrapper(const QString &userId)
-{
-    return usersModel()->findUserWrapper(userId);
-}
-
 void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, const QString &channelType)
 {
     if (channelType == QLatin1Char('c')) {
@@ -1752,9 +1747,7 @@ void RocketChatAccount::updateUser(const QJsonObject &object)
 
 void RocketChatAccount::userStatusChanged(User *user)
 {
-    //qDebug() << " void RocketChatAccount::userStatusChanged(const User &user)"<<user.userId() << " userId" << userID();
     if (user->userId() == userID()) {
-        //qDebug() << " void RocketChatAccount::userStatusChanged(const User &user) current user !!!!!!!!!!!!" << user;
         const User::PresenceStatus status = Utils::presenceStatusFromString(user->status());
         statusModel()->setCurrentPresenceStatus(status);
         Q_EMIT userStatusUpdated(status);

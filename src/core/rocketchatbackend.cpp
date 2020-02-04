@@ -224,7 +224,7 @@ QVector<File> RocketChatBackend::files() const
     return mFiles;
 }
 
-QVector<User *> RocketChatBackend::users() const
+QVector<User> RocketChatBackend::users() const
 {
     return mUsers;
 }
@@ -290,8 +290,8 @@ void RocketChatBackend::slotAdded(const QJsonObject &object)
         } else {
             qCDebug(RUQOLA_LOG) << "AutoCompleteRecords VALUE" << object;
         }
-        User *user = new User;
-        user->parseUser(object);
+        User user;
+        user.parseUser(object);
         mUsers.append(user);
     } else if (collection == QLatin1String("room_files")) {
         if (mRocketChatAccount->ruqolaLogger()) {
@@ -536,7 +536,6 @@ void RocketChatBackend::clearFilesList()
 
 void RocketChatBackend::clearUsersList()
 {
-    qDeleteAll(mUsers);
     mUsers.clear();
 }
 

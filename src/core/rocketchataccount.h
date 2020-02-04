@@ -71,7 +71,6 @@ class ThreadMessageModel;
 class ListMessagesModel;
 class ListMessagesModelFilterProxyModel;
 class AutotranslateLanguagesModel;
-class UserWrapper;
 
 namespace RocketChatRestApi {
 class RestApiRequest;
@@ -241,7 +240,6 @@ public:
     Q_INVOKABLE void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     Q_INVOKABLE void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
 
-    Q_INVOKABLE UserWrapper *userWrapper(const QString &userId);
     Q_INVOKABLE UsersForRoomFilterProxyModel *usersForRoomFilterProxyModel(const QString &roomId) const;
     Q_INVOKABLE RoomWrapper *roomWrapper(const QString &roomId);
     Q_INVOKABLE MessageModel *messageModelForRoom(const QString &roomID);

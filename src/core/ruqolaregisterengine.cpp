@@ -31,7 +31,6 @@
 #include "notificationoptionswrapper.h"
 #include "receivetypingnotificationmanager.h"
 #include "serverconfiginfo.h"
-#include "userwrapper.h"
 
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
@@ -86,7 +85,6 @@ bool RuqolaRegisterEngine::initialize()
 
     qmlRegisterType<MessageModel>(URI, 1, 0, "MessageModel");
     qmlRegisterType<RoomWrapper>(URI, 1, 0, "RoomWrapper");
-    qmlRegisterType<UserWrapper>(URI, 1, 0, "UserWrapper");
     qmlRegisterType<Room>(URI, 1, 0, "Room");
     qmlRegisterType<RocketChatAccount>(URI, 1, 0, "RocketChatAccount");
     qmlRegisterType<UsersModel>(URI, 1, 0, "UsersModel");
