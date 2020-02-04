@@ -40,6 +40,7 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
     void setText(const QString &text);
+    QString text() const;
 
     MessageLineEdit *messageLineEdit() const
     {

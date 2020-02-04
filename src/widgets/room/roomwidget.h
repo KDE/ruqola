@@ -21,6 +21,7 @@
 #ifndef ROOMWIDGET_H
 #define ROOMWIDGET_H
 
+#include <QMap>
 #include <QWidget>
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
@@ -67,6 +68,7 @@ private:
     QString mRoomId;
     QString mRoomType;
     QString mMessageIdBeingEdited;
+    QMap<QString /*RoomId*/, QString /*text*/> mPendingTypedTexts;
     RoomHeaderWidget *mRoomHeaderWidget = nullptr;
     MessageListView *mMessageListView = nullptr;
     MessageLineWidget *mMessageLineWidget = nullptr;

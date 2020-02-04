@@ -83,6 +83,11 @@ void MessageLineWidget::setText(const QString &text)
     mMessageLineEdit->setText(text);
 }
 
+QString MessageLineWidget::text() const
+{
+    return mMessageLineEdit->text();
+}
+
 void MessageLineWidget::slotSendFile()
 {
     QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
