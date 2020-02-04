@@ -41,19 +41,19 @@ AddUsersCompletionLineEdit::~AddUsersCompletionLineEdit()
 void AddUsersCompletionLineEdit::slotTextChanged(const QString &text)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    //Take text from ','
     rcAccount->userAutocomplete(text, QString());
 }
 
 void AddUsersCompletionLineEdit::slotComplete(const QModelIndex &index)
 {
-    //FIXME
     const QString completerName = index.data(UserCompleterModel::UserName).toString();
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    const QString newText = QString(); /*FIXME*///rcAccount->replaceWord(completerName + QLatin1Char(' '), text(), cursorPosition());
-
     mCompletionListView->hide();
-
     disconnect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
-    setText(newText);
+    QString newText = completerName;
+    if (!text().isEmpty()) {
+        newText.prepend(QLatin1Char(','));
+    }
+    insert(newText);
     connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
 }
