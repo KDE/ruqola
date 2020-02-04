@@ -90,35 +90,37 @@ QSize MessageDelegateHelperImage::sizeHint(const QModelIndex &index, int maxWidt
 
 bool MessageDelegateHelperImage::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    const QPoint pos = mouseEvent->pos();
+    if (mouseEvent->type() == QEvent::MouseButtonRelease) {
+        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        const QPoint pos = mouseEvent->pos();
 
-    ImageLayout layout = layoutImage(message, option);
-    if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-        QAbstractItemModel *model = const_cast<QAbstractItemModel *>(index.model());
-        model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
-        return true;
-    } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-        const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save Image"));
-        if (!file.isEmpty()) {
-            layout.pixmap.save(file);
+        ImageLayout layout = layoutImage(message, option);
+        if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+            QAbstractItemModel *model = const_cast<QAbstractItemModel *>(index.model());
+            model->setData(index, !layout.isShown, MessageModel::DisplayAttachment);
+            return true;
+        } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+            const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save Image"));
+            if (!file.isEmpty()) {
+                layout.pixmap.save(file);
+            }
+            return true;
+        } else if (!layout.pixmap.isNull()) {
+            const int imageY = attachmentsRect.y() + layout.titleSize.height() + margin;
+            int imageMaxHeight = attachmentsRect.bottom() - imageY - margin;
+            if (!layout.description.isEmpty()) {
+                imageMaxHeight -= layout.descriptionSize.height() + margin;
+            }
+            // ## the width is often less than that, due to aspect ratio
+            const QRect imageRect(attachmentsRect.x(), imageY, attachmentsRect.width(), imageMaxHeight);
+            if (imageRect.contains(pos)) {
+                QPointer<ShowImageDialog> dlg = new ShowImageDialog();
+                dlg->setImage(layout.pixmap);
+                dlg->exec();
+                delete dlg;
+            }
+            return true;
         }
-        return true;
-    } else if (!layout.pixmap.isNull()) {
-        const int imageY = attachmentsRect.y() + layout.titleSize.height() + margin;
-        int imageMaxHeight = attachmentsRect.bottom() - imageY - margin;
-        if (!layout.description.isEmpty()) {
-            imageMaxHeight -= layout.descriptionSize.height() + margin;
-        }
-        // ## the width is often less than that, due to aspect ratio
-        const QRect imageRect(attachmentsRect.x(), imageY, attachmentsRect.width(), imageMaxHeight);
-        if (imageRect.contains(pos)) {
-            QPointer<ShowImageDialog> dlg = new ShowImageDialog();
-            dlg->setImage(layout.pixmap);
-            dlg->exec();
-            delete dlg;
-        }
-        return true;
     }
     return false;
 }

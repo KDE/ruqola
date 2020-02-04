@@ -107,34 +107,36 @@ QVector<MessageDelegateHelperFile::FileLayout> MessageDelegateHelperFile::doLayo
 
 bool MessageDelegateHelperFile::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    const QVector<FileLayout> layouts = doLayout(message, option);
-    const QPoint pos = mouseEvent->pos();
+    if (mouseEvent->type() == QEvent::MouseButtonRelease) {
+        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        const QVector<FileLayout> layouts = doLayout(message, option);
+        const QPoint pos = mouseEvent->pos();
 
-    auto download = [&](const FileLayout &layout) {
-        const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"));
-        if (!file.isEmpty()) {
-            const QUrl fileUrl = QUrl::fromLocalFile(file);
-            Ruqola::self()->rocketChatAccount()->downloadFile(layout.link, fileUrl);
-            return true;
-        }
-        return false;
-    };
+        auto download = [&](const FileLayout &layout) {
+            const QString file = QFileDialog::getSaveFileName(const_cast<QWidget *>(option.widget), i18n("Save File"));
+            if (!file.isEmpty()) {
+                const QUrl fileUrl = QUrl::fromLocalFile(file);
+                Ruqola::self()->rocketChatAccount()->downloadFile(layout.link, fileUrl);
+                return true;
+            }
+            return false;
+        };
 
-    for (const FileLayout &layout : layouts) {
-        if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            return download(layout);
-        }
-        if (!layout.link.isEmpty()) {
-            const int y = attachmentsRect.y() + layout.y;
-            const QSize linkSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-            const QRect linkRect(attachmentsRect.x(), y, linkSize.width(), linkSize.height());
-            if (linkRect.contains(pos)) {
-                if (layout.downloadButtonRect.isValid()) {
-                    return download(layout);
-                } else {
-                    RuqolaUtils::self()->openUrl(layout.link);
-                    return true;
+        for (const FileLayout &layout : layouts) {
+            if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+                return download(layout);
+            }
+            if (!layout.link.isEmpty()) {
+                const int y = attachmentsRect.y() + layout.y;
+                const QSize linkSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
+                const QRect linkRect(attachmentsRect.x(), y, linkSize.width(), linkSize.height());
+                if (linkRect.contains(pos)) {
+                    if (layout.downloadButtonRect.isValid()) {
+                        return download(layout);
+                    } else {
+                        RuqolaUtils::self()->openUrl(layout.link);
+                        return true;
+                    }
                 }
             }
         }

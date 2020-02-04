@@ -85,29 +85,31 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
 
 bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    Q_UNUSED(option)
-    // ## we should really cache that QTextDocument...
-    const QString text = makeMessageText(index);
-    QTextDocument doc;
-    fillTextDocument(doc, text, messageRect.width());
+    if (mouseEvent->type() == QEvent::MouseButtonRelease) {
+        Q_UNUSED(option)
+        // ## we should really cache that QTextDocument...
+        const QString text = makeMessageText(index);
+        QTextDocument doc;
+        fillTextDocument(doc, text, messageRect.width());
 
-    const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
-    const QString link = doc.documentLayout()->anchorAt(pos);
-    if (!link.isEmpty()) {
-        if (link.startsWith(QLatin1String("ruqola:"))) {
-            auto *rcAccount = Ruqola::self()->rocketChatAccount();
-            const QString roomOrUser = RuqolaUtils::self()->extractRoomUserFromUrl(link);
-            if (link.startsWith(QLatin1String("ruqola:/room/"))) {
-                rcAccount->openChannel(roomOrUser);
-            } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
-                if (roomOrUser != rcAccount->userName()) {
-                    rcAccount->openDirectChannel(roomOrUser);
+        const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
+        const QString link = doc.documentLayout()->anchorAt(pos);
+        if (!link.isEmpty()) {
+            if (link.startsWith(QLatin1String("ruqola:"))) {
+                auto *rcAccount = Ruqola::self()->rocketChatAccount();
+                const QString roomOrUser = RuqolaUtils::self()->extractRoomUserFromUrl(link);
+                if (link.startsWith(QLatin1String("ruqola:/room/"))) {
+                    rcAccount->openChannel(roomOrUser);
+                } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
+                    if (roomOrUser != rcAccount->userName()) {
+                        rcAccount->openDirectChannel(roomOrUser);
+                    }
                 }
+            } else {
+                RuqolaUtils::self()->openUrl(link);
             }
-        } else {
-            RuqolaUtils::self()->openUrl(link);
+            return true;
         }
-        return true;
     }
     return false;
 }

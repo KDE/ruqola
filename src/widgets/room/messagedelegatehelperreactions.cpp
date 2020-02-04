@@ -135,15 +135,17 @@ QSize MessageDelegateHelperReactions::sizeHint(const QModelIndex &index, int max
 bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, const QRect &reactionsRect,
                                                       const QStyleOptionViewItem &option, const Message *message)
 {
-    const QPoint pos = mouseEvent->pos();
-    const QVector<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), reactionsRect, option);
-    for (const ReactionLayout &reactionLayout : reactions) {
-        if (reactionLayout.reactionRect.contains(pos)) {
-            const Reaction &reaction = reactionLayout.reaction;
-            auto *rcAccount = Ruqola::self()->rocketChatAccount();
-            const bool doAdd = !reaction.userNames().contains(rcAccount->userName());
-            rcAccount->reactOnMessage(message->messageId(), reaction.reactionName(), doAdd);
-            return true;
+    if (mouseEvent->type() == QEvent::MouseButtonRelease) {
+        const QPoint pos = mouseEvent->pos();
+        const QVector<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), reactionsRect, option);
+        for (const ReactionLayout &reactionLayout : reactions) {
+            if (reactionLayout.reactionRect.contains(pos)) {
+                const Reaction &reaction = reactionLayout.reaction;
+                auto *rcAccount = Ruqola::self()->rocketChatAccount();
+                const bool doAdd = !reaction.userNames().contains(rcAccount->userName());
+                rcAccount->reactOnMessage(message->messageId(), reaction.reactionName(), doAdd);
+                return true;
+            }
         }
     }
     return false;
