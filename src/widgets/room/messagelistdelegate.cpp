@@ -294,23 +294,26 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
 
 bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    QMouseEvent *mev = static_cast<QMouseEvent *>(event);
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const QEvent::Type eventType = event->type();
+    if (eventType == QEvent::MouseButtonRelease) {
+        QMouseEvent *mev = static_cast<QMouseEvent *>(event);
+        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    const Layout layout = doLayout(option, index);
-    if (!message->reactions().isEmpty()) {
-        const QRect reactionsRect(layout.usableRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
-        if (mHelperReactions->handleMouseEvent(mev, reactionsRect, option, message)) {
+        const Layout layout = doLayout(option, index);
+        if (!message->reactions().isEmpty()) {
+            const QRect reactionsRect(layout.usableRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
+            if (mHelperReactions->handleMouseEvent(mev, reactionsRect, option, message)) {
+                return true;
+            }
+        }
+        if (mHelperText->handleMouseEvent(mev, layout.textRect, option, index)) {
             return true;
         }
-    }
-    if (mHelperText->handleMouseEvent(mev, layout.textRect, option, index)) {
-        return true;
-    }
 
-    MessageDelegateHelperBase *helper = attachmentsHelper(message);
-    if (helper && helper->handleMouseEvent(mev, layout.attachmentsRect, option, index)) {
-        return true;
+        MessageDelegateHelperBase *helper = attachmentsHelper(message);
+        if (helper && helper->handleMouseEvent(mev, layout.attachmentsRect, option, index)) {
+            return true;
+        }
     }
     return QItemDelegate::editorEvent(event, model, option, index);
 }
