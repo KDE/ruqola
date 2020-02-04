@@ -63,11 +63,6 @@ static QString makeSenderText(const QModelIndex &index)
     return QLatin1Char('@') + index.data(MessageModel::Username).toString();
 }
 
-static QString makeTimeStampText(const QModelIndex &index)
-{
-    return index.data(MessageModel::Timestamp).toString();
-}
-
 static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
 {
     // This gives incorrect results (too small bounding rect), no idea why!
@@ -75,13 +70,11 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
     return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
 }
 
-static void drawTimestamp(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, const QRect &usableRect)
+static void drawTimestamp(QPainter *painter, const QString &timeStampText, const QStyleOptionViewItem &option, const QRect &usableRect)
 {
     const qreal margin = basicMargin();
 
-    const QString timeStampText = makeTimeStampText(index);
     const QSize timeSize = timeStampSize(timeStampText, option);
-
     const QRect timeRect = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignRight | Qt::AlignVCenter, timeSize, usableRect.adjusted(0, 0, -margin/2, 0));
     const QPen oldPen = painter->pen();
     QColor col = painter->pen().color();
@@ -144,7 +137,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     }
 
     // Timestamp
-    layout.timeStampText = makeTimeStampText(index);
+    layout.timeStampText = index.data(MessageModel::Timestamp).toString();
     layout.timeSize = timeStampSize(layout.timeStampText, option);
 
     // Message (using the rest of the available width)
@@ -232,7 +225,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const Layout layout = doLayout(option, index);
 
     // Timestamp
-    drawTimestamp(painter, index, option, layout.usableRect);
+    drawTimestamp(painter, layout.timeStampText, option, layout.usableRect);
 
     // Message
     if (layout.textRect.isValid()) {
