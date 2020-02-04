@@ -181,6 +181,7 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("show_snippered_messages"), mShowSnipperedMessages);
 
     mSearchMessages = new QAction(QIcon::fromTheme(QStringLiteral("edit-find")), i18n("Search Messages..."), this);
+    ac->setDefaultShortcuts(mSearchMessages, KStandardShortcut::find());
     connect(mSearchMessages, &QAction::triggered, this, &RuqolaMainWindow::slotSearchMessages);
     ac->addAction(QStringLiteral("search_messages"), mSearchMessages);
 
