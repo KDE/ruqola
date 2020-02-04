@@ -211,10 +211,14 @@ void AccountsOverviewWidget::updateButtons()
     const auto count = model->rowCount();
     for (int i = 0; i < count; ++i)
     {
+        RocketChatAccount *account = model->account(i);
         if (i >= mAccounts.size())
         {
-            mAccounts.append(new AccountButton(this));
+            AccountButton *button = new AccountButton(this);
+            mAccounts.append(button);
+            button->setVisible(account->accountEnabled());
             layout()->addWidget(mAccounts.last());
+
         }
         mAccounts[i]->setAccount(model->account(i));
     }
