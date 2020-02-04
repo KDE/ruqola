@@ -45,7 +45,7 @@ MessageAttachment testAttachment()
     return msgAttach;
 }
 
-QString avatarLink()
+QUrl avatarLink()
 {
     // Save the pixmap directly into the cache so that no download hpapens
     const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, Ruqola::self()->rocketChatAccount()->accountName());
@@ -60,5 +60,5 @@ QString avatarLink()
         }
     }
 
-    return link;
+    return QUrl(QLatin1String("https://example.com") + link);
 }

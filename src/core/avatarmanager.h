@@ -37,7 +37,7 @@ public:
     RocketChatAccount *account() const;
 
 Q_SIGNALS:
-    void insertAvatarUrl(const QString &userId, const QString &url);
+    void insertAvatarUrl(const QString &userId, const QUrl &url);
 
 private:
     void slotInsertAvatarUrl(const QString &userId, const QString &url);

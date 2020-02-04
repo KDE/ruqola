@@ -43,9 +43,9 @@ RocketChatCache::~RocketChatCache()
 {
     QSettings settings;
     settings.beginGroup(QStringLiteral("Avatar"));
-    QHash<QString, QString>::const_iterator i = mUserAvatarUrl.constBegin();
+    QHash<QString, QUrl>::const_iterator i = mUserAvatarUrl.constBegin();
     while (i != mUserAvatarUrl.constEnd()) {
-        settings.setValue(i.key(), i.value());
+        settings.setValue(i.key(), i.value().toString());
         ++i;
     }
     settings.endGroup();
@@ -86,7 +86,7 @@ void RocketChatCache::loadAvatarCache()
     settings.beginGroup(QStringLiteral("Avatar"));
     const QStringList keys = settings.childKeys();
     for (const QString &key : keys) {
-        mUserAvatarUrl[key] = settings.value(key).toString();
+        mUserAvatarUrl[key] = QUrl(settings.value(key).toString());
     }
     settings.endGroup();
 }
@@ -142,9 +142,9 @@ QUrl RocketChatCache::generateDownloadFile(const QString &url)
 
 QString RocketChatCache::avatarUrlFromCacheOnly(const QString &userId)
 {
-    const QString valueId = mUserAvatarUrl.value(userId);
-    if (!valueId.isEmpty() && fileInCache(QUrl::fromUserInput(valueId))) {
-        const QString url = QUrl::fromLocalFile(fileCachePath(QUrl::fromUserInput(valueId))).toString();
+    const QUrl avatarUrl = mUserAvatarUrl.value(userId);
+    if (!avatarUrl.isEmpty() && fileInCache(avatarUrl)) {
+        const QString url = QUrl::fromLocalFile(fileCachePath(avatarUrl)).toString();
         qCDebug(RUQOLA_LOG) << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
         return url;
     }
@@ -155,13 +155,13 @@ QString RocketChatCache::avatarUrl(const QString &userId)
 {
     //avoid to call this method several time.
     if (!mUserAvatarUrl.contains(userId)) {
-        insertAvatarUrl(userId, QString());
+        insertAvatarUrl(userId, QUrl());
         downloadAvatarFromServer(userId);
         return {};
     } else {
-        const QString valueId = mUserAvatarUrl.value(userId);
-        if (!valueId.isEmpty() && fileInCache(QUrl::fromUserInput(valueId))) {
-            const QString url = QUrl::fromLocalFile(fileCachePath(QUrl::fromUserInput(valueId))).toString();
+        const QUrl valueUrl = mUserAvatarUrl.value(userId);
+        if (!valueUrl.isEmpty() && fileInCache(valueUrl)) {
+            const QString url = QUrl::fromLocalFile(fileCachePath(valueUrl)).toString();
             //qDebug() << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
 
             return url;
@@ -172,11 +172,11 @@ QString RocketChatCache::avatarUrl(const QString &userId)
     }
 }
 
-void RocketChatCache::insertAvatarUrl(const QString &userId, const QString &url)
+void RocketChatCache::insertAvatarUrl(const QString &userId, const QUrl &url)
 {
     mUserAvatarUrl.insert(userId, url);
-    if (!url.isEmpty() && !fileInCache(QUrl(url))) {
-        mAccount->restApi()->downloadFile(QUrl(url));
+    if (!url.isEmpty() && !fileInCache(url)) {
+        mAccount->restApi()->downloadFile(url);
     }
 }
 

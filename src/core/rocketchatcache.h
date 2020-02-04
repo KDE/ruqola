@@ -37,7 +37,7 @@ public:
     Q_REQUIRED_RESULT QString recordingVideoPath(const QString &accountName) const;
     Q_REQUIRED_RESULT QString recordingImagePath(const QString &accountName) const;
     Q_REQUIRED_RESULT QString avatarUrl(const QString &userId);
-    void insertAvatarUrl(const QString &userId, const QString &url);
+    void insertAvatarUrl(const QString &userId, const QUrl &url);
 
     void downloadFileFromServer(const QString &filename);
 
@@ -55,7 +55,7 @@ private:
     void slotDataDownloaded(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl);
     QUrl generateDownloadFile(const QString &url);
     void loadAvatarCache();
-    QHash<QString, QString> mUserAvatarUrl;
+    QHash<QString, QUrl> mUserAvatarUrl;
     QSet<QString> mFileInDownload;
     RocketChatAccount *mAccount = nullptr;
     AvatarManager *mAvatarManager = nullptr;

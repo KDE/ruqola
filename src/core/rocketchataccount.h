@@ -377,7 +377,7 @@ public:
     void setAccountEnabled(bool enabled);
     Q_REQUIRED_RESULT bool accountEnabled() const;
 
-    void insertAvatarUrl(const QString &userId, const QString &url);
+    void insertAvatarUrl(const QString &userId, const QUrl &url);
 
 Q_SIGNALS:
     void connectedChanged();

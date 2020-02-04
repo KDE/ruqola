@@ -415,7 +415,7 @@ QString RocketChatAccount::avatarUrl(const QString &userId)
     return mCache->avatarUrl(userId);
 }
 
-void RocketChatAccount::insertAvatarUrl(const QString &userId, const QString &url)
+void RocketChatAccount::insertAvatarUrl(const QString &userId, const QUrl &url)
 {
     mCache->insertAvatarUrl(userId, url);
 }
