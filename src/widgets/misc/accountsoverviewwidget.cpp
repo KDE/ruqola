@@ -143,15 +143,17 @@ protected:
 private:
     QString currentText() const
     {
-        QString text = mAccount->accountName();
+        QString text = mAccount ? mAccount->accountName() : QString();
         if (text.isEmpty()) {
             text = i18n("(Unnamed)");
         }
 
-        if (mAccount->loginStatus() != DDPClient::LoggedIn) {
-            text += QStringLiteral(": %1").arg(currentLoginStatusText());
-        } else if (int unread = currentUnreadAlert().unread) {
-            text += QStringLiteral(" (%1)").arg(unread);
+        if (mAccount) {
+            if (mAccount->loginStatus() != DDPClient::LoggedIn) {
+                text += QStringLiteral(": %1").arg(currentLoginStatusText());
+            } else if (int unread = currentUnreadAlert().unread) {
+                text += QStringLiteral(" (%1)").arg(unread);
+            }
         }
 
         return text;
