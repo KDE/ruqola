@@ -58,7 +58,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mName = new ChangeTextWidget(this);
     mName->setObjectName(QStringLiteral("mName"));
     connect(mName, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        //TODO
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Name, name, mRoomWrapper->channelType());
     });
     layout->addRow(i18n("Name:"), mName);
 
@@ -66,20 +66,20 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mComment->setObjectName(QStringLiteral("mComment"));
     layout->addRow(i18n("Comment:"), mComment);
     connect(mComment, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        //TODO
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Topic, name, mRoomWrapper->channelType());
     });
 
     mAnnouncement = new ChangeTextWidget(this);
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
     connect(mAnnouncement, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        //TODO
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Announcement, name, mRoomWrapper->channelType());
     });
     layout->addRow(i18n("Announcement:"), mAnnouncement);
 
     mDescription = new ChangeTextWidget(this);
     mDescription->setObjectName(QStringLiteral("mDescription"));
     connect(mDescription, &ChangeTextWidget::textChanged, this, [this](const QString &name) {
-        //TODO
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Description, name, mRoomWrapper->channelType());
     });
 
     layout->addRow(i18n("Description:"), mDescription);
@@ -87,18 +87,29 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     layout->addRow(i18n("Password:"), mPasswordLineEdit);
+    //TODO
 
     mReadOnly = new QCheckBox(this);
     mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
     layout->addRow(i18n("ReadOnly:"), mReadOnly);
+    connect(mReadOnly, &QCheckBox::clicked, this, [this](bool checked) {
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::ReadOnly, checked, mRoomWrapper->channelType());
+    });
 
     mArchive = new QCheckBox(this);
     mArchive->setObjectName(QStringLiteral("mArchive"));
     layout->addRow(i18n("Archive:"), mArchive);
+    connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
+        //TODO add dialogbox
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Archive, checked, mRoomWrapper->channelType());
+    });
 
     mPrivate = new QCheckBox(this);
     mPrivate->setObjectName(QStringLiteral("mPrivate"));
     layout->addRow(i18n("Private:"), mPrivate);
+    connect(mPrivate, &QCheckBox::clicked, this, [this](bool checked) {
+        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::RoomType, checked, mRoomWrapper->channelType());
+    });
 
     //TODO add encrypted too!
 
@@ -249,8 +260,10 @@ ChangeTextWidget::ChangeTextWidget(QWidget *parent)
     mainLayout->addWidget(mChangeTextToolButton);
     connect(mChangeTextToolButton, &QToolButton::clicked, this, [this]() {
         const QString result = QInputDialog::getText(this, i18n("Change Text"), i18n("Text:"), QLineEdit::Normal, mLabel->text());
-        if (!result.isEmpty()) {
-            Q_EMIT textChanged(result);
+        if (!result.trimmed().isEmpty()) {
+            if (result != mLabel->text()) {
+                Q_EMIT textChanged(result);
+            }
         }
     });
 }
