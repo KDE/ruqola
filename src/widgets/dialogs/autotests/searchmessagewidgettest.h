@@ -29,6 +29,8 @@ class SearchMessageWidgetTest : public QObject
 public:
     explicit SearchMessageWidgetTest(QObject *parent = nullptr);
     ~SearchMessageWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // SEARCHMESSAGEWIDGETTEST_H

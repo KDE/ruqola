@@ -39,6 +39,7 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setClearButtonEnabled(true);
     mSearchLineEdit->setTrapReturnKey(true);
+    mSearchLineEdit->setPlaceholderText(i18n("Search Word... (You can use regular expression as /^text$/i)"));
     mainLayout->addWidget(mSearchLineEdit);
 
     mResultListWidget = new MessageListView(this);
