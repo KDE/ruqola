@@ -70,6 +70,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
     connect(mMessageLineWidget->messageLineEdit(), &MessageLineEdit::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, this, &RoomWidget::slotEditMessage);
 }
@@ -115,6 +116,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setRoomAnnouncement(mRoomWrapper->announcement());
         mRoomHeaderWidget->setRoomTopic(mRoomWrapper->topic());
         mRoomHeaderWidget->setFavoriteStatus(mRoomWrapper->favorite());
+        mRoomHeaderWidget->setEncypted(mRoomWrapper->encrypted());
         //TODO Description ?
 
         if (mRoomWrapper->readOnly()) {
@@ -168,6 +170,9 @@ void RoomWidget::connectRoomWrapper()
         connect(mRoomWrapper, &RoomWrapper::favoriteChanged, this, [this]() {
             mRoomHeaderWidget->setFavoriteStatus(mRoomWrapper->favorite());
         });
+        connect(mRoomWrapper, &RoomWrapper::encryptedChanged, this, [this]() {
+            mRoomHeaderWidget->setEncypted(mRoomWrapper->encrypted());
+        });
         updateRoomHeader();
     }
 }
@@ -175,6 +180,11 @@ void RoomWidget::connectRoomWrapper()
 void RoomWidget::slotClearNotification()
 {
     mCurrentRocketChatAccount->clearUnreadMessages(mRoomId);
+}
+
+void RoomWidget::slotEncryptedChanged(bool b)
+{
+    //TODO mCurrentRocketChatAccount->slot
 }
 
 void RoomWidget::slotChangeFavorite(bool b)

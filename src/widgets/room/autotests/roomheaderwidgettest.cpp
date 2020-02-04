@@ -66,5 +66,9 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QToolButton *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
     QVERIFY(mFavoriteButton);
     QVERIFY(mFavoriteButton->isCheckable());
-    QVERIFY(!mFavoriteButton->isVisible());
+
+    QToolButton *mEncryptedButton = w.findChild<QToolButton *>(QStringLiteral("mEncryptedButton"));
+    QVERIFY(mEncryptedButton);
+    QVERIFY(mEncryptedButton->isCheckable());
+    QVERIFY(!mEncryptedButton->isVisible());
 }

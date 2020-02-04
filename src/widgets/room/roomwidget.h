@@ -62,6 +62,7 @@ private:
     void slotChangeFavorite(bool b);
     void keyPressedInLineEdit(QKeyEvent *ev);
     void setRoomType(const QString &roomType);
+    void slotEncryptedChanged(bool b);
 
     QString mRoomId;
     QString mRoomType;

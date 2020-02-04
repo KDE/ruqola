@@ -38,14 +38,18 @@ public:
     void setRoomTopic(const QString &name);
 
     void setFavoriteStatus(bool b);
+    void setEncypted(bool b);
 Q_SIGNALS:
     void favoriteChanged(bool b);
+    void encryptedChanged(bool b);
+
 private:
     QLabel *mRoomName = nullptr;
     QLabel *mTopic = nullptr;
     QLabel *mAnnouncement = nullptr;
     QLabel *mDescription = nullptr;
     QToolButton *mFavoriteButton = nullptr;
+    QToolButton *mEncryptedButton = nullptr;
 };
 
 #endif // ROOMHEADERWIDGET_H
