@@ -30,9 +30,17 @@ ListAttachmentDelegate::~ListAttachmentDelegate()
 {
 }
 
+static QString makeTimeStampText(const QModelIndex &index)
+{
+    return index.data(FilesForRoomModel::TimeStamp).toString();
+}
+
 void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // [M] <icon> [M] <name> [M] <download icon> [M]   ([M] = margin)
+    // user
+    // alias
+    // date
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = 8;
 
@@ -43,7 +51,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     const int xText = option.rect.x() + iconSize + 2 * margin;
     const QRect displayRect(xText, option.rect.y(),
-                            option.rect.width() - xText - margin,
+                            option.rect.width() - xText - margin - 2 * margin - iconSize,
                             option.rect.height());
 
     QStyleOptionViewItem optionCopy = option;
@@ -51,6 +59,10 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     drawBackground(painter, optionCopy, index);
     const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
     icon.paint(painter, decorationRect, Qt::AlignCenter);
+
+    const QRect downloadAttachmentIconRect(option.rect.width() - iconSize - 2 * margin, option.rect.y(), iconSize, option.rect.height());
+    downloadIcon.paint(painter, downloadAttachmentIconRect, Qt::AlignCenter);
+
 
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
 }
