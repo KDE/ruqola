@@ -33,6 +33,16 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelBaseJob : public RestApiAbstr
 public:
     explicit ChannelBaseJob(QObject *parent = nullptr);
     ~ChannelBaseJob() override;
+    enum class ChannelInfoType {
+        Unknown,
+        RoomId,
+        RoomName,
+    };
+
+    struct ChannelInfo {
+        QString channelInfoIdentifier;
+        ChannelBaseJob::ChannelInfoType channelInfoType = ChannelBaseJob::ChannelInfoType::Unknown;
+    };
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
@@ -42,11 +52,15 @@ public:
 
     Q_REQUIRED_RESULT bool hasRoomIdentifier() const;
 
+    Q_REQUIRED_RESULT ChannelInfo channelInfo() const;
+    void setChannelInfo(const ChannelInfo &channelInfo);
+
 protected:
     void generateJSon(QJsonObject &obj) const;
     void generateQuery(QUrlQuery &queryUrl) const;
 
 private:
+    ChannelInfo mChannelInfo;
     QString mRoomId;
     QString mRoomName;
 };

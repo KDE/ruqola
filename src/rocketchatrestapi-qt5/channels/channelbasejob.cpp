@@ -76,3 +76,13 @@ void RocketChatRestApi::ChannelBaseJob::generateQuery(QUrlQuery &queryUrl) const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "roomId and roomName are empty. It's a bug!";
     }
 }
+
+ChannelBaseJob::ChannelInfo ChannelBaseJob::channelInfo() const
+{
+    return mChannelInfo;
+}
+
+void ChannelBaseJob::setChannelInfo(const ChannelInfo &channelInfo)
+{
+    mChannelInfo = channelInfo;
+}
