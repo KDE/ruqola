@@ -77,7 +77,7 @@ void ShowAttachmentWidget::slotSearchMessageTextChanged(const QString &str)
 
 void ShowAttachmentWidget::updateLabel()
 {
-    mInfo->setText(mModel->rowCount() == 0 ? i18n("No Messages found") : displayShowMessageInRoom());
+    mInfo->setText(mModel->rowCount() == 0 ? i18n("No Attachments found") : displayShowMessageInRoom());
 }
 
 QString ShowAttachmentWidget::displayShowMessageInRoom() const
