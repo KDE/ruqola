@@ -36,7 +36,7 @@ AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
     mSearchUserLineEdit = new AddUsersCompletionLineEdit(this);
     mSearchUserLineEdit->setObjectName(QStringLiteral("mSearchUserLineEdit"));
     mSearchUserLineEdit->setPlaceholderText(i18n("Search Users..."));
-    //connect(mSearchUserLineEdit, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersInRoomWidget::slotSearchMessageTextChanged);
+    connect(mSearchUserLineEdit, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersInRoomWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchUserLineEdit);
     mainLayout->addStretch(1);
 }
@@ -47,5 +47,5 @@ AddUsersInRoomWidget::~AddUsersInRoomWidget()
 
 void AddUsersInRoomWidget::slotSearchMessageTextChanged(const QString &str)
 {
-    //TODO
+    Q_EMIT updateOkButton(!str.trimmed().isEmpty());
 }

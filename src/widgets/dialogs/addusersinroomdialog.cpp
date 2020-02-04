@@ -24,6 +24,7 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 namespace {
 static const char myConfigGroupName[] = "AddUsersInRoomDialog";
@@ -45,6 +46,9 @@ AddUsersInRoomDialog::AddUsersInRoomDialog(QWidget *parent)
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AddUsersInRoomDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AddUsersInRoomDialog::accept);
+    QPushButton *okButton = button->button(QDialogButtonBox::Ok);
+    connect(mAddUsersInRoomWidget, &AddUsersInRoomWidget::updateOkButton, okButton, &QPushButton::setEnabled);
+    okButton->setEnabled(false);
     readConfig();
 }
 

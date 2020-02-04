@@ -31,6 +31,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersInRoomWidget : public QWidget
 public:
     explicit AddUsersInRoomWidget(QWidget *parent = nullptr);
     ~AddUsersInRoomWidget();
+
+Q_SIGNALS:
+    void updateOkButton(bool state);
+
 private:
     void slotSearchMessageTextChanged(const QString &str);
     AddUsersCompletionLineEdit *mSearchUserLineEdit = nullptr;

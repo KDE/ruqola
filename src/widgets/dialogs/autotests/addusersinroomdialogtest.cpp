@@ -22,6 +22,7 @@
 #include "dialogs/addusersinroomdialog.h"
 #include "dialogs/addusersinroomwidget.h"
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(AddUsersInRoomDialogTest)
@@ -42,4 +43,7 @@ void AddUsersInRoomDialogTest::shouldHaveDefaultValues()
 
     QDialogButtonBox *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    QVERIFY(okButton);
+    QVERIFY(!okButton->isEnabled());
 }
