@@ -19,6 +19,11 @@
 */
 
 #include "searchchannelwidget.h"
+#include "searchchanneldelegate.h"
+#include "model/searchchannelfilterproxymodel.h"
+#include "model/searchchannelmodel.h"
+#include "ruqola.h"
+#include "rocketchataccount.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <KLineEdit>
@@ -35,13 +40,39 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setClearButtonEnabled(true);
     mSearchLineEdit->setTrapReturnKey(true);
+    connect(mSearchLineEdit, &KLineEdit::textChanged, this, &SearchChannelWidget::slotTextChanged);
     mainLayout->addWidget(mSearchLineEdit);
 
-    mResultListWidget = new QListWidget(this);
+    mResultListWidget = new QListView(this);
+    mResultListWidget->setModel(Ruqola::self()->rocketChatAccount()->searchChannelFilterProxyModel());
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
+    mResultListWidget->setItemDelegate(new SearchChannelDelegate(this));
+    connect(mResultListWidget, &QListView::doubleClicked, this, &SearchChannelWidget::slotOpenChannel);
 }
 
 SearchChannelWidget::~SearchChannelWidget()
 {
+}
+
+void SearchChannelWidget::slotTextChanged(const QString &str)
+{
+    Ruqola::self()->rocketChatAccount()->channelAndPrivateAutocomplete(str);
+}
+
+void SearchChannelWidget::slotOpenChannel(const QModelIndex &index)
+{
+    if (index.isValid()) {
+        const Channel::ChannelType channelType = index.data(SearchChannelModel::ChannelType).value<Channel::ChannelType>();
+        const QString channelId = index.data(SearchChannelModel::ChannelId).toString();
+        if (channelType == Channel::ChannelType::Room) {
+            //TODO fix api as we use channel id here but api want a roomname !
+            Ruqola::self()->rocketChatAccount()->openChannel(channelId);
+        } else if (channelType == Channel::ChannelType::PrivateChannel) {
+            Ruqola::self()->rocketChatAccount()->openDirectChannel(channelId);
+        } else {
+            //Port to qCWarning()
+            qWarning() << "Unknown open channel type : "  << channelType << " channelid : "  << channelId;
+        }
+    }
 }

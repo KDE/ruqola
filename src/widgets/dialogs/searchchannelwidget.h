@@ -24,7 +24,7 @@
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class KLineEdit;
-class QListWidget;
+class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelWidget : public QWidget
 {
     Q_OBJECT
@@ -32,8 +32,10 @@ public:
     explicit SearchChannelWidget(QWidget *parent = nullptr);
     ~SearchChannelWidget();
 private:
+    void slotOpenChannel(const QModelIndex &index);
+    void slotTextChanged(const QString &str);
     KLineEdit *mSearchLineEdit = nullptr;
-    QListWidget *mResultListWidget = nullptr;
+    QListView *mResultListWidget = nullptr;
 };
 
 #endif // SEARCHCHANNELWIDGET_H

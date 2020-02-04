@@ -53,6 +53,7 @@ set(Ruqola_widgets_dialog_SRCS
     dialogs/showthreadswidget.cpp
     dialogs/showthreadsdialog.cpp
     dialogs/listthreadsdelegate.cpp
+    dialogs/searchchanneldelegate.cpp
     )
 
 set(Ruqola_configure_SRCS

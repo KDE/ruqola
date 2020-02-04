@@ -18,31 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "searchchannelwidgettest.h"
-#include "dialogs/searchchannelwidget.h"
-#include <KLineEdit>
-#include <QListView>
-#include <QTest>
-#include <QVBoxLayout>
-QTEST_MAIN(SearchChannelWidgetTest)
-SearchChannelWidgetTest::SearchChannelWidgetTest(QObject *parent)
-    : QObject(parent)
+#ifndef SEARCHCHANNELDELEGATE_H
+#define SEARCHCHANNELDELEGATE_H
+
+#include "libruqolawidgets_private_export.h"
+#include <QItemDelegate>
+class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelDelegate : public QItemDelegate
 {
-}
+    Q_OBJECT
+public:
+    explicit SearchChannelDelegate(QObject *parent = nullptr);
+    ~SearchChannelDelegate();
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+};
 
-void SearchChannelWidgetTest::shouldHaveDefaultValues()
-{
-    SearchChannelWidget w;
-
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
-    QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
-
-    KLineEdit *mSearchLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mSearchLineEdit"));
-    QVERIFY(mSearchLineEdit);
-    QVERIFY(mSearchLineEdit->isClearButtonEnabled());
-    QVERIFY(mSearchLineEdit->trapReturnKey());
-
-    QListView *mResultListWidget = w.findChild<QListView *>(QStringLiteral("mResultListWidget"));
-    QVERIFY(mResultListWidget);
-}
+#endif

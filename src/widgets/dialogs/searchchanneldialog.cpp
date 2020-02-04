@@ -41,11 +41,10 @@ SearchChannelDialog::SearchChannelDialog(QWidget *parent)
     mSearchChannelWidget->setObjectName(QStringLiteral("mSearchChannelWidget"));
     mainLayout->addWidget(mSearchChannelWidget);
 
-    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    QDialogButtonBox *button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
 
-    connect(button, &QDialogButtonBox::accepted, this, &SearchChannelDialog::accept);
     connect(button, &QDialogButtonBox::rejected, this, &SearchChannelDialog::reject);
     readConfig();
 }
