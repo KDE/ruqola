@@ -24,8 +24,6 @@
 #include "libruqola_private_export.h"
 #include <QAbstractListModel>
 #include "user.h"
-class UserWrapper;
-
 class LIBRUQOLACORE_TESTS_EXPORT UsersModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -53,7 +51,6 @@ public:
 
     Q_REQUIRED_RESULT QString status(const QString &userId) const;
 
-    UserWrapper *findUserWrapper(const QString &userId) const;
 Q_SIGNALS:
     void userStatusChanged(User *user);
     void userNameChanged(User *user);

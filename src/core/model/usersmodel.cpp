@@ -20,7 +20,6 @@
 
 #include "usersmodel.h"
 #include "ruqola_debug.h"
-#include "userwrapper.h"
 
 #include <QJsonObject>
 
@@ -86,18 +85,6 @@ QString UsersModel::status(const QString &userId) const
     }
     //Return offline as default;
     return QStringLiteral("offline");
-}
-
-UserWrapper *UsersModel::findUserWrapper(const QString &userId) const
-{
-    const int userCount = mUsers.count();
-    for (int i = 0; i < userCount; ++i) {
-        if (mUsers.at(i)->userId() == userId) {
-            UserWrapper *wrapper = new UserWrapper(mUsers.at(i));
-            return wrapper;
-        }
-    }
-    return nullptr;
 }
 
 void UsersModel::removeUser(const QString &userId)
