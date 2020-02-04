@@ -104,7 +104,11 @@ void RoomWidget::slotEditMessage(const QString &messageId, const QString &text)
 
 void RoomWidget::setChannelSelected(const QModelIndex &index)
 {
-    mPendingTypedTexts[mRoomId] = mMessageLineWidget->text();
+    if (mMessageLineWidget->text().isEmpty()) {
+        mPendingTypedTexts.remove(mRoomId);
+    } else {
+        mPendingTypedTexts[mRoomId] = mMessageLineWidget->text();
+    }
 
     const QString roomId = index.data(RoomModel::RoomID).toString();
     setRoomId(roomId);
