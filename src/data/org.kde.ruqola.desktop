@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Ruqola
 Name[ca]=Ruqola
+Name[ca@valencia]=Ruqola
 Name[cs]=Ruqola
 Name[de]=Ruqola
 Name[en_GB]=Ruqola
@@ -23,6 +24,7 @@ Exec=ruqola -qwindowtitle %c %u
 Icon=ruqola
 GenericName=Rocket.Chat client
 GenericName[ca]=Client del Rocket.Chat
+GenericName[ca@valencia]=Client del Rocket.Chat
 GenericName[cs]=Klient pro Rocket Chat
 GenericName[de]=Rocket-Chat-Client
 GenericName[en_GB]=Rocket.Chat client
