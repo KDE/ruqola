@@ -91,11 +91,9 @@ QString UsersModel::status(const QString &userId) const
 UserWrapper *UsersModel::findUserWrapper(const QString &userId) const
 {
     const int userCount = mUsers.count();
-    qDebug() << " userId " << userId;
     for (int i = 0; i < userCount; ++i) {
         if (mUsers.at(i)->userId() == userId) {
             UserWrapper *wrapper = new UserWrapper(mUsers.at(i));
-            qDebug() << " ssssssssssssssssssssssss " << wrapper;
             return wrapper;
         }
     }
