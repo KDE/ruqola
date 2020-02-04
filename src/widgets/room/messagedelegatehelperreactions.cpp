@@ -32,6 +32,7 @@
 #include <QAbstractTextDocumentLayout>
 #include <QStyleOptionViewItem>
 #include <ruqola.h>
+#include <QToolTip>
 
 constexpr const qreal margin = 8;
 
@@ -146,6 +147,20 @@ bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, c
                 rcAccount->reactOnMessage(message->messageId(), reaction.reactionName(), doAdd);
                 return true;
             }
+        }
+    }
+    return false;
+}
+
+bool MessageDelegateHelperReactions::handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, const QRect &reactionsRect, const QStyleOptionViewItem &option, const Message *message)
+{
+    const QVector<ReactionLayout> reactions = layoutReactions(message->reactions().reactions(), reactionsRect, option);
+    for (const ReactionLayout &reactionLayout : reactions) {
+        if (reactionLayout.reactionRect.contains(helpEvent->pos())) {
+            const Reaction &reaction = reactionLayout.reaction;
+            const QString tooltip = reaction.convertedUsersNameAtToolTip();
+            QToolTip::showText(helpEvent->globalPos(), tooltip, view);
+            return true;
         }
     }
     return false;

@@ -29,6 +29,7 @@
 #include "ruqolawidgets_debug.h"
 #include "rocketchataccount.h"
 
+#include <QAbstractItemView>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPixmapCache>
@@ -316,4 +317,21 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
         }
     }
     return QItemDelegate::editorEvent(event, model, option, index);
+}
+
+bool MessageListDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    if (event->type() == QEvent::ToolTip) {
+        QHelpEvent *helpEvent = static_cast<QHelpEvent*>(event);
+        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+
+        if (!message->reactions().isEmpty()) {
+            const Layout layout = doLayout(option, index);
+            const QRect reactionsRect(layout.usableRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
+            if (mHelperReactions->handleHelpEvent(helpEvent, view, reactionsRect, option, message)) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
