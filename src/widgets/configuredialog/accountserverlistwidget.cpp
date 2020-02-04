@@ -88,7 +88,6 @@ void AccountServerListWidget::modifyAccountConfig()
     if (dlg->exec()) {
         const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
         serverListItem->setAccountInfo(info);
-        //TODO modify account
     }
 }
 
@@ -101,12 +100,22 @@ void AccountServerListWidget::addAccountConfig()
 {
     QPointer<CreateNewAccountDialog> dlg = new CreateNewAccountDialog(this);
     if (dlg->exec()) {
-        const CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
-        AccountServerListWidgetItem *item = new AccountServerListWidgetItem(this);
-        item->setCheckState(Qt::Checked);
-        item->setAccountInfo(info);
-        item->setNewAccount(true);
-        //Check if account name already exist !:
+        CreateNewAccountDialog::AccountInfo info = dlg->accountInfo();
+        QStringList accountList;
+        for (int i = 0; i < count(); ++i) {
+            QListWidgetItem *it = item(i);
+            accountList << it->text();
+        }
+        QString newAccountName = info.accountName;
+        int i = 1;
+        while(accountList.contains(newAccountName)) {
+            newAccountName = QStringLiteral("%1_%2").arg(newAccountName).arg(i);
+        }
+        info.accountName = newAccountName;
+        AccountServerListWidgetItem *accountServeritem = new AccountServerListWidgetItem(this);
+        accountServeritem->setCheckState(Qt::Checked);
+        accountServeritem->setAccountInfo(info);
+        accountServeritem->setNewAccount(true);
     }
     delete dlg;
 }
