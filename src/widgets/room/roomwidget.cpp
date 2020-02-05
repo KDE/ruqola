@@ -110,13 +110,19 @@ void RoomWidget::setChannelSelected(const QModelIndex &index)
     if (mMessageLineWidget->text().isEmpty()) {
         mPendingTypedTexts.remove(mRoomId);
     } else {
-        mPendingTypedTexts[mRoomId] = mMessageLineWidget->text();
+        PendingTypedInfo info;
+        info.text = mMessageLineWidget->text();
+        info.messageIdBeingEdited = mMessageIdBeingEdited;
+        mPendingTypedTexts[mRoomId] = info;
     }
 
     const QString roomId = index.data(RoomModel::RoomID).toString();
     setRoomId(roomId);
     setRoomType(index.data(RoomModel::RoomType).toString());
-    mMessageLineWidget->setText(mPendingTypedTexts.value(roomId));
+    const PendingTypedInfo currentPendingInfo = mPendingTypedTexts.value(roomId);
+    mMessageLineWidget->setText(currentPendingInfo.text);
+    mMessageIdBeingEdited = currentPendingInfo.messageIdBeingEdited;
+    mMessageLineWidget->setMode(mMessageIdBeingEdited.isEmpty() ? MessageLineWidget::EditingMode::NewMessage : MessageLineWidget::EditingMode::EditMessage);
 
     mMessageLineWidget->setFocus();
 }
