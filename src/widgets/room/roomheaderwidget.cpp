@@ -50,7 +50,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mEncryptedButton->setCheckable(true);
     mEncryptedButton->setVisible(false);
     headerLayout->addWidget(mEncryptedButton, Qt::AlignTop);
-    //TODO connect(mEncryptedButton, &QToolButton::clicked, this, &RoomHeaderWidget::favoriteChanged);
+    connect(mEncryptedButton, &QToolButton::clicked, this, &RoomHeaderWidget::encryptedChanged);
 
     QVBoxLayout *infoLayout = new QVBoxLayout;
     infoLayout->setObjectName(QStringLiteral("infoLayout"));
@@ -59,6 +59,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 
     mRoomName = new QLabel(this);
     mRoomName->setObjectName(QStringLiteral("mRoomName"));
+    mRoomName->setTextInteractionFlags(Qt::TextBrowserInteraction);
     infoLayout->addWidget(mRoomName);
     mRoomName->setVisible(false);
 
@@ -67,6 +68,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     infoLayout->addWidget(mTopic);
     mTopic->setWordWrap(true);
     mTopic->setOpenExternalLinks(true);
+    mTopic->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mTopic->setTextFormat(Qt::RichText);
     mTopic->setVisible(false);
 
@@ -76,6 +78,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mAnnouncement->setTextFormat(Qt::RichText);
     infoLayout->addWidget(mAnnouncement);
     mAnnouncement->setOpenExternalLinks(true);
+    mAnnouncement->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mAnnouncement->setVisible(false);
 
     mDescription = new QLabel(this);
@@ -84,6 +87,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mDescription->setWordWrap(true);
     infoLayout->addWidget(mDescription);
     mDescription->setOpenExternalLinks(true);
+    mDescription->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mDescription->setVisible(false);
 }
 

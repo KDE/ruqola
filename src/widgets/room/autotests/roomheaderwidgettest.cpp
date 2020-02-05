@@ -41,6 +41,7 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mRoomName);
     QVERIFY(mRoomName->text().isEmpty());
     QVERIFY(!mRoomName->isVisible());
+    QCOMPARE(mRoomName->textInteractionFlags(), Qt::TextBrowserInteraction);
 
     QLabel *mTopic = w.findChild<QLabel *>(QStringLiteral("mTopic"));
     QVERIFY(mTopic);
@@ -48,6 +49,7 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mTopic->isVisible());
     QVERIFY(mTopic->wordWrap());
     QCOMPARE(mTopic->textFormat(), Qt::RichText);
+    QCOMPARE(mTopic->textInteractionFlags(), Qt::TextBrowserInteraction);
 
     QLabel *mAnnouncement = w.findChild<QLabel *>(QStringLiteral("mAnnouncement"));
     QVERIFY(mAnnouncement);
@@ -55,6 +57,7 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAnnouncement->isVisible());
     QVERIFY(mAnnouncement->wordWrap());
     QCOMPARE(mAnnouncement->textFormat(), Qt::RichText);
+    QCOMPARE(mAnnouncement->textInteractionFlags(), Qt::TextBrowserInteraction);
 
     QLabel *mDescription = w.findChild<QLabel *>(QStringLiteral("mDescription"));
     QVERIFY(mDescription);
@@ -62,6 +65,7 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mDescription->isVisible());
     QVERIFY(mDescription->wordWrap());
     QCOMPARE(mDescription->textFormat(), Qt::RichText);
+    QCOMPARE(mDescription->textInteractionFlags(), Qt::TextBrowserInteraction);
 
     QToolButton *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
     QVERIFY(mFavoriteButton);
