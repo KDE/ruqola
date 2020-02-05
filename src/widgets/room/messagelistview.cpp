@@ -139,19 +139,23 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
         menu.addAction(startDiscussion);
 
-        const bool isPinned = index.data(MessageModel::Pinned).toBool();
-        QAction *setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
-        connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
-            slotSetPinnedMessage(index, isPinned);
-        });
-        menu.addAction(setPinnedMessage);
+        if (rcAccount->allowMessagePinningEnabled()) {
+            const bool isPinned = index.data(MessageModel::Pinned).toBool();
+            QAction *setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
+            connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
+                slotSetPinnedMessage(index, isPinned);
+            });
+            menu.addAction(setPinnedMessage);
+        }
 
-        const bool isStarred = index.data(MessageModel::Starred).toBool();
-        QAction *setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
-        connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() {
-            slotSetAsFavorite(index, isStarred);
-        });
-        menu.addAction(setAsFavoriteAction);
+        if (rcAccount->allowMessageStarringEnabled()) {
+            const bool isStarred = index.data(MessageModel::Starred).toBool();
+            QAction *setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
+            connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() {
+                slotSetAsFavorite(index, isStarred);
+            });
+            menu.addAction(setAsFavoriteAction);
+        }
 
         if (rcAccount->allowEditingMessages() && index.data(MessageModel::CanEditMessage).toBool() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
             QAction *editAction = new QAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Edit"), &menu);
