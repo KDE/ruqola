@@ -30,5 +30,6 @@ ConfigureNotificationWidgetTest::ConfigureNotificationWidgetTest(QObject *parent
 void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
 {
     ConfigureNotificationWidget w;
+    QVERIFY(!w.roomWrapper());
     //TODO
 }

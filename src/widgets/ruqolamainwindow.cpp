@@ -306,6 +306,7 @@ void RuqolaMainWindow::slotLoadRecentHistory()
 void RuqolaMainWindow::slotConfigureNotification()
 {
     QPointer<ConfigureNotificationDialog> dlg = new ConfigureNotificationDialog(this);
+    dlg->setRoomWrapper(mMainWidget->roomWrapper());
     if (dlg->exec()) {
     }
     delete dlg;

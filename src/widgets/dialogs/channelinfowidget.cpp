@@ -100,8 +100,11 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mArchive->setObjectName(QStringLiteral("mArchive"));
     layout->addRow(i18n("Archive:"), mArchive);
     connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
-        //TODO add dialogbox
-        Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Archive, checked, mRoomWrapper->channelType());
+        const QString text = checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?");
+        const QString title = checked ? i18n("Archive Channel") : i18n("Unarchive Channel");
+        if (KMessageBox::Yes == KMessageBox::questionYesNo(this, text, title)) {
+            Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoomWrapper->roomId(), RocketChatAccount::Archive, checked, mRoomWrapper->channelType());
+        }
     });
 
     mPrivate = new QCheckBox(this);

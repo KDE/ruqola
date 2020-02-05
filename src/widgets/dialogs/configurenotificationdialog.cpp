@@ -44,3 +44,8 @@ ConfigureNotificationDialog::ConfigureNotificationDialog(QWidget *parent)
 ConfigureNotificationDialog::~ConfigureNotificationDialog()
 {
 }
+
+void ConfigureNotificationDialog::setRoomWrapper(RoomWrapper *roomWrapper)
+{
+    mConfigureNoticationWidget->setRoomWrapper(roomWrapper);
+}
