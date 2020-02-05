@@ -93,11 +93,13 @@ void RoomWidget::slotSendMessage(const QString &msg)
         mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
         mMessageIdBeingEdited.clear();
     }
+    mMessageLineWidget->setMode(MessageLineWidget::EditingMode::NewMessage);
 }
 
 void RoomWidget::slotEditMessage(const QString &messageId, const QString &text)
 {
     mMessageIdBeingEdited = messageId;
+    mMessageLineWidget->setMode(MessageLineWidget::EditingMode::EditMessage);
     mMessageLineWidget->setText(text);
     mMessageLineWidget->setFocus();
 }

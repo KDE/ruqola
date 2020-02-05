@@ -88,6 +88,11 @@ QString MessageLineWidget::text() const
     return mMessageLineEdit->text();
 }
 
+MessageLineEdit *MessageLineWidget::messageLineEdit() const
+{
+    return mMessageLineEdit;
+}
+
 void MessageLineWidget::slotSendFile()
 {
     QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
@@ -96,4 +101,25 @@ void MessageLineWidget::slotSendFile()
         Q_EMIT sendFile(result);
     }
     delete dlg;
+}
+
+MessageLineWidget::EditingMode MessageLineWidget::mode() const
+{
+    return mMode;
+}
+
+void MessageLineWidget::setMode(const EditingMode &mode)
+{
+    if (mMode != mode) {
+        mMode = mode;
+        //Cache icon ?
+        switch (mMode) {
+        case EditingMode::NewMessage:
+            mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
+            break;
+        case EditingMode::EditMessage:
+            mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-symbolic")));
+            break;
+        }
+    }
 }

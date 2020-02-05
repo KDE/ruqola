@@ -34,18 +34,22 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageLineWidget : public QWidget
 {
     Q_OBJECT
 public:
+    enum class EditingMode {
+        EditMessage,
+        NewMessage,
+    };
     explicit MessageLineWidget(QWidget *parent = nullptr);
     ~MessageLineWidget();
 
     void setCurrentRocketChatAccount(RocketChatAccount *account);
 
     void setText(const QString &text);
-    QString text() const;
+    Q_REQUIRED_RESULT QString text() const;
 
-    MessageLineEdit *messageLineEdit() const
-    {
-        return mMessageLineEdit;
-    }
+    MessageLineEdit *messageLineEdit() const;
+
+    Q_REQUIRED_RESULT EditingMode mode() const;
+    void setMode(const EditingMode &mode);
 
 Q_SIGNALS:
     void sendMessage(const QString &str);
@@ -54,6 +58,7 @@ Q_SIGNALS:
 private:
     void slotSendFile();
 
+    EditingMode mMode = EditingMode::NewMessage;
     MessageLineEdit *mMessageLineEdit = nullptr;
     QToolButton *mSendFile = nullptr;
     QToolButton *mEmoticonButton = nullptr;

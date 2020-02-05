@@ -34,6 +34,8 @@ MessageLineWidgetTest::MessageLineWidgetTest(QObject *parent)
 void MessageLineWidgetTest::shouldHaveDefaultValues()
 {
     MessageLineWidget w;
+    QCOMPARE(w.mode(), MessageLineWidget::EditingMode::NewMessage);
+
     QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
