@@ -27,6 +27,7 @@
 #include "roomwrapper.h"
 #include "readonlylineeditwidget.h"
 #include "messagelineedit.h"
+#include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
 
@@ -195,6 +196,7 @@ void RoomWidget::slotClearNotification()
 
 void RoomWidget::slotEncryptedChanged(bool b)
 {
+    qCWarning(RUQOLAWIDGETS_LOG) << "change encrypted not supported yet";
     //TODO mCurrentRocketChatAccount->slot
 }
 

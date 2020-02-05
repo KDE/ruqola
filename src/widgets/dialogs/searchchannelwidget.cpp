@@ -22,6 +22,7 @@
 #include "searchchanneldelegate.h"
 #include "model/searchchannelfilterproxymodel.h"
 #include "model/searchchannelmodel.h"
+#include "ruqolawidgets_debug.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
 #include <QVBoxLayout>
@@ -71,8 +72,7 @@ void SearchChannelWidget::slotOpenChannel(const QModelIndex &index)
         } else if (channelType == Channel::ChannelType::PrivateChannel) {
             Ruqola::self()->rocketChatAccount()->openDirectChannel(channelId);
         } else {
-            //Port to qCWarning()
-            qWarning() << "Unknown open channel type : "  << channelType << " channelid : "  << channelId;
+            qCWarning(RUQOLAWIDGETS_LOG) << "Unknown open channel type : "  << channelType << " channelid : "  << channelId;
         }
     }
 }
