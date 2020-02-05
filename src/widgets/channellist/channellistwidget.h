@@ -50,6 +50,7 @@ private:
     void setUserStatusUpdated(User::PresenceStatus status);
     void slotStatusChanged();
     void slotSearchRoomTextChanged();
+    void clearFilterChannel();
 
     StatusCombobox *mStatusComboBox = nullptr;
     ChannelListView *mChannelView = nullptr;

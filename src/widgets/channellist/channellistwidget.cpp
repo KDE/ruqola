@@ -84,8 +84,17 @@ ChannelListWidget::~ChannelListWidget()
 {
 }
 
+void ChannelListWidget::clearFilterChannel()
+{
+    if (auto *model = mChannelView->model()) {
+        model->setFilterString(QString());
+        mSearchRoom->clear();
+    }
+}
+
 void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
+    clearFilterChannel();
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
     }
