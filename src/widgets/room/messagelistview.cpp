@@ -183,6 +183,21 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             });
             menu.addAction(deleteAction);
         }
+        if (rcAccount->autoTranslateEnabled()) {
+            if (!menu.isEmpty()) {
+                QAction *separator = new QAction(&menu);
+                separator->setSeparator(true);
+                menu.addAction(separator);
+            }
+            const bool isTranslated = index.data(MessageModel::ShowTranslatedMessage).toBool();
+            QAction *translateAction = new QAction(isTranslated ? i18n("Show Original Message") : i18n("Translate Message"), &menu);
+            connect(translateAction, &QAction::triggered, this, [=](bool checked) {
+                slotTranslateMessage(index, checked);
+            });
+            menu.addAction(translateAction);
+
+        }
+
         if (!menu.isEmpty()) {
             QAction *separator = new QAction(&menu);
             separator->setSeparator(true);
@@ -203,6 +218,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
+}
+
+void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checked)
+{
+    qDebug() << "No implemented yet";
+    //TODO
 }
 
 void MessageListView::slotGoToMessage(const QModelIndex &index)

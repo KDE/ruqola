@@ -64,6 +64,7 @@ private:
     void slotStartDiscussion(const QModelIndex &index);
     void slotCopyText(const QModelIndex &index);
     void slotGoToMessage(const QModelIndex &index);
+    void slotTranslateMessage(const QModelIndex &index, bool checked);
 
 private:
     QString mRoomID;
