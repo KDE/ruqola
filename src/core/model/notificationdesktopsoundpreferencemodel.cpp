@@ -45,6 +45,7 @@ QVariant NotificationDesktopSoundPreferenceModel::data(const QModelIndex &index,
     }
     NotificationDesktopSoundPreferenceInfo preferenceInfo = mNotificationDestktopSoundPreferenceList.at(rowIndex);
     switch (role) {
+    case Qt::DisplayRole:
     case NotificationPreferenceI18n:
         return preferenceInfo.displayText;
     case NotificationPreference:

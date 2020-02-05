@@ -21,12 +21,19 @@
 #include "configurenotificationwidget.h"
 #include "ruqola.h"
 #include "rocketchataccount.h"
+#include "notificationoptionswrapper.h"
 #include "roomwrapper.h"
+#include "notificationpreferences.h"
+#include "model/notificationpreferencemodel.h"
+#include "model/notificationpreferencemodel.h"
+#include "model/notificationdesktopdurationpreferencemodel.h"
+#include "model/notificationdesktopsoundpreferencemodel.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QCheckBox>
 #include <QGroupBox>
+#include <QComboBox>
 
 ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     : QWidget(parent)
@@ -67,11 +74,36 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
 
     QFormLayout *desktopGroupBoxLayout = new QFormLayout(desktopGroupBox);
 
+    mDesktopAlertCombobox = new QComboBox(this);
+    mDesktopAlertCombobox->setObjectName(QStringLiteral("mDesktopAlertCombobox"));
+    desktopGroupBoxLayout->addRow(i18n("Alert:"), mDesktopAlertCombobox);
+    mDesktopAlertCombobox->setModel(NotificationPreferences::self()->desktopNotificationModel());
+
+    mDesktopAudioCombobox = new QComboBox(this);
+    mDesktopAudioCombobox->setObjectName(QStringLiteral("mDesktopAudioCombobox"));
+    desktopGroupBoxLayout->addRow(i18n("Audio:"), mDesktopAudioCombobox);
+    mDesktopAudioCombobox->setModel(NotificationPreferences::self()->desktopAudioNotificationModel());
+
+    mDesktopSoundCombobox = new QComboBox(this);
+    mDesktopSoundCombobox->setObjectName(QStringLiteral("mDesktopSoundCombobox"));
+    desktopGroupBoxLayout->addRow(i18n("Sound:"), mDesktopSoundCombobox);
+    mDesktopSoundCombobox->setModel(NotificationPreferences::self()->desktopSoundNotificationModel());
+
+    mDesktopDurationCombobox = new QComboBox(this);
+    mDesktopDurationCombobox->setObjectName(QStringLiteral("mDesktopDurationCombobox"));
+    desktopGroupBoxLayout->addRow(i18n("Duration:"), mDesktopDurationCombobox);
+    mDesktopDurationCombobox->setModel(NotificationPreferences::self()->desktopDurationNotificationModel());
+
+
     QGroupBox *mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
     mobileGroupBox->setObjectName(QStringLiteral("mobileGroupBox"));
-    topLayout->addWidget(mobileGroupBox);
+    topLayout->addWidget(mobileGroupBox);    
 
     QFormLayout *mobileGroupBoxLayout = new QFormLayout(mobileGroupBox);
+    mMobileAlertCombobox = new QComboBox(this);
+    mMobileAlertCombobox->setObjectName(QStringLiteral("mMobileAlertCombobox"));
+    mobileGroupBoxLayout->addRow(i18n("Alert:"), mMobileAlertCombobox);
+    mMobileAlertCombobox->setModel(NotificationPreferences::self()->mobileNotificationModel());
 
 
     QGroupBox *emailGroupBox = new QGroupBox(i18n("Email"), this);
@@ -79,6 +111,10 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     topLayout->addWidget(emailGroupBox);
 
     QFormLayout *emailGroupBoxLayout = new QFormLayout(emailGroupBox);
+    mEmailAlertCombobox = new QComboBox(this);
+    mEmailAlertCombobox->setObjectName(QStringLiteral("mEmailAlertCombobox"));
+    emailGroupBoxLayout->addRow(i18n("Alert:"), mEmailAlertCombobox);
+    mEmailAlertCombobox->setModel(NotificationPreferences::self()->emailNotificationModel());
 
 }
 

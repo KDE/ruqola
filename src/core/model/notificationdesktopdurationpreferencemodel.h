@@ -22,7 +22,7 @@
 #define NOTIFICATIONDESKTOPDURATIONPREFERENCEMODEL_H
 
 #include <QAbstractListModel>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 
 #include <QIcon>
 
@@ -31,7 +31,7 @@ struct NotificationDesktopDurationPreferenceInfo {
     QString preference;
 };
 
-class LIBRUQOLACORE_TESTS_EXPORT NotificationDesktopDurationPreferenceModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT NotificationDesktopDurationPreferenceModel : public QAbstractListModel
 {
     Q_OBJECT
 public:

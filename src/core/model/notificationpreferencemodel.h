@@ -21,7 +21,7 @@
 #ifndef NOTIFICATIONPREFERENCEMODEL_H
 #define NOTIFICATIONPREFERENCEMODEL_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 
 #include <QAbstractListModel>
 #include <QIcon>
@@ -31,7 +31,7 @@ struct NotificationPreferenceInfo {
     QString preference;
 };
 
-class LIBRUQOLACORE_TESTS_EXPORT NotificationPreferenceModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT NotificationPreferenceModel : public QAbstractListModel
 {
     Q_OBJECT
 public:

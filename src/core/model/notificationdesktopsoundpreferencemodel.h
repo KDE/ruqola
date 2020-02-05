@@ -22,7 +22,7 @@
 #define NOTIFICATIONDESKTOPSOUNDPREFERENCEMODEL_H
 
 #include <QAbstractListModel>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 
 #include <QIcon>
 
@@ -31,7 +31,7 @@ struct NotificationDesktopSoundPreferenceInfo {
     QString preference;
 };
 
-class LIBRUQOLACORE_TESTS_EXPORT NotificationDesktopSoundPreferenceModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT NotificationDesktopSoundPreferenceModel : public QAbstractListModel
 {
     Q_OBJECT
 public:

@@ -21,7 +21,7 @@
 #ifndef NOTIFICATIONPREFERENCES_H
 #define NOTIFICATIONPREFERENCES_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QObject>
 class QQmlEngine;
 class QJSEngine;
@@ -29,7 +29,7 @@ class QJSEngine;
 class NotificationPreferenceModel;
 class NotificationDesktopDurationPreferenceModel;
 class NotificationDesktopSoundPreferenceModel;
-class LIBRUQOLACORE_TESTS_EXPORT NotificationPreferences : public QObject
+class LIBRUQOLACORE_EXPORT NotificationPreferences : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(NotificationPreferenceModel* emailNotificationModel READ emailNotificationModel CONSTANT)
@@ -53,7 +53,7 @@ public:
     Q_REQUIRED_RESULT NotificationDesktopDurationPreferenceModel *desktopDurationNotificationModel() const;
 
     Q_REQUIRED_RESULT NotificationDesktopSoundPreferenceModel *desktopSoundNotificationModel() const;
-
+    static NotificationPreferences *self();
 private:
     NotificationPreferenceModel *mEmailNotificationModel = nullptr;
     NotificationPreferenceModel *mMobileNotificationModel = nullptr;

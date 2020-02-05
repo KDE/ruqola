@@ -45,6 +45,7 @@ QVariant NotificationDesktopDurationPreferenceModel::data(const QModelIndex &ind
     }
     NotificationDesktopDurationPreferenceInfo preferenceInfo = mNotificationDestktopDurationPreferenceList.at(rowIndex);
     switch (role) {
+    case Qt::DisplayRole:
     case NotificationPreferenceI18n:
         return preferenceInfo.displayText;
     case NotificationPreference:
