@@ -63,6 +63,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     connect(mChannelList, &ChannelListWidget::channelSelected, this, [this](const QModelIndex &index) {
         Q_EMIT mRoomWidget->channelSelected(index);
         mStackedRoomWidget->setCurrentWidget(mRoomWidget);
+        Q_EMIT channelSelected();
     });
 
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);

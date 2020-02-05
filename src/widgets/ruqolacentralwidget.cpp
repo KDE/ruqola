@@ -47,6 +47,7 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     mStackedWidget->addWidget(mRuqolaLoginWidget);
 
     mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
+    connect(mRuqolaMainWidget, &RuqolaMainWidget::channelSelected, this, &RuqolaCentralWidget::channelSelected);
 }
 
 RuqolaCentralWidget::~RuqolaCentralWidget()
@@ -83,7 +84,6 @@ void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RuqolaCentralWidget::slotLoginStatusChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::jobFailed, this, &RuqolaCentralWidget::slotJobFailedInfo);
     mRuqolaMainWidget->setCurrentRocketChatAccount(account);
-    //Disable actions
 }
 
 void RuqolaCentralWidget::slotLoginStatusChanged()

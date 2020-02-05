@@ -184,8 +184,8 @@ void RoomWidget::connectRoomWrapper()
         connect(mRoomWrapper, &RoomWrapper::encryptedChanged, this, [this]() {
             mRoomHeaderWidget->setEncypted(mRoomWrapper->encrypted());
         });
-        updateRoomHeader();
     }
+    updateRoomHeader();
 }
 
 void RoomWidget::slotClearNotification()

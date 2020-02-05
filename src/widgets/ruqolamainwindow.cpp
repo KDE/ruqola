@@ -63,6 +63,9 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
 {
     mMainWidget = new RuqolaCentralWidget(this);
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
+    connect(mMainWidget, &RuqolaCentralWidget::channelSelected, this, [this]() {
+        changeActionStatus(true);
+    });
     setCentralWidget(mMainWidget);
     setupActions();
     setupStatusBar();
@@ -103,6 +106,7 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::updateActions);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::updateActions);
     updateActions();
+    changeActionStatus(false); //Disable actions when switching.
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
 }
 
@@ -118,7 +122,6 @@ void RuqolaMainWindow::changeActionStatus(bool enabled)
     mShowFileAttachments->setEnabled(enabled);
     mShowDiscussions->setEnabled(enabled);
     mShowThreads->setEnabled(enabled);
-    mUnreadOnTop->setEnabled(enabled);
     mChannelInfo->setEnabled(enabled);
     mAddUserInRooms->setEnabled(enabled);
 }

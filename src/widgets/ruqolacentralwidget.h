@@ -39,6 +39,8 @@ public:
     void setCurrentRocketChatAccount(RocketChatAccount *account);
     Q_REQUIRED_RESULT QString roomType() const;
     RoomWrapper *roomWrapper() const;
+Q_SIGNALS:
+    void channelSelected();
 private:
     void slotLoginStatusChanged();
     void slotJobFailedInfo(const QString &messageError);
