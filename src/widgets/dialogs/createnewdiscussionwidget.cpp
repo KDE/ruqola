@@ -59,13 +59,14 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     discussionName->setObjectName(QStringLiteral("usersLabel"));
     mainLayout->addWidget(usersLabel);
 
+    //TODO use completer lineedit
     mUsersLineEdit = new KLineEdit(this);
     mUsersLineEdit->setObjectName(QStringLiteral("mUsersLineEdit"));
     mUsersLineEdit->setTrapReturnKey(true);
     mUsersLineEdit->setClearButtonEnabled(true);
     mainLayout->addWidget(mUsersLineEdit);
 
-    QLabel *messageLabel = new QLabel(i18n("Invite Users"), this);
+    QLabel *messageLabel = new QLabel(i18n("Message"), this);
     messageLabel->setObjectName(QStringLiteral("messageLabel"));
     mainLayout->addWidget(messageLabel);
 
