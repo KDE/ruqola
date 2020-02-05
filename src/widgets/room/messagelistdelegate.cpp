@@ -318,7 +318,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, 
         QHelpEvent *helpEvent = static_cast<QHelpEvent*>(event);
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-        if (!message->reactions().isEmpty()) {
+        if (message && !message->reactions().isEmpty()) {
             const Layout layout = doLayout(option, index);
             const QRect reactionsRect(layout.usableRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
             if (mHelperReactions->handleHelpEvent(helpEvent, view, reactionsRect, option, message)) {
