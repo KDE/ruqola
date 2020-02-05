@@ -59,6 +59,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mainLayout->addWidget(mSendMessageButton);
     connect(mSendMessageButton, &QToolButton::clicked, this, [this]() {
         slotSendMessage(mMessageLineEdit->text());
+        mMessageLineEdit->clear();
     });
 
     QMenu *emoticonMenu = new QMenu(this);
