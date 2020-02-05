@@ -135,21 +135,25 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mNameReadOnly = new QLabel(this);
     mNameReadOnly->setWordWrap(true);
     mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
+    mNameReadOnly->setTextInteractionFlags(Qt::TextSelectableByMouse);
     layoutReadOnly->addRow(i18n("Name:"), mNameReadOnly);
 
     mCommentReadOnly = new QLabel(this);
     mCommentReadOnly->setWordWrap(true);
     mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
+    mCommentReadOnly->setTextInteractionFlags(Qt::TextSelectableByMouse);
     layoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
 
     mAnnouncementReadOnly = new QLabel(this);
     mAnnouncementReadOnly->setWordWrap(true);
     mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
+    mAnnouncementReadOnly->setTextInteractionFlags(Qt::TextSelectableByMouse);
     layoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
 
     mDescriptionReadOnly = new QLabel(this);
     mDescriptionReadOnly->setWordWrap(true);
     mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
+    mDescriptionReadOnly->setTextInteractionFlags(Qt::TextSelectableByMouse);
     layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
 }
 

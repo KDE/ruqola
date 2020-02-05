@@ -88,19 +88,24 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(layoutreadonly);
     QCOMPARE(layoutreadonly->contentsMargins(), QMargins(0, 0, 0, 0));
 
+
     QLabel *mNameReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mNameReadOnly"));
     QVERIFY(mNameReadOnly);
     QVERIFY(mNameReadOnly->text().isEmpty());
+    QCOMPARE(mNameReadOnly->textInteractionFlags(), Qt::TextSelectableByMouse);
 
     QLabel *mCommentReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mCommentReadOnly"));
     QVERIFY(mCommentReadOnly);
     QVERIFY(mCommentReadOnly->text().isEmpty());
+    QCOMPARE(mCommentReadOnly->textInteractionFlags(), Qt::TextSelectableByMouse);
 
     QLabel *mAnnouncementReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mAnnouncementReadOnly"));
     QVERIFY(mAnnouncementReadOnly);
     QVERIFY(mAnnouncementReadOnly->text().isEmpty());
+    QCOMPARE(mAnnouncementReadOnly->textInteractionFlags(), Qt::TextSelectableByMouse);
 
     QLabel *mDescriptionReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mDescriptionReadOnly"));
     QVERIFY(mDescriptionReadOnly);
     QVERIFY(mDescriptionReadOnly->text().isEmpty());
+    QCOMPARE(mDescriptionReadOnly->textInteractionFlags(), Qt::TextSelectableByMouse);
 }
