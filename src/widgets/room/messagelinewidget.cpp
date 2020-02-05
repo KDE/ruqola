@@ -45,7 +45,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mMessageLineEdit = new MessageLineEdit(this);
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
     mainLayout->addWidget(mMessageLineEdit);
-    connect(mMessageLineEdit, &MessageLineEdit::sendMessage, this, &MessageLineWidget::sendMessage);
+    connect(mMessageLineEdit, &MessageLineEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
 
     mEmoticonButton = new QToolButton(this);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
@@ -55,8 +55,11 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
     mSendMessageButton = new QToolButton(this);
     mSendMessageButton->setObjectName(QStringLiteral("mSendMessageButton"));
-    mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent"))); //Change it when we edit message
+    mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
     mainLayout->addWidget(mSendMessageButton);
+    connect(mSendMessageButton, &QToolButton::clicked, this, [this]() {
+        slotSendMessage(mMessageLineEdit->text());
+    });
 
     QMenu *emoticonMenu = new QMenu(this);
     QWidgetAction *action = new QWidgetAction(emoticonMenu);
@@ -71,6 +74,13 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
 
 MessageLineWidget::~MessageLineWidget()
 {
+}
+
+void MessageLineWidget::slotSendMessage(const QString &msg)
+{
+    if (!msg.isEmpty()) {
+        Q_EMIT sendMessage(msg);
+    }
 }
 
 void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)

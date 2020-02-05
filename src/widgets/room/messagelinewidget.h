@@ -56,6 +56,7 @@ Q_SIGNALS:
     void sendFile(const UploadFileDialog::UploadFileInfo &result);
 
 private:
+    void slotSendMessage(const QString &msg);
     void slotSendFile();
 
     EditingMode mMode = EditingMode::NewMessage;
