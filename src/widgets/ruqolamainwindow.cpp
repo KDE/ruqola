@@ -102,8 +102,25 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount, &RocketChatAccount::missingChannelPassword, this, &RuqolaMainWindow::slotMissingChannelPassword);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::updateActions);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::updateActions);
-    mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     updateActions();
+    mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+}
+
+void RuqolaMainWindow::changeActionStatus(bool enabled)
+{
+    mShowMentions->setEnabled(enabled);
+    mShowPinnedMessages->setEnabled(enabled);
+    mShowStarredMessages->setEnabled(enabled);
+    mShowSnipperedMessages->setEnabled(enabled);
+    mSearchMessages->setEnabled(enabled);
+    mConfigureNotification->setEnabled(enabled);
+    mLoadChannelHistory->setEnabled(enabled);
+    mShowFileAttachments->setEnabled(enabled);
+    mShowDiscussions->setEnabled(enabled);
+    mShowThreads->setEnabled(enabled);
+    mUnreadOnTop->setEnabled(enabled);
+    mChannelInfo->setEnabled(enabled);
+    mAddUserInRooms->setEnabled(enabled);
 }
 
 void RuqolaMainWindow::updateActions()

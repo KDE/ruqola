@@ -64,6 +64,7 @@ private:
     void slotMissingChannelPassword(const QString &roomId);
     void slotShowChannelInfo();
     void slotAddUsersInRoom();
+    void changeActionStatus(bool enabled);
 
     RuqolaCentralWidget *mMainWidget = nullptr;
     QAction *mServerInfo = nullptr;
