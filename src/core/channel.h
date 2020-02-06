@@ -21,10 +21,10 @@
 #ifndef CHANNEL_H
 #define CHANNEL_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QDebug>
 //TODO rename it
-class LIBRUQOLACORE_TESTS_EXPORT Channel
+class LIBRUQOLACORE_EXPORT Channel
 {
     Q_GADGET
 public:
