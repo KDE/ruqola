@@ -69,6 +69,24 @@ Component {
                     }
                 },
                 Kirigami.Action {
+                    text: i18n("Previous Channel");
+                    shortcut: "Alt+Up"
+                    visible: false // no need to display it in right-click menu
+                    onTriggered: {
+                        roomsList.currentIndex = (roomsList.currentIndex - 1) % roomsList.count;
+                        roomsList.currentItem.selectRoom();
+                    }
+                },
+                Kirigami.Action {
+                    text: i18n("Next Channel");
+                    shortcut: "Alt+Down"
+                    visible: false // no need to display it in right-click menu
+                    onTriggered: {
+                        roomsList.currentIndex = (roomsList.currentIndex + 1) % roomsList.count;
+                        roomsList.currentItem.selectRoom();
+                    }
+                },
+                Kirigami.Action {
                    separator: true
                 },
                 Kirigami.Action {

@@ -43,6 +43,9 @@ Kirigami.BasicListItem {
     
     property bool d_editingMode: false;
     
+    function selectRoom() {
+        roomSelected(d_roomID);
+    }
     
     signal roomSelected(string roomID)
     signal leaveRoom(string roomID, string roomType)
