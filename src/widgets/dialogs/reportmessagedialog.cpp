@@ -33,8 +33,8 @@ static const char myConfigGroupName[] = "ReportMessageDialog";
 ReportMessageDialog::ReportMessageDialog(QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(i18nc("@title:window", "Search Channel"));
-    auto *mainLayout = new QVBoxLayout(this);
+    setWindowTitle(i18nc("@title:window", "Report Message"));
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mReportMessageWidget = new ReportMessageWidget(this);
