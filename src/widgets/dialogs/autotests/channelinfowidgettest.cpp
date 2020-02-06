@@ -93,19 +93,23 @@ void ChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mNameReadOnly);
     QVERIFY(mNameReadOnly->text().isEmpty());
     QCOMPARE(mNameReadOnly->textInteractionFlags(), Qt::TextSelectableByMouse);
+    QCOMPARE(mNameReadOnly->textFormat(), Qt::RichText);
 
     QLabel *mCommentReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mCommentReadOnly"));
     QVERIFY(mCommentReadOnly);
     QVERIFY(mCommentReadOnly->text().isEmpty());
+    QCOMPARE(mCommentReadOnly->textFormat(), Qt::RichText);
     QCOMPARE(mCommentReadOnly->textInteractionFlags(), Qt::TextSelectableByMouse);
 
     QLabel *mAnnouncementReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mAnnouncementReadOnly"));
     QVERIFY(mAnnouncementReadOnly);
     QVERIFY(mAnnouncementReadOnly->text().isEmpty());
+    QCOMPARE(mAnnouncementReadOnly->textFormat(), Qt::RichText);
     QCOMPARE(mAnnouncementReadOnly->textInteractionFlags(), Qt::TextSelectableByMouse);
 
     QLabel *mDescriptionReadOnly = mReadOnlyChannel->findChild<QLabel *>(QStringLiteral("mDescriptionReadOnly"));
     QVERIFY(mDescriptionReadOnly);
+    QCOMPARE(mDescriptionReadOnly->textFormat(), Qt::RichText);
     QVERIFY(mDescriptionReadOnly->text().isEmpty());
     QCOMPARE(mDescriptionReadOnly->textInteractionFlags(), Qt::TextSelectableByMouse);
 }
