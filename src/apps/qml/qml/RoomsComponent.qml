@@ -69,11 +69,16 @@ Component {
                     }
                 },
                 Kirigami.Action {
+                    function mod(n, m) {
+                        // see: https://stackoverflow.com/questions/4467539/javascript-modulo-gives-a-negative-result-for-negative-numbers
+                        return ((n % m) + m) % m;
+                    }
+
                     text: i18n("Previous Channel");
                     shortcut: "Alt+Up"
                     visible: false // no need to display it in right-click menu
                     onTriggered: {
-                        roomsList.currentIndex = (roomsList.currentIndex - 1) % roomsList.count;
+                        roomsList.currentIndex = mod(roomsList.currentIndex - 1, roomsList.count);
                         roomsList.currentItem.selectRoom();
                     }
                 },
