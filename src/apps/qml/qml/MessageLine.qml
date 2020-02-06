@@ -118,10 +118,18 @@ ColumnLayout {
                 footerItem.textEditing(text)
             }
             Keys.onDownPressed: {
-                listView.incrementCurrentIndex()
+                if (listView.currentItem) {
+                    listView.incrementCurrentIndex()
+                } else {
+                    event.accepted = false;
+                }
             }
             Keys.onUpPressed: {
-                listView.decrementCurrentIndex()
+                if (listView.currentItem) {
+                    listView.decrementCurrentIndex()
+                } else {
+                    event.accepted = false;
+                }
             }
             Keys.onTabPressed: {
                 if (listView.currentItem) {
