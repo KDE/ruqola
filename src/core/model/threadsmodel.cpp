@@ -70,6 +70,7 @@ QVariant ThreadsModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case ThreadMessageId:
         return thread.messageId();
+    case Qt::DisplayRole:
     case Description:
         return thread.text();
     case NumberOfMessages:
