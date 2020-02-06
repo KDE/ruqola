@@ -137,6 +137,7 @@ void ConfigureNotificationWidget::setRoomWrapper(RoomWrapper *roomWrapper)
     mDisableNotification->setChecked(notificationOptions->disableNotifications());
     mHideUnreadRoomStatus->setChecked(notificationOptions->hideUnreadStatus());
     mMuteGroupMentions->setChecked(notificationOptions->muteGroupMentions());
+    //TODO connect signal from roomWrapper.
 
     //TODO verify
     mDesktopAlertCombobox->setCurrentIndex(mDesktopAlertCombobox->findText(notificationOptions->desktopNotifications()));
