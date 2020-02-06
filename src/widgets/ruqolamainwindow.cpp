@@ -123,7 +123,8 @@ void RuqolaMainWindow::changeActionStatus(bool enabled)
     mShowDiscussions->setEnabled(enabled);
     mShowThreads->setEnabled(enabled);
     mChannelInfo->setEnabled(enabled);
-    mAddUserInRooms->setEnabled(enabled);
+    RoomWrapper *roomWrapper = mMainWidget->roomWrapper();
+    mAddUserInRooms->setEnabled(enabled && roomWrapper && roomWrapper->canBeModify());
 }
 
 void RuqolaMainWindow::updateActions()
