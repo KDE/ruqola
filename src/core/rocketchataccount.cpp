@@ -483,6 +483,7 @@ DDPClient *RocketChatAccount::ddp()
         connect(mDdp, &DDPClient::changed, this, &RocketChatAccount::changed);
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
         connect(mDdp, &DDPClient::removed, this, &RocketChatAccount::removed);
+        connect(mDdp, &DDPClient::socketError, this, &RocketChatAccount::socketError);
 
         if (mSettings) {
             mDdp->setServerUrl(mSettings->serverUrl());

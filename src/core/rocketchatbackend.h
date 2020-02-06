@@ -28,6 +28,7 @@
 #include "libruqolacore_export.h"
 #include <QObject>
 #include <QJsonObject>
+#include <QAbstractSocket>
 #include "user.h"
 #include "model/roommodel.h"
 class RocketChatAccount;

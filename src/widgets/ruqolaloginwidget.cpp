@@ -127,8 +127,7 @@ void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
     case DDPClient::LoginStatus::LoginFailed:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
-        mFailedError->setVisible(true);
-        mFailedError->setText(i18n("Login Failed"));
+        showError(i18n("Login Failed"));
         break;
     case DDPClient::LoginStatus::LoginCodeRequired:
         mBusyIndicatorWidget->hide();
@@ -143,8 +142,13 @@ void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
     case DDPClient::LoginStatus::FailedToLoginPluginProblem:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
-        mFailedError->setVisible(true);
-        mFailedError->setText(i18n("Installation Problem found. No plugins found here."));
+        showError(i18n("Installation Problem found. No plugins found here."));
         break;
     }
+}
+
+void RuqolaLoginWidget::showError(const QString &text)
+{
+    mFailedError->setVisible(true);
+    mFailedError->setText(text);
 }

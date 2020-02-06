@@ -28,6 +28,7 @@
 #include <functional>
 #include <QQueue>
 #include <QSslError>
+#include <QAbstractSocket>
 
 class QJsonObject;
 class QJsonDocument;
@@ -187,10 +188,10 @@ public:
 Q_SIGNALS:
     void connectedChanged();
     void loginStatusChanged();
-    void disconnected();
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
     void removed(const QJsonObject &item);
+    void socketError(QAbstractSocket::SocketError error, const QString &errorString);
 
     /**
      * @brief Emitted whenever a result is received

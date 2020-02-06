@@ -241,6 +241,7 @@ void DDPClient::initializeWebSocket()
     connect(mWebSocket, &AbstractWebSocket::connected, this, &DDPClient::onWSConnected);
     connect(mWebSocket, &AbstractWebSocket::textMessageReceived, this, &DDPClient::onTextMessageReceived);
     connect(mWebSocket, &AbstractWebSocket::disconnected, this, &DDPClient::onWSclosed);
+    connect(mWebSocket, &AbstractWebSocket::socketError, this, &DDPClient::socketError);
     connect(mWebSocket, &AbstractWebSocket::sslErrors, this, &DDPClient::onSslErrors);
 }
 

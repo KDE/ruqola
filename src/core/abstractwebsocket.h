@@ -50,6 +50,8 @@ Q_SIGNALS:
     void connected();
     void textMessageReceived(const QString &message);
     void sslErrors(const QList<QSslError> &errors);
+    void socketError(QAbstractSocket::SocketError error, const QString &errorString);
+
 private:
     Q_DISABLE_COPY(AbstractWebSocket)
 };

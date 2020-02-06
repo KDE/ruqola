@@ -389,6 +389,7 @@ Q_SIGNALS:
     void twoFactorAuthenticationCodeChanged();
     void serverUrlChanged();
     void loginStatusChanged();
+    void socketError(QAbstractSocket::SocketError error, const QString &errorString);
     void logoutDone(const QString &accountname);
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
@@ -417,6 +418,7 @@ private:
     void slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId);
     void slotGetSupportedLanguagesDone(const QJsonObject &obj);
     void slotUsersPresenceDone(const QJsonObject &obj);
+    void slotSocketError(QAbstractSocket::SocketError error, const QString &errorString);
 
     void loadEmoji(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);

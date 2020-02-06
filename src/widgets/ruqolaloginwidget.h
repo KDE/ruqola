@@ -38,6 +38,8 @@ public:
 
     void initialize();
     void setLogginStatus(DDPClient::LoginStatus status);
+    void showError(const QString &text);
+
 private:
     void changeWidgetStatus(bool enabled);
     void slotLogin();

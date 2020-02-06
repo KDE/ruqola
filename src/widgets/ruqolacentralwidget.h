@@ -21,6 +21,7 @@
 #ifndef RUQOLACENTRALWIDGET_H
 #define RUQOLACENTRALWIDGET_H
 
+#include <QAbstractSocket>
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
 class QStackedWidget;
@@ -28,6 +29,7 @@ class RuqolaMainWidget;
 class RuqolaLoginWidget;
 class RocketChatAccount;
 class RoomWrapper;
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaCentralWidget : public QWidget
 {
     Q_OBJECT
@@ -44,6 +46,8 @@ Q_SIGNALS:
 private:
     void slotLoginStatusChanged();
     void slotJobFailedInfo(const QString &messageError);
+    void slotSocketError(QAbstractSocket::SocketError error, const QString &errorString);
+
     QStackedWidget *mStackedWidget = nullptr;
     RuqolaMainWidget *mRuqolaMainWidget = nullptr;
     RuqolaLoginWidget *mRuqolaLoginWidget = nullptr;

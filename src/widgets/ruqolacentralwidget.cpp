@@ -60,6 +60,14 @@ void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError)
     KMessageBox::error(this, messageError, i18n("Job Failed"));
 }
 
+void RuqolaCentralWidget::slotSocketError(QAbstractSocket::SocketError error, const QString &errorString)
+{
+    Q_UNUSED(error);
+    // ## let's hope this happens while the login widget is visible, but that's quite likely
+    // Testcase: try to connect to a server that doesn't exist
+    mRuqolaLoginWidget->showError(errorString);
+}
+
 RoomWrapper *RuqolaCentralWidget::roomWrapper() const
 {
     return mRuqolaMainWidget->roomWrapper();
@@ -83,6 +91,7 @@ void RuqolaCentralWidget::setCurrentRocketChatAccount(RocketChatAccount *account
     }
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RuqolaCentralWidget::slotLoginStatusChanged);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::socketError, this, &RuqolaCentralWidget::slotSocketError);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::jobFailed, this, &RuqolaCentralWidget::slotJobFailedInfo);
     mRuqolaMainWidget->setCurrentRocketChatAccount(account);
     //Check if account is connected or not.
