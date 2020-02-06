@@ -34,7 +34,7 @@ static const char myConfigGroupName[] = "ShowThreadsDialog";
 ShowThreadsDialog::ShowThreadsDialog(QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(i18nc("@title:window", "Show Discussions"));
+    setWindowTitle(i18nc("@title:window", "Show Threads"));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
