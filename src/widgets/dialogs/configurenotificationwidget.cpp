@@ -133,4 +133,16 @@ RoomWrapper *ConfigureNotificationWidget::roomWrapper() const
 void ConfigureNotificationWidget::setRoomWrapper(RoomWrapper *roomWrapper)
 {
     mRoomWrapper = roomWrapper;
+    NotificationOptionsWrapper *notificationOptions = mRoomWrapper->notificationOptions();
+    mDisableNotification->setChecked(notificationOptions->disableNotifications());
+    mHideUnreadRoomStatus->setChecked(notificationOptions->hideUnreadStatus());
+    mMuteGroupMentions->setChecked(notificationOptions->muteGroupMentions());
+
+    //TODO verify
+    mDesktopAlertCombobox->setCurrentIndex(mDesktopAlertCombobox->findText(notificationOptions->desktopNotifications()));
+    mDesktopAudioCombobox->setCurrentIndex(mDesktopAudioCombobox->findText(notificationOptions->audioNotifications()));
+    mDesktopSoundCombobox->setCurrentIndex(mDesktopSoundCombobox->findText(notificationOptions->audioNotificationValue()));
+    mDesktopDurationCombobox->setCurrentIndex(mDesktopDurationCombobox->findText(QString::number(notificationOptions->desktopNotificationDuration())));
+    mMobileAlertCombobox->setCurrentIndex(mMobileAlertCombobox->findText(notificationOptions->mobilePushNotification()));
+    mEmailAlertCombobox->setCurrentIndex(mEmailAlertCombobox->findText(notificationOptions->emailNotifications()));
 }

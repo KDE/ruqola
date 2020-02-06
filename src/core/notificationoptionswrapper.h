@@ -24,7 +24,9 @@
 #include <QObject>
 #include "notificationoptions.h"
 
-class NotificationOptionsWrapper : public QObject
+#include "libruqolacore_export.h"
+
+class LIBRUQOLACORE_EXPORT NotificationOptionsWrapper : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool hideUnreadStatus READ hideUnreadStatus CONSTANT)
