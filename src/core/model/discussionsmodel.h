@@ -20,10 +20,10 @@
 #ifndef DISCUSSIONSMODEL_H
 #define DISCUSSIONSMODEL_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QAbstractListModel>
 class Discussions;
-class LIBRUQOLACORE_TESTS_EXPORT DiscussionsModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT DiscussionsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)

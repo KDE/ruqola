@@ -20,11 +20,11 @@
 #ifndef THREADSMODEL_H
 #define THREADSMODEL_H
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 
 #include <QAbstractListModel>
 class Threads;
-class LIBRUQOLACORE_TESTS_EXPORT ThreadsModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT ThreadsModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList WRITE setHasFullList NOTIFY hasFullListChanged)

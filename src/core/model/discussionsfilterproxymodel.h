@@ -21,9 +21,9 @@
 #define DISCUSSIONSFILTERPROXYMODEL_H
 
 #include <QSortFilterProxyModel>
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 class DiscussionsModel;
-class LIBRUQOLACORE_TESTS_EXPORT DiscussionsFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT DiscussionsFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(bool hasFullList READ hasFullList NOTIFY hasFullListChanged)
