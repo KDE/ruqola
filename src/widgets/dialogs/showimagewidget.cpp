@@ -66,7 +66,8 @@ ShowImageWidget::~ShowImageWidget()
 
 void ShowImageWidget::slotValueChanged(int value)
 {
-
+    QPixmap pm = mPixmap.scaled(mPixmap.width()*value/100, mPixmap.height()*value/100, Qt::KeepAspectRatio);
+    mLabel->setPixmap(pm);
 }
 
 void ShowImageWidget::setImage(const QPixmap &pix)
