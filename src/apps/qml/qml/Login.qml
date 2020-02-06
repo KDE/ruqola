@@ -38,9 +38,14 @@ Kirigami.Page {
     property alias accountName: nameField.text;
 
     property string originalAccountName
+
+    property string lastSocketError
+
     signal accepted()
 
-    
+    function resetStatus() {
+        lastSocketError = ""
+    }
 
     implicitHeight: 400
     implicitWidth: 300
@@ -82,6 +87,7 @@ Kirigami.Page {
             readOnly: originalAccountName !== ""
             width: parent.width
             placeholderText: i18n("Enter account name")
+            onTextEdited: resetStatus()
         }
 
         QQC2.Label {
@@ -95,6 +101,7 @@ Kirigami.Page {
             selectByMouse: true
             width: parent.width
             placeholderText: i18n("Enter address of the server")
+            onTextEdited: resetStatus()
         }
         
         //
@@ -115,6 +122,7 @@ Kirigami.Page {
             currentIndex: model.currentLoginMethod
             onActivated: {
                 appid.rocketChatAccount.changeDefaultAuthentication(index)
+                resetStatus()
             }
 
             delegate: QQC2.ItemDelegate {
@@ -145,6 +153,7 @@ Kirigami.Page {
             width: parent.width
             id: usernameField
             placeholderText: i18n("Enter username")
+            onTextEdited: resetStatus()
         }
         
         QQC2.Label {
@@ -162,6 +171,7 @@ Kirigami.Page {
                     acceptingButton.clicked();
                 }
             }
+            onTextEdited: resetStatus()
         }
 
         QQC2.Label {
@@ -185,6 +195,7 @@ Kirigami.Page {
                     acceptingButton.clicked();
                 }
             }
+            onTextEdited: resetStatus()
         }
 
         Item {
@@ -210,12 +221,22 @@ Kirigami.Page {
         }
 
         QQC2.Label {
-            text: i18n("Login Failed");
+            id: statusLabel
+            text: {
+                if (rcAccount.loginStatus === DDPClient.LoginFailed)
+                    return i18n("Login Failed");
+                else if (rcAccount.loginStatus === DDPClient.LoggingIn)
+                    return i18n("Logging In...")
+                else
+                    return i18n("Socket error: %1", lastSocketError)
+            }
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
-            color: Kirigami.Theme.negativeTextColor
+            color: rcAccount.loginStatus === DDPClient.LoggingIn ? Kirigami.Theme.textColor : Kirigami.Theme.negativeTextColor
             font.bold: true
-            visible: rcAccount.loginStatus === DDPClient.LoginFailed
+            visible: rcAccount.loginStatus === DDPClient.LoginFailed ||
+                     rcAccount.loginStatus === DDPClient.LoggingIn ||
+                     (rcAccount.loginStatus === DDPClient.NotConnected && lastSocketError != "")
         }
         QQC2.Label {
             text: i18n("Installation Problem found. No plugins found here.");
@@ -225,5 +246,10 @@ Kirigami.Page {
             font.bold: true
             visible: rcAccount.loginStatus === DDPClient.FailedToLoginPluginProblem
         }
+    }
+
+    Connections {
+        target: rcAccount
+        onSocketError: lastSocketError = errorString
     }
 }
