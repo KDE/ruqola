@@ -242,7 +242,7 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("add_user_in_room"), mAddUserInRooms);
 
     auto clearAlerts = new QAction(i18n("Mark all channels read"), this);
-    clearAlerts->setShortcut(Qt::SHIFT + Qt::Key_Escape);
+    ac->setDefaultShortcut(clearAlerts, Qt::SHIFT + Qt::Key_Escape);
     connect(clearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
     ac->addAction(QStringLiteral("mark_all_channels_read"), clearAlerts);
 }
