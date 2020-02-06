@@ -42,7 +42,37 @@ ColumnLayout {
 
     function sendMessage()
     {
-        messageLine.accepted();
+        var text = messageLine.text;
+        if (text === "")
+            return;
+        if (appid.rocketChatAccount.loginStatus !== DDPClient.LoggedIn)
+            return;
+
+        if (messageLineItem.selectedThreadMessage !== "") {
+            //console.log("In thread message" + messageLineItem.selectedThreadMessage + messageLineItem.selectedRoomId)
+            appid.rocketChatAccount.replyOnThread(messageLineItem.selectedRoomId, messageLineItem.selectedThreadMessage, text);
+        } else if (messageLineItem.selectedRoomId !== "") {
+            //Modify text.
+            if (messageId !== "") {
+                //Reply against message
+                if (savePreviousMessage == "") {
+                    //console.log("Previous message  empty")
+                    appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text, messageId);
+                } else if (text !== savePreviousMessage) {
+                    //console.log("Previous message  empty text different")
+                    appid.rocketChatAccount.updateMessage(messageLineItem.selectedRoomId, messageId, text);
+                }
+            } else if (threadmessageId !== "") { //Reply in thread
+                appid.rocketChatAccount.replyOnThread(messageLineItem.selectedRoomId, threadmessageId, text);
+            } else {
+                appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text);
+            }
+        }
+
+        //clear all element
+        messageLine.text = "";
+        threadmessageId = "";
+        savePreviousMessage = "";
     }
 
     function setOriginalMessage(messageStr)
@@ -85,50 +115,22 @@ ColumnLayout {
                 textSelected(listView.currentItem.myData.completername)
             }
         }
-        Keys.onReturnPressed: {
+        Keys.onEnterPressed: enterOrReturnPressed(event)
+        Keys.onReturnPressed: enterOrReturnPressed(event)
+
+        function enterOrReturnPressed(event) {
+            if (event.modifiers & Qt.ShiftModifier) {
+                event.accepted = false;
+                return; // composing a multi-line message
+            }
+
             if (listView.currentItem) {
                 textSelected(listView.currentItem.myData.completername)
             } else {
-                accepted()
-            }
-        }
-        Keys.onEnterPressed: {
-            if (listView.currentItem) {
-                textSelected(listView.currentItem.myData.completername)
-            } else {
-                accepted()
+                messageLineItem.sendMessage()
             }
         }
 
-        onAccepted: {
-            if (text != "" && appid.rocketChatAccount.loginStatus === DDPClient.LoggedIn) {
-                if (messageLineItem.selectedThreadMessage !== "") {
-                    //console.log("In thread message" + messageLineItem.selectedThreadMessage + messageLineItem.selectedRoomId)
-                    appid.rocketChatAccount.replyOnThread(messageLineItem.selectedRoomId, messageLineItem.selectedThreadMessage, text);
-                } else if (messageLineItem.selectedRoomId !== "") {
-                    //Modify text.
-                    if (messageId !== "") {
-                        //Reply against message
-                        if (savePreviousMessage == "") {
-                            //console.log("Previous message  empty")
-                            appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text, messageId);
-                        } else if (text !== savePreviousMessage) {
-                            //console.log("Previous message  empty text different")
-                            appid.rocketChatAccount.updateMessage(messageLineItem.selectedRoomId, messageId, text);
-                        }
-                    } else if (threadmessageId !== "") { //Reply in thread
-                        appid.rocketChatAccount.replyOnThread(messageLineItem.selectedRoomId, threadmessageId, text);
-                    } else {
-                        appid.rocketChatAccount.sendMessage(messageLineItem.selectedRoomId, text);
-                    }
-                }
-
-                //clear all element
-                text = "";
-                threadmessageId = "";
-                savePreviousMessage = "";
-            }
-        }
         QQC2.Popup {
             id: popup
 
