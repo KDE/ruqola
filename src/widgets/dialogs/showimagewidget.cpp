@@ -23,6 +23,7 @@
 #include <KLocalizedString>
 #include <QScrollArea>
 #include <QLabel>
+#include <QSlider>
 
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
@@ -41,10 +42,31 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     mLabel->setBackgroundRole(QPalette::Base);
 
     scrollArea->setWidget(mLabel);
+
+    QHBoxLayout *zoomLayout = new QHBoxLayout;
+    zoomLayout->setObjectName(QStringLiteral("zoomLayout"));
+    mainLayout->addLayout(zoomLayout);
+
+    QLabel *zoomLabel = new QLabel(i18n("Zoom:"), this);
+    zoomLabel->setObjectName(QStringLiteral("zoomLabel"));
+    zoomLayout->addWidget(zoomLabel);
+
+    mSlider = new QSlider(this);
+    mSlider->setObjectName(QStringLiteral("mSlider"));
+    mSlider->setOrientation(Qt::Horizontal);
+    zoomLayout->addWidget(mSlider);
+    mSlider->setRange(10, 1000);
+    mSlider->setValue(100);
+    connect(mSlider, &QSlider::valueChanged, this, &ShowImageWidget::slotValueChanged);
 }
 
 ShowImageWidget::~ShowImageWidget()
 {
+}
+
+void ShowImageWidget::slotValueChanged(int value)
+{
+
 }
 
 void ShowImageWidget::setImage(const QPixmap &pix)

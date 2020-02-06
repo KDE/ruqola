@@ -20,10 +20,43 @@
 
 #include "showimagewidgettest.h"
 #include "dialogs/showimagewidget.h"
+#include <QLabel>
+#include <QScrollArea>
+#include <QSlider>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ShowImageWidgetTest)
 
 ShowImageWidgetTest::ShowImageWidgetTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void ShowImageWidgetTest::shouldHaveDefaultValues()
+{
+    ShowImageWidget w;
+
+    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
+
+    QScrollArea *scrollArea = w.findChild<QScrollArea *>(QStringLiteral("scrollArea"));
+    QVERIFY(scrollArea);
+    QVERIFY(scrollArea->widgetResizable());
+
+    QLabel *mLabel = w.findChild<QLabel *>(QStringLiteral("mLabel"));
+    QVERIFY(mLabel);
+    QVERIFY(mLabel->text().isEmpty());
+    QCOMPARE(mLabel->backgroundRole(), QPalette::Base);
+
+    QHBoxLayout *zoomLayout = w.findChild<QHBoxLayout *>(QStringLiteral("zoomLayout"));
+    QVERIFY(zoomLayout);
+
+    QLabel *zoomLabel = w.findChild<QLabel *>(QStringLiteral("zoomLabel"));
+    QVERIFY(zoomLabel);
+    QVERIFY(!zoomLabel->text().isEmpty());
+
+    QSlider *mSlider = w.findChild<QSlider *>(QStringLiteral("mSlider"));
+    QVERIFY(mSlider);
+    QCOMPARE(mSlider->orientation(), Qt::Horizontal);
 }

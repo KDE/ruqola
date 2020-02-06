@@ -25,6 +25,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QLabel;
+class QSlider;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageWidget : public QWidget
 {
     Q_OBJECT
@@ -42,9 +43,11 @@ protected:
 
 private:
     void applyPixmap();
+    void slotValueChanged(int value);
 
-    QLabel *mLabel = nullptr;
     QPixmap mPixmap;
+    QLabel *mLabel = nullptr;
+    QSlider *mSlider = nullptr;
 };
 
 #endif // SHOWIMAGEWIDGET_H

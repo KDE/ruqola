@@ -29,6 +29,8 @@ class ShowImageWidgetTest : public QObject
 public:
     explicit ShowImageWidgetTest(QObject *parent = nullptr);
     ~ShowImageWidgetTest() = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
 #endif // SHOWIMAGEWIDGETTEST_H
