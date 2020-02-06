@@ -210,7 +210,11 @@ ColumnLayout {
 
     function textSelected(completerName) {
         if (listView.currentItem) {
+            var oldCursorPosition = messageLine.cursorPosition;
+            var oldTextLength = messageLine.text.length;
             messageLine.text = appid.rocketChatAccount.replaceWord(completerName + " ", messageLine.text, messageLine.cursorPosition)
+            // need to adjust cursor position by completer name length, '@' char and " "
+            messageLine.cursorPosition = oldCursorPosition + (messageLine.text.length - oldTextLength)
         }
         popup.close()
     }
