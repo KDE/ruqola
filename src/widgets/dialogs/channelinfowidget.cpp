@@ -263,6 +263,9 @@ ChangeTextWidget::ChangeTextWidget(QWidget *parent)
     mLabel = new QLabel(this);
     mLabel->setObjectName(QStringLiteral("mLabel"));
     mLabel->setWordWrap(true);
+    mLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mLabel->setOpenExternalLinks(true);
+
     mainLayout->addWidget(mLabel);
     mainLayout->addStretch(1);
     mChangeTextToolButton = new QToolButton(this);
