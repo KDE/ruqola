@@ -229,8 +229,9 @@ Kirigami.Page {
                     return i18n("Login Failed");
                 else if (rcAccount.loginStatus === DDPClient.LoggingIn)
                     return i18n("Logging In...")
-                else
+                else if (lastSocketError != "")
                     return i18n("Socket error: %1", lastSocketError)
+                return ""
             }
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
