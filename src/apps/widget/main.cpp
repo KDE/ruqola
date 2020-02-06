@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
     }
     KDBusService service(KDBusService::Unique);
 
-    RuqolaMainWindow *mw = new RuqolaMainWindow();
+    auto *mw = new RuqolaMainWindow();
     mw->show();
     const int val = app.exec();
     return val;

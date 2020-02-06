@@ -33,7 +33,7 @@ RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
 void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
 {
     RuqolaCentralWidget w;
-    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
+    auto *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
     //TODO
 }

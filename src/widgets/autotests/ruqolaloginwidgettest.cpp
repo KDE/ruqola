@@ -37,32 +37,32 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
 {
     RuqolaLoginWidget w;
 
-    QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    QLabel *mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
+    auto *mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
 
-    QLineEdit *mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
+    auto *mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
     QVERIFY(mServerName);
     QVERIFY(mServerName->text().isEmpty());
 
-    QLineEdit *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    auto *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
 
-    KPasswordLineEdit *mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    auto *mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);
 
-    QPushButton *mLoginButton = w.findChild<QPushButton *>(QStringLiteral("mLoginButton"));
+    auto *mLoginButton = w.findChild<QPushButton *>(QStringLiteral("mLoginButton"));
     QVERIFY(mLoginButton);
     QVERIFY(!mLoginButton->text().isEmpty());
 
-    KBusyIndicatorWidget *mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(QStringLiteral("mBusyIndicatorWidget"));
+    auto *mBusyIndicatorWidget = w.findChild<KBusyIndicatorWidget *>(QStringLiteral("mBusyIndicatorWidget"));
     QVERIFY(mBusyIndicatorWidget);
 
-    QLabel *mFailedError = w.findChild<QLabel *>(QStringLiteral("mFailedError"));
+    auto *mFailedError = w.findChild<QLabel *>(QStringLiteral("mFailedError"));
     QVERIFY(mFailedError);
     QVERIFY(mFailedError->text().isEmpty());
     QVERIFY(mFailedError->isHidden());

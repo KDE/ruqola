@@ -36,24 +36,24 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
     MessageLineWidget w;
     QCOMPARE(w.mode(), MessageLineWidget::EditingMode::NewMessage);
 
-    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
     QCOMPARE(mainLayout->spacing(), 0);
 
-    MessageLineEdit *mMessageLineEdit = w.findChild<MessageLineEdit *>(QStringLiteral("mMessageLineEdit"));
+    auto *mMessageLineEdit = w.findChild<MessageLineEdit *>(QStringLiteral("mMessageLineEdit"));
     QVERIFY(mMessageLineEdit);
 
-    QToolButton *mSendFile = w.findChild<QToolButton *>(QStringLiteral("mSendFile"));
+    auto *mSendFile = w.findChild<QToolButton *>(QStringLiteral("mSendFile"));
     QVERIFY(mSendFile);
     QVERIFY(!mSendFile->icon().isNull());
 
-    QToolButton *mEmoticonButton = w.findChild<QToolButton *>(QStringLiteral("mEmoticonButton"));
+    auto *mEmoticonButton = w.findChild<QToolButton *>(QStringLiteral("mEmoticonButton"));
     QVERIFY(mEmoticonButton);
     QVERIFY(!mEmoticonButton->icon().isNull());
     QCOMPARE(mEmoticonButton->popupMode(), QToolButton::InstantPopup);
 
-    QToolButton *mSendMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSendMessageButton"));
+    auto *mSendMessageButton = w.findChild<QToolButton *>(QStringLiteral("mSendMessageButton"));
     QVERIFY(mSendMessageButton);
     QVERIFY(!mSendMessageButton->icon().isNull());
 }

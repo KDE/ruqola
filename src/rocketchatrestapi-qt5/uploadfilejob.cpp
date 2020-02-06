@@ -66,7 +66,7 @@ bool UploadFileJob::start()
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForFile(mFilenameUrl.path());
 
-    QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+    auto *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
     QHttpPart filePart;
     filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
@@ -107,7 +107,7 @@ QNetworkRequest UploadFileJob::request() const
 
 void UploadFileJob::slotUploadFinished()
 {
-    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);

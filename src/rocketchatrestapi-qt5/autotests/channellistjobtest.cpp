@@ -47,7 +47,7 @@ void ChannelListJobTest::shouldHaveDefaultValue()
 void ChannelListJobTest::shouldGenerateRequest()
 {
     ChannelListJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     const QString authToken = QStringLiteral("foo");
     const QString userId = QStringLiteral("user");
     job.setUserId(userId);

@@ -29,7 +29,7 @@ int main(int argc, char **argv)
     parser.addHelpOption();
     parser.process(app);
 
-    ShowImageDialog *d = new ShowImageDialog;
+    auto *d = new ShowImageDialog;
     d->resize(800, 600);
     d->show();
 

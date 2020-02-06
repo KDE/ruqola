@@ -173,7 +173,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
         if (rcAccount->allowMessageDeletingEnabled() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
             if (!menu.isEmpty()) {
-                QAction *separator = new QAction(&menu);
+                auto *separator = new QAction(&menu);
                 separator->setSeparator(true);
                 menu.addAction(separator);
             }
@@ -185,7 +185,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
         if (rcAccount->autoTranslateEnabled()) {
             if (!menu.isEmpty()) {
-                QAction *separator = new QAction(&menu);
+                auto *separator = new QAction(&menu);
                 separator->setSeparator(true);
                 menu.addAction(separator);
             }
@@ -199,7 +199,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
 
         if (!menu.isEmpty()) {
-            QAction *separator = new QAction(&menu);
+            auto *separator = new QAction(&menu);
             separator->setSeparator(true);
             menu.addAction(separator);
         }

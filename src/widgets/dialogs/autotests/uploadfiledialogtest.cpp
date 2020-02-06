@@ -38,12 +38,12 @@ void UploadFileDialogTest::shouldHaveDefaultValues()
 {
     UploadFileDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    UploadFileWidget *mUploadFileWidget = w.findChild<UploadFileWidget *>(QStringLiteral("mUploadFileWidget"));
+    auto *mUploadFileWidget = w.findChild<UploadFileWidget *>(QStringLiteral("mUploadFileWidget"));
     QVERIFY(mUploadFileWidget);
-    QDialogButtonBox *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
+    auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
     QVERIFY(buttonBox);
 
     QPushButton *mOkButton = buttonBox->button(QDialogButtonBox::Ok);

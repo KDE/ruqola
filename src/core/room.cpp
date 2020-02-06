@@ -157,7 +157,7 @@ bool Room::canBeModify() const
 
 NotificationOptionsWrapper *Room::getNotificationWrapper()
 {
-    NotificationOptionsWrapper *wrapper = new NotificationOptionsWrapper(mNotificationOptions, this);
+    auto *wrapper = new NotificationOptionsWrapper(mNotificationOptions, this);
     return wrapper;
 }
 

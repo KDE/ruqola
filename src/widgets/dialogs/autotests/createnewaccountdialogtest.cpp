@@ -36,13 +36,13 @@ void CreateNewAccountDialogTest::shouldHaveDefaultValues()
 {
     CreateNewAccountDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    CreateNewAccountWidget *mNewAccountWidget = w.findChild<CreateNewAccountWidget *>(QStringLiteral("mNewAccountWidget"));
+    auto *mNewAccountWidget = w.findChild<CreateNewAccountWidget *>(QStringLiteral("mNewAccountWidget"));
     QVERIFY(mNewAccountWidget);
 
-    QDialogButtonBox *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
 
     const CreateNewAccountDialog::AccountInfo info = w.accountInfo();

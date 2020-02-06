@@ -31,7 +31,7 @@
 MessageLineWidget::MessageLineWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    auto *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->setSpacing(0);
@@ -63,8 +63,8 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
         mMessageLineEdit->clear();
     });
 
-    QMenu *emoticonMenu = new QMenu(this);
-    QWidgetAction *action = new QWidgetAction(emoticonMenu);
+    auto *emoticonMenu = new QMenu(this);
+    auto *action = new QWidgetAction(emoticonMenu);
     mEmoticonMenuWidget = new EmoticonMenuWidget(this);
     action->setDefaultWidget(mEmoticonMenuWidget);
     emoticonMenu->addAction(action);

@@ -290,7 +290,7 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
 {
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
-        QMouseEvent *mev = static_cast<QMouseEvent *>(event);
+        auto *mev = static_cast<QMouseEvent *>(event);
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
         const Layout layout = doLayout(option, index);
@@ -315,7 +315,7 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
 bool MessageListDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     if (event->type() == QEvent::ToolTip) {
-        QHelpEvent *helpEvent = static_cast<QHelpEvent*>(event);
+        auto *helpEvent = static_cast<QHelpEvent*>(event);
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
         if (message && !message->reactions().isEmpty()) {

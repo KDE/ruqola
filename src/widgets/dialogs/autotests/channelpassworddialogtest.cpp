@@ -34,12 +34,12 @@ void ChannelPasswordDialogTest::shouldHaveDefaultValues()
 {
     ChannelPasswordDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    ChannelPasswordWidget *mChannelPasswordWidget = w.findChild<ChannelPasswordWidget *>(QStringLiteral("mChannelPasswordWidget"));
+    auto *mChannelPasswordWidget = w.findChild<ChannelPasswordWidget *>(QStringLiteral("mChannelPasswordWidget"));
     QVERIFY(mChannelPasswordWidget);
 
-    QDialogButtonBox *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto *buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
 }

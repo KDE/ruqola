@@ -34,14 +34,14 @@ ModifyStatusWidgetTest::ModifyStatusWidgetTest(QObject *parent)
 void ModifyStatusWidgetTest::shouldHaveDefaultValues()
 {
     ModifyStatusWidget w;
-    QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    StatusCombobox *mStatusCombobox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusCombobox"));
+    auto *mStatusCombobox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusCombobox"));
     QVERIFY(mStatusCombobox);
 
-    KLineEdit *mStatusLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mStatusLineEdit"));
+    auto *mStatusLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mStatusLineEdit"));
     QVERIFY(mStatusLineEdit);
     QVERIFY(mStatusLineEdit->isClearButtonEnabled());
     QVERIFY(mStatusLineEdit->trapReturnKey());

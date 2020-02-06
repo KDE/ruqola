@@ -28,11 +28,11 @@
 RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    QHBoxLayout *headerLayout = new QHBoxLayout;
+    auto *headerLayout = new QHBoxLayout;
     headerLayout->setObjectName(QStringLiteral("headerLayout"));
     headerLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addLayout(headerLayout);
@@ -52,7 +52,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     headerLayout->addWidget(mEncryptedButton, Qt::AlignTop);
     connect(mEncryptedButton, &QToolButton::clicked, this, &RoomHeaderWidget::encryptedChanged);
 
-    QVBoxLayout *infoLayout = new QVBoxLayout;
+    auto *infoLayout = new QVBoxLayout;
     infoLayout->setObjectName(QStringLiteral("infoLayout"));
     infoLayout->setContentsMargins(0, 0, 0, 0);
     headerLayout->addLayout(infoLayout);

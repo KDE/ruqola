@@ -33,15 +33,15 @@ ReportMessageWidgetTest::ReportMessageWidgetTest(QObject *parent)
 void ReportMessageWidgetTest::shouldHaveDefaultValues()
 {
     ReportMessageWidget w;
-    QHBoxLayout *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QLabel *lab = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto *lab = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(lab);
     QVERIFY(!lab->text().isEmpty());
 
-    QLineEdit *mMessageLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mMessageLineEdit"));
+    auto *mMessageLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mMessageLineEdit"));
     QVERIFY(mMessageLineEdit);
     QVERIFY(mMessageLineEdit->isClearButtonEnabled());
     QVERIFY(!mMessageLineEdit->placeholderText().isEmpty());

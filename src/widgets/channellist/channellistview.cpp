@@ -92,7 +92,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     menu.addAction(favoriteAction);
 
     if (roomType == QLatin1String("c") || roomType == QLatin1String("p")) { //Not direct channel
-        QAction *separator = new QAction(&menu);
+        auto *separator = new QAction(&menu);
         separator->setSeparator(true);
         menu.addAction(separator);
         QAction *quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18n("Quit Channel"), &menu);

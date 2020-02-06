@@ -59,7 +59,7 @@ bool GetUsernameSuggestionJob::start()
 
 void GetUsernameSuggestionJob::slotGetUsernameSuggestion()
 {
-    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);

@@ -49,7 +49,7 @@ void CustomSoundsJobTest::shouldGenerateRequest()
     const QString userId = QStringLiteral("user");
     job.setUserId(userId);
     job.setAuthToken(authToken);
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QNetworkRequest request = job.request();

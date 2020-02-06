@@ -37,12 +37,12 @@ void ShowAttachmentDialogTest::shouldHaveDefaultValues()
     ShowAttachmentDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    ShowAttachmentWidget *mShowAttachmentWidget = w.findChild<ShowAttachmentWidget *>(QStringLiteral("mShowAttachmentWidget"));
+    auto *mShowAttachmentWidget = w.findChild<ShowAttachmentWidget *>(QStringLiteral("mShowAttachmentWidget"));
     QVERIFY(mShowAttachmentWidget);
 
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }

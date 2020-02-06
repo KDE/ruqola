@@ -44,7 +44,7 @@ void GetChannelRolesJobTest::shouldHaveDefaultValue()
 void GetChannelRolesJobTest::shouldGenerateRequest()
 {
     GetChannelRolesJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString roomId = QStringLiteral("avat");

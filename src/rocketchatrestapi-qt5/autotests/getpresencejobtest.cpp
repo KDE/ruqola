@@ -44,7 +44,7 @@ void GetPresenceJobTest::shouldHaveDefaultValue()
 void GetPresenceJobTest::shouldGenerateRequest()
 {
     GetPresenceJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString avatarUserId = QStringLiteral("avat");

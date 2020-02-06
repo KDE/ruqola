@@ -94,7 +94,7 @@ void RocketChatCache::loadAvatarCache()
 void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bool storeInCache)
 {
     if (fileInCache(QUrl(url))) {
-        CopyFileJob *job = new CopyFileJob(this);
+        auto *job = new CopyFileJob(this);
         job->setCachedFile(fileCachePath(QUrl(url)));
         job->setLocalFile(localFile.toString());
         job->start();

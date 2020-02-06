@@ -33,7 +33,7 @@
 SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -64,7 +64,7 @@ void SearchChannelWidget::slotTextChanged(const QString &str)
 void SearchChannelWidget::slotOpenChannel(const QModelIndex &index)
 {
     if (index.isValid()) {
-        const Channel::ChannelType channelType = index.data(SearchChannelModel::ChannelType).value<Channel::ChannelType>();
+        const auto channelType = index.data(SearchChannelModel::ChannelType).value<Channel::ChannelType>();
         const QString channelId = index.data(SearchChannelModel::ChannelId).toString();
         if (channelType == Channel::ChannelType::Room) {
             //TODO fix api as we use channel id here but api want a roomname !

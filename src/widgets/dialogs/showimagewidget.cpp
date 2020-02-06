@@ -28,11 +28,11 @@
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    QScrollArea *scrollArea = new QScrollArea(this);
+    auto *scrollArea = new QScrollArea(this);
     scrollArea->setObjectName(QStringLiteral("scrollArea"));
     scrollArea->setWidgetResizable(true);
     mainLayout->addWidget(scrollArea);
@@ -43,7 +43,7 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
 
     scrollArea->setWidget(mLabel);
 
-    QHBoxLayout *zoomLayout = new QHBoxLayout;
+    auto *zoomLayout = new QHBoxLayout;
     zoomLayout->setObjectName(QStringLiteral("zoomLayout"));
     mainLayout->addLayout(zoomLayout);
 

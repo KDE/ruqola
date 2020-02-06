@@ -45,7 +45,7 @@ void ForgotPasswordJobTest::shouldHaveDefaultValue()
 void ForgotPasswordJobTest::shouldGenerateRequest()
 {
     ForgotPasswordJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     job.setEmail(QStringLiteral("foo"));

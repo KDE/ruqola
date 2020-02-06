@@ -45,7 +45,7 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveDefaultValue()
 void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupport()
 {
     ChannelGetAllUserMentionsJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString roomId = QStringLiteral("avat");
@@ -63,7 +63,7 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupport()
 void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSorting()
 {
     ChannelGetAllUserMentionsJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString roomId = QStringLiteral("avat");
@@ -86,7 +86,7 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSorting()
 void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSortingTwoParameters()
 {
     ChannelGetAllUserMentionsJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString roomId = QStringLiteral("avat");
@@ -110,7 +110,7 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSortingTwoParam
 void ChannelGetAllUserMentionsJobTest::shouldGenerateRequest()
 {
     ChannelGetAllUserMentionsJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString roomId = QStringLiteral("avat");
@@ -125,11 +125,11 @@ void ChannelGetAllUserMentionsJobTest::shouldNotStarting()
 {
     ChannelGetAllUserMentionsJob job;
 
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
 
-    QNetworkAccessManager *mNetworkAccessManager = new QNetworkAccessManager;
+    auto *mNetworkAccessManager = new QNetworkAccessManager;
     job.setNetworkAccessManager(mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");

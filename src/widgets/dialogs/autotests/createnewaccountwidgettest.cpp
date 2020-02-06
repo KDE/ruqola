@@ -33,21 +33,21 @@ void CreateNewAccountWidgetTest::shouldHaveDefaultValues()
 {
     CreateNewAccountWidget w;
 
-    QFormLayout *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QLineEdit *mAccountName = w.findChild<QLineEdit *>(QStringLiteral("mAccountName"));
+    auto *mAccountName = w.findChild<QLineEdit *>(QStringLiteral("mAccountName"));
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
     QVERIFY(mAccountName->isClearButtonEnabled());
 
-    QLineEdit *mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
+    auto *mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
     QVERIFY(mServerName);
     QVERIFY(mServerName->text().isEmpty());
     QVERIFY(mServerName->isClearButtonEnabled());
 
-    QLineEdit *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    auto *mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
     QVERIFY(mUserName->isClearButtonEnabled());

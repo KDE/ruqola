@@ -44,7 +44,7 @@ void GetSnippetedMessagesJobTest::shouldHaveDefaultValue()
 void GetSnippetedMessagesJobTest::shouldGenerateRequest()
 {
     GetSnippetedMessagesJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString roomId = QStringLiteral("bla");
@@ -58,11 +58,11 @@ void GetSnippetedMessagesJobTest::shouldNotStarting()
 {
     GetSnippetedMessagesJob job;
 
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
 
-    QNetworkAccessManager *mNetworkAccessManager = new QNetworkAccessManager;
+    auto *mNetworkAccessManager = new QNetworkAccessManager;
     job.setNetworkAccessManager(mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");

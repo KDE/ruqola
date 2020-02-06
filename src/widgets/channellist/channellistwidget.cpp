@@ -40,7 +40,7 @@
 ChannelListWidget::ChannelListWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -59,7 +59,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mainLayout->addWidget(mChannelView);
     connect(mChannelView, &ChannelListView::channelSelected, this, &ChannelListWidget::channelSelected);
 
-    QHBoxLayout *statusComboBoxLayout = new QHBoxLayout;
+    auto *statusComboBoxLayout = new QHBoxLayout;
     mainLayout->addLayout(statusComboBoxLayout);
     QLabel *label = new QLabel(i18n("Status:"), this);
     label->setObjectName(QStringLiteral("label"));

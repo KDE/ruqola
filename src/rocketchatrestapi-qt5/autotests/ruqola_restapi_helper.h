@@ -33,7 +33,7 @@ void verifyAuthentication(RestApiAbstractJob *job, QNetworkRequest &request)
     const QString userId = QStringLiteral("user");
     job->setUserId(userId);
     job->setAuthToken(authToken);
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job->setRestApiMethod(method);
     request = job->request();

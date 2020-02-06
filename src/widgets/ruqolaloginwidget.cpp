@@ -33,7 +33,7 @@
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QFormLayout *mainLayout = new QFormLayout(this);
+    auto *mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mAccountName = new QLabel(this);

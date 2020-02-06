@@ -34,16 +34,16 @@ UploadFileWidgetTest::UploadFileWidgetTest(QObject *parent)
 void UploadFileWidgetTest::shouldHaveDefaultValues()
 {
     UploadFileWidget w;
-    QFormLayout *layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
+    auto *layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    KLineEdit *mDescription = w.findChild<KLineEdit *>(QStringLiteral("mDescription"));
+    auto *mDescription = w.findChild<KLineEdit *>(QStringLiteral("mDescription"));
     QVERIFY(mDescription);
     QVERIFY(mDescription->isClearButtonEnabled());
     QVERIFY(mDescription->trapReturnKey());
 
-    KUrlRequester *mSelectFile = w.findChild<KUrlRequester *>(QStringLiteral("mSelectFile"));
+    auto *mSelectFile = w.findChild<KUrlRequester *>(QStringLiteral("mSelectFile"));
     QVERIFY(mSelectFile);
 }
 

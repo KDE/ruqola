@@ -34,13 +34,13 @@ void SearchMessageWidgetTest::shouldHaveDefaultValues()
 {
     SearchMessageWidget w;
 
-    KLineEdit *mSearchLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto *mSearchLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(mSearchLineEdit->trapReturnKey());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
 
-    MessageListView *mResultListWidget = w.findChild<MessageListView *>(QStringLiteral("mResultListWidget"));
+    auto *mResultListWidget = w.findChild<MessageListView *>(QStringLiteral("mResultListWidget"));
     QVERIFY(mResultListWidget);
     QCOMPARE(mResultListWidget->mode(), MessageListView::Mode::Viewing);
 }

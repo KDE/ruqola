@@ -70,7 +70,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
 void RocketChatAccountSettings::slotPasswordRead(QKeychain::Job *baseJob)
 {
 #if HAVE_QT5KEYCHAIN
-    ReadPasswordJob *job = qobject_cast<ReadPasswordJob *>(baseJob);
+    auto *job = qobject_cast<ReadPasswordJob *>(baseJob);
     Q_ASSERT(job);
     if (!job->error()) {
         mPassword = job->textData();

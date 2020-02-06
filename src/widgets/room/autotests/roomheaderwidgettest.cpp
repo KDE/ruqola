@@ -33,17 +33,17 @@ RoomHeaderWidgetTest::RoomHeaderWidgetTest(QObject *parent)
 void RoomHeaderWidgetTest::shouldHaveDefaultValues()
 {
     RoomHeaderWidget w;
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QLabel *mRoomName = w.findChild<QLabel *>(QStringLiteral("mRoomName"));
+    auto *mRoomName = w.findChild<QLabel *>(QStringLiteral("mRoomName"));
     QVERIFY(mRoomName);
     QVERIFY(mRoomName->text().isEmpty());
     QVERIFY(!mRoomName->isVisible());
     QCOMPARE(mRoomName->textInteractionFlags(), Qt::TextBrowserInteraction);
 
-    QLabel *mTopic = w.findChild<QLabel *>(QStringLiteral("mTopic"));
+    auto *mTopic = w.findChild<QLabel *>(QStringLiteral("mTopic"));
     QVERIFY(mTopic);
     QVERIFY(mTopic->text().isEmpty());
     QVERIFY(!mTopic->isVisible());
@@ -51,7 +51,7 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mTopic->textFormat(), Qt::RichText);
     QCOMPARE(mTopic->textInteractionFlags(), Qt::TextBrowserInteraction);
 
-    QLabel *mAnnouncement = w.findChild<QLabel *>(QStringLiteral("mAnnouncement"));
+    auto *mAnnouncement = w.findChild<QLabel *>(QStringLiteral("mAnnouncement"));
     QVERIFY(mAnnouncement);
     QVERIFY(mAnnouncement->text().isEmpty());
     QVERIFY(!mAnnouncement->isVisible());
@@ -59,7 +59,7 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mAnnouncement->textFormat(), Qt::RichText);
     QCOMPARE(mAnnouncement->textInteractionFlags(), Qt::TextBrowserInteraction);
 
-    QLabel *mDescription = w.findChild<QLabel *>(QStringLiteral("mDescription"));
+    auto *mDescription = w.findChild<QLabel *>(QStringLiteral("mDescription"));
     QVERIFY(mDescription);
     QVERIFY(mDescription->text().isEmpty());
     QVERIFY(!mDescription->isVisible());
@@ -67,11 +67,11 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mDescription->textFormat(), Qt::RichText);
     QCOMPARE(mDescription->textInteractionFlags(), Qt::TextBrowserInteraction);
 
-    QToolButton *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
+    auto *mFavoriteButton = w.findChild<QToolButton *>(QStringLiteral("mFavoriteButton"));
     QVERIFY(mFavoriteButton);
     QVERIFY(mFavoriteButton->isCheckable());
 
-    QToolButton *mEncryptedButton = w.findChild<QToolButton *>(QStringLiteral("mEncryptedButton"));
+    auto *mEncryptedButton = w.findChild<QToolButton *>(QStringLiteral("mEncryptedButton"));
     QVERIFY(mEncryptedButton);
     QVERIFY(mEncryptedButton->isCheckable());
     QVERIFY(!mEncryptedButton->isVisible());

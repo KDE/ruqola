@@ -35,7 +35,7 @@ ShowThreadsDialog::ShowThreadsDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Show Threads"));
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mShowThreadsWidget = new ShowThreadsWidget(this);

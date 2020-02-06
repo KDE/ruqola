@@ -29,7 +29,7 @@
 EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *layout = new QVBoxLayout(this);
+    auto *layout = new QVBoxLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
 
@@ -60,7 +60,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     QMapIterator<QString, QVector<UnicodeEmoticon> > i(emojiMap);
     while (i.hasNext()) {
         i.next();
-        EmoticonSelectorWidget *w = new EmoticonSelectorWidget(this);
+        auto *w = new EmoticonSelectorWidget(this);
         mTabWidget->addTab(w, i.value().at(0).unicode());
         w->setEmoticon(i.value());
         connect(w, &EmoticonSelectorWidget::itemSelected, this, &EmoticonMenuWidget::insertEmoticons);

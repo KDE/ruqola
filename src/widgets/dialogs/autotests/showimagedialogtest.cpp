@@ -36,12 +36,12 @@ void ShowImageDialogTest::shouldHaveDefaultValues()
     ShowImageDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    ShowImageWidget *mShowImageWidget = w.findChild<ShowImageWidget *>(QStringLiteral("mShowImageWidget"));
+    auto *mShowImageWidget = w.findChild<ShowImageWidget *>(QStringLiteral("mShowImageWidget"));
     QVERIFY(mShowImageWidget);
 
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 }

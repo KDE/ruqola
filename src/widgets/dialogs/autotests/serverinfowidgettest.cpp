@@ -32,21 +32,21 @@ ServerInfoWidgetTest::ServerInfoWidgetTest(QWidget *parent)
 void ServerInfoWidgetTest::shouldHaveDefaultValues()
 {
     ServerInfoWidget w;
-    QFormLayout *layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
+    auto *layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QLabel *mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
+    auto *mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
     QCOMPARE(mAccountName->textInteractionFlags(), Qt::TextSelectableByMouse);
 
-    QLabel *mUserName = w.findChild<QLabel *>(QStringLiteral("mUserName"));
+    auto *mUserName = w.findChild<QLabel *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);
     QVERIFY(mUserName->text().isEmpty());
     QCOMPARE(mUserName->textInteractionFlags(), Qt::TextSelectableByMouse);
 
-    QLabel *mServerVersion = w.findChild<QLabel *>(QStringLiteral("mServerVersion"));
+    auto *mServerVersion = w.findChild<QLabel *>(QStringLiteral("mServerVersion"));
     QVERIFY(mServerVersion);
     QVERIFY(mServerVersion->text().isEmpty());
     QCOMPARE(mServerVersion->textInteractionFlags(), Qt::TextSelectableByMouse);

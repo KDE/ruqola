@@ -48,11 +48,11 @@ void StarMessageJobTest::shouldHaveDefaultValue()
 void StarMessageJobTest::shouldHaveMessageId()
 {
     StarMessageJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     QVERIFY(!job.canStart());
-    QNetworkAccessManager *mNetworkAccessManager = new QNetworkAccessManager;
+    auto *mNetworkAccessManager = new QNetworkAccessManager;
     job.setNetworkAccessManager(mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");
@@ -70,7 +70,7 @@ void StarMessageJobTest::shouldHaveMessageId()
 void StarMessageJobTest::shouldGenerateStarMessageRequest()
 {
     StarMessageJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     const QString authToken = QStringLiteral("foo");
     const QString userId = QStringLiteral("user");
     job.setUserId(userId);
@@ -94,7 +94,7 @@ void StarMessageJobTest::shouldGenerateUnStarMessageRequest()
 {
     StarMessageJob job;
     job.setStarMessage(false);
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString messageId = QStringLiteral("foo");

@@ -68,11 +68,11 @@ void UpdateMessageJobTest::shouldNotStarting()
 {
     UpdateMessageJob job;
 
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
 
-    QNetworkAccessManager *mNetworkAccessManager = new QNetworkAccessManager;
+    auto *mNetworkAccessManager = new QNetworkAccessManager;
     job.setNetworkAccessManager(mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");

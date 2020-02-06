@@ -51,7 +51,7 @@ void AccountManager::loadAccount()
     while (it.hasNext()) {
         const QString val = it.next();
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
-        RocketChatAccount *account = new RocketChatAccount(val);
+        auto *account = new RocketChatAccount(val);
         connect(account, &RocketChatAccount::notification, this, &AccountManager::notification);
         connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
         connect(account, &RocketChatAccount::logoutDone, this, &AccountManager::logoutAccountDone);

@@ -38,11 +38,11 @@
 ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *topLayout = new QVBoxLayout(this);
+    auto *topLayout = new QVBoxLayout(this);
     topLayout->setObjectName(QStringLiteral("topLayout"));
     topLayout->setContentsMargins(0, 0, 0, 0);
 
-    QFormLayout *mainLayout = new QFormLayout;
+    auto *mainLayout = new QFormLayout;
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
     topLayout->addLayout(mainLayout);
@@ -72,7 +72,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     desktopGroupBox->setObjectName(QStringLiteral("desktopGroupBox"));
     topLayout->addWidget(desktopGroupBox);
 
-    QFormLayout *desktopGroupBoxLayout = new QFormLayout(desktopGroupBox);
+    auto *desktopGroupBoxLayout = new QFormLayout(desktopGroupBox);
     desktopGroupBoxLayout->setObjectName(QStringLiteral("desktopGroupBoxLayout"));
 
     mDesktopAlertCombobox = new QComboBox(this);
@@ -100,7 +100,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mobileGroupBox->setObjectName(QStringLiteral("mobileGroupBox"));
     topLayout->addWidget(mobileGroupBox);    
 
-    QFormLayout *mobileGroupBoxLayout = new QFormLayout(mobileGroupBox);
+    auto *mobileGroupBoxLayout = new QFormLayout(mobileGroupBox);
     mobileGroupBoxLayout->setObjectName(QStringLiteral("mobileGroupBoxLayout"));
     mMobileAlertCombobox = new QComboBox(this);
     mMobileAlertCombobox->setObjectName(QStringLiteral("mMobileAlertCombobox"));
@@ -112,7 +112,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     emailGroupBox->setObjectName(QStringLiteral("emailGroupBox"));
     topLayout->addWidget(emailGroupBox);
 
-    QFormLayout *emailGroupBoxLayout = new QFormLayout(emailGroupBox);
+    auto *emailGroupBoxLayout = new QFormLayout(emailGroupBox);
     emailGroupBoxLayout->setObjectName(QStringLiteral("emailGroupBoxLayout"));
     mEmailAlertCombobox = new QComboBox(this);
     mEmailAlertCombobox->setObjectName(QStringLiteral("mEmailAlertCombobox"));

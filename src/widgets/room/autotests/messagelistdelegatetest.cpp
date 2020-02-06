@@ -92,7 +92,7 @@ void MessageListDelegateTest::layoutChecks()
     option.rect = QRect(100, 100, 500, 500);
 
     QStandardItemModel model;
-    QStandardItem *item = new QStandardItem;
+    auto *item = new QStandardItem;
     item->setData(message.username(), MessageModel::Username);
     item->setData(message.userId(), MessageModel::UserId);
     item->setData(withDateHeader, MessageModel::DateDiffersFromPrevious);
@@ -102,7 +102,7 @@ void MessageListDelegateTest::layoutChecks()
     item->setData(message.text(), MessageModel::MessageConvertedText);
     model.setItem(0, 0, item);
     // Ensure it's not last, that's a special case in sizeHint
-    QStandardItem *item2 = new QStandardItem;
+    auto *item2 = new QStandardItem;
     model.setItem(1, 0, item2);
 
     const QModelIndex index = model.index(0, 0);

@@ -45,7 +45,7 @@ void GoogleAuthJobTest::shouldGenerateRequest()
 {
     GoogleAuthJob job;
 
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QNetworkRequest request = job.request();
@@ -73,11 +73,11 @@ void GoogleAuthJobTest::shouldNotStarting()
 {
     GoogleAuthJob job;
 
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
 
-    QNetworkAccessManager *mNetworkAccessManager = new QNetworkAccessManager;
+    auto *mNetworkAccessManager = new QNetworkAccessManager;
     job.setNetworkAccessManager(mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");

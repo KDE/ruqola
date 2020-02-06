@@ -44,7 +44,7 @@ void GetAvatarJobTest::shouldHaveDefaultValue()
 void GetAvatarJobTest::shouldGenerateRequest()
 {
     GetAvatarJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QString avatarUserId = QStringLiteral("avat");

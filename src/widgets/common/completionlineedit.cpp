@@ -80,7 +80,7 @@ bool CompletionLineEdit::eventFilter(QObject *watched, QEvent *ev)
     if (watched == mCompletionListView) {
         const QEvent::Type eventType = ev->type();
         if (eventType == QEvent::KeyPress) {
-            QKeyEvent *kev = static_cast<QKeyEvent *>(ev);
+            auto *kev = static_cast<QKeyEvent *>(ev);
             const int key = kev->key();
             if (key == Qt::Key_Escape) {
                 mCompletionListView->hide();

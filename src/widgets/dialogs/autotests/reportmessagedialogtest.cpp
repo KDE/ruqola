@@ -41,13 +41,13 @@ void ReportMessageDialogTest::shouldHaveDefaultValues()
     ReportMessageDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    ReportMessageWidget *mReportMessageWidget = w.findChild<ReportMessageWidget *>(QStringLiteral("mReportMessageWidget"));
+    auto *mReportMessageWidget = w.findChild<ReportMessageWidget *>(QStringLiteral("mReportMessageWidget"));
     QVERIFY(mReportMessageWidget);
 
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 
     QVERIFY(w.message().isEmpty());
@@ -59,10 +59,10 @@ void ReportMessageDialogTest::shouldHaveDefaultValues()
 void ReportMessageDialogTest::shouldUpdateOkButton()
 {
     ReportMessageDialog w;
-    ReportMessageWidget *mReportMessageWidget = w.findChild<ReportMessageWidget *>(QStringLiteral("mReportMessageWidget"));
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto *mReportMessageWidget = w.findChild<ReportMessageWidget *>(QStringLiteral("mReportMessageWidget"));
+    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
 
-    QLineEdit *mMessageLineEdit = mReportMessageWidget->findChild<QLineEdit *>(QStringLiteral("mMessageLineEdit"));
+    auto *mMessageLineEdit = mReportMessageWidget->findChild<QLineEdit *>(QStringLiteral("mMessageLineEdit"));
     QVERIFY(mMessageLineEdit);
     mMessageLineEdit->setText(QStringLiteral("foo"));
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);

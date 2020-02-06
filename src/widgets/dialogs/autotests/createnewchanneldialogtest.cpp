@@ -39,13 +39,13 @@ void CreateNewChannelDialogTest::shouldHaveDefaultValues()
     CreateNewChannelDialog w;
     QVERIFY(!w.windowTitle().isEmpty());
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    CreateNewChannelWidget *mCreateNewChannelWidget = w.findChild<CreateNewChannelWidget *>(QStringLiteral("mCreateNewChannelWidget"));
+    auto *mCreateNewChannelWidget = w.findChild<CreateNewChannelWidget *>(QStringLiteral("mCreateNewChannelWidget"));
     QVERIFY(mCreateNewChannelWidget);
 
-    QDialogButtonBox *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    auto *button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 
     QPushButton *mOkButton = button->button(QDialogButtonBox::Ok);

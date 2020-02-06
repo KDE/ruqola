@@ -43,7 +43,7 @@ void FetchMyKeysJobTest::shouldHaveDefaultValue()
 void FetchMyKeysJobTest::shouldGenerateRequest()
 {
     FetchMyKeysJob job;
-    RestApiMethod *method = new RestApiMethod;
+    auto *method = new RestApiMethod;
     method->setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(method);
     const QNetworkRequest request = job.request();

@@ -43,7 +43,7 @@ void ServerInfoJobTest::shouldGenerateRequest()
 {
     {
         ServerInfoJob job;
-        RestApiMethod *method = new RestApiMethod;
+        auto *method = new RestApiMethod;
         method->setServerUrl(QStringLiteral("http://www.kde.org"));
         job.setRestApiMethod(method);
         const QNetworkRequest request = job.request();
@@ -56,7 +56,7 @@ void ServerInfoJobTest::shouldGenerateRequest()
     {
         ServerInfoJob job;
         job.setUseDeprecatedVersion(false);
-        RestApiMethod *method = new RestApiMethod;
+        auto *method = new RestApiMethod;
         method->setServerUrl(QStringLiteral("http://www.kde.org"));
         job.setRestApiMethod(method);
         const QNetworkRequest request = job.request();

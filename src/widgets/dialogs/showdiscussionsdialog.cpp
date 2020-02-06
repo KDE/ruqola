@@ -35,7 +35,7 @@ ShowDiscussionsDialog::ShowDiscussionsDialog(QWidget *parent)
     : QDialog(parent)
 {
     setWindowTitle(i18nc("@title:window", "Show Discussions"));
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mShowDiscussionsWidget = new ShowDiscussionsWidget(this);

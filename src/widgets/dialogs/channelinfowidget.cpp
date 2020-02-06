@@ -38,7 +38,7 @@
 ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -51,7 +51,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mEditableChannel->setObjectName(QStringLiteral("mEditableChannel"));
     mStackedWidget->addWidget(mEditableChannel);
 
-    QFormLayout *layout = new QFormLayout(mEditableChannel);
+    auto *layout = new QFormLayout(mEditableChannel);
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins(0, 0, 0, 0);
 
@@ -131,7 +131,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mReadOnlyChannel->setObjectName(QStringLiteral("mReadOnlyChannel"));
     mStackedWidget->addWidget(mReadOnlyChannel);
 
-    QFormLayout *layoutReadOnly = new QFormLayout(mReadOnlyChannel);
+    auto *layoutReadOnly = new QFormLayout(mReadOnlyChannel);
     layoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
     layoutReadOnly->setContentsMargins(0, 0, 0, 0);
 
@@ -257,7 +257,7 @@ void ChannelInfoWidget::connectEditableWidget()
 ChangeTextWidget::ChangeTextWidget(QWidget *parent)
     : QWidget(parent)
 {
-    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    auto *mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mLabel = new QLabel(this);

@@ -39,21 +39,21 @@ void ChannelListWidgetTest::shouldHaveDefaultValues()
 {
     ChannelListWidget w;
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainlayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    QLineEdit *mSearchRoom = w.findChild<QLineEdit *>(QStringLiteral("mSearchRoom"));
+    auto *mSearchRoom = w.findChild<QLineEdit *>(QStringLiteral("mSearchRoom"));
     QVERIFY(mSearchRoom);
     QVERIFY(!mSearchRoom->placeholderText().isEmpty());
 
-    StatusCombobox *mStatusComboBox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusComboBox"));
+    auto *mStatusComboBox = w.findChild<StatusCombobox *>(QStringLiteral("mStatusComboBox"));
     QVERIFY(mStatusComboBox);
 
-    ChannelListView *mChannelView = w.findChild<ChannelListView *>(QStringLiteral("mChannelView"));
+    auto *mChannelView = w.findChild<ChannelListView *>(QStringLiteral("mChannelView"));
     QVERIFY(mChannelView);
 
-    QLabel *label = w.findChild<QLabel *>(QStringLiteral("label"));
+    auto *label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
 }

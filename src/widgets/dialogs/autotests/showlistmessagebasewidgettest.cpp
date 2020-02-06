@@ -36,21 +36,21 @@ void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
 {
     ShowListMessageBaseWidget w;
 
-    QVBoxLayout *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto *mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
 
-    KLineEdit *mSearchMessageLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mSearchMessageLineEdit"));
+    auto *mSearchMessageLineEdit = w.findChild<KLineEdit *>(QStringLiteral("mSearchMessageLineEdit"));
     QVERIFY(mSearchMessageLineEdit);
     QVERIFY(mSearchMessageLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchMessageLineEdit->placeholderText().isEmpty());
 
-    QLabel *mMessageListInfo = w.findChild<QLabel *>(QStringLiteral("mMessageListInfo"));
+    auto *mMessageListInfo = w.findChild<QLabel *>(QStringLiteral("mMessageListInfo"));
     QVERIFY(mMessageListInfo);
     QVERIFY(mMessageListInfo->text().isEmpty());
     QCOMPARE(mMessageListInfo->textFormat(), Qt::RichText);
 
-    MessageListView *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
+    auto *mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
     QVERIFY(mMessageListView);
     QCOMPARE(mMessageListView->mode(), MessageListView::Mode::Viewing);
 }

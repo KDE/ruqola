@@ -92,7 +92,7 @@ RoomWrapper *RoomModel::findRoomWrapper(const QString &roomID) const
 {
     for (Room *r : qAsConst(mRoomsList)) {
         if (r->roomId() == roomID) {
-            RoomWrapper *wrapper = new RoomWrapper(r);
+            auto *wrapper = new RoomWrapper(r);
             return wrapper;
         }
     }

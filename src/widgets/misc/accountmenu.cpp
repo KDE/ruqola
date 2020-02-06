@@ -50,13 +50,13 @@ void AccountMenu::slotUpdateAccountMenu()
         menu()->addAction(action);
         action->setEnabled(false);
     } else {
-        QActionGroup *group = new QActionGroup(this);
+        auto *group = new QActionGroup(this);
         group->setExclusive(true);
         for (int i = 0; i < accountNumber; ++i) {
             RocketChatAccount *account = model->account(i);
             if (account->accountEnabled()) {
                 const QString accountName = account->accountName();
-                QAction *action = new QAction(accountName, this);
+                auto *action = new QAction(accountName, this);
                 action->setCheckable(true);
                 group->addAction(action);
                 if (currentAccountName == accountName) {

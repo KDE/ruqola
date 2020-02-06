@@ -51,7 +51,7 @@ bool LogoutJob::start()
 
 void LogoutJob::slotLogout()
 {
-    QNetworkReply *reply = qobject_cast<QNetworkReply *>(sender());
+    auto *reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
         const QByteArray data = reply->readAll();
         addLoggerInfo("LogoutJob finished: " + data);
