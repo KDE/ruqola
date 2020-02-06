@@ -185,12 +185,13 @@ int MessageModel::rowCount(const QModelIndex &parent) const
     return mAllMessages.size();
 }
 
+static bool compareTimeStamps(const Message &lhs, const Message &rhs) {
+    return lhs.timeStamp() < rhs.timeStamp();
+}
+
 void MessageModel::addMessage(const Message &message)
 {
-    auto it = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message,
-                               [](const Message &lhs, const Message &rhs) -> bool {
-        return lhs.timeStamp() < rhs.timeStamp();
-    });
+    auto it = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message, compareTimeStamps);
 
     auto emitChanged = [this](int rowNumber) {
                            if (mQmlHacks) {
@@ -209,10 +210,10 @@ void MessageModel::addMessage(const Message &message)
     //When we have 1 element.
     if (mAllMessages.count() == 1 && (*mAllMessages.begin()).messageId() == message.messageId()) {
         (*mAllMessages.begin()) = message;
-        qCDebug(RUQOLA_LOG) << "Update Message";
+        qCDebug(RUQOLA_LOG) << "Update first message";
         emitChanged(0);
     } else if (((it) != mAllMessages.begin() && (*(it - 1)).messageId() == message.messageId())) {
-        qCDebug(RUQOLA_LOG) << "Update Message";
+        qCDebug(RUQOLA_LOG) << "Update message";
         (*(it-1)) = message;
         emitChanged(std::distance(mAllMessages.begin(), it - 1));
     } else {
@@ -220,6 +221,21 @@ void MessageModel::addMessage(const Message &message)
         beginInsertRows(QModelIndex(), pos, pos);
         mAllMessages.insert(it, message);
         endInsertRows();
+    }
+}
+
+void MessageModel::addMessages(const QVector<Message> &messages)
+{
+    if (mAllMessages.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, messages.count() - 1);
+        mAllMessages = messages;
+        std::sort(mAllMessages.begin(), mAllMessages.end(), compareTimeStamps);
+        endInsertRows();
+    } else {
+        // TODO optimize this case as well?
+        for (const Message &message : messages) {
+            addMessage(message);
+        }
     }
 }
 

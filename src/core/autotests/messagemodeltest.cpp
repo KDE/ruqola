@@ -195,7 +195,7 @@ void MessageModelTest::shouldRemoveNotExistingMessage()
     w.addMessage(input);
 
     QCOMPARE(w.rowCount(), 1);
-    //Remove existing message
+    //Remove non-existing message
     w.deleteMessage(QStringLiteral("Bla"));
     QCOMPARE(w.rowCount(), 1);
 
@@ -234,4 +234,59 @@ void MessageModelTest::shouldDetectDateChange()
     model.addMessage(third);
     QCOMPARE(model.rowCount(), 3);
     QVERIFY(!model.index(2, 0).data(MessageModel::DateDiffersFromPrevious).toBool()); // same day
+}
+
+static QByteArrayList extractMessageIds(MessageModel &m)
+{
+    QByteArrayList ret;
+    const int count = m.rowCount();
+    ret.reserve(count);
+    for (int row = 0; row < count; ++row) {
+        ret << m.index(row, 0).data(MessageModel::MessageId).toString().toLatin1();
+    }
+    return ret;
+}
+
+void MessageModelTest::shouldAddMessages()
+{
+    MessageModel model;
+    Message input;
+    fillTestMessage(input);
+    QVector<Message> messages;
+    auto makeMessage = [&](const char *id, qint64 timestamp) {
+        input.setMessageId(QString::fromLatin1(id));
+        input.setTimeStamp(timestamp);
+        return input;
+    };
+    messages << makeMessage("msgA", 8);
+    messages << makeMessage("msgB", 4);
+    messages << makeMessage("msgC", 6);
+    messages << makeMessage("msgD", 2);
+    model.addMessages(messages);
+    QCOMPARE(model.rowCount(), 4);
+    QCOMPARE(extractMessageIds(model), QByteArrayList() << "msgD" << "msgB" << "msgC" << "msgA");
+
+    messages.clear();
+    messages << makeMessage("msgE", 1);
+    messages << makeMessage("msgF", 3);
+    messages << makeMessage("msgG", 9);
+    messages << makeMessage("msgH", 5);
+    input.setText(QStringLiteral("modified"));
+    messages << makeMessage("msgA", 8); // update
+    model.addMessages(messages);
+    QCOMPARE(model.rowCount(), 8);
+    QCOMPARE(extractMessageIds(model), QByteArrayList() << "msgE" << "msgD" << "msgF" << "msgB" << "msgH" << "msgC" << "msgA" << "msgG");
+    QCOMPARE(model.index(6, 0).data(MessageModel::OriginalMessage).toString(), QStringLiteral("modified"));
+}
+
+void MessageModelTest::shouldUpdateFirstMessage()
+{
+    MessageModel model;
+    Message input;
+    fillTestMessage(input);
+    model.addMessages( { input } );
+    QCOMPARE(model.rowCount(), 1);
+    input.setText(QStringLiteral("modified"));
+    model.addMessages( { input } );
+    QCOMPARE(model.index(0, 0).data(MessageModel::OriginalMessage).toString(), QStringLiteral("modified"));
 }

@@ -36,6 +36,8 @@ private Q_SLOTS:
     void shouldRemoveMessage();
     void shouldRemoveNotExistingMessage();
     void shouldDetectDateChange();
+    void shouldAddMessages();
+    void shouldUpdateFirstMessage();
 };
 
 #endif // MESSAGEMODELTEST_H

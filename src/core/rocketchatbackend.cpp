@@ -156,6 +156,7 @@ void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)
 
 void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
 {
+    QMap<MessageModel *, QVector<Message>> dispatcher;
     for (const QJsonValue &v : messages) {
         QJsonObject o = v.toObject();
         if (mRocketChatAccount->ruqolaLogger()) {
@@ -172,10 +173,13 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages)
             if (!m.threadMessageId().isEmpty()) {
                 mRocketChatAccount->updateThreadMessageList(m);
             }
-            messageModel->addMessage(m);
+            dispatcher[messageModel].append(std::move(m));
         } else {
             qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << m.roomId() << " It's a bug for sure.";
         }
+    }
+    for (auto it = dispatcher.cbegin(); it != dispatcher.cend(); ++it) {
+        it.key()->addMessages(it.value());
     }
 }
 
