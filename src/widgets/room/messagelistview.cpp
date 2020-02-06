@@ -132,6 +132,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
+    QAction *copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"), &menu);
+    connect(copyAction, &QAction::triggered, this, [=]() {
+        slotCopyText(index);
+    });
+
     if (mMode == Mode::Editing) {
         QAction *startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [=]() {
@@ -165,10 +170,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(editAction);
         }
 
-        QAction *copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"), &menu);
-        connect(copyAction, &QAction::triggered, this, [=]() {
-            slotCopyText(index);
-        });
         menu.addAction(copyAction);
 
         if (rcAccount->allowMessageDeletingEnabled() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
@@ -195,26 +196,32 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
                 slotTranslateMessage(index, checked);
             });
             menu.addAction(translateAction);
-
         }
-
+    } else {
+        menu.addAction(copyAction);
         if (!menu.isEmpty()) {
             auto *separator = new QAction(&menu);
             separator->setSeparator(true);
             menu.addAction(separator);
         }
-        QAction *reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
-        connect(reportMessageAction, &QAction::triggered, this, [=]() {
-            slotReportMessage(index);
-        });
-        menu.addAction(reportMessageAction);
-    } else {
         QAction *goToMessageAction = new QAction(i18n("Go to Message"), &menu); //Add icon
         connect(goToMessageAction, &QAction::triggered, this, [=]() {
             slotGoToMessage(index);
         });
         menu.addAction(goToMessageAction);
     }
+
+    if (!menu.isEmpty()) {
+        QAction *separator = new QAction(&menu);
+        separator->setSeparator(true);
+        menu.addAction(separator);
+    }
+    QAction *reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
+    connect(reportMessageAction, &QAction::triggered, this, [=]() {
+        slotReportMessage(index);
+    });
+    menu.addAction(reportMessageAction);
+
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
