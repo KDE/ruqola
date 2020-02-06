@@ -23,6 +23,7 @@
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
 class ShowDiscussionsWidget;
+class DiscussionsFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsDialog : public QDialog
 {
     Q_OBJECT
@@ -30,6 +31,7 @@ public:
     explicit ShowDiscussionsDialog(QWidget *parent = nullptr);
     ~ShowDiscussionsDialog();
 
+    void setModel(DiscussionsFilterProxyModel *model);
 private:
     void readConfig();
     void writeConfig();

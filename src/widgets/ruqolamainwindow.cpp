@@ -276,7 +276,9 @@ void RuqolaMainWindow::slotShowThreads()
 void RuqolaMainWindow::slotShowDiscussions()
 {
     QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(this);
-    //TODO
+    dlg->setModel(mCurrentRocketChatAccount->discussionsFilterProxyModel());
+    const QString roomId = mMainWidget->roomId();
+    mCurrentRocketChatAccount->discussionsInRoom(roomId);
     dlg->exec();
     delete dlg;
 }

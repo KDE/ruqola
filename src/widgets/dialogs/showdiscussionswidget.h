@@ -26,12 +26,15 @@
 class KLineEdit;
 class QLabel;
 class QListView;
+class DiscussionsFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ShowDiscussionsWidget(QWidget *parent = nullptr);
     ~ShowDiscussionsWidget();
+
+    void setModel(DiscussionsFilterProxyModel *model);
 
 Q_SIGNALS:
     void loadMoreDiscussion();

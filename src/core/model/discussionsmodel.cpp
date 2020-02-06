@@ -120,6 +120,7 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
         return discussion.description().isEmpty() ? discussion.fname() : discussion.description();
     case NumberOfMessages:
         return discussion.numberMessages();
+    case Qt::DisplayRole:
     case LastMessage:
         return discussion.lastMessageDisplay();
     case DiscussionRoomId:

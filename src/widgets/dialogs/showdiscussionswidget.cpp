@@ -20,6 +20,7 @@
 
 #include "showdiscussionswidget.h"
 #include "listdiscussiondelegate.h"
+#include "model/discussionsfilterproxymodel.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <KLineEdit>
@@ -66,3 +67,9 @@ void ShowDiscussionsWidget::slotSearchMessageTextChanged(const QString &str)
 {
     //mModel->setFilterString(str);
 }
+
+void ShowDiscussionsWidget::setModel(DiscussionsFilterProxyModel *model)
+{
+    mListDiscussions->setModel(model);
+}
+
