@@ -41,13 +41,13 @@ TypingNotification::~TypingNotification()
     }
 }
 
-void TypingNotification::setText(const QString &roomId, const QString &str)
+void TypingNotification::textNotificationChanged(const QString &roomId, bool emptyString)
 {
     if (mTimer->isActive()) {
         mTimer->stop();
     }
     if (mTypingInprogress) {
-        if (str.isEmpty()) {
+        if (emptyString) {
             mTypingInprogress = false;
             //1) Send info about typing.
             Q_EMIT informTypingStatus(roomId, false);

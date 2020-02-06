@@ -69,6 +69,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(this, &RoomWidget::channelSelected, this, &RoomWidget::setChannelSelected);
     connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &RoomWidget::slotSendMessage);
     connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
+    connect(mMessageLineWidget, &MessageLineWidget::textEditing, this, &RoomWidget::slotTextEditing);
     connect(mMessageLineWidget->messageLineEdit(), &MessageLineEdit::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
@@ -79,6 +80,11 @@ RoomWidget::RoomWidget(QWidget *parent)
 RoomWidget::~RoomWidget()
 {
     delete mRoomWrapper;
+}
+
+void RoomWidget::slotTextEditing(bool clearNotification)
+{
+    mCurrentRocketChatAccount->textEditing(mRoomId, clearNotification);
 }
 
 void RoomWidget::slotSendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)

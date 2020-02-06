@@ -48,7 +48,7 @@ void TypingNotificationTest::shouldEmitSignalWhenTyping()
     timerTimeOutValueMs = 100; //100ms
     TypingNotification t;
     QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
-    t.setText(QStringLiteral("foo"), QStringLiteral("bla"));
+    t.textNotificationChanged(QStringLiteral("foo"), false);
     //Wait 500ms
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
@@ -59,7 +59,7 @@ void TypingNotificationTest::shouldEmitSignalWhenTypingAndEmitTypingFalseAfterTi
     timerTimeOutValueMs = 100; //100ms
     TypingNotification t;
     QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
-    t.setText(QStringLiteral("foo"), QStringLiteral("bla"));
+    t.textNotificationChanged(QStringLiteral("foo"), false);
     //Wait 50ms
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
@@ -73,14 +73,14 @@ void TypingNotificationTest::shouldDontEmitSignalWhenTypingSeveralTextBeforeTime
     timerTimeOutValueMs = 100; //100ms
     TypingNotification t;
     QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
-    t.setText(QStringLiteral("foo"), QStringLiteral("bla"));
+    t.textNotificationChanged(QStringLiteral("foo"), false);
     //Wait 50ms
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
-    t.setText(QStringLiteral("foo"), QStringLiteral("bla1"));
+    t.textNotificationChanged(QStringLiteral("foo"), false);
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
-    t.setText(QStringLiteral("foo"), QStringLiteral("bla2"));
+    t.textNotificationChanged(QStringLiteral("foo"), false);
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
 
@@ -95,12 +95,12 @@ void TypingNotificationTest::shouldEmitTwoSignalWhenChangeRoom()
     QSignalSpy signal(&t, &TypingNotification::informTypingStatus);
     QString room1 = QStringLiteral("room1");
     QString room2 = QStringLiteral("room2");
-    t.setText(room1, QStringLiteral("bla"));
+    t.textNotificationChanged(room1, false);
     //Wait 50ms
     QTest::qWait(50);
     QCOMPARE(signal.count(), 1);
 
-    t.setText(room2, QStringLiteral("bla"));
+    t.textNotificationChanged(room2, false);
     //Wait 50ms
     QTest::qWait(50);
     QCOMPARE(signal.count(), 3); //Two signal send.

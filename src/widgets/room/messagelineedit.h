@@ -39,6 +39,7 @@ public:
 Q_SIGNALS:
     void sendMessage(const QString &str);
     void keyPressed(QKeyEvent *ev);
+    void textEditing(bool clearNotification);
 
 protected:
     void keyPressEvent(QKeyEvent *e) override;

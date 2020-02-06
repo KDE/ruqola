@@ -31,7 +31,7 @@ public:
     explicit TypingNotification(QObject *parent = nullptr);
     ~TypingNotification();
 
-    void setText(const QString &roomId, const QString &str);
+    void textNotificationChanged(const QString &roomId, bool emptyString);
 Q_SIGNALS:
     void informTypingStatus(const QString &room, bool typing);
 

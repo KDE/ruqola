@@ -46,6 +46,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mMessageLineEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
     mainLayout->addWidget(mMessageLineEdit);
     connect(mMessageLineEdit, &MessageLineEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
+    connect(mMessageLineEdit, &MessageLineEdit::textEditing, this, &MessageLineWidget::textEditing);
 
     mEmoticonButton = new QToolButton(this);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));

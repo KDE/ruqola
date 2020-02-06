@@ -65,6 +65,7 @@ void MessageLineEdit::slotTextChanged(const QString &text)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     rcAccount->setInputTextChanged(text, cursorPosition());
+    Q_EMIT textEditing(text.isEmpty());
 }
 
 void MessageLineEdit::slotComplete(const QModelIndex &index)

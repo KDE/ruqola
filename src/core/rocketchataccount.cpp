@@ -370,9 +370,9 @@ QString RocketChatAccount::replaceWord(const QString &newWord, const QString &st
     return mInputTextManager->replaceWord(newWord, str, position);
 }
 
-void RocketChatAccount::textEditing(const QString &roomId, const QString &str)
+void RocketChatAccount::textEditing(const QString &roomId, bool clearNotification)
 {
-    mTypingNotification->setText(roomId, str);
+    mTypingNotification->textNotificationChanged(roomId, clearNotification);
 }
 
 void RocketChatAccount::reactOnMessage(const QString &messageId, const QString &emoji, bool shouldReact)

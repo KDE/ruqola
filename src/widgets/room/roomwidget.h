@@ -64,6 +64,7 @@ private:
     void keyPressedInLineEdit(QKeyEvent *ev);
     void setRoomType(const QString &roomType);
     void slotEncryptedChanged(bool b);
+    void slotTextEditing(bool clearNotification);
 
     QString mRoomId;
     QString mRoomType;

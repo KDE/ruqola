@@ -880,7 +880,7 @@ Component {
                     messageLineText: rcAccount.getUserCurrentMessage(appid.selectedRoomID)
                     selectedRoomId: appid.selectedRoomID
                     onTextEditing: {
-                        rcAccount.textEditing(appid.selectedRoomID, str)
+                        rcAccount.textEditing(appid.selectedRoomID, str.length == 0)
                         appid.userInputMessageText = str;
                     }
                     onClearUnreadMessages: {

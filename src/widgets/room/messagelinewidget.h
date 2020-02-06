@@ -54,6 +54,7 @@ public:
 Q_SIGNALS:
     void sendMessage(const QString &str);
     void sendFile(const UploadFileDialog::UploadFileInfo &result);
+    void textEditing(bool clearNotification);
 
 private:
     void slotSendMessage(const QString &msg);

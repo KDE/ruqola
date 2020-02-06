@@ -166,7 +166,7 @@ public:
 
     Q_INVOKABLE Q_REQUIRED_RESULT QString getUserCurrentMessage(const QString &roomId);
     Q_INVOKABLE void setUserCurrentMessage(const QString &message, const QString &roomId);
-    Q_INVOKABLE void textEditing(const QString &roomId, const QString &str);
+    Q_INVOKABLE void textEditing(const QString &roomId, bool clearNotification);
     Q_INVOKABLE void leaveRoom(const QString &roomId, const QString &channelType);
     Q_INVOKABLE void hideRoom(const QString &roomId, const QString &channelType = QString());
     Q_INVOKABLE void tryLogin();
