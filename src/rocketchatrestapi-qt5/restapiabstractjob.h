@@ -45,7 +45,7 @@ public:
     Q_REQUIRED_RESULT int count() const;
     void setCount(int count);
 
-    bool isValid() const;
+    Q_REQUIRED_RESULT bool isValid() const;
 
     Q_REQUIRED_RESULT QMap<QString, SortOrder> sorting() const;
     void setSorting(const QMap<QString, SortOrder> &sorting);
@@ -113,7 +113,7 @@ protected:
     RocketChatRestApi::AbstractLogger *mRestApiLogger = nullptr;
 
 private:
-    QString generateErrorMessage(const QString &errorStr);
+    Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const;
 };
 }
 #endif // RESTAPIABSTRACTJOB_H

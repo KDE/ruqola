@@ -208,7 +208,7 @@ void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject)
     }
 }
 
-QString RestApiAbstractJob::generateErrorMessage(const QString &errorStr)
+QString RestApiAbstractJob::generateErrorMessage(const QString &errorStr) const
 {
     if (jobName().isEmpty()) {
         return errorStr;
