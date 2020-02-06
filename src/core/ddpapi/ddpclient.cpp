@@ -835,15 +835,21 @@ void DDPClient::onTextMessageReceived(const QString &message)
             qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "REMOVED element" <<response;
             Q_EMIT removed(root);
         } else if (messageType == QLatin1String("nosub")) {
-            qDebug() << mRocketChatAccount->accountName()  << "Unsubscribe element" <<message;
+            const QString id = root.value(QStringLiteral("id")).toString();
+            qCDebug(RUQOLA_DDPAPI_LOG) << mRocketChatAccount->accountName()  << "Unsubscribe element" <<message << id;
             const QJsonObject errorObj = root[QStringLiteral("error")].toObject();
-            qWarning() << mRocketChatAccount->accountName()  << "Error found start:";
-            qWarning() << mRocketChatAccount->accountName()  << "ERROR: " << errorObj[QStringLiteral("error")].toString();
-            qWarning() << mRocketChatAccount->accountName()  << "Message: " << errorObj[QStringLiteral("message")].toString();
-            qWarning() << mRocketChatAccount->accountName()  << "Reason: " << errorObj[QStringLiteral("reason")].toString();
-            qWarning() << mRocketChatAccount->accountName()  << "-- Error found END --";
+            if (!errorObj.isEmpty()) {
+                qWarning() << mRocketChatAccount->accountName()  << "Error unsubscribing from" << id;
+                qWarning() << mRocketChatAccount->accountName()  << "ERROR: " << errorObj[QStringLiteral("error")].toString();
+                qWarning() << mRocketChatAccount->accountName()  << "Message: " << errorObj[QStringLiteral("message")].toString();
+                qWarning() << mRocketChatAccount->accountName()  << "Reason: " << errorObj[QStringLiteral("reason")].toString();
+                qWarning() << mRocketChatAccount->accountName()  << "-- Error found END --";
+            }
         } else {
-            qWarning() << mRocketChatAccount->accountName()  << "received something unhandled:" << message;
+            // The very first message we receive is {"server_id":"0"}, can't find it in the spec, just ignore it.
+            if (messageType.isEmpty() && !root.value(QStringLiteral("server_id")).isUndefined())
+                return;
+            qWarning() << mRocketChatAccount->accountName()  << "received something unhandled:" << messageType << message;
         }
     } else {
         qWarning() << mRocketChatAccount->accountName()  << "received something unhandled unknown " << message;
