@@ -56,11 +56,26 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
     mainLayout->addWidget(mLoginButton);
     connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
-    //TODO add message error
     //TODO add support for twoFactorAuthentication
     /**
 twoFactorAuthenticationCode: rcAccount.twoFactorAuthenticationCode
 */
+
+    QWidget *authenticationWidget = new QWidget(this);
+    authenticationWidget->setObjectName(QStringLiteral("authenticationWidget"));
+    authenticationWidget->setVisible(false);
+
+    QVBoxLayout *mTwoFactorAuthenticationLayout = new QVBoxLayout(authenticationWidget);
+
+    QLabel *mTwoFactorAuthenticationLabel = new QLabel(i18n("You have enabled second factor authentication.\nPlease enter the generated code or a backup code."), this);
+    mTwoFactorAuthenticationLabel->setObjectName(QStringLiteral("mTwoFactorAuthenticationLabel"));
+    mTwoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationLabel);
+
+    mTwoFactorAuthenticationPasswordLineEdit = new KPasswordLineEdit(this);
+    mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    mTwoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
+
+    mainLayout->addWidget(authenticationWidget);
 
     mBusyIndicatorWidget = new KBusyIndicatorWidget(this);
     mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
