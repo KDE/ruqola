@@ -76,18 +76,8 @@ void MessageModelTest::shouldHaveDefaultValue()
     QCOMPARE(w.roleNames(), roles);
 }
 
-void MessageModelTest::shouldRemoveMessage()
+static void fillTestMessage(Message &input)
 {
-    MessageModel w;
-    Message input;
-
-    QSignalSpy rowInsertedSpy(&w, &MessageModel::rowsInserted);
-    QSignalSpy rowABTInserted(&w, &MessageModel::rowsAboutToBeInserted);
-    QSignalSpy rowRemovedSpy(&w, &MessageModel::rowsRemoved);
-    QSignalSpy rowABTRemoved(&w, &MessageModel::rowsAboutToBeRemoved);
-
-    const QString messageId = QStringLiteral("ff");
-    input.setMessageId(messageId);
     input.setRoomId(QStringLiteral("room2"));
     input.setText(QStringLiteral("message1"));
     input.setTimeStamp(42);
@@ -103,6 +93,56 @@ void MessageModelTest::shouldRemoveMessage()
     input.setGroupable(true);
     input.setParseUrls(true);
     input.setMessageType(Message::MessageType::Audio);
+}
+
+void MessageModelTest::shouldAddMessage()
+{
+    MessageModel w;
+    Message input;
+    fillTestMessage(input);
+    input.setMessageId(QStringLiteral("ff"));
+    w.addMessage(input);
+
+    QCOMPARE(w.rowCount(), 1);
+    //Don't create duplicates
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 1);
+
+    //Add other messageId
+    input.setMessageId(QStringLiteral("ff2"));
+    input.setTimeStamp(43);
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 2);
+
+    input.setMessageId(QStringLiteral("ff3"));
+    input.setTimeStamp(44);
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 3);
+
+    input.setMessageId(QStringLiteral("ff4"));
+    input.setTimeStamp(45);
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 4);
+
+    input.setMessageId(QStringLiteral("ff2"));
+    input.setTimeStamp(43);
+    w.addMessage(input);
+    QCOMPARE(w.rowCount(), 4);
+}
+
+void MessageModelTest::shouldRemoveMessage()
+{
+    MessageModel w;
+    Message input;
+    fillTestMessage(input);
+
+    QSignalSpy rowInsertedSpy(&w, &MessageModel::rowsInserted);
+    QSignalSpy rowABTInserted(&w, &MessageModel::rowsAboutToBeInserted);
+    QSignalSpy rowRemovedSpy(&w, &MessageModel::rowsRemoved);
+    QSignalSpy rowABTRemoved(&w, &MessageModel::rowsAboutToBeRemoved);
+
+    const QString messageId = QStringLiteral("ff");
+    input.setMessageId(messageId);
     w.addMessage(input);
 
     QCOMPARE(w.rowCount(), 1);
@@ -149,24 +189,9 @@ void MessageModelTest::shouldRemoveNotExistingMessage()
 {
     MessageModel w;
     Message input;
-
+    fillTestMessage(input);
     const QString messageId = QStringLiteral("ff");
     input.setMessageId(messageId);
-    input.setRoomId(QStringLiteral("room2"));
-    input.setText(QStringLiteral("message1"));
-    input.setTimeStamp(42);
-    input.setUsername(QStringLiteral("user1"));
-    input.setUserId(QStringLiteral("userid1"));
-    input.setUpdatedAt(45);
-    input.setEditedAt(89);
-    input.setEditedByUsername(QStringLiteral("editeduser1"));
-    input.setEditedByUserId(QStringLiteral("editedbyid1"));
-    input.setAlias(QStringLiteral("ali"));
-    input.setAvatar(QStringLiteral("avatar1"));
-    input.setSystemMessageType(QStringLiteral("type"));
-    input.setGroupable(true);
-    input.setParseUrls(true);
-    input.setMessageType(Message::MessageType::Audio);
     w.addMessage(input);
 
     QCOMPARE(w.rowCount(), 1);
@@ -209,54 +234,4 @@ void MessageModelTest::shouldDetectDateChange()
     model.addMessage(third);
     QCOMPARE(model.rowCount(), 3);
     QVERIFY(!model.index(2, 0).data(MessageModel::DateDiffersFromPrevious).toBool()); // same day
-}
-
-void MessageModelTest::shouldAddMessage()
-{
-    MessageModel w;
-    Message input;
-
-    input.setMessageId(QStringLiteral("ff"));
-    input.setRoomId(QStringLiteral("room2"));
-    input.setText(QStringLiteral("message1"));
-    input.setTimeStamp(42);
-    input.setUsername(QStringLiteral("user1"));
-    input.setUserId(QStringLiteral("userid1"));
-    input.setUpdatedAt(45);
-    input.setEditedAt(89);
-    input.setEditedByUsername(QStringLiteral("editeduser1"));
-    input.setEditedByUserId(QStringLiteral("editedbyid1"));
-    input.setAlias(QStringLiteral("ali"));
-    input.setAvatar(QStringLiteral("avatar1"));
-    input.setSystemMessageType(QStringLiteral("type"));
-    input.setGroupable(true);
-    input.setParseUrls(true);
-    input.setMessageType(Message::MessageType::Audio);
-    w.addMessage(input);
-
-    QCOMPARE(w.rowCount(), 1);
-    //Don't create more element
-    w.addMessage(input);
-    QCOMPARE(w.rowCount(), 1);
-
-    //Add other messageId
-    input.setMessageId(QStringLiteral("ff2"));
-    input.setTimeStamp(43);
-    w.addMessage(input);
-    QCOMPARE(w.rowCount(), 2);
-
-    input.setMessageId(QStringLiteral("ff3"));
-    input.setTimeStamp(44);
-    w.addMessage(input);
-    QCOMPARE(w.rowCount(), 3);
-
-    input.setMessageId(QStringLiteral("ff4"));
-    input.setTimeStamp(45);
-    w.addMessage(input);
-    QCOMPARE(w.rowCount(), 4);
-
-    input.setMessageId(QStringLiteral("ff2"));
-    input.setTimeStamp(43);
-    w.addMessage(input);
-    QCOMPARE(w.rowCount(), 4);
 }
