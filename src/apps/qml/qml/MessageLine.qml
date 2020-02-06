@@ -131,8 +131,9 @@ ColumnLayout {
         }
         QQC2.Popup {
             id: popup
+
             x: 0
-            height: Kirigami.Units.gridUnit * listView.count + 10
+            height: listView.delegateHeight * listView.count
             y: -height - 10
             padding: 0
             width: messageLine.width
@@ -150,6 +151,9 @@ ColumnLayout {
 
                 ListView {
                     id: listView
+
+                    readonly property int delegateHeight: count > 0 ? contentItem.children[0].height : 0
+
                     height: popup.height
                     width: parent.width
                     interactive: true
