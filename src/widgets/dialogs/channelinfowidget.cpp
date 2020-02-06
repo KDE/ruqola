@@ -138,28 +138,28 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mNameReadOnly = new QLabel(this);
     mNameReadOnly->setTextFormat(Qt::RichText);
     mNameReadOnly->setObjectName(QStringLiteral("mNameReadOnly"));
-    mNameReadOnly->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    mNameReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mNameReadOnly->setOpenExternalLinks(true);
     layoutReadOnly->addRow(i18n("Name:"), mNameReadOnly);
 
     mCommentReadOnly = new QLabel(this);
     mCommentReadOnly->setTextFormat(Qt::RichText);
     mCommentReadOnly->setObjectName(QStringLiteral("mCommentReadOnly"));
-    mCommentReadOnly->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    mCommentReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mCommentReadOnly->setOpenExternalLinks(true);
     layoutReadOnly->addRow(i18n("Comment:"), mCommentReadOnly);
 
     mAnnouncementReadOnly = new QLabel(this);
     mAnnouncementReadOnly->setTextFormat(Qt::RichText);
     mAnnouncementReadOnly->setObjectName(QStringLiteral("mAnnouncementReadOnly"));
-    mAnnouncementReadOnly->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    mAnnouncementReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mAnnouncementReadOnly->setOpenExternalLinks(true);
     layoutReadOnly->addRow(i18n("Announcement:"), mAnnouncementReadOnly);
 
     mDescriptionReadOnly = new QLabel(this);
     mDescriptionReadOnly->setTextFormat(Qt::RichText);
     mDescriptionReadOnly->setObjectName(QStringLiteral("mDescriptionReadOnly"));
-    mDescriptionReadOnly->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    mDescriptionReadOnly->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mDescriptionReadOnly->setOpenExternalLinks(true);
     layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
 }
