@@ -47,6 +47,8 @@ Kirigami.Page {
         lastSocketError = ""
     }
 
+    Keys.onReturnPressed: accepted()
+
     implicitHeight: 400
     implicitWidth: 300
 
