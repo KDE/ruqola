@@ -252,7 +252,7 @@ void RuqolaMainWindow::slotAddUsersInRoom()
 {
     QPointer<AddUsersInRoomDialog> dlg = new AddUsersInRoomDialog(this);
     if (dlg->exec()) {
-        //TODO
+        qWarning() << " Not implement yet";
     }
     delete dlg;
 }
@@ -266,7 +266,9 @@ void RuqolaMainWindow::slotClearAccountAlerts()
 void RuqolaMainWindow::slotShowThreads()
 {
     QPointer<ShowThreadsDialog> dlg = new ShowThreadsDialog(this);
-    //TODO dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
+    dlg->setModel(mCurrentRocketChatAccount->threadsFilterProxyModel());
+    const QString roomId = mMainWidget->roomId();
+    mCurrentRocketChatAccount->threadsInRoom(roomId);
     dlg->exec();
     delete dlg;
 }
@@ -274,7 +276,7 @@ void RuqolaMainWindow::slotShowThreads()
 void RuqolaMainWindow::slotShowDiscussions()
 {
     QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(this);
-    //TODO dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
+    //TODO
     dlg->exec();
     delete dlg;
 }

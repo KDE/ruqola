@@ -74,3 +74,8 @@ void ShowThreadsDialog::slotLoadMoreThreads()
 {
     //TODO
 }
+
+void ShowThreadsDialog::setModel(ThreadsFilterProxyModel *model)
+{
+    mShowThreadsWidget->setModel(model);
+}

@@ -20,6 +20,7 @@
 
 #include "showthreadswidget.h"
 #include "listthreadsdelegate.h"
+#include "model/threadsfilterproxymodel.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <KLineEdit>
@@ -60,6 +61,11 @@ ShowThreadsWidget::ShowThreadsWidget(QWidget *parent)
 
 ShowThreadsWidget::~ShowThreadsWidget()
 {
+}
+
+void ShowThreadsWidget::setModel(ThreadsFilterProxyModel *model)
+{
+    mListThreads->setModel(model);
 }
 
 void ShowThreadsWidget::slotSearchMessageTextChanged(const QString &str)

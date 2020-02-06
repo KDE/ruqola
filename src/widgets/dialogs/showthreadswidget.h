@@ -26,6 +26,7 @@
 class KLineEdit;
 class QLabel;
 class QListView;
+class ThreadsFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowThreadsWidget : public QWidget
 {
     Q_OBJECT
@@ -33,6 +34,7 @@ public:
     explicit ShowThreadsWidget(QWidget *parent = nullptr);
     ~ShowThreadsWidget();
 
+    void setModel(ThreadsFilterProxyModel *model);
 Q_SIGNALS:
     void loadMoreThreads();
 
