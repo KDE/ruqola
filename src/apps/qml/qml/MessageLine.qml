@@ -100,13 +100,9 @@ ColumnLayout {
             selectByMouse: true
             inputMethodHints: Qt.ImhMultiLine
 
-            width: parent.width
-            height: parent.height
-
             placeholderText: i18n("Enter message...")
             background: Rectangle {
                 anchors.fill: parent
-                Kirigami.Theme.inherit: false
                 Kirigami.Theme.colorSet: Kirigami.Theme.Window
                 border.color: parent.activeFocus ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
                 color: Kirigami.Theme.backgroundColor
@@ -146,11 +142,6 @@ ColumnLayout {
                 } else {
                     messageLineItem.sendMessage()
                 }
-            }
-
-            Rectangle {
-                anchors.fill: parent
-                opacity: 0.5
             }
 
             QQC2.Popup {
