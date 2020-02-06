@@ -25,12 +25,27 @@ import QtQuick 2.9
 import org.kde.kirigami 2.10 as Kirigami
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.5 as QQC2
-
+import Ruqola 1.0
 
 ListView {
     id: roomsList
     property string selectedRoomID;
     property bool editingMode: false;
+
+    function syncSelectionFromModel() {
+        var modelIndices = model.match(model.index(0, 0), RoomModel.RoomID, selectedRoomID);
+        if (modelIndices.length === 0) {
+            console.warning("Failed to sync room selection from model");
+            return;
+        }
+
+        currentIndex = modelIndices[0].row;
+    }
+
+    Connections {
+        target: model
+        onLayoutChanged: syncSelectionFromModel() // happens when the model gets re-sorted
+    }
 
     signal leaveRoom(string roomID, string roomType)
     signal hideRoom(string roomID, string roomType)

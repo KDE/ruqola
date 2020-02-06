@@ -34,6 +34,7 @@
 
 #include "model/usersforroommodel.h"
 #include "model/usersmodel.h"
+#include "model/roommodel.h"
 #include "model/statusmodel.h"
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usercompleterfilterproxymodel.h"
@@ -85,6 +86,7 @@ bool RuqolaRegisterEngine::initialize()
 
     qmlRegisterType<MessageModel>(URI, 1, 0, "MessageModel");
     qmlRegisterType<RoomWrapper>(URI, 1, 0, "RoomWrapper");
+    qmlRegisterType<RoomModel>(URI, 1, 0, "RoomModel");
     qmlRegisterType<Room>(URI, 1, 0, "Room");
     qmlRegisterType<RocketChatAccount>(URI, 1, 0, "RocketChatAccount");
     qmlRegisterType<UsersModel>(URI, 1, 0, "UsersModel");
