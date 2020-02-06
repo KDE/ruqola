@@ -100,7 +100,7 @@ RowLayout {
         id: emojiIcon
         source: "face-smile"
         width: height
-        height: messageLine.height
+        height: Kirigami.Units.gridUnit*2
         MouseArea {
             hoverEnabled: true
             anchors.fill: parent
@@ -123,7 +123,7 @@ RowLayout {
     Kirigami.Icon {
         source: messageLine.savePreviousMessage == "" ?  "mail-sent" : "edit-symbolic"
         width: height
-        height: messageLine.height
+        height: Kirigami.Units.gridUnit*2
         MouseArea {
             hoverEnabled: true
             QQC2.ToolTip {

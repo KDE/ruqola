@@ -87,102 +87,126 @@ ColumnLayout {
         messageLine.insert(messageLine.cursorPosition, emotiStr)
     }
 
-    QQC2.TextField {
-        id: messageLine
-        selectByMouse: true
-        //FIXME add multiline !!!
-        inputMethodHints: Qt.ImhMultiLine
+    QQC2.ScrollView {
+        id: messageLineScrollView
+        anchors.fill: parent
 
         Layout.fillWidth: true
-        placeholderText: i18n("Enter message...")
-        onTextChanged: {
-            appid.rocketChatAccount.setInputTextChanged(text, cursorPosition);
-            if (listView.count > 0) {
-                showPopupCompleting()
-            } else {
-                popup.close()
-            }
-            footerItem.textEditing(text)
-        }
-        Keys.onDownPressed: {
-            listView.incrementCurrentIndex()
-        }
-        Keys.onUpPressed: {
-            listView.decrementCurrentIndex()
-        }
-        Keys.onTabPressed: {
-            if (listView.currentItem) {
-                textSelected(listView.currentItem.myData.completername)
-            }
-        }
-        Keys.onEnterPressed: enterOrReturnPressed(event)
-        Keys.onReturnPressed: enterOrReturnPressed(event)
+        Layout.maximumHeight: Kirigami.Units.gridUnit * 5 // maximum line count, roughly
+        Layout.preferredHeight: messageLine.implicitHeight
 
-        function enterOrReturnPressed(event) {
-            if (event.modifiers & Qt.ShiftModifier) {
-                event.accepted = false;
-                return; // composing a multi-line message
+        QQC2.TextArea {
+            id: messageLine
+            selectByMouse: true
+            inputMethodHints: Qt.ImhMultiLine
+
+            width: parent.width
+            height: parent.height
+
+            placeholderText: i18n("Enter message...")
+            background: Rectangle {
+                anchors.fill: parent
+                Kirigami.Theme.inherit: false
+                Kirigami.Theme.colorSet: Kirigami.Theme.Window
+                border.color: parent.activeFocus ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
+                color: Kirigami.Theme.backgroundColor
             }
 
-            if (listView.currentItem) {
-                textSelected(listView.currentItem.myData.completername)
-            } else {
-                messageLineItem.sendMessage()
+            onTextChanged: {
+                appid.rocketChatAccount.setInputTextChanged(text, cursorPosition);
+                if (listView.count > 0) {
+                    showPopupCompleting()
+                } else {
+                    popup.close()
+                }
+                footerItem.textEditing(text)
             }
-        }
+            Keys.onDownPressed: {
+                listView.incrementCurrentIndex()
+            }
+            Keys.onUpPressed: {
+                listView.decrementCurrentIndex()
+            }
+            Keys.onTabPressed: {
+                if (listView.currentItem) {
+                    textSelected(listView.currentItem.myData.completername)
+                }
+            }
+            Keys.onEnterPressed: enterOrReturnPressed(event)
+            Keys.onReturnPressed: enterOrReturnPressed(event)
 
-        QQC2.Popup {
-            id: popup
+            function enterOrReturnPressed(event) {
+                if (event.modifiers & Qt.ShiftModifier) {
+                    event.accepted = false;
+                    return; // composing a multi-line message
+                }
 
-            x: 0
-            height: listView.delegateHeight * listView.count
-            y: -height - 10
-            padding: 0
-            width: messageLine.width
-            contentHeight: rect.height
-            visible: listView.count > 0
+                if (listView.currentItem) {
+                    textSelected(listView.currentItem.myData.completername)
+                } else {
+                    messageLineItem.sendMessage()
+                }
+            }
 
             Rectangle {
-                id: rect
+                anchors.fill: parent
+                opacity: 0.5
+            }
 
-                anchors.top: popup.top
-                anchors.left: popup.left
+            QQC2.Popup {
+                id: popup
 
-                height: popup.height
-                width: popup.width
+                x: 0
+                height: listView.delegateHeight * listView.count
+                y: -height - 10
+                padding: 0
+                width: messageLine.width
+                contentHeight: rect.height
+                visible: listView.count > 0
 
-                ListView {
-                    id: listView
+                Rectangle {
+                    id: rect
 
-                    readonly property int delegateHeight: count > 0 ? contentItem.children[0].height : 0
+                    anchors.top: popup.top
+                    anchors.left: popup.left
 
                     height: popup.height
-                    width: parent.width
-                    interactive: true
-                    clip: true
-                    model: inputCompleterModel
-                    delegate: Kirigami.BasicListItem {
-                        readonly property variant myData: model
+                    width: popup.width
 
-                        icon: model.iconname
+                    ListView {
+                        id: listView
 
-                        label: model.displayname
-                        onClicked: {
-                            listView.currentIndex = model.index
-                            textSelected(model.completername)
+                        readonly property int delegateHeight: count > 0 ? contentItem.children[0].height : 0
+
+                        height: popup.height
+                        width: parent.width
+                        interactive: true
+                        clip: true
+                        model: inputCompleterModel
+                        delegate: Kirigami.BasicListItem {
+                            readonly property variant myData: model
+
+                            icon: model.iconname
+
+                            label: model.displayname
+                            onClicked: {
+                                listView.currentIndex = model.index
+                                textSelected(model.completername)
+                            }
+                            highlighted: focus && ListView.isCurrentItem
                         }
-                        highlighted: focus && ListView.isCurrentItem
+                        QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
                     }
-                    QQC2.ScrollIndicator.vertical: QQC2.ScrollIndicator { }
+                }
+            }
+            function showPopupCompleting() {
+                if (!popup.visible) {
+                    popup.open()
+                    listView.currentIndex = 0
                 }
             }
         }
-        function showPopupCompleting() {
-            if (!popup.visible) {
-                popup.open()
-                listView.currentIndex = 0
-            }
-        }
+
     }
 
     function textSelected(completerName) {
