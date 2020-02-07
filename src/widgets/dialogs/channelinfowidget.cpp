@@ -87,7 +87,7 @@ ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
     mPasswordLineEdit = new KPasswordLineEdit(this);
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     layout->addRow(i18n("Password:"), mPasswordLineEdit);
-    //TODO
+    //TODO missing api !
 
     mReadOnly = new QCheckBox(this);
     mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
