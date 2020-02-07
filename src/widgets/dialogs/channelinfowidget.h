@@ -64,6 +64,7 @@ private:
     void updateEditableChannelInfo();
     void connectReadOnlyWidget();
     void connectEditableWidget();
+    void joinCodeChanged();
 
     ChangeTextWidget *mName = nullptr;
     ChangeTextWidget *mComment = nullptr;

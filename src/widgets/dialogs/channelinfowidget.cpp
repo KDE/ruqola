@@ -199,6 +199,11 @@ void ChannelInfoWidget::updateEditableChannelInfo()
     mReadOnly->setChecked(mRoomWrapper->readOnly());
     mArchive->setChecked(mRoomWrapper->archived());
     mPrivate->setChecked(mRoomWrapper->channelType() == QStringLiteral("p"));
+    joinCodeChanged();
+}
+
+void ChannelInfoWidget::joinCodeChanged()
+{
     mPasswordLineEdit->lineEdit()->setPlaceholderText(mRoomWrapper->joinCodeRequired() ? i18n("This Room has a password") : i18n("Add password"));
 }
 
@@ -237,6 +242,9 @@ void ChannelInfoWidget::connectEditableWidget()
     });
     connect(mRoomWrapper, &RoomWrapper::archivedChanged, this, [this]() {
         mArchive->setChecked(mRoomWrapper->archived());
+    });
+    connect(mRoomWrapper, &RoomWrapper::joinCodeRequiredChanged, this, [this]() {
+        joinCodeChanged();
     });
     connect(mRoomWrapper, &RoomWrapper::channelTypeChanged, this, [this]() {
         mPrivate->setChecked(mRoomWrapper->channelType() == QStringLiteral("p"));
