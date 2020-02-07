@@ -173,10 +173,10 @@ void RoomWidget::setRoomId(const QString &roomId)
 {
     if (mRoomId != roomId) {
         mRoomId = roomId;
-        mMessageListView->setChannelSelected(roomId);
         delete mRoomWrapper;
         mRoomWrapper = mCurrentRocketChatAccount->roomWrapper(mRoomId);
         connectRoomWrapper();
+        mMessageListView->setChannelSelected(roomId);
     }
 }
 
@@ -242,4 +242,5 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     mCurrentRocketChatAccount = account;
     mMessageLineWidget->setCurrentRocketChatAccount(account);
+    mRoomId.clear(); //Clear it otherwise if we switch between two account with same roomId (as "GENERAL") we will see incorrect room.
 }
