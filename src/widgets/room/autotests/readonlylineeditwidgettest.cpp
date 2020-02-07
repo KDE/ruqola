@@ -38,7 +38,7 @@ void ReadOnlyLineEditWidgetTest::shouldHaveDefaultValues()
 
     auto *label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
-    QVERIFY(!label->text().isEmpty());
+    QVERIFY(label->text().isEmpty());
 
     QFont font = label->font();
     QVERIFY(font.bold());

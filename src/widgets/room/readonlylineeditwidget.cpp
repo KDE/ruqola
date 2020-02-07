@@ -29,15 +29,20 @@ ReadOnlyLineEditWidget::ReadOnlyLineEditWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    QLabel *label = new QLabel(i18n("Room is read-only."), this);
-    label->setObjectName(QStringLiteral("label"));
-    mainLayout->addWidget(label);
-    QFont font = label->font();
+    mLabel = new QLabel(this);
+    mLabel->setObjectName(QStringLiteral("label"));
+    mainLayout->addWidget(mLabel);
+    QFont font = mLabel->font();
     font.setBold(true);
     font.setItalic(true);
-    label->setFont(font);
+    mLabel->setFont(font);
 }
 
 ReadOnlyLineEditWidget::~ReadOnlyLineEditWidget()
 {
+}
+
+void ReadOnlyLineEditWidget::setMessage(const QString &str)
+{
+    mLabel->setText(str);
 }

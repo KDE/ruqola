@@ -23,12 +23,16 @@
 
 #include <QWidget>
 #include "libruqolawidgets_private_export.h"
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ReadOnlyLineEditWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ReadOnlyLineEditWidget(QWidget *parent = nullptr);
     ~ReadOnlyLineEditWidget();
+    void setMessage(const QString &str);
+private:
+    QLabel *mLabel = nullptr;
 };
 
 #endif // READONLYLINEEDITWIDGET_H

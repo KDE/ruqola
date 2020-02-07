@@ -143,10 +143,11 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setEncypted(mRoomWrapper->encrypted());
         //TODO Description ?
 
-        if (mRoomWrapper->readOnly()) {
-            mStackedWidget->setCurrentWidget(mReadOnlyLineEditWidget);
-        } else {
+        if (mRoomWrapper->roomMessageInfo().isEmpty()) {
             mStackedWidget->setCurrentWidget(mMessageLineWidget);
+        } else {
+            mStackedWidget->setCurrentWidget(mReadOnlyLineEditWidget);
+            mReadOnlyLineEditWidget->setMessage(mRoomWrapper->roomMessageInfo());
         }
     } else {
         //Hide it
