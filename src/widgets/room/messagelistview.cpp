@@ -130,6 +130,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (!index.isValid()) {
         return;
     }
+    const bool isSystemMessage = index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::System;
+    if (isSystemMessage) {
+        return;
+    }
+
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QMenu menu(this);
     QAction *copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"), &menu);
@@ -174,7 +179,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             });
             menu.addAction(editAction);
         }
-
         menu.addAction(copyAction);
 
         if (rcAccount->allowMessageDeletingEnabled() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
