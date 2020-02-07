@@ -80,7 +80,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     desktopGroupBoxLayout->addRow(i18n("Alert:"), mDesktopAlertCombobox);
     mDesktopAlertCombobox->setModel(NotificationPreferences::self()->desktopNotificationModel());
     connect(mDesktopAlertCombobox, &QComboBox::activated, this, [this](int index) {
-        //TODO
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::DesktopNotifications, NotificationPreferences::self()->desktopNotificationModel()->currentPreference(index));
     });
 
     mDesktopAudioCombobox = new QComboBox(this);
@@ -88,7 +88,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     desktopGroupBoxLayout->addRow(i18n("Audio:"), mDesktopAudioCombobox);
     mDesktopAudioCombobox->setModel(NotificationPreferences::self()->desktopAudioNotificationModel());
     connect(mDesktopAudioCombobox, &QComboBox::activated, this, [this](int index) {
-        //TODO
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::AudioNotifications, NotificationPreferences::self()->desktopAudioNotificationModel()->currentPreference(index));
     });
 
     mDesktopSoundCombobox = new QComboBox(this);
@@ -96,7 +96,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     desktopGroupBoxLayout->addRow(i18n("Sound:"), mDesktopSoundCombobox);
     mDesktopSoundCombobox->setModel(NotificationPreferences::self()->desktopSoundNotificationModel());
     connect(mDesktopSoundCombobox, &QComboBox::activated, this, [this](int index) {
-        //TODO
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::DesktopSoundNotifications, NotificationPreferences::self()->desktopSoundNotificationModel()->currentPreference(index));
     });
 
 
@@ -105,7 +105,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     desktopGroupBoxLayout->addRow(i18n("Duration:"), mDesktopDurationCombobox);
     mDesktopDurationCombobox->setModel(NotificationPreferences::self()->desktopDurationNotificationModel());
     connect(mDesktopDurationCombobox, &QComboBox::activated, this, [this](int index) {
-        //TODO
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::DesktopDurationNotifications, NotificationPreferences::self()->desktopDurationNotificationModel()->currentPreference(index));
     });
 
 
@@ -122,7 +122,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mobileGroupBoxLayout->addRow(i18n("Alert:"), mMobileAlertCombobox);
     mMobileAlertCombobox->setModel(NotificationPreferences::self()->mobileNotificationModel());
     connect(mMobileAlertCombobox, &QComboBox::activated, this, [this](int index) {
-        //TODO
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::MobilePushNotifications, NotificationPreferences::self()->mobileNotificationModel()->currentPreference(index));
     });
 
 
@@ -139,7 +139,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     emailGroupBoxLayout->addRow(i18n("Alert:"), mEmailAlertCombobox);
     mEmailAlertCombobox->setModel(NotificationPreferences::self()->emailNotificationModel());
     connect(mEmailAlertCombobox, &QComboBox::activated, this, [this](int index) {
-        //TODO
+        Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::EmailNotifications, NotificationPreferences::self()->emailNotificationModel()->currentPreference(index));
     });
 
 }
