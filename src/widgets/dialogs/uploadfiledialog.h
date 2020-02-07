@@ -44,6 +44,8 @@ public:
     explicit UploadFileDialog(QWidget *parent = nullptr);
     ~UploadFileDialog();
 
+    void setFileUrl(const QUrl &url);
+
     Q_REQUIRED_RESULT UploadFileInfo fileInfo() const;
 private:
     void readConfig();

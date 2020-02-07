@@ -49,6 +49,11 @@ bool UploadFileJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "UploadFileJob : RoomId not defined";
         return false;
     }
+    if (!mFilenameUrl.isLocalFile()) {
+        // shouldn't be too hard, just use KIO::storedGet
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Uploading remote files is not supported yet";
+        return false;
+    }
     return true;
 }
 

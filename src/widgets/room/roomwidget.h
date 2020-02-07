@@ -52,6 +52,10 @@ public:
 Q_SIGNALS:
     void channelSelected(const QModelIndex &index);
 
+protected:
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dropEvent(QDropEvent *event) override;
+
 private:
     void setChannelSelected(const QModelIndex &index);
     void slotSendMessage(const QString &msg);

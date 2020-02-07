@@ -57,6 +57,11 @@ UploadFileDialog::~UploadFileDialog()
     writeConfig();
 }
 
+void UploadFileDialog::setFileUrl(const QUrl &url)
+{
+    mUploadFileWidget->setFileUrl(url);
+}
+
 void UploadFileDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openConfig(), myConfigGroupName);

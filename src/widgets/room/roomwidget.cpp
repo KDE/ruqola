@@ -35,6 +35,7 @@
 #include <QHBoxLayout>
 #include <QApplication>
 #include <QStackedWidget>
+#include <QMimeData>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)
@@ -75,6 +76,8 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, this, &RoomWidget::slotEditMessage);
+
+    setAcceptDrops(true);
 }
 
 RoomWidget::~RoomWidget()
@@ -109,6 +112,32 @@ void RoomWidget::slotEditMessage(const QString &messageId, const QString &text)
     mMessageLineWidget->setMode(MessageLineWidget::EditingMode::EditMessage);
     mMessageLineWidget->setText(text);
     mMessageLineWidget->setFocus();
+}
+
+void RoomWidget::dragEnterEvent(QDragEnterEvent *event)
+{
+    const QMimeData *mimeData = event->mimeData();
+    if (mimeData->hasUrls()) {
+        event->accept();
+    }
+}
+
+void RoomWidget::dropEvent(QDropEvent *event)
+{
+    const QMimeData *mimeData = event->mimeData();
+    if (mimeData->hasUrls()) {
+        const QList<QUrl> urls = mimeData->urls();
+        for (const QUrl &url : urls) {
+            if (url.isLocalFile()) {
+                QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
+                dlg->setFileUrl(url);
+                if (dlg->exec()) {
+                    const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
+                    slotSendFile(uploadFileInfo);
+                }
+            }
+        }
+    }
 }
 
 void RoomWidget::setChannelSelected(const QModelIndex &index)

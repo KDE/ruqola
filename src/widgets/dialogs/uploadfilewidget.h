@@ -34,6 +34,7 @@ public:
 
     Q_REQUIRED_RESULT QString description() const;
     Q_REQUIRED_RESULT QUrl fileUrl() const;
+    void setFileUrl(const QUrl &url);
 
 Q_SIGNALS:
     void updateOkButton(bool enabled);

@@ -60,3 +60,8 @@ QUrl UploadFileWidget::fileUrl() const
 {
     return mSelectFile->url();
 }
+
+void UploadFileWidget::setFileUrl(const QUrl &url)
+{
+    mSelectFile->setUrl(url);
+}
