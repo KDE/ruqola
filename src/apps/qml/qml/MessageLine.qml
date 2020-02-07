@@ -99,6 +99,7 @@ ColumnLayout {
             id: messageLine
             selectByMouse: true
             inputMethodHints: Qt.ImhMultiLine
+            textFormat: TextEdit.PlainText
 
             placeholderText: i18n("Enter message...")
             background: Rectangle {
