@@ -27,7 +27,9 @@
 #include <QJsonObject>
 #include <QMimeDatabase>
 #include <QNetworkReply>
+
 using namespace RocketChatRestApi;
+
 UploadFileJob::UploadFileJob(QObject *parent)
     : RestApiAbstractJob(parent)
 {
@@ -56,7 +58,7 @@ bool UploadFileJob::start()
         deleteLater();
         return false;
     }
-    QFile *file = new QFile(mFilenameUrl.path());
+    QFile *file = new QFile(mFilenameUrl.toLocalFile());
     if (!file->open(QIODevice::ReadOnly)) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mFilenameUrl;
         delete file;
@@ -64,7 +66,7 @@ bool UploadFileJob::start()
         return false;
     }
     QMimeDatabase db;
-    const QMimeType mimeType = db.mimeTypeForFile(mFilenameUrl.path());
+    const QMimeType mimeType = db.mimeTypeForFile(mFilenameUrl.toLocalFile());
 
     auto *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
