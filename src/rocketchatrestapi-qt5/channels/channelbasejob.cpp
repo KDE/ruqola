@@ -52,11 +52,25 @@ void ChannelBaseJob::setRoomName(const QString &roomName)
 
 bool ChannelBaseJob::hasRoomIdentifier() const
 {
+    //return !mChannelInfo.channelInfoIdentifier.isEmpty() && (mChannelInfo.channelInfoType != ChannelBaseJob::ChannelInfoType::Unknown);
     return !mRoomId.isEmpty() || !mRoomName.isEmpty();
 }
 
 void ChannelBaseJob::generateJSon(QJsonObject &jsonObj) const
 {
+#if 0
+    switch(mChannelInfo.channelInfoType) {
+    case ChannelBaseJob::ChannelInfoType::Unknown:
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
+        return;
+    case ChannelBaseJob::ChannelInfoType::RoomId:
+        jsonObj[QLatin1String("roomId")] = roomId();
+        break;
+    case ChannelBaseJob::ChannelInfoType::RoomName:
+        jsonObj[QLatin1String("roomName")] = roomName();
+        break;
+    }
+#endif
     if (!mRoomId.isEmpty()) {
         jsonObj[QLatin1String("roomId")] = roomId();
     } else if (!mRoomName.isEmpty()) {
@@ -68,6 +82,19 @@ void ChannelBaseJob::generateJSon(QJsonObject &jsonObj) const
 
 void RocketChatRestApi::ChannelBaseJob::generateQuery(QUrlQuery &queryUrl) const
 {
+#if 0
+    switch(mChannelInfo.channelInfoType) {
+    case ChannelBaseJob::ChannelInfoType::Unknown:
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Type is unknown. It's a bug!";
+        return;
+    case ChannelBaseJob::ChannelInfoType::RoomId:
+        queryUrl.addQueryItem(QStringLiteral("roomId"), roomId());
+        break;
+    case ChannelBaseJob::ChannelInfoType::RoomName:
+        queryUrl.addQueryItem(QStringLiteral("roomName"), roomName());
+        break;
+    }
+#endif
     if (!mRoomId.isEmpty()) {
         queryUrl.addQueryItem(QStringLiteral("roomId"), roomId());
     } else if (!mRoomName.isEmpty()) {
