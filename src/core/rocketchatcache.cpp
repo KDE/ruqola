@@ -109,9 +109,10 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bo
 
 QUrl RocketChatCache::attachmentUrl(const QString &url)
 {
-    if (fileInCache(QUrl(url))) {
-        const QUrl newurl = QUrl::fromLocalFile(fileCachePath(QUrl(url)));
-        return newurl;
+    const QString cachePath = fileCachePath(QUrl(url));
+    if (QFileInfo::exists(cachePath)) {
+        // QML wants a QUrl here. The widgets code would be simpler with just a QString path.
+        return QUrl::fromLocalFile(cachePath);
     } else {
         downloadFileFromServer(url);
     }
