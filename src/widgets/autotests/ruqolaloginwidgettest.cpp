@@ -66,4 +66,19 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFailedError);
     QVERIFY(mFailedError->text().isEmpty());
     QVERIFY(mFailedError->isHidden());
+
+
+    QWidget *mAuthenticationWidget = w.findChild<QWidget *>(QStringLiteral("authenticationWidget"));
+    QVERIFY(mAuthenticationWidget);
+    QVERIFY(!mAuthenticationWidget->isVisible());
+
+    QVBoxLayout *twoFactorAuthenticationLayout = w.findChild<QVBoxLayout *>(QStringLiteral("twoFactorAuthenticationLayout"));
+    QVERIFY(twoFactorAuthenticationLayout);
+
+    QLabel *mTwoFactorAuthenticationLabel = w.findChild<QLabel *>(QStringLiteral("mTwoFactorAuthenticationLabel"));
+    QVERIFY(mTwoFactorAuthenticationLabel);
+    QVERIFY(!mTwoFactorAuthenticationLabel->text().isEmpty());
+
+    KPasswordLineEdit *mTwoFactorAuthenticationPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
+    QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
 }

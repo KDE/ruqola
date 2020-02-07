@@ -61,15 +61,16 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mAuthenticationWidget->setObjectName(QStringLiteral("authenticationWidget"));
     mAuthenticationWidget->setVisible(false);
 
-    QVBoxLayout *mTwoFactorAuthenticationLayout = new QVBoxLayout(mAuthenticationWidget);
+    QVBoxLayout *twoFactorAuthenticationLayout = new QVBoxLayout(mAuthenticationWidget);
+    twoFactorAuthenticationLayout->setObjectName(QStringLiteral("twoFactorAuthenticationLayout"));
 
     QLabel *mTwoFactorAuthenticationLabel = new QLabel(i18n("You have enabled second factor authentication.\nPlease enter the generated code or a backup code."), this);
     mTwoFactorAuthenticationLabel->setObjectName(QStringLiteral("mTwoFactorAuthenticationLabel"));
-    mTwoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationLabel);
+    twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationLabel);
 
     mTwoFactorAuthenticationPasswordLineEdit = new KPasswordLineEdit(this);
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
-    mTwoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
+    twoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
     connect(mTwoFactorAuthenticationPasswordLineEdit->lineEdit(), &QLineEdit::returnPressed, this, [this]() {
         qDebug() << " not implemented";
     });
