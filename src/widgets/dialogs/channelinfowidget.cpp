@@ -199,6 +199,7 @@ void ChannelInfoWidget::updateEditableChannelInfo()
     mReadOnly->setChecked(mRoomWrapper->readOnly());
     mArchive->setChecked(mRoomWrapper->archived());
     mPrivate->setChecked(mRoomWrapper->channelType() == QStringLiteral("p"));
+    mPasswordLineEdit->lineEdit()->setPlaceholderText(mRoomWrapper->joinCodeRequired() ? i18n("This Room has a password") : i18n("Add password"));
 }
 
 void ChannelInfoWidget::connectReadOnlyWidget()
