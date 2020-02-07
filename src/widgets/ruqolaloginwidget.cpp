@@ -56,16 +56,12 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mLoginButton->setObjectName(QStringLiteral("mLoginButton"));
     mainLayout->addWidget(mLoginButton);
     connect(mLoginButton, &QPushButton::clicked, this, &RuqolaLoginWidget::slotLogin);
-    //TODO add support for twoFactorAuthentication
-    /**
-twoFactorAuthenticationCode: rcAccount.twoFactorAuthenticationCode
-*/
 
-    QWidget *authenticationWidget = new QWidget(this);
-    authenticationWidget->setObjectName(QStringLiteral("authenticationWidget"));
-    authenticationWidget->setVisible(false);
+    mAuthenticationWidget = new QWidget(this);
+    mAuthenticationWidget->setObjectName(QStringLiteral("authenticationWidget"));
+    mAuthenticationWidget->setVisible(false);
 
-    QVBoxLayout *mTwoFactorAuthenticationLayout = new QVBoxLayout(authenticationWidget);
+    QVBoxLayout *mTwoFactorAuthenticationLayout = new QVBoxLayout(mAuthenticationWidget);
 
     QLabel *mTwoFactorAuthenticationLabel = new QLabel(i18n("You have enabled second factor authentication.\nPlease enter the generated code or a backup code."), this);
     mTwoFactorAuthenticationLabel->setObjectName(QStringLiteral("mTwoFactorAuthenticationLabel"));
@@ -74,8 +70,11 @@ twoFactorAuthenticationCode: rcAccount.twoFactorAuthenticationCode
     mTwoFactorAuthenticationPasswordLineEdit = new KPasswordLineEdit(this);
     mTwoFactorAuthenticationPasswordLineEdit->setObjectName(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     mTwoFactorAuthenticationLayout->addWidget(mTwoFactorAuthenticationPasswordLineEdit);
+    connect(mTwoFactorAuthenticationPasswordLineEdit->lineEdit(), &QLineEdit::returnPressed, this, [this]() {
+        qDebug() << " not implemented";
+    });
 
-    mainLayout->addWidget(authenticationWidget);
+    mainLayout->addWidget(mAuthenticationWidget);
 
     mBusyIndicatorWidget = new KBusyIndicatorWidget(this);
     mBusyIndicatorWidget->setObjectName(QStringLiteral("mBusyIndicatorWidget"));
@@ -101,6 +100,7 @@ void RuqolaLoginWidget::initialize()
     mServerName->setText(rocketChatAccount->serverUrl());
     mUserName->setText(rocketChatAccount->userName());
     mPasswordLineEdit->setPassword(rocketChatAccount->password());
+    mAuthenticationWidget->setVisible(false);
 }
 
 void RuqolaLoginWidget::slotLogin()
@@ -129,7 +129,6 @@ void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
     case DDPClient::LoginStatus::NotConnected:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
-        //Show info
         break;
     case DDPClient::LoginStatus::LoggingIn:
         mBusyIndicatorWidget->show();
@@ -147,8 +146,7 @@ void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
     case DDPClient::LoginStatus::LoginCodeRequired:
         mBusyIndicatorWidget->hide();
         changeWidgetStatus(true);
-        //Add two authentication factor
-        //i18n("You have enabled second factor authentication. Please enter the generated code or a backup code.")
+        mAuthenticationWidget->setVisible(true);
         break;
     case DDPClient::LoginStatus::LoggedOut:
         mBusyIndicatorWidget->hide();

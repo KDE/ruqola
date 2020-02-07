@@ -52,6 +52,7 @@ private:
     KBusyIndicatorWidget *mBusyIndicatorWidget = nullptr;
     QLabel *mFailedError = nullptr;
     KPasswordLineEdit *mTwoFactorAuthenticationPasswordLineEdit = nullptr;
+    QWidget *mAuthenticationWidget = nullptr;
     //Add login method combobox
 };
 
