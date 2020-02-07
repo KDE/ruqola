@@ -24,7 +24,6 @@
 #include "managerdatapaths.h"
 #include "restapirequest.h"
 #include "avatarmanager.h"
-#include "copyfilejob.h"
 #include <QDateTime>
 #include <QDir>
 #include <QSettings>
@@ -94,16 +93,16 @@ void RocketChatCache::loadAvatarCache()
 
 void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bool storeInCache)
 {
-    if (fileInCache(QUrl(url))) {
-        auto *job = new CopyFileJob(this);
-        job->setCachedFile(fileCachePath(QUrl(url)));
-        job->setLocalFile(localFile.toString());
-        job->start();
+    QFile f(fileCachePath(QUrl(url)));
+    if (f.exists()) {
+        if (!f.copy(localFile.toLocalFile())) {
+            qCWarning(RUQOLA_LOG) << "Impossible to copy" << f.fileName() << "to" << localFile;
+        }
     } else {
-        //Redownload it. TODO inform user ?
-        //FIXME we don't use localfile!
+        // Not in cache. We need to download it (e.g. file attachment).
         const QUrl clickedUrl = generateDownloadFile(url);
         mAccount->restApi()->downloadFile(clickedUrl, QStringLiteral("text/plain"), storeInCache, localFile);
+        // this will call slotDataDownloaded
     }
 }
 

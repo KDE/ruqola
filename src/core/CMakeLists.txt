@@ -135,7 +135,6 @@ set (Ruqola_core_srcs
     notificationoptions.cpp
 
     syntaxhighlightingmanager.cpp
-    copyfilejob.cpp
 
     receivetypingnotificationmanager.cpp
 
