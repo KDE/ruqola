@@ -37,14 +37,21 @@ static QString makeMessageText(const QModelIndex &index)
 }
 
 // QTextDocument lacks a move constructor
-static void fillTextDocument(QTextDocument &doc, const QString &text, int width)
+static bool fillTextDocument(const QModelIndex &index, QTextDocument &doc, const QString &text, int width)
 {
     doc.setHtml(text);
     doc.setTextWidth(width);
+    const bool isSystemMessage = (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::System);
+    if (isSystemMessage) {
+        QFont font = doc.defaultFont();
+        font.setItalic(true);
+        doc.setDefaultFont(font);
+    }
     QTextFrame *frame = doc.frameAt(0);
     QTextFrameFormat frameFormat = frame->frameFormat();
     frameFormat.setMargin(0);
     frame->setFrameFormat(frameFormat);
+    return isSystemMessage;
 }
 
 void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const QModelIndex &index,
@@ -58,7 +65,13 @@ void MessageDelegateHelperText::draw(QPainter *painter, const QRect &rect, const
     }
     // Possible optimisation: store the QTextDocument into the Message itself?
     QTextDocument doc;
-    fillTextDocument(doc, text, rect.width());
+    if (fillTextDocument(index, doc, text, rect.width())) {
+        QTextCursor cursor(&doc);
+        cursor.select(QTextCursor::Document);
+        QTextCharFormat format;
+        format.setForeground(Qt::gray); //TODO use color from theme.
+        cursor.mergeCharFormat(format);
+    }
 
     painter->translate(rect.left(), rect.top());
     const QRect clip(0, 0, rect.width(), rect.height());
@@ -74,7 +87,7 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
         return QSize();
     }
     QTextDocument doc;
-    fillTextDocument(doc, text, maxWidth);
+    fillTextDocument(index, doc, text, maxWidth);
     const QSize size(doc.idealWidth(), doc.size().height()); // do the layouting, required by lineAt(0) below
 
     const QTextLine &line = doc.firstBlock().layout()->lineAt(0);
@@ -90,7 +103,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, const 
         // ## we should really cache that QTextDocument...
         const QString text = makeMessageText(index);
         QTextDocument doc;
-        fillTextDocument(doc, text, messageRect.width());
+        fillTextDocument(index, doc, text, messageRect.width());
 
         const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
         const QString link = doc.documentLayout()->anchorAt(pos);
