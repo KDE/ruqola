@@ -1157,6 +1157,10 @@ void RocketChatAccount::changeChannelSettings(const QString &roomId, RocketChatA
             qCWarning(RUQOLA_LOG) << " unsupport encrypted mode for type " << channelType;
         }
         break;
+    case Password:
+        //TODO channel type ???
+        restApi()->setJoinCodeChannel(roomId, newValue.toString());
+        break;
     }
 }
 

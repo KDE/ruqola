@@ -136,6 +136,7 @@ public:
         Archive,
         RoomType,
         Encrypted,
+        Password
     };
     Q_ENUM(RoomInfoType)
 
