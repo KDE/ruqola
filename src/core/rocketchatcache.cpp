@@ -66,6 +66,7 @@ QString RocketChatCache::fileCachePath(const QUrl &url)
 
 void RocketChatCache::slotDataDownloaded(const QByteArray &data, const QUrl &url, bool storeInCache, const QUrl &localFileUrl)
 {
+    mFileInDownload.remove(url.path());
     const QString newPath = storeInCache ? fileCachePath(url) : localFileUrl.toLocalFile();
     //Split between image/video/audio
     const QUrl urldir = QUrl::fromUserInput(newPath).adjusted(QUrl::RemoveFilename);
@@ -124,7 +125,11 @@ void RocketChatCache::downloadAvatarFromServer(const QString &userId)
 
 void RocketChatCache::downloadFileFromServer(const QString &filename)
 {
-    mAccount->restApi()->downloadFile(generateDownloadFile(filename));
+    if (!mFileInDownload.contains(filename)) {
+        mFileInDownload.insert(filename);
+        mAccount->restApi()->downloadFile(generateDownloadFile(filename));
+        // this will call slotDataDownloaded
+    }
 }
 
 QUrl RocketChatCache::generateDownloadFile(const QString &url)
@@ -177,6 +182,7 @@ void RocketChatCache::insertAvatarUrl(const QString &userId, const QUrl &url)
     mUserAvatarUrl.insert(userId, url);
     if (!url.isEmpty() && !fileInCache(url)) {
         mAccount->restApi()->downloadFile(url);
+        // this will call slotDataDownloaded
     }
 }
 
