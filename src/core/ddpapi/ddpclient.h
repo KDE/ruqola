@@ -192,6 +192,7 @@ Q_SIGNALS:
     void changed(const QJsonObject &item);
     void removed(const QJsonObject &item);
     void socketError(QAbstractSocket::SocketError error, const QString &errorString);
+    void disconnectedByServer();
 
     /**
      * @brief Emitted whenever a result is received

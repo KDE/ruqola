@@ -484,6 +484,7 @@ DDPClient *RocketChatAccount::ddp()
         connect(mDdp, &DDPClient::added, this, &RocketChatAccount::added);
         connect(mDdp, &DDPClient::removed, this, &RocketChatAccount::removed);
         connect(mDdp, &DDPClient::socketError, this, &RocketChatAccount::socketError);
+        connect(mDdp, &DDPClient::disconnectedByServer, this, &RocketChatAccount::slotDisconnectedByServer);
 
         if (mSettings) {
             mDdp->setServerUrl(mSettings->serverUrl());
@@ -1895,6 +1896,22 @@ void RocketChatAccount::autoTranslateSaveAutoTranslateSettings(const QString &ro
 void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
 {
     qDebug() << " void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)" << obj;
+}
+
+void RocketChatAccount::slotDisconnectedByServer()
+{
+    // This happens when we didn't react to pings for a while
+    // (e.g. while stopped in gdb, or if network went down for a bit)
+    // Let's try connecting in again
+    // TODO: delay this more and more like RC+ ?
+    QTimer::singleShot(100, this, [this]() {
+        qCDebug(RUQOLA_LOG) << "Attempting to reconnect after the server disconnected us";
+        // Do the parts of logOut() that don't actually try talking to the server
+        mRoomModel->clear();
+        delete mDdp;
+        mDdp = nullptr;
+        tryLogin();
+    });
 }
 
 void RocketChatAccount::usersPresence()

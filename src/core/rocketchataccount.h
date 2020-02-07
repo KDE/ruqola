@@ -420,6 +420,7 @@ private:
     void slotGetSupportedLanguagesDone(const QJsonObject &obj);
     void slotUsersPresenceDone(const QJsonObject &obj);
     void slotSocketError(QAbstractSocket::SocketError error, const QString &errorString);
+    void slotDisconnectedByServer();
 
     void loadEmoji(const QJsonObject &obj);
     void slotSearchMessages(const QJsonObject &obj);
