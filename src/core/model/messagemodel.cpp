@@ -81,9 +81,6 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
         connect(mRoom, &Room::rolesChanged, this, &MessageModel::refresh);
         connect(mRoom, &Room::ignoredUsersChanged, this, &MessageModel::refresh);
     }
-    if (mRocketChatAccount) {
-        connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageModel::slotFileDownloaded);
-    }
 }
 
 MessageModel::~MessageModel()
@@ -120,6 +117,20 @@ MessageModel::~MessageModel()
 void MessageModel::enableQmlHacks(bool qmlHacks)
 {
     mQmlHacks = qmlHacks;
+}
+
+void MessageModel::activate()
+{
+    if (mRocketChatAccount) {
+        connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageModel::slotFileDownloaded);
+    }
+}
+
+void MessageModel::deactivate()
+{
+    if (mRocketChatAccount) {
+        disconnect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &MessageModel::slotFileDownloaded);
+    }
 }
 
 void MessageModel::refresh()

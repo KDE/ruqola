@@ -132,6 +132,9 @@ public:
 
     Q_REQUIRED_RESULT QString roomId() const;
 
+    Q_INVOKABLE void activate();
+    Q_INVOKABLE void deactivate();
+
 private Q_SLOTS:
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 

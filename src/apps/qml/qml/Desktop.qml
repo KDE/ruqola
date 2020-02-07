@@ -64,11 +64,15 @@ Kirigami.ApplicationWindow {
         if (roomID === selectedRoomID) {
             return;
         }
+        if (appid.messageModel) {
+            appid.messageModel.deactivate()
+        }
         appid.rocketChatAccount.switchingToRoom(roomID)
         appid.rocketChatAccount.setUserCurrentMessage(appid.userInputMessageText, selectedRoomID)
         appid.selectedRoomID = roomID;
         appid.messageModel = appid.rocketChatAccount.messageModelForRoom(roomID)
         appid.messageModel.enableQmlHacks(true)
+        appid.messageModel.activate()
         appid.selectedRoom = appid.rocketChatAccount.roomWrapper(roomID)
         appid.userModel = appid.rocketChatAccount.usersForRoomFilterProxyModel(roomID)
     }
