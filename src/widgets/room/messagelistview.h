@@ -65,6 +65,7 @@ private:
     void slotCopyText(const QModelIndex &index);
     void slotGoToMessage(const QModelIndex &index);
     void slotTranslateMessage(const QModelIndex &index, bool checked);
+    void createSeparator(QMenu &menu);
 
 private:
     QString mRoomID;

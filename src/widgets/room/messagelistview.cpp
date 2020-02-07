@@ -136,6 +136,22 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     connect(copyAction, &QAction::triggered, this, [=]() {
         slotCopyText(index);
     });
+    QAction *setPinnedMessage = nullptr;
+    if (rcAccount->allowMessagePinningEnabled()) {
+        const bool isPinned = index.data(MessageModel::Pinned).toBool();
+        setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
+        connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
+            slotSetPinnedMessage(index, isPinned);
+        });
+    }
+    QAction *setAsFavoriteAction = nullptr;
+    if (rcAccount->allowMessageStarringEnabled()) {
+        const bool isStarred = index.data(MessageModel::Starred).toBool();
+        setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
+        connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() {
+            slotSetAsFavorite(index, isStarred);
+        });
+    }
 
     if (mMode == Mode::Editing) {
         QAction *startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
@@ -144,21 +160,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         });
         menu.addAction(startDiscussion);
 
-        if (rcAccount->allowMessagePinningEnabled()) {
-            const bool isPinned = index.data(MessageModel::Pinned).toBool();
-            QAction *setPinnedMessage = new QAction(QIcon::fromTheme(QStringLiteral("pin")), isPinned ? i18n("Unpin Message") : i18n("Pin Message"), &menu);
-            connect(setPinnedMessage, &QAction::triggered, this, [this, isPinned, index]() {
-                slotSetPinnedMessage(index, isPinned);
-            });
+        if (setPinnedMessage) {
             menu.addAction(setPinnedMessage);
         }
-
-        if (rcAccount->allowMessageStarringEnabled()) {
-            const bool isStarred = index.data(MessageModel::Starred).toBool();
-            QAction *setAsFavoriteAction = new QAction(QIcon::fromTheme(QStringLiteral("favorite")), isStarred ? i18n("Remove as Favorite") : i18n("Set as Favorite"), &menu);
-            connect(setAsFavoriteAction, &QAction::triggered, this, [this, isStarred, index]() {
-                slotSetAsFavorite(index, isStarred);
-            });
+        if (setAsFavoriteAction) {
             menu.addAction(setAsFavoriteAction);
         }
 
@@ -173,11 +178,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(copyAction);
 
         if (rcAccount->allowMessageDeletingEnabled() && index.data(MessageModel::UserId).toString() == rcAccount->userID()) {
-            if (!menu.isEmpty()) {
-                auto *separator = new QAction(&menu);
-                separator->setSeparator(true);
-                menu.addAction(separator);
-            }
+            createSeparator(menu);
             QAction *deleteAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Delete"), &menu);
             connect(deleteAction, &QAction::triggered, this, [=]() {
                 slotDeleteMessage(index);
@@ -185,11 +186,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(deleteAction);
         }
         if (rcAccount->autoTranslateEnabled()) {
-            if (!menu.isEmpty()) {
-                auto *separator = new QAction(&menu);
-                separator->setSeparator(true);
-                menu.addAction(separator);
-            }
+            createSeparator(menu);
             const bool isTranslated = index.data(MessageModel::ShowTranslatedMessage).toBool();
             QAction *translateAction = new QAction(isTranslated ? i18n("Show Original Message") : i18n("Translate Message"), &menu);
             connect(translateAction, &QAction::triggered, this, [=](bool checked) {
@@ -198,12 +195,16 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addAction(translateAction);
         }
     } else {
-        menu.addAction(copyAction);
-        if (!menu.isEmpty()) {
-            auto *separator = new QAction(&menu);
-            separator->setSeparator(true);
-            menu.addAction(separator);
+#if 0
+        if (setPinnedMessage) {
+            menu.addAction(setPinnedMessage);
         }
+        if (setAsFavoriteAction) {
+            menu.addAction(setAsFavoriteAction);
+        }
+#endif
+        menu.addAction(copyAction);
+        createSeparator(menu);
         QAction *goToMessageAction = new QAction(i18n("Go to Message"), &menu); //Add icon
         connect(goToMessageAction, &QAction::triggered, this, [=]() {
             slotGoToMessage(index);
@@ -211,11 +212,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(goToMessageAction);
     }
 
-    if (!menu.isEmpty()) {
-        QAction *separator = new QAction(&menu);
-        separator->setSeparator(true);
-        menu.addAction(separator);
-    }
+    createSeparator(menu);
     QAction *reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
     connect(reportMessageAction, &QAction::triggered, this, [=]() {
         slotReportMessage(index);
@@ -224,6 +221,15 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
+    }
+}
+
+void MessageListView::createSeparator(QMenu &menu)
+{
+    if (!menu.isEmpty()) {
+        auto *separator = new QAction(&menu);
+        separator->setSeparator(true);
+        menu.addAction(separator);
     }
 }
 
