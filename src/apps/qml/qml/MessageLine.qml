@@ -119,21 +119,21 @@ ColumnLayout {
                 footerItem.textEditing(text)
             }
             Keys.onDownPressed: {
-                if (listView.currentItem) {
+                if (popup.visible) {
                     listView.incrementCurrentIndex()
                 } else {
                     event.accepted = false;
                 }
             }
             Keys.onUpPressed: {
-                if (listView.currentItem) {
+                if (popup.visible) {
                     listView.decrementCurrentIndex()
                 } else {
                     event.accepted = false;
                 }
             }
             Keys.onTabPressed: {
-                if (listView.currentItem) {
+                if (popup.visible) {
                     textSelected(listView.currentItem.myData.completername)
                 }
             }
@@ -146,7 +146,7 @@ ColumnLayout {
                     return; // composing a multi-line message
                 }
 
-                if (listView.currentItem) {
+                if (popup.visible) {
                     textSelected(listView.currentItem.myData.completername)
                 } else {
                     messageLineItem.sendMessage()
