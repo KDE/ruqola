@@ -99,7 +99,6 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::DesktopSoundNotifications, NotificationPreferences::self()->desktopSoundNotificationModel()->currentPreference(index));
     });
 
-
     mDesktopDurationCombobox = new QComboBox(this);
     mDesktopDurationCombobox->setObjectName(QStringLiteral("mDesktopDurationCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Duration:"), mDesktopDurationCombobox);
@@ -107,8 +106,6 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     connect(mDesktopDurationCombobox, &QComboBox::activated, this, [this](int index) {
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::DesktopDurationNotifications, NotificationPreferences::self()->desktopDurationNotificationModel()->currentPreference(index));
     });
-
-
 
     QGroupBox *mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
     mobileGroupBox->setObjectName(QStringLiteral("mobileGroupBox"));
@@ -125,8 +122,6 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::MobilePushNotifications, NotificationPreferences::self()->mobileNotificationModel()->currentPreference(index));
     });
 
-
-
     QGroupBox *emailGroupBox = new QGroupBox(i18n("Email"), this);
     emailGroupBox->setObjectName(QStringLiteral("emailGroupBox"));
     topLayout->addWidget(emailGroupBox);
@@ -141,7 +136,6 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     connect(mEmailAlertCombobox, &QComboBox::activated, this, [this](int index) {
         Ruqola::self()->rocketChatAccount()->changeNotificationsSettings(mRoomWrapper->roomId(), RocketChatAccount::EmailNotifications, NotificationPreferences::self()->emailNotificationModel()->currentPreference(index));
     });
-
 }
 
 ConfigureNotificationWidget::~ConfigureNotificationWidget()
