@@ -123,7 +123,7 @@ void RuqolaLoginWidget::changeWidgetStatus(bool enabled)
     mLoginButton->setEnabled(enabled);
 }
 
-void RuqolaLoginWidget::setLogginStatus(DDPClient::LoginStatus status)
+void RuqolaLoginWidget::setLoginStatus(DDPClient::LoginStatus status)
 {
     mFailedError->setHidden(true);
     switch (status) {

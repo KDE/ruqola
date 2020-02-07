@@ -37,7 +37,7 @@ public:
     ~RuqolaLoginWidget();
 
     void initialize();
-    void setLogginStatus(DDPClient::LoginStatus status);
+    void setLoginStatus(DDPClient::LoginStatus status);
     void showError(const QString &text);
 
 private:
