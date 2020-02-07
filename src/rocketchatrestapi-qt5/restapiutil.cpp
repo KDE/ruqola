@@ -382,6 +382,18 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("custom-user-status.list");
     case RestApiUtil::RestApiUrlType::CustomSoundsList:
         return QStringLiteral("custom-sounds.list");
+
+
+    case RestApiUtil::RestApiUrlType::FindOrCreateInvite:
+        return QStringLiteral("findOrCreateInvite");
+    case RestApiUtil::RestApiUrlType::ListInvites:
+        return QStringLiteral("listInvites");
+    case RestApiUtil::RestApiUrlType::RemoveInvite:
+        return QStringLiteral("removeInvite");
+    case RestApiUtil::RestApiUrlType::UseInviteToken:
+        return QStringLiteral("useInviteToken");
+    case RestApiUtil::RestApiUrlType::ValidateInviteToken:
+        return QStringLiteral("validateInviteToken");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

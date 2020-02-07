@@ -214,6 +214,13 @@ enum class RestApiUrlType {
     //Since 2.4
     CustomUserStatusList,
     CustomSoundsList,
+
+    //Invite since 2.5 ?
+    FindOrCreateInvite,
+    ListInvites,
+    RemoveInvite,
+    UseInviteToken,
+    ValidateInviteToken
 };
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

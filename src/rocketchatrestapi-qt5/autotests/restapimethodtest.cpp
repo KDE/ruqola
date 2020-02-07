@@ -222,4 +222,10 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomUserStatusList), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-user-status.list")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::CustomSoundsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/custom-sounds.list")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::FindOrCreateInvite), QUrl(QStringLiteral("http://www.kde.org/api/v1/findOrCreateInvite")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ListInvites), QUrl(QStringLiteral("http://www.kde.org/api/v1/listInvites")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RemoveInvite), QUrl(QStringLiteral("http://www.kde.org/api/v1/removeInvite")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UseInviteToken), QUrl(QStringLiteral("http://www.kde.org/api/v1/useInviteToken")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ValidateInviteToken), QUrl(QStringLiteral("http://www.kde.org/api/v1/validateInviteToken")));
 }
