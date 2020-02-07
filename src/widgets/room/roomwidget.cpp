@@ -200,13 +200,11 @@ RoomWrapper *RoomWidget::roomWrapper() const
 
 void RoomWidget::setRoomId(const QString &roomId)
 {
-    if (mRoomId != roomId) {
-        mRoomId = roomId;
-        delete mRoomWrapper;
-        mRoomWrapper = mCurrentRocketChatAccount->roomWrapper(mRoomId);
-        connectRoomWrapper();
-        mMessageListView->setChannelSelected(roomId);
-    }
+    mRoomId = roomId;
+    delete mRoomWrapper;
+    mRoomWrapper = mCurrentRocketChatAccount->roomWrapper(mRoomId);
+    connectRoomWrapper();
+    mMessageListView->setChannelSelected(roomId);
 }
 
 void RoomWidget::connectRoomWrapper()
