@@ -107,6 +107,7 @@ void RuqolaMainWindow::slotAccountChanged()
     connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::updateActions);
     updateActions();
     changeActionStatus(false); //Disable actions when switching.
+    slotClearNotification(); //Clear notification when we switch too.
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
 }
 
