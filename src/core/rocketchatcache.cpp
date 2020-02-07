@@ -100,8 +100,8 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile, bo
         }
     } else {
         // Not in cache. We need to download it (e.g. file attachment).
-        const QUrl clickedUrl = generateDownloadFile(url);
-        mAccount->restApi()->downloadFile(clickedUrl, QStringLiteral("text/plain"), storeInCache, localFile);
+        const QUrl downloadUrl = urlForLink(url);
+        mAccount->restApi()->downloadFile(downloadUrl, QStringLiteral("text/plain"), storeInCache, localFile);
         // this will call slotDataDownloaded
     }
 }
@@ -127,21 +127,21 @@ void RocketChatCache::downloadFileFromServer(const QString &filename)
 {
     if (!mFileInDownload.contains(filename)) {
         mFileInDownload.insert(filename);
-        mAccount->restApi()->downloadFile(generateDownloadFile(filename));
+        mAccount->restApi()->downloadFile(urlForLink(filename));
         // this will call slotDataDownloaded
     }
 }
 
-QUrl RocketChatCache::generateDownloadFile(const QString &url)
+QUrl RocketChatCache::urlForLink(const QString &link) const
 {
-    if (url.startsWith(QLatin1String("https:")) || url.startsWith(QLatin1String("http:"))) {
-        return QUrl(url);
+    if (link.startsWith(QLatin1String("https:")) || link.startsWith(QLatin1String("http:"))) {
+        return QUrl(link);
     }
     QString tmpUrl = mAccount->settings()->serverUrl();
     if (!tmpUrl.startsWith(QLatin1String("https://"))) {
         tmpUrl = QLatin1String("https://") + tmpUrl;
     }
-    const QUrl downloadFileUrl = QUrl::fromUserInput(tmpUrl + url);
+    const QUrl downloadFileUrl = QUrl::fromUserInput(tmpUrl + link);
     return downloadFileUrl;
 }
 

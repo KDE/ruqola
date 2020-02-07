@@ -251,6 +251,8 @@ public:
     Q_INVOKABLE void loadMoreListMessages(const QString &roomId);
     Q_INVOKABLE void getListMessages(const QString &roomId, ListMessagesModel::ListMessageType type);
 
+    QUrl urlForLink(const QString &link) const;
+
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
     ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;

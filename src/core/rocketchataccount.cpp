@@ -997,6 +997,11 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
     }
 }
 
+QUrl RocketChatAccount::urlForLink(const QString &link) const
+{
+    return mCache->urlForLink(link);
+}
+
 void RocketChatAccount::loadMoreListMessages(const QString &roomId)
 {
     if (!mListMessageModel->loadMoreListMessagesInProgress()) {

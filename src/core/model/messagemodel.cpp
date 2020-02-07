@@ -463,7 +463,8 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
     Q_UNUSED(cacheImageUrl)
     auto matchesFilePath = [&](const QVector<MessageAttachment> &msgAttachments) {
                                return std::find_if(msgAttachments.begin(), msgAttachments.end(), [&](const MessageAttachment &attach) {
-            return attach.link() == filePath;
+            // Transform link() the way RocketChatCache::downloadFile does it
+            return mRocketChatAccount->urlForLink(attach.link()).path() == filePath;
         }) != msgAttachments.end();
                            };
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
@@ -475,6 +476,8 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
     if (it != mAllMessages.end()) {
         const QModelIndex idx = createIndex(std::distance(mAllMessages.begin(), it), 0);
         Q_EMIT dataChanged(idx, idx);
+    } else {
+        qCWarning(RUQOLA_LOG) << "Attachment not found:" << filePath;
     }
 }
 
