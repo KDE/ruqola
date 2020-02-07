@@ -79,21 +79,35 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
     mDesktopAlertCombobox->setObjectName(QStringLiteral("mDesktopAlertCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Alert:"), mDesktopAlertCombobox);
     mDesktopAlertCombobox->setModel(NotificationPreferences::self()->desktopNotificationModel());
+    connect(mDesktopAlertCombobox, &QComboBox::activated, this, [this](int index) {
+        //TODO
+    });
 
     mDesktopAudioCombobox = new QComboBox(this);
     mDesktopAudioCombobox->setObjectName(QStringLiteral("mDesktopAudioCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Audio:"), mDesktopAudioCombobox);
     mDesktopAudioCombobox->setModel(NotificationPreferences::self()->desktopAudioNotificationModel());
+    connect(mDesktopAudioCombobox, &QComboBox::activated, this, [this](int index) {
+        //TODO
+    });
 
     mDesktopSoundCombobox = new QComboBox(this);
     mDesktopSoundCombobox->setObjectName(QStringLiteral("mDesktopSoundCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Sound:"), mDesktopSoundCombobox);
     mDesktopSoundCombobox->setModel(NotificationPreferences::self()->desktopSoundNotificationModel());
+    connect(mDesktopSoundCombobox, &QComboBox::activated, this, [this](int index) {
+        //TODO
+    });
+
 
     mDesktopDurationCombobox = new QComboBox(this);
     mDesktopDurationCombobox->setObjectName(QStringLiteral("mDesktopDurationCombobox"));
     desktopGroupBoxLayout->addRow(i18n("Duration:"), mDesktopDurationCombobox);
     mDesktopDurationCombobox->setModel(NotificationPreferences::self()->desktopDurationNotificationModel());
+    connect(mDesktopDurationCombobox, &QComboBox::activated, this, [this](int index) {
+        //TODO
+    });
+
 
 
     QGroupBox *mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
@@ -102,10 +116,15 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
 
     auto *mobileGroupBoxLayout = new QFormLayout(mobileGroupBox);
     mobileGroupBoxLayout->setObjectName(QStringLiteral("mobileGroupBoxLayout"));
+
     mMobileAlertCombobox = new QComboBox(this);
     mMobileAlertCombobox->setObjectName(QStringLiteral("mMobileAlertCombobox"));
     mobileGroupBoxLayout->addRow(i18n("Alert:"), mMobileAlertCombobox);
     mMobileAlertCombobox->setModel(NotificationPreferences::self()->mobileNotificationModel());
+    connect(mMobileAlertCombobox, &QComboBox::activated, this, [this](int index) {
+        //TODO
+    });
+
 
 
     QGroupBox *emailGroupBox = new QGroupBox(i18n("Email"), this);
@@ -114,10 +133,14 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(QWidget *parent)
 
     auto *emailGroupBoxLayout = new QFormLayout(emailGroupBox);
     emailGroupBoxLayout->setObjectName(QStringLiteral("emailGroupBoxLayout"));
+
     mEmailAlertCombobox = new QComboBox(this);
     mEmailAlertCombobox->setObjectName(QStringLiteral("mEmailAlertCombobox"));
     emailGroupBoxLayout->addRow(i18n("Alert:"), mEmailAlertCombobox);
     mEmailAlertCombobox->setModel(NotificationPreferences::self()->emailNotificationModel());
+    connect(mEmailAlertCombobox, &QComboBox::activated, this, [this](int index) {
+        //TODO
+    });
 
 }
 
@@ -138,12 +161,10 @@ void ConfigureNotificationWidget::setRoomWrapper(RoomWrapper *roomWrapper)
     mHideUnreadRoomStatus->setChecked(notificationOptions->hideUnreadStatus());
     mMuteGroupMentions->setChecked(notificationOptions->muteGroupMentions());
     //TODO connect signal from roomWrapper.
-
-    //TODO verify
-    mDesktopAlertCombobox->setCurrentIndex(mDesktopAlertCombobox->findText(notificationOptions->desktopNotifications()));
-    mDesktopAudioCombobox->setCurrentIndex(mDesktopAudioCombobox->findText(notificationOptions->audioNotifications()));
-    mDesktopSoundCombobox->setCurrentIndex(mDesktopSoundCombobox->findText(notificationOptions->audioNotificationValue()));
-    mDesktopDurationCombobox->setCurrentIndex(mDesktopDurationCombobox->findText(QString::number(notificationOptions->desktopNotificationDuration())));
-    mMobileAlertCombobox->setCurrentIndex(mMobileAlertCombobox->findText(notificationOptions->mobilePushNotification()));
-    mEmailAlertCombobox->setCurrentIndex(mEmailAlertCombobox->findText(notificationOptions->emailNotifications()));
+    mDesktopAlertCombobox->setCurrentIndex(NotificationPreferences::self()->desktopNotificationModel()->setCurrentNotificationPreference(notificationOptions->desktopNotifications()));
+    mDesktopAudioCombobox->setCurrentIndex(NotificationPreferences::self()->desktopAudioNotificationModel()->setCurrentNotificationPreference(notificationOptions->audioNotifications()));
+    mDesktopSoundCombobox->setCurrentIndex(NotificationPreferences::self()->desktopSoundNotificationModel()->setCurrentNotificationPreference(notificationOptions->audioNotificationValue()));
+    mDesktopDurationCombobox->setCurrentIndex(NotificationPreferences::self()->desktopDurationNotificationModel()->setCurrentNotificationPreference(QString::number(notificationOptions->desktopNotificationDuration())));
+    mMobileAlertCombobox->setCurrentIndex(NotificationPreferences::self()->mobileNotificationModel()->setCurrentNotificationPreference(notificationOptions->mobilePushNotification()));
+    mEmailAlertCombobox->setCurrentIndex(NotificationPreferences::self()->emailNotificationModel()->setCurrentNotificationPreference(notificationOptions->emailNotifications()));
 }
