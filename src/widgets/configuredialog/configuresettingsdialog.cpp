@@ -20,6 +20,7 @@
 
 #include "configuresettingsdialog.h"
 #include "configureaccountwidget.h"
+#include "configurespellcheckingwidget.h"
 #include <QVBoxLayout>
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -44,6 +45,12 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureAccountWidgetPage = new KPageWidgetItem(mConfigureAccountWidget, accountPageName);
     mConfigureAccountWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
     addPage(mConfigureAccountWidgetPage);
+
+    const QString spellCheckingPageName = i18nc("@title Preferences page name", "Spell Checking");
+    mConfigureSpellCheckingWidget = new ConfigureSpellCheckingWidget(this);
+    mConfigureSpellCheckingWidgetPage = new KPageWidgetItem(mConfigureSpellCheckingWidget, spellCheckingPageName);
+    mConfigureSpellCheckingWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
+    addPage(mConfigureSpellCheckingWidgetPage);
 
     connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked,
             this, &ConfigureSettingsDialog::slotAccepted);
@@ -76,9 +83,11 @@ void ConfigureSettingsDialog::writeConfig()
 void ConfigureSettingsDialog::slotAccepted()
 {
     mConfigureAccountWidget->save();
+    mConfigureSpellCheckingWidget->save();
 }
 
 void ConfigureSettingsDialog::load()
 {
     mConfigureAccountWidget->load();
+    mConfigureSpellCheckingWidget->load();
 }

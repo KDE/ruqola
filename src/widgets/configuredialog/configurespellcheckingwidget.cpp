@@ -18,28 +18,25 @@
    Boston, MA 02110-1301, USA.
 */
 
-#ifndef CONFIGURESETTINGSDIALOG_H
-#define CONFIGURESETTINGSDIALOG_H
+#include "configurespellcheckingwidget.h"
 
-#include <KPageDialog>
-#include "libruqolawidgets_private_export.h"
-class ConfigureAccountWidget;
-class ConfigureSpellCheckingWidget;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSettingsDialog : public KPageDialog
+ConfigureSpellCheckingWidget::ConfigureSpellCheckingWidget(QWidget *parent)
+    : QWidget(parent)
 {
-    Q_OBJECT
-public:
-    explicit ConfigureSettingsDialog(QWidget *parent = nullptr);
-    ~ConfigureSettingsDialog();
-private:
-    void readConfig();
-    void writeConfig();
-    void slotAccepted();
-    void load();
-    KPageWidgetItem *mConfigureAccountWidgetPage = nullptr;
-    ConfigureAccountWidget *mConfigureAccountWidget = nullptr;
-    KPageWidgetItem *mConfigureSpellCheckingWidgetPage = nullptr;
-    ConfigureSpellCheckingWidget *mConfigureSpellCheckingWidget = nullptr;
-};
 
-#endif // CONFIGURESETTINGSDIALOG_H
+}
+
+ConfigureSpellCheckingWidget::~ConfigureSpellCheckingWidget()
+{
+
+}
+
+void ConfigureSpellCheckingWidget::save()
+{
+
+}
+
+void ConfigureSpellCheckingWidget::load()
+{
+
+}

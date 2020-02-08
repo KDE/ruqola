@@ -61,6 +61,7 @@ set(Ruqola_configure_SRCS
     configuredialog/configureaccountwidget.cpp
     configuredialog/accountserverlistwidget.cpp
     configuredialog/configureaccountserverwidget.cpp
+    configuredialog/configurespellcheckingwidget.cpp
     )
 
 ki18n_wrap_ui(Ruqola_configure_SRCS
