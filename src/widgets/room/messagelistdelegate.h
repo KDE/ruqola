@@ -72,9 +72,10 @@ private:
         // Edited icon
         QRect editedIconRect;
 
-        // Timestamp
+        // add-reaction button and timestamp
+        QRect addReactionRect;
         QString timeStampText;
-        QSize timeSize;
+        QPoint timeStampPos;
 
         QRect usableRect; // rect for everything except the date header (at the top) and the sender (on the left)
 
@@ -98,6 +99,7 @@ private:
     friend class MessageListDelegateTest;
 
     QIcon mEditedIcon;
+    QIcon mAddReactionIcon;
     RocketChatAccount *mRocketChatAccount = nullptr;
 
     QScopedPointer<MessageDelegateHelperText> mHelperText;

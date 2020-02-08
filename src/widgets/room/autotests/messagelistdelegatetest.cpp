@@ -118,7 +118,6 @@ void MessageListDelegateTest::layoutChecks()
     // THEN
     QCOMPARE(layout.senderText, QStringLiteral("@dfaure"));
     QCOMPARE(layout.timeStampText, QStringLiteral("04:07"));
-    QVERIFY(layout.timeSize.isValid());
     QVERIFY(option.rect.contains(layout.usableRect));
     QVERIFY(option.rect.contains(layout.senderRect.toRect()));
     if (message.attachements().isEmpty()) {

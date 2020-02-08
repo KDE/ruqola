@@ -29,14 +29,20 @@
 #include "ruqolawidgets_debug.h"
 #include "rocketchataccount.h"
 
+#include <QApplication>
 #include <QAbstractItemView>
+#include <QDesktopWidget>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPixmapCache>
+#include <QScreen>
+
+#include <misc/emoticonmenuwidget.h>
 
 MessageListDelegate::MessageListDelegate(QObject *parent)
     : QItemDelegate(parent)
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
+    , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("face-smile"))) // waiting for https://bugs.kde.org/show_bug.cgi?id=417298
     , mHelperText(new MessageDelegateHelperText)
     , mHelperImage(new MessageDelegateHelperImage)
     , mHelperFile(new MessageDelegateHelperFile)
@@ -70,17 +76,13 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
     return QSize(option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height());
 }
 
-static void drawTimestamp(QPainter *painter, const QString &timeStampText, const QStyleOptionViewItem &option, const QRect &usableRect)
+static void drawTimestamp(QPainter *painter, const QString &timeStampText, const QPoint &timeStampPos)
 {
-    const qreal margin = basicMargin();
-
-    const QSize timeSize = timeStampSize(timeStampText, option);
-    const QRect timeRect = QStyle::alignedRect(Qt::LeftToRight, Qt::AlignRight | Qt::AlignVCenter, timeSize, usableRect.adjusted(0, 0, -margin/2, 0));
     const QPen oldPen = painter->pen();
     QColor col = painter->pen().color();
     col.setAlpha(128); // TimestampText.qml had opacity: .5
     painter->setPen(col);
-    painter->drawText(timeRect, timeStampText);
+    painter->drawText(timeStampPos, timeStampText);
     painter->setPen(oldPen);
 }
 
@@ -103,7 +105,7 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QModelIndex &index, int maxH
 }
 
 // [Optional date header]
-// [margin] <pixmap> [margin] <sender> [margin] <editicon> [margin] <text message> [margin] <timestamp>
+// [margin] <pixmap> [margin] <sender> [margin] <editicon> [margin] <text message> [margin] <add reaction> [margin] <timestamp> [margin/2]
 //                                                                  <attachments>
 //                                                                  <reactions>
 MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -138,10 +140,10 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
 
     // Timestamp
     layout.timeStampText = index.data(MessageModel::Timestamp).toString();
-    layout.timeSize = timeStampSize(layout.timeStampText, option);
+    const QSize timeSize = timeStampSize(layout.timeStampText, option);
 
     // Message (using the rest of the available width)
-    const int widthAfterMessage = layout.timeSize.width() + margin / 2;
+    const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
     layout.baseLine = 0;
     const QSize textSize = mHelperText->sizeHint(index, maxWidth, option, &layout.baseLine); // TODO share the QTextDocument
@@ -165,6 +167,9 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
     // Same for the edit icon
     layout.editedIconRect = QRect(textLeft - iconSize - margin, layout.senderRect.y(), iconSize, iconSize);
+
+    layout.addReactionRect = QRect(textLeft + maxWidth, layout.senderRect.y(), iconSize, iconSize);
+    layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
 
     if (!message->attachements().isEmpty()) {
         const MessageDelegateHelperBase *helper = attachmentsHelper(message);
@@ -225,7 +230,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const Layout layout = doLayout(option, index);
 
     // Timestamp
-    drawTimestamp(painter, layout.timeStampText, option, layout.usableRect);
+    drawTimestamp(painter, layout.timeStampText, layout.timeStampPos);
+    mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter, QIcon::Disabled /*to make it monochrome*/);
 
     // Message
     if (layout.textRect.isValid()) {
@@ -286,6 +292,29 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
                  qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight);
 }
 
+static void positionPopup(const QPoint &pos, QWidget *parentWindow, QWidget *popup)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+    const QRect screenRect = parentWindow->screen()->availableGeometry();
+#else
+    const int screenNum = QApplication::desktop()->screenNumber(parentWindow);
+    auto *screen = QApplication::screens().value(screenNum);
+    Q_ASSERT(screen);
+    const QRect screenRect = screen->availableGeometry();
+#endif
+
+    QRect popupRect(pos, popup->sizeHint());
+    if (popupRect.width() > screenRect.width())
+        popupRect.setWidth(screenRect.width());
+    if (popupRect.right() > screenRect.right())
+        popupRect.moveRight(screenRect.right());
+    if (popupRect.top() < screenRect.top())
+        popupRect.moveTop(screenRect.top());
+    if (popupRect.bottom() > screenRect.bottom())
+        popupRect.moveBottom(screenRect.bottom());
+    popup->setGeometry(popupRect);
+}
+
 bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const QEvent::Type eventType = event->type();
@@ -294,6 +323,20 @@ bool MessageListDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, 
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
         const Layout layout = doLayout(option, index);
+
+        if (layout.addReactionRect.contains(mev->pos())) {
+            QWidget *parentWidget = const_cast<QWidget *>(option.widget);
+            EmoticonMenuWidget *mEmoticonMenuWidget = new EmoticonMenuWidget(parentWidget);
+            mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
+            mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
+            positionPopup(mev->globalPos(), parentWidget, mEmoticonMenuWidget);
+            mEmoticonMenuWidget->show();
+            connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, this, [=](const QString &id) {
+                mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);
+            });
+            return true;
+        }
+
         if (!message->reactions().isEmpty()) {
             const QRect reactionsRect(layout.usableRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
             if (mHelperReactions->handleMouseEvent(mev, reactionsRect, option, message)) {
