@@ -45,13 +45,12 @@ void FacebookAuthJobTest::shouldGenerateRequest()
 {
     FacebookAuthJob job;
 
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/login")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
-    delete method;
 }
 
 void FacebookAuthJobTest::shouldGenerateJson()

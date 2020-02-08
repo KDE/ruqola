@@ -48,12 +48,12 @@ void StarMessageJobTest::shouldHaveDefaultValue()
 void StarMessageJobTest::shouldHaveMessageId()
 {
     StarMessageJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     QVERIFY(!job.canStart());
-    auto *mNetworkAccessManager = new QNetworkAccessManager;
-    job.setNetworkAccessManager(mNetworkAccessManager);
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");
     const QString userId = QStringLiteral("foo");
@@ -63,20 +63,18 @@ void StarMessageJobTest::shouldHaveMessageId()
     QVERIFY(!job.canStart());
     job.setMessageId(QStringLiteral("bla"));
     QVERIFY(job.canStart());
-    delete method;
-    delete mNetworkAccessManager;
 }
 
 void StarMessageJobTest::shouldGenerateStarMessageRequest()
 {
     StarMessageJob job;
-    auto *method = new RestApiMethod;
+    RestApiMethod method;
     const QString authToken = QStringLiteral("foo");
     const QString userId = QStringLiteral("user");
     job.setUserId(userId);
     job.setAuthToken(authToken);
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString messageId = QStringLiteral("foo");
     job.setMessageId(messageId);
     const QNetworkRequest request = job.request();
@@ -86,17 +84,15 @@ void StarMessageJobTest::shouldGenerateStarMessageRequest()
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
     QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
     QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
-
-    delete method;
 }
 
 void StarMessageJobTest::shouldGenerateUnStarMessageRequest()
 {
     StarMessageJob job;
     job.setStarMessage(false);
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString messageId = QStringLiteral("foo");
     job.setMessageId(messageId);
     const QNetworkRequest request = job.request();
@@ -104,8 +100,6 @@ void StarMessageJobTest::shouldGenerateUnStarMessageRequest()
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
     QCOMPARE(request.attribute(QNetworkRequest::HTTP2AllowedAttribute).toBool(), true);
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
-
-    delete method;
 }
 
 void StarMessageJobTest::shouldGenerateJson()

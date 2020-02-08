@@ -45,9 +45,9 @@ void SyncThreadMessagesJobTest::shouldHaveDefaultValue()
 void SyncThreadMessagesJobTest::shouldGenerateRequest()
 {
     SyncThreadMessagesJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString threadMessageId = QStringLiteral("bla");
     job.setThreadMessageId(threadMessageId);
 
@@ -56,19 +56,18 @@ void SyncThreadMessagesJobTest::shouldGenerateRequest()
 
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.syncThreadMessages?tmid=%1&updatedSince=%2").arg(threadMessageId).arg(timestamp)));
-    delete method;
 }
 
 void SyncThreadMessagesJobTest::shouldNotStarting()
 {
     SyncThreadMessagesJob job;
 
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
 
-    auto *mNetworkAccessManager = new QNetworkAccessManager;
-    job.setNetworkAccessManager(mNetworkAccessManager);
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");
     const QString userId = QStringLiteral("foo");
@@ -83,7 +82,4 @@ void SyncThreadMessagesJobTest::shouldNotStarting()
     const QString timestamp = QStringLiteral("blu");
     job.setTimeStamp(timestamp);
     QVERIFY(job.canStart());
-
-    delete method;
-    delete mNetworkAccessManager;
 }

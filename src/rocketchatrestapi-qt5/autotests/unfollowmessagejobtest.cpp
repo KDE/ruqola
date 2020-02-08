@@ -60,12 +60,12 @@ void UnFollowMessageJobTest::shouldNotStarting()
 {
     UnFollowMessageJob job;
 
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
 
-    auto *mNetworkAccessManager = new QNetworkAccessManager;
-    job.setNetworkAccessManager(mNetworkAccessManager);
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");
     const QString userId = QStringLiteral("foo");
@@ -76,7 +76,4 @@ void UnFollowMessageJobTest::shouldNotStarting()
     const QString messageId = QStringLiteral("foo1");
     job.setMessageId(messageId);
     QVERIFY(job.canStart());
-
-    delete method;
-    delete mNetworkAccessManager;
 }

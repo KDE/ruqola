@@ -33,15 +33,14 @@ void verifyAuthentication(RestApiAbstractJob *job, QNetworkRequest &request)
     const QString userId = QStringLiteral("user");
     job->setUserId(userId);
     job->setAuthToken(authToken);
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job->setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job->setRestApiMethod(&method);
     request = job->request();
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
     QCOMPARE(request.attribute(QNetworkRequest::HTTP2AllowedAttribute).toBool(), true);
     QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
     QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
-    delete method;
 }
 
 void verifyDefaultValue(RestApiAbstractJob *job)

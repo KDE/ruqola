@@ -44,14 +44,13 @@ void GetDiscussionsJobTest::shouldHaveDefaultValue()
 void GetDiscussionsJobTest::shouldGenerateRequest()
 {
     GetDiscussionsJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString roomId = QStringLiteral("bla");
     job.setRoomId(roomId);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.getDiscussions?roomId=%1").arg(roomId)));
-    delete method;
 }
 
 void GetDiscussionsJobTest::shouldNotStarting()

@@ -44,12 +44,11 @@ void SpotlightJobTest::shouldHaveDefaultValue()
 void SpotlightJobTest::shouldGenerateRequest()
 {
     SpotlightJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString avatarUserId = QStringLiteral("avat");
     job.setSearchPattern(avatarUserId);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/spotlight?query=avat")));
-    delete method;
 }
