@@ -146,6 +146,7 @@ if (BUILD_TESTING)
     add_subdirectory(room/autotests)
     add_subdirectory(dialogs/autotests)
     add_subdirectory(misc/autotests)
+    add_subdirectory(configuredialog/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

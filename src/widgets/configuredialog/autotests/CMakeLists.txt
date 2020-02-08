@@ -7,3 +7,4 @@ macro(add_ruqolaconfiguredialog_test _source)
   target_link_libraries( ${_name} Qt5::Test libruqolacore libruqolawidgets)
 endmacro()
 
+add_ruqolaconfiguredialog_test(configuresettingsdialogtest)
