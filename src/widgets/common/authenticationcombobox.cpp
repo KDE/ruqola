@@ -19,14 +19,24 @@
 */
 
 #include "authenticationcombobox.h"
+#include "ruqola.h"
+#include "model/loginmethodmodel.h"
+#include "rocketchataccount.h"
+
+#include <KLocalizedString>
 
 AuthenticationComboBox::AuthenticationComboBox(QWidget *parent)
     : QComboBox(parent)
 {
-
+    initialize();
 }
 
 AuthenticationComboBox::~AuthenticationComboBox()
 {
 
+}
+
+void AuthenticationComboBox::initialize()
+{
+    //TODO
 }
