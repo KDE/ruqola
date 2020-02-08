@@ -49,7 +49,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     const QString spellCheckingPageName = i18nc("@title Preferences page name", "Spell Checking");
     mConfigureSpellCheckingWidget = new ConfigureSpellCheckingWidget(this);
     mConfigureSpellCheckingWidgetPage = new KPageWidgetItem(mConfigureSpellCheckingWidget, spellCheckingPageName);
-    mConfigureSpellCheckingWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
+    mConfigureSpellCheckingWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("tools-check-spelling")));
     addPage(mConfigureSpellCheckingWidgetPage);
 
     connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked,
