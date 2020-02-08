@@ -100,6 +100,7 @@ set(Ruqola_misc_widget_SRCS
 
 set(Ruqola_common_SRCS
     common/completionlineedit.cpp
+    common/authenticationcombobox.cpp
     )
 
 ecm_qt_declare_logging_category(Ruqola_widgets_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets)
@@ -147,6 +148,7 @@ if (BUILD_TESTING)
     add_subdirectory(dialogs/autotests)
     add_subdirectory(misc/autotests)
     add_subdirectory(configuredialog/autotests)
+    add_subdirectory(common/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
