@@ -46,12 +46,12 @@ void PinMessageJobTest::shouldHaveMessageId()
     PinMessageJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     QVERIFY(!job.canStart());
-    auto *mNetworkAccessManager = new QNetworkAccessManager;
-    job.setNetworkAccessManager(mNetworkAccessManager);
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");
     const QString userId = QStringLiteral("foo");
@@ -61,8 +61,6 @@ void PinMessageJobTest::shouldHaveMessageId()
     QVERIFY(!job.canStart());
     job.setMessageId(QStringLiteral("bla"));
     QVERIFY(job.canStart());
-    delete method;
-    delete mNetworkAccessManager;
 }
 
 void PinMessageJobTest::shouldGeneratePinMessageRequest()

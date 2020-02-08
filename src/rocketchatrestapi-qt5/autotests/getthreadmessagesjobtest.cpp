@@ -44,26 +44,25 @@ void GetThreadMessagesJobTest::shouldHaveDefaultValue()
 void GetThreadMessagesJobTest::shouldGenerateRequest()
 {
     GetThreadMessagesJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString threadMessageId = QStringLiteral("bla");
     job.setThreadMessageId(threadMessageId);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadMessages?tmid=%1").arg(threadMessageId)));
-    delete method;
 }
 
 void GetThreadMessagesJobTest::shouldNotStarting()
 {
     GetThreadMessagesJob job;
 
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
 
-    auto *mNetworkAccessManager = new QNetworkAccessManager;
-    job.setNetworkAccessManager(mNetworkAccessManager);
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");
     const QString userId = QStringLiteral("foo");
@@ -74,7 +73,4 @@ void GetThreadMessagesJobTest::shouldNotStarting()
     const QString threadMessageId = QStringLiteral("foo1");
     job.setThreadMessageId(threadMessageId);
     QVERIFY(job.canStart());
-
-    delete method;
-    delete mNetworkAccessManager;
 }
