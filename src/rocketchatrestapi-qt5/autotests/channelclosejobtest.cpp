@@ -74,12 +74,12 @@ void ChannelCloseJobTest::shouldNotStarting()
 {
     ChannelCloseJob job;
 
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
 
-    auto *mNetworkAccessManager = new QNetworkAccessManager;
-    job.setNetworkAccessManager(mNetworkAccessManager);
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");
     const QString userId = QStringLiteral("foo");
@@ -92,7 +92,4 @@ void ChannelCloseJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setChannelType(ChannelCloseJob::ChannelType::Channel);
     QVERIFY(job.canStart());
-
-    delete method;
-    delete mNetworkAccessManager;
 }

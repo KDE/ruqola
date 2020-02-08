@@ -43,10 +43,9 @@ void FetchMyKeysJobTest::shouldHaveDefaultValue()
 void FetchMyKeysJobTest::shouldGenerateRequest()
 {
     FetchMyKeysJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.fetchMyKeys")));
-    delete method;
 }

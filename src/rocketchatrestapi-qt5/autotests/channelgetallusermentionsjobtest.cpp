@@ -45,9 +45,9 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveDefaultValue()
 void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupport()
 {
     ChannelGetAllUserMentionsJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString roomId = QStringLiteral("avat");
     job.setRoomId(roomId);
     QueryParameters parameters;
@@ -57,15 +57,14 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupport()
     QNetworkRequest request = job.request();
     verifyAuthentication(&job, request);
     QCOMPARE(request.url().toString(), QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12"));
-    delete method;
 }
 
 void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSorting()
 {
     ChannelGetAllUserMentionsJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString roomId = QStringLiteral("avat");
     job.setRoomId(roomId);
     QueryParameters parameters;
@@ -80,15 +79,14 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSorting()
     QNetworkRequest request = job.request();
     verifyAuthentication(&job, request);
     QCOMPARE(request.url().toString(), QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12&sort=%7B%22foo%22:-1%7D"));
-    delete method;
 }
 
 void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSortingTwoParameters()
 {
     ChannelGetAllUserMentionsJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString roomId = QStringLiteral("avat");
     job.setRoomId(roomId);
     QueryParameters parameters;
@@ -104,33 +102,31 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupportSortingTwoParam
     QNetworkRequest request = job.request();
     verifyAuthentication(&job, request);
     QCOMPARE(request.url().toString(), QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat&count=5&offset=12&sort=%7B%22bla%22:1,%22foo%22:-1%7D"));
-    delete method;
 }
 
 void ChannelGetAllUserMentionsJobTest::shouldGenerateRequest()
 {
     ChannelGetAllUserMentionsJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString roomId = QStringLiteral("avat");
     job.setRoomId(roomId);
     QNetworkRequest request = job.request();
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.getAllUserMentionsByChannel?roomId=avat")));
-    delete method;
 }
 
 void ChannelGetAllUserMentionsJobTest::shouldNotStarting()
 {
     ChannelGetAllUserMentionsJob job;
 
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
 
-    auto *mNetworkAccessManager = new QNetworkAccessManager;
-    job.setNetworkAccessManager(mNetworkAccessManager);
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");
     const QString userId = QStringLiteral("foo");
@@ -141,7 +137,4 @@ void ChannelGetAllUserMentionsJobTest::shouldNotStarting()
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
-
-    delete method;
-    delete mNetworkAccessManager;
 }

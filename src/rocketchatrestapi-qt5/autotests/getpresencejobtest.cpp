@@ -44,12 +44,11 @@ void GetPresenceJobTest::shouldHaveDefaultValue()
 void GetPresenceJobTest::shouldGenerateRequest()
 {
     GetPresenceJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString avatarUserId = QStringLiteral("avat");
     job.setPresenceUserId(avatarUserId);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getPresence?userId=avat")));
-    delete method;
 }

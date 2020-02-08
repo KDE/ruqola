@@ -47,18 +47,16 @@ void ChannelListJobTest::shouldHaveDefaultValue()
 void ChannelListJobTest::shouldGenerateRequest()
 {
     ChannelListJob job;
-    auto *method = new RestApiMethod;
+    RestApiMethod method;
     const QString authToken = QStringLiteral("foo");
     const QString userId = QStringLiteral("user");
     job.setUserId(userId);
     job.setAuthToken(authToken);
 
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/channels.list")));
     QCOMPARE(request.rawHeader(QByteArrayLiteral("X-Auth-Token")), authToken.toLocal8Bit());
     QCOMPARE(request.rawHeader(QByteArrayLiteral("X-User-Id")), userId.toLocal8Bit());
-
-    delete method;
 }

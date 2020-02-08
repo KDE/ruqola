@@ -45,13 +45,12 @@ void ForgotPasswordJobTest::shouldHaveDefaultValue()
 void ForgotPasswordJobTest::shouldGenerateRequest()
 {
     ForgotPasswordJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     job.setEmail(QStringLiteral("foo"));
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.forgotPassword")));
-    delete method;
 }
 
 void ForgotPasswordJobTest::shouldGenerateJson()

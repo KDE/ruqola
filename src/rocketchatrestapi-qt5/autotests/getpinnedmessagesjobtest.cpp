@@ -44,26 +44,25 @@ void GetPinnedMessagesJobTest::shouldHaveDefaultValue()
 void GetPinnedMessagesJobTest::shouldGenerateRequest()
 {
     GetPinnedMessagesJob job;
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
     const QString roomId = QStringLiteral("bla");
     job.setRoomId(roomId);
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getPinnedMessages?roomId=%1").arg(roomId)));
-    delete method;
 }
 
 void GetPinnedMessagesJobTest::shouldNotStarting()
 {
     GetPinnedMessagesJob job;
 
-    auto *method = new RestApiMethod;
-    method->setServerUrl(QStringLiteral("http://www.kde.org"));
-    job.setRestApiMethod(method);
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
 
-    auto *mNetworkAccessManager = new QNetworkAccessManager;
-    job.setNetworkAccessManager(mNetworkAccessManager);
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
     QVERIFY(!job.canStart());
     const QString auth = QStringLiteral("foo");
     const QString userId = QStringLiteral("foo");
@@ -74,7 +73,4 @@ void GetPinnedMessagesJobTest::shouldNotStarting()
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
     QVERIFY(job.canStart());
-
-    delete method;
-    delete mNetworkAccessManager;
 }
