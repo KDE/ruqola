@@ -39,6 +39,7 @@ ConfigureNotificationDialog::ConfigureNotificationDialog(QWidget *parent)
     buttonBox->setObjectName(QStringLiteral("buttonBox"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfigureNotificationDialog::reject);
     mainLayout->addWidget(buttonBox);
+    resize(300, 400);
 }
 
 ConfigureNotificationDialog::~ConfigureNotificationDialog()
