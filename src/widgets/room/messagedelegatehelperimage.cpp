@@ -134,12 +134,13 @@ QPixmap MessageDelegateHelperImage::findCachedPixmap(const QString &link) const
     if (it == mCachedImages.end()) {
         return QPixmap();
     }
+    QPixmap result = it->pixmap; // grab pixmap before 'it' gets invalidated
     // Move it to the front
     if (it != mCachedImages.begin()) {
         const auto idx = std::distance(mCachedImages.begin(), it);
         mCachedImages.move(idx, 0);
     }
-    return it->pixmap;
+    return result;
 }
 
 void MessageDelegateHelperImage::insertCachedPixmap(const QString &link, const QPixmap &pixmap) const
