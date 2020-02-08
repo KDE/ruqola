@@ -22,10 +22,10 @@
 #define LOGINMETHODMODEL_H
 
 #include "authenticationinfo.h"
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QAbstractListModel>
 
-class LIBRUQOLACORE_TESTS_EXPORT LoginMethodModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT LoginMethodModel : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(int currentLoginMethod READ currentLoginMethod NOTIFY currentLoginMethodChanged)
@@ -52,6 +52,8 @@ public:
 
     Q_REQUIRED_RESULT int currentLoginMethod() const;
     void setCurrentLoginMethod(int currentLoginMethod);
+
+    Q_REQUIRED_RESULT QVector<AuthenticationInfo> authentications() const;
 
 Q_SIGNALS:
     void currentLoginMethodChanged();

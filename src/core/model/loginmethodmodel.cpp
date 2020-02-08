@@ -64,6 +64,11 @@ void LoginMethodModel::setCurrentLoginMethod(int currentLoginMethod)
     }
 }
 
+QVector<AuthenticationInfo> LoginMethodModel::authentications() const
+{
+    return mAuthentications;
+}
+
 QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mAuthentications.count()) {
