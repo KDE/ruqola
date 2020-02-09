@@ -17,20 +17,41 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#ifndef MESSAGELINEEDITTEST_H
-#define MESSAGELINEEDITTEST_H
 
-#include <QObject>
+#ifndef MESSAGETEXTEDIT_H
+#define MESSAGETEXTEDIT_H
 
-class MessageLineEditTest : public QObject
+#include "common/completiontextedit.h"
+
+#include "libruqolawidgets_private_export.h"
+
+class QListView;
+
+/**
+ * @brief The MessageTextEdit class is the widget used for typing messages to be sent.
+ */
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageTextEdit : public CompletionTextEdit
 {
     Q_OBJECT
 public:
-    explicit MessageLineEditTest(QObject *parent = nullptr);
-    ~MessageLineEditTest() = default;
+    explicit MessageTextEdit(QWidget *parent = nullptr);
+    ~MessageTextEdit();
 
-private Q_SLOTS:
-    void shouldHaveDefautValues();
+    void insert(const QString &text);
+    QString text() const;
+
+Q_SIGNALS:
+    void sendMessage(const QString &str);
+    void keyPressed(QKeyEvent *ev);
+    void textEditing(bool clearNotification);
+
+protected:
+    void keyPressEvent(QKeyEvent *e) override;
+
+private:
+    void slotTextChanged();
+    void slotCompletionAvailable();
+    void slotComplete(const QModelIndex &index);
 };
 
-#endif // MESSAGELINEEDITTEST_H
+#endif // MESSAGETEXTEDIT_H

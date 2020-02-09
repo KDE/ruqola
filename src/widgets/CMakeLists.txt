@@ -80,7 +80,7 @@ set(Ruqola_roomwidget_SRCS
     room/roomwidget.cpp
     room/roomheaderwidget.cpp
     room/messagelistview.cpp
-    room/messagelineedit.cpp
+    room/messagetextedit.cpp
     room/messagelistdelegate.cpp
     room/messagedelegatehelperbase.cpp
     room/messagedelegatehelpertext.cpp

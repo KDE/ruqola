@@ -9,7 +9,7 @@ endmacro()
 
 add_ruqolaroom_test(roomwidgettest.cpp)
 add_ruqolaroom_test(roomheaderwidgettest.cpp)
-add_ruqolaroom_test(messagelineedittest.cpp)
+add_ruqolaroom_test(messagetextedittest.cpp)
 add_ruqolaroom_test(messagelinewidgettest.cpp)
 add_ruqolaroom_test(messagelistdelegatetest.cpp testdata.cpp)
 add_ruqolaroom_test(messagedelegatehelperimagetest.cpp testdata.cpp)

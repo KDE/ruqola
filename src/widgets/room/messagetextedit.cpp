@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "messagelineedit.h"
+#include "messagetextedit.h"
 #include "rocketchataccount.h"
 #include "model/inputcompletermodel.h"
 #include "common/completionlistview.h"
@@ -34,29 +34,29 @@
 #include <QDesktopWidget>
 #endif
 
-MessageLineEdit::MessageLineEdit(QWidget *parent)
+MessageTextEdit::MessageTextEdit(QWidget *parent)
     : CompletionTextEdit(parent)
 {
-    connect(this, &QTextEdit::textChanged, this, &MessageLineEdit::slotTextChanged);
+    connect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
     setCompletionModel(Ruqola::self()->rocketChatAccount()->inputCompleterModel());
-    connect(this, &MessageLineEdit::complete, this, &MessageLineEdit::slotComplete);
+    connect(this, &MessageTextEdit::complete, this, &MessageTextEdit::slotComplete);
 }
 
-MessageLineEdit::~MessageLineEdit()
+MessageTextEdit::~MessageTextEdit()
 {
 }
 
-void MessageLineEdit::insert(const QString &text)
+void MessageTextEdit::insert(const QString &text)
 {
     textCursor().insertText(text);
 }
 
-QString MessageLineEdit::text() const
+QString MessageTextEdit::text() const
 {
     return toPlainText();
 }
 
-void MessageLineEdit::keyPressEvent(QKeyEvent *e)
+void MessageTextEdit::keyPressEvent(QKeyEvent *e)
 {
     const int key = e->key();
     if (key == Qt::Key_Return) {
@@ -86,14 +86,14 @@ void MessageLineEdit::keyPressEvent(QKeyEvent *e)
     CompletionTextEdit::keyPressEvent(e);
 }
 
-void MessageLineEdit::slotTextChanged()
+void MessageTextEdit::slotTextChanged()
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     rcAccount->setInputTextChanged(text(), textCursor().position());
     Q_EMIT textEditing(document()->isEmpty());
 }
 
-void MessageLineEdit::slotComplete(const QModelIndex &index)
+void MessageTextEdit::slotComplete(const QModelIndex &index)
 {
     const QString completerName = index.data(InputCompleterModel::CompleterName).toString();
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
@@ -101,7 +101,7 @@ void MessageLineEdit::slotComplete(const QModelIndex &index)
 
     mCompletionListView->hide();
 
-    disconnect(this, &QTextEdit::textChanged, this, &MessageLineEdit::slotTextChanged);
+    disconnect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
     setPlainText(newText);
-    connect(this, &QTextEdit::textChanged, this, &MessageLineEdit::slotTextChanged);
+    connect(this, &QTextEdit::textChanged, this, &MessageTextEdit::slotTextChanged);
 }

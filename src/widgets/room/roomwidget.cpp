@@ -26,7 +26,7 @@
 #include "rocketchataccount.h"
 #include "roomwrapper.h"
 #include "readonlylineeditwidget.h"
-#include "messagelineedit.h"
+#include "messagetextedit.h"
 #include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
@@ -72,7 +72,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mMessageLineWidget, &MessageLineWidget::sendMessage, this, &RoomWidget::slotSendMessage);
     connect(mMessageLineWidget, &MessageLineWidget::sendFile, this, &RoomWidget::slotSendFile);
     connect(mMessageLineWidget, &MessageLineWidget::textEditing, this, &RoomWidget::slotTextEditing);
-    connect(mMessageLineWidget->messageLineEdit(), &MessageLineEdit::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
+    connect(mMessageLineWidget->messageTextEdit(), &MessageTextEdit::keyPressed, this, &RoomWidget::keyPressedInLineEdit);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::favoriteChanged, this, &RoomWidget::slotChangeFavorite);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::encryptedChanged, this, &RoomWidget::slotEncryptedChanged);
 

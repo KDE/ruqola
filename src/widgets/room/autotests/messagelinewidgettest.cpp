@@ -20,7 +20,7 @@
 
 #include "messagelinewidgettest.h"
 #include "room/messagelinewidget.h"
-#include "room/messagelineedit.h"
+#include "room/messagetextedit.h"
 #include <QHBoxLayout>
 #include <QTest>
 #include <QToolButton>
@@ -41,8 +41,8 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mainLayout->contentsMargins(), QMargins(0, 0, 0, 0));
     QCOMPARE(mainLayout->spacing(), 0);
 
-    auto *mMessageLineEdit = w.findChild<MessageLineEdit *>(QStringLiteral("mMessageLineEdit"));
-    QVERIFY(mMessageLineEdit);
+    auto *mMessageTextEdit = w.findChild<MessageTextEdit *>(QStringLiteral("mMessageTextEdit"));
+    QVERIFY(mMessageTextEdit);
 
     auto *mSendFile = w.findChild<QToolButton *>(QStringLiteral("mSendFile"));
     QVERIFY(mSendFile);

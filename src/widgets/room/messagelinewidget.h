@@ -25,7 +25,7 @@
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
 
-class MessageLineEdit;
+class MessageTextEdit;
 class QToolButton;
 class EmoticonMenuWidget;
 class RocketChatAccount;
@@ -46,7 +46,7 @@ public:
     void setText(const QString &text);
     Q_REQUIRED_RESULT QString text() const;
 
-    MessageLineEdit *messageLineEdit() const;
+    MessageTextEdit *messageTextEdit() const;
 
     Q_REQUIRED_RESULT EditingMode mode() const;
     void setMode(const EditingMode &mode);
@@ -61,7 +61,7 @@ private:
     void slotSendFile();
 
     EditingMode mMode = EditingMode::NewMessage;
-    MessageLineEdit *mMessageTextEdit = nullptr;
+    MessageTextEdit *mMessageTextEdit = nullptr;
     QToolButton *mSendFile = nullptr;
     QToolButton *mEmoticonButton = nullptr;
     QToolButton *mSendMessageButton = nullptr;

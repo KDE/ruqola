@@ -18,8 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "messagelineedit.h"
 #include "messagelinewidget.h"
+#include "messagetextedit.h"
 #include "misc/emoticonmenuwidget.h"
 #include "dialogs/uploadfiledialog.h"
 #include <QPointer>
@@ -42,11 +42,11 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mSendFile->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
     connect(mSendFile, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
 
-    mMessageTextEdit = new MessageLineEdit(this);
-    mMessageTextEdit->setObjectName(QStringLiteral("mMessageLineEdit"));
+    mMessageTextEdit = new MessageTextEdit(this);
+    mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
     mainLayout->addWidget(mMessageTextEdit);
-    connect(mMessageTextEdit, &MessageLineEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
-    connect(mMessageTextEdit, &MessageLineEdit::textEditing, this, &MessageLineWidget::textEditing);
+    connect(mMessageTextEdit, &MessageTextEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
+    connect(mMessageTextEdit, &MessageTextEdit::textEditing, this, &MessageLineWidget::textEditing);
 
     mEmoticonButton = new QToolButton(this);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
@@ -69,7 +69,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     action->setDefaultWidget(mEmoticonMenuWidget);
     emoticonMenu->addAction(action);
     mEmoticonButton->setMenu(emoticonMenu);
-    connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, mMessageTextEdit, &MessageLineEdit::insert);
+    connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, mMessageTextEdit, &MessageTextEdit::insert);
 
     setFocusProxy(mMessageTextEdit);
 }
@@ -92,7 +92,7 @@ void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void MessageLineWidget::setText(const QString &text)
 {
-    mMessageTextEdit->setText(text);
+    mMessageTextEdit->setPlainText(text);
 }
 
 QString MessageLineWidget::text() const
@@ -100,7 +100,7 @@ QString MessageLineWidget::text() const
     return mMessageTextEdit->text();
 }
 
-MessageLineEdit *MessageLineWidget::messageLineEdit() const
+MessageTextEdit *MessageLineWidget::messageTextEdit() const
 {
     return mMessageTextEdit;
 }

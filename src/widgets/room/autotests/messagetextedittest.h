@@ -17,19 +17,20 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+#ifndef MESSAGETEXTEDITTEST_H
+#define MESSAGETEXTEDITTEST_H
 
-#include "messagelineedittest.h"
-#include "room/messagelineedit.h"
-#include <QTest>
-QTEST_MAIN(MessageLineEditTest)
-MessageLineEditTest::MessageLineEditTest(QObject *parent)
-    : QObject(parent)
-{
-}
+#include <QObject>
 
-void MessageLineEditTest::shouldHaveDefautValues()
+class MessageTextEditTest : public QObject
 {
-    MessageLineEdit w;
-    w.insert(QStringLiteral("test"));
-    QCOMPARE(w.text(), QStringLiteral("test"));
-}
+    Q_OBJECT
+public:
+    explicit MessageTextEditTest(QObject *parent = nullptr);
+    ~MessageTextEditTest() = default;
+
+private Q_SLOTS:
+    void shouldHaveDefautValues();
+};
+
+#endif // MESSAGETEXTEDITTEST_H

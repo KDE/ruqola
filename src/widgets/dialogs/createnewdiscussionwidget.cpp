@@ -104,7 +104,7 @@ QString CreateNewDiscussionWidget::discussionName() const
 
 void CreateNewDiscussionWidget::setMessage(const QString &name)
 {
-    mMessageTextEdit->setText(name);
+    mMessageTextEdit->setPlainText(name);
 }
 
 QString CreateNewDiscussionWidget::message() const
