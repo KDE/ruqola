@@ -60,6 +60,7 @@ void UsersAutocompleteJob::slotUsersAutocompleteFinished()
         const QByteArray data = reply->readAll();
         const QJsonDocument replyJson = QJsonDocument::fromJson(data);
         const QJsonObject replyObject = replyJson.object();
+        qDebug() << " reply object" << replyObject;
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("UsersAutocompleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT usersAutocompleteDone(replyObject);

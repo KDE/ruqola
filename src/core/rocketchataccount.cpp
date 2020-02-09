@@ -714,6 +714,8 @@ void RocketChatAccount::insertCompleterUsers()
 
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
 {
+    //restApi()->usersAutocomplete(searchText);
+
     //Clear before to create new search
     userCompleterModel()->clear();
     rocketChatBackend()->clearUsersList();
