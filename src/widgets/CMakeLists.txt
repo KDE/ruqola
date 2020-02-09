@@ -127,6 +127,7 @@ target_link_libraries(libruqolawidgets
     KF5::XmlGui
     KF5::KIOWidgets
     KF5::WidgetsAddons
+    KF5::SonnetUi
     librocketchatrestapi-qt5
     libruqolacore
 )
