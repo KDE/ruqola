@@ -30,11 +30,6 @@ ListAttachmentDelegate::~ListAttachmentDelegate()
 {
 }
 
-static QString makeTimeStampText(const QModelIndex &index)
-{
-    return index.data(FilesForRoomModel::TimeStamp).toString();
-}
-
 void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // [M] <icon> [M] <name> [M] <download icon> [M]   ([M] = margin)
