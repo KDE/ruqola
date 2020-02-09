@@ -1905,6 +1905,9 @@ void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
 
 void RocketChatAccount::slotDisconnectedByServer()
 {
+    //Laurent: disable it for the moment otherwise when we logout we are unable to add password in login page. Need to improve it first :)
+
+    return;
     // This happens when we didn't react to pings for a while
     // (e.g. while stopped in gdb, or if network went down for a bit)
     // Let's try connecting in again
